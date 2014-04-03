@@ -1,10 +1,10 @@
-<properties linkid="obile-services-how-to-dotnet-client" urlDisplayName=".NET Client Library" pageTitle="Working with the Mobile Services .NET Client Library" metaKeywords="Windows Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to use an .NET client for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Windows Azure Mobile Services" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
+<properties linkid="obile-services-how-to-dotnet-client" urlDisplayName=".NET Client Library" pageTitle="Working with the Mobile Services .NET Client Library" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to use an .NET client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
  
 
 
 
-# How to use a .NET client for Windows Azure Mobile Services
+# How to use a .NET client for Azure Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding"> 
   <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework" class="current">.NET Framework</a>
@@ -12,7 +12,7 @@
 </div>
 
 
-This guide shows you how to perform common scenarios using a .NET client for Windows Azure Mobile Services, in Windows Store apps and Windows Phone apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the "Mobile Services quickstart" tutorial ([Windows Store quickstart tutorial]/[Windows Phone quickstart tutorial]) and the "Getting Started with Data in .NET" tutorial ([Windows Store data tutorial]/[Windows Phone data tutorial]). The quickstart tutorial requires the [Mobile Services SDK] and helps you configure your account and create your first mobile service.
+This guide shows you how to perform common scenarios using a .NET client for Azure Mobile Services, in Windows Store apps and Windows Phone apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the "Mobile Services quickstart" tutorial ([Windows Store quickstart tutorial]/[Windows Phone quickstart tutorial]) and the "Getting Started with Data in .NET" tutorial ([Windows Store data tutorial]/[Windows Phone data tutorial]). The quickstart tutorial requires the [Mobile Services SDK] and helps you configure your account and create your first mobile service.
 
 
 ## Table of Contents
@@ -61,7 +61,7 @@ The corresponding typed client-side .NET type is the following:
 		public bool Complete { get; set; }
 	}
 	
-When dynamic schema is enabled, Windows Azure Mobile Services automatically generates new columns based on the object in insert or update requests. For more information, see [Dynamic schema](http://go.microsoft.com/fwlink/?LinkId=296271).
+When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in insert or update requests. For more information, see [Dynamic schema](http://go.microsoft.com/fwlink/?LinkId=296271).
 
 <h2><a name="create-client"></a><span class="short-header">Create the Mobile Services client</span>How to: Create the Mobile Services client</h2>
 
@@ -73,7 +73,7 @@ The following code creates the `MobileServiceClient` object that is used to acce
 		"AppKey" 
 	); 
 
-In the code above, replace `AppUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Windows Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".
+In the code above, replace `AppUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".
 
 <h2><a name="instantiating"></a><span class="short-header">Creating a table reference</span>How to: Create a table reference</h2>
 
@@ -245,7 +245,7 @@ The value for the `id` must be unique and it must not include characters from th
 +  The ids "." and ".."
 
 
-You can alternatively use integer Ids for your tables. In order to use an integer Id you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Windows Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
+You can alternatively use integer Ids for your tables. In order to use an integer Id you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
 
 
 To insert untyped data, you may take advantage of Json.NET as shown below. 
@@ -430,7 +430,7 @@ Finally, imagine that your table has many fields, but you only want to display s
 
 <h2><a name="authentication"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
 
-Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Windows Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the "Get started with authentication" tutorial ([Windows Store][Windows Store authentication]/[Windows Phone][Windows Phone authentication])
+Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the "Get started with authentication" tutorial ([Windows Store][Windows Store authentication]/[Windows Phone][Windows Phone authentication])
 
 Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 

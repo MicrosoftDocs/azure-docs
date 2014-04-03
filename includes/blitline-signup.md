@@ -1,7 +1,7 @@
 
 ### To sign up for a Blitline account
 
-1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com/).
+1. Log in to the [Azure Management Portal](https://manage.windowsazure.com/).
 
 2. In the lower pane of the management portal, click **New**.
 
@@ -15,7 +15,7 @@
 
 5. In the **Personalize Add-on** dialog select the **Blitline** plan you want to sign up for.
 
-6. Enter a name to identify your **Blitline** service in your Windows Azure settings, or use the default value of **Blitline**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Windows Azure Store Items.
+6. Enter a name to identify your **Blitline** service in your Azure settings, or use the default value of **Blitline**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
 
 	![store-screen-1][store-screen-1]
 

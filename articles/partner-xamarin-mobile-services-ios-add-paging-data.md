@@ -1,4 +1,4 @@
-<properties linkid="" urlDisplayName="" pageTitle="Add paging to data (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Xamarin iOS app from Mobile Services." metaCanonical="" services="" authors=""  solutions="" writer="" manager="" editor="" title="Refine Mobile Services queries with paging" documentationCenter="Mobile" />
+<properties linkid="" urlDisplayName="" pageTitle="Add paging to data (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Xamarin iOS app from Mobile Services." metaCanonical="" services="" authors="" solutions="" manager="" editor="" title="Refine Mobile Services queries with paging" documentationCenter="Mobile" />
 
 
 # Refine Mobile Services queries with paging
@@ -8,7 +8,7 @@
 </div>
 
 
-This topic shows you how to use paging to manage the amount of data returned to your iOS app from Windows Azure Mobile Services. In this tutorial, you will use the **Skip** and **Take** query properties on the client to request specific "pages" of data.
+This topic shows you how to use paging to manage the amount of data returned to your iOS app from Azure Mobile Services. In this tutorial, you will use the **Skip** and **Take** query properties on the client to request specific "pages" of data.
 
 <div class="dev-callout"><b>Note</b>
 <p>To prevent data overflow in mobile device clients, Mobile Services implements an automatic page limit, which defaults to a maximum of 50 items in a response. By specifying the page size, you can explicitly request up to 1,000 items in the response.</p>

@@ -1,8 +1,8 @@
-<properties linkid="develop-dotnet-website-from-gallery" urlDisplayName="Web Site from Gallery" pageTitle="Create an Orchard CMS web site from the gallery in Windows Azure" metaKeywords="Azure build website, manage website Azure" description="A tutorial that teaches you how to create a new web site in Windows Azure. Also learn how to launch and manage your site using the Management Portal." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create an Orchard CMS web site from the gallery in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-dotnet-website-from-gallery" urlDisplayName="Web Site from Gallery" pageTitle="Create an Orchard CMS web site from the gallery in Azure" metaKeywords="Azure build website, manage website Azure" description="A tutorial that teaches you how to create a new web site in Azure. Also learn how to launch and manage your site using the Management Portal." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create an Orchard CMS web site from the gallery in Azure" authors="" solutions="" manager="" editor="" />
 
-# Create an Orchard CMS web site from the gallery in Windows Azure
+# Create an Orchard CMS web site from the gallery in Azure
 
-The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the [Windows Azure Management Portal](http://manage.windowsazure.com). For more information about the web applications in the gallery, see [Windows Web App Gallery](http://www.microsoft.com/web/gallery/categories.aspx).
+The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the [Azure Management Portal](http://manage.windowsazure.com). For more information about the web applications in the gallery, see [Windows Web App Gallery](http://www.microsoft.com/web/gallery/categories.aspx).
 
 In this tutorial, you'll learn:
 
@@ -18,7 +18,7 @@ You'll build an Orchard CMS site that uses a default template. [Orchard](http://
 
 <h2>Create an Orchard web site from the gallery</h2>
 
-1. Login to the [Windows Azure Management Portal](http://manage.windowsazure.com).
+1. Login to the [Azure Management Portal](http://manage.windowsazure.com).
 
 2. Click the **New** icon on the bottom left of the portal.
 	
@@ -41,7 +41,7 @@ You'll build an Orchard CMS site that uses a default template. [Orchard](http://
 
 6. Click the checkmark in the lower right corner of the box to start the deployment of your new Orchard CMS web site.
 
-Windows Azure will initiate build and deploy operations. While the web site is being built and deployed, the status of these operations is displayed at the bottom of the Web Sites Management Portal. After all operations are performed, a message will indicate that your web site has been created.
+Azure will initiate build and deploy operations. While the web site is being built and deployed, the status of these operations is displayed at the bottom of the Web Sites Management Portal. After all operations are performed, a message will indicate that your web site has been created.
 
 <h2>Launch and manage your Orchard site</h2>
 
@@ -62,8 +62,8 @@ Windows Azure will initiate build and deploy operations. While the web site is b
 3. Follow the details in the [Orchard Documentation](http://docs.orchardproject.net/) to learn more about Orchard and configure your new site.
 
 <h2><span class="short-header">Next steps</span>Next step</h2>
-* [Develop and deploy a web site with Microsoft WebMatrix](/en-us/develop/net/tutorials/website-with-webmatrix/) -- Learn how to edit a Windows Azure web site in WebMatrix. 
-* [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site](/en-us/develop/net/tutorials/web-site-with-sql-database/)-- Learn how to create a new web site from Visual Studio.
+* [Develop and deploy a web site with Microsoft WebMatrix](/en-us/develop/net/tutorials/website-with-webmatrix/) -- Learn how to edit an Azure web site in WebMatrix. 
+* [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site](/en-us/develop/net/tutorials/web-site-with-sql-database/)-- Learn how to create a new web site from Visual Studio.
 
 [1]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
 [2]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png

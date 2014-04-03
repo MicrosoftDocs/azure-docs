@@ -1,11 +1,11 @@
-<properties linkid="develop-net-how-to-guides-new-relic" urlDisplayName="New Relic" pageTitle="Using New Relic with Windows Azure - Windows Azure feature guides" metaKeywords="" description="Learn how to use the New Relic service to manage and monitor your Windows Azure application." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-net-how-to-guides-new-relic" urlDisplayName="New Relic" pageTitle="Using New Relic with Azure - Azure feature guides" metaKeywords="" description="Learn how to use the New Relic service to manage and monitor your Azure application." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="" editor="" />
 
 
 
-#New Relic Application Performance Management on Windows Azure
+#New Relic Application Performance Management on Azure
 
 This guide describes how to add New Relic's world-class performance
-monitoring to your Windows Azure hosted applications. We'll cover the fast and simple
+monitoring to your Azure hosted applications. We'll cover the fast and simple
 process to add New Relic to your application and introduce you to some of
 New Relic's features. For more information about using New Relic, see [Using New Relic](#using-new-relic).
 
@@ -22,44 +22,44 @@ the server and your users' browsers. It shows how much time you spend in the
 database, analyzes slow queries and web requests, provides uptime monitoring and
 alerting, tracks application exceptions, and a whole lot more.
 
-New Relic special pricing through the Windows Azure Store
+New Relic special pricing through the Azure Store
 --
 
-New Relic Standard is free to Windows Azure users
-New Relic Pro is offered based on instance size for Windows Azure Cloud Services
+New Relic Standard is free to Azure users
+New Relic Pro is offered based on instance size for Azure Cloud Services
 
-For pricing information see the [New Relic page in the Windows Azure Store](http://www.windowsazure.com/en-us/store/service/?id=3ab16c2e-b5aa-48b5-94b4-8ffb2b7cb640).
+For pricing information see the [New Relic page in the Azure Store](http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/).
 
 <div class="dev-callout"> 
 <strong>Note:</strong>
 <p>Pricing is only listed for up to 10 compute instances. For counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.</p>
 </div>
 
-Windows Azure customers receive a 2 week trial subscription of New Relic Pro when they deploy the New Relic agent.
+Azure customers receive a 2 week trial subscription of New Relic Pro when they deploy the New Relic agent.
 
-Sign up for New Relic using the Windows Azure Store
+Sign up for New Relic using the Azure Store
 --
 
-New Relic integrates seamlessly with Windows Azure Web Roles and Worker roles.
+New Relic integrates seamlessly with Azure Web Roles and Worker roles.
 
-To sign up for New Relic directly from the Windows Azure Store, follow these three easy steps.
+To sign up for New Relic directly from the Azure Store, follow these three easy steps.
 
-### Step 1. Sign up through the Windows Azure Store
+### Step 1. Sign up through the Azure Store
 
-1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
+1. Log in to the [Azure Management Portal](https://manage.windowsazure.com).
 2. In the lower pane of the management portal, click **New**.
 3. Click **Store**.
 4. In the **Choose an Add-on** dialog, select **New Relic** and click **Next**.
 5. In the **Personalize Add-on** dialog, select the New Relic plan that you want.
 6. Enter a promotion code, if applicable.
-7. Enter a name for how the New Relic service will appear in your Windows Azure
+7. Enter a name for how the New Relic service will appear in your Azure
    settings, or use the default value **NewRelic**. This name must be unique in
-   your list of subscribed Windows Azure Store items.
+   your list of subscribed Azure Store items.
 8. Choose a value for the region; for example, **West US**.
 9. Click **Next**.
 10. In the **Review Purchase** dialog, review the plan and pricing information,
     and review the legal terms. If you agree to the terms, click **Purchase**.
-11. After you click **Purchase**, your New Relic account will begin the creation process. You can monitor the status in the Windows Azure management portal.
+11. After you click **Purchase**, your New Relic account will begin the creation process. You can monitor the status in the Azure management portal.
 12. To retrieve your New Relic license key, click **Output Values**. 
 13. Copy the license key that appears. You will need to enter it when you install the New Relic Nuget package.
 
@@ -70,9 +70,9 @@ To sign up for New Relic directly from the Windows Azure Store, follow these thr
 
 	![Visual Studio](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget01.png)
 
-2. If you don't already have a Windows Azure Cloud Service Project in your
+2. If you don't already have an Azure Cloud Service Project in your
    solution, add one by right-clicking your app in the Solution Explorer and
-   selecting **Add Windows Azure Cloud Service Project**.
+   selecting **Add Azure Cloud Service Project**.
 
 	![Create cloud service](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget02.png)
 
@@ -87,7 +87,7 @@ To sign up for New Relic directly from the Windows Azure Store, follow these thr
 
 	![install in package manager](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget06.png)
 
-5. At the license key prompt, enter the license key you received from the Windows Azure Store.
+5. At the license key prompt, enter the license key you received from the Azure Store.
 
 	![enter license key](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget07.png)
 
@@ -96,13 +96,13 @@ To sign up for New Relic directly from the Windows Azure Store, follow these thr
 
 	![enter application name](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget08.png)
 
-7. From the Solution Explorer, right-click your Windows Azure Cloud Service Project, and select **Publish**.
+7. From the Solution Explorer, right-click your Azure Cloud Service Project, and select **Publish**.
 
 	![public the cloud project](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
 
 
-**Note:** If this is your first time deploying this app to Windows Azure, you will be prompted to enter your 
-Azure credentials. For more information, see <a href="/en-us/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to a Windows Azure Web Site</a>.
+**Note:** If this is your first time deploying this app to Azure, you will be prompted to enter your 
+Azure credentials. For more information, see <a href="/en-us/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to an Azure Web Site</a>.
 
 ![publish settings](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 
@@ -110,7 +110,7 @@ Azure credentials. For more information, see <a href="/en-us/develop/net/tutoria
 
 To view your New Relic dashboard:
 
-1. From the Windows Azure portal, click the **Manage** button.
+1. From the Azure portal, click the **Manage** button.
 2. Sign in with your New Relic account email and password.
 3. From the New Relic menu bar, select **Applications > (application's name)**.
 

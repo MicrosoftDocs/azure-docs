@@ -1,4 +1,4 @@
-<properties pageTitle="Get Started with Windows Azure Mobile Services for Windows Phone apps" metaKeywords="" description="Follow this tutorial to get started using Windows Azure Mobile Services for Windows Phone development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties pageTitle="Get Started with Azure Mobile Services for Windows Phone apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Phone development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
@@ -9,7 +9,7 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>This tutorial shows you how to add a cloud-based backend service to a Windows Phone 8 app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple <em>To do list</em> app that stores app data in the new mobile service.</p>
+<p>This tutorial shows you how to add a cloud-based backend service to a Windows Phone 8 app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple <em>To do list</em> app that stores app data in the new mobile service.</p>
 <p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial. In the video, Nick Harris provides an introduction to Mobile Services and walks through creating your first mobile service and connecting to it from a Windows Store app.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">13:18</span></div>
@@ -21,7 +21,7 @@ A screenshot from the completed app is below:
 
 ![][0]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F" target="_blank">Windows Azure Free Trial</a>.</li></ul> </div>
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account that has the Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F" target="_blank">Azure Free Trial</a>.</li></ul> </div>
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
@@ -63,7 +63,7 @@ The final stage of this tutorial is to build and run your new app.
 
    	![][10]
 
-   	This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
 	>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the MainPage.xaml.cs file.
 

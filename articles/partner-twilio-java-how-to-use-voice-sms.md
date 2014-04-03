@@ -1,4 +1,4 @@
-<properties linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Java) - Windows Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Code samples written in Java." metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors=""   solutions="" writer="waltpo" manager="bjsmith" editor="mollybos"  />
+<properties linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Java) - Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors="waltpo" solutions="" manager="bjsmith" editor="mollybos" />
 
 
 
@@ -8,7 +8,7 @@
 
 # How to Use Twilio for Voice and SMS Capabilities in Java
 
-This guide demonstrates how to perform common programming tasks with the Twilio API service on Windows Azure. The scenarios covered include making a phone call and sending a Short Message Service (SMS) message. For more information on Twilio and using voice and SMS in your applications, see the [Next Steps](#NextSteps) section.
+This guide demonstrates how to perform common programming tasks with the Twilio API service on Azure. The scenarios covered include making a phone call and sending a Short Message Service (SMS) message. For more information on Twilio and using voice and SMS in your applications, see the [Next Steps](#NextSteps) section.
 
 ## Table of Contents
 * [What is Twilio?](#WhatIs)
@@ -25,12 +25,12 @@ This guide demonstrates how to perform common programming tasks with the Twilio 
 * [Next Steps](#NextSteps)
 
 <h2><a id="WhatIs"></a>What is Twilio?</h2>
-Twilio is a telephony web-service API that lets you use your existing web languages and skills to build voice and SMS applications. Twilio is a third-party service (not a Windows Azure feature and not a Microsoft product).
+Twilio is a telephony web-service API that lets you use your existing web languages and skills to build voice and SMS applications. Twilio is a third-party service (not an Azure feature and not a Microsoft product).
 
 **Twilio Voice** allows your applications to make and receive phone calls. **Twilio SMS** allows your applications to make and receive SMS messages. **Twilio Client** allows your applications to enable voice communication using existing Internet connections, including mobile connections.
 
 <h2><a id="Pricing"></a>Twilio Pricing and Special Offers</h2>
-Information about Twilio pricing is available at [Twilio Pricing] [twilio_pricing]. Windows Azure customers receive a [special offer][special_offer]: a free credit of 1000 texts or 1000 inbound minutes. To sign up for this offer or get more information, please visit [http://ahoy.twilio.com/azure][special_offer].  
+Information about Twilio pricing is available at [Twilio Pricing] [twilio_pricing]. Azure customers receive a [special offer][special_offer]: a free credit of 1000 texts or 1000 inbound minutes. To sign up for this offer or get more information, please visit [http://ahoy.twilio.com/azure][special_offer].  
 
 <h2><a id="Concepts"></a>Concepts</h2>
 The Twilio API is a RESTful API that provides voice and SMS functionality for applications. Client libraries are available in multiple languages; for a list, see [Twilio API Libraries] [twilio_libraries].
@@ -81,7 +81,7 @@ As an alternative to using an existing number for your applications, you can pur
 1. Obtain the Twilio JAR and add it to your Java build path and your WAR deployment assembly. At [https://github.com/twilio/twilio-java][twilio_java], you can download the GitHub sources and create your own JAR, or download a pre-built JAR (with or without dependencies).
 2. Ensure your JDK's **cacerts** keystore contains the Equifax Secure Certificate Authority certificate with MD5 fingerprint 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (the serial number is 35:DE:F4:CF and the SHA1 fingerprint is D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). This is the certificate authority (CA) certificate for the [https://api.twilio.com][twilio_api_service] service, which is called when you use Twilio APIs. For information about ensuring your JDK's **cacerts** keystore contains the correct CA certificate, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert].
 
-Detailed instructions for using the Twilio client library for Java are available at [How to Make a Phone Call Using Twilio in a Java Application on Windows Azure][howto_phonecall_java].
+Detailed instructions for using the Twilio client library for Java are available at [How to Make a Phone Call Using Twilio in a Java Application on Azure][howto_phonecall_java].
 
 <h2><a id="configure_app"></a>Configure Your Application to Use Twilio Libraries</h2>
 Within your code, you can add **import** statements at the top of your source files for the Twilio packages or classes you want to use in your application. 
@@ -134,7 +134,7 @@ The following shows how to make an outgoing call using the **CallFactory** class
 
 For more information about the parameters passed in to the **CallFactory.create** method, see [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
-As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses in a Java Application on Windows Azure](#howto_provide_twiml_responses).
+As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses in a Java Application on Azure](#howto_provide_twiml_responses).
 
 <h2><a id="howto_send_sms"></a>How to: Send an SMS message</h2>
 The following shows how to send an SMS message using the **SmsFactory** class. The **From** number, **4155992671**, is provided by Twilio for trial accounts to send SMS messages. The **To** number must be verified for your Twilio account prior to running the code.
@@ -179,22 +179,22 @@ The following JSP page results in a TwiML response that says **Hello World** on 
         <Say>Hello World</Say>
     </Response>
 
-The following JSP page results in a TwiML response that says some text, has several pauses, and says information about the Twilio API version and the Windows Azure role name.
+The following JSP page results in a TwiML response that says some text, has several pauses, and says information about the Twilio API version and the Azure role name.
 
 
     <%@ page contentType="text/xml" %>
     <Response> 
-        <Say>Hello from Windows Azure</Say>
+        <Say>Hello from Azure</Say>
         <Pause></Pause>
         <Say>The Twilio API version is <%= request.getParameter("ApiVersion") %>.</Say>
-        <Say>The Windows Azure role name is <%= System.getenv("RoleName") %>.</Say>
+        <Say>The Azure role name is <%= System.getenv("RoleName") %>.</Say>
         <Pause></Pause>
         <Say>Good bye.</Say>
     </Response>
 
-The **ApiVersion** parameter is available in Twilio voice requests (not SMS requests). To see the available request parameters for Twilio voice and SMS requests, see <https://www.twilio.com/docs/api/twiml/twilio_request> and <https://www.twilio.com/docs/api/twiml/sms/twilio_request>, respectively. The **RoleName** environment variable is available as part of a Windows Azure deployment. (If you want to add custom environment variables so they could be picked up from **System.getenv**, see the environment variables section at [Miscellaneous Role Configuration Settings][misc_role_config_settings].)
+The **ApiVersion** parameter is available in Twilio voice requests (not SMS requests). To see the available request parameters for Twilio voice and SMS requests, see <https://www.twilio.com/docs/api/twiml/twilio_request> and <https://www.twilio.com/docs/api/twiml/sms/twilio_request>, respectively. The **RoleName** environment variable is available as part of an Azure deployment. (If you want to add custom environment variables so they could be picked up from **System.getenv**, see the environment variables section at [Miscellaneous Role Configuration Settings][misc_role_config_settings].)
 
-Once you have your JSP page set up to provide TwiML responses, use the URL of the JSP page as the URL passed into the **CallFactory.create** method. For example, if you have a Web application named MyTwiML deployed to a Windows Azure hosted service, and the name of the JSP page is mytwiml.jsp, the URL can be passed to **CallFactory.create** as shown in the following:
+Once you have your JSP page set up to provide TwiML responses, use the URL of the JSP page as the URL passed into the **CallFactory.create** method. For example, if you have a Web application named MyTwiML deployed to an Azure hosted service, and the name of the JSP page is mytwiml.jsp, the URL can be passed to **CallFactory.create** as shown in the following:
 
     // Place the call From, To and URL values into a hash map. 
     HashMap<String, String> params = new HashMap<String, String>();
@@ -207,10 +207,10 @@ Once you have your JSP page set up to provide TwiML responses, use the URL of th
 
 Another option for responding with TwiML is via the **TwiMLResponse** class, which is available in the **com.twilio.sdk.verbs** package.
 
-For additional information about using Twilio in Windows Azure with Java, see [How to Make a Phone Call Using Twilio in a Java Application on Windows Azure][howto_phonecall_java].
+For additional information about using Twilio in Azure with Java, see [How to Make a Phone Call Using Twilio in a Java Application on Azure][howto_phonecall_java].
 
 <h2><a id="AdditionalServices"></a>How to: Use Additional Twilio Services</h2>
-In addition to the examples shown here, Twilio offers web-based APIs that you can use to leverage additional Twilio functionality from your Windows Azure application. For full details, see the [Twilio API documentation] [twilio_api_documentation].
+In addition to the examples shown here, Twilio offers web-based APIs that you can use to leverage additional Twilio functionality from your Azure application. For full details, see the [Twilio API documentation] [twilio_api_documentation].
 
 <h2><a id="NextSteps"></a>Next Steps</h2>
 Now that you've learned the basics of the Twilio service, follow these links to learn more:

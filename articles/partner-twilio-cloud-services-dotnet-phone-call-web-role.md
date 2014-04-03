@@ -1,15 +1,15 @@
-<properties linkid="develop-net-how-to-twilio-phone-call" urlDisplayName="Twilio Phone Call" pageTitle="How to make a phone call from Twilio (.NET) - Windows Azure" metaKeywords="Windows Azure .NET Twilio, Windows Azure Twilio, Azure phone calls, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure voice calls, azure voice calls, Windows Azure text messages, Azure text messages, ASP.NET twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to make a phone call using Twilio in a web role on Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-net-how-to-twilio-phone-call" urlDisplayName="Twilio Phone Call" pageTitle="How to make a phone call from Twilio (.NET) - Azure" metaKeywords="Azure .NET Twilio, Azure Twilio, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages, ASP.NET twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to make a phone call using Twilio in a web role on Azure" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
 
-<h1>How to make a phone call using Twilio in a web role on Windows Azure</h1>
+<h1>How to make a phone call using Twilio in a web role on Azure</h1>
 
-This guide demonstrates how to use Twilio to make a call from a web page hosted in Windows Azure. The resulting application prompts the user for phone call values, as shown in the following screenshot.
+This guide demonstrates how to use Twilio to make a call from a web page hosted in Azure. The resulting application prompts the user for phone call values, as shown in the following screenshot.
 
-![Windows Azure call form using Twilio and ASP.NET][twilio_dotnet_basic_form]
+![Azure call form using Twilio and ASP.NET][twilio_dotnet_basic_form]
 
 
 
@@ -30,7 +30,7 @@ You will need to do the following to use the code in this topic:
 For the purposes of this example you will use the Twilio sandbox phone number to send a message to the verified phone number. You can only use the sandbox phone number to send to verified phone numbers.
 3. Add the Twilio .NET libary to your web role. See "To add the Twilio libraries to your web role project," later in this topic.
 
-You should be familiar with creating a basic web role on Windows Azure.
+You should be familiar with creating a basic web role on Azure.
 
 <h2><a name="howtocreateform"></a><span class="short-header">Create a web form for calling</span>How to: Create a web form for making a call</h2>
 
@@ -151,14 +151,14 @@ The following code, which is called when the user completes the form, creates th
 
 The call is made, and the Twilio endpoint, API version, and the call status are displayed. The following screenshot shows output from a sample run.
 
-![Windows Azure call response using Twilio and ASP.NET][twilio_dotnet_basic_form_output]
+![Azure call response using Twilio and ASP.NET][twilio_dotnet_basic_form_output]
 
 More information about TwiML can be found at [http://www.twilio.com/docs/api/twiml][twiml]. More information about &lt;Say&gt; and other Twilio verbs can be found at [http://www.twilio.com/docs/api/twiml/say][twilio_say].
 
 <h2><a id="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
-This code was provided to show you basic functionality using Twilio in an ASP.NET web role on Windows Azure. Before deploying to Windows Azure in production, you may want to add more error handling or other features. For example:
+This code was provided to show you basic functionality using Twilio in an ASP.NET web role on Azure. Before deploying to Azure in production, you may want to add more error handling or other features. For example:
 
-* Instead of using a web form, you could use Windows Azure Blob storage or a Windows Azure SQL Database instance to store phone numbers and call text. For information about using blobs in Windows Azure, see [How to use the Windows Azure Blob storage service in .NET][howto_blob_storage_dotnet]. For information about using SQL Database, see [How to use Windows Azure SQL Database in .NET applications][howto_sql_azure_dotnet].
+* Instead of using a web form, you could use Azure Blob storage or an Azure SQL Database instance to store phone numbers and call text. For information about using blobs in Azure, see [How to use the Azure Blob storage service in .NET][howto_blob_storage_dotnet]. For information about using SQL Database, see [How to use Azure SQL Database in .NET applications][howto_sql_azure_dotnet].
 * You could use RoleEnvironment.getConfigurationSettings to retrieve the Twilio account ID and authentication token from your deployment's configuration settings, instead of hard-coding the values in your form. For information about the RoleEnvironment class, see [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet].
 * Read the Twilio security guidelines at [https://www.twilio.com/docs/security][twilio_docs_security].
 * Learn more about Twilio at [https://www.twilio.com/docs][twilio_docs].

@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-wp8" urlDisplayName="Get Started with Data" pageTitle="Get started with data (WP8) - Windows Azure Mobile Services" metaKeywords="" description="Learn how to get started using data from your Windows Azure Mobile Services Windows Phone 8 app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""/>
+<properties linkid="develop-mobile-tutorials-get-started-with-data-wp8" urlDisplayName="Get Started with Data" pageTitle="Get started with data (WP8) - Azure Mobile Services" metaKeywords="" description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 
 # Get started with data in Mobile Services
@@ -14,13 +14,13 @@
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>This topic shows you how to use Windows Azure Mobile Services to leverage data in a Windows Phone 8 app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.</p>
+<p>This topic shows you how to use Azure Mobile Services to leverage data in a Windows Phone 8 app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">12:54</span></div>
 </div>
 
 <div class="dev-callout"><b>Note</b>
-<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Windows Azure to store and retrieve data in a Windows Phone 8 app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-wp8">Get started with Mobile Services</a>.</p>
+<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Phone 8 app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-wp8">Get started with Mobile Services</a>.</p>
 </div>
 
 This tutorial walks you through these basic steps:
@@ -33,7 +33,7 @@ This tutorial walks you through these basic steps:
 
 This tutorial requires the [Windows Phone 8 SDK] running on Windows 8. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Windows Azure Free Trial</a>.</li></ul> </div> 
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account that has the Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Azure Free Trial</a>.</li></ul> </div> 
 
 <h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
 
@@ -68,7 +68,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
 
-2. In the left pane, select the **Online** category, search for `WindowsAzure.MobileServices`, click **Install** on the **Windows Azure Mobile Services** package, then accept the license agreement.
+2. In the left pane, select the **Online** category, search for `WindowsAzure.MobileServices`, click **Install** on the **Azure Mobile Services** package, then accept the license agreement.
 
   	![][7]
 
@@ -207,7 +207,7 @@ Once you have completed the data series, you can also try one of the following W
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375

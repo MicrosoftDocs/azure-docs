@@ -1,4 +1,4 @@
-<properties pageTitle="Get started with authentication (Windows Phone) | Mobile Dev Center" metaKeywords="authentication, FAcebook, GOogle, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Phone app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey"  solutions="" writer="glenga" manager="" editor=""  />
+<properties pageTitle="Get started with authentication (Windows Phone) | Mobile Dev Center" metaKeywords="authentication, FAcebook, GOogle, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Phone app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" solutions="" manager="" editor="" />
 
 # Get started with authentication in Mobile Services
 
@@ -7,7 +7,7 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-users/"  title="JavaScript backend">JavaScript backend</a></div>
 
-This topic shows you how to authenticate users in Windows Azure Mobile Services from your Windows Phone app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
+This topic shows you how to authenticate users in Azure Mobile Services from your Windows Phone app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 
 This tutorial walks you through these basic steps to enable authentication in your app:
 
@@ -23,6 +23,11 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
+<ol start="5">
+<li><p>In Visual Studio, open the Web.config file for the mobile service project, and in the appSettings section, set the app identifier and shared secret values obtained from your identity provider.</p>
+<p>These settings are used during local development. After publishing your mobile service project to Azure, these settings are overridden by the values set in the portal.</p></li>
+</ol>
+
 ## <a name="permissions"></a>Restrict permissions to authenticated users
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
@@ -36,9 +41,9 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
-##<a name="add-authentication"></a> Add authentication to the app
+##<a name="add-authentication"></a>Add authentication to the app
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-authenticate-app](../includes/mobile-services-windows-dotnet-authenticate-app.md)] 
+[WACOM.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -63,6 +68,6 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts
 [JavaScript and HTML]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: /en-us/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication

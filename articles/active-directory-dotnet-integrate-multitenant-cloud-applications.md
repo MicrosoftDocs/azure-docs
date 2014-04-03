@@ -1,16 +1,16 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Integrating Multi-Tenant Cloud Applications with Windows Azure Active Directory" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Integrating Multi-Tenant Cloud Applications with Azure Active Directory" authors="" solutions="" manager="" editor="" />
 
-# Integrating Multi-Tenant Cloud Applications with Windows Azure Active Directory
+# Integrating Multi-Tenant Cloud Applications with Azure Active Directory
 
 ##<a name="introduction"></a>Introduction
 
-Windows Azure Active Directory (Windows Azure AD) is a modern, REST-based service that provides identity management and access control capabilities for cloud applications. Windows Azure AD easily integrates with cloud services as well as Windows Azure, Microsoft Office 365, Dynamics CRM Online, and Windows Intune. Existing on-premise Active Directory deployments can also take full advantage of Windows Azure AD. To learn more, see the [Identity page][] on [windowsazure.com][].
+Azure Active Directory (Azure AD) is a modern, REST-based service that provides identity management and access control capabilities for cloud applications. Azure AD easily integrates with cloud services as well as Azure, Microsoft Office 365, Dynamics CRM Online, and Windows Intune. Existing on-premise Active Directory deployments can also take full advantage of Azure AD. To learn more, see the [Identity page][] on [windowsazure.com][].
 
-This walkthrough is intended for .NET developers who want to integrate a multi-tenant application with Windows Azure AD. You will learn how to:
+This walkthrough is intended for .NET developers who want to integrate a multi-tenant application with Azure AD. You will learn how to:
 
-* Enable customers to sign up for your application using Windows Azure AD
-* Enable single sign-on (SSO) with Windows Azure AD
-* Query a customer's directory data using the Windows Azure AD Graph API
+* Enable customers to sign up for your application using Azure AD
+* Enable single sign-on (SSO) with Azure AD
+* Query a customer's directory data using the Azure AD Graph API
 
 The companion sample application for this walkthrough can be [downloaded here][]. The sample can be run without changes, but you may need to change your [port assignment in Visual Studio][] to use https. Follow the instructions in the link, but set the binding protocol to "https" in the bindings section of the ApplicationHost.config file. All code snippets in the steps below have been taken from the sample.
 
@@ -26,24 +26,24 @@ The following developer prerequisites are required for this walkthrough:
 
 ###Table of Contents
 * [Introduction][]
-* [Part 1: Get a Client ID for Accessing Windows Azure AD][]
-* [Part 2: Enable Customers to Sign-Up Using Windows Azure AD][]
+* [Part 1: Get a Client ID for Accessing Azure AD][]
+* [Part 2: Enable Customers to Sign-Up Using Azure AD][]
 * [Part 3: Enable Single Sign-On][]
-* [Part 4: Access Windows Azure AD Graph][]
+* [Part 4: Access Azure AD Graph][]
 * [Part 5: Publish Your Application][]
 * [Summary][]
 
 
-##<a name="getclientid"></a>Part 1: Get a Client ID for Accessing Windows Azure AD
-This section describes how to get a Client ID and Client Secret after you have created a Microsoft Seller Dashboard account. A Client ID is the unique identifier for your application, and a Client Secret is the associated key required when making requests using the Client ID. Both are required to integrate your application with Windows Azure AD.
+##<a name="getclientid"></a>Part 1: Get a Client ID for Accessing Azure AD
+This section describes how to get a Client ID and Client Secret after you have created a Microsoft Seller Dashboard account. A Client ID is the unique identifier for your application, and a Client Secret is the associated key required when making requests using the Client ID. Both are required to integrate your application with Azure AD.
 
 ###Step 1: Create an Account with the Microsoft Seller Dashboard
-To develop and publish applications that integrate with Windows Azure AD, you must sign up for a [Microsoft Seller Dashboard][] account. Then you will be prompted to [create an account profile][] as either a company or an individual. This profile is used to publish applications on the Windows Azure Marketplace or other marketplaces, and it is required to generate a Client ID and Client Secret.  
+To develop and publish applications that integrate with Azure AD, you must sign up for a [Microsoft Seller Dashboard][] account. Then you will be prompted to [create an account profile][] as either a company or an individual. This profile is used to publish applications on the Azure Marketplace or other marketplaces, and it is required to generate a Client ID and Client Secret.  
 
 New accounts are put into an "Account Pending Approval" state. This state does not prevent you from starting development - you can still create Client IDs as well as draft app listings. However, an app listing can only be submitted for approval once the account itself is approved. The submitted app listing will only be visible to customers in the Azure Marketplace after it has been approved.
 
 ###Step 2: Get a Client ID for your Application
-You need a Client ID and Client Secret to integrate your application with Windows Azure AD. A Client ID is the unique identifier for your application, and it is primarily used to identify an application for single sign-on or for authenticating calls to the Windows Azure AD Graph. For more information about obtaining a Client ID and Client Secret, see [Create Client IDs and Secrets in the Microsoft Seller Dashboard][]. 
+You need a Client ID and Client Secret to integrate your application with Azure AD. A Client ID is the unique identifier for your application, and it is primarily used to identify an application for single sign-on or for authenticating calls to the Azure AD Graph. For more information about obtaining a Client ID and Client Secret, see [Create Client IDs and Secrets in the Microsoft Seller Dashboard][]. 
 
 > [WACOM.NOTE]
 > Your Client ID and Client Secret will be needed later in this walkthrough, so make sure that you record them.
@@ -52,12 +52,12 @@ To generate a Client ID and Client Secret, you will need to enter the following 
 
 **App Domain**: The hostname of your application, for example "contoso.com". This property must not contain any port number. During development, this property should be set to "localhost".
 
-**App Redirect URL**: The redirect URL where Windows Azure AD will send a response after user sign-in and when an organization has authorized your application, for example: "https://contoso.com/." During development, this property should be set to "https://localhost:&#60;port number&#62;"
+**App Redirect URL**: The redirect URL where Azure AD will send a response after user sign-in and when an organization has authorized your application, for example: "https://contoso.com/." During development, this property should be set to "https://localhost:&#60;port number&#62;"
 
 ###Step 3: Configure Your Application to Use the Client ID and Client Secret
-This step requires the Client ID and Client Secret that were generated during signup on the Seller Dashboard. The Client ID is used for SSO, and both the Client ID and Client Secret will be used later to obtain an access token to call the Windows Azure AD Graph API.  
+This step requires the Client ID and Client Secret that were generated during signup on the Seller Dashboard. The Client ID is used for SSO, and both the Client ID and Client Secret will be used later to obtain an access token to call the Azure AD Graph API.  
 
-The sample application has been pre-wired to use Windows Azure AD, and loads the Client ID and Client Secret from config. In the **Web.config** file in the sample application, make the following changes: 
+The sample application has been pre-wired to use Azure AD, and loads the Client ID and Client Secret from config. In the **Web.config** file in the sample application, make the following changes: 
 
 1. In the **appSettings** node, replace the values for "clientId" and "SymmetricKey" with your Client ID, Client Secret, and your App Domain: 
 
@@ -75,9 +75,9 @@ The sample application has been pre-wired to use Windows Azure AD, and loads the
     		</audienceUris>
 
 
-##<a name="enablesignup"></a>Part 2: Enable Customers to Sign-Up Using Windows Azure AD
+##<a name="enablesignup"></a>Part 2: Enable Customers to Sign-Up Using Azure AD
 
-This section describes how to enable customers to sign up for your application using Windows Azure AD. Before a customer can use an application integrated with Windows Azure AD, a tenant administrator must authorize the application. This authorization process starts with a consent request from your application to Windows Azure, which generates a response that must be handled by your application. The following steps describe how to generate a consent request and handle the response.
+This section describes how to enable customers to sign up for your application using Azure AD. Before a customer can use an application integrated with Azure AD, a tenant administrator must authorize the application. This authorization process starts with a consent request from your application to Azure, which generates a response that must be handled by your application. The following steps describe how to generate a consent request and handle the response.
 
 The steps in this section use helper classes from the sample application. These classes are contained in the *Microsoft.IdentityModel.WAAD.Preview* library of the sample, and they make it easier to focus on application code rather than identity and protocol specifics.
 
@@ -85,11 +85,11 @@ The steps in this section use helper classes from the sample application. These 
 The following example interaction demonstrates the process of requesting consent for your application:
 
 1. The customer clicks a "sign up using Azure AD" link on a web page in your application.
-2.	You redirect the customer to the Windows Azure AD authorization page with your application's information appended to the request.
+2.	You redirect the customer to the Azure AD authorization page with your application's information appended to the request.
 3.	The customer either grants or denies consent for your application.
-4.	Windows Azure AD redirects the customer to your specified App Redirect URL. You specified this URL when you generated a Client ID and Client Secret on the Microsoft Seller Dashboard.  The redirect request indicates the result of the consent request, including information about their tenant if consent was granted.
+4.	Azure AD redirects the customer to your specified App Redirect URL. You specified this URL when you generated a Client ID and Client Secret on the Microsoft Seller Dashboard.  The redirect request indicates the result of the consent request, including information about their tenant if consent was granted.
 
-To generate the redirect request in step 2 above, you must append querystring parameters to the following URL for the Windows Azure AD authorization page: *http://activedirectory.windowsazure.com/Consent/AuthorizeApplication.aspx*
+To generate the redirect request in step 2 above, you must append querystring parameters to the following URL for the Azure AD authorization page: *http://activedirectory.windowsazure.com/Consent/AuthorizeApplication.aspx*
 
 The querystring parameters are described below:
 
@@ -119,18 +119,18 @@ In the sample application, the "Register" link contains a similar URL for consen
 > When you test your unpublished application, you will go through a consent experience that is similar to your customers. However, the authorization page for an unpublished application looks different than the authorization page for a published application. A published application displays your app name, logo, and publisher details, whereas an unpublished application does not.
 
 ###Step 2: Handling the Consent Response
-After a customer has granted or denied consent for your application, the Windows Azure AD sends a response to your application's App Redirect URL. This response contains the following querystring parameters:
+After a customer has granted or denied consent for your application, the Azure AD sends a response to your application's App Redirect URL. This response contains the following querystring parameters:
 
-**TenantId**: The unique GUID for the Windows Azure AD tenant that has authorized your application. This parameter will only be specified if the customer has authorized your application.
+**TenantId**: The unique GUID for the Azure AD tenant that has authorized your application. This parameter will only be specified if the customer has authorized your application.
 
 **Consent**: The value will be set to "Granted" if the application has been authorized, or "Denied" if the request has been rejected.
 
 The following is an example valid response to the consent request that indicates the application has been authorized:
 *https://app.litware.com/redirect.aspx&TenantId=7F3CE253-66DB-4AEF-980A-D8312D76FDC2&Consent=Granted*
 
-Your application will need to maintain context such that the request sent to the Windows Azure AD authorization page is tied to the response (and would reject any responses without an associated request).
+Your application will need to maintain context such that the request sent to the Azure AD authorization page is tied to the response (and would reject any responses without an associated request).
 
-<div class="dev-callout"><strong>Note</strong><p>After consent is granted, Windows Azure AD may take some time before SSO and Graph access are provisioned. The first user in each organization that signs up for your application may see see sign-in errors until the provisioning completes.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>After consent is granted, Azure AD may take some time before SSO and Graph access are provisioned. The first user in each organization that signs up for your application may see see sign-in errors until the provisioning completes.</p></div>
 
 After a customer has granted consent to your application, it's important to associate and store the newly created tenant in your application with the TenantId returned by the consent response. The sample application contains an *HttpModule* in the *Microsoft.IdentityModel.WAAD.Preview.Consent* namespace that automatically records the TenantId to a customer/TenantId "data store" on all successful consent responses.  The code for this is included below, and recording of the TenantId to a customer/TenantId "data store" is performed by the *TrustedIssuers.Add* method:
 
@@ -152,32 +152,32 @@ After a customer has granted consent to your application, it's important to asso
         }            
     }
 
-Before you can test the consent request/response code for your application, you must get a Windows Azure AD directory tenant.
+Before you can test the consent request/response code for your application, you must get an Azure AD directory tenant.
 
-<h3>Step 3: Get a Windows Azure AD Tenant to Test Your Application</h3>
-To test your application's ability to integrate with Windows Azure AD, you'll need a Windows Azure AD tenant. If you already have a tenant that you use for testing another application, you can reuse it. We recommend getting at least two tenants to ensure your app can be tested and used by multiple tenants. We do not recommend using a production tenant for this purpose. [Get a Windows Azure AD tenant][].
+<h3>Step 3: Get an Azure AD Tenant to Test Your Application</h3>
+To test your application's ability to integrate with Azure AD, you'll need an Azure AD tenant. If you already have a tenant that you use for testing another application, you can reuse it. We recommend getting at least two tenants to ensure your app can be tested and used by multiple tenants. We do not recommend using a production tenant for this purpose. [Get an Azure AD tenant][].
 
-Once you have obtained a Windows Azure AD tenant, you can build and run the application by pressing **F5**. Additionally, you can try to sign up for your application using the new  tenant. 
+Once you have obtained an Azure AD tenant, you can build and run the application by pressing **F5**. Additionally, you can try to sign up for your application using the new  tenant. 
 
-<div class="dev-callout"><strong>Note</strong><p>If your customers sign up for a new Windows Azure AD tenant, it may take some time for that tenant to be fully provisioned. Users may see errors on the consent page until the provisioning completes.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>If your customers sign up for a new Azure AD tenant, it may take some time for that tenant to be fully provisioned. Users may see errors on the consent page until the provisioning completes.</p></div>
 
 <h2><a name="enablesso"></a>Part 3: Enable Single Sign-On</h2>
 
-This section shows you how to enable Single Sign-On (SSO). The process starts with constructing a sign-in request to Windows Azure AD that authenticates a user to your application, then verifies in the sign-in response that the customer belongs to a tenant that has authorized your application. The sign-in request requires your Client ID from the Seller Dashboard and the Tenant ID of the customer's organization.
+This section shows you how to enable Single Sign-On (SSO). The process starts with constructing a sign-in request to Azure AD that authenticates a user to your application, then verifies in the sign-in response that the customer belongs to a tenant that has authorized your application. The sign-in request requires your Client ID from the Seller Dashboard and the Tenant ID of the customer's organization.
 
-The sign-in request is specific to a directory tenant, and must include a TenantID.  A TenantID can be determined from a Windows Azure AD directory tenant's domain name. There are two common ways to get this domain name from the end user as they sign-in:
+The sign-in request is specific to a directory tenant, and must include a TenantID.  A TenantID can be determined from an Azure AD directory tenant's domain name. There are two common ways to get this domain name from the end user as they sign-in:
 
-* If the URL of the application is *https://contoso.myapp.com* or *https://myapp.com/contoso.com*, *contoso* and *contoso.com* represent the Windows Azure AD domain name and *myapp.com* represents your application's URL. 
-* Your application can prompt the user for their email address or their Windows Azure AD domain name. This approach is used in the sample application, where the user must enter their Windows Azure AD domain name, as shown below:
+* If the URL of the application is *https://contoso.myapp.com* or *https://myapp.com/contoso.com*, *contoso* and *contoso.com* represent the Azure AD domain name and *myapp.com* represents your application's URL. 
+* Your application can prompt the user for their email address or their Azure AD domain name. This approach is used in the sample application, where the user must enter their Azure AD domain name, as shown below:
 
 ![login][login]
 
 <h3>Step 1: Look up the Tenant ID</h3>
-Using the Windows Azure AD domain name supplied by the customer, you can look up their Tenant ID by parsing the Windows Azure AD federation metadata. In the sample application, this process is handled by the *Domain2TenantId* method of the *Microsoft.IdentityModel.WAAD.Preview.TenantUtils.Globals* class.
+Using the Azure AD domain name supplied by the customer, you can look up their Tenant ID by parsing the Azure AD federation metadata. In the sample application, this process is handled by the *Domain2TenantId* method of the *Microsoft.IdentityModel.WAAD.Preview.TenantUtils.Globals* class.
 
 To demonstrate this process, the following steps use the contoso.com domain name.
 
-1.	Get the **FederationMetadata.xml** file for the Windows Azure AD tenant. For example:  
+1.	Get the **FederationMetadata.xml** file for the Azure AD tenant. For example:  
 *https://accounts.accesscontrol.windows.net/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml*
 2.	In the **FederationMetadata.xml** file, locate the **Entity Descriptor** entry. The Tenant ID is included as part of the **entityID** property following the "https://sts.windows.net", as shown below:
 
@@ -190,7 +190,7 @@ When a customer signs in to your application, such as by clicking a sign-in butt
 
 ![login][login]
 
-Clicking the button will navigate the user's browser a sign-in page for Windows Azure AD. Once signed in, Windows Azure AD will return a sign-in response to the application.
+Clicking the button will navigate the user's browser a sign-in page for Azure AD. Once signed in, Azure AD will return a sign-in response to the application.
 
 ###Step 3: Validate the Issuer of the Incoming Token in the Sign-In Response
 
@@ -219,24 +219,24 @@ In the sample application, the original code can be found under the *Microsoft.I
         }
     }
 
-Once the token is validated, the user is signed in to the application. Run the application and try signing in using a Windows Azure AD account in the consented tenant that you created earlier.
+Once the token is validated, the user is signed in to the application. Run the application and try signing in using an Azure AD account in the consented tenant that you created earlier.
 
-<h2><a name="accessgraph"></a>Part 4: Access Windows Azure AD Graph</h2>
+<h2><a name="accessgraph"></a>Part 4: Access Azure AD Graph</h2>
 
-This section describes how to obtain an access token and call the Windows Azure AD Graph API to access a tenant's directory data. For example, while the token obtained during sign in contains user information such as a name and email address, your application may need information such as group memberships or the name of the user's manager. This information can be obtained from the tenant's directory by using the Graph API. For more information about the Graph API, see [this topic][].
+This section describes how to obtain an access token and call the Azure AD Graph API to access a tenant's directory data. For example, while the token obtained during sign in contains user information such as a name and email address, your application may need information such as group memberships or the name of the user's manager. This information can be obtained from the tenant's directory by using the Graph API. For more information about the Graph API, see [this topic][].
 
-Before your application can call the Windows Azure AD Graph, it must authenticate itself and obtain an access token. Access tokens are obtained by authenticating your application with its Client ID and Client Secret. The following steps will show you how to:
+Before your application can call the Azure AD Graph, it must authenticate itself and obtain an access token. Access tokens are obtained by authenticating your application with its Client ID and Client Secret. The following steps will show you how to:
 
-1.	Use a generated proxy class to call the Windows Azure AD Graph
-2.	Acquire an access token using Windows Azure Authentication Library (AAL) 
+1.	Use a generated proxy class to call the Azure AD Graph
+2.	Acquire an access token using Azure Authentication Library (AAL) 
 3.	Call the Azure AD Graph to get a list of tenant users
 
-<div class="dev-callout"><strong>Note</strong><p>The sample application helper library Microsoft.IdentityModel.WAAD.Preview already contains an auto-generated proxy class (created by adding a Service Reference to https://graph.windows.net/your-domain-name called GraphService). The application will use this proxy class to call into the Windows Azure AD Graph service.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>The sample application helper library Microsoft.IdentityModel.WAAD.Preview already contains an auto-generated proxy class (created by adding a Service Reference to https://graph.windows.net/your-domain-name called GraphService). The application will use this proxy class to call into the Azure AD Graph service.</p></div>
 
-<h3>Step 1: Use the Proxy Class to Call the Windows Azure AD Graph</h3>
+<h3>Step 1: Use the Proxy Class to Call the Azure AD Graph</h3>
 In this step, we are going to use the sample application to show you how to:
 
-1.	Create an tenant-specific Windows Azure AD Graph endpoint
+1.	Create an tenant-specific Azure AD Graph endpoint
 2.	Use the endpoint to instantiate the proxy to call the Graph
 3.	Add the authorization header to the request and acquire the token.  
 
@@ -265,8 +265,8 @@ In the sample application, these calls to the API are handled by the GraphInterf
         AddHeaders(GetAuthorizationHeader());
     }
 
-<h3>Step 2: Acquire an Access Token Using Windows Azure Authentication Library</h3>
-The sample application uses the Windows Azure Authentication Library (AAL) to acquire tokens for accessing the Graph API.  The token acquisition process is managed by the *GetAuthorizationHeader* method in the *Microsoft.IdentityModel.WAAD.Preview.Graph.GraphInterface* class, and is shown below.  
+<h3>Step 2: Acquire an Access Token Using Azure Authentication Library</h3>
+The sample application uses the Azure Authentication Library (AAL) to acquire tokens for accessing the Graph API.  The token acquisition process is managed by the *GetAuthorizationHeader* method in the *Microsoft.IdentityModel.WAAD.Preview.Graph.GraphInterface* class, and is shown below.  
 
 <div class="dev-callout"><strong>Note</strong><p>AAL is available as a NuGet package and can be installed within Visual Studio.</p></div>
 
@@ -306,7 +306,7 @@ The following information is used to acquire the access token, as demonstrated i
 2.	The target information, which is the Graph and referred to as ServiceRealm above
 3.	The TenantDomainName that you acquired earlier
 
-<h3>Step 3: Call the Windows Azure AD Graph to Get a List of Users</h3>
+<h3>Step 3: Call the Azure AD Graph to Get a List of Users</h3>
 The following method in the *Microsoft.IdentityModel.WAAD.Preview.Graph.GraphInterface* class gets a list of all users for your tenant, using the *DataService* proxy generated earlier.
 
 	public List<User> GetUsers()
@@ -325,9 +325,9 @@ This method is called from the **HomeController.cs** file to show the user list 
 
 <h2><a name="publish"></a>Part 5: Publish Your Application</h2>
 
-Once you have thoroughly tested your application, you can create an application listing and publish your application listing on the Windows Azure Marketplace. These steps are performed on the Microsoft Seller Dashboard.  
+Once you have thoroughly tested your application, you can create an application listing and publish your application listing on the Azure Marketplace. These steps are performed on the Microsoft Seller Dashboard.  
 
-<div class="dev-callout"><strong>Note</strong><p>Your app is responsible for managing any billing relationship with your customers. The Windows Azure Marketplace only provides links to your application's web site and information about it.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>Your app is responsible for managing any billing relationship with your customers. The Azure Marketplace only provides links to your application's web site and information about it.</p></div>
 
 <h3>Step 1: Creating an Application Manifest and App Listing</h3>
 
@@ -366,7 +366,7 @@ The *Policy* attribute in the examples above describes the type of application p
 
 The optional *Reason* element allows you to specify (in multiple cultures) your justification for the required permission level. This text is displayed on the consent page to aid the customer when they are approving or rejecting your application.
 
-Using your new Client ID and your application manifest, you can create an application listing by following the instructions in [Add Apps in the Microsoft Seller Dashboard][]. When creating an application listing, make sure to select the Windows Azure AD application type. Once you have finished creating your application listing, click "submit" to publish your application to the Windows Azure Marketplace. You'll need to wait until your application is approved before publication completes.
+Using your new Client ID and your application manifest, you can create an application listing by following the instructions in [Add Apps in the Microsoft Seller Dashboard][]. When creating an application listing, make sure to select the Azure AD application type. Once you have finished creating your application listing, click "submit" to publish your application to the Azure Marketplace. You'll need to wait until your application is approved before publication completes.
 
 <div class="dev-callout"><strong>Note</strong><p>If you are prompted to "add tax and payout information", you can skip this step because you are selling your application directly to customer and not through Microsoft.</p></div>
 
@@ -374,20 +374,20 @@ Using your new Client ID and your application manifest, you can create an applic
 Once your application listing is approved, you should test your application again end-to-end. For example, make sure that your application has been updated with the production ClientID and Client Secret.  Run through the testing checklist a final time, ensuring that the consent page now shows the information you included in your application listing.
 
 <h2><a name="summary"></a>Summary</h2>
-In this walkthrough, you have learned how to integrate your multi-tenant application with Windows Azure AD. The process included three steps:
+In this walkthrough, you have learned how to integrate your multi-tenant application with Azure AD. The process included three steps:
 
 * Enable customers to sign up for your application using Azure AD
-* Enable single sign-on (SSO) with Windows Azure AD
-* Query a customer's directory data using the Windows Azure AD Graph API
+* Enable single sign-on (SSO) with Azure AD
+* Query a customer's directory data using the Azure AD Graph API
 
-Integrating with Windows Azure AD allows your customers to sign up and sign in to your application using an identity management system that they already maintain, which reduces or eliminates the need to do separate identity management tasks with your application. This functionality gives your customers a more seamless experience when using your application, and it frees up the time spent doing management tasks.
+Integrating with Azure AD allows your customers to sign up and sign in to your application using an identity management system that they already maintain, which reduces or eliminates the need to do separate identity management tasks with your application. This functionality gives your customers a more seamless experience when using your application, and it frees up the time spent doing management tasks.
 
 
 [Introduction]: #introduction
-[Part 1: Get a Client ID for Accessing Windows Azure AD]: #getclientid
-[Part 2: Enable Customers to Sign-Up Using Windows Azure AD]: #enablesignup
+[Part 1: Get a Client ID for Accessing Azure AD]: #getclientid
+[Part 2: Enable Customers to Sign-Up Using Azure AD]: #enablesignup
 [Part 3: Enable Single Sign-On]: #enablesso
-[Part 4: Access Windows Azure AD Graph]: #accessgraph
+[Part 4: Access Azure AD Graph]: #accessgraph
 [Part 5: Publish Your Application]: #publish
 [Summary]: #summary
 [Visual Studio 2012]: http://www.microsoft.com/visualstudio/eng/downloads
@@ -403,7 +403,7 @@ Integrating with Windows Azure AD allows your customers to sign up and sign in t
 [Microsoft Seller Dashboard]: https://sellerdashboard.microsoft.com/
 [create an account profile]: http://msdn.microsoft.com/en-us/library/jj552460.aspx
 [Create Client IDs and Secrets in the Microsoft Seller Dashboard]: http://msdn.microsoft.com/en-us/library/jj552461.aspx
-[Get a Windows Azure AD tenant]: http://g.microsoftonline.com/0AX00en/5
+[Get an Azure AD tenant]: http://g.microsoftonline.com/0AX00en/5
 [this topic]: http://msdn.microsoft.com/en-us/library/windowsazure/hh974476.aspx
 [Add Apps in the Microsoft Seller Dashboard]: http://msdn.microsoft.com/en-us/library/jj552465.aspx
 [login]: ./media/active-directory-dotnet-integrate-multitent-cloud-applications/login.png

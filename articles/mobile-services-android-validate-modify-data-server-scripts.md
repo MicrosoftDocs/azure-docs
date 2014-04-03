@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-android" urlDisplayName="Validate Data - Android" pageTitle="Use server scripts to validate and modify data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-android" urlDisplayName="Validate Data - Android" pageTitle="Use server scripts to validate and modify data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -8,7 +8,7 @@
 </div>
 
 
-This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Android app to take advantage of these new behaviors.
+This topic shows you how to leverage server scripts in Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Android app to take advantage of these new behaviors.
 
 This tutorial walks you through these basic steps:
 
@@ -23,7 +23,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 It is always a good practice to validate the length of data that is submitted by users. First, you register a script that validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
 
-1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
+1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app. 
 
    	![][0]
 
@@ -235,4 +235,4 @@ Server scripts are also used when authorizing users and for sending push notific
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-android
 
 [Management Portal]: https://manage.windowsazure.com/
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/

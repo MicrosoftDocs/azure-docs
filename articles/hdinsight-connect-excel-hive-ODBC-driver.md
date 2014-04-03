@@ -1,11 +1,11 @@
-<properties linkid="manage-services-hdinsight-connect-excel-with-hive-ODBC" urlDisplayName="Connect Excel to HDInsight" pageTitle="Connect Excel to HDInsight with the Hive ODBC Driver | Windows Azure" metaKeywords="" description="Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in an HDInsight cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to HDInsight with the Microsoft Hive ODBC Driver" authors=""  solutions="" writer="bradsev" manager="paulettm" editor="mollybos"  />
+<properties linkid="manage-services-hdinsight-connect-excel-with-hive-ODBC" urlDisplayName="Connect Excel to HDInsight" pageTitle="Connect Excel to HDInsight with the Hive ODBC Driver | Azure" metaKeywords="" description="Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in an HDInsight cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to HDInsight with the Microsoft Hive ODBC Driver" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
 #Connect Excel to HDInsight with the Microsoft Hive ODBC Driver
 
 
-One key feature of Microsoft's Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed by the Windows Azure HDInsight. An example of this integration is the ability to connect Excel to the Hive data warehouse of an HDInsight Hadoop cluster using the Microsoft Hive Open Database Connectivity (ODBC) Driver. 
+One key feature of Microsoft's Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed by the Azure HDInsight. An example of this integration is the ability to connect Excel to the Hive data warehouse of an HDInsight Hadoop cluster using the Microsoft Hive Open Database Connectivity (ODBC) Driver. 
 
 It is also possible to connect the data associated with an HDInsight cluster and other data sources, including other (non-HDInsight) Hadoop clusters, from Excel using the Microsoft Power Query add-in for Excel. For information on installing and using Power Query, see [Connect Excel to HDInsight with Power Query][hdinsight-power-query].
 
@@ -13,7 +13,7 @@ It is also possible to connect the data associated with an HDInsight cluster and
 
 Before you begin this article, you must have the following:
 
-- An HDInsight cluster. To configure one, see [Get started with Windows Azure HDInsight][hdinsight-get-started].
+- An HDInsight cluster. To configure one, see [Get started with Azure HDInsight][hdinsight-get-started].
 - A computer that is running Windows 8, Windows 7, Windows Server 2012, or Windows Server 2008 R2.
 - Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
@@ -28,7 +28,7 @@ Before you begin this article, you must have the following:
 
 Download and install Microsoft Hive ODBC Driver from the [Download Center][hive-odbc-driver-download]. 
 
-This driver can be installed on 32-bit or 64-bit versions of Windows 7, Windows 8, Windows Server 2008 R2 and Windows Server 2012 and will allow connection to Windows Azure HDInsight (version 1.6 and later) and Windows Azure HDInsight Emulator (v.1.0.0.0 and later). You should install the version that matches the version of the application where you will be using the ODBC driver. For this tutorial, the driver will be used from Office Excel. 
+This driver can be installed on 32-bit or 64-bit versions of Windows 7, Windows 8, Windows Server 2008 R2 and Windows Server 2012 and will allow connection to Azure HDInsight (version 1.6 and later) and Azure HDInsight Emulator (v.1.0.0.0 and later). You should install the version that matches the version of the application where you will be using the ODBC driver. For this tutorial, the driver will be used from Office Excel. 
 
 ##<a id="CreateHiveODBCDataSource"></a>Create a Hive ODBC Data Source
 
@@ -51,7 +51,7 @@ The following steps show you how to create a Hive ODBC Data Source.
 	<tr><td>Port</td><td>Use <strong>443</strong>. (This port has been changed from 563 to 443.)</td></tr>
 	<tr><td>Database</td><td>Use <strong>Default</strong>.</td></tr>
 	<tr><td>Hive Server Type</td><td>Select <strong>Hive Server 2</strong></td></tr>
-	<tr><td>Mechanism</td><td>Select <strong>Windows Azure HDInsight Service</strong></td></tr>
+	<tr><td>Mechanism</td><td>Select <strong>Azure HDInsight Service</strong></td></tr>
 	<tr><td>HTTP Path</td><td>Leave it blank.</td></tr>
 	<tr><td>User Name</td><td>Enter HDInsight cluster user username. This is the username created during the cluster provision process. If you used the quick create option, the default username is <strong>admin</strong>.</td></tr>
 	<tr><td>Password</td><td>Enter HDInsight cluster user password.</td></tr>
@@ -60,7 +60,7 @@ The following steps show you how to create a Hive ODBC Data Source.
 	There are some important parameters to be aware of when you click **Advanced Options**:
 
 	<table border="1">
-	<tr><td>Use Native Query</td><td>When it is selected, the ODBC driver will NOT try to convert TSQL into HiveQL. You shall use it only if you are 100% sure you are submitting pure HiveQL statements. When connecting to SQL Server or Windows Azure SQL Database, you should leave it unchecked.</td></tr>
+	<tr><td>Use Native Query</td><td>When it is selected, the ODBC driver will NOT try to convert TSQL into HiveQL. You shall use it only if you are 100% sure you are submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked.</td></tr>
 	<tr><td>Rows fetched per block</td><td>When fetching a large amount of records, tuning this parameter may be required to ensure optimal performances.</td></tr>
 	<tr><td>Default string column length, <br/>
 			Binary column length,  <br/>

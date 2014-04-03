@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet" urlDisplayName="Get Started with Data" pageTitle="Get started with data - Windows Azure Mobile Services" writer="glenga" metaKeywords="" description="Learn how to get started using data with Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" />
+<properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet" urlDisplayName="Get Started with Data" pageTitle="Get started with data - Azure Mobile Services" metaKeywords="" description="Learn how to get started using data with Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="" />
 
 # Get started with data in Mobile Services using Visual Studio 2012
 
@@ -7,7 +7,7 @@
 <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js-vs2012" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>This topic shows you how to use Windows Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2012 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app. You can view a video version of this tutorial by clicking the clip to the right.</p>
+<p>This topic shows you how to use Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2012 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app. You can view a video version of this tutorial by clicking the clip to the right.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-data-windows-store-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">15:33</span></div>
 </div>
@@ -24,7 +24,7 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Windows Azure Free Trial</a>.</p></div> 
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.</p></div> 
 
 <h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
 
@@ -60,7 +60,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
 
-2. In the left pane, select the **Online** category, select **Include Prerelease**, search for `WindowsAzure.MobileServices`, click **Install** on the **Windows Azure Mobile Services** package, then accept the license agreement. 
+2. In the left pane, select the **Online** category, select **Include Prerelease**, search for `WindowsAzure.MobileServices`, click **Install** on the **Azure Mobile Services** package, then accept the license agreement. 
 
   	![][7]
 
@@ -222,7 +222,7 @@ Once you have completed the data series, try one of these other tutorials:
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js-vs2012/
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/?LinkId=262308

@@ -1,4 +1,4 @@
-<properties linkid="mobile-services-how-to-ios-client" urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Windows Azure Mobile Services" metaKeywords="Windows Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties linkid="mobile-services-how-to-ios-client" urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 
 
@@ -8,7 +8,7 @@
   <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
-This guide shows you how to perform common scenarios using the iOS client for Windows Azure Mobile Services. The samples are written in objective-C and require the [Mobile Services SDK].  This tutorial also requires the [iOS SDK]. The scenarios covered include querying for data; inserting, updating, and deleting data; authenticating users; and handling errors. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart][Get started with Mobile Services]. The quickstart tutorial helps you configure your account and create your first mobile service.
+This guide shows you how to perform common scenarios using the iOS client for Azure Mobile Services. The samples are written in objective-C and require the [Mobile Services SDK].  This tutorial also requires the [iOS SDK]. The scenarios covered include querying for data; inserting, updating, and deleting data; authenticating users; and handling errors. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart][Get started with Mobile Services]. The quickstart tutorial helps you configure your account and create your first mobile service.
 
 ## Table of Contents
 
@@ -57,7 +57,7 @@ The following code creates the mobile service client object that is used to acce
 
 	MSClient *client = [MSClient clientWithApplicationURLString:@"MobileServiceUrl" applicationKey:@"AppKey"]
 	
-In the code above, replace `MobileServiceUrl` and `AppKey` with the mobile service URL and application key of your mobile service. To determine these settings for your mobile service, in the Windows Azure Management Portal select your mobile service, then click **Dashboard**.
+In the code above, replace `MobileServiceUrl` and `AppKey` with the mobile service URL and application key of your mobile service. To determine these settings for your mobile service, in the Azure Management Portal select your mobile service, then click **Dashboard**.
 
 You can also create your client from an **NSURL** object that is the URL of the service, as follows:
 
@@ -243,7 +243,7 @@ The value for the `id` must be unique and it must not include characters from th
 +  Printable characters: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  The ids "." and ".."
 
-You can alternatively use integer Ids for your tables. In order to use an integer Id you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Windows Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
+You can alternatively use integer Ids for your tables. In order to use an integer Id you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
 
 When dynamic schema is enabled, Mobile Services automatically generates new columns based on the fields of the object in the insert or update request. For more information, see [Dynamic schema].
 
@@ -286,7 +286,7 @@ Mobile Services enables you to use the following identity providers to authentic
 - Google 
 - Microsoft Account
 - Twitter
-- Windows Azure Active Directory
+- Azure Active Directory
 
 For more information about configuring an identity provider, see [Get started with authentication]. 
 

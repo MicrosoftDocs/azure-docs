@@ -12,6 +12,8 @@ Now that authentication is required to access data in the TodoItem table, you ca
 
 		public string UserId { get; set; }
 
+	>[WACOM.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
+
 3. In Solution Explorer, expand the Controllers folder, open the TodoItemController.cs project file, and add the following **using** statement:
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
@@ -38,4 +40,4 @@ Now that authentication is required to access data in the TodoItem table, you ca
 
    	This query filters the returned TodoItem objects so that each user only receives the items that they inserted. You can optionally 
 
-6. Republish the mobile service project to Windows Azure.
+6. Republish the mobile service project to Azure.

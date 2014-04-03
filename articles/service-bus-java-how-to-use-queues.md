@@ -1,4 +1,4 @@
-<properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" description="Learn how to use Service Bus queues in Windows Azure. Code samples written in Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
+<properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" description="Learn how to use Service Bus queues in Azure. Code samples written in Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="waltpo" solutions="" manager="" editor="mollybos" />
 
 
 
@@ -10,7 +10,7 @@
 # How to Use Service Bus Queues
 
 This guide will show you how to use Service Bus queues. The samples are
-written in Java and use the [Windows Azure SDK for Java][]. The
+written in Java and use the [Azure SDK for Java][]. The
 scenarios covered include **creating queues**, **sending and receiving
 messages**, and **deleting queues**.
 
@@ -253,7 +253,7 @@ constant across delivery attempts.
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
 
-  [Windows Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx
+  [Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -264,7 +264,7 @@ topic [Queues, Topics, and Subscriptions][] for more information.
   [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
   [Next Steps]: #bkmk_NextSteps
   [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
-  [Windows Azure Management Portal]: http://manage.windowsazure.com/
+  [Azure Management Portal]: http://manage.windowsazure.com/
   [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
   [Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
   [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg

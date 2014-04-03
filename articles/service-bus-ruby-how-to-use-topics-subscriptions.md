@@ -1,4 +1,4 @@
-<properties linkid="dev-ruby-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Ruby) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Ruby applications." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors=""  solutions="" writer="guayan" manager="" editor=""  />
+<properties linkid="dev-ruby-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="guayan" solutions="" manager="" editor="" />
 
 
 
@@ -14,7 +14,7 @@ This guide will show you how to use Service Bus topics and subscriptions from Ru
 * [Obtain the Default Management Credentials for the Namespace](#obtain-default-credentials)
 * [Create a Ruby Application](#create-a-ruby-application)
 * [Configure Your Application to Use Service Bus](#configure-your-application-to-use-service-bus)
-* [Setup a Windows Azure Service Bus Connection](#setup-a-windows-azure-service-bus-connection)
+* [Setup an Azure Service Bus Connection](#setup-a-windows-azure-service-bus-connection)
 * [How to Create a Topic](#how-to-create-a-topic)
 * [How to Create Subscriptions](#how-to-create-subscriptions)
 * [How to Send Messages to a Topic](#how-to-send-messages-to-a-topic)
@@ -27,11 +27,11 @@ This guide will show you how to use Service Bus topics and subscriptions from Ru
 
 ## <a id="create-a-ruby-application"></a>Create a Ruby Application
 
-Create a Ruby application. For instructions, see [Create a Ruby Application on Windows Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## <a id="configure-your-application-to-use-service-bus"></a>Configure Your Application to Use Service Bus
 
-To use Windows Azure service bus, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.
+To use Azure service bus, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.
 
 ### Use RubyGems to obtain the package
 
@@ -45,10 +45,10 @@ Use your favorite text editor, add the following to the top of the Ruby file whe
 
     require "azure"
 
-## <a id="setup-a-windows-azure-service-bus-connection"></a>Setup a Windows Azure Service Bus Connection
+## <a id="setup-a-windows-azure-service-bus-connection"></a>Setup an Azure Service Bus Connection
 
 The azure module will read the environment variables **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS\_KEY** 
-for information required to connect to your Windows Azure service bus namespace. If these environment variables are not set, you must specify the namespace information before using **Azure::ServiceBusService** with the following code:
+for information required to connect to your Azure service bus namespace. If these environment variables are not set, you must specify the namespace information before using **Azure::ServiceBusService** with the following code:
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
@@ -168,7 +168,7 @@ In the event that the application crashes after processing the message but befor
 
 ## <a id="how-to-delete-topics-and-subscriptions"></a>How to Delete Topics and Subscriptions
 
-Topics and subscriptions are persistent, and must be explicitly deleted either through the [Windows Azure Management Portal](https://manage.windowsazure.com) or programmatically. The example below demonstrates how to delete the topic named "test-topic".
+Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure Management Portal](https://manage.windowsazure.com) or programmatically. The example below demonstrates how to delete the topic named "test-topic".
 
 	azure_service_bus_service.delete_topic("test-topic")
 

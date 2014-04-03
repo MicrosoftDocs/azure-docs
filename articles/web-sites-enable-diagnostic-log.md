@@ -1,14 +1,14 @@
-<properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Windows Azure Web Sites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Windows Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Windows Azure Web Sites" authors=""  solutions="" writer="larryfr" manager="" editor=""  />
+<properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Azure Web Sites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Web Sites" authors="larryfr" solutions="" manager="" editor="" />
 
 
 
 
 
-#Enable diagnostic logging for Windows Azure Web Sites
+#Enable diagnostic logging for Azure Web Sites
 
-Windows Azure provides built-in diagnostics to assist with debugging an application hosted in Windows Azure Web Sites. In this article you will learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Windows Azure.
+Azure provides built-in diagnostics to assist with debugging an application hosted in Azure Web Sites. In this article you will learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
-> [WACOM.NOTE] This article describes using the Windows Azure Management Portal, Windows Azure PowerShell, and the Windows Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Windows Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+> [WACOM.NOTE] This article describes using the Azure Management Portal, Azure PowerShell, and the Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 ##Table of Contents##
 
@@ -21,7 +21,7 @@ Windows Azure provides built-in diagnostics to assist with debugging an applicat
 
 <a name="whatisdiag"></a><h2>What is Web Site diagnostics?</h2>
 
-Windows Azure Web Sites provide diagnostic functionality for logging information from both the web server as well as the web application. These are logically separated into **site diagnostics** and **application diagnostics**.
+Azure Web Sites provide diagnostic functionality for logging information from both the web server as well as the web application. These are logically separated into **site diagnostics** and **application diagnostics**.
 
 ###Site diagnostics
 
@@ -39,37 +39,37 @@ Application diagnostics allows you to capture information produced by a web appl
 
 Application diagnostics allows you to troubleshoot your running application by emitting information when certain pieces of code are used. This is most useful when you are trying to determine why a specific path is being taken by the code, usually when the path results in an error or other undesirable behavior.
 
-For information on working with Application Diagnostics using Visual Studio, see [Troubleshooting Windows Azure Web Sites in Visual Studio](http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+For information on working with Application Diagnostics using Visual Studio, see [Troubleshooting Azure Web Sites in Visual Studio](http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 > [WACOM.NOTE] Unlike changing the web.config file, enabling Application diagnostics or changing diagnostic log levels does not recycle the app domain that the application runs within.
 
-Windows Azure Web Sites also logs deployment information when you publish an application to a web site. This happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
+Azure Web Sites also logs deployment information when you publish an application to a web site. This happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
 
 <a name="enablediag"></a><h2>How to: Enable diagnostics</h2>
 
-Diagnostics can be enabled by visiting the **Configure** page of your Windows Azure Web Site in the [Windows Azure Management Portal](https://manage.microsoft.com). On the **Configure** page, use the **application diagnostics** and **site diagnostics** sections to enable logging.
+Diagnostics can be enabled by visiting the **Configure** page of your Azure Web Site in the [Azure Management Portal](https://manage.microsoft.com). On the **Configure** page, use the **application diagnostics** and **site diagnostics** sections to enable logging.
 
 When enabling **application diagnostics** you must also select the **logging level** and whether to enable logging to the **file system**, **table storage**, or **blob storage**. While all three storage locations provide the same basic information for logged events, **table storage** and **blob storage** log additional information such as the instance ID, thread ID, and a more granular timestamp (tick format) than logging to **file system**.
 
 When enabling **site diagnostics**, you must select **storage** or **file system** for **web server logging**. Selecting **storage** allows you to select a storage account, and then a blob container that the logs will be written to. All other logs for **site diagnostics** are written to the file system only.
 
-> [WACOM.NOTE] Information stored in **table storage** or **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Windows Azure Storage by using one of the [Windows Azure SDKs](http://www.windowsazure.com/en-us/downloads/#).
+> [WACOM.NOTE] Information stored in **table storage** or **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Azure Storage by using one of the [Azure SDKs](http://www.windowsazure.com/en-us/downloads/#).
 
 The following are the settings available when enabling **application diagnostics**:
 
 * **Logging level** - allows you to filter the information captured to **informational**, **warning** or **error** information. Setting this to **verbose** will log all information produced by the application. **Logging level** can be set differently for **file system**, **table storage**, and **blob storage** logging.
-* **File system** - stores the application diagnostics information to the web site file system. These files can be accessed by FTP, or downloaded as a Zip archive by using the Windows Azure PowerShell or Windows Azure Command-Line Tools.
-* **Table storage** - stores the application diagnostics information in the specified Windows Azure Storage Account and table name.
-* **Blob storage** - stores the application diagnostics information in the specified Windows Azure Storage Account and blob container.
+* **File system** - stores the application diagnostics information to the web site file system. These files can be accessed by FTP, or downloaded as a Zip archive by using the Azure PowerShell or Azure Command-Line Tools.
+* **Table storage** - stores the application diagnostics information in the specified Azure Storage Account and table name.
+* **Blob storage** - stores the application diagnostics information in the specified Azure Storage Account and blob container.
 * **Retention period** - by default, logs are not automatically deleted from **blob storage**. Select **set retention** and enter the number of days to keep logs if you wish to automatically delete logs.
 
 > [WACOM.NOTE] Any combination of file system, table storage, or blob storage can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to blob storage as a long-term logging solution, while enabling file system logging with a level of verbose.
 
-> [WACOM.NOTE] Diagnostics can also be enabled from Windows Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Windows Azure PowerShell, or have not configured it to use your Windows Azure Subscription, see [How to Use Windows Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [WACOM.NOTE] Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 <a name="download"></a><h2>How to: Download logs</h2>
 
-Diagnostic information stored to the web site file system can be accessed directly using FTP. It can also be downloaded as a Zip archive using Windows Azure PowerShell or the Windows Azure Command-Line Tools.
+Diagnostic information stored to the web site file system can be accessed directly using FTP. It can also be downloaded as a Zip archive using Azure PowerShell or the Azure Command-Line Tools.
 
 The directory structure that the logs are stored in is as follows:
 
@@ -81,45 +81,45 @@ The directory structure that the logs are stored in is as follows:
 
 * **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). 
 
-* **Deployment logs** - /LogFiles/Git. This folder contains logs generated by the internal deployment processes used by Windows Azure Web Sites, as well as logs for Git deployments.
+* **Deployment logs** - /LogFiles/Git. This folder contains logs generated by the internal deployment processes used by Azure Web Sites, as well as logs for Git deployments.
 
 ###FTP
 
-To access diagnostic information using FTP, visit the **Dashboard** of your web site in the Windows Azure Management Portal. In the **quick glance** section, use the **FTP Diagnostic Logs** link to access the log files using FTP. The **Deployment/FTP User** entry lists the user name that should be used to access the FTP site.
+To access diagnostic information using FTP, visit the **Dashboard** of your web site in the Azure Management Portal. In the **quick glance** section, use the **FTP Diagnostic Logs** link to access the log files using FTP. The **Deployment/FTP User** entry lists the user name that should be used to access the FTP site.
 
 > [WACOM.NOTE] If the **Deployment/FTP User** entry is not set, or you have forgotten the password for this user, you can create a new user and password by using the **Reset deployment credentials** link in the **quick glance** section of the **Dashboard**.
 
-###Download with Windows Azure PowerShell
+###Download with Azure PowerShell
 
-To download the log files, start a new instance of Windows Azure PowerShell and use the following command:
+To download the log files, start a new instance of Azure PowerShell and use the following command:
 
 	Save-AzureWebSiteLog -Name websitename
 
 This will save the logs for the web site specified by the **-Name** parameter to a file named **logs.zip** in the current directory.
 
-> [WACOM.NOTE] If you have not installed Windows Azure PowerShell, or have not configured it to use your Windows Azure Subscription, see [How to Use Windows Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [WACOM.NOTE] If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-###Download with Windows Azure Command-Line Tools
+###Download with Azure Command-Line Tools
 
-To download the log files using the Windows Azure Command Line Tools, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
+To download the log files using the Azure Command Line Tools, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
 	azure site log download websitename
 
 This will save the logs for the web site named 'websitename' to a file named **diagnostics.zip** in the current directory.
 
-> [WACOM.NOTE] If you have not installed the Windows Azure Command-Line Tools, or have not configured it to use your Windows Azure Subscription, see [How to Use Windows Azure Command-Line Tools](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+> [WACOM.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/).
 
 <a name="streamlogs"></a><h2>How to: Stream logs</h2>
 
-While developing an application, it is often useful to see logging information in near-real time. This can be accomplished by streaming logging information to your development environment using either Windows Azure PowerShell or the Windows Azure Command-Line Tools.
+While developing an application, it is often useful to see logging information in near-real time. This can be accomplished by streaming logging information to your development environment using either Azure PowerShell or the Azure Command-Line Tools.
 
 > [WACOM.NOTE] Some types of logging buffer writes to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
 
 > [WACOM.NOTE] Log streaming will also stream information written to any text file stored in the **D:\\home\\LogFiles\\** folder.
 
-###Streaming with Windows Azure PowerShell
+###Streaming with Azure PowerShell
 
-To stream logging information, start a new of Windows Azure PowerShell and use the following command:
+To stream logging information, start a new of Azure PowerShell and use the following command:
 
 	Get-AzureWebSiteLog -Name websitename -Tail
 
@@ -135,9 +135,9 @@ To filter specific log types, such as HTTP, use the **-Path** parameter. For exa
 
 To see a list of available paths, use the -ListPath parameter.
 
-> [WACOM.NOTE] If you have not installed Windows Azure PowerShell, or have not configured it to use your Windows Azure Subscription, see [How to Use Windows Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [WACOM.NOTE] If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-###Streaming with Windows Azure Command-Line Tools
+###Streaming with Azure Command-Line Tools
 
 To stream logging information, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
@@ -153,7 +153,7 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
 
 	azure site log tail websitename --path http
 
-> [WACOM.NOTE] If you have not installed the Windows Azure Command-Line Tools, or have not configured it to use your Windows Azure Subscription, see [How to Use Windows Azure Command-Line Tools](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+> [WACOM.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/).
 
 <a name="understandlogs"></a><h2>How to: Understand diagnostics logs</h2>
 
@@ -300,12 +300,12 @@ Detailed error logs are HTML documents that provide more detailed information on
 
 The web server logs are formatted using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). This information can be read using a text editor or parsed using utilities such as [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619).
 
-> [WACOM.NOTE] The logs produced by Windows Azure Web Sites do not support the __s-computername__, __s-ip__, or __cs-version__ fields.
+> [WACOM.NOTE] The logs produced by Azure Web Sites do not support the __s-computername__, __s-ip__, or __cs-version__ fields.
 
 <a name="nextsteps"></a><h2>Next steps</h2>
 
 - [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
 - [Tutorial - Troubleshooting Web Sites](/en-us/develop/net/best-practices/troubleshooting-web-sites/)
-- [Troubleshooting Windows Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
+- [Troubleshooting Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
 - [Analyze Web Site Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 

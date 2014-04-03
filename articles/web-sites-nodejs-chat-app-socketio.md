@@ -1,15 +1,15 @@
-<properties linkid="dev-nodejs-website-with-socketio" urlDisplayName="Website Using Socket.IO" pageTitle="Node.js Website using Socket.io - Windows Azure tutorial" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" description="A tutorial that demonstrates using socket.io in a node.js website hosted on Windows Azure." metaCanonical="" services="web-sites" documentationCenter="Node.js" title="Build a Node.js Chat Application with Socket.IO on a Windows Azure Web Site" authors=""  solutions="" videoId="" scriptId="" writer="larryfr" manager="paulettm" editor="mollybos"  />
+<properties linkid="dev-nodejs-website-with-socketio" urlDisplayName="Website Using Socket.IO" pageTitle="Node.js Website using Socket.io - Azure tutorial" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" description="A tutorial that demonstrates using socket.io in a node.js website hosted on Azure." metaCanonical="" services="web-sites" documentationCenter="Node.js" title="Build a Node.js Chat Application with Socket.IO on an Azure Web Site" authors="larryfr" solutions="" videoId="" scriptId="" manager="paulettm" editor="mollybos" />
 
 
 
 
-#Build a Node.js Chat Application with Socket.IO on a Windows Azure Web Site
+#Build a Node.js Chat Application with Socket.IO on an Azure Web Site
 
-Socket.IO provides real-time communication between your node.js server and clients. This tutorial will walk you through hosting a Socket.IO based chat application as a Windows Azure Web Site. For more information on Socket.IO, see [http://socket.io/][socketio].
+Socket.IO provides real-time communication between your node.js server and clients. This tutorial will walk you through hosting a Socket.IO based chat application as an Azure Web Site. For more information on Socket.IO, see [http://socket.io/][socketio].
 
 <div class="dev-callout"> 
 <b>Note</b> 
-	<p>The procedures in this task apply to Windows Azure Web Sites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/">Build a Node.js Chat Application with Socket.IO on a Windows Azure Cloud Service</a>.</p> 
+	<p>The procedures in this task apply to Azure Web Sites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/">Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service</a>.</p> 
 </div>
 
 A screenshot of the completed application is below:
@@ -32,7 +32,7 @@ and add it to the project you previously created.
 
 ## <a id="Modify"></a>Modify App.js and Install Modules
 
-Before deploying the application to Windows Azure, we must
+Before deploying the application to Azure, we must
 make some minor modifications. Perform the following steps to the
 app.js file:
 
@@ -77,15 +77,15 @@ install required modules::
 
         npm install socket.io -save
 
-## <a id="Publish"></a>Create a Windows Azure Web Site and enable Git publishing
+## <a id="Publish"></a>Create an Azure Web Site and enable Git publishing
 
-Follow these steps to create a Windows Azure Web Site, and then enable Git publishing for the web site.
+Follow these steps to create an Azure Web Site, and then enable Git publishing for the web site.
 
 <div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Windows Azure Free Trial</a>.</p>
+<p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.</p>
 </div>
 
-1. From the command-line, change directories to the **\\node\chat** directory and use the following command to create a new Windows Azure Web Site and enable a Git repository for the web site and the local directory. This will also create a Git remote named 'azure'.
+1. From the command-line, change directories to the **\\node\chat** directory and use the following command to create a new Azure Web Site and enable a Git repository for the web site and the local directory. This will also create a Git remote named 'azure'.
 
 		azure site create mysitename --git
 
@@ -96,45 +96,45 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 		git add .
 		git commit -m "Initial commit"
 
-3. Push the files to the Windows Azure Web Site repository with the following command:
+3. Push the files to the Azure Web Site repository with the following command:
 
 		git push azure master
 
-	You will receive status messages as modules are imported on the server. Once this process has completed, the application will be hosted on your Windows Azure Web Site.
+	You will receive status messages as modules are imported on the server. Once this process has completed, the application will be hosted on your Azure Web Site.
 
  	<div class="dev-callout">
 	<b>Note</b>
 	<p>During module installation, you may notice errors that 'The imported project ... was not found'. These can safely be ignored.</p>
 	</div>
 
-4. Socket.IO uses WebSockets, which are not enabled by default on Windows Azure. To enable web sockets, use the following command:
+4. Socket.IO uses WebSockets, which are not enabled by default on Azure. To enable web sockets, use the following command:
 
 		azure site set -w
 
 	If prompted, enter the name of the web site.
 
 	>[WACOM.NOTE]
-	>The 'azure site set -w' command will only work with version 0.7.4 or higher of the Windows Azure Cross-Platform Command-Line Interface. You can also enable WebSocket support using the Windows Azure Management Portal.
+	>The 'azure site set -w' command will only work with version 0.7.4 or higher of the Azure Cross-Platform Command-Line Interface. You can also enable WebSocket support using the Azure Management Portal.
 	>
-	>To enable WebSockets using the [Windows Azure Management Portal](https://manage.windowsazure.com), select the Configure page for your web site, select 'ON' for the Web Sockets entry, and then click Save.
+	>To enable WebSockets using the [Azure Management Portal](https://manage.windowsazure.com), select the Configure page for your web site, select 'ON' for the Web Sockets entry, and then click Save.
 	>	
 	>![websockets](./media/web-sites-nodejs-chat-app-socketio/websockets.png)
 	
-5. To view the web site on Windows Azure, use the following command to launch your web browser and navigate to the hosted web site:
+5. To view the web site on Azure, use the following command to launch your web browser and navigate to the hosted web site:
 
 		azure site browse
 
-Your application is now running on Windows Azure, and can relay chat
+Your application is now running on Azure, and can relay chat
 messages between different clients using Socket.IO.
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Windows Azure SDK for Node.js GitHub repository</a>.</p>
+<p>For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Azure SDK for Node.js GitHub repository</a>.</p>
 </div>
 
 ##Next steps
 
-In this tutorial you learned how to create a chat application hosted in a Windows Azure Web Site. You can also host this application as a Windows Azure Cloud Service. For steps on how to accomplish this, see [Build a Node.js Chat Application with Socket.IO on a Windows Azure Cloud Service][cloudservice].
+In this tutorial you learned how to create a chat application hosted in an Azure Web Site. You can also host this application as an Azure Cloud Service. For steps on how to accomplish this, see [Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service][cloudservice].
 
 [socketio]: http://socket.io/
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png

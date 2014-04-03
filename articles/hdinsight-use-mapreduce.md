@@ -1,10 +1,10 @@
-<properties linkid="manage-services-hdinsight-howto-mapreduce" urlDisplayName="MapReduce with HDInsight " pageTitle="Use MapReduce with HDInsight | Windows Azure" metaKeywords="" description="Learn how to use HDInsight to execute a simple Hadoop MapReduce job." metaCanonical="" services="hdinsight" documentationCenter="" title="Use MapReduce with HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
+<properties linkid="manage-services-hdinsight-howto-mapreduce" urlDisplayName="MapReduce with HDInsight " pageTitle="Use MapReduce with HDInsight | Azure" metaKeywords="" description="Learn how to use HDInsight to execute a simple Hadoop MapReduce job." metaCanonical="" services="hdinsight" documentationCenter="" title="Use MapReduce with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
 # Use MapReduce with HDInsight#
 
-Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. In this tutorial, you will use Windows Azure PowerShell from your workstation to submit a MapReduce program that counts word occurrences in a text to an HDInsight cluster. The word counting program is written in Java and the program comes with the HDInsight cluster.
+Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. In this tutorial, you will use Azure PowerShell from your workstation to submit a MapReduce program that counts word occurrences in a text to an HDInsight cluster. The word counting program is written in Java and the program comes with the HDInsight cluster.
 
 
 **Prerequisites:**
@@ -13,13 +13,13 @@ Before you begin this tutorial, you must have the following:
 
 - An HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-- A workstation with Windows Azure PowerShell installed and configured. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+- A workstation with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 **Estimated time to complete:** 30 minutes
 
 ##In this tutorial
 1. [Understand the scenario](#scenario)
-2. [Run the Sample with Windows Azure PowerShell](#run-sample)	
+2. [Run the Sample with Azure PowerShell](#run-sample)	
 3. [The Java Code for the word counting MapReduce Program](#java-code)
 4. [Next Steps](#next-steps)	
 
@@ -44,15 +44,15 @@ Running a MapReduce job requires the following elements:
 * An output file folder. You will use */example/data/WordCountOutput* as the output file folder. The system will create the folder if it doesn't exist. The MapReduce job will fail if the folder exists.  If you want to run the MapReduce job for the second time, make sure to delete the output folder or specify another output folder.
 
 	
-##<a id="run-sample"></a>Run the Sample with Windows Azure PowerShell
+##<a id="run-sample"></a>Run the Sample with Azure PowerShell
 
-1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+1.	Open **Azure PowerShell**. For instructions of opening Azure PowerShell console window, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 3. Set the two variables in the following commands, and then run them:
 		
-		$subscriptionName = "<SubscriptionName>"   # Windows Azure subscription name
+		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
 		$clusterName = "<ClusterName>"             # HDInsight cluster name
-4. Run the following command and provide your Windows azure account information:
+4. Run the following command and provide your Azure account information:
 
 		Add-AzureAccount
 		
@@ -84,23 +84,23 @@ Running a MapReduce job requires the following elements:
 		
 **To retrieve the results of the MapReduce job**
 
-1. Open **Windows Azure PowerShell**.
+1. Open **Azure PowerShell**.
 2. Run the following command to change directory to c:\ root:
 
 		cd \
 
-	The default Windows Azure Powershell directory is *C:\Windows\System32\WindowsPowerShell\v1.0*. By default, you don't have the write permission on this folder. You must change directory to either the C:\ root directory or a folder where you have write permission.
+	The default Azure Powershell directory is *C:\Windows\System32\WindowsPowerShell\v1.0*. By default, you don't have the write permission on this folder. You must change directory to either the C:\ root directory or a folder where you have write permission.
 
 2. Set the three variables in the following commands, and then run them:
 
-		$subscriptionName = "<SubscriptionName>"       # Windows Azure subscription name
+		$subscriptionName = "<SubscriptionName>"       # Azure subscription name
 		
-		$storageAccountName = "<StorageAccountName>"   # Windows Azure storage account name
+		$storageAccountName = "<StorageAccountName>"   # Azure storage account name
 		$containerName = "<ContainerName>"			   # Blob storage container name
 
-		The Windows Azure Storage account is the one you created earlier in the tutorial. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
+		The Azure Storage account is the one you created earlier in the tutorial. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
 
-3. Run the following commands to create a Windows Azure storage context object:
+3. Run the following commands to create an Azure storage context object:
 		
 		# Select the current subscription
 		Select-AzureSubscription $subscriptionName
@@ -207,7 +207,7 @@ The following is the source code for the word counting Java MapReduce program:
 ##<a id="nextsteps"></a>Next steps
 While MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. Other languages such as Pig and Hive provide an easier way to work with data stored in HDInsight. To learn more, see the following articles:
 
-* [Get Started with Windows Azure HDInsight][hdinsight-getting-started]
+* [Get Started with Azure HDInsight][hdinsight-getting-started]
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce]
 * [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
 * [Use Hive with HDInsight][hdinsight-hive]

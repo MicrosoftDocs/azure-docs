@@ -1,9 +1,9 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title=" OAuth" authors=""  solutions="" writer="riande" manager="wpickett" editor="mollybos"  />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title=" OAuth" authors="riande" solutions="" manager="wpickett" editor="mollybos" />
 
 
 
 
-# Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site
+# Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site
 
 ***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 15 October 2013.***
 
@@ -12,19 +12,19 @@
 
 <div class="dev-callout"><strong>Note</strong><p>A <a href="/en-us/develop/net/tutorials/web-site-with-sql-database/">newer version of this tutorial</a> is available. You can still follow this version if you want to use Visual Studio 2012, but the newer version is significantly easier to follow.</p></div>
 
-This tutorial shows you how to build a secure ASP.NET MVC 4 web application that enables users to log in with credentials from Facebook, Yahoo, and Google. You will also deploy the application to Windows Azure.
+This tutorial shows you how to build a secure ASP.NET MVC 4 web application that enables users to log in with credentials from Facebook, Yahoo, and Google. You will also deploy the application to Azure.
 
-You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. You can start developing for Windows Azure for free.
+You can open an Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. You can start developing for Azure for free.
 
-This tutorial assumes that you have no prior experience using Windows Azure. On completing this tutorial, you'll have a secure data-driven web application up and running in the cloud and using a cloud database.
+This tutorial assumes that you have no prior experience using Azure. On completing this tutorial, you'll have a secure data-driven web application up and running in the cloud and using a cloud database.
 
 You'll learn:
 
-* How to enable your machine for Windows Azure development by installing the Windows Azure SDK.
-* How to create a secure ASP.NET MVC 4 project and publish it to a Windows Azure Web Site.
+* How to enable your machine for Azure development by installing the Azure SDK.
+* How to create a secure ASP.NET MVC 4 project and publish it to an Azure Web Site.
 * How to use OAuth and the ASP.NET membership database to secure your application.
-* How to deploy a membership database to Windows Azure.
-* How to use a SQL database to store data in Windows Azure.
+* How to deploy a membership database to Azure.
+* How to use a SQL database to store data in Azure.
 * How to use Visual Studio to update and manage the membership database.
 
 You'll build a simple contact list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. The following illustration shows the login page for the completed application:
@@ -36,44 +36,44 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 In this tutorial:
 
 - [Set up the development environment][setupdbenv]
-- [Set up the Windows Azure environment][setupwindowsazureenv]
+- [Set up the Azure environment][setupwindowsazureenv]
 - [Create an ASP.NET MVC 4 application][createapplication]
-- [Deploy the application to Windows Azure][deployapp1]
+- [Deploy the application to Azure][deployapp1]
 - [Add a database to the application][adddb]
 - [Add an OAuth Provider][]
 - [Add Roles to the Membership Database][]
 - [Create a Data Deployment Script][]
-- [Deploy the app to Windows Azure][deployapp11]
+- [Deploy the app to Azure][deployapp11]
 - [Update the Membership Database][]
 - [Next steps][]
 
 <h2><a name="bkmk_setupdevenv"></a>Set up the development environment</h2>
 
-To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
+To start, set up your development environment by installing the Azure SDK for the .NET Framework. 
 
-1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. 
-[Windows Azure SDK for Visual Studio 2012]( http://go.microsoft.com/fwlink/?LinkId=254364)
+1. To install the Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. 
+[Azure SDK for Visual Studio 2012]( http://go.microsoft.com/fwlink/?LinkId=254364)
 1. When you are prompted to run or save the installation executable, click **Run**.
 1. In the Web Platform Installer window, click **Install** and proceed with the installation.
 
-![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSdk20NetVS12]
+![Web Platform Installer - Azure SDK for .NET][WebPIAzureSdk20NetVS12]
 
 
 When the installation is complete, you have everything necessary to start developing.
 
 
 
-<h2><a name="bkmk_setupwindowsazure"></a>Set up the Windows Azure environment</h2>
+<h2><a name="bkmk_setupwindowsazure"></a>Set up the Azure environment</h2>
 
-Next, set up the Windows Azure environment by creating a Windows Azure Web Site and a SQL database.
+Next, set up the Azure environment by creating an Azure Web Site and a SQL database.
 
-### Create a web site and a SQL database in Windows Azure
+### Create a web site and a SQL database in Azure
 
-Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
+Your Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
-Windows Azure SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
+Azure SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
-1. In the [Windows Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.
+1. In the [Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.
 
 ![New button in Management Portal][rxWSnew]
 
@@ -113,7 +113,7 @@ The **New Web Site - Custom Create** wizard opens.
 
 <h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 4 application</h2>
 
-You have created a Windows Azure Web Site, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Windows Azure.
+You have created an Azure Web Site, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Azure.
 
 ### Create the project
 
@@ -144,11 +144,11 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 1. Press CTRL+F5 to run the application. The application home page appears in the default browser.
 ![To Do List home page][rxa]
 
-This is all you need to do for now to create the application that you'll deploy to Windows Azure. Later you'll add database functionality.
+This is all you need to do for now to create the application that you'll deploy to Azure. Later you'll add database functionality.
 
-<h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Windows Azure</h2>
+<h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Azure</h2>
 
-1. In your browser, open the [Windows Azure Management Portal](http://manage.windowsazure.com "portal").
+1. In your browser, open the [Azure Management Portal](http://manage.windowsazure.com "portal").
 
 2. In the **Web Sites** tab, click the name of the site you created earlier.
 
@@ -179,13 +179,13 @@ This is all you need to do for now to create the application that you'll deploy 
 
 	The **Import Publish Profile** dialog box appears.
 
-1. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
+1. If you have not previously added your Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from an Azure web site** will include your web site.
     
-	a.  In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**. 
+	a.  In the **Import Publish Profile** dialog box, click **Add Azure subscription**. 
 
 	![add win az sub](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzAddWAsub.png)
 	
-	b. In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.
+	b. In the **Import Azure Subscriptions** dialog box, click **Download subscription file**.
     
 	![download sub](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDownLoad.png)
 	
@@ -194,10 +194,10 @@ This is all you need to do for now to create the application that you'll deploy 
 	![download pub file](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDown2.png)
     
 	> [WACOM.NOTE]
-	> The .publishsettings file contains your  credentials (unencoded) that are used to administer your Windows Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then  delete it once the import has completed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your Windows Azure services.
+	> The .publishsettings file contains your  credentials (unencoded) that are used to administer your Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then  delete it once the import has completed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your Azure services.
 	
     
-	d. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.
+	d. In the **Import Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.
     
 	![download sub](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDownLoad.png)
 	
@@ -205,13 +205,13 @@ This is all you need to do for now to create the application that you'll deploy 
     
 	![import](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzImp.png)
 
-7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.
+7. In the **Import Publish Profile** dialog box, select **Import from an Azure web site**, select your web site from the drop-down list, and then click **OK**.
 
 	![Import Publish Profile][ImportPublishProfile]
 
 	The application you created is now running in the cloud. The next time you deploy the application, only the changed (or new) files will be deployed.
 	
-	![To Do List home page running in Windows Azure][newapp005]
+	![To Do List home page running in Azure][newapp005]
 
 
 <h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
@@ -530,7 +530,7 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
 
 	![cert Warn][rxNOT2]
  
-Windows Azure Web sites include a valid security certificate, so you won't see this warning when you deploy to Windows Azure.
+Azure Web sites include a valid security certificate, so you won't see this warning when you deploy to Azure.
 <h2><a name="ppd"></a><span class="short-header">Prepare DB</span>Create a Data Deployment Script</h2>
 
 
@@ -572,7 +572,7 @@ You can skip the **Choose Objects** step because the default is Script entire da
 
 1. In the **Advanced Scripting Options** dialog box, scroll down to **Types of data to script**, and click the **Data only** option in the drop-down list. (See the image below the next step.)
 
-1. Change **Script USE DATABASE** to **False**.  USE statements aren't valid for Windows Azure SQL Database and aren't needed for deployment to SQL Server Express in the test environment. 
+1. Change **Script USE DATABASE** to **False**.  USE statements aren't valid for Azure SQL Database and aren't needed for deployment to SQL Server Express in the test environment. 
 	
 	![Set scripting options][rxAdv] 
 
@@ -584,7 +584,7 @@ You can skip the **Choose Objects** step because the default is Script entire da
 
 1. Click **Finish**.
 
-<h2><a name="bkmk_deploytowindowsazure11"></a>Deploy the app to Windows Azure</h2>
+<h2><a name="bkmk_deploytowindowsazure11"></a>Deploy the app to Azure</h2>
 
 1. Open the application root *Web.config* file. Find the *DefaultConnection* markup, and then copy and paste it under the *DefaultConnection* markup line. Rename the copied element *DefaultConnectionDeploy*. You will need this connection string to deploy the user data in the membership database.
 	![3 cons str][rxD] 
@@ -610,7 +610,7 @@ The **Publish Web** wizard opens.
 	![add sql][rxAddSQL2] 
 
 1. Click **Publish**.
-1. Navigate to the [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and change the **App Domains** and **Site URL** settings to the Windows Azure URL.
+1. Navigate to the [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and change the **App Domains** and **Site URL** settings to the Azure URL.
 1. Test the application. Verify only the users in the *canEdit* role can change data. Verify anonymous users can only view the home page. Verify authenticated users can navigate to all links that don't change data.
 1. The next time you publish the application be sure to uncheck **Update database** under **DefaultConnectionDeploy**.
 	
@@ -618,7 +618,7 @@ The **Publish Web** wizard opens.
 
 <h2><a name="ppd2"></a><span class="short-header">Update DB</span>Update the Membership Database</h2>
 
-Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect to the SQL database and add users to the *canEdit* role.
+Once the site is deployed to Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect to the SQL database and add users to the *canEdit* role.
 
 ![settings][rxSettings] 
 
@@ -651,13 +651,13 @@ If you get an error dialog stating "Cannot open server" you will need to add you
 
 ![firewall error][rx5]
 
-1. In the Windows Azure Portal, Select **SQL Databases** in the left tab.
+1. In the Azure Portal, Select **SQL Databases** in the left tab.
 
 	![Select SQL][rx6]
 
 1. Select the database you wish to open.
 
-1. Click the **Set up Windows Azure firewall rules for this IP address** link.
+1. Click the **Set up Azure firewall rules for this IP address** link.
 
 	![firewall rules][rx7]
 
@@ -665,7 +665,7 @@ If you get an error dialog stating "Cannot open server" you will need to add you
 
 ## Adding a Range of Allowed IP Addresses ##
 
-1. In the Windows Azure Portal, Click **SQL Databases**.
+1. In the Azure Portal, Click **SQL Databases**.
 1. Click the **Server** hosting your Database.
 
 	![db server][rx8]
@@ -685,10 +685,10 @@ Please leave feedback on what you liked or what you would like to see improved, 
 
 To get the colorful Facebook, Google and Yahoo log on buttons, see the blog post [Customizing External Login Buttons in ASP.NET MVC 4](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/). For information on using Windows Authentication, see the following:
 
-- [Windows Azure Authentication ](http://www.asp.net/vnext/overview/fall-2012-update/windows-azure-authentication)
+- [Azure Authentication ](http://www.asp.net/vnext/overview/fall-2012-update/windows-azure-authentication)
 - [How to Create an Intranet Site Using ASP.NET MVC](http://msdn.microsoft.com/en-us/library/gg703322(v=vs.98).aspx)
 
-Another way to store data in a Windows Azure application is to use Windows Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on ASP.NET MVC and Window Azure. 
+Another way to store data in an Azure application is to use Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on ASP.NET MVC and Window Azure. 
 
 - [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
 - [Intro to ASP.NET MVC 4](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
@@ -696,19 +696,19 @@ Another way to store data in a Windows Azure application is to use Windows Azure
 - [OAuth 2.0 and Sign-In](http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx)
 
 
-You've seen how to deploy a web application to a Windows Azure Web Site. To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Common Tasks][CommonTasks] page.
+You've seen how to deploy a web application to an Azure Web Site. To learn more about how to configure, manage, and scale Azure Web Sites, see the how-to topics on the [Common Tasks][CommonTasks] page.
 
-To learn how to debug Windows Azure Web Sites, see [Troubleshooting Windows Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+To learn how to debug Azure Web Sites, see [Troubleshooting Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
-To learn how to deploy an application to a Windows Azure Cloud Service, see [The Cloud Service version of this tutorial][NetAppWithSqlAzure] and [Developing Web Applications with Windows Azure][DevelopingWebAppsWithWindowsAzure]. Some reasons for choosing to run an ASP.NET web application in a Windows Azure Cloud Service rather than a Windows Azure Web Site include the following:
+To learn how to deploy an application to an Azure Cloud Service, see [The Cloud Service version of this tutorial][NetAppWithSqlAzure] and [Developing Web Applications with Azure][DevelopingWebAppsWithWindowsAzure]. Some reasons for choosing to run an ASP.NET web application in an Azure Cloud Service rather than an Azure Web Site include the following:
 
 * You want administrator permissions on the web server that the application runs on.
 * You want to use Remote Desktop Connection to access the web server that the application runs on. 
 * Your application is multi-tier and you want to distribute work across multiple virtual servers (web and workers).
 
-For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on Windows Azure][WindowsAzureDataStorageOfferings].
+For more information about both SQL Database and Azure Storage, see [Data Storage Offerings on Azure][WindowsAzureDataStorageOfferings].
 
-To learn more about how to use SQL Database, see [Working with Windows Azure SQL Database in the ASP.NET Data Access Content Map](http://go.microsoft.com/fwlink/p/?LinkId=282414#ssdb).
+To learn more about how to use SQL Database, see [Working with Azure SQL Database in the ASP.NET Data Access Content Map](http://go.microsoft.com/fwlink/p/?LinkId=282414#ssdb).
 
 To learn more about the Entity Framework and Code First Migrations, see the following resources:
 
@@ -841,7 +841,7 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 
 [addcode008]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-migrations-package-manager-menu.png
 [addcode009]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-migrations-package-manager-console.png
-[Important information about ASP.NET in Windows Azure Web Sites]: #aspnetwindowsazureinfo
+[Important information about ASP.NET in Azure Web Sites]: #aspnetwindowsazureinfo
 [Next steps]: #nextsteps
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/ImportPublishProfile.png

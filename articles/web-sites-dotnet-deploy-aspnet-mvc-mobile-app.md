@@ -1,22 +1,22 @@
-<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 4 mobile website" pageTitle=".NET ASP.NET MVC 4 mobile web site - Windows Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 4,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to a Windows Azure web site using mobile features in ASP.NET MVC 4 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Windows Azure Web Sites" authors=""  solutions="" writer="tdykstra" manager="" editor=""  />
+<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 4 mobile website" pageTitle=".NET ASP.NET MVC 4 mobile web site - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 4,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure web site using mobile features in ASP.NET MVC 4 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Web Sites" authors="tdykstra" solutions="" manager="" editor="" />
 
 
 
 
 
 
-# Deploy an ASP.NET MVC Mobile Web Application on Windows Azure Web Sites
+# Deploy an ASP.NET MVC Mobile Web Application on Azure Web Sites
 
 ***By [Rick Anderson](https://twitter.com/RickAndMSFT) Updated 26 June 2013.***
 
-This tutorial will teach you the basics of how to deploy a web application to to a Windows Azure web site. For the purposes of this tutorial we will work with mobile features in an ASP.NET MVC 4 web application. To perform the steps in this tutorial, you can use Microsoft Visual Studio 2012. You can also use [Visual Studio Express 2012][], which is a free versions of Microsoft Visual Studio. 
+This tutorial will teach you the basics of how to deploy a web application to to an Azure web site. For the purposes of this tutorial we will work with mobile features in an ASP.NET MVC 4 web application. To perform the steps in this tutorial, you can use Microsoft Visual Studio 2012. You can also use [Visual Studio Express 2012][], which is a free versions of Microsoft Visual Studio. 
 
 <h2>You will learn:</h2>
 
 - How the ASP.NET MVC 4 templates use the HTML5 viewport attribute and adaptive rendering to improve display on mobile devices.
 - How to create mobile-specific views.
 - How to create a view switcher that lets users toggle between a mobile view and a desktop view of the application.
-- How to deploy the web application to Windows Azure.
+- How to deploy the web application to Azure.
 
 For this tutorial, you'll add mobile features to the simple conference-listing application that's provided in the starter project. The following screenshot shows the main page of the completed application as seen in the Windows 7 Phone Emulator.
 
@@ -26,14 +26,14 @@ For this tutorial, you'll add mobile features to the simple conference-listing a
 
 <h2>Setting up the development environment</h2>
 
-Set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
+Set up your development environment by installing the Azure SDK for the .NET Framework. 
 
-1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. 
-[Windows Azure SDK for Visual Studio 2012]( http://go.microsoft.com/fwlink/?LinkId=254364)
+1. To install the Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. 
+[Azure SDK for Visual Studio 2012]( http://go.microsoft.com/fwlink/?LinkId=254364)
 1. When you are prompted to run or save the installation executable, click **Run**.
 1. In the Web Platform Installer window, click **Install** and proceed with the installation.
 
-![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSdk20NetVS12]
+![Web Platform Installer - Azure SDK for .NET][WebPIAzureSdk20NetVS12]
 
 You will also need a mobile browser emulator. Any of the following will work:
 
@@ -50,7 +50,7 @@ This tutorial shows code in C#. However, the starter project and completed proje
 
 <h2>Steps in this tutorial</h2>
 
-- [Create a Windows Azure web site](#bkmk_CreateWebSite)
+- [Create an Azure web site](#bkmk_CreateWebSite)
 - [Setup the starter Project](#bkmk_setupstarterproject)
 - [Override the Views, Layouts, and Partial Views][]
 - [Use jQuery Mobile to define the mobile broswer interface][]
@@ -60,13 +60,13 @@ This tutorial shows code in C#. However, the starter project and completed proje
 - [Improve the Dates List][]
 - [Improve the SessionsTable View][]
 - [Improve the SessionByCode View][]
-- [Deploy the Application to the Windows Azure Web Site][]
+- [Deploy the Application to the Azure Web Site][]
 
-<h3><a name="bkmk_CreateWebSite"></a>Create a web site in Windows Azure</h3>
+<h3><a name="bkmk_CreateWebSite"></a>Create a web site in Azure</h3>
 
-Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure cloud service. Cloud services run on dedicated VMs that you can configure according to your needs.
+Your Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure cloud service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
-1.	Log on to the [Windows Azure Management Portal][managementportal]. In the Management Portal, click **New**.
+1.	Log on to the [Azure Management Portal][managementportal]. In the Management Portal, click **New**.
 
 	![][CreateWebSite1]
 
@@ -497,7 +497,7 @@ Refresh the mobile browser. The following image reflects the code changes that y
 
 ![][SessionByCode4]
 
-<h2><a name="bkmk_deployapplciation"></a> Deploy the Application to the Windows Azure Web Site</h2>
+<h2><a name="bkmk_deployapplciation"></a> Deploy the Application to the Azure Web Site</h2>
 
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
@@ -510,12 +510,12 @@ Refresh the mobile browser. The following image reflects the code changes that y
 
 	The **Import Publish Profile** dialog box appears.
 
-3. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
-	1. In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**. 
+3. If you have not previously added your Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from an Azure web site** will include your web site.
+	1. In the **Import Publish Profile** dialog box, click **Add Azure subscription**. 
 
 	![add win az sub](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzAddWAsub.png)
 
-	1. In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.
+	1. In the **Import Azure Subscriptions** dialog box, click **Download subscription file**.
     
 	![download sub](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzDownLoad.png)
     
@@ -526,7 +526,7 @@ Refresh the mobile browser. The following image reflects the code changes that y
 	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 </br>
     
-	1. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.
+	1. In the **Import Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.
     
 	![download sub](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzDownLoad.png)
     
@@ -534,7 +534,7 @@ Refresh the mobile browser. The following image reflects the code changes that y
     
 	![import](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzImp.png)
 
-	7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.
+	7. In the **Import Publish Profile** dialog box, select **Import from an Azure web site**, select your web site from the drop-down list, and then click **OK**.
 
 	![Import Publish Profile][ImportPublishProfile]
 
@@ -558,7 +558,7 @@ The tab displays a list of the files that will be copied to the server. Displayi
 
 	12. Click **Publish**.
 
-	Visual Studio begins the process of copying the files to the Windows Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
+	Visual Studio begins the process of copying the files to the Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 
 	15. The default browser automatically opens to the URL of the deployed site. The application you created is now running in the cloud.
 
@@ -567,7 +567,7 @@ The tab displays a list of the files that will be copied to the server. Displayi
 You can test your live web site using the phone emulator by browsing to the site URL in the mobile browser.
 
 <!-- Internal Links -->
-[Create a Windows Azure web site]: #bkmk_createaccount
+[Create an Azure web site]: #bkmk_createaccount
 [Setup the starter Project]: #bbkmk_setupstarterproject
 [Override the Views, Layouts, and Partial Views]: #bkmk_overrideviews
 [Use jQuery Mobile to define the mobile broswer interface]: #bkmk_usejquerymobile
@@ -577,7 +577,7 @@ You can test your live web site using the phone emulator by browsing to the site
 [Improve the Dates List]: #bkmk_improvedates
 [Improve the SessionsTable View]: #bkmk_improvesessionstable
 [Improve the SessionByCode View]: #bkmk_improvesessionbycode
-[Deploy the Application to the Windows Azure Web Site]: #bkmk_deployapplciation
+[Deploy the Application to the Azure Web Site]: #bkmk_deployapplciation
 
 <!-- Images -->
 [CreateWebSite1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_1.png

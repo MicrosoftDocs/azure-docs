@@ -1,4 +1,4 @@
-<properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Windows Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -33,7 +33,7 @@ and subscriptions, see the [Next Steps](#Next_Steps) section.
 
 ##<a name="How_to_Create_a_Topic"></a>How to Create a Topic
 
-The **ServiceBusService** object lets you work with topics. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Service Bus:
+The **ServiceBusService** object lets you work with topics. Add the following near the top of any Python file in which you wish to programmatically access Azure Service Bus:
 
 	from azure.servicebus import *
 
@@ -219,7 +219,7 @@ delivery attempts.
 ##<a name="How_to_Delete_Topics_and_Subscriptions"></a>How to Delete Topics and Subscriptions
 
 Topics and subscriptions are persistent, and must be explicitly deleted
-either through the Windows Azure Management portal or programmatically.
+either through the Azure Management portal or programmatically.
 The example below demonstrates how to delete the topic named 'mytopic':
 
 	bus_service.delete_topic('mytopic')
@@ -251,7 +251,7 @@ links to learn more.
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   
   [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
   
   
   

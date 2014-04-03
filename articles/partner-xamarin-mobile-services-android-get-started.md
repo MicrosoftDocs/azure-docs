@@ -1,4 +1,4 @@
-<properties pageTitle="Get Started with Mobile Services for Xamarin.Android" metaKeywords="Windows Azure Xamarin.Android application, mobile service XamarinAndroid, getting started Azure Xamarin.Android" writer="craigd" description="Learn how to use Windows Azure Mobile Services with your Xamarin.Android app." metaCanonical="" 
+<properties pageTitle="Get Started with Mobile Services for Xamarin.Android" metaKeywords="Azure Xamarin.Android application, mobile service XamarinAndroid, getting started Azure Xamarin.Android" writer="craigd" description="Learn how to use Azure Mobile Services with your Xamarin.Android app." metaCanonical="" 
 	documentationCenter="Mobile" title="Get started with Mobile Services" />
 
 # <a name="getting-started"></a>Get started with Mobile Services
@@ -22,7 +22,7 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple <em>To do list</em> app that stores app data in the new mobile service.</p>
+<p>This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple <em>To do list</em> app that stores app data in the new mobile service.</p>
 <p>A screenshot from the completed app is below:</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-xamarin-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:05</span></div>
@@ -34,7 +34,7 @@ Completing this tutorial requires [Xamarin.Android], which installs Xamarin Stud
 
 The downloaded quickstart project contains the Azure Mobile services component for Xamarin.Android. While this project targets Android 4.2 or a later version, the Mobile Services SDK requires only Android 2.2 or a later version.
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Windows Azure Free Trial</a>.</p></div>
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Azure Free Trial</a>.</p></div>
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
@@ -82,7 +82,7 @@ The final stage of this tutorial is to build and run your new app.
 
 	![][10]
 
-	This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
 	> [WACOM.NOTE] 
    	> You can review the code that accesses your mobile service to query and insert data, which is found in the ToDoActivity.cs C# file.

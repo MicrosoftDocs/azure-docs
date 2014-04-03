@@ -1,10 +1,10 @@
-<properties linkid="manage-linux-other-resources-command-line-tools" urlDisplayName="Command-Line Tools" pageTitle="Windows Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Windows Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors=""  solutions="" writer="larryfr" manager="" editor=""  />
+<properties linkid="manage-linux-other-resources-command-line-tools" urlDisplayName="Command-Line Tools" pageTitle="Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="larryfr" solutions="" manager="" editor="" />
 
-#Windows Azure command-line tool for Mac and Linux
+#Azure command-line tool for Mac and Linux
 
-This tool provides functionality for creating, deploying, and managing virtual machines, websites and Windows Azure Mobile Services from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS, and PHP.
+This tool provides functionality for creating, deploying, and managing virtual machines, websites and Azure Mobile Services from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
 
-To install the tool on a Mac, download and run the [Windows Azure SDK installer](http://go.microsoft.com/fwlink/?LinkId=252249).
+To install the tool on a Mac, download and run the [Azure SDK installer](http://go.microsoft.com/fwlink/?LinkId=252249).
 
 To install the tool on Linux, install the latest version of Node.JS and then use NPM to install:
 
@@ -17,25 +17,25 @@ In addition to command-specific optional parameters documented here, there are t
 **Table of Contents:**
 
 * [Manage your account information and publish settings](#Manage_your_account_information_and_publish_settings)
-* [Commands to manage your Windows Azure virtual machines](#Commands_to_manage_your_Azure_virtual_machines)
-* [Commands to manage your Windows Azure virtual machine endpoints](#Commands_to_manage_your_Azure_virtual_machine_endpoints)
-* [Commands to manage your Windows Azure virtual machine images](#Commands_to_manage_your_Azure_virtual_machine_images)
-* [Commands to manage your Windows Azure virtual machine data disks](#Commands_to_manage_your_Azure_virtual_machine_data_disks)
-* [Commands to manage your Windows Azure cloud services](#Commands_to_manage_your_Azure_cloud_services)
-* [Commands to manage your Windows Azure certificates](#Commands_to_manage_your_Azure_certificates)
+* [Commands to manage your Azure virtual machines](#Commands_to_manage_your_Azure_virtual_machines)
+* [Commands to manage your Azure virtual machine endpoints](#Commands_to_manage_your_Azure_virtual_machine_endpoints)
+* [Commands to manage your Azure virtual machine images](#Commands_to_manage_your_Azure_virtual_machine_images)
+* [Commands to manage your Azure virtual machine data disks](#Commands_to_manage_your_Azure_virtual_machine_data_disks)
+* [Commands to manage your Azure cloud services](#Commands_to_manage_your_Azure_cloud_services)
+* [Commands to manage your Azure certificates](#Commands_to_manage_your_Azure_certificates)
 * [Commands to manage your web sites](#Commands_to_manage_your_web_sites)
-* [Commands to manage Windows Azure Mobile Services](#Commands_to_manage_mobile_services)
+* [Commands to manage Azure Mobile Services](#Commands_to_manage_mobile_services)
 * [Manage tool local settings](#Manage_tool_local_settings)
 * [Commands to manage Service Bus](#Commands_to_manage_service_bus)
 * [Commands to manage SQL Databases](#Commands_to_manage_sql)
 * [Commands to manage your Virtual Networks](#Commands_to_manage_vnet)
 
 ##<a name="Manage_your_account_information_and_publish_settings"></a>Manage your account information and publish settings
-Your Windows Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Windows Azure portal in a publish settings file as described here. The publish settings file can then be imported as a persistent local config setting that the tool will use for subsequent operations. You only need to import your publish settings once.
+Your Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Azure portal in a publish settings file as described here. The publish settings file can then be imported as a persistent local config setting that the tool will use for subsequent operations. You only need to import your publish settings once.
 
 **account download [options]**
 
-This command launches a browser to download your .publishsettings file from the Windows Azure portal.
+This command launches a browser to download your .publishsettings file from the Azure portal.
 
 	~$ azure account download
 	info:   Executing command account download
@@ -92,7 +92,7 @@ Set the current subscription
 
 **account affinity-group list [options]**
 
-This command lists your Windows Azure affinity groups.
+This command lists your Azure affinity groups.
 
 Affinity groups can be set when a group of virtual machines spans multiple physical machines. The affinity group specifies that the physical machines should be as close to each other as possible, to reduce network latency.
  
@@ -178,8 +178,8 @@ This command sets the account environment
 
 This command deletes the specified environment from the account
 
-##<a name="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Windows Azure virtual machines
-The following diagram shows how Windows Azure virtual machines are hosted in the production deployment environment of a Windows Azure cloud service.
+##<a name="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Azure virtual machines
+The following diagram shows how Azure virtual machines are hosted in the production deployment environment of an Azure cloud service.
  
 ![Azure Technical Diagram](./media/command-line-tools/architecturediagram.jpg)	
 
@@ -187,9 +187,9 @@ The following diagram shows how Windows Azure virtual machines are hosted in the
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
-This command creates a new Windows Azure virtual machine. By default, each virtual machine is created in its own cloud service; however, you can specify that a virtual machine should be added to an existing cloud service through use of the -c option as documented here.
+This command creates a new Azure virtual machine. By default, each virtual machine is created in its own cloud service; however, you can specify that a virtual machine should be added to an existing cloud service through use of the -c option as documented here.
 
-Note that the vm create command, like the Windows Azure portal, only creates virtual machines in the production deployment environment. There is currently no option for creating a virtual machine in the staging deployment environment of a cloud service. Note that a Windows Azure storage account is created by this command if one does not already exist for your subscription.
+Note that the vm create command, like the Azure portal, only creates virtual machines in the production deployment environment. There is currently no option for creating a virtual machine in the staging deployment environment of a cloud service. Note that an Azure storage account is created by this command if one does not already exist for your subscription.
 
 You can specify a location through the --location parameter, or you can specify an affinity group through the --affinity-group parameter. If neither is provided, you are prompted to provide one from a list of valid locations.
 
@@ -213,7 +213,7 @@ The following optional parameters are supported for this command:
 **-w** The virtual network name <br/>
 **-l, --location** specifies the location (for example, "North Central US"). <br />
 **-a, --affinity-group** specifies the affinity group.<br />
-**-w, --virtual-network-name** Specify the virtual network on which to add the new vitual machine. Virtual networks can be set up and managed from the Windows Azure portal.<br />
+**-w, --virtual-network-name** Specify the virtual network on which to add the new vitual machine. Virtual networks can be set up and managed from the Azure portal.<br />
 **-b, --subnet-names** Specifies the subnet names to assign the virtual machine.
 
 In this example, MSFT__Win2K8R2SP1-120514-1520-141205-01-en-us-30GB is an image provided by the platform. For more information about operating system images, see vm image list.
@@ -225,14 +225,14 @@ In this example, MSFT__Win2K8R2SP1-120514-1520-141205-01-en-us-30GB is an image 
 
 **vm create-from &lt;dns-name> &lt;role-file>**
 
-This command creates a new Windows Azure virtual machine from a JSON role file.
+This command creates a new Azure virtual machine from a JSON role file.
 
 	~$ azure vm create-from my-vm example.json
 	info:   OK
 
 **vm list [options]**
 
-This command lists Windows Azure virtual machines. The -json option specifies that the results are returned in raw JSON format. 
+This command lists Azure virtual machines. The -json option specifies that the results are returned in raw JSON format. 
 
 	~$ azure vm list
 	info:   Executing command vm list
@@ -243,18 +243,18 @@ This command lists Windows Azure virtual machines. The -json option specifies th
 
 **vm location list [options]**
 
-This command lists all available Windows Azure account locations.
+This command lists all available Azure account locations.
 
 	~$ azure vm location list
 	info:   Executing command vm location list
 	data:   Name                   Display Name                                    
 	data:   ---------------------  ------------
-	data:   Windows Azure Preview  West US     
+	data:   Azure Preview  West US     
 	info:   account location list command OK
 
 **vm show [options] &lt;name>**
 
-This command shows details about a Windows Azure virtual machine. The -json option specifies that the results are returned in raw JSON format. 
+This command shows details about an Azure virtual machine. The -json option specifies that the results are returned in raw JSON format. 
 
 	~$ azure vm show my-vm
 	info:   Executing command vm show
@@ -284,7 +284,7 @@ This command shows details about a Windows Azure virtual machine. The -json opti
 
 **vm delete [options] &lt;name>**
 
-This command deletes a Windows Azure virtual machine. By default, this command does not delete the Windows Azure blob from which the the operating system disk and the data disk are created. To delete the blob as well as the virtual machine on which it is based, specify the -b option.
+This command deletes an Azure virtual machine. By default, this command does not delete the Azure blob from which the the operating system disk and the data disk are created. To delete the blob as well as the virtual machine on which it is based, specify the -b option.
 
 	~$ azure vm delete my-vm 
 	info:   Executing command vm delete
@@ -292,7 +292,7 @@ This command deletes a Windows Azure virtual machine. By default, this command d
 
 **vm start [options] &lt;name>**
 
-This command starts a Windows Azure virtual machine.
+This command starts an Azure virtual machine.
 
 	~$ azure vm start my-vm
 	info:   Executing command vm start
@@ -300,7 +300,7 @@ This command starts a Windows Azure virtual machine.
 
 **vm restart [options] &lt;name>**
 
-This command restarts a Windows Azure virtual machine.
+This command restarts an Azure virtual machine.
 
 	~$ azure vm restart my-vm
 	info:   Executing command vm restart
@@ -308,7 +308,7 @@ This command restarts a Windows Azure virtual machine.
 
 **vm shutdown [options] &lt;name>**
 
-This command shuts down a Windows Azure virtual machine. You may use the -p option to specify that the compute resource not be released on shutdown.
+This command shuts down an Azure virtual machine. You may use the -p option to specify that the compute resource not be released on shutdown.
 
 ```
 ~$ azure vm shutdown my-vm
@@ -318,7 +318,7 @@ info:   vm shutdown command OK
 
 **vm capture &lt;vm-name> &lt;target-image-name>**
 
-This command captures a Windows Azure virtual machine image.
+This command captures an Azure virtual machine image.
 
 A virtual machine image cannot be captured while the virtual machine state unless the virtual machine state is Stopped .
 
@@ -330,7 +330,7 @@ A virtual machine image cannot be captured while the virtual machine state unles
 
 **vm export [options] &lt;vm-name> &lt;file-path>**
 
-This command exports a Windows Azure virtual machine image to a file
+This command exports an Azure virtual machine image to a file
 
 	~$ azure vm export "myvm" "C:\"
 	info:    Executing command vm export
@@ -338,7 +338,7 @@ This command exports a Windows Azure virtual machine image to a file
 	+ Exporting the VM
 	info:   vm export command OK
 
-##<a name="Commands_to_manage_your_Azure_virtual_machine_endpoints"></a>Commands to manage your Windows Azure virtual machine endpoints
+##<a name="Commands_to_manage_your_Azure_virtual_machine_endpoints"></a>Commands to manage your Azure virtual machine endpoints
 The following diagram shows the architecture of a typical deployment of multiple instances of a virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
 
 ![azurenetworkdiagram](./media/command-line-tools/networkdiagram.jpg)
@@ -417,7 +417,7 @@ This command shows the details of the endpoints on a vm
 	data:    Network Endpoints 2 Vip "168.61.9.97"
 	info:    vm endpoint show command OK
 
-##<a name="Commands_to_manage_your_Azure_virtual_machine_images"></a>Commands to manage your Windows Azure virtual machine images
+##<a name="Commands_to_manage_your_Azure_virtual_machine_images"></a>Commands to manage your Azure virtual machine images
 
 Virtual machine images are captures of already configured virtual machines that can be replicated as required.
 
@@ -484,9 +484,9 @@ Some systems impose per-process file descriptor limits. If this limit is exceede
 	info:   http://myaccount.blob.core.azure.com/vm-images/Sample.vhd is uploaded successfully
 	info:   vm image create command OK
 
-##<a name="Commands_to_manage_your_Azure_virtual_machine_data_disks"></a>Commands to manage your Windows Azure virtual machine data disks
+##<a name="Commands_to_manage_your_Azure_virtual_machine_data_disks"></a>Commands to manage your Azure virtual machine data disks
 
-Data disks are .vhd files in blob storage that can be used by a virtual machine. For more information about how data disks are deployed to blob storage, see the Windows Azure technical diagram shown earlier. 
+Data disks are .vhd files in blob storage that can be used by a virtual machine. For more information about how data disks are deployed to blob storage, see the Azure technical diagram shown earlier. 
 
 The commands for attaching data disks (azure vm disk attach and azure vm disk attach-new) assign a Logical Unit Number (LUN) to the attached data disk, as required by the SCSI protocol. The first data disk attached to a virtual machine is assigned LUN 0, the next is assigned LUN 1, and so on.
 
@@ -498,7 +498,7 @@ When you detach a data disk with the azure vm disk detach command, use the &lt;l
 
 **vm disk show [options] &lt;name>**
 
-This command shows details about a Windows Azure disk.
+This command shows details about an Azure disk.
 
 	~$ azure vm disk show anucentos-anucentos-0-20120524070008
 	info:   Executing command vm disk show
@@ -506,7 +506,7 @@ This command shows details about a Windows Azure disk.
 	data:   AttachedTo HostedServiceName "myanucentos"
 	data:   AttachedTo RoleName "myanucentos"
 	data:   OS "Linux"
-	data:   Location "Windows Azure Preview"
+	data:   Location "Azure Preview"
 	data:   LogicalDiskSizeInGB "30"
 	data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
 	data:   Name "mycentos-mycentos-0-20120524070008"
@@ -515,7 +515,7 @@ This command shows details about a Windows Azure disk.
 
 **vm disk list [options] [vm-name]**
 
-This command lists Windows Azure disks, or disks attached to a specified virtual machine. if it is run with a virtual machine name parameter, it returns all disks attached to the virtual machine. Lun 1 is created with the virtual machine, and any other listed disks are attached separately.
+This command lists Azure disks, or disks attached to a specified virtual machine. if it is run with a virtual machine name parameter, it returns all disks attached to the virtual machine. Lun 1 is created with the virtual machine, and any other listed disks are attached separately.
 
 	~$ azure vm disk list mycentos
 	info:   Executing command vm disk list
@@ -537,7 +537,7 @@ Executing this command without a virtual machine name parameter returns all disk
 
 **vm disk delete [options] &lt;name>**
 
-This command deletes a Windows Azure disk from a personal repository. The disk must be detached from the virtual machine before it is deleted.
+This command deletes an Azure disk from a personal repository. The disk must be detached from the virtual machine before it is deleted.
 
 	~$ azure vm disk delete mycentos-mycentos-2-20120525055052
 	info:   Executing command vm disk delete
@@ -546,7 +546,7 @@ This command deletes a Windows Azure disk from a personal repository. The disk m
 
 **vm disk create &lt;name> [source-path]**
 
-This command uploads and registers a Windows Azure disk. --blob-url, --location, or --affinity-group must be specified. If you use this command with [source-path], the .vhd file specified is uploaded and a new image is created. You can then attach this image to a virtual machine by using vm disk attach.
+This command uploads and registers an Azure disk. --blob-url, --location, or --affinity-group must be specified. If you use this command with [source-path], the .vhd file specified is uploaded and a new image is created. You can then attach this image to a virtual machine by using vm disk attach.
 
 Some systems impose per-process file descriptor limits. If this limit is exceeded, the tool displays a file descriptor limit error. You can run the command again using the -p &lt;number> parameter to reduce the maximum number of parallel uploads. The default maximum number of parallel uploads is 96. 
 
@@ -577,7 +577,7 @@ This command attaches an existing disk in blob storage to an existing virtual ma
 
 **vm disk attach-new &lt;vm-name> &lt;size-in-gb> [blob-url]**
 
-This command attaches a data disk to a Windows Azure virtual machine. In this example, 20 is the size of the new disk, in gigabytes, to be attached. You can optionally use a blob URL as the last argument to explicitly specify the target blob to create. If you do not specify a blob URL, a blob object will be automatically generated.
+This command attaches a data disk to an Azure virtual machine. In this example, 20 is the size of the new disk, in gigabytes, to be attached. You can optionally use a blob URL as the last argument to explicitly specify the target blob to create. If you do not specify a blob URL, a blob object will be automatically generated.
 
 	~$ azure vm disk attach-new nick-test36 20 http://nghinazz.blob.core.azure-preview.com/vhds/vmdisk1.vhd
 	info:   Executing command vm disk attach-new
@@ -585,15 +585,15 @@ This command attaches a data disk to a Windows Azure virtual machine. In this ex
 
 **vm disk detach &lt;vm-name> &lt;lun>**
 
-This command detaches a data disk attached to a Windows Azure virtual machine. &lt;lun> identifies the disk to be detached. To get a list of disks associated with a disk before you detach it, use vm disk-list &lt;vm-name>.
+This command detaches a data disk attached to an Azure virtual machine. &lt;lun> identifies the disk to be detached. To get a list of disks associated with a disk before you detach it, use vm disk-list &lt;vm-name>.
 
 	~$ azure vm disk detach my-vm 2
 	info:   Executing command vm disk detach
 	info:   vm disk detach command OK
 
-##<a name="Commands_to_manage_your_Azure_cloud_services"></a>Commands to manage your Windows Azure cloud services
+##<a name="Commands_to_manage_your_Azure_cloud_services"></a>Commands to manage your Azure cloud services
 
-Windows Azure cloud services are applications and services hosted on web roles and worker roles. The following commands can be used to manage Windows Azure cloud services.
+Azure cloud services are applications and services hosted on web roles and worker roles. The following commands can be used to manage Azure cloud services.
 
 **service create [options] &lt;serviceName>**
 
@@ -616,7 +616,7 @@ This command creates a new cloud service
 
 **service show [options] &lt;serviceName>**
 
-This command shows the details of a Windows Azure cloud service
+This command shows the details of an Azure cloud service
 
 	~$ azure service show newservicemsopentech
 	info:    Executing command service show
@@ -632,7 +632,7 @@ This command shows the details of a Windows Azure cloud service
 
 **service list [options]**
 
-This command lists Windows Azure cloud services.
+This command lists Azure cloud services.
 
 	~$ azure service list
 	info:   Executing command service list
@@ -644,20 +644,20 @@ This command lists Windows Azure cloud services.
 
 **service delete [options] &lt;name>**
 
-This command deletes a Windows Azure cloud service.
+This command deletes an Azure cloud service.
 
 	~$ azure cloud-service delete myservice
 	info:   Executing command cloud-service delete myservice 
 	info:   cloud-service delete command OK
 
 
-##<a name="Commands_to_manage_your_Azure_certificates"></a>Commands to manage your Windows Azure certificates
+##<a name="Commands_to_manage_your_Azure_certificates"></a>Commands to manage your Azure certificates
 
-Windows Azure certificates are cerificates (that is, SSL certificates) connected to your Windows Azure account.
+Azure certificates are cerificates (that is, SSL certificates) connected to your Azure account.
 
 **service cert list [options]**
 
-This command lists Windows Azure certificates.
+This command lists Azure certificates.
 
 	~$ azure service cert list
 	info:   Executing command service cert list
@@ -691,7 +691,7 @@ This command deletes a certificate.
 
 ##<a name="Commands_to_manage_your_web_sites"></a>Commands to manage your web sites
 
-A Windows Azure web site is a web configuration accessible by URI. Web sites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Windows Azure.
+An Azure web site is a web configuration accessible by URI. Web sites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Azure.
 
 **site list [options]**
 
@@ -1037,9 +1037,9 @@ This command configures the diagnistic options
 **site scale instances [options] &lt;instances> [name]**
 
 
-##<a name="Commands_to_manage_mobile_services"></a>Commands to manage Windows Azure Mobile Services
+##<a name="Commands_to_manage_mobile_services"></a>Commands to manage Azure Mobile Services
 
-Windows Azure Mobile Services brings together a set of Windows Azure services that enable backend capabilities for your apps. Mobile Services commands are divided into the following categories:
+Azure Mobile Services brings together a set of Azure services that enable backend capabilities for your apps. Mobile Services commands are divided into the following categories:
 
 + [Commands to manage mobile service instances](#Mobile_Services)
 + [Commands to manage mobile service configuration](#Mobile_Configuration)

@@ -1,4 +1,4 @@
-<properties linkid="develop-python-install-python" urlDisplayName="Install Python" pageTitle="Install Python and the SDK - Windows Azure" metaKeywords="Azure Python SDK" description="Learn how to install Python and the SDK to use with Windows Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-python-install-python" urlDisplayName="Install Python" pageTitle="Install Python and the SDK - Azure" metaKeywords="Azure Python SDK" description="Learn how to install Python and the SDK to use with Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -13,12 +13,12 @@ Python is pretty easy to setup on Windows and comes pre-installed on Mac and Lin
 
 ## What's in the Python Azure SDK?
 
-The Windows Azure SDK for Python includes components that allow you to develop, deploy, and mangage Python applications for Windows Azure. Specifically, the Windows Azure SDK for Python includes the following:
+The Azure SDK for Python includes components that allow you to develop, deploy, and mangage Python applications for Azure. Specifically, the Azure SDK for Python includes the following:
 
-* **The Python Client Libraries for Windows Azure**. These class libraries provide an interface for accessing Windows Azure features, such as Data Management Services and Cloud Services.  
-* **The Windows Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Windows Azure services, such as Windows Azure Web Sites and Windows Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
-* **PowerShell for Windows Azure (Windows Only)**. This is a set of PowerShell cmdlets for deploying and managing Windows Azure Services, such as Cloud Services and Virtual Machines.
-* **The Windows Azure Emulators (Windows Only)**. The compute and storage emulators are local emulators of Cloud Services and Data Management Services that allow you to test an application locally. The Windows Azure Emulators run on Windows only.
+* **The Python Client Libraries for Azure**. These class libraries provide an interface for accessing Azure features, such as Data Management Services and Cloud Services.  
+* **The Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Azure services, such as Azure Web Sites and Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
+* **PowerShell for Azure (Windows Only)**. This is a set of PowerShell cmdlets for deploying and managing Azure Services, such as Cloud Services and Virtual Machines.
+* **The Azure Emulators (Windows Only)**. The compute and storage emulators are local emulators of Cloud Services and Data Management Services that allow you to test an application locally. The Azure Emulators run on Windows only.
 
 
 The core scenarios for this release are:
@@ -92,13 +92,13 @@ Python Tools for Visual Studio is a free/OSS plugin from Microsoft which turns V
 
 Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to cloud, etc.  This add-in  works with your existing VS2010 install.  If you don't have VS2010, WebPI will install the free Integrated Shell + PTVS which essentially give you a **completely free** "VS Python Express" IDE.  For more information, see [Python Tools for Visual Studio on CodePlex][].  
 
-Note: While the PTVS plug-in is small, the Integrated Shell will increases your download times. The Integrated Shell version also currently doesn't support the "Add Windows Azure Deployment Project" feature.
+Note: While the PTVS plug-in is small, the Integrated Shell will increases your download times. The Integrated Shell version also currently doesn't support the "Add Azure Deployment Project" feature.
 
 ## Windows Uninstall
 
-The **Windows Azure SDK for Python June 2012** WebPI product is not an application in the typical sense, but actually a collection of distinct products such as 32-bit Python 2.7, Windows Azure client APIs for Python, Django, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, so you will need to remove the programs that it installs individually from the Windows Control Panel.  
+The **Azure SDK for Python June 2012** WebPI product is not an application in the typical sense, but actually a collection of distinct products such as 32-bit Python 2.7, Azure client APIs for Python, Django, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, so you will need to remove the programs that it installs individually from the Windows Control Panel.  
 
-If you ever wish to reinstall **Windows Azure SDK for Python**, simply open a PowerShell command prompt as an administrator and run the following command:
+If you ever wish to reinstall **Azure SDK for Python**, simply open a PowerShell command prompt as an administrator and run the following command:
 
 	rm -force "HKLM:\SOFTWARE\Microsoft\Windows Azure SDK for Python - June 2012"
 
@@ -110,7 +110,7 @@ Python is most likely already installed on your Dev machine.  You can check by e
 
 ![how-to-install-python-linux-run](./media/python-how-to-install/how-to-install-python-linux-run.png)
 
-Here we see that this Azure Suse VM has CPython 2.7.2 installed which is fine for running the Windows Azure tutorials and Django samples. If you need to upgrade, follow your OS's recommended package upgrade instructions.  Note however, that in general it's better to leave the system Python alone (others may depend on that version) and install the newer version via [Virtualenv][].
+Here we see that this Azure Suse VM has CPython 2.7.2 installed which is fine for running the Azure tutorials and Django samples. If you need to upgrade, follow your OS's recommended package upgrade instructions.  Note however, that in general it's better to leave the system Python alone (others may depend on that version) and install the newer version via [Virtualenv][].
 
 To install the Python Azure Client Libraries, use **pip** to grab it from **PyPI**:
 
@@ -126,11 +126,11 @@ You should now see the client libraries installed under **site-packages**.  On M
 
 When developing from mac/linux, there are two main scenarios supported for this release:
 
-1. Consuming Windows Azure Services by using the client libraries for Python
+1. Consuming Azure Services by using the client libraries for Python
 
 2. Running your app in a Linux VM
 
-The first scenario enables you to author rich web apps that take advantage of the Windows Azure PaaS capabilities such as blob storage, queues, etc. via Pythonic wrappers for the Windows Azure REST API's.  These work identically on Windows, Mac and Linux.  See the Tutorials and How To Guides for examples.  You can also use these client libraries from within a Linux VM.
+The first scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as blob storage, queues, etc. via Pythonic wrappers for the Azure REST API's.  These work identically on Windows, Mac and Linux.  See the Tutorials and How To Guides for examples.  You can also use these client libraries from within a Linux VM.
 
 For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython](http://ipython.org) REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. For more information on IPython installation please see its tutorial.
 
@@ -162,6 +162,6 @@ For information on how to setup a Linux VM, please see the [Linux Management sec
 [Python Package Index (PyPI)]: http://pypi.python.org/pypi
 [Virtualenv]: http://pypi.python.org/pypi/virtualenv 
 [WebPI installer]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
-[Setting up a Linux VM via the Windows Azure portal]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
-[How to use the Windows Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools
+[Setting up a Linux VM via the Azure portal]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
+[How to use the Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools
 

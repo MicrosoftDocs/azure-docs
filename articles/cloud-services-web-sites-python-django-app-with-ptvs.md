@@ -1,4 +1,4 @@
-<properties linkid="develop-python-tutorials-django-with-python-tools-for-visual-studio" urlDisplayName="Django with Python Tools for Visual Studio 2.0" pageTitle="Creating Django applications with Python Tools for Visual Studio 2.0" metaKeywords="" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL Database or MySQL database instance and can be deployed to a web site or cloud service." metaCanonical="" services="web-sites,cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools 2.0 for Visual Studio" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-python-tutorials-django-with-python-tools-for-visual-studio" urlDisplayName="Django with Python Tools for Visual Studio 2.0" pageTitle="Creating Django applications with Python Tools for Visual Studio 2.0" metaKeywords="" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL Database or MySQL database instance and can be deployed to a web site or cloud service." metaCanonical="" services="web-sites,cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools 2.0 for Visual Studio" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -8,13 +8,13 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>In this tutorial, we'll use Python Tools 2.0 for Visual Studio to create a simple Django application. The application will allow users to vote on polls. We'll first use a local sqlite3 database, then move on to a SQL Server or MySQL database on Windows Azure. We'll show how to enable the Django admin interface, and use it to add polls to our database. We'll also use the Django shell integrated in Visual Studio.  Finally, we'll deploy our application to a Windows Azure Web Site and a Windows Azure Cloud Service.</p>
+<p>In this tutorial, we'll use Python Tools 2.0 for Visual Studio to create a simple Django application. The application will allow users to vote on polls. We'll first use a local sqlite3 database, then move on to a SQL Server or MySQL database on Azure. We'll show how to enable the Django admin interface, and use it to add polls to our database. We'll also use the Django shell integrated in Visual Studio.  Finally, we'll deploy our application to an Azure Web Site and an Azure Cloud Service.</p>
 <p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://www.youtube.com/watch?v=wkqjafvvU5w" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/python/videos/django-tutorial-180x120.png') !important;" href="http://www.youtube.com/watch?v=wkqjafvvU5w" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">33:08</span></div>
 </div>
 
-This tutorial focuses on Python Tools for Visual Studio and Windows Azure. For more details on Django and the polls application built in this tutorial, see [https://www.djangoproject.com/](https://www.djangoproject.com/).
+This tutorial focuses on Python Tools for Visual Studio and Azure. For more details on Django and the polls application built in this tutorial, see [https://www.djangoproject.com/](https://www.djangoproject.com/).
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -23,15 +23,15 @@ To complete the tutorial, you'll need
 
 - [Python Tools 2.0 for Visual Studio](http://pytools.codeplex.com)
 - [Python 2.7 (32-bit)](http://www.python.org/download/)
-- Visual Studio and Windows Azure SDK:
-  - VS 2010 Pro or higher with Windows Azure SDK 2.1
-  - VS 2012 Pro or higher with Windows Azure SDK 2.1, 2.2 or later
-  - VS 2013 Pro or higher with Windows Azure SDK 2.2 or later
-  - Free VS 2013 Integrated Shell. **Windows Azure SDK does not support the Integrated Shell**. You can develop, debug and run Django applications locally using the free Integrated Shell but you won't be able to publish to Windows Azure Web Sites or Cloud Services using Visual Studio.
+- Visual Studio and Azure SDK:
+  - VS 2010 Pro or higher with Azure SDK 2.1
+  - VS 2012 Pro or higher with Azure SDK 2.1, 2.2 or later
+  - VS 2013 Pro or higher with Azure SDK 2.2 or later
+  - Free VS 2013 Integrated Shell. **Azure SDK does not support the Integrated Shell**. You can develop, debug and run Django applications locally using the free Integrated Shell but you won't be able to publish to Azure Web Sites or Cloud Services using Visual Studio.
 
-Use the Web Platform installer to install the Windows Azure SDK. This will install the SDK, emulator, and Windows Azure Tools for Visual Studio. In Web Platform installer, search for **Windows Azure SDK for .NET** and select one of the supported versions of the SDK for your version of Visual Studio.
+Use the Web Platform installer to install the Azure SDK. This will install the SDK, emulator, and Azure Tools for Visual Studio. In Web Platform installer, search for **Azure SDK for .NET** and select one of the supported versions of the SDK for your version of Visual Studio.
 
-**Note:** In order to run this application successfully using a Windows Azure Web Site or Cloud Service, you'll need to use the official CPython 2.7 distribution from [python.org](http://www.python.org/download/). Other distros may work, but are not officially supported.
+**Note:** In order to run this application successfully using an Azure Web Site or Cloud Service, you'll need to use the official CPython 2.7 distribution from [python.org](http://www.python.org/download/). Other distros may work, but are not officially supported.
 
 ## Download an existing project
 
@@ -48,18 +48,18 @@ The download does NOT include a virtual environment. You should create one by fo
 
 ## Create the project
 
-Python Tools for Visual Studio supports Python Virtual Environments.  We'll create a django project and use a Virtual Environment to install our dependencies.  This is the recommended way to set up projects that are published to Windows Azure Web Sites or Cloud Services.
+Python Tools for Visual Studio supports Python Virtual Environments.  We'll create a django project and use a Virtual Environment to install our dependencies.  This is the recommended way to set up projects that are published to Azure Web Sites or Cloud Services.
 
 1. Open Visual Studio, File/New Project, Django application, with the name **tutorial**.
 
 	![New Project](./media/cloud-services-python-create-deploy-django-app/django-tutorial-001-new-project.png)
 
 
-**Note:** In solution explorer, under References, you'll see a node for Django 1.4. This is used for Windows Azure Cloud Service deployment, to install Python and Django on the target machine. Don't delete the reference to Django 1.4 from the references note. Since we are using a virtual environment and installing our own Django package in it, the Django package installed in our virtual environment will be used.
+**Note:** In solution explorer, under References, you'll see a node for Django 1.4. This is used for Azure Cloud Service deployment, to install Python and Django on the target machine. Don't delete the reference to Django 1.4 from the references note. Since we are using a virtual environment and installing our own Django package in it, the Django package installed in our virtual environment will be used.
 
 ##<a name="creating-a-virtual-environment"></a>Creating a virtual environment
 
-We'll use a Virtual Environment to install our dependencies. This is a good practice for any Python application, and it's required when publishing to Windows Azure.
+We'll use a Virtual Environment to install our dependencies. This is a good practice for any Python application, and it's required when publishing to Azure.
 
 1. Create a new virtual environment.  In solution explorer, right-click on **Python Environments** and select **Add Virtual Environment**.
 
@@ -372,19 +372,19 @@ Python Tools for Visual Studio has special support for debugging Django template
 
 	![Debugging](./media/cloud-services-python-create-deploy-django-app/django-tutorial-015-debugging.png)
 
-## Create a database on Windows Azure
+## Create a database on Azure
 
-Now that we've verified that our poll application works locally, let's switch to using a database hosted on Windows Azure.
+Now that we've verified that our poll application works locally, let's switch to using a database hosted on Azure.
 
 In the following 2 sections we'll show how to use a SQL database and a MySQL database.  Both of these are hosted services.
 
 Another option would be to create a Virtual Machine and install a database server.  See instructions [here](http://www.windowsazure.com/en-us/manage/linux/common-tasks/mysql-on-a-linux-vm/) for setting up MySQL on an Azure Linux VM.
 
-**Note:** It's possible to use a sqlite3 database on Windows Windows Azure (for development purposes only, we do not recommend using it in production). You'll need to add the **db.sqlite3** file to your project in order to deploy the database with your django application.
+**Note:** It's possible to use a sqlite3 database on Azure (for development purposes only, we do not recommend using it in production). You'll need to add the **db.sqlite3** file to your project in order to deploy the database with your django application.
 
 ### SQL Database
 
-In this section, we'll create a SQL database on Windows Azure, add the necessary packages to our virtual environment and change our settings to use the new database.
+In this section, we'll create a SQL database on Azure, add the necessary packages to our virtual environment and change our settings to use the new database.
 
 1. In the WindowsAzure Management Portal, select **SQL DATABASES**.
 
@@ -392,7 +392,7 @@ In this section, we'll create a SQL database on Windows Azure, add the necessary
 
 1. In the **CONFIGURE** tab of the newly created server, you'll see your current client IP address displayed. Next to it, click on **ADD TO THE ALLOWED IP ADDRESSES**.
 
-	**Note:** Sometimes Windows Azure doesn't detect the client IP address correctly. If you get an error when you synchronize the database, you should copy/paste the IP address from the error message and add it to the allowed IP addresses.
+	**Note:** Sometimes Azure doesn't detect the client IP address correctly. If you get an error when you synchronize the database, you should copy/paste the IP address from the error message and add it to the allowed IP addresses.
 
 1. Next, we'll create the database. In the **DATABASES** tab, click on **ADD** from the bottom bar.
 
@@ -421,19 +421,19 @@ In this section, we'll create a SQL database on Windows Azure, add the necessary
 
 	You'll have to make sure to use a driver that you have installed on your machine.  Open **Administrative Tools** from the start menu/screen, **ODBC Data Sources (32-bit)**. The drivers are listed under the **Drivers** tab.
 	
-	When running on a Windows Azure Web Site, both **SQL Server Native Client 10.0** and **SQL Server Native Client 11.0** will work.
+	When running on an Azure Web Site, both **SQL Server Native Client 10.0** and **SQL Server Native Client 11.0** will work.
 
-	When running on a Windows Azure Cloud Service, only **SQL Server Native Client 11.0** will work.
+	When running on an Azure Cloud Service, only **SQL Server Native Client 11.0** will work.
 	
 1. Synchronize the database and create admin credentials like we did for the local sqlite3 database.
 
 ### MySQL Database
 
-In this section, we'll create a MySQL database on Windows Azure, add the necessary packages to our virtual environment and change our settings to use the new database.
+In this section, we'll create a MySQL database on Azure, add the necessary packages to our virtual environment and change our settings to use the new database.
 
-In the Windows Azure Store, you can add various services to your account, including a MySQL database.  We can create a trial account for free, and small databases are free up to a certain size.
+In the Azure Store, you can add various services to your account, including a MySQL database.  We can create a trial account for free, and small databases are free up to a certain size.
 
-1. In the Windows Azure Management Portal, select **NEW**->**STORE**->**APP SERVICES**->**ClearDB MySQL Database**.  Create a database with the free plan.
+1. In the Azure Management Portal, select **NEW**->**STORE**->**APP SERVICES**->**ClearDB MySQL Database**.  Create a database with the free plan.
 
 1. Next, we'll install the package required to access MySQL databases from Django into our virtual environment.  Right-click on **env** and **Install Python Package**: **mysql-python** using **easy\_install**.
 
@@ -488,25 +488,25 @@ In the Windows Azure Store, you can add various services to your account, includ
 
 1. Start the web site.  You should see the poll we added using the Django shell.
 
-## Publish to Windows Azure
+## Publish to Azure
 
-Now that our database is on Windows Azure, the next step is to host the web site itself on Windows Azure.
+Now that our database is on Azure, the next step is to host the web site itself on Azure.
 
-Windows Azure has a few options for hosting Django applications:
+Azure has a few options for hosting Django applications:
 
 - [Web Site](http://www.windowsazure.com/en-us/services/web-sites/)
 - [Cloud Service](http://www.windowsazure.com/en-us/services/cloud-services/)
 - [Virtual Machine](http://www.windowsazure.com/en-us/services/virtual-machines/)
 
-Python Tools for Visual Studio has publishing capabilities to Windows Azure Web Sites and Cloud Services.  The next 2 sections describe these, and you can choose to go through either or both of them.
+Python Tools for Visual Studio has publishing capabilities to Azure Web Sites and Cloud Services.  The next 2 sections describe these, and you can choose to go through either or both of them.
 
 In both cases, PTVS takes care of configuring IIS for you, and will generate a web.config file for you if one is not already in the project.  Static files will be collected automatically (manage.py collectstatic) as long as you have set STATIC_ROOT in your settings.py.
 
 Hosting Django in a Virtual Machine is out of scope for this tutorial.  It involves creating a VM with your desired operating system (Windows or Linux), installing Python and manually deploying the Django application. 
 
-### Windows Azure Web Site
+### Azure Web Site
 
-1. First we'll need to create a Web Site.  Using the Windows Azure Management Portal, click on **NEW**->**COMPUTE**->**WEB SITE**->**QUICK CREATE**.  Pick any name that's available.
+1. First we'll need to create a Web Site.  Using the Azure Management Portal, click on **NEW**->**COMPUTE**->**WEB SITE**->**QUICK CREATE**.  Pick any name that's available.
 
 1. Once it is created, download the publish profile for the web site.
 
@@ -524,15 +524,15 @@ Hosting Django in a Virtual Machine is out of scope for this tutorial.  It invol
 
 	![Web Site Browser](./media/cloud-services-python-create-deploy-django-app/django-tutorial-020-website.png)
 
-### Windows Azure Cloud Service
+### Azure Cloud Service
 
-1. Right-click on the project node and select **Add Windows Azure Cloud Service Project** or **Convert -> Convert to Windows Azure Cloud Service Project** (you'll see one or the other, depending on your version of Visual Studio).  This will add a new project to the solution, with the .Azure suffix. This new project is marked as the startup project in the solution.
+1. Right-click on the project node and select **Add Azure Cloud Service Project** or **Convert -> Convert to Azure Cloud Service Project** (you'll see one or the other, depending on your version of Visual Studio).  This will add a new project to the solution, with the .Azure suffix. This new project is marked as the startup project in the solution.
 
-	**Note:** If you don't see the command to create the Windows Azure Cloud Service Project in your project context menu, then you need to install the Windows Azure Tools for Visual Studio. These are installed as part of the Windows Azure SDK for .NET. See the requirements section at the beginning of this tutorial.
+	**Note:** If you don't see the command to create the Azure Cloud Service Project in your project context menu, then you need to install the Azure Tools for Visual Studio. These are installed as part of the Azure SDK for .NET. See the requirements section at the beginning of this tutorial.
 
 	![Solution Explorer](./media/cloud-services-python-create-deploy-django-app/django-tutorial-021-cloudservice-solution-explorer.png)
 
-#### Run in Windows Azure Emulator
+#### Run in Azure Emulator
 
 1. You'll need to **restart Visual Studio as an Administrator** to be able to run in the compute emulator.
 
@@ -542,28 +542,28 @@ Hosting Django in a Virtual Machine is out of scope for this tutorial.  It invol
 
 1. You can now restart Visual Studio if you do not wish to continue running as an administrator.
 
-#### Publish to Windows Azure Cloud Service
+#### Publish to Azure Cloud Service
 
-1. Next you'll publish the Cloud Service to Windows Azure. Right-click on the **tutorial.Azure** Cloud Service project and **Publish**.
+1. Next you'll publish the Cloud Service to Azure. Right-click on the **tutorial.Azure** Cloud Service project and **Publish**.
 
-	**Note:** Make sure to select **Publish** on the Cloud Service project. This will launch the **Publish Windows Azure Application** dialog, to publish to an Azure Cloud Service.  If you select **Publish** on the Django project, it will launch the **Publish Web** dialog used to publish to an Azure Web Site.  
+	**Note:** Make sure to select **Publish** on the Cloud Service project. This will launch the **Publish Azure Application** dialog, to publish to an Azure Cloud Service.  If you select **Publish** on the Django project, it will launch the **Publish Web** dialog used to publish to an Azure Web Site.  
 
 	![Cloud Service Publish](./media/cloud-services-python-create-deploy-django-app/django-tutorial-021-cloudservice-publish.png)
 
-1. You'll need to import your Windows Azure subscription file.  Click the [Sign in to download credentials](https://manage.windowsazure.com/publishsettings/index?client=vs&schemaversion=2.0) link to download it from the Azure portal.
+1. You'll need to import your Azure subscription file.  Click the [Sign in to download credentials](https://manage.windowsazure.com/publishsettings/index?client=vs&schemaversion=2.0) link to download it from the Azure portal.
 
 1. In the Settings page, select **Create New** in the Cloud Service combo box to create a new Cloud Service. You can use any name that is available.
 
 	![Cloud Service Settings](./media/cloud-services-python-create-deploy-django-app/django-tutorial-021-cloudservice-settings.png)
 
-1. Accept the defaults and click **Publish**. This will take longer than publishing to a Web Site, as it needs to provision a VM for the Cloud Service. You can view the progress in the Windows Azure Activity Log window:
+1. Accept the defaults and click **Publish**. This will take longer than publishing to a Web Site, as it needs to provision a VM for the Cloud Service. You can view the progress in the Azure Activity Log window:
 
 	![Cloud Service Publish](./media/cloud-services-python-create-deploy-django-app/django-tutorial-021-cloudservice-publish-progress.png)
 
-1. When the operation has completed, click the Website URL in the Windows Azure Activity Log window to open a web browser.
+1. When the operation has completed, click the Website URL in the Azure Activity Log window to open a web browser.
 
 	![Cloud Service Browser](./media/cloud-services-python-create-deploy-django-app/django-tutorial-021-cloudservice.png)
 
 ## Conclusion
 
-In this tutorial, we've developed a Django application using [Python Tools for Visual Studio](http://pytools.codeplex.com).  We used 3 different databases: sqlite3, SQL Server and MySQL databases.  Finally, we published the application to Windows Azure Web Sites and Cloud Services.
+In this tutorial, we've developed a Django application using [Python Tools for Visual Studio](http://pytools.codeplex.com).  We used 3 different databases: sqlite3, SQL Server and MySQL databases.  Finally, we published the application to Azure Web Sites and Cloud Services.

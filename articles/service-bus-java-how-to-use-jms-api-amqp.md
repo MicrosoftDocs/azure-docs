@@ -1,4 +1,4 @@
-<properties linkid="develop-java-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Windows Azure" metaKeywords="ava Messsage AMQP, Service Bus AMQP, download AMQP JMS library" description="Learn how to use the Java Message Service (JMS) with Windows Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0" authors=""  solutions="" writer="sethm" manager="dwrede" editor="mattshel"  />
+<properties linkid="develop-java-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Azure" metaKeywords="ava Messsage AMQP, Service Bus AMQP, download AMQP JMS library" description="Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0" authors=""  solutions="" writer="sethm" manager="dwrede" editor="mattshel"  />
 
 
 
@@ -15,7 +15,7 @@ This how-to guide explains how to use the Service Bus brokered messaging feature
 
 ##Getting Started with Service Bus
 
-This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Windows Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled [How to Use Service Bus Queues](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/).
+This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled [How to Use Service Bus Queues](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/).
 
 ##Downloading the AMQP 1.0 JMS client library
 
@@ -73,21 +73,21 @@ Where [namespace], [username] and [password] have the following meanings:
 <table>
   <tr>
     <td>[namespace]</td>
-    <td>The Service Bus namespace obtained from the Windows Azure Management Portal.</td>
+    <td>The Service Bus namespace obtained from the Azure Management Portal.</td>
   </tr>
   <tr>
     <td>[username]</td>
-    <td>The Service Bus issuer name obtained from the Windows Azure Management Portal.</td>
+    <td>The Service Bus issuer name obtained from the Azure Management Portal.</td>
   </tr>
   <tr>
     <td>[password]</td>
-    <td>URL encoded form of the Service Bus issuer key obtained from the Windows Azure Management Portal.</td>
+    <td>URL encoded form of the Service Bus issuer key obtained from the Azure Management Portal.</td>
   </tr>
 </table>
 
 **Note**: You must URL-encode the password manually. A useful URL-encoding utility is available at [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
-For example, if the information obtained from the Windows Azure Management portal is as follows:
+For example, if the information obtained from the Azure Management portal is as follows:
 
 <table>
   <tr>
@@ -342,7 +342,7 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 
 ##Further information
 
-* [AMQP 1.0 support in Windows Azure Service Bus](http://aka.ms/pgr3dp)
+* [AMQP 1.0 support in Azure Service Bus](http://aka.ms/pgr3dp)
 * [How to use AMQP 1.0 with the Service Bus .NET API](http://aka.ms/lym3vk)
 * [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)
 * [How to Use Service Bus Queues](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)

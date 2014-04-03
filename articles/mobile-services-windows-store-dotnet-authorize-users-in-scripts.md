@@ -1,4 +1,4 @@
-<properties pageTitle="Service-side authorization (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga"  solutions="" writer="" manager="" editor=""  />
+<properties pageTitle="Service-side authorization (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
 
 # Service-side authorization of Mobile Services users
 
@@ -7,7 +7,7 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>This topic shows you how to authorize authenticated users for accessing data in Windows Azure Mobile Services from a Windows Store app. In this tutorial you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.</p>
+<p>This topic shows you how to authorize authenticated users for accessing data in Azure Mobile Services from a Windows Store app. In this tutorial you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.</p>
 <p>You can watch a video version of this tutorial by clicking the clip to the right.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Authenticate-and-Authorize-users-with-Server-Scripts-in-Windows-Azure-Mobile-Servi" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/authorize-users-with-scripts-windows-store-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Authenticate-and-Authorize-users-with-Server-Scripts-in-Windows-Azure-Mobile-Servi" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">13:52</span></div>
@@ -18,7 +18,7 @@ This tutorial is based on the Mobile Services quickstart and builds on the previ
 ## <a name="register-scripts"></a>Register scripts
 Because the quickstart app reads and inserts data, you need to register scripts for these operations against the TodoItem table.
 
-1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
+1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app. 
 
    	![][0]
 
@@ -67,7 +67,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
    	This inserts both the text and the userId in the TodoItem table in the mobile service. Because the new item has the correct userId value, it is returned by the mobile service and displayed in the second column.
 
-5. Back in the **todoitem** table in the [Management Portal][Windows Azure Management Portal], click **Browse** and verify that each newly added item now has an associated userId value.
+5. Back in the **todoitem** table in the [Management Portal][Azure Management Portal], click **Browse** and verify that each newly added item now has an associated userId value.
 
 6. (Optional) If you have additional login accounts, you can verify that users can only see their own data by closing the app (Alt+F4) and then running it again. When the login credentials dialog is displayed, enter a different login, and then verify that the items entered under the previous account are not displayed. 
 
@@ -107,5 +107,5 @@ This concludes the tutorials that demonstrate the basics of working with authent
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
 [JavaScript and HTML]: mobile-services-win8-javascript/
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
