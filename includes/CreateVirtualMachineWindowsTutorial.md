@@ -20,7 +20,7 @@ A virtual machine in Azure is a server in the cloud that you can control and man
 This tutorial shows you how to use the **From Gallery** method in the Management Portal to create a custom virtual machine. This method provides more options than the **Quick Create** method does for configuring a virtual machine when you create it.
 
 
-1. Sign in to your subscription to use the Azure [Management Portal](http://manage.windowsazure.com). If you don't have a subscription, you can sign up for a [free trial](http://go.microsoft.com/fwlink/p/?LinkID=23435).
+1. Sign in to your subscription to use the Azure [Management Portal](http://manage.windowsazure.com). If you don't have a subscription, you can sign up for a [free trial](http://go.microsoft.com/fwlink/p/?LinkID=395313).
 
 2. On the command bar, click **New**.
 
