@@ -2,7 +2,7 @@
 
 # How to Use Azure SQL Database in Java
 
-The following steps show you how to use Azure SQL Database with Java. Command line examples are shown for simplicity, but highly similar steps would be appropriate for web applications, either hosted on-premise, within Azure, or in other environments. This guide covered creating a server and creating a database from the [Azure Management Portal](https://windows.azure.com).
+The following steps show you how to use Azure SQL Database with Java. Command line examples are shown for simplicity, but highly similar steps would be appropriate for web applications, either hosted on-premise, within Azure, or in other environments. This guide covers creating a server and creating a database from the [Azure Management Portal](https://windows.azure.com).
 
 ## What is Azure SQL Database
 
