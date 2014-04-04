@@ -1,11 +1,4 @@
-<properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" description="Learn how to use Service Bus queues in Azure. Code samples written in Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="waltpo" solutions="" manager="" editor="mollybos" />
-
-
-
-
-
-
-
+<properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" description="Learn how to use Service Bus queues in Azure. Code samples written in Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="waltpo" solutions="" manager="keboyd" editor="mollybos" videoId="" scriptId="" />
 
 # How to Use Service Bus Queues
 
@@ -253,7 +246,7 @@ constant across delivery attempts.
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
 
-  [Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx
+  [Azure SDK for Java]: http://azure.microsoft.com/en-us/develop/java/
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -263,12 +256,5 @@ topic [Queues, Topics, and Subscriptions][] for more information.
   [How to: Receive Messages from a Queue]: #bkmk_HowToReceiveMsgs
   [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
   [Next Steps]: #bkmk_NextSteps
-  [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
   [Azure Management Portal]: http://manage.windowsazure.com/
-  [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
-  [Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-  [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-  [Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
-  [Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
-  [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
   [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
