@@ -24,7 +24,7 @@ Azure Service Bus Notification Hubs provide an easy-to-use, multiplatform, scala
 
 ##<a id="create"></a> Create a Node.js Application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ##<a id="config"></a> Configure Your Application to Use Service Bus
 
