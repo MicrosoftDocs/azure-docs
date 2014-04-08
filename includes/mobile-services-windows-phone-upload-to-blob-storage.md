@@ -67,10 +67,6 @@ In this section you will update the project from the [Get started with Mobile Se
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-   	<div class="dev-callout"><b>Note</b>
-   		<p>To add new properties to the TodoItem object, you must have Dynamic Schema enabled in your mobile service. When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties.</p>
-   	</div>
-
 5. In the MainPage.xaml.cs project file, update the MainPage class. Add the following code to declare the [CameraCaptureTask] and a stream object that will reference the captured image:
 
         // Using the CameraCaptureTask to allow the user to capture a todo item image //
@@ -181,3 +177,8 @@ The final step is to test the app and validate that uploads succeed.
 	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-final-wp8.png)
 
    >[WACOM.NOTE]The image is downloaded automatically from the Blob Storage service when the <code>imageUri</code> property of the new item is bound to the <strong>Image</strong> control.
+
+
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
+[CameraCaptureTask]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
+[PhotoCamera]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx

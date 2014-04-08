@@ -172,13 +172,13 @@ Other tools are also available that work with Azure Storage. For more informatio
 
 	>[WACOM.NOTE] In Visual Studio 2013, the default setting is to enable automatic package restore, but because you're opening a Visual Studio 2012 project the restore won't happen automatically.  Wait until after you open the solution, and then open the **Manage NuGet Packages** dialog as instructed below. You'll see a **Restore** button at the top right: click that button to restore the packages. 
 
-		1. From the **Tools** menu, click **Library Package Manager**, and then click **Manage NuGet Packages for Solution**. 
+	1. From the **Tools** menu, click **Library Package Manager**, and then click **Manage NuGet Packages for Solution**. 
 
-		2. In the lower left corner of the **Manage NuGet Packages** dialog, click **Settings**.
+	2. In the lower left corner of the **Manage NuGet Packages** dialog, click **Settings**.
 
-		3. In the left pane of the **Options** dialog box, select **General** under **Package Manager**.
+	3. In the left pane of the **Options** dialog box, select **General** under **Package Manager**.
 
-		4. Select **Allow NuGet to download missing packages during build**.
+	4. Select **Allow NuGet to download missing packages during build**.
 
 	![Enabling NuGet package restore](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/NuGetPkgRestore.png)
 
@@ -238,13 +238,13 @@ The **Azure Storage** browser in **Server Explorer** provides a convenient read-
 
 3. Double click the **MailingList** table.
 
-   ![VS storage explorer][mtas-wasVSdata]
+	![VS storage explorer][mtas-wasVSdata]
 
 	Notice how the window shows the different schemas in the table. `MailingList` entities have `Description` and `FromEmailAddress` property, and `Subscriber` entities have the `Verified` property (plus `SubscriberGUID` which isn't shown because the image isn't wide enough). The table has columns for all of the properties, and if a given table row is for an entity that doesn't have a given property, that cell is blank.
 
 You can't use the storage browser in Visual Studio to update or delete Azure Storage resources. You can use [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/ ) to update or delete development storage resources. (To configure Azure Storage Explorer to use development storage, click the **Developer Storage** check box in the **Add Storage Account** dialog box.)
 
->[WACOM.NOTE] With the latest SDK, you can update development storage in **Server Explorer**. 
+>[WACOM.NOTE] With the latest SDK, you can update as well as read development storage in **Server Explorer**. 
 
 
 
