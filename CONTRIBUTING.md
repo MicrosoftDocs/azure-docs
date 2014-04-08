@@ -20,7 +20,7 @@ You can contribute to [Azure documentation](http://azure.microsoft.com/en-us/doc
 
 ##Before we can accept your pull request
 
-Thank you for your interest in Windows Azure documentation. Before we can accept your pull request, we need you to sign a Contribution License Agreement (CLA). Full details are available at [http://windowsazure.github.io/guidelines.html#cla](http://windowsazure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
+Thank you for your interest in Azure documentation. Before we can accept your pull request, we need you to sign a Contribution License Agreement (CLA). Full details are available at [http://windowsazure.github.io/guidelines.html#cla](http://windowsazure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
 
 ###Who needs a CLA?
 * Members of the Microsoft Open Technologies group.
