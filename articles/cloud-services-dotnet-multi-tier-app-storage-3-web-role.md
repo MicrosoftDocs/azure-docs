@@ -438,7 +438,7 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
             return View(mailingList);
         }
 
- For the **Edit** page, the `HttpGet Edit` method looks up the row, and the `HttpPost` method updates the row.
+	For the **Edit** page, the `HttpGet Edit` method looks up the row, and the `HttpPost` method updates the row.
 
         [HttpPost]
         [ValidateAntiForgeryToken]

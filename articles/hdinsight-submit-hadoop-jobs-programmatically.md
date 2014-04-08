@@ -18,6 +18,7 @@ Before you begin this article, you must have the following:
 * [Submit Hive jobs using PowerShell](#hive-powershell)
 * [Submit Sqoop jobs using PowerShell](#sqoop-powershell)
 * [Submit MapReduce jobs using HDInsight .NET SDK](#mapreduce-sdk)
+* [Submit Hadoop Streaming MapReduce jobs using HDInsight .NET SDK](#streaming-sdk)
 * [Submit Hive Jobs using HDInsight .NET SDK](#hive-sdk)
 * [Next steps](#nextsteps)
 
@@ -272,7 +273,7 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 
 For more information about Hive, see [Use Hive with HDInsight][hdinsight-hive].
 
-##<a id=""></a>Submit Sqoop jobs using PowerShell
+##<a id="sqoop-powershell"></a>Submit Sqoop jobs using PowerShell
 
 See [Use Sqoop with HDInsight][hdinsight-sqoop].
 
@@ -385,7 +386,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 
 	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the wasb prefix, see [Use Azure Blob storage with HDInsight][hdinsight-storage].
 		
-12. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
+12. In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
 
         // Get the certificate object from certificate store using the friendly name to identify it
         X509Store store = new X509Store();
@@ -428,6 +429,108 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 **To run the application**
 
 While the application is open in Visual Studio, press **F5** to run the application. A console window should open and display the status of the application and the application output. 
+
+##<a id="streaming-sdk"></a> Submit Hadoop streaming jobs using HDInsight .NET SDK
+HDInsight clusters come with a word counting Hadoop stream program developed in C#. The mapper program is */example/apps/cat.exe*, and the reduce program is */example/apps/wc.exe*. In this session, you will learn how to create a .NET application to run the word counting sample. 
+
+For the details of creating a .Net application for submitting MapReduce jobs, see [Submit MapReduce jobs using HDInsight .NET SDK](#mapreduce-sdk).
+
+For more information on developing and deploying Hadoop streaming jobs, see [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming].
+
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
+	using System.Threading.Tasks;
+	
+	using System.IO;
+	using System.Threading;
+	using System.Security.Cryptography.X509Certificates;
+	
+	using Microsoft.WindowsAzure.Management.HDInsight;
+	using Microsoft.Hadoop.Client;
+	
+	namespace SubmitStreamingJob
+	{
+	    class Program
+	    {
+	        static void Main(string[] args)
+	        {
+
+				// Set the variables
+				string subscriptionID = "<Azure subscription ID>";
+				string certFriendlyName = "<certificate friendly name>";
+		
+				string clusterName = "<HDInsight cluster name>";
+				string statusFolderName = @"/tutorials/wordcountstreaming/status";
+
+	            // Define the Hadoop streaming MapReduce job
+	            StreamingMapReduceJobCreateParameters myJobDefinition = new StreamingMapReduceJobCreateParameters()
+	            {
+	                JobName = "my word counting job",
+	                StatusFolder = statusFolderName,
+	                Input = "/example/data/gutenberg/davinci.txt",
+	                Output = "/tutorials/wordcountstreaming/output",
+	                Reducer = "wc.exe",
+	                Mapper = "cat.exe"
+	            };
+	
+	            myJobDefinition.Files.Add("/example/apps/wc.exe");
+	            myJobDefinition.Files.Add("/example/apps/cat.exe");
+	
+	            // Get the certificate object from certificate store using the friendly name to identify it
+	            X509Store store = new X509Store();
+	            store.Open(OpenFlags.ReadOnly);
+	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
+	
+	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
+	
+	            // Create a hadoop client to connect to HDInsight
+	            var jobClient = JobSubmissionClientFactory.Connect(creds);
+	
+	            // Run the MapReduce job
+	            Console.WriteLine("----- Submit the Hadoop streaming job ...");
+	            JobCreationResults mrJobResults = jobClient.CreateStreamingJob(myJobDefinition);
+	
+	            // Wait for the job to complete
+	            Console.WriteLine("----- Wait for the Hadoop streaming job to complete ...");
+	            WaitForJobCompletion(mrJobResults, jobClient);
+	
+	            // Display the error log
+	            Console.WriteLine("----- The hadoop streaming job error log.");
+	            using (Stream stream = jobClient.GetJobErrorLogs(mrJobResults.JobId))
+	            {
+	                var reader = new StreamReader(stream);
+	                Console.WriteLine(reader.ReadToEnd());
+	            }
+	
+	            // Display the output log
+	            Console.WriteLine("----- The hadoop streaming job output log.");
+	            using (Stream stream = jobClient.GetJobOutput(mrJobResults.JobId))
+	            {
+	                var reader = new StreamReader(stream);
+	                Console.WriteLine(reader.ReadToEnd());
+	            }
+	
+	            Console.WriteLine("----- Press ENTER to continue.");
+	            Console.ReadLine();
+	        }
+	
+	        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
+	        {
+	            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
+	            while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
+	            {
+	                jobInProgress = client.GetJob(jobInProgress.JobId);
+	                Thread.Sleep(TimeSpan.FromSeconds(10));
+	            }
+	        }
+	    }
+	}
+
+
+
+
 
 
 ##<a id="hive-sdk"></a> Submit Hive jobs using HDInsight .NET SDK 
@@ -534,7 +637,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
         };
 
 		
-12. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
+12. In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
 	
         // Get the certificate object from certificate store using the friendly name to identify it
         X509Store store = new X509Store();
@@ -598,6 +701,8 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+[hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
 
 [Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
