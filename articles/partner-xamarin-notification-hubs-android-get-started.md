@@ -17,8 +17,10 @@ The tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial demonstrates the simple broadcast scenario using Notification Hubs. This tutorial requires the following:
 
-+ Xamarin.Android
++ [Xamarin.Android]
 + Active Google account
++ [Azure Mobile Services Component]
++ [Google Cloud Messaging Component]
 
 Completing this tutorial is a prerequisite for all other notification hub tutorials for Xamarin.Android apps. 
 
@@ -450,3 +452,6 @@ In this simple example you broadcast notifications to all your Android devices. 
 [GCMClient Component page]: http://components.xamarin.com/view/GCMClient
 [Xamarin.NotificationHub Github page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
+[Xamarin.Android]: http://xamarin.com/download/
+[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
+[Google Cloud Messaging Component]: http://components.xamarin.com/view/GCMClient/
