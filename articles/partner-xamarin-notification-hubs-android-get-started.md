@@ -15,12 +15,12 @@ The tutorial walks you through these basic steps to enable push notifications:
 4. [Run your app with the emulator]
 5. [Send notifications from your back-end]
 
-This tutorial demonstrates the simple broadcast scenario using Notification Hubs. <!-- Be sure to follow along with the next tutorial to see how to use notification hubs to address specific users and groups of devices. --> This tutorial requires the following:
+This tutorial demonstrates the simple broadcast scenario using Notification Hubs. This tutorial requires the following:
 
 + Xamarin.Android
 + Active Google account
 
-Completing this tutorial is a prerequisite for all other notification hub tutorials for Android apps. 
+Completing this tutorial is a prerequisite for all other notification hub tutorials for Xamarin.Android apps. 
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-android%2F" target="_blank">Azure Free Trial</a>.</p></div>
 
@@ -113,37 +113,23 @@ Your notification hub is now configured to work with GCM, and you have the conne
     <p>The first letter of the package name must be lowercase. Otherwise you will receive application manifest errors when registering your **BroadcastReceiver** and **IntentFilter**s for push notifications below.</p>
     </div> 
 
-### Add PushSharp to your project
+### Add the Google Cloud Messaging Client to your project
 
-1. Now we will want to add **PushSharp** as a reference in our project. To do this we must compile the latest version of PushSharp and add the compiled DLL as a reference to our Xamarin.Android project.
+The Google Cloud Messaging Client available on the Xamarin Component Store simplifies the process of supporting push notifications in Xamarin.Android.
 
-2. Visit the [PushSharp Github page], and download the latest release. Once you've extracted the collection of files, navigate to the following sample project folder:
+1. Right-click the Components folder in Xamarin.Android app and choose **Get More Components...**
 
-	**/Client.Samples/PushSharp.ClientSample.MonoForAndroid/PushSharp.ClientSample.MonoForAndroid.Gcm/**
+2. Search for the **Google Cloud Messaging Client** component.
 
-	.. and open the following project file in Xamarin Studio (or Visual Studio):
-	
-	**  PushSharp.ClientSample.MonoForAndroid.Gcm.csproj **
-
-3. Build the MonoForAndroid PushSharp client sample in **Release** mode.
-
-4. Create an **_external** folder in your Xamarin.Android project folder
-
-5. Copy the following file from the MonoForAndroid PushSharp client sample to the newly created **_external** folder in your Xamarin.Android project folder:
-
-	 **\bin\Release\PushSharp.Client.MonoForAndroid.dll**
-
-6. Open your Xamarin.Android project in Xamarin Studio (or Visual Studio). 
-
-7. Right click the project **References** folder, and choose **Edit References...**
-
-8. Go to the **.Net Assembly** tab, browse to your project's **_external** folder, select the **PushSharp.Client.MonoForAndroid.dll** we built earlier and click **Add**. Click OK to close the dialog. 
+3. Add the component to the Xamarin.Android application. The necessary assembly references are automatically added.
 
 ### Add Xamarin.NotificationHub to your project
 
-1. Now we need to add libraries to support the NotificationHub class. Visit the [Xamarin.NotificationHub Github page], download and build the source folder.
+This assembly provides an easy way to register with Azure Notification Hubs. It can be downloaded using the instructions below or found in the [sample download][GitHub].
 
-2. Copy the compiled **ByteSmith.WindowsAzure.Messaging.Android.dll** into your **_external** folder in your Xamarin.Android project folder.
+1. Visit the [Xamarin.NotificationHub Github page], download and build the source folder.
+
+2. Create an **_external** folder in your Xamarin.Android project folder then copy the compiled **ByteSmith.WindowsAzure.Messaging.Android.dll** there.
 
 3. Open your Xamarin.Android project in Xamarin Studio (or Visual Studio).
 
@@ -158,37 +144,37 @@ Your notification hub is now configured to work with GCM, and you have the conne
         public const string SenderID = "<GoogleProjectNumber>"; // Google API Project Number
 
         // Azure app specific connection string and hub path
-        public const string ConnectionString = "<Azure connection string>"";
+        public const string ConnectionString = "<Azure connection string>";
         public const string NotificationHubPath = "<hub path>";
 
 2. Add the following using statements to **MainActivity.cs**:
 
 		using ByteSmith.WindowsAzure.Messaging;
-		using PushSharp.Client;
+		using Gcm.Client;
 
 3. Create the following method in the **MainActivity** class:
 
 		private void RegisterWithGCM()
         {
             // Check to ensure everything's setup right
-            PushClient.CheckDevice(this);
-            PushClient.CheckManifest(this);
+            GcmClient.CheckDevice(this);
+            GcmClient.CheckManifest(this);
 
             // Register for push notifications
             System.Diagnostics.Debug.WriteLine("Registering...");
-            PushClient.Register(this, Constants.SenderID);
+            GcmClient.Register(this, Constants.SenderID);
         }
 
 4. Create a new class **MyBroadcastReceiver**.
 
 	<div class="dev-callout"><b>Note</b>
-    <p>We will walk through creating a **BroadcastReceiver** from scratch. However, a quick alternative to manually creating the **MyBroadcastReceiver.cs** below is to refer to the **PushService.cs** file found in the PushSharp sample Xamarin.Android project on GitHub. Duplicating th **PushService.cs** and changing class names can be a great place to start as well.</p>
+    <p>We will walk through creating a **BroadcastReceiver** from scratch below. However, a quick alternative to manually creating a **MyBroadcastReceiver.cs** is to refer to the **GcmService.cs** file found in the sample Xamarin.Android project on GitHub. Duplicating the **GcmService.cs** and changing class names can be a great place to start as well.</p>
     </div> 
 
-5. Add the following using statements to **MyBroadcastReceiver.cs**:
+5. Add the following using statements to **MyBroadcastReceiver.cs** (referring to the component and assembly added earlier):
 
 		using ByteSmith.WindowsAzure.Messaging;
-		using PushSharp.Client;
+		using Gcm.Client;
 
 5. Add the following permission requests between the **using** statements and the **namespace** declaration:
 
@@ -203,11 +189,11 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 6. In **MyBroadcastReceiver.cs** change the **MyBroadcastReceiver** class to match the following:
 
-    	[BroadcastReceiver(Permission=GCMConstants.PERMISSION_GCM_INTENTS)]
-        [IntentFilter(new string[] { GCMConstants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { GCMConstants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { GCMConstants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
-        public class MyBroadcastReceiver : PushHandlerBroadcastReceiverBase<PushHandlerService>
+    	[BroadcastReceiver(Permission=Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
+        public class MyBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
         {
             public static string[] SENDER_IDS = new string[] { Constants.SenderID };
 
@@ -217,19 +203,19 @@ Your notification hub is now configured to work with GCM, and you have the conne
 7. Add another class in **MyBroadcastReceiver.cs** named **PushHandlerService** which derives from **PushHandlerServiceBase**. Make sure to use the **Service** directive on the class:
 
     	[Service] //Must use the service tag
-    	public class PushHandlerService : PushHandlerServiceBase
+    	public class GcmService : GcmServiceBase
     	{
         	public static string RegistrationID { get; private set; }
         	private NotificationHub Hub { get; set; }
 
-        	public PushHandlerService() : base(Constants.SenderID) 
+        	public GcmService() : base(Constants.SenderID) 
        		{
-            	Log.Info(MyBroadcastReceiver.TAG, "PushHandlerService() constructor"); 
+            	Log.Info(MyBroadcastReceiver.TAG, "GcmService() constructor"); 
         	}
     	}
 
 
-8. **PushHandlerServiceBase** implements methods **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()**, and **OnError()**. Our implementation class **PushHandlerService** must override these methods, and these methods will fire in response to interacting with the notification hub.
+8. **GcmServiceBase** implements methods **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()**, and **OnError()**. Our implementation class **GcmService** must override these methods, and these methods will fire in response to interacting with the notification hub.
 
 9. Override the **OnRegistered()** method in **PushHandlerService** with the following code:
 
@@ -238,7 +224,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
             Log.Verbose(MyBroadcastReceiver.TAG, "GCM Registered: " + registrationId);
             RegistrationID = registrationId;
 
-            createNotification("PushHandlerService-GCM Registered...", "The device has been Registered, Tap to View!");
+            createNotification("GcmService-GCM Registered...", "The device has been Registered, Tap to View!");
 
             Hub = new NotificationHub(Constants.NotificationHubPath, Constants.ConnectionString);
             try
@@ -342,7 +328,7 @@ When you run this app in the emulator, make sure that you use an Android Virtual
 
 <h2><a name="send"></a><span class="short-header">Send notification</span>Send notification from your back-end</h2>
 
-You can send notifications using Notification Hubs from any back-end using our <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we will send notifications with a .NET console app, and with a Mobile Service using a node script.
+You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we will send notifications with a .NET console app, and with a Mobile Service using a node script.
 
 To send notifications using a .NET app:
 
@@ -461,6 +447,6 @@ In this simple example you broadcast notifications to all your Android devices. 
 
 [Use Notification Hubs to push notifications to users]: /en-us/manage/services/notification-hubs/notify-users-aspnet
 [Use Notification Hubs to send breaking news]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
-[PushSharp Github page]: https://github.com/Redth/PushSharp
+[GCMClient Component page]: http://components.xamarin.com/view/GCMClient
 [Xamarin.NotificationHub Github page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
