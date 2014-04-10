@@ -495,6 +495,8 @@ The following PowerShell script performs the following tasks:
 
 8. When prompted, enter username and password for the HDInsight cluster. Because you will delete the cluster at the end of the script and you will not need the username and password anymore, the username and password can be any strings. If you don't want to get prompted for the credentials, see [Working with Passwords, Secure Strings and Credentials in Windows PowerShell][powershell-PSCredential]
 
+For a HDInsight .NET SDK sample on submitting Hadoop streaming jobs, see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs].
+
 
 ##<a name="retrieve"></a>Retrieve the MapReduce job output
 This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-excel], and [Connect Excel to HDInsight with Power Query][hdinsight-powerquery].
@@ -540,6 +542,7 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 [azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
 
 [hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 
 [hdinsight-emulator-get-started]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
 [hdinsight-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/

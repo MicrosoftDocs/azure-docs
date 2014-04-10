@@ -1,8 +1,8 @@
-<properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" writer="glenga" />
+<properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" writer="glenga" />
 
 # Upload images to Azure Storage by using Mobile Services
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title="Windows Phone" class="current">Windows Phone</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage"  title="JavaScript backend">JavaScript backend</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title="Windows Phone">Windows Phone</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage"  title="JavaScript backend">JavaScript backend</a></div>
 
 This topic shows you how to use Azure Mobile Services to enable your app to upload and store user-generated images in Azure Storage. Mobile Services uses a SQL Database to store data. However, binary large object (BLOB) data is more efficiently stored in Azure Blob storage service. 
 
@@ -19,8 +19,7 @@ In this tutorial you add functionality to the Mobile Services quickstart app to 
 
 This tutorial requires the following:
 
-+ Microsoft Visual Studio 2013, or a later version
-+ [Windows Phone SDK 8.0] or higher
++ Microsoft Visual Studio 2013, or a later version.
 + Nuget Package Manager installed for Microsoft Visual Studio.
 + [Azure Storage account][How To Create a Storage Account]
 
@@ -40,7 +39,7 @@ To be able to use an SAS to upload images to Blob storage, you must first add th
 
 Next, you will update the quickstart app to capture and upload images.
 
-[WACOM.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
@@ -55,12 +54,12 @@ Next, you will update the quickstart app to capture and upload images.
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[2]: ./media/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
+[2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
 
 <!-- URLs. -->
 [Send email from Mobile Services with SendGrid]: /en-us/documentation/articles/store-sendgrid-mobile-services-send-email-scripts/
 [Schedule backend jobs in Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: /en-us/documentation/articles/storage-create-storage-account/
