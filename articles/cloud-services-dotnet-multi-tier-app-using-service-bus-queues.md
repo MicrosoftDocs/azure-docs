@@ -33,8 +33,6 @@ A screenshot of the completed application is shown below:
 
 **Note** Azure also provides storage queue functionality. For more information about Azure storage queues and Service Bus queues, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison].  
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
-
 <h2><span class="short-header">Inter-role communication</span>Scenario overview: inter-role communication</h2>
 
 To submit an order for processing, the front end UI component, running
