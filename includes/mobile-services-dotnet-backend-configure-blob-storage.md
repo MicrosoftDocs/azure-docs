@@ -2,7 +2,7 @@
 
 To be able to generate an SAS to upload images to Blob storage, you must first add the NuGet package that installs Storage client library in the mobile service project. 
 
-1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
+1. In **Solution Explorer** in Visual Studio, right-click the mobile service project, and then select **Manage NuGet Packages**.
 
 2. In the left pane, select the **Online** category, select **Stabile Only**, search for **WindowsAzure.Storage**, click **Install** on the **Azure Storage** package, then accept the license agreements. 
 
