@@ -127,9 +127,9 @@ To get started with Azure Storage, explore these resources:
 
 <h3>For .NET Developers</h3>
 
-- [How to use Blob Storage from .NET](../storage-dotnet-how-to-use-blobs-20/)
-- [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables-20/)
-- [How to use Queue Storage from .NET](../storage-dotnet-how-to-use-queues-20/)
+- [How to use Blob Storage from .NET](../storage-dotnet-how-to-use-blobs/)
+- [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables/)
+- [How to use Queue Storage from .NET](../storage-dotnet-how-to-use-queues/)
 
 <h3>For Java Developers</h3>
 
