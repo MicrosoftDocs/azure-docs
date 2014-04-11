@@ -30,7 +30,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-7. Once the previous step is done, the project will indicate build errors. Search for the three remaining locations where the `toDoItemList` variable is used and comment out the sections indicated. Also remove `import java.util.ArrayList`. This fully removes the in-memory list. 
+7. Save the file, and the project will indicate build errors. Search for the three remaining locations where the `toDoItemList` variable is used and comment out the sections indicated. Also remove `import java.util.ArrayList`. This fully removes the in-memory list. 
 
 8. We now add our mobile service. Uncomment the following lines of code:
 
