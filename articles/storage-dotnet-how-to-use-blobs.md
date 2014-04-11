@@ -1,4 +1,4 @@
-<properties linkid="dev-net-2-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Microsoft Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use the Windows Azure blob service to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use the Windows Azure Blob Storage Service in .NET" authors="tamram" />
+<properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Microsoft Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 # How to use Blob Storage from .NET
 
@@ -8,13 +8,15 @@ use the Azure Storage Client Library for .NET. The scenarios covered include
 **uploading**, **listing**, **downloading**, and **deleting** blobs. For
 more information on blobs, see the [Next steps][] section.
 
+> [WACOM.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 3.x, which is available via NuGet or as part of the Azure SDK for .NET 2.3. See [How to: Programmatically access Blob storage][] below for details on obtaining the Storage Client Library.
+
 ##Table of contents
 
 -   [What is Blob Storage][]
 -   [Concepts][]
 -   [Create an Azure Storage account][]
 -   [Setup a storage connection string][]
--   [How to: Programmatically access blob storage][]
+-   [How to: Programmatically access Blob storage][]
 -   [How to: Create a container][]
 -   [How to: Upload a blob into a container][]
 -   [How to: List the blobs in a container][]
@@ -374,8 +376,9 @@ to learn how to do more complex storage tasks.
 <li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
 <li>View more feature guides to learn about additional options for storing data in Azure.
   <ul>
-    <li>Use <a href="/en-us/develop/net/how-to-guides/table-services/">Table Storage</a> to store structured data.</li>
-    <li>Use <a href="/en-us/develop/net/how-to-guides/sql-database/">SQL Database</a> to store relational data.</li>
+    <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>
+    <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store unstructured data.</li>
+    <li>Use <a href="/en-us/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
   </ul>
 </li>
 </ul>
@@ -391,11 +394,11 @@ to learn how to do more complex storage tasks.
   [How To: List the Blobs in a Container]: #list-blob
   [How To: Download Blobs]: #download-blobs
   [How To: Delete blobs]: #delete-blobs
-  [Blob5]: ./media/storage-dotnet-how-to-use-blobs-20/blob5.png
-  [Blob6]: ./media/storage-dotnet-how-to-use-blobs-20/blob6.png
-  [Blob7]: ./media/storage-dotnet-how-to-use-blobs-20/blob7.png
-  [Blob8]: ./media/storage-dotnet-how-to-use-blobs-20/blob8.png
-  [Blob9]: ./media/storage-dotnet-how-to-use-blobs-20/blob9.png
+  [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
+  [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
+  [Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
+  [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
+  [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
   
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
