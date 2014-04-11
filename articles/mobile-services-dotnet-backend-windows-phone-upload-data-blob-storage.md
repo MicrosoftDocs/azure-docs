@@ -1,4 +1,4 @@
-<properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" writer="glenga" />
+<properties linkId="mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" writer="glenga" services="mobile-services" />
 
 # Upload images to Azure Storage by using Mobile Services
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title="Windows Phone" class="current">Windows Phone</a></div>
@@ -26,11 +26,13 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
+
 ##<a name="install-storage-client"></a>Install the Storage client for Windows Store apps
 
-To be able to use an SAS to upload images to Blob storage, you must first add the NuGet package that installs Storage client library for Windows Store apps.
+To be able to use an SAS to upload images from your app to Blob storage, you must first add the NuGet package that installs Storage client library for Windows Store apps.
 
-1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
+1. In **Solution Explorer** in Visual Studio, right-click the client app project and select **Manage NuGet Packages**.
 
 2. In the left pane, select the **Online** category, select **Include Prerelease**, search for **WindowsAzure.Storage-Preview**, click **Install** on the **Azure Storage** package, then accept the license agreements. 
 
@@ -38,12 +40,7 @@ To be able to use an SAS to upload images to Blob storage, you must first add th
 
   	This adds the client library for Azure storage services to the project.
 
-Next, you will update the quickstart app to capture and upload images.
-
 [WACOM.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
-
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
-
  
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
