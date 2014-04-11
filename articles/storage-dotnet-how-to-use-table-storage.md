@@ -11,13 +11,15 @@ and use the Azure Storage Client Library for .NET. The scenarios covered include
 deleting a table**, as well as **working with table entities**. For more
 information on tables, see the [Next steps][] section.
 
+> [WACOM.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 3.x, which is available via NuGet or as part of the Azure SDK for .NET 2.3. See [How to: Programmatically access Table storage][] below for details on obtaining the Storage Client Library.
+
 ## Table of Contents
 
 -   [What is the Table Service][]
 -   [Concepts][]
 -   [Create an Azure Storage account][]
 -   [Setup a storage connection string][]
--   [How to: Programmatically access table storage][]
+-   [How to: Programmatically access Table storage][]
 -   [How to: Create a table][]
 -   [How to: Add an entity to a table][]
 -   [How to: Insert a batch of entities][]
@@ -103,7 +105,7 @@ Read [Configuring Connection Strings][] for more information on storage connecti
 	
 You are now ready to perform the how-to tasks in this guide.
 
-<h2> <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access table storage</h2>
+<h2> <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access Table storage</h2>
 
 <h3>Obtaining the assembly</h3>
 You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
@@ -540,7 +542,7 @@ period of time following the deletion.
 
 <h2><a name="next-steps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
-Now that you've learned the basics of table storage, follow these links
+Now that you've learned the basics of Table storage, follow these links
 to learn how to do more complex storage tasks.
 
 <ul>

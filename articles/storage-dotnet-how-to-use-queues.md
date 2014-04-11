@@ -2,7 +2,6 @@
 
 # How to use Queue Storage from .NET
 
-
 This guide will show you how to perform common scenarios using the
 Azure Queue storage service. The samples are written in C\# code
 and use the Azure Storage Client for .NET. The scenarios covered include **inserting**,
@@ -10,13 +9,15 @@ and use the Azure Storage Client for .NET. The scenarios covered include **inser
 **creating and deleting queues**. For more information on queues, refer
 to the [Next steps][] section.
 
+> [WACOM.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 3.x, which is available via NuGet or as part of the Azure SDK for .NET 2.3. See [How to: Programmatically access Queues storage][] below for details on obtaining the Storage Client Library.
+
 <h2>Table of contents</h2>
 
 -   [What is Queue Storage][]
 -   [Concepts][]
 -   [Create an Azure Storage Account][]
 -   [Setup an Azure Storage connection string][]
--   [How to: Programmatically access queues using .NET][]
+-   [How to: Programmatically access Queues storage][]
 -   [How to: Create a queue][]
 -   [How to: Insert a message into a queue][]
 -   [How to: Peek at the next message][]
@@ -340,7 +341,7 @@ To delete a queue and all the messages contained in it, call the
 
 <h2><a name="next-steps"></a>Next steps</h2>
 
-Now that you've learned the basics of queue storage, follow these links
+Now that you've learned the basics of Queue storage, follow these links
 to learn how to do more complex storage tasks.
 
 <ul>

@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Microsoft Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" />
+<properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Microsoft Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 # How to use Blob Storage from .NET
 
@@ -8,13 +8,15 @@ use the Azure Storage Client Library for .NET. The scenarios covered include
 **uploading**, **listing**, **downloading**, and **deleting** blobs. For
 more information on blobs, see the [Next steps][] section.
 
+> [WACOM.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 3.x, which is available via NuGet or as part of the Azure SDK for .NET 2.3. See [How to: Programmatically access Blob storage][] below for details on obtaining the Storage Client Library.
+
 ##Table of contents
 
 -   [What is Blob Storage][]
 -   [Concepts][]
 -   [Create an Azure Storage account][]
 -   [Setup a storage connection string][]
--   [How to: Programmatically access blob storage][]
+-   [How to: Programmatically access Blob storage][]
 -   [How to: Create a container][]
 -   [How to: Upload a blob into a container][]
 -   [How to: List the blobs in a container][]
