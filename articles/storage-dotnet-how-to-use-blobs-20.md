@@ -1,4 +1,4 @@
-<properties linkid="dev-net-2-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Microsoft Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use the Windows Azure blob service to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use the Windows Azure Blob Storage Service in .NET" authors="tamram" />
+<properties linkid="dev-net-2-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Microsoft Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use the Azure blob service to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use the Azure Blob Storage Service in .NET" authors="tamram" />
 
 # How to use Blob Storage from .NET
 
@@ -112,7 +112,7 @@ Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
 
 ###Retrieving your connection string
 You can use the **CloudStorageAccount** type to represent 
-your Storage Account information. If you are using a Windows 
+your Storage Account information. If you are using an  
 Azure project template and/or have a reference to 
 Microsoft.WindowsAzure.CloudConfigurationManager, you 
 can you use the **CloudConfigurationManager** type
