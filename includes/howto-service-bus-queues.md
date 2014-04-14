@@ -20,7 +20,7 @@ one message consumer.
 Service Bus queues are a general-purpose technology that can be used for
 a wide variety of scenarios:
 
--   Communication between web and worker roles in a multi-tier Windows
+-   Communication between web and worker roles in a multi-tier 
     Azure application
 -   Communication between on-premises apps and Azure hosted apps
     in a hybrid solution
