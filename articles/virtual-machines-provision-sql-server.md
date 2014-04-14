@@ -23,10 +23,10 @@ In this tutorial, you will:
 
 3. On the **Create a Virtual Machine** page, select a virtual machine image containing SQL Server, and then click the next arrow at the bottom right of the page. For the most up-to-date information on the supported SQL Server images on Azure, see [Getting Started with SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720) topic in the [SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719) documentation set. 
 
-    >[WACOM.NOTE] If you have a virtual machine created by using the platform image SQL Server 2012 Evaluation edition that was available during the Preview period, you cannot upgrade it to a per-hour paid edition image in the gallery. You can choose one of the following two options:
-    > - You can create a new virtual machine by using the per-hour paid SQL Server edition from the gallery and migrate your database files to this new virtual machine by following the steps at [How to migrate SQL Server database files and schema between virtual machines in Azure using data disks](http://go.microsoft.com/fwlink/p/?LinkId=294738). **Or**,
+    >[WACOM.NOTE] If you have a virtual machine created by using the platform image SQL Server Evaluation edition, you cannot upgrade it to a per-minute paid edition image in the gallery. You can choose one of the following two options:
+    > - You can create a new virtual machine by using the per-minute paid SQL Server edition from the gallery and migrate your database files to this new virtual machine by following the steps at [How to migrate SQL Server database files and schema between virtual machines in Azure using data disks](http://go.microsoft.com/fwlink/p/?LinkId=294738). **Or**,
 
-    > - You can upgrade an existing instance of SQL Server 2012 Evaluation edition to a different edition of SQL Server 2012 under the [License Mobility through Software Assurance on Azure](http://www.windowsazure.com/en-us/pricing/license-mobility/) agreement by following the steps at [Upgrade to a Different Edition of SQL Server 2012](http://msdn.microsoft.com/library/cc707783.aspx). For information on how to purchase the licensed copy of SQL Server, see [How to Buy SQL Server](http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx).
+    > - You can upgrade an existing instance of SQL Server Evaluation edition to a different edition of SQL Server under the [License Mobility through Software Assurance on Azure](http://www.windowsazure.com/en-us/pricing/license-mobility/) agreement by following the steps at [Upgrade to a Different Edition of SQL Server 2014](http://msdn.microsoft.com/library/cc707783(v=sql.120).aspx). For information on how to purchase the licensed copy of SQL Server, see [How to Buy SQL Server](http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx).
 
     
 
@@ -38,12 +38,12 @@ In this tutorial, you will:
 	- Select the appropriate **SIZE** from the drop down list. 
 
 	>[WACOM.NOTE] The size of the virtual machine is specified during provisioning:
- 	>- Medium is the smallest size recommended for production workloads. 
-    >- The minimum recommended size for a virtual machine is Large when using SQL Server Enterprise Edition.
-    >- Select Large or higher when using SQL Server Enterprise Edition. 
-   	>- Select A6 when using SQL Server 2012 Enterprise for Data Warehousing image. 
-   	>- Select A7 when using SQL Server 2014 Evaluation for Data Warehousing image. 
-   	>- The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](http://go.microsoft.com/fwlink/p/?LinkId=294819).
+ 	> A2 is the smallest size recommended for production workloads. 
+    > The minimum recommended size for a virtual machine is A3 when using SQL Server Enterprise Edition.
+    > Select A3 or higher when using SQL Server Enterprise Edition. 
+   	> Select A6 when using SQL Server 2012/2014 Enterprise for Data Warehousing image. 
+   	> Select A7 when using SQL Server 2014 for Data Warehousing image. 
+   	> The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
 
 	Click the next arrow on the bottom right to continue.
 
@@ -328,8 +328,6 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 - Tutorial: Connect to SQL Server in a different cloud service 
 - Tutorial: Connect ASP.NET application to SQL Server in Azure via Virtual Network 
 
-[White paper: Performance Guidance for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn248436.aspx)
-
 [Performance Considerations for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294724)
 
 [Security Considerations for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294725)
@@ -340,11 +338,14 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 
 - Tutorial: AlwaysOn Availability Groups in Azure (GUI)
 - Tutorial: AlwaysOn Availability Groups in Azure (PowerShell)
-- Tutorial: AlwaysOn Availability Groups in Hybrid IT
-- Tutorial: Database Mirroring for High Availability in Azure
+- Tutorial: AlwaysOn Availability Groups in Hybrid IT (PowerShell)
+- Tutorial: Listener Configuration for AlwaysOn Availability Groups in Azure
+- Tutorial: Listener Configuration for AlwaysOn Availability Groups in HybridIT
 - Tutorial: Database Mirroring for Disaster Recovery in Azure
 - Tutorial: Database Mirroring for Disaster Recovery in Hybrid IT 
+- Tutorial: Database Mirroring for High Availability in Azure
 - Tutorial: Log Shipping for Disaster Recovery in Hybrid IT 
+- Troubleshooting Availability Group Listener in Azure
 
 [Backup and Restore for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294728)
 
@@ -353,12 +354,17 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 - Use PowerShell to Create an Azure VM With SQL Server BI and SharePoint 2010
 - Use PowerShell to Create an Azure VM With SQL Server BI and SharePoint 2013
 - Use PowerShell to Create an Azure VM With a Native Mode Report Server
-- [White paper: Deploy SQL Server Business Intelligence in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
 
 [SQL Server Data Warehousing in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
 
+[Technical Articles for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/azure/dn248435.aspx)
 
+- [White paper: Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines
+](http://msdn.microsoft.com/library/azure/dn574746.aspx)
 
+- [White paper: Deploy SQL Server Business Intelligence in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
+
+- [White paper: Performance Guidance for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn248436.aspx)
 
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
 [Image5b]: ./media/virtual-machines-provision-sql-server/5VM-Connect.png

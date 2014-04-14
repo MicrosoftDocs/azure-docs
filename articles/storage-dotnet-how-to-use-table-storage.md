@@ -1,8 +1,8 @@
-<properties linkid="dev-net-2-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage  from .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Learn how to use table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="How to use the Table Storage Service" authors="tamram" />
+<properties linkid="dev-net-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage  from .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="How to use Microsoft Azure Table storage" authors="tamram" />
 
 
 
-# How to use the Table Storage Service from .NET
+# How to use Table Storage from .NET
 
 
 This guide will show you how to perform common scenarios using the 
@@ -11,13 +11,15 @@ and use the Azure Storage Client Library for .NET. The scenarios covered include
 deleting a table**, as well as **working with table entities**. For more
 information on tables, see the [Next steps][] section.
 
+> [WACOM.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 3.x, which is available via NuGet or as part of the Azure SDK for .NET 2.3. See [How to: Programmatically access Table storage][] below for details on obtaining the Storage Client Library.
+
 ## Table of Contents
 
 -   [What is the Table Service][]
 -   [Concepts][]
 -   [Create an Azure Storage account][]
 -   [Setup a storage connection string][]
--   [How to: Programmatically access table storage][]
+-   [How to: Programmatically access Table storage][]
 -   [How to: Create a table][]
 -   [How to: Add an entity to a table][]
 -   [How to: Insert a batch of entities][]
@@ -103,7 +105,7 @@ Read [Configuring Connection Strings][] for more information on storage connecti
 	
 You are now ready to perform the how-to tasks in this guide.
 
-<h2> <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access table storage</h2>
+<h2> <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access Table storage</h2>
 
 <h3>Obtaining the assembly</h3>
 You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
@@ -122,7 +124,7 @@ Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
 
 <h3>Retrieving your connection string</h3>
 You can use the **CloudStorageAccount** type to represent 
-your Storage Account information. If you are using an  
+your Storage Account information. If you are using an 
 Azure project template and/or have a reference to the
 Microsoft.WindowsAzure.CloudConfigurationManager namespace, you 
 can you use the **CloudConfigurationManager** type
@@ -540,7 +542,7 @@ period of time following the deletion.
 
 <h2><a name="next-steps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
-Now that you've learned the basics of table storage, follow these links
+Now that you've learned the basics of Table storage, follow these links
 to learn how to do more complex storage tasks.
 
 <ul>
@@ -554,8 +556,9 @@ to learn how to do more complex storage tasks.
 <li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
 <li>View more feature guides to learn about additional options for storing data in Azure.
   <ul>
-    <li>Use <a href="/en-us/develop/net/how-to-guides/blob-storage/">Blob Storage</a> to store unstructured data.</li>
-    <li>Use <a href="/en-us/develop/net/how-to-guides/sql-database/">SQL Database</a> to store relational data.</li>
+    <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>
+    <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store structured data.</li>
+    <li>Use <a href="/en-us/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
   </ul>
 </li>
 </ul>
@@ -582,14 +585,15 @@ to learn how to do more complex storage tasks.
   [Download and install the Azure SDK for .NET]: /en-us/develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
   
-  [Blob5]: ./media/storage-dotnet-how-to-use-table-storage-20/blob5.png
-  [Blob6]: ./media/storage-dotnet-how-to-use-table-storage-20/blob6.png
-  [Blob7]: ./media/storage-dotnet-how-to-use-table-storage-20/blob7.png
-  [Blob8]: ./media/storage-dotnet-how-to-use-table-storage-20/blob8.png
-  [Blob9]: ./media/storage-dotnet-how-to-use-table-storage-20/blob9.png
+  [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
+  [Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
+  [Blob7]: ./media/storage-dotnet-how-to-use-table-storage/blob7.png
+  [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
+  [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
   
   [blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [.NET client library reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [.NET client library reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
