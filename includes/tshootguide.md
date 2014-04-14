@@ -257,8 +257,8 @@ capabilities.
 
 **Performance Profiling**
 
-You can [profile] your Azure application when it runs in Windows
-Azure to determine any performance issues. When you publish your Windows
+You can [profile] your Azure application when it runs in 
+Azure to determine any performance issues. When you publish your 
 Azure application from Visual Studio, you can choose to profile the
 application and select the profiling settings that you require.
 
@@ -309,8 +309,7 @@ be enabled to debug applications before deployment into production.
 IntelliTrace supports ASP.NET, and WCF applications. Intellitrace is not
 supported when it is enabled in a production service, but can be used to
 get exceptions for an application after deployment to Azure. Jim
-Nakashima's blog post describes how to use [IntelliTrace to debug Windows
-Azure Cloud Services].
+Nakashima's blog post describes how to use [IntelliTrace to debug Azure Cloud Services].
 
 **Fiddler**
 
@@ -412,7 +411,7 @@ ways:
 -   Crashes will cause the loss of diagnostic data unless it is written
     to durable storage (Azure Storage as opposed to being on
     each instance).
--   Diagnostic storage incurs a monthly cost when stored in Windows
+-   Diagnostic storage incurs a monthly cost when stored in
     Azure storage.
 
 Cost is of particular importance because one of the key benefits of
@@ -497,7 +496,7 @@ tracing or logging work.
 
 **Azure Storage Explorers**
 
-There are a number of ways to explore Azure storage. The Windows
+There are a number of ways to explore Azure storage. The
 Azure Storage team came up with a [list of storage explorers]. Any of
 these will allow you to see Diagnostics files and Azure Storage
 Analytics files. Cloudberry Lab's [Explorer for Azure Blob Storage] provides a user interface to enable Storage Analytics directly in the
