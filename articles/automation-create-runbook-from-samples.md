@@ -3,11 +3,11 @@
 
 # Get started with Azure Automation
 
-This tutorial walks you through the steps to import and execute an Automation runbook in Microsoft Azure. 
+Microsoft Azure Automation provides a way for developers to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. You can create, monitor, manage, and deploy resources in your Azure environment using runbooks, which under the hood are Windows PowerShell workflows. To learn more about Automation, see the [Automation Overview Guide](http://go.microsoft.com/fwlink/p/?LinkId=392861). 
 
-Microsoft Azure Automation provides a way for developers to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. You can create, monitor, manage, and deploy resources in your Azure environment using runbooks, which under the hood are Windows PowerShell Workflows. To learn more about Automation, see the [Automation Overview Guide](http://go.microsoft.com/fwlink/p/?LinkId=392861). 
+This tutorial walks you through the steps to import a sample "Hello World" runbook into Azure Automation, execute the runbook, and then view its output.
 
-This tutorial walks you through the steps to import a sample runbook into Azure Automation, execute the runbook, and then view its output.
+>[WACOM.NOTE] For more help getting started with Automation, learn how to automate Azure operations using the PowerShell cmdlets <a href="http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx">here</a>.
 
 ## Samples and utility runbooks
 
@@ -21,20 +21,34 @@ You can view and download the Automation team’s sample and utility runbooks on
 
 ## The Automation community and feedback
 
-Runbooks from the community and other Microsoft teams are also published on  [Script Center](http://go.microsoft.com/fwlink/?LinkID=391681). 
+Runbooks from the community and from other Microsoft teams are also published on  [Script Center](http://go.microsoft.com/fwlink/?LinkID=391681). 
 
-<strong>Give us feedback!</strong>  If you are looking for a runbook solution or PowerShell integration module, post a Script Request on the Script Center. If you have an idea for a new feature for Automation, post it on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback).
+<strong>Give us feedback!</strong>  If you are looking for an Automation runbook solution or integration module, post a Script Request on the Script Center. If you have an idea for a new feature for Automation, post it on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback).
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-## Download a sample runbook from the Script Center
+## High-level steps for this tutorial
+
+1. [Sign up for Automation preview](#preview)
+2. [Download a sample runbook](#download-sample)
+3. [Import, run, and view the output of the sample runbook](#import-sample)
+
+## <a name="preview"></a>Sign up for the Azure Automation Preview
+
+To start using Automation, you’ll need an active Azure subscription with the Microsoft Azure Automation preview feature enabled. 
+
+- On the **Preview Features** page, click **try it now**. 
+
+	![Enable Preview](./media/automation/automation_00_EnablePreview.png)
+
+## <a name="download-sample"></a>Download a sample runbook from the Script Center
 
 1.	Go to  [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029), and then click **Hello World for Azure Automation**.
 
 2.	Click the file name, **Write-HelloWorld.ps1**, next to **Download**, and then save the file to your computer.
 
 
-## Import the sample runbook to Azure
+## <a name="import-sample"></a>Import, run, and view the sample runbook in Azure Automation
 
 1.	Log in to the [Azure Management Portal](http://manage.windowsazure.com).
 
@@ -103,3 +117,4 @@ Runbooks from the community and other Microsoft teams are also published on  [Sc
 - [Automation Overview](http://go.microsoft.com/fwlink/p/?LinkId=392860)
 - [Runbook Authoring Guide](http://go.microsoft.com/fwlink/p/?LinkID=301740)
 - [Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561)
+- [Automate Azure operations using Azure Automation and the PowerShell cmdlets](http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx)

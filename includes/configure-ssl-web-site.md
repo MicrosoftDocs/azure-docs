@@ -2,7 +2,7 @@
 
 When someone visits your web site using HTTPS, the communication between the web site and the browser is secured using Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your site are secure. This article discusses how to enable HTTPS for an Azure Web Site. 
 
-> [WACOM.NOTE] In order to enable HTTPS for custom domain names, you must configure your web sites for standard mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
+> [WACOM.NOTE] In order to enable HTTPS for custom domain names, you must configure your web sites for standard mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and standard mode pricing, see [Pricing Details][pricing]. To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
 
 <a href="bkmk_azurewebsites"></a><h2>The \*.azurewebsites.net domain</h2>
 
