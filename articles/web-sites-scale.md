@@ -8,7 +8,7 @@ Scaling up on Azure Web Sites involves two related actions: changing your Web Ho
 
 Changing modes and configuring them is easily done in the Scale tab of the management portal. You can scale up or down as required. These changes take only seconds to apply and affect all web sites in your Web Hosting Plan. They do not require your code to be changed or your applications to be redeployed.
 
-For information about Web Hosting Plans, see [Azure Web Sites Web Hosting Plans In-Depth Overview](http://www.azure.microsoft.com/en-us/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). For information the pricing and features of individual Web Hosting Plans, see [Web Sites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).  
+For information about Web Hosting Plans, see [What is a Web Hosting Plan?](http://azure.microsoft.com/en-us/documentation/articles/web-sites-web-hosting-plan-overview/) and [Azure Web Sites Web Hosting Plans In-Depth Overview](http://www.azure.microsoft.com/en-us/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). For information the pricing and features of individual Web Hosting Plans, see [Web Sites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).  
 
 > [WACOM.NOTE] Before switching a web site from a **Free** Web Hosting Plan mode to **Basic** or **Standard** Web Hosting Plan mode, you must first remove the spending caps in place for your Web Site subscription. To view or change options for your Microsoft Azure Web Sites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
@@ -167,7 +167,8 @@ Depending on the web hosting plan mode, the following developer-oriented feature
 
 <a name="Next Steps"></a>	
 ## Next Steps
-- For information on Azure Web Sites best practices, including building a scalable and resilient architecture, see [Best Practices: Windows Azure Websites (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+
+- To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
 
 - For information on pricing, support, and SLA, visit the following links.
 	
@@ -184,6 +185,8 @@ Depending on the web hosting plan mode, the following developer-oriented feature
 	[Web Sites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/)
 	
 	[Web Sites Pricing Details - SSL Connections](http://www.windowsazure.com/en-us/pricing/details/web-sites/#ssl-connections)
+
+- For information on Azure Web Sites best practices, including building a scalable and resilient architecture, see [Best Practices: Windows Azure Websites (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 - Videos on scaling Azure Web Sites:
 	

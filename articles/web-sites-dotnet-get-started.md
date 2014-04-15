@@ -220,7 +220,7 @@ One way to automate deployment is to do it by using Windows PowerShell scripts. 
 
 ### How to manage a web site
 
-The [Azure Management Portal](en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as web sites, cloud services, virtual machines, databases, and more. To see what you can do in the portal, go to [https://manage.windowsazure.com](), and sign in with the user name and password for your account that has administration rights to your Azure subscription. For more information, see [How to Manage Web Sites](/en-us/manage/services/web-sites/how-to-manage-websites/).
+The [Azure Management Portal](/en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as web sites, cloud services, virtual machines, databases, and more. To see what you can do in the portal, go to [https://manage.windowsazure.com](), and sign in with the user name and password for your account that has administration rights to your Azure subscription. For more information, see [How to Manage Web Sites](/en-us/manage/services/web-sites/how-to-manage-websites/).
 
 You can also do some web site management functions right from **Server Explorer** in Visual Studio. For information about what you can do in **Server Explorer**, see [Troubleshooting Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 

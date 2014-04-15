@@ -33,8 +33,6 @@ A screenshot of the completed application is shown below:
 
 **Note** Azure also provides storage queue functionality. For more information about Azure storage queues and Service Bus queues, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison].  
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
-
 <h2><span class="short-header">Inter-role communication</span>Scenario overview: inter-role communication</h2>
 
 To submit an order for processing, the front end UI component, running
@@ -672,7 +670,7 @@ To learn how to deploy the front end to an Azure Web Site, see [Deploying an ASP
   [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
   [34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
   [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
-  [sbwacom]: /en-us/manage/services/service-bus/  
+  [sbwacom]: /en-us/documentation/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  
   [mutitierstorage]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/ 
   [executionmodels]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/

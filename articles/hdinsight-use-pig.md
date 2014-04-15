@@ -266,7 +266,7 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 		Write-Host "Display the standard output ..." -ForegroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $pigJob.JobId -StandardOutput
 
-	[WACOM.NOTE]> One of the Get-AzureHDInsightJobOut cmdlets is commented for shortening the output in the following screenshot.   
+	> [WACOM.NOTE] One of the Get-AzureHDInsightJobOut cmdlets is commented for shortening the output in the following screenshot.   
 
 7. Press **F5** to run the script:
 	![HDI.Pig.PowerShell][image-hdi-pig-powershell]
