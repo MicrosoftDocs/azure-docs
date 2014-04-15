@@ -3,7 +3,7 @@
 
 #Partner solutions for Linux in Azure
 
-Contact the partners listed on this page for assistance in delivering your Linux-based cloud solutions in Azure. In addition, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
+Contact the partners listed on this page for assistance in delivering your Linux-based cloud solutions in Azure. 
 
 
 ##Bitnami
@@ -25,9 +25,9 @@ Opscode is the company behind Chef, the rapidly growing cloud infrastructure aut
 
 ##RightScale
 
-[![Rightscale](./media/cloud-services-linux-partners/rightscale-tagline-white-bg.png)](http://www.rightscale.com/microsoft-azure)
+[![Rightscale](./media/cloud-services-linux-partners/rightscale-tagline-white-bg.png)](http://www.opscode.com/partners/microsoft)
 
-[www.rightscale.com/microsoft-azure](http://www.rightscale.com/microsoft-azure)
+[www.rightscale.com/microsoft-azure](http://www.opscode.com/partners/microsoft)
 
 RightScale® Inc., cloud management enables organizations to easily deploy and manage business-critical applications across public, private, and hybrid clouds. RightScale provides efficient configuration, monitoring, automation, and governance of cloud computing infrastructure and applications. Since 2006, millions of servers have been launched with the RightScale solution by leading enterprises including the Associated Press, CBS Interactive, Intercontinental Hotels Group, PBS, and Zynga.
 
@@ -53,7 +53,7 @@ SUSE makes it easy to extend SUSE Linux Enterprise Server-based applications to 
 
 ##Ubuntu Juju
 
-[![Juju](./media/cloud-services-linux-partners/juju.png)](http://www.ubuntu.com/cloud/azure)
+[![Juju](./media/cloud-services-linux-partners/juju.png)](https://juju.ubuntu.com/)
 
 [http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
 
