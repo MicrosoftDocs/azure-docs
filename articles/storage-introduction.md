@@ -1,4 +1,4 @@
-<properties linkid="storage-introduction" urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction to Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure " description="An overview of Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" />
+<properties linkid="storage-introduction" urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction to Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure " description="An overview of Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 # Introduction to Microsoft Azure Storage
 
@@ -26,13 +26,17 @@ Azure Storage supports clients using a diverse set of operating systems (includi
 
 ## Introducing the Azure Storage Services ##
 
-The Azure Storage services are Blob storage, Table storage, and Queue storage:
+The Azure Storage services are Blob storage, Table storage, and Queue storage. These three services are included in every storage account:
 
 - **Blob storage** stores file data. A blob can be any type of text or binary data, such as a document, media file, or application installer. 
 - **Table storage** stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
 - **Queue storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
 
-These three services are included in every storage account. A storage account is a unique namespace that gives you access to Azure Storage. Each storage account can contain up to 200 TB of combined blob, queue, and table data.
+The storage account is a unique namespace that gives you access to Azure Storage. Each storage account can contain up to 200 TB of combined blob, queue, and table data.
+
+The image below shows the relationships between the Azure storage resources:
+
+![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
 Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can create up to 20 uniquely named storage accounts with a single subscription.
 
@@ -59,7 +63,7 @@ For very large datasets where network constraints make uploading or downloading 
 
 Modern applications often demand data stores with greater scalability and flexibility than previous generations of software required. Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store – it has a schemaless design, making it different from traditional relational databases. With a schemaless data store, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly. Access to data is fast and cost-effective for all kinds of applications.  Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.
 
-Table storage is a key-attribute store, meaning that every entity in a table is stored with a property name. This property name, the key can be used for filtering and specifying selection criteria. The key along with a collection of properties and their values comprise an entity. Since Table storage is schemaless, entities in the same table can contain different collections of properties, and those properties can be of different types. 
+Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name. The property name can be used for filtering and specifying selection criteria. A collection of properties and their values comprise an entity. Since Table storage is schemaless, two entities in the same table can contain different collections of properties, and those properties can be of different types. 
 
 You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires.  You can store any number of entities in a table, and a storage account may contain any number of tables, up to the 200 TB capacity limit of the storage account.
 
@@ -123,9 +127,9 @@ To get started with Azure Storage, explore these resources:
 
 <h3>For .NET Developers</h3>
 
-- [How to use Blob Storage from .NET](../storage-dotnet-how-to-use-blobs-20/)
-- [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables-20/)
-- [How to use Queue Storage from .NET](../storage-dotnet-how-to-use-queues-20/)
+- [How to use Blob Storage from .NET](../storage-dotnet-how-to-use-blobs/)
+- [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables/)
+- [How to use Queue Storage from .NET](../storage-dotnet-how-to-use-queues/)
 
 <h3>For Java Developers</h3>
 
