@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" urlDisplayName="Step 2: Download and Run" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 2: Download and run" metaKeywords="Azure tutorial, deploying email service app, publishing email service" description="The second tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Configuring and Deploying the Azure Email Service application - 2 of 5" authors="riande,tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="riande,tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
 # Configuring and Deploying the Azure Email Service application - 2 of 5
 
@@ -608,7 +608,7 @@ The following steps explain how to scale out by using the Azure Management Porta
 
 You have now seen how to configure, deploy, and scale the completed application. The following tutorials show how to build the application from scratch. In the [next tutorial][tut3] you'll build the web role.
 
-For links to additional resources for working with Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
+For links to additional resources for working with Azure Storage tables, queues, and blobs, see [the last tutorial in this series][tut5nextsteps].
 
 
 
@@ -632,6 +632,7 @@ For links to additional resources for working with Azure Storage tables, queues,
 
 [tut3]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/
 [tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+[tut5nextsteps]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps
 [NewPortal]: http://manage.windowsazure.com
 [managestorage]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
 [autoscalingappblock]: /en-us/develop/net/how-to-guides/autoscaling/
