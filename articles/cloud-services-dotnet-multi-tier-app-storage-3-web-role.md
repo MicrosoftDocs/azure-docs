@@ -22,9 +22,9 @@ In this tutorial you'll learn:
 - [Create and test the Mailing List](#mailinglist)
 - [Configure the web role to use your test Azure Storage account](#configurestorage)
 - [Create and test the Subscriber controller and views](#subscriber)
-- [Create and test the Message controller and views](message)
-- [Create and test the Unsubscribe controller and view](unsubscribe)
-- [(Optional) Build the Alternative Architecture](alternativearchitecture)
+- [Create and test the Message controller and views](#message)
+- [Create and test the Unsubscribe controller and view](#unsubscribe)
+- [(Optional) Build the Alternative Architecture](#alternativearchitecture)
 - [Next steps](#nextsteps)
 
   

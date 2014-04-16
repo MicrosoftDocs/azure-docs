@@ -6,47 +6,6 @@ This tutorial series shows how to create and deploy a multi-tier ASP.NET MVC web
 
 ![Email message processing][mtas-worker-roles-a-and-b]
 
-## Prerequisites
-
-The instructions in these tutorials work for the following products:
-
-* Visual Studio 2012
-* Visual Studio 2012 Express for Web
-* Visual Studio 2010
-* Visual Web Developer Express 2010.
-
->[WACOM.NOTE] After this tutorial was written, Visual Studio 2013 was released, and the Azure Management Portal and SDK were updated. Notes like this one have been added at points where you have to do things differently if you are using Visual Studio 2013 and the latest SDK. The notes were written in March, 2014, and the revised procedures have been tested with SDK version 2.3. The main text and screen shots of the tutorial will be updated later.
-This content, without the latest updates for Visual Studio 2013, is available as a free e-book in the 
-[TechNet E-Book Gallery](http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs).
-
-<h2><a name="toc"></a>Tutorials in the Series</h2>
-
-Here is a list of the tutorials with a summary of their contents:
-
-1. **Introduction to the Azure Email Service application** (this tutorial). An in-depth look at the application and its architecture. You can skip this if you just want to see how to deploy or you want to see the code, and you can come back here later to better understand the architecture. 
-2. [Configuring and Deploying the Azure Email Service application][tut2]. How to download the sample application, configure it, test it locally, deploy it, and test it in the cloud.  
-3. [Building the web role for the Azure Email Service application][tut3]. How to build the MVC components of the application and test them locally.
-4. [Building worker role A (email scheduler) for the Azure Email Service application][tut4]. How to build the back-end component that creates queue work items for sending emails, and test it locally.
-5. [Building worker role B (email sender) for the Azure Email Service application][tut5]. How to build the back-end component that processes queue work items for sending emails, and test it locally.
-
-## Segments of this tutorial
-
-- [What you'll learn](#whatyoulllearn)
-- [Why an email list](#whyanemaillist)
-- [Front-end overview](#frontend)
-- [Back-end overview](#backend)
-- [Azure tables](#tables)
-- [Azure queues](#queues)
-- [Data diagram](#datadiagram)
-- [Azure blobs](#blobs)
-- [Azure cloud service versus Azure web site](#wawsvswacs)
-- [Cost](cost)
-- [Authentication and authorization](auth)
-- [Next steps](#nextsteps)
-
-
-<h2><a name="whatyoulllearn"></a>What you'll learn</h2>
-
 In this tutorial series you'll learn the following:
 
 * How to enable your machine for Azure development by installing the Azure SDK.
@@ -60,6 +19,45 @@ In this tutorial series you'll learn the following:
 * How to use SendGrid to send emails.
 * How to configure tracing and view trace data.
 * How to scale an application by increasing the number of worker role instances.
+
+<h2><a name="toc"></a>Tutorials in the Series</h2>
+
+Here is a list of the tutorials with a summary of their contents:
+
+1. **Introduction to the Azure Email Service application** (this tutorial). An in-depth look at the application and its architecture. You can skip this if you just want to see how to deploy or you want to see the code, and you can come back here later to better understand the architecture. 
+2. [Configuring and Deploying the Azure Email Service application][tut2]. How to download the sample application, configure it, test it locally, deploy it, and test it in the cloud.  
+3. [Building the web role for the Azure Email Service application][tut3]. How to build the MVC components of the application and test them locally.
+4. [Building worker role A (email scheduler) for the Azure Email Service application][tut4]. How to build the back-end component that creates queue work items for sending emails, and test it locally.
+5. [Building worker role B (email sender) for the Azure Email Service application][tut5]. How to build the back-end component that processes queue work items for sending emails, and test it locally.
+
+## Segments of this tutorial
+
+- [Prerequisites](#prerequisites)
+- [Why an email list](#whyanemaillistapp)
+- [Front-end overview](#frontend)
+- [Back-end overview](#backend)
+- [Azure tables](#tables)
+- [Azure queues](#queues)
+- [Data diagram](#datadiagram)
+- [Azure blobs](#blobs)
+- [Azure cloud service versus Azure web site](#wawsvswacs)
+- [Cost](#cost)
+- [Authentication and authorization](#auth)
+- [Next steps](#nextsteps)
+
+
+## Prerequisites
+
+The instructions in these tutorials work for the following products:
+
+* Visual Studio 2012
+* Visual Studio 2012 Express for Web
+* Visual Studio 2010
+* Visual Web Developer Express 2010.
+
+>[WACOM.NOTE] After this tutorial was written, Visual Studio 2013 was released, and the Azure Management Portal and SDK were updated. Notes like this one have been added at points where you have to do things differently if you are using Visual Studio 2013 and the latest SDK. The notes were written in March, 2014, and the revised procedures have been tested with SDK version 2.3. The main text and screen shots of the tutorial will be updated later.
+This content, without the latest updates for Visual Studio 2013, is available as a free e-book in the 
+[TechNet E-Book Gallery](http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs).
 
 <h2><a name="whyanemaillistapp"></a><span class="short-header">Why This App</span>Why an Email List Service Application</h2>
 
