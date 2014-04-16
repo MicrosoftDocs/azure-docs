@@ -24,9 +24,10 @@ In this tutorial, you will:
 3. On the **Create a Virtual Machine** page, select a virtual machine image containing SQL Server, and then click the next arrow at the bottom right of the page. For the most up-to-date information on the supported SQL Server images on Azure, see [Getting Started with SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720) topic in the [SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719) documentation set. 
 
     >[WACOM.NOTE] If you have a virtual machine created by using the platform image SQL Server Evaluation edition, you cannot upgrade it to a per-minute paid edition image in the gallery. You can choose one of the following two options:
+    
     > - You can create a new virtual machine by using the per-minute paid SQL Server edition from the gallery and migrate your database files to this new virtual machine by following the steps at [How to migrate SQL Server database files and schema between virtual machines in Azure using data disks](http://go.microsoft.com/fwlink/p/?LinkId=294738). **Or**,
 
-    > - You can upgrade an existing instance of SQL Server Evaluation edition to a different edition of SQL Server under the [License Mobility through Software Assurance on Azure](http://www.windowsazure.com/en-us/pricing/license-mobility/) agreement by following the steps at [Upgrade to a Different Edition of SQL Server 2014](http://msdn.microsoft.com/library/cc707783(v=sql.120).aspx). For information on how to purchase the licensed copy of SQL Server, see [How to Buy SQL Server](http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx).
+    > - You can upgrade an existing instance of SQL Server Evaluation edition to a different edition of SQL Server under the [License Mobility through Software Assurance on Azure](http://www.windowsazure.com/en-us/pricing/license-mobility/) agreement by following the steps at [Upgrade to a Different Edition of SQL Server 2014](http://go.microsoft.com/fwlink/?LinkId=396915). For information on how to purchase the licensed copy of SQL Server, see [How to Buy SQL Server](http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx).
    
 
 4. On the **Virtual Machine Configuration** page, provide the following information:
@@ -37,12 +38,12 @@ In this tutorial, you will:
 	- Select the appropriate **SIZE** from the drop down list. 
 
 	>[WACOM.NOTE] The size of the virtual machine is specified during provisioning:
- 	>- A2 is the smallest size recommended for production workloads. 
-    >- The minimum recommended size for a virtual machine is A3 when using SQL Server Enterprise Edition.
-    >- Select A3 or higher when using SQL Server Enterprise Edition. 
-   	>- Select A6 when using SQL Server 2012 Enterprise for Data Warehousing image. 
-   	>- Select A7 when using SQL Server 2014 for Data Warehousing image. 
-   	>- The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](http://msdn.microsoft.com/en-us/library/azure/dn197896.aspx).
+ 	> A2 is the smallest size recommended for production workloads. 
+    > The minimum recommended size for a virtual machine is A3 when using SQL Server Enterprise Edition.
+    > Select A3 or higher when using SQL Server Enterprise Edition. 
+   	> Select A6 when using SQL Server 2012 Enterprise for Data Warehousing image. 
+   	> Select A7 when using SQL Server 2014 for Data Warehousing image. 
+   	> The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](http://msdn.microsoft.com/en-us/library/azure/dn197896.aspx).
 
 	Click the next arrow on the bottom right to continue.
 
