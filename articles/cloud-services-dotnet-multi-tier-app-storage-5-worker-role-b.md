@@ -12,6 +12,18 @@ In this tutorial you'll learn:
 * How to handle planned shut-downs by overriding the `OnStop` method.
 * How to handle unplanned shut-downs by making sure that no duplicate emails are sent.
  
+## Segments of this tutorial
+
+- [Add worker role B project to the solution](#addworkerrole)
+- [Add a reference to the web project](#addref)
+- [Add the Storage Client Library 2.0 NuGet package to the project](#sclpackage)
+- [Add a reference to an SCL 1.7 assembly](#addref2)
+- [Add the SendGrid NuGet package to the project](#addmodel)
+- [Add project settings](#addsettings)
+- [Add code that runs when the worker role starts](#addcode)
+- [Test worker role B](#testing)
+- [Next steps](#nextsteps)
+
 <h2><a name="addworkerrole"></a><span class="short-header">Add worker role B</span>Add worker role B project to the solution</h2>
 
 1. In Solution Explorer, right-click the cloud service project, and choose **New Worker Role Project**.
@@ -152,7 +164,7 @@ For storage account credentials, the procedure is the same as what you saw in [t
 
 	![New settings in WorkerRoleB project][mtas-worker-b-settings]
 
-### Add code that runs when the worker role starts
+<h2><a name="addcode"></a>Add code that runs when the worker role starts</h2>
 
 4. In the WorkerRoleB project, delete WorkerRole.cs.
 
