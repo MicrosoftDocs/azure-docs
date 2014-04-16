@@ -42,7 +42,7 @@ services. You can put your storage connection string in a configuration
 file, rather than hard-coding it in code:
 
 - When using Azure Cloud Services, it is recommended you store your connection string using the Azure service configuration system (`*.csdef` and `*.cscfg` files).
-- When using Azure Web Sites, Azure Virtual Machines, or building .NET applications that are intentded to run outside of Azure, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` or `app.config` file).
+- When using Azure Web Sites, Azure Virtual Machines, or building .NET applications that are intended to run outside of Azure, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` or `app.config` file).
 
 In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method, as shown later in this guide.
 
@@ -94,7 +94,7 @@ Read [Configuring Connection Strings][] for more information on storage connecti
 	
 You are now ready to perform the how-to tasks in this guide.
 
-<h2><a name="access"></a><span  class="short-header">Access programmatically</span>How to: Programmatically access queues using .NET</h2>
+## <a name="access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access Queue storage
 
 <h3>Obtaining the assembly</h3>
 You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
