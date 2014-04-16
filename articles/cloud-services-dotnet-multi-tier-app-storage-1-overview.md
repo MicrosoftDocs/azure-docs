@@ -2,7 +2,7 @@
 
 # Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, and Azure Storage Tables, Queues, and Blobs - 1 of 5
 
-This tutorial series shows how to create and deploy a multi-tier ASP.NET MVC web application that runs in an Azure cloud service and uses Azure Storage tables, queues, and blobs. You can [download the completed application](http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) from the MSDN Code Gallery. 
+This tutorial series shows how to create and deploy a multi-tier ASP.NET MVC web application that runs in an Azure cloud service and uses Azure Storage tables, queues, and blobs. You can [download the completed application](http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) from the MSDN Code Gallery. Here is a diagram that shows how the parts of the application interact:
 
 ![Email message processing][mtas-worker-roles-a-and-b]
 
