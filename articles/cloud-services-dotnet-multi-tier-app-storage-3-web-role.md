@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-3-web-role" urlDisplayName="Step 3: Web Role" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 3: Web role" metaKeywords="Azure tutorial, Email Service application, ASP.NET MVC web role, MVC controllers, Web API controller, Cloud Service project" description="The third tutorial in a series that teaches how to create and deploy the Email Service app in an Azure cloud service." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building the web role for the Azure Email Service application - 3 of 5." authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-3-web-role" pageTitle="Azure Cloud Service Tutorial: ASP.NET Web Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, ASP.NET MVC tutorial, Azure web role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 # Building the web role for the Azure Email Service application - 3 of 5. 
 
@@ -11,7 +11,23 @@ In this tutorial you'll learn:
 * How to handle concurrency conflicts when you are working with Azure tables.
 * How to configure a web role or web project to use your Azure Storage account.
 
- 
+## Segments of this tutorial
+
+- [Create the Visual Studio solution](#cloudproject)
+- [Configure tracing](#tracing)
+- [Add code to efficiently handle restarts.](#restarts)
+- [Update the Storage Client Library NuGet Package](#updatescl)
+- [Add a reference to an SCL 1.7 assembly](#addref2)
+- [Add code to create tables, queue, and blob container in the Application_Start method](#createifnotexists)
+- [Create and test the Mailing List](#mailinglist)
+- [Configure the web role to use your test Azure Storage account](#configurestorage)
+- [Create and test the Subscriber controller and views](#subscriber)
+- [Create and test the Message controller and views](message)
+- [Create and test the Unsubscribe controller and view](unsubscribe)
+- [(Optional) Build the Alternative Architecture](alternativearchitecture)
+- [Next steps](#nextsteps)
+
+  
 <h2><a name="cloudproject"></a><span class="short-header">Create solution</span>Create the Visual Studio solution</h2>
 
 You begin by creating a Visual Studio solution with a project for the web front-end and a project for one of the back-end Azure worker roles. You'll add the second worker role later. 
@@ -1627,7 +1643,7 @@ For the web page that subscribers get when they click on the **Confirm** link in
 
 In the [next tutorial][nexttutorial] you'll configure and program worker role A, the worker role that schedules emails.
 
-For links to additional resources for working with Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
+For links to additional resources for working with Azure Storage tables, queues, and blobs, see [the last tutorial in this series][tut5ns].
 
 <div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/" class="site-arrowboxcta download-cta">Tutorial 4</a></div>
 
@@ -1637,6 +1653,7 @@ For links to additional resources for working with Azure Storage tables, queues,
 
 
 [tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+[tut5ns]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps
 [tut2]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
 [firsttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
 [nexttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/

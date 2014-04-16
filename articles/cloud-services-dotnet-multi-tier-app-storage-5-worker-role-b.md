@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" urlDisplayName="Step 5: Worker Role B" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 5: Worker role B" metaKeywords="Azure tutorial, adding working role cloud service, C# worker role" description="The fifth tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building worker role B (email sender) for the Azure Email Service application - 5 of 5." authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" pageTitle="Azure Cloud Service Tutorial: Worker Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 # Building worker role B (email sender) for the Azure Email Service application - 5 of 5. 
 
@@ -12,6 +12,18 @@ In this tutorial you'll learn:
 * How to handle planned shut-downs by overriding the `OnStop` method.
 * How to handle unplanned shut-downs by making sure that no duplicate emails are sent.
  
+## Segments of this tutorial
+
+- [Add worker role B project to the solution](#addworkerrole)
+- [Add a reference to the web project](#addref)
+- [Add the Storage Client Library 2.0 NuGet package to the project](#sclpackage)
+- [Add a reference to an SCL 1.7 assembly](#addref2)
+- [Add the SendGrid NuGet package to the project](#addmodel)
+- [Add project settings](#addsettings)
+- [Add code that runs when the worker role starts](#addcode)
+- [Test worker role B](#testing)
+- [Next steps](#nextsteps)
+
 <h2><a name="addworkerrole"></a><span class="short-header">Add worker role B</span>Add worker role B project to the solution</h2>
 
 1. In Solution Explorer, right-click the cloud service project, and choose **New Worker Role Project**.
@@ -152,7 +164,7 @@ For storage account credentials, the procedure is the same as what you saw in [t
 
 	![New settings in WorkerRoleB project][mtas-worker-b-settings]
 
-### Add code that runs when the worker role starts
+<h2><a name="addcode"></a>Add code that runs when the worker role starts</h2>
 
 4. In the WorkerRoleB project, delete WorkerRole.cs.
 

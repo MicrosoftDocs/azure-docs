@@ -1,13 +1,51 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" urlDisplayName="Step 1: Overview" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 1: Overview" metaKeywords="Azure tutorial, email list service app, email service architecture, Azure tutorial overview, Azure multi-tier, Azure storage, Azure blobs, Azure tables, Azure queues" description="Learn about the five-part multi-tier Azure web application tutorial." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Multi-tier ASP.NET MVC Web Site Tutorial - Step 1: Overview" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-# ASP.NET Multi-Tier Web Application Using Azure Storage Tables, Queues, and Blobs - 1 of 5
+# Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, and Azure Storage Tables, Queues, and Blobs - 1 of 5
 
-This tutorial series shows how to create a multi-tier ASP.NET MVC web application that uses Azure Storage tables, queues, and blobs, and how to deploy the application to an Azure Cloud Service. The tutorials assume that you have no prior experience using Azure. On completing the series, you'll know how to build a resilient and scalable data-driven web application and deploy it to the cloud.
+This tutorial series shows how to create and deploy a multi-tier ASP.NET MVC web application that runs in an Azure cloud service and uses Azure Storage tables, queues, and blobs. You can [download the completed application](http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) from the MSDN Code Gallery. 
 
-This content is available as a free e-book in the 
+![Email message processing][mtas-worker-roles-a-and-b]
+
+## Prerequisites
+
+The instructions in these tutorials work for the following products:
+
+* Visual Studio 2012
+* Visual Studio 2012 Express for Web
+* Visual Studio 2010
+* Visual Web Developer Express 2010.
+
+>[WACOM.NOTE] After this tutorial was written, Visual Studio 2013 was released, and the Azure Management Portal and SDK were updated. Notes like this one have been added at points where you have to do things differently if you are using Visual Studio 2013 and the latest SDK. The notes were written in March, 2014, and the revised procedures have been tested with SDK version 2.3. The main text and screen shots of the tutorial will be updated later.
+This content, without the latest updates for Visual Studio 2013, is available as a free e-book in the 
 [TechNet E-Book Gallery](http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs).
 
-<h2><a name="whatyoulllearn"></a><span class="short-header">What You'll Learn</span>What You'll Learn</h2>
+<h2><a name="toc"></a>Tutorials in the Series</h2>
+
+Here is a list of the tutorials with a summary of their contents:
+
+1. **Introduction to the Azure Email Service application** (this tutorial). An in-depth look at the application and its architecture. You can skip this if you just want to see how to deploy or you want to see the code, and you can come back here later to better understand the architecture. 
+2. [Configuring and Deploying the Azure Email Service application][tut2]. How to download the sample application, configure it, test it locally, deploy it, and test it in the cloud.  
+3. [Building the web role for the Azure Email Service application][tut3]. How to build the MVC components of the application and test them locally.
+4. [Building worker role A (email scheduler) for the Azure Email Service application][tut4]. How to build the back-end component that creates queue work items for sending emails, and test it locally.
+5. [Building worker role B (email sender) for the Azure Email Service application][tut5]. How to build the back-end component that processes queue work items for sending emails, and test it locally.
+
+## Segments of this tutorial
+
+- [What you'll learn](#whatyoulllearn)
+- [Why an email list](#whyanemaillist)
+- [Front-end overview](#frontend)
+- [Back-end overview](#backend)
+- [Azure tables](#tables)
+- [Azure queues](#queues)
+- [Data diagram](#datadiagram)
+- [Azure blobs](#blobs)
+- [Azure cloud service versus Azure web site](#wawsvswacs)
+- [Cost](cost)
+- [Authentication and authorization](auth)
+- [Next steps](#nextsteps)
+
+
+<h2><a name="whatyoulllearn"></a>What you'll learn</h2>
 
 In this tutorial series you'll learn the following:
 
@@ -18,14 +56,28 @@ In this tutorial series you'll learn the following:
 * How to use the Azure Queue storage service for communication between tiers or between worker roles.
 * How to use the Azure Table storage service as a highly scalable data store for structured, non-relational data.
 * How to use the Azure Blob service to store files in the cloud.
-* How to view and edit Azure tables, queues, and blobs by using Visual Studio or Azure Storage Explorer.
+* How to view and edit Azure tables, queues, and blobs by using Visual Studio Server Explorer.
 * How to use SendGrid to send emails.
 * How to configure tracing and view trace data.
 * How to scale an application by increasing the number of worker role instances.
 
-<h2><a name="frontendoverview"></a><span class="short-header">Front-end overview</span>Front-end overview</h2>
+<h2><a name="whyanemaillistapp"></a><span class="short-header">Why This App</span>Why an Email List Service Application</h2>
 
-The application that you'll build is an email list service. The front-end of the multi-tier application includes web pages that administrators of the service use to manage email lists.
+We chose an email list service for this sample application because it is the kind of application that needs to be resilient and scalable, two features that make it especially appropriate for Azure.  
+
+### Resilient 
+
+If a server fails while sending out emails to a large list, you want to be able to spin up a new server easily and quickly, and you want the application to pick up where it left off without losing or duplicating any emails. An Azure Cloud Service web or worker role instance (a virtual machine) is automatically replaced if it fails. And Azure Storage queues and tables provide a means to implement server-to-server communication that can survive a failure without losing work.
+
+### Scalable
+
+An email service also must be able to handle spikes in workload, since sometimes you are sending emails to small lists and sometimes to very large lists.  In many hosting environments, you have to purchase and maintain sufficient hardware to handle the spikes in workload, and you're paying for all that capacity 100% of the time although you might only use it 5% of the time.  With Azure, you pay only for the amount of computing power that you actually need for only as long as you need it.  To scale up for a large mailing, you just change a configuration setting to increase the number of servers you have available to process the workload, and this can be done programmatically.  For example, you could configure the application so that if the number of work items waiting in the queue exceeds a certain number, Azure automatically spins up additional instances of the worker role that processes those work items.
+
+
+
+<h2><a name="frontend"></a>Front-end overview</h2>
+
+The application that you'll build is an email list service. The front-end of the application includes web pages that administrators of the service use to manage email lists.
 
 ![Mailing List Index Page][mtas-mailing-list-index-page]
 
@@ -52,38 +104,7 @@ If the recipient clicks the **Confirm** button, a page is displayed confirming t
 ![Unsubscribe confirmed page][mtas-unsubscribe-confirmation-page]
 
 
-
-
-<h2><a name="whyanemaillistapp"></a><span class="short-header">Tutorials</span>Tutorials in the Series</h2>
-
-Here is a list of the tutorials with a summary of their contents:
-
-1. **Introduction to the Azure Email Service application** (this tutorial). An overview of the application and its architecture.
-2. [Configuring and Deploying the Azure Email Service application][tut2]. How to download the sample application, configure it, test it locally, deploy it, and test it in the cloud.  
-3. [Building the web role for the Azure Email Service application][tut3]. How to build the MVC 4 components of the application and test them locally.
-4. [Building worker role A (email scheduler) for the Azure Email Service application][tut4]. How to build the back-end component that creates queue work items for sending emails, and test it locally.
-5. [Building worker role B (email sender) for the Azure Email Service application][tut5]. How to build the back-end component that processes queue work items for sending emails, and test it locally.
-
-If you just want to download the application and try it out, all you need is the first two tutorials.  If you want to see all the steps that go into building an application like this from scratch, go through the last three tutorials after you go through the first two.
-
-
-
-<h2><a name="whyanemaillistapp"></a><span class="short-header">Why This App</span>Why an Email List Service Application</h2>
-
-We chose an email list service for this sample application because it is the kind of application that needs to be resilient and scalable, two features that make it especially appropriate for Azure.  
-
-### Resilient 
-
-If a server fails while sending out emails to a large list, you want to be able to spin up a new server easily and quickly, and you want the application to pick up where it left off without losing or duplicating any emails. An Azure Cloud Service web or worker role instance (a virtual machine) is automatically replaced if it fails. And Azure Storage queues and tables provide a means to implement server-to-server communication that can survive a failure without losing work.
-
-### Scalable
-
-An email service also must be able to handle spikes in workload, since sometimes you are sending emails to small lists and sometimes to very large lists.  In many hosting environments, you have to purchase and maintain sufficient hardware to handle the spikes in workload, and you're paying for all that capacity 100% of the time although you might only use it 5% of the time.  With Azure, you pay only for the amount of computing power that you actually need for only as long as you need it.  To scale up for a large mailing, you just change a configuration setting to increase the number of servers you have available to process the workload, and this can be done programmatically.  For example, you could configure the application so that if the number of work items waiting in the queue exceeds a certain number, Azure automatically spins up additional instances of the worker role that processes those work items.
-
-
-
-
-<h2><a name="backendoverview"></a><span class="short-header">Back-end overview</span>Back-end overview</h2>
+<h2><a name="backend"></a><span class="short-header">Back-end overview</span>Back-end overview</h2>
 
 The front-end stores email lists and messages to be sent to them in Azure tables. When an administrator schedules a message to be sent, a table row containing the scheduled date and other data such as the subject line is added to the `message` table. A worker role periodically scans the `message` table looking for messages that need to be sent (we'll call this worker role A). 
 
@@ -863,7 +884,7 @@ For more information about how to implement authentication and authorization in 
 
 In the [next tutorial][tut2], you'll download the sample project, configure your development environment, configure the project for your environment, and test the project locally and in the cloud.  In the following tutorials you'll see how to build the project from scratch.
 
-For links to additional resources for working with Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
+For links to additional resources for working with Azure Storage tables, queues, and blobs, see [the last tutorial in this series][tut5nextsteps].
 
 <div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/" class="site-arrowboxcta download-cta">Tutorial 2</a></div>
 
@@ -871,6 +892,7 @@ For links to additional resources for working with Azure Storage tables, queues,
 [tut3]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/
 [tut4]: /en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
 [tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+[tut5nextsteps]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps
 [autoscalingappblock]: /en-us/develop/net/how-to-guides/autoscaling/
 
 
