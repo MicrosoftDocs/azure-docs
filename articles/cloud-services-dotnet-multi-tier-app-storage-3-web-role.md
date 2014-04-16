@@ -11,7 +11,23 @@ In this tutorial you'll learn:
 * How to handle concurrency conflicts when you are working with Azure tables.
 * How to configure a web role or web project to use your Azure Storage account.
 
- 
+## Segments of this tutorial
+
+- [Create the Visual Studio solution](#cloudproject)
+- [Configure tracing](#tracing)
+- [Add code to efficiently handle restarts.](#restarts)
+- [Update the Storage Client Library NuGet Package](#updatescl)
+- [Add a reference to an SCL 1.7 assembly](#addref2)
+- [Add code to create tables, queue, and blob container in the Application_Start method](#createifnotexists)
+- [Create and test the Mailing List](#mailinglist)
+- [Configure the web role to use your test Azure Storage account](#configurestorage)
+- [Create and test the Subscriber controller and views](#subscriber)
+- [Create and test the Message controller and views](message)
+- [Create and test the Unsubscribe controller and view](unsubscribe)
+- [(Optional) Build the Alternative Architecture](alternativearchitecture)
+- [Next steps](#nextsteps)
+
+  
 <h2><a name="cloudproject"></a><span class="short-header">Create solution</span>Create the Visual Studio solution</h2>
 
 You begin by creating a Visual Studio solution with a project for the web front-end and a project for one of the back-end Azure worker roles. You'll add the second worker role later. 

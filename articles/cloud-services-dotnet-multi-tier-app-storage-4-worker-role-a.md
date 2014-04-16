@@ -14,6 +14,15 @@ In this tutorial you'll learn:
  
 You already created the worker role A project when you created the cloud service project. So all you have to do now is program the worker role and configure it to use your Azure Storage account.
 
+## Segments of this tutorial
+
+- [Add a reference to the web project](#addref)
+- [Add a reference to an SCL 1.7 assembly](#addref2)
+- [Add the SendEmail model](#addmodel)
+- [Add code that runs when the worker role starts](#addcode)
+- [Configure the storage connection string](#configure)
+- [Test worker role A](#testing)
+- [Next steps](#nextsteps)
 
 
 

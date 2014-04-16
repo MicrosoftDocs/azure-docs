@@ -29,6 +29,22 @@ Here is a list of the tutorials with a summary of their contents:
 4. [Building worker role A (email scheduler) for the Azure Email Service application][tut4]. How to build the back-end component that creates queue work items for sending emails, and test it locally.
 5. [Building worker role B (email sender) for the Azure Email Service application][tut5]. How to build the back-end component that processes queue work items for sending emails, and test it locally.
 
+## Segments of this tutorial
+
+- [What you'll learn](#whatyoulllearn)
+- [Why an email list](#whyanemaillist)
+- [Front-end overview](#frontend)
+- [Back-end overview](#backend)
+- [Azure tables](#tables)
+- [Azure queues](#queues)
+- [Data diagram](#datadiagram)
+- [Azure blobs](#blobs)
+- [Azure cloud service versus Azure web site](#wawsvswacs)
+- [Cost](cost)
+- [Authentication and authorization](auth)
+- [Next steps](#nextsteps)
+
+
 <h2><a name="whatyoulllearn"></a>What you'll learn</h2>
 
 In this tutorial series you'll learn the following:
@@ -59,7 +75,7 @@ An email service also must be able to handle spikes in workload, since sometimes
 
 
 
-<h2><a name="frontendoverview"></a>Front-end overview</h2>
+<h2><a name="frontend"></a>Front-end overview</h2>
 
 The application that you'll build is an email list service. The front-end of the application includes web pages that administrators of the service use to manage email lists.
 
@@ -88,7 +104,7 @@ If the recipient clicks the **Confirm** button, a page is displayed confirming t
 ![Unsubscribe confirmed page][mtas-unsubscribe-confirmation-page]
 
 
-<h2><a name="backendoverview"></a><span class="short-header">Back-end overview</span>Back-end overview</h2>
+<h2><a name="backend"></a><span class="short-header">Back-end overview</span>Back-end overview</h2>
 
 The front-end stores email lists and messages to be sent to them in Azure tables. When an administrator schedules a message to be sent, a table row containing the scheduled date and other data such as the subject line is added to the `message` table. A worker role periodically scans the `message` table looking for messages that need to be sent (we'll call this worker role A). 
 
