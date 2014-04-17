@@ -122,6 +122,9 @@ The .zip and .xml backup file names consist of your web site name followed by an
 ## Next Steps
 For information on restoring an Azure web site from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
 
+To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
+
+
 <a name="moreaboutstorage"></a>
 ### More about storage accounts
 

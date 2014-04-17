@@ -196,6 +196,8 @@ If you don't want to use the WebJobs portal page to upload your scripts, you can
 	
 	[Azure Scheduler 101 - Kevin Lam explains how to schedule stuff](http://www.windowsazure.com/en-us/documentation/videos/azure-scheduler-how-to/)
 
+###Get Started
+To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
 
 <!-- LINKS -->
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
