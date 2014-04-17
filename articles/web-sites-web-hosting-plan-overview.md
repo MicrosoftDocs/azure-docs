@@ -1,4 +1,5 @@
-<properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" authors="adamab" />
+<properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" services="web-sites" authors="adamab" />
+
 # What is a Web Hosting Plan? #
 
 Web hosting plans represent a set of features and capacity that you can share across your web sites.  Web hosting plans support a few pricing tiers (e.g. Free, Shared, Basic, and Standard) where each tier has its own capabilities.  Sites in the same subscription, resource group, and geographic location can share a web hosting plan.
@@ -39,6 +40,11 @@ You can also see which web hosting plan each web site is associated with by look
 Clicking on the plan will launch a blade that lets you manage your web hosting plan.  [Learn more about managing web hosting plans](http://go.microsoft.com/fwlink/?LinkID=394411).
 
 ![][WebHostingPlanBladeScreenshot]
+	
+
+### Next Steps ###
+
+To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
 
 <!-- Images. -->
 [BrowseEverythingScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png

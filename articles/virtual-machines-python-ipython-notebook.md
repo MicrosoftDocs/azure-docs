@@ -121,10 +121,13 @@ using the Windows PowerShell to run all command line actions.
 1.  Download and install [Matplotlib][matplotlib] using the
     `.exe` binary installer available on their web site.  As of this writing, the latest version is **matplotlib-1.2.1.win32-py2.7.exe**.
 
-1.  Download and install OpenSSL. You will need to install both the 
-    **Win32 OpenSSL v1.0.1e Light** and **Visual C++ 2008  Redistributable** from
-    [http://slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html). You will also need to add
-    `C:\OpenSSL-Win32\bin` to your `PATH` environment variable.
+1.  Download and install OpenSSL. You can find Windows versions of OpenSSL at [http://slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html).
+
+	* If you install a **Light** version, you must also install the **Visual C++ 2008 Redistributable** (also available from this page.)
+
+	* You will  need to add `C:\OpenSSL-Win32\bin` to your `PATH` environment variable.
+
+	> [WACOM.NOTE] When installing OpenSSL, use version 1.0.1g or higher as these include a fix for the Heartbleed security vulnerability.
 
 1.  Install the IPython using the command:
 
