@@ -108,7 +108,7 @@ or even shutting down the service altogether. Consider the following
 questions that may point to potential vulnerabilities in your cloud
 app's identity and access implementation:
 
--   Are you sending credentials in clear over the wire to your Windows
+-   Are you sending credentials in clear over the wire to your
     Azure services?
 -   Do you store Azure services credentials in clear?
 -   Do your Azure services credentials follow strong password
@@ -143,7 +143,7 @@ resources provide in-depth information about WIF:
 -   [Windows Identity Foundation 3.5/4.0 samples and Visual Studio
     2008/2010 templates](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=4451) on MSDN.
 
-**Azure AD Access Control (previously known as ACS)**. Windows
+**Azure AD Access Control (previously known as ACS)**. 
 Azure AD Access Control is a cloud service that provides Security Token
 Service (STS) and allows federation with different identity providers
 (IdPs) such as a corporate Active Directory or Internet IdPs such as
@@ -318,7 +318,7 @@ Refer to the following resources to implement this scenario:
 
 ###WCF (REST) Service With Service Identities
 
-In this scenario your WCF (REST) service may be deployed to Windows
+In this scenario your WCF (REST) service may be deployed to 
 Azure or on-premises. The service is accessed as a downstream service by
 a web application or by another web service. You need to control access
 to it using an application-specific identity Think of it in terms of the
@@ -350,7 +350,7 @@ Refer to the following resources to implement this scenario:
 
 ###WCF (REST) Service with Live ID / Microsoft Account, Facebook, Google, Yahoo!, Open ID
 
-In this scenario, your WCF (REST) service can be deployed to Windows
+In this scenario, your WCF (REST) service can be deployed to 
 Azure or on-premises. You need to control access to it using a public
 Internet identity, such as Live ID / Microsoft Account or Facebook.
 
@@ -442,7 +442,7 @@ http://schemas.microsoft.com/ws/2008/06/identity/claims/role in the
 token so that WIF can successfully verify role membership when the
 IsInRole method is called.
 
-**Azure AD Access Control**. In this implementation the Windows
+**Azure AD Access Control**. In this implementation the 
 Azure AD Access Control claims transformation rule engine is used. Using
 the claims transformation rule engine rules you can transform any
 incoming claim into a role type claim so that when the token hits the
@@ -697,7 +697,7 @@ Guidelines](http://msdn.microsoft.com/en-us/library/gg185962.aspx) and [Certific
 -   **Encrypting cookies using RSA when deploying to Azure**.
     WIF encrypts cookies using DPAPI by default. It creates server
     affinity and may result in exceptions when deployed to web farm and
-    Azure environments. Use RSA instead in web farm and Windows
+    Azure environments. Use RSA instead in web farm and 
     Azure scenarios.
 -   **Token signing certificates**. Renew token signing certificates
     periodically to avoid denial of service. Azure AD Access
@@ -738,7 +738,7 @@ Guidelines](http://msdn.microsoft.com/en-us/library/gg185962.aspx) and [Certific
     credentials**. Renew Management service credentials periodically to
     avoid denial of service. The Azure AD Access Control
     Management Service is a key component that allows you to
-    programmatically manage and configure settings for your Windows
+    programmatically manage and configure settings for your 
     Azure AD Access Control namespace. There are three credential types
     that the Management service account can be associated with. These
     are symmetric key, password, and an X.509 certificate. You will

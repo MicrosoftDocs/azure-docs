@@ -792,6 +792,6 @@ To learn more about Service Bus, see the following resources:
   [44]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
 
   [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
-  [sbwacom]: /en-us/manage/services/service-bus/  
+  [sbwacom]: /en-us/documentation/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/
   [executionmodels]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
