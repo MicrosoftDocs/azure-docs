@@ -10,14 +10,14 @@
 <ul> 
 <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="/en-us/pricing/free-trial/">Azure Free Trial</a>.</li> 
  
-<li>If you have an existing account but need to enable the Azure Backup preview, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Azure preview features</a>.</li>
+
 </ul>
  
-<p>After you request to join the Backup preview program wait for your status to become active. We are automatically approving all customers so this will not take a long time to occur.</p> 
+
 </div>
   
 
-To backup files and data from your Windows Server to Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, the uploading of a certificate to the vault, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.
+<p>To backup files and data from your Windows Server to Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, the uploading of a certificate to the vault, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.</p>
 
 <div class="dev-callout"> 
 <strong>Before you begin</strong> 
@@ -26,7 +26,7 @@ an X.509 v3 certificate to register your servers with backup vaults.  The certif
 
 <p>You can either use:</p> 
 <ul>
-<li>Your own self-signed certificate created using makecert tool, OR</li> 
+<li>Your own self-signed certificate created using the makecert tool, OR</li> 
 
 <li>Any valid SSL certificate issued by a Certificate Authority (CA) that is trusted by Microsoft and whose root certificates are distributed via the Microsoft Root Certificate Program. For more information about this program see <a href="http://go.microsoft.com/fwlink/p/?LinkId=294666">Windows Root Certificate Program members</a>.</li>
 </ul> 
@@ -41,12 +41,13 @@ an X.509 v3 certificate to register your servers with backup vaults.  The certif
 
 <p>To use your own self-signed certificate, follow these steps: </p>
 <ol>
-<li>Download the <a href="http://go.microsoft.com/fwlink/p/?LinkID=294662">Certificate Creation tool (MakeCert.exe)</a>.</li>  
+<li>Download the <a href="http://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx">Certificate Creation tool (MakeCert.exe)</a>.</li>  
 
 
 <li>Open Command Prompt (cmd.exe) with Administrator privileges and run the following command, replacing <i>CertificateName</i> with the name of your certificate and specifying the actual expiration date of your certificate after -e: 
 <code>
-makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5.5.7.3.2 -len 2048 -e 01/01/2016 CertificateName.cer</code></li>
+makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5.5.7.3.2 -len 2048 -e 01/01/2016 CertificateName.cer
+</code></li>
 </ol>
 <p>
 If you will be registering a different server than the one you used to make the certificate, you need to export the .pfx file (that contains the private key), copy it to the other server and import it to that server's Personal certificate store. 
@@ -58,8 +59,6 @@ For step-by-step instructions on the vault certificate upload process and more i
 <h2><a id="create"></a>Create a backup vault</h2>
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
-
-	[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 2. Click **Recovery Services**, then click **Create New**,  point to **Backup Vault**, and then click **Quick Create**.
 
