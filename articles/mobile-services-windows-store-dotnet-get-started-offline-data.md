@@ -1,4 +1,3 @@
-
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use offline data in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="wesmc" />
 
 # Get started with Offline Data in Mobile Services
@@ -25,8 +24,8 @@ This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1.
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
-* Windows Azure Mobile Services SDK NuGet package version 1.3.0-alpha
-* Windows Azure Mobile Services SQLite Store NuGet package 0.1.0-alpha 
+* Windows Azure Mobile Services SDK NuGet package version 1.3.0-alpha2
+* Windows Azure Mobile Services SQLite Store NuGet package 1.0.0-alpha 
 * SQLite for Windows 8.1
 
 >[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 

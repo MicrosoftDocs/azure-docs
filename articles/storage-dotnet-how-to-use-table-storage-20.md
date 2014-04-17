@@ -122,7 +122,7 @@ Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
 
 <h3>Retrieving your connection string</h3>
 You can use the **CloudStorageAccount** type to represent 
-your Storage Account information. If you are using a Windows 
+your Storage Account information. If you are using an  
 Azure project template and/or have a reference to the
 Microsoft.WindowsAzure.CloudConfigurationManager namespace, you 
 can you use the **CloudConfigurationManager** type
