@@ -68,7 +68,7 @@ Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything nee
 
 Worker role A creates the `SendEmail` rows in the `Message` table, and worker Role B reads those rows in order to get the information it needs for sending emails. The following image shows a subset of properties for two `Message` rows and three `SendEmail` rows in the `Message` table.
 
-	![message table with sendmail][mtas-sendMailTbl]
+![message table with sendmail][mtas-sendMailTbl]
 
 These rows in the `Message` table serve several purposes:
 
