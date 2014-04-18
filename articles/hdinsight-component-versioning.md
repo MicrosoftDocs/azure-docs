@@ -5,13 +5,15 @@
 
 Azure HDInsight now supports Hadoop 2.2 with HDinsight cluster version 3.0 and takes full advantage of this platform to provide a range of significant benefits to customers. These include, most notably:
 
-- Microsoft Avro Library: This library implements the Apache Avro data serialization system for the Microsoft.NET environment. Apache Avro provides a compact binary data interchange format for serialization. It uses JSON to define language agnostic schema that underwrites language interoperability. Data serialized in one language can be read in another. Currently C, C++, C#, Java, PHP, Python, and Ruby are supported. The Apache Avro serialization format is widely used in Azure HDInsight to represent complex data structures within a Hadoop MapReduce job.
+- **Microsoft Avro Library**: This library implements the Apache Avro data serialization system for the Microsoft.NET environment. Apache Avro provides a compact binary data interchange format for serialization. It uses JSON to define language agnostic schema that underwrites language interoperability. Data serialized in one language can be read in another. Currently C, C++, C#, Java, PHP, Python, and Ruby are supported. The Apache Avro serialization format is widely used in Azure HDInsight to represent complex data structures within a Hadoop MapReduce job.
 
-- Hive: Order of magnitude improvements to Hive query response times (up to 40x) and to data compression (up to 80%) using the Optimized Row Columnar (ORC) format.
+- **YARN**: A new, general-purpose, distributed, application management framework that has replaced the classic Apache Hadoop MapReduce framework for processing data in Hadoop clusters. It effectively serves as the Hadoop operating system, and takes Hadoop from a single-use data platform for batch processing to a multi-use platform that enables batch, interactive, online and stream processing. This new management framework improves scalability and cluster utilization according to criteria such as capacity guarantees, fairness, and service-level agreements.
 
-- YARN: A new, general-purpose, distributed, application management framework that has replaced the classic Apache Hadoop MapReduce framework for processing data in Hadoop clusters. It effectively serves as the Hadoop operating system, and takes Hadoop from a single-use data platform for batch processing to a multi-use platform that enables batch, interactive, online and stream processing. This new management framework improves scalability and cluster utilization according to criteria such as capacity guarantees, fairness, and service-level agreements.
+- **High Availability**: A second head node has been added to the Hadoop clusters deployed by HDInsight to increase the availability and reliability of the service needed to manage enterprise workloads. Standard implementations of Hadoop clusters typically have a single head node. These clusters are designed to manage the failure of worker nodes smoothly, but jobs will fail if the head node fails. HDInsight removes this single point of failure with the addition of a secondary head node. [ZooKeeper](http://zookeeper.apache.org/) nodes have been added to monitor the health of the cluster to insure that worker nodes know when to fail over to the secondary head node when the primary head node become inactive.
 
-- Pig, Sqoop, Qozie, Ambari: Component version upgrades for HDinsight cluster version 3.0 (HDP 2.0) that provide parity with HDinsight cluster version 2.1 (HDP 1.3). See the version tables below for specifics. Note that Hbase, Mahout, Flume are not included.
+- **Hive performance**: Order of magnitude improvements to Hive query response times (up to 40x) and to data compression (up to 80%) using the **Optimized Row Columnar** (ORC) format.
+
+- **Pig, Sqoop, Qozie, Ambari**: Component version upgrades for HDinsight cluster version 3.0 (HDP 2.0) that provide parity with HDinsight cluster version 2.1 (HDP 1.3). See the version tables below for specifics. Note that Hbase, Mahout, Flume are not included.
 
 **Deployment**	
 Creation of HDInsight 3.0 clusters on Hadoop 2.2 is supported by the Azure Portal, the HDinsight SDK, and by Azure PowerShell.
@@ -85,13 +87,13 @@ If you use the **Quick Create** option, you will get the version 2.1 of HDInsigh
 
 
 ## Supported versions
-The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform (HDP) versions that they use, and their release dates. When known, their deprecation dates will also be provided.
+The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform (HDP) versions that they use, and their release dates. When known, their deprecation dates will also be provided. Highly available clusters with two head nodes are deployed by default for HDInsight 2.1 and 3.0 clusters. They are not available for HDInsight 1.6 clusters.
 
 <table border="1">
-<tr><th>HDInsight version</th><th>HDP version</a></th><th>Release date</th></tr>
-<tr><td>HDI 3.0</td><td>HDP 2.0</td><td>02/11/2014</td></tr>
-<tr><td>HDI 2.1</td><td>HDP 1.3</td><td>10/28/2013</td></tr>
-<tr><td>HDI 1.6</td><td>HDP 1.1</td><td>10/28/2013</td></tr>
+<tr><th>HDInsight version</th><th>HDP version</a><th>High Availability</th></th><th>Release date</th></tr>
+<tr><td>HDI 3.0</td><td>HDP 2.0</td><td>No</td><td>02/11/2014</td></tr>
+<tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Yes</td><td>10/28/2013</td></tr>
+<tr><td>HDI 1.6</td><td>HDP 1.1</td><td>Yes</td><td>10/28/2013</td></tr>
 </table><br/>
 
 
@@ -101,7 +103,7 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 - Formula 1:  Add 180 days to the date HDInsight cluster version X was released
 - Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the Azure Management Portal.
 
-> [WACOM.NOTE] Both HDInsight 2.1 and 3.0 use the 64-bit version of Windows 2008 R2 SP1 with .NET Framework 4.0. 
+> [WACOM.NOTE] Both HDInsight 2.1 and 3.0 cluster run on Azure Guest OS [Family 4](http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation) which currently uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5. and 4.5.1. 
 
 **Additional notes and information on versioning**	
 
