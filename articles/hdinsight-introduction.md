@@ -19,7 +19,9 @@ To simplify the complexities of analyzing unstructured data from various sources
 Other Hadoop-related projects such as Pig and Hive are built on top of HDFS and the MapReduce framework. Projects such as these are used to provide a simpler way to manage a cluster than working with the MapReduce programs directly. Pig, for example, enables you to write programs using a procedural language called Pig Latin that are compiled to MapReduce programs on the cluster. It also provides fluent controls to manage data flow. Hive is a data warehouse infrastructure that provides a table abstraction for data in files stored in a cluster which can then be queried using SQL-like statements in a declarative language called HiveQL.
 
 ###HDInsight
-Azure HDInsight makes Apache Hadoop available as a service in the cloud. It makes the HDFS/MapReduce software framework and related projects such as Pig and Hive available in a simpler, more scalable, and cost-efficient environment.
+Azure HDInsight makes Apache Hadoop available as a service in the cloud. It makes the HDFS/MapReduce software framework and related projects such as Pig, Hive, and Oozie available in a simpler, more scalable, and cost-efficient environment.
+
+A second head node has been added to the Hadoop clusters deployed by HDInsight to increase the availability and reliability of the service. Standard implementations of Hadoop clusters typically have a single head node. These clusters are designed to manage the failure of worker nodes smoothly, but jobs will fail if the head node fails. HDInsight removes this single point of failure with the addition of a secondary head node. [ZooKeeper][zookeeper] nodes have been added to monitor the health of the cluster to insure that worker nodes know when to fail over to the secondary head node when the primary head node become inactive.
 
 One of the primary efficiencies introduced by HDInsight is in how it manages and stores data. HDInsight uses Azure Blob storage as the default file system. Blob storage and HDFS are distinct file systems that are optimized, respectively, for the storage of data and for computations on that data.
 
@@ -135,3 +137,5 @@ HDInsight (and Hadoop technologies in general) are most suitable for handling a 
 [connect-excel-with-hive-ODBC]: /en-us/manage/services/hdinsight/connect-excel-with-hive-ODBC/
 
 [connect-excel-with-power-query]: /en-us/manage/services/hdinsight/connect-excel-with-power-query/
+
+[zookeeper]: hhttp://zookeeper.apache.org/ 
