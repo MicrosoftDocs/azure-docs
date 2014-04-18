@@ -4,9 +4,12 @@ This tutorial will show you how quick and easy it is to create a virtual machine
 
 You will learn:
 
-- [How to create the virtual machine] (#createvirtualmachine)
-- [How to log on to the virtual machine after you create it] (#logon)
-- [How to attach a data disk to the new virtual machine] (#attachdisk)
+- [How to create the virtual machine](#createvirtualmachine)
+- [How to log on to the virtual machine after you create it](#logon)
+- [How to attach a data disk to the new virtual machine](#attachdisk)
+
+If you'd like to know more, see [Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkID=271224).
+
 
 ##<a id="createvirtualmachine"> </a>How to create the virtual machine##
 
@@ -31,7 +34,7 @@ This section will show you how to use the **From Gallery** method in the Managem
 
 	![Configure the properties of the virtual machine](./media/CreateVirtualMachineWindowsTutorial/vmconfiguration.png)
 
-	Note that **New User Name** refers to the administrative account that will be used to manage the server. You will need to create your own unique password for this account.
+	>[WACOM.NOTE]**New User Name** refers to the administrative account that will be used to manage the server. You will need to create your own unique password for this account.
 
 6. The third configuration screen lets you specify attributes for **resources connected to the virtual machine** such as the cloud service and the storage account. For this tutorial, fill in the fields as shown in the image below. Once this screen is complete, click the arrow to continue. 
 
@@ -39,14 +42,16 @@ This section will show you how to use the **From Gallery** method in the Managem
 
 	Note that the **Cloud Service DNS Name** is the global DNS name that becomes part of the URI that is used to contact the virtual machine. You will need to create your own cloud service name since cloud service names must be globally unique. We will use MyTestService in this tutorial. Cloud services are important for more complex scenarios using [multiple virtual machines](http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/).
  
-	For **Region/Affinity Group/Virtual Network**, we will use East US, but you can use a region that is more appropriate to your location. You can also choose to specify a [virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx) instead. Note that a virtual network must be specified when you create the virtual machine.
+	For **Region/Affinity Group/Virtual Network**, we will use East US, but you can use a region that is more appropriate to your location. You can also choose to specify a virtual network instead. 
+	>[WACOM.NOTE]
+ If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 7. The fourth configuration screen lets you configure the **VM Agent and endpoints**. For this tutorial, do not make any changes to this screen. Click the check mark to create the virtual machine.
 
 
 	![Configure VM Agent and the endpoints of the virtual machine](./media/CreateVirtualMachineWindowsTutorial/endpointconfiguration.png)
 
-	Note that the VM Agent can only be installed when you create the virtual machine. Under **Endpoints**, you can add endpoints now or [create them later](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/). 
+	>[WACOM.NOTE] The VM agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493). For details about configuring endpoints, see [How to Set Up Endpoints to a Virtual Machine](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/). 
     
 8. After the virtual machine is created, the Management Portal lists the new virtual machine under **Virtual Machines**. The corresponding cloud service and storage account are also created under their respective sections. Both the virtual machine and cloud service are started automatically and will show **Running** as their status once the creation is complete. 
 
@@ -104,7 +109,7 @@ This section will show you how to attach an empty data disk to the virtual machi
 
 	![Specify the size of the empty disk](./media/CreateVirtualMachineWindowsTutorial/emptydisksize.png)	
 	
-	Note that all disks are created from a VHD file in Windows Azure storage. Under **File Name**, you can provide the name for the VHD file that is added to storage, but Windows Azure generates the name of the disk automatically.
+	.[WACOM.NOTE] All disks are created from a VHD file in Windows Azure storage. Under **File Name**, you can provide the name for the VHD file that is added to storage, but Azure generates the name of the disk automatically.
 
 6. Return to the dashboard to verify that the empty data disk was successfully attached to the virtual machine. It will be listed as a second disk in the **Disks** list along with the OS Disk.
 
@@ -146,9 +151,16 @@ To learn more about configuring Windows virtual machines on Azure, see the follo
 
 [How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/)
 
-[How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System] (http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
+[How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
 
-[Attach Data Disks to a Virtual Machine] (http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/)
+[Attach Data Disks to a Virtual Machine](http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/)
 
 [Manage the Availability of Virtual Machines](http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/)
+
+[About virtual machines in Azure]: #virtualmachine
+[How to create the virtual machine]: #custommachine
+[How to log on to the virtual machine after you create it]: #logon
+[How to attach a data disk to the new virtual machine]: #attachdisk
+[How to set up communication with the virtual machine]: #endpoints
+
 
