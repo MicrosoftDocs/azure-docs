@@ -7,13 +7,13 @@
 - [(Windows Store C# | JavaScript)](mobile-services-windows-store-dotnet-add-paging-data.md)
 - [(Windows Store JavaScript | .NET)](mobile-services-dotnet-backend-windows-store-javascript-add-paging-data.md)
 - [(Windows Store JavaScript | JavaScript)](mobile-services-windows-store-javascript-add-paging-data.md)
-- [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-add-paging-data)
-- [(Windows Phone | JavaScript)](mobile-services-windows-phone-add-paging-data)
-- [(iOS | JavaScript)](mobile-services-ios-add-paging-data)
-- [(Android | JavaScript)](mobile-services-android-add-paging-data)
-- [(HTML | .NET)](mobile-services-html-add-paging-data)
-- [(Xamarin iOS | .NET)](partner-xamarin-mobile-services-ios-add-paging-data)
-- [(Xamarin Android | .NET)](partner-xamarin-mobile-services-android-add-paging-data)
+- [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-add-paging-data.md)
+- [(Windows Phone | JavaScript)](mobile-services-windows-phone-add-paging-data.md)
+- [(iOS | JavaScript)](mobile-services-ios-add-paging-data.md)
+- [(Android | JavaScript)](mobile-services-android-add-paging-data.md)
+- [(HTML | .NET)](mobile-services-html-add-paging-data.md)
+- [(Xamarin iOS | .NET)](partner-xamarin-mobile-services-ios-add-paging-data.md)
+- [(Xamarin Android | .NET)](partner-xamarin-mobile-services-android-add-paging-data.md)
 
 This topic shows you how to use paging to manage the amount of data returned to your Windows Phone app from Azure Mobile Services. In this tutorial, you will use the **Take** and **Skip** query methods on the client to request specific "pages" of data.
 
