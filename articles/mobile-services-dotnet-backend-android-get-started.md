@@ -3,7 +3,8 @@
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-get-started" title="Windows Store">Windows Store</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started" title="iOS">iOS</a>
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started" title="Android" class="current">Android</a>
@@ -36,6 +37,8 @@ Now that you have created the mobile service, download your personalized mobile 
 
 1. Click the mobile service that you just created, then in the quickstart tab, click **Android** under **Choose platform** and expand **Create a new Android app**.
 
+	![][1]  
+
 2. If you haven't already done so, download and install [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934), or a later version.
 
 3. Click **Download** under **Download and publish your service to the cloud**.
@@ -58,13 +61,13 @@ In this section you will create a new Android app that is connected to your mobi
 
 1. In the [Management Portal], click **Mobile Services**, and then click the mobile service that you just created.
 
-2. In the quickstart tab, click **Android** under **Choose platform** and expand **Create a new Android app**.   
+2. In the quickstart tab, click **Android** under **Choose platform** and expand **Create a new Android app**. 
+ 
+	![][2]  
 
 3. If you haven't already done so, download and install the [Android Developer Tools][Android SDK] on your local computer or virtual machine.
 
-4. Click **Create TodoItem table** to create a table to store app data.
-
-5. Under **Download and run your app**, click **Download**. 
+4. Under **Download and run your app**, click **Download**. 
 
   	This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
@@ -102,6 +105,7 @@ The final stage of this tutorial is to build and run your new app.
 
 <!--This shows how to run your new client app against the mobile service running in Azure. Before you can test the Android app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your Android development computer. For more information, see [Configure the local web server to allow connections to a local mobile service](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).-->
 
+<!--
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
@@ -113,7 +117,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
-
+-->
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
 [Create a new mobile service]:#create-new-service
@@ -123,8 +127,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- Images. -->
 [0]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
 [1]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-vs.png
-
-
+[2]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-android.png
 
 
 [6]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-portal-quickstart-android.png

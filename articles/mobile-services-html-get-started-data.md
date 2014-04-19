@@ -177,7 +177,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 6. Uncomment the following line of code:
 
-        todoItemTable = MobileServiceClient.getTable('todoitem');
+        todoItemTable = client.getTable('todoitem');
 
    	This code creates a proxy object (**todoItemTable**) for the SQL Database **TodoItem**. 
 

@@ -1,15 +1,30 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Android JavaScript app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal"  solutions="" writer="ricksal" manager="" editor=""  />
 
 
-# Get started with push notifications in Mobile Services
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a></div>
-
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">.NET backend</a> |  <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a></div>		
+# <a name="getting-started-with-push"> </a>Get started with push notifications in Mobile Services
 
 
-This topic shows how to use Windows Azure Mobile Services to send push notifications to your Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
+<div class="dev-center-tutorial-selector sublanding">
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android" class="current">Android</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+</div>
 
->[WACOM.NOTE]Mobile Services now integrates with Windows Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and scale. This integrated functionality is currently in preview. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title=".NET backend" >.NET backend</a> | 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-android/" title="JavaScript backend" class="current">JavaScript backend</a>
+</div>
+
+
+This topic shows how to use Azure Mobile Services to send push notifications to your Android app. In this tutorial you add push notifications using Google Cloud Messaging (GCM) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
+
+
+>[WACOM.NOTE] This tutorial demonstrates Mobile Services integration with Notification Hubs, which is currently in preview. By default, sending push notifications using Notification Hubs is not enabled from a JavaScript backend.  Once the new notification hub has been created, the integration process cannot be reverted. Push notifications for iOS is only available today by using the default push support described in [this version of the topic](/en-us/documentation/articles/mobile-services-android-get-started-push/).
+
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -91,7 +106,7 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 3. Add the following code after the `application` opening tag: 
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+            						 	android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <category android:name="**my_app_package**" />
@@ -99,85 +114,93 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
         </receiver>
 
 
-
-4. Open the file ToDoItem.java, add the following code to the **TodoItem** class:
-
-			@com.google.gson.annotations.SerializedName("handle")
-			private String mHandle;
-		
-			public String getHandle() {
-				return mHandle;
-			}
-		
-			public final void setHandle(String handle) {
-				mHandle = handle;
-			}
-		
-	This code creates a new property that holds the registration ID.
-
-    <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, a new <strong>handle</strong> column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
-    </div>
-
-5. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
+4. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
 
     <div class="dev-callout"><b>Note</b>
 	<p>The numbers at the end of the file name may change in subsequent SDK releases.</p>
     </div>
 
-6.  Open the file *ToDoItemActivity.java*, and add the following import statement:
+5.  Open the file *ToDoItemActivity.java*, and add the following import statement:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
-7. Add the following private variable to the class, where _`<PROJECT_NUMBER>`_ is the Project Number assigned by Google to your app in the preceding procedure:
+6. Add the following private variable to the class, where _`<PROJECT_NUMBER>`_ is the Project Number assigned by Google to your app in the preceding procedure:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-8. In the **onCreate** method, before the MobileServiceClient is instantiated, add this code which registers the Notification Handler for the device:
+7. In the **onCreate** method, before the MobileServiceClient is instantiated, add this code which registers the Notification Handler for the device:
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
-	Next we define the MyHandler.class referenced in this code.
+	Later we define the MyHandler.class referenced in this code.
 	
 
-9. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
+8. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
 
-10. In **Name** type `MyHandler`, in **Superclass** type `com.microsoft.windowsazure.notifications.NotificationsHandler`, then click **Finish**
+9. In **Name** type `MyHandler`, in **Superclass** type `com.microsoft.windowsazure.notifications.NotificationsHandler`, then click **Finish**
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png)
 
 	This creates the new MyHandler class.
 
-11. Add the following import statements:
+10. Add the following import statement:
 
 		import android.content.Context;
 		
-		import com.microsoft.windowsazure.notifications.NotificationsHandler;
-		
+11. Next add this code to the class:
 
-12. Add the following code:
+		public static final int NOTIFICATION_ID = 1;
+		private NotificationManager mNotificationManager;
+		NotificationCompat.Builder builder;
+		Context ctx;
 
-		@com.google.gson.annotations.SerializedName("handle")
-		private static String mHandle;
-	
-		public static String getHandle() {
-			return mHandle;
-		}
-	
-		public static final void setHandle(String handle) {
-			mHandle = handle;
-		}
-	
 
-17. Replace the existing **onRegistered** method override with the following code:
+12. Add the following code to override the **onRegistered** method: which registers your device with the mobile service Notification Hub.
 
 		@Override
 		public void onRegistered(Context context, String gcmRegistrationId) {
 			super.onRegistered(context, gcmRegistrationId);
 			
-			setHandle(gcmRegistrationId);
+			ToDoActivity.mClient.getPush().register(gcmRegistrationId, null, new RegistrationCallback() {
+	            @Override
+	            public void onRegister(Registration registration, Exception exception) {
+	                  if (exception != null) {
+	                        // handle error
+	                  }
+	            }
+	      	});
 		}
-		
+
+
+13. Add the following code to override the **onReceive** method, which causes the notification to display when it is received.
+
+		@Override
+		public void onReceive(Context context, Bundle bundle) {
+		    ctx = context;
+		    String nhMessage = bundle.getString("message");
+	
+		    sendNotification(nhMessage);
+		}
+	
+		private void sendNotification(String msg) {
+			mNotificationManager = (NotificationManager)
+		              ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+	
+		    PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
+		          new Intent(ctx, ToDoActivity.class), 0);
+	
+		    NotificationCompat.Builder mBuilder =
+		          new NotificationCompat.Builder(ctx)
+		          .setSmallIcon(R.drawable.ic_launcher)
+		          .setContentTitle("Notification Hub Demo")
+		          .setStyle(new NotificationCompat.BigTextStyle()
+		                     .bigText(msg))
+		          .setContentText(msg);
+	
+		     mBuilder.setContentIntent(contentIntent);
+		     mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+		}
+
 
 Your app is now updated to support push notifications.
 
@@ -186,38 +209,81 @@ Your app is now updated to support push notifications.
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
-   	![][21]
+   	![](./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png)
 
 2. In **todoitem**, click the **Script** tab and select **Insert**.
    
-  	![][22]
+  	![](./media/mobile-services-android-get-started-push/mobile-insert-script-push2.png)
 
    	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
 		function insert(item, user, request) {
-			// Define a payload for the Windows Store toast notification.
-			var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
-			    '<binding template="ToastText01">  <text id="1">' +
-			    item.text + '</text></binding></visual></toast>';
-
-			request.execute({
-				success: function() {
-					// Write to the response and then send the notification in the background
-					request.respond();
-					push.gcm.send(item.handle, item.text, {
-						success: function(response) {
-							console.log('Push notification sent: ', response);
-						}, error: function(error) {
-							console.log('Error sending push notification: ', error);
-						}
-					});
-				}
-			});
+		// Define a payload for the Google Cloud Messaging toast notification.
+		var payload = 
+		    '{"data":{"message" : "Hello from Mobile Services!"}}';
+		
+		request.execute({
+		    success: function() {
+		        // If the insert succeeds, send a notification.
+		        push.gcm.send(null, payload, {
+		            success: function(pushResponse) {
+		                console.log("Sent push:", pushResponse, payload);
+		                request.respond();
+		                },              
+		            error: function (pushResponse) {
+		                console.log("Error Sending push:", pushResponse);
+		                request.respond(500, { error: pushResponse });
+		                }
+		            });
+		        },
+		    error: function(err) {
+		        console.log("request.execute error", err)
+		        request.respond();
+		    }
+		  });
 		}
 
-   	This registers a new insert script, which uses the [gcm object] to send a push notification (the text of the inserted item) to all registered devices after the insert succeeds. 
+   	This registers a new insert script, which uses the [gcm object] to send a push notification to all registered devices after the insert succeeds. 
+
+##<a id="test"></a>Test push notifications in your app
+
+You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
+
+###Setting up the emulator for testing
+
+When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
+
+1. Restart Eclipse, then in Package Explorer, right-click the project, click **Properties**, click **Android**, check **Google APIs**, then click **OK**.
+
+	![](./media/mobile-services-android-get-started-push/mobile-services-import-android-properties.png)
+
+  	This targets the project for the Google APIs.
+
+2. From **Window**, select **Android Virtual Device Manager**, select your device, click **Edit**.
+
+	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png)
+
+3. Select **Google APIs** in **Target**, then click OK.
+
+   	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
+
+	This targets the AVD to use Google APIs.
+
+###Running the test
+
+1. From the **Run** menu in Eclipse, then click **Run** to start the app.
+
+2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the **Add** button.
+
+  	![](./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png)
+
+3. Swipe down from the top of the screen to open the device's Notification Center to see the notification.
+
+
+You have successfully completed this tutorial.
+
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -272,7 +338,7 @@ Consider finding out more about the following Mobile Services topics:
 [Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-js
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
-
+[Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -281,3 +347,4 @@ Consider finding out more about the following Mobile Services topics:
 [Send notifications to subscribers]: /en-us/manage/services/notification-hubs/breaking-news-dotnet/
 [Send notifications to users]: /en-us/manage/services/notification-hubs/notify-users/
 [Send cross-platform notifications to users]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645

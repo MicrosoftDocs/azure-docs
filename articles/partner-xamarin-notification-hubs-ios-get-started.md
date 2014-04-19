@@ -1,10 +1,10 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-xamarin-ios" urlDisplayName="Get Started" pageTitle="Get Started with Notification Hubs for Xamarin iOS apps" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications to a Xamarin iOS application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" services="mobile-services,notification-hubs" documentationCenter="" title="Get started with Notification Hubs" authors="" />
 
 # Get started with Notification Hubs
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS">iOS</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android">Android</a><a href="/en-us/manage/services/notification-hubs/getting-started-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/en-us/manage/services/notification-hubs/getting-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
 This topic shows you how to use Azure Notification Hubs to send push notifications to an iOS application. 
-In this tutorial you create a blank iOS app that receives push notifications using the Apple Push Notification service (APNs). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub. The finished code is available in the [NotificationHubs app][GitHub] sample.
+In this tutorial you create a blank Xamarin.iOS app that receives push notifications using the Apple Push Notification service (APNs). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub. The finished code is available in the [NotificationHubs app][GitHub] sample.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -15,7 +15,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 5. [Connecting your app to the Notification Hub]
 6. [Send notifications from your back-end]
 
-This tutorial demonstrates the simple broadcast scenario using notification hubs. <!-- Be sure to follow along with the next tutorial to learn how to use notification hubs to address specific users and groups of devices. --> This tutorial requires the following prerequisites:
+This tutorial demonstrates the simple broadcast scenario using notification hubs. This tutorial requires the following prerequisites:
 
 + [XCode 5.0][Install Xcode] 
 + An iOS 5.0 (or later version) capable device
@@ -24,10 +24,10 @@ This tutorial demonstrates the simple broadcast scenario using notification hubs
 + [Azure Mobile Services Component]
 
    <div class="dev-callout"><b>Note</b>
-   <p>Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.</p>
+   <p>Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the simulator.</p>
    </div>
 
-Completing this tutorial is a prerequisite for all other notification hub tutorials for iOS apps. 
+Completing this tutorial is a prerequisite for all other notification hub tutorials for Xamarin.iOS apps. 
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F" target="_blank">Azure Free Trial</a>.</p></div>
 
@@ -211,34 +211,45 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
 <h2><a name="connecting-app"></a><span class="short-header">Connecting your app</span>Connecting your app to the Notification Hub</h2>
 
+### Download the WindowsAzure.Messaging library
+
+This assembly provides an easy way to register with Azure Notification Hubs. It can be downloaded using the instructions below or found in the [sample download][GitHub].
+
+1. Download the source for [WindowsAzure.Messaging] from GitHub.
+
+2. Compile the project and find the output assembly **WindowsAzure.Messaging.dll** - this will be required when setting up your Xamarin.iOS application below.
+
+
+### Create a new project
+
 1. In Xamarin Studio, create a new iOS project and select the **Single View Application** template.
 
    	![][31]
 
-2. Now we need to add a reference to the Azure Mobile services component. In the Solution view, right click on the **Components** folder for your project and choose **Get More Components**. Search for the **Azure Mobile Sevices** component and add the component to your project.
+2. First add a reference to the Azure Mobile services component. In the Solution view, right click on the **Components** folder for your project and choose **Get More Components**. Search for the **Azure Mobile Sevices** component and add the component to your project.
 
-3. In **AppDelegate.cs**, add the following using statement:
+3. Now add a reference to the WindowsAzure.Messaging library we downloaded earlier. Right-click on the **References** folder and choose **Edit References...**. In the **.Net Assembly** tab find the **WindowsAzure.Messaging.dll** and 
 
-		using WindowsAzure.Messaging;
+4. In **AppDelegate.cs**, add the following using statements:
 
-4. Declare an instance of **SBNotificationHub**:
+		using Microsoft.WindowsAzure.MobileServices;
+    using WindowsAzure.Messaging;
+
+5. Declare an instance of **SBNotificationHub**:
 
 		private SBNotificationHub Hub { get; set; }
 		
-5. Create a **Constants.cs** class with the following variables:
+6. Create a **Constants.cs** class with the following variables:
 
         // Azure app specific connection string and hub path
         public const string ConnectionString = "<Azure connection string>";
         public const string NotificationHubPath = "<Azure hub path>";
 	
 	
-6. In **AppDelegate.cs** update the **FinishedLaunching()** to match the following:
+7. In **AppDelegate.cs** update the **FinishedLaunching()** to match the following:
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            // NOTE: Don't call the base implementation on a Model class
-            // see http://docs.xamarin.com/guides/ios/application_fundamentals/delegates,_protocols,_and_events 
-
             UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | 
                 UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
             UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes); 
@@ -246,13 +257,10 @@ Your notification hub is now configured to work with APNs, and you have the conn
             return true;
         }
 
-7. Override the **RegisteredForRemoteNotifications()** method in **AppDelegate.cs**:
+8. Override the **RegisteredForRemoteNotifications()** method in **AppDelegate.cs**:
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
-            // NOTE: Don't call the base implementation on a Model class
-            // see http://docs.xamarin.com/guides/ios/application_fundamentals/delegates,_protocols,_and_events 
-
             Hub = new SBNotificationHub(Constants.ConnectionString, Constants.NotificationHubPath);
 
             Hub.UnregisterAllAsync (deviceToken, (error) => {
@@ -270,14 +278,14 @@ Your notification hub is now configured to work with APNs, and you have the conn
             });
         }
 
-8. Override the **ReceivedRemoteNotification()** method in **AppDelegate.cs**:
+9. Override the **ReceivedRemoteNotification()** method in **AppDelegate.cs**:
 
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
         {
             ProcessNotification(userInfo, false);
         }
         
-9. Create the following **ProcessNotification()** method in **AppDelegate.cs**:
+10. Create the following **ProcessNotification()** method in **AppDelegate.cs**:
 
         void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
         {
@@ -290,10 +298,12 @@ Your notification hub is now configured to work with APNs, and you have the conn
                 string alert = string.Empty;
 
                 //Extract the alert text
-                //NOTE: If you're using the simple alert by just specifying "  aps:{alert:"alert msg here"}  "
-                //this will work fine.  But if you're using a complex alert with Localization keys, etc., 
-                //your "alert" object from the aps dictionary will be another NSDictionary... Basically the 
-                //json gets dumped right into a NSDictionary, so keep that in mind
+                // NOTE: If you're using the simple alert by just specifying 
+                // "  aps:{alert:"alert msg here"}  " this will work fine.
+                // But if you're using a complex alert with Localization keys, etc., 
+                // your "alert" object from the aps dictionary will be another NSDictionary. 
+                // Basically the json gets dumped right into a NSDictionary, 
+                // so keep that in mind.
                 if (aps.ContainsKey(new NSString("alert")))
                     alert = (aps [new NSString("alert")] as NSString).ToString();
 
@@ -316,7 +326,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
     </div>
 
 	
-10. Run the app on your device.
+11. Run the app on your device.
 
 <h2><a name="send"></a><span class="short-header">Send notification</span>Send notification from your back-end</h2>
 
@@ -477,3 +487,5 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
+[Xamarin.iOS]: http://xamarin.com/download
+[WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS

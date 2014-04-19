@@ -7,8 +7,8 @@
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started" title="iOS" class="current">iOS</a>
-	<!--<a href="/en-us/documentation/articles/get-started-android" title="Android">Android</a>
-	<a href="/en-us/documentation/articles/get-started-html" title="HTML">HTML</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started" title="Android">Android</a>
+	<!--<a href="/en-us/documentation/articles/get-started-html" title="HTML">HTML</a>
 	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a>
 	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
 	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a>
@@ -66,13 +66,9 @@ In this section you will create a new iOS app that is connected to your mobile s
 
 2. In the quickstart tab, click **iOS** under **Choose platform** and expand **Create a new iOS app**.   
 
-3. If you haven't already done so, download and install [Xcode] v4.4 or a later version.
+3. If you haven't already done so, download and install [Xcode] v4.4 or a later version.	
 
-	![][7]
-
-4. Click **Create TodoItems table** to create a table to store app data.
-
-5. Under **Download and run your app**, click **Download**. 
+4. Under **Download and run your app**, click **Download**. 
 
   	This downloads the project for the sample _To do list_ application that is connected to your mobile service, along with the Mobile Services iOS SDK. Save the compressed project file to your local computer, and make a note of where you saved it.
 

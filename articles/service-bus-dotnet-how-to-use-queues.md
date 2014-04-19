@@ -11,6 +11,8 @@ samples are written in C\# and use the .NET API. The scenarios covered
 include **creating queues, sending and receiving messages**, and
 **deleting queues**. For more information on queues, see the [Next Steps] section. </span>
 
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 <h2><span class="short-header">Configure the Application</span>Configure the Application to Use Service Bus</h2>

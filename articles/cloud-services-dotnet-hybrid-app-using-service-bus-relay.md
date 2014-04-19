@@ -105,9 +105,11 @@ to get the tools and set-up your development environment.
 
 To begin using Service Bus features in Azure, you must first
 create a service namespace. A service namespace provides a scoping
-container for addressing Service Bus resources within your application.
+container for addressing Service Bus resources within your application. 
 
-To create a service namespace:
+You can manage namespaces and Service Bus messaging entities using either the [Azure Management Portal][] or the Visual Studio Server Explorer, but you can only create new namespaces from within the portal.
+
+###To create a service namespace using the portal:
 
 1.  Log on to the [Azure Management Portal][].
 
@@ -142,7 +144,7 @@ moving on.
 <h2><span class="short-header">OBTAIN MANAGEMENT CREDENTIALS</span>OBTAIN THE DEFAULT MANAGEMENT CREDENTIALS FOR THE NAMESPACE</h2>
 
 In order to perform management operations, such as creating a queue, on
-the new namespace, you need to obtain the management credentials for the
+the new namespace, you must obtain the management credentials for the
 namespace.
 
 1.  In the main window, click the name of your service namespace.   
@@ -159,6 +161,14 @@ namespace.
     
 
 4.  Make a note of the key, or copy it to the clipboard.
+
+###Manage a service namespace using the Visual Studio Server Explorer:
+
+To manage a namespace and obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
+
+![][44]
+
+Make a note of the **SharedAccessKey** value, or copy it to the clipboard.
 
 
 <h2><span class="short-header">CREATE AN ON-PREMISES SERVER</span>CREATE AN ON-PREMISES SERVER</h2>
@@ -779,8 +789,9 @@ To learn more about Service Bus, see the following resources:
   [41]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [42]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
   [43]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
+  [44]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
 
   [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
-  [sbwacom]: /en-us/manage/services/service-bus/  
+  [sbwacom]: /en-us/documentation/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/
   [executionmodels]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/

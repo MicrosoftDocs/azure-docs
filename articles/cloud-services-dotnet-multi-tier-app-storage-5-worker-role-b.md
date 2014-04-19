@@ -1,34 +1,4 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" urlDisplayName="Step 5: Worker Role B" pageTitle="Multi-tier web site tutorial - Step 5: Worker role B" metaKeywords="Azure tutorial, adding working role cloud service, C# worker role" description="The fifth tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building worker role B (email sender) for the Azure Email Service application - 5 of 5." authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
-
-
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
-<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
-<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
-</ul>
-<ul>
-<li>IN THIS SERIES</li>
-<li><a href="../1-overview/">1. Overview</a></li>
-<li><a href="../2-download-and-run/">2. Download and Run</a></li>
-<li><a href="../3-web-role/">3. Web Role</a></li>
-<li><a href="../4-worker-role-a/">4. Worker Role A</a></li>
-<li><strong>5. WORKER ROLE B</strong></li>
-</ul>
-</div>
-<div class="floating-nav jump-to">
-<ul>
-<li>On the page (jump to):</li>
-</ul>
-</div>
-</div>
-</div>
+<properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" urlDisplayName="Step 5: Worker Role B" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 5: Worker role B" metaKeywords="Azure tutorial, adding working role cloud service, C# worker role" description="The fifth tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building worker role B (email sender) for the Azure Email Service application - 5 of 5." authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 # Building worker role B (email sender) for the Azure Email Service application - 5 of 5. 
 
@@ -68,6 +38,8 @@ You need a reference to the web project because that is where the entity classes
 
 <h2><a name="sclpackage"></a><span class="short-header">Add SCL 2.0 Package</span>Add the Storage Client Library 2.0 NuGet package to the project</h2>
 
+>[WACOM.NOTE] With Visual Studio 2013 you can skip this section because the current Azure Storage package is installed in the new worker role project.
+
 When you added the project, it didn't automatically get the updated version of the Storage Client Library NuGet package. Instead, it got the old 1.7 version of the package since that is what is included in the project template. Now the solution has two versions of the Azure Storage NuGet package: the 2.0 version in the MvcWebRole and WorkerRoleA projects, and the 1.7 version in the WorkerRoleB project. You need to uninstall the 1.7 version and install the 2.0 version in the WorkerRoleB project.
 
 1. From the **Tools** menu choose **Library Package Manager** and then **Manage NuGet Packages for Solution**.
@@ -99,6 +71,8 @@ When you added the project, it didn't automatically get the updated version of t
 
 <h2><a name="addref2"></a><span class="short-header">Add SCL 1.7 reference</span>Add a reference to an SCL 1.7 assembly</h2>
 
+>[WACOM.NOTE] Skip this section if you have installed the latest SDK and are using Visual Studio 2013
+
 Version 2.0 of the Storage Client Library (SCL) does not have everything needed for diagnostics, so you have to add a reference to one of the 1.7 assemblies, as you did earlier for the other two projects.
 
 4. Right-click the WorkerRoleB project, and choose **Add Reference**.
@@ -127,7 +101,7 @@ To send email by using SendGrid, you need to install the SendGrid NuGet package.
 
 2. In the **Manage NuGet Packages** dialog box, select the **Online** tab, enter "sendgrid" in the search box, and press Enter.
 
-3. Click **Install** on the **Sendgrid** package.
+3. Click **Install** on the **SendGrid** package.
 
 	![Install the Sendgrid package][mtas-worker-b-install-sendgrid]
 
@@ -187,6 +161,8 @@ For storage account credentials, the procedure is the same as what you saw in [t
 	![Add existing item to Worker Role B][mtas-worker-b-add-existing]
 
 2. Navigate to the folder where you downloaded the sample application, select the WorkerRoleB.cs file in the WorkerRoleB project, and click **Add**.
+
+>[WACOM.NOTE] For Visual Studio 2013 with the latest SDK and the latest SendGrid NuGet package, open *WorkerRoleB.cs* and make the following changes to the code: (1) Delete the `using` statement for `SendGridMail.Transport`. (2) Change both instances of `SendGrid.GenerateInstance` to `SendGrid.GetInstance`. (3) Change both instances of `REST.GetInstance` to `Web.GetInstance`.
 
 3. Open WorkerRoleB.cs and examine the code.
 
@@ -615,15 +591,16 @@ To learn more about the Azure Table service, see the following resources:
 
 To learn more about the Azure Queue service and Azure Service Bus queues, see the following resources:
 
+* [Queue-Centric Work Pattern (Building Real-World Cloud Apps with Windows Azure) ](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)
 * [Azure Queues and Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison]
 * [How to use the Queue Storage Service in .NET][queuehowto]
 
-To learn more about the Azure Blob service, see the following resource:
+To learn more about the Azure Blob service, see the following resources:
 
+* [Unstructured Blob Storage (Building Real-World Cloud Apps with Windows Azure) ](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)
 * [How to use the Azure Blob Storage Service in .NET][blobhowto]
 
-To learn more about autoscaling Azure Cloud Service roles, see
-the following resources:
+To learn more about autoscaling Azure Cloud Service roles, see the following resources:
 
 * [How to Use the Autoscaling Application Block][autoscalingappblock]
 * [Autoscaling and Azure][autoscaling-and-windows-azure]

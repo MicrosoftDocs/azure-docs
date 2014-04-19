@@ -9,7 +9,7 @@ It is a common scenario to use software RAID on Linux virtual machines in Azure 
 ## Attaching data disks
 Two or more empty data disks will typically be needed to configure a RAID device.  This article will not go into detail on how to attach data disks to a Linux virtual machine.  Please see the Windows Azure article [attach a disk](http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/#attachempty) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
 
-	>[WACOM.NOTE] The ExtraSmall VM size does not support more than one data disk attached to the virtual machine.  Please see [Virtual Machine and Cloud Service Sizes for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx) for detailed information about VM sizes and the number of data disks supported.
+>[WACOM.NOTE] The ExtraSmall VM size does not support more than one data disk attached to the virtual machine.  Please see [Virtual Machine and Cloud Service Sizes for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx) for detailed information about VM sizes and the number of data disks supported.
 
 
 ## Install the mdadm utility
@@ -84,7 +84,8 @@ In this example we will create a single disk partition on /dev/sdc. The new disk
 
 1. The following example will "stripe" (RAID level 0) three partitions located on three separate data disks (sdc1, sdd1, sde1):
 
-		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 /dev/sdc1 /dev/sdd1 /dev/sde1
+		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
+		  /dev/sdc1 /dev/sdd1 /dev/sde1
 
 In this example, after running this command a new RAID device called **/dev/md127** will be created. Also note that if these data disks we previously part of another defunct RAID array it may be necessary to add the `--force` parameter to the `mdadm` command.
 
@@ -145,7 +146,7 @@ In this example, after running this command a new RAID device called **/dev/md12
 
 5. Optional Parameters
 
-	Many distributions include either the “`noobootwait`” or “`nofail`” mount parameters that may be added to the /etc/fstab file. These parameters allow for failures when mounting a particular file system and allow the Linux system to continue to boot even if it is unable to properly mount the RAID file system. Please refer to your distribution's documentation for more information on these parameters.
+	Many distributions include either the “`nobootwait`” or “`nofail`” mount parameters that may be added to the /etc/fstab file. These parameters allow for failures when mounting a particular file system and allow the Linux system to continue to boot even if it is unable to properly mount the RAID file system. Please refer to your distribution's documentation for more information on these parameters.
 
 	Example (Ubuntu):
 

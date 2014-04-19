@@ -7,11 +7,11 @@
 
 HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the cloud. It makes the MapReduce software framework available in a simpler, more scalable, and cost efficient Azure environment. HDInsight also provides a cost efficient approach to the managing and storing of data using Azure Blob storage. 
 
-In this tutorial, you will provision an HDInsight cluster using the Azure Management Portal, submit a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
+In this tutorial, you will provision an HDInsight cluster using the Azure Management Portal, submit a Hadoop MapReduce job to count words in a text file using PowerShell, and then import the MapReduce job output data into Excel for examination.
 
-> [WACOM.NOTE] This tutorial covers using Hadoop 1.2 clusters on HDInsight. For the tutorial using Hadoop 2.2 clusters on HDInsight (preview), see [Get started using Hadoop 2.2 clusters with HDInsight (preview)][hdinsight-get-started-30].
+> [WACOM.NOTE] This tutorial covers using Hadoop 1.2 clusters on HDInsight. For the tutorial using Hadoop 2.2 clusters on HDInsight, see [Get started using Hadoop 2.2 clusters with HDInsight][hdinsight-get-started-30]. For version information, see [What's new in the cluster versions provided by HDInsight?][hdinsight-version]
 
-In conjunction with the general availability of Azure HDInsight, Microsoft has also released HDInsight Emulator for Azure, formerly known as Microsoft HDInsight Developer Preview. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
+In conjunction with the general availability of Azure HDInsight, Microsoft has also released HDInsight Emulator for Azure, formerly known as *Microsoft HDInsight Developer Preview*. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 
 **Prerequisites:**
 
@@ -19,7 +19,7 @@ Before you begin this tutorial, you must have the following:
 
 
 - An Azure subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-- A computer that is running Windows 8, Windows 7, Windows Server 2012, or Windows Server 2008 R2. This computer will be used to submit MapReduce jobs.
+- A computer that is running Windows 8.1, Windows 8 8, Windows 7, Windows Server 2012, or Windows Server 2008 R2. This computer will be used to submit MapReduce jobs.
 - Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
 **Estimated time to complete:** 30 minutes
@@ -47,13 +47,17 @@ The PowerShell cmdlets require your subscription information so that it can be u
 
 		Add-AzureAccount
 
-3. In the window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
+3. In the window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window. The connection will expired in several hours. 
 
 The other method to connect to  your subscription is using the certificate method. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
+
+>[WACOM.NOTE] To go back to the certificate method after using the Azure AD method with the Add-AzureAccount cmdlet, run the Remove-AzureAccount cmdlet.
 	
 ##<a name="provision"></a>Provision an HDInsight cluster
 
-The HDInsight provision process requires an Azure Storage account to be used as the default file system. The storage account must be located in the same data center as the HDInsight compute resources. Currently, you can only provision HDInsight clusters in the following data centers:
+HDInsight uses Azure Blob Storage for storing data. It is called *WASB* or *Azure Storage - Blob*. WASB is Microsoft's implementation of HDFS on Azure Blob storage. For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage].
+
+When provision an HDInsight cluster, an Azure Storage account and a specific Blob storage container from that account is designated as the default file system, just like in HDFS. The storage account must be located in the same data center as the HDInsight compute resources. Currently, you can only provision HDInsight clusters in the following data centers:
 
 - Southeast Asia
 - North Europe
@@ -61,7 +65,9 @@ The HDInsight provision process requires an Azure Storage account to be used as 
 - East US
 - West US
 
-You must choose one of the five data centers for your Azure Storage account.
+In addition to this storage account, you can add additional storage accounts from either the same Azure subscription or different Azure subscriptions. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. 
+
+To simply this tutorial, only the default storage account is used, and all of the files are stored in the default file system container, located at */tutorials/getstarted/*.
 
 **To create an Azure Storage account**
 
@@ -74,10 +80,10 @@ You must choose one of the five data centers for your Azure Storage account.
 4. Wait until the **STATUS** of the new storage account is changed to **Online**.
 5. Click the new storage account from the list to select it.
 6. Click **MANAGE ACCESS KEYS** from the bottom of the page.
-7. Make a note of the **STORAGE ACCOUNT NAME** and the **PRIMARY ACCESS KEY**.  You will need them later in the tutorial.
+7. Make a note of the **STORAGE ACCOUNT NAME** and the **PRIMARY ACCESS KEY** (or the **SECONDARY ACCESS KEY**.  Either of the keys works).  You will need them later in the tutorial.
 
 
-For the detailed instructions, see
+For more information, see
 [How to Create a Storage Account][azure-create-storageaccount] and [Use Azure Blob Storage with HDInsight][hdinsight-storage].
 
 
@@ -120,13 +126,15 @@ For the detailed instructions, see
 	<tr><td>Password (cluster admin)</td><td>The password for the account <i>admin</i>. The cluster user name is specified to be "admin" by default when using the Quick Create option. This can only be changed by using the <strong>Custom Create</strong> wizard. The password field must be at least 10 characters and must contain an uppercase letter, a lowercase letter, a number, and a special character.</td></tr>
 	<tr><td>Storage Account</td><td>Select the storage account you created from the dropdown box. <br/>
 
-	> [WACOM.NOTE]
-        > Once a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
+	Once a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
 	The HDInsight cluster location will be the same as the storage account.
 	</td></tr>
 	</table>
 
+	Keep a copy of the cluster name.  You will need it later in the tutorial.
+
+	>[WACOM.NOTE] The quick create method creates a HDInsight version 2.1 cluster. To create version 1.6 or 3.0 clusters, use the custom create method from the management portal, or use Azure PowerShell.
 
 5. Click **Create HDInsight Cluster** on the lower right. When the provision process completes, the  status column will show **Running**.
 
@@ -146,22 +154,24 @@ For information on using the **CUSTOM CREATE** option, see [Provision HDInsight 
 
 ##<a name="sample"></a>Run a WordCount MapReduce job
 
-Now you have an HDInsight cluster provisioned. The next step is to run a MapReduce job to count words in a text file. 
+Now you have an HDInsight cluster provisioned. The next step is to run a MapReduce job to count word occurrences in a text file. 
 
 Running a MapReduce job requires the following elements:
 
-* A MapReduce program. In this tutorial, you will use the WordCount sample that comes with the HDInsight cluster distribution so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. For instructions on writing your own MapReduce job, see [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce].
+* A MapReduce program. In this tutorial, you will use the WordCount sample that comes with  HDInsight clusters so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. For instructions on writing your own MapReduce job, see [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce] and [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming].
 
-* An input file. You will use */example/data/gutenberg/davinci.txt* as the input file. For information on upload files, see [Upload Data to HDInsight][hdinsight-upload-data].
-* An output file folder. You will use */example/data/WordCountOutput* as the output file folder. The system will create the folder if it doesn't exist.
+	>[WACOM.NOTE] On the HDInsight version 3.0 clusters, the jar file name is */example/jars/hadoop-mapreduce-examples.jar*.
+
+* An input file folder. In this tutorial, you will specify one file, */example/data/gutenberg/davinci.txt*. For information on upload our own data files, see [Upload Data to HDInsight][hdinsight-upload-data].
+* An output file folder. You will use */tutorials/getstarted/WordCountOutput* as the output file folder. This folder can't be an existing folder. Otherwise you will get an exception.
 
 The URI scheme for accessing files in Blob storage is:
 
 	wasb[s]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
 
-> [WACOM.NOTE] By default, the Blob container used for the default file system has the same name as the HDInsight cluster.
+> [WACOM.NOTE] By default, the provision process creates the default Blob container with the same name as the HDInsight cluster name. If a container with the same name already exists, the provision process will name the default container as <ClusterName>-x, x is a sequence number, for example, mycluster-1. 
 
-The URI scheme provides both unencrypted access with the *wasb:* prefix, and SSL encrypted access with WASBS. We recommend using wasbs wherever possible, even when accessing data that lives inside the same Azure data center.
+The URI scheme provides both unencrypted access with the *wasb:* prefix, and SSL encrypted access with WASBS. It is recommended using wasbs wherever possible, even when accessing data that lives inside the same Azure data center.
 
 Because HDInsight uses a Blob Storage container as the default file system, you can refer to files and directories inside the default file system using relative or absolute paths.
 
@@ -171,8 +181,6 @@ For example, to access the hadoop-examples.jar, you can use one of the following
 	● wasb:///example/jars/hadoop-examples.jar
 	● /example/jars/hadoop-examples.jar
 				
-The use of the *wasb://* prefix in the paths of these files. This is needed to indicate Azure Blob Storage is being used for input and output files. The output directory assumes a default path relative to the *wasb:///user/&lt;username&gt;* folder. 
-
 For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-storage].
 
 
@@ -197,24 +205,52 @@ For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-stor
 
 **To run the WordCount sample**
 
-1. Open **Azure PowerShell**. For instructions of opening Azure PowerShell console window, see [Install and configure Azure PowerShell][powershell-install-configure].
+1. Open **Azure PowerShell** or **PowerShell ISE**. For instructions of opening Azure PowerShell console window, see [Install and configure Azure PowerShell][powershell-install-configure].
 
-3. Run the following commands to set the variables.  
-		
+2. If you haven't connected to your Azure subscription, run the following command:
+
+		Add-AzureAccount
+ 
+	For more information, see [Set up local environment for running PowerShell](#setup) in this article.
+
+3. If you have multiple Azure subscriptions, you can use the following command to select the current subscription used in this PowerShell session:
+
 		$subscriptionName = "<SubscriptionName>" 
-		$clusterName = "<HDInsightClusterName>"        
+		Select-AzureSubscription $subscriptionName
+
+	To get the subscription name, sign in to the [management portal](https://manage.windows.azure.com). Click **SETTINGS** from the left pane.
+
+3. Set the first variable in the following script, and run the script:  
+		
+		$clusterName = "<HDInsightClusterName>"
+
+		$jarFile = "wasb:///example/jars/hadoop-examples.jar"
+		$className = "wordcount"
+		$statusFolder = "wasb:///tutorials/getstarted/wordCountStatus"
+		$inputFolder = "wasb:///example/data/gutenberg/davinci.txt"
+		$outputFolder = "wasb:///tutorials/getstarted/WordCountOutput"
+
+
+
+	|Variable|Note|
+    |--------|----|
+	|$clusterName|The class name must match the one you created earlier in the tutorial using the Azure Managment portal.|
+    |$jarFile|This is the MapReduce jar file that you will run.  It comes with HDInsight clusters.|
+	|$className|The class name is hard-coded in the MapReduce program.|
+	|$statusFolder|The -StatusFolder parameter is optional. If specified, the standard error and standard output files will be put into the folder.|
+    |$inputFolder|This is the source data file folder for the MapReduce job. The word counting MapReduce job will be counting the words in the files located in this folder.  You can either specify a folder name or a file name.|
+	|$outputFolder|The MapReduce job will generate an output file in this folder.  The output file has a list of the words and their count. The default output file name is part-r-00000.|
 		
 5. Run the following commands to create a MapReduce job definition:
 
 		# Define the MapReduce job
-		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -StatusFolder -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///tutorials/getstarted/WordCountOutput"
 
-	The hadoop-examples.jar file comes with the HDInsight cluster distribution. There are two arguments for the MapReduce job. The first one is the source file name, and the second is the output file path. The source file comes with the HDInsight cluster distribution, and the output file path will be created at the run-time.
+	The job definition uses the variables you defined in the last step.
 
 6. Run the following command to submit the MapReduce job:
 
 		# Submit the job
-		Select-AzureSubscription $subscriptionName
 		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition 
 		
 	In addition to the MapReduce job definition, you must also provide the HDInsight cluster name where you want to run the MapReduce job. 
@@ -234,7 +270,7 @@ For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-stor
 
 	![HDI.GettingStarted.RunMRJob][image-hdi-gettingstarted-runmrjob]
 
-
+	Using the *-StandardOuput* switch with the cmdlet, you can also get the standard output log.
 
 
 
@@ -273,20 +309,20 @@ For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-stor
 		mkdir \Tutorials
 		cd \Tutorials
 	
-	The default Azure Powershell directory is *C:\Windows\System32\WindowsPowerShell\v1.0*. By default, you don't have the write permission on this folder. You must change directory to a folder where you have write permission.
+	The default Azure Powershell directory is *C:\Windows\System32\WindowsPowerShell\v1.0*. By default, you don't have the write permission on this folder. Later in the script,  you will download a copy of the output file to the current directory. You must change directory to a folder where you have write permission.
 	
 2. Set the three variables in the following commands, and then run them:
 
-		$subscriptionName = "<SubscriptionName>"       
 		$storageAccountName = "<StorageAccountName>"   
-		$containerName = "<ContainerName>"			   
+		$containerName = "<ContainerName>"		
+
+		$blobName = "tutorials/getstarted/WordCountOutput/part-r-00000"   
 
 	The Azure Storage account is the one you created earlier in the tutorial. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
 
 3. Run the following commands to create an Azure storage context object:
 		
 		# Create the storage account context object
-		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
@@ -295,7 +331,7 @@ For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-stor
 4. Run the following command to download the MapReduce job output from the Blob container to the workstation:
 
 		# Download the job output to the workstation
-		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+		Get-AzureStorageBlobContent -Container $ContainerName -Blob $blobName -Context $storageContext -Force
 
 	The *example/data/WordCountOutput* folder is the output folder specified when you run the MapReduce job. *part-r-00000* is the default file name for MapReduce job output.  The file will be download to the same folder structure on the local folder. For example, in the following screenshot, the current folder is the C root folder. The file will be downloaded to the *C:\example\data\WordCountOutput&#92;* folder.
 
@@ -310,15 +346,30 @@ For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-stor
 
 > [WACOM.NOTE] If you open <i>./example/data/WordCountOutput/part-r-00000</i>, a multi-line output from a MapReduce job, in Notepad, you will notice the line breaks are not renter correctly. This is expected.
 
+The output folder can't be an existing folder. Otherwise MapReduce job will fail.  If you want to run the MapReduce job again, you must delete the output folder and the output file.  Here is a PowerShell script for doing the job:
 
+		# set the variables
+		$storageAccountName = "<StorageAccountName>"   
+		$containerName = "<ContainerName>"		
+
+		$blobName = "tutorials/getstarted/WordCountOutput/part-r-00000" 
+		$blobFolderName = "tutorials/getstarted/WordCountOutput" 
+		
+		# Create the storage account context object
+		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+		
+		# Download the output to local computer
+		Remove-AzureStorageBlob -Container $ContainerName -Blob $blobName -Context $storageContext -Force
+		Remove-AzureStorageBlob -Container $ContainerName -Blob $blobFolderName -Context $storageContext -Force
 	
-##<a name="powerquery"></a>Connecting to Microsoft business intelligence tools 
+##<a name="powerquery"></a>Connect to Microsoft business intelligence tools 
 
-The Power Query add-in for Excel can be used to export output from HDInsight into Excel where Microsoft Business Intelligence (BI) tools can be used to further process or display the results. When you created an HDInsight cluster, a default container with the same name as the cluster was created in the storage account associated with it when it was created. This is automatically populated with a set of files. One of these files is a sample Hive table. In this section we will show how to import the data contained in this table into Excel for viewing and additional processing.
+The Power Query add-in for Excel can be used to export output from HDInsight into Excel where Microsoft Business Intelligence (BI) tools can be used to further process or display the results. 
 
-You must have Excel 2010 or 2013 installed to complete this part of the tutorial. Here we will import the default Hive table that ships in HDInsight.
+You must have Excel 2010 or 2013 installed to complete this part of the tutorial. 
 
-**To download Microsoft PowerQuery for Excel**
+**To download Microsoft Power Query for Excel**
 
 - Download Microsoft Power Query for Excel from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=39379) and install it.
 
@@ -343,13 +394,13 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 
 	![HDI.GettingStarted.PowerQuery.ImportData3][image-hdi-gettingstarted-powerquery-importdata3]
 
-9. Click **Apply & Close** in the upper left corner. The query then imports the Hive Table into Excel.
+9. Click **Apply & Close** in the upper left corner. The query then imports the word counting MapReduce job output into Excel.
 
 
 ##<a name="nextsteps"></a>Next steps
 In this tutorial, you have learned how to provision a cluster with HDInsight, run a MapReduce job on it, and import the results into Excel where they can be further processed and graphically displayed using BI tools. To learn more, see the following articles:
 
-- [Get started using Hadoop 2.2 clusters with HDInsight (preview)][hdinsight-get-started-30]
+- [Get started using Hadoop 2.2 clusters with HDInsight][hdinsight-get-started-30]
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
@@ -361,6 +412,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 - [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
+[hdinsight-version]: ../hdinsight-component-versioning/
 
 [hdinsight-get-started-30]: /en-us/documentation/articles/hdinsight-get-started-30/
 [hdinsight-provision]: /en-us/documentation/articles/hdinsight-provision-clusters/

@@ -34,19 +34,17 @@ The following installer packages are available:
 
 * [OS X installer][mac-installer]
 
->[WACOM.NOTE] The installer packages also contain Node.js. This version of Node.js will be used by the xplat-cli if no other version of Node.js is available on the system. The version of Node.js installed by these packages should not conflict with any other version of Node.js installed on your system.
-
 ###Using npm
 
 If Node.js is installed on your system, use the following command to install the xplat-cli:
 
-	npm install azure-cli
+	npm install azure-cli -g
 
 >[WACOM.NOTE] You may need to use `sudo` to successfully run the __npm__ command.
 
 This will install the xplat-cli and required dependencies. At the end of the installation, you should see something similar to the following:
 
-	azure-cli@0.7.0 ..\node_modules\azure-cli
+	azure-cli@0.8.0 ..\node_modules\azure-cli
 	|-- easy-table@0.0.1
 	|-- eyes@0.1.8
 	|-- xmlbuilder@0.4.2
@@ -68,11 +66,34 @@ This will install the xplat-cli and required dependencies. At the end of the ins
 
 <h2><a id="Configure"></a>How to connect to your Azure subscription</h2>
 
-While some commands provided by the xplat-cli will work without an Azure subscription, most commands require a subscription. To configure the xplat-cli to work with your subscription you can either download and use a publish settings file, or you can log in to Azure using you Microsoft account or an organizational ID. When you log in, Azure Active Directory is used to authenticate the credentials.
+While some commands provided by the xplat-cli will work without an Azure subscription, most commands require a subscription. To configure the xplat-cli to work with your subscription you can either:
+
+* Download and use a publish settings file.
+
+OR
+
+* Log in to Azure using an organizational account. When you log in, Azure Active Directory is used to authenticate the credentials.
 
 To help you choose the authentication method that's appropriate for your needs, consider the following:
 
 *  The log in method can make it easier to manage access to subscription, but may disrupt automation, as the credentials may time out and require you to log in again.
+
+	> [WACOM.NOTE] The login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+	> 
+	> 1. Login to the [Azure Management Portal][portal], and click on **Active Directory**.
+	> 
+	> 2. If no directory exists, select **Create your directory** and provide the requested information.
+	> 
+	> 3. Select your directory and add a new user. This new user is an organizational account.
+	> 
+	>     During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
+	> 
+	> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the organizational account to manage your Azure subscription.
+	> 
+	> 5. Finally, log out of the Azure portal and then log back in using the new organizational account. If this is the first time logging in with this account, you will be prompted to change the password.
+	>
+	>For more information on organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization][signuporg].
+
 *  The publish settings file method installs a certificate that allows you to perform management tasks for as long as the subscription and the certificate are valid. This method makes it easier to use automation for long-running tasks. After you download and import the information, you don't need to provide it again. However, this method makes it harder to manage access to a subscription as anyone with access to the certificate can manage the subscription.
 
 For more information about authentication and subscription management, see ["What's the difference between account-based authentication and certificate-based authentication"][authandsub].
@@ -81,11 +102,13 @@ If you don't have an account, you can create a free trial account in just a coup
 
 ###Use the log in method
 
-To log in using an organizational ID, use the following command:
+To log in using an organizational account, use the following command:
 
 	azure login [username] [password]
 
-	>[WACOM.NOTE] If this is the first time you have logged in with these credentials, you will receive a prompt asking you to verify that you wish to cache these credentials. This prompt will also occur if you have previously used the `azure logout` command described below. To bypass this prompt for automation scenarios, use the `-q` parameter with the `azure login` command.
+> [WACOM.NOTE] If this is the first time you have logged in with these credentials, you will receive a prompt asking you to verify that you wish to cache an authentication token. This prompt will also occur if you have previously used the `azure logout` command described below. To bypass this prompt for automation scenarios, use the `-q` parameter with the `azure login` command.
+
+> [WACOM.NOTE] When you authenticate with an organizational account, the information for accessing your Azure subscription is stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
 
 To log out, use the following command:
 
@@ -93,7 +116,13 @@ To log out, use the following command:
 
 > [WACOM.NOTE] If the subscriptions associated with the account were only authenticated with Active Directory, logging out will delete the subscription information from the local profile. However, if the a publish settings file has also been imported for the subscriptions, logging out will only delete the Active Directory related information from the local profile.
 
-> [WACOM.NOTE] The `azure login` and `azure logout` commands are aliases for the `azure account login` and `azure account logout` commands.
+> [WACOM.NOTE] The following commands will not function correctly when authenticating using an account:
+> 
+> * `azure vm`
+> * `azure network`
+> * `azure mobile`
+> 
+> If you need to work with these commands, use a publish settings file to authenticate to Azure as described in the following section.
 
 ###Use the publish settings file method
 
@@ -150,9 +179,9 @@ The xplat-cli is accessed using the `azure` command. To see a list of commands a
 	info:       (_______ _ _)         _ ______ _)_ _
 	info:              (______________ _ )   (___ _ _)
 	info:
-	info:    Azure: Microsoft's Cloud Platform
+	info:    Windows Azure: Microsoft's Cloud Platform
 	info:
-	info:    Tool version 0.7.0
+	info:    Tool version 0.8.0
 	help:
 	help:    Display help for a given command
 	help:      help [options] [command]
@@ -201,17 +230,15 @@ When in doubt about the parameters needed by a command, refer to help using `--h
 
 ###Setting the configuration mode
 
-Historically, managing a _resource_ (a user-managed entity such as a database server, database or web site,) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, your automation scripts often grew in complexity as you added commands to work with new resources. This is **Azure Service Management**, and is the default mode of the xplat-cli.
+The xplat-cli allows you to perform management operations on individual _resources_, which are user-managed entities such as a database server, database, or web site. This is the default mode of operation for the xplat-cli, and is referred to as **Azure Service Management**. However, when you have a complex solution that consists of multiple resources, it is useful to be able to manage the entire solution as a single unit.
 
-The new way of managing resources, the **Resource Management Service**, allows you to manage multiple resources as a logical group, known as a _resource group_. Typically a group will contain resources related to a specific application. For example, a group may contain a Web Site resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. Operations against a resource group are applied through a _deployment_.
+To support managing a group of resources as a single logical unit, or _resource group_, we have introduced a preview of the **Resource Manager** as a new way of managing Azure resources. 
 
->[WACOM.NOTE] The Resource Management Service is currently in preview, and may not provide the same management capabilities as Azure Service Management.
+>[WACOM.NOTE] The Resource Manager is currently in preview, and does not provide the same  level of management capabilities as Azure Service Management.
 
-The Resource Management Service also introduces the concept of *templates*, which allows you to define a resource group and the resources within it in a declarative fashion. You can apply a template to create a new group, or perform updates to an existing one. While a template is simply a JSON document, the template language allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the site mode (Free, Shared, Basic, or Standard,) and other common parameters.
+To support the new Resource Manager, the xplat-cli allows you to switch between these management 'modes' using the `azure config mode` command.
 
-To support the new Resource Management Service, the xplat-cli allows you to switch between these management 'modes' using the `azure config mode` command.
-
-The xplat-cli defaults to Azure Service Management mode. To switch to Resource Management Service mode, use the following to enable command:
+The xplat-cli defaults to Azure Service Management mode. To switch to Resource Manager mode, use the following to enable command:
 
 	azure config mode arm
 
@@ -219,9 +246,9 @@ To change back to Azure service management mode, use the following command:
 
 	azure config mode asm 
 
->[WACOM.NOTE] The Resource Management Service mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+>[WACOM.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
-For more information on working with the Resource Management Service using the xplat-cli, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Management Service][xplatarm].
+For more information on working with the Resource Manager using the xplat-cli, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager][xplatarm].
 
 ###Working with services in Azure service management mode
 
@@ -370,3 +397,5 @@ If you are writing a script that relies on the exit status, please verify that t
 [script]: http://en.wikipedia.org/wiki/Shell_script
 [batch]: http://technet.microsoft.com/en-us/library/bb490890.aspx
 [xplatarm]: /en-us/documentation/articles/xplat-cli-azure-resource-manager/
+[portal]: https://manage.windowsazure.com
+[signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/

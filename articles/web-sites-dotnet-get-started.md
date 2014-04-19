@@ -62,9 +62,11 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	The sample application you're creating won't have features that require users to log in. The [Next Steps](#next-steps) section at the end of the tutorial links to a tutorial that implements authentication and authorization.
 
-5. Under **Azure** in the dialog box, leave **Host in the cloud** selected and leave the drop-down box set to **Web Site**.
+5. Under **Azure** in the dialog box, leave the check box selected and the drop-down box set to **Web Site**. 
 
-	These settings specify that Visual Studio will create an Azure Web Site for your web project. You'll deploy the web project to the newly created web site. (As an alternative you can have Visual Studio create an Azure Virtual Machine running IIS, but this tutorial doesn't detail the steps for that option.)
+	The check box caption might be **Host in the cloud** or **Create remote resources**. In either case the effect is the same. 
+
+	These settings specify that Visual Studio will create an Azure Web Site for your web project. You'll deploy the web project to the newly created web site. (As an alternative you can change the drop-down box selection in order to have Visual Studio create an Azure Virtual Machine running IIS, but this tutorial doesn't detail the steps for that option.)
 
 5. In the **New ASP.NET Project** dialog box, click **OK**.
 
@@ -218,7 +220,7 @@ One way to automate deployment is to do it by using Windows PowerShell scripts. 
 
 ### How to manage a web site
 
-The [Azure Management Portal](en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as web sites, cloud services, virtual machines, databases, and more. To see what you can do in the portal, go to [https://manage.windowsazure.com](), and sign in with the user name and password for your account that has administration rights to your Azure subscription. For more information, see [How to Manage Web Sites](/en-us/manage/services/web-sites/how-to-manage-websites/).
+The [Azure Management Portal](/en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as web sites, cloud services, virtual machines, databases, and more. To see what you can do in the portal, go to [https://manage.windowsazure.com](), and sign in with the user name and password for your account that has administration rights to your Azure subscription. For more information, see [How to Manage Web Sites](/en-us/manage/services/web-sites/how-to-manage-websites/).
 
 You can also do some web site management functions right from **Server Explorer** in Visual Studio. For information about what you can do in **Server Explorer**, see [Troubleshooting Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 

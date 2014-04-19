@@ -1,6 +1,6 @@
 # Create a Virtual Machine Running Windows Server #
 
-It's easy to create a virtual machine that is running the Windows Server operating system when you use the Image Gallery in the Azure Management Portal. This tutorial will teach you how to create a virtual machine running Windows Server in the cloud that you can then access and customize. You don't need prior experience with Azure to use this tutorial. 
+It's easy to create a virtual machine that is running the Windows Server operating system when you use the Image Gallery in the Azure Management Portal. This tutorial teaches you how to create a virtual machine running Windows Server in the cloud that you can then access and customize. You don't need prior experience with Azure to use this tutorial. 
 
 You will learn:
 
@@ -13,30 +13,20 @@ You will learn:
 
 ##<a id="virtualmachine"> </a>About virtual machines in Azure ##
 
-A virtual machine in Azure is a server in the cloud that you can control and manage. After you create a virtual machine in Azure, you can delete and re-create it whenever you need to, and you can access the virtual machine just like any other server. Virtual hard disks (.vhd files) are used to create a virtual machine. You can use the following types of virtual hard disks to create a virtual machine:
-
-- **Image** - An image is a template that you use to create a new virtual machine. An image does not have specific settings like a running virtual machine, such as the computer name and user account settings. If you use an image to create a virtual machine, an operating system disk is automatically created for the new virtual machine.
-- **Disk** - A disk is a VHD that you can boot and mount as a running version of an operating system. After an image is provisioned, it becomes a disk. A disk is always created when you use an image to create a virtual machine. Any VHD that is attached to virtualized hardware and that is running as part of a service is a disk. 
-
-You can use the following options to create a virtual machine from an image:
-
-- Create a virtual machine by using a platform image available from the Azure Management Portal.
-- Create and upload a .vhd file that contains an image to Azure, and then  use the uploaded image to create a virtual machine. For instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](/en-us/manage/windows/common-tasks/upload-a-vhd/).
-
-Each virtual machine resides in a cloud service, either by itself, or grouped with other virtual machines. You can place virtual machines in the same cloud service to enable the virtual machines to communicate with each other, to load-balance network traffic among virtual machines, and to maintain high availability of the machines. For more information about cloud services and virtual machines, see the "Execution Models" section in [Introducing Azure](http://go.microsoft.com/fwlink/p/?LinkId=311926).
+A virtual machine in Azure is a server in the cloud that you can control and manage. After you create a virtual machine in Azure, you can delete and re-create it whenever you need to, and you can access the virtual machine just like any other server. To learn more, see [Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkID=271224).
 
 ##<a id="custommachine"> </a>How to create the virtual machine##
 
-This tutorial shows you how to use the **From Gallery** method in the Management Portal to create a custom virtual machine. This method provides more options than the **Quick Create** method does for configuring the virtual machine when you create it, such as the connected resources, the DNS name, and the network connectivity if needed.
+This tutorial shows you how to use the **From Gallery** method in the Management Portal to create a custom virtual machine. This method provides more options than the **Quick Create** method does for configuring a virtual machine when you create it.
 
 
-1. Sign in to the Azure [Management Portal](http://manage.windowsazure.com).
+1. Sign in to your subscription to use the Azure [Management Portal](http://manage.windowsazure.com). If you don't have a subscription, you can sign up for a [free trial](http://go.microsoft.com/fwlink/p/?LinkID=395313).
 
 2. On the command bar, click **New**.
 
 3. Click **Virtual Machine**, and then click **From Gallery**.
 	
-4. From **Choose an Image**, select an image from one of the lists. (The available images may differ depending on the subscription you're using.) Click the arrow to continue.
+4. From **Choose an Image**, select **Windows Server 2012 R2 Datacenter**. (The available images may differ depending on the subscription you're using.) Click the arrow to continue.
 	
 5. If multiple versions of the image are available, in **Version Release Date**, pick the version you want to use.
 
@@ -48,17 +38,17 @@ This tutorial shows you how to use the **From Gallery** method in the Management
 
 9. In **New Password**, type a strong password for the administrative account on the virtual machine. In **Confirm Password**, retype the password. Click the arrow to continue.
 
-10. You can place virtual machines together under a cloud service to provide robust applications, but for this tutorial, you only create a single virtual machine. To do this, select **Create a new cloud service**.
+10. You can place virtual machines together in a cloud service to provide robust applications, but for this tutorial, you only create a single virtual machine. To do this, select **Create a new cloud service**.
 
 11. In **Cloud Service DNS Name**, type a name that uses between 3 and 24 lowercase letters and numbers. This name becomes part of the URI that is used to contact the virtual machine through the cloud service. For this virtual machine, type **MyService1**.
 
 12. In **Region/Affinity Group/Virtual Network**, select where you want to locate the virtual machine.
 
-13. You can select a storage account where the VHD file is stored. For this tutorial, accept the default setting of **Use an Automatically Generated Storage Account**.
+13. To store the VHD that the virtual machine will use, accept the default setting of **Use an Automatically Generated Storage Account**.
 
 14. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. Click the arrow to continue.
 
-15.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=394093). **Important**: The VM Agent can be installed only when you create the virtual machine. 
+15.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493).  
  
 16. Under **Endpoints**, review the new endpoints that will be created to allow connections to the virtual machine, such as through Remote Desktop
 and Windows PowerShell remoting. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/).
@@ -103,6 +93,8 @@ Your application might need to store data. To set this up, attach a data disk to
 3. On the command bar, click **Attach**, and then click **Attach Empty Disk**.
 
 	The **Attach Empty Disk** dialog box appears.
+
+	> [WACOM.NOTE] The Quick Start page might be displayed instead of the dashboard and command bar. If this happens, click **Dashboard** from the top.
 
 4. The **Virtual Machine Name**, **Storage Location**, **File Name**, and **Host Cache Preference** are already defined for you. All you have to do is enter the size that you want for the disk. Type **5** in the **Size** field.
 

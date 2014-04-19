@@ -1,8 +1,8 @@
-<properties linkid="web-sites-restore" urlDisplayName="Restore an Azure web site" pageTitle="Restore an Azure web site" metaKeywords="Azure Web Sites, Restore, restoring" description="Learn how to restore your Azure web sites from backup." metaCanonical="" services="web-sites" documentationCenter="" title="Restore an Azure web site" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="web-sites-restore" urlDisplayName="Restore a Microsoft Azure web site" pageTitle="Restore a Microsoft Azure web site" metaKeywords="Azure Web Sites, Restore, restoring" description="Learn how to restore your Azure web sites from backup." metaCanonical="" services="web-sites" documentationCenter="" title="Restore a Microsoft Azure web site" authors="timamm"  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
 
-#Restore an Azure web site
+#Restore a Microsoft Azure web site
 
-This article shows you how to restore a web site that you have previously backed up by using the Azure Web Sites Backup feature. For more information, see [Azure Web Sites Backups](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/). 
+This article shows you how to restore a web site that you have previously backed up by using the Azure Web Sites Backup feature. For more information, see [Microsoft Azure Web Sites Backups](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/). 
 
 The Azure Web Sites Restore feature lets restore your web site on-demand to a previous state, or create a new web site based on one of your original site's backups. Creating a new web site that runs in parallel to the latest version can be useful for A/B testing.
 

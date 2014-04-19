@@ -20,7 +20,7 @@ You can contribute to [Azure documentation](http://azure.microsoft.com/en-us/doc
 
 ##Before we can accept your pull request
 
-Thank you for your interest in Windows Azure documentation. Before we can accept your pull request, we need you to sign a Contribution License Agreement (CLA). Full details are available at [http://windowsazure.github.io/guidelines.html#cla](http://windowsazure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
+Thank you for your interest in Azure documentation. Before we can accept your pull request, we need you to sign a Contribution License Agreement (CLA). Full details are available at [http://windowsazure.github.io/guidelines.html#cla](http://windowsazure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
 
 ###Who needs a CLA?
 * Members of the Microsoft Open Technologies group.
@@ -83,7 +83,7 @@ Each branch should be limited to a single concept/article both to streamline wor
 #### Create a new branch
 
 1.	Open GitBash
-2.	Type `git pull upstream master:<new branch name>` in the prompt. This will create a new branch locally copied from the latest Azure master branch.
+2.	Type `git pull upstream master:<new branch name>` in the prompt. This will create a new branch locally copied from the latest Azure master branch. **Note:** For internal contributors, replace `master` in the command with the branch for the publishing date you are targeting.
 3.	Type `git push origin <new branch name>` in the prompt. This will alert GitHub to the new branch. You should now be able to see the new branch in your fork of the repository on GitHub.
 4.	Type `git checkout <new branch name>` to switch to your new branch.
 

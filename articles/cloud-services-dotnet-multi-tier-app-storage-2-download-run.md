@@ -1,47 +1,19 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" urlDisplayName="Step 2: Download and Run" pageTitle="Multi-tier web site tutorial - Step 2: Download and run" metaKeywords="Azure tutorial, deploying email service app, publishing email service" description="The second tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Configuring and Deploying the Azure Email Service application - 2 of 5" authors="riande" solutions="" manager="wpickett" editor="mollybos" />
-
-
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
-<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
-<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
-</ul>
-<ul>
-<li>IN THIS SERIES</li>
-<li><a href="../1-overview/">1. Overview</a></li>
-<li><strong>2. DOWNLOAD AND RUN </strong></li>
-<li><a href="../3-web-role/">3. Web Role</a></li>
-<li><a href="../4-worker-role-a/">4. Worker Role A</a></li>
-<li><a href="../5-worker-role-b/">5. Worker Role B</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to">
-<ul>
-<li>On the page (jump to):</li>
-</ul>
-</div>
-</div>
-</div>
+<properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" urlDisplayName="Step 2: Download and Run" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 2: Download and run" metaKeywords="Azure tutorial, deploying email service app, publishing email service" description="The second tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Configuring and Deploying the Azure Email Service application - 2 of 5" authors="riande,tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
 # Configuring and Deploying the Azure Email Service application - 2 of 5
 
 This is the second tutorial in a series of five that show how to build and deploy the Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
 
-This tutorial shows how to configure your computer for Azure development and how to deploy the Azure Email Service application to an Azure Cloud Service by using  any of the following products:
+This tutorial shows how to configure your computer for Azure development and how to deploy the Windows Azure Email Service application to a Windows Azure Cloud Service by using  any of the following products:
 
 * Visual Studio 2012
 * Visual Studio 2012 Express for Web
 * Visual Studio 2010
 * Visual Web Developer Express 2010.
 
-You can open an Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Azure entirely for free.
+>[WACOM.NOTE] After this tutorial was written, Visual Studio 2013 was released, and the Azure Management Portal and SDK were updated. Notes like this one have been added at points where you have to do things differently if you are using Visual Studio 2013 and the latest SDK. The notes were written in March, 2014, and the revised procedures have been tested with SDK version 2.3.
+
+You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
 
 In this tutorial you'll learn:
 
@@ -53,7 +25,7 @@ In this tutorial you'll learn:
 * How to scale the application by increasing the number of worker role instances.
 
 <div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need an Azure account that has the Azure Web Sites feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/" target="_blank">Create an Azure account and enable preview features</a>.</p>
+<p>To complete this tutorial, you need an Azure account. You can create a <a href="/en-us/pricing/free-trial/" target="_blank">free trial account</a> or <a href="/en-us/pricing/member-offers/msdn-benefits/" target="_blank">activate MSDN subscriber benefits</a>.</p>
 </div>
 <br />
 
@@ -74,23 +46,10 @@ In this tutorial you'll learn:
 - [Add another worker role instance to handle increased load][]
 
 
-
+>[WACOM.NOTE] In the following section about SDK installation, the correct link if you are using Visual Studio 2013 is [http://go.microsoft.com/fwlink/?LinkID=324322](http://go.microsoft.com/fwlink/?LinkID=324322). 
 
 
 [WACOM.INCLUDE [install-sdk-2012-only](../includes/install-sdk-2012-only.md)]
-
-
-
-
-
-<h2><a name="setupwindowsazure"></a><span class="short-header">Create Azure account</span>Set up a free Azure account</h2>
-
-The next step is to create an Azure account.
-
-1. Browse to [Azure](http://www.windowsazure.com "Azure").
-
-2. Click  the **Free trial** link and follow the instructions. 
-
 
 
 
@@ -110,31 +69,31 @@ When you run the sample application in Visual Studio, you can access tables, que
 
 4. In the URL input box, enter a URL prefix. 
 
-   This prefix plus the text you see under the box will be the unique URL to your storage account. If the prefix you enter has already been used by someone else, you'll see "The storage name is already in use" above the text box and you'll have to choose a different prefix.
+	This prefix plus the text you see under the box will be the unique URL to your storage account. If the prefix you enter has already been used by someone else, you'll see "The storage name is already in use" above the text box and you'll have to choose a different prefix.
 
 5. Set the region to the area where you want to deploy the application.
 
-6. Uncheck the **Enable Geo-Replication** check box. 
+6. Set the **Replication** drop-down box to **Locally redundant**. 
 
-   When geo-replication is enabled for a storage account, the stored content is replicated to a secondary location to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. You'll see a warning when you disable geo-replication because you pay a data transfer charge if you start with it disabled and then decide to enable it later. You don't want to disable replication, upload a huge amount of data, and then enable replication. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [How To Manage Storage Accounts][managestorage].
+	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary location to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [How To Manage Storage Accounts][managestorage].
 
 5. Click **Create Storage Account**. 
 
-   In the image below, a storage account is created with the URL `aestest.core.windows.net`.
+	In the image below, a storage account is created with the URL `aestest3.core.windows.net`.
 
-   ![create storage with URL prefix][mtas-create-storage-url-test]
+	![create storage with URL prefix][mtas-create-storage-url-test]
 
-   This step can take several minutes to complete. While you are waiting, you can repeat these steps and create a production storage account. It's often convenient to have a test storage account to use for local development, another test storage account for testing in Azure, and a production storage account.
+	This step can take several minutes to complete. While you are waiting, you can repeat these steps and create a production storage account. It's often convenient to have a test storage account to use for local development, another test storage account for testing in Azure, and a production storage account.
 
-5. Click the test account that you created in the previous step, then click the **Manage Keys** icon.
+5. Click the test account that you created in the previous step, then click the **Manage Access Keys** icon.
 
-   ![Manage Keys][mtas-manage-keys]<br/>
+	![Manage Keys][mtas-manage-keys]<br/>
 
-   ![Keys GUID][mtas-guid-keys]<br/>
+	![Keys GUID][mtas-guid-keys]<br/>
 
-   You'll need the **Primary Access Key** or **Secondary Access Key** access key throughout this tutorial. You can use either one of these keys in a storage connection string. 
+	You'll need the **Primary Access Key** or **Secondary Access Key** access key throughout this tutorial. You can use either one of these keys in a storage connection string. 
 
-   There are two keys so that you can periodically change the key that you use without causing an interruption in service to a live application. You regenerate the key that you're not using, then you can change the connection string in your application to use the regenerated key. If there were only one key, the application would lose connectivity to the storage account when you regenerated the key. The keys that are shown in the image are no longer valid because they were regenerated after the image was captured.
+	There are two keys so that you can periodically change the key that you use without causing an interruption in service to a live application. You regenerate the key that you're not using, then you can change the connection string in your application to use the regenerated key. If there were only one key, the application would lose connectivity to the storage account when you regenerated the key. The keys that are shown in the image are no longer valid because they were regenerated after the image was captured.
 
 6. Copy one of these keys into your clipboard for use in the next section.
 
@@ -144,24 +103,23 @@ When you run the sample application in Visual Studio, you can access tables, que
 
 <h2><a name="installASE"></a><span class="short-header">Install ASE</span>Install Azure Storage Explorer</h2>
 
-**Azure Storage Explorer** is a tool that you can use to query and update Azure storage tables, queues, and blobs. You will use it throughout these tutorials to verify that data is updated correctly and to create test data.
+**Azure Storage Explorer** (ASE) is a tool that you can use to query and update Azure storage tables, queues, and blobs. You will use it throughout these tutorials to verify that data is updated correctly and to create test data.
 
 1. Install  [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/ ).
 
+	Screenshots show ASE 4, but you can install ASE 5 if you prefer.
+
 2. Launch **Azure Storage Explorer** and click **Add Account**.
 
-   ![Add ASE Account][mtas-ase-add]
+	![Add ASE Account][mtas-ase-add]
 
 3. Enter the name of the test storage account and paste the key that you copied previously.
 
 4. Click **Add Storage Account**.
 
-   ![Add ASE Account][mtas-ase-add2]
+	![Add ASE Account][mtas-ase-add2]
 
-Other tools are also available that work with Azure Storage, for example:
-
-* [ClumsyLeaf Software TableXplorer](http://clumsyleaf.com/products/tablexplorer)
-* [Cerebrata Cloud Storage Studio](http://www.cerebrata.com/Products/CloudStorageStudio/Details.aspx?t1=0&t2=6)
+Other tools are also available that work with Azure Storage. For more information, see [Windows Azure Storage Explorers (2014)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
 
 
 
@@ -172,27 +130,27 @@ Other tools are also available that work with Azure Storage, for example:
 
 2. Click **Cloud Services** then click the **New** icon.
 
-   ![Quick Cloud][mtas-new-cloud]<br/>
+	![Quick Cloud][mtas-new-cloud]
 
 3. Click **Quick Create**.
 
 4. In the URL input box, enter a URL prefix. 
 
-   Like the storage URL, this URL has to be unique, and you will get an error message if the prefix you choose is already in use by someone else.
+	Like the storage URL, this URL has to be unique, and you will get an error message if the prefix you choose is already in use by someone else.
 
 5. Set the region to the area where you want to deploy the application.
 
-   You should create the cloud service in the same region that you created the storage account. When the cloud service and storage account are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
+	You should create the cloud service in the same region that you created the storage account. When the cloud service and storage account are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
 
-	Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156209.aspx).
+	Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Azure](http://msdn.microsoft.com/en-us/library/jj156209.aspx).
 
 6. Click **Create Cloud Service**. 
 
-   In the following image, a cloud service is created with the URL aescloud.cloudapp.net.
+	In the following image, a cloud service is created with the URL aescloud.cloudapp.net.
 
-   ![create storage with URL prefix][mtas-create-cloud]
+	![create storage with URL prefix][mtas-create-cloud]
 
-   You can move on to the next step without waiting for this step to complete.
+	You can move on to the next step without waiting for this step to complete.
 
 
 
@@ -204,19 +162,25 @@ Other tools are also available that work with Azure Storage, for example:
 
 2. Start Visual Studio with elevated permissions.
 
-   The compute emulator that enables Visual Studio to run an Azure project locally requires elevated permissions.
+	The compute emulator that enables Visual Studio to run a Windows Azure project locally requires elevated permissions.
 
-3. To keep the download size small, the completed solution is provided without the assemblies or other content for the installed NuGet packages. When you open and build the solution, NuGet automatically gets all of the package content. In order for this to work, you have to enable the NuGet package restore option in Visual Studio. If you haven't already enabled NuGet package restore, do the following steps. 
+	>[WACOM.NOTE] With SDK 2.3 and later, the default Azure compute emulator doesn't require elevated permissions, but this project is still configured to use the original compute emulator, so it still requires elevated permissions.
+	
+3. Restore the NuGet packages.
 
-      1. From the **Tools** menu, click **Library Package Manager**, and then click **Manage NuGet Packages for Solution**. 
+	To keep the download size small, the completed solution is provided without the assemblies or other content for the installed NuGet packages. When you open and build the solution, NuGet automatically gets all of the package content. In order for this to work, you have to enable the NuGet package restore option in Visual Studio. If you haven't already enabled NuGet package restore, do the following steps.
 
-      2. In the lower left corner of the **Manage NuGet Packages** dialog, click **Settings**.
+	>[WACOM.NOTE] In Visual Studio 2013, the default setting is to enable automatic package restore, but because you're opening a Visual Studio 2012 project the restore won't happen automatically.  Wait until after you open the solution, and then open the **Manage NuGet Packages** dialog as instructed below. You'll see a **Restore** button at the top right: click that button to restore the packages. 
 
-      3. In the left pane of the **Options** dialog box, select **General** under **Package Manager**.
+	1. From the **Tools** menu, click **Library Package Manager**, and then click **Manage NuGet Packages for Solution**. 
 
-      4. Select **Allow NuGet to download missing packages during build**.
+	2. In the lower left corner of the **Manage NuGet Packages** dialog, click **Settings**.
 
-      ![Enabling NuGet package restore](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/NuGetPkgRestore.png)
+	3. In the left pane of the **Options** dialog box, select **General** under **Package Manager**.
+
+	4. Select **Allow NuGet to download missing packages during build**.
+
+	![Enabling NuGet package restore](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/NuGetPkgRestore.png)
 
 3. From the **File** menu choose **Open Project**, navigate to where you downloaded the solution, and then open the solution file.
 
@@ -224,23 +188,25 @@ Other tools are also available that work with Azure Storage, for example:
 
 1. Press CTRL+F5 to run the application.
 
-   The application home page appears in your browser.
+	>[WACOM.NOTE] In order to enable the solution to build you'll need to add references to the current SDK assemblies. In Solution Explorer, right-click the MvcWebRole project, and then click **Add** -- **Reference**. Under **Assemblies** click **Extensions**. Select *Microsoft.WindowsAzure.Diagnostics* and *Microsoft.WindowsAzure.ServiceRuntime*, and then click **OK**. Do the same for the WorkerRoleA and WorkerRoleB projects.
 
-   ![Run the App.][mtas-mailinglist1]
+	The application home page appears in your browser.
+
+	![Run the App.][mtas-mailinglist1]
 
 2. Click  **Create New**.
 
 2. Enter some test data, and then click **Create**.
 
-   ![Run the App.][mtas-create1]
+	![Run the App.][mtas-create1]
 
 3. Create a couple more mailing list entries.
 
-   ![Mailing List Index Page][mtas-mailing-list-index-page]
+	![Mailing List Index Page][mtas-mailing-list-index-page]
 
 4. Click **Subscribers**, and then add some subscribers. Set **Verified** to `true`.
 
-   ![Subscriber Index Page][mtas-subscribers-index-page]
+	![Subscriber Index Page][mtas-subscribers-index-page]
 
 4. Prepare to add messages by creating a *.txt* file that contains the body of an email that you want to send. Then create an *.htm* file that contains the same text but with some HTML (for example, make one of the words in the message bold or italicized). You'll use these files in the next step.
 
@@ -264,17 +230,21 @@ The **Azure Storage** browser in **Server Explorer** provides a convenient read-
 
 2. Expand the **(Development)** node underneath the **Azure Storage** node.
 
+	>[WACOM.NOTE] With the current SDK, expand **Windows Azure** / **Storage** / **(Development)**.
+
 3. Expand **Tables** to see the tables that you created in the previous steps.
 
-   ![Server Explorer][mtas-serverExplorer]
+	![Server Explorer][mtas-serverExplorer]
 
 3. Double click the **MailingList** table.
 
-   ![VS storage explorer][mtas-wasVSdata]
+	![VS storage explorer][mtas-wasVSdata]
 
-   Notice how the window shows the different schemas in the table. `MailingList` entities have `Description` and `FromEmailAddress` property, and `Subscriber` entities have the `Verified` property (plus `SubscriberGUID` which isn't shown because the image isn't wide enough). The table has columns for all of the properties, and if a given table row is for an entity that doesn't have a given property, that cell is blank.
+	Notice how the window shows the different schemas in the table. `MailingList` entities have `Description` and `FromEmailAddress` property, and `Subscriber` entities have the `Verified` property (plus `SubscriberGUID` which isn't shown because the image isn't wide enough). The table has columns for all of the properties, and if a given table row is for an entity that doesn't have a given property, that cell is blank.
 
 You can't use the storage browser in Visual Studio to update or delete Azure Storage resources. You can use [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/ ) to update or delete development storage resources. (To configure Azure Storage Explorer to use development storage, click the **Developer Storage** check box in the **Add Storage Account** dialog box.)
+
+>[WACOM.NOTE] With the latest SDK, you can update as well as read development storage in **Server Explorer**. 
 
 
 
@@ -284,19 +254,21 @@ Next, you'll see how to configure the application so that it uses your Azure Sto
 
 4. In **Solution Explorer**, right-click **MvcWebRole** under **Roles** in the **AzureEmailService** project, and click **Properties**.
 
-   ![Right Click Properties][mtas-rt-prop]<br/>
+	![Right Click Properties][mtas-rt-prop]<br/>
 
 5. Click the **Settings** tab. In the **Service Configuration** drop down box, select **Local**.
 
 6. Select the **StorageConnectionString** entry, and you'll see an ellipsis (**...**) button at the right end of the line. Click the ellipsis button to open the **Storage Account Connection String** dialog box.
 
-   ![Right Click Properties][mtas-elip]<br/>
+	![Right Click Properties][mtas-elip]<br/>
 
-7. In the **Create Storage Connection String** dialog, click **Your subscription**, and then click **Download Publish Settings**. 
+7. In the **Create Storage Connection String** dialog, click **Your subscription**, and then click **Download Publish Settings**.
 
-   ![Right Click Properties][mtas-enter]<br/>
+	>[WACOM.NOTE] With the latest SDK, this dialog enables you to sign in to Azure and simply select the storage account that you want to use. 
 
-   Visual Studio launches a new instance of your default browser with the URL for the Azure portal download publish settings page. If you are not logged into the portal, you will be prompted to log in. Once you are logged in, your browser will prompt you to save the publish settings. Make a note of where you save the settings.
+	![Right Click Properties][mtas-enter]<br/>
+
+	Visual Studio launches a new instance of your default browser with the URL for the Azure portal download publish settings page. If you are not logged into the portal, you will be prompted to log in. Once you are logged in, your browser will prompt you to save the publish settings. Make a note of where you save the settings.
 
    ![publish settings][mtas-3]
 
@@ -304,11 +276,11 @@ Next, you'll see how to configure the application so that it uses your Azure Sto
 
 1. Select the subscription and storage account that you wish to use, and then click **OK**.
 
-  ![select storage account][mtas-5]
+	![select storage account][mtas-5]
 
 1. Follow the same procedure that you used for the `StorageConnectionString` connection string to set the `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` connection string.
 
-   You don't have to download the publish settings file again. When you click the ellipsis for the `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` connection string, you'll find that the **Create Storage Connection String** dialog box remembers your subscription information. When you click the **Your subscription** radio button, all you have to do is select the same **Subscription** and **Account Name** that you selected earlier, and then click **OK**. 
+	You don't have to download the publish settings file again. When you click the ellipsis for the `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` connection string, you'll find that the **Create Storage Connection String** dialog box remembers your subscription information. When you click the **Your subscription** radio button, all you have to do is select the same **Subscription** and **Account Name** that you selected earlier, and then click **OK**. 
 
 2. Follow the same procedure that you used for the two connection strings for the MvcWebRole role to set the connection strings for the WorkerRoleA role and the workerRoleB role.
 
@@ -345,7 +317,7 @@ You can use the same procedure to configure settings for the worker roles, or yo
 
 8. Open the **ServiceConfiguration.Local.cscfg** file that is located in the **AzureEmailService** project.
 
-   In the `Role` element for `MvcWebRole` you'll see a `ConfigurationSettings` element that has the settings that you updated by using the Visual Studio UI.
+	In the `Role` element for `MvcWebRole` you'll see a `ConfigurationSettings` element that has the settings that you updated by using the Visual Studio UI.
 
 		  <Role name="MvcWebRole">
 		    <Instances count="1" />
@@ -355,7 +327,7 @@ You can use the same procedure to configure settings for the worker roles, or yo
 		    </ConfigurationSettings>
 		  </Role>
 		
-   In the `Role` elements for the two worker roles you'll see the same two connection strings.
+	In the `Role` elements for the two worker roles you'll see the same two connection strings.
 
 9. Delete the `Setting` elements for these two connection strings from the `WorkerRoleA` and `WorkerRoleB` elements, and then copy and paste in their place the `Setting` elements from the `MvcWebRole` element.
 
@@ -387,7 +359,7 @@ You can now use either **Azure Storage Explorer** or **Server Explorer** to view
 
 13. Expand the new node under **Azure Storage** to view data stored in your Azure storage account.
 
-   ![ASE][mtas-se3]<br/>
+	![ASE][mtas-se3]<br/>
 
 ### Optional steps to disable Azure Storage Emulator automatic startup 
 
@@ -395,21 +367,21 @@ If you are not using the storage emulator, you can decrease project start-up tim
 
 11. In **Solution Explorer**, right click the **AzureEmailService** cloud project and select **Properties**.
 
-   ![Selecting cloud project properties][mtas-aesp]<br/>
+	![Selecting cloud project properties][mtas-aesp]<br/>
 
 11. Select the **Development** tab.
 
 12. Set **Start Azure storage emulator** to **False**.
 
-   ![Disabling the storage emulator automatic startup][mtas-1]<br/>
+	![Disabling the storage emulator automatic startup][mtas-1]<br/>
 
-   **Note**: You should only set this to false if you are not using the storage emulator. 
+	**Note**: You should only set this to false if you are not using the storage emulator. 
 
-   This window also provides a way to change the **Service Configuration** file that is used when you run the application locally from **Local** to **Cloud** (from *ServiceConfiguration.Local.cscfg* to *ServiceConfiguration.Cloud.cscfg*).
+	This window also provides a way to change the **Service Configuration** file that is used when you run the application locally from **Local** to **Cloud** (from *ServiceConfiguration.Local.cscfg* to *ServiceConfiguration.Cloud.cscfg*).
 
 13. In the Windows system tray, right click on the compute emulator icon and click **Shutdown Storage Emulator**.
 
-   ![ASE][mtas-se4]<br/>
+	![ASE][mtas-se4]<br/>
 
 
 
@@ -433,7 +405,7 @@ The following steps show an alternative method for setting the properties, by ed
 
 2. Edit the *ServiceConfiguration.Cloud.cscfg* file in the `AzureEmailService` project and enter the SendGrid user name and password values that you obtained in the previous step into the `WorkerRoleB` element that has these settings. The following code shows the WorkerRoleB element.
 
-   ![SendGridSettings][mtas-sg]<br/>
+	![SendGridSettings][mtas-sg]<br/>
 
 3. There is also an AzureMailServiceURL setting. Set this value to the URL that you selected when you created your Azure Cloud Service, for example:  "http://aescloud.cloudapp.net".
 
@@ -454,9 +426,9 @@ When you deploy to staging, the application will be publicly accessible to anyon
 
 1. Open the *Web.Release.config* file that is located in the root folder of the `MvcWebRole` project, and replace the **ipAddress** attribute value 127.0.0.1 with your IP address. (To see the **Web.Release.config** file in **Solution Explorer** you have to expand the *Web.config* file.) 
 
-   You can find your IP address by searching for "Find my IP" with  [Bing](http://www.bing.com/search?q=find+my+IP&qs=n&form=QBLH&pq=find+my+ip&sc=8-10&sp=-1&sk= "find my IP") or another search engine. 
+	You can find your IP address by searching for "Find my IP" with  [Bing](http://www.bing.com/search?q=find+my+IP&qs=n&form=QBLH&pq=find+my+ip&sc=8-10&sp=-1&sk= "find my IP") or another search engine. 
 
-   When the application is published, the transformations specified in the *Web.release.config* file are applied, and the IP restriction elements are updated in the *web.config* file that is deployed to the cloud. You can view the transformed *web.config* file in the *AzureEmailService\MvcWebRole\obj\Release\TransformWebConfig\transformed* folder after the package is created.
+	When the application is published, the transformations specified in the *Web.release.config* file are applied, and the IP restriction elements are updated in the *web.config* file that is deployed to the cloud. You can view the transformed *web.config* file in the *AzureEmailService\MvcWebRole\obj\Release\TransformWebConfig\transformed* folder after the package is created.
 
 ### Configure the application to use your storage account when it runs in the cloud
 
@@ -478,11 +450,11 @@ You can use the same UI to configure the connection strings (just make sure that
 
 3.	Right-click the **AzureEmailService** cloud project and select **Publish**.
 
-   ![Package][mtas-6]
+	![Package][mtas-6]
 
-   The **Publish Azure Application** dialog appears. 
+	The **Publish Azure Application** dialog appears. 
 
-   ![Cloud Package][mtas-16]
+	![Cloud Package][mtas-16]
 
 4. If you used the automatic method for importing storage account credentials earlier, your Azure subscription is in the drop-down list and you can select it and then click **Next**. Otherwise, click **Sign in to download credentials** and follow the instructions in [Configure the application for Azure Storage][] to download and import your publish settings.
 
@@ -490,7 +462,7 @@ You can use the same UI to configure the connection strings (just make sure that
 
 2. In the **Environment** drop-down list, change **Production** to **Staging**.
 
-  ![Dashboard][mtas-7]
+	![Dashboard][mtas-7]
 
 3. Keep the default **Release** setting for **Build configuration** and **Cloud** for **Service configuration**.
 
@@ -500,38 +472,37 @@ You can use the same UI to configure the connection strings (just make sure that
 
 1. In the **Summary** step of the wizard, click the **save** icon (the diskette icon shown to the right of the Target profile drop-down list) to save the publish settings. 
 
-   The next time you publish the application, the saved settings will be used and you won't need to go through the publish wizard again. 
+	The next time you publish the application, the saved settings will be used and you won't need to go through the publish wizard again. 
 
 1. Review the settings, then click **Publish**.
 
-   ![pub][mtas-8]
+	![pub][mtas-8]
 
    The **Azure Activity Log** window is opened in Visual Studio. 
 
 2. Click the right arrow icon to expand the deployment details.
 
-   ![pub][mtas-11]
+	![pub][mtas-11]
 	<br/><br/>
-   ![pub][mtas-9]
+	![pub][mtas-9]
 
 	The deployment can take about 5 minutes or more to complete.
 
 1. When the deployment status is complete, click the **Website URL** to launch the application.
 
-   ![Dashboard][mtas-c55]
+	![Dashboard][mtas-c55]
 
 9. Enter some data in the **Mailing List**, **Subscriber**, and **Message** web pages to test the application.
 
 	**Note**: Delete the application after you have finished testing it to avoid paying for resources that you aren't using. If you are using a [Azure free trial account](http://www.windowsazure.com/en-us/pricing/free-trial/ "free-trial account"), the three deployed roles will use up your monthly limit in a couple of weeks. 	To delete a deployment by using the Azure management portal, select the cloud service and click **DELETE** at the bottom of the page, and then select the production or staging deployment.
-<br/>
-<br/>
- ![pub][mtas-19]
+
+	![pub][mtas-19]
 
 1. In the Azure Activity Log in Visual studio, select **Open in Server Explorer**.
 
-   Under **Azure Compute** in **Server Explorer** you can monitor the deployment. If you selected **Enable Remote Desktop for all roles** in the **Publish Azure Application** wizard, you can right click on a role instance and select **Connect using Remote Desktop**. 
+	Under **Azure Compute** in **Server Explorer** you can monitor the deployment. If you selected **Enable Remote Desktop for all roles** in the **Publish Azure Application** wizard, you can right click on a role instance and select **Connect using Remote Desktop**. 
 
-   ![pub][mtas-12]
+	![pub][mtas-12]
 
 
 <h2><a name="swap"></a><span class="short-header">Production</span>Promote the Application from Staging to Production</h2>
@@ -542,17 +513,17 @@ You can use the same UI to configure the connection strings (just make sure that
 
 2. Click **Yes** to complete the VIP (virtual IP) swap. This step can take several minutes to complete.
 
-   ![Dashboard][mtas-c6]
+	![Dashboard][mtas-c6]
 
-3. Click the **Cloud Services** icon in the left pane, and then select  your cloud service.
+3. When the swap has completed, click the **Cloud Services** icon in the left pane, and then select  your cloud service.
 
 4. Scroll down the **Dashboard** tab for the **Production** deployment to the **quick glance** section on the lower right part of the page. Notice that the **Site URL** has changed from a GUID prefix to the name of your cloud service. 
 
-   ![Dashboard][mtas-c7]
+	![Dashboard][mtas-c7]
 
-5. Click link under **Site URL** or copy and paste it to a browser to test the application in production. 
+5. Click the link under **Site URL** or copy and paste it to a browser to test the application in production. 
 
-   If you haven't changed the storage account settings, the data you entered while testing the staged version of the application is shown when you run the application in the cloud.
+	If you haven't changed the storage account settings, the data you entered while testing the staged version of the application is shown when you run the application in the cloud.
 
 
 
@@ -563,7 +534,7 @@ Tracing is an invaluable tool for debugging a cloud application. In this section
 
 1. Verify that the diagnostics connection string is configured to use your Azure Storage account and not development storage. 
 
-   If you followed the instructions earlier in the tutorial, they will be the same. You can verify that they are the same either using the Visual Studio UI (the **Settings** tab in **Properties** for the roles), or by looking at the *ServiceConfiguration.\*.cscfg* files.
+	If you followed the instructions earlier in the tutorial, they will be the same. You can verify that they are the same either using the Visual Studio UI (the **Settings** tab in **Properties** for the roles), or by looking at the *ServiceConfiguration.\*.cscfg* files.
  
    **Note:** A best practice is to use a different storage account for tracing data than the storage account used for production data, but for simplicity in this tutorial you have been configuring the same account for tracing.
 
@@ -582,13 +553,13 @@ Tracing is an invaluable tool for debugging a cloud application. In this section
                 config);
         }
 
-   In this code, the `DiagnosticMonitor` is configured to store up to 500 MB of trace information (after 500 MB, the oldest data is overwritten) and to store all trace messages (LogLevel.Verbose). The `ScheduledTransferPeriod` transfers the trace data to storage every minute. You must set the `ScheduledTransferPeriod` to save trace data. 
+	In this code, the `DiagnosticMonitor` is configured to store up to 500 MB of trace information (after 500 MB, the oldest data is overwritten) and to store all trace messages (LogLevel.Verbose). The `ScheduledTransferPeriod` transfers the trace data to storage every minute. You must set the `ScheduledTransferPeriod` to save trace data. 
 
-   The `ConfigureDiagnostics` method in each of the worker and web roles configures the trace listener to record data when you call the Trace API. For more information, see [Using Trace in Windows Azure Cloud Applications](http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "Using Trace in Windows Azure")
+	The `ConfigureDiagnostics` method in each of the worker and web roles configures the trace listener to record data when you call the Trace API. For more information, see [Using Trace in Windows Azure Cloud Applications](http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "Using Trace in Windows Azure")
 
-1. In **Server Explorer**, select **WADLogsTable** for the storage account that you added previously. You can enter a [WCF Data Services filter](http://msdn.microsoft.com/en-us/library/windowsazure/ff683669.aspx "WCF filter") to limit the entities displayed. In the following image, only warning and error messages are displayed.
+1. In **Server Explorer**, double-click **WADLogsTable** (expand **Storage** / **yourstorageaccountname** / **Tables**) for the storage account that you added previously. You can enter a [WCF Data Services filter](http://msdn.microsoft.com/en-us/library/windowsazure/ff683669.aspx "WCF filter") to limit the entities displayed. In the following image, only warning and error messages are displayed.
 
-  ![Dashboard][mtas-trc]
+	![Dashboard][mtas-trc]
 
 
 
@@ -622,13 +593,13 @@ The following steps explain how to scale out by using the Azure Management Porta
 
 1. Increase the number of instances for worker role B, and then click **Save**.
 
-   ![increase instances][mtas-in3]
+	![increase instances][mtas-in3]
 
-   It can take a few minutes for the new VMs to be provisioned.
+	It can take a few minutes for the new VMs to be provisioned.
 
 1. Select the **Instances** tab to see your each role instance in your application.
 
- ![view instances][mtas-in2]
+	![view instances][mtas-in2]
 
 
 
@@ -639,7 +610,9 @@ You have now seen how to configure, deploy, and scale the completed application.
 
 For links to additional resources for working with Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
 
-<div><a href="../3-web-role/" class="site-arrowboxcta download-cta">Tutorial 3</a></div>
+
+
+<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/" class="site-arrowboxcta download-cta">Tutorial 3</a></div>
 
 [Set up the development environment]: #setupdevenv
 [Set up a free Azure account]: #setupwindowsazure

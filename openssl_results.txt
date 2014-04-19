@@ -1,0 +1,61 @@
+articles\cloud-services-php-how-to-use-service-management.md:To connect to the Service Management endpoint, you need your Azure subscription ID and the path to a valid management certificate. You can obtain your subscription ID through the [management portal][management-portal], and you can create management certificates in a number of ways. In this guide [OpenSSL](http://www.openssl.org/) is used, which you can [download for Windows](http://www.openssl.org/related/binaries.html) and run in a console.
+articles\cloud-services-php-how-to-use-service-management.md:	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+articles\cloud-services-php-how-to-use-service-management.md:	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
+articles\cloud-services-php-how-to-use-service-management.md:For more information about Azure certificates, see [Overview of Certificates in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg981935.aspx). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+articles\cloud-services-python-how-to-use-service-management.md:You can use [OpenSSL](http://www.openssl.org/) to create your management certificate.  You actually need to create two certificates, one for the server (a `.cer` file) and one for the client (a `.pem` file). To create the `.pem` file, execute this:
+articles\cloud-services-python-how-to-use-service-management.md:	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+articles\cloud-services-python-how-to-use-service-management.md:	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
+articles\cloud-services-python-how-to-use-service-management.md:For more information about Azure certificates, see [Managing Certificates in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+articles\introduction-linux.md:1. Use openssl to generate an X509 certificate with a 2048-bit RSA keypair.
+articles\introduction-linux.md:		openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
+articles\introduction-linux.md:	Please answer the few questions that the openssl prompts for (you may leave them blank). The content in these fields is not used by the platform.
+articles\introduction-linux.md:		openssl  x509 -outform der -in myCert.pem -out myCert.cer
+articles\linux-create-management-cert.md:There is already documentation on how to create and manage these certificates at [http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx). You can also use OpenSSL to create the management certificate.  For more information, see [OpenSSL](http://openssl.org/). However, this documentation  is primarily focused on the use of the Silverlight portal that might not be accessible to all the Linux users. It describes how you will be able to gain access to these certificates and integrate them with our different tools, partners and use them on your own until this functionality is added in the Azure Management Portal. 
+articles\linux-create-management-cert.md:This will provide you a pfx file that you can either convert to other formats using openssl  to extract the private key if needed:
+articles\linux-create-management-cert.md: 	openssl.exe pkcs12 -in publicAndprivate.pfx -nocerts -out privateKey.pem 
+articles\linux-create-management-cert.md:You will need to base 64 encode the  PFX file you created using openssl with command:
+articles\linux-use-ssh-key.md:1. Install the `openssl` utility if needed:
+articles\linux-use-ssh-key.md:		`sudo yum install openssl`
+articles\linux-use-ssh-key.md:		`sudo apt-get install openssl`
+articles\linux-use-ssh-key.md:		`sudo zypper install openssl`
+articles\linux-use-ssh-key.md:2. Use `openssl` to generate an X509 certificate with a 2048-bit RSA keypair. Please answer the few questions that the `openssl` prompts for (or you may leave them blank). The content in these fields is not used by the platform:
+articles\linux-use-ssh-key.md:			openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
+articles\linux-use-ssh-key.md:			openssl  x509 -outform der -in myCert.pem -out myCert.cer
+articles\linux-use-ssh-key.md:OpenSSH private keys are directly readable by the `openssl` utility. The following command will take an existing SSH private key (id_rsa in the example below) and create the `.pem` public key that is needed for Windows Azure:
+articles\linux-use-ssh-key.md:	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
+articles\linux-use-ssh-key.md:## Get OpenSSL on Windows ##
+articles\linux-use-ssh-key.md:2.	Ensure that the OpenSSL package and all of its dependencies are installed.
+articles\linux-use-ssh-key.md:1.	Follow one of the set of instructions above to be able to run `openssl.exe`
+articles\linux-use-ssh-key.md:		openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
+articles\linux-use-ssh-key.md:		openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
+articles\mobile-services-how-to-use-server-scripts.md:+ **crypto**: Provides crypto functionality of OpenSSL. For more information, see the [Node.js documentation][crypto API].
+articles\service-bus-php-how-to-use-queues.md:> Your PHP installation must also have the <a href="http://php.net/openssl">OpenSSL extension</a> installed and enabled.
+articles\service-bus-php-how-to-use-topics-subscriptions.md:> Your PHP installation must also have the <a href="http://php.net/openssl">OpenSSL extension</a> installed and enabled.
+articles\virtual-machines-linux-agent-user-guide.md:* Openssl 1.0+
+articles\virtual-machines-linux-agent-user-guide.md:	OS.OpensslPath=None
+articles\virtual-machines-linux-agent-user-guide.md:**OS.OpensslPath:**
+articles\virtual-machines-linux-agent-user-guide.md:This can be used to specify an alternate path for the openssl binary to use for cryptographic operations.
+articles\virtual-machines-linux-nodejs-running-cassandra.md:		<td>DER or PEM encoded SSH public key generated with OpenSSL or other tools</td>
+articles\virtual-machines-python-ipython-notebook.md:1.  Download and install OpenSSL. You will need to install both the 
+articles\virtual-machines-python-ipython-notebook.md:    **Win32 OpenSSL v1.0.1e Light** and **Visual C++ 2008  Redistributable** from
+articles\virtual-machines-python-ipython-notebook.md:    [http://slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html). You will also need to add
+articles\virtual-machines-python-ipython-notebook.md:    `C:\OpenSSL-Win32\bin` to your `PATH` environment variable.
+articles\virtual-machines-python-ipython-notebook.md:    openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+articles\web-sites-global-web-presence-solution-overview.md:Once you get the certificate from the Certificate Authority, you cannot simply upload it to Azure in the same format. You must generate a .pfx file using the openssl command. The openssl command is part of the OpenSSL Project. The sources are distributed on the [OpenSSL website][openssl], but you can usually find a precompiled version of the tool on the internet as well. In the following example, a certificate, myserver.crt, and the private key file, myserver.key, are used to create a .pfx file.
+articles\web-sites-global-web-presence-solution-overview.md:	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+articles\web-sites-global-web-presence-solution-overview.md:  [openssl]:http://www.openssl.org/
+includes\configure-ssl-web-site.md:To get an SSL certificate from a Certificate Authority you must generate a Certificate Signing Request (CSR), which is sent to the CA. The CA will then return a certificate that is used to complete the CSR. Two common ways to generate a CSR are by using the certmgr.exe or [OpenSSL][openssl] applications. Certmgr.exe is only available on Windows, while OpenSSL is available for most platforms. The steps for using both of these utilities are below.
+includes\configure-ssl-web-site.md:###Get a certificate using OpenSSL
+includes\configure-ssl-web-site.md:		openssl req -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
+includes\configure-ssl-web-site.md:		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+includes\configure-ssl-web-site.md:	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+includes\configure-ssl-web-site.md:4. Using the **Upload a certificate** dialog, select the .pfx certificate file created earlier using the IIS Manager or OpenSSL. Specify the password, if any, that was used to secure the .pfx file. Finally, click the **check** to upload the certificate.
+includes\configure-ssl-web-site.md:OpenSSL can be used to create a certificate request that uses the SubjectAltName extension to support multiple domain names with a single certificate, however it requires a configuration file. The following steps walk through creating a configuration file, and then using it to request a certificate.
+includes\configure-ssl-web-site.md:		openssl req -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048 -config sancert.cnf
+includes\configure-ssl-web-site.md:		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+includes\configure-ssl-web-site.md:	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+includes\configure-ssl-web-site.md:While there are multiple ways to create a self-signed certificate, this article only provides information on using **makecert** and **OpenSSL**.
+includes\configure-ssl-web-site.md:###Create a self-signed certificate using OpenSSL
+includes\configure-ssl-web-site.md:		openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myserver.key -out myserver.crt -config serverauth.cnf
+includes\configure-ssl-web-site.md:		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+includes\configure-ssl-web-site.md:[openssl]: http://www.openssl.org/

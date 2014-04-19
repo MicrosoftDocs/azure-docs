@@ -2,7 +2,7 @@
 
 # Use Sqoop with HDInsight
  
-Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an HDInsight cluster and an Azure SQL database.
+Learn how to use Azure PowerShell and HDInsight .NET SDK from a workstation to run Sqoop import and export between an HDInsight cluster and an Azure SQL database.
 
 **Estimated time to complete:** 30 minutes
 
@@ -13,8 +13,9 @@ Learn how to use Azure PowerShell from a workstation to run Sqoop import and exp
 - [Prerequisites](#prerequisites)
 - [Understand the tutorial scenario](#scenario)
 - [Prepare the tutorial](#prepare)
-- [Use Sqoop export](#export)
-- [Use Sqoop import](#import)
+- [Use PowerShell to run Sqoop export](#export)
+- [Use HDInsight SDK to run Sqoop export](#export-sdk)
+- [Use PowerShell to run Sqoop import](#import)
 - [Next steps](#nextsteps)
 
 
@@ -49,7 +50,7 @@ Before you begin this tutorial, you must have the following:
 	<table border="1">
 	<tr><th>SQL database property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
 	<tr><td>SQL database server name</td><td>$sqlDatabaseServer</td><td></td><td>The SQL Database server to which Sqoop will export data to or import data from. </td></tr>
-	<tr><td>SQL database login name</td><td>$sqlDatabaseUsername</td><td></td><td>SQL Database login name.</td></tr>
+	<tr><td>SQL database login name</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Database login name.</td></tr>
 	<tr><td>SQL database login password</td><td>$sqlDatabasePassword</td><td></td><td>SQL Database login password.</td></tr>
 	<tr><td>SQL database name</td><td>$sqlDatabaseName</td><td></td><td>The Azure SQL Database to which Sqoop will export data to or import data from. </td></tr>
 	</table>
@@ -126,11 +127,11 @@ You will create two SQL database tables used by Sqoop export later in the tutori
 		
 		#SQL database variables
 		$sqlDatabaseServer = "<SQLDatabaseServerName>" 
-		$sqlDatabaseUsername = "<SQLDatabaseUsername>"
+		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
 		$sqlDatabasePassword = "<SQLDatabasePassword>"
 		$sqlDatabaseName = "<SQLDatabaseName>" 
 
-		$sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServer.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseUsername;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
+		$sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServer.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseLogin;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
 
 	For more descriptions of the variables, see the [Prerequisites](#prerequisites) section in this tutorial. 
 
@@ -350,9 +351,9 @@ Sqoop export will fail if there is an empty string, or a line with fewer number 
 
 
 
-##<a id="export"></a>Use Sqoop export
+##<a id="export"></a>Use PowerShell to run Sqoop export
 
-In this section, you will use the Sqoop export command to export both a Hive table, and a data file to an Azure SQL database.
+In this section, you will use Azure PowerShell to run the Sqoop export command to export both a Hive table, and a data file to an Azure SQL database. The next section provides an HDInsight .NET sample.
 
 **To export the log4j log file**
 
@@ -372,13 +373,13 @@ In this section, you will use the Sqoop export command to export both a Hive tab
 		
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
-		$sqlDatabaseUserName = "<SQLDatabaseUsername>"
+		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
 		$sqlDatabasePassword = "SQLDatabasePassword>"
 		$databaseName = "<SQLDatabaseName>"
 
 		$tableName_log4j = "log4jlogs"
 		
-		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseUserName@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
+		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
 		
 		$exportDir_log4j = "/tutorials/usesqoop/data"
 	
@@ -421,13 +422,13 @@ In this section, you will use the Sqoop export command to export both a Hive tab
 		
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
-		$sqlDatabaseUserName = "<SQLDatabaseUsername>"
+		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
 		$sqlDatabasePassword = "SQLDatabasePassword>"
 		$databaseName = "SQLDatabaseName"
 
 		$tableName_mobile = "mobiledata"
 		
-		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseUserName@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
+		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
 		
 		$exportDir_mobile = "/hive/warehouse/hivesampletable"
 	
@@ -449,7 +450,101 @@ In this section, you will use the Sqoop export command to export both a Hive tab
 5. Click **Run Script** or press **F5** to run the script.   
 6. Use [Azure Management portal][azure-management-portal] to examine the exported data.
 
-##<a id="import"></a>Use Sqoop import
+
+
+##<a id="export-sdk"></a>Use HDInsight .NET SDK to run Sqoop export
+
+The following is a C# sample using HDInsight .NET SDK to run Sqoop export. For the general information on using HDInsight .NET SDK, see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs].
+
+
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
+	using System.Threading.Tasks;
+	using System.IO;
+	using System.Threading;
+	using System.Security.Cryptography.X509Certificates;
+	using Microsoft.WindowsAzure.Management.HDInsight;
+	using Microsoft.Hadoop.Client;
+	
+	namespace sqoopSDKSample
+	{
+	    class Program
+	    {
+	        static void Main(string[] args)
+	        {
+	            // Set the variables
+	            string subscriptionID = "<WindowsAzureSubscriptionID>";
+	            string clusterName = "<HDInsightClusterName>";
+	            string certFriendlyName = "<WindowsAzureCertificateFriendlyName>";
+	            string sqlDatabaseServerName = "<SQLDatabaseServerName>";
+	            string sqlDatabaseLogin = "<SQLDatabaseLogin>" + "@" + sqlDatabaseServerName;
+	            string sqlDatabaseLoginPassword = "<SQLDatabaseLoginPassword>";
+	            string sqlDatabaseDatabaseName = "hdisqoop";
+	            string sqlDatabaseTableName = "log4jlogs";
+	
+	            cmdExport = @"export";
+	            cmdExport = cmdExport + @" --connect jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
+	            cmdExport = cmdExport + @" --table " + sqlDatabaseTableName;
+	            cmdExport = cmdExport + @" --export-dir /tutorials/usesqoop/data";
+	            cmdExport = cmdExport + @" --input-fields-terminated-by \0x20 -m 1";
+	
+	            SqoopJobCreateParameters sqoopJobDefinition = new SqoopJobCreateParameters()
+	            {
+	                Command = cmdExport,
+	                StatusFolder = "/tutorials/usesqoop/jobStatus"
+	            };
+	
+	            // Get the certificate object from certificate store using the friendly name to identify it
+	            X509Store store = new X509Store();
+	            store.Open(OpenFlags.ReadOnly);
+	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
+	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
+	
+	            // Submit the Hive job
+	            var jobClient = JobSubmissionClientFactory.Connect(creds);
+	            JobCreationResults jobResults = jobClient.CreateSqoopJob(sqoopJobDefinition);
+	
+	            // Wait for the job to complete
+	            WaitForJobCompletion(jobResults, jobClient);
+	
+	            // Print the Hive job output
+	            System.IO.Stream stream = jobClient.GetJobErrorLogs(jobResults.JobId);
+	
+	            StreamReader reader = new StreamReader(stream);
+	            Console.WriteLine(reader.ReadToEnd());
+	
+	            Console.WriteLine("Press ENTER to continue.");
+	            Console.ReadLine();
+	        }
+	
+	        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
+	        {
+	            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
+	            while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
+	            {
+	                jobInProgress = client.GetJob(jobInProgress.JobId);
+	                Thread.Sleep(TimeSpan.FromSeconds(10));
+	            }
+	        }
+	    }
+	}
+
+To execute a script file, you can replace:
+
+	Command = cmdExport,
+
+ with:
+
+	File = "/tutorials/usesqoop/sqoopexport.txt",
+
+The script file must be located on WASB.
+
+
+
+
+##<a id="import"></a>Use PowerShell to run Sqoop import
 
 In this section, you will import the log4j logs (that you exported to SQL Database) back to HDInsight.
 
@@ -469,13 +564,13 @@ In this section, you will import the log4j logs (that you exported to SQL Databa
 		
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
-		$sqlDatabaseUserName = "<SQLDatabaseUsername>"
+		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
 		$sqlDatabasePassword = "SQLDatabasePassword>"
 		$databaseName = "SQLDatabaseName"
 
 		$tableName_log4j = "log4jlogs"
 		
-		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseUserName@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
+		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
 		
 		$tableName_mobile = "mobiledata"
 		$targetDir_mobile = "/tutorials/usesqoop/importeddata/"
@@ -517,6 +612,7 @@ Now you have learned how to use Sqoop. To learn more, see:
 [hdinsight-analyze-flight-delay-data]: ../hdinsight-analyze-flight-delay-data/
 [hdinsight-oozie]: ../hdinsight-use-oozie/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 
 [sqldatabase-get-started]: ../sql-database-get-started/
 [sqldatabase-create-configue]: ../sql-database-create-configure/

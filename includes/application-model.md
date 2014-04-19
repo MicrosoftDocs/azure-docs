@@ -27,7 +27,7 @@ creates one or more virtual machines (VMs) that contain your
 application's code, and boots the VMs on physical machines residing in
 one of the Azure data centers. As client requests to your hosted
 application enter the data center, a load balancer distributes these
-requests equally to the VMs. While your application is hosted in Windows
+requests equally to the VMs. While your application is hosted in 
 Azure, it gets three key benefits:
 
 -   **High availability.** High availability means Azure ensures
@@ -520,13 +520,12 @@ file:
 -   **Configuration Setting Values**. This element indicates values for
     settings (as defined in the CSDEF file). Your role can read these
     values while it is running. These configuration settings values are
-    typically used for connection strings to SQL Database or to Windows
+    typically used for connection strings to SQL Database or to 
     Azure Storage, but they can be used for any purpose you desire.
 
 ## <a id="hostedservices"> </a>Creating and Deploying a Hosted Service
 
-Creating a hosted service requires that you first go to the [Windows
-Azure Management Portal] and provision a hosted service by specifying
+Creating a hosted service requires that you first go to the [Azure Management Portal] and provision a hosted service by specifying
 a DNS prefix and the data center you ultimately want your code running
 in. Then in your development environment, you create your service
 definition (CSDEF) file, build your application code and package (zip)
