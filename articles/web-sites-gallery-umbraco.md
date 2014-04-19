@@ -84,6 +84,20 @@ After the deployment is completed, the start board in the portal shows that your
 
 That’s it! You've successfully created a blog web site using Umbraco CMS, in just a few minutes. 
 
+##Additional Resources
+
+[Umbraco Documentation](http://our.umbraco.org/documentation)
+
+[Umbraco Video Tutorials](https://umbraco.com/help-and-support/video-tutorials.aspx)
+
+[Microsoft Azure Preview Portal Overview](http://azure.microsoft.com/en-us/overview/preview-portal/)
+
+[Microsoft Azure Preview Portal Documentation](http://azure.microsoft.com/en-us/documentation/preview-portal/)
+
+[Azure Preview Portal (Channel 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal) 
+
+[Microsoft Azure Web Sites documentation](http://azure.microsoft.com/en-us/documentation/services/web-sites/)
+
 
 <!-- IMAGES -->
 [01Startboard]: ./media/web-sites-gallery-umbraco/01Startboard.PNG
