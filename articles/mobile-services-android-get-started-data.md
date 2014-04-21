@@ -15,7 +15,7 @@
 </div>	
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title=".NET backend" class="current">.NET backend</a> | 
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title=".NET backend">.NET backend</a> | 
 	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-android/"  title="JavaScript backend" class="current">JavaScript backend</a>
 </div>
 
