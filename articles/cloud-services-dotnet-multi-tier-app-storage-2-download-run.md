@@ -4,17 +4,6 @@
 
 This is the second tutorial in a series of five that show how to build and deploy the Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
 
-This tutorial shows how to configure your computer for Azure development and how to deploy the Windows Azure Email Service application to a Windows Azure Cloud Service by using  any of the following products:
-
-* Visual Studio 2012
-* Visual Studio 2012 Express for Web
-* Visual Studio 2010
-* Visual Web Developer Express 2010.
-
->[WACOM.NOTE] After this tutorial was written, Visual Studio 2013 was released, and the Azure Management Portal and SDK were updated. Notes like this one have been added at points where you have to do things differently if you are using Visual Studio 2013 and the latest SDK. The notes were written in March, 2014, and the revised procedures have been tested with SDK version 2.3.
-
-You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
-
 In this tutorial you'll learn:
 
 * How to set up your computer for Azure development by installing the Azure SDK.
@@ -24,15 +13,10 @@ In this tutorial you'll learn:
 * How to configure tracing and view trace data.
 * How to scale the application by increasing the number of worker role instances.
 
-<div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need an Azure account. You can create a <a href="/en-us/pricing/free-trial/" target="_blank">free trial account</a> or <a href="/en-us/pricing/member-offers/msdn-benefits/" target="_blank">activate MSDN subscriber benefits</a>.</p>
-</div>
-<br />
-
 ### Tutorial segments
 
+- [Prerequisites](prerequisites)
 - [Set up the development environment][]
-- [Set up a free Azure account][]
 - [Create an Azure Storage account][]
 - [Install Azure Storage Explorer][]
 - [Create a Cloud Service][]
@@ -45,6 +29,19 @@ In this tutorial you'll learn:
 - [Configure and view trace data][]
 - [Add another worker role instance to handle increased load][]
 
+## Prerequisites
+
+This tutorial shows how to configure your computer for Azure development and how to deploy the Windows Azure Email Service application to a Windows Azure Cloud Service by using  any of the following products:
+
+* Visual Studio 2012
+* Visual Studio 2012 Express for Web
+* Visual Studio 2010
+* Visual Web Developer Express 2010.
+
+>[WACOM.NOTE] After this tutorial was written, Visual Studio 2013 was released, and the Azure Management Portal and SDK were updated. Notes like this one have been added at points where you have to do things differently if you are using Visual Studio 2013 and the latest SDK. The notes were written in March, 2014, and the revised procedures have been tested with SDK version 2.3.
+
+You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
+You can create a [free trial account](/en-us/pricing/free-trial/) or [activate MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits/).
 
 >[WACOM.NOTE] In the following section about SDK installation, the correct link if you are using Visual Studio 2013 is [http://go.microsoft.com/fwlink/?LinkID=324322](http://go.microsoft.com/fwlink/?LinkID=324322). 
 

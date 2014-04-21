@@ -4,7 +4,7 @@ Azure Queue storage is a service for storing large numbers of
 messages that can be accessed from anywhere in the world via
 authenticated calls using HTTP or HTTPS. A single queue message can be
 up to 64 KB in size, and a queue can contain millions of messages, up to the
-total capacity limit of a storage account. For storage accounts created after June 8th, 2012, total capacity is 200TB; for storage accounts created prior to that date, total capacity is 100TB. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
+total capacity limit of a storage account. A storage account can contain up to 200 TB of blob, queue, and table data. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
 
 Common uses of Queue storage include:
 

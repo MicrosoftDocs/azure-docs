@@ -15,10 +15,10 @@ In this tutorial you'll learn:
 ## Segments of this tutorial
 
 - [Add worker role B project to the solution](#addworkerrole)
-- [Add a reference to the web project](#addref)
+- [Add a reference to the web project](#addreference)
 - [Add the Storage Client Library 2.0 NuGet package to the project](#sclpackage)
 - [Add a reference to an SCL 1.7 assembly](#addref2)
-- [Add the SendGrid NuGet package to the project](#addmodel)
+- [Add the SendGrid NuGet package to the project](#addsendgrid)
 - [Add project settings](#addsettings)
 - [Add code that runs when the worker role starts](#addcode)
 - [Test worker role B](#testing)

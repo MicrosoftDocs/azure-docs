@@ -15,7 +15,10 @@
 </div>
 
 <!--
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">.NET backend</a> |  <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a></div>		
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title=".NET backend" >.NET backend</a> | 
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/" title="JavaScript backend" class="current">JavaScript backend</a>
+</div>
 -->
 
 This topic shows how to use Azure Mobile Services to send push notifications to your Android app. In this tutorial you add push notifications using Google Cloud Messaging (GCM) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
@@ -310,8 +313,8 @@ Consider finding out more about the following Mobile Services topics:
 * [Mobile Services server script reference]
   <br/>Learn more about registering and using server scripts.
 
-* [Mobile Services HTML/JavaScript How-to Conceptual Reference]
-  <br/>Learn more about how to use Mobile Services with HTML and JavaScript.  
+* [How to use the Android client library for Mobile Services]
+  <br/>Learn more about how to use Mobile Services with Android.  
 
 
 <!-- Anchors. -->
@@ -329,16 +332,16 @@ Consider finding out more about the following Mobile Services topics:
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-js/
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-android-get-started/
+[Get started with data]: /en-us/documentation/articles/mobile-services-android-get-started-data/
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-android-get-started-users
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
 [Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-js
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
 [Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/
+[How to use the Android client library for Mobile Services]: /en-us/documentation/articles/mobile-services-android-how-to-use-client-library
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
 [What are Notification Hubs?]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/

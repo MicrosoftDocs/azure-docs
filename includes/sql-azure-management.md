@@ -1,18 +1,16 @@
 
 # Managing Azure SQL Database using SQL Server Management Studio 
 
-You can use Azure SQL Database Management Portal or the SQL Server Management Studio (SSMS) client application to administer your SQL Database subscriptions and create and manage associated logical servers and databases. The guidance below describes how to use Management Studio to manage SQL Database logical servers and databases. For information on how to
-use SQL Database connections in application code, see [How to use Azure SQL Database][].
+You can use Azure SQL Database Management Portal or the SQL Server Management Studio (SSMS) client application to administer your SQL Database subscriptions and create and manage associated logical servers and databases. The guidance below describes how to use Management Studio to manage SQL Database logical servers and databases.
 
 <div class="dev-callout-new-collapsed">
 <strong>Note <span>Click to collapse</span></strong>
 <div class="dev-callout-content">
-<p>You can use either SQL Server
-2012 or the SQL Server 2008 R2 version of Management Studio. Earlier versions are not supported.</p>
+<p>You can use SQL Server 2014, SQL Server 2012, or the SQL Server 2008 R2 version of SSMS. Earlier versions are not supported.</p>
 </div>
 </div>
 
-This task includes the following steps:
+This topic includes the following steps:
 
 -   [Step 1: Get SQL Server Management Studio][]
 -   [Step 2: Connect to SQL Database][]
@@ -33,7 +31,7 @@ how to install SSMSE.
 2.  Click **New SQL Server stand-alone installation or add features to an
     existing installation** and click **OK**.
 
-3.  Accept the license terms and click **OK**.
+3.  Accept the license terms and click **Next**.
 
 4. Click **Install** to install files required by SQL Server Setup.
 
@@ -117,9 +115,7 @@ tasks through Management Studio. To perform these tasks, make sure you are conne
 **master** database with the server-level principal login that you
 created when you set up your server.
 
-To open a query window in Management Studio, open the Databases folder, right-click on **master**, and then click **New Query**.
-
-Click **Execute** to run the query.
+To open a query window in Management Studio, open the Databases folder, expand the **System Databsaes** folder, right-click on **master**, and then click **New Query**.
 
 -   Use the **CREATE DATABASE** statement to create a new database. For
     more information, see [CREATE DATABASE (SQL Database)][]. The statement below creates a new database named
@@ -129,6 +125,8 @@ Click **Execute** to run the query.
         CREATE DATABASE myTestDB
         (MAXSIZE=1GB,
          EDITION='web');
+
+Click **Execute** to run the query.
 
 -   Use the **ALTER DATABASE** statement to modify an existing database,
     for example if you want to change the name, maximum size, or edition
@@ -162,14 +160,13 @@ Click **Execute** to run the query.
  <div class="dev-callout-content">
    <p>Many of the Transact-SQL statements that create or modify a
 database must be run within their own batch and cannot be grouped with
-other Transact-SQL statements. For more information, see the statement
-specific information available from the links listed above.</p>
+other Transact-SQL statements. For more information, see the statement-specific information available from the links listed above.</p>
 </div>
 </div>
 
 <h2><a id="Step4" name="Step4"> </a>Step 4: Create and Manage Logins</h2>
 
-The master database keeps track of logins and which logins have
+The **master** database keeps track of logins and which logins have
 permission to create databases or other logins. Manage logins by
 connecting to the **master** database with the server-level principal
 login that you created when you set up your server. You can use the
@@ -195,11 +192,11 @@ across the entire server. For more information, see [Managing Databases and Logi
     permissions to a database called **myTestDB**, complete the following
     steps:
 
-    1.  Refresh Object Explorer to view the **myTestDB** database that you just created. It should appear below the **System Databases** folder that contains **master**.  
+ 1.  To refresh Object Explorer to view the **myTestDB** database that you just created, right-click the server name in Object Explorer and then click **Refresh**.  
 
      If you closed the connection, you can reconnect by selecting **Connect Object Explorer** on the File menu. Repeat the instructions in [Step 2: Connect to SQL Database][] to connect to the database.
 
-    2. Right-click **myTestDB** database and select **New Query**.
+ 2. Right-click **myTestDB** database and select **New Query**.
 
     3.  Execute the following statement against the myTestDB database to
         create a database user named **login1User** that corresponds to
@@ -327,7 +324,7 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
   [Get SQL Database server name from Management Portal]: /media/portal_get_database_name.png
   [Connect to SSMS]: /media/ssms_connect.png
   [Connect to SSMS -- properties]: /media/ssms_connect_properties.png
-  [Transact-SQL Reference (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336281.aspx
+  [Transact-SQL Reference (SQL Database)]: http://msdn.microsoft.com/en-us/library/bb510741(v=sql.120).aspx
   [CREATE DATABASE (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336274.aspx
   [ALTER DATABASE (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394109.aspx
   [DROP DATABASE (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336259.aspx
