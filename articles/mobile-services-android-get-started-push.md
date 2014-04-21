@@ -10,7 +10,7 @@
 
 <p>This topic shows you how to use Azure Mobile Services to send push notifications to an Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
 
->[WACOM.NOTE] This topic shows how to enable push notifications by using the legacy support provided by Mobile Services. Azure Notification Hubs integrates with Mobile Services to enable you to send template-based and cross-platform push notifications to millions of devices. By default, push notifications using Notification Hubs is not enabled, and there is currently no Notification Hub support for Android in the Mobile Services libraries. However, you can send push notifications from your mobile service by using the Notification Hub libraries. For more information, see [Get started with Notification Hubs](/en-us/documentation/articles/notification-hubs-android-get-started/).
+>[WACOM.NOTE]Mobile Services now integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and scale. This integrated functionality is currently in preview. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/).
 
 This tutorial walks you through these basic steps to enable push notifications:
 
