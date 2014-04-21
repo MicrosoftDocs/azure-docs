@@ -61,24 +61,19 @@ After the deployment is completed, the start board in the portal shows that your
 	
 	![Install a starter website][11InstallAStarterWebsite]
 	
-5. The Umbraco installer will complete the setup for your application.
-
-	
-	![Umbraco installer][13DidYouKnow]
-	
-6. After your application has been configured, you will be redirected to the Umbraco CMS administrative dashboard. 
+5. The Umbraco installer will complete the setup for your application. After your application has been configured, you will be redirected to the Umbraco CMS administrative dashboard.
 	
 	![Umbraco CMS dashboard][14FriendlyCMS]
 	
-7. You will now create a sample text page that you will publish. Select **Content**, select **Overflow**, and then select **TextPage**.
+6. You will now create a sample text page that you will publish. Select **Content**, select **Overflow**, and then select **TextPage**.
 	
 	![Create a text page][15CreateItemUnderOverflow]
 	
-8. Enter a title and some content for your text page, as shown below. When you finish, click **Save and publish**.
+7. Enter a title and some content for your text page, as shown below. When you finish, click **Save and publish**.
 	
 	![Enter a title and some content][16EnterAName]
 	
-9. Wait while your page is published. When publishing completes, you will receive a small alert on the bottom right of your screen. You can now browse the new content on your web site. 
+8. Wait while your page is published. When publishing completes, you will receive a small alert on the bottom right of your screen. You can now browse the new content on your web site. 
 	
 	![Published web site page][17MyPage]
 	
@@ -113,7 +108,6 @@ That’s it! You've successfully created a blog web site using Umbraco CMS, in j
 [10ConfigureYourDatabase]: ./media/web-sites-gallery-umbraco/10ConfigureYourDatabase.png
 [11InstallAStarterWebsite]: ./media/web-sites-gallery-umbraco/11InstallAStarterWebsite.png
 [12ConfigureYourDatabase]: ./media/web-sites-gallery-umbraco/12ConfigureYourDatabase.png
-[13DidYouKnow]: ./media/web-sites-gallery-umbraco/13DidYouKnow.png
 [14FriendlyCMS]: ./media/web-sites-gallery-umbraco/14FriendlyCMS.PNG
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
