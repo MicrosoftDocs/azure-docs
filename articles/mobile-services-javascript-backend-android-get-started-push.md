@@ -55,8 +55,6 @@ Next, you will use this API key value to enable Mobile Services to authenticate 
 
 	![](./media/mobile-services-android-get-started-push/mobile-enable-enhanced-push.png)
 
-	![](../includes/media/mobile-services-javascript-backend-register-windows-store-app/mobile-enable-enhanced-push.png)
-
 
 	This updates the configuration of your mobile service to use the enhanced push notification functionality provided by Notification Hubs. Some Notification Hubs usage is free with your paid mobile service. For more information, see [Mobile Services Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=311786).
 
