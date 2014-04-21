@@ -62,6 +62,7 @@ After the deployment is completed, the start board in the portal shows that your
 	![Install a starter website][11InstallAStarterWebsite]
 	
 5. The Umbraco installer will complete the setup for your application.
+
 	
 	![Umbraco installer][13DidYouKnow]
 	
