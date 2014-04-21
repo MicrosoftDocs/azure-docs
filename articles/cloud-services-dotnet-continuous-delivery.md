@@ -774,7 +774,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
 </pre>
 
-  [Continuous Delivery to Azure by Using Team Foundation Service]: ../cloud-services-continuous-delivery-use-vso/
+  [Continuous Delivery to Azure by Using Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
   [Step 1: Configure the Build Server]: #step1
   [Step 2: Build a Package using MSBuild Commands]: #step2
   [Step 3: Build a Package using TFS Team Build (Optional)]: #step3
@@ -784,7 +784,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
-[Windows Azure Libraries][]: http://go.microsoft.com/fwlink/?LinkId=257862
+[Windows Azure Libraries]: http://go.microsoft.com/fwlink/?LinkId=257862
   [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
   [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
