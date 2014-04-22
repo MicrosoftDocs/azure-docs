@@ -3,11 +3,11 @@
  
 # Get started with push notifications in Mobile Services
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/documentation/articles/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/documentation/articles/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/documentation/articles/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a>
 	<a href="/en-us/documentation/articles/get-started-with-push-ios" title="iOS" class="current">iOS</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android">Android</a>
+	<a href="/en-us/documentation/articles/get-started-with-push-android" title="Android">Android</a>
 	<a href="/en-us/documentation/articles/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
 	<a href="/en-us/documentation/articles/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>
