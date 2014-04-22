@@ -39,7 +39,7 @@ If you've already got an Azure application and web site that you want to work wi
         ...
         private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
         ...
-        MongoUrl url = new MongoUrl(uri);
+        MongoUrl url = new MongoUrl(connectionString);
         MongoClient client = new MongoClient(url);
 Note: Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared connection string, which is why the code references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
 
@@ -137,7 +137,7 @@ It's important that you establish a means of accessing MongoDB to retrieve and s
                 private bool disposed = false;
         
                 private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
-                MongoUrl url = new MongoUrl(uri);
+                MongoUrl url = new MongoUrl(connectionString);
         
                 private string dbName = "myMongoApp";
                 private string collectionName = "Notes";
