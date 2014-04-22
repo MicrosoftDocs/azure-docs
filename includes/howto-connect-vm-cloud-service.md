@@ -7,7 +7,7 @@
 
 When you create a virtual machine, a cloud service is automatically created to contain the machine. You can create multiple virtual machines under the same cloud service to enable the virtual machines to communicate with each other, to load-balance between virtual machines, and to maintain high availability of the machines. 
 
-For more information about load-balancing virtual machines, see [Load balancing virtual machines](../load-balancing-vms/). For more information about managing the availability of your application, see [Manage the availability of virtual machines](../manage-vm-availability/). 
+For more information about load-balancing virtual machines, see [Load balancing virtual machines](../load-balance-virtual-machines/). For more information about managing the availability of your application, see [Manage the availability of virtual machines](../manage-availability-virtual-machines/). 
 
 
 First, you'll need to create a virtual machine with a new cloud service, and then you can connect additional virtual machines to the first virtual machine under the same cloud service. 
