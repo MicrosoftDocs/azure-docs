@@ -33,9 +33,9 @@ Perform the following steps to create a new cloud service project named 'express
 
 ##Install Express
 
-1. Install the Express module by issuing the following command:
+1. Install the Express generator by issuing the following command:
 
-		PS C:\node\expressapp> npm install express -g
+		PS C:\node\expressapp> npm install express-generator -g
 
 	The output of the npm command should look similar to the result below. 
 
@@ -49,10 +49,6 @@ Perform the following steps to create a new cloud service project named 'express
 
 	![The output of the express command](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
 
-3.  Delete the **server.js** file and then rename the generated **app.js** file to **server.js**.
-
-        PS C:\node\expressapp\WebRole1> del server.js
-        PS C:\node\expressapp\WebRole1> ren app.js server.js
 
 5.  To install additional dependencies defined in the package.json file,
     enter the following command:
@@ -60,6 +56,22 @@ Perform the following steps to create a new cloud service project named 'express
         PS C:\node\expressapp\WebRole1> npm install
 
 	![The output of the npm install command](./media/cloud-services-nodejs-develop-deploy-express-app/node26.png)
+
+6.  Use the following command to copy the **bin/www** file to **server.js**. This is so the cloud service can find the entry point for this application.
+
+		PS C:\node\expressapp\WebRole1> copy bin/www server.js
+
+	After this command completes, you should have a **server.js** file in the WebRole1 directory.
+
+7.  Modify the **server.js** to remove one of the '.' characters from the following line.
+
+		var app = require('../app');
+
+	After making this modification, the line should appear as follows.
+
+		var app = require('./app');
+
+	This change is required since we moved the file (formerly **bin/www**,) to the same directory as the app file being required. After making this change, save the **server.js** file.
 
 8.  Use the following command to run the application in the Windows
     Azure emulator:
