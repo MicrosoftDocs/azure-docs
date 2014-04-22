@@ -42,9 +42,9 @@ This section will show you how to use the **From Gallery** method in the Managem
 
 	Note that the **Cloud Service DNS Name** is the global DNS name that becomes part of the URI that is used to contact the virtual machine. You will need to create your own cloud service name since cloud service names must be globally unique. We will use MyTestService in this tutorial. Cloud services are important for more complex scenarios using [multiple virtual machines](http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/).
  
-	For **Region/Affinity Group/Virtual Network**, we will use East US, but you can use a region that is more appropriate to your location. You can also choose to specify a virtual network instead. 
-	>[WACOM.NOTE]
- If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+	For **Region/Affinity Group/Virtual Network**, we will use East US, but you can use a region that is more appropriate to your location. You can also choose to specify a virtual network instead.
+ 
+	>[WACOM.NOTE]If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 7. The fourth configuration screen lets you configure the **VM Agent and endpoints**. For this tutorial, do not make any changes to this screen. Click the check mark to create the virtual machine.
 
@@ -109,7 +109,7 @@ This section will show you how to attach an empty data disk to the virtual machi
 
 	![Specify the size of the empty disk](./media/CreateVirtualMachineWindowsTutorial/emptydisksize.png)	
 	
-	.[WACOM.NOTE] All disks are created from a VHD file in Windows Azure storage. Under **File Name**, you can provide the name for the VHD file that is added to storage, but Azure generates the name of the disk automatically.
+	>[WACOM.NOTE] All disks are created from a VHD file in Windows Azure storage. Under **File Name**, you can provide the name for the VHD file that is added to storage, but Azure generates the name of the disk automatically.
 
 6. Return to the dashboard to verify that the empty data disk was successfully attached to the virtual machine. It will be listed as a second disk in the **Disks** list along with the OS Disk.
 
