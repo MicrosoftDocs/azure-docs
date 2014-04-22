@@ -39,7 +39,8 @@ If you've already got an Azure application and web site that you want to work wi
  		...
  		private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
  		...
- 		MongoServer server = MongoServer.Create(connectionString);  
+ 		MongoUrl url = new MongoUrl(uri);
+ 		MongoClient client = new MongoClient(url);
 Note: Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared connection string, which is why the code references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
 
 Now, on to the full tutorial...
@@ -136,6 +137,7 @@ It's important that you establish a means of accessing MongoDB to retrieve and s
 		        private bool disposed = false;
 		
 		        private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
+		        MongoUrl url = new MongoUrl(uri);
 		
 		        private string dbName = "myMongoApp";
 		        private string collectionName = "Notes";
@@ -164,7 +166,7 @@ It's important that you establish a means of accessing MongoDB to retrieve and s
 		            MongoCollection<Note> collection = getNotesCollectionForEdit();
 		            try
 		            {
-		                collection.Insert(note, SafeMode.True);
+		                collection.Insert(note);
 		            }
 		            catch (MongoCommandException ex)
 		            {
@@ -174,16 +176,18 @@ It's important that you establish a means of accessing MongoDB to retrieve and s
 		
 		        private MongoCollection<Note> GetNotesCollection()
 		        {
-		            MongoServer server = MongoServer.Create(connectionString);
-		            MongoDatabase database = server[dbName];
+				    MongoClient client = new MongoClient(url);
+				    MongoServer server = client.GetServer();
+		            MongoDatabase database = server.GetDatabase(dbName);
 		            MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
 		            return noteCollection;
 		        }
 		
 		        private MongoCollection<Note> getNotesCollectionForEdit()
 		        {
-		            MongoServer server = MongoServer.Create(connectionString);
-		            MongoDatabase database = server[dbName];
+		            MongoClient client = new MongoClient(url);
+				    MongoServer server = client.GetServer();
+		            MongoDatabase database = server.GetDatabase(dbName);
 		            MongoCollection<Note> notesCollection = database.GetCollection<Note>(collectionName);
 		            return notesCollection;
 		        }
