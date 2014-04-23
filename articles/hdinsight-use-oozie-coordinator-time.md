@@ -648,7 +648,7 @@ To re-run the workflow, you must perform the following:
 
 Here is a sample PowerShell script that you can use:
 
-	$storageAccountName = "<WindowsAzureStorageAccountName>"
+	$storageAccountName = "<AzureStorageAccountName>"
 	$containerName = "<ContainerName>"
 	
 	#SQL database variables
@@ -730,7 +730,7 @@ In this tutorial, you have learned how to define an Oozie workflow, and Oozie co
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://www.windowsazure.com/en-us/manage/downloads/
+[powershell-download]: http://azure.microsoft.com/en-us/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
 [powershell-start]: http://technet.microsoft.com/en-us/library/hh847889.aspx

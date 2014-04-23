@@ -146,7 +146,6 @@ CDN.
   [Azure CDN Node Locations]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
   [Azure Management Portal]: https://manage.windowsazure.com/
   [billing plan]: /en-us/pricing/calculator/?scenario=full
-  [Using the Azure Storage Services]: http://msdn.microsoft.com/en-us/library/windowsazure/ee924681.aspx
   [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee795179.aspx
   [How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx
   [Overview of the Azure CDN]: http://msdn.microsoft.com/en-us/library/windowsazure/ff919703.aspx
