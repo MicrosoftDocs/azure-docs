@@ -607,13 +607,13 @@ There are other methods for moving an on-premises database to SQL Database. If y
 
 
 
-[Image1]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.PNG
-[Image2]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.PNG
+[Image1]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
+[Image2]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
 [Image3]: ./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
 [Image4]: ./media/sql-database-get-started/4ServerSettings_SQLTut.PNG
 [Image5]: ./media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG
 [Image6]: ./media/sql-database-get-started/6DBConfigFirewall_SQLTut.PNG
-[Image7]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.PNG
+[Image7]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
 [Image8]: ./media/sql-database-get-started/20MainPageHome_SQLTut.PNG
 [Image9]: ./media/sql-database-get-started/9dblistschool_SQLTut.PNG
 [Image10]: ./media/sql-database-get-started/10dbportalmanagebutton_SQLTut.PNG
@@ -622,9 +622,9 @@ There are other methods for moving an on-premises database to SQL Database. If y
 [Image13]: ./media/sql-database-get-started/13DBQueryResults_SQLTut.PNG
 [Image14]: ./media/sql-database-get-started/14DBPortalConnectMaster_SQLTut.PNG
 [Image15]: ./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
-[Image16]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.PNG
+[Image16]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.png
 [Image17]: ./media/sql-database-get-started/17ExcelSelect_SQLTut.PNG
 [Image18]: ./media/sql-database-get-started/18ExcelTable_SQLTut.PNG
-[Image19]: ./media/sql-database-get-started/19ExcelImport_SQLTut.PNG
+[Image19]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
 [Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 
