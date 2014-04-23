@@ -5,7 +5,22 @@
 
 # Refine Mobile Services queries with paging
 
+> [AZURE.SELECTOR-LIST (Platform | Backend )]
+- [(Windows Store C# | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data.md)
+- [(Windows Store C# | JavaScript)](mobile-services-windows-store-dotnet-add-paging-data.md)
+- [(Windows Store JavaScript | .NET)](mobile-services-dotnet-backend-windows-store-javascript-add-paging-data.md)
+- [(Windows Store JavaScript | JavaScript)](mobile-services-windows-store-javascript-add-paging-data.md)
+- [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-add-paging-data.md)
+- [(Windows Phone | JavaScript)](mobile-services-windows-phone-add-paging-data.md)
+- [(iOS | JavaScript)](mobile-services-ios-add-paging-data.md)
+- [(Android | JavaScript)](mobile-services-android-add-paging-data.md)
+- [(HTML | .NET)](mobile-services-html-add-paging-data.md)
+- [(Xamarin iOS | .NET)](partner-xamarin-mobile-services-ios-add-paging-data.md)
+- [(Xamarin Android | .NET)](partner-xamarin-mobile-services-android-add-paging-data.md)
+ 
+<!--
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+-->
  
 This topic shows you how to use paging to manage the amount of data returned to your iOS app from Azure Mobile Services. In this tutorial, you will use the **fetchLimit** and **fetchOffset** query properties on the client to request specific "pages" of data.
 
