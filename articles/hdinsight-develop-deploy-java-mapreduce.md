@@ -7,7 +7,7 @@ This tutorial walks you through an end-to-end scenario from developing and testi
 
 Before you begin this tutorial, you must have the following:
 
-- Install Azure HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator-get-started].
+- Install Azure HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator].
 - Install Azure PowerShell on the emulator computer. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
 - Obtain an Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
@@ -227,7 +227,7 @@ This tutorial uses the .txt files located in the %hadoop_home% directory as the 
 
 	From the screenshot, you can see both map and reduce completed 100%. It also lists the job ID, job_201312092021_0002. The same report can be retrieved by opening the **Hadoop MapReduce status** shortcut from your desktop, and looking for the job ID.
 
-The other option for running a MapReduce job is using Azure PowerShell. For instructions, see [Get started with the HDInsight Emulator][hdinsight-emulator-get-started].
+The other option for running a MapReduce job is using Azure PowerShell. For instructions, see [Get started with the HDInsight Emulator][hdinsight-emulator].
 
 **To display the output from HDFS**
 
@@ -430,7 +430,7 @@ The following PowerShell script performs the following tasks:
 2. Copy and paste the following code:
 		
 		# The storage account and the HDInsight cluster variables
-		$subscriptionName = "<WindowsAzureSubscriptionName>"
+		$subscriptionName = "<AzureSubscriptionName>"
 		$serviceNameToken = "<ServiceNameTokenString>"
 		$location = "<MicrosoftDataCenter>"     ### must match the data storage account location
 		$clusterNodes = <NumberOFNodesInTheCluster>
@@ -524,7 +524,7 @@ This section shows you how to download and display the output.  For the informat
 2. Change directory to **C:\Tutorials\WordCountJava**. The default Azure PowerShell folder is **C:\Windows\System32\WindowsPowerShell\v1.0**. The cmdlets you will run will download the output file to the current folder.  You don't have permissions to download the files to the system folders.
 2. Run the following commands to set the values:
 
-		$subscriptionName = "<WindowsAzureSubscriptionName>"
+		$subscriptionName = "<AzureSubscriptionName>"
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
 		$blobName = "WordCount/Output/part-r-00000"
@@ -546,7 +546,7 @@ After the job is completed, you have the options to export the data to SQL Serve
 In this tutorial, you have learned how to develop a Java MapReduce job, how to test the application on HDInsight emulator, and how to write a PowerShell script to provision an HDInsight cluster and run a MapReduce on the cluster. To learn more, see the following articles:
 
 - [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
-- [Get started with Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+- [Get started with Azure HDInsight][hdinsight-get-started]
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
@@ -556,30 +556,29 @@ In this tutorial, you have learned how to develop a Java MapReduce job, how to t
 - [Connect Excel to HDInsight with Power Query][hdinsight-power-query]
 - [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-hive-odbc]
 
-[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
-[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
-[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 
 [hdinsight-sqoop]: ../hdinsight-use-sqoop/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
-[hdinsight-power-query]: /en-us/documentation/articles/hdinsight-connect-excel-power-query/
+[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 
-[hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 
-
-[hdinsight-emulator-get-started]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
-[hdinsight-emulator-wasb]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/#blobstorage
-[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
-[hdinsight-emulator]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
-[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
-[hdinsight-hive]:/en-us/manage/services/hdinsight/using-hive-with-hdinsight/
-[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
-[hdinsight-excel]: /en-us/manage/services/hdinsight/connect-excel-with-hive-ODBC/
-[hdinsight-powerquery]:/en-us/manage/services/hdinsight/connect-excel-with-power-query/
+[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-emulator]: ../hdinsight-get-started-emulator/
+[hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator/#blobstorage
+[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
+[hdinsight-hive]: ../hdinsight-use-hive/
+[hdinsight-pig]: ../hdinsight-use-pig/
+[hdinsight-excel]: ../hdinsight-connect-excel-hive-ODBC-driver/
+[hdinsight-powerquery]: ../hdinsight-connect-excel-power-query/
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: ../install-configure-powershell/
 
 
 
