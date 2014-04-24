@@ -18,13 +18,21 @@ You can contribute to [Azure documentation](http://azure.microsoft.com/en-us/doc
 * Submit Disqus comments at the bottom of articles.
 * Contribute to articles via the public Azure repo.
 
-##Before we can accept your pull request
+##Before we accept your pull request
 
-Thank you for your interest in Azure documentation. Before we can accept your pull request, we need you to sign a Contribution License Agreement (CLA). Full details are available at [http://windowsazure.github.io/guidelines.html#cla](http://windowsazure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
+###Minor corrections
 
-###Who needs a CLA?
+Minor corrections or clarifications you submit for documentation and code examples in this repo are covered by the [Azure Website Terms of Use (ToU)](http://azure.microsoft.com/en-us/support/legal/website-terms-of-use/). 
+
+
+###Larger submissions
+
+Members of the following groups who submit new or significant changes to documentation and code examples, need to submit a signed Contribution License Agreement (CLA) before we can accept their pull requests:
+
 * Members of the Microsoft Open Technologies group.
 * Contributors who don't work for Microsoft.
+
+Full details are available at [http://windowsazure.github.io/guidelines.html#cla](http://windowsazure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
 
 ## Repository organization
 
