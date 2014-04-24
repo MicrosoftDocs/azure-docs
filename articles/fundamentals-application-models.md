@@ -4,10 +4,7 @@
 
 #Azure Execution Models
 
-Azure provides different execution models for running applications.  
-
-
-Each one provides a different set of services, and so which one you choose depends on exactly what you're trying to do. This article looks at three, describing each technology and giving examples of when you'd use it.
+Azure provides different execution models for running applications. Each one provides a different set of services, and so which one you choose depends on exactly what you're trying to do. This article looks at three, describing each technology and giving examples of when you'd use it.
 
 ##Table of Contents
 

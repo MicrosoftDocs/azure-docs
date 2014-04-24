@@ -1,19 +1,8 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" urlDisplayName="Step 2: Download and Run" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 2: Download and run" metaKeywords="Azure tutorial, deploying email service app, publishing email service" description="The second tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Configuring and Deploying the Azure Email Service application - 2 of 5" authors="riande,tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="riande,tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
 # Configuring and Deploying the Azure Email Service application - 2 of 5
 
 This is the second tutorial in a series of five that show how to build and deploy the Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
-
-This tutorial shows how to configure your computer for Azure development and how to deploy the Windows Azure Email Service application to a Windows Azure Cloud Service by using  any of the following products:
-
-* Visual Studio 2012
-* Visual Studio 2012 Express for Web
-* Visual Studio 2010
-* Visual Web Developer Express 2010.
-
->[WACOM.NOTE] After this tutorial was written, Visual Studio 2013 was released, and the Azure Management Portal and SDK were updated. Notes like this one have been added at points where you have to do things differently if you are using Visual Studio 2013 and the latest SDK. The notes were written in March, 2014, and the revised procedures have been tested with SDK version 2.3.
-
-You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
 
 In this tutorial you'll learn:
 
@@ -24,15 +13,10 @@ In this tutorial you'll learn:
 * How to configure tracing and view trace data.
 * How to scale the application by increasing the number of worker role instances.
 
-<div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need an Azure account. You can create a <a href="/en-us/pricing/free-trial/" target="_blank">free trial account</a> or <a href="/en-us/pricing/member-offers/msdn-benefits/" target="_blank">activate MSDN subscriber benefits</a>.</p>
-</div>
-<br />
-
 ### Tutorial segments
 
+- [Prerequisites](prerequisites)
 - [Set up the development environment][]
-- [Set up a free Azure account][]
 - [Create an Azure Storage account][]
 - [Install Azure Storage Explorer][]
 - [Create a Cloud Service][]
@@ -45,6 +29,19 @@ In this tutorial you'll learn:
 - [Configure and view trace data][]
 - [Add another worker role instance to handle increased load][]
 
+## Prerequisites
+
+This tutorial shows how to configure your computer for Azure development and how to deploy the Windows Azure Email Service application to a Windows Azure Cloud Service by using  any of the following products:
+
+* Visual Studio 2012
+* Visual Studio 2012 Express for Web
+* Visual Studio 2010
+* Visual Web Developer Express 2010.
+
+>[WACOM.NOTE] After this tutorial was written, Visual Studio 2013 was released, and the Azure Management Portal and SDK were updated. Notes like this one have been added at points where you have to do things differently if you are using Visual Studio 2013 and the latest SDK. The notes were written in March, 2014, and the revised procedures have been tested with SDK version 2.3.
+
+You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
+You can create a [free trial account](/en-us/pricing/free-trial/) or [activate MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits/).
 
 >[WACOM.NOTE] In the following section about SDK installation, the correct link if you are using Visual Studio 2013 is [http://go.microsoft.com/fwlink/?LinkID=324322](http://go.microsoft.com/fwlink/?LinkID=324322). 
 
@@ -608,7 +605,7 @@ The following steps explain how to scale out by using the Azure Management Porta
 
 You have now seen how to configure, deploy, and scale the completed application. The following tutorials show how to build the application from scratch. In the [next tutorial][tut3] you'll build the web role.
 
-For links to additional resources for working with Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
+For links to additional resources for working with Azure Storage tables, queues, and blobs, see [the last tutorial in this series][tut5nextsteps].
 
 
 
@@ -632,6 +629,7 @@ For links to additional resources for working with Azure Storage tables, queues,
 
 [tut3]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/
 [tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+[tut5nextsteps]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps
 [NewPortal]: http://manage.windowsazure.com
 [managestorage]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
 [autoscalingappblock]: /en-us/develop/net/how-to-guides/autoscaling/
