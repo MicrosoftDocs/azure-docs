@@ -215,12 +215,12 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [Step 6: Change the Production deployment]: #step6
 [Step 7: Deploy from a working branch]: #step7
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
-[1]: ./media/cloud-services-continuous-delivery-use-vso/CreateTeamProjectInGit.PNG
+[1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
 [2]: ./media/cloud-services-continuous-delivery-use-vso/tfs2.png
 [3]: ./media/cloud-services-continuous-delivery-use-vso-git/CloneThisRepository.PNG
 [4]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateNewSolutionInClonedRepo.PNG
-[7]: ./media/cloud-services-continuous-delivery-use-vso-git/CommitMenuItem.png
-[8]: ./media/cloud-services-continuous-delivery-use-vso-git/CommitAChange2.png
+[7]: ./media/cloud-services-continuous-delivery-use-vso-git/CommitMenuItem.PNG
+[8]: ./media/cloud-services-continuous-delivery-use-vso-git/CommitAChange2.PNG
 [9]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateCloudService.PNG
 [10]: ./media/cloud-services-continuous-delivery-use-vso-git/SetUpPublishingWithVSO.PNG
 [11]: ./media/cloud-services-continuous-delivery-use-vso-git/AuthorizeConnection.PNG
@@ -232,13 +232,13 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [17]: ./media/cloud-services-continuous-delivery-use-vso/tfs17.png
 [18]: ./media/cloud-services-continuous-delivery-use-vso-git/MakeACodeChange.PNG
 [20]: ./media/cloud-services-continuous-delivery-use-vso-git/CommitAChange2.PNG
-[21]: ./media/cloud-services-continuous-delivery-use-vso-git/TeamExplorerHome.PNG
+[21]: ./media/cloud-services-continuous-delivery-use-vso-git/TeamExplorerHome.png
 [22]: ./media/cloud-services-continuous-delivery-use-vso-git/TeamExplorerBuilds.PNG
-[23]: ./media/cloud-services-continuous-delivery-use-vso-git/BuildInQueue.PNG
+[23]: ./media/cloud-services-continuous-delivery-use-vso-git/BuildInQueue.png
 [24]: ./media/cloud-services-continuous-delivery-use-vso/tfs24.png
 [25]: ./media/cloud-services-continuous-delivery-use-vso/tfs25.png
 [26]: ./media/cloud-services-continuous-delivery-use-vso/tfs26.png
-[27]: ./media/cloud-services-continuous-delivery-use-vso-git/ProcessTab.png
+[27]: ./media/cloud-services-continuous-delivery-use-vso-git/ProcessTab.PNG
 [28]: ./media/cloud-services-continuous-delivery-use-vso/tfs28.png
 [29]: ./media/cloud-services-continuous-delivery-use-vso/tfs29.png
 [30]: ./media/cloud-services-continuous-delivery-use-vso/tfs30.png
@@ -248,7 +248,7 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [34]: ./media/cloud-services-continuous-delivery-use-vso/tfs34.png
 [35]: ./media/cloud-services-continuous-delivery-use-vso/tfs35.png
 [36]: ./media/cloud-services-continuous-delivery-use-vso/tfs36.PNG
-[37]: ./media/cloud-services-continuous-delivery-use-vso/CreateANewAccount.PNG
+[37]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateANewAccount.PNG
 [38]: ./media/cloud-services-continuous-delivery-use-vso-git/SyncChanges.PNG
 [39]: ./media/cloud-services-continuous-delivery-use-vso-git/PushCurrentBranch.PNG
 [40]: ./media/cloud-services-continuous-delivery-use-vso-git/BranchesInTeamExplorer.PNG
