@@ -27,7 +27,7 @@ Opscode is the company behind Chef, the rapidly growing cloud infrastructure aut
 
 [![Rightscale](./media/cloud-services-linux-partners/rightscale-tagline-white-bg.png)](http://www.opscode.com/partners/microsoft)
 
-[www.rightscale.com/microsoft-azure](http://www.opscode.com/partners/microsoft)
+[http://www.opscode.com/partners/microsoft](http://www.opscode.com/partners/microsoft)
 
 RightScale® Inc., cloud management enables organizations to easily deploy and manage business-critical applications across public, private, and hybrid clouds. RightScale provides efficient configuration, monitoring, automation, and governance of cloud computing infrastructure and applications. Since 2006, millions of servers have been launched with the RightScale solution by leading enterprises including the Associated Press, CBS Interactive, Intercontinental Hotels Group, PBS, and Zynga.
 

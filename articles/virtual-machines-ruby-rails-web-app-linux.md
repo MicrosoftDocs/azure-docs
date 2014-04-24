@@ -127,8 +127,8 @@ Follow the instructions given [here][vm-instructions] to create an Azure virtual
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>the steps in this tutorial were performed on an Azure Virtual Machine hosing Ubuntu 12.10. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.</p>
-</div>
+
+<p>the steps in this tutorial were performed on an Azure Virtual Machine hosting Ubuntu 12.10. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.</p></div>
 
 <div class="dev-callout">
 <strong>Note</strong>
@@ -244,7 +244,7 @@ The list of files returned should match the files contained in the **blog_app** 
 
 	* **PRIVATE PORT**: &lt;port information from step 3 above&gt;
 
-	This will create a public port of 80 that will route traffic to the private port of 300 - where the Rails server is listening.
+	This will create a public port of 80 that will route traffic to the private port of 3000 - where the Rails server is listening.
 
 	![new endpoint dialog][new-endpoint]
 
