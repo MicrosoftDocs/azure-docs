@@ -35,7 +35,7 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 3. Create an account URL for your new project. Your account will have the form: https://&lt;accountname&gt;.visualstudio.com.<br/>
 ![][37]
  
-4. Now you can create your first project. Enter the project name and description. Choose the version control system you want to use. Team Foundation Version Control (TFVC) or Git are both supported.  You can find out more about these options at [Use version control](http://go.microsoft.com/fwlink/?LinkId=324037). This walkthrough assumes you are using TFVC. Then choose the process template your organization uses, and choose the **Create Project** button. For more information about process templates, see [Work with team project artifacts, choose a process template](http://go.microsoft.com/fwlink/?LinkId=324035).<br/>
+4. Now you can create your first project. Enter the project name and description. Choose the version control system you want to use. Team Foundation Version Control (TFVC) or Git are both supported.  You can find out more about these options at [Use version control](http://go.microsoft.com/fwlink/?LinkId=324037). This walkthrough assumes you are using TFVC. If you are using Git, see [Continuous delivery to Azure with Visual Studio Online and Git](http://go.microsoft.com/fwlink/?LinkId=397358) Then choose the process template your organization uses, and choose the **Create Project** button. For more information about process templates, see [Work with team project artifacts, choose a process template](http://go.microsoft.com/fwlink/?LinkId=324035).<br/>
 ![][1]
 
 5. When project creation is done, click the **Open with Visual Studio to connect** button to automatically launch Visual Studio connected to your team project. If you see any security dialog boxes, choose Allow.<br/>
@@ -123,22 +123,25 @@ In the **Trigger** tab, you will see that the build definition is set to build o
 In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or web site. If you are working with web sites, the properties you see will be different from those shown here.<br/>
 ![][27]
 <br/>
-Specify values for the properties if you want different values than the defaults.
-The following table shows default values of the properties for a cloud service:
+Specify values for the properties if you want different values than the defaults. The properties for Azure publishing are in the Deployment section.
+The following table shows the available properties in the Deployment section:
 	<table>
 <tr><td><b>Property</b></td><td><b>Default Value</b></td></tr>
-<tr><td>Allow Upgrade</td><td>true</td></tr>
-<tr><td>Cloud Service Environment</td><td>Staging</td></tr>
+><tr><td>Allow Untrusted Certificates</td><td>If false, SSL certificates must be signed by a root authority.</td></tr>
+<tr><td>Allow Upgrade</td><td>Allows a the deployment to update an existing deployment instead of creating a new one. Preserves the IP address.</td></tr>
+><tr><td>Do Not Delete</td><td>If true, do not overwrite an existing unrelated deployment (upgrade is allowed).</td></tr>
+<tr><td>Path to Deployment Settings</td><td>The path to your .pubxml file for a web site, relative to the root folder of the repo. Ignored for cloud services.</td></tr>
 <tr><td>Cloud Service Name</td><td>The name of the service you are connected to</td></tr>
-<tr><td>Deployment Label</td><td>The same as the service name</td></tr>
-<tr><td>Service Configuration</td><td>ServiceConfiguration.Cloud.cscfg</td></tr>
-<tr><td>Storage Account Name</td><td>Blank, which means try to find a storage account.</td></tr>
-<tr><td>Publish Profile</td><td>The .azurePubxml file. If you check in one, you can choose it here.</td></tr>
+><tr><td>Sharepoint Deployment Environment</td><td>The same as the service name</td></tr>
+<tr><td>Windows Azure Deployment Environment</td><td>The web site or cloud service name</td></tr>
 </table>
 <br/>
 If the storage account property is left blank, Azure searches for one. If there is a storage
 account with the same name as the cloud service, it is used. Otherwise, it uses another storage account,
 or if there is no storage account, it creates one. The storage account provides a place in Azure for storage files and other data. For more information, see [What is a storage account?](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account).
+
+If you are using multiple service configurations (.cscfg files), you can specify the desired service configuration in the **Build, Advanced, MSBuild arguments** setting. For example, to use ServiceConfiguration.Test.cscfg, set MSBuild arguments line option /p:TargetProfile=Test.<br/>
+![][37]
 
 11. By this time, your build should be completed successfully.<br/>
 ![][28]
@@ -214,3 +217,4 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [35]: ./media/cloud-services-continuous-delivery-use-vso/tfs35.png
 [36]: ./media/cloud-services-continuous-delivery-use-vso/tfs36.PNG
 [37]: ./media/cloud-services-continuous-delivery-use-vso/tfs37.PNG
+[38]: ./media/cloud-services-continuous-delivery-use-vso/AdvancedMSBuildSettings.PNG

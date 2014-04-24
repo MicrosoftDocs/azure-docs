@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-deploy-websites" urlDisplayName="How to deploy an Azure Web Site" pageTitle="How to deploy an Azure Web Site" metaKeywords="Azure deploy publish web site" description="Learn what methods are available for deploying content to an Azure Web Site." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Web Site" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="manage-services-how-to-deploy-websites" pageTitle="How to deploy an Azure Web Site" metaKeywords="Azure deploy publish web site" description="Learn what methods are available for deploying content to an Azure Web Site." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Web Site" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
 #How to Deploy an Azure Web Site
 
@@ -37,8 +37,8 @@ If you don't have source control set up yet, the easiest way to get started is t
 
 For more information, see the following resources:
 
-* [Deliver to Azure Continuously](http://www.visualstudio.com/en-us/learn/continuous-delivery-in-vs). Step by step tutorial that shows how to set up continuous delivery from VSO to an Azure Web Site, using TFVC. TFVC is the centralized source control option in VSO, as opposed to Git, which is the distributed source control option.
-* [Continuous delivery to Azure using Visual Studio Online](/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/). How to sign up for VSO, check in a project to source control, and set it up for continuous delivery (automatic deployment) to Azure. Written for cloud services, but much of the process for setting up deployment in Visual Studio Online is similar for Web Sites.
+* [Deliver to Azure Continuously using VSO and TFVC](http://www.visualstudio.com/en-us/learn/continuous-delivery-in-vs). Step by step tutorial that shows how to set up continuous delivery from VSO to an Azure Web Site, using TFVC. TFVC is the centralized source control option in VSO, as opposed to Git, which is the distributed source control option.
+* [Continuous delivery to Azure using VSO and TFVC](/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/). The scenario covered is similar to the previous tutorial, but this tutorial also goes through the steps for signing up for a VSO account and checking in a project to source control. This tutorial was written mainly for cloud services, so parts of it don't apply to web sites.
 
 ###<a name="git"></a>Repository web sites using Git
 

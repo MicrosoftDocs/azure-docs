@@ -21,7 +21,7 @@ A screenshot from the completed app is below:
 
 ![][0]
 
->[WACOM.NOTE]To complete this tutorial, you need an Azure account that has the Azure Mobile Services feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-phone-get-started%2F" target="_blank">Azure Free Trial</a>. <br />This tutorial requires <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. A free trial version is available.
+>[WACOM.NOTE]To complete this tutorial, you need an Azure account that has the Azure Mobile Services feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-phone-get-started%2F" target="_blank">Azure Free Trial</a>. <br />This tutorial requires <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. A free trial version is available. To create a new Windows Phone 8.1 app, you must have Visual Studio 2013 Update 2, or a later version.
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
@@ -69,7 +69,7 @@ In this section you will create a new Windows Phone 8 app that is connected to y
             "XXXXXXX-APPLICATION-KEY-XXXXXXXX");</code></pre>
 
 	<p>The client will now access the mobile service published to Azure.</p></li>
-
+<li><p>(Optional) If you are creating a Windows Phone 8.1 app, right-click the project in Solution Explorer, click <strong>Properties</strong>, set <strong>Target Windows Phone OS Version</strong> to <strong>Windows Phone 8.1</strong>, then click <strong>Yes</strong> to upgrade the project.</p></li>
 <li><p>Press the <strong>F5</strong> key to rebuild the project and start the app.</p></li>
 
 <li><p>In the app, type meaningful text, such as <em>Complete the tutorial</em>, and then click <strong>Save</strong>.</p>

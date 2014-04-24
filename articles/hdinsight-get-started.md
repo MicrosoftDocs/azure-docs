@@ -234,7 +234,7 @@ For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-stor
 
 	|Variable|Note|
     |--------|----|
-	|$clusterName|The class name must match the one you created earlier in the tutorial using the Azure Managment portal.|
+	|$clusterName|The cluster name must match the one you created earlier in the tutorial using the Azure Managment portal.|
     |$jarFile|This is the MapReduce jar file that you will run.  It comes with HDInsight clusters.|
 	|$className|The class name is hard-coded in the MapReduce program.|
 	|$statusFolder|The -StatusFolder parameter is optional. If specified, the standard error and standard output files will be put into the folder.|
@@ -244,7 +244,7 @@ For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-stor
 5. Run the following commands to create a MapReduce job definition:
 
 		# Define the MapReduce job
-		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -StatusFolder -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///tutorials/getstarted/WordCountOutput"
+		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -StatusFolder $statusFolder -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///tutorials/getstarted/WordCountOutput"
 
 	The job definition uses the variables you defined in the last step.
 
@@ -414,30 +414,30 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 
 [hdinsight-version]: ../hdinsight-component-versioning/
 
-[hdinsight-get-started-30]: /en-us/documentation/articles/hdinsight-get-started-30/
-[hdinsight-provision]: /en-us/documentation/articles/hdinsight-provision-clusters/
-[hdinsight-admin-powershell]: /en-us/documentation/articles/hdinsight-administer-use-powershell/
-[hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
-[hdinsight-mapreduce]: /en-us/documentation/articles/hdinsight-use-mapreduce
-[hdinsight-hive]: /en-us/documentation/articles/hdinsight-use-hive/
-[hdinsight-pig]: /en-us/documentation/articles/hdinsight-use-pig/
-[hdinsight-oozie]: /en-us/documentation/articles/hdinsight-use-oozie/
-[hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
-[hdinsight-emulator]: /en-us/documentation/articles/hdinsight-get-started-emulator/
-[hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
-[hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-get-started-30]: ../hdinsight-get-started-30/
+[hdinsight-provision]: ../hdinsight-provision-clusters/
+[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
+[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-mapreduce]: ../hdinsight-use-mapreduce
+[hdinsight-hive]: ../hdinsight-use-hive/
+[hdinsight-pig]: ../hdinsight-use-pig/
+[hdinsight-oozie]: ../hdinsight-use-oozie/
+[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-emulator]: ../hdinsight-get-started-emulator/
+[hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
 [azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: /en-us/documentation/articles/storage-create-storage-account/ 
+[azure-create-storageaccount]: ../storage-create-storage-account/ 
 
 [apache-hadoop]: http://hadoop.apache.org/
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
-[powershell-open]: /en-us/documentation/articles/install-configure-powershell/#install
+[powershell-install-configure]: ../install-configure-powershell/
+[powershell-open]: ../install-configure-powershell/#Install
 
 [image-hdi-storageaccount-quickcreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
 [image-hdi-clusterstatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png

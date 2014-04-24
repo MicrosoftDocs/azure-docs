@@ -12,11 +12,11 @@ This article provides an introduction to Microsoft Azure Storage for developers,
 
 ## What is Azure Storage? ##
 
-Cloud computing enables new scenarios for applications requiring scalable, durable and highly available storage for their data – which is exactly why Microsoft developed Azure Storage. In addition to enabling developers to build large scale applications to support new scenarios Azure Storage also provides the storage foundation for Microsoft's Infrastructure as a Service capability further testament to its robustness. 
+Cloud computing enables new scenarios for applications requiring scalable, durable, and highly available storage for their data – which is exactly why Microsoft developed Azure Storage. In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines, a further testament to its robustness. 
 
 Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications. Or you can store the small amounts of data required for a small business website. Wherever your needs fall, you pay only for the data you’re storing. Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average. 
 
-Azure Storage is elastic, so you can design applications for a large global audience, and scale those applications as needed - both the amount of storage and the number of transactions required. You pay only for what you use, and only when you use it.
+Azure Storage is elastic, so you can design applications for a large global audience, and scale those applications as needed - both in terms of the amount of data stored and the number of requests made against it. You pay only for what you use, and only when you use it.
 
 Azure Storage uses an auto-partitioning system that automatically load-balances your data based on traffic. This means that as the demands on your application grow, Azure Storage automatically allocates the appropriate resources to meet them. 
 

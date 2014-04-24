@@ -14,17 +14,16 @@
 	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
+<!--
 <div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title=".NET backend" >.NET backend</a> | 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-android/" title="JavaScript backend" class="current">JavaScript backend</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title=".NET backend" >.NET backend</a> | 
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/" title="JavaScript backend" class="current">JavaScript backend</a>
 </div>
-
+-->
 
 This topic shows how to use Azure Mobile Services to send push notifications to your Android app. In this tutorial you add push notifications using Google Cloud Messaging (GCM) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
-
->[WACOM.NOTE] This tutorial demonstrates Mobile Services integration with Notification Hubs, which is currently in preview. By default, sending push notifications using Notification Hubs is not enabled from a JavaScript backend.  Once the new notification hub has been created, the integration process cannot be reverted. Push notifications for iOS is only available today by using the default push support described in [this version of the topic](/en-us/documentation/articles/mobile-services-android-get-started-push/).
-
+[WACOM.NOTE]This tutorial demonstrates Mobile Services integration with Notification Hubs, which is currently in preview. By default, sending push notifications using Notification Hubs is not enabled from a JavaScript backend.  Once the new notification hub has been created, the integration process cannot be reverted. 
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -53,8 +52,6 @@ Next, you will use this API key value to enable Mobile Services to authenticate 
 
 
 	![](./media/mobile-services-android-get-started-push/mobile-enable-enhanced-push.png)
-
-	![](../includes/media/mobile-services-javascript-backend-register-windows-store-app/mobile-enable-enhanced-push.png)
 
 
 	This updates the configuration of your mobile service to use the enhanced push notification functionality provided by Notification Hubs. Some Notification Hubs usage is free with your paid mobile service. For more information, see [Mobile Services Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=311786).
@@ -312,8 +309,8 @@ Consider finding out more about the following Mobile Services topics:
 * [Mobile Services server script reference]
   <br/>Learn more about registering and using server scripts.
 
-* [Mobile Services HTML/JavaScript How-to Conceptual Reference]
-  <br/>Learn more about how to use Mobile Services with HTML and JavaScript.  
+* [How to use the Android client library for Mobile Services]
+  <br/>Learn more about how to use Mobile Services with Android.  
 
 
 <!-- Anchors. -->
@@ -331,16 +328,16 @@ Consider finding out more about the following Mobile Services topics:
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-js/
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-android-get-started/
+[Get started with data]: /en-us/documentation/articles/mobile-services-android-get-started-data/
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-android-get-started-users
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
 [Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-js
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
 [Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/
+[How to use the Android client library for Mobile Services]: /en-us/documentation/articles/mobile-services-android-how-to-use-client-library
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
 [What are Notification Hubs?]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
