@@ -41,7 +41,7 @@ The VHDs in the gallery and on VMDepot include clean Microsoft and Linux operati
 
 Along with a VHD, you specify the size of your new VM.  The full stats for each size are listed [in the Azure library](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx).  
 
--	**Extra Small**, with a shared core and 768 GB  of memory.
+-	**Extra Small**, with a shared core and 768MB  of memory.
 -	**Small**, with 1 core and 1.75GB  of memory.
 -	**Medium**, with 2 cores and 3.5GB  of memory.
 -	**Large**, with 4 cores and 7GB of memory.

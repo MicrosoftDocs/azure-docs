@@ -36,10 +36,11 @@ If you've already got an Azure application and web site that you want to work wi
 1. Set up a hook in your code to obtain your MongoLab connection URI from an environment variable:
 
         using MongoDB.Driver;  
- 		...
- 		private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
- 		...
- 		MongoServer server = MongoServer.Create(connectionString);  
+        ...
+        private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
+        ...
+        MongoUrl url = new MongoUrl(connectionString);
+        MongoClient client = new MongoClient(url);
 Note: Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared connection string, which is why the code references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
 
 Now, on to the full tutorial...
@@ -62,7 +63,7 @@ Your sample app will make use of a Visual Studio template to get started. Be sur
 1. Select **Installed > Templates > Visual C# > Web**.
 1. Select **.NET Framework 4** from the .NET version drop-down menu (*note: Framework 4.5 does not work at this time*).
 
-	![ProjectFramework][dotNet-framework-four]
+    ![ProjectFramework][dotNet-framework-four]
 1. Choose **ASP.NET MVC 4 Web Application**.  
 1. Enter _mongoNotes_ as your **Project Name**. If you choose a different name, you will need to modify the code provided in throughout the tutorial.
 1. Click **OK**. The Project Template dialog displays:  
@@ -72,7 +73,7 @@ Your sample app will make use of a Visual Studio template to get started. Be sur
 ![PMConsole][focus-mongolab-csharp-pmconsole] 
 The MongoDB C# Driver is integrated with the project, and the following line is automatically added to the _packages.config_ file:
 
-		< package id="mongocsharpdriver" version="1.8" targetFramework="net40" / >
+        < package id="mongocsharpdriver" version="1.8" targetFramework="net40" / >
 
 ### Add a note model
 First, establish a model for Notes, with simply a date and a text content.
@@ -80,38 +81,38 @@ First, establish a model for Notes, with simply a date and a text content.
 1. Right-click **Models** in the Solution Explorer and select **Add > Class**. Call this new class *Note.cs*.
 1. Replace the auto-generated code for this class with the following:  
 
-		using System;
-		using System.Collections.Generic;
-		using System.Linq;
-		using System.Web;
-		using MongoDB.Bson.Serialization.Attributes;
-		using MongoDB.Bson.Serialization.IdGenerators;
-		using MongoDB.Bson;
-				
-		namespace mongoNotes.Models
-		{
-		    public class Note
-		    {
-		        public Note()
-		        {
-		            Date = DateTime.UtcNow;
-		        }
-	            
-	            private DateTime date;
-		
-		        [BsonId(IdGenerator = typeof(CombGuidGenerator))]
-		        public Guid Id { get; set; }
-		
-		        [BsonElement("Note")]
-		        public string Text { get; set; }
-		
-		        [BsonElement("Date")]
-		        public DateTime Date {
-		            get { return date.ToLocalTime(); }
-		            set { date = value;}
-		        }
-		    }
-		}
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Web;
+        using MongoDB.Bson.Serialization.Attributes;
+        using MongoDB.Bson.Serialization.IdGenerators;
+        using MongoDB.Bson;
+                
+        namespace mongoNotes.Models
+        {
+            public class Note
+            {
+                public Note()
+                {
+                    Date = DateTime.UtcNow;
+                }
+                
+                private DateTime date;
+        
+                [BsonId(IdGenerator = typeof(CombGuidGenerator))]
+                public Guid Id { get; set; }
+        
+                [BsonElement("Note")]
+                public string Text { get; set; }
+        
+                [BsonElement("Date")]
+                public DateTime Date {
+                    get { return date.ToLocalTime(); }
+                    set { date = value;}
+                }
+            }
+        }
 
 ### Add a data access layer
 It's important that you establish a means of accessing MongoDB to retrieve and save the notes. Your data access layer will make use of the Note model and be tied into your HomeController later on.
@@ -120,116 +121,120 @@ It's important that you establish a means of accessing MongoDB to retrieve and s
 1. Right-click **DAL** in the Solution Explorer and select **Add > Class**. Call this new class *Dal.cs*.
 1. Replace the auto-generated code for this class with the following:  
 
-		using System;
-		using System.Collections.Generic;
-		using System.Linq;
-		using System.Web;
-		using mongoNotes.Models;
-		using MongoDB.Driver;
-		using System.Configuration;
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Web;
+        using mongoNotes.Models;
+        using MongoDB.Driver;
+        using System.Configuration;
 
-		namespace mongoNotes
-		{
-		    public class Dal : IDisposable
-		    {
-		        private MongoServer mongoServer = null;
-		        private bool disposed = false;
-		
-		        private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
-		
-		        private string dbName = "myMongoApp";
-		        private string collectionName = "Notes";
-		
-		        // Default constructor.        
-		        public Dal()
-		        {
-		        }
-		   
-		        public List<Note> GetAllNotes()
-		        {
-		            try
-		            {
-		                MongoCollection<Note> collection = GetNotesCollection();
-		                return collection.FindAll().ToList<Note>();
-		            }
-		            catch (MongoConnectionException)
-		            {
-		                return new List<Note>();
-		            }
-		        }
-		
-		        // Creates a Note and inserts it into the collection in MongoDB.
-		        public void CreateNote(Note note)
-		        {
-		            MongoCollection<Note> collection = getNotesCollectionForEdit();
-		            try
-		            {
-		                collection.Insert(note, SafeMode.True);
-		            }
-		            catch (MongoCommandException ex)
-		            {
-		                string msg = ex.Message;
-		            }
-		        }
-		
-		        private MongoCollection<Note> GetNotesCollection()
-		        {
-		            MongoServer server = MongoServer.Create(connectionString);
-		            MongoDatabase database = server[dbName];
-		            MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
-		            return noteCollection;
-		        }
-		
-		        private MongoCollection<Note> getNotesCollectionForEdit()
-		        {
-		            MongoServer server = MongoServer.Create(connectionString);
-		            MongoDatabase database = server[dbName];
-		            MongoCollection<Note> notesCollection = database.GetCollection<Note>(collectionName);
-		            return notesCollection;
-		        }
-		
-		        # region IDisposable
-		
-		        public void Dispose()
-		        {
-		            this.Dispose(true);
-		            GC.SuppressFinalize(this);
-		        }
-		
-		        protected virtual void Dispose(bool disposing)
-		        {
-		            if (!this.disposed)
-		            {
-		                if (disposing)
-		                {
-		                    if (mongoServer != null)
-		                    {
-		                        this.mongoServer.Disconnect();
-		                    }
-		                }
-		            }
-		
-		            this.disposed = true;
-		        }
-		
-		        # endregion
-		    }
-		}
+        namespace mongoNotes
+        {
+            public class Dal : IDisposable
+            {
+                private MongoServer mongoServer = null;
+                private bool disposed = false;
+        
+                private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
+                MongoUrl url = new MongoUrl(connectionString);
+        
+                private string dbName = "myMongoApp";
+                private string collectionName = "Notes";
+        
+                // Default constructor.        
+                public Dal()
+                {
+                }
+           
+                public List<Note> GetAllNotes()
+                {
+                    try
+                    {
+                        MongoCollection<Note> collection = GetNotesCollection();
+                        return collection.FindAll().ToList<Note>();
+                    }
+                    catch (MongoConnectionException)
+                    {
+                        return new List<Note>();
+                    }
+                }
+        
+                // Creates a Note and inserts it into the collection in MongoDB.
+                public void CreateNote(Note note)
+                {
+                    MongoCollection<Note> collection = getNotesCollectionForEdit();
+                    try
+                    {
+                        collection.Insert(note);
+                    }
+                    catch (MongoCommandException ex)
+                    {
+                        string msg = ex.Message;
+                    }
+                }
+        
+                private MongoCollection<Note> GetNotesCollection()
+                {
+                    MongoClient client = new MongoClient(url);
+                    mongoServer = client.GetServer();
+                    MongoDatabase database = mongoServer.GetDatabase(dbName);
+                    MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
+                    return noteCollection;
+                }
+        
+                private MongoCollection<Note> getNotesCollectionForEdit()
+                {
+                    MongoClient client = new MongoClient(url);
+                    mongoServer = client.GetServer();
+                    MongoDatabase database = mongoServer.GetDatabase(dbName);
+                    MongoCollection<Note> notesCollection = database.GetCollection<Note>(collectionName);
+                    return notesCollection;
+                }
+        
+                # region IDisposable
+        
+                public void Dispose()
+                {
+                    this.Dispose(true);
+                    GC.SuppressFinalize(this);
+                }
+        
+                protected virtual void Dispose(bool disposing)
+                {
+                    if (!this.disposed)
+                    {
+                        if (disposing)
+                        {
+                            if (mongoServer != null)
+                            {
+                                this.mongoServer.Disconnect();
+                            }
+                        }
+                    }
+        
+                    this.disposed = true;
+                }
+        
+                # endregion
+            }
+        }
 1. Note the following code above:  
-			
-		private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
-		private string dbName = "myMongoApp";  
+            
+        private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
+        private string dbName = "myMongoApp";  
 Here, you access an environment variable that you'll configure later. If you have a local mongo instance running for development purposes, you may want to temporarily set this value to "localhost".  
   
   Also set your database name. Specifically, set the **dbName** value to the name you entered when you provisioned the MongoLab Add-On.
 1. Finally, examine the following code in **GetNotesCollection()**:  
 
-		MongoServer server = MongoServer.Create(connectionString);
-		MongoDatabase database = server[dbName];
-		MongoCollection<Note> notesCollection = database.GetCollection<Note>  
+        MongoClient client = new MongoClient(url);
+        mongoServer = client.GetServer();
+        MongoDatabase database = mongoServer.GetDatabase(dbName);
+        MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
   There's nothing to change here; Just be aware that this is how you get a MongoCollection object for performing inserts, updates, and queries, such as the following in **GetAllNotes()**:  
 
-		collection.FindAll().ToList<Note>();
+        collection.FindAll().ToList<Note>();
 
 For more information about leveraging the C# MongoDB driver, check out the [CSharp Driver QuickStart](http://www.mongodb.org/display/DOCS/CSharp+Driver+Quickstart "CSharp Driver Quickstart") at mongodb.org.
 
@@ -239,146 +244,146 @@ Now you'll add a view for creating a new note.
 1. Right-click the **Views > Home** entry in the Solution Explorer and select **Add > View**. Call this new view **Create** and click **Add**.
 1. Replace the auto-generated code for this view (**Create.cshtml**) with the following:  
 
-		@model mongoNotes.Models.Note
-		
-		<script src="@Url.Content("~/Scripts/jquery-1.5.1.min.js")" type="text/javascript"></script>
-		<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-		<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-		
-		@using (Html.BeginForm("Create", "Home")) {
-		    @Html.ValidationSummary(true)
-		    <fieldset>
-		        <legend>New Note</legend>
-		        <h3>New Note</h3>		
-		        <div class="editor-label">
-		            @Html.LabelFor(model => model.Text)
-		        </div>
-		        <div class="editor-field">
-		            @Html.EditorFor(model => model.Text)
-		        </div>
-		       <p>
-		       	    <input type="submit" value="Create" />
-		   	   </p>
-		   </fieldset>
-		}
+        @model mongoNotes.Models.Note
+        
+        <script src="@Url.Content("~/Scripts/jquery-1.5.1.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+        
+        @using (Html.BeginForm("Create", "Home")) {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>New Note</legend>
+                <h3>New Note</h3>       
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Text)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Text)
+                </div>
+               <p>
+                    <input type="submit" value="Create" />
+               </p>
+           </fieldset>
+        }
 
 ### Modify index.cshtml
 Next, drop in a simple layout for viewing and creating notes on your web site.
 
 1. Open **Index.cshtml** under **Views > Home** and replace its contents with the following:  
 
-		@model IEnumerable<mongoNotes.Models.Note>
-		
-		@{
-		    ViewBag.Title = "Notes";
-		}
-		
-		<h2>My Notes</h2>
+        @model IEnumerable<mongoNotes.Models.Note>
+        
+        @{
+            ViewBag.Title = "Notes";
+        }
+        
+        <h2>My Notes</h2>
 
-		<table border="1">
-		    <tr>
-		        <th>Date</th>
-		        <th>Note Text</th>		
-		    </tr>
-		
-		@foreach (var item in Model) {
-		    <tr>
-		        <td>
-		            @Html.DisplayFor(modelItem => item.Date)
-		        </td>
-		        <td>
-		            @Html.DisplayFor(modelItem => item.Text)
-		        </td>		
-		    </tr>
-		}
-		
-		</table>
-		<div>  @Html.Partial("Create", new mongoNotes.Models.Note())</div>
+        <table border="1">
+            <tr>
+                <th>Date</th>
+                <th>Note Text</th>      
+            </tr>
+        
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Text)
+                </td>       
+            </tr>
+        }
+        
+        </table>
+        <div>  @Html.Partial("Create", new mongoNotes.Models.Note())</div>
 
 ### Modify HomeController.cs
 Finally, your HomeController needs to instantiate your data access layer and apply it against your views.
 
 1. Open **HomeController.cs** under **Controllers** in the Solution Explorer and replace its contents with the following:  
 
-		using System;
-		using System.Collections.Generic;
-		using System.Linq;
-		using System.Web;
-		using System.Web.Mvc;
-		using mongoNotes.Models;
-		using System.Configuration;
-		
-		namespace mongoNotes.Controllers
-		{
-		    public class HomeController : Controller, IDisposable
-		    {
-		        private Dal dal = new Dal();
-		        private bool disposed = false;
-		        //
-		        // GET: /Task/
-		
-		        public ActionResult Index()
-		        {
-		            return View(dal.GetAllNotes());
-		        }
-		
-		        //
-		        // GET: /Task/Create
-		
-		        public ActionResult Create()
-		        {
-		            return View();
-		        }
-		
-		        //
-		        // POST: /Task/Create
-		
-		        [HttpPost]
-		        public ActionResult Create(Note note)
-		        {
-		            try
-		            {
-		                dal.CreateNote(note);
-		                return RedirectToAction("Index");
-		            }
-		            catch
-		            {
-		                return View();
-		            }
-		        }
-		
-		        public ActionResult About()
-		        {
-		            return View();
-		        }
-		
-		        # region IDisposable
-		
-		        new protected void Dispose()
-		        {
-		            this.Dispose(true);
-		            GC.SuppressFinalize(this);
-		        }
-		
-		        new protected virtual void Dispose(bool disposing)
-		        {
-		            if (!this.disposed)
-		            {
-		                if (disposing)
-		                {
-		                    this.dal.Dispose();
-		                }
-		            }
-		
-		            this.disposed = true;
-		        }
-		
-		        # endregion
-		
-		    }
-		}
-	
-	
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Web;
+        using System.Web.Mvc;
+        using mongoNotes.Models;
+        using System.Configuration;
+        
+        namespace mongoNotes.Controllers
+        {
+            public class HomeController : Controller, IDisposable
+            {
+                private Dal dal = new Dal();
+                private bool disposed = false;
+                //
+                // GET: /Task/
+        
+                public ActionResult Index()
+                {
+                    return View(dal.GetAllNotes());
+                }
+        
+                //
+                // GET: /Task/Create
+        
+                public ActionResult Create()
+                {
+                    return View();
+                }
+        
+                //
+                // POST: /Task/Create
+        
+                [HttpPost]
+                public ActionResult Create(Note note)
+                {
+                    try
+                    {
+                        dal.CreateNote(note);
+                        return RedirectToAction("Index");
+                    }
+                    catch
+                    {
+                        return View();
+                    }
+                }
+        
+                public ActionResult About()
+                {
+                    return View();
+                }
+        
+                # region IDisposable
+        
+                new protected void Dispose()
+                {
+                    this.Dispose(true);
+                    GC.SuppressFinalize(this);
+                }
+        
+                new protected virtual void Dispose(bool disposing)
+                {
+                    if (!this.disposed)
+                    {
+                        if (disposing)
+                        {
+                            this.dal.Dispose();
+                        }
+                    }
+        
+                    this.disposed = true;
+                }
+        
+                # endregion
+        
+            }
+        }
+    
+    
 <h2><a name="deploy"></a>Deploy the app</h2>
 
 Now that the application has been developed, it's time to create an Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web site with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
