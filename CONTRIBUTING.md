@@ -27,12 +27,12 @@ Minor corrections or clarifications you submit for documentation and code exampl
 
 ###Larger submissions
 
-Members of the following groups who submit new or significant changes to documentation and code examples, need to submit a signed Contribution License Agreement (CLA) before we can accept their pull requests:
+If you submit new or significant changes to documentation and code examples, you need to send a signed Contribution License Agreement (CLA) before we can accept your pull request if you are in one of these groups:
 
 * Members of the Microsoft Open Technologies group.
 * Contributors who don't work for Microsoft.
 
-Full details are available at [http://windowsazure.github.io/guidelines.html#cla](http://windowsazure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
+Full details are available at [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
 
 ## Repository organization
 
@@ -186,7 +186,7 @@ You can add [Channel 9](http://channel9.msdn.com/) videos to articles with the f
     > [WACOM.VIDEO video-id-string]
     
 
-1. Make sure that the video is on the [Azure Video Center](http://www.windowsazure.com/en-us/documentation/videos/home/). 
+1. Make sure that the video is on the [Azure Video Center](http://azure.microsoft.com/en-us/documentation/videos/home/). 
 2. Copy the video ID from the friendly URL of the video on the video gallery. For example, the video ID of *http://azure.microsoft.com/en-us/documentation/videos/azure-scheduler-unusual-schedules/* will be the friendly URL *azure-scheduler-unusual-schedules*.
 3. Use the extension syntax above with *video-id-string* as the friendly URL of the video.
 
