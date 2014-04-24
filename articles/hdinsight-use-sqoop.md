@@ -215,7 +215,7 @@ Sqoop export will fail if there is an empty string, or a line with fewer number 
 
 3. Copy the following script into the script pane, and then set the first two variables:
 		
-		$storageAccountName = "<WindowsAzureStorageAccountName>"
+		$storageAccountName = "<AzureStorageAccountName>"
 		$containerName = "<BlobContainerName>"
 		
 		$sourceBlobName = "example/data/sample.log"
@@ -368,7 +368,7 @@ In this section, you will use Azure PowerShell to run the Sqoop export command t
 
 		# Define the cluster variables
 		$clusterName = "<HDInsightClusterName>"
-		$storageAccountName = "<WindowsAzureStorageAccount>"
+		$storageAccountName = "<AzureStorageAccount>"
 		$containerName = "<BlobStorageContainerName>"
 		
 		# Define the SQL database variables
@@ -417,7 +417,7 @@ In this section, you will use Azure PowerShell to run the Sqoop export command t
 
 		# Define the cluster variables
 		$clusterName = "<HDInsightClusterName>"
-		$storageAccountName = "<WindowsAzureStorageAccount>"
+		$storageAccountName = "<AzureStorageAccount>"
 		$containerName = "<BlobStorageContainerName>"
 		
 		# Define the SQL database variables
@@ -475,9 +475,9 @@ The following is a C# sample using HDInsight .NET SDK to run Sqoop export. For t
 	        static void Main(string[] args)
 	        {
 	            // Set the variables
-	            string subscriptionID = "<WindowsAzureSubscriptionID>";
+	            string subscriptionID = "<AzureSubscriptionID>";
 	            string clusterName = "<HDInsightClusterName>";
-	            string certFriendlyName = "<WindowsAzureCertificateFriendlyName>";
+	            string certFriendlyName = "<AzureCertificateFriendlyName>";
 	            string sqlDatabaseServerName = "<SQLDatabaseServerName>";
 	            string sqlDatabaseLogin = "<SQLDatabaseLogin>" + "@" + sqlDatabaseServerName;
 	            string sqlDatabaseLoginPassword = "<SQLDatabaseLoginPassword>";
@@ -559,7 +559,7 @@ In this section, you will import the log4j logs (that you exported to SQL Databa
 
 		# Define the cluster variables
 		$clusterName = "<HDInsightClusterName>"
-		$storageAccountName = "<WindowsAzureStorageAccount>"
+		$storageAccountName = "<AzureStorageAccount>"
 		$containerName = "<BlobStorageContainerName>"
 		
 		# Define the SQL database variables
