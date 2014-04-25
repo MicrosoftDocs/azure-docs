@@ -205,12 +205,7 @@ The toolbar is not enabled by default; you enable it in the **View - Toolbars** 
 
 ## Next steps
 
-In this tutorial you've seen how to create a simple web application and deploy it to an Azure Web Site. Here are some related topics and resources for learning more about them:
-
-* Other ways to deploy a web project
-* How to manage, scale, and troubleshoot a site
-* How to add database and authorization functionality
-* How to choose between Web Sites, Cloud Services, and VMs for web applications
+In this tutorial you've seen how to create a simple web application and deploy it to an Azure Web Site. Here are some related topics and resources for learning more about them.
 
 ### Other ways to deploy a web project
 
