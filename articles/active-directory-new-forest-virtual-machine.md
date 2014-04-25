@@ -117,9 +117,9 @@ If you rerun the script, you need to supply a unique value for $service. You can
 
 -  [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx)
 
--  [Create a virtual network in Azure](http://www.windowsazure.com/en-us/manage/services/networking/create-a-virtual-network/)
+-  [Configure a Cloud-Only Virtual Network in the Management Portal](http://msdn.microsoft.com/en-us/library/azure/dn631643.aspx)
 
--  [Create a Virtual Network for Site-to-Site Cross-Premises Connectivity](http://www.windowsazure.com/en-us/documentation/articles/virtual-networks-create-site-to-site-cross-premises-connectivity/)
+-  [Create a Virtual Network for Site-to-Site Cross-Premises Connectivity](http://msdn.microsoft.com/en-us/library/azure/dn133795.aspx)
 
 -  [Install a Replica Active Directory Domain Controller in an Azure virtual network](http://www.windowsazure.com/en-us/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
 
