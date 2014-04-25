@@ -3,7 +3,7 @@
 
 #Deploy a Ruby on Rails Web application to an Azure VM using Capistrano
 
-This tutorial describes how to deploy a Ruby on Rails-based web site to an Azure Virtual Machine using [Capistrano 3](https://github.com/capistrano/capistrano/). This tutorial also describes how to use [Nginx](http://nginx.org/) and [Unicorn](https://github.com/blog/517-unicorn) to host the application on the virtual machine. This tutorial also uses [PostgreSQL](https://www.postgresql.org) to store application data.
+This tutorial describes how to deploy a Ruby on Rails web site to an Azure Virtual Machine using [Capistrano 3](https://github.com/capistrano/capistrano/). This tutorial also uses [Nginx](http://nginx.org/) and [Unicorn](https://github.com/blog/517-unicorn) to host the web site, and [PostgreSQL](https://www.postgresql.org) to store application data on the virtual machine.
 
 This tutorial assumes you have no prior experience using Azure, but are familiar with Ruby, Rails, Git, and Linux. Upon completing this tutorial, you will have a Ruby on Rails-based application up and running in the cloud.
 
@@ -23,9 +23,9 @@ The following is a screenshot of the completed application:
 
 ![a browser displaying Listing Posts][blog-rails-cloud]
 
-> [WACOM.NOTE] The application used for this tutorial includes native binary components. For this reason, you may encounter problems if your development environment is not Linux-based as the Gemfile.lock produced on the development machine may not include entries for the Linux compatible version of required gems.
+> [WACOM.NOTE] The application used for this tutorial includes native binary components. You may encounter problems if your development environment is not Linux-based as the Gemfile.lock file created in the development environment may not include entries for the native Linux versions of the gems.
 > 
-> Specific steps are called out for using a Windows development environment, as this represents the most significant delta from the target deployment environment. However, if you encounter errors during or after deployment that are not covered by the steps in this article, you may wish to retry the steps in this article from a Linux-based development environment.
+> Specific steps are called out for using a Windows development environment. However, if you encounter errors during or after deployment that are not covered in this article, you may wish to retry the steps in this article from a Linux-based development environment.
 
 ##In this article
 
@@ -61,7 +61,7 @@ The following is a screenshot of the completed application:
 
 		gem install rails --no-rdoc --no-ri
 
-	> [WACOM.NOTE] This command may require administrator or root privileges on some operating systems. If you receive an error while running this command, try using 'sudo' as follows.
+	> [WACOM.NOTE] This may require administrator or root privileges on some operating systems. If you receive an error while running this command, try using 'sudo' as follows.
 	> 
 	> `sudo gem install rails`
 
@@ -77,9 +77,9 @@ The following is a screenshot of the completed application:
 
 		rails new blog_app
 
-	This command creates a new directory named **blog_app**, and populates it with the files and sub-directories required by a Rails application.
+	This creates a new directory named **blog_app**, and populates it with the files and sub-directories required by a Rails application.
 
-	> [WACOM.NOTE] This command may take a minute or longer to complete. It performs a silent installation of the gems required for a default application, and during this time may appear to hang.
+	> [WACOM.NOTE] This command may take a minute or longer to complete. It performs a silent installation of the gems required for a default application, and will be unresponsive during this time.
 
 2. Change directories to the **blog_app** directory, and then use the following command to create a basic blog scaffolding:
 
@@ -91,7 +91,7 @@ The following is a screenshot of the completed application:
 
 		rake db:migrate
 
-	This will use the default database provider for Rails, which is the [SQLite3 Database][sqlite3]. While you may wish to use a different database for a production application, SQLite is sufficient for the purposes of this tutorial.
+	This will create the database schema for storing posts using the default database provider for Rails, which is the [SQLite3 Database][sqlite3].
 
 4. To display an index of posts as the home page, modify the **config/routes.rb** file and add the following after the `resources :posts` line.
 
@@ -100,8 +100,6 @@ The following is a screenshot of the completed application:
 	This will display a list of posts when users visit the web site.
 
 ##<a id="test"></a>Test the application
-
-Perform the following steps to start the Rails server in your development environment
 
 1. Change directories to the **blog_app** directory if you are not already there, and start the rails server using the following command.
 
@@ -125,13 +123,13 @@ Perform the following steps to start the Rails server in your development enviro
 
 ##<a id="repository"></a>Create a source repository
 
-When deploying an application using Capistrano, the files to be deployed are pulled from a repository. For this tutorial, we will use [Git](http://git-scm.com/) for version control and [GitHub](https://github.com/) for the repository.
+When deploying an application using Capistrano, the files to are pulled from a repository. For this tutorial, we will use [Git](http://git-scm.com/) for version control and [GitHub](https://github.com/) for the repository.
 
-1.	Create a new repository on [GitHub](https://github.com/). If you do not currently have a GitHub account, you can sign up for a free account. The steps in this tutorial assume that the repository name is **blog_app**.
+1.	Create a new repository on [GitHub](https://github.com/). If you do not have a GitHub account, you can sign up for one for free. The following steps assume that the repository name is **blog_app**.
 
 	> [WACOM.NOTE] The scripts created in later sections of this document will contain the address of your virtual machine and the user name used to deploy the application over SSH. For this reason, we recommend that you use a private GitHub repository if possible.
 
-2.	From the command prompt, change directories to the **blog_app** directory and run the following commands to upload the initial version of the application to your GitHub repository. Replace **YourGitHubName** with the name of your GitHub account.
+2.	From the command prompt, change directories to the **blog_app** directory and run the following commands to upload the application to your GitHub repository. Replace **YourGitHubName** with the name of your GitHub account.
 
 		git init
 		git add .
@@ -139,7 +137,7 @@ When deploying an application using Capistrano, the files to be deployed are pul
 		git remote add origin https://github.com/YourGitHubName/blog-azure.git
 		git push -u origin master
 
-At this point, you should have a working Rails application checked into a repository on GitHub. In the next section, you will create the Virtual Machine that it will be deployed to.
+In the next section, you will create the Virtual Machine that this application will be deployed to.
 
 ##<a id="createvm"></a>Create an Azure Virtual Machine
 
@@ -157,7 +155,7 @@ Connect to the virtual machine using SSH and use the following commands to prepa
 
 	sudo apt-get update
 	sudo apt-get -y upgrade
-	sudo apt-get -y install git build-essential git libssl-dev libsqlite3-dev curl nodejs nginx
+	sudo apt-get -y install git build-essential libssl-dev curl nodejs nginx
 	git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 	echo 'export RBENV_ROOT=~/.rbenv' >> ~/.bash_profile
 	echo 'export PATH="$RBENV_ROOT/bin:$PATH"' >> ~/.bash_profile
@@ -171,7 +169,6 @@ Connect to the virtual machine using SSH and use the following commands to prepa
 	~/.rbenv/bin/rbenv global 2.0.0-p451
 	gem install bundler
 	~/.rbenv/bin/rbenv rehash
-	sudo service nginx start
 
 > [WACOM.NOTE] You may wish to save the above into a script (.sh file,) to avoid typos when executing the commands.
 
@@ -196,17 +193,11 @@ After the installation completes, use the following command to verify that Ruby 
 
 This should return `ruby 2.0.0p451` as the version.
 
-> [WACOM.NOTE] If you receive a message stating **The program 'ruby' can be found in the following packages'**, use the following command to reload your profile.
->
-> `source ~/.bash_profile`
-
 ###Install a database
 
-The default database used by Rails for development is SQLite, however we want to use something different in production. Use the following steps to install PostgreSQL on the virtual machine, then create a user and database.
+The default database used by Rails for development is SQLite. Usually you will use something different in production. The following steps install PostgreSQL on the virtual machine, then create a user and database. Later steps will configure the Rails application to use PostgreSQL during deployment.
 
-> [WACOM.NOTE] While this tutorial uses PostgreSQL, Ruby on Rails is very database agnostic and can use many relational databases.
-
-1. Install PostgreSQL using the following command.
+1. Install PostgreSQL and development bits using the following command.
 
 		sudo apt-get -y install postgresql postgresql-contrib libpq-dev
 
