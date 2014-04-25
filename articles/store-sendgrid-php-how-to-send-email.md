@@ -1,4 +1,4 @@
-<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="How to use the SendGrid email service (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" authors="" />
+<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="How to use the SendGrid email service (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="ollybos" authors="robmcm" scriptId="" videoId="" />
 
 # How to Use the SendGrid Email Service from PHP
 
@@ -52,8 +52,7 @@ deploy your application by following the methods outlined here:
 ## <a name="bkmk_HowToSendEmail"> </a>How to: Send an Email
 
 You can send email using either SMTP or the Web API provided by
-SendGrid. For details about the benefits and differences of each API, see
-[SMTP vs. Web API][] in the SendGrid documentation.
+SendGrid.
 
 ### SMTP API
 
@@ -130,17 +129,6 @@ appropriate properties, and calling the
          print_r($failures);
      }
 
-**Note:**The example script above is taken from the SendGrid
-documentation here:
-[http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-email-example-using-smtp/][].
-
-For more information about the SMTP API and the X-SMTPAPI header, see
-the SMTP API Developer's Guide in the SendGrid documentation here:
-[http://docs.sendgrid.com/documentation/api/smtp-api/developers-guide/][].
-For more examples of using the SMTP API with PHP, see the SendGrid
-documentation here:
-[http://docs.sendgrid.com/documentation/api/smtp-api/php-example/][].
-
 ### Web API
 
 Use PHP's [curl function][] to send email using the SendGrid Web API.
@@ -183,19 +171,9 @@ Use PHP's [curl function][] to send email using the SendGrid Web API.
      // print everything out
      print_r($response);
 
-**Note:**The example script above is taken from the SendGrid
-documentation here:
-[http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-example-using-the-web-api/][].
-
-**Note:**SendGrid's Web API is very similar to a REST API, though it is
+SendGrid's Web API is very similar to a REST API, though it is
 not truly a RESTful API since, in most calls, both GET and POST verbs
 can be used interchangeably.
-
-For an overview of the Web API, see the SendGrid documentation here:
-[http://docs.sendgrid.com/documentation/api/web-api/][].
-
-For a complete list of parameters and generic examples for the send mail
-API, see [http://docs.sendgrid.com/documentation/api/web-api/mail/][].
 
 ## <a name="bkmk_HowToAddAttachment"> </a>How to: Add an Attachment
 
@@ -512,7 +490,7 @@ these links to learn more.
   [http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-example-using-the-web-api/]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-example-using-the-web-api/
   [http://docs.sendgrid.com/documentation/api/web-api/]: http://docs.sendgrid.com/documentation/api/web-api/
   [http://docs.sendgrid.com/documentation/api/web-api/mail/]: http://docs.sendgrid.com/documentation/api/web-api/mail/
-  [Filter Settings]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/
+  [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html 
   [SendGrid API documentation]: http://docs.sendgrid.com/documentation/api/
   [http://sendgrid.com/azure.html]: http://sendgrid.com/azure.html
   [cloud-based email service]: http://sendgrid.com/solutions
