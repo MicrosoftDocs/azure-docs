@@ -57,7 +57,7 @@ Every blob is organized into a container. Containers also provide a useful way t
 
 Blob storage offers two types of blobs, block blobs and page blobs (disks). Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. A block blob can be up to 200 GB in size. Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB in size. An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.
 
-For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a hard drive to Microsoft to import or export data directly from the data center using the [Azure Import/Export Service](http://www.windowsazure.com/documentation/articles/storage-import-export-service/). You can also copy blob data within your storage account or across storage accounts. 
+For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a hard drive to Microsoft to import or export data directly from the data center using the [Azure Import/Export Service](../articles/storage-import-export-service/). You can also copy blob data within your storage account or across storage accounts. 
 
 ## Table Storage ##
 
@@ -134,29 +134,29 @@ To get started with Azure Storage, explore these resources:
 <h3>For Java Developers</h3>
 
 - [How to use Blob Storage from Java](../storage-java-how-to-use-blob-storage/)
-- [How to use Table Storage from Java](..storage-java-how-to-use-table-storage/)
-- [How to use Queue Storage from Java](..storage-java-how-to-use-queue-storage/)
+- [How to use Table Storage from Java](../storage-java-how-to-use-table-storage/)
+- [How to use Queue Storage from Java](../storage-java-how-to-use-queue-storage/)
 
 <h3>For Node.js Developers</h3>
 
 - [How to use Blob Storage from Node.js](../storage-nodejs-how-to-use-blob-storage/)
 - [How to use Table Storage from Node.js](../storage-nodejs-how-to-use-table-storage/)
-- [How to use Queue Storage from Node.js](../storage-nodejs-how-to-use-queue-storage/)
+- [How to use Queue Storage from Node.js](../storage-nodejs-how-to-use-queues/)
 
 <h3>For PHP Developers</h3>
 
-- [How to use Blob Storage from PHP](../storage-php-how-to-use-blob-storage/)
-- [How to use Table Storage from PHP](..storage-php-how-to-use-table-storage/)
-- [How to use Queue Storage from PHP](..storage-php-how-to-use-queue-storage/)
+- [How to use Blob Storage from PHP](../storage-php-how-to-use-blobs/)
+- [How to use Table Storage from PHP](../storage-php-how-to-use-table-storage/)
+- [How to use Queue Storage from PHP](../storage-php-how-to-use-queues/)
 
 <h3>For Ruby Developers</h3>
 
 - [How to use Blob Storage from Ruby](../storage-ruby-how-to-use-blob-storage/)
-- [How to use Table Storage from Ruby](..storage-ruby-how-to-use-table-storage/)
-- [How to use Queue Storage from Ruby](..storage-ruby-how-to-use-queue-storage/)
+- [How to use Table Storage from Ruby](../storage-ruby-how-to-use-table-storage/)
+- [How to use Queue Storage from Ruby](../storage-ruby-how-to-use-queue-storage/)
 
 <h3>For Python Developers</h3>
 
 - [How to use Blob Storage from Python](../storage-python-how-to-use-blob-storage/)
-- [How to use Table Storage from Python](..storage-python-how-to-use-table-storage/)
-- [How to use Queue Storage from Python](..storage-python-how-to-use-queue-storage/)
+- [How to use Table Storage from Python](../storage-python-how-to-use-table-storage/)
+- [How to use Queue Storage from Python](../storage-python-how-to-use-queue-storage/)
