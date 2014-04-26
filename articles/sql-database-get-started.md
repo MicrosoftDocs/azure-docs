@@ -3,7 +3,6 @@
 
 
 
-
 #Getting Started with Microsoft Azure SQL Database
 
 In this tutorial you will learn the fundamentals of Microsoft Azure SQL Database administration using the Azure Management portal. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes. 
@@ -37,23 +36,23 @@ To get started with a free account, click free trial in the upper right corner a
 <h2 id="Connect">Step 2: Connect to Azure and create a database</h2>
 
 
-1. Sign in to the [Management Portal](http://manage.windowsazure.com). You should see a navigation pane that looks like this. 
+1. Sign in to the [Management Portal](http://manage.windowsazure.com). You should see a navigation pane that looks like this.
 
-    ![Image1] []
+	![Navigation pane][Image1]
 
 2. Click **New** at the bottom of the page. When you click **New**, a list rolls up the screen showing things you can create.
 
 3. Click **SQL Database** and then click **Custom Create**. 
 
-    ![Image2] []
+	![Navigation pane][Image2]
 
-    Choosing this option lets you create a new server and a SQL database at the same time, with you as the administrator. As the system administrator, you can perform more tasks, including connecting to the Management Portal for SQL Database, which you will do later in this tutorial.  
+Choosing this option lets you create a new server and a SQL database at the same time, with you as the administrator. As the system administrator, you can perform more tasks, including connecting to the Management Portal for SQL Database, which you will do later in this tutorial.  
 
 4.  The Database Settings page appears when you click **Custom Create**. In this page, provide basic information that creates an empty SQL database on the server. Adding tables and data will come in a later step. 
 
     Fill out the Database Settings page as follows:
 
-    ![Image3] []
+	![Navigation pane][Image3]
 
 * Enter **School** for the database name. 
 
@@ -66,15 +65,15 @@ To get started with a free account, click free trial in the upper right corner a
 
 7. Fill out the Server Settings as follows: 
 
-    ![Image4] []
+	![Navigation pane][Image4]
 
-* Enter an administrator name as one word with no spaces. SQL Database uses SQL Authentication over an encrypted connection to validate user identity. A new SQL Server authentication login that has administrator permissions will be created using the name you provide. The administrator name cannot be a Windows user, nor should it be a Windows Live ID. Windows authentication is not supported on SQL Database.
+* Enter an administrator name as one word with no spaces. SQL Database uses SQL Authentication over an encrypted connection to validate user identity. A new SQL Server authentication login that has administrator permissions will be created using the name you provide. The administrator name cannot be a Windows user, nor should it be a Live ID user name. Windows authentication is not supported on SQL Database.
 
 * Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol. Use the help bubble for details about password complexity.
 
-* Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
+* Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Azure application and database in the same region saves you on egress bandwidth cost and data latency.
 
-* Be sure to keep the **Allow Windows Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Windows Azure SQL Reporting.
+* Be sure to keep the **Allow Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Azure SQL Reporting.
 
 * Click the checkmark at the bottom of the page when you are finished.
 
@@ -107,7 +106,7 @@ To configure the firewall so that connections are allowed through, you'll enter 
 
 6. After you save the rule, your page will look similar to the following screenshot.
 
-    ![Image7] []
+	![Navigation pane][Image7]
 
 You now have a SQL Database server on Azure, a firewall rule that enables access to the server, a database object, and an administrator login. But you still don't have a working database that you can query. To do that, your database must have a schema and actual data.
 
@@ -125,7 +124,7 @@ In this step, you run two scripts. The first one creates a schema that defines t
 
 1. Go to the home page. In the [Management Portal](http://manage.windowsazure.com), the **School** database appears in the list of items on the home page.
 
-   ![Image8] []
+	![Navigation pane][Image8]
 
 2. Click on **School** to select it, then click **Manage** at the bottom of the page. This will open the Management Portal for SQL Database. This portal is separate from the Azure Management Portal. You'll use this portal to run Transact-SQL commands and queries.
 
@@ -526,7 +525,7 @@ server page.
 
 5. If you see an error on the page similar to the following, ignore it. Click **New Query** to open a query window that lets you execute Transact-SQL commands on the **master** database.
 
-	![Image15] []
+	![Navigation pane][Image15]
 
 6. Copy and paste the following command into the query window.
 
@@ -543,7 +542,7 @@ After you create a SQL Server authentication login, the next step is to assign t
 
 	On the SQL Database management portal page, the **School** database name is visible in the top left corner.
 
-	![Image12] []
+	![Navigation pane][Image12]
 
 2. Click **New Query** to open a new query window and copy in the following statement. 
 
@@ -579,14 +578,13 @@ If Microsoft Excel is installed on your computer, you can use the following step
 
   Enter a SQL Server authentication login. For testing purposes, you can use the administrator login that you created when you set up the server. For regular data access, use a database user login similar to the one you just created.
 
-    ![Image16] []
+![Navigation pane][Image16]
 
 3.  On the next page, choose the **School** database, and then choose **Person**. Click **Finish**. If you are prompted for login details, type them in and then click **OK**.
 
 4. The Import Data dialog box appears that prompts you to select how and where to import your data. With the default options selected, click **OK**.
 
-	![Image19] []
-
+	![Navigation pane][Image19]
 
 5. In the worksheet, you should see a table with a result set that includes 34 rows from the person table, including PersonID, LastName, FirstName, HireDate, and EnrollmentDate, just like the query results from Step 7. 
 
@@ -609,24 +607,24 @@ There are other methods for moving an on-premises database to SQL Database. If y
 
 
 
-[Image1]: ../media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
-[Image2]: ../media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
-[Image3]: ../media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
-[Image4]: ../media/sql-database-get-started/4ServerSettings_SQLTut.png
-[Image5]: ../media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG
-[Image6]: ../media/sql-database-get-started/6DBConfigFirewall_SQLTut.png
-[Image7]: ../media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
-[Image8]: ../media/sql-database-get-started/8MainPageHome_SQLTut.PNG
-[Image9]: ../media/sql-database-get-started/9dblistschool_SQLTut.png
-[Image10]: ../media/sql-database-get-started/10dbportalmanagebutton_SQLTut.png
-[Image11]: ../media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.png
-[Image12]: ../media/sql-database-get-started/12DBPortalNewQuery_SQLTut.png
-[Image13]: ../media/sql-database-get-started/13DBQueryResults_SQLTut.png
-[Image14]: ../media/sql-database-get-started/14DBPortalConnectMaster_SQLTut.PNG
-[Image15]: ../media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
-[Image16]: ../media/sql-database-get-started/16ExcelConnect_SQLTut.png
-[Image17]: ../media/sql-database-get-started/17ExcelSelect_SQLTut.png
-[Image18]: ../media/sql-database-get-started/18ExcelTable_SQLTut.png
-[Image19]: ../media/sql-database-get-started/19ExcelImport_SQLTut.png
-[Image20]: ../media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.png
+[Image1]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
+[Image2]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
+[Image3]: ./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
+[Image4]: ./media/sql-database-get-started/4ServerSettings_SQLTut.PNG
+[Image5]: ./media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG
+[Image6]: ./media/sql-database-get-started/6DBConfigFirewall_SQLTut.PNG
+[Image7]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
+[Image8]: ./media/sql-database-get-started/20MainPageHome_SQLTut.PNG
+[Image9]: ./media/sql-database-get-started/9dblistschool_SQLTut.PNG
+[Image10]: ./media/sql-database-get-started/10dbportalmanagebutton_SQLTut.PNG
+[Image11]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
+[Image12]: ./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG
+[Image13]: ./media/sql-database-get-started/13DBQueryResults_SQLTut.PNG
+[Image14]: ./media/sql-database-get-started/14DBPortalConnectMaster_SQLTut.PNG
+[Image15]: ./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
+[Image16]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.png
+[Image17]: ./media/sql-database-get-started/17ExcelSelect_SQLTut.PNG
+[Image18]: ./media/sql-database-get-started/18ExcelTable_SQLTut.PNG
+[Image19]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
+[Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 

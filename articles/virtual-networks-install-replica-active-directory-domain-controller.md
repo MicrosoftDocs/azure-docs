@@ -22,7 +22,7 @@ This tutorial walks you through the steps to install an additional domain contro
 
 <h2><a id="Prerequisites"></a>Prerequisites</h2>
 
--	[Create a Virtual Network for Cross-Premises Connectivity](http://www.windowsazure.com/en-us/manage/services/networking/cross-premises-connectivity/) configured between Azure Virtual network and Corp network.
+-	[Configure a Site-to-Site VPN in the Management Portal](http://msdn.microsoft.com/en-us/library/azure/dn133795.aspx) configured between Azure Virtual network and Corp network.
 -	Create a cloud service in the virtual network.
 -	Deploy two VMs in the Cloud Service that are part of the virtual network (specify the subnet where you want to place the VM). For more information, see [Add a Virtual Machine to a Virtual Network](http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/). One VM must be size L or greater in order to attach two data disks to it. The data disks are needed to store:
 	- The Active Directory database and logs.

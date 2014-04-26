@@ -73,11 +73,11 @@ When your application is ready for production, you can lock-down version require
 
 Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js Web Site], and [How to use the Azure Command-Line Tools for Mac and Linux].
 
-[specify the Node.js version]: /en-us/develop/nodejs/common-tasks/specifying-a-node-version/
-[How to use the Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[build and deploy a Node.js Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-[Node.js Web Application with Storage on MongoDB (MongoLab)]: /en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/
-[Publishing with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
-[Build and deploy a Node.js application to an Azure Cloud Service]: /en-us/develop/nodejs/tutorials/getting-started/
+[specify the Node.js version]: /en-us/documentation/articles/nodejs-specify-node-version-windows-azure-apps/
+[How to use the Azure Command-Line Tools for Mac and Linux]: /en-us/documentation/articles/xplat-cli/
+[build and deploy a Node.js Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Node.js Web Application with Storage on MongoDB (MongoLab)]: /en-us/documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/
+[Publishing with Git]: /en-us/documentation/articles/web-sites-publish-source-control/
+[Build and deploy a Node.js application to an Azure Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
 
 

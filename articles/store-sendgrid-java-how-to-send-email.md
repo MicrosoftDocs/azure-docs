@@ -213,7 +213,7 @@ details, see the [SendGrid API documentation][].
 Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
-* Sample that demonstrates using SendGrid in an Azure deployment: [How to Send Email Using SendGrid from Java in an Azure Deployment](/en-us/develop/java/how-to-guides/sendgrid-sample/)
+* Sample that demonstrates using SendGrid in an Azure deployment: [How to send email using SendGrid from Java in an Azure deployment](../store-sendgrid-java-how-to-send-email-example/)
 * SendGrid Java information: <http://sendgrid.com/docs/Code_Examples/java.html>
 * SendGrid API documentation: <http://sendgrid.com/docs/API_Reference/index.html>
 * SendGrid special offer for Azure customers: <http://sendgrid.com/azure.html>

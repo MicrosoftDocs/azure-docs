@@ -28,7 +28,7 @@ Before you begin this tutorial, you must have the following:
 
 	If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
 
-		Select-AzureSubscription <WindowsAzureSubscirptionName>
+		Select-AzureSubscription <AzureSubscriptionName>
 
 
 
@@ -117,12 +117,13 @@ In this tutorial, you will use PowerShell to make a web service call. The other 
 3. Copy the following script into the script pane:
 
 		Write-Host "Set variables ..." -ForegroundColor Green
-		$storageAccountName = "<WindowsAzureStorageAccountName>"
+		$storageAccountName = "<AzureStorageAccountName>"
 		$containerName = "<BlobContainerName>"
 
 		$destBlobName = "tutorials/twitter/data/tweets.txt"
 		
-		$trackString = "Azure, WindowsAzure, Cloud, HDInsight"
+		$trackString = "Azure, Cloud, HDInsight"
+		$track = [System.Uri]::EscapeDataString($trackString);
 		$lineMax = 100  #about 3 minutes every 100 lines
 		
 		$oauth_consumer_key = "<TwitterAppConsumerKey>";
@@ -174,7 +175,6 @@ In this tutorial, you will use PowerShell to make a web service call. The other 
 		$oauth_authorization += 'oauth_token="' + [System.Uri]::EscapeDataString($oauth_token) + '",';
 		$oauth_authorization += 'oauth_version="1.0"';
 		
-		$track = [System.Uri]::EscapeDataString($trackString);
 		$post_body = [System.Text.Encoding]::ASCII.GetBytes("track=" + $track); 
 				
 		Write-Host "Create HTTP web request ..." -ForegroundColor Green
@@ -227,7 +227,7 @@ In this tutorial, you will use PowerShell to make a web service call. The other 
 	<tr><td>$storageAccountName</td><td>The Azure Storage account used for the default HDInsight cluster file system. It is the storage account specified at provision. See <a href="#prerequisites">Prerequisites</a>.</td></tr>
 	<tr><td>$containerName</td><td>The Blob container used for the default HDInsight cluster file system. It is the container specified at provision. See <a href="#prerequisites">Prerequisites</a>.</td></tr>
 	<tr><td>$destBlobName</td><td>This is the output blob name.  The default values is <strong>tutorials/twitter/data/tweets.txt</strong>. If you change the default value, you will need to update the PowerShell scripts accordingly.</td></tr>
-	<tr><td>$trackString</td><td>The web service will return tweets related to these keywords.  The default value is <strong>Azure, WindowsAzure, Cloud, HDInsight</strong>. If you change the default value, you will update the PowerShell scripts accordingly.</td></tr>
+	<tr><td>$trackString</td><td>The web service will return tweets related to these keywords.  The default value is <strong>Azure, Cloud, HDInsight</strong>. If you change the default value, you will update the PowerShell scripts accordingly.</td></tr>
 	<tr><td>$lineMax</td><td>The value determines how many tweets the script will read. It takes about three minutes to read 100 tweets. You can set a larger number, but it will take more time to download.</td></tr>
 	<tr><td>$oauth_consumer_key</td><td>This is the Twitter application <strong>consumer key</strong> you wrote down earlier when you create the Twitter application.</td></tr>
 	<tr><td>$oauth_consumer_secret</td><td>This is the Twitter application <strong>consumer secret</strong> you wrote down earlier.</td></tr>
@@ -262,7 +262,7 @@ The HiveQL script will perform the following:
 2. Copy the following script into the script pane:
 
 		Write-Host "Define variables ..." -ForegroundColor Green
-		$storageAccountName = "<WindowsAzureStorageAccountName>"
+		$storageAccountName = "<AzureStorageAccountName>"
 		$containerName = "<BlobContainerName>"
 		
 		$sourceDataPath = "/tutorials/twitter/data"
@@ -456,7 +456,7 @@ Use the following PowerShell script to run the Hive script. You will need to set
 Use the following PowerShell script to check the Hive job output. You will need to set the first two variables.
 
 	Write-Host "Set the variables ... " -ForegroundColor Green
-	$storageAccountName = "<WindowsAzureStorageAccountName>"   # The storage account used for the default file system specified at provision.
+	$storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at provision.
 	$containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
 	$blob = "tutorials/twitter/output/000000_0" # The name of the blob to be downloaded.
 	

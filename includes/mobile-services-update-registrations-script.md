@@ -2,11 +2,11 @@
 
 1. In the Management Portal, click the **Data** tab and then click the **Registrations** table. 
 
-	![][3]
+	![](./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png)
 
 2. In **Registrations**, click the **Script** tab and select **Insert**.
    
-	![][4]
+	![](./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png)
 
 	This displays the function that is invoked when an insert occurs in the **Registrations** table.
 
@@ -28,6 +28,3 @@
 
    This registers a new insert script, which stores the registration information in the new table.
 
-<!-- images-->
-[3]: ./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png
-[4]: ./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png

@@ -24,7 +24,7 @@ This procedure shows you how to use the PuTTY program to access the virtual mach
 
 	![Open PuTTY](./media/virtual-machines-linux-how-to-log-on/putty.png)
 
-4. Log on to the virtual machine using the account that you specified when the machine was created.
+4. Log on to the virtual machine using the account that you specified when the machine was created. The username is azureuser by default.
 
 	![Log on to the virtual machine](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
