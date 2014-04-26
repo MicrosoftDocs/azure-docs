@@ -117,7 +117,7 @@ Team Explorer shows that a build has been triggered for your check-in.<br/>
 10. While the build is in-progress, take a look at the build definition that was created when you used the wizard to link to Azure.  Open the shortcut menu for the build definition and choose **Edit Build Definition**.<br/>
 ![][25]
 <br/>
-In the **Trigger** tab, you will see that the build definition is set to build on every check-in, by default.<br/>
+In the **Trigger** tab, you will see that the build definition is set to build on every check-in, by default. (For a cloud service, Visual Studio Online builds and deploys the master branch to the staging environment automatically. You still have to do a manual step to deploy to the live site. For a web site that doesn't have staging environment, it deploys the master branch directly to the live site.<br/>
 ![][26]
 <br/>
 In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or web site.<br/>
@@ -136,9 +136,9 @@ The following table shows the available properties in the Deployment section:
 <tr><td>Windows Azure Deployment Environment</td><td>The web site or cloud service name</td></tr>
 </table>
 <br/>
-For cloud services, if the storage account property is left blank, Azure searches for one. If there is a storage
+For cloud services, if the [storage account](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account) property is left blank, Azure searches for one. If there is a storage
 account with the same name as the cloud service, it is used. Otherwise, it uses another storage account,
-or if there is no storage account, it creates one. Even if your service doesn't use storage, a storage account is required for a cloud service to store diagnostics data. The storage account provides a place in Azure for files and other data. For more information, see [What is a storage account?](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account).
+or if there is no storage account, it creates one. Even if your service doesn't use storage, a storage account is required for a cloud service to store diagnostics data. The storage account provides a place in Azure for files and other data.
 
 11. By this time, your build should be completed successfully.<br/>
 ![][28]
