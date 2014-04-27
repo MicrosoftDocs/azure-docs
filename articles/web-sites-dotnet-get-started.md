@@ -205,12 +205,7 @@ The toolbar is not enabled by default; you enable it in the **View - Toolbars** 
 
 ## Next steps
 
-In this tutorial you've seen how to create a simple web application and deploy it to an Azure Web Site. Here are some related topics and resources for learning more about them:
-
-* Other ways to deploy a web project
-* How to manage, scale, and troubleshoot a site
-* How to add database and authorization functionality
-* How to choose between Web Sites, Cloud Services, and VMs for web applications
+In this tutorial you've seen how to create a simple web application and deploy it to an Azure Web Site. Here are some related topics and resources for learning more about them.
 
 ### Other ways to deploy a web project
 
@@ -236,18 +231,18 @@ You might want to look at trace or log output for help with troubleshooting. Vis
 
 Most production web sites use a database and restrict some site functions to certain authorized users. For a tutorial that shows how to get started with database access, authentication, and authorization, see [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site](/en-us/develop/net/tutorials/web-site-with-sql-database/).
 
-## How to add a custom domain name and SSL
+### How to add a custom domain name and SSL
 
 You might want to access a site by using your own domain, for example www.contoso.com instead of contoso.azurewebsites.net. And you can add SSL by using the shared azurewebsites.net domain, but SSL using your own domain would be more secure. For more information, see the following resources:
 
 * [Configuring a custom domain name for an Azure Web Site](/en-us/documentation/articles/web-sites-custom-domain-name/). 
 * [Enable HTTPS for an Azure web site](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)
 
-## How to avoid wake-up wait time after idle time-outs 
+### How to avoid wake-up wait time after idle time-outs 
 
 By default, web sites are unloaded if they have been idle for some period of time. The first request after that has to wait for the site to be reloaded. To avoid that wait time you can use enable the AlwaysOn feature. For more information, see configuration options in [How to Configure Web Sites](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure/).
 
-## How to implement a real-time service
+### How to implement a real-time service
 
 If your web site will include real-time features (such as a chat service, a game, a stock ticker, and so forth), you can get the best performance by using [ASP.NET SignalR](http://www.asp.net/signalr) with the WebSockets transport method. For more information, see [Using SignalR with Windows Azure Web Sites](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites). 
 
