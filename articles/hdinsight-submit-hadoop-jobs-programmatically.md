@@ -700,7 +700,6 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx

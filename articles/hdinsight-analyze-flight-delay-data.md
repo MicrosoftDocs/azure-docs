@@ -114,7 +114,7 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 		$localFolder = "C:\Tutorials\FlightDelays\Data"
 		$destFolder = "tutorials/flightdelays/data"
 		
-		$month = "January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+		$month = "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
 
 	These are the variables and their description: 
 	<table border="1">
