@@ -9,7 +9,7 @@ Azure HDInsight now supports Hadoop 2.2 with HDInsight cluster version 3.0 and t
 
 - **YARN**: A new, general-purpose, distributed, application management framework that has replaced the classic Apache Hadoop MapReduce framework for processing data in Hadoop clusters. It effectively serves as the Hadoop operating system, and takes Hadoop from a single-use data platform for batch processing to a multi-use platform that enables batch, interactive, online and stream processing. This new management framework improves scalability and cluster utilization according to criteria such as capacity guarantees, fairness, and service-level agreements.
 
-- **High Availability**: A second headnode has been added to the Hadoop clusters deployed by HDInsight to increase the availability and reliability of the service needed to manage workloads. Standard implementations of Hadoop clusters typically have a single headnode. These clusters are designed to manage the failure of worker nodes smoothly, but any outages of master services running on the headnode would cause the cluster to cease to work. HDInsight removes this single point of failure with the addition of a secondary headnode. Three [ZooKeeper][zookeeper] nodes have been added and are used for Leader Election of headnodes and to insure that worker nodes and gateways know when to fail over to the secondary headnode  when the active headnode becomes inactive. The switch to new HA cluster configuration doesn’t change the price of the cluster, unless customer provision clusters with extra large head node.
+- **High Availability**: A second headnode has been added to the Hadoop clusters deployed by HDInsight to increase the availability and reliability of the service needed to manage workloads. Standard implementations of Hadoop clusters typically have a single headnode. These clusters are designed to manage the failure of worker nodes smoothly, but any outages of master services running on the headnode would cause the cluster to cease to work. HDInsight removes this single point of failure with the addition of a secondary headnode. Three [ZooKeeper][zookeeper] nodes have been added and are used for Leader Election of headnodes and to insure that worker nodes and gateways are notified to fail over to the secondary headnode  when the primary headnode becomes inactive. The switch to new HA cluster configuration doesn’t change the price of the cluster, unless customer provision clusters with extra large head node.
 
 - **Hive performance**: Order of magnitude improvements to Hive query response times (up to 40x) and to data compression (up to 80%) using the **Optimized Row Columnar** (ORC) format.
 
@@ -26,57 +26,21 @@ With the release of Azure HDInsight on Hadoop 2.2, Microsoft has made HDInsight 
 Only the "wasb://" syntax is supported in HDInsight 3.0 clusters. The older "asv://" syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions. This means that any jobs submitted to an HDInsight 3.0 cluster that explicitly use the “asv://” syntax will fail. The wasb:// syntax should be used instead. Also, jobs submitted to any HDInsight 3.0 clusters that are created with an existing metastore that contains explicit references to resources using the asv:// syntax will fail. These metastores will need to be recreated using the wasb:// to address resources.
 
 ##HDInsight versions
-HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice provisions a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution.
+HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice provisions a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The component version associated with each HDInsight cluster version are itemized in the following table. Note that the default cluster version used by [Azure HDInsight](http://go.microsoft.com/fwlink/?LinkID=285601) is currently 2.1 based on HDP 1.3.
 
-
-###Cluster version 3.0
-
-Azure HDInsight now supports Hadoop 2.2. It is based on the Hortonworks Data Platform version 2.0 and provides Hadoop services with the component versions itemized in the following table:
 
 <table border="1">
-<tr><th>Component</th><th>Version</th></tr>
-<tr><td>Apache Hadoop</td><td>2.2.0</td></tr>
-<tr><td>Apache Hive</td><td>0.12.0</td></tr>
-<tr><td>Apache Pig</td><td>0.12</td></tr>
-<tr><td>Apache Sqoop</td><td>1.4.4</td></tr>
-<tr><td>Apache Oozie</td><td>4.0.0</td></tr>
-<tr><td>Apache HCatalog</td><td>Merged with Hive</td></tr>
-<tr><td>Apache Templeton</td><td>Merged with Hive</td></tr>
-<tr><td>Ambari</td><td>1.4.1</td></tr>
-</table>
-
-
-###Cluster version 2.1 (Default)
-
-The default cluster version used by [Azure HDInsight](http://go.microsoft.com/fwlink/?LinkID=285601) is 2.1. It is based on the Hortonworks Data Platform version 1.3.0 and provides Hadoop services with the component versions itemized in the following table:
-
-<table border="1">
-<tr><th>Component</th><th>Version</th></tr>
-<tr><td>Apache Hadoop</td><td>1.2.0</td></tr>
-<tr><td>Apache Hive</td><td>0.11.0</td></tr>
-<tr><td>Apache Pig</td><td>0.11</td></tr>
-<tr><td>Apache Sqoop</td><td>1.4.3</td></tr>
-<tr><td>Apache Oozie</td><td>3.2.2</td></tr>
-<tr><td>Apache HCatalog</td><td>Merged with Hive</td></tr>
-<tr><td>Apache Templeton</td><td>Merged with Hive</td></tr>
-<tr><td>Ambari</td><td>API v1.0</td></tr>
-</table>
-
-
-###Cluster version 1.6
-
-[Azure HDInsight](http://go.microsoft.com/fwlink/?LinkID=285601) cluster version 1.6 is also available. It is based on the Hortonworks Data Platform version 1.1.0 and provides Hadoop services with the component versions itemized in the following table:
-
-<table border="1">
-<tr><th>Component</th><th>Version</th></tr>
-<tr><td>Apache Hadoop</td><td>1.0.3</td></tr>
-<tr><td>Apache Hive</td><td>0.9.0</td></tr>
-<tr><td>Apache Pig</td><td>0.9.3</td></tr>
-<tr><td>Apache Sqoop</td><td>1.4.2</td></tr>
-<tr><td>Apache Oozie</td><td>3.2.0</td></tr>
-<tr><td>Apache HCatalog</td><td>0.4.1</td></tr>
-<tr><td>Apache Templeton</td><td>0.1.4</td></tr>
-<tr><td>SQL Server JDBC Driver</td><td>3.0</td></tr>
+<tr><th>Component</th><th>Version 3.0</th><th>Version 2.1 (Default)</th><th>Version 1.6</th></tr>
+<tr><td>Hortonworks Data Platform (HDP)</td><td>2.2.</td><td>1.3</td><td>1.1</td></tr>
+<tr><td>Apache Hadoop</td><td>2.2.0</td><td>1.2.0</td><td>1.0.3</td></tr>
+<tr><td>Apache Hive</td><td>0.12.0</td><td>0.11.0</td><td>0.9.0</td></tr>
+<tr><td>Apache Pig</td><td>0.12.0</td><td>0.11.0</td><td>0.9.3</td></tr>
+<tr><td>Apache Sqoop</td><td>1.4.4</td><td>1.4.3</td><td>1.4.2</td></tr>
+<tr><td>Apache Oozie</td><td>4.0.0</td><td>3.2.2</td><td>3.2.0</td></tr>
+<tr><td>Apache HCatalog</td><td>Merged with Hive</td><td>Merged with Hive</td><td>0.4.1</td></tr>
+<tr><td>Apache Templeton</td><td>Merged with Hive</td><td>Merged with Hive</td><td>0.1.4</td></tr>
+<tr><td>Ambari</td><td>1.4.1</td><td>API v1.0</td><td>no version
+</td></tr>
 </table>
 
 
@@ -93,18 +57,20 @@ If you use the **Quick Create** option, you will get the version 2.1 of HDInsigh
 The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform (HDP) versions that they use, and their release dates. When known, their deprecation dates will also be provided. Highly available clusters with two head nodes are deployed by default for HDInsight 2.1, and 3.0 clusters. They are not available for HDInsight 1.6 clusters.
 
 <table border="1">
-<tr><th>HDInsight version</th><th>HDP version</a><th>High Availability</th></th><th>Release date</th></tr>
-<tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Yes</td><td>02/11/2014</td></tr>
-<tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Yes</td><td>10/28/2013</td></tr>
-<tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>10/28/2013</td></tr>
+<tr><th>HDInsight Version</th><th>HDP Version</a><th>High Availability</th></th><th>Release Date</th><th>Support Expiration Date</th><th>Deprecation Date</th></tr>
+<tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Yes</td><td>02/11/2014</td><td>08/11/2014</td><td></td></tr>
+<tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Yes</td><td>10/28/2013</td><td>05/12/2014</td><td>05/01/2015</td></tr>
+<tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>10/28/2013</td><td>04/28/2014</td><td>05/01/2014</td></tr>
 </table><br/>
 
 
 ### The Service-Level Agreement (SLA) for HDInsight cluster versions 
-The SLA is defined in terms of a "Support Window". A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Support.  An HDInsight cluster is outside the Support Window if its version has a Support Expiration Date past the current date.  A list of supported HDInsight cluster versions may be found in the table above.  The Support Expiration Date for a given HDInsight version (denoted as version X) is calculated as the later of:  
+The SLA is defined in terms of a "Support Window". A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Support.  An HDInsight cluster is outside the Support Window if its version has a **Support Expiration Date** past the current date.  A list of supported HDInsight cluster versions may be found in the table above.  The Support Expiration Date for a given HDInsight version (denoted as version X) is calculated as the later of:  
 
 - Formula 1:  Add 180 days to the date HDInsight cluster version X was released
 - Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the Azure Management Portal.
+
+The **Deprecation Date** is the date after which the cluster version can no be created on HDInsight.
 
 > [WACOM.NOTE] Both HDInsight 2.1 and 3.0 cluster run on Azure Guest OS [Family 4](http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation) which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5. and 4.5.1. 
 
