@@ -595,28 +595,27 @@ In this tutorial, you have an HDInsight Emulator installed, and have ran some Ha
 - [Get started using Azure HDInsight][hdinsight-get-started]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 - [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-deploy-streaming]
-- [HDInsight emulator release notes](https://gettingstarted.hadooponazure.com/releaseNotes.html)
+- [HDInsight emulator release notes][hdinsight-emulator-release-notes]
 - [MSDN forum for discussing HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)
 
 
 
 [azure-sdk]: http://www.windowsazure.com/en-us/downloads/
-[azure-create-storage-account]: /en-us/manage/services/storage/how-to-create-a-storage-account/
+[azure-create-storage-account]: ../storage-create-storage-account/
 [azure-management-portal]: https://manage.windowsazure.com/
 
-[hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 
 [hdinsight-emulator-install]: http://www.microsoft.com/web/gallery/install.aspx?appid=HDINSIGHT
-[hdinsight-emulator-release-notes]: http://gettingstarted.hadooponazure.com/releaseNotes.html
+[hdinsight-emulator-release-notes]: ../hdinsight-emulator-release-notes/
 
-[hdinsight-blob-store]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
-[hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
+[hdinsight-blob-store]: ../howto-blob-store/
+[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
-[hdinsight-get-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
-[hdinsight-develop-deploy-streaming]: /en-us/manage/services/hdinsight/develop-deploy-hadoop-streaming-jobs/
+[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-develop-deploy-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: ../install-configure-powershell/
 
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
