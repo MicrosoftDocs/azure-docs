@@ -3,9 +3,9 @@
 
 #Deploy a Ruby on Rails Web application to an Azure VM using Capistrano
 
-This tutorial describes how to deploy a Ruby on Rails web site to an Azure Virtual Machine using [Capistrano 3](https://github.com/capistrano/capistrano/). This tutorial also uses [Nginx](http://nginx.org/) and [Unicorn](https://github.com/blog/517-unicorn) to host the web site, and [PostgreSQL](https://www.postgresql.org) to store application data on the virtual machine.
+This tutorial describes how to deploy a Ruby on Rails web site to an Azure Virtual Machine using [Capistrano 3](https://github.com/capistrano/capistrano/). Once deployed, you will use [Nginx](http://nginx.org/) and [Unicorn](https://github.com/blog/517-unicorn) to host the web site. [PostgreSQL](https://www.postgresql.org) will store application data for the deployed application.
 
-This tutorial assumes you have no prior experience using Azure, but are familiar with Ruby, Rails, Git, and Linux. Upon completing this tutorial, you will have a Ruby on Rails-based application up and running in the cloud.
+This tutorial assumes you have no prior experience using Azure, but assumes that you are familiar with Ruby, Rails, Git, and Linux. Upon completing this tutorial, you will have a Ruby on Rails-based application up and running in the cloud.
 
 You will learn how to:
 
@@ -23,7 +23,7 @@ The following is a screenshot of the completed application:
 
 ![a browser displaying Listing Posts][blog-rails-cloud]
 
-> [WACOM.NOTE] The application used for this tutorial includes native binary components. You may encounter problems if your development environment is not Linux-based as the Gemfile.lock file created in the development environment may not include entries for the native Linux versions of the gems.
+> [WACOM.NOTE] The application used for this tutorial includes native binary components. You may encounter errors when deploying to the VM if your development environment is not Linux-based. The Gemfile.lock file used during deployment will contain platform-specific gems, which may not include entries for the native Linux versions of the gems required on the VM.
 > 
 > Specific steps are called out for using a Windows development environment. However, if you encounter errors during or after deployment that are not covered in this article, you may wish to retry the steps in this article from a Linux-based development environment.
 
@@ -143,15 +143,33 @@ In the next section, you will create the Virtual Machine that this application w
 
 Follow the instructions given [here][vm-instructions] to create an Azure virtual machine that hosts Linux.
 
-> [WACOM.NOTE] The steps in this tutorial were performed on an Azure Virtual Machine hosting Ubuntu 12.10. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.
+1. Sign in to the Azure [Management Portal][management-portal]. On the command bar, select **New**.
 
-> [WACOM.NOTE] You __only__ need to create the virtual machine. Stop after learning how to connect to the virtual machine using SSH.
+2. Select **Virtual Machine**, and then select **From Gallery**.
 
-> [WACOM.NOTE] The login you created for the virtual machine will be used to deploy the Rails application.
+3. From **Choose an image**, select **Ubuntu**, and then select version **12.04 LTS**. Select the arrow to continue.
+
+	> [WACOM.NOTE] The steps in this tutorial were performed on an Azure Virtual Machine hosting Ubuntu 12.04 LTS. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.
+
+4. In the **Virtual Machine Name** type the name you want to use. This name will be used to create the domain name of this virtual machine.
+
+5. In **New User Name**, type the name of the administrator account for this machine.
+
+	> [WACOM.NOTE] For this tutorial, the administrator account will also be used to deploy the application. For information on creating a separate account for deployment, see the [Capistrano][capistrano] documentation.
+
+6. Under **Authentication**, check **Upload compatible SSH key for authentication**, then browse and select the **.pem** file containing the certificate. Finally, select the arrow to continue.
+
+	> [WACOM.NOTE] If you are unfamiliar with generating or using an SSH key, see [How to use SSH with Linux on Azure][ssh-on-azure] for instructions on creating SSH keys.
+	> 
+	> You may also enable password authentication, however the SSH Key must also be provided, as it is used to automate deployment.
+
+7. Under **Endpoints**, use the **Enter or selelct a value** dropdown to select **HTTP**. The other fields on this page can be left at the default values. Make a note of the **Cloud service DNS name**, as this value will be used by later steps. Finally, select the arrow to continue.
+
+8. On the final page, select the checkmark to create the virtual machine.
 
 ###Install Git, Ruby, and Nginx
 
-Connect to the virtual machine using SSH and use the following commands to prepare the hosting environment for your Ruby application.
+After the virtual machine has been created, connect to it using SSH and use the following commands to prepare the hosting environment for your Ruby application.
 
 	sudo apt-get update
 	sudo apt-get -y upgrade
@@ -193,7 +211,7 @@ After the installation completes, use the following command to verify that Ruby 
 
 This should return `ruby 2.0.0p451` as the version.
 
-###Install a database
+###Install PostgreSQL
 
 The default database used by Rails for development is SQLite. Usually you will use something different in production. The following steps install PostgreSQL on the virtual machine, then create a user and database. Later steps will configure the Rails application to use PostgreSQL during deployment.
 
@@ -206,6 +224,8 @@ The default database used by Rails for development is SQLite. Usually you will u
 		sudo -u postgres createuser -D -A -P my_username
 		sudo -u postgres createdb -O my_username my_database
 
+	> [WACOM.NOTE] Use the user name for the database name as well. This is required for the capistrano-postgresql gem used by this application.
+
 	When prompted, enter a password for the user. When prompted to allow the user to create new roles, select **y**, as this user will be used during deployment to create the database and login that will be used by your Rails application.
 
 7. To verify that you can connect to the database using the user account, use the following command. Replace **my_username** and **my_database** with the values used previously.
@@ -214,7 +234,7 @@ The default database used by Rails for development is SQLite. Usually you will u
 
 	You should arrive at a `database=>` prompt. To exit the psql utility, enter `\q` at the prompt.
 
-##<a id="nginx"></a>Open port 80 and test Nginx
+###<a id="nginx"></a>Open port 80 and test Nginx
 
 Nginx provides a default web site that we can use to make sure our virtual machine is accepting web traffic. Perform the following steps enable traffic over port 80 and test the default Nginx web site.
 
@@ -224,40 +244,11 @@ Nginx provides a default web site that we can use to make sure our virtual machi
 
 	This will start the Nginx service, which will listen for incoming traffic on port 80.
 
-2. In your browser, navigate to the [Azure Management Portal][management-portal] and select your Virtual Machine.
-
-	![virtual machine list][vmlist]
-
-3. Select **ENDPOINTS** at the top of the page, and then click **+ ADD ENDPOINT** at the bottom of the page.
-
-	![endpoints page][endpoints]
-
-4. In the **ADD ENDPOINT** dialog, click the arrow in the bottom left to continue to the second page, and enter the following information in the form:
-
-	* **NAME**: HTTP
-
-	* **PROTOCOL**: TCP
-
-	* **PUBLIC PORT**: 80
-
-	* **PRIVATE PORT**: 80
-
-	This will create a public port of 80 that will route traffic to the private port of 80 - where Nginx is listening.
-
-	![new endpoint dialog][new-endpoint]
-
-5. Click the checkmark to save the endpoint.
-
-6. A message should appear that states **UPDATE IN PROGRESS**. Once this message disappears, the endpoint is active. You may now test your application by navigating to the DNS name of your virtual machine. The web site should appear similar to the following:
+6. Since the HTTP port was enabled during creation of the VM, you may now test your application by navigating to the DNS name of your virtual machine. The web site should appear similar to the following:
 
 	![nginx welcome page][nginx-welcome]
 
-2.	Stop and remove the default Nginx website with the following commands:
-
-		sudo rm /etc/nginx/sites-enabled/default
-		sudo service nginx reload
-
-	The deployment scripts ran later in this tutorial will make the blog_app the default website served by Nginx.
+	> [WACOM.NOTE] The deployment scripts used later in this tutorial will make the blog_app the default website served by Nginx.
 
 At this point, you have an Azure Virtual Machine with Ruby, Nginx, and PostgreSQL that is ready for your deployment. In the next section, you will modify your Rails application to add the scripts and information that perform the deployment.
 
@@ -288,9 +279,9 @@ On your development environment, modify the application to use the Unicorn web s
 	> `  gem 'unicorn'`
 	> `end`
 
-	Note that there are several capistrano-* gems specified. These are helpers that work with specific things we are using on the production server (rbenv,) or the framework (rails).
+	Most of the capistraon-* gems are helpers that work with specific things we are using on the production server (rbenv,) or the framework (rails).
 
-	Capistrano-unicorn-nginx automatically creates scripts used with Unicorn and Nginx during deployment, while capistrano-postgresql will automatically generate a database, user, and password in PostgreSQL for your application. While you don't have to use these, it makes the deployment process much simplier.
+	The capistrano-unicorn-nginx gem automatically creates scripts used with Unicorn and Nginx during deployment so we don't have to create these manually. The capistrano-postgresql automatically generates a database, user, and password in PostgreSQL for your application. While you don't have to use these, they both make the deployment process much simplier.
  
 5.	Use the following commands to install the new gems.
 		
@@ -410,7 +401,6 @@ The application should now be ready for deployment.
 ##<a id="deploy"></a>Deploy
 
 
-
 2.	From your local development machine, use the following command to deploy the configuration files used by the application to the VM.
 
 		bundle exec cap production setup
@@ -473,3 +463,5 @@ To learn how to use the Azure SDK for Ruby to access Azure services from your Ru
 
 [management-portal]: https://manage.windowsazure.com/
 [sqlite3]: http://www.sqlite.org/
+[ssh-on-azure]: http://azure.microsoft.com/en-us/documentation/articles/linux-use-ssh-key/
+[capistrano]: http://capistranorb.com
