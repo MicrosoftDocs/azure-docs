@@ -30,71 +30,11 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 * [How To: Delete a Queue][]   
 * [Next Steps][]
 
-## <a name="what-is"> </a>What is the Queue Service?
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-The Azure Queue service is a service for storing large numbers of
-messages that can be accessed from anywhere in the world via
-authenticated calls using HTTP or HTTPS. A single queue message can be
-up to 64KB in size, a queue can contain millions of messages, up to the
-100TB total capacity limit of a storage account. Common uses of the Queue
-service include:
+<h2><a name="create-account"></a><span  class="short-header">Create an account</span>Create an Azure Storage account</h2>
 
--   <span>Creating a backlog of work to process asynchronously</span>
--   Passing messages from an Azure web role to a worker role
-
-## <a name="concepts"> </a>Concepts
-
-The Queue service contains the following components:
-
-![Queue1][Queue1]
-
--   **URL format:** Queues are addressable using the following URL
-    format:   
-    
-		http://storageaccount.queue.core.windows.net/queue  
-      
-    The following URL addresses one of the queues in the diagram:  
-    
-		http://myaccount.queue.core.windows.net/imagesToDownload
-
--   **Storage Account:** All access to Azure Storage is done
-    through a storage account. A storage account is the highest level of
-    the namespace for accessing queues. The total size of blob, table,
-    and queue contents in a storage account cannot exceed 100TB.
-
--   **Queue:** A queue contains a set of messages. All messages must be
-    in a queue.
-
--   **Message:** A message, in any format, of up to 64KB.
-
-## <a name="create-account"> </a>Create an Azure Storage Account
-
-To use storage operations, you need an Azure storage account. You
-can create a storage account by following these steps. (You can also
-create a storage account [using the REST API][].)
-
-1.  Log into the [Azure Management Portal].
-
-2.  At the bottom of the navigation pane, click **+NEW**.
-
-	![+new][plus-new]
-
-3.  Click **Storage Account**, and then click **Quick Create**.
-
-	![Quick create dialog][quick-create-storage]
-
-4.  In URL, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-
-5.  Choose a Region/Affinity Group in which to locate the
-    storage. If you will be using storage from your Azure
-    application, select the same region where you will deploy your
-    application.
-
-6.  Click **Create Storage Account**.
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Create a Node.js Application
 

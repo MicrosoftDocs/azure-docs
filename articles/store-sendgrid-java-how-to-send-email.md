@@ -1,4 +1,4 @@
-<properties linkid="dev-java-how-to-access-control" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Java) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" description="Learn how send email with the SendGrid email service on Azure. Code samples written in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="waltpo" solutions="" manager="keboyd" editor="mollybos" />
+<properties linkid="dev-java-how-to-access-control" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Java) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" description="Learn how send email with the SendGrid email service on Azure. Code samples written in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 # How to Send Email Using SendGrid from Java
 
@@ -213,7 +213,7 @@ details, see the [SendGrid API documentation][].
 Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
-* Sample that demonstrates using SendGrid in an Azure deployment: [How to Send Email Using SendGrid from Java in an Azure Deployment](/en-us/develop/java/how-to-guides/sendgrid-sample/)
+* Sample that demonstrates using SendGrid in an Azure deployment: [How to send email using SendGrid from Java in an Azure deployment](../store-sendgrid-java-how-to-send-email-example/)
 * SendGrid Java information: <http://sendgrid.com/docs/Code_Examples/java.html>
 * SendGrid API documentation: <http://sendgrid.com/docs/API_Reference/index.html>
 * SendGrid special offer for Azure customers: <http://sendgrid.com/azure.html>

@@ -108,9 +108,9 @@ For information on specifying a Node.js version for your application, see [Speci
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
-[How to Use The Azure Command-Line Tools]: https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/
-[Using Node.js Modules with Azure Applications]: https://www.windowsazure.com/en-us/develop/nodejs/common-tasks/working-with-node-modules/
-[Specifying a Node.js version in an Azure application]: https://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/
+[How to Use The Azure Command-Line Tools]: /en-us/documentation/articles/xplat-cli/
+[Using Node.js Modules with Azure Applications]: /en-us/documentation/articles/nodejs-use-node-modules-azure-apps/
+[Specifying a Node.js version in an Azure application]: /en-us/documentation/articles/nodejs-specify-node-version-azure-apps/
 [Azure Management Portal]: https://manage.windowsazure.com/
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png

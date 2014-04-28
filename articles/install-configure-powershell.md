@@ -79,6 +79,11 @@ download the subscription information. The information is contained in a .publis
 - The **Import-AzurePublishSettingsFile** imports the .publishsettings file for use by the module. This file includes a management certificate that has security credentials. 
 
 <div class="dev-callout"> 
+<b>Note</b>
+<p>The cmdlets in the AzureResourceManager module require the Azure AD method (Add-AzureAccount). These cmdlets do not support publish settings files. For more information about the cmdlets in the AzureResourceManager module, see <a href="http://go.microsoft.com/fwlink/?LinkID=394765">Azure Resource Manager Cmdlets</a>.</p> 
+</div>
+
+<div class="dev-callout"> 
 <b>Important</b> 
 <p>We recommend that you delete the publishing profile that you
 downloaded using <b>Get-AzurePublishSettingsFile</b> after you import those

@@ -49,7 +49,7 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 1. Open Azure PowerShell console window as instructed in [Install and configure Azure PowerShell][powershell-install-configure].
 2. Set the values of the first five variables in the following script:
 
-		$subscriptionName = "<WindowsAzureSubscriptionName>"
+		$subscriptionName = "<AzureSubscriptionName>"
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
 		
@@ -226,7 +226,7 @@ The following procedure uses PowerShell to submit a Sqoop job.
 1. Open Azure PowerShell console window as instructed in [Install and configure Azure PowerShell][powershell-install-configure].
 2. Set the values of the first eight variables in the following script:
 
-		$subscriptionName = "<WindowsAzureSubscriptionName>"
+		$subscriptionName = "<AzureSubscriptionName>"
 		$clusterName = "<HDInsightClusterName>"
 		
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"

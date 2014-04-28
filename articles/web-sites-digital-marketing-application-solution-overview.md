@@ -122,7 +122,7 @@ Azure Web Sites are a good choice for reusable web content that is customized fo
 </tr>
 <tr>
    <td valign="middle"><strong>Deploy</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/">Publishing from Source Control to Azure Web Sites</a><br/>- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/">Deploying an ASP.NET Web Application to an Azure Web Site</a></td>
+   <td valign="top">- <a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/">How to Deploy an Azure Web Site</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/">Publishing from Source Control to Azure Web Sites</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>Social Media</strong></td>
