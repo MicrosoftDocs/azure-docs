@@ -34,7 +34,7 @@ The **From Gallery** option allows you to setup a new site with one of several f
 
 Like most services in Azure, you must select an Azure region for your new Web Site. Azure has multiple regions located around the world. Once you deploy your web site to any one region, it is accessible globally on the internet. However, multiple regions provides greater flexibility. One obvious benefit is to deploy sites in regions that are closest to users. 
 
-For details on the steps to create a new web site, see [How to Create and Deploy a Web Site][howtocreatewebsites].
+For details on the steps to create a new web site, see [Get started with Azure Web Sites and ASP.NET][howtocreatewebsites].
 
 ##<a name="deploywebsite"></a>Deploy the Web Site
 There are several ways to deploy your web site to Azure. If you selected a framework from the gallery, you already have a starter site deployed. However, to make any progress, you still must set up some type of editing and deployment procedure. Some of the deployment options include:
@@ -189,7 +189,7 @@ To create your organization's (.COM) site, the standard tasks include choosing a
 </tr>
 <tr>
    <td valign="middle"><strong>Create</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/">How to Create and Deploy a Web Site</a></td>
+   <td valign="top">- <a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/">Get started with Azure Web Sites and ASP.NET</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>Deploy</strong></td>
@@ -216,7 +216,7 @@ To create your organization's (.COM) site, the standard tasks include choosing a
   
   
   [scenariodigitalmarketing]:/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [howtocreatewebsites]:/en-us/manage/services/web-sites/how-to-create-websites/
+  [howtocreatewebsites]:/en-us/documentation/articles/web-sites-dotnet-get-started
   [webmatrix]:http://www.microsoft.com/web/webmatrix/
   [publishingwithgit]:/en-us/develop/net/common-tasks/publishing-with-git/
   [aspnetgetstarted]:/en-us/develop/net/tutorials/get-started/
