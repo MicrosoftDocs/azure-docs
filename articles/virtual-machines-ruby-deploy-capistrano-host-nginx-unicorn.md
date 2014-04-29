@@ -127,14 +127,14 @@ When deploying an application using Capistrano, the files to are pulled from a r
 
 1.	Create a new repository on [GitHub](https://github.com/). If you do not have a GitHub account, you can sign up for one for free. The following steps assume that the repository name is **blog_app**.
 
-	> [WACOM.NOTE] The scripts created in later sections of this document will contain the address of your virtual machine and the user name used to deploy the application over SSH. For this reason, we recommend that you use a private GitHub repository if possible.
+	> [WACOM.NOTE] To support automated deployments of your application, you should use SSH keys to authenticate to GitHub. For more information, see the GitHub documentation on [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys).
 
 2.	From the command prompt, change directories to the **blog_app** directory and run the following commands to upload the application to your GitHub repository. Replace **YourGitHubName** with the name of your GitHub account.
 
 		git init
 		git add .
 		git commit -m "initial commit on azure"
-		git remote add origin https://github.com/YourGitHubName/blog-azure.git
+		git remote add origin git@github.com:YourGitHubName/blog-azure.git
 		git push -u origin master
 
 In the next section, you will create the Virtual Machine that this application will be deployed to.
@@ -163,7 +163,7 @@ Follow the instructions given [here][vm-instructions] to create an Azure virtual
 	> 
 	> You may also enable password authentication, however the SSH Key must also be provided, as it is used to automate deployment.
 
-7. Under **Endpoints**, use the **Enter or selelct a value** dropdown to select **HTTP**. The other fields on this page can be left at the default values. Make a note of the **Cloud service DNS name**, as this value will be used by later steps. Finally, select the arrow to continue.
+7. Under **Endpoints**, use the **Enter or select a value** dropdown to select **HTTP**. The other fields on this page can be left at the default values. Make a note of the **Cloud service DNS name**, as this value will be used by later steps. Finally, select the arrow to continue.
 
 8. On the final page, select the checkmark to create the virtual machine.
 
@@ -193,7 +193,7 @@ After the virtual machine has been created, connect to it using SSH and use the 
 
 > [WACOM.NOTE] The **~/.rbenv/bin/rbenv install 2.0.0-p451** command can take several minutes to complete.
 
-The **rbenv-install.sh** script peforms the following actions:
+The **rbenv-install.sh** script performs the following actions:
 	
 * Updates and upgrades currently installed packages
 * Installs build tools
@@ -386,7 +386,7 @@ On your development environment, modify the application to use the Unicorn web s
         # set to production for Rails
 		set :rails_env, :production
 
-	This file provies information specific to production deployments.
+	This file provides information specific to production deployments.
 
 8.	Run the following commands to commit the changes to the files you modified in previous steps, and then upload the changes to GitHub.
 
@@ -400,18 +400,17 @@ The application should now be ready for deployment.
 
 ##<a id="deploy"></a>Deploy
 
-
 2.	From your local development machine, use the following command to deploy the configuration files used by the application to the VM.
 
 		bundle exec cap production setup
 
-	Capistrano will connect to the VM and create the directory (~/apps) that the application will be deployed to. If this is the first deployment, the capistrano-postgresql gem will also create a role and database in PostgreSQL on the server. It will also create a database.yml configuration file that Rails will used to connect to the database.
+	Capistrano will connect to the VM using SSH, and then create the directory (~/apps) that the application will be deployed to. If this is the first deployment, the capistrano-postgresql gem will also create a role and database in PostgreSQL on the server. It will also create a database.yml configuration file that Rails will used to connect to the database.
 
 	> [WACOM.NOTE] If you receive an error of **Error reading response length from authentication socket** when deploying, you may need to start the SSH agent on your development environment using the `ssh-agent` command. For example, adding `eval $(ssh-agent)` to your ~/.bash\_profile file.
 	> 
-	> You may also need to add the SSH key to the agent cache using the `ssh-add` key.
+	> You may also need to add the SSH key to the agent cache using the `ssh-add` command.
 
-4.	Do a production deploy using the following command. This will deploy the application to the virtual machine, start the Unicorn service, and configure Nginx to route traffic to Unicorn.
+4.	Perform a production deploy using the following command. This will deploy the application to the virtual machine, start the Unicorn service, and configure Nginx to route traffic to Unicorn.
 
 		bundle exec cap production deploy
 
@@ -421,11 +420,17 @@ The application should now be ready for deployment.
 
 	> [WACOM.NOTE] Some portions of the deployment may return 'exit status 1 (failed).' These can generally be ignored as long as the deployment completes successfully.
 
+	> [WACOM.NOTE] On some systems, you may encounter a situation where the SSH Agent cannot forward credentials to the remote VM when authenticating to GitHub. If this occurs, you can work around the error by modifying the **config/deploy.rb** file and change the `set :repo_url` line to use HTTPS when accessing Github. When using HTTPS, you must specify your GitHub user name and password (or authentication token,) as part of the URL. For example:
+	> 
+	> `set :repo_url, 'https://you:yourpassword@github.com/You/yourrepository.git'
+	> 
+	> While this should allow you to bypass the error and complete this tutorial, this is not a recommended solution for a production deployment, as it stores your authentication credentials in plain text as part of the application. You should consult documentation for your operating system on using forwarding with the SSH Agent
+
 At this point, your Ruby on Rails application should be running on your Azure virtual machine. To verify this, enter the DNS name of your virtual machine in your web browser. For example, http://railsvm.cloudapp.net. The  posts index should appear and you should be able to create, edit and delete posts.
 
 ##<a id="next"></a>Next steps
 
-In this article you have learned how to create and publish a basic forms-based Rails application to an Azure Virtual Machine using Capistrano. Working with a basic application such as the one in this article only scratches the surface of what you can do using Capistrano for deployment. For more information on using Capistrano, see:
+In this article you have learned how to create and publish a basic Rails application to an Azure Virtual Machine using Capistrano. Working with a basic application such as the one in this article only scratches the surface of what you can do using Capistrano for deployment. For more information on using Capistrano, see:
 
 * [Capistranorb.com](http://capistranorb.com) - The Capistrano site.
 * [Azure, Ruby on Rails, Capistrano 3, & PostgreSQL](http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql) - An alternative approach to deploying to Azure that involves custom deployment scripts.
