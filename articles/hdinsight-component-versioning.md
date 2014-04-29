@@ -9,7 +9,7 @@ Azure HDInsight now supports Hadoop 2.2 with HDInsight cluster version 3.0 and t
 
 - **YARN**: A new, general-purpose, distributed, application management framework that has replaced the classic Apache Hadoop MapReduce framework for processing data in Hadoop clusters. It effectively serves as the Hadoop operating system, and takes Hadoop from a single-use data platform for batch processing to a multi-use platform that enables batch, interactive, online and stream processing. This new management framework improves scalability and cluster utilization according to criteria such as capacity guarantees, fairness, and service-level agreements.
 
-- **High Availability**: A second headnode has been added to the Hadoop clusters deployed by HDInsight to increase the availability and reliability of the service needed to manage workloads. Standard implementations of Hadoop clusters typically have a single headnode. These clusters are designed to manage the failure of worker nodes smoothly, but any outages of master services running on the headnode would cause the cluster to cease to work. HDInsight removes this single point of failure with the addition of a secondary headnode. Three [ZooKeeper][zookeeper] nodes have been added and are used for Leader Election of headnodes and to insure that worker nodes and gateways are notified to fail over to the secondary headnode  when the primary headnode becomes inactive. The switch to new HA cluster configuration doesn’t change the price of the cluster, unless customer provision clusters with extra large head node.
+- **High Availability**: A second headnode has been added to the Hadoop clusters deployed by HDInsight to increase the availability of the service. Standard implementations of Hadoop clusters typically have a single headnode. HDInsight removes this single point of failure with the addition of a secondary headnode. The switch to new HA cluster configuration doesn’t change the price of the cluster, unless customer provision clusters with extra large head node.
 
 - **Hive performance**: Order of magnitude improvements to Hive query response times (up to 40x) and to data compression (up to 80%) using the **Optimized Row Columnar** (ORC) format.
 
@@ -65,6 +65,7 @@ The following table lists the versions of HDInsight currently available, the cor
 
 
 ### The Service-Level Agreement (SLA) for HDInsight cluster versions 
+
 The SLA is defined in terms of a "Support Window". A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Support.  An HDInsight cluster is outside the Support Window if its version has a **Support Expiration Date** past the current date.  A list of supported HDInsight cluster versions may be found in the table above.  The Support Expiration Date for a given HDInsight version (denoted as version X) is calculated as the later of:  
 
 - Formula 1:  Add 180 days to the date HDInsight cluster version X was released
@@ -74,7 +75,7 @@ The **Deprecation Date** is the date after which the cluster version can no be c
 
 > [WACOM.NOTE] Both HDInsight 2.1 and 3.0 cluster run on Azure Guest OS [Family 4](http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation) which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5. and 4.5.1. 
 
-**Additional notes and information on versioning**	
+### Additional notes and information on versioning	
 
 * The SQL Server JDBC Driver is used internally by HDInsight and is not used for external operations. If you wish to connect to HDInsight using ODBC, please use the Microsoft Hive ODBC driver. For more information on using Hive ODBC, [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC].
 
