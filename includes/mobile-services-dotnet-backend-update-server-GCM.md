@@ -1,4 +1,10 @@
-1. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile service project. Open TodoItemController.cs and update the `PostTodoItem` method definition with the following code:  
+1. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile service project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
+
+
+		using System;
+		using System.Collections.Generic;
+
+2. Update the `PostTodoItem` method definition with the following code:  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -23,5 +29,4 @@
         }
 
     This code will send a push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
-
 
