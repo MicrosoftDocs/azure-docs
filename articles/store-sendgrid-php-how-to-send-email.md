@@ -45,10 +45,6 @@ configuration or coding. Because SendGrid is a service, it can be
 accessed in exactly the same way from a cloud application as it can from
 an on-premises application.
 
-After adding email support to your application, you can package and
-deploy your application by following the methods outlined here:
-[Packaging and Deploying PHP Applications for Azure][].
-
 ## <a name="bkmk_HowToSendEmail"> </a>How to: Send an Email
 
 You can send email using either SMTP or the Web API provided by
