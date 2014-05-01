@@ -1,4 +1,4 @@
-<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="" editor=""  />
 
 
 # Create a Node.js Application on Azure with MongoDB in a Virtual Machine
@@ -118,27 +118,17 @@ In this section you will create a new Node application on your development envir
 
 	> [WACOM.NOTE] This tutorial makes reference to the __tasklist__ folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as __~/node/tasklist__ or __c:\node\tasklist__
 
-2. Enter the following command to install express.
+2. Enter the following command to install the express command.
 
-	npm install express -g
+	npm install express-generator -g
  
 	> [WACOM.NOTE] When using the '-g' parameter on some operating systems, you may receive an error of ___Error: EPERM, chmod '/usr/local/bin/express'___ and a request to try running the account as an administrator. If this occurs, use the `sudo` command to run npm at a higher privilege level.
 
     The output of this command should appear similar to the following:
 
-		express@3.5.0 C:\Users\larryfr\AppData\Roaming\npm\node_modules\express                                        
-		├── methods@0.1.0                                                                                              
-		├── merge-descriptors@0.0.2                                                                                    
-		├── fresh@0.2.2                                                                                                
-		├── cookie-signature@1.0.3                                                                                     
-		├── range-parser@1.0.0                                                                                         
-		├── debug@0.7.4                                                                                                
-		├── buffer-crc32@0.2.1                                                                                         
-		├── cookie@0.1.1                                                                                               
-		├── mkdirp@0.3.5                                                                                               
-		├── commander@1.3.2 (keypress@0.1.0)                                                                           
-		├── send@0.2.0 (mime@1.2.11)                                                                                   
-		└── connect@2.14.1 (response-time@1.0.0, pause@0.0.1, connect-timeout@1.0.0, method-override@1.0.0, vhost@1.0.0, static-favicon@1.0.0, morgan@1.0.0, serve-static@1.0.2, basic-auth-connect@1.0.0, qs@0.6.6, bytes@0.2.1, raw-body@1.1.3, errorhandler@1.0.0, cookie-parser@1.0.1, express-session@1.0.2, compression@1.0.0, csurf@1.0.0, serve-index@1.0.1, multiparty@2.2.0)                                                                              
+		express-generator@4.0.0 C:\Users\username\AppData\Roaming\npm\node_modules\express-generator
+		├── mkdirp@0.3.5
+		└── commander@1.3.2 (keypress@0.1.0)                                                                         
  
 	> [WACOM.NOTE] The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the ___express___ command to generate web site scaffolding without having to type in additional path information.
 
@@ -152,24 +142,39 @@ In this section you will create a new Node application on your development envir
 		   create : ./package.json
 		   create : ./app.js
 		   create : ./public
-		   create : ./public/stylesheets
-		   create : ./public/stylesheets/style.css
 		   create : ./public/images
-		   create : ./public/javascripts
 		   create : ./routes
 		   create : ./routes/index.js
-		   create : ./routes/user.js
+		   create : ./routes/users.js
+		   create : ./public/stylesheets
+		   create : ./public/stylesheets/style.css
 		   create : ./views
-		   create : ./views/layout.jade
 		   create : ./views/index.jade
-
+		   create : ./views/layout.jade
+		   create : ./views/error.jade
+		   create : ./public/javascripts
+		   create : ./bin
+		   create : ./bin/www
+		
 		   install dependencies:
 		     $ cd . && npm install
-
+		
 		   run the app:
-		     $ node app
+		     $ DEBUG=my-application ./bin/www
 
 	After this command completes, you should have several new directories and files in the **tasklist** directory.
+
+3. Copy the **tasklist/bin/www** file to a file named **server.js** in the **tasklist** folder. Azure Web Sites expects the entry point for a Node.js application to be either **server.js** or **app.js**. Since **app.js** already exists, but is not the entry point, we must use **server.js**.
+
+4. Modify the **server.js** file to remove one of the '.' characters from the following line.
+
+		var app = require('../app');
+
+	The modified line should appear as follows.
+
+		var app = require('./app');
+
+	This is required as the **server.js** (formerly **bin/www**,) is now in the same folder as the required **app.js** file.
 
 ###Install additional modules
 
@@ -181,28 +186,46 @@ The **package.json** file is one of the files created by the **express** command
 
     The output of this command should appear similar to the following:
 
-		express@3.5.0 node_modules\express                                                                            
-		├── methods@0.1.0                                                                                             
-		├── merge-descriptors@0.0.2                                                                                   
-		├── cookie-signature@1.0.3                                                                                    
-		├── fresh@0.2.2                                                                                               
-		├── debug@0.7.4                                                                                               
-		├── range-parser@1.0.0                                                                                        
-		├── buffer-crc32@0.2.1                                                                                        
-		├── cookie@0.1.1                                                                                              
-		├── mkdirp@0.3.5                                                                                              
-		├── commander@1.3.2 (keypress@0.1.0)                                                                          
-		├── send@0.2.0 (mime@1.2.11)                                                                                  
-		└── connect@2.14.1 (response-time@1.0.0, pause@0.0.1, connect-timeout@1.0.0, method-override@1.0.0, vhost@1.0., static-favicon@1.0.0, qs@0.6.6, morgan@1.0.0, basic-auth-connect@1.0.0, serve-static@1.0.2, bytes@0.2.1, rawbody@1.1.3, errorhandler@1.0.0, cookie-parser@1.0.1, csurf@1.0.0, compression@1.0.0, express-session@1.0.2, seve-index@1.0.1, multiparty@2.2.0)                                                                             
-                                                                                                              
-		jade@1.3.0 node_modules\jade                                                                                  
-		├── character-parser@1.2.0                                                                                    
-		├── commander@2.1.0                                                                                           
-		├── mkdirp@0.3.5                                                                                              
-		├── monocle@1.1.51 (readdirp@0.2.5)                                                                           
-		├── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)                                            
-		├── with@3.0.0 (uglify-js@2.4.12)                                                                             
-		└── constantinople@2.0.0 (uglify-js@2.4.12)                                                                   
+		debug@0.7.4 node_modules\debug
+		
+		cookie-parser@1.0.1 node_modules\cookie-parser
+		├── cookie-signature@1.0.3
+		└── cookie@0.1.0
+		
+		morgan@1.0.0 node_modules\morgan
+		└── bytes@0.2.1
+		
+		body-parser@1.0.2 node_modules\body-parser
+		├── qs@0.6.6
+		├── raw-body@1.1.4 (bytes@0.3.0)
+		└── type-is@1.1.0 (mime@1.2.11)
+		
+		express@4.0.0 node_modules\express
+		├── methods@0.1.0
+		├── parseurl@1.0.1
+		├── merge-descriptors@0.0.2
+		├── utils-merge@1.0.0
+		├── escape-html@1.0.1
+		├── cookie-signature@1.0.3
+		├── fresh@0.2.2
+		├── range-parser@1.0.0
+		├── buffer-crc32@0.2.1
+		├── qs@0.6.6
+		├── cookie@0.1.0
+		├── path-to-regexp@0.1.2
+		├── send@0.2.0 (mime@1.2.11)
+		├── type-is@1.0.0 (mime@1.2.11)
+		├── accepts@1.0.0 (negotiator@0.3.0, mime@1.2.11)
+		└── serve-static@1.0.1 (send@0.1.4)
+		
+		jade@1.3.1 node_modules\jade
+		├── character-parser@1.2.0
+		├── commander@2.1.0
+		├── mkdirp@0.3.5
+		├── monocle@1.1.51 (readdirp@0.2.5)
+		├── constantinople@2.0.0 (uglify-js@2.4.13)
+		├── with@3.0.0 (uglify-js@2.4.13)
+		└── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)                                                                
 
 	This installs all of the default modules used by an Express application.
 
@@ -212,16 +235,16 @@ The **package.json** file is one of the files created by the **express** command
 
 	The output of this command should appear similar to the following:
 
-		mongoose@3.8.8 node_modules\mongoose                     
-		├── regexp-clone@0.0.1                                   
-		├── muri@0.3.1                                           
-		├── sliced@0.0.5                                         
-		├── hooks@0.2.1                                          
-		├── mpath@0.1.1                                          
-		├── mpromise@0.4.3                                       
-		├── ms@0.1.0                                             
-		├── mquery@0.5.3 (debug@0.7.4)                           
-		└── mongodb@1.3.23 (kerberos@0.0.3, bson@0.2.5)          
+		mongoose@3.8.8 node_modules\mongoose
+		├── regexp-clone@0.0.1
+		├── sliced@0.0.5
+		├── muri@0.3.1
+		├── hooks@0.2.1
+		├── mpath@0.1.1
+		├── mpromise@0.4.3
+		├── ms@0.1.0
+		├── mquery@0.5.3
+		└── mongodb@1.3.23 (kerberos@0.0.3, bson@0.2.5)         
 
     > [WACOM.NOTE] You can safely ignore any message about installing the C++ bson parser.
 
@@ -321,7 +344,12 @@ In this section you will extend the basic application created by the **express**
 
 	Note the second line; you access an environment variable that you'll configure later, which contains the connection information for your mongo instance. If you have a local mongo instance running for development purposes, you may want to temporarily set this value to "localhost" instead of process.env.MONGODB_URI.
 
-3. Find the lines beginning with `app.get` and replace them with the following lines:
+3. Find the following lines:
+
+		app.use('/', routes);
+		app.use('/users', users);
+
+	Replace the above two lines with the following:
 
     	app.get('/', taskList.showTasks.bind(taskList));
     	app.post('/addtask', taskList.addTask.bind(taskList));
@@ -453,7 +481,7 @@ The Azure Cross-Platform Command-Line Interface (xplat-cli) allows you to perfor
 
 	> [WACOM.NOTE> If this is the first Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to Azure Web Sites</a>.
 
-###Set the MONGODB_URL environment variable
+###Set the MONGODB_URI environment variable
 
 The application expects the connection string for the MongoDB instance to be available in the MONGODB_URI environment variable. To set this value for the web site, use the following command:
 

@@ -2,7 +2,7 @@
 
 Now that authentication is required to access data in the TodoItem table, you can use the userID value assigned by Mobile Services to filter returned data.
 
->[WACOM.NOTE]The methods below should have the **RequiresAuthorizationAttribute** applied at the **User** **Authorizationlevel**. This restricts table access to only authenticated users.
+>[WACOM.NOTE]The methods below should have the **AuthorizeLevel** attribute applied at the **Authorizationlevel** of **User**. This restricts table access to only authenticated users.
 
 1. In Visual Studio 2013, open your mobile service project, expand the DataObjects folder, then open the TodoItem.cs project file.
 

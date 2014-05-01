@@ -21,7 +21,7 @@ To use the Azure command-line tools to manage Mobile Services, you need an Azure
 
 + If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/" target="_blank">Azure Free Trial</a>.
 
-+ If you have an existing account but need to enable the Azure Mobile Services preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Azure preview features</a>.
++ If you have an existing account but need to enable the Azure Mobile Services preview, see <a href="http://azure.microsoft.com/en-us/documentation/articles/php-create-account/#enable" target="_blank">Enable Azure preview features</a>.
 
 This topic covers a selection of common administration tasks supported by the Azure command-line tools. For more information, see [Azure command-line tools documentation][reference-docs].
 
