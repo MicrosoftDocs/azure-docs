@@ -102,7 +102,7 @@ Azure provides a number of ways provision new tenants for the application. For m
 	- 	Copying from a master reference database 
 	- 	Using database Import and Export to provision new databases from a file. 
 
-For more in depth coverage of how you can apply Azure to multitenant applications, see [Designing Multitenant Applications on Azure][].
+][].
 
 <!--links-->
 
