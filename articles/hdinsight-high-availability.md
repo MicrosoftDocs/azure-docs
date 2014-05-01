@@ -8,11 +8,11 @@ A second headnode has been added to the Hadoop clusters deployed by HDInsight to
 
 ![](http://i.imgur.com/jrUmrH4.png)
 
-HDInsight removes this single point of failure with the addition of a secondary headnode (Head Node1). Three [ZooKeeper][zookeeper] nodes (ZKs) have been added and are used for Leader Election of headnodes and to insure that worker nodes and gateways (GWs) know when to fail over to the secondary headnode (Head Node1) when the active headnode (HeadNode0) becomes inactive.
+HDInsight removes this single point of failure with the addition of a secondary headnode (Head Node1). [ZooKeeper][zookeeper] nodes (ZKs) have been added and are used for Leader Election of headnodes and to insure that worker nodes and gateways (GWs) know when to fail over to the secondary headnode (Head Node1) when the active headnode (HeadNode0) becomes inactive.
 
 
 ## How to check on the service status on the active headnode ##
-To determine which headnode is active and to check on the status of the services running on that head node, you must connect to the Hadoop cluster using the Remote Desktop Protocol (RDP).  The ability to remote into the cluster is disabled by default in Azure, so it must be first be enabled. For instructions on how to do this in the portal, see [Connect to HDInsight clusters using RDP](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-management-portal/#rdp)
+To determine which headnode is active and to check on the status of the services running on that head node, you must connect to the Hadoop cluster using the Remote Desktop Protocol (RDP). The ability to remote into the cluster is disabled by default in Azure, so it must be first be enabled. For instructions on how to do this in the portal, see [Connect to HDInsight clusters using RDP](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-management-portal/#rdp)
 Once you have remoted into the cluster, double-click on the **Hadoop Service Available Status** icon located on the desktop to obtain status about which headnode the Namenode, Jobtracker, Templeton, Oozieservice, Metastore, and Hiveserver2 services are running, or for HDI 3.0, the Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore and Hiveserver2.
 
 ![](http://i.imgur.com/MYTkCHW.png)

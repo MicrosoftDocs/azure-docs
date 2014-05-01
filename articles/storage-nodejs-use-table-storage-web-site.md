@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure web site." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure web site." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
 
 
 
@@ -76,9 +76,9 @@ In this section you will create a new Node application and use npm to add module
 
 1. From the command-line, change directories to the **tasklist** directory. If the **tasklist** directory does not exist, create it.
 
-2. Enter the following command to install express.
+2. Enter the following to install the express command.
 
-		npm install express -g
+		npm install express-generator -g
 
     <div class="dev-callout">
 	<strong>Note</strong>
@@ -87,18 +87,9 @@ In this section you will create a new Node application and use npm to add module
 
     The output of this command should appear similar to the following:
 
-		express@3.4.0 C:\Users\larryfr\AppData\Roaming\npm\node_modules\express
-		├── methods@0.0.1
-		├── fresh@0.2.0
-		├── cookie-signature@1.0.1
-		├── range-parser@0.0.4
-		├── buffer-crc32@0.2.1
-		├── cookie@0.1.0
-		├── debug@0.7.2
+		express-generator@4.0.0 C:\Users\username\AppData\Roaming\npm\node_modules\express-generator
 		├── mkdirp@0.3.5
-		├── commander@1.2.0 (keypress@0.1.0)
-		├── send@0.1.4 (mime@1.2.11)
-		└── connect@2.9.0 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, multiparty@2.1.8)
+		└── commander@1.3.2 (keypress@0.1.0)
 
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -111,28 +102,44 @@ In this section you will create a new Node application and use npm to add module
 
 	The output of this command should appear similar to the following:
 
-		create : .
-		create : ./package.json
-		create : ./app.js
-		create : ./public/javascripts
-		create : ./public
-		create : ./public/stylesheets
-		create : ./public/stylesheets/style.css
-		create : ./views
-		create : ./views/layout.jade
-		create : ./views/index.jade
-		create : ./routes
-		create : ./routes/index.js
-		create : ./routes/user.js
-		create : ./public/images
+		   create : .
+		   create : ./package.json
+		   create : ./app.js
+		   create : ./public
+		   create : ./public/images
+		   create : ./routes
+		   create : ./routes/index.js
+		   create : ./routes/users.js
+		   create : ./public/stylesheets
+		   create : ./public/stylesheets/style.css
+		   create : ./views
+		   create : ./views/index.jade
+		   create : ./views/layout.jade
+		   create : ./views/error.jade
+		   create : ./public/javascripts
+		   create : ./bin
+		   create : ./bin/www
+		
+		   install dependencies:
+		     $ cd . && npm install
+		
+		   run the app:
+		     $ DEBUG=my-application ./bin/www
 
-		install dependencies:
-		  $ cd . && npm install
+	After this command completes, you should have several new directories and files in the **tasklist** directory.
 
-		run the app:
-		  $ node app
+3. Copy the **tasklist/bin/www** file to a file named **server.js** in the **tasklist** folder. Azure Web Sites expects the entry point for a Node.js application to be either **server.js** or **app.js**. Since **app.js** already exists, but is not the entry point, we must use **server.js**.
 
-After this command completes, you should have several new directories and files in the **tasklist** directory.
+4. Modify the **server.js** file to remove one of the '.' characters from the following line.
+
+		var app = require('../app');
+
+	The modified line should appear as follows.
+
+		var app = require('./app');
+
+	This is required as the **server.js** (formerly **bin/www**,) is now in the same folder as the required **app.js** file.
+
 
 ###Install additional modules
 
@@ -144,27 +151,47 @@ The **package.json** file is one of the files created by the **express** command
 
     The output of this command should appear similar to the following:
 
-		express@3.4.0 node_modules\express
-		├── methods@0.0.1
-		├── range-parser@0.0.4
-		├── cookie-signature@1.0.1
-		├── fresh@0.2.0
+		debug@0.7.4 node_modules\debug
+		
+		cookie-parser@1.0.1 node_modules\cookie-parser
+		├── cookie-signature@1.0.3
+		└── cookie@0.1.0
+		
+		morgan@1.0.0 node_modules\morgan
+		└── bytes@0.2.1
+		
+		body-parser@1.0.2 node_modules\body-parser
+		├── qs@0.6.6
+		├── raw-body@1.1.4 (bytes@0.3.0)
+		└── type-is@1.1.0 (mime@1.2.11)
+		
+		express@4.0.0 node_modules\express
+		├── methods@0.1.0
+		├── parseurl@1.0.1
+		├── merge-descriptors@0.0.2
+		├── utils-merge@1.0.0
+		├── escape-html@1.0.1
+		├── cookie-signature@1.0.3
+		├── fresh@0.2.2
+		├── range-parser@1.0.0
 		├── buffer-crc32@0.2.1
+		├── qs@0.6.6
 		├── cookie@0.1.0
-		├── debug@0.7.2
-		├── mkdirp@0.3.5
-		├── commander@1.2.0 (keypress@0.1.0)
-		├── send@0.1.4 (mime@1.2.11)
-		└── connect@2.9.0 (uid2@0.0.2, pause@0.0.1, bytes@0.2.0, qs@0.6.5, multiparty@2.1.8)
-
-		jade@0.35.0 node_modules\jade
+		├── path-to-regexp@0.1.2
+		├── send@0.2.0 (mime@1.2.11)
+		├── type-is@1.0.0 (mime@1.2.11)
+		├── accepts@1.0.0 (negotiator@0.3.0, mime@1.2.11)
+		└── serve-static@1.0.1 (send@0.1.4)
+		
+		jade@1.3.1 node_modules\jade
 		├── character-parser@1.2.0
-		├── commander@2.0.0
+		├── commander@2.1.0
 		├── mkdirp@0.3.5
-		├── monocle@1.1.50 (readdirp@0.2.5)
-		├── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
-		├── with@1.1.1 (uglify-js@2.4.0)
-		└── constantinople@1.0.2 (uglify-js@2.4.0)
+		├── monocle@1.1.51 (readdirp@0.2.5)
+		├── constantinople@2.0.0 (uglify-js@2.4.13)
+		├── with@3.0.0 (uglify-js@2.4.13)
+		└── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
+
 
 	This installs all of the default modules that Express needs.
 
@@ -174,29 +201,32 @@ The **package.json** file is one of the files created by the **express** command
 
 	The output of this command should appear similar to the following:
 
-		async@0.2.9 node_modules\async
-
 		node-uuid@1.4.1 node_modules\node-uuid
 
-		nconf@0.6.7 node_modules\nconf
+		nconf@0.6.9 node_modules\nconf
 		├── ini@1.1.0
-		├── async@0.1.22
-		├── pkginfo@0.2.3
-		└── optimist@0.3.7 (wordwrap@0.0.2)
+		├── async@0.2.9
+		└── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.8)
 
-		azure@0.7.15 node_modules\azure
-		├── dateformat@1.0.2-1.2.3
-		├── xmlbuilder@0.4.2
-		├── envconf@0.0.4
+		azure@0.9.3 node_modules\azure
+		├── azure-mgmt-subscription@0.9.2
+		├── azure-gallery@2.0.0-pre.1
 		├── node-uuid@1.2.0
 		├── mpns@2.0.1
-		├── underscore@1.5.2
 		├── mime@1.2.11
-		├── validator@1.5.1
-		├── tunnel@0.0.2
+		├── azure-mgmt-storage@0.9.2
+		├── azure-mgmt-vnet@0.9.2
+		├── azure-mgmt-resource@2.0.0-pre.1
+		├── underscore@1.4.4
+		├── azure-mgmt-sql@0.9.2
+		├── azure-mgmt@0.9.2
+		├── azure-mgmt-sb@0.9.2
+		├── azure-mgmt-website@0.9.2
+		├── azure-mgmt-compute@0.9.2
 		├── wns@0.5.3
-		├── xml2js@0.2.8 (sax@0.5.5)
-		└── request@2.25.0 (json-stringify-safe@5.0.0, aws-sign@0.3.0, forever-agent@0.5.0, tunnel-agent@0.3.0, qs@0.6.5, oauth-sign@0.3.0, cookie-jar@0.3.0, node-uuid@1.4.1, http-signature@0.10.0, form-data@0.1.1, hawk@1.0.0)
+		├── request@2.27.0 (json-stringify-safe@5.0.0, aws-sign@0.3.0, forever-agent@0.5.2, tunnel-agent@0.3.0, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, node-uuid@1.4.1, form-data@0.1.2, hawk@1.0.0, http-signature@0.10.0)
+		└── azure-common@0.9.2 (dateformat@1.0.2-1.2.3, duplexer@0.1.1, xmlbuilder@0.4.3, envconf@0.0.4, through@2.3.4,
+		 validator@3.1.0, tunnel@0.0.3, xml2js@0.2.7)
 
 ##Using the Table service in a node application
 
@@ -424,7 +454,7 @@ The **layout.jade** file in the **views** directory is used as a global template
 
 2. From the **views** folder, open the **layout.jade** in your text editor and replace the contents with the following:
 
-		doctype 5
+		doctype html
 		html
 		  head
 		    title= title
@@ -465,7 +495,7 @@ To test the application on your local machine, perform the following steps:
 
 2. Use the following command to launch the application locally:
 
-        node app.js
+        node server.js
 
 3. Open a web browser and navigate to http://127.0.0.1:3000. This should display a web page similar to the following:
 
@@ -613,7 +643,7 @@ Before using the command-line tools with Azure, you must first download a file c
 
 ###Switch to an environment variable
 
-Earlier we implemented code that looks for a **SQL_CONN** environment variable for the connection string or loads the value from the **config.json** file. In the following steps you will create a key/value pair in your web site configuration that the application real access through an environment variable.
+Earlier we implemented code that looks for a environment variables or loads the value from the **config.json** file. In the following steps you will create key/value pairs in your web site configuration that the application real access through an environment variable.
 
 1. From the Management Portal, click **Web Sites** and then select your web site.
 

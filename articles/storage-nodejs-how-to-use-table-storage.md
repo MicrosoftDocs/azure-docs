@@ -32,85 +32,11 @@ information on tables, see the [Next Steps][] section.
 * [How To: Delete a Table][]   
 * [Next Steps][]
 
-## <a name="what-is"> </a>What is the Table Service?
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-The Azure Table service stores large amounts of
-structured data. The service accepts authenticated calls from inside and
-outside the Azure cloud. Azure tables are ideal for
-storing structured, non-relational data. Common uses of Table services
-include:
+<h2><a name="create-account"></a><span class="short-header">Create an account</span>Create an Azure Storage account</h2>
 
--   Storing a huge amount of structured data (many TB) that is
-    automatically scaled to meet throughput demands
--   Storing datasets that don't require complex joins, foreign keys, or
-    stored procedures and can be denormalized for fast access
--   Quickly querying data such as user profiles using a clustered index
-
-You can use the Table service to store and query huge sets of
-structured, non-relational data, and your tables scale when volume
-increases.
-
-## <a name="concepts"> </a>Concepts
-
-The Table service contains the following components:
-
-![Table1][Table1]
-
--   **URL format:** Code addresses tables in an account using this
-    address format:
-   
-	    http://storageaccount.table.core.windows.net/table  
-      
-    You can address Azure tables directly using this address with the
-    OData protocol. For more information, see [OData.org][]
-
--   **Storage Account:** All access to Azure Storage is done
-    through a storage account. The total size of blob, table, and queue
-    contents in a storage account cannot exceed 100TB.
-
--   **Table**: A table is an unlimited collection of entities. Tables
-    don't enforce a schema on entities, which means a single table can
-    contain entities that have different sets of properties. An account
-    can contain many tables.
-
--   **Entity**: An entity is a set of properties, similar to a database
-    row. An entity can be up to 1MB in size.
-
--   **Properties**: A property is a name-value pair. Each entity can
-    include up to 252 properties to store data. Each entity also has
-    three system properties that specify a partition key, a row key, and
-    a timestamp. Entities with the same partition key can be queried
-    more quickly, and inserted/updated in atomic operations. An entity's
-    row key is its unique identifier within a partition.
-
-## <a name="create-account"> </a>Create an Azure Storage Account
-
-To use storage operations, you need an Azure storage account. You
-can create a storage account by following these steps. (You can also
-create a storage account [using the REST API][].)
-
-1.  Log into the [Azure Management Portal].
-
-2.  At the bottom of the navigation pane, click **+NEW**.
-
-	![+new][plus-new]
-
-3.  Click **Storage Account**, and then click **Quick Create**.
-
-	![Quick create dialog][quick-create-storage]
-
-4.  In URL, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-
-5.  Choose a Region/Affinity Group in which to locate the
-    storage. If you will be using storage from your Azure
-    application, select the same region where you will deploy your
-    application.
-
-6.  Click **Create Storage Account**.
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Create a Node.js Application
 

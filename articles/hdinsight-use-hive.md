@@ -245,7 +245,6 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 
 [Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/

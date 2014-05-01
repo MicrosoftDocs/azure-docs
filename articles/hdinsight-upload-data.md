@@ -265,27 +265,27 @@ Now that you understand how to get data into HDInsight, use the following articl
 
 [azure-management-portal]: https://manage.windowsazure.com
 [azure-powershell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+
 [azure-storage-client-library]: /en-us/develop/net/how-to-guides/blob-storage/
-[azure-storage-account]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
+[azure-storage-account]: ../storage-manage-storage-account/
 [azure-azcopy-download]: http://aka.ms/WaCopy
 [azure-azcopy]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
 
 [hdinsight-sqoop]: ../hdinsight-use-sqoop/
 
-[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
-[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
+[hdinsight-getting-started]: ../hdinsight-get-started/
 
-[hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
-[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
-[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
+[hdinsight-hive]: ../hdinsight-use-hive/
+[hdinsight-pig]: ../hdinsight-use-pig
+[hdinsight-provision]: ../hdinsight-provision-clusters/
 
 [sqldatabase-create-configue]: ../sql-database-create-configure/
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: ../install-configure-powershell/
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
