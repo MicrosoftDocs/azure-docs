@@ -94,6 +94,7 @@ For more details, see:
 - [Azure Storage Client Library 3.0](http://go.microsoft.com/fwlink/?LinkId=394927)
 - [Introduction to Azure Storage](/en-us/documentation/articles/storage-introduction/)
 - [Build 2014: Microsoft Azure Storage – What's New, Best Practices and Patterns (video)](http://channel9.msdn.com/Events/Build/2014/3-628)
+- [Microsoft Azure Storage @ BUILD 2014](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/08/microsoft-azure-storage-build-2014.aspx)
 
 ## <a id="arm"></a>Resource Manager
 

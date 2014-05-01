@@ -36,3 +36,4 @@
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
 
+	You will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of you app.

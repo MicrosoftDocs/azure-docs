@@ -134,29 +134,29 @@ To get started with Azure Storage, explore these resources:
 <h3>For Java Developers</h3>
 
 - [How to use Blob Storage from Java](../storage-java-how-to-use-blob-storage/)
-- [How to use Table Storage from Java](..storage-java-how-to-use-table-storage/)
-- [How to use Queue Storage from Java](..storage-java-how-to-use-queue-storage/)
+- [How to use Table Storage from Java](../storage-java-how-to-use-table-storage/)
+- [How to use Queue Storage from Java](../storage-java-how-to-use-queue-storage/)
 
 <h3>For Node.js Developers</h3>
 
 - [How to use Blob Storage from Node.js](../storage-nodejs-how-to-use-blob-storage/)
 - [How to use Table Storage from Node.js](../storage-nodejs-how-to-use-table-storage/)
-- [How to use Queue Storage from Node.js](../storage-nodejs-how-to-use-queue-storage/)
+- [How to use Queue Storage from Node.js](../storage-nodejs-how-to-use-queues/)
 
 <h3>For PHP Developers</h3>
 
-- [How to use Blob Storage from PHP](../storage-php-how-to-use-blob-storage/)
-- [How to use Table Storage from PHP](..storage-php-how-to-use-table-storage/)
-- [How to use Queue Storage from PHP](..storage-php-how-to-use-queue-storage/)
+- [How to use Blob Storage from PHP](../storage-php-how-to-use-blobs/)
+- [How to use Table Storage from PHP](../storage-php-how-to-use-table-storage/)
+- [How to use Queue Storage from PHP](../storage-php-how-to-use-queues/)
 
 <h3>For Ruby Developers</h3>
 
 - [How to use Blob Storage from Ruby](../storage-ruby-how-to-use-blob-storage/)
-- [How to use Table Storage from Ruby](..storage-ruby-how-to-use-table-storage/)
-- [How to use Queue Storage from Ruby](..storage-ruby-how-to-use-queue-storage/)
+- [How to use Table Storage from Ruby](../storage-ruby-how-to-use-table-storage/)
+- [How to use Queue Storage from Ruby](../storage-ruby-how-to-use-queue-storage/)
 
 <h3>For Python Developers</h3>
 
 - [How to use Blob Storage from Python](../storage-python-how-to-use-blob-storage/)
-- [How to use Table Storage from Python](..storage-python-how-to-use-table-storage/)
-- [How to use Queue Storage from Python](..storage-python-how-to-use-queue-storage/)
+- [How to use Table Storage from Python](../storage-python-how-to-use-table-storage/)
+- [How to use Queue Storage from Python](../storage-python-how-to-use-queue-storage/)

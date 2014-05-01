@@ -18,11 +18,11 @@
 </div>
 
 
-This topic shows how to use Azure Mobile Services to send push notifications to your Android app. In this tutorial you add push notifications using Google Cloud Messaging (GCM) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
+This topic shows how to use Azure Mobile Services to send push notifications to your Android app. In this tutorial you add push notifications using Google Cloud Messaging (GCM) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted. 
 
 The mobile service that you create in this tutorial supports the .NET runtime in the Mobile Service. This allows you to use .NET languages and Visual Studio for server-side business logic in the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.
 
-[WACOM.NOTE]This tutorial demonstrates Mobile Services integration with Notification Hubs, which is currently in preview. By default, sending push notifications using Notification Hubs is not enabled from a JavaScript backend.  Once the new notification hub has been created, the integration process cannot be reverted.
+[WACOM.NOTE]This tutorial demonstrates Mobile Services integration with Notification Hubs, which is currently in preview. 
 
 <div class="dev-callout"><b>Note</b>
 <p>This tutorial requires Visual Studio 2013.</p>
@@ -30,23 +30,42 @@ The mobile service that you create in this tutorial supports the .NET runtime in
 
 This tutorial walks you through these basic steps:
 
-
-1. [Create a new mobile service]
-2. [Download the service locally]
-3. [Test the mobile service]
-4. [Update the server to send push notifications](#update-server)
-5. [Publish the mobile service to Azure]
-6. [Download the GetStartedWithData project]
-7. [Update the app to use the mobile service for data access]
+1. [Enable Google Cloud Messaging](#register)
+2. [Configure mobile service to send push requests](#configure)
+3. [Download the service locally]
+4. [Test the mobile service]
+5. [Update the server to send push notifications](#update-server)
+6. [Publish the mobile service to Azure]
+7. [Add push notifications to your app](#update)
 8. [Test the app against the published mobile service]
 
+
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. 
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure Free Trial</a>.</p></div> 
 
 
-<h2><a name="create-service"></a><span class="short-header">Create a new mobile service</span>Create a new mobile service</h2>
+##<a id="register"></a>Enable Google Cloud Messaging
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
+[WACOM.INCLUDE (../includes/mobile-services-enable-Google-cloud-messaging.md)]
+
+
+##<a id="configure"></a>Configure Mobile Services to send push requests
+
+1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+
+   	![](./media/mobile-services-android-get-started-push/mobile-services-selection.png)
+
+2. Click the **Push** tab, and enter the **API Key** value obtained from GCM in the previous procedure, and then click **Save**.
+
+   	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
+
+    <div class="dev-callout"><b>Important</b>
+	<p>When you set your GCM credentials for enhanced push notifications in the Push tab in the portal, they are shared with Notification Hubs to configure the notification hub with your app.</p>
+    </div>
+
+
+Your mobile service is now configured to work with GCM and Notification Hubs.
 
 
 <h2><a name="download-the-service"></a><span class="short-header">Download the service</span>Download the service to your local computer</h2>
@@ -66,29 +85,30 @@ This tutorial walks you through these basic steps:
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-<h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
 
-###Get the sample code
-
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/download-android-sample-code.md)]
+##<a name="update-app"></a>Add push notifications to your app
 
 ###Verify Android SDK Version
 
 [WACOM.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-###Inspect and run the sample code
+Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to. 
 
-[WACOM.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
+If you will be testing with an older device, then consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.
 
-<h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to use the mobile service for data access</h2>
+###Add Google Play Services to the project
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-data](../includes/mobile-services-android-getting-started-with-data.md)]
+[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
+
+###Add code
+
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push] (../includes/mobile-services-android-getting-started-with-push)
 
 <h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against the published mobile service</h2>
 
 
-Now that the app has been updated to use Mobile Services for back end storage, you can test it against Mobile Services, using either the Android emulator or an Android phone.
+Now that the app has been updated to use Mobile Services for push, you can test it against Mobile Services, using either the Android emulator or an Android phone.
 
 1. From the **Run** menu, click **Run** to start the project.
 
@@ -186,7 +206,8 @@ Try one of these other tutorials:
 <!-- URLs. -->
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-android-get-started/
+[Get started with data]: /en-us/documentation/articles/mobile-services-android-get-started-data/
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-android
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js

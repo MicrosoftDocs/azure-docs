@@ -205,7 +205,6 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
  
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
 [hdinsight-get-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 
 [Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
