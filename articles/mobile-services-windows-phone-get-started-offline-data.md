@@ -1,10 +1,10 @@
-<properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use offline data in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="wesmc" />
+<properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use offline data in your Windows Phone application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="wesmc" />
 
 # Get started with Offline Data in Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows Store C#" class="current">Windows Store C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone">Windows Phone</a>
+<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows Store C#">Windows Store C#</a>
+<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 This topic shows you how to use use the offline capabilities of Azure Mobile Services. Azure Mobile Services offline features allow you to interact with a local database when you are in an offline scenario with your Mobile Service. The offline features allow you to sync your local changes with the mobile service when you are online again. 
@@ -12,7 +12,7 @@ This topic shows you how to use use the offline capabilities of Azure Mobile Ser
 In this tutorial, you will update the app from the [Get started with Mobile Services] or [Get Started with Data] tutorial to support the offline features of Azure Mobile Services. Then you will add data in a disconnected offline scenario, sync those items to the online database, and then log in to the Azure Management Portal to view changes to data made when running the app.
 
 
->[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].
+>[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Phone app. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].
 
 This tutorial walks you through these basic steps:
 
@@ -23,10 +23,11 @@ This tutorial walks you through these basic steps:
 
 This tutorial requires the following:
 
-* Visual Studio 2013 running on Windows 8.1.
+* Visual Studio 2012
+* [Windows Phone 8 SDK]
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
-* Windows Azure Mobile Services SDK NuGet package version 1.3.0-alpha2
-* Windows Azure Mobile Services SQLite Store NuGet package 1.0.0-alpha 
+* Windows Azure Mobile Services SDK NuGet package version 1.3.0-alpha2 or later
+* Windows Azure Mobile Services SQLite Store NuGet package 1.0.0-alpha or later
 * SQLite for Windows 8.1
 
 >[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
@@ -37,18 +38,20 @@ Azure Mobile Services offline features allow you to interact with a local databa
 
 This section uses SQLite as the local store for the offline features.
 
->[WACOM.NOTE] You can skip this section and just download a version of the Getting Started project that already has offline support.  To download a project with offline support enabled, see [Getting Started Offline Sample].
+>[WACOM.NOTE] You can skip this section and just download a version of the Getting Started project that already has offline support.  To download a project with offline support enabled, see [Getting Started Offline Sample for Windows Phone].
 
 
-1. Install SQLite. You can install it from this link, [SQLite for Windows 8.1].
+1. Install SQLite for Windows Phone 8 projects. You can install it from this link, [SQLite for Windows Phone 8].
 
     >[WACOM.NOTE] If you are using Internet Explorer, clicking the link to install SQLite may prompt you to download the .vsix as a .zip file. Save the file to a location on your hard drive with the .vsix extension instead of .zip. The double click the .vsix file in Windows Explorer to run the installation.
 
-2. In Visual Studio open the project that you completed in the [Get started with Mobile Services] or [Get Started with Data] tutorial. In Solution Explorer, right click **References** under the project and add a reference to **SQLite for Windows Runtime** under **Windows** > **Extensions**. 
+2. In Visual Studio open the project that you completed in the [Get started with Mobile Services] or [Get Started with Data] tutorial. In Solution Explorer, right click **References** under the project and add a reference to **SQLite for Windows Phone** under **Windows Phone**>**Extensions**. 
 
     ![][1]
 
 3. The SQLite Runtime requires you to change the processor architecture of the project being built to **x86**, **x64**, or **ARM**. **Any CPU** is not supported. Change the processor architecture to one of the supported settings that you want to test.
+
+    ![][11]
 
 4. In Solution Explorer for Visual Studio, right click your client app project and click **Manage Nuget Packages** to run NuGet Package Manager. Search for **SQLiteStore** to install the **WindowsAzure.MobileServices.SQLiteStore** package.
 
@@ -92,28 +95,19 @@ This section uses SQLite as the local store for the offline features.
             RefreshTodoItems();
         }
 
-9. In Solution Explorer for Visual Studio, open the MainPage.xaml file. Find the Grid element that contains the StackPanel titled **Query and Update Data**. Add the following UI code that replaces the elements from the row definitions down to the start tag of the ListView. 
+9. In Solution Explorer for Visual Studio, open the MainPage.xaml file. Find the button definition for the **Refresh** button. Replace it with the following stack panel defintion. 
 
-    This code adds row and column definitions to the grid to layout the elements. It also adds two button controls with click event handlers for **Push** and **Pull** operations. The buttons are positioned just above the `ListView` named ListItems. Save the file.
+    This code adds two button controls with click event handlers for **Push** and **Pull** operations. The buttons are horizontally where the refresh button is. Save the file.
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
-            <local:QuickStartTask Number="2" Title="Query, Update, and Synchronize Data" 
-              Description="Use the Pull and Push buttons to synchronize the local store with the server" />
+        <StackPanel  Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+          <Button Name="ButtonRefresh" Click="ButtonRefresh_Click" Width="160">Refresh</Button>
+          <Button Name="ButtonPush" Click="ButtonPush_Click" Width="160">Push</Button>
+          <Button Name="ButtonPull" Click="ButtonPull_Click" Width="160">Pull</Button>
         </StackPanel>
-        <Button Grid.Row="1" Grid.Column="0" Margin="5,5,0,0" Name="ButtonPush"
-            Click="ButtonPush_Click" Width="80" Height="34">⬆ Push</Button>
-        <Button Grid.Row="1" Grid.Column="1" Margin="5,5,0,0"  Name="ButtonPull" 
-            Click="ButtonPull_Click" Width="80" Height="34">⬇ Pull</Button>
-        <ListView Name="ListItems" SelectionMode="None" Margin="0,10,0,0" Grid.ColumnSpan="2" Grid.Row="2">
+
+    Also, change the text for the textblocks to match the following screenshot.
+
+    ![][12]
         
 
 
@@ -132,10 +126,9 @@ This section uses SQLite as the local store for the offline features.
                 pullException = ex;
             }
             if (pullException != null) {
-                MessageDialog d = new MessageDialog("Pull failed: " + pullException.Message +
+                MessageBox.Show("Pull failed: " + pullException.Message +
                   "\n\nIf you are in an offline scenario, " + 
                   "try your Pull again when connected with your Mobile Serice.");
-                await d.ShowAsync();
             }
         }
         private async void ButtonPush_Click(object sender, RoutedEventArgs e)
@@ -156,14 +149,15 @@ This section uses SQLite as the local store for the offline features.
                 errorString = "Push failed: " + ex.Message;
             }
             if (errorString != null) {
-                MessageDialog d = new MessageDialog(errorString + 
+                MessageBox.Show(errorString + 
                   "\n\nIf you are in an offline scenario, " + 
                   "try your Push again when connected with your Mobile Serice.");
-                await d.ShowAsync();
             }
         }
 
 11. Don't run the app yet. Press the **F7** key to rebuild the project. Verify no build errors occurred.
+
+
 
 
 ## <a name="test-offline-app"></a>Test the app in an offline scenario
@@ -206,7 +200,7 @@ In this section you will test push and pull operations to sync the local store w
 
 1. In Visual Studio, press the **F5** key to rebuild and run the app. Notice that the data looks the same as the offline scenario even though the app is now connected to the mobile service. This is because this app always works with the `IMobileServiceSyncTable` that is pointed to the local store.
 
-    ![][5]
+    ![][4]
 
 2. Log into the Microsoft Azure Management portal and look at the database for your mobile service. If your service uses the JavaScript backend for mobile services, you can browse the data from the **Data** tab of the mobile service. If you are using the .NET backend for your mobile service, you can click on the **Manage** button for your database in the SQL Azure Extension to execute a query against your table.
 
@@ -262,26 +256,25 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [Next Steps]:#next-steps
 
 <!-- Images -->
-[0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
-[1]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
-[2]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitestore-nuget.png
-[3]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitepcl-nuget.png
-[4]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-offline-app-run1.png
-[5]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run1.png
-[6]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse.png
-[7]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse2.png
-[8]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run2.png
-[9]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run3.png
-[10]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse3.png
-
+[0]: ./media/mobile-services-windows-phone-get-started-data-vs2013/mobile-todoitem-data-browse.png
+[1]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
+[2]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-sqlitestore-nuget.png
+[3]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-sqlitepcl-nuget.png
+[4]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-offline-app-run1.png
+[5]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-online-app-run1.png
+[6]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-data-browse.png
+[7]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-data-browse2.png
+[8]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-online-app-run2.png
+[9]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-online-app-run3.png
+[10]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-data-browse3.png
+[11]: ./media/mobile-services-windows-phone-get-started-offline-data/vs-select-processor-architecture.png
+[12]: ./media/mobile-services-windows-phone-get-started-offline-data/ui-screenshot.png
 
 <!-- URLs. -->
 [Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
-[Getting Started Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-
+[Getting Started Offline Sample for Windows Phone]: http://go.microsoft.com/fwlink/?LinkId=397952
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started/
+[Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
+[SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
+[Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
 
