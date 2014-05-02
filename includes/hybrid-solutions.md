@@ -93,7 +93,7 @@ Unlike queues and topics, applications don't explicitly create relays. Instead, 
 
 Relays are the right solution when you need direct communication. Think about an airline reservation system running in an on-premises datacenter, for example, that must be accessed from check-in kiosks, mobile devices, and other computers. Applications running on all of these systems could rely on Service Bus relays in the cloud to communicate, wherever they might be running.
 
-Connecting applications has always been part of building complete solutions, and it's hard to see this problem ever going away. By providing cloud-based technologies for doing this"queues, topics, and relays"Service Bus aims at making this essential function easier and more broadly available.
+Connecting applications has always been part of building complete solutions, and it's hard to see this problem ever going away. By providing cloud-based technologies for doing this through queues, topics, and relays, Service Bus aims at making this essential function easier and more broadly available.
 
 [svc-bus]: ./media/hybrid-solutions/SvcBus_01_architecture.png
 [queues]: ./media/hybrid-solutions/SvcBus_02_queues.png
