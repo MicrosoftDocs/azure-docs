@@ -1,6 +1,8 @@
-# How to cache operation results using Azure API Management
+<properties pageTitle="How to cache operation results in Azure API Management" metaKeywords="" description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls." metaCanonical="" services="" documentationCenter="API Management" title="How to cache operation results in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-Azure API Management provides operation response caching. Response caching can significantly reduce API latency, bandwidth consumption, and web service load for data that does not change frequently.
+# How to cache operation results in Azure API Management
+
+Operations in API Management (Preview) can be configured for response caching. Response caching can significantly reduce API latency, bandwidth consumption, and web service load for data that does not change frequently.
 
 In this tutorial you will review the caching settings and policies for one of the sample Echo Api operations, and call the operation in the developer portal to see the caching in operation.
 
@@ -19,15 +21,21 @@ In this step, you will review the caching settings of the **GET Resource (cached
 
 To get started, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
 
-![api-management-management-console][]
+![API Management console][api-management-management-console]
+
+>If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
 Click **APIs** from the **API Management** menu on the left, and click **Echo API**.
 
+![Echo API][api-management-echo-api]
 
-Select the **operations** tab, and click the **GET Resource (cached)** operation from the **Operations** list.
+Select the **Operations** tab, and click the **GET Resource (cached)** operation from the **Operations** list.
+
+![Echo API operations][api-management-echo-api-operations]
 
 Select the **Caching** tab to view the caching settings for this operation.
 
+![Caching tab][api-management-caching-tab]
 
 To enable caching for an operation, check the **Enable** checkbox. In this example caching is enabled.
 
@@ -43,7 +51,13 @@ When caching settings are configured for an operation on the **Caching** tab, ca
 
 Click **Policies** from the **API Management** menu on the left, and select **Echo API / GET Resource (cached)** from the **Operation** drop-down.
 
-The policy definition for this operation includes the policies that define the caching configuration that was configured using the **Caching** tab in the previous step.
+![Policy scope operation][api-management-operation-dropdown]
+
+This displays the policies for this operation in the policy editor.
+
+![API Management policy editor][api-management-policy-editor]
+
+The policy definition for this operation includes the policies that define the caching configuration that were reviewed using the **Caching** tab in the previous step.
 
 	<policies>
 		<inbound>
@@ -60,24 +74,35 @@ The policy definition for this operation includes the policies that define the c
 		</outbound>
 	</policies>
 
->Changes made here will reflect in the **Caching** tab of an operation, and vice-versa.
+>Changes made to the caching policies in the policy editor will reflect in the **Caching** tab of an operation, and vice-versa.
 
 ## <a name="test-operation"> </a>Call an operation and test the caching
 
 To see the caching in action, we can call the operation from the developer portal. Click **Developer portal** in the top right menu.
 
-
+![Developer portal][api-management-developer-portal-menu]
 
 Click **APIs** in the top menu and select **Echo API**.
 
+![Echo API][api-management-apis-echo-api]
 
-Click **Open Console** for the **GET Resource (cached)** operation
+>If you have only one API configured or visible to your account, then clicking APIs takes you directly to the operations for that API.
 
-Keep the default values for **param1** and **param2**, and enter **sampleheader:value1** in the **Request headers** text box and click **HTTP Get**.
+Select the **GET Resource (cached)** operation and click **Open Console**.
 
->If your developer key is not pre-filled in the key field, you can paste in the key from the developer configuration page as shown in the previous [Subscribe a developer account to the product][] step.
+![Open console][api-management-open-console]
 
-Note the response headers.
+The console allows you to invoke operations directly from the developer portal.
+
+![Console][api-management-console]
+
+Keep the default values for **param1** and **param2**.
+
+Select the desired key from the **subscription-key** drop-down. If your account has only one subscription it will already be selected.
+
+Enter **sampleheader:value1** in the **Request headers** text box.
+
+Click **HTTP Get** and make a note of the response headers.
 
 Enter **sampleheader:value2** in the **Request headers** text box and click **HTTP Get**.
 
@@ -89,18 +114,19 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 
 ## <a name="next-steps"> </a>Next steps
 
-Check out the other steps in the [Get started with advanced API configuration][] tutorial.
+-	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
+-	For more information on caching policies, see [Caching policies][] in the [API Management policy reference][].
 
 [api-management-management-console]: ./Media/api-management-hotwo-cache/api-management-management-console.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
+[api-management-echo-api]: ./Media/api-management-hotwo-cache/api-management-echo-api.png
+[api-management-echo-api-operations]: ./Media/api-management-hotwo-cache/api-management-echo-api-operations.png
+[api-management-caching-tab]: ./Media/api-management-hotwo-cache/api-management-caching-tab.png
+[api-management-operation-dropdown]: ./Media/api-management-hotwo-cache/api-management-operation-dropdown.png
+[api-management-policy-editor]: ./Media/api-management-hotwo-cache/api-management-policy-editor.png
+[api-management-developer-portal-menu]: ./Media/api-management-hotwo-cache/api-management-developer-portal-menu.png
+[api-management-apis-echo-api]: ./Media/api-management-hotwo-cache/api-management-apis-echo-api.png
+[api-management-open-console]: ./Media/api-management-hotwo-cache/api-management-open-console.png
+[api-management-console]: ./Media/api-management-hotwo-cache/api-management-console.png
 [api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
 [api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
 [api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
@@ -116,6 +142,9 @@ Check out the other steps in the [Get started with advanced API configuration][]
 [Publish a product]: ./api-management-howto-add-product/#publish-product
 [Get started with Azure API Management]: ./api-management-get-started
 [Get started with advanced API configuration]: ./api-management-get-started-advanced
+[API Management policy reference]: ./api-management-policy-reference
+[Caching policies]: ./api-management-policy-reference/#caching-policies
+[Create an API Management service instance]: ./api-management-get-started/#create-service-instance
 
 [Configure an operation for caching]: #configure-caching
 [Review the caching policies]: #caching-policies

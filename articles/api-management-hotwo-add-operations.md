@@ -59,11 +59,10 @@ To easily and quickly enable caching for the operation, select the Caching tab a
 ![api-management-caching][]
 
 
-In the Duration text box, change the time period during which cached responses remain fresh and are served from cache. Default value is 3600 second or 1 hour.
+In the Duration text box, change the time period during which cached responses remain fresh and are served from cache. Default value is 3600 seconds or 1 hour.
 
 
-Optionally, enter specific query string parameters and/or HTTP headers to be used in computing cache key values in the Vary by string parameters and Vary by headers text boxes respectively. When none specified, full request URL and the following HTTP header values are used in cache key generation: Accept and Accept-Charset. 
-
+Cache keys are used to differentiate between responses so that the response corresponding to each different cache key will get its own separate cached value. Optionally, enter specific query string parameters and/or HTTP headers to be used in computing cache key values in the Vary by string parameters and Vary by headers text boxes respectively. When none specified, full request URL and the following HTTP header values are used in cache key generation: Accept and Accept-Charset.
 
 
 ## <a name="request-parameters"> </a>Request parameters
@@ -82,7 +81,7 @@ To add a new query parameter, click add query parameter and enter the following 
 
 ## <a name="request-body"> </a>Request body
 
-If the operation allows (e.g. PUT, POST) and requires a body you may provide an example of it in all of the supported representation formats (e.g. json, XML). The request body is not validated.
+If the operation allows (e.g. PUT, POST) and requires a body you may provide an example of it in all of the supported representation formats (e.g. json, XML). The request body is used for documentation purposes and is not validated.
 
 Switch to the Body tab.
 

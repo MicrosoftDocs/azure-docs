@@ -1,116 +1,215 @@
+<properties pageTitle="How to use the API Inspector to trace calls in Azure API Management" metaKeywords="" description="Learn how to trace calls using the API Inspector in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to use the API Inspector to trace calls in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+
 # How to use the API Inspector to trace calls in Azure API Management
 
-API Management provides an API Inspector tool that is built-in to the Developer portal to help you with debugging and troubleshooting your APIs. This guide provides a walk-through of using API Inspector.
+API Management (Preview) provides an API Inspector tool to help you with debugging and troubleshooting your APIs. The API Inspector can be used programatically from your applications, and can also be used directly from the developer portal. This guide provides a walk-through of using API Inspector.
 
 ## In this topic
 
 -	[Use API Inspector to trace a call][]
+-	[Inspect the trace][]
 -	[Next steps][]
 
 
-## <a name="api-inspector"> </a> Use API Inspector to trace a call
+## <a name="trace-call"> </a> Use API Inspector to trace a call
 
-Azure-ApiManagement-Trace: On
+To use API Inspector, add an **ocp-apim-trace: true** request header to your operation call, and then download and inspect the trace using the URL indicated by the **ocp-apim-trace-location** response header. This can be done programatically, and can also be done directly from the developer portal.
 
-Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management. The Echo API returns back whatever input is sent to it. To use it, you can invoke any HTTP verb, and the return value will simply be what you sent. This tutorial shows how to use API Inspector with the pre-configured Echo API.
+This tutorial shows how to use the API Inspector to trace operations using the Echo API.
 
-Login to the Azure Portal for your API Management instance, and from the Quickstart tab click **Developer Portal**.
+>Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management. The Echo API returns back whatever input is sent to it. To use it, you can invoke any HTTP verb, and the return value will simply be what you sent. 
 
-![api-management-developer-portal-menu][]
+To get started, click **Development Portal** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
 
-Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API. In this tutorial step you will call the Get method of **Echo API**. 
+>If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
->If you completed the first tutorial, [Get started with API Management][], you may follow the steps of this tutorial using the API and operations you created in that tutorial.
+![API Management developer portal][api-management-developer-portal-menu]
+
+Operations can be called directly from the developer portal, which provides a convenient way to view and test the operations of an API. In this tutorial step you will call the **Get Resource** method of **Echo API**. 
 
 Click **APIs** from the top menu, and then click **Echo API**.
 
-![api-management-echo-api][]
+![Echo API][api-management-echo-api]
 
-Click **Open Console** for the **GET Resource** operation, which is the first operation listed.
+>If you have only one API configured or visible to your account, then clicking APIs takes you directly to the operations for that API.
 
-![api-management-echo-api-get][]
+Select the **GET Resource** operation, and click **Open Console**.
 
-Enter some values for the parameters, and enter your developer key. Keys are found in the **Your account** page of the Management portal. To view your key directly from the  current page in the Developer portal, right-click **Your account** and select **Open in new tab**. Switch to the new tab and copy either the primary or secondary key.
+![Open console][api-management-open-console]
 
->To view **Your account** from within the Administrative portal, select **View Account** from the menu at the top right of the portal.
+Keep the default parameter values, and select your subscription key from the **subscription-key** drop-down.
 
-![api-management-developer-key][]
+Type **ocp-apim-trace: true** in the **Request headers** text box, and click **HTTP Get**.
 
-Switch back to the Developer portal and enter your key.
+![HTTP Get][api-management-http-get]
 
-In **Request headers**, type **Azure-ApiManagement-Trace: On** and click **HTTP Get**.
+In the response headers will be an **ocp-apim-trace-location** with a value similar to the following example.
 
-![api-management-invoke-get][]
+	ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net/apiinspectorcontainer/ZW3e23NsW4wQyS-SHjS0Og2-2?sv=2013-08-15&sr=b&sig=Mgx7cMHsLmVDv%2B%2BSzvg3JR8qGTHoOyIAV7xDsZbF7%2Bk%3D&se=2014-05-04T21%3A00%3A13Z&sp=r&verify_guid=a56a17d83de04fcb8b9766df38514742
 
-After an operation is invoked, the developer portal displays the **Requested URL** from the back-end service, the **Response status**, the **Response headers**, and any **Response content**. 
+The trace can be downloaded from the specified location and reviewed, as demonstrated in the next step.
 
-![api-management-invoke-get-response][]
+## <a name="inspect-trace"> </a>Inspect the trace
 
+To review the values in the trace, download the trace file from the **ocp-apim-trace-location** URL. It is a text file in JSON format, and contains entries similar to the following example.
 
+	{
+	  "validityGuid":"a43a07a03de04fcb8b1425df38514742",
+	  "logEntries":[
+		{
+			"timestamp":"2014-05-03T21:00:13.2182473Z",
+			"source":"Microsoft.WindowsAzure.ApiManagement.Proxy.Gateway.Handlers.DebugLoggingHandler",
+			"data":{
+			"originalRequest":{
+				"method":"GET",
+				"url":"https://contosoltd.current.int-azure-api.net/echo/resource?param1=sample&subscription-key=...",
+				"headers":[
+				{
+					"name":"ocp-apim-tracing",
+					"value":"true"
+				},
+				{
+					"name":"Host",
+					"value":"contosoltd.current.int-azure-api.net"
+				}
+				]
+			}
+			}
+		},
+		{
+		  "timestamp":"2014-05-03T21:00:13.2182473Z",
+		  "source":"request handler",
+		  "data":{
+			"configuration":{
+			  "api":{
+				"from":"echo",
+				"to":"http://echoapi.cloudapp.net/api"
+			  },
+			  "operation":{
+				"method":"GET",
+				"uriTemplate":"/resource"
+			  },
+			  "user":{
+				"id":1,
+				"groups":[
+              
+				]
+			  },
+			  "product":{
+				"id":1
+			  }
+			}
+		  }
+		},
+		{
+		  "timestamp":"2014-05-03T21:00:13.2182473Z",
+		  "source":"backend call handler",
+		  "data":{
+			"message":"Sending request to the service.",
+			"request":{
+			  "method":"GET",
+			  "url":"http://echoapi.cloudapp.net/api/resource?param1=sample&subscription-key=...",
+			  "headers":[
+				{
+				  "name":"X-Forwarded-For",
+				  "value":"138.91.78.77"
+				},
+				{
+				  "name":"ocp-apim-tracing",
+				  "value":"true"
+				}
+			  ]
+			}
+		  }
+		},
+		{
+		  "timestamp":"2014-05-03T21:00:13.2182473Z",
+		  "source":"backend call handler",
+		  "data":{
+			"status":{
+			  "code":200,
+			  "reason":"OK"
+			},
+			"headers":[
+			  {
+				"name":"Pragma",
+				"value":"no-cache"
+			  },
+			  {
+				"name":"Host",
+				"value":"echoapi.cloudapp.net"
+			  },
+			  {
+				"name":"X-Forwarded-For",
+				"value":"138.91.78.77"
+			  },
+			  {
+				"name":"ocp-apim-tracing",
+				"value":"true"
+			  },
+			  {
+				"name":"Content-Length",
+				"value":"0"
+			  },
+			  {
+				"name":"Cache-Control",
+				"value":"no-cache"
+			  },
+			  {
+				"name":"Expires",
+				"value":"-1"
+			  },
+			  {
+				"name":"Server",
+				"value":"Microsoft-IIS/8.0"
+			  },
+			  {
+				"name":"X-AspNet-Version",
+				"value":"4.0.30319"
+			  },
+			  {
+				"name":"X-Powered-By",
+				"value":"Azure API Management - http://api.azure.com/,ASP.NET"
+			  },
+			  {
+				"name":"Date",
+				"value":"Sat, 03 May 2014 21:00:17 GMT"
+			  }
+			]
+		  }
+		}
+	  ]
+	}
 
 
 ## <a name="next-steps"> </a>Next steps
 
-TODO: link to the advance tutorial landing page with sublinks to each individual item.
+-	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
 
-[Create an API Management instance]: #create-service-instance
-[Create an API]: #create-api
-[Add an operation]: #add-operation
-[Add the new API to a product]: #add-api-to-product
-[Subscribe to the product that contains the API]: #subscribe
-[Call an operation from the Developer Portal]: #call-operation
-[View analytics]: #view-analytics
+[Use API Inspector to trace a call]: #trace-call
+[Inspect the trace]: #inspect-trace
 [Next steps]: #next-steps
 
 [Configure API settings]: ./api-management-hotwo-create-apis/#configure-api-settings
 [Responses]: ./api-management-howto-add-operations/#responses
 [How create and publish a product]: ./api-management-howto-add-products
 
+[Get started with Azure API Management]: ./api-management-get-started
+[Create an API Management service instance]: ./api-management-get-started/#create-service-instance
+[Get started with advanced API configuration]: ./api-management-get-started-advanced
 [Management Portal]: https://manage.windowsazure.com/
 
 [api-management-developer-portal-menu]: ./Media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
 [api-management-echo-api]: ./Media/api-management-howto-api-inspector/api-management-echo-api.png
 [api-management-echo-api-get]: ./Media/api-management-howto-api-inspector/api-management-echo-api-get.png
 [api-management-developer-key]: ./Media/api-management-howto-api-inspector/api-management-developer-key.png
-[api-management-]: ./Media/api-management-howto-api-inspector/api-management-.png
-[api-management-]: ./Media/api-management-howto-api-inspector/api-management-.png
+[api-management-open-console]: ./Media/api-management-howto-api-inspector/api-management-open-console.png
+[api-management-http-get]: ./Media/api-management-howto-api-inspector/api-management-http-get.png
 [api-management-]: ./Media/api-management-howto-api-inspector/api-management-.png
 [api-management-]: ./Media/api-management-howto-api-inspector/api-management-.png
 [api-management-]: ./Media/api-management-howto-api-inspector/api-management-.png
 [api-management-]: ./Media/api-management-howto-api-inspector/api-management-.png
 
-[api-management-management-console]: ./Media/api-management-get-started/api-management-management-console.png
-[api-management-create-instance-menu]: ./Media/api-management-get-started/api-management-create-instance-menu.png
-[api-management-create-instance-step1]: ./Media/api-management-get-started/api-management-create-instance-step1.png
-[api-management-create-instance-step2]: ./Media/api-management-get-started/api-management-create-instance-step2.png
-[api-management-instance-created]: ./Media/api-management-get-started/api-management-instance-created.png
-[api-management-create-api]: ./Media/api-management-get-started/api-management-create-api.png
-[api-management-add-new-api]: ./Media/api-management-get-started/api-management-add-new-api.png
-[api-management-new-api-summary]: ./Media/api-management-get-started/api-management-new-api-summary.png
-[api-management-myecho-operations]: ./Media/api-management-get-started/api-management-myecho-operations.png
-[api-management-operation-signature]: ./Media/api-management-get-started/api-management-operation-signature.png
-[api-management-list-products]: ./Media/api-management-get-started/api-management-list-products.png
-[api-management-add-api-to-product]: ./Media/api-management-get-started/api-management-add-api-to-product.png
-[api-management-add-myechoapi-to-product]: ./Media/api-management-get-started/api-management-add-myechoapi-to-product.png
-[api-management-api-added-to-product]: ./Media/api-management-get-started/api-management-api-added-to-product.png
-[api-management-developers]: ./Media/api-management-get-started/api-management-developers.png
-[api-management-add-subscription]: ./Media/api-management-get-started/api-management-add-subscription.png
-[api-management-add-subscription-window]: ./Media/api-management-get-started/api-management-add-subscription-window.png
-[api-management-subscription-added]: ./Media/api-management-get-started/api-management-subscription-added.png
 
-[api-management-developer-portal-myecho-api]: ./Media/api-management-get-started/api-management-developer-portal-myecho-api.png
-[api-management-developer-portal-myecho-api-console]: ./Media/api-management-get-started/api-management-developer-portal-myecho-api-console.png
-[api-management-invoke-get]: ./Media/api-management-get-started/api-management-invoke-get.png
-[api-management-invoke-get-response]: ./Media/api-management-get-started/api-management-invoke-get-response.png
-[api-management-manage-menu]: ./Media/api-management-get-started/api-management-manage-menu.png
-[api-management-dashboard]: ./Media/api-management-get-started/api-management-dashboard.png
 
-[api-management-add-response]: ./Media/api-management-get-started/api-management-add-response.png
-[api-management-add-response-window]: ./Media/api-management-get-started/api-management-add-response-window.png
-[api-management-developer-key]: ./Media/api-management-get-started/api-management-developer-key.png
-[api-management-mouse-over]: ./Media/api-management-get-started/api-management-mouse-over.png
-[api-management-api-summary-metrics]: ./Media/api-management-get-started/api-management-api-summary-metrics.png
-[api-management-analytics-overview]: ./Media/api-management-get-started/api-management-analytics-overview.png
-[api-management-analytics-usage]: ./Media/api-management-get-started/api-management-analytics-usage.png
-[api-management-]: ./Media/api-management-get-started/api-management-.png
-[api-management-]: ./Media/api-management-get-started/api-management-.png
+

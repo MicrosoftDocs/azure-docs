@@ -30,7 +30,7 @@ Choose the desired **Pricing Tier**, **Subscription**, and **Region** for your s
 
 Enter **Contoso Ltd.** for the **Organization Name**, and enter your email address in the administrator e-mail field.
 
->This email address is used for notifications and subscriptions approvals which are not covered in this tutorial but are covered in the following advanced tutorials. For more information, see [Next steps][].
+>This email address is used for notifications which are not covered in this tutorial but are covered in the following advanced tutorials. For more information, see [Next steps][].
 
 Click the check box to create your service instance.
 
@@ -44,16 +44,13 @@ Once the service instance is created, the next step is to create an API.
 
 ## <a name="create-api"> </a>Create an API
 
-An API in API Management represents a set of operations that can be invoked by client applications. Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management. The Echo API returns back whatever input is sent to it. To use it, you can invoke any HTTP verb, and the return value will simply be what you sent.
+An API consists of a set of operations that can be invoked from a client application. API operations are proxied to existing web services.
 
-There are two parts to the Echo API:
-
--	The Echo API, operations, and policies that are configured in API Management
--	The Echo API back-end service hosted at http://echoapi.cloudapp.net/api
+Each API Management service instance comes pre-configured with a sample Echo API which returns back the input that was sent to it. To use it, you can invoke any HTTP verb, and the return value will equal to the headers and body that you sent.
 
 This tutorial uses the http://echoapi.cloudapp.net/api web service to create a new API in API Management called **My Echo Service**.
 
-APIs are created and configured from the API Management portal, which is access through the Azure management portal. To reach the API Management portal, click **Management Console** in the Azure Portal for your API Management service.
+APIs are created and configured from the API Management console, which is accessed through the Azure management portal. To reach the API Management console, click **Management Console** in the Azure Portal for your API Management service.
 
 ![api-management-management-console][]
 
@@ -77,11 +74,12 @@ The API section has four tabs. The **Summary** tab display basic metrics and inf
 
 >The sample echo API doesn't use authentication, but for more information about configuring authentication, see [Configure API settings][].
 
-Once an API is created and the settings configured, the next step is to add the operations to the API.
+Once an API is created and the settings configured, the next step is to add the operations to the API. The operation definitions are used to validate incoming requests and to automatically generate documentation.
+
 
 ## <a name="add-operation"> </a>Add an operation
 
-Click **Operations** to display the operations pane for the API. Since we have not yet added any operations, there are none displayed. 
+Click **Operations** to display the operations pane for the API. Since we have not yet added any operations, there are none displayed.
 
 ![api-management-myecho-operations][]
 
@@ -126,11 +124,10 @@ Once **200 OK** is selected, a new response code is added to the operation and t
 
 Click **Save** to add the newly configured operation to the API.
 
->It is not required to click **Save** after configuring each tab when adding a new operation, but be sure to save when you are complete. If you want to save after configuring each tab, click **Edit** for the operation to return to the configuration tab.
 
 ## <a name="add-api-to-product"> </a>Add the new API to a product
 
-In API Management, developers subscribe to a product in order to use the product's APIs. Each product contains one or more APIs, as well as a usage quota and the terms of use. Before an API can be used by developers it must be added to a product and published. In this step of the tutorial you will add the **My Echo API** to a product.
+Developers must first subscribe to a product before they can make API calls. A product provides access to one or more APIs and can contain access restrictions like usage quotas and rate limits. In this step of the tutorial you will add the My Echo API to an existing product.
 
 Click **Products** from the **API Management** menu on the left to view and configure the products available in this API Instance.
 
@@ -138,10 +135,10 @@ Click **Products** from the **API Management** menu on the left to view and conf
 
 By default, each API Management instance comes with two sample products:
 
--	**15 Day Free Trial**
+-	**Limited**
 -	**Unlimited**
 
-In this tutorial we will use the **15 Day Free Trial** product. Click **Configure** for the **15 Day Free Trial** to view the settings, including the APIs that are associated with that product.
+In this tutorial we will use the **Limited** product. Click **Configure** for the **Limited** to view the settings, including the APIs that are associated with that product.
 
 ![api-management-add-api-to-product][]
 
@@ -153,13 +150,13 @@ Check the box for **My Echo API**, and click **Save**.
 
 ![api-management-api-added-to-product][]
 
-Now that **My Echo API** is associated with a product, developers can subscribe to and begin using the API.
+Now that **My Echo API** is associated with a product, developers can subscribe to it and begin using the API.
 
->This tutorial step used the 15 Day Free Trial product, which comes pre-configured and ready for use. For a step-by-step guide on creating and publishing a new product, see [How create and publish a product][].
+>This tutorial step used the Limited product, which comes pre-configured and ready for use. For a step-by-step guide on creating and publishing a new product, see [How create and publish a product][].
 
 ## <a name="subscribe"> </a>Subscribe to the product that contains the API
 
-In order to use the APIs in a product, developers must be subscribed to the product. Developers can subscribe to products in the Developer portal, and administrators can subscribe developers to products in the Management portal. You are an administrator by default since you created the API Management instance in the previous steps in the tutorial, so you will subscribe your account to the 15 Day Free Trial product.
+In order to make calls to an API, developers must first be subscribed to a product that gives them access to it. Developers can subscribe to products in the Developer portal, or administrators can subscribe developers to products in the Management console. You are an administrator by default since you created the API Management instance in the previous steps in the tutorial, so you will subscribe your account to the “Limited” product.
 
 Click **Developers** from the **API Management** menu on the left to view and configure the developers in this service instance.
 
@@ -173,7 +170,7 @@ Click **Add Subscription**.
 
 ![api-management-add-subscription-window][]
 
-Check the box for **15 Day Free Trial** and click **Subscribe**.
+Check the box for **Limited** and click **Subscribe**.
 
 ![api-management-subscription-added][]
 
@@ -195,9 +192,9 @@ Click **Open Console**.
 
 ![api-management-developer-portal-myecho-api-console][]
 
-Enter some values for the parameters, and enter your developer key. Keys are found in the **Your account** page of the Management portal. To view your key directly from the  current page in the Developer portal, right-click **Your account** and select **Open in new tab**. Switch to the new tab and copy either the primary or secondary key.
+Enter some values for the parameters, and enter your developer key. Keys are found in the **Profile** page of the Management console. To view your key directly from the current page in the Developer portal, right-click **View Profile** and select **Open in new tab**. Switch to the new tab and copy either the primary or secondary key.
 
->To view **Your account** from within the Administrative portal, select **View Account** from the menu at the top right of the portal.
+>To view **Profile** from within the Administrative portal, select **Administrator** from the menu at the top right of the portal.
 
 ![api-management-developer-key][]
 
@@ -237,8 +234,8 @@ For detailed metrics and reports, click **Analytics** from the **API Management*
 The **Analytics** section has the following four tabs.
 
 -	**At a glance** provides overall usage and health metrics as well as the top developers, top products, top APIs, and top operations.
--	**Usage** allows you to query for specific date ranges, products, APIs, and operations, and shows a geographical representation of calls and bandwidth usage.
--	**Health** focuses on status codes, cache, response times, and API and service response times, which allow you to monitor the health of your API Management instance.
+-	**Usage** provides in-depth look at API calls and bandwidth including a geographical representation.
+-	**Health** focuses on status codes, cache success rates, response times, and API and service response times.
 -	**Activity** provides reports that drill down on the specific activity by developer, product, API, and operation.
 
 For more information on viewing analytics, see [Analytics and monitoring][]. (Link TODO)
