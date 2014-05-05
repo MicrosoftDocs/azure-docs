@@ -46,7 +46,7 @@ Select the desired APIs and click **Save**.
 
 ## <a name="add-description"> </a>Add descriptive information to a product
 
-The **Description** tab allows you to provide detailed information about the product such as its purpose, the APIs it uses, and other useful information. The content is targeted at the developers that will be calling the API and can be written in plain text or HTML markup.
+The **Description** tab allows you to provide detailed information about the product such as its purpose, the APIs it provides access to, and other useful information. The content is targeted at the developers that will be calling the API and can be written in plain text or HTML markup.
 
 ![api-management-product-description][]
 
@@ -56,13 +56,13 @@ Optionally fill in the **Terms of use** field describing the terms of use for th
 
 ## <a name="publish-product"> </a>Publish a product
 
-Before the APIs in a product can be called, the API must be published. On the **summary** tab for the API, click **publish**. To make a previously published product private, click **unpublish**.
+Before the APIs in a product can be called, the product must be published. On the **summary** tab for the product, click **publish**. To make a previously published product private, click **unpublish**.
 
 ![api-management-publish-product][]
 
 ## <a name="make-visible"> </a>Make a product visible to developers
 
-The **visibility** tab allows you to choose which roles are able to view and subscribe to the product.
+The **visibility** tab allows you to choose which roles are able to see the product on the developer portal and subscribe to the product.
 
 ![api-management-product-visiblity][]
 

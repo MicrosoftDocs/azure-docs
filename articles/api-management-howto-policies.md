@@ -2,10 +2,12 @@
 
 In Azure API Management, policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of Statements that are executed sequentially on the request or response of an API. Popular Statements include format conversion from XML to JSON and call rate limiting to restrict the amount of incoming calls from a developer. Many more policies are available out of the box.
 
+See the [Policy Reference][] for a full list of policy statements and their settings.
+
 Policies are applied inside the proxy which sits between the API consumer and the managed API. The proxy receives all requests and usually forwards them unaltered to the underlying API. However a policy can apply changes to both the inbound request and outbound response.
 
 ##How to configure policies
-Policies can be configured at the scope of a [Product][], [API][], [Operation][] or a combination thereof. To configure a policy, navigate to the Policies editor in the Publisher Portal.
+Policies can be configured globally or at the scope of a [Product][], [API][] or [Operation][]. To configure a policy, navigate to the Policies editor in the Publisher Portal.
 
 ![policies-menu][]
 
@@ -25,13 +27,15 @@ Since a policy has already been applied, the configuration is shown in the defin
 
 ![policies-configure][]
 
-The policy is displayed readonly at first. In order to edit the definition click the Configure Policy action.
+The policy is displayed read-only at first. In order to edit the definition click the Configure Policy action.
 
 ![policies-edit][]
 
 The policy definition is a simple XML document that describes a sequence of inbound and outbound statements. The XML can be edited directly in the definition window. A list of statements is provided to the right and statements applicable to the current scope are enabled and highlighted; as demonstrated by the Limit Call Rate statement in the screenshot above.
 
 Clicking an enabled statement will add the appropriate XML at the location of the cursor in the definition view. 
+
+A full list of policy statements and their settings are available in the [Policy Reference][].
 
 For example, to add a new statement to restrict incoming requests to specified IP addresses, place the cursor just inside the content of the "inbound" XML element and click the Restrict caller IPs statement.
 
@@ -54,12 +58,36 @@ To limit inbound requests and accept only those from an IP address of 1.2.3.4 mo
 
 When complete configuring the statements for the policy, click Save and the changes will be propagated to the API Management proxy immediately.
 
-#TODO - explain inbound/outbound/base
+#Understanding policy configuration
 
-#TODO - recalculate effective policy
+A policy is a series of statements that execute in order for a request and a response. The configuration is divided appropriately into an inbound (request) and outbound (policy) as shown in the configuration.
 
+	<policies>
+		<inbound>
+			<!-- statements to be applied to the request go here -->
+		</inbound>
+		<outboud>
+			<!-- statements to be applied to the response go here -->
+		<outbound>
+	</policies>
 
+Since policies can be specified at different levels (global, product, api and operation) then the configuration provides a way for you to specify the order in which this definition's statements execute with respect to the parent policy. 
 
+For example, if you have a policy at the global level and a policy configured for an API, then whenever that particular API is used - both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
+
+	<policies>
+    	<inbound>
+        	<cross-domain />
+        	<base />
+        	<find-and-replace from="xyz" to="abc" />
+    	</inbound>
+	</policies>
+
+In the example policy definition above, the cross-domain statement would execute before any higher policies which would in turn, be followed by the find-and-replace policy.
+
+Note: A global policy has no higher policy to the the *base* element is always a *no-op*, or has no effect.
+
+[Policy Reference]: /api-management-policy-reference
 [policies-menu]: ./media/api-management-howto-policies/api-management-policies-menu.png
 [policies-editor]: ./media/api-management-howto-policies/api-management-policies-editor.png
 [policies-scope]: ./media/api-management-howto-policies/api-management-policies-scope.png
