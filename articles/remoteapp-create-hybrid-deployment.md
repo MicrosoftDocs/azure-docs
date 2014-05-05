@@ -4,15 +4,15 @@
 
 There are two kinds of RemoteApp deployment: 
 
-- Cloud: resides completely in Azure and is created using the **Quick create** option in the Azure management portal. A cloud deployment is good for proof of concept and testing. 
-- Hybrid: includes a virtual network for on-premise access and is the best option for production use.
+- Cloud: resides completely in Azure and is created using the **Quick create** option in the Azure management portal.  
+- Hybrid: includes a virtual network for on-premises access and is created using the **Create with VPN** option in the management portal.
 
 This tutorial walks you through the process of creating a hybrid deployment. There are six steps: 
 
 1.	Create a RemoteApp service.
 2.	Link to a virtual network.
 3.	Link a template image.
-4.	Configure directory synchronization. RemoteApp requires this to synchronize users, groups, contacts, and passwords from your on-premise Active Directory to Azure to your Azure Active Directory tenant.
+4.	Configure directory synchronization. RemoteApp requires this to synchronize users, groups, contacts, and passwords from your on-premises Active Directory to your Azure Active Directory tenant.
 5.	Publish RemoteApp programs.
 6.	Configure user access.
 
@@ -23,7 +23,7 @@ This tutorial walks you through the process of creating a hybrid deployment. The
 
 1. In the [Windows Azure Management Portal](http://manage.windowsazure.com), go to the RemoteApp page.
 2. Click **New > Create with VPN**.
-3. Enter a name for your service and click **Create RemoteApp service**.
+3. Enter a name for your service, and click **Create RemoteApp service**.
 
 After your RemoteApp service has been created, go to the RemoteApp **Quick Start** page to continue with the set up steps.
 
@@ -66,9 +66,9 @@ RemoteApp requires directory synchronization between Azure Active Directory and 
 
 **Step 5: Publish RemoteApp programs**
 
-A RemoteApp program is the app or program that you provide to your users. It is located in the template image you uploaded for the service. When an end user accesses a RemoteApp program, the program appears to run in their local environment, but it is really running in Azure. 
+A RemoteApp program is the app or program that you provide to your users. It is located in the template image you uploaded for the service. When a user accesses a RemoteApp program, the program appears to run in their local environment, but it is really running in Azure. 
 
-Before your users can access RemoteApp programs, you need to publish them to the end user feed – a list of available programs that your users access through the Azure portal.
+Before your users can access RemoteApp programs, you need to publish them to the end-user feed – a list of available programs that your users access through the Azure portal.
  
 You can publish multiple programs to your RemoteApp service. From the RemoteApp programs page, click **Publish** to add a program. You can either publish from the Start menu or by specifying the path on the template image for the program. If you choose to add from the Start menu, choose the program to publish. If you choose to provide the path to the program, provide a name for the program and the path to where the program is installed on the template image.
 
@@ -77,8 +77,8 @@ You can publish multiple programs to your RemoteApp service. From the RemoteApp 
 Now that you have created your RemoteApp service, you need to add the users and groups that you want to be able to use your remote resources. 
 
 1.	From the Quick Start page, click **Configure user access**. 
-2.	If you are creating a hybrid deployment (with virtual network), enter the organizational account (from Active Directory) for the user or group that you want to grant access for.
-3.	If you are creating a cloud deployment, enter either an organizational account or a Microsoft account.
+2.	Enter the organizational account (from Active Directory) for the user or group that you want to grant access for.
+
 
 	For users, make sure that you use the “user@domain.com” or “domain/user” format. For groups, you can just enter the group name.
 
