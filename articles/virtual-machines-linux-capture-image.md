@@ -37,7 +37,7 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 7.	In **Image Name**, type a name for the new image.
 
-8.	All Linux images must be *deprovisioned* by running the `waagent` command with the `-deprovision` option. Click **I have run the de-provision command on the Virtual Machine** to indicate that the operating system is prepared to be an image.
+8.	All Linux images must be *deprovisioned* by running the `waagent` command with the `-deprovision` option. Click **I have run waagent-deprovision on the virtual machine** to indicate that the operating system is prepared to be an image.
 
 9.	Click the check mark to capture the image.
 
