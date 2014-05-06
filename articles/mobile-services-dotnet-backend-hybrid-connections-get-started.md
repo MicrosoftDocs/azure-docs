@@ -56,27 +56,27 @@ For the purposes of this tutorial, we will assume the database name is **OnPremi
 <a name="InstallHCM"></a>
 ## Install the on-premises Hybrid Connection Manager to complete the connection
 
-1. Select the connection you just created and then select **On-premises Setup** to continue. 
-2. The Hybrid Connection Manager enables your on-premises machine to connect to Azure and relay TCP traffic. Select **Install and Configure** to install a customized instance of the Connection Manager, which is already pre-configured to work with the hybrid connection you just created. Be sure to complete this step on the on-premises machine you are trying to access from Azure.
+1. Select the connection you just created and then select **On-premises Setup** in the bottom bar to continue. 
+2. The Hybrid Connection Manager enables your on-premises machine to connect to Azure and relay TCP traffic. Select **Install and Configure** to install a customized instance of the Connection Manager, which is already pre-configured to work with the hybrid connection you just created. Be sure to complete this step on the on-premises machine you are trying to access from Azure.<br/>
 ![Install Hybrid Connection Manager][InstallHCM]
 3. Complete the rest of the setup steps for the Connection Manager.
 ![Hybrid Connection Manager setup][HCMSetup]
-4. When installation completes, the hybrid connection status will change to "1 Instance Connected". You may need to refresh the browser and wait a few minutes. The on-premises setup is now complete.
+4. When installation completes, the hybrid connection status will change to **1 Instance Connected**. You may need to refresh the browser and wait a few minutes. The on-premises setup is now complete.
 ![Hybrid Connection connected][HCConnected]
 
 <a name="CreateService"></a>
 ## Modify a Mobile Service to use the connection
 ### Associate hybrid connection with service
 1. In the **Mobile Services** tab of the portal, select an existing mobile services or create a new one. Be sure to select a service that was created using the .NET Backend. 
-2. On the **Configure** tab, find the **Hybrid Connections** section and select **Add Hybrid Connection**.
+2. On the **Configure** tab for your mobile service, find the **Hybrid Connections** section and select **Add Hybrid Connection**.
 ![Associate Hybrid Connection][AssociateHC]
-3. Select the hybrid connection we just created on the BizTalk Services tab, press *OK*. 
+3. Select the hybrid connection we just created on the BizTalk Services tab, press **OK**. 
 ![Pick associated Hybrid Connection][PickHC]
 
 ### Update the service to use the on-premises connection string
 We now need to create an app setting to store the value of the connection string to our on-premises SQL Server. 
 
-1. Find the **App Settings** area on the same tab and create an app setting named **onPremisesDatabase** with a value similar to **Server=onPremisesServer,1433;Database=OnPremisesDB;User ID=sa;Password={password}**.
+1. Find the **App Settings** area on the **Configure** tab and create an app setting named **onPremisesDatabase** with a value similar to **Server=onPremisesServer,1433;Database=OnPremisesDB;User ID=sa;Password={password}**.
 ![App setting for connection string][AppSetting]
 2. Press **Save** to save the hybrid connection and app setting we just created.
 3. We need to modify our mobile service to use the new connection string. Whether you are creating a new mobile service or modifying an existing one, follow the steps similar to [Get started with Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) to obtain the source code for your .NET-based mobile service. 
@@ -84,7 +84,6 @@ We now need to create an app setting to store the value of the connection string
 
         public class hybridService1Context : DbContext
         {
-
             public hybridService1Context()
                 : base(ConfigurationManager.AppSettings["onPremisesDatabase"])
             {
@@ -93,7 +92,7 @@ We now need to create an app setting to store the value of the connection string
             // snipped
         }
 5. Publish your changes and use a client app connected to your mobile service to invoke some operations that would result in database changes.
-6. Open SQL Management Studio on the on-premises computer where SQL Server is running. In Object Explorer, expand the **OnPremisesDB** database, and then expand **Tables**. Right-click the **dbo.AspNetUsers** membership table and choose **Select Top 1000 Rows** to view the results.
+6. Open SQL Management Studio on the on-premises computer where SQL Server is running. In Object Explorer, expand the **OnPremisesDB** database, and then expand **Tables**. Right-click the **hybridService1.TodoItems** table and choose **Select Top 1000 Rows** to view the results.
 ![SQL Management Studio][SMS]
 
 ##See Also##
