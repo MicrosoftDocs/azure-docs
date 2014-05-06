@@ -1,6 +1,8 @@
-# How to create or invite developers in Azure API Management
+<properties pageTitle="How manage developer accounts in Azure API Management" metaKeywords="" description="Learn how to create or invite developers in Azure API Management" metaCanonical="" services="" documentationCenter="API Management" title="How manage developer accounts in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-In API Management, developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API management instance.
+# How to manage developer accounts in Azure API Management
+
+In API Management (preview), developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance.
 
 ## In this topic
 
@@ -13,46 +15,51 @@ In API Management, developers are the users of the APIs that you expose using AP
 
 To create a new developer, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
 
-![api-management-management-console][]
+>If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+
+![API Management console][api-management-management-console]
 
 Click **Developers** from the **API Management** menu on the left, and then click **add user**.
 
-![api-management-create-developer][]
+![Create developer][api-management-create-developer]
 
-Enter the email, password, and name for the new developer and click **Save**.
+Enter the **Email**, **Password**, and **Name** for the new developer and click **Save**.
 
-![api-management-add-new-user][]
+![Create developer][api-management-add-new-user]
 
-By default, newly created developer accounts are **active**, and associated with the **Developer** role.
+By default, newly created developer accounts are **Active**, and associated with the **Developers** group.
 
-![api-management-new-developer][]
+![New developer][api-management-new-developer]
 
-Developer accounts that are in an **active** state can be used to access all of the APIs for which they have subscriptions. To associate the newly created account with additional roles, see [How to associate roles with developers][].
+Developer accounts that are in an **active** state can be used to access all of the APIs for which they have subscriptions. To associate the newly created developer with additional groups, see [How to associate groups with developers][].
 
 ## <a name="invite-developer"> </a>Invite a developer
 
-To invite a developer, click **Developers** from the **API Management** menu on the left, and then click **invite user**.
+To invite a developer, click **Developers** from the **API Management** menu on the left, and then click **Invite User**.
 
-![api-management-invite-developer][]
+![Invite developer][api-management-invite-developer]
 
 Enter the name and email address of the developer, and click **Invite**.
 
-![api-management-invite-developer-window][]
+![Invite developer][api-management-invite-developer-window]
 
-A confirmation message is displayed, but the newly invited developer does not appear in the list until after the accept the invitation. Once the invitation is accepted, the account becomes active.
+A confirmation message is displayed, but the newly invited developer does not appear in the list until after the accept the invitation. 
 
-![api-management-invite-developer-confirmation][]
+![Invite confirmation][api-management-invite-developer-confirmation]
 
+>When a developer is invited, an email is sent to the developer. This email is generated using a template and is customizable. For more information, see [Configure email templates][].
+
+Once the invitation is accepted, the account becomes active.
 
 ## <a name="block-developer"> </a> Deactivate or reactivate a developer account
 
-By default, newly created or invited developer accounts are **active**. To deactivate a developer account, click **block**. To reactivate a blocked developer account, click **activate**. A blocked developer account can not access the developer portal or call any APIs.
+By default, newly created or invited developer accounts are **Active**. To deactivate a developer account, click **Block**. To reactivate a blocked developer account, click **Activate**. A blocked developer account can not access the developer portal or call any APIs.
 
-![api-management-new-developer][]
+![Block developer][api-management-new-developer]
 
 ## <a name="next-steps"> </a>Next steps
 
-Once a developer account is created, you can associate it with roles and subscribe it to products and APIs. For more information, see [How to create and use roles][].
+Once a developer account is created, you can associate it with roles and subscribe it to products and APIs. For more information, see [How to create and use groups][].
 
 
 [api-management-management-console]: ./Media/api-management-howto-create-or-invite-developers/api-management-management-console.png
@@ -70,5 +77,9 @@ Once a developer account is created, you can associate it with roles and subscri
 [Invite a developer]: #invite-developer
 [Deactivate or reactivate a developer account]: #block-developer
 [Next steps]: #next-steps
-[How to create and use roles]: ./api-management-hotwo-create-roles
-[How to associate roles with developers]: ./api-management-hotwo-create-roles/#associate-role-developer
+[How to create and use groups]: ./api-management-hotwo-create-groups
+[How to associate groups with developers]: ./api-management-hotwo-create-groups/#associate-group-developer
+
+[Get started with Azure API Management]: ./api-management-get-started
+[Create an API Management service instance]: ./api-management-get-started/#create-service-instance
+[Configure email templates]: ./api-management-howto-configure-notifications/#email-templates

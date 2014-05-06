@@ -13,10 +13,9 @@ This guide shows you how to quickly get started using API Management and make yo
 -	[View analytics][]
 -	[Next steps][]
 
-
-
-
 ## <a name="create-service-instance"> </a>Create an API Management instance
+
+> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
 
 The first step in working with API Management is to create a service instance. Log in to the [Management Portal][] and click **New**, **App Services**, **API Management**, **Create**.
 
@@ -30,13 +29,11 @@ Choose the desired **Pricing Tier**, **Subscription**, and **Region** for your s
 
 Enter **Contoso Ltd.** for the **Organization Name**, and enter your email address in the administrator e-mail field.
 
->This email address is used for notifications which are not covered in this tutorial but are covered in the following advanced tutorials. For more information, see [Next steps][].
+>This email address is used for notifications from the API Management system. For more information, see [Configure Notifications][].
 
 Click the check box to create your service instance.
 
 ![api-management-create-instance-step2][]
-
-After a few moments your service instance will be created.
 
 ![api-management-instance-created][]
 
@@ -188,17 +185,11 @@ Click **APIs** from the top menu, and then click **My Echo API** to see the oper
 
 Note that the description and parameters that were added when you created the operation are displayed, providing documentation for the developers that will use this operation.
 
-Click **Open Console**. 
+Click **GET Resource** and then click **Open Console**. 
 
 ![api-management-developer-portal-myecho-api-console][]
 
-Enter some values for the parameters, and enter your developer key. Keys are found in the **Profile** page of the Management console. To view your key directly from the current page in the Developer portal, right-click **View Profile** and select **Open in new tab**. Switch to the new tab and copy either the primary or secondary key.
-
->To view **Profile** from within the Administrative portal, select **Administrator** from the menu at the top right of the portal.
-
-![api-management-developer-key][]
-
-Switch back to the Developer portal, enter your key, and click **HTTP Get**.
+Enter some values for the parameters, and specify your developer key, and click **HTTP Get**.
 
 ![api-management-invoke-get][]
 
@@ -238,11 +229,11 @@ The **Analytics** section has the following four tabs.
 -	**Health** focuses on status codes, cache success rates, response times, and API and service response times.
 -	**Activity** provides reports that drill down on the specific activity by developer, product, API, and operation.
 
-For more information on viewing analytics, see [Analytics and monitoring][]. (Link TODO)
-
 ## <a name="next-steps"> </a>Next steps
 
-TODO: link to the advance tutorial landing page with sublinks to each individual item.
+-	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
+
+[Azure Free Trial]: http://www.windowsazure.com/en-us/pricing/free-trial/
 
 [Create an API Management instance]: #create-service-instance
 [Create an API]: #create-api
@@ -254,8 +245,10 @@ TODO: link to the advance tutorial landing page with sublinks to each individual
 [Next steps]: #next-steps
 
 [Configure API settings]: ./api-management-hotwo-create-apis/#configure-api-settings
+[Configure Notifications]: ./api-management-howto-configure-notifications
 [Responses]: ./api-management-howto-add-operations/#responses
 [How create and publish a product]: ./api-management-howto-add-products
+[Get started with advanced API configuration]: ./api-management-get-started-advanced
 
 [Management Portal]: https://manage.windowsazure.com/
 

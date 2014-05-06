@@ -2,7 +2,7 @@
 
 # Azure API Management Policy Reference
 
-This topic provides a reference for the following API Management (Preview) policies. For information on adding and configuring policies, see [How to add and configure policies using the policy editor][].
+This topic provides a reference for the following API Management (Preview) policies. For information on adding and configuring policies, see [Policies in API Management][].
 
 -	[Access restriction policies][]
 	-	[Usage quota][] - Allows you to enforce a renewable or lifetime call volume and / or bandwidth quota.
@@ -756,16 +756,16 @@ Use in the inbound section and only in the *API* and *Operation* scopes.
 </tbody>
 </table>
 
-[How to add and configure policies using the policy editor]: ./api-management-howto-policy-editor
+[Policies in API Management]: ./api-management-howto-policies
 
 [Access restriction policies]: #access-restriction-policies
 [Usage quota]: #usage-quota
 [Rate limit]: #rate-limit
-[Caller IP restriction]: #-caller-ip-restriction
+[Caller IP restriction]: #caller-ip-restriction
 
 [Content transformation policies]: #content-transformation-policies
-[Set HTTP headers]: #-set-http-headers
-[Convert XML to JSON]: #-convert-xml-to-json
+[Set HTTP headers]: #set-http-headers
+[Convert XML to JSON]: #convert-xml-to-json
 [Replace string in body]: #replace-string-in-body
 [Set query string parameters]: #set-query-string-parameters
 

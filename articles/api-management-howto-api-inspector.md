@@ -199,6 +199,7 @@ To review the values in the trace, download the trace file from the **ocp-apim-t
 [Get started with advanced API configuration]: ./api-management-get-started-advanced
 [Management Portal]: https://manage.windowsazure.com/
 
+
 [api-management-developer-portal-menu]: ./Media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
 [api-management-echo-api]: ./Media/api-management-howto-api-inspector/api-management-echo-api.png
 [api-management-echo-api-get]: ./Media/api-management-howto-api-inspector/api-management-echo-api-get.png
