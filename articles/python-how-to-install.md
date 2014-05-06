@@ -13,7 +13,7 @@ Python is pretty easy to setup on Windows and comes pre-installed on Mac and Lin
 
 ## What's in the Python Azure SDK?
 
-The Azure SDK for Python includes components that allow you to develop, deploy, and mangage Python applications for Azure. Specifically, the Azure SDK for Python includes the following:
+The Azure SDK for Python includes components that allow you to develop, deploy, and manage Python applications for Azure. Specifically, the Azure SDK for Python includes the following:
 
 * **The Python Client Libraries for Azure**. These class libraries provide an interface for accessing Azure features, such as Data Management Services and Cloud Services.  
 * **The Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Azure services, such as Azure Web Sites and Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
@@ -23,7 +23,7 @@ The Azure SDK for Python includes components that allow you to develop, deploy, 
 
 The core scenarios for this release are:
 
-* **Windows**: Cloud Service -- for example a Django site using Webroles
+* **Windows**: Cloud Service, Web Site -- for example a Django site using Webroles
 * **Mac/Linux**: IaaS -- Run what you like in a VM; Consume Azure Services through Python
 
 ## Which Python and which version to use
@@ -34,7 +34,7 @@ There are several flavors of Python interpreters available - examples include:
 * IronPython - Python interpreter that runs on .Net/CLR
 * Jython - Python interpreter that runs on the JVM
 
-For the purposes of this release, only **CPython** is tested and supported.  We also recommend at least version 2.7.  **IronPython** support will be added in the near future as well.
+For the purposes of this release, only **CPython** is tested and supported.  We recommend version 2.7 or 3.4.
 
 ## Where to get Python?
 
@@ -50,11 +50,13 @@ Unless you have a specific need, we recommend the first two options, as describe
 
 For Windows you can use the provided [WebPI installer] from the main Python Developer Center to streamline the installation (it will grab CPython from www.python.org).
 
-**Note:** On Windows Server, in order to download the WebPI installer you may have to configure IE ESC settings (Start/Adminstrative Tools/Server Manager, then click **Configure IE ESC**, set to Off)
+**Note:** On Windows Server, in order to download the WebPI installer you may have to configure IE ESC settings (Start/Administrative Tools/Server Manager, then click **Configure IE ESC**, set to Off)
+
+The following screenshots show installation of the SDK for Python 2.7.  Note that there are WebPI products for both Python 2.7 and Python 3.4 available.
 
 ![how-to-install-python-webpi-1](./media/python-how-to-install/how-to-install-python-webpi-1.png)
 
-The WebPI installer provides everything you need to Python Azure apps as well specific support for Django apps:
+The WebPI installer provides everything you need to Python Azure apps:
 
 
 ![how-to-install-Python-webpi-2](./media/python-how-to-install/how-to-install-python-webpi-2.png)
@@ -71,18 +73,15 @@ After installation is complete, type python at the prompt to make sure things we
 ![how-to-install-python-win-run](./media/python-how-to-install/how-to-install-python-win-run.png)
 
 
-While this release is focused primarily on Web Apps with Django, feel free to browse the [Python Package Index (PyPI)][] for a rich selection of other software.  If you chose to install a Distro, you'll already have most of the interesting bits for a variety of scenarios from web development to Technical Computing.
+While this release is focused primarily on Web Apps, feel free to browse the [Python Package Index (PyPI)][] for a rich selection of other software.  If you chose to install a Distro, you'll already have most of the interesting bits for a variety of scenarios from web development to Technical Computing.
 
-To see what Python packages are installed in **site-packages** enter the following to find its location:
+After the installation you should have Python and the Client Libraries available at the default location:
 
-![how-to-install-python-win-site](./media/python-how-to-install/how-to-install-python-win-site.png)
+		C:\Python27\Lib\site-packages\azure
 
-This will give a list what's been installed on your system.
+or
 
-After the installation you should have Python, Django, the Client Libraries available at the default location:
-
-		C:\Python27\Lib\site-packages\windowsazure
-		C:\Python27\Lib\site-packages\django
+		C:\Python34\Lib\site-packages\azure
 
 ### Python Tools for Visual Studio
 
@@ -90,17 +89,15 @@ Python Tools for Visual Studio is a free/OSS plugin from Microsoft which turns V
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 
-Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to cloud, etc.  This add-in  works with your existing VS2010 install.  If you don't have VS2010, WebPI will install the free Integrated Shell + PTVS which essentially give you a **completely free** "VS Python Express" IDE.  For more information, see [Python Tools for Visual Studio on CodePlex][].  
-
-Note: While the PTVS plug-in is small, the Integrated Shell will increases your download times. The Integrated Shell version also currently doesn't support the "Add Azure Deployment Project" feature.
+Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to Microsoft Azure, etc.  This add-in works with your existing Visual Studio 2010, 2012 or 2013 installation.  For more information, see [Python Tools for Visual Studio on CodePlex][].  
 
 ## Windows Uninstall
 
-The **Azure SDK for Python June 2012** WebPI product is not an application in the typical sense, but actually a collection of distinct products such as 32-bit Python 2.7, Azure client APIs for Python, Django, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, so you will need to remove the programs that it installs individually from the Windows Control Panel.  
+The **Azure SDK for Python 2.7 - April 2014** and **Azure SDK for Python 3.4 - April 2014** WebPI products are not applications in the typical sense, but actually a collection of distinct products such as 32-bit Python 2.7/3.4, Azure client APIs for Python, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, so you will need to remove the programs that it installs individually from the Windows Control Panel.  
 
 If you ever wish to reinstall **Azure SDK for Python**, simply open a PowerShell command prompt as an administrator and run the following command:
 
-	rm -force "HKLM:\SOFTWARE\Microsoft\Windows Azure SDK for Python - June 2012"
+	rm -force "HKLM:\SOFTWARE\Microsoft\Python Tools for Azure"
 
 and then rerun WebPI.
 
@@ -110,21 +107,21 @@ Python is most likely already installed on your Dev machine.  You can check by e
 
 ![how-to-install-python-linux-run](./media/python-how-to-install/how-to-install-python-linux-run.png)
 
-Here we see that this Azure Suse VM has CPython 2.7.2 installed which is fine for running the Azure tutorials and Django samples. If you need to upgrade, follow your OS's recommended package upgrade instructions.  Note however, that in general it's better to leave the system Python alone (others may depend on that version) and install the newer version via [Virtualenv][].
+Here we see that this Ubuntu Server 14.04 LTS VM running on Azure has CPython 2.7.6 installed. If you need to upgrade, follow your OS's recommended package upgrade instructions.
 
 To install the Python Azure Client Libraries, use **pip** to grab it from **PyPI**:
 
-	curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python
+	curl https://bootstrap.pypa.io/get-pip.py | sudo python
 	
 The command above will silently prompt for the root password. Type it and press Enter.  Next:
 	
-	sudo /usr/local/bin/pip-2.7 install azure
+	sudo pip install azure
 
 You should now see the client libraries installed under **site-packages**.  On MacOS:
 
 ![MacOS site-packages](./media/python-how-to-install/how-to-install-python-mac-site.png)
 
-When developing from mac/linux, there are two main scenarios supported for this release:
+When developing from mac/linux, there are two main scenarios supported:
 
 1. Consuming Azure Services by using the client libraries for Python
 
@@ -135,8 +132,6 @@ The first scenario enables you to author rich web apps that take advantage of th
 For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython](http://ipython.org) REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. For more information on IPython installation please see its tutorial.
 
 For information on how to setup a Linux VM, please see the [Linux Management section.](/en-us/manage/linux/)
-
- 
 
 ## Additional Software and Resources:
 
