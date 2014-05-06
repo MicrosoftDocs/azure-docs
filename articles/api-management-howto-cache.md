@@ -117,25 +117,19 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 -	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
 -	For more information on caching policies, see [Caching policies][] in the [API Management policy reference][].
 
-[api-management-management-console]: ./Media/api-management-hotwo-cache/api-management-management-console.png
-[api-management-echo-api]: ./Media/api-management-hotwo-cache/api-management-echo-api.png
-[api-management-echo-api-operations]: ./Media/api-management-hotwo-cache/api-management-echo-api-operations.png
-[api-management-caching-tab]: ./Media/api-management-hotwo-cache/api-management-caching-tab.png
-[api-management-operation-dropdown]: ./Media/api-management-hotwo-cache/api-management-operation-dropdown.png
-[api-management-policy-editor]: ./Media/api-management-hotwo-cache/api-management-policy-editor.png
-[api-management-developer-portal-menu]: ./Media/api-management-hotwo-cache/api-management-developer-portal-menu.png
-[api-management-apis-echo-api]: ./Media/api-management-hotwo-cache/api-management-apis-echo-api.png
-[api-management-open-console]: ./Media/api-management-hotwo-cache/api-management-open-console.png
-[api-management-console]: ./Media/api-management-hotwo-cache/api-management-console.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
-[api-management-]: ./Media/api-management-hotwo-cache/api-management-.png
+[api-management-management-console]: ./Media/api-management-howto-cache/api-management-management-console.png
+[api-management-echo-api]: ./Media/api-management-howto-cache/api-management-echo-api.png
+[api-management-echo-api-operations]: ./Media/api-management-howto-cache/api-management-echo-api-operations.png
+[api-management-caching-tab]: ./Media/api-management-howto-cache/api-management-caching-tab.png
+[api-management-operation-dropdown]: ./Media/api-management-howto-cache/api-management-operation-dropdown.png
+[api-management-policy-editor]: ./Media/api-management-howto-cache/api-management-policy-editor.png
+[api-management-developer-portal-menu]: ./Media/api-management-howto-cache/api-management-developer-portal-menu.png
+[api-management-apis-echo-api]: ./Media/api-management-howto-cache/api-management-apis-echo-api.png
+[api-management-open-console]: ./Media/api-management-howto-cache/api-management-open-console.png
+[api-management-console]: ./Media/api-management-howto-cache/api-management-console.png
 
-[How to add operations to an API]: ./api-management-hotwo-add-operations
+
+[How to add operations to an API]: ./api-management-howto-add-operations
 [How to add and publish a product]: ./api-management-howto-add-product
 [Monitoring and analytics]: ./api-management-monitoring
 [Add APIs to a product]: ./api-management-howto-add-product/#add-apis

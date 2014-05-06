@@ -75,7 +75,7 @@ Once an API is created and the settings configured, the next steps are to add th
 [Configure API operations]: #configure-api-operations
 [Next steps]: #next-steps
 
-[How to add operations to an API]: ./api-management-hotwo-add-operations
+[How to add operations to an API]: ./api-management-howto-add-operations
 [How to create and publish a product]: ./api-management-howto-add-products
 
 [Get started with Azure API Management]: ./api-management-get-started

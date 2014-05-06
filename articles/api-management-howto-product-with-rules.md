@@ -1,14 +1,14 @@
-<properties pageTitle="How create and configure advanced product settings in Azure API Management" metaKeywords="" description="Learn how to configure a product with a subscription expiration, and quota and rate limit policies." metaCanonical="" services="" documentationCenter="API Management" title="How create and configure advanced product settings in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="How to create and configure advanced product settings in Azure API Management" metaKeywords="" description="Learn how to configure a product with quota and rate limit policies." metaCanonical="" services="" documentationCenter="API Management" title="How to create and configure advanced product settings in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
 # How create and configure advanced product settings in Azure API Management
 
-In Azure API Management (Preview), products are highly configurable to meet the requirements of API publishers. This topic demonstrates how to configure some of the advanced product settings, including subscription approval and rate limit and quota policies.
+In Azure API Management (Preview), products are highly configurable to meet the requirements of API publishers. This topic demonstrates how to configure some of the advanced product settings, including rate limit and quota policies.
 
-In this tutorial you will create a 30 Day Free Trial product that allows up to 10 calls per minute up to a maximum of 200 calls per week, publish it, and test the rate limit policy.
+In this tutorial you will create a Free Trial product that allows up to 10 calls per minute up to a maximum of 200 calls per week, publish it, and test the rate limit policy.
 
 ## In this topic
 
--   [Create a product with a subscription expiration][]
+-   [Create a product][]
 -   [Add an API to the product][]
 -   [Configure call rate limit and quota policies][]
 -   [Publish the product][]
@@ -16,9 +16,9 @@ In this tutorial you will create a 30 Day Free Trial product that allows up to 1
 -   [Call an operation and test the rate limit][]
 -   [Next steps][]
 
-## <a name="create-product"> </a>Create a product with a subscription expiration
+## <a name="create-product"> </a>Create a product
 
-In this step, you will create a 30 Day Free Trial product that does not require subscription approval.
+In this step, you will create a Free Trial product that does not require subscription approval.
 
 To get started, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
 
@@ -34,9 +34,9 @@ Click **add product** to display the **Add new product** pop up window.
 
 ![Add new product][api-management-new-product-window]
 
-Type **30 Day Free Trial** into the **Title** text box.
+Type **Free Trial** into the **Title** text box.
 
-Type **Subscribers will be able to run 10 calls/minute up to a maximum of 200 calls/week for up to 30 days after which access is denied.** into the **Description** text box.
+Type **Subscribers will be able to run 10 calls/minute up to a maximum of 200 calls/week after which access is denied.** into the **Description** text box.
 
 If you want an administrator to review and accept or reject subscription attempts to this product, check **Require subscription approval**. If the box is unchecked, subscription attempts will be auto-approved. In this example subscriptions are automatically approved, so do not check the box.
 
@@ -44,7 +44,7 @@ After all values are entered, click **Save** to create the product.
 
 ![Product added][api-management-product-added]
 
-By default new products are visible to users in the **Administrators** group. We are going to add the **Developers** group. **Click 30 Day Free Trial**, and select the **Visibility** tab.
+By default new products are visible to users in the **Administrators** group. We are going to add the **Developers** group. **Click Free Trial**, and select the **Visibility** tab.
 
 >In API Management, groups are used to manage the visibility of products to developers. Products grant visibility to groups, and developers can view and subscribe to the products that are visible to the groups in which they belong. For more information, see [How to create and use groups in Azure API Management][].
 
@@ -54,11 +54,11 @@ Check the **Developers** group and click **Save**.
 
 ## <a name="add-api"> </a>Add an API to the product
 
-In this step of the tutorial, we will add the Echo API to the new 30 Day Free Trial product.
+In this step of the tutorial, we will add the Echo API to the new Free Trial product.
 
 >Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management. For more information, see [Get started with Azure API Management][].
 
-Click **Products** from the **API Management** menu on the left, and click **30 Day Free Trial** to configure the product.
+Click **Products** from the **API Management** menu on the left, and click **Free Trial** to configure the product.
 
 ![Configure product][api-management-configure-product]
 
@@ -72,7 +72,7 @@ Check the box beside **Echo API** and click **Save**.
 
 ## <a name="policies"> </a>Configure call rate limit and quota policies
 
-Rate limits and quotas are configured in the policy editor. Click **Policies** under the **API Management** menu on the left, and select **30 Day Free Trial** from the **Policy Scope Product** drop-down.
+Rate limits and quotas are configured in the policy editor. Click **Policies** under the **API Management** menu on the left, and select **Free Trial** from the **Policy Scope Product** drop-down.
 
 ![Product policy][api-management-product-policy]
 
@@ -101,7 +101,7 @@ Once the cursor is positioned in the **inbound** policy element, click the arrow
 	<rate-limit calls="number" renewal-period="seconds">
 	</rate-limit>
 
-In the **30 Day Free Trial** product, the maximum allowable call rate is 10 calls per minute, so type **10** as the value for the calls attribute, and **60** for the **renewal-period** attribute.
+In the **Free Trial** product, the maximum allowable call rate is 10 calls per minute, so type **10** as the value for the calls attribute, and **60** for the **renewal-period** attribute.
 
 	<rate-limit calls="10" renewal-period="60">
 	</rate-limit>
@@ -124,7 +124,7 @@ Quotas can be based on number of calls per interval, bandwidth, or both. In this
 	<quota calls="number" renewal-period="seconds">
 	</quota>
 
-In the **30 Day Free Trial** product, the quota is 200 calls per week. Specify **200** as the value for the calls attribute, and specify **604800** as the value for the renewal-period.
+In the **Free Trial** product, the quota is 200 calls per week. Specify **200** as the value for the calls attribute, and specify **604800** as the value for the renewal-period.
 
 	<quota calls="200" bandwidth="kilobytes" renewal-period="604800">
 	</quota>
@@ -155,7 +155,7 @@ Once the desired policies are configured, click **Save**.
 
 ## <a name="publish-product"> </a> Publish the product
 
-Now that the the APIs are added and the policies configured, the product is ready to be used by developers. Before the product can be used by developers, it must be published. Click **Products** from the **API Management** menu on the left, and click **30 Day Free Trial** to configure the product.
+Now that the the APIs are added and the policies configured, the product is ready to be used by developers. Before the product can be used by developers, it must be published. Click **Products** from the **API Management** menu on the left, and click **Free Trial** to configure the product.
 
 ![Configure product][api-management-configure-product]
 
@@ -167,7 +167,7 @@ Click **Publish**, and then click **Yes, publish it** to confirm.
 
 Now that the product is published, it is available to be subscribed to and used by developers.
 
->Administrators of an API Management instance are automatically subscribed to every product. In this tutorial step we will subscribe one of the non-administrator developer accounts to the 30 Day Free Trial product. If your developer account is part of the Administrators role then you can follow along with this step, even though you are already subscribed.
+>Administrators of an API Management instance are automatically subscribed to every product. In this tutorial step we will subscribe one of the non-administrator developer accounts to the Free Trial product. If your developer account is part of the Administrators role then you can follow along with this step, even though you are already subscribed.
 
 Click **Developers** on the **API Management** menu on the left, and click the name of your developer account. In this example we are using the **Clayton Gragg**  developer account.
 
@@ -177,13 +177,13 @@ Click **Add Subscription**.
 
 ![Add subscription][api-management-add-subscription-menu]
 
-Check the box beside **30 Day Free Trial** and click **Subscribe**.
+Check the box beside **Free Trial** and click **Subscribe**.
 
 ![Add subscription][api-management-add-subscription]
 
 ## <a name="test-rate-limit"> </a>Call an operation and test the rate limit
 
-Now that the 30 Day Free Trial product is configured and published, we can call some operations and test the rate limit policy. Switch to the developer portal by clicking **Developer portal** in the top right menu.
+Now that the Free Trial product is configured and published, we can call some operations and test the rate limit policy. Switch to the developer portal by clicking **Developer portal** in the top right menu.
 
 ![Developer portal][api-management-developer-portal-menu]
 
@@ -197,11 +197,11 @@ Select the **GET Resource** operation, and click **Open Console**.
 
 ![Open console][api-management-open-console]
 
-Keep the default parameter values, and select your subscription key for the **30 Day Free Trial** product.
+Keep the default parameter values, and select your subscription key for the **Free Trial** product.
 
 ![Subscription key][api-management-select-key]
 
->If you have multiple subscriptions be sure to select the key for **30 Day Free Trial**, or else the policies that were configured in the previous steps won't be in effect.
+>If you have multiple subscriptions be sure to select the key for **Free Trial**, or else the policies that were configured in the previous steps won't be in effect.
 
 Click **HTTP Get** and view the response. Note the **Response status** of **200 OK**.
 
@@ -245,7 +245,7 @@ When the rate limit policy of 10 calls per minute in effect, subsequent calls wi
 [api-management-add-developers-group]: ./Media/api-management-howto-product-with-rules/api-management-add-developers-group.png
 [api-management-select-key]: ./Media/api-management-howto-product-with-rules/api-management-select-key.png
 
-[How to add operations to an API]: ./api-management-hotwo-add-operations
+[How to add operations to an API]: ./api-management-howto-add-operations
 [How to add and publish a product]: ./api-management-howto-add-product
 [Monitoring and analytics]: ./api-management-monitoring
 [Add APIs to a product]: ./api-management-howto-add-product/#add-apis
@@ -257,7 +257,7 @@ When the rate limit policy of 10 calls per minute in effect, subsequent calls wi
 [Create an API Management service instance]: ./api-management-get-started/#create-service-instance
 [Next steps]: #next-steps
 
-[Create a product with a subscription expiration]: #create-product
+[Create a product]: #create-product
 [Configure call rate limit and quota policies]: #policies
 [Add an API to the product]: #add-api
 [Publish the product]: #publish-product

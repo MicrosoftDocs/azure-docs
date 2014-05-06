@@ -2,7 +2,9 @@
 
 #API Management key concepts
 
-API Management (Preview) allows your organization to publish APIs to developers for use in building their applications. Each API consists of one or more operations, and each API can be added to one or more products. To use an API, developers subscribe to a product that contains that API, and then they can call the API's operation, subject to any usage policies that may be in effect.
+API Management (Preview) helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+
+To use API Management, administrators create APIs. Each API consists of one or more operations, and each API can be added to one or more products. To use an API, developers subscribe to a product that contains that API, and then they can call the API's operation, subject to any usage policies that may be in effect.
 
 This topic provides an overview of API Management key concepts.
 
@@ -72,10 +74,10 @@ You can customize the look and feel of your developer portal by adding custom co
 [Developer portal]: #developer-portal
 
 [How to create APIs]: ./api-management-howto-create-apis
-[How to add operations to an API]: ./api-management-hotwo-add-operations
+[How to add operations to an API]: ./api-management-howto-add-operations
 [How to create and publish a product]: ./api-management-howto-add-products
-[How to create and use groups]: ./api-management-hotwo-create-groups
-[How to associate groups with developers]: ./api-management-hotwo-create-groups/#associate-group-developer
+[How to create and use groups]: ./api-management-howto-create-groups
+[How to associate groups with developers]: ./api-management-howto-create-groups/#associate-group-developer
 [How create and configure advanced product settings]: ./api-management-howto-product-with-rules
 [How to create or invite developers]: ./api-management-howto-create-or-invite-developers
 [Policy reference]: ./api-management-policy-reference
