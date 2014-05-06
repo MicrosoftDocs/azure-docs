@@ -153,6 +153,6 @@ Once the operations are added to an API, the next step is to associate the API w
 [Get started with Azure API Management]: ./api-management-get-started
 [Create an API Management service instance]: ./api-management-get-started/#create-service-instance
 
-[How to add operations to an API]: ./api-management-hotwo-add-operations
+[How to add operations to an API]: ./api-management-howto-add-operations
 [How to create and publish a product]: ./api-management-howto-add-products
 [How to cache operation results in Azure API Management]: ./api-management-howto-cache

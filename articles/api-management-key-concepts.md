@@ -74,10 +74,10 @@ You can customize the look and feel of your developer portal by adding custom co
 [Developer portal]: #developer-portal
 
 [How to create APIs]: ./api-management-howto-create-apis
-[How to add operations to an API]: ./api-management-hotwo-add-operations
+[How to add operations to an API]: ./api-management-howto-add-operations
 [How to create and publish a product]: ./api-management-howto-add-products
-[How to create and use groups]: ./api-management-hotwo-create-groups
-[How to associate groups with developers]: ./api-management-hotwo-create-groups/#associate-group-developer
+[How to create and use groups]: ./api-management-howto-create-groups
+[How to associate groups with developers]: ./api-management-howto-create-groups/#associate-group-developer
 [How create and configure advanced product settings]: ./api-management-howto-product-with-rules
 [How to create or invite developers]: ./api-management-howto-create-or-invite-developers
 [Policy reference]: ./api-management-policy-reference

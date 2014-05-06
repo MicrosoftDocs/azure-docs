@@ -190,7 +190,7 @@ To review the values in the trace, download the trace file from the **ocp-apim-t
 [Inspect the trace]: #inspect-trace
 [Next steps]: #next-steps
 
-[Configure API settings]: ./api-management-hotwo-create-apis/#configure-api-settings
+[Configure API settings]: ./api-management-howto-create-apis/#configure-api-settings
 [Responses]: ./api-management-howto-add-operations/#responses
 [How create and publish a product]: ./api-management-howto-add-products
 

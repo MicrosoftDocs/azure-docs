@@ -244,7 +244,7 @@ The **Analytics** section has the following four tabs.
 [View analytics]: #view-analytics
 [Next steps]: #next-steps
 
-[Configure API settings]: ./api-management-hotwo-create-apis/#configure-api-settings
+[Configure API settings]: ./api-management-howto-create-apis/#configure-api-settings
 [Configure Notifications]: ./api-management-howto-configure-notifications
 [Responses]: ./api-management-howto-add-operations/#responses
 [How create and publish a product]: ./api-management-howto-add-products

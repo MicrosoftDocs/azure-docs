@@ -245,7 +245,7 @@ When the rate limit policy of 10 calls per minute in effect, subsequent calls wi
 [api-management-add-developers-group]: ./Media/api-management-howto-product-with-rules/api-management-add-developers-group.png
 [api-management-select-key]: ./Media/api-management-howto-product-with-rules/api-management-select-key.png
 
-[How to add operations to an API]: ./api-management-hotwo-add-operations
+[How to add operations to an API]: ./api-management-howto-add-operations
 [How to add and publish a product]: ./api-management-howto-add-product
 [Monitoring and analytics]: ./api-management-monitoring
 [Add APIs to a product]: ./api-management-howto-add-product/#add-apis
