@@ -9,7 +9,7 @@ You can connect a web site on Microsoft Azure to any on-premises resource that u
 ##Prerequisites
 - An Azure subscription. For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/). 
 
-- To use an on-premises SQL Server or SQL Server Express databse with a hybrid connection, TCP/IP needs to be enabled on a static port. Using a default instance on SQL Server is recommended because it uses static port 1433. For information on installing and configuring SQL Server Express for use with hybrid connections, see [Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure web site](http://go.microsoft.com/fwlink/?LinkID=397979).
+- To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port. Using a default instance on SQL Server is recommended because it uses static port 1433. For information on installing and configuring SQL Server Express for use with hybrid connections, see [Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections](http://go.microsoft.com/fwlink/?LinkID=397979).
 
 - The computer on which you install the on-premises Hybrid Connection Manager agent described later in this article:
 
@@ -147,9 +147,9 @@ Now that the hybrid connection infrastructure is complete, you can create a hybr
 <a name="NextSteps"></a>
 ## Next Steps ##
 
-- For information on creating an ASP.NET web application that uses a hybrid connection, see [Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure web site](http://go.microsoft.com/fwlink/?LinkID=397979).
+- For information on creating an ASP.NET web application that uses a hybrid connection, see [Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections](http://go.microsoft.com/fwlink/?LinkID=397979).
 
-- For information on using a hybrid connection with a mobile service, see [Hybrid Connections and Azure Mobile Services](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
+- For information on using a hybrid connection with a mobile service, see [Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
 
 ###Additional Resources
 
