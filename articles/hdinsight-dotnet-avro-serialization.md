@@ -56,7 +56,8 @@ The Microsoft Avro Library is designed to work with any stream. In these example
  * <a href="#Scenario2">**Serialization with generic record**</a>: The JSON schema is explicitly specified in a record when no .NET type is available for reflection.
  * <a href="#Scenario3">**Serialization using object container files with reflection**</a>: The JSON schema is implicitly serialized with the data and shared using an Avro container file.
  * <a href="#Scenario4">**Serialization using object container files with generic record**</a>: The JSON schema is explicitly serialized with the data and shared using an Avro container file.
- * <a href="#Scenario5">**Serialization using object container files with a custom compression codec**</a>: The JSON schema is serialized with data and shared using an Avro container file with a customized .NET implementation of the deflate data compression codec.
+ * <a href="#Scenario5">**Serialization using object container files with a custom compression codec**</a>: The JSON schema is serialized with data and shared using an Avro container file with a customized .NET implementation of the 
+ *  data compression codec.
 
 
 <h2> <a name="Scenario1"></a>Serialization with reflection</h2>
@@ -314,7 +315,7 @@ This example is similar to scenario in the <a href="#Scenario1"> first example</
 
 The data is serialized in this example with [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/en-us/library/dn627340.aspx) and deserialized with [**SequentialReader<SensorData>**](http://msdn.microsoft.com/en-us/library/dn627340.aspx). The result then is compared to the initial instances to insure identity.
 
-The data in object container file is compressed using the default [**Deflate**](http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.100).aspx) compression codec from .NET Framework 4.0. See the <a href="#Scenario5"> last example</a> in this topic to learn how to use a more recent and superior version of the [**Deflate**](http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.110).aspx) compression codec available in .NET Framework 4.5.
+The data in object container file is compressed using the default [**Deflate**][deflate] compression codec from .NET Framework 4.0. See the <a href="#Scenario5"> last example</a> in this topic to learn how to use a more recent and superior version of the [**Deflate**](http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.110).aspx) compression codec available in .NET Framework 4.5.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -1305,7 +1306,7 @@ The example below shows how to use a custom compression codec for Avro object co
     // Press any key to exit.
 
 
-
+[deflate]: http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.100).aspx
 	
 
 
