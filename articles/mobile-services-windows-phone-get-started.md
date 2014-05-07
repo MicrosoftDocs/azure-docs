@@ -21,7 +21,7 @@ A screenshot from the completed app is below:
 
 ![][0]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account that has the Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F" target="_blank">Azure Free Trial</a>.</li></ul> </div>
+>[WACOM.NOTE]To complete this tutorial, you need an Azure account that has the Azure Mobile Services feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F" target="_blank">Azure Free Trial</a>. To create a new Windows Phone 8.1 app, you must have Visual Studio 2013 Update 2, or a later version.
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
@@ -45,6 +45,8 @@ In this section you will create a new Windows Phone 8 app that is connected to y
 
 3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows Phone] on your local computer.
 
+	>[WACOM.NOTE]To create a Windows Phone 8.1 app, you must have Visual Studio 2013 Update 2 installed.
+
 4. Click **Create TodoItem table** to create a table to store app data.
 
 5. Under **Download and run app**, click **Download**. 
@@ -57,9 +59,11 @@ The final stage of this tutorial is to build and run your new app.
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.
 
-2. Press the **F5** key to rebuild the project and start the app.
+2. (Optional) If you are creating a Windows Phone 8.1 app, right-click the project in Solution Explorer, click **Properties**, set **Target Windows Phone OS Version** to **Windows Phone 8.1**, then click **Yes** to upgrade the project.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click **Save**.
+3. Press the **F5** key to rebuild the project and start the app.
+
+4. In the app, type meaningful text, such as _Complete the tutorial_ and then click **Save**.
 
    	![][10]
 
@@ -67,7 +71,7 @@ The final stage of this tutorial is to build and run your new app.
 
 	>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the MainPage.xaml.cs file.
 
-4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
+5. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 
    	![][11]
 

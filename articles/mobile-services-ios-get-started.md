@@ -69,14 +69,13 @@ In this section you will create a new iOS app that is connected to your mobile s
 [WACOM.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
 <ol start="4">
-<li><p>Back in the Management Portal, click the <strong>Data</strong> tab and then click the <strong>TodoItems</strong> table.<p>
+<li><p>Back in the Management Portal, click the <strong>Data</strong> tab and then click the <strong>TodoItems</strong> table.<p></li></ol>
 
-<p><img src="./media/mobile-services-ios-get-started/mobile-data-tab.png" alt=""></p>
+![](./media/mobile-services-ios-get-started/mobile-data-tab.png)
 
-   	<p>This lets you browse the data inserted by the app into the table.</p>
+This lets you browse the data inserted by the app into the table.</p>
 
-   	<p><img src="./media/mobile-services-ios-get-started/mobile-data-browse.png" alt=""></p></li>
-</ol>
+![](./media/mobile-services-ios-get-started/mobile-data-browse.png)
 
 
 ## <a name="next-steps"> </a>Next Steps

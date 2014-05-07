@@ -7,7 +7,7 @@
 <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="Windows Store C#" class="current">Windows Store C#</a>
 </div>
 
-This topic shows you how to use Live Connect single sign-on to authenticate users in Azure Mobile Services from a Windows Store app. In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library. 
+In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library. 
 
 To be able to authenticate users, you must register your application with the Azure Active Directory (AAD). This is done in two steps. First, you must register your mobile service and expose permissions on it. Second, you must register your Windows Store app and grant it access to those permissions
 
@@ -142,7 +142,7 @@ Now you need to retrieve your package SID which will be configured with the nati
 
     ![][11]
 
-7. Scroll the page down to the **permissions to other applications** section and grant full access to the mobile service application that you registered earlier.
+7. Scroll the page down to the **permissions to other applications** section and grant full access to the mobile service application that you registered earlier. Then click **Save**
 
     ![][12]
 
@@ -232,7 +232,7 @@ Configure you .NET backend mobile service to require authentication.
 
 6. In the code for the `AuthenticateAsync` method above, replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application, the format should be https://login.windows.net/tenant-name.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure Management Portal].
 
-7. In the code for the `AuthenticateAsync` method above, replace **INSERT-RESOURCE-URI-HERE** with the **App ID URI** for your mobile service. If you followed the [How to Register with the Azure Active Directory] topic your App Id URI should be similar to https://todolist.azure-mobile.net/login/sso.
+7. In the code for the `AuthenticateAsync` method above, replace **INSERT-RESOURCE-URI-HERE** with the **App ID URI** for your mobile service. If you followed the [How to Register with the Azure Active Directory] topic your App ID URI should be similar to https://todolist.azure-mobile.net/login/aad.
 
 8. In the code for the `AuthenticateAsync` method above, replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
 
@@ -254,7 +254,7 @@ Configure you .NET backend mobile service to require authentication.
 ## <a name="test-client"></a>Test the client using authentication
 
 1. In Visual Studio,run the client app.
-2. You will receive a prompt to login against your Azure Active Directory. Once you log in, the token will be automatically cached for 24 hours.  
+2. You will receive a prompt to login against your Azure Active Directory.  
 3. The app authenticates and returns the todo items.
 
     ![][15]

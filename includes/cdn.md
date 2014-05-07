@@ -24,7 +24,7 @@ Existing CDN customers can now use the Azure CDN in the [Azure Management Portal
 <h2>Step 1: Create a storage account</h2>
 
 Use the following procedure to create a new storage account for a
-Azure subscription. A storage account gives access to Windows
+Azure subscription. A storage account gives access to 
 Azure storage services. The storage account represents the highest level
 of the namespace for accessing each of the Azure storage service
 components: Blob services, Queue services, and Table services. For more
@@ -61,7 +61,7 @@ Azure Service Management API, see the <a href="http://msdn.microsoft.com/en-us/l
     http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
 
     **Important:** The URL label forms the subdomain of the storage
-    account URI and must be unique among all hosted services in Windows
+    account URI and must be unique among all hosted services in 
     Azure.
 
 	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
@@ -146,7 +146,6 @@ CDN.
   [Azure CDN Node Locations]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
   [Azure Management Portal]: https://manage.windowsazure.com/
   [billing plan]: /en-us/pricing/calculator/?scenario=full
-  [Using the Azure Storage Services]: http://msdn.microsoft.com/en-us/library/windowsazure/ee924681.aspx
   [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee795179.aspx
   [How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx
   [Overview of the Azure CDN]: http://msdn.microsoft.com/en-us/library/windowsazure/ff919703.aspx

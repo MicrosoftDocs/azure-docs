@@ -72,6 +72,6 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
 [SendGrid Features]: http://sendgrid.com/features
 [Azure Management Portal]: https://manage.windowsazure.com
-[SendGrid Getting Started]: http://docs.sendgrid.com/documentation/get-started/
+[SendGrid Getting Started]: http://sendgrid.com/docs
 
 

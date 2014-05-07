@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="" editor="" />
 
 
 
@@ -93,13 +93,11 @@ After the command completes, the modules have been added to the
 **node\_modules** folder. Perform the following steps to make use of
 these modules in your application:
 
-1.  Open the server.js file:
+1.  Open the app.js file:
 
-        PS C:\node\tasklist\WebRole1> notepad server.js
+        PS C:\node\tasklist\WebRole1> notepad app.js
 
-2.  Add the code below after the line that ends with express.createServer() to include the node-uuid, home, and azure  modules. The home module does not exist yet, but you will create it shortly.
-
-	![The server.js code with line app = modules.exports line highlighted](./media/storage-nodejs-use-table-storage-cloud-service-app/node38.png)
+2.  Add the code below after the line that ends with `var app - express();`
 
         var uuid = require('node-uuid');
         var Home = require('./home');
@@ -135,9 +133,12 @@ these modules in your application:
 
         });
 
-5.  Replace the existing code in the route section with the code below, which creates a home controller instance and routes all requests to **/** or **/home** to it.
+5.  Find the following two lines:
 
-	![The server.js file with the routes section highlighted.](./media/storage-nodejs-use-table-storage-cloud-service-app/node39.png)
+		app.use('/', routes);
+		app.use('/users', users);
+
+	Replace the above two lines with the following, which creates a home controller instance and routes all requests to **/** or **/home** to it.
 
         var home = new Home(client);
         app.get('/', home.showItems.bind(home));
@@ -266,23 +267,15 @@ items:
 In this section you update the application to support adding new task
 items.
 
-### Adding a New Route to Server.js
+### Adding a New Route to app.js
 
-In the server.js file, add the following line after the last route entry
-for **/home**, and then save the file.
+In the app.js file, find the following line:
 
-![The server.js file with the line containing the route for home highlighted.](./media/storage-nodejs-use-table-storage-cloud-service-app/node41.png)
+	app.get('/home', home.showItems.bind(home));
 
-        app.post('/home/newitem', home.newItem.bind(home));
-
-	The routes section should now look as follows:
-
-       // Routes
-
-       var home = new Home(client);
-       app.get('/', home.showItems.bind(home));
-       app.get('/home', home.showItems.bind(home));
-       app.post('/home/newitem', home.newItem.bind(home));
+Below this line, add the following:
+       
+    app.post('/home/newitem', home.newItem.bind(home));
 
 ### Adding the Node-UUID Module
 

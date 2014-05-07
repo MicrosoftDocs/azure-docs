@@ -412,7 +412,7 @@ The following PowerShell script performs the following tasks:
 2. Copy and paste the following code:
 		
 		# The storage account and the HDInsight cluster variables
-		$subscriptionName = "<WindowsAzureSubscriptionName>"
+		$subscriptionName = "<AzureSubscriptionName>"
 		$serviceNameToken = "<ServiceNameTokenString>"
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
@@ -495,6 +495,8 @@ The following PowerShell script performs the following tasks:
 
 8. When prompted, enter username and password for the HDInsight cluster. Because you will delete the cluster at the end of the script and you will not need the username and password anymore, the username and password can be any strings. If you don't want to get prompted for the credentials, see [Working with Passwords, Secure Strings and Credentials in Windows PowerShell][powershell-PSCredential]
 
+For a HDInsight .NET SDK sample on submitting Hadoop streaming jobs, see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs].
+
 
 ##<a name="retrieve"></a>Retrieve the MapReduce job output
 This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-excel], and [Connect Excel to HDInsight with Power Query][hdinsight-powerquery].
@@ -505,7 +507,7 @@ This section shows you how to download and display the output.  For the informat
 1. Open Azure PowerShell window.
 2. Set the values and then run the commands:
 
-		$subscriptionName = "<WindowsAzureSubscriptionName>"
+		$subscriptionName = "<AzureSubscriptionName>"
 		$storageAccountName = "<TheDataStorageAccountName>"
 		$containerName = "<TheDataBlobStorageContainerName>"
 		$blobName = "WordCount/Output/part-00000"
@@ -535,11 +537,12 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 - [Use Hive with HDInsight][hdinsight-hive]
 - [Use Pig with HDInsight][hdinsight-pig]
 
-[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
-[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
-[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 
-[hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 
 [hdinsight-emulator-get-started]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
 [hdinsight-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
@@ -554,7 +557,7 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 [hdinsight-powerquery]:/en-us/manage/services/hdinsight/connect-excel-with-power-query/
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: ../install-configure-powershell/
 
 
 

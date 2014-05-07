@@ -27,7 +27,7 @@ Microsoft Azure warms up all instances of the source site slot before the swap t
 <a name="Add"></a>
 ##To Add a Deployment Slot to a Web Site##
 
-The site must be running in Standard mode to enable site slot creation.
+The site must be running in Standard mode to enable site slot creation. Currently, Azure supports only one deployment slot per production slot.
 
 1. On the Quick Start page, or in the Quick Glance section of the Dashboard page for your web site, click **Add a new deployment slot**. 
 	
@@ -216,6 +216,8 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 `azure site delete siteslotstest --slot staging`
 
 ----------
+## Next Steps ##
+To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
 
 
 <!-- IMAGES -->

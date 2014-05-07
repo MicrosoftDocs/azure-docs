@@ -74,12 +74,10 @@ To create a MySQL database as a linked resource when you create a [Azure Web Sit
 
 	![Shown connection string](./media/create-mysql-db/shown-conn-string.png)
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>Connection strings are accessible to your web site application by connection string name. In .NET applications, connection strings are availble in the <b>connectionStrings</b> object. In other programming languages, connection strings are accessible as environment variables. For more information, see <a href="/en-us/manage/services/web-sites/how-to-configure-websites/">How to Configure Web Sites</a>.</p> 
-</div>
+> [WACOM.NOTE] Connection strings are accessible to your web site application by connection string name. In .NET applications, connection strings are availble in the **connectionStrings** object. In other programming languages, connection strings are accessible as environment variables. For more information, see [How to Configure Web Sites][configure].
 
 [ClearDB]: http://www.cleardb.com/
-[waws]: /en-us/manage/services/web-sites/
-[Azure Store]: /en-us/store/overview/
+[waws]: /en-us/documentation/services/web-sites/
+[Azure Store]: /en-us/gallery/store/
 [portal]: http://manage.windowsazure.com
+[configure]: ../web-sites-configure/

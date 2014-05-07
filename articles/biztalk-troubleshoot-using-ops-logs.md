@@ -1,7 +1,6 @@
 <properties linkid="biztalk-troubleshoot-using-ops-logs" urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk Services: Troubleshoot using ops logs | Azure" metaKeywords="" description="BizTalk Services: Troubleshoot using ops logs" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="paulettm" editor="cgronlun"  />
 
 
-
 # BizTalk Services: Troubleshoot using operation logs
 
 Operation Logs is a Management Services feature available in the Azure Management portal that allows you to view historical logs of operations performed on your Azure services, including BizTalk Service. This enables you to view historical data related to management operations on your BizTalk Service subscription for as far back as 180 days.

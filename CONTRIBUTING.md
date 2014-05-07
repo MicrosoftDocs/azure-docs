@@ -18,13 +18,21 @@ You can contribute to [Azure documentation](http://azure.microsoft.com/en-us/doc
 * Submit Disqus comments at the bottom of articles.
 * Contribute to articles via the public Azure repo.
 
-##Before we can accept your pull request
+##Before we accept your pull request
 
-Thank you for your interest in Windows Azure documentation. Before we can accept your pull request, we need you to sign a Contribution License Agreement (CLA). Full details are available at [http://windowsazure.github.io/guidelines.html#cla](http://windowsazure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
+###Minor corrections
 
-###Who needs a CLA?
+Minor corrections or clarifications you submit for documentation and code examples in this repo are covered by the [Azure Website Terms of Use (ToU)](http://azure.microsoft.com/en-us/support/legal/website-terms-of-use/). 
+
+
+###Larger submissions
+
+If you submit new or significant changes to documentation and code examples, you need to send a signed Contribution License Agreement (CLA) before we can accept your pull request if you are in one of these groups:
+
 * Members of the Microsoft Open Technologies group.
 * Contributors who don't work for Microsoft.
+
+Full details are available at [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
 
 ## Repository organization
 
@@ -83,7 +91,7 @@ Each branch should be limited to a single concept/article both to streamline wor
 #### Create a new branch
 
 1.	Open GitBash
-2.	Type `git pull upstream master:<new branch name>` in the prompt. This will create a new branch locally copied from the latest Azure master branch.
+2.	Type `git pull upstream master:<new branch name>` in the prompt. This will create a new branch locally copied from the latest Azure master branch. **Note:** For internal contributors, replace `master` in the command with the branch for the publishing date you are targeting.
 3.	Type `git push origin <new branch name>` in the prompt. This will alert GitHub to the new branch. You should now be able to see the new branch in your fork of the repository on GitHub.
 4.	Type `git checkout <new branch name>` to switch to your new branch.
 
@@ -178,7 +186,7 @@ You can add [Channel 9](http://channel9.msdn.com/) videos to articles with the f
     > [WACOM.VIDEO video-id-string]
     
 
-1. Make sure that the video is on the [Azure Video Center](http://www.windowsazure.com/en-us/documentation/videos/home/). 
+1. Make sure that the video is on the [Azure Video Center](http://azure.microsoft.com/en-us/documentation/videos/home/). 
 2. Copy the video ID from the friendly URL of the video on the video gallery. For example, the video ID of *http://azure.microsoft.com/en-us/documentation/videos/azure-scheduler-unusual-schedules/* will be the friendly URL *azure-scheduler-unusual-schedules*.
 3. Use the extension syntax above with *video-id-string* as the friendly URL of the video.
 

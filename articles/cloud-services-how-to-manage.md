@@ -74,7 +74,7 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 To show your cloud service's dependencies on other resources, you can link an Azure SQL Database instance or a storage account to the cloud service. You an link and unlink resources on the **Linked Resources** page. Then monitor their usage on the cloud service dashboard. If a linked storage account has monitoring turned on, you can monitor Total Requests on the cloud service dashboard.
 
-Use **Link** to link a new or existing SQL Database instance or storage account to your cloud service. You can then scale the database along with the cloud service role that is using it on the **Scale** page. (A storage account scales automatically as usage increases.) For more information, see [How to Scale a Cloud Service and Linked Resources](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/). 
+Use **Link** to link a new or existing SQL Database instance or storage account to your cloud service. You can then scale the database along with the cloud service role that is using it on the **Scale** page. (A storage account scales automatically as usage increases.) For more information, see [How to Scale a Cloud Service and Linked Resources](../cloud-services-how-to-scale/). 
 
 You also can monitor, manage, and scale the database in the **Databases** node of the Management Portal. 
 
@@ -108,7 +108,7 @@ The following procedure describes how to link a new SQL Database instance, deplo
 
 	![Link Progress](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkProgress.png)
 
-	When linking is complete, you can monitor the status of the linked resource on the cloud service dashboard. For information about scaling a linked SQL Database, see [How to Scale a Cloud Service and Linked Resources](../how-to-scale-a-cloud-service/).
+	When linking is complete, you can monitor the status of the linked resource on the cloud service dashboard. For information about scaling a linked SQL Database, see [How to Scale a Cloud Service and Linked Resources](../cloud-services-how-to-scale/).
 
 ###To unlink a linked resource###
 
@@ -146,5 +146,5 @@ Use the following procedure to delete a deployment or your cloud service.
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
 > [WACOM.NOTE]
-> If verbose monitoring is configured for your cloud service, Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see "How to: Access verbose monitoring data outside the Management Portal" in <a href="https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/">How to Monitor Cloud Services</a>.
+> If verbose monitoring is configured for your cloud service, Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see "How to: Access verbose monitoring data outside the Management Portal" in <a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-monitor/">How to Monitor Cloud Services</a>.
 

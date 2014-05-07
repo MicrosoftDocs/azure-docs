@@ -196,7 +196,7 @@ BizTalk Server on Azure Virtual Machines provides an Infrastructure-as-a-Service
 If you are looking at building new integration solutions that minimize your infrastructure management effort, use BizTalk Services. If you are looking to quickly migrate your existing BizTalk solutions or looking for an on-demand environment to develop and test BizTalk Server applications, use BizTalk Server on an Azure Virtual Machine.
 
 #### What is the difference between BizTalk Adapter Service and Hybrid Connections?
-The BizTalk Adapter Service is used by an Azure BizTalk Service. The BizTalk Adapter Service uses the BizTalk Adapter Pack to connect to an on-premise Line of Business (LOB) system. A Hybrid Connection is used by an Azure Web Site to connect to an on-premise system.
+The BizTalk Adapter Service is used by an Azure BizTalk Service. The BizTalk Adapter Service uses the BizTalk Adapter Pack to connect to an on-premise Line of Business (LOB) system. A Hybrid Connection provides an easy and convenient way to connect Azure applications, like Web Sites and Mobile Services, to an on-premises resource. 
 
 #### When I create an agreement in BizTalk Services, why does the number of bridges go up by two instead of just one? 
 
