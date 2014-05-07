@@ -246,46 +246,46 @@ The **Analytics** section has the following four tabs.
 [View analytics]: #view-analytics
 [Next steps]: #next-steps
 
-[Configure API settings]: ./api-management-howto-create-apis/#configure-api-settings
-[Configure Notifications]: ./api-management-howto-configure-notifications
-[Responses]: ./api-management-howto-add-operations/#responses
-[How create and publish a product]: ./api-management-howto-add-products
-[Get started with advanced API configuration]: ./api-management-get-started-advanced
+[Configure API settings]: ../api-management-howto-create-apis/#configure-api-settings
+[Configure Notifications]: ../api-management-howto-configure-notifications
+[Responses]: ../api-management-howto-add-operations/#responses
+[How create and publish a product]: ../api-management-howto-add-products
+[Get started with advanced API configuration]: ../api-management-get-started-advanced
 
 [Management Portal]: https://manage.windowsazure.com/
 
-[api-management-management-console]: ./Media/api-management-get-started/api-management-management-console.png
-[api-management-create-instance-menu]: ./Media/api-management-get-started/api-management-create-instance-menu.png
-[api-management-create-instance-step1]: ./Media/api-management-get-started/api-management-create-instance-step1.png
-[api-management-create-instance-step2]: ./Media/api-management-get-started/api-management-create-instance-step2.png
-[api-management-instance-created]: ./Media/api-management-get-started/api-management-instance-created.png
-[api-management-create-api]: ./Media/api-management-get-started/api-management-create-api.png
-[api-management-add-new-api]: ./Media/api-management-get-started/api-management-add-new-api.png
-[api-management-new-api-summary]: ./Media/api-management-get-started/api-management-new-api-summary.png
-[api-management-myecho-operations]: ./Media/api-management-get-started/api-management-myecho-operations.png
-[api-management-operation-signature]: ./Media/api-management-get-started/api-management-operation-signature.png
-[api-management-list-products]: ./Media/api-management-get-started/api-management-list-products.png
-[api-management-add-api-to-product]: ./Media/api-management-get-started/api-management-add-api-to-product.png
-[api-management-add-myechoapi-to-product]: ./Media/api-management-get-started/api-management-add-myechoapi-to-product.png
-[api-management-api-added-to-product]: ./Media/api-management-get-started/api-management-api-added-to-product.png
-[api-management-developers]: ./Media/api-management-get-started/api-management-developers.png
-[api-management-add-subscription]: ./Media/api-management-get-started/api-management-add-subscription.png
-[api-management-add-subscription-window]: ./Media/api-management-get-started/api-management-add-subscription-window.png
-[api-management-subscription-added]: ./Media/api-management-get-started/api-management-subscription-added.png
-[api-management-developer-portal-menu]: ./Media/api-management-get-started/api-management-developer-portal-menu.png
-[api-management-developer-portal-myecho-api]: ./Media/api-management-get-started/api-management-developer-portal-myecho-api.png
-[api-management-developer-portal-myecho-api-console]: ./Media/api-management-get-started/api-management-developer-portal-myecho-api-console.png
-[api-management-invoke-get]: ./Media/api-management-get-started/api-management-invoke-get.png
-[api-management-invoke-get-response]: ./Media/api-management-get-started/api-management-invoke-get-response.png
-[api-management-manage-menu]: ./Media/api-management-get-started/api-management-manage-menu.png
-[api-management-dashboard]: ./Media/api-management-get-started/api-management-dashboard.png
+[api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
+[api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
+[api-management-create-instance-step1]: ./media/api-management-get-started/api-management-create-instance-step1.png
+[api-management-create-instance-step2]: ./media/api-management-get-started/api-management-create-instance-step2.png
+[api-management-instance-created]: ./media/api-management-get-started/api-management-instance-created.png
+[api-management-create-api]: ./media/api-management-get-started/api-management-create-api.png
+[api-management-add-new-api]: ./media/api-management-get-started/api-management-add-new-api.png
+[api-management-new-api-summary]: ./media/api-management-get-started/api-management-new-api-summary.png
+[api-management-myecho-operations]: ./media/api-management-get-started/api-management-myecho-operations.png
+[api-management-operation-signature]: ./media/api-management-get-started/api-management-operation-signature.png
+[api-management-list-products]: ./media/api-management-get-started/api-management-list-products.png
+[api-management-add-api-to-product]: ./media/api-management-get-started/api-management-add-api-to-product.png
+[api-management-add-myechoapi-to-product]: ./media/api-management-get-started/api-management-add-myechoapi-to-product.png
+[api-management-api-added-to-product]: ./media/api-management-get-started/api-management-api-added-to-product.png
+[api-management-developers]: ./media/api-management-get-started/api-management-developers.png
+[api-management-add-subscription]: ./media/api-management-get-started/api-management-add-subscription.png
+[api-management-add-subscription-window]: ./media/api-management-get-started/api-management-add-subscription-window.png
+[api-management-subscription-added]: ./media/api-management-get-started/api-management-subscription-added.png
+[api-management-developer-portal-menu]: ./media/api-management-get-started/api-management-developer-portal-menu.png
+[api-management-developer-portal-myecho-api]: ./media/api-management-get-started/api-management-developer-portal-myecho-api.png
+[api-management-developer-portal-myecho-api-console]: ./media/api-management-get-started/api-management-developer-portal-myecho-api-console.png
+[api-management-invoke-get]: ./media/api-management-get-started/api-management-invoke-get.png
+[api-management-invoke-get-response]: ./media/api-management-get-started/api-management-invoke-get-response.png
+[api-management-manage-menu]: ./media/api-management-get-started/api-management-manage-menu.png
+[api-management-dashboard]: ./media/api-management-get-started/api-management-dashboard.png
 
-[api-management-add-response]: ./Media/api-management-get-started/api-management-add-response.png
-[api-management-add-response-window]: ./Media/api-management-get-started/api-management-add-response-window.png
-[api-management-developer-key]: ./Media/api-management-get-started/api-management-developer-key.png
-[api-management-mouse-over]: ./Media/api-management-get-started/api-management-mouse-over.png
-[api-management-api-summary-metrics]: ./Media/api-management-get-started/api-management-api-summary-metrics.png
-[api-management-analytics-overview]: ./Media/api-management-get-started/api-management-analytics-overview.png
-[api-management-analytics-usage]: ./Media/api-management-get-started/api-management-analytics-usage.png
-[api-management-]: ./Media/api-management-get-started/api-management-.png
-[api-management-]: ./Media/api-management-get-started/api-management-.png
+[api-management-add-response]: ./media/api-management-get-started/api-management-add-response.png
+[api-management-add-response-window]: ./media/api-management-get-started/api-management-add-response-window.png
+[api-management-developer-key]: ./media/api-management-get-started/api-management-developer-key.png
+[api-management-mouse-over]: ./media/api-management-get-started/api-management-mouse-over.png
+[api-management-api-summary-metrics]: ./media/api-management-get-started/api-management-api-summary-metrics.png
+[api-management-analytics-overview]: ./media/api-management-get-started/api-management-analytics-overview.png
+[api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
+[api-management-]: ./media/api-management-get-started/api-management-.png
+[api-management-]: ./media/api-management-get-started/api-management-.png

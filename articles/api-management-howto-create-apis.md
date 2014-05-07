@@ -61,13 +61,13 @@ Once an API is created and the settings configured, the next steps are to add th
 
 
 
-[api-management-create-api]: ./Media/api-management-howto-create-apis/api-management-create-api.png
-[api-management-management-console]: ./Media/api-management-howto-create-apis/api-management-management-console.png
-[api-management-add-new-api]: ./Media/api-management-howto-create-apis/api-management-add-new-api.png
-[api-management-api-settings]: ./Media/api-management-howto-create-apis/api-management-api-settings.png
-[api-management-api-settings-credentials]: ./Media/api-management-howto-create-apis/api-management-api-settings-credentials.png
-[api-management-api-summary]: ./Media/api-management-howto-create-apis/api-management-api-summary.png
-[api-management-echo-operations]: ./Media/api-management-howto-create-apis/api-management-echo-operations.png
+[api-management-create-api]: ./media/api-management-howto-create-apis/api-management-create-api.png
+[api-management-management-console]: ./media/api-management-howto-create-apis/api-management-management-console.png
+[api-management-add-new-api]: ./media/api-management-howto-create-apis/api-management-add-new-api.png
+[api-management-api-settings]: ./media/api-management-howto-create-apis/api-management-api-settings.png
+[api-management-api-settings-credentials]: ./media/api-management-howto-create-apis/api-management-api-settings-credentials.png
+[api-management-api-summary]: ./media/api-management-howto-create-apis/api-management-api-summary.png
+[api-management-echo-operations]: ./media/api-management-howto-create-apis/api-management-echo-operations.png
 
 [What is an API?]: #what-is-api
 [Create a new API]: #create-new-api
@@ -75,8 +75,8 @@ Once an API is created and the settings configured, the next steps are to add th
 [Configure API operations]: #configure-api-operations
 [Next steps]: #next-steps
 
-[How to add operations to an API]: ./api-management-howto-add-operations
-[How to create and publish a product]: ./api-management-howto-add-products
+[How to add operations to an API]: ../api-management-howto-add-operations
+[How to create and publish a product]: ../api-management-howto-add-products
 
-[Get started with Azure API Management]: ./api-management-get-started
-[Create an API Management service instance]: ./api-management-get-started/#create-service-instance
+[Get started with Azure API Management]: ../api-management-get-started
+[Create an API Management service instance]: ../api-management-get-started/#create-service-instance

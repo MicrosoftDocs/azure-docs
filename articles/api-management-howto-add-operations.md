@@ -120,28 +120,28 @@ Once the operations are added to an API, the next step is to associate the API w
 
 -	[How to create and publish a product][]
 
-[api-management-management-console]: ./Media/api-management-howto-add-operations/api-management-management-console.png
-[api-management-operations]: ./Media/api-management-howto-add-operations/api-management-operations.png
-[api-management-add-operation]: ./Media/api-management-howto-add-operations/api-management-add-operation.png
-[api-management-http-method]: ./Media/api-management-howto-add-operations/api-management-http-method.png
-[api-management-url-template]: ./Media/api-management-howto-add-operations/api-management-url-template.png
-[api-management-url-template-rewrite]: ./Media/api-management-howto-add-operations/api-management-url-template-rewrite.png
-[api-management-description]: ./Media/api-management-howto-add-operations/api-management-description.png
-[api-management-caching-tab]: ./Media/api-management-howto-add-operations/api-management-caching-tab.png
-[api-management-request-parameters]: ./Media/api-management-howto-add-operations/api-management-request-parameters.png
-[api-management-request-body]: ./Media/api-management-howto-add-operations/api-management-request-body.png
-[api-management-response-code]: ./Media/api-management-howto-add-operations/api-management-response-code.png
-[api-management-response-body-content-type]: ./Media/api-management-howto-add-operations/api-management-response-body-content-type.png
-[api-management-response-body]: ./Media/api-management-howto-add-operations/api-management-response-body.png
+[api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
+[api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png
+[api-management-add-operation]: ./media/api-management-howto-add-operations/api-management-add-operation.png
+[api-management-http-method]: ./media/api-management-howto-add-operations/api-management-http-method.png
+[api-management-url-template]: ./media/api-management-howto-add-operations/api-management-url-template.png
+[api-management-url-template-rewrite]: ./media/api-management-howto-add-operations/api-management-url-template-rewrite.png
+[api-management-description]: ./media/api-management-howto-add-operations/api-management-description.png
+[api-management-caching-tab]: ./media/api-management-howto-add-operations/api-management-caching-tab.png
+[api-management-request-parameters]: ./media/api-management-howto-add-operations/api-management-request-parameters.png
+[api-management-request-body]: ./media/api-management-howto-add-operations/api-management-request-body.png
+[api-management-response-code]: ./media/api-management-howto-add-operations/api-management-response-code.png
+[api-management-response-body-content-type]: ./media/api-management-howto-add-operations/api-management-response-body-content-type.png
+[api-management-response-body]: ./media/api-management-howto-add-operations/api-management-response-body.png
 
 
-[api-management-contoso-api]: ./Media/api-management-howto-add-operations/api-management-contoso-api.png
+[api-management-contoso-api]: ./media/api-management-howto-add-operations/api-management-contoso-api.png
 
-[api-management-add-new-api]: ./Media/api-management-howto-add-operations/api-management-add-new-api.png
-[api-management-api-settings]: ./Media/api-management-howto-add-operations/api-management-api-settings.png
-[api-management-api-settings-credentials]: ./Media/api-management-howto-add-operations/api-management-api-settings-credentials.png
-[api-management-api-summary]: ./Media/api-management-howto-add-operations/api-management-api-summary.png
-[api-management-echo-operations]: ./Media/api-management-howto-add-operations/api-management-echo-operations.png
+[api-management-add-new-api]: ./media/api-management-howto-add-operations/api-management-add-new-api.png
+[api-management-api-settings]: ./media/api-management-howto-add-operations/api-management-api-settings.png
+[api-management-api-settings-credentials]: ./media/api-management-howto-add-operations/api-management-api-settings-credentials.png
+[api-management-api-summary]: ./media/api-management-howto-add-operations/api-management-api-summary.png
+[api-management-echo-operations]: ./media/api-management-howto-add-operations/api-management-echo-operations.png
 
 [Add an operation]: #add-operation
 [Operation caching]: #operation-caching
@@ -150,9 +150,9 @@ Once the operations are added to an API, the next step is to associate the API w
 [Responses]: #responses
 [Next steps]: #next-steps
 
-[Get started with Azure API Management]: ./api-management-get-started
-[Create an API Management service instance]: ./api-management-get-started/#create-service-instance
+[Get started with Azure API Management]: ../api-management-get-started
+[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
 
-[How to add operations to an API]: ./api-management-howto-add-operations
-[How to create and publish a product]: ./api-management-howto-add-products
-[How to cache operation results in Azure API Management]: ./api-management-howto-cache
+[How to add operations to an API]: ../api-management-howto-add-operations
+[How to create and publish a product]: ../api-management-howto-add-products
+[How to cache operation results in Azure API Management]: ../api-management-howto-cache

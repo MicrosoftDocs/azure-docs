@@ -190,26 +190,26 @@ To review the values in the trace, download the trace file from the **ocp-apim-t
 [Inspect the trace]: #inspect-trace
 [Next steps]: #next-steps
 
-[Configure API settings]: ./api-management-howto-create-apis/#configure-api-settings
-[Responses]: ./api-management-howto-add-operations/#responses
-[How create and publish a product]: ./api-management-howto-add-products
+[Configure API settings]: ../api-management-howto-create-apis/#configure-api-settings
+[Responses]: ../api-management-howto-add-operations/#responses
+[How create and publish a product]: ../api-management-howto-add-products
 
-[Get started with Azure API Management]: ./api-management-get-started
-[Create an API Management service instance]: ./api-management-get-started/#create-service-instance
-[Get started with advanced API configuration]: ./api-management-get-started-advanced
+[Get started with Azure API Management]: ../api-management-get-started
+[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[Get started with advanced API configuration]: ../api-management-get-started-advanced
 [Management Portal]: https://manage.windowsazure.com/
 
 
-[api-management-developer-portal-menu]: ./Media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
-[api-management-echo-api]: ./Media/api-management-howto-api-inspector/api-management-echo-api.png
-[api-management-echo-api-get]: ./Media/api-management-howto-api-inspector/api-management-echo-api-get.png
-[api-management-developer-key]: ./Media/api-management-howto-api-inspector/api-management-developer-key.png
-[api-management-open-console]: ./Media/api-management-howto-api-inspector/api-management-open-console.png
-[api-management-http-get]: ./Media/api-management-howto-api-inspector/api-management-http-get.png
-[api-management-]: ./Media/api-management-howto-api-inspector/api-management-.png
-[api-management-]: ./Media/api-management-howto-api-inspector/api-management-.png
-[api-management-]: ./Media/api-management-howto-api-inspector/api-management-.png
-[api-management-]: ./Media/api-management-howto-api-inspector/api-management-.png
+[api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
+[api-management-echo-api]: ./media/api-management-howto-api-inspector/api-management-echo-api.png
+[api-management-echo-api-get]: ./media/api-management-howto-api-inspector/api-management-echo-api-get.png
+[api-management-developer-key]: ./media/api-management-howto-api-inspector/api-management-developer-key.png
+[api-management-open-console]: ./media/api-management-howto-api-inspector/api-management-open-console.png
+[api-management-http-get]: ./media/api-management-howto-api-inspector/api-management-http-get.png
+[api-management-]: ./media/api-management-howto-api-inspector/api-management-.png
+[api-management-]: ./media/api-management-howto-api-inspector/api-management-.png
+[api-management-]: ./media/api-management-howto-api-inspector/api-management-.png
+[api-management-]: ./media/api-management-howto-api-inspector/api-management-.png
 
 
 

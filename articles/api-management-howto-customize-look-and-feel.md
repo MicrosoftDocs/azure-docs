@@ -33,6 +33,6 @@ When you are done with making changes to the styles of the selected element clic
 
 [Management Portal]: https://manage.windowsazure.com/
 
-[api-management-customization-toolbar]: ./Media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar.png
-[api-management-customization-toolbar-color-picker]: ./Media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-color-picker.png
-[api-management-customization-toolbar-publish-form]: ./Media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-publish-form.png
+[api-management-customization-toolbar]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar.png
+[api-management-customization-toolbar-color-picker]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-color-picker.png
+[api-management-customization-toolbar-publish-form]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-publish-form.png
