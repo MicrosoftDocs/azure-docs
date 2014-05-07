@@ -1,13 +1,13 @@
 
 
-<properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle conflicts with offline data in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
+<properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to handle conflicts with offline data in your Windows Phone application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
 
 
 # Handling conflicts with offline data in Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store C#" class="current">Windows Store C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone">Windows Phone</a>
+<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store C#">Windows Store C#</a>
+<a href="/en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 
@@ -19,29 +19,36 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 This tutorial walks you through these basic steps:
 
-1. [Download the Windows Store app project] 
+1. [Download the Windows Phone project] 
 2. [Add a due date column for the database]
   * [Updating the database for .NET backend mobile services]  
   * [Updating the database for JavaScript mobile services]  
 3. [Test the app against a mobile service]
 4. [Manually update the data in the backend to create a conflict]
 
-This tutorial requires Visual Studio 2013 running on Windows 8.1.
+This tutorial requires Visual Studio 2012 and the [Windows Phone 8 SDK].
 
 
 ## <a name="download-app"></a>Download the sample project
 
+
+
+This tutorial is built on the [Handling conflicts code sample], which is a Windows Phone 8 project for Visual Studio 2012.  
+The UI for this app is similar to the app in the tutorial [Get started with offline data], except that there is a new date column in for each TodoItem.
+
 ![][0]
 
-This tutorial is built on the [Handling conflicts code sample], which is a Windows Store app project for Visual Studio 2013. The UI for this app is similar to the app in the tutorial [Get started with offline data], except that there is a new date column in for each TodoItem. 
 
-1. Download the C# version of the [Handling conflicts code sample]. 
+1. Download the Windows Phone version of the [Handling conflicts code sample]. 
 
-2. Install [SQLite for Windows 8.1] if it has not been installed.
+2. Install [SQLite for Windows Phone 8] if it has not been installed.
 
-3. In Visual Studio 2013, open the downloaded project. Press the **F5** key to rebuild the project and start the app.
+3. In Visual Studio 2012, open the downloaded project. Add a reference to **SQLite for Windows Phone** under **Windows Phone** > **Extensions**.
 
-4. In the app, type some text in **Insert a TodoItem**, then click **Save**. You can also modify the due date of the todo items you add.
+4. In Visual Studio 2012, press the **F5** key to build and run the app in the debugger.
+ 
+5. In the app, type some text for some new todo items, then click **Save** to save each one. You can also modify the due date of the todo items you add.
+
 
 Note that the app is not yet connected to any mobile service, so the buttons **Push** and **Pull** will throw exceptions.
 
@@ -117,7 +124,7 @@ Now it's time to test the app against Mobile Services.
 
 3. In Visual Studio, press the **F5** key to build and run the app.
 
-4. As before, type text in the textbox, and then click **Save**. This saves the data to the local sync table, but not to the server.
+4. As before, type text in the textbox, and then click **Save** to save some new todo items. This saves the data to the local sync table, but not to the server.
 
     ![][0]
 
@@ -132,6 +139,7 @@ Now it's time to test the app against Mobile Services.
             SELECT * FROM todolist.todowithdate
 
         ![][2]
+
    	 
 
 7. Back in the app, click **Push**.
@@ -140,32 +148,37 @@ Now it's time to test the app against Mobile Services.
 
    	![][3]
 
+9. Leave **Emulator WVGA 512MB** up and running for the next section where you will run the app in two emulators to generate a conflict.
+
 ## <a name="handle-conflict"></a>Update the data in the backend to create a conflict
 
 In a real world scenario, a sync conflict would occur when one app pushes updates to a record in the database, and then another app tries to push a change to the same record using an outdated version field in that record. If an instance of the app tries to update the same record, without pulling in the updated record, a conflict will occur and be caught as a `MobileServicePreconditionFailedException` in the app.  
 
-If you want to deploy the app to another machine to run two instances of the app to generate a conflict, you can follow the deployment instructions in the [Handling Database Conflicts] tutorial.
+In this section you will run two instances of the app at the same time to generate a conflict. 
 
-The following steps show you how you can update the database in Visual Studio to cause a conflcit.
 
-1. In Visual Studio run Server Explorer and connect to your Azure account. Expand your **SQL Databases** for your Azure account.
+1. If **Emulator WVGA 512MB** is not still up and running, press **Ctrl+F5** to relaunch it.
+
+2. In Visual Studio, change the output device to **Emulator WVGA** and run a second instance of the app in the new emulator by pressing **F5**.
  
     ![][5]
  
    
-2. Right click your SQL database in list and click **Open in SQL Server Object Explorer**.
-3. In SQL Server Object Explorer, expand your database and expand **Tables**. Right click your **TodoWithDate** table and click **View Data**. 
-
-
-4. Change the **complete** field for one of the items to True.
-
+3. In the second instance of the app, click **Pull** to sync the local store with the mobile service database. Both instances of the app should have the same data.
+ 
     ![][6]
 
-5. Back in your Todo app, edit the same item that you modified in the database directly.
+4. In the second instance of the app, click the check box to complete one of the items then click **Push** to push your change to the remote database. In the following screen shot, **Pick up James** has been completed indicating the James has already been picked up. The first instance of the app now has an outdated record.
+
+    ![][9]
+
+5. In the first instance of the app, try to change the date for the outdated record then click **Push** to attempt to update the remote database with the outdated record. In the screen shot below, we try to schedule James to be picked up on **5/10/2014**.
 
     ![][7]
 
-6. Click the **Push** button. You will see a dialog box asking how to resolve the conflict. Choose one of the options to resolve the conflict.
+6. When you click the **Push** button to commit the date change, you will see a dialog box indicating that the conflict has been detected. You will be asked how to resolve the conflict. Choose one of the options to resolve the conflict.
+
+    In the scenario shown below, James has already been picked up. So there's no need to schedule a pick up for him on **5/10/2014**. The **Use server version** option would be selected so the first instance of the app would have that record updated with the record from the server. 
 
     ![][8]
 
@@ -200,7 +213,7 @@ When a push is canceled, `PushAsync` will throw a `MobileServicePushFailedExcept
 
 
 <!-- Anchors. -->
-[Download the Windows Store app project]: #download-app
+[Download the Windows Phone project]: #download-app
 [Create the mobile service]: #create-service
 [Add a due date column for the database]: #add-column
 [Updating the database for .NET backend mobile services]: #dotnet-backend  
@@ -210,23 +223,24 @@ When a push is canceled, `PushAsync` will throw a `MobileServicePushFailedExcept
 [Next Steps]:#next-steps
 
 <!-- Images -->
-[0]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
-[1]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-todowithdate-empty.png
-[2]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-todowithdate-empty-sql.png
-[3]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png
-[4]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-todowithdate-design-edit.png
-[5]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-server-explorer.png
-[6]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-sql-server-object-explorer-update-data.png
-[7]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run2.png
-[8]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run3.png
-
+[0]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
+[1]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-empty.png
+[2]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-empty-sql.png
+[3]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png
+[5]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/vs-emulator-wvga.png
+[6]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/two-emulators-synced.png
+[7]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/two-emulators-date-change.png
+[8]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/two-emulators-conflict-detected.png
+[9]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/two-emulators-item-completed.png
 
 
 
 <!-- URLs -->
-[Handling conflicts code sample]: http://go.microsoft.com/fwlink/?LinkId=394787
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[Get started with offline data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
-[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
+[Handling conflicts code sample]: http://go.microsoft.com/fwlink/?LinkId=398257
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started/
+[Get started with offline data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Handling Database Conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
+[Handling Database Conflicts]: /en-us/documentation/articles/mobile-services-windows-phone-handle-database-conflicts/#test-app
+[Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
+[SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
+[Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/

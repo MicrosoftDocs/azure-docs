@@ -28,7 +28,7 @@ This tutorial requires the following:
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
 * Windows Azure Mobile Services SDK NuGet package version 1.3.0-alpha2 or later
 * Windows Azure Mobile Services SQLite Store NuGet package 1.0.0-alpha or later
-* SQLite for Windows 8.1
+* [SQLite for Windows Phone 8]
 
 >[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 
