@@ -1,3 +1,5 @@
+<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+
 # Get started with Azure API Management
 
 This guide shows you how to quickly get started using API Management and make your first API call.
