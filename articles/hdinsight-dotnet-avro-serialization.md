@@ -56,8 +56,7 @@ The Microsoft Avro Library is designed to work with any stream. In these example
  * <a href="#Scenario2">**Serialization with generic record**</a>: The JSON schema is explicitly specified in a record when no .NET type is available for reflection.
  * <a href="#Scenario3">**Serialization using object container files with reflection**</a>: The JSON schema is implicitly serialized with the data and shared using an Avro container file.
  * <a href="#Scenario4">**Serialization using object container files with generic record**</a>: The JSON schema is explicitly serialized with the data and shared using an Avro container file.
- * <a href="#Scenario5">**Serialization using object container files with a custom compression codec**</a>: The JSON schema is serialized with data and shared using an Avro container file with a customized .NET implementation of the 
- *  data compression codec.
+ * <a href="#Scenario5">**Serialization using object container files with a custom compression codec**</a>: The JSON schema is serialized with data and shared using an Avro container file with a customized .NET implementation of the data compression codec.
 
 
 <h2> <a name="Scenario1"></a>Serialization with reflection</h2>
