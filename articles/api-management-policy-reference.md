@@ -756,7 +756,7 @@ Use in the inbound section and only in the *API* and *Operation* scopes.
 </tbody>
 </table>
 
-[Policies in API Management]: ./api-management-howto-policies
+[Policies in API Management]: ../api-management-howto-policies
 
 [Access restriction policies]: #access-restriction-policies
 [Usage quota]: #usage-quota

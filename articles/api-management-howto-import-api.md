@@ -68,26 +68,26 @@ Once an API is created and the operations imported, you can review and configure
 
 
 
-[api-management-management-console]: ./Media/api-management-howto-import-api/api-management-management-console.png
-[api-management-import-apis]: ./Media/api-management-howto-import-api/api-management-import-apis.png
-[api-management-import-api-clipboard]: ./Media/api-management-howto-import-api/api-management-import-api-clipboard.png
-[api-management-add-new-api]: ./Media/api-management-howto-import-api/api-management-add-new-api.png
-[api-management-api-settings]: ./Media/api-management-howto-import-api/api-management-api-settings.png
-[api-management-api-settings-credentials]: ./Media/api-management-howto-import-api/api-management-api-settings-credentials.png
-[api-management-api-summary]: ./Media/api-management-howto-import-api/api-management-api-summary.png
-[api-management-echo-operations]: ./Media/api-management-howto-import-api/api-management-echo-operations.png
-[api-management-export-api]: ./Media/api-management-howto-import-api/api-management-export-api.png
-[api-management-export-api-format]: ./Media/api-management-howto-import-api/api-management-export-api-format.png
+[api-management-management-console]: ./media/api-management-howto-import-api/api-management-management-console.png
+[api-management-import-apis]: ./media/api-management-howto-import-api/api-management-import-apis.png
+[api-management-import-api-clipboard]: ./media/api-management-howto-import-api/api-management-import-api-clipboard.png
+[api-management-add-new-api]: ./media/api-management-howto-import-api/api-management-add-new-api.png
+[api-management-api-settings]: ./media/api-management-howto-import-api/api-management-api-settings.png
+[api-management-api-settings-credentials]: ./media/api-management-howto-import-api/api-management-api-settings-credentials.png
+[api-management-api-summary]: ./media/api-management-howto-import-api/api-management-api-summary.png
+[api-management-echo-operations]: ./media/api-management-howto-import-api/api-management-echo-operations.png
+[api-management-export-api]: ./media/api-management-howto-import-api/api-management-export-api.png
+[api-management-export-api-format]: ./media/api-management-howto-import-api/api-management-export-api-format.png
 
 [Import an API]: #import-api
 [Export an API]: #export-api
 [Configure API settings]: #configure-api-settings
 [Next steps]: #next-steps
 
-[Get started with Azure API Management]: ./api-management-get-started
-[Create an API Management service instance]: ./api-management-get-started/#create-service-instance
+[Get started with Azure API Management]: ../api-management-get-started
+[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
 
-[How to add operations to an API]: ./api-management-howto-add-operations
-[How to create and publish a product]: ./api-management-howto-add-products
-[How to create APIs]: ./api-management-howto-create-apis
-[How to configure API settings]: ./api-management-howto-create-apis/#configure-api-settings
+[How to add operations to an API]: ../api-management-howto-add-operations
+[How to create and publish a product]: ../api-management-howto-add-products
+[How to create APIs]: ../api-management-howto-create-apis
+[How to configure API settings]: ../api-management-howto-create-apis/#configure-api-settings

@@ -18,9 +18,9 @@ The policies editor consists of three main sections: the policy scope (top), the
 
 ![policies-editor][]
 
-[Product]: ./apimanagement-howto-add-products
-[API]: ./apimanagement-howto-add-apis 
-[Operation]: ./apimanagement-howto-add-operations
+[Product]: ../apimanagement-howto-add-products
+[API]: ../apimanagement-howto-add-apis 
+[Operation]: ../apimanagement-howto-add-operations
 
 To begin configuring a policy you must first select the scope at which the policy should apply. In the screenshot below the 15 Day Free Trial product is selected. Note that the square symbol next to the policy name indicates that a policy is already applied at this level.
 

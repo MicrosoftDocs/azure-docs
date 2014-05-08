@@ -77,10 +77,10 @@ Click on the "Welcome" page to edit what is displayed on the home page of the de
 
 [Management Portal]: https://manage.windowsazure.com/
 
-[api-management-management-console]: ./Media/api-management-customize-portal/api-management-management-console.png
-[api-management-widgets-header]: ./Media/api-management-customize-portal/api-management-widgets-header.png
-[api-management-customization-toolbar]: ./Media/api-management-customize-portal/api-management-customization-toolbar.png
-[api-management-customization-toolbar-color-picker]: ./Media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
-[api-management-customization-toolbar-publish-form]: ./Media/api-management-customize-portal/api-management-customization-toolbar-publish-menu.png
-[api-management-customization-manage-content]: ./Media/api-management-customize-portal/api-management-customization-manage-content.png
-[Get started with advanced API configuration]: ./api-management-get-started-advanced
+[api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
+[api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
+[api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
+[api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-menu.png
+[api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
+[Get started with advanced API configuration]: ../api-management-get-started-advanced

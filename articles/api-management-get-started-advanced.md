@@ -10,11 +10,11 @@ The tutorials in this section provide guidance an advanced API Management config
 
 
 
-[Customizing the developer portal in Azure API Management]: ./api-management-customize-portal
+[Customizing the developer portal in Azure API Management]: ../api-management-customize-portal
 
-[How to use the API Inspector to trace calls in Azure API Management]: ./api-management-howto-api-inspector
+[How to use the API Inspector to trace calls in Azure API Management]: ../api-management-howto-api-inspector
 
-[How to create and configure advanced product settings in Azure API Management]: ./api-management-howto-product-with-rules
+[How to create and configure advanced product settings in Azure API Management]: ../api-management-howto-product-with-rules
 
 
 
