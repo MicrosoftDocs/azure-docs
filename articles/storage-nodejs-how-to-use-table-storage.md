@@ -40,7 +40,7 @@ information on tables, see the [Next Steps][] section.
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
@@ -357,10 +357,10 @@ to learn how to do more complex storage tasks.
   
   
   
-  [Node.js Cloud Service]: {localLink:2221} "Web App with Express"
+  [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Visit the Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
-[Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-  [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
- [Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Web Site with WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Node.js Cloud Service with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
+  [Node.js Web Application with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Create and deploy a Node.js application to an Azure Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
