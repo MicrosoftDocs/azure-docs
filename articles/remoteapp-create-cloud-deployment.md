@@ -54,7 +54,7 @@ You can publish multiple programs to your RemoteApp service. From the RemoteApp 
 
 ## **Step 4: Configure user access** ##
 
-Now that you have created your RemoteApp service, you need to add the users and groups that you want to be able to use your remote resources. 
+Now that you have created your RemoteApp service, you need to add the users and groups that you want to be able to use your remote resources. If you are using Active Directory, the users or groups that you provide access to need to exist in the Active Directory tenant associated with the subscription you used to create this RemoteApp service.
 
 1.	From the Quick Start page, click **Configure user access**. 
 2.	Enter the organizational account or group name (from Active Directory) or Microsoft account that you want to grant access for.
@@ -64,6 +64,7 @@ Now that you have created your RemoteApp service, you need to add the users and 
 3.	Once the users or groups are validated, click **Save**.
 
 
+## Next steps ##
 
-
+That's it - you have successfully created and deployed your RemoteApp cloud  deployment. The next step is to have your users download and install the Remote Desktop client. You can find the URL for the client on the RemoteApp Quick Start page. Then, have users log into Azure and access the RemoteApp programs you published.
 
