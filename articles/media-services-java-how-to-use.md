@@ -1,8 +1,4 @@
-<properties linkid="develop-media-services-how-to-guides-media-services-java" urlDisplayName="Media Services" pageTitle="How to use Media Services (Java) - Azure feature guide" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors="waltpo" solutions="" manager="" editor="mollybos" />
-
-
-
-
+<properties linkid="develop-media-services-how-to-guides-media-services-java" urlDisplayName="Media Services" pageTitle="How to use Media Services (Java) - Azure feature guide" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 #How to Use Media Services
 

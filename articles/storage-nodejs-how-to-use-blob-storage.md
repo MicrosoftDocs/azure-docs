@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
 
 
@@ -27,87 +27,14 @@ see the [Next Steps][] section.
 * [How To: Delete a Blob][]   
 * [Next Steps][]
 
-## <a name="what-is"> </a>What is the Blob Service?
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-The Azure Blob service is for storing large amounts of
-unstructured data that can be accessed from anywhere in the world via
-HTTP or HTTPS. A single blob can be hundreds of gigabytes in size, and a
-single storage account can contain up to 100TB of blobs. Common uses of
-Blobs include:
-
--   Serving images or documents directly to a browser
--   Storing files for distributed access
--   Streaming video and audio
--   Performing secure backup and disaster recovery
--   Storing data for analysis by an on-premises or Azure-hosted
-    service
-
-You can use Blobs to expose data publicly to the world or
-privately for internal application storage.
-
-## <a name="concepts"> </a>Concepts
-
-The Blob service contains the following components:
-
-![Blob1](./media/storage-nodejs-how-to-use-blob-storage/blob1.jpg)
-
--   **URL format:** Blobs are addressable using the following URL
-    format:
-   
-    	http://storageaccount.blob.core.windows.net/container/blob  
-      
-    The following URL addresses one of the blobs in the diagram: 
- 
-	    http://sally.blob.core.windows.net/movies/MOV1.AVI
-
--   **Storage Account:** All access to Azure Storage is done
-    through a storage account. This is the highest level of the
-    namespace for accessing blobs. An account can contain an unlimited
-    number of containers, as long as their total size is under 100TB.
-
--   **Container:** A container provides a grouping of a set of blobs.
-    All blobs must be in a container. An account can contain an
-    unlimited number of containers. A container can store an unlimited
-    number of blobs.
-
--   **Blob:** A file of any type and size. There are two types of blobs; block and page. Most files are block
-    blobs. A single block blob can be up to 200GB in size. This tutorial
-    uses block blobs. Page blobs, another blob type, can be up to 1TB in
-    size, and are more efficient when ranges of bytes in a file are
-    modified frequently.
-
-## <a name="create-account"> </a>Create an Azure Storage Account
-
-To use storage operations, you need an Azure storage account. You
-can create a storage account by following these steps. (You can also
-create a storage account [using the REST API][].)
-
-1.  Log into the [Azure Management Portal].
-
-2.  At the bottom of the navigation pane, click **+NEW**.
-
-	![+new](./media/storage-nodejs-how-to-use-blob-storage/plus-new.png)
-
-3.  Click **Storage Account**, and then click **Quick Create**.
-
-	![Quick create dialog](./media/storage-nodejs-how-to-use-blob-storage/quick-storage.png)
-
-4.  In URL, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-
-5.  Choose a Region/Affinity Group in which to locate the
-    storage. If you will be using storage from your Azure
-    application, select the same region where you will deploy your
-    application.
-
-6.  Click **Create Storage Account**.
+##<a name="create-account"></a><span  class="short-header">Create an account</span>Create an Azure Storage account
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
@@ -292,11 +219,11 @@ to learn how to do more complex storage tasks.
   [How To: Download Blobs]: #download-blobs
   [How To: Delete a Blob]: #delete-blobs
 [Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-  [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
- [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
+  [Node.js Cloud Service with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
+  [Node.js Web Application with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+ [Web Site with WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"
+  [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

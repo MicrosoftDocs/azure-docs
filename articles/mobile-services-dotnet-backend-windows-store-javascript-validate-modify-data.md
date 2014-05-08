@@ -177,8 +177,8 @@ Server scripts are also used when authorizing users and for sending push notific
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
 [Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
-[Get started with authentication]: en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
-[Get started with push notifications]: en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js
 
 [Management Portal]: https://manage.windowsazure.com/

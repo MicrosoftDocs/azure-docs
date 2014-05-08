@@ -107,14 +107,14 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 
 2. Set the first three variables, and then run the commands.
 
-		$subscriptionName = "<WindowsAzureSubscriptionName>"
-		$storageAccountName = "<WindowsAzureStorageAccountName>"
+		$subscriptionName = "<AzureSubscriptionName>"
+		$storageAccountName = "<AzureStorageAccountName>"
 		$ContainerName = "<BlobStorageContainerName>"
 		
 		$localFolder = "C:\Tutorials\FlightDelays\Data"
 		$destFolder = "tutorials/flightdelays/data"
 		
-		$month = "January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+		$month = "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
 
 	These are the variables and their description: 
 	<table border="1">
@@ -170,7 +170,7 @@ If you choose to use a different method for uploading the files, please make sur
 3. Set the first six variables in the following script, and then run the commands:
 	
 		# Azure subscription name
-		$subscriptionName = "<WindowsAzureSubscriptionName>"
+		$subscriptionName = "<AzureSubscriptionName>"
 				
 		# SQL database server variables
 		$sqlDatabaseServer = ""  # specify the Azure SQL database server name if you have one created. Otherwise use "".
@@ -289,7 +289,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 
 2. Set the first two variables, and then run the commands.
 
-		$storageAccountName = "<WindowsAzureStorageAccountName>"
+		$storageAccountName = "<AzureStorageAccountName>"
 		$containerName ="<BlobStorageContainerName>"
 
 		$hqlLocalFileName = "C:\tutorials\flightdelays\flightdelays.hql"  
@@ -421,7 +421,7 @@ There are several Azure PowerShell cmdlets you can use to run Hive. This tutoria
 
 There is a known Hive path issue. The instructions for fixing the issue can be found at [TechNet Wiki][technetwiki-hive-error].
 
-**To run the Hiver queries using PowerShell**
+**To run the Hive queries using PowerShell**
 
 1. Open Azure PowerShell.
 2. Run the following command to change the current directory:
@@ -437,8 +437,8 @@ There is a known Hive path issue. The instructions for fixing the issue can be f
 2. Set the first three variables, and then run them:
 		
 		$clusterName = "<HDInsightClusterName>"
-		$storageAccountName = "<WindowsAzureStorageAccountName>"
-		$containerName = "<WindowsAzureBlobStorageContainerName>"
+		$storageAccountName = "<AzureStorageAccountName>"
+		$containerName = "<AzureBlobStorageContainerName>"
 		$hqlScriptFile = "wasb://$containerName@$storageAccountName.blob.core.windows.net/tutorials/flightdelays/flightdelays.hql"
 		$outputBlobName = "tutorials/flightdelays/output/000000_0"
 
@@ -458,7 +458,7 @@ There is a known Hive path issue. The instructions for fixing the issue can be f
 				
 		Invoke-Hive –File $hqlScriptFile
 
-4. Run the following command to verifiy the results:
+4. Run the following command to verify the results:
 
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
@@ -551,18 +551,18 @@ Now that you understand how to upload file to Blob storage, how to populate a Hi
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: ../install-configure-powershell/
 
-[hdinsight-oozie]: /en-us/documentation/articles/hdinsight-use-oozie/
-[hdinsight-hive]: /en-us/documentation/articles/hdinsight-use-hive/
-[hdinsight-provision]: /en-us/documentation/articles/hdinsight-provision-clusters/
-[hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
-[hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
-[hdinsight-get-started]: /en-us/documentation/articles/hdinsight-get-started/
+[hdinsight-oozie]: ../hdinsight-use-oozie/
+[hdinsight-hive]: ../hdinsight-use-hive/
+[hdinsight-provision]: ../hdinsight-provision-clusters/
+[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-pig]: /en-us/documentation/articles/hdinsight-use-pig/
-[hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
-[hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-pig]: ../hdinsight-use-pig/
+[hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 [hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html

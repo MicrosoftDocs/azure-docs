@@ -21,7 +21,7 @@ Other Hadoop-related projects such as Pig and Hive are built on top of HDFS and 
 ###HDInsight
 Azure HDInsight makes Apache Hadoop available as a service in the cloud. It makes the HDFS/MapReduce software framework and related projects such as Pig, Hive, and Oozie available in a simpler, more scalable, and cost-efficient environment.
 
-A second head node has been added to the Hadoop clusters deployed by HDInsight to increase the availability and reliability of the service. Standard implementations of Hadoop clusters typically have a single head node. These clusters are designed to manage the failure of worker nodes smoothly, but jobs will fail if the head node fails. HDInsight removes this single point of failure with the addition of a secondary head node. [ZooKeeper][zookeeper] nodes have been added to monitor the health of the cluster to insure that worker nodes know when to fail over to the secondary head node when the primary head node become inactive.
+A second headnode has been added to the Hadoop clusters deployed by HDInsight to increase the availability of the service. Standard implementations of Hadoop clusters typically have a single headnode. HDInsight removes this single point of failure with the addition of a secondary headnode. The switch to new HA cluster configuration doesn’t change the price of the cluster, unless customer provision clusters with extra large head node.
 
 One of the primary efficiencies introduced by HDInsight is in how it manages and stores data. HDInsight uses Azure Blob storage as the default file system. Blob storage and HDFS are distinct file systems that are optimized, respectively, for the storage of data and for computations on that data.
 
@@ -138,4 +138,4 @@ HDInsight (and Hadoop technologies in general) are most suitable for handling a 
 
 [connect-excel-with-power-query]: /en-us/manage/services/hdinsight/connect-excel-with-power-query/
 
-[zookeeper]: hhttp://zookeeper.apache.org/ 
+[zookeeper]: http://zookeeper.apache.org/ 

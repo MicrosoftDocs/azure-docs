@@ -421,7 +421,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 **To install the command-line interface using windows installer**
 
-1.	Browse to **http://www.windowsazure.com/en-us/downloads/**.
+1.	Browse to **http://azure.microsoft.com/en-us/downloads/**.
 2.	Scroll down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
 
 Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publish settings once.
@@ -606,11 +606,11 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 9. In the Main() function, copy and paste the following code:
 		
         string certfriendlyname = "<CertificateFriendlyName>";
-        string subscriptionid = "<WindowsAzureSubscriptionID>";
+        string subscriptionid = "<AzureSubscriptionID>";
         string clustername = "<HDInsightClusterName>";
         string location = "<MicrosoftDataCenter>";
-        string storageaccountname = "<WindowsAzureStorageAccountName>";     // Full path must be used
-        string storageaccountkey = "<WindowsAzureStorageAccountKey>";
+        string storageaccountname = "<AzureStorageAccountName>";     // Full path must be used
+        string storageaccountkey = "<AzureStorageAccountKey>";
         string containername = "<HDInsightDefaultContainerName>";
         string username = "<HDInsightUsername>";
         string password = "<HDInsightUserPassword>";
@@ -673,7 +673,6 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
 
 [azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
@@ -681,9 +680,10 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [azure-command-line-tools]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [azure-command-line-tool]: /en-us/manage/linux/other-resources/command-line-tools/
 [azure-manage-storageaccount]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
-[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
-[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
-[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+
+[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 
 [Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
 

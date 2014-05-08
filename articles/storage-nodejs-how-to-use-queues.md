@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
 
 
@@ -30,75 +30,15 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 * [How To: Delete a Queue][]   
 * [Next Steps][]
 
-## <a name="what-is"> </a>What is the Queue Service?
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-The Azure Queue service is a service for storing large numbers of
-messages that can be accessed from anywhere in the world via
-authenticated calls using HTTP or HTTPS. A single queue message can be
-up to 64KB in size, a queue can contain millions of messages, up to the
-100TB total capacity limit of a storage account. Common uses of the Queue
-service include:
+<h2><a name="create-account"></a><span  class="short-header">Create an account</span>Create an Azure Storage account</h2>
 
--   <span>Creating a backlog of work to process asynchronously</span>
--   Passing messages from an Azure web role to a worker role
-
-## <a name="concepts"> </a>Concepts
-
-The Queue service contains the following components:
-
-![Queue1][Queue1]
-
--   **URL format:** Queues are addressable using the following URL
-    format:   
-    
-		http://storageaccount.queue.core.windows.net/queue  
-      
-    The following URL addresses one of the queues in the diagram:  
-    
-		http://myaccount.queue.core.windows.net/imagesToDownload
-
--   **Storage Account:** All access to Azure Storage is done
-    through a storage account. A storage account is the highest level of
-    the namespace for accessing queues. The total size of blob, table,
-    and queue contents in a storage account cannot exceed 100TB.
-
--   **Queue:** A queue contains a set of messages. All messages must be
-    in a queue.
-
--   **Message:** A message, in any format, of up to 64KB.
-
-## <a name="create-account"> </a>Create an Azure Storage Account
-
-To use storage operations, you need an Azure storage account. You
-can create a storage account by following these steps. (You can also
-create a storage account [using the REST API][].)
-
-1.  Log into the [Azure Management Portal].
-
-2.  At the bottom of the navigation pane, click **+NEW**.
-
-	![+new][plus-new]
-
-3.  Click **Storage Account**, and then click **Quick Create**.
-
-	![Quick create dialog][quick-create-storage]
-
-4.  In URL, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-
-5.  Choose a Region/Affinity Group in which to locate the
-    storage. If you will be using storage from your Azure
-    application, select the same region where you will deploy your
-    application.
-
-6.  Click **Create Storage Account**.
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
@@ -347,9 +287,10 @@ to learn how to do more complex storage tasks.
   [How To: Delete a Queue]: #delete-queue
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-  [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
+  [Create and deploy a Node.js application to an Azure Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Node.js Cloud Service with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
+  [Node.js Web Application with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
   [plus-new]: ./media/storage-nodejs-how-to-use-queues/plus-new.png
@@ -357,7 +298,7 @@ to learn how to do more complex storage tasks.
   
   
   
-  [Node.js Cloud Service]: {localLink:2221} "Web App with Express"
+  [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
+ [Web Site with WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
