@@ -4,7 +4,7 @@
 
 A *custom* virtual machine refers to a virtual machine you create using the **From Gallery** method because it lets you configure more options than the **Quick Create** method. These options include:
 
-- More choices for the image to use to create the virtual machine 
+- More choices for the image to use to create the virtual machine (VM)
 - Connecting the VM to a virtual network 
 - Adding the VM to an existing cloud service 
 - Adding the VM to an availability set
@@ -23,7 +23,7 @@ A *custom* virtual machine refers to a virtual machine you create using the **Fr
 
 6. In **Virtual Machine Name**, type the name that you want to use for the virtual machine.
 
-7. Use **Tier** and **Size** to select the appropriate size for the virtual machine. The size you select affects the maximum configuration of the virtual machine, as well as the pricing. For configuration details, see [Virtual Machine and Cloud Service Sizes for Azure](http://go.microsoft.com/fwlink/p/?LinkID=389844)
+7. Use **Tier** and **Size** to select the appropriate size for the virtual machine. The size you select affects the maximum configuration of the virtual machine, as well as the pricing. For configuration details, see [Virtual Machine and Cloud Service Sizes for Azure](http://go.microsoft.com/fwlink/p/?LinkID=389844).
 
 8. In **New User Name**, type a name for the administrative account that you want to use to manage the server. 
 
@@ -38,7 +38,7 @@ A *custom* virtual machine refers to a virtual machine you create using the **Fr
 
 	**Note**: For more information about placing virtual machines in the same cloud service, see [How to connect virtual machines in a cloud service](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
-12. In **Region/Affinity Group/Virtual Network**, select region, affinity group, or virtual network that you want to use for the virtual machine. For more information about affinity groups, see [About Affinity Groups for Virtual Network][].
+12. In **Region/Affinity Group/Virtual Network**, select region, affinity group, or virtual network that you want to use for the virtual machine. For more information about affinity groups, see [About Affinity Groups for Virtual Network](http://msdn.microsoft.com/en-us/library/azure/jj156085.aspx).
 
 13. In **Storage Account**, select an existing storage account for the VHD file, or use an automatically generated storage account. Only one storage account per region is automatically created. All other virtual machines that you create with this setting are located in this storage account. You are limited to 20 storage accounts.
 
@@ -46,9 +46,9 @@ A *custom* virtual machine refers to a virtual machine you create using the **Fr
 
 	**Note**: Virtual machine that are members of an availability set are deployed to different fault domains. Placing multiple virtual machines in an availability set helps ensure that your application is available during network failures, local disk hardware failures, and any planned downtime.
 
-15.  Under **Endpoints**, review the new endpoints that will be created to allow connections to the virtual machine, such through Remote Desktop or a Secure Shell (SSH) client. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/). 
+15.  Under **Endpoints**, review the new endpoints that will be created to allow connections to the virtual machine, such through Remote Desktop or a Secure Shell (SSH) client. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Endpoints to a Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/). 
 
-16.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493).
+16.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Manage Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 
 17. Click the arrow to create the virtual machine.
 
