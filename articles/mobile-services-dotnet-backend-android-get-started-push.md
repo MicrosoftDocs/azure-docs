@@ -103,7 +103,7 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 ###Add code
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push)
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push)]
 
 <h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against the published mobile service</h2>
 
