@@ -43,7 +43,7 @@ If you don't have one of these, Visual Studio 2013 Express for web will be insta
 The tutorial shows you how to build and run the application locally, how to deploy it to Azure and run in the cloud, and finally how to build it from scratch. You can start by building from scratch and then do the test and deploy steps afterward if you prefer.
 
 - [Application architecture](#application-architecture)
-- [Set up the development environment](#set-up-the-development-environment)
+- [Set up the development environment](#setupdevenv)
 - [Download and run the completed solution](#download-and-run-the-completed-solution)
 - [Deploy the application to Azure](#deploy-the-application-to-azure)
 - [Create the application from scratch](#create-the-application-from-scratch)
