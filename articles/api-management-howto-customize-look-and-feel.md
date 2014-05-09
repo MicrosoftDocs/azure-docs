@@ -1,4 +1,6 @@
-# How to customize the look and feel of the developer portal
+<properties pageTitle="How to customize the look and feel of the developer portal in Azure API Management" metaKeywords="" description="How to customize the look and feel of the developer portal in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to customize the look and feel of the developer portal in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+
+# How to customize the look and feel of the developer portal in Azure API Management
 
 The colors, fonts, sizes, spacings and other aspects of the developer portal's look and feel are defined by style rules. Sets of these rules exist for each structural element of a page - the header, the menu, the content body, page title, etc. In this how-to you will learn how to modify the style rules.
 
