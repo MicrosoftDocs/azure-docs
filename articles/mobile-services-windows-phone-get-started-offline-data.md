@@ -271,7 +271,7 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [12]: ./media/mobile-services-windows-phone-get-started-offline-data/ui-screenshot.png
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
+[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/ 
 [Getting Started Offline Sample for Windows Phone]: http://go.microsoft.com/fwlink/?LinkId=397952
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started/
 [Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
