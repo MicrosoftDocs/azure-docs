@@ -2,7 +2,7 @@
 
 # Get Started with Azure Cloud Services and ASP.NET
 
-This tutorial shows how to create a multi-tier .NET application with an ASP.NET MVC front-end, and deploy it to an [Azure cloud service](/en-us/documentation/articles/fundamentals-application-models/#CloudServices). The application uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), the [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and the [Azure Queue service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). You can [download the Visual Studio project](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) from the MSDN Code Gallery. 
+This tutorial shows how to create a multi-tier .NET application with an ASP.NET MVC front-end, and deploy it to an [Azure cloud service](/en-us/documentation/articles/fundamentals-application-models/#CloudServices). The application uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), the [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and the [Azure Queue service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). You can [download the Visual Studio project](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) from the MSDN Code Gallery. 
 
 ### The Contoso Ads application
 
@@ -64,7 +64,7 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 ## Download and run the completed solution
 
-1. Download and unzip the [completed solution](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8).
+1. Download and unzip the [completed solution](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
 
 2. Start Visual Studio.
 
@@ -328,7 +328,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 ## Create the application from scratch 
 
 If you haven't already downloaded 
-[the completed application](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8), do that now. Instead of creating new files and copying and pasting code into them, you'll copy files from the downloaded project into the new project.
+[the completed application](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), do that now. Instead of creating new files and copying and pasting code into them, you'll copy files from the downloaded project into the new project.
 
 Creating the Contoso Ads application involves the following steps:
 
