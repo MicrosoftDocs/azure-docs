@@ -89,7 +89,7 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 ###Add code
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push] (../includes/mobile-services-android-getting-started-with-push)
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push)]
 
 
 ##<a id="update-scripts"></a>Update the registered insert script in the Management Portal
