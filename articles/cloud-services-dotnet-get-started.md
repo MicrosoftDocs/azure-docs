@@ -29,7 +29,7 @@ This tutorial shows how to run both front-end and back-end in an Azure cloud ser
 
 The tutorial assumes that you understand [basic concepts about Azure cloud services](http://azure.microsoft.com/en-us/documentation/articles/fundamentals-application-models/#CloudServices) such as *web role* and *worker role* terminology.  It also assumes that you know how to work with [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) or [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projects in Visual Studio. The sample application uses MVC, but most of the tutorial also applies to Web Forms. 
 
-You can run the app locally without an Azure subscription, but you'll need one in order to deploy the application to the cloud. If you don't have an account, you can [activate your MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+You can run the app locally without an Azure subscription, but you'll need one in order to deploy the application to the cloud. If you don't have an account, you can [activate your MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A55E3C668).
 
 The tutorial instructions work with either of the following products:
 
@@ -43,7 +43,7 @@ If you don't have one of these, Visual Studio 2013 Express for web will be insta
 The tutorial shows you how to build and run the application locally, how to deploy it to Azure and run in the cloud, and finally how to build it from scratch. You can start by building from scratch and then do the test and deploy steps afterward if you prefer.
 
 - [Application architecture](#application-architecture)
-- [Set up the development environment](#set-up-the-development-environment)
+- [Set up the development environment](#setupdevenv)
 - [Download and run the completed solution](#download-and-run-the-completed-solution)
 - [Deploy the application to Azure](#deploy-the-application-to-azure)
 - [Create the application from scratch](#create-the-application-from-scratch)
@@ -390,7 +390,7 @@ After the solution is created, you'll review the code and settings that are uniq
 
 ### Set project references
 
-10. In the ContosoAdsWeb project, set a reference to the ContosoAdsCommon project. Right-click the ContosoAdsWeb project, and then click **References** - **Add References**. In the **Reference Manager** dialog box, select **Solution – projects** in the left pane, select ContosoAdsCommon, and then click **OK**.
+10. In the ContosoAdsWeb project, set a reference to the ContosoAdsCommon project. Right-click the ContosoAdsWeb project, and then click **References** - **Add References**. In the **Reference Manager** dialog box, select **Solution – Projects** in the left pane, select ContosoAdsCommon, and then click **OK**.
 
 11. In the ContosoAdsWorker project, set a reference to the ContosAdsCommon project.
 
@@ -418,7 +418,7 @@ In this section you configure Azure Storage and SQL connection strings for testi
 
 3. In the **ContosAdsWeb [Role]** properties window, click the **Settings** tab, and then click **Add Setting**.
 
-3. Leave **Service Configuration** set to **All Configurations**.
+	Leave **Service Configuration** set to **All Configurations**.
 
 4. Add a new setting named *StorageConnectionString*. Set **Type** to *ConnectionString*, and set **Value** to *UseDevelopmentStorage=true*.
 
@@ -426,7 +426,7 @@ In this section you configure Azure Storage and SQL connection strings for testi
 
 5. Save your changes.
 
-3. In the ContosoAdsWorker project, follow the same procedure to add a storage connection string that you followed for the ContosoAdsWeb project.
+3. Follow the same procedure to add a storage connection string in the ContosoAdsWorker role properties.
 
 5. Still in the **ContosoAdsWorker [Role]** properties window, add another connection string:
 
@@ -434,7 +434,7 @@ In this section you configure Azure Storage and SQL connection strings for testi
 	* Type: String
 	* Value: Paste the same connection string you used for the web role project:
 	
-			ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
+			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
 	
 ### Add code files
 
@@ -445,14 +445,13 @@ To add files to a project or a folder, right-click the project or folder and cli
 3. In the ContosoAdsCommon project, delete the *Class1.cs* file and add in its place the *Add.cs* and *ContosoAdscontext.cs* files from the downloaded project.
 
 3. In the ContosoAdsWeb project, add the following files from the downloaded project.
+	- *Global.asax.cs*  
+	- <em>_Layout.cshtml</em> file in the *Views\Shared* folder
+	- *Index.cshtml* in the *Views\Home* folder
+	- *AdController.cs* in the *Controllers* folder
+	- Five *.cshtml* files in the *Views\Ad* folder (create the folder first)
 
-	* *Global.asax.cs*  
-	* *_Layout.cshtml* file in the *Views\Shared* folder
-	* *Index.cshtml* in the *Views\Home* folder
-	* *AdController.cs* in the *Controllers* folder
-	* Five *.cshtml* files in the *Views\Ad* folder
-
-1. In the ContosoAdsWorker project, add *WorkerRole.cs* from the downloaded project.
+3. In the ContosoAdsWorker project, add *WorkerRole.cs* from the downloaded project.
 
 You can now build and run the application as instructed earlier in the tutorial, and the app will use local database and storage emulator resources.
 
@@ -779,5 +778,5 @@ For more information, see the following resources:
 
 * [Azure Cloud Services](/en-us/documentation/services/cloud-services/)
 * [Azure Storage](/en-us/documentation/services/storage/)
-* [How to use Blob Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [How to use Queue Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-queues/)
+* [How to use Blob Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)
+* [How to use Queue Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-queues/)
