@@ -390,7 +390,7 @@ After the solution is created, you'll review the code and settings that are uniq
 
 ### Set project references
 
-10. In the ContosoAdsWeb project, set a reference to the ContosoAdsCommon project. Right-click the ContosoAdsWeb project, and then click **References** - **Add References**. In the **Reference Manager** dialog box, select **Solution – projects** in the left pane, select ContosoAdsCommon, and then click **OK**.
+10. In the ContosoAdsWeb project, set a reference to the ContosoAdsCommon project. Right-click the ContosoAdsWeb project, and then click **References** - **Add References**. In the **Reference Manager** dialog box, select **Solution – Projects** in the left pane, select ContosoAdsCommon, and then click **OK**.
 
 11. In the ContosoAdsWorker project, set a reference to the ContosAdsCommon project.
 
@@ -418,7 +418,7 @@ In this section you configure Azure Storage and SQL connection strings for testi
 
 3. In the **ContosAdsWeb [Role]** properties window, click the **Settings** tab, and then click **Add Setting**.
 
-3. Leave **Service Configuration** set to **All Configurations**.
+	Leave **Service Configuration** set to **All Configurations**.
 
 4. Add a new setting named *StorageConnectionString*. Set **Type** to *ConnectionString*, and set **Value** to *UseDevelopmentStorage=true*.
 
@@ -426,7 +426,7 @@ In this section you configure Azure Storage and SQL connection strings for testi
 
 5. Save your changes.
 
-3. In the ContosoAdsWorker project, follow the same procedure to add a storage connection string that you followed for the ContosoAdsWeb project.
+3. Follow the same procedure to add a storage connection string in the ContosoAdsWorker role properties.
 
 5. Still in the **ContosoAdsWorker [Role]** properties window, add another connection string:
 
@@ -434,7 +434,7 @@ In this section you configure Azure Storage and SQL connection strings for testi
 	* Type: String
 	* Value: Paste the same connection string you used for the web role project:
 	
-			ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
+			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
 	
 ### Add code files
 
@@ -445,14 +445,13 @@ To add files to a project or a folder, right-click the project or folder and cli
 3. In the ContosoAdsCommon project, delete the *Class1.cs* file and add in its place the *Add.cs* and *ContosoAdscontext.cs* files from the downloaded project.
 
 3. In the ContosoAdsWeb project, add the following files from the downloaded project.
+	- *Global.asax.cs*  
+	- <em>_Layout.cshtml</em> file in the *Views\Shared* folder
+	- *Index.cshtml* in the *Views\Home* folder
+	- *AdController.cs* in the *Controllers* folder
+	- Five *.cshtml* files in the *Views\Ad* folder (create the folder first)
 
-	* *Global.asax.cs*  
-	* *_Layout.cshtml* file in the *Views\Shared* folder
-	* *Index.cshtml* in the *Views\Home* folder
-	* *AdController.cs* in the *Controllers* folder
-	* Five *.cshtml* files in the *Views\Ad* folder
-
-1. In the ContosoAdsWorker project, add *WorkerRole.cs* from the downloaded project.
+3. In the ContosoAdsWorker project, add *WorkerRole.cs* from the downloaded project.
 
 You can now build and run the application as instructed earlier in the tutorial, and the app will use local database and storage emulator resources.
 
@@ -779,5 +778,5 @@ For more information, see the following resources:
 
 * [Azure Cloud Services](/en-us/documentation/services/cloud-services/)
 * [Azure Storage](/en-us/documentation/services/storage/)
-* [How to use Blob Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [How to use Queue Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-queues/)
+* [How to use Blob Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)
+* [How to use Queue Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-queues/)
