@@ -37,7 +37,7 @@ This article provides detailed information about and examples of how to work wit
 
 ##<a name="intro"></a>Introduction
 
-In a JavaScript backend mobile service, you can define custom business logic as JavaScript code that's stored and executed on the server. This server script code is assigned to one of the following server functionalities:
+In a JavaScript backend mobile service, you can define custom business logic as JavaScript code that's stored and executed on the server. This server script code is assigned to one of the following server functions:
 
 + [Insert, read, update, or delete operations on a given table][Table operations].
 + [Scheduled jobs][Job Scheduler].
