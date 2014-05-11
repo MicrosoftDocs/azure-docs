@@ -263,7 +263,7 @@ Update an existing object by modifying an item returned from a previous query an
 
 When making updates, you only need to supply the field being updated, along with the row ID, as in the following example:
 
-	[table update:@{@"id" : @"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete": @Yes} completion:^(NSDictionary *item, NSError *error) {
+	[table update:@{@"id" : @"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete": @YES} completion:^(NSDictionary *item, NSError *error) {
 		//handle errors or any additional logic as needed
 	}];
 	
@@ -276,7 +276,7 @@ To delete an item from the table, simply pass the item to the delete method, as 
 
 You can also just delete a record using its id directly, as in the following example:
 
-	[table deleteWithId:[@"37BBF396-11F0-4B39-85C8-B319C729AF6D"] completion:^(id itemId, NSError *error) {
+	[table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
 		//handle errors or any additional logic as needed
 	}];	
 
@@ -422,7 +422,11 @@ When using a cached token, a user will not have to login again until the token e
 
 When a call is made to the mobile service, the completion block contains an `NSError *error` parameter. When an error occurs, this parameter is returned a non-null value. In your code, you should check this parameter and handle the error as needed.
 
-When an error has occurred, you can get more information by including the MSError.h file in the code. This file defines the following constants you can use to access additional data from `[error userInfo]`:
+When an error has occurred, you can get more information by including the MSError.h file in the code:
+
+    #import <WindowsAzureMobileServices/MSError.h>
+
+This file defines the following constants you can use to access additional data from `[error userInfo]`:
 
 + **MSErrorResponseKey**: the HTTP response data associated with the error
 * **MSErrorRequestKey**: the HTTP request data associated with the error
