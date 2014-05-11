@@ -6,7 +6,7 @@ The developer portal consists of automatically generated pages like APIs, Produc
 
 To see the list of all existing content pages click on **Content** from the **Developer portal** menu in the Management console.
 
-![api-management-howto-edit-contents-of-page-manage-content]
+![Manage content][api-management-howto-edit-contents-of-page-manage-content]
 
 Click on the "Welcome" page to edit what is displayed on the home page of the developer portal. Make the changes you would like, preview them if necessary, and then click on **Publish Now** to make them visible to everyone.
 

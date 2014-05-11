@@ -18,11 +18,11 @@ One of the key aspects of portal customization is replacing the text at the top 
 
 Content within the Developer Portal is modified via the Publisher portal, which is accessed through the Azure management portal. To reach the API Management console, click **Management Console** in the Azure Portal for your API Management service.
 
-![api-management-management-console][]
+![Management console][api-management-management-console]
 
 The developer portal is based on a Content Management System or CMS. The header that appears on every page is a special type of content known as a widget. To edit the contents of that widget click **Widgets** from the **Developer Portal** menu on the left, and then select the **Header** widget from the list.
 
-![api-management-widgets-header][]
+![Widgets header][api-management-widgets-header]
 
 The contents of the header is editable from within the **Body** field. Change the text to "Fabrikam Developer Portal" and click **Save** at the bottom of the page.
 
@@ -36,7 +36,7 @@ The colors, fonts, sizes, spacings and other style-related elements of any page 
 
 Your browser will switch to a hidden page within the developer portal that contains samples of content, with examples for all styling rules used anywhere on the site. To open the styling editor, move your cursor over the thin gray vertical line on the left-most part of the page. The editor toolbar should appear.
 
-![api-management-customization-toolbar][]
+![Customization toolbar][api-management-customization-toolbar]
 
 There are two main modes of editing styling rules - **Edit all rules** displays a list of all the style rules used anywhere; while **Pick element** allows you to select an element from the page you are on and will display styles only for that element.
 
@@ -48,11 +48,11 @@ Each rule represents a styling property of the selected element. For example, fo
 
 Let's change the color of the heading text. Select the entry in the **@headings-color** field and type #000000. This is the hex code for the color black. As you do this you will see that a square color indicator will appear at the end of the text box. If you click this indicator, a color picker will allow you to choose a color.
 
-![api-management-customization-toolbar-color-picker][]
+![Color picker][api-management-customization-toolbar-color-picker]
 
 When you are done with making changes to the styles of the selected element click on **Preview Changes** to see the results on the screen. At this time they are only visible to Administrators. To make these changes visible to everyone, click on **Publish** button in the styling editor and confirm the changes.
 
-![api-management-customization-toolbar-publish-menu][]
+![Publish menu][api-management-customization-toolbar-publish-menu]
 
 > To change the style rules that apply to any other element on the page follow the same procedure as you did for the header - click on **Pick an element** from the styling editor, select the element you are interested in, and start modifying the values of the style rules displayed on the screen.
 
@@ -62,7 +62,7 @@ The developer portal consists of automatically generated pages like APIs, Produc
 
 To see the list of all existing content pages click on **Content** from the **Developer portal** menu in the Management console.
 
-![api-management-customization-manage-content][]
+![Manage content][api-management-customization-manage-content]
 
 Click on the "Welcome" page to edit what is displayed on the home page of the developer portal. Make the changes you would like, preview them if necessary, and then click on **Publish Now** to make them visible to everyone.
 

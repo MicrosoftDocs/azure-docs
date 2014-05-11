@@ -23,30 +23,30 @@ Operations are added and configured to an API in the management console. To acce
 
 Select the desired API in the API Management portal and then select the **Operations** tab. 
 
-![api-management-operations][]
+![Operations][api-management-operations]
 
 Click **Add Operation** to add a new operation. The **New operation** will be displayed and the **Signature** tab will be selected by default.
 
-![api-management-add-operation][]
+![Add operation][api-management-add-operation]
 
 Specify the **HTTP verb** by choosing from the drop-down list.
 
-![api-management-http-method][]
+![HTTP method][api-management-http-method]
 
 Define the URL template by typing in a URL fragment consisting of one or more URL path segments and zero or more query string parameters. The URL template, appended to the base URL of the API, identifies a single HTTP operation. It may contain one or more named variable parts that are identified by curly braces. These variable parts are called template parameters and are dynamically assigned values extracted from the request's URL when the request is being processed by the API Management platform.
 
-![api-management-url-template][]
+![URL template][api-management-url-template]
 
 If desired, specify the **Rewrite URL template**. This allows you to use the standard URL template for processing incoming requests on the front-end, while calling the back-end via a converted URL according to the rewrite template. Template parameters from the URL template should be used in the rewrite template. The following example shows how content type encoded as path segment in the web service from the previous example can be provided as a query parameter in the API published via the API Management platform using the URL templates.
 
-![api-management-url-template-rewrite][]
+![URL template rewrite][api-management-url-template-rewrite]
 
 Callers to the operation will use the format `/customers?customerid=ALFKI` and this will be mapped to `/Customers('ALFKI')` when the back-end service is invoked.
 
 
 **Display** name and **Description** provide a description of the operation and are used to provide documentation to the developers using this API in the developer portal.
 
-![api-management-description][]
+![Description][api-management-description]
 
 The operation description can be specified as plain text or HTML in the **Description** text box.
 
@@ -56,7 +56,7 @@ Response caching reduces latency perceived by the API consumers, lowers bandwidt
 
 To easily and quickly enable caching for the operation, select the **Caching** tab and check the **Enable** checkbox.
 
-![api-management-caching-tab][]
+![Caching][api-management-caching-tab]
 
 **Duration** specifies the time period during which the operation response remains in the cache. The default value is 3600 seconds or 1 hour.
 
@@ -77,7 +77,7 @@ To add a new query parameter, click **Add Query Parameter** and enter the follow
 -	**Values** - values that can be assigned to this parameter. One of the values can be marked as default (optional).
 -	**Required** - make the parameter mandatory by checking the checkbox. 
 
-![api-management-request-parameters][]
+![Request parameters][api-management-request-parameters]
 
 ## <a name="request-body"> </a>Request body
 
@@ -89,7 +89,7 @@ To enter a request body, switch to the **Body** tab.
 
 Click **Add Representation**, start typing desired content type name (e.g. application/json), select it in the drop-down, and paste the desired request body example in the selected format into the text box. 
 
-![api-management-request-body][]
+![Request body][api-management-request-body]
 
 In additional to representations, you can also specify an optional text description in the **Description** text box.
 
@@ -99,15 +99,15 @@ It is a good practice to provide examples of responses for all status codes that
 
 To add a response, click on add response and start typing the desired status code. In this example the status code is **200 OK**. Once the code is displayed in the drop-down, select it, and the response code is created and added to your operation.
 
-![api-management-response-code][]
+![Response code][api-management-response-code]
 
 Click add representation, start typing the desired content type name (e.g. application/json) and then select it in the drop down.
 
-![api-management-response-body-content-type][]
+![Body content type][api-management-response-body-content-type]
 
 Paste the request body example in the selected format into the text box. 
 
-![api-management-response-body][]
+![Response body][api-management-response-body]
 
 If desired, add an optional description into the **Description** text box.
 
