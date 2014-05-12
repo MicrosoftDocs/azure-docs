@@ -27,7 +27,6 @@ Azure BizTalk Services uses the Service Bus Issuer Name and Issuer Key, and the 
 </tr>
 </table>
 
-
 This topic lists the steps to retrieve the Issuer Name and Issuer Key. 
 
 ## Access Control Issuer Name and Issuer Key

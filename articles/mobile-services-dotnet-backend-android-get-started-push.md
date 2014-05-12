@@ -47,7 +47,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
-[WACOM.INCLUDE (../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
 ##<a id="configure"></a>Configure Mobile Services to send push requests
@@ -103,63 +103,69 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 ###Add code
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push] (../includes/mobile-services-android-getting-started-with-push)
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 <h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against the published mobile service</h2>
 
+You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
 
-Now that the app has been updated to use Mobile Services for push, you can test it against Mobile Services, using either the Android emulator or an Android phone.
+###If you are using the emulator for testing...
 
-1. From the **Run** menu, click **Run** to start the project.
+Make sure you use an Android Virtual Device (AVD) that supports Google APIs.
 
-	This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.
+1. From **Window**, select **Android Virtual Device Manager**, select your device, click **Edit** (or **New** if you don't have any devices).
 
-5. As before, type meaningful text, then click **Add**.
+	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
-   	This sends a new item as an insert to the mobile service.
+2. Select **Google APIs** (or **Google APIs x86**)  in **Target**, then click OK.
 
-    You can restart the app to see that the changes were persisted to the database in Azure. You can also examine the database using the Azure Management portal:  the next two steps do this to view the changes in your database.
+   	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
+
+	This targets the AVD to use Google APIs. If you have several versions of the Android SDK installed, make sure the API Level matches that which you set in the project properties earlier.
+
+###Running the test
+
+1. From the **Run** menu in Eclipse, then click **Run** to start the app.
+
+2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the **Add** button.
+
+  	![](./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png)
+
+3. Swipe down from the top of the screen to open the device's Notification Center to see the notification.
 
 
-4. In the Azure Management Portal, click manage for the database associated with your mobile service.
-
-    ![](./media/mobile-services-dotnet-backend-android-get-started-data/manage-sql-azure-database.png)
-
-5. In the Management portal execute a query to view the changes made by the Windows Store app. Your query will be similar to the following query but use your database name instead of `todolist`.
-
-        SELECT * FROM [todolist].[todoitems]
-
-    ![](./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png)
-
-This concludes the **Get started with push** tutorial for Android.
-
+You have successfully completed this tutorial.
 
 
 ## <a name="next-steps"> </a>Next steps
 
-This tutorial demonstrated the basics of enabling an Android app to work with data in Mobile Services. 
+This tutorial demonstrates the basic push notification functionality provided by Mobile Services. If your app requires more advanced functionalities, such as sending cross-platform notifications, subscription-based routing, or very large volumes, consider using Windows Azure Notification Hubs with your mobile service. For more information, see one of the following Notification Hubs topics:
 
-<!--Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
++ [Get started with Notification Hubs]
+  <br/>Learn how to leverage Notification Hubs in your Android app.
 
-* [Validate and modify data with scripts]
-  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
++ [Send notifications to subscribers]
+	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
-* [Refine queries with paging]
-  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
++ [Send notifications to users]
+	<br/>Learn how to send push notifications from a Mobile Service to specific users on any device.
 
-Once you have completed the data series, try
--->
++ [Send cross-platform notifications to users]
+	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 
-Try one of these other tutorials:
+Consider finding out more about the following Mobile Services topics:
+
+* [Get started with data]
+  <br/>Learn more about storing and querying data using Mobile Services.
 
 * [Get started with authentication]
-  <br/>Learn how to authenticate users of your app.
-
-* [Get started with push notifications] 
-  <br/>Learn how to send a very basic push notification to your app.
+  <br/>Learn how to authenticate users of your app with Windows Account.
 
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.
+
+* [How to use the Android client library for Mobile Services]
+  <br/>Learn more about how to use Mobile Services with Android.  
   
 <!-- Anchors. -->
 
@@ -207,15 +213,19 @@ Try one of these other tutorials:
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-android-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-android-get-started-data/
+[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-android
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
 [JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-android
-
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
+[Send notifications to subscribers]: /en-us/manage/services/notification-hubs/breaking-news-dotnet/
+[Send notifications to users]: /en-us/manage/services/notification-hubs/notify-users/
+[Send cross-platform notifications to users]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[How to use the Android client library for Mobile Services]: /en-us/documentation/articles/mobile-services-android-how-to-use-client-library
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
