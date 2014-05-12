@@ -97,8 +97,8 @@ Click **Preview** or **Send a test** to see how the email will look or send a te
 [Configure publisher notifications]: #publisher-notifications
 [Configure email templates]: #email-templates
 
-[How to create and use groups]: ./api-management-howto-create-groups
-[How to associate groups with developers]: ./api-management-howto-create-groups/#associate-group-developer
+[How to create and use groups]: ../api-management-howto-create-groups
+[How to associate groups with developers]: ../api-management-howto-create-groups/#associate-group-developer
 
-[Get started with Azure API Management]: ./api-management-get-started
-[Create an API Management service instance]: ./api-management-get-started/#create-service-instance
+[Get started with Azure API Management]: ../api-management-get-started
+[Create an API Management service instance]: ../api-management-get-started/#create-service-instance

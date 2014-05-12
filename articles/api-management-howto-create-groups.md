@@ -74,23 +74,23 @@ Once the association is added between the developer and the group, you can view 
 Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How create and publish a product in Azure API Management][],
 
 
-[api-management-management-console]: ./Media/api-management-howto-create-groups/api-management-management-console.png
-[api-management-add-group]: ./Media/api-management-howto-create-groups/api-management-add-group.png
-[api-management-add-group-window]: ./Media/api-management-howto-create-groups/api-management-add-group-window.png
-[api-management-new-group]: ./Media/api-management-howto-create-groups/api-management-new-group.png
-[api-management-add-group-to-product]: ./Media/api-management-howto-create-groups/api-management-add-group-to-product.png
-[api-management-add-group-to-product-visibility]: ./Media/api-management-howto-create-groups/api-management-add-group-to-product-visibility.png
-[api-management-add-group-to-developer]: ./Media/api-management-howto-create-groups/api-management-add-group-to-developer.png
-[api-management-add-group-to-developer-saved]: ./Media/api-management-howto-create-groups/api-management-add-group-to-developer-saved.png
+[api-management-management-console]: ./media/api-management-howto-create-groups/api-management-management-console.png
+[api-management-add-group]: ./media/api-management-howto-create-groups/api-management-add-group.png
+[api-management-add-group-window]: ./media/api-management-howto-create-groups/api-management-add-group-window.png
+[api-management-new-group]: ./media/api-management-howto-create-groups/api-management-new-group.png
+[api-management-add-group-to-product]: ./media/api-management-howto-create-groups/api-management-add-group-to-product.png
+[api-management-add-group-to-product-visibility]: ./media/api-management-howto-create-groups/api-management-add-group-to-product-visibility.png
+[api-management-add-group-to-developer]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer.png
+[api-management-add-group-to-developer-saved]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer-saved.png
 
-[api-management-]: ./Media/api-management-howto-create-groups/api-management-.png
+[api-management-]: ./media/api-management-howto-create-groups/api-management-.png
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product
 [Associate groups with developers]: #associate-group-developer
 [Next steps]: #next-steps
 
-[How create and publish a product in Azure API Management]: ./api-management-howto-add-products
+[How create and publish a product in Azure API Management]: ../api-management-howto-add-products
 
-[Get started with Azure API Management]: ./api-management-get-started
-[Create an API Management service instance]: ./api-management-get-started/#create-service-instance
+[Get started with Azure API Management]: ../api-management-get-started
+[Create an API Management service instance]: ../api-management-get-started/#create-service-instance

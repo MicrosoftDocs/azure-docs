@@ -12,27 +12,27 @@ Policies are applied inside the proxy which sits between the API consumer and th
 ##How to configure policies
 Policies can be configured globally or at the scope of a [Product][], [API][] or [Operation][]. To configure a policy, navigate to the Policies editor in the Publisher Portal.
 
-![policies-menu][]
+![Policies menu][policies-menu]
 
 The policies editor consists of three main sections: the policy scope (top), the policy definition where policies are edited (left) and the statements list (right):
 
-![policies-editor][]
+![Policies editor][policies-editor]
 
-[Product]: ./apimanagement-howto-add-products
-[API]: ./apimanagement-howto-add-apis 
-[Operation]: ./apimanagement-howto-add-operations
+[Product]: ../apimanagement-howto-add-products
+[API]: ../apimanagement-howto-add-apis 
+[Operation]: ../apimanagement-howto-add-operations
 
 To begin configuring a policy you must first select the scope at which the policy should apply. In the screenshot below the 15 Day Free Trial product is selected. Note that the square symbol next to the policy name indicates that a policy is already applied at this level.
 
-![policies-scope][]
+![Scope][policies-scope]
 
 Since a policy has already been applied, the configuration is shown in the definition view.
 
-![policies-configure][]
+![Configure][policies-configure]
 
 The policy is displayed read-only at first. In order to edit the definition click the Configure Policy action.
 
-![policies-edit][]
+![Edit][policies-edit]
 
 The policy definition is a simple XML document that describes a sequence of inbound and outbound statements. The XML can be edited directly in the definition window. A list of statements is provided to the right and statements applicable to the current scope are enabled and highlighted; as demonstrated by the Limit Call Rate statement in the screenshot above.
 
@@ -42,7 +42,7 @@ A full list of policy statements and their settings are available in the [Policy
 
 For example, to add a new statement to restrict incoming requests to specified IP addresses, place the cursor just inside the content of the "inbound" XML element and click the Restrict caller IPs statement.
 
-![policies-restrict][]
+![Restriction policies][policies-restrict]
 
 This will add an XML snippet to the "inbound" element that provides guidance on how to configure the statement.
 
@@ -57,7 +57,7 @@ To limit inbound requests and accept only those from an IP address of 1.2.3.4 mo
 		<address>1.2.3.4</address>
 	</ip-filter>
 
-![policies-save][]
+![Save][policies-save]
 
 When complete configuring the statements for the policy, click Save and the changes will be propagated to the API Management proxy immediately.
 

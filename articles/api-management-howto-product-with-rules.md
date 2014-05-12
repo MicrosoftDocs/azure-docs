@@ -220,41 +220,41 @@ When the rate limit policy of 10 calls per minute in effect, subsequent calls wi
 -	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
 
 
-[api-management-management-console]: ./Media/api-management-howto-product-with-rules/api-management-management-console.png
-[api-management-add-product]: ./Media/api-management-howto-product-with-rules/api-management-add-product.png
-[api-management-new-product-window]: ./Media/api-management-howto-product-with-rules/api-management-new-product-window.png
-[api-management-product-added]: ./Media/api-management-howto-product-with-rules/api-management-product-added.png
-[api-management-add-policy]: ./Media/api-management-howto-product-with-rules/api-management-add-policy.png
-[api-management-policy-editor-inbound]: ./Media/api-management-howto-product-with-rules/api-management-policy-editor-inbound.png
-[api-management-limit-policies]: ./Media/api-management-howto-product-with-rules/api-management-limit-policies.png
-[api-management-policy-save]: ./Media/api-management-howto-product-with-rules/api-management-policy-save.png
-[api-management-configure-product]: ./Media/api-management-howto-product-with-rules/api-management-configure-product.png
-[api-management-add-api]: ./Media/api-management-howto-product-with-rules/api-management-add-api.png
-[api-management-add-echo-api]: ./Media/api-management-howto-product-with-rules/api-management-add-echo-api.png
-[api-management-developer-portal-menu]: ./Media/api-management-howto-product-with-rules/api-management-developer-portal-menu.png
-[api-management-publish-product]: ./Media/api-management-howto-product-with-rules/api-management-publish-product.png
-[api-management-configure-developer]: ./Media/api-management-howto-product-with-rules/api-management-configure-developer.png
-[api-management-add-subscription-menu]: ./Media/api-management-howto-product-with-rules/api-management-add-subscription-menu.png
-[api-management-add-subscription]: ./Media/api-management-howto-product-with-rules/api-management-add-subscription.png
-[api-management-developer-portal-api-menu]: ./Media/api-management-howto-product-with-rules/api-management-developer-portal-api-menu.png
-[api-management-open-console]: ./Media/api-management-howto-product-with-rules/api-management-open-console.png
-[api-management-http-get]: ./Media/api-management-howto-product-with-rules/api-management-http-get.png
-[api-management-http-get-results]: ./Media/api-management-howto-product-with-rules/api-management-http-get-results.png
-[api-management-http-get-429]: ./Media/api-management-howto-product-with-rules/api-management-http-get-429.png
-[api-management-product-policy]: ./Media/api-management-howto-product-with-rules/api-management-product-policy.png
-[api-management-add-developers-group]: ./Media/api-management-howto-product-with-rules/api-management-add-developers-group.png
-[api-management-select-key]: ./Media/api-management-howto-product-with-rules/api-management-select-key.png
+[api-management-management-console]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
+[api-management-add-product]: ./media/api-management-howto-product-with-rules/api-management-add-product.png
+[api-management-new-product-window]: ./media/api-management-howto-product-with-rules/api-management-new-product-window.png
+[api-management-product-added]: ./media/api-management-howto-product-with-rules/api-management-product-added.png
+[api-management-add-policy]: ./media/api-management-howto-product-with-rules/api-management-add-policy.png
+[api-management-policy-editor-inbound]: ./media/api-management-howto-product-with-rules/api-management-policy-editor-inbound.png
+[api-management-limit-policies]: ./media/api-management-howto-product-with-rules/api-management-limit-policies.png
+[api-management-policy-save]: ./media/api-management-howto-product-with-rules/api-management-policy-save.png
+[api-management-configure-product]: ./media/api-management-howto-product-with-rules/api-management-configure-product.png
+[api-management-add-api]: ./media/api-management-howto-product-with-rules/api-management-add-api.png
+[api-management-add-echo-api]: ./media/api-management-howto-product-with-rules/api-management-add-echo-api.png
+[api-management-developer-portal-menu]: ./media/api-management-howto-product-with-rules/api-management-developer-portal-menu.png
+[api-management-publish-product]: ./media/api-management-howto-product-with-rules/api-management-publish-product.png
+[api-management-configure-developer]: ./media/api-management-howto-product-with-rules/api-management-configure-developer.png
+[api-management-add-subscription-menu]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-menu.png
+[api-management-add-subscription]: ./media/api-management-howto-product-with-rules/api-management-add-subscription.png
+[api-management-developer-portal-api-menu]: ./media/api-management-howto-product-with-rules/api-management-developer-portal-api-menu.png
+[api-management-open-console]: ./media/api-management-howto-product-with-rules/api-management-open-console.png
+[api-management-http-get]: ./media/api-management-howto-product-with-rules/api-management-http-get.png
+[api-management-http-get-results]: ./media/api-management-howto-product-with-rules/api-management-http-get-results.png
+[api-management-http-get-429]: ./media/api-management-howto-product-with-rules/api-management-http-get-429.png
+[api-management-product-policy]: ./media/api-management-howto-product-with-rules/api-management-product-policy.png
+[api-management-add-developers-group]: ./media/api-management-howto-product-with-rules/api-management-add-developers-group.png
+[api-management-select-key]: ./media/api-management-howto-product-with-rules/api-management-select-key.png
 
-[How to add operations to an API]: ./api-management-howto-add-operations
-[How to add and publish a product]: ./api-management-howto-add-product
-[Monitoring and analytics]: ./api-management-monitoring
-[Add APIs to a product]: ./api-management-howto-add-product/#add-apis
-[Publish a product]: ./api-management-howto-add-product/#publish-product
-[Get started with Azure API Management]: ./api-management-get-started
-[How to create and use groups in Azure API Management]: ./api-management-howto-create-groups
-[View subscribers to a product]: ./api-management-howto-add-products/#view-subscribers
-[Get started with Azure API Management]: ./api-management-get-started
-[Create an API Management service instance]: ./api-management-get-started/#create-service-instance
+[How to add operations to an API]: ../api-management-howto-add-operations
+[How to add and publish a product]: ../api-management-howto-add-product
+[Monitoring and analytics]: ../api-management-monitoring
+[Add APIs to a product]: ../api-management-howto-add-product/#add-apis
+[Publish a product]: ../api-management-howto-add-product/#publish-product
+[Get started with Azure API Management]: ../api-management-get-started
+[How to create and use groups in Azure API Management]: ../api-management-howto-create-groups
+[View subscribers to a product]: ../api-management-howto-add-products/#view-subscribers
+[Get started with Azure API Management]: ../api-management-get-started
+[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
 [Next steps]: #next-steps
 
 [Create a product]: #create-product
@@ -263,7 +263,7 @@ When the rate limit policy of 10 calls per minute in effect, subsequent calls wi
 [Publish the product]: #publish-product
 [Subscribe a developer account to the product]: #subscribe-account
 [Call an operation and test the rate limit]: #test-rate-limit
-[Get started with advanced API configuration]: ./api-management-get-started-advanced
+[Get started with advanced API configuration]: ../api-management-get-started-advanced
 
 
 
