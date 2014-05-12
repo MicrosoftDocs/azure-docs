@@ -61,7 +61,7 @@ The following table lists the versions of HDInsight currently available, the cor
 <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Yes</td><td>02/11/2014</td><td>08/11/2014</td><td></td></tr>
 <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Yes</td><td>10/28/2013</td><td>05/12/2014</td><td>05/01/2015</td></tr>
 <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>10/28/2013</td><td>04/28/2014</td><td>05/01/2014</td></tr>
-</table><br/>
+</table></br>
 
 
 ### The Service-Level Agreement (SLA) for HDInsight cluster versions 

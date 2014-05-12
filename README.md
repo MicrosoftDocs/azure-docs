@@ -24,7 +24,7 @@ The *\articles* folder contains the documentation articles formatted as markdown
 
 ### \includes
 
-Content authors can create reusable content sections to be included into one or more articles. An include file is simple markdown (.md) file that can contain any valid markdown content including text, links, and images. All include markdown files must contained in the *\includes* directory in the root of this repository. 
+Content authors can create reusable content sections to be included into one or more articles. An include file is simple markdown (.md) file that can contain any valid markdown content including text, links, and images. All include markdown files must be contained in the *\includes* directory in the root of this repository. 
 
 * **Media subfolders:** The *\includes* folder contains a *\media* folder, inside which are folders for the images in each include. The includes image folders are named identically to the include file, minus the *.md* file extension.
 

@@ -22,8 +22,6 @@ You have three options for replicating your storage account:
 	
 	Be aware that if you specify locally redundant replication for your storage account, and you later decide to enable geo-redundant replication, you will incur a one-time data cost to replicate your existing data to the secondary location. 
 
-- **Read access geo-redundant replication (preview only).** Read access geo-redundant replication replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant replication allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
-
 For pricing information for storage account replication, see [Storage Pricing Details](http://www.windowsazure.com/en-us/pricing/details/storage/).
 
 ### To specify replication settings for a storage account ###
