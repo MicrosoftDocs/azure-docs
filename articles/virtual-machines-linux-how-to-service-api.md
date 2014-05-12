@@ -309,7 +309,7 @@ Here is a sample javascript code that creates a hosted service and a deployment,
 	  certfile : '../certs/pub.pem'
 	}
 	
-	// names and ids for subscription, service, deployment
+	// names and IDs for subscription, service, deployment
 	var subscriptionId = '167a0c69-cb6f-4522-ba3e-d3bdc9c504e1';
 	var serviceName = 'sampleService2';
 	var deploymentName = 'sampleDeployment';

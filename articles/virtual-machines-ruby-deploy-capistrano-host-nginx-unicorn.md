@@ -234,9 +234,9 @@ The default database used by Rails for development is SQLite. Usually you will u
 
 	You should arrive at a `database=>` prompt. To exit the psql utility, enter `\q` at the prompt.
 
-###<a id="nginx"></a>Open port 80 and test Nginx
+###<a id="nginx"></a>Test Nginx
 
-Nginx provides a default web site that we can use to make sure our virtual machine is accepting web traffic. Perform the following steps enable traffic over port 80 and test the default Nginx web site.
+The HTTP endpoint added during the creation of the virtual machine will allow it to accept HTTP requests over port 80. To verify this, use the following steps to verify you can access the default site created by Nginx.
 
 2.	From the SSH session with the VM, start the Nginx service:
 
@@ -244,7 +244,7 @@ Nginx provides a default web site that we can use to make sure our virtual machi
 
 	This will start the Nginx service, which will listen for incoming traffic on port 80.
 
-6. Since the HTTP port was enabled during creation of the VM, you may now test your application by navigating to the DNS name of your virtual machine. The web site should appear similar to the following:
+6. Test your application by navigating to the DNS name of your virtual machine. The web site should appear similar to the following:
 
 	![nginx welcome page][nginx-welcome]
 
