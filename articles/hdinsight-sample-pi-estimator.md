@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-sample-pi-estimator" urlDisplayName="HDInsight Samples" pageTitle="The HDInsight Pi estimator sample | Azure" metaKeywords="hdinsight, hdinsight sample, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The HDInsight Pi estimator sample" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-sample-pi-estimator" urlDisplayName="HDInsight Samples" pageTitle="The HDInsight Pi estimator sample | Azure" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="Learn how to run an Hadoop MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The HDInsight Pi estimator sample" authors="bradsev" />
 
 # The HDInsight Pi estimator sample
  
-This topic shows how to run a simple MapReduce program that estimates the value of the mathematical constant Pi with Azure HDinsight using Azure Powershell. 
+This topic shows how to run an Hadoop MapReduce program that estimates the value of the mathematical constant Pi using Azure PowerShell to run the program in HDInsight. It also provides the Java code used in the MapReduce program used to estimate the value of Pi.
 
 The program uses a statistical (quasi-Monte Carlo) method to estimate the value of Pi. Points placed at random inside of a unit square also fall within a circle inscribed within that square with a probability equal to the area of the circle, Pi/4. The value of Pi can be estimated from the value of 4R where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
 
@@ -414,7 +414,30 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 
 <h2><a id="summary"></a>Summary</h2>
 
-In this tutorial, you saw how to run a MapReduce job on HDInsight and how to use Monte Carlo methods that require and generare large datasets that can be managed by this service.
+In this tutorial, you saw how to run a MapReduce job on HDInsight and how to use Monte Carlo methods that require and generate large data sets that can be managed by this service.
+
+Here is the complete script used to run this sample on a default HDInsight 2.1 cluster. (Only the name of the .jar file needs to be changed to run the sample on an HDInsight 3.0 cluster: hadoop-examples.jar becomes hadoop-mapreduce-examples.jar.)
+
+	### Provide the Windows Azure subscription name and the HDInsight cluster name. 
+	$subscriptionName = "<SubscriptionName>" 
+	$clusterName = "<ClusterName>"  
+
+	###Select the Azure subscription to use.
+	Select-AzureSubscription $subscriptionName 
+
+	### Create a MapReduce job definition. 
+	$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -ClassName "pi" –Arguments “32”, “1000000000” -JarFile "wasb:///example/jars/hadoop-examples.jar"
+
+	### Run the MapReduce job. 
+	$piJob = $piEstimatorJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName
+ 
+	### Wait for the job to complete.  
+	$piJob | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600
+
+	### Print the standard error file of the MapReduce job.
+	Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $piJob.JobId -StandardOutput
+
+
 
 <h2><a id="next-steps"></a>Next steps</h2>
 

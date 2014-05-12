@@ -32,7 +32,7 @@ The Azure Storage services are Blob storage, Table storage, and Queue storage. T
 - **Table storage** stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
 - **Queue storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
 
-The storage account is a unique namespace that gives you access to Azure Storage. Each storage account can contain up to 200 TB of combined blob, queue, and table data.
+The storage account is a unique namespace that gives you access to Azure Storage. Each storage account can contain up to 500 TB of combined blob, queue, and table data.
 
 The image below shows the relationships between the Azure storage resources:
 
@@ -53,7 +53,7 @@ For users with large amounts of unstructured data to store in the cloud, Blob st
 - Configuration data for cloud applications
 - Big data, such as logs and other large datasets
 
-Every blob is organized into a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the 200 TB capacity limit of the storage account.  
+Every blob is organized into a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the 500 TB capacity limit of the storage account.  
 
 Blob storage offers two types of blobs, block blobs and page blobs (disks). Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. A block blob can be up to 200 GB in size. Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB in size. An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.
 
