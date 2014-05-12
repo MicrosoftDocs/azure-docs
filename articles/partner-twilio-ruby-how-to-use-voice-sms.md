@@ -125,7 +125,7 @@ Add this function to `web.md`:
       
     get '/make_call' do
 	  # Create the call client.
-	  client = Twilio::REST::Client.create(sid, token);
+	  client = Twilio::REST::Client.new(sid, token);
       
       # Make the call
       client.account.calls.create(to: to, from: from, url: url)
