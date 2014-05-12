@@ -49,9 +49,13 @@
 
 	This creates the new MyHandler class.
 
-10. Add the following import statement:
+10. Add the following import statements:
 
 		import android.content.Context;
+		import android.content.Context;
+		import android.content.Intent;
+
+		import com.microsoft.windowsazure.mobileservices.RegistrationCallback;
 		
 11. Next add this code to the class:
 
