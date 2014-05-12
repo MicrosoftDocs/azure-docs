@@ -124,36 +124,21 @@ In order to programatically work with a cache, you need a reference to the cache
 
 The connection to the Azure Redis Cache is managed by the `ConnectionMultiplexer` class. This class is designed to be shared and reused throughout your client application, and does not need to be created on a per operation basis. 
 
-To connect to an Azure Redis Cache and be returned an instance of a connect `ConnectionMultiplexer`, call the static `Connect` method and pass in the desired configuration.
+To connect to an Azure Redis Cache and be returned an instance of a connected `ConnectionMultiplexer`, call the static `Connect` method and pass in the cache endpoint and key like the following example.
 
-	ConnectionMultiplexer cache = ConnectionMultiplexer.Connect(<Desired configuration>);
+	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
 
-The connection information can be passed in several formats. For non-SSL communication, you can simply pass in the cache endpoint and key like the following example.
+If you don't want to use SSL, either set `ssl=false` or just pass in the endpoint and key.
 
-	cache = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,password=...");
+	connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,password=...");
 
-The cache endpoint, keys, and ports can be obtained from the Azure management preview portal blade for your cache instance.
+>For more information on advanced connection configuration options, see [StackExchange.Redis configuration model][].
+
+The cache endpoint and keys can be obtained from the Azure management preview portal blade for your cache instance.
 
 ![Cache properties][CacheProperties]
 
 ![Manage keys][ManageKeys]
-
-To secure cache-client communications with SSL, use the `StackExchange.Redis.ConfigurationOptions` class and configure the following properties.
-
-    ConfigurationOptions config = new ConfigurationOptions();
-    config.UseSsl = true;
-    config.SslHost = "*.redis.cache.windows..net";
-    config.EndPoints.Add("contoso5.redis.cache.windows.net", 6380);
-    config.Password = "...";
-    
-    ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(config);
-
-The `ConfigurationOptions` class also has a static `Parse` method that can be used to load read a configuration from a comma delimited string. The following example is functionally equivalent to the previous example.
-
-    string options = "Ssl=true,SslHost=*.redis.cache.windows.net,contoso5.redis.cache.windows.net:6380,Password=...";
-    ConfigurationOptions options = ConfigurationOptions.Parse(options);
-
->Note that some of the string values are slightly different than the property names, such as `config.UseSsl = true;` compared with the string representation of `Ssl=true`. Endpoints are specified using the following format; `Endpoint Url:Port`.
 
 Once the connection is established, return a reference to the redis cache database, by calling the `ConnectionMultiplexer.GetDatabase` method.
 
@@ -163,6 +148,8 @@ Once the connection is established, return a reference to the redis cache databa
 >The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.
 
 Now that you know how to connect to an Azure Redis Cache instance and return a reference to the cache database, let's take a look at working with the cache.
+
+
 
 <a name="add-object"></a>
 ## Add and retrieve objects from the cache
@@ -330,6 +317,8 @@ follow these links to learn how to do more complex caching tasks.
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
 [How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/en-us/library/zd1ysf1y.aspx
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
+
+[StackExchange.Redis configuration model]: htts://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
