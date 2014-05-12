@@ -314,7 +314,7 @@ This example is similar to scenario in the <a href="#Scenario1"> first example</
 
 The data is serialized in this example with [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/en-us/library/dn627340.aspx) and deserialized with [**SequentialReader<SensorData>**](http://msdn.microsoft.com/en-us/library/dn627340.aspx). The result then is compared to the initial instances to insure identity.
 
-The data in object container file is compressed using the default [**Deflate**](http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.100).aspx) compression codec from .NET Framework 4.0. See the <a href="#Scenario5"> last example</a> in this topic to learn how to use a more recent and superior version of the [**Deflate**](http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.110).aspx) compression codec available in .NET Framework 4.5.
+The data in object container file is compressed using the default [**Deflate**][deflate-100] compression codec from .NET Framework 4.0. See the <a href="#Scenario5"> last example</a> in this topic to learn how to use a more recent and superior version of the [**Deflate**][deflate-110] compression codec available in .NET Framework 4.5.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -811,7 +811,7 @@ The data is then read from the file and deserialized into a collection of object
 
 <h2> <a name="Scenario5"></a>Serialization using object container files with a custom compression codec</h2>
 
-The example below shows how to use a custom compression codec for Avro object container files. The [Avro Specification](http://avro.apache.org/docs/current/spec.html#Required+Codecs) allows usage of an optional compression codec (in addition to **Null** and **Deflate** defaults). This example is not implementing completely new codec such Snappy (mentioned as a supported optional codec in [Avro Specification](http://avro.apache.org/docs/current/spec.html#snappy)). It shows how to use the .NET Framework 4.5  implementation of the [**Deflate**](http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.110).aspx) codec which provides a better compression algorithm based on the [zlib](http://zlib.net/) compression library than the default .NET Framework 4.0 version.
+The example below shows how to use a custom compression codec for Avro object container files. The [Avro Specification](http://avro.apache.org/docs/current/spec.html#Required+Codecs) allows usage of an optional compression codec (in addition to **Null** and **Deflate** defaults). This example is not implementing completely new codec such Snappy (mentioned as a supported optional codec in [Avro Specification](http://avro.apache.org/docs/current/spec.html#snappy)). It shows how to use the .NET Framework 4.5  implementation of the [**Deflate**][deflate-110] codec which provides a better compression algorithm based on the [zlib](http://zlib.net/) compression library than the default .NET Framework 4.0 version.
 
 
     // 
@@ -1306,6 +1306,7 @@ The example below shows how to use a custom compression codec for Avro object co
 
 
 
-	
+[deflate-100]: http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.100).aspx
+[deflate-110]: http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.110).aspx
 
 

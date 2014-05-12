@@ -1,11 +1,11 @@
 <properties linkid="manage-linux-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Linux" metaKeywords="Azure Linux vm, Linux vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
 
 
-# How to Capture an Image of a Virtual Machine Running Linux ##
+# How to Capture a Linux Virtual Machine to Use as a Template##
 
 This article shows you how to capture a Linux virtual machine so you can use it as a template to create other virtual machines. This virtual machine template includes the OS disk and any data disks attached the virtual machine. It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines that use the template.
 
-After you capture the virtual machine, it's stored as an image in your storage account. For more information about images, see [Manage Disks and Images] [].
+After you capture the virtual machine, it's available under **My Images** when you create a virtual machine. The image file is stored as a VHD in your storage account. For more information about images, see [Manage Disks and Images] [].
 
 ##Before You Begin##
 
@@ -16,7 +16,7 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 ##Capture the Virtual Machine##
 
-1. Connect to the virtual machine by using the steps listed in [How to Log on to a Virtual Machine Running Linux][].
+1. Connect to the virtual machine by clicking **Connect** on the command bar. For details, see [How to Log on to a Virtual Machine Running Linux][].
 
 2. In the SSH window, type the following command and then enter the password for the account that you created on the virtual machine.  Note that the output from `waagent` may vary slightly depending on the version of this utility:
 

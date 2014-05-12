@@ -21,13 +21,13 @@ This guide shows you how to quickly get started using API Management and make yo
 
 The first step in working with API Management is to create a service instance. Log in to the [Management Portal][] and click **New**, **App Services**, **API Management**, **Create**.
 
-![api-management-create-instance-menu][]
+![API Management new instance][api-management-create-instance-menu]
 
 For **URL**, specify a unique sub-domain name to use for the service URL.
 
 Choose the desired **Pricing Tier**, **Subscription**, and **Region** for your service instance. All pricing tiers can be used for this tutorial. After making your selections, click the next button.
 
-![api-management-create-instance-step1][]
+![New API Management service][api-management-create-instance-step1]
 
 Enter **Contoso Ltd.** for the **Organization Name**, and enter your email address in the administrator e-mail field.
 
@@ -35,9 +35,9 @@ Enter **Contoso Ltd.** for the **Organization Name**, and enter your email addre
 
 Click the check box to create your service instance.
 
-![api-management-create-instance-step2][]
+![New API Management service][api-management-create-instance-step2]
 
-![api-management-instance-created][]
+![New API Management service][api-management-instance-created]
 
 Once the service instance is created, the next step is to create an API.
 
@@ -51,13 +51,13 @@ This tutorial uses the http://echoapi.cloudapp.net/api web service to create a n
 
 APIs are created and configured from the API Management console, which is accessed through the Azure management portal. To reach the API Management console, click **Management Console** in the Azure Portal for your API Management service.
 
-![api-management-management-console][]
+![New API Management console][api-management-management-console]
 
 To create the **My Echo API**, click **APIs** from the **API Management** menu on the left, and then click **add API**.
 
-![api-management-create-api][]
+![Create API][api-management-create-api]
 
-![api-management-add-new-api][]
+![Add new API][api-management-add-new-api]
 
 The following three fields are used to configure the new API.
 
@@ -67,7 +67,7 @@ The following three fields are used to configure the new API.
 
 Click **Save** to create the API. Once the new API is created, the summary page for the API is displayed in the management portal.
 
-![api-management-new-api-summary][]
+![API summary][api-management-new-api-summary]
 
 The API section has four tabs. The **Summary** tab display basic metrics and information about the API. The **Settings** tab is used to view and edit the configuration for an API, including authentication credentials for the back-end service. The **Operations** tab is used to manage the API's operations and is used in the following step in the tutorial, and the **Issues** tab can be used to view issues reported by the developers using your APIs.
 
@@ -80,11 +80,11 @@ Once an API is created and the settings configured, the next step is to add the 
 
 Click **Operations** to display the operations pane for the API. Since we have not yet added any operations, there are none displayed.
 
-![api-management-myecho-operations][]
+![Operations][api-management-myecho-operations]
 
 Click **add operation** to add a new operation. The **New operation** window will be displayed and the **Signature** tab will be selected by default.
 
-![api-management-operation-signature][]
+![Operation signature][api-management-operation-signature]
 
 In this example, we will specify a GET operation on the echo service. Enter the following values into the fields on the **Signature** tab.
 
@@ -113,11 +113,11 @@ It is a good practice to provide examples of responses for all status codes that
 
 Click **Add** in the Responses section, start typing **200** into the text box, and then select **200 OK** from the drop-down list. 
 
-![api-management-add-response][]
+![Add response][api-management-add-response]
 
 Once **200 OK** is selected, a new response code is added to the operation and the response window is displayed. Type **Returned in all cases.** into the **Description** text box.
 
-![api-management-add-response-window][]
+![Add response][api-management-add-response-window]
 
 >**Add Representation** is used to configure responses in multiple representations. For more information, see [Responses][].
 
@@ -130,7 +130,7 @@ Developers must first subscribe to a product before they can make API calls. A p
 
 Click **Products** from the **API Management** menu on the left to view and configure the products available in this API Instance.
 
-![api-management-list-products][]
+![Products][api-management-list-products]
 
 By default, each API Management instance comes with two sample products:
 
@@ -139,15 +139,15 @@ By default, each API Management instance comes with two sample products:
 
 In this tutorial we will use the **Limited** product. Click **Configure** for the **Limited** to view the settings, including the APIs that are associated with that product.
 
-![api-management-add-api-to-product][]
+![Add API][api-management-add-api-to-product]
 
 Click **Add API to product**.
 
-![api-management-add-myechoapi-to-product][]
+![Add API][api-management-add-myechoapi-to-product]
 
 Check the box for **My Echo API**, and click **Save**.
 
-![api-management-api-added-to-product][]
+![API added][api-management-api-added-to-product]
 
 Now that **My Echo API** is associated with a product, developers can subscribe to it and begin using the API.
 
@@ -159,19 +159,19 @@ In order to make calls to an API, developers must first be subscribed to a produ
 
 Click **Developers** from the **API Management** menu on the left to view and configure the developers in this service instance.
 
-![api-management-developers][]
+![Developers][api-management-developers]
 
 Click **Details** to the right of the **Admin** user to configure the settings for the user, including subscriptions.
 
-![api-management-add-subscription][]
+![Add subscription][api-management-add-subscription]
 
 Click **Add Subscription**.
 
-![api-management-add-subscription-window][]
+![Add subscription][api-management-add-subscription-window]
 
 Check the box for **Limited** and click **Subscribe**.
 
-![api-management-subscription-added][]
+![Subscription added][api-management-subscription-added]
 
 Once your developer account is subscribed, you can call that product's APIs.
 
@@ -179,50 +179,50 @@ Once your developer account is subscribed, you can call that product's APIs.
 
 Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API. In this tutorial step you will call the Get method that was added to **My Echo API**. Click **Developer portal** from the menu at the top right of the Management portal.
 
-![api-management-developer-portal-menu][]
+![Developer portal][api-management-developer-portal-menu]
 
 Click **APIs** from the top menu, and then click **My Echo API** to see the operations available.
 
-![api-management-developer-portal-myecho-api][]
+![Developer portal][api-management-developer-portal-myecho-api]
 
 Note that the description and parameters that were added when you created the operation are displayed, providing documentation for the developers that will use this operation.
 
 Click **GET Resource** and then click **Open Console**. 
 
-![api-management-developer-portal-myecho-api-console][]
+![Operation console][api-management-developer-portal-myecho-api-console]
 
 Enter some values for the parameters, and specify your developer key, and click **HTTP Get**.
 
-![api-management-invoke-get][]
+![HTTP Get][api-management-invoke-get]
 
 After an operation is invoked, the developer portal displays the **Requested URL** from the back-end service, the **Response status**, the **Response headers**, and any **Response content**. 
 
-![api-management-invoke-get-response][]
+![Response][api-management-invoke-get-response]
 
 
 ## <a name="view-analytics"> </a>View analytics
 
 To view analytics for **My Echo API**, switch back to the Administrative portal by selecting **Manage** from the user menu at the top right of the Developer portal.
 
-![api-management-manage-menu][]
+![Manage][api-management-manage-menu]
 
 The default view for the Administrative portal is the Dashboard, which provides an overview of your API Management instance.
 
-![api-management-dashboard][]
+![Dashboard][api-management-dashboard]
 
 Hover the mouse over the chart for My Echo API to see the specific metrics for the usage of the API for a given time period.
 
 >If you don't see any lines on your chart, switch back to the Developer portal and make some calls into the API, wait a few moments, and then come back to the Dashboard.
 
-![api-management-mouse-over][]
+![Analytics][api-management-mouse-over]
 
 Click **View Details** to view the summary page for the API, including a larger version of the displayed metrics.
 
-![api-management-api-summary-metrics][]
+![Summary][api-management-api-summary-metrics]
 
 For detailed metrics and reports, click **Analytics** from the **API Management** menu on the left.
 
-![api-management-analytics-overview][]
+![Overview][api-management-analytics-overview]
 
 The **Analytics** section has the following four tabs.
 
@@ -246,46 +246,46 @@ The **Analytics** section has the following four tabs.
 [View analytics]: #view-analytics
 [Next steps]: #next-steps
 
-[Configure API settings]: ./api-management-howto-create-apis/#configure-api-settings
-[Configure Notifications]: ./api-management-howto-configure-notifications
-[Responses]: ./api-management-howto-add-operations/#responses
-[How create and publish a product]: ./api-management-howto-add-products
-[Get started with advanced API configuration]: ./api-management-get-started-advanced
+[Configure API settings]: ../api-management-howto-create-apis/#configure-api-settings
+[Configure Notifications]: ../api-management-howto-configure-notifications
+[Responses]: ../api-management-howto-add-operations/#responses
+[How create and publish a product]: ../api-management-howto-add-products
+[Get started with advanced API configuration]: ../api-management-get-started-advanced
 
 [Management Portal]: https://manage.windowsazure.com/
 
-[api-management-management-console]: ./Media/api-management-get-started/api-management-management-console.png
-[api-management-create-instance-menu]: ./Media/api-management-get-started/api-management-create-instance-menu.png
-[api-management-create-instance-step1]: ./Media/api-management-get-started/api-management-create-instance-step1.png
-[api-management-create-instance-step2]: ./Media/api-management-get-started/api-management-create-instance-step2.png
-[api-management-instance-created]: ./Media/api-management-get-started/api-management-instance-created.png
-[api-management-create-api]: ./Media/api-management-get-started/api-management-create-api.png
-[api-management-add-new-api]: ./Media/api-management-get-started/api-management-add-new-api.png
-[api-management-new-api-summary]: ./Media/api-management-get-started/api-management-new-api-summary.png
-[api-management-myecho-operations]: ./Media/api-management-get-started/api-management-myecho-operations.png
-[api-management-operation-signature]: ./Media/api-management-get-started/api-management-operation-signature.png
-[api-management-list-products]: ./Media/api-management-get-started/api-management-list-products.png
-[api-management-add-api-to-product]: ./Media/api-management-get-started/api-management-add-api-to-product.png
-[api-management-add-myechoapi-to-product]: ./Media/api-management-get-started/api-management-add-myechoapi-to-product.png
-[api-management-api-added-to-product]: ./Media/api-management-get-started/api-management-api-added-to-product.png
-[api-management-developers]: ./Media/api-management-get-started/api-management-developers.png
-[api-management-add-subscription]: ./Media/api-management-get-started/api-management-add-subscription.png
-[api-management-add-subscription-window]: ./Media/api-management-get-started/api-management-add-subscription-window.png
-[api-management-subscription-added]: ./Media/api-management-get-started/api-management-subscription-added.png
-[api-management-developer-portal-menu]: ./Media/api-management-get-started/api-management-developer-portal-menu.png
-[api-management-developer-portal-myecho-api]: ./Media/api-management-get-started/api-management-developer-portal-myecho-api.png
-[api-management-developer-portal-myecho-api-console]: ./Media/api-management-get-started/api-management-developer-portal-myecho-api-console.png
-[api-management-invoke-get]: ./Media/api-management-get-started/api-management-invoke-get.png
-[api-management-invoke-get-response]: ./Media/api-management-get-started/api-management-invoke-get-response.png
-[api-management-manage-menu]: ./Media/api-management-get-started/api-management-manage-menu.png
-[api-management-dashboard]: ./Media/api-management-get-started/api-management-dashboard.png
+[api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
+[api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
+[api-management-create-instance-step1]: ./media/api-management-get-started/api-management-create-instance-step1.png
+[api-management-create-instance-step2]: ./media/api-management-get-started/api-management-create-instance-step2.png
+[api-management-instance-created]: ./media/api-management-get-started/api-management-instance-created.png
+[api-management-create-api]: ./media/api-management-get-started/api-management-create-api.png
+[api-management-add-new-api]: ./media/api-management-get-started/api-management-add-new-api.png
+[api-management-new-api-summary]: ./media/api-management-get-started/api-management-new-api-summary.png
+[api-management-myecho-operations]: ./media/api-management-get-started/api-management-myecho-operations.png
+[api-management-operation-signature]: ./media/api-management-get-started/api-management-operation-signature.png
+[api-management-list-products]: ./media/api-management-get-started/api-management-list-products.png
+[api-management-add-api-to-product]: ./media/api-management-get-started/api-management-add-api-to-product.png
+[api-management-add-myechoapi-to-product]: ./media/api-management-get-started/api-management-add-myechoapi-to-product.png
+[api-management-api-added-to-product]: ./media/api-management-get-started/api-management-api-added-to-product.png
+[api-management-developers]: ./media/api-management-get-started/api-management-developers.png
+[api-management-add-subscription]: ./media/api-management-get-started/api-management-add-subscription.png
+[api-management-add-subscription-window]: ./media/api-management-get-started/api-management-add-subscription-window.png
+[api-management-subscription-added]: ./media/api-management-get-started/api-management-subscription-added.png
+[api-management-developer-portal-menu]: ./media/api-management-get-started/api-management-developer-portal-menu.png
+[api-management-developer-portal-myecho-api]: ./media/api-management-get-started/api-management-developer-portal-myecho-api.png
+[api-management-developer-portal-myecho-api-console]: ./media/api-management-get-started/api-management-developer-portal-myecho-api-console.png
+[api-management-invoke-get]: ./media/api-management-get-started/api-management-invoke-get.png
+[api-management-invoke-get-response]: ./media/api-management-get-started/api-management-invoke-get-response.png
+[api-management-manage-menu]: ./media/api-management-get-started/api-management-manage-menu.png
+[api-management-dashboard]: ./media/api-management-get-started/api-management-dashboard.png
 
-[api-management-add-response]: ./Media/api-management-get-started/api-management-add-response.png
-[api-management-add-response-window]: ./Media/api-management-get-started/api-management-add-response-window.png
-[api-management-developer-key]: ./Media/api-management-get-started/api-management-developer-key.png
-[api-management-mouse-over]: ./Media/api-management-get-started/api-management-mouse-over.png
-[api-management-api-summary-metrics]: ./Media/api-management-get-started/api-management-api-summary-metrics.png
-[api-management-analytics-overview]: ./Media/api-management-get-started/api-management-analytics-overview.png
-[api-management-analytics-usage]: ./Media/api-management-get-started/api-management-analytics-usage.png
-[api-management-]: ./Media/api-management-get-started/api-management-.png
-[api-management-]: ./Media/api-management-get-started/api-management-.png
+[api-management-add-response]: ./media/api-management-get-started/api-management-add-response.png
+[api-management-add-response-window]: ./media/api-management-get-started/api-management-add-response-window.png
+[api-management-developer-key]: ./media/api-management-get-started/api-management-developer-key.png
+[api-management-mouse-over]: ./media/api-management-get-started/api-management-mouse-over.png
+[api-management-api-summary-metrics]: ./media/api-management-get-started/api-management-api-summary-metrics.png
+[api-management-analytics-overview]: ./media/api-management-get-started/api-management-analytics-overview.png
+[api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
+[api-management-]: ./media/api-management-get-started/api-management-.png
+[api-management-]: ./media/api-management-get-started/api-management-.png

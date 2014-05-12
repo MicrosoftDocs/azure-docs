@@ -95,28 +95,28 @@ Once the desired APIs are added and the product published, developers can subscr
 [View subscribers to a product]: #view-subscribers
 [Next steps]: #next-steps
 
-[api-management-management-console]: ./Media/api-management-howto-add-products/api-management-management-console.png
-[api-management-add-product]: ./Media/api-management-howto-add-products/api-management-add-product.png
-[api-management-add-new-product]: ./Media/api-management-howto-add-products/api-management-add-new-product.png
-[api-management-products-page]: ./Media/api-management-howto-add-products/api-management-products-page.png
-[api-management-new-product-summary]: ./Media/api-management-howto-add-products/api-management-new-product-summary.png
-[api-management-add-apis-to-product]: ./Media/api-management-howto-add-products/api-management-add-apis-to-product.png
-[api-management-product-settings]: ./Media/api-management-howto-add-products/api-management-product-settings.png
-[api-management-publish-product]: ./Media/api-management-howto-add-products/api-management-publish-product.png
-[api-management-product-visiblity]: ./Media/api-management-howto-add-products/api-management-product-visibility.png
-[api-management-developer-list]: ./Media/api-management-howto-add-products/api-management-developer-list.png
+[api-management-management-console]: ./media/api-management-howto-add-products/api-management-management-console.png
+[api-management-add-product]: ./media/api-management-howto-add-products/api-management-add-product.png
+[api-management-add-new-product]: ./media/api-management-howto-add-products/api-management-add-new-product.png
+[api-management-products-page]: ./media/api-management-howto-add-products/api-management-products-page.png
+[api-management-new-product-summary]: ./media/api-management-howto-add-products/api-management-new-product-summary.png
+[api-management-add-apis-to-product]: ./media/api-management-howto-add-products/api-management-add-apis-to-product.png
+[api-management-product-settings]: ./media/api-management-howto-add-products/api-management-product-settings.png
+[api-management-publish-product]: ./media/api-management-howto-add-products/api-management-publish-product.png
+[api-management-product-visiblity]: ./media/api-management-howto-add-products/api-management-product-visibility.png
+[api-management-developer-list]: ./media/api-management-howto-add-products/api-management-developer-list.png
 
 
 
-[api-management-products]: ./Media/api-management-howto-add-products/api-management-products.png
-[api-management-]: ./Media/api-management-howto-add-products/
-[api-management-]: ./Media/api-management-howto-add-products/
+[api-management-products]: ./media/api-management-howto-add-products/api-management-products.png
+[api-management-]: ./media/api-management-howto-add-products/
+[api-management-]: ./media/api-management-howto-add-products/
 
 
-[How to add operations to an API]: ./api-management-howto-add-operations
-[How to create and publish a product]: ./api-management-howto-add-products
-[Get started with Azure API Management]: ./api-management-get-started
-[Create an API Management service instance]: ./api-management-get-started/#create-service-instance
+[How to add operations to an API]: ../api-management-howto-add-operations
+[How to create and publish a product]: ../api-management-howto-add-products
+[Get started with Azure API Management]: ../api-management-get-started
+[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
 [Next steps]: #next-steps
-[How to create and use groups to manage developer accounts in Azure API Management]: ./api-management-howto-create-groups
-[How create and configure advanced product settings in Azure API Management]: ./api-management-howto-product-with-rules
+[How to create and use groups to manage developer accounts in Azure API Management]: ../api-management-howto-create-groups
+[How create and configure advanced product settings in Azure API Management]: ../api-management-howto-product-with-rules

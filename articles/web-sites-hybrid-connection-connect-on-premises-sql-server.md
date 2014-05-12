@@ -47,7 +47,7 @@ If you already have SQL Server installed in a configuration and in an environmen
 
 [E. Create a basic ASP.NET web project, edit the database connection string, and run the project locally](#CreateASPNET)
 
-[F. Publish the web application to Azure and test it](#Pub&Test)
+[F. Publish the web application to Azure and test it](#PubNTest)
 
 <a name="InstallSQL"></a>
 ## A. Install SQL Server Express, enable TCP/IP, and create a SQL Server database on-premises ##
@@ -283,7 +283,7 @@ In this step, you edit the connection string that tells your application where t
 
 You are now ready for the next step, which is to publish the application to Azure and test it.
 
-<a name="Pub&Test"></a>
+<a name="PubNTest"></a>
 ## F. Publish the web application to Azure and test it ##
 
 Now, you'll publish your application to your web site on Azure and then test it to see how the hybrid connection you configured earlier is being used to connect your web site application to the database on your local machine. 

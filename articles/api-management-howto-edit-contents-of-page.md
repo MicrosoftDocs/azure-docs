@@ -1,10 +1,12 @@
-# How to edit the contents of a page
+<properties pageTitle="How to edit the contents of a page in Azure API Management" metaKeywords="" description="How to edit the contents of a page in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to edit the contents of a page in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+
+# How to edit the contents of a page in Azure API Management
 
 The developer portal consists of automatically generated pages like APIs, Products, Applications, Issues and manually written content. Since it is based on a content management system you can create such content as necessary.
 
 To see the list of all existing content pages click on **Content** from the **Developer portal** menu in the Management console.
 
-![api-management-howto-edit-contents-of-page-manage-content]
+![Manage content][api-management-howto-edit-contents-of-page-manage-content]
 
 Click on the "Welcome" page to edit what is displayed on the home page of the developer portal. Make the changes you would like, preview them if necessary, and then click on **Publish Now** to make them visible to everyone.
 
@@ -15,4 +17,4 @@ Click on the "Welcome" page to edit what is displayed on the home page of the de
 
 [Management Portal]: https://manage.windowsazure.com/
 
-[api-management-howto-edit-contents-of-page-manage-content]: ./Media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
+[api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png

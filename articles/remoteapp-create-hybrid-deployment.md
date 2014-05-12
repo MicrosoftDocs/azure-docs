@@ -24,7 +24,7 @@ You need to do the following before creating the service:
 - Gather information about your on-premises network: IP address information and VPN device details.
 - Install the [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) module.
 - Gather information about the users and groups that you want to grant access to. This can be either Microsoft account information or Active Directory organizational account information for users or groups.
-- Create a template image to use with your service. The template image contains the programs you want to make available to users.  See [Deploy Microsoft RemoteApp in your enterprise](http://go.microsoft.com/fwlink/?LinkId=397721) for more information about creating a template image.
+- Create a template image to use with your service. The template image contains the programs you want to make available to users.  See [Deploy Azure RemoteApp in your enterprise](http://go.microsoft.com/fwlink/?LinkId=397721) for more information about creating a template image.
 
 ## **Step 1: Create a RemoteApp service** ##
 
@@ -51,17 +51,16 @@ A virtual network lets your users access data on your local network through Remo
 
 	See [Configure a Site-to-Site VPN in the the Management Portal](http://msdn.microsoft.com/library/azure/dn133795.aspx) for more information.
 
-4. Next, back on the Quick Start page, click **get script** to download a script to configure your VPN devices devices to connect to the virtual gateway. You'll need the following information about the VPN device: 
+4. Next, back on the Quick Start page, click **get script** to download a script to configure your VPN device to connect to the virtual network you just created. You'll need the following information about the VPN device: 
 	- Vendor
 	- Platform
 	- Operating system
 
-	Save the script and run it on the server in your local network that has the Routing and Remote Access Service installed. 
+	Save the script and run it on the VPN device. 
 
-	**Note:** After you run this script, the virtual network will move to the connected state. Until the network is in connected state, you won't be able to use it.
+	**Note:** After you run this script, the virtual network will move to the Ready state - this may take 5-7 minutes. Until the network is ready, you won't be able to use it.
 
-5. On Quick Start, click **get key**. Generate an encryption key to configure communication between your local VPN device and the RemoteApp virtual network.
-6. Finally, again on the Quick Start page, click **join local domain**. Add the RemoteApp service account to your local Active Directory domain.
+5. Finally, again on the Quick Start page, click **join local domain**. Add the RemoteApp service account to your local Active Directory domain. You will need the domain name, organizational unit, service account user name and password.
 
 
 ## **Step 3: Link to a RemoteApp template image** ##
@@ -72,7 +71,7 @@ If you are uploading a new image, you need to enter the name and choose the loca
 
 If you are linking to an existing template image, simply specify the image name, location, and associated Azure subscription.
 
-**Note:** You must use Windows Server 2012 R2 with Remote Desktop Session Host and the desktop experience installed to create your template image. See [Deploy Microsoft RemoteApp in your enterprise](http://go.microsoft.com/fwlink/?LinkId=397721) for more information about creating a template image.
+**Note:** You must use Windows Server 2012 R2 with Remote Desktop Session Host and the desktop experience installed to create your template image. See [Deploy Azure RemoteApp in your enterprise](http://go.microsoft.com/fwlink/?LinkId=397721) for more information about creating a template image.
 
 ## **Step 4: Configure Active Directory directory synchronization** ##
 
@@ -88,7 +87,7 @@ You can publish multiple programs to your RemoteApp service. From the RemoteApp 
 
 ## **Step 6: Configure user access** ##
 
-Now that you have created your RemoteApp service, you need to add the users and groups that you want to be able to use your remote resources. 
+Now that you have created your RemoteApp service, you need to add the users and groups that you want to be able to use your remote resources. The users or groups that you provide access to need to exist in the Active Directory tenant associated with the subscription you used to create this RemoteApp service.
 
 1.	From the Quick Start page, click **Configure user access**. 
 2.	Enter the organizational account or group name (from Active Directory) or Microsoft account that you want to grant access for.
@@ -98,6 +97,7 @@ Now that you have created your RemoteApp service, you need to add the users and 
 3.	Once the users or groups are validated, click **Save**.
 
 
-
+## Next steps ##
+That's it - you have successfully created and deployed your RemoteApp hybrid deployment. The next step is to have your users download and install the Remote Desktop client. You can find the URL for the client on the RemoteApp Quick Start page. Then, have users log into Azure and access the RemoteApp programs you published.
 
 

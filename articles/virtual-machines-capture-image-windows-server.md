@@ -1,10 +1,10 @@
 <properties linkid="manage-windows-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Windows Server" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
 
-#How to Capture a Windows Virtual Machine to use as a Template#
+#How to Capture a Windows Virtual Machine to Use as a Template#
 
 This article shows you how to capture a Windows virtual machine so you can use it as template to create other virtual machines. This virtual machine template includes the OS disk and any data disks attached the virtual machine. It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines that use the template.
 
-After you capture the virtual machine, it's stored as an image in your storage account. For more information about images, see [Manage Disks and Images] [].
+After you capture the virtual machine, it's available under **My Images** when you create a virtual machine. The image file is stored as a VHD in your storage account. For more information about images, see [Manage Disks and Images] [].
 
 ##Before You Begin##
 
@@ -15,7 +15,7 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 ##Capture the Virtual Machine##
 
-1. Connect to the virtual machine by following the steps in [How to Log on to a Virtual Machine Running Windows Server] [].
+1. Connect to the virtual machine by clicking **Connect** on the command bar. For details, see [How to Log on to a Virtual Machine Running Windows Server] [].
 
 2.	Open a Command Prompt window as an administrator.
 
@@ -41,9 +41,9 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 9.	On the command bar, click **Capture**.
 
-	The **Capture the Virtual Machine** dialog box appears.
-
 	![Capture virtual machine](./media/virtual-machines-capture-image-windows-server/CaptureVM.png)
+
+	The **Capture the Virtual Machine** dialog box appears.
 
 10.	In **Image Name**, type a name for the new image.
 
