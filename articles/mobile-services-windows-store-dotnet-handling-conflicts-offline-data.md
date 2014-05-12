@@ -7,6 +7,7 @@
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store C#" class="current">Windows Store C#</a>
+<a href="/en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone">Windows Phone</a>
 </div>
 
 
@@ -30,7 +31,9 @@ This tutorial requires Visual Studio 2013 running on Windows 8.1.
 
 ## <a name="download-app"></a>Download the sample project
 
-This tutorial is built on the [Handling conflicts code sample], which is a Windows Store app project in Visual Studio 2013. The UI for this app is similar to the app in the tutorial [Get started with offline data], except that there is a new date column in for each TodoItem. 
+![][0]
+
+This tutorial is built on the [Handling conflicts code sample], which is a Windows Store app project for Visual Studio 2013. The UI for this app is similar to the app in the tutorial [Get started with offline data], except that there is a new date column in for each TodoItem. 
 
 1. Download the C# version of the [Handling conflicts code sample]. 
 
@@ -103,7 +106,7 @@ For JavaScript backend mobile services, you will add a new table named **TodoWit
 
 Now it's time to test the app against Mobile Services.
 
-1. In the Azure Management Portal, find your mobile service's application key by clicking **Manage Keys** on the command bar. Copy the **Application Key**.
+1. In the Azure Management Portal, find your mobile service's application key by clicking **Manage Keys** on the command bar of the **Dashboard** tab. Copy the **Application Key**.
 
 2. In Solution Explorer for Visual Studio, open the App.xaml.cs file in the client sample project. Change the initialization of the **MobileServiceClient** to use your mobile service URL and application key:
 
@@ -124,7 +127,9 @@ Now it's time to test the app against Mobile Services.
 
         ![][1]
 
-  *  If you are using the .NET backend for your mobile service, click the **Configure** tab, then click your SQL database. Click **Manage** at the bottom of the screen to log into the SQL Azure Managment Portal to view your database.  
+  *  If you are using the .NET backend for your mobile service, click the **Configure** tab, then click your SQL database. Click **Manage** at the bottom of the screen to log into the SQL Azure Managment Portal to view your database by running a SQL query similar to the following.
+    
+            SELECT * FROM todolist.todowithdate
 
         ![][2]
    	 
@@ -137,7 +142,7 @@ Now it's time to test the app against Mobile Services.
 
 ## <a name="handle-conflict"></a>Update the data in the backend to create a conflict
 
-In a real world scenario, a sync conflict would occur when one app pushes updates to a record in the database, and then another app tries to push a change to the same record which is based on an outdated version of that record. If an instance of the app tries to update the same record, without pulling in the updated record, a conflict will occur and be caught as a `MobileServicePreconditionFailedException` in the app.  
+In a real world scenario, a sync conflict would occur when one app pushes updates to a record in the database, and then another app tries to push a change to the same record using an outdated version field in that record. If an instance of the app tries to update the same record, without pulling in the updated record, a conflict will occur and be caught as a `MobileServicePreconditionFailedException` in the app.  
 
 If you want to deploy the app to another machine to run two instances of the app to generate a conflict, you can follow the deployment instructions in the [Handling Database Conflicts] tutorial.
 

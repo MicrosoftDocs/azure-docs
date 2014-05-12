@@ -1290,6 +1290,7 @@ This command creates a table.
 This command supports the following additional option:
 
 + **-p `<permissions>`** or **--permissions `<permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs, where `<operation>` is `insert`, `read`, `update`, or `delete` and `<permissions>` is `public`, `application` (default), `user`, or `admin`.
++ **--integerId**: Create a table with an integer id column.
 
 **mobile data read [options] [servicename] [tablename] [query]**
 
