@@ -22,7 +22,9 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 [WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
+
 [WACOM.INCLUDE [mobile-services-android-call-custom-api](../includes/mobile-services-android-call-custom-api.md)]
+
 
 ## Next steps
 
