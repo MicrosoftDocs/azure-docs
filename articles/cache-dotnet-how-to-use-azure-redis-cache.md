@@ -147,6 +147,19 @@ Once the connection is established, return a reference to the redis cache databa
 
 >The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.
 
+	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
+
+	IDatabase cache = connection.GetDatabase();
+
+	// Perform cache operations using the cache object...
+	// Simple put of integral data types into the cache
+	cache.StringSet("key1", "value");
+	cache.StringSet("key2", 25);
+
+	// Simple get of data types from the cache
+	string key1 = cache.StringGet("key1");
+	int key2 = (int)cache.StringGet("key2");
+
 Now that you know how to connect to an Azure Redis Cache instance and return a reference to the cache database, let's take a look at working with the cache.
 
 
