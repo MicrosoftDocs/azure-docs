@@ -14,7 +14,7 @@
 
 <a name="Overview"></a>
 ##Overview##
-The option to create site slots for Standard mode sites running on Microsoft Azure Web Sites enables a staged deployment workflow. Create a development or staging site slot for each default production site (which now becomes a production slot) and swap these slots with no down time. Staged deployment is invaluable for the following scenarios:
+The option to create site slots for Standard mode sites running on Microsoft Azure Web Sites enables a staged deployment workflow. Create development or staging site slots for each default production site (which now becomes a production slot) and swap these slots with no down time. Staged deployment is invaluable for the following scenarios:
 
 - **Validating before deployment** - After you deploy content or configuration to a staging site slot, you can validate changes before swapping these changes to production.
 
@@ -22,12 +22,12 @@ The option to create site slots for Standard mode sites running on Microsoft Azu
 
 - **Rolling back a production site** - If the changes swapped into production are not as you expected, you can swap the original content back to production right away. 
 
-Microsoft Azure warms up all instances of the source site slot before the swap to production, eliminating cold starts when you deploy content. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. Currently, only one deployment slot in addition to the default production slot is supported per Standard web site.   
+Microsoft Azure warms up all instances of the source site slot before the swap to production, eliminating cold starts when you deploy content. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. Four deployment slots in addition to the default production slot are supported per Standard web site.   
 
 <a name="Add"></a>
 ##To Add a Deployment Slot to a Web Site##
 
-The site must be running in Standard mode to enable site slot creation. Currently, Azure supports only one deployment slot per production slot.
+The site must be running in Standard mode to enable site slot creation. The Azure Web Sites platform supports 4 deployment slots in addition to the production slot per Standard web site. 
 
 1. On the Quick Start page, or in the Quick Glance section of the Dashboard page for your web site, click **Add a new deployment slot**. 
 	
