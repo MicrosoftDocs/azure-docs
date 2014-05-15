@@ -1,15 +1,19 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Get Started" pageTitle="Get started using HDInsight | Azure" metaKeywords="" description="Get started with HDInsight, a big data solution. Learn how to provision clusters, run MapReduce jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Azure HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using HDInsight Hadoop | Azure" metaKeywords="" description="Get started with HDInsight Hadoop, a big data solution. Learn how to provision clusters, run MapReduce jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Azure HDInsight Hadoop" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
 
-# Get started using Azure HDInsight
+# Get started using Azure HDInsight Hadoop
 
 HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the cloud. It makes the MapReduce software framework available in a simpler, more scalable, and cost efficient Azure environment. HDInsight also provides a cost efficient approach to the managing and storing of data using Azure Blob storage. 
 
 In this tutorial, you will provision an HDInsight cluster using the Azure Management Portal, submit a Hadoop MapReduce job to count words in a text file using PowerShell, and then import the MapReduce job output data into Excel for examination.
 
-> [WACOM.NOTE] This tutorial covers using Hadoop 1.2 clusters on HDInsight. For the tutorial using Hadoop 2.2 clusters on HDInsight, see [Get started using Hadoop 2.2 clusters with HDInsight][hdinsight-get-started-30]. For version information, see [What's new in the cluster versions provided by HDInsight?][hdinsight-version]
+> [WACOM.NOTE] This tutorial covers using Hadoop 1.2 clusters on HDInsight. For the tutorial using Hadoop 2.2 clusters on HDInsight, see [Get started using Hadoop 2.2 clusters with HDInsight][hdinsight-get-started-30]. For version information, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions]
+
+The video of this article:
+
+> [WACOM.VIDEO https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS]
 
 In conjunction with the general availability of Azure HDInsight, Microsoft has also released HDInsight Emulator for Azure, formerly known as *Microsoft HDInsight Developer Preview*. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 
@@ -226,7 +230,7 @@ For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-stor
 
 		$jarFile = "wasb:///example/jars/hadoop-examples.jar"
 		$className = "wordcount"
-		$statusFolder = "wasb:///tutorials/getstarted/wordCountStatus"
+		$statusFolder = "/tutorials/getstarted/wordCountStatus"
 		$inputFolder = "wasb:///example/data/gutenberg/davinci.txt"
 		$outputFolder = "wasb:///tutorials/getstarted/WordCountOutput"
 
@@ -237,7 +241,7 @@ For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-stor
 	|$clusterName|The cluster name must match the one you created earlier in the tutorial using the Azure Managment portal.|
     |$jarFile|This is the MapReduce jar file that you will run.  It comes with HDInsight clusters.|
 	|$className|The class name is hard-coded in the MapReduce program.|
-	|$statusFolder|The -StatusFolder parameter is optional. If specified, the standard error and standard output files will be put into the folder.|
+	|$statusFolder|The -StatusFolder parameter is optional. If specified, the standard error and standard output files will be put into the folder. There is a bug with -StatusFolder. You will get an exception with the Get-AzureHDInsightJobOuput cmdlet if you prefix the folder path with "wasb://".|
     |$inputFolder|This is the source data file folder for the MapReduce job. The word counting MapReduce job will be counting the words in the files located in this folder.  You can either specify a folder name or a file name.|
 	|$outputFolder|The MapReduce job will generate an output file in this folder.  The output file has a list of the words and their count. The default output file name is part-r-00000.|
 		
@@ -405,31 +409,31 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Upload data to HDInsight][hdinsight-upload-data]
-- [Use MapReduce with HDInsight][hdinsight-mapreduce]
-- [Use Hive with HDInsight][hdinsight-hive]
-- [Use Pig with HDInsight][hdinsight-pig]
-- [Use Oozie with HDInsight][hdinsight-oozie]
+- [Use MapReduce with HDInsight][hdinsight-use-mapreduce]
+- [Use Hive with HDInsight][hdinsight-use-hive]
+- [Use Pig with HDInsight][hdinsight-use-pig]
+- [Use Oozie with HDInsight][hdinsight-use-oozie]
 - [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
-[hdinsight-version]: ../hdinsight-component-versioning/
+[hdinsight-versions]: ../hdinsight-component-versioning/
 
 [hdinsight-get-started-30]: ../hdinsight-get-started-30/
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-mapreduce]: ../hdinsight-use-mapreduce
-[hdinsight-hive]: ../hdinsight-use-hive/
-[hdinsight-pig]: ../hdinsight-use-pig/
-[hdinsight-oozie]: ../hdinsight-use-oozie/
+[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-pig]: ../hdinsight-use-pig/
+[hdinsight-use-oozie]: ../hdinsight-use-oozie/
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-emulator]: ../hdinsight-get-started-emulator/
 [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 
-[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
-[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
-[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 
