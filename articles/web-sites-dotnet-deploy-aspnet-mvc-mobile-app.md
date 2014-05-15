@@ -38,7 +38,7 @@ Here's what you'll learn:
 -   How to create responsive views (views that respond to different
     browsers across devices)
 
-<h2>Setting up the development environment [TODO]</h2>
+<h2>Set up the development environment</h2>
 
 Set up your development environment by installing the Azure SDK for the .NET Framework. 
 
@@ -50,10 +50,9 @@ Set up your development environment by installing the Azure SDK for the .NET Fra
 You will also need a mobile browser emulator. Any of the following will
 work:
 
--   [Browser Emulator][EmulatorIE11]
-    in Internet Explorer 11 F12 developer tools (used in all mobile
+-   Browser Emulator in [Internet Explorer 11 F12 developer tools][EmulatorIE11] (used in all mobile
     browser screenshots). It has user agent string presets for Windows Phone 8, Windows Phone 7, and Apple iPad.
--	[Browser Emulator][EmulatorChrome] in Google Chrome DevTools. It contains presets for numerous Android devices, as well as Apple iPhone, Apple iPad, and Amazon Kindle Fire. It also emulates touch events.
+-	Browser Emulator in [Google Chrome DevTools][EmulatorChrome]. It contains presets for numerous Android devices, as well as Apple iPhone, Apple iPad, and Amazon Kindle Fire. It also emulates touch events.
 -   [Opera Mobile Emulator][EmulatorOpera]
 
 Visual Studio projects with C\# source code are available to accompany
@@ -73,7 +72,7 @@ this topic:
 - [Improve the SessionsTable View][]
 - [Improve the SessionByCode View][]
 
-<h3><a name="#bkmk_DeployStarterProject"></a>Deploy the starter project to a Windows Azure Website</h3>
+<h3><a name="bkmk_DeployStarterProject"></a>Deploy the starter project to a Windows Azure Website</h3>
 
 1.	Download the conference-listing application [starter project][StarterProject].
 
@@ -113,7 +112,7 @@ unzip the file.
 
 	![][DeployNewWebsite]  
 
-12. In the **Site name** field, specify a unique site name prefix. Your fully-qualified site name will be *<prefix>*.azurewebsites.net. Then, click **Create**.
+12. In the **Site name** field, specify a unique site name prefix. Your fully-qualified site name will be *&lt;prefix>*.azurewebsites.net. Then, click **Create**.
 
 	![][DeploySiteSettings]
 
@@ -137,7 +136,7 @@ image below shows the *AllTags* view in portrait mode (from choosing
 
 The display is very readable on a mobile device. You can also already
 see some of the visual effects applied by the Bootstrap CSS framework.
-Click the ASP.NET link.
+Click the **ASP.NET** link.
 
 ![][SessionsByTagASP.NET]
 
@@ -188,8 +187,8 @@ of these features in any web application. But it is now built into the
 ASP.NET MVC 5 project template, so that your MVC 5 Web application can
 take advantage of Bootstrap by default.
 
-For more information about Bootstrap, go to
-[BootstrapSite][].
+For more information about Bootstrap, go to the
+[Bootstrap][BootstrapSite] site.
 
 In the next section you'll see how to provide mobile-browser specific
 views.
@@ -233,7 +232,8 @@ emulator. The mobile browser emulator shows the two changes you made
 
 ![][AllTagsMobile_LayoutMobile]
 
-In contrast, the desktop display has not changed.
+In contrast, the desktop display has not changed (with titles from from *\_Layout.cshtml* and 
+*AllTags.cshtml*).
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
@@ -275,13 +275,13 @@ Alternatively, you can just manually add the following line to the
     using System.Web.WebPages;
 
 Save the changes. Copy the
-*Mvc5Mobile\\Views\\Shared\\\_Layout.Mobile.cshtml* file to
-*Mvc5Mobile\\Views\\Shared\\\_Layout.iPhone.cshtml*. Open the new file
+*Views\\Shared\\\_Layout.Mobile.cshtml* file to
+*Views\\Shared\\\_Layout.iPhone.cshtml*. Open the new file
 and then change the title from `MVC5 Application (Mobile)` to
 `MVC5 Application (iPhone)`.
 
-Copy the *Mvc5Mobile\\Views\\Home\\AllTags.Mobile.cshtml* file to
-*Mvc5Mobile\\Views\\Home\\AllTags.iPhone.cshtml*. In the new file, change
+Copy the *Views\\Home\\AllTags.Mobile.cshtml* file to
+*Views\\Home\\AllTags.iPhone.cshtml*. In the new file, change
 the `<h2>` element from "Tags (M)" to "Tags (iPhone)".
 
 Run the application. Run a mobile browser emulator, make sure its user
@@ -294,7 +294,7 @@ configure emulation to the following:
 -   Custom string = **Apple-iPhone5C1/1001.525**
 
 The following screenshot shows the *AllTags* view rendered in the
-emulator in Internet Explorer 11 F12 developer tools with the custom user agent string (this is the string for a GSM iPhone 5C).
+emulator in Internet Explorer 11 F12 developer tools with the custom user agent string (this is an iPhone 5C user agent string).
 
 ![][AllTagsIPhone_LayoutIPhone]
 
@@ -353,8 +353,7 @@ you'll make the *AllSpeakers* view mobile-friendly, which displays
 large, easy-to-tap links and contains a search box to quickly find
 speakers.
 
-You can use the Bootstrap [linked list
-group](http://getbootstrap.com/components/#list-group-linked) styling to
+You can use the Bootstrap [linked list group][] styling to
 improve the *Speakers* view. In *Views\\Home\\AllSpeakers.cshtml*,
 replace the contents of the Razor file with the code below.
 
@@ -381,14 +380,14 @@ Refresh the mobile browser. The updated view looks like this:
 
 ![][AllSpeakersFixed]
 
-The Bootstrap linked list group styling makes the entire box for each
+The Bootstrap [linked list group][] styling makes the entire box for each
 link clickable, which is a much better user experience. Switch to the
 desktop view and observe the consistent look and feel.
 
 ![][AllSpeakersFixedDesktop]
 
 Although the mobile browser view has improved, it's difficult to
-navigate the long list of speakers. Bootstrap doesn't have provide a
+navigate the long list of speakers. Bootstrap doesn't provide a
 search filter functionality out-of-the-box, but you can add it with a
 few lines of code. You will first add a search box to the view, then
 hook up with the JavaScript code for the filter function. In
@@ -410,7 +409,10 @@ hook up with the JavaScript code for the filter function. In
     <div class="list-group">
         @foreach (var speaker in Model)
         {
-            @Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker }, new { @class = "list-group-item" })
+            @Html.ActionLink(speaker, 
+                             "SessionsBySpeaker", 
+                             new { speaker }, 
+                             new { @class = "list-group-item" })
         }
     </div>
 
@@ -472,7 +474,10 @@ according to your search string.
 Like the *Speakers* view, the *Tags* view is readable, but the links
 are small and difficult to tap on a mobile device. You can fix the *Tags* view the same way you fix the *Speakers* view, if you use the code changes described earlier, but with the following `Html.ActionLink` method syntax in *Views\\Home\\AllTags.cshtml*:
 
-    @Html.ActionLink(tag, "SessionsByTag", new { tag }, new { @class = "list-group-item" })
+    @Html.ActionLink(tag, 
+                     "SessionsByTag", 
+                     new { tag }, 
+                     new { @class = "list-group-item" })
 
 The refreshed desktop browser looks as follows:
 
@@ -515,18 +520,23 @@ following code:
     @foreach (var dategroup in Model.GroupBy(x=>x.Date))
     {
         <div class="panel panel-primary">
-            <div class="panel-heading">@dategroup.Key.ToString("ddd, MMM dd")</div>
+            <div class="panel-heading">
+                @dategroup.Key.ToString("ddd, MMM dd")
+            </div>
             <div class="panel-body list-group">
                 @foreach (var time in dategroup)
                 {
-                    @Html.ActionLink(time.ToString("h:mm tt"), "SessionsByDate", new { time }, new { @class = "list-group-item" })
+                    @Html.ActionLink(time.ToString("h:mm tt"), 
+                                     "SessionsByDate", 
+                                     new { time }, 
+                                     new { @class = "list-group-item" })
                 }
             </div>
         </div>
     }
 
 This code creates a separate `<div class="panel panel-primary">` tag for
-each distinct date in the list, and uses the linked list group for the
+each distinct date in the list, and uses the [linked list group][] for the
 respective links as before. Here's what the mobile browser looks like
 when this code runs:
 
@@ -647,20 +657,30 @@ the following markup:
     </p>
 
     <div class="panel panel-primary">
-        <div class="panel-heading">Speakers</div>
+        <div class="panel-heading">
+            Speakers
+        </div>
         @foreach (var speaker in Model.Speakers)
         {
-            @Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker }, new { @class="panel-body" })
+            @Html.ActionLink(speaker, 
+                             "SessionsBySpeaker", 
+                             new { speaker }, 
+                             new { @class="panel-body" })
         }
     </div>
 
     <p>@Model.Abstract</p>
 
     <div class="panel panel-primary">
-        <div class="panel-heading">Tags</div>
+        <div class="panel-heading">
+            Tags
+        </div>
         @foreach (var tag in Model.Tags)
         {
-            @Html.ActionLink(tag, "SessionsByTag", new { tag }, new { @class = "panel-body" })
+            @Html.ActionLink(tag, 
+                             "SessionsByTag", 
+                             new { tag }, 
+                             new { @class = "panel-body" })
         }
     </div>
 
@@ -720,6 +740,7 @@ See Also
 [CompletedProject]: http://go.microsoft.com/fwlink/?LinkID=398781&clcid=0x409
 [BootstrapSite]: http://getbootstrap.com/
 [WebPIAzureSdk23NetVS13]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
+[linked list group]: http://getbootstrap.com/components/#list-group-linked
 [glyphicon]: http://getbootstrap.com/components/#glyphicons
 [panels]: http://getbootstrap.com/components/#panels
 [custom linked list group]: http://getbootstrap.com/components/#list-group-custom-content
