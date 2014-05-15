@@ -6,16 +6,34 @@ Azure Mobile Services makes it very easy to get started and build an app that co
 
 This topic walks you through these basic sections:
 
-1. [Prerequisites](#Prerequisites)
+1. [Diagnosing Problems](#Diagnosing)
 2. [Indexing](#Indexing)
 3. [Schema Design](#Schema)
 4. [Query Design](#Query)
-5. [Monitoring](#Monitoring)
-6. [Choosing the Right SQL Database Tier](#SQLTiers)
+5. [Choosing the Right SQL Database Tier](#SQLTiers)
+6. [Advanced Diagnostics](#Advanced)
 
-<a name="Prerequisites"></a>
-## Prerequisites
-To perform some of the diagnostic tasks in this topic, you need access to a management tool for SQL databases such as **SQL Server Management Studio** or the management functionality built into the **Azure Management Portal**.
+<a name="Diagnosing"></a>
+# Diagnosing Problems
+
+<a name="Indexing"></a>
+## Indexing
+
+<a name="Schema"></a>
+## Schema Design
+
+<a name="Query"></a>
+## Query Design
+
+<a name="SQLTiers"></a>
+## Choosing the Right SQL Database Tier 
+
+<a name="Advanced"></a>
+## Advanced Diagnostics
+This section covers some more advanced diagnostic tasks, which may be useful if the steps so far have not addressed the issue fully.
+
+### Prerequisites
+To perform some of the diagnostic tasks in this section, you need access to a management tool for SQL databases such as **SQL Server Management Studio** or the management functionality built into the **Azure Management Portal**.
 
 SQL Server Management Studio is a free Windows application, which offers the most advanced capabilities. If you do not have access to a Windows machine, consider provisioning a Virtual Machine in Azure as shown in [Create a Virtual Machine Running Windows Server](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/). If you intend to use the VM primarily for the purpose of running SQL Server Management Studio, a **Basic A0** (formerly "Extra Small") instance should be sufficient. 
 
@@ -23,7 +41,7 @@ The Azure Management Portal offers a built-in management experience, which is mo
 
 The the following steps walk you through obtaining the connection information for the SQL database backing your mobile service and then using either of the two tools to connect to it. You may pick whichever tool you prefer.
 
-## Obtain SQL Connection Information 
+#### Obtain SQL Connection Information 
 1. Launch the [Azure Management Portal](http://manage.windowsazure.com).
 2. On the Mobile Services tab, select the service you want to work with.
 3. Select the **Configure** tab.
@@ -31,9 +49,9 @@ The the following steps walk you through obtaining the connection information fo
 5. Select **Set up Windows Azure firewall rules for this IP address**/
 6. Make a note of the server address in the **Connect to your database** section, for example: *mcml4otbb9.database.windows.net*.
 
-### SQL Server Management Studio
+#### SQL Server Management Studio
 1. Navigate to [SQL Server Editions - Express](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/sql-server-express.aspx)
-2. Find the **SQL Server Management Studio** section and select the **Download** button underneath. 
+2. Find the **SQL Server Management Studio** section and select the **Download** button underneath.
 3. Complete the setup steps until you can successfully run the application:
 
     ![SQL Server Management Studio][SSMS]
@@ -45,7 +63,7 @@ The the following steps walk you through obtaining the connection information fo
     - Password: *password you picked when creating server*
 5. You should now be connected.
 
-### Azure Management Portal
+#### Azure Management Portal
 1. On Azure SQL Database tab for your database, select the **Manage** button 
 2. Configure the connection with the following values
     - Server: *should be pre-set to the right value*
@@ -56,24 +74,10 @@ The the following steps walk you through obtaining the connection information fo
 
     ![Azure Management Portal - SQL Database][PortalSqlManagement]
 
-<a name="Indexing"></a>
-## Indexing
+### Advanced Indexing
 
-<a name="Schema"></a>
-## Schema Design
+## See Also
 
-<a name="Query"></a>
-## Query Design
-
-<a name="Monitoring"></a>
-## Monitoring 
-
-<a name="SQLTiers"></a>
-## Choosing the Right SQL Database Tier 
-
-##See Also##
- 
-Write me
 
 <!-- IMAGES -->
  
