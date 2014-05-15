@@ -130,10 +130,10 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 
 
 [How to add operations to an API]: ../api-management-howto-add-operations
-[How to add and publish a product]: ../api-management-howto-add-product
+[How to add and publish a product]: ../api-management-howto-add-products
 [Monitoring and analytics]: ../api-management-monitoring
-[Add APIs to a product]: ../api-management-howto-add-product/#add-apis
-[Publish a product]: ../api-management-howto-add-product/#publish-product
+[Add APIs to a product]: ../api-management-howto-add-products/#add-apis
+[Publish a product]: ../api-management-howto-add-products/#publish-product
 [Get started with Azure API Management]: ../api-management-get-started
 [Get started with advanced API configuration]: ../api-management-get-started-advanced
 [API Management policy reference]: ../api-management-policy-reference

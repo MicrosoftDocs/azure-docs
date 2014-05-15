@@ -284,7 +284,7 @@ follow these links to learn how to do more complex caching tasks.
 [Configure the cache]: #enable-caching
 [Configure the cache clients]: #NuGet
 [Working with Caches]: #working-with-caches
-[Connect to the cache]: #create-cache-object
+[Connect to the cache]: #connect-to-cache
 [Add and retrieve objects from the cache]: #add-object
 [Specify the expiration of an object in the cache]: #specify-expiration
 [Store ASP.NET session state in the cache]: #store-session
@@ -297,7 +297,7 @@ follow these links to learn how to do more complex caching tasks.
 
 [StackExchangeNuget]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-stackexchange-redis.png
 
-[NugetMenu]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-nuget-menu.png
+[NuGetMenu]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-nuget-menu.png
 
 [CacheProperties]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png
 
@@ -331,7 +331,7 @@ follow these links to learn how to do more complex caching tasks.
 [How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/en-us/library/zd1ysf1y.aspx
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
 
-[StackExchange.Redis configuration model]: htts://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
+[StackExchange.Redis configuration model]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
@@ -345,7 +345,7 @@ follow these links to learn how to do more complex caching tasks.
 [Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
 [Using Resource groups to manage your Azure resources]: http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/
 
-[StackExchange.Redis]: http://github.com/StackExchange/
+[StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [StackExchange.Redis cache client documentation]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
