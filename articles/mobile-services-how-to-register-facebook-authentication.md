@@ -24,7 +24,7 @@ This topic shows you how to register your apps to be able to use Facebook to aut
 
 	This registers the app with Facebook 
 
-5. Click **Settings**, type the domain of your mobile service in **App Domains**, then click **Add Platform** and select **Website**.
+5. Click **Settings**, type the domain of your mobile service in **App Domains**. Also enter a **Contact Email**, then click **Add Platform** and select **Website**.
 
    	![][3]
 
@@ -40,6 +40,13 @@ This topic shows you how to register your apps to be able to use Facebook to aut
 	<p>The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.</p>
     </div>
 
+
+8. The Facebook account, for which you defined the new app, is an administrator of the app and has access to the app as administrator. To authenticate other Facebook accounts, they need access to the app. This step grants the general public access so that the app can authenticate other Facebook accounts. Click **Status & Review**. Then click **Yes** to enable general public access.
+
+    ![][6]
+
+
+
 You are now ready to use a Facebook login for authentication in your app by providing the App ID and App Secret values to Mobile Services.  
 
 <!-- Anchors. -->
@@ -51,7 +58,7 @@ You are now ready to use a Facebook login for authentication in your app by prov
 [3]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app.png
 [4]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-2.png
 [5]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-completed.png
-
+[6]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-general-public.png
 <!-- URLs. -->
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
