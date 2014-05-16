@@ -44,7 +44,7 @@ In this section we would like to change the styling of only the headers. Click t
 
 Each rule represents a styling property of the selected element. For example, for the header text selected above, the size of the text is in @font-size-h1 while the name of the font with alternatives is in @headings-font-family.
 
-> If you're familiar with [bootstrap][http://getbootstrap.com/], these rules are in fact [LESS variables][http://getbootstrap.com/css/] within the bootstrap theme used by the developer portal.
+> If you're familiar with [bootstrap][], these rules are in fact [LESS variables][] within the bootstrap theme used by the developer portal.
 
 Let's change the color of the heading text. Select the entry in the **@headings-color** field and type #000000. This is the hex code for the color black. As you do this you will see that a square color indicator will appear at the end of the text box. If you click this indicator, a color picker will allow you to choose a color.
 
@@ -52,7 +52,7 @@ Let's change the color of the heading text. Select the entry in the **@headings-
 
 When you are done with making changes to the styles of the selected element click on **Preview Changes** to see the results on the screen. At this time they are only visible to Administrators. To make these changes visible to everyone, click on **Publish** button in the styling editor and confirm the changes.
 
-![Publish menu][api-management-customization-toolbar-publish-menu]
+![Publish menu][api-management-customization-toolbar-publish-form]
 
 > To change the style rules that apply to any other element on the page follow the same procedure as you did for the header - click on **Pick an element** from the styling editor, select the element you are interested in, and start modifying the values of the style rules displayed on the screen.
 
@@ -83,6 +83,10 @@ Click on the "Welcome" page to edit what is displayed on the home page of the de
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
-[api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-menu.png
+[api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
+
+
 [Get started with advanced API configuration]: ../api-management-get-started-advanced
+[bootstrap]: http://getbootstrap.com/
+[LESS variables]: http://getbootstrap.com/css/
