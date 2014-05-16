@@ -122,9 +122,9 @@ The **Deprecation Date** is the date after which the cluster version can no be c
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://www.windowsazure.com/en-us/support/forums/
+[wa-forums]: http://azure.microsoft.com/en-us/support/forums/
 
-[connect-excel-with-hive-ODBC]: /en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver
+[connect-excel-with-hive-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
 [hdp-2-0-8]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
 
