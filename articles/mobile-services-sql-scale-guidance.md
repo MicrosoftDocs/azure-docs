@@ -53,12 +53,12 @@ Indexing small tables may not be optimal because it can take the query optimizer
 (Section that explains how to set the index)
 
 <!-- 
-[yavorg] Add steps of how to get to the right tab in the case of Node.js (maybe one screenshot of just the last screen)
+[yavorg] Add steps of how to get to the right tab in the case of JavaScript (maybe one screenshot of just the last screen)
 [yavorg] Also don’t forget to handle .NET backend… there's an EF way of telling it to set an index.
 
 -->
 
-#### Node.js backend
+#### JavaScript backend
 TBD
 
 #### .NET backend
@@ -130,7 +130,7 @@ A table or view can contain the following types of indexes:
 To provide a real-world analogy: consider a book or a technical manual. The contents of each page are a record, the page number is the clustered index, and the topic index in the back of the book is a nonclustered index. Each entry in the topic index points to the clustered index, the page number.
 
 > [WACOM.NOTE] 
-> By default, the Node.js backend of Azure Mobile Services sets **\_createdAt** as the clustered index. If you remove this column, or if you want a different clustered index, be sure to follow the [clustered index design guidelines](#ClusteredIndexes) below. 
+> By default, the JavaScript backend of Azure Mobile Services sets **\_createdAt** as the clustered index. If you remove this column, or if you want a different clustered index, be sure to follow the [clustered index design guidelines](#ClusteredIndexes) below. 
 
 TBD: how it works for .NET
 
