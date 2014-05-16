@@ -214,7 +214,7 @@ The following guides describe how to set a clustered or nonclustered index by mo
  
 [SSMS]: ./media/mobile-services-sql-scale-guidance/1.png
 [PortalSqlManagement]: ./media/mobile-services-sql-scale-guidance/2.png
-[SetIndexJavaScriptPortal]: ./media/mobile-services-sql-scale-guidance\set-index-portal-ui.png
+[SetIndexJavaScriptPortal]: ./media/mobile-services-sql-scale-guidance/set-index-portal-ui.png
  
 <!-- LINKS -->
 
