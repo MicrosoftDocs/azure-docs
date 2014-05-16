@@ -194,9 +194,84 @@ The following guides describe how to set a clustered or nonclustered index by mo
 
 ### Advanced Database Views
 
+You can also write SQL queries on dynamic management views that will tell you more detailed information about the resource usage of individual queries or give you heuristics on what indexes to add.
 
+#### Find the top 10 missing indexes 
+The following query determines which 10 missing indexes would produce the highest anticipated cumulative improvement, in descending order, for user queries.
+
+		SELECT TOP 10 *
+		FROM sys.dm_db_missing_index_group_stats
+		ORDER BY avg_total_user_cost * avg_user_impact * (user_seeks + user_scans)
+		DESC;
+
+
+#### sys.dm\_db\_missing\_index*
+
+These views provide information about missing indexes. The views are:
+
+- `dm_db_missing_index_groups`
+- `dm_db_missing_index_details`
+- `dm_db_missing_index_group_stats`
+
+The following example query runs a join across these tables to get a list of the columns that should be part of each missing index and calculates an 'index advantage' to determine if the given index should be considered:
+
+	SELECT * from 
+	(
+		SELECT 
+	    (user_seeks+user_scans) * avg_total_user_cost * (avg_user_impact * 0.01) AS index_advantage, migs.*
+		FROM sys.dm_db_missing_index_group_stats migs
+	) AS migs_adv,
+	  sys.dm_db_missing_index_groups mig,
+	  sys.dm_db_missing_index_details mid
+	WHERE
+      migs_adv.group_handle = mig.index_group_handle and
+      mig.index_handle = mid.index_handle
+      AND migs_adv.index_advantage > 10
+    ORDER BY migs_adv.index_advantage DESC;
+
+
+#### Finding Top N Queries
+
+The following example returns information about the top five queries ranked by average CPU time. This example aggregates the queries according to their query hash, so that logically equivalent queries are grouped by their cumulative resource consumption.
+
+	-- Find top 5 queries
+	SELECT TOP 5 query_stats.query_hash AS "Query Hash", 
+	    SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
+	    MIN(query_stats.statement_text) AS "Statement Text"
+	FROM 
+	    (SELECT QS.*, 
+	    SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
+	    ((CASE statement_end_offset 
+	        WHEN -1 THEN DATALENGTH(st.text)
+	        ELSE QS.statement_end_offset END 
+	            - QS.statement_start_offset)/2) + 1) AS statement_text
+	     FROM sys.dm_exec_query_stats AS QS
+	     CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
+	GROUP BY query_stats.query_hash
+	ORDER BY 2 DESC;
+		
+
+#### sys.event\_log
+This view contains the details of connectivity-related events. The columns contained in this view, and the types of events it collects, are described in sys.event_log.
+
+	select * from sys.event_log 
+	where database_name = 'my_user_db'
+	and event_type like 'throttling%'
+	order by start_time desc
+
+
+	event_type                   event_count description
+	---------------------------- ----------- ----------------
+	throttling_long_transaction  2           The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.
+
+
+For more information, see [Monitoring SQL Database Using Dynamic Management Views][] and [sys.dm\_db\_missing\_index\_group\_stats](sys-missing-index-stats).
 
 ## See Also
+
+- [Azure SQL Database Documentation][]
+- [Azure SQL Database performance and scaling][]
+- [Troubleshooting Azure SQL Database][]
 
 ### Indexing
 
@@ -209,6 +284,7 @@ The following guides describe how to set a clustered or nonclustered index by mo
 
 ### Entity Framework
 - [Performance Considerations for Entity Framework 5][]
+- [Code First Data Annotations][]
 
 <!-- IMAGES -->
  
@@ -217,6 +293,12 @@ The following guides describe how to set a clustered or nonclustered index by mo
 [SetIndexJavaScriptPortal]: ./media/mobile-services-sql-scale-guidance/set-index-portal-ui.png
  
 <!-- LINKS -->
+
+[Azure SQL Database Documentation]: http://azure.microsoft.com/en-us/documentation/services/sql-database/
+[Managing SQL Database using SQL Server Management Studio]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
+[Monitoring SQL Database Using Dynamic Management Views]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
+[Azure SQL Database performance and scaling]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
+[Troubleshooting Azure SQL Database]: http://msdn.microsoft.com/en-us/library/azure/ee730906.aspx
 
 <!-- MSDN -->
 [Creating and Modifying PRIMARY KEY Constraints]: http://technet.microsoft.com/en-us/library/ms181043(v=sql.105).aspx
@@ -229,6 +311,8 @@ The following guides describe how to set a clustered or nonclustered index by mo
 [General Index Design Guidelines]: http://technet.microsoft.com/en-us/library/ms191195(v=sql.105).aspx 
 [Unique Index Design Guidelines]: http://technet.microsoft.com/en-us/library/ms187019(v=sql.105).aspx
 [Clustered Index Design Guidelines]: http://technet.microsoft.com/en-us/library/ms190639(v=sql.105).aspx
+
+[sys-missing-index-stats]: http://technet.microsoft.com/en-us/library/ms345421.aspx
 
 <!-- EF -->
 [Performance Considerations for Entity Framework 5]: http://msdn.microsoft.com/en-us/data/hh949853
