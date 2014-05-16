@@ -416,7 +416,7 @@ The following PowerShell script performs the following tasks:
 		$serviceNameToken = "<ServiceNameTokenString>"
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
-		$location = "East US"     ### must match the data storage account location
+		$location = "<MicrosoftDataCenter>"     ### must match the data storage account location
 		$clusterNodes = 1
 		
 		$clusterName = $serviceNameToken + "hdicluster"

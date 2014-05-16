@@ -11,7 +11,7 @@ In this tutorial, you will provision an HDInsight cluster using the Azure Manage
 
 > [WACOM.NOTE] This tutorial covers using Hadoop 1.2 clusters on HDInsight. For the tutorial using Hadoop 2.2 clusters on HDInsight, see [Get started using Hadoop 2.2 clusters with HDInsight][hdinsight-get-started-30]. For version information, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions]
 
-The video of this article:
+The live demo of this article:
 
 > [WACOM.VIDEO https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS]
 
