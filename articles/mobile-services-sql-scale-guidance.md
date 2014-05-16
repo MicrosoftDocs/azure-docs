@@ -50,19 +50,35 @@ Indexing small tables may not be optimal because it can take the query optimizer
 <a name="CreatingIndexes"></a>
 ### Creating Indexes
 
-(Section that explains how to set the index)
-
-<!-- 
-[yavorg] Add steps of how to get to the right tab in the case of JavaScript (maybe one screenshot of just the last screen)
-[yavorg] Also don’t forget to handle .NET backend… there's an EF way of telling it to set an index.
-
--->
-
 #### JavaScript backend
-TBD
+
+To set the index for a column in the JavaScript backend, do the following:
+
+1. Open your mobile service in the Azure management portal.
+2. Click the **Data** tab.
+3. Select the table you want to modify.
+4. Click the **Columns** tab.
+5. Select the column. In the command bar, click **Set Index**:
+
+	![Mobile Services Portal - Set Index][SetIndexJavaScriptPortal]
+
+You can also remove indexes within this view.
 
 #### .NET backend
-TBD
+
+To define an index in Entity Framework, use the attribute `[Index]` on the fields that you want to index. For example:
+
+		public class Post 
+		{ 
+		    public int Id { get; set; } 
+		    public string Title { get; set; } 
+		    public string Content { get; set; } 
+		    [Index] 
+		    public int Rating { get; set; } 
+		    public int BlogId { get; set; } 
+		}
+		 
+For more information, see [Index Annotations in Entity Framework][].
 
 <a name="Schema"></a>
 ## Schema Design
@@ -130,16 +146,14 @@ A table or view can contain the following types of indexes:
 To provide a real-world analogy: consider a book or a technical manual. The contents of each page are a record, the page number is the clustered index, and the topic index in the back of the book is a nonclustered index. Each entry in the topic index points to the clustered index, the page number.
 
 > [WACOM.NOTE] 
-> By default, the JavaScript backend of Azure Mobile Services sets **\_createdAt** as the clustered index. If you remove this column, or if you want a different clustered index, be sure to follow the [clustered index design guidelines](#ClusteredIndexes) below. 
-
-TBD: how it works for .NET
+> By default, the JavaScript backend of Azure Mobile Services sets **\_createdAt** as the clustered index. If you remove this column, or if you want a different clustered index, be sure to follow the [clustered index design guidelines](#ClusteredIndexes) below. In the .NET backend, the class `TableData` defines `CreatedAt` as a clustered index using the annotation `[Index(IsClustered = true)]`
 
 <a name="ClusteredIndexes"></a>
 ### Clustered index design guidelines
 
 Every table should have a clustered index on the column (or columns, in the case of a composite key) with the following properties:
 
-- Narrow - uses a small datatype, or is a [composite key][msdn primary and foreign key constraints] of a small number of narrow columns
+- Narrow - uses a small datatype, or is a [composite key][Primary and Foreign Key Constraints] of a small number of narrow columns
 - Unique, or mostly unique
 - Static - value is not frequently changed
 - Ever-increasing 
@@ -160,25 +174,22 @@ The clustered index will be most valuable for queries that do the following:
 - Use ORDER BY, or GROUP BY clauses.
 	- An index on the columns specified in the ORDER BY or GROUP BY clause may remove the need for the Database Engine to sort the data, because the rows are already sorted. This improves query performance.
 
-<!-- Links to resources for Donna to add
+### Defining indexes and constraints 
 
-Index Basics: http://technet.microsoft.com/en-us/library/ms190457(v=sql.105).aspx
-General Index Design Guidelines: http://technet.microsoft.com/en-us/library/ms191195(v=sql.105).aspx 
-Creating and Modifying PRIMARY KEY Constraints: http://technet.microsoft.com/en-us/library/ms181043(v=sql.105).aspx
-Unique Index Design Guidelines: http://technet.microsoft.com/en-us/library/ms187019(v=sql.105).aspx
+To set the clustered index in the .NET backend using Entity Framework, set the `IsClustered` property of the annotation. For example, this is the definition of `CreatedAt` in `Microsoft.WindowsAzure.Mobile.Service.EntityData`:
 
-
-Clustered Index Design Guidelines http://technet.microsoft.com/en-us/library/ms190639(v=sql.105).aspx
-Create Clustered Indexes: http://technet.microsoft.com/en-us/library/ms186342(v=sql.120).aspx
+        [Index(IsClustered = true)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [TableColumnAttribute(TableColumnType.CreatedAt)]
+        public DateTimeOffset? CreatedAt { get; set; }
 
 
-http://www.sqlskills.com/blogs/kimberly/guids-as-primary-keys-andor-the-clustering-key/
-http://www.sqlskills.com/blogs/kimberly/ever-increasing-clustering-key-the-clustered-index-debate-again/
-http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
-http://www.sqlskills.com/blogs/kimberly/more-considerations-for-the-clustering-key-the-clustered-index-debate-continues/
+The following guides describe how to set a clustered or nonclustered index by modifying the database schema directly:  
 
-
--->
+- [Creating and Modifying PRIMARY KEY Constraints][]
+- [Create Nonclustered Indexes][]
+- [Create Clustered Indexes][]
+- [Create Unique Indexes][]
 
 
 ### Advanced Database Views
@@ -187,13 +198,42 @@ http://www.sqlskills.com/blogs/kimberly/more-considerations-for-the-clustering-k
 
 ## See Also
 
+### Indexing
+
+- [Index Basics][]
+- [General Index Design Guidelines][]
+- [Unique Index Design Guidelines][]
+- [Clustered Index Design Guidelines][]
+- [Primary and Foreign Key Constraints][]
+- [How much does that key cost?][]
+
+### Entity Framework
+- [Performance Considerations for Entity Framework 5][]
 
 <!-- IMAGES -->
  
 [SSMS]: ./media/mobile-services-sql-scale-guidance/1.png
 [PortalSqlManagement]: ./media/mobile-services-sql-scale-guidance/2.png
-
-
+[SetIndexJavaScriptPortal]: ./media/mobile-services-sql-scale-guidance\set-index-portal-ui.png
+ 
 <!-- LINKS -->
 
-[msdn primary and foreign key constraints]: http://msdn.microsoft.com/en-us/library/ms179610(v=sql.120).aspx
+<!-- MSDN -->
+[Creating and Modifying PRIMARY KEY Constraints]: http://technet.microsoft.com/en-us/library/ms181043(v=sql.105).aspx
+[Create Clustered Indexes]: http://technet.microsoft.com/en-us/library/ms186342(v=sql.120).aspx
+[Create Unique Indexes]: http://technet.microsoft.com/en-us/library/ms187019.aspx
+[Create Nonclustered Indexes]: http://technet.microsoft.com/en-us/library/ms189280.aspx
+
+[Primary and Foreign Key Constraints]: http://msdn.microsoft.com/en-us/library/ms179610(v=sql.120).aspx
+[Index Basics]: http://technet.microsoft.com/en-us/library/ms190457(v=sql.105).aspx
+[General Index Design Guidelines]: http://technet.microsoft.com/en-us/library/ms191195(v=sql.105).aspx 
+[Unique Index Design Guidelines]: http://technet.microsoft.com/en-us/library/ms187019(v=sql.105).aspx
+[Clustered Index Design Guidelines]: http://technet.microsoft.com/en-us/library/ms190639(v=sql.105).aspx
+
+<!-- EF -->
+[Performance Considerations for Entity Framework 5]: http://msdn.microsoft.com/en-us/data/hh949853
+[Code First Data Annotations]: http://msdn.microsoft.com/en-us/data/jj591583.aspx
+[Index Annotations in Entity Framework]:http://msdn.microsoft.com/en-us/data/jj591583.aspx#Index
+
+<!-- BLOG LINKS -->
+[How much does that key cost?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
