@@ -73,7 +73,7 @@ The errors a user can encounter in Azure PowerShell or in the Azure Portal are l
 
 <h3><a id="AzureRegionNotSupported"></a>AzureRegionNotSupported</h3>
 - **Description**: Could not create cluster in region *nameOfYourRegion*. Use a valid HDInsight region and retry request.   
-- **Mitigation**: Customer should create the cluster region that currently supports them: North Europe, East US, or West US.  
+- **Mitigation**: Customer should create the cluster region that currently supports them: Southeast Asia, West Europe, North Europe, East US, or West US.  
 
 <h3><a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound</h3>
 - **Description**: The server could not find the requested cluster record.  
@@ -210,7 +210,7 @@ The errors a user can encounter in Azure PowerShell or in the Azure Portal are l
 
 <h3><a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable</h3>
 - **Description**: Region capability not available for region *yourRegionName* and Subscription ID *yourSubscriptionId*.  
-- **Mitigation**: Specify a region that supports HDInsight clusters. The publicly supported regions are: East US, West US, North Europe 
+- **Mitigation**: Specify a region that supports HDInsight clusters. The publicly supported regions are: Southeast Asia, West Europe, North Europe, East US, or West US. 
 
 <h3><a id="StorageAccountNotColocated"></a>StorageAccountNotColocated</h3>
 - **Description**: Storage account *yourStorageAccountName* is in region *currentRegionName*. It should be same as the cluster region *yourClusterRegionName*.  
