@@ -52,7 +52,7 @@ Along with a VHD, you specify the size of your new VM.  The full stats for each 
 
 Finally, you choose which Azure datacenter your new VM should run in, whether in the US, Europe, or Asia. 
 
-Once a VM is running, you pay for each hour it runs, and you stop paying when you remove that VM. The amount you pay doesn't depend on how much your VM is used'it's based solely on wall-clock time. A VM that sits idle for an hour costs the same as one that's heavily loaded. 
+Once a VM is running, you pay for each hour it runs, and you stop paying when you remove that VM. The amount you pay doesn't depend on how much your VM is used -- it's based solely on wall-clock time. A VM that sits idle for an hour costs the same as one that's heavily loaded. 
 
 Each running VM has an associated *OS disk*, kept in a blob. When you create a VM using a gallery VHD, that VHD is copied to your VM's OS disk. Any changes you make to the operating system of your running VM are stored here. For example, if you install an application that modifies the Windows registry, that change will be stored in your VM's OS disk. The next time you create a VM from that OS disk, the VM continues running in the same state you left it in. For VHDs stored in the gallery, Microsoft applies updates when needed, such as operating system patches. For the VHDs in your own OS disks, however, you're responsible for applying these updates (although Windows Update is turned on by default).
 
@@ -96,7 +96,7 @@ To get a better sense of how Azure Virtual Machines works, it's useful to look a
 
 **Figure 3: An application running in Azure Virtual Machines can use SQL Server for storage.**
 
-In this example, both kinds of VMs are created from standard VHDs in the gallery. The application's logic runs on Windows Server 2008 R2, so the developer creates three VMs from this VHD, then installs his application in each one. Since all of these VMs are in the same cloud service, he can configure hardware load balancing to spread requests across them. The developer also creates two VMs from the gallery's VHD containing SQL Server 2012. Once they're running, he configures SQL Server in each instance to use database mirroring with automatic failover. This isn't required'the application could use just a single SQL Server instance'but taking this approach improves reliability. 
+In this example, both kinds of VMs are created from standard VHDs in the gallery. The application's logic runs on Windows Server 2008 R2, so the developer creates three VMs from this VHD, then installs his application in each one. Since all of these VMs are in the same cloud service, he can configure hardware load balancing to spread requests across them. The developer also creates two VMs from the gallery's VHD containing SQL Server 2012. Once they're running, he configures SQL Server in each instance to use database mirroring with automatic failover. This isn't required -- the application could use just a single SQL Server instance -- but taking this approach improves reliability. 
 
 ###Scenario: Running a SharePoint Farm 
 
@@ -110,9 +110,9 @@ A SharePoint farm has several components, each running in an Azure VM created fr
 
 - Microsoft SharePoint. There are trial images in the gallery or the organization provides its own VHD.
 - Microsoft SQL Server. SharePoint depends on SQL Server, so the organization creates VMs running SQL Server 2012 from a standard gallery VHD.
-- Windows Server Active Directory. SharePoint also requires Active Directory, so the organization creates domain controllers in the cloud using a Windows Server image from the gallery. This isn't strictly required'it's also possible to use on-premises domain controllers'but SharePoint interacts frequently with Active Directory, and so the approach shown here will have better performance.
+- Windows Server Active Directory. SharePoint also requires Active Directory, so the organization creates domain controllers in the cloud using a Windows Server image from the gallery. This isn't strictly required -- it's also possible to use on-premises domain controllers -- but SharePoint interacts frequently with Active Directory, and so the approach shown here will have better performance.
 
-Although it's not shown in the figure, this SharePoint farm is probably connected to an on-premises network using Azure Virtual Network. This lets the VMs'and the applications they contain'appear to be local to the people using that network.
+Although it's not shown in the figure, this SharePoint farm is probably connected to an on-premises network using Azure Virtual Network. This lets the VMs -- and the applications they contain -- appear to be local to the people using that network.
 
 As these examples show, you can use Azure Virtual Machines to create and run new applications in the cloud, to run existing applications, or in other ways. Whatever option you choose, the technology's goal is the same: providing a general-purpose foundation for public cloud computing.
 
@@ -150,7 +150,7 @@ As the figure suggests, all of the VMs in a single application run in the same c
 
 Even though applications run in virtual machines, it's important to understand that Cloud Services provides PaaS, not IaaS. Here's one way to think about it: With IaaS, such as Azure Virtual Machines, you first create and configure the environment your application will run in, then deploy your application into this environment. You're responsible for managing much of this world, doing things such as deploying new patched versions of the operating system in each VM. In PaaS, by contrast, it's as if the environment already exists. All you have to do is deploy your application. Management of the platform it runs on, including deploying new versions of the operating system, is handled for you.
 
-With Cloud Services, you don't create virtual machines. Instead, you provide a configuration file that tells Azure how many of each you'd like, such as three web role instances and two worker role instances, and the platform creates them for you.  You still choose what size those VMs should be'the options are the same as with Azure VMs'but you don't explicitly create them yourself. If your application needs to handle a greater load, you can ask for more VMs, and Azure will create those instances. If the load decreases, you can shut those instances down and stop paying for them.
+With Cloud Services, you don't create virtual machines. Instead, you provide a configuration file that tells Azure how many of each you'd like, such as three web role instances and two worker role instances, and the platform creates them for you.  You still choose what size those VMs should be -- the options are the same as with Azure VMs -- but you don't explicitly create them yourself. If your application needs to handle a greater load, you can ask for more VMs, and Azure will create those instances. If the load decreases, you can shut those instances down and stop paying for them.
 
 A Cloud Services application is typically made available to users via a two-step process. A developer first uploads the application to the platform's staging area. When the developer is ready to make the application live, she uses the Azure Management Portal to request that it be put into production. This switch between staging and production can be done with no downtime, which lets a running application be upgraded to a new version without disturbing its users. 
 
@@ -163,9 +163,9 @@ The PaaS nature of Cloud Services has other implications, too. One of the most i
 
 All three Azure execution models let you build scalable, reliable applications in the cloud. Given this essential similarity, which one should you use? The answer depends on what you're trying to do.
 
-Virtual Machines provides the most general solution. If you want the most control possible, or if you need generic VMs, such as for development and test, this is the best option. Virtual Machines is also the best choice for running off-the-shelf on-premises applications in the cloud, as illustrated by the SharePoint example described earlier. And because the VMs you create with this technology can look just like your on-premises VMs, it's also likely to be the best choice for disaster recovery. The trade-off, of course, is that with great power comes great responsibility'IaaS requires you to take on some administrative work.  
+Virtual Machines provides the most general solution. If you want the most control possible, or if you need generic VMs, such as for development and test, this is the best option. Virtual Machines is also the best choice for running off-the-shelf on-premises applications in the cloud, as illustrated by the SharePoint example described earlier. And because the VMs you create with this technology can look just like your on-premises VMs, it's also likely to be the best choice for disaster recovery. The trade-off, of course, is that with great power comes great responsibility -- IaaS requires you to take on some administrative work.  
 
-Web Sites is the right option when you want to create a simple web site. This is especially true if your site will be based on an existing application such as Joomla, WordPress, or Drupal. Web Sites is also a good choice for creating a low-administration web application, even one that must be quite scalable, or moving an existing IIS web app to the public cloud. It provides fast deployment as well'a new instance of your application can start running almost immediately, while deploying a new VM with either Virtual Machines or Cloud Services can take several minutes. 
+Web Sites is the right option when you want to create a simple web site. This is especially true if your site will be based on an existing application such as Joomla, WordPress, or Drupal. Web Sites is also a good choice for creating a low-administration web application, even one that must be quite scalable, or moving an existing IIS web app to the public cloud. It provides fast deployment as well. A new instance of your application can start running almost immediately, while deploying a new VM with either Virtual Machines or Cloud Services can take several minutes. 
 
 Cloud Services, which was the initial execution model provided by Azure, is an explicitly PaaS approach. While the line between PaaS and web hosting is blurry, Cloud Services differs in some important ways from Web Sites, including the following:
 
@@ -187,7 +187,7 @@ Sometimes, no single execution model is right. In situations like this, it's per
 
 As the figure illustrates, the Cloud Services VMs run in a separate cloud service from the Virtual Machines VMs. Still, the two can communicate quite efficiently, so building an app this way is sometimes the best option.
 
-Azure provides different execution models because cloud platforms need to support many different scenarios. Anybody who wants to use this platform effectively'and if you've read this far, that probably includes you'needs to understand each one.
+Azure provides different execution models because cloud platforms need to support many different scenarios. Anybody who wants to use this platform effectively -- and if you've read this far, that probably includes you -- needs to understand each one.
 
 [01_CreatingVMs]: ./media/fundamentals-application-models/ExecModels_01_CreatingVMs.png
 [02_CloudServices]: ./media/fundamentals-application-models/ExecModels_02_CloudServices.png

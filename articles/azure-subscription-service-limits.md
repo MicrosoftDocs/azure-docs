@@ -165,32 +165,34 @@ The following document specifies some of the most common Microsoft Azure limits.
 <tr>
    <th align="left" valign="middle">Resource</th>
    <th align="left" valign="middle">Default Limit</th>
-   <th align="left" valign="middle">Maximum Limit</th>
 </tr>
 <tr>
    <td valign="middle"><p>TB per storage account<sup>2</sup></p></td>
-   <td valign="middle"><p>200</p></td>
-   <td valign="middle"><p>200</p></td>
+   <td valign="middle"><p>500</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Max IOPS for persistent disk</p></td>
-   <td valign="middle"><p>500</p></td>
    <td valign="middle"><p>500<sup>3</sup></p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Max IOPS per storage account</p></td>
    <td valign="middle"><p>20,000</p></td>
-   <td valign="middle"><p>20,000</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max ingress per storage account</p></td>
-   <td valign="middle"><p>5Gbps if GRS<sup>4</sup> enabled, 10Gbps with it disabled</p></td>
-   <td valign="middle"><p>5Gbps if GRS<sup>4</sup> enabled, 10Gbps with it disabled</p></td>
+   <td valign="middle"><p>Max ingress per storage account (US Regions)</p></td>
+   <td valign="middle"><p>10 Gbps if GRS<sup>4</sup> enabled, 20 Gbps with it disabled</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max egress per storage account</p></td>
-   <td valign="middle"><p>10Gbps if GRS<sup>4</sup> enabled, 15Gbps with it disabled</p></td>
-   <td valign="middle"><p>10Gbps if GRS<sup>4</sup> enabled, 15Gbps with it disabled</p></td>
+   <td valign="middle"><p>Max ingress per storage account (European and Asian Regions)</p></td>
+   <td valign="middle"><p>5 Gbps if GRS<sup>4</sup> enabled, 10 Gbps with it disabled</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Max egress per storage account (US Regions)</p></td>
+   <td valign="middle"><p>20 Gbps if GRS<sup>4</sup> enabled, 30 Gbps with it disabled</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Max egress per storage account (European and Asian Regions)</p></td>
+   <td valign="middle"><p>10 Gbps if GRS<sup>4</sup> enabled, 15 Gbps with it disabled</p></td>
 </tr>
 </table>
 

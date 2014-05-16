@@ -97,15 +97,15 @@ In additional to representations, you can also specify an optional text descript
 
 It is a good practice to provide examples of responses for all status codes that the operation may produce. Each status code may have more than one response body example, one for each of the supported content types. 
 
-To add a response, click on add response and start typing the desired status code. In this example the status code is **200 OK**. Once the code is displayed in the drop-down, select it, and the response code is created and added to your operation.
+To add a response, click **Add** and start typing the desired status code. In this example the status code is **200 OK**. Once the code is displayed in the drop-down, select it, and the response code is created and added to your operation.
 
 ![Response code][api-management-response-code]
 
-Click add representation, start typing the desired content type name (e.g. application/json) and then select it in the drop down.
+Click **Add Representation**, start typing the desired content type name (e.g. application/json) and then select it in the drop down.
 
 ![Body content type][api-management-response-body-content-type]
 
-Paste the request body example in the selected format into the text box. 
+Paste the response body example in the selected format into the text box. 
 
 ![Response body][api-management-response-body]
 
