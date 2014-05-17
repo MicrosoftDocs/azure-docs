@@ -1,5 +1,4 @@
 <properties linkid="mobile-services-sql-scale-guidance" urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="Scale mobile services backed by Azure SQL Database - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" metaCanonical="" services="" documentationCenter="Mobile" title="Scale mobile services backed by Azure SQL Database" authors="yavorg" solutions="" manager="" editor="mollybos" />
-  
 # Scale mobile services backed by Azure SQL Database
 
 Azure Mobile Services makes it very easy to get started and build an app that connects to a cloud-hosted backend that stores data in a SQL database. As your app grows, scaling your service instances is as simple as adjusting scale settings in the portal to add more computational and networking capacity. However, scaling the SQL database backing your service requires some proactive planning and monitoring as the service receives more load. This document will walk you through a set of best practices to ensure continued great performance of your SQL-backed mobile services.
@@ -10,11 +9,83 @@ This topic walks you through these basic sections:
 2. [Indexing](#Indexing)
 3. [Schema Design](#Schema)
 4. [Query Design](#Query)
-5. [Choosing the Right SQL Database Tier](#SQLTiers)
+5. [Service Architecture](#Architecture)
 6. [Advanced Diagnostics](#Advanced)
 
 <a name="Diagnosing"></a>
-# Diagnosing Problems
+## Diagnosing Problems
+
+If you suspect your mobile service is experiencing problems under load, the first place to check is the **Dashboard** tab for your service in the [Azure Management Portal](http://manage.windowsazure.com). Some of the things to verify here:
+- Your usage meters including **API Calls** and **Active Devices** meters are not over quota
+- **Endpoint Monitoring** status indicates service is up (only available if service is using the Standard tier and Endpoint Monitoring is enabled) 
+
+If any of the above is not true, consider adjusting your scale settings on the *Scale* tab. If that does not address the issue, we can proceed and investigate whether Azure SQL Database may be the source of the issue. The next few sections cover a few different approaches to diagnose what may be going wrong.
+
+### Choosing the Right SQL Database Tier 
+
+It is important to understand the different database tiers you have at your disposal to ensure you've picked the right tier given your app's needs. Azure SQL Database offers two different database editions with different tiers:
+- Web and Business Edition
+- Basic, Standard, and Premium Edition (currently in preview)
+
+ While the Web and Business Edition is fully supported, it is being sunset by April 24, 2015 as discussed in [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/en-US/library/azure/dn741330.aspx). We encourage new customers to start using the Basic, Standard, and Premium preview in preparation for this change, if their application requirements allow it. 
+
+#### Web and Business Edition
+
+Currently this is the default edition used by Mobile Services. Here are some recommendations in selecting the tier for your mobile service:
+- **Free 20 MB database** - use for development purposes only 
+- **Web and Business** - use for development and production services. The tiers provide the same level of performance, however Web tier only supports databases up to 5GB in size. For larger databases, use the Business tier. 
+
+#### Basic, Standard, and Premium Edition
+
+This new edition provides a variety of new tiers and monitoring capabilities that make it even easier to understand and troubleshoot database performance. To use this edition with your mobile service:
+
+1. Navigate to the [Preview Features](https://account.windowsazure.com/previewfeatures) page and sign up for **New Service Tiers for SQL Databases**
+2. Once the preview feature is active, launch the [Azure Management Portal](http://manage.windowsazure.com).
+3. Select **+NEW** in the toolbar and then pick **Data Services**, **SQL Database**, **Quick Create**.
+4. Enter a database name and then select **New SQL database server** in the **Server** field. This will create a server that is using the new Basic, Standard, and Premium Edition. 
+5. Fill out the rest of the fields and select **Create SQL Database**. This will create a 100MB database using the Basic tier.
+6. Configure your mobile service to use the database you just created
+    - If you are creating a new mobile service, select **+NEW**, **Compute**, **Mobile Service**, **Create**. On the next screen, fill out the values while selecting **Use an existing SQL database** in the **Database** field. Select *Next* and on the next screen be sure to pick the database you created in step 5, then select **OK**.
+    - If you already have a mobile service, navigate to the **Configure** tab for that service and select **Change Database** in the toolbar. On the next screen, select **Use an existing SQL database** in the **SQL Database** field. Select *Next* and on the next screen be sure to pick the database you created in step 5, then select **OK**.
+
+Here are some recommendations on selecting the right tier for your mobile service:
+- **Basic** - use at development time or for small productions where you only expect to make a single database query at a time
+- **Standard** - use for production services where you expect multiple concurrent database queries
+- **Premium** - use for large scale production services with many concurrent queries, high peak load, and expected low latency for every request.
+
+For more information on when to use each tier, see [Reasons to Use the new Service Tiers](http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Reasons)
+
+### Analyzing Database Metrics
+
+Now that we are familiar with the different database tiers, we can explore database performance metrics to help us reason about scaling within and among the tiers.
+
+1. Launch the [Azure Management Portal](http://manage.windowsazure.com).
+2. On the Mobile Services tab, select the service you want to work with.
+3. Select the **Configure** tab.
+4. Select the **SQL Database** name in the **Database Settings** section. This will navigate to the Azure SQL Database tab in the portal.
+5. Navigate to the **Monitor** tab
+6. Ensure the relevant metrics are displayed by using the **Add Metrics** button. Include the following
+    - *CPU Percentage* (available only in Basic/Standard/Premium tiers)
+    - *Physical Data Reads Percentage* (available only in Basic/Standard/Premium tiers) 
+    - *Log Writes Percentage* (available only in Basic/Standard/Premium tiers)
+    - *Storage* 
+7. Inspect the metrics over the time window when your service was experiencing issues. 
+
+Image
+
+If any metric exceeds 80% utilization for an extended period of time, this could indicate a performance problem. For more detailed information on understanding database utilization, see [Understanding Resource Use](http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Resource).
+
+If the metrics indicate your database is incurring high utilization, consider the following mitigation steps:
+- **Scale up the database to a higher service tier.**
+  To immediately resolve issues, consider using the **Scale** tab to scale up your database. This will result in an increase in your bill.
+- **Tune your database**
+  It is frequently possible to reduce database utilization and avoid having to scale to a higher tier by optimizing your database. 
+- **Consider your service architecture**
+  Frequently your service load is not distributed evenly over time but contains "spikes" of high demand. Instead of scaling the database up to handle the spikes, and having it go underutilized during periods of low demand, it is frequently possible to adjust the service architecture to avoid such spikes, or to handle them without incurring database hits.
+
+The remaining sections of this document contain tailored guidance to help with implementing these mitigations.
+
+### Configuring Alerts
 
 <a name="Indexing"></a>
 ## Indexing
@@ -25,8 +96,8 @@ This topic walks you through these basic sections:
 <a name="Query"></a>
 ## Query Design
 
-<a name="SQLTiers"></a>
-## Choosing the Right SQL Database Tier 
+<a name="Architecture"></a>
+## Service Architecture
 
 <a name="Advanced"></a>
 ## Advanced Diagnostics
@@ -46,7 +117,7 @@ The the following steps walk you through obtaining the connection information fo
 2. On the Mobile Services tab, select the service you want to work with.
 3. Select the **Configure** tab.
 4. Select the **SQL Database** name in the **Database Settings** section. This will navigate to the Azure SQL Database tab in the portal.
-5. Select **Set up Windows Azure firewall rules for this IP address**/
+5. Select **Set up Windows Azure firewall rules for this IP address**.
 6. Make a note of the server address in the **Connect to your database** section, for example: *mcml4otbb9.database.windows.net*.
 
 #### SQL Server Management Studio
@@ -73,6 +144,8 @@ The the following steps walk you through obtaining the connection information fo
 3. You should now be connected.
 
     ![Azure Management Portal - SQL Database][PortalSqlManagement]
+
+### Advanced Diagnostics
 
 ### Advanced Indexing
 
