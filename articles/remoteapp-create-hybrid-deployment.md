@@ -24,7 +24,7 @@ You need to do the following before creating the service:
 - Gather information about your on-premises network: IP address information and VPN device details.
 - Install the [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) module.
 - Gather information about the users and groups that you want to grant access to. This can be either Microsoft account information or Active Directory organizational account information for users or groups.
-- Create a template image to use with your service. The template image contains the programs you want to make available to users.  See [Deploy Azure RemoteApp in your enterprise](http://go.microsoft.com/fwlink/?LinkId=397721) for more information about creating a template image.
+- Create a template image to use with your service. The template image contains the programs you want to make available to users.  
 
 ## **Step 1: Create a RemoteApp service** ##
 
@@ -71,7 +71,7 @@ If you are uploading a new image, you need to enter the name and choose the loca
 
 If you are linking to an existing template image, simply specify the image name, location, and associated Azure subscription.
 
-**Note:** You must use Windows Server 2012 R2 with Remote Desktop Session Host and the desktop experience installed to create your template image. See [Deploy Azure RemoteApp in your enterprise](http://go.microsoft.com/fwlink/?LinkId=397721) for more information about creating a template image.
+**Note:** You must use Windows Server 2012 R2 with Remote Desktop Session Host and the desktop experience installed to create your template image. 
 
 ## **Step 4: Configure Active Directory directory synchronization** ##
 
