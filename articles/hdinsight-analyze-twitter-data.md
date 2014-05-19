@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with Hive" pageTitle="Analyze Twitter data with HDinsight | Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on HDInsight to find usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with Hive" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analyze Twitter data with HDinsight Hadoop | Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on HDInsight Hadoop to find usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with HDInsight Hadoop" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-# Analyze Twitter data with HDInsight 
+# Analyze Twitter data with HDInsight Hadoop
 
 Learn how to analyze Twitter data using Hive with HDInsight.
 
@@ -472,7 +472,7 @@ Use the following PowerShell script to check the Hive job output. You will need 
 
 > [WACOM.NOTE] The Hive table uses \001 as the field delimiter. The delimiter is not visible in the output. 
 
-After the analysis results has been placed on WASB, you can export the data to Azure SQL database/SQL server, export the data to Excel using Power Query, or connect your application to the data using Hive ODBC driver.  For more information, see [Use Sqoop with HDInsight][hdinsight-sqoop] ,[Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data], [Connect Excel to HDInsight with Power Query][hdinsight-power-query], and [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-hive-odbc].
+After the analysis results has been placed on WASB, you can export the data to Azure SQL database/SQL server, export the data to Excel using Power Query, or connect your application to the data using Hive ODBC driver.  For more information, see [Use Sqoop with HDInsight][hdinsight-use-sqoop] ,[Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data], [Connect Excel to HDInsight with Power Query][hdinsight-power-query], and [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-hive-odbc].
    
 
 ##<a id="cleanup"></a>Tutorial clean up
@@ -489,7 +489,7 @@ In this tutorial we have seen how to transform unstructured Json dataset into st
 - [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]
 - [Connect Excel to HDInsight with Power Query][hdinsight-power-query]
 - [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-hive-odbc]
-- [Use Sqoop with HDInsight][hdinsight-sqoop]
+- [Use Sqoop with HDInsight][hdinsight-use-sqoop]
 
 [curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html
@@ -508,7 +508,7 @@ In this tutorial we have seen how to transform unstructured Json dataset into st
 [hdinsight-storage-powershell]: ../hdinsight-use-blob-storage/#powershell
 [hdinsight-analyze-flight-delay-data]: ../hdinsight-analyze-flight-delay-data/
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-sqoop]: ../hdinsight-use-sqoop/
+[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 

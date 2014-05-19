@@ -69,7 +69,7 @@ Sqoop is tool that transfers bulk data between Hadoop and relational databases s
 ###Microsoft Avro Library
 The Microsoft Avro Library implements the Apache Avro data serialization system for the Microsoft.NET environment. Apache Avro provides a compact binary data interchange format for serialization. It uses [JSON](http://www.json.org) to define language agnostic schema that underwrites language interoperability. Data serialized in one language can be read in another. Currently C, C++, C#, Java, PHP, Python, and Ruby are supported. Detailed information on the format can be found in the [Apache Avro Specification](http://avro.apache.org/docs/current/spec.html). Note that the current version of the Microsoft Avro Library does not support the Remote Procedure Calls (RPC) part of this specification.
 
-Apache Avro serialization format is widely used in Azure HDInsight and other Apache Hadoop environments. Avro provides a convenient way to represent complex data structures within a Hadoop MapReduce job. The format of Avro files has been designed to support the distributed MapReduce programming model. The key feature that enables the distribution is that the files are “splittable” in the sense that one can seek any point in a file and start reading from a particular block. For additional information, see [Serialize data with the Microsoft Avro Library](http://www.azure.com/en-us/documentation/articles/hdinsight-dotnet-avro-serialization/).
+Apache Avro serialization format is widely used in Azure HDInsight and other Apache Hadoop environments. Avro provides a convenient way to represent complex data structures within a Hadoop MapReduce job. The format of Avro files has been designed to support the distributed MapReduce programming model. The key feature that enables the distribution is that the files are “splittable” in the sense that one can seek any point in a file and start reading from a particular block. For additional information, see [Serialize data with the Microsoft Avro Library](../hdinsight-dotnet-avro-serialization/).
 
 ###Business intelligence tools and connectors
 
@@ -96,17 +96,17 @@ HDInsight (and Hadoop technologies in general) are most suitable for handling a 
 
 * [HDInsight Documentation](http://go.microsoft.com/fwlink/?LinkID=285601): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
 
-* [Get started with Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/): A tutorial that provides a quickstart for using HDInsight.
+* [Get started with Azure HDInsight][hdinsight-get-started]: A tutorial that provides a quickstart for using HDInsight.
 
-* [Run the HDInsight samples](/en-us/manage/services/hdinsight/howto-run-samples/): A tutorial on how the run the samples that ship with HDInsight.
+* [Run the HDInsight samples][hdinsight-samples]: A tutorial on how the run the samples that ship with HDInsight.
 
-* [Big data and Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/): Big data scenarios that explore what you can build with Azure.	
+* [Big data and Azure](http://azure.microsoft.com/en-us/solutions/big-data/): Big data scenarios that explore what you can build with Azure.	
 
 * [Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx): Reference documentation for the HDinsight SDK.
 
 **Microsoft: Windows and SQL Database**	
 
-* [Azure home page](https://www.windowsazure.com/en-us/): Scenarios, free trial sign up, development tools and documentation that you need get started building applications.
+* [Azure home page](http://azure.microsoft.com/en-us/): Scenarios, free trial sign up, development tools and documentation that you need get started building applications.
 		
 * [Azure SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx): MSDN documentation for SQL Database.
 	
@@ -116,9 +116,9 @@ HDInsight (and Hadoop technologies in general) are most suitable for handling a 
 
 **Microsoft: Business intelligence**		
 
-* [Connect Excel to HDInsight with Power Query][connect-excel-with-power-query]: Learn how to connect Excel to the Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
+* [Connect Excel to HDInsight with Power Query][hdinsight-power-query]: Learn how to connect Excel to the Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
 
-* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC]: Learn how to import data from Azure HDInsight with the Microsoft Hive ODBC Driver.
+* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-ODBC]: Learn how to import data from Azure HDInsight with the Microsoft Hive ODBC Driver.
 
 * [Microsoft BI PowerPivot](http://www.microsoft.com/en-us/bi/PowerPivot.aspx): Download and get information about a powerful data mashup and exploration tool.
 			
@@ -134,8 +134,9 @@ HDInsight (and Hadoop technologies in general) are most suitable for handling a 
 
 * [MapReduce](http://mapreduce.org/): Learn more about the programming  framework for writing Hadoop applications that rapidly process vast amounts of data in parallel on large clusters of compute nodes.	
 
-[connect-excel-with-hive-ODBC]: /en-us/manage/services/hdinsight/connect-excel-with-hive-ODBC/
-
-[connect-excel-with-power-query]: /en-us/manage/services/hdinsight/connect-excel-with-power-query/
+[hdinsight-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
+[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
+[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-samples]: ../hdinsight-run-samples/
 
 [zookeeper]: http://zookeeper.apache.org/ 
