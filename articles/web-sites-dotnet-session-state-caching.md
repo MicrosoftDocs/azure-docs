@@ -2,7 +2,6 @@
 
 
 
-
 # How to Use ASP.NET Session State with Azure Web Sites
 
 This topic explains how to use the Azure Cache Service (Preview) to support ASP.NET session state caching.
