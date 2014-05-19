@@ -9,10 +9,10 @@ This topic provides a reference for the following API Management (Preview) polic
 	-	[Rate limit][] - Prevents API usage spikes by limiting calls and/or the bandwidth consumption rate.
 	-	[Caller IP restriction][] - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
 -	[Content transformation policies][]
-	-	[Set HTTP headers][] - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
+	-	[Set HTTP header][] - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
 	-	[Convert XML to JSON][] - Converts request or response body from XML to either "JSON" or "XML faithful" form of JSON.
 	-	[Replace string in body][] - Finds a request or response substring and replaces it with a different substring.
-	-	[Set query string parameters][] - Adds, replaces value of, or deletes request query string parameter.
+	-	[Set query string parameter][] - Adds, replaces value of, or deletes request query string parameter.
 -	[Caching policies][]
 	-	[Store to cache][] - Cache response according to the specified cache configuration.
 	-	[Get from cache][] - Perform cache look up and return a valid cached response when available.
@@ -38,10 +38,11 @@ Enforce a renewable or lifetime call volume and / or bandwidth quota.
 **Policy Statement:**
 
 	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-        <api name="name" calls="number" bandwidth="kilobytes" renewal-period="seconds">
-            <operation name="name" calls="number" bandwidth="kilobytes" renewal-period="seconds" />
-        </api>
-    </quota>
+	    <api name="name" calls="number" bandwidth="kilobytes">
+	        <operation name="name" calls="number" bandwidth="kilobytes" />
+	    </api>
+	</quota>
+
 
 **Example:**
 
@@ -208,12 +209,12 @@ This policy is only required when tight control over access is required (e.g. fo
 
 ## <a name="content-transformation-policies"> </a> Content transformation policies
 
--	[Set HTTP headers][] - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
+-	[Set HTTP header][] - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
 -	[Convert XML to JSON][] - Converts request or response body from XML to either "JSON" or "XML faithful" form of JSON.
 -	[Replace string in body][] - Finds a request or response substring and replaces it with a different substring.
--	[Set query string parameters][] - Adds, replaces value of, or deletes request query string parameter.
+-	[Set query string parameter][] - Adds, replaces value of, or deletes request query string parameter.
 
-### <a name="set-http-headers"> </a> Set HTTP headers
+### <a name="set-http-header"> </a> Set HTTP header
 
 **Description:**
 Assigns a value to an existing response and/or request header or adds a new response and/or request header.
@@ -222,19 +223,18 @@ Inserts a list of HTTP headers into an HTTP message. When placed in an inbound p
 
 **Policy Statement:**
 
-	<set-headers reconcile-action="override | skip |append">
-        <header name="header name" exists-action="override | skip | append">
-        <value>value</value> <!--for multiple headers with the same name add additional value elements-->
-    	</header> 
-	</set-headers>
+	<set-header name="header name" exists-action="override | skip | append | delete">
+	    <value>value</value> <!--for multiple headers with the same name add additional value elements-->
+	</set-header>
+
 
 **Example:**
 
-	<set-headers exists-action="override">
+	<set-header exists-action="override">
         <header name="some value to set" exists-action="override">
         <value>20</value> 
         </header>
-    </set-headers>
+    </set-header>
 
 
 **Where it can be applied:**
@@ -361,28 +361,29 @@ Use in the inbound and outbound sections at any scope.
 </tbody>
 </table>
 
-### <a name="set-query-string-parameters"> </a> Set query string parameters
+### <a name="set-query-string-parameter"> </a> Set query string parameter
 
 **Description:**
 Adds, replaces value of, or deletes request query string parameter.
 
 **Policy Statement:**
 
-	<set-query-parameters>
- 		<parameter name="param name" exists-action="override | skip | append | delete">
-    </set-query-parameters>
+	<set-query-parameter name="param name" exists-action="override | skip | append | delete">
+	    <value>value</value> <!--for multiple parameters with the same name add additional value elements-->
+	</set-query-parameter>
+
 
 **Example:**
 
 	<policies>
 		<inbound>
 			<base />
-			<set-query-parameters>
+			<set-query-parameter>
 				<parameter name="api-key" exists-action="skip">
  					<value>12345678901</value>
         		</parameter>
     			<!-- for multiple parameters with the same name add additional value elements -->
-    		</set-query-parameters>
+    		</set-query-parameter>
   		</inbound>
   		<outbound>
 			<base />
@@ -764,10 +765,10 @@ Use in the inbound section and only in the *API* and *Operation* scopes.
 [Caller IP restriction]: #caller-ip-restriction
 
 [Content transformation policies]: #content-transformation-policies
-[Set HTTP headers]: #set-http-headers
+[Set HTTP header]: #set-http-header
 [Convert XML to JSON]: #convert-xml-to-json
 [Replace string in body]: #replace-string-in-body
-[Set query string parameters]: #set-query-string-parameters
+[Set query string parameter]: #set-query-string-parameter
 
 [Caching policies]: #caching-policies
 [Store to cache]: #store-to-cache
