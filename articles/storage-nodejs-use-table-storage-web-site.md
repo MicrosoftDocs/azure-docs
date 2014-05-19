@@ -389,8 +389,8 @@ In this section you will extend the basic application created by the **express**
 
 3. In the app.js file, scroll down to where you see the following line:
 
-		app.get('/', routes.index);
-		app.get('/users', user.list);
+		app.use('/', routes);
+		app.use('/users', users);
 
 	Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
