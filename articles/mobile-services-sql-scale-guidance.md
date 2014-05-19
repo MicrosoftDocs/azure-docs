@@ -25,18 +25,18 @@ For instance, if you often need to look up an element by ID, you should consider
 
 So, if you are frequently doing SELECT or JOIN statements on particular columns, you should make sure you index them. See the section [Creating Indexes](#CreatingIndexes) for more information.
 
-If indexes are so great and table scans are so bad, does that mean you should index every column in your table, just to be safe?  The short answer is, "probably not.  Indexes take up space and have overhead themselves: every time there is an insert in a table, the index structures for each of the indexed columns need to be updated. See below for guidelines on how to choose your column indexes.
+If indexes are so great and table scans are so bad, does that mean you should index every column in your table, just to be safe?  The short answer is, "probably not." Indexes take up space and have overhead themselves: every time there is an insert in a table, the index structures for each of the indexed columns need to be updated. See below for guidelines on how to choose your column indexes.
 
 ### Index Design Guidelines
 
 As mentioned above, it's not always better to add more indexes to a table, because indexes themselves can be costly, both in terms of performance and storage overhead.
 
-#### Query considerations
+**Query considerations**
 
 * Consider adding indexes to columns that are frequently used in predicates (e.g., WHERE clauses) and join conditions, while balancing the database considerations below.
 * Write queries that insert or modify as many rows as possible in a single statement, instead of using multiple queries to update the same rows. When there is only one statement, the database engine can better optimize how it maintains indexes.
 	
-#### Database considerations
+**Database considerations**
 
 Large numbers of indexes on a table affect the performance of INSERT, UPDATE, DELETE, and MERGE statements because all indexes must be adjusted appropriately as data in the table changes.
 
@@ -54,7 +54,7 @@ Indexing small tables may not be optimal because it can take the query optimizer
 
 To set the index for a column in the JavaScript backend, do the following:
 
-1. Open your mobile service in the Azure management portal.
+1. Open your mobile service in the [Azure Management Portal][].
 2. Click the **Data** tab.
 3. Select the table you want to modify.
 4. Click the **Columns** tab.
@@ -68,15 +68,13 @@ You can also remove indexes within this view.
 
 To define an index in Entity Framework, use the attribute `[Index]` on the fields that you want to index. For example:
 
-		public class Post 
-		{ 
-		    public int Id { get; set; } 
-		    public string Title { get; set; } 
-		    public string Content { get; set; } 
-		    [Index] 
-		    public int Rating { get; set; } 
-		    public int BlogId { get; set; } 
-		}
+    public class TodoItem : EntityData
+    {
+        public string Text { get; set; }
+
+		[Index]
+        public bool Complete { get; set; }
+    }
 		 
 For more information, see [Index Annotations in Entity Framework][].
 
@@ -146,7 +144,7 @@ A table or view can contain the following types of indexes:
 To provide a real-world analogy: consider a book or a technical manual. The contents of each page are a record, the page number is the clustered index, and the topic index in the back of the book is a nonclustered index. Each entry in the topic index points to the clustered index, the page number.
 
 > [WACOM.NOTE] 
-> By default, the JavaScript backend of Azure Mobile Services sets **\_createdAt** as the clustered index. If you remove this column, or if you want a different clustered index, be sure to follow the [clustered index design guidelines](#ClusteredIndexes) below. In the .NET backend, the class `TableData` defines `CreatedAt` as a clustered index using the annotation `[Index(IsClustered = true)]`
+> By default, the JavaScript backend of Azure Mobile Services sets **\_createdAt** as the clustered index. If you remove this column, or if you want a different clustered index, be sure to follow the [clustered index design guidelines](#ClusteredIndexes) below. In the .NET backend, the class `EntityData` defines `CreatedAt` as a clustered index using the annotation `[Index(IsClustered = true)]`
 
 <a name="ClusteredIndexes"></a>
 ### Clustered index design guidelines
@@ -164,7 +162,7 @@ The reason for the **narrow** property is that all other indexes on a table use 
 
 The key should be **static** and **ever-increasing** to avoid having to maintain the physical location of the records (which means either moving records physically, or potentially fragmenting storage by splitting the pages where the records are stored). 
 
-#### Query considerations for clustered indexes
+**Query considerations for clustered indexes**
 
 The clustered index will be most valuable for queries that do the following:
 
@@ -174,7 +172,7 @@ The clustered index will be most valuable for queries that do the following:
 - Use ORDER BY, or GROUP BY clauses.
 	- An index on the columns specified in the ORDER BY or GROUP BY clause may remove the need for the Database Engine to sort the data, because the rows are already sorted. This improves query performance.
 
-### Defining indexes and constraints 
+### Creating clustered indexes in Entity Framework
 
 To set the clustered index in the .NET backend using Entity Framework, set the `IsClustered` property of the annotation. For example, this is the definition of `CreatedAt` in `Microsoft.WindowsAzure.Mobile.Service.EntityData`:
 
@@ -183,6 +181,9 @@ To set the clustered index in the .NET backend using Entity Framework, set the `
         [TableColumnAttribute(TableColumnType.CreatedAt)]
         public DateTimeOffset? CreatedAt { get; set; }
 
+### Creating indexes in the database schema
+
+For the JavaScript backend, you can only modify the clustered index of a table by changing the database schema directly, either through SQL Server Management Studio or the Azure SQL Database Portal.
 
 The following guides describe how to set a clustered or nonclustered index by modifying the database schema directly:  
 
@@ -293,6 +294,8 @@ For more information, see [Monitoring SQL Database Using Dynamic Management View
 [SetIndexJavaScriptPortal]: ./media/mobile-services-sql-scale-guidance/set-index-portal-ui.png
  
 <!-- LINKS -->
+
+[Azure Management Portal]: http://manage.windowsazure.com
 
 [Azure SQL Database Documentation]: http://azure.microsoft.com/en-us/documentation/services/sql-database/
 [Managing SQL Database using SQL Server Management Studio]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
