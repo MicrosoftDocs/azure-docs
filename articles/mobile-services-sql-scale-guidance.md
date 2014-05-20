@@ -254,19 +254,28 @@ To execute any of the queries below, past it into the window and select **Run**.
 
 ![SQL Database Management Portal - run query][PortalSqlManagementRunQuery]
 
+#### Advanced Metrics
+
+The management portal makes certain metrics readily available if using the Basic, Standard, and Premium tiers. However if using the Web and Business tiers, only the Storage metric is available via the portal. Fortunately, it is easy to obtain these and other metrics using the **[sys.resource\_stats](http://msdn.microsoft.com/en-us/library/dn269979.aspx)** management view, regardless of what tier you're using. Consider the following query:
+
+    SELECT TOP 10 * 
+    FROM sys.resource_stats 
+    WHERE database_name = 'todoitem_db' 
+    ORDER BY start_time DESC
+
+> [WACOM.NOTE] 
+> Please execute this query on the **master** database on your server, the **sys.resource\_stats** view is only present there.
+
+The result will contain the following useful metrics: CPU (% of tier limit), Storage (megabytes), Physical Data Reads (% of tier limit), Log Writes (% of tier limit), Memory (% of tier limit), Worker Count, Session Count, etc. 
+
 #### SQL connectivity events
 
-The **sys.event\_log** view contains the details of connectivity-related events. The columns contained in this view, and the types of events it collects, are described in [sys.event_log](http://msdn.microsoft.com/en-us/library/azure/jj819229.aspx).
-x`
+The **[sys.event\_log](http://msdn.microsoft.com/en-us/library/azure/jj819229.aspx)** view contains the details of connectivity-related events.
+
     select * from sys.event_log 
-    where database_name = 'my_user_db'
+    where database_name = 'todoitem_db'
     and event_type like 'throttling%'
     order by start_time desc
-
-
-    event_type                   event_count description
-    ---------------------------- ----------- ----------------
-    throttling_long_transaction  2           The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.
 
 <a name="AdvancedIndexing" />
 ### Advanced Indexing
