@@ -608,7 +608,7 @@ After the HttpPost `Create` method uploads a blob and updates the database, it c
 
 		string queueMessageString = ad.AdId.ToString();
 		var queueMessage = new CloudQueueMessage(queueMessageString);
-		queue.AddMessage(queueMessage);
+		await queue.AddMessageAsync(queueMessage);
 
 The code for the HttpPost `Edit` method is similar except that if the user selects a new image file any blobs that already exist must be deleted.
  
