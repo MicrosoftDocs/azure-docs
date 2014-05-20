@@ -184,7 +184,7 @@ The Azure Management Portal offers a built-in management experience, which is mo
 
 The the following steps walk you through obtaining the connection information for the SQL database backing your mobile service and then using either of the two tools to connect to it. You may pick whichever tool you prefer.
 
-#### Obtain SQL Connection Information 
+#### Obtain SQL connection information 
 1. Launch the [Azure Management Portal][].
 2. On the Mobile Services tab, select the service you want to work with.
 3. Select the **Configure** tab.
@@ -219,6 +219,8 @@ The the following steps walk you through obtaining the connection information fo
 
 ### Advanced Diagnostics
 
+#### SQL connectivity events
+
 The **sys.event\_log** view contains the details of connectivity-related events. The columns contained in this view, and the types of events it collects, are described in [sys.event_log](http://msdn.microsoft.com/en-us/library/azure/jj819229.aspx).
 
     select * from sys.event_log 
@@ -243,7 +245,7 @@ A table or view can contain the following types of indexes:
 To provide a real-world analogy: consider a book or a technical manual. The contents of each page are a record, the page number is the clustered index, and the topic index in the back of the book is a nonclustered index. Each entry in the topic index points to the clustered index, the page number.
 
 > [WACOM.NOTE] 
-> By default, the JavaScript backend of Azure Mobile Services sets **\_createdAt** as the clustered index. If you remove this column, or if you want a different clustered index, be sure to follow the [clustered index design guidelines](#ClusteredIndexes) below. In the .NET backend, the class `EntityData` defines `CreatedAt` as a clustered index using the annotation `[Index(IsClustered = true)]`
+> By default, the JavaScript backend of Azure Mobile Services sets **\_createdAt** as the clustered index. If you remove this column, or if you want a different clustered index, be sure to follow the [clustered index design guidelines](#ClusteredIndexes) below. In the .NET backend, the class `EntityData` defines `CreatedAt` as a clustered index using the annotation `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>
 #### Clustered index design guidelines
@@ -290,13 +292,13 @@ The following guides describe how to set a clustered or nonclustered index by mo
 - [Create Unique Indexes][]
 
 
-#### Find the top 10 missing indexes 
+#### Find top N missing indexes 
 You can write SQL queries on dynamic management views that will tell you more detailed information about the resource usage of individual queries or give you heuristics on what indexes to add. The following query determines which 10 missing indexes would produce the highest anticipated cumulative improvement, in descending order, for user queries.
 
-        SELECT TOP 10 *
-        FROM sys.dm_db_missing_index_group_stats
-        ORDER BY avg_total_user_cost * avg_user_impact * (user_seeks + user_scans)
-        DESC;
+    SELECT TOP 10 *
+    FROM sys.dm_db_missing_index_group_stats
+    ORDER BY avg_total_user_cost * avg_user_impact * (user_seeks + user_scans)
+    DESC;
 
 The following example query runs a join across these tables to get a list of the columns that should be part of each missing index and calculates an 'index advantage' to determine if the given index should be considered:
 
@@ -314,11 +316,11 @@ The following example query runs a join across these tables to get a list of the
       AND migs_adv.index_advantage > 10
     ORDER BY migs_adv.index_advantage DESC;
 
-For more information, see [Monitoring SQL Database Using Dynamic Management Views][] and [sys.dm\_db\_missing\_index\_group\_stats](sys-missing-index-stats).
+For more information, see [Monitoring SQL Database Using Dynamic Management Views][] and [Missing Index Dynamic Management Views](sys-missing-index-stats).
 
 ### Advanced Query Design 
 
-#### Finding Top N Queries
+#### Finding top N queries
 
 The following example returns information about the top five queries ranked by average CPU time. This example aggregates the queries according to their query hash, so that logically equivalent queries are grouped by their cumulative resource consumption.
 
@@ -338,7 +340,7 @@ The following example returns information about the top five queries ranked by a
 	GROUP BY query_stats.query_hash
 	ORDER BY 2 DESC;
 
-For more information, see [Monitoring SQL Database Using Dynamic Management Views][] .
+For more information, see [Monitoring SQL Database Using Dynamic Management Views][].
 
 ## See Also
 
