@@ -10,7 +10,7 @@ This topic walks you through these basic sections:
 3. [Schema Design](#Schema)
 4. [Query Design](#Query)
 5. [Service Architecture](#Architecture)
-6. [Advanced Diagnostics](#Advanced)
+6. [Advanced Troubleshooting](#Advanced)
 
 <a name="Diagnosing"></a>
 ## Diagnosing Problems
@@ -115,12 +115,12 @@ If indexes are so great and table scans are so bad, does that mean you should in
 
 As mentioned above, it's not always better to add more indexes to a table, because indexes themselves can be costly, both in terms of performance and storage overhead.
 
-**Query considerations**
+#### Query considerations
 
 * Consider adding indexes to columns that are frequently used in predicates (e.g., WHERE clauses) and join conditions, while balancing the database considerations below.
 * Write queries that insert or modify as many rows as possible in a single statement, instead of using multiple queries to update the same rows. When there is only one statement, the database engine can better optimize how it maintains indexes.
 	
-**Database considerations**
+#### Database considerations
 
 Large numbers of indexes on a table affect the performance of INSERT, UPDATE, DELETE, and MERGE statements because all indexes must be adjusted appropriately as data in the table changes.
 
@@ -172,7 +172,7 @@ For more information, see [Index Annotations in Entity Framework][].
 ## Service Architecture
 
 <a name="Advanced"></a>
-## Advanced Diagnostics
+## Advanced Troubleshooting
 This section covers some more advanced diagnostic tasks, which may be useful if the steps so far have not addressed the issue fully.
 
 ### Prerequisites
@@ -219,6 +219,19 @@ The the following steps walk you through obtaining the connection information fo
 
 ### Advanced Diagnostics
 
+The **sys.event\_log** view contains the details of connectivity-related events. The columns contained in this view, and the types of events it collects, are described in [sys.event_log](http://msdn.microsoft.com/en-us/library/azure/jj819229.aspx).
+
+    select * from sys.event_log 
+    where database_name = 'my_user_db'
+    and event_type like 'throttling%'
+    order by start_time desc
+
+
+    event_type                   event_count description
+    ---------------------------- ----------- ----------------
+    throttling_long_transaction  2           The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.
+
+
 ### Advanced Indexing
 
 A table or view can contain the following types of indexes:
@@ -233,7 +246,7 @@ To provide a real-world analogy: consider a book or a technical manual. The cont
 > By default, the JavaScript backend of Azure Mobile Services sets **\_createdAt** as the clustered index. If you remove this column, or if you want a different clustered index, be sure to follow the [clustered index design guidelines](#ClusteredIndexes) below. In the .NET backend, the class `EntityData` defines `CreatedAt` as a clustered index using the annotation `[Index(IsClustered = true)]`
 
 <a name="ClusteredIndexes"></a>
-### Clustered index design guidelines
+#### Clustered index design guidelines
 
 Every table should have a clustered index on the column (or columns, in the case of a composite key) with the following properties:
 
@@ -248,8 +261,6 @@ The reason for the **narrow** property is that all other indexes on a table use 
 
 The key should be **static** and **ever-increasing** to avoid having to maintain the physical location of the records (which means either moving records physically, or potentially fragmenting storage by splitting the pages where the records are stored). 
 
-**Query considerations for clustered indexes**
-
 The clustered index will be most valuable for queries that do the following:
 
 - Return a range of values by using operators such as BETWEEN, >, >=, <, and <=. 
@@ -258,7 +269,7 @@ The clustered index will be most valuable for queries that do the following:
 - Use ORDER BY, or GROUP BY clauses.
 	- An index on the columns specified in the ORDER BY or GROUP BY clause may remove the need for the Database Engine to sort the data, because the rows are already sorted. This improves query performance.
 
-### Creating clustered indexes in Entity Framework
+#### Creating clustered indexes in Entity Framework
 
 To set the clustered index in the .NET backend using Entity Framework, set the `IsClustered` property of the annotation. For example, this is the definition of `CreatedAt` in `Microsoft.WindowsAzure.Mobile.Service.EntityData`:
 
@@ -267,7 +278,7 @@ To set the clustered index in the .NET backend using Entity Framework, set the `
         [TableColumnAttribute(TableColumnType.CreatedAt)]
         public DateTimeOffset? CreatedAt { get; set; }
 
-### Creating indexes in the database schema
+#### Creating indexes in the database schema
 
 For the JavaScript backend, you can only modify the clustered index of a table by changing the database schema directly, either through SQL Server Management Studio or the Azure SQL Database Portal.
 
@@ -279,43 +290,33 @@ The following guides describe how to set a clustered or nonclustered index by mo
 - [Create Unique Indexes][]
 
 
-### Advanced Database Views
-
-You can also write SQL queries on dynamic management views that will tell you more detailed information about the resource usage of individual queries or give you heuristics on what indexes to add.
-
 #### Find the top 10 missing indexes 
-The following query determines which 10 missing indexes would produce the highest anticipated cumulative improvement, in descending order, for user queries.
+You can write SQL queries on dynamic management views that will tell you more detailed information about the resource usage of individual queries or give you heuristics on what indexes to add. The following query determines which 10 missing indexes would produce the highest anticipated cumulative improvement, in descending order, for user queries.
 
-		SELECT TOP 10 *
-		FROM sys.dm_db_missing_index_group_stats
-		ORDER BY avg_total_user_cost * avg_user_impact * (user_seeks + user_scans)
-		DESC;
-
-
-#### sys.dm\_db\_missing\_index*
-
-These views provide information about missing indexes. The views are:
-
-- `dm_db_missing_index_groups`
-- `dm_db_missing_index_details`
-- `dm_db_missing_index_group_stats`
+        SELECT TOP 10 *
+        FROM sys.dm_db_missing_index_group_stats
+        ORDER BY avg_total_user_cost * avg_user_impact * (user_seeks + user_scans)
+        DESC;
 
 The following example query runs a join across these tables to get a list of the columns that should be part of each missing index and calculates an 'index advantage' to determine if the given index should be considered:
 
-	SELECT * from 
-	(
-		SELECT 
-	    (user_seeks+user_scans) * avg_total_user_cost * (avg_user_impact * 0.01) AS index_advantage, migs.*
-		FROM sys.dm_db_missing_index_group_stats migs
-	) AS migs_adv,
-	  sys.dm_db_missing_index_groups mig,
-	  sys.dm_db_missing_index_details mid
-	WHERE
+    SELECT * from 
+    (
+        SELECT 
+        (user_seeks+user_scans) * avg_total_user_cost * (avg_user_impact * 0.01) AS index_advantage, migs.*
+        FROM sys.dm_db_missing_index_group_stats migs
+    ) AS migs_adv,
+      sys.dm_db_missing_index_groups mig,
+      sys.dm_db_missing_index_details mid
+    WHERE
       migs_adv.group_handle = mig.index_group_handle and
       mig.index_handle = mid.index_handle
       AND migs_adv.index_advantage > 10
     ORDER BY migs_adv.index_advantage DESC;
 
+For more information, see [Monitoring SQL Database Using Dynamic Management Views][] and [sys.dm\_db\_missing\_index\_group\_stats](sys-missing-index-stats).
+
+### Advanced Query Design 
 
 #### Finding Top N Queries
 
@@ -336,23 +337,8 @@ The following example returns information about the top five queries ranked by a
 	     CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
 	GROUP BY query_stats.query_hash
 	ORDER BY 2 DESC;
-		
 
-#### sys.event\_log
-This view contains the details of connectivity-related events. The columns contained in this view, and the types of events it collects, are described in sys.event_log.
-
-	select * from sys.event_log 
-	where database_name = 'my_user_db'
-	and event_type like 'throttling%'
-	order by start_time desc
-
-
-	event_type                   event_count description
-	---------------------------- ----------- ----------------
-	throttling_long_transaction  2           The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.
-
-
-For more information, see [Monitoring SQL Database Using Dynamic Management Views][] and [sys.dm\_db\_missing\_index\_group\_stats](sys-missing-index-stats).
+For more information, see [Monitoring SQL Database Using Dynamic Management Views][] .
 
 ## See Also
 
