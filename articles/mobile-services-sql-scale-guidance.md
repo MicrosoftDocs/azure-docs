@@ -117,15 +117,14 @@ As mentioned above, it's not always better to add more indexes to a table, becau
 
 #### Query considerations
 
-* Consider adding indexes to columns that are frequently used in predicates (e.g., WHERE clauses) and join conditions, while balancing the database considerations below.
-* Write queries that insert or modify as many rows as possible in a single statement, instead of using multiple queries to update the same rows. When there is only one statement, the database engine can better optimize how it maintains indexes.
+- Consider adding indexes to columns that are frequently used in predicates (e.g., WHERE clauses) and join conditions, while balancing the database considerations below.
+- Write queries that insert or modify as many rows as possible in a single statement, instead of using multiple queries to update the same rows. When there is only one statement, the database engine can better optimize how it maintains indexes.
 	
 #### Database considerations
 
 Large numbers of indexes on a table affect the performance of INSERT, UPDATE, DELETE, and MERGE statements because all indexes must be adjusted appropriately as data in the table changes.
 
 - For **heavily updated** tables, avoid indexing a large number of columns. For composite indexes, use as few columns as possible.
-
 - For tables that are **not frequently updated** but that have large volumes of data, use many indexes. This can improve the performance of queries that do not modify data (such as SELECT statements) because the query optimizer will have more options for finding the best access method.
 
 Indexing small tables may not be optimal because it can take the query optimizer longer to traverse the index searching for data than to perform a simple table scan. Therefore, indexes on small tables might never be used, but must still be maintained as data in the table changes.
@@ -275,10 +274,10 @@ The clustered index will be most valuable for queries that do the following:
 
 To set the clustered index in the .NET backend using Entity Framework, set the `IsClustered` property of the annotation. For example, this is the definition of `CreatedAt` in `Microsoft.WindowsAzure.Mobile.Service.EntityData`:
 
-        [Index(IsClustered = true)]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [TableColumnAttribute(TableColumnType.CreatedAt)]
-        public DateTimeOffset? CreatedAt { get; set; }
+	[Index(IsClustered = true)]
+	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+	[TableColumnAttribute(TableColumnType.CreatedAt)]
+	public DateTimeOffset? CreatedAt { get; set; }
 
 #### Creating indexes in the database schema
 
