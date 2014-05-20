@@ -13,7 +13,7 @@
 + [Subheading 1] 
 + [Subheading 2]
 + [Subheading 3]
-+ [Next Steps]
++ [Next steps]
 
 
 
@@ -96,7 +96,7 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 [Subheading 1]: #sub1
 [Subheading 2]: #sub2
 [Subheading 3]: #sub3
-[Next Steps]: #next-steps
+[Next steps]: #next-steps
 
 <!--Image references-->
 [5]: ./media/0-markdown-template-for-new-articles/octocats.png
