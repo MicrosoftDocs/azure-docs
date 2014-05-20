@@ -27,13 +27,13 @@ It is important to understand the different database tiers you have at your disp
 - Web and Business Edition
 - Basic, Standard, and Premium Edition (currently in preview)
 
- While the Web and Business Edition is fully supported, it is being sunset by April 24, 2015 as discussed in [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/en-US/library/azure/dn741330.aspx). We encourage new customers to start using the Basic, Standard, and Premium preview in preparation for this change, if their application requirements allow it. 
+While the Web and Business Edition is fully supported, it is being sunset by April 24, 2015 as discussed in [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/en-US/library/azure/dn741330.aspx). We encourage new customers to start using the Basic, Standard, and Premium preview in preparation for this change, if their application requirements allow it. 
 
 #### Web and Business Edition
 
-Currently this is the default edition used by Mobile Services. Here are some recommendations in selecting the tier for your mobile service:
+Currently this is the default edition used by Mobile Services. Here are some recommendations in selecting the tier for your database:
 - **Free 20 MB database** - use for development purposes only 
-- **Web and Business** - use for development and production services. The tiers provide the same level of performance, however Web tier only supports databases up to 5GB in size. For larger databases, use the Business tier. 
+- **Web and Business** - use for development and production services. The two tiers provide the same level of performance, however the Web tier only supports databases up to 5GB in size. For larger databases, use the Business tier. 
 
 #### Basic, Standard, and Premium Edition
 
@@ -45,11 +45,11 @@ This new edition provides a variety of new tiers and monitoring capabilities tha
 4. Enter a database name and then select **New SQL database server** in the **Server** field. This will create a server that is using the new Basic, Standard, and Premium Edition. 
 5. Fill out the rest of the fields and select **Create SQL Database**. This will create a 100MB database using the Basic tier.
 6. Configure your mobile service to use the database you just created
-    - If you are creating a new mobile service, select **+NEW**, **Compute**, **Mobile Service**, **Create**. On the next screen, fill out the values while selecting **Use an existing SQL database** in the **Database** field. Select *Next* and on the next screen be sure to pick the database you created in step 5, then select **OK**.
-    - If you already have a mobile service, navigate to the **Configure** tab for that service and select **Change Database** in the toolbar. On the next screen, select **Use an existing SQL database** in the **SQL Database** field. Select *Next* and on the next screen be sure to pick the database you created in step 5, then select **OK**.
+    - If you are creating a new mobile service, select **+NEW**, **Compute**, **Mobile Service**, **Create**. On the next screen, fill out the values, select **Use an existing SQL database** in the **Database** field, and then select **Next**. On the next screen be sure to pick the database you created in step 5, then select **OK**.
+    - If you already have a mobile service, navigate to the **Configure** tab for that service and select **Change Database** in the toolbar. On the next screen, select **Use an existing SQL database** in the **SQL Database** field and then select **Next**. On the next screen be sure to pick the database you created in step 5, then select **OK**.
 
-Here are some recommendations on selecting the right tier for your mobile service:
-- **Basic** - use at development time or for small productions where you only expect to make a single database query at a time
+Here are some recommendations on selecting the right tier for your database:
+- **Basic** - use at development time or for small production services where you only expect to make a single database query at a time
 - **Standard** - use for production services where you expect multiple concurrent database queries
 - **Premium** - use for large scale production services with many concurrent queries, high peak load, and expected low latency for every request.
 
@@ -71,21 +71,34 @@ Now that we are familiar with the different database tiers, we can explore datab
     - *Storage* 
 7. Inspect the metrics over the time window when your service was experiencing issues. 
 
-Image
+    ![Azure Management Portal - SQL Database Metrics][PortalSqlMetrics]
 
 If any metric exceeds 80% utilization for an extended period of time, this could indicate a performance problem. For more detailed information on understanding database utilization, see [Understanding Resource Use](http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Resource).
 
 If the metrics indicate your database is incurring high utilization, consider the following mitigation steps:
 - **Scale up the database to a higher service tier.**
-  To immediately resolve issues, consider using the **Scale** tab to scale up your database. This will result in an increase in your bill.
-- **Tune your database**
+  To immediately resolve issues, consider using the **Scale** tab for your database to scale up your database. This will result in an increase in your bill.
+    ![Azure Management Portal - SQL Database Scale][PortalSqlScale]
+
+- **Tune your database.**
   It is frequently possible to reduce database utilization and avoid having to scale to a higher tier by optimizing your database. 
-- **Consider your service architecture**
+- **Consider your service architecture.**
   Frequently your service load is not distributed evenly over time but contains "spikes" of high demand. Instead of scaling the database up to handle the spikes, and having it go underutilized during periods of low demand, it is frequently possible to adjust the service architecture to avoid such spikes, or to handle them without incurring database hits.
 
 The remaining sections of this document contain tailored guidance to help with implementing these mitigations.
 
 ### Configuring Alerts
+
+It is frequently useful to configure alerts for key database metrics as a proactive step to ensure you have plenty of time to react in case of resource exhaustion. 
+
+1. Navigate to the **Monitoring** tab for the database you want to set up alerts for
+2. Ensure the relevant metrics are displayed as described in the previous section
+3. Select the metric you want to set an alert for and select **Add Rule**
+    ![Azure Management Portal - SQL Alert][PortalSqlAddAlert]
+4. Provide a name and description for the alert
+    ![Azure Management Portal - SQL Alert Name and Description][PortalSqlAddAlert2]
+5. Specify the value to use as the alert threshold. Consider using **80%** to allow for some reaction time. Also be sure to specify an email address that you actively monitor. 
+    ![Azure Management Portal - SQL Alert Threshold and Email][PortalSqlAddAlert3]
 
 <a name="Indexing"></a>
 ## Indexing
@@ -156,4 +169,8 @@ The the following steps walk you through obtaining the connection information fo
  
 [SSMS]: ./media/mobile-services-sql-scale-guidance/1.png
 [PortalSqlManagement]: ./media/mobile-services-sql-scale-guidance/2.png
-
+[PortalSqlMetrics]: ./media/mobile-services-sql-scale-guidance/3.png
+[PortalSqlScale]: ./media/mobile-services-sql-scale-guidance/4.png
+[PortalSqlAddAlert]: ./media/mobile-services-sql-scale-guidance/5.png
+[PortalSqlAddAlert2]: ./media/mobile-services-sql-scale-guidance/6.png
+[PortalSqlAddAlert3]: ./media/mobile-services-sql-scale-guidance/7.png
