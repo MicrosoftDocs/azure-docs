@@ -6,7 +6,7 @@ Thank you for your interest in Azure documentation!
 * [Before we can accept your pull request](#cla-info)
 * [Repository organization](#repo-org)
 * [Use GitHub, Git, and this repository](#use-github)
-* [Markdown extensions for Azure articles](#markdown-extensions)
+* [How to use markdown to format your topic](#markdown-extensions)
 * [Standard Markdown](#standard-md)
 * [More resources](#more)
 
@@ -152,13 +152,11 @@ Once your changes have been successfully merged into the central repository you 
 
 Congratulations, you have successfully contributed to the project.
 
-## Markdown extensions for Azure articles
+## How to use markdown to format your topic
 
 ### Article template
 
-*Detailed information to come.*
-
-If you are creating an article from scratch, start by copying one of the files from the */articles* folder.
+The [markdown template](/articles/0-markdown-template-for-new-articles.md) contains the basic markdown for a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, see the following sections, or find a published topic and copy the markdown or HTML you want.
 
 ### *include* files
 
