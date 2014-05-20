@@ -19,7 +19,7 @@ If you suspect your mobile service is experiencing problems under load, the firs
 - Your usage meters including **API Calls** and **Active Devices** meters are not over quota
 - **Endpoint Monitoring** status indicates service is up (only available if service is using the Standard tier and Endpoint Monitoring is enabled) 
 
-If any of the above is not true, consider adjusting your scale settings on the *Scale* tab. If that does not address the issue, we can proceed and investigate whether Azure SQL Database may be the source of the issue. The next few sections cover a few different approaches to diagnose what may be going wrong.
+If any of the above is not true, consider adjusting your scale settings on the *Scale* tab. If that does not address the issue, you can proceed and investigate whether Azure SQL Database may be the source of the issue. The next few sections cover a few different approaches to diagnose what may be going wrong.
 
 ### Choosing the Right SQL Database Tier 
 
@@ -33,7 +33,7 @@ While the Web and Business Edition is fully supported, it is being sunset by Apr
 
 Currently this is the default edition used by Mobile Services. Here are some recommendations in selecting the tier for your database:
 - **Free 20 MB database** - use for development purposes only 
-- **Web and Business** - use for development and production services. The two tiers provide the same level of performance, however the Web tier only supports databases up to 5GB in size. For larger databases, use the Business tier. 
+- **Web and Business** - use for development and production services. The two tiers provide the same level of performance, though the Web tier only supports databases up to 5GB in size. For larger databases, use the Business tier. 
 
 #### Basic, Standard, and Premium Edition
 
@@ -53,11 +53,11 @@ Here are some recommendations on selecting the right tier for your database:
 - **Standard** - use for production services where you expect multiple concurrent database queries
 - **Premium** - use for large scale production services with many concurrent queries, high peak load, and expected low latency for every request.
 
-For more information on when to use each tier, see [Reasons to Use the new Service Tiers](http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Reasons)
+For more information on when to use each tier, see [Reasons to Use the New Service Tiers](http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Reasons)
 
 ### Analyzing Database Metrics
 
-Now that we are familiar with the different database tiers, we can explore database performance metrics to help us reason about scaling within and among the tiers.
+Once you are familiar with the different database tiers, we can explore database performance metrics to help us reason about scaling within and among the tiers.
 
 1. Launch the [Azure Management Portal][].
 2. On the Mobile Services tab, select the service you want to work with.
@@ -109,7 +109,7 @@ When you start to see problems with your query performance, the first thing you 
 
 For instance, if you often need to look up an element by ID, you should consider adding an index for that column. Otherwise, the SQL engine will be forced to perform a table scan and read each physical record (or at least the query column) and the records could be substantially spread out on disk.
 
-So, if you are frequently doing SELECT or JOIN statements on particular columns, you should make sure you index them. See the section [Creating Indexes](#CreatingIndexes) for more information.
+So, if you are frequently doing WHERE or JOIN statements on particular columns, you should make sure you index them. See the section [Creating Indexes](#CreatingIndexes) for more information.
 
 If indexes are so great and table scans are so bad, does that mean you should index every column in your table, just to be safe?  The short answer is, "probably not." Indexes take up space and have overhead themselves: every time there is an insert in a table, the index structures for each of the indexed columns need to be updated. See below for guidelines on how to choose your column indexes.
 
@@ -126,7 +126,7 @@ As mentioned above, it's not always better to add more indexes to a table, becau
 
 Large numbers of indexes on a table affect the performance of INSERT, UPDATE, DELETE, and MERGE statements because all indexes must be adjusted appropriately as data in the table changes.
 
-- For **heavily updated** tables, avoid indexing a large number of columns. For composite indexes, use as few columns as possible.
+- For **heavily updated** tables, avoid indexing heavily updated columns. For composite indexes, use as few columns as possible.
 - For tables that are **not frequently updated** but that have large volumes of data, use many indexes. This can improve the performance of queries that do not modify data (such as SELECT statements) because the query optimizer will have more options for finding the best access method.
 
 Indexing small tables may not be optimal because it can take the query optimizer longer to traverse the index searching for data than to perform a simple table scan. Therefore, indexes on small tables might never be used, but must still be maintained as data in the table changes.
@@ -187,7 +187,7 @@ For more information on improving query design, including how to analyze query p
 ## Service Architecture
 
 Imagine a scenario where you are about to send a push notification to all your customers to check out some new content in your app. As they tap on the notification, the app launches, which possibly triggers a call to your mobile service and a query execution against your SQL database. As potentially millions of customers take this action over the span of just a few minutes, this will generate a surge of SQL load, which may be orders of magnitude higher than your app's steady state load. This could be addressed by scaling your app to a higher SQL tier during the spike and then scaling it back down, however that solution requires manual intervention and comes with increased cost. Frequently slight tweaks in your mobile service architecture can significantly balance out the load clients drive to your SQL database and eliminate problematic spikes in demand. These modifications can often be implemented easily with minimal impact to your customer's experience. Here are some examples:
-- **Spread out the load over time.** If you control the timing of certain events (for example, a broadcast push notification), which are expected to generate a spike in demand, and the timing of those events is not critical, consider spreading them out over time. In the example above, perhaps it is acceptable for your app customers to get notified of the new app content in batches over the span of a day instead of nearly simultaneously. Consider batching up your customers into groups which will allow staggered delivery to each batch. If using Notification Hubs, applying an additional tag to track the batch, and then delivering a push notification to that tag provides an easy way to implement this strategy.
+- **Spread out the load over time.** If you control the timing of certain events (for example, a broadcast push notification), which are expected to generate a spike in demand, and the timing of those events is not critical, consider spreading them out over time. In the example above, perhaps it is acceptable for your app customers to get notified of the new app content in batches over the span of a day instead of nearly simultaneously. Consider batching up your customers into groups which will allow staggered delivery to each batch. If using Notification Hubs, applying an additional tag to track the batch, and then delivering a push notification to that tag provides an easy way to implement this strategy. For more information on tags, see [Use Notification Hubs to send breaking news](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/).
 - **Use Blob and Table Storage whenever appropriate.** Frequently the content that the customers will view during the spike is fairly static and doesn't need to be stored in a SQL database since you are unlikely to need relational querying capabilities over that content. In that case, consider storing the content in Blob or Table Storage. You can access public blobs in Blob Storage directly from the device. To access blobs in a secure way or use Table Storage, you will need to go through a Mobile Services Custom API in order to protect your storage access key. For more information, see [Upload images to Azure Storage by using Mobile Services](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/).
 - **Use an in-memory cache**. Another alternative is to store data, which would commonly be accessed during a traffic spike, in an in-memory cache such as [Azure Cache](http://azure.microsoft.com/en-us/services/cache/). This means incoming requests would be able to fetch the information they need from memory, instead of repeatedly querying the database.
 
