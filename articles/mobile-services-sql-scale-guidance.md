@@ -75,17 +75,17 @@ Once you are familiar with the different database tiers, we can explore database
 
 If any metric exceeds 80% utilization for an extended period of time, this could indicate a performance problem. For more detailed information on understanding database utilization, see [Understanding Resource Use](http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Resource).
 
-If the metrics indicate your database is incurring high utilization, consider the following mitigation steps:
-- **Scale up the database to a higher service tier.**
-  To immediately resolve issues, consider using the **Scale** tab for your database to scale up your database. This will result in an increase in your bill.
-    ![Azure Management Portal - SQL Database Scale][PortalSqlScale]
+If the metrics indicate your database is incurring high utilization, consider **scaling up the database to a higher service tier** as a first mitigation step. To immediately resolve issues, consider using the **Scale** tab for your database to scale up your database. This will result in an increase in your bill.
+![Azure Management Portal - SQL Database Scale][PortalSqlScale]
 
+As soon as possible, consider these additional mitigation steps:
 - **Tune your database.**
   It is frequently possible to reduce database utilization and avoid having to scale to a higher tier by optimizing your database. 
 - **Consider your service architecture.**
   Frequently your service load is not distributed evenly over time but contains "spikes" of high demand. Instead of scaling the database up to handle the spikes, and having it go underutilized during periods of low demand, it is frequently possible to adjust the service architecture to avoid such spikes, or to handle them without incurring database hits.
 
 The remaining sections of this document contain tailored guidance to help with implementing these mitigations.
+
 
 ### Configuring Alerts
 
@@ -107,7 +107,7 @@ For more information on diagnosing SQL issues, see [Advanced Diagnostics](#Advan
 
 When you start to see problems with your query performance, the first thing you should investigate is the design of your indexes. Indexes are important because they directly affect how the SQL engine executes a query. 
 
-For instance, if you often need to look up an element by ID, you should consider adding an index for that column. Otherwise, the SQL engine will be forced to perform a table scan and read each physical record (or at least the query column) and the records could be substantially spread out on disk.
+For instance, if you often need to look up an element by a certain field, you should consider adding an index for that column. Otherwise, the SQL engine will be forced to perform a table scan and read each physical record (or at least the query column) and the records could be substantially spread out on disk.
 
 So, if you are frequently doing WHERE or JOIN statements on particular columns, you should make sure you index them. See the section [Creating Indexes](#CreatingIndexes) for more information.
 
@@ -126,7 +126,7 @@ As mentioned above, it's not always better to add more indexes to a table, becau
 
 Large numbers of indexes on a table affect the performance of INSERT, UPDATE, DELETE, and MERGE statements because all indexes must be adjusted appropriately as data in the table changes.
 
-- For **heavily updated** tables, avoid indexing heavily updated columns. For composite indexes, use as few columns as possible.
+- For **heavily updated** tables, avoid indexing heavily updated columns.
 - For tables that are **not frequently updated** but that have large volumes of data, use many indexes. This can improve the performance of queries that do not modify data (such as SELECT statements) because the query optimizer will have more options for finding the best access method.
 
 Indexing small tables may not be optimal because it can take the query optimizer longer to traverse the index searching for data than to perform a simple table scan. Therefore, indexes on small tables might never be used, but must still be maintained as data in the table changes.
