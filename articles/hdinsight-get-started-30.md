@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-get-started-using-hdinsight-Hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop 2.2 clusters with HDInsight | Azure" metaKeywords="" description="Get started using Hadoop 2.2 clusters with HDInsight, a big data solution. Learn how to provision clusters, run MapReduce jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Azure HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-get-started-using-hdinsight-Hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop 2.2 clusters with HDInsight | Azure" metaKeywords="" description="Get started using Hadoop 2.2 clusters with HDInsight, a big data solution. Learn how to provision clusters, run MapReduce jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop 2.2 in Azure HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
@@ -7,7 +7,7 @@
 
 HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the cloud. It makes the MapReduce software framework available in a simpler, more scalable, and cost efficient Azure environment. HDInsight also provides a cost efficient approach to the managing and storing of data using Azure Blob storage. 
 
-In this tutorial, you will provision an HDInsight cluster using the Azure Management Portal, submit a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
+In this tutorial, you will provision an Hadoop 2.2 cluster in HDInsight using the Azure Management Portal, submit a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
 
 > [WACOM.NOTE] This tutorial covers using Hadoop 2.2 clusters on HDInsight. For the tutorial using Hadoop 1.2 clusters on HDInsight, see [Get started using Azure HDInsight][hdinsight-get-started].
 

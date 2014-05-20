@@ -1,11 +1,11 @@
-<properties linkid="manage-services-hdinsight-customize HDInsight Hadoop clusters" urlDisplayName="Get Started" pageTitle="Customize HDInsight Hadoop clusters | Azure" metaKeywords="" description="Customize HDInsight Hadoop clusters" metaCanonical="" services="hdinsight" documentationCenter="" title="Customize HDInsight Hadoop clusters" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-customize HDInsight Hadoop clusters" urlDisplayName="Get Started" pageTitle="Customize Hadoop clusters in HDInsight | Azure" metaKeywords="" description="Customize Hadoop clusters in HDInsight" metaCanonical="" services="hdinsight" documentationCenter="" title="Customize Hadoop clusters in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
 
-# Customize HDInsight Hadoop clusters
+# Customize Hadoop clusters in HDInsight
 
-Learn how to configure HDInsight Hadoop clusters beyond the standard configuration using Azure PowerShell and HDInsight .NET SDK. A standard HDInsight configuration includes cluster name, number of data nodes, HDInsight version, region, Hadoop user name/password, Hive/Oozie metastore and one ore more storage accounts. 
+Learn how to configure Hadoop clusters in HDInsight to get beyond the default configuration settings by using either Azure PowerShell or the HDInsight .NET SDK. A standard HDInsight configuration includes cluster name, number of data nodes, HDInsight version, region, Hadoop user name/password, Hive/Oozie metastore and one ore more storage accounts. 
 
 
 
