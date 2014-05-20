@@ -61,6 +61,16 @@ The following document specifies some of the most common Microsoft Azure limits.
    <td valign="middle"><p>5</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
+<tr>
+   <td valign="middle"><p>Hosted service certificates per subscription</p></td>
+   <td valign="middle"><p>400</p></td>
+   <td valign="middle"><p>400</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/azure/jj156085.aspx">Affinity groups</a> per subscription</p></td>
+   <td valign="middle"><p>256</p></td>
+   <td valign="middle"><p>256</p></td>
+</tr>
 </table>
 
 <sup>1</sup>Extra Small instances count as one core towards the core limit despite using a partial core.
@@ -68,7 +78,6 @@ The following document specifies some of the most common Microsoft Azure limits.
 <sup>2</sup>Each virtual network supports a single virtual network gateway.
 
 ##<a name="webworkerlimits"></a>Web/Worker Limits
-
 <table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">Resource</th>
@@ -150,6 +159,11 @@ The following document specifies some of the most common Microsoft Azure limits.
    <td valign="middle"><p>Local network sites per virtual network</p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>10</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/azure/jj156085.aspx">Affinity groups</a> per subscription</p></td>
+   <td valign="middle"><p>256</p></td>
+   <td valign="middle"><p>256</p></td>
 </tr>
 </table>
 
