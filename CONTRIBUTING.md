@@ -3,12 +3,12 @@
 Thank you for your interest in Azure documentation!
 
 * [Ways to contribute](#ways-to-contribute)
-* [Before we can accept your pull request](#cla-info)
-* [Repository organization](#repo-org)
-* [Use GitHub, Git, and this repository](#use-github)
-* [How to use markdown to format your topic](#markdown-extensions)
-* [Standard Markdown](#standard-md)
-* [More resources](#more)
+* [Before we can accept your pull request](#before-we-can-accept-your-pull-request)
+* [Repository organization](#repository-organization)
+* [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
+* [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
+* [Standard Markdown](#standard-markdown)
+* [More resources](#more-resources)
 
 ## Ways to contribute
 
@@ -18,7 +18,7 @@ You can contribute to [Azure documentation](http://azure.microsoft.com/en-us/doc
 * Submit Disqus comments at the bottom of articles.
 * Contribute to articles via the public Azure repo.
 
-##Before we accept your pull request
+##Before we can accept your pull request
 
 ###Minor corrections
 
