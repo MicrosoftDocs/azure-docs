@@ -74,9 +74,9 @@ Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus
  
 1. Maecenas sed condimentum nisi. Suspendisse potenti. 
 
-    + Fusce
-    + Malesuada
-    + Sem
+  + Fusce
+  + Malesuada
+  + Sem
 
 2. Nullam in massa eu tellus tempus hendrerit.
 
@@ -93,9 +93,9 @@ Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus
 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
 
 <!--Anchors-->
-[Subheading 1]: #sub-1
-[Subheading 2]: #sub-2
-[Subheading 3]: #sub-3
+[Subheading 1]: #subheading-1
+[Subheading 2]: #subheading-2
+[Subheading 3]: #subheading-3
 [Next steps]: #next-steps
 
 <!--Image references-->
