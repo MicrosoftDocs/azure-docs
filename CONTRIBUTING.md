@@ -6,7 +6,7 @@ Thank you for your interest in Azure documentation!
 * [Before we can accept your pull request](#cla-info)
 * [Repository organization](#repo-org)
 * [Use GitHub, Git, and this repository](#use-github)
-* [Markdown extensions for Azure articles](#markdown-extensions)
+* [How to use markdown to format your topic](#markdown-extensions)
 * [Standard Markdown](#standard-md)
 * [More resources](#more)
 
@@ -152,7 +152,7 @@ Once your changes have been successfully merged into the central repository you 
 
 Congratulations, you have successfully contributed to the project.
 
-## Markdown extensions for Azure articles
+## How to use markdown to format your topic
 
 ### Article template
 
