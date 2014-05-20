@@ -188,6 +188,8 @@ When calling `StringGet`, if the object exists, it is returned, and if it does n
         cache.StringSet("key1", value);
     }
 
+>Azure Redis Cache can cache .NET objects as well as primitive data types, but before a .NET object can be cached it must be serialized. This is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer. For more information, see [Work with .NET objects in the cache][].
+
 <a name="specify-expiration"></a>
 ## Specify the expiration of an item in the cache
 
@@ -206,7 +208,7 @@ To configure a client application in Visual Studio using the Redis Cache Session
 
 ![Manage NuGet packages][NuGetMenu]
 
-Type **Redis Cache Session State** into the **Search Online** text box, select it from the results, and click **Install**.
+Type **RedisSessionStateProvider** into the **Search Online** text box, select it from the results, and click **Install**.
 
 ![Redis Cache Session State NuGet Package][SessionStateNuGet]
 
@@ -332,6 +334,8 @@ follow these links to learn how to do more complex caching tasks.
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
 
 [StackExchange.Redis configuration model]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
+
+[Work with .NET objects in the cache]: http://msdn.microsoft.com/en-us/library/dn690521.aspx#Objects
 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311

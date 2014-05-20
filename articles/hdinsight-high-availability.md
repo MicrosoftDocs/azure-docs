@@ -1,7 +1,7 @@
-<properties linkid="manage-services-hdinsight-high-availability" urlDisplayName="HDInsight High Availability" pageTitle="Availability and reliability of HDInsight Clusters | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight deploys highly available and reliable clusters." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Availability and reliability of HDInsight clusters" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-high-availability" urlDisplayName="HDInsight High Availability" pageTitle="Availability of Hadoop clusters in HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight deploys highly available and reliable clusters." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Availability of Hadoop clusters in HDInsight" authors="bradsev" />
 
 
-#Availability and reliability of HDInsight clusters
+#Availability and reliability of Hadoop clusters in HDInsight
 
 ## Introduction ##
 A second headnode has been added to the Hadoop clusters deployed by HDInsight to increase the availability and reliability of the service needed to manage workloads. Standard implementations of Hadoop clusters typically have a single headnode. These clusters are designed to manage the failure of worker nodes smoothly, but any outages of master services running on the headnode would cause the cluster to cease to work. 

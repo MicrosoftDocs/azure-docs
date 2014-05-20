@@ -1,13 +1,13 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using HDInsight Hadoop | Azure" metaKeywords="" description="Get started with HDInsight Hadoop, a big data solution. Learn how to provision clusters, run MapReduce jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Azure HDInsight Hadoop" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run MapReduce jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
 
-# Get started using Azure HDInsight Hadoop
+# Get started using Hadoop in HDInsight
 
 HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the cloud. It makes the MapReduce software framework available in a simpler, more scalable, and cost efficient Azure environment. HDInsight also provides a cost efficient approach to the managing and storing of data using Azure Blob storage. 
 
-In this tutorial, you will provision an HDInsight cluster using the Azure Management Portal, submit a Hadoop MapReduce job to count words in a text file using PowerShell, and then import the MapReduce job output data into Excel for examination.
+In this tutorial, you will provision an Hadoop cluster in HDInsight using the Azure Management Portal, submit a Hadoop MapReduce job to count words in a text file using PowerShell, and then import the MapReduce job output data into Excel for examination.
 
 > [WACOM.NOTE] This tutorial covers using Hadoop 1.2 clusters on HDInsight. For the tutorial using Hadoop 2.2 clusters on HDInsight, see [Get started using Hadoop 2.2 clusters with HDInsight][hdinsight-get-started-30]. For version information, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions]
 

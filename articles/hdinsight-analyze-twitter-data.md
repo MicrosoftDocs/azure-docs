@@ -1,10 +1,10 @@
-<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analyze Twitter data with HDinsight Hadoop | Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on HDInsight Hadoop to find usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with HDInsight Hadoop" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analyze Twitter data with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-# Analyze Twitter data with HDInsight Hadoop
+# Analyze Twitter data with Hadoop in HDInsight
 
-Learn how to analyze Twitter data using Hive with HDInsight.
+Learn how to analyze Twitter data with Hadoop using Hive in HDInsight.
 
-Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, you will connect to Twitter web service to get some Tweets using the Twitter streaming API, and then you will use Hive to get a list of Twitter users that sent most Tweets that contained a certain word.
+Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, you will connect to the Twitter web service to get some Tweets using the Twitter streaming API, and then you will use Hive to get a list of Twitter users that sent most Tweets that contained a certain word.
 
 **Estimated time to complete:** 30 minutes
 
