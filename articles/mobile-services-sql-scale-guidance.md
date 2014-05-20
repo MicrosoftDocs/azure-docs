@@ -100,6 +100,8 @@ It is frequently useful to configure alerts for key database metrics as a proact
 5. Specify the value to use as the alert threshold. Consider using **80%** to allow for some reaction time. Also be sure to specify an email address that you actively monitor. 
     ![Azure Management Portal - SQL Alert Threshold and Email][PortalSqlAddAlert3]
 
+For more information on diagnosing SQL issues, see [Advanced Diagnostics](#AdvancedDiagnosing) at the bottom of this document.
+
 <a name="Indexing"></a>
 ## Indexing
 
@@ -159,13 +161,27 @@ To define an index in Entity Framework, use the attribute `[Index]` on the field
         public bool Complete { get; set; }
     }
 		 
-For more information, see [Index Annotations in Entity Framework][].
+For more information on indexes, see [Index Annotations in Entity Framework][]. For further tips on optimizing indexes, see [Advanced Indexing](#AdvancedIndexing) at the bottom of this document.
 
 <a name="Schema"></a>
 ## Schema Design
 
+Here are a few issues to be aware of when picking the data types for your objects, which in turn translates to the schema of your SQL database. Tuning the schema can frequently bring significant performance improvements since SQL has custom optimized ways of handling indexing and storage for different data types:
+* **Use the provided ID column**. Every mobile service table comes with a default ID column configured as the primary key and has an index set on it. There is no need to create an additional ID column.
+* **Use the correct datatypes in your model.** If you know a certain property of your model will be a numeric or boolean, be sure to define it that way in your model instead of as a string. In the JavaScript backend, use literals such as `true` instead of `"true"` and `5` instead of `"5"`. In the .NET backend, use the `int` and `bool` types when you declare the properties of your model. This enables SQL to create the correct schema for those types, which makes queries more efficient.  
+
 <a name="Query"></a>
 ## Query Design
+
+Here are some guidelines to consider when querying the database:
+* **Always execute join operations in the database.** Frequently you will need to combine records from two or more tables where the records being combined share a common field (also known as a *join*). This operation can be inefficient if performed incorrectly since it may involve pulling down all the entities from both tables and then iterating through all of them. This kind of operation is best left to the database itself, but it is sometimes easy to mistakenly perform it on the client or in the mobile service code.
+    * Don't perform joins in your app code
+    * Don't perform joins in your mobile service code. When using the JavaScript backend, be aware that the [table object](http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx) does not handle joins. Be sure to use the [mssql object](http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx) directly to ensure the join happens in the database. For more information, see [Join relational tables](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/#joins). If using the .NET backend and querying via LINQ, joins are automatically handled at the database level by Entity Framework.
+* **Implement paging.** Querying the database can sometimes result in a large number of records being returned to the client. To minimize the size and latency of operations, consider implementing paging.
+    * By default the Mobile Services client SDKs will automatically apply a page size of 50, and you can manually request up to 1,000 records. For more information, see "Return data in pages" for [Windows Store](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging), [iOS](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging), [Android](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-android-how-to-use-client-library/#paging), [HTML/JavaScript](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-html-how-to-use-client-library/#paging), and [Xamarin](http://azure.microsoft.com/en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging).
+    * There is no default page size for queries made from your mobile service code. If your app does not implement paging, or as a defensive measure, consider applying default limits to your queries. In the JavaScript backend, use the **take** operator on the [query object](http://msdn.microsoft.com/en-us/library/azure/jj613353.aspx). If using the .NET backend, consider using the [Take method](http://msdn.microsoft.com/en-us/library/vstudio/bb503062(v=vs.110).aspx) as part of your LINQ query.  
+
+For more information on improving query design, including how to analyze query plans, see [Advanced Query Design](#AdvancedQuery) at the bottom of this document.
 
 <a name="Architecture"></a>
 ## Service Architecture
@@ -221,6 +237,7 @@ The the following steps walk you through obtaining the connection information fo
 
     ![Azure Management Portal - SQL Database][PortalSqlManagement]
 
+<a name="AdvancedDiagnosing" />
 ### Advanced Diagnostics
 
 #### SQL connectivity events
@@ -237,7 +254,7 @@ The **sys.event\_log** view contains the details of connectivity-related events.
     ---------------------------- ----------- ----------------
     throttling_long_transaction  2           The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.
 
-
+<a name="AdvancedIndexing" />
 ### Advanced Indexing
 
 A table or view can contain the following types of indexes:
@@ -322,7 +339,11 @@ The following example query runs a join across these tables to get a list of the
 
 For more information, see [Monitoring SQL Database Using Dynamic Management Views][] and [Missing Index Dynamic Management Views](sys-missing-index-stats).
 
+<a name="AdvancedQuery" />
 ### Advanced Query Design 
+
+#### Analyzing query plans
+
 
 #### Finding top N queries
 
