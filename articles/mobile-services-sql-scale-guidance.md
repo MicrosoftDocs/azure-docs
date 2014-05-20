@@ -202,7 +202,7 @@ SQL Server Management Studio is a free Windows application, which offers the mos
 
 The Azure Management Portal offers a built-in management experience, which is more limited, but is available without a local install.
 
-The the following steps walk you through obtaining the connection information for the SQL database backing your mobile service and then using either of the two tools to connect to it. You may pick whichever tool you prefer.
+The following steps walk you through obtaining the connection information for the SQL database backing your mobile service and then using either of the two tools to connect to it. You may pick whichever tool you prefer.
 
 #### Obtain SQL connection information 
 1. Launch the [Azure Management Portal][].
