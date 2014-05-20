@@ -4,11 +4,11 @@
 <properties title="required" pageTitle="required" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
-# H1 (Title): Lorem ipsum 
+# H1 (Article Title) 
 
 <p> Intro paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
 
-<!--Table of contents for topic-->
+<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 + [Subheading 1] 
 + [Subheading 2]
@@ -74,9 +74,9 @@ Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus
  
 1. Maecenas sed condimentum nisi. Suspendisse potenti. 
 
-+ Fusce
-+ Malesuada
-+ Sem
+    + Fusce
+    + Malesuada
+    + Sem
 
 2. Nullam in massa eu tellus tempus hendrerit.
 
@@ -93,9 +93,9 @@ Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus
 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
 
 <!--Anchors-->
-[Subheading 1]: #sub1
-[Subheading 2]: #sub2
-[Subheading 3]: #sub3
+[Subheading 1]: #sub-1
+[Subheading 2]: #sub-2
+[Subheading 3]: #sub-3
 [Next steps]: #next-steps
 
 <!--Image references-->
