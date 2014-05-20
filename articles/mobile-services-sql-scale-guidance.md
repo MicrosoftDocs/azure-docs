@@ -226,7 +226,7 @@ The the following steps walk you through obtaining the connection information fo
     - Password: *password you picked when creating server*
 5. You should now be connected.
 
-#### Azure Management Portal
+#### SQL Database Management Portal
 1. On Azure SQL Database tab for your database, select the **Manage** button 
 2. Configure the connection with the following values
     - Server: *should be pre-set to the right value*
@@ -240,10 +240,24 @@ The the following steps walk you through obtaining the connection information fo
 <a name="AdvancedDiagnosing" />
 ### Advanced Diagnostics
 
+A lot of diagnostic tasks can be completed easily right in the **Azure Management Portal**, however some advanced diagnostic tasks are only possible via **SQL Server Management Studio** or the **SQL Database Management Portal**.  We will take advantage of dynamic management views, a set of views populated automatically with diagnostic information about your database. This section provides a set of queries we can run against these views to examine various metrics. For more information, see [Monitoring SQL Database Using Dynamic Management Views][].
+
+After completing the steps in the previous section to connect to your database in SQL Server Management Studio, select your database in **Object Explorer**. Expanding **Views** and then **System Views** reveals a list of the management views. To execute the queries below, select **New Query**, while you have selected your database in **Object Explorer**, then paste the query and select **Execute**.
+
+![SQL Server Management Studio - dynamic management views][SSMSDMVs]
+
+Alternatively if you are using the SQL Database Management Portal, first select your database and then pick **New Query**.
+
+![SQL Database Management Portal - new query][PortalSqlManagementNewQuery]
+
+To execute any of the queries below, past it into the window and select **Run**.
+
+![SQL Database Management Portal - run query][PortalSqlManagementRunQuery]
+
 #### SQL connectivity events
 
 The **sys.event\_log** view contains the details of connectivity-related events. The columns contained in this view, and the types of events it collects, are described in [sys.event_log](http://msdn.microsoft.com/en-us/library/azure/jj819229.aspx).
-
+x`
     select * from sys.event_log 
     where database_name = 'my_user_db'
     and event_type like 'throttling%'
@@ -342,9 +356,6 @@ For more information, see [Monitoring SQL Database Using Dynamic Management View
 <a name="AdvancedQuery" />
 ### Advanced Query Design 
 
-#### Analyzing query plans
-
-
 #### Finding top N queries
 
 The following example returns information about the top five queries ranked by average CPU time. This example aggregates the queries according to their query hash, so that logically equivalent queries are grouped by their cumulative resource consumption.
@@ -396,6 +407,9 @@ For more information, see [Monitoring SQL Database Using Dynamic Management View
 [PortalSqlAddAlert2]: ./media/mobile-services-sql-scale-guidance/6.png
 [PortalSqlAddAlert3]: ./media/mobile-services-sql-scale-guidance/7.png
 [SetIndexJavaScriptPortal]: ./media/mobile-services-sql-scale-guidance/set-index-portal-ui.png
+[SSMSDMVs]: ./media/mobile-services-sql-scale-guidance/8.png
+[PortalSqlManagementNewQuery]: ./media/mobile-services-sql-scale-guidance/9.png
+[PortalSqlManagementRunQuery]: ./media/mobile-services-sql-scale-guidance/10.png
  
 <!-- LINKS -->
 
