@@ -3,7 +3,7 @@
 #Understanding planned versus unplanned maintenance
 There are two types of Azure platform events that can impact the availability of your virtual machines: planned maintenance and unplanned maintenance.
 
-Planned maintenance events are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure your virtual machines run on. The majority of these updates are performed without any impact to your virtual machines or cloud services. However, there are instances where these updates require a reboot to your virtual machine to apply the required updates to the platform infrastructure. 
+Planned maintenance events are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. The majority of these updates are performed without any impact to your virtual machines or cloud services. However, there are instances where these updates require a reboot to your virtual machine to apply the required updates to the platform infrastructure. 
 Unplanned maintenance events occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical machine hosting your virtual machine to a healthy physical machine. Such events are rare, but may also cause your virtual machine to reboot. 
 
 #Designing your application for high availability
@@ -18,7 +18,7 @@ To provide redundancy to your application, it is recommended that you group two 
 
 Each virtual machine in your Availability Set is assigned an Update Domain (UD) and a Fault Domain (FD) by the underlying Azure platform. For a given Availability Set, five non-user-configurable UDs are assigned to indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. When more than five virtual machines are configured within a single Availability Set, the sixth virtual machine will be placed into the same UD as the first virtual machine, the seventh in the same UD as the second virtual machine and so on. The order of UDs being rebooted may not proceed sequentially during planned maintenance but only one UD will be rebooted at a time.
 
-FDs define the group of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your Availability Set are separated across two FDs. While placing your virtual machines into an Availability Group does not protect your application from operating system of application-specific failures, it does limit the impact of potential physical hardware, network or power interruptions.   
+FDs define the group of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your Availability Set are separated across two FDs. While placing your virtual machines into an Availability Set does not protect your application from operating system nor application-specific failures, it does limit the impact of potential physical hardware failures, network outages or power interruptions.   
 
 <Insert UD FD configuration image>
 
