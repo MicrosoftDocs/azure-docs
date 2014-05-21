@@ -15,7 +15,7 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 * [Configure multiple virtual machines in an Availability Set for redundancy] 
 * [Configure each application tier into separate Availability Sets] 
 * [Combine the Load Balancer with Availability Sets] 
-* [Avoid single instance virtual machines within an Availability Set] 
+* [Avoid single instance virtual machines in Availability Sets] 
 
 ### Configure multiple virtual machines in an Availability Set for redundancy 
 To provide redundancy to your application, we recommend that you group two or more virtual machines in an Availability Set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information about service level agreements, see the “Cloud Services, Virtual Machines, and Virtual Network” section in [Service Level Agreements](../support/legal/sla/). 
@@ -47,7 +47,7 @@ Avoid leaving a single instance virtual machine in an Availability Set by itself
 [Configure multiple virtual machines in an Availability Set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy 
 [Configure each application tier into separate Availability Sets]: #configure-each-application-tier-into-separate-availability-sets 
 [Combine the Load Balancer with Availability Sets]: #combine-the-load-balancer-with-availability-sets 
-[Avoid single instance virtual machines within an Availability Set]: #avoid-single-instance-virtual-machines-within-an-availability-set 
+[Avoid single instance virtual machines in Availability Sets]: #avoid-single-instance-virtual-machines-in-availability-sets 
 
  
 
