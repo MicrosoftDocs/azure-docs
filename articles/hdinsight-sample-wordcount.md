@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="HDInsight Samples" pageTitle="The HDInsight WordCount sample | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The HDInsight WordCount sample" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The WordCount Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
 
-#The HDInsight WordCount sample
+#The WordCount Hadoop sample in HDInsight
  
 This sample topic shows how to run an Hadoop MapReduce program that counts word occurrences in a text file using Azure PowerShell to run the program in HDInsight. The WordCount MapReduce program is written in Java and runs on an Hadoop cluster managed by HDInsight. The text file analyzed in this sample is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
 
