@@ -44,10 +44,10 @@ If the load balancer is not configured to balance traffic across multiple virtua
 ### Avoid single instance virtual machines in Availability Sets
 Avoid leaving a single instance virtual machine in an Availability Set by itself. Virtual machines in this configuration do not qualify for SLA guarantee and will face downtime during Azure planned maintenance events.  Furthermore, if you deploy a single VM instance within an availability set, you will receive no advanced warning or notification of platform maintenance. In this configuration, your single virtual machine instance can and will be rebooted with no advanced warning when platform maintenance occurs.
 
-[Configure multiple virtual machines in an Availability Set for redundancy]: #Configure-multiple-virtual-machines-in-an-Availability-Set-for-redundancy 
-[Configure each application tier into separate Availability Sets]: #Configure-each-application-tier-into-separate-Availability-Sets 
-[Combine the Load Balancer with Availability Sets]: #Combine-the-Load-Balancer-with-Availability-Sets 
-[Avoid single instance virtual machines within an Availability Set]: #Avoid-single-instance-virtual-machines-within-an-Availability-Set 
+[Configure multiple virtual machines in an Availability Set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy 
+[Configure each application tier into separate Availability Sets]: #configure-each-application-tier-into-separate-availability-sets 
+[Combine the Load Balancer with Availability Sets]: #combine-the-load-balancer-with-availability-sets 
+[Avoid single instance virtual machines within an Availability Set]: #avoid-single-instance-virtual-machines-within-an-availability-set 
 
  
 
