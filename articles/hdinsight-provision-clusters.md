@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-provision-hdinsight-clusters" urlDisplayName="HDInsight Administration" pageTitle="Provision HDInsight clusters | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to provision clusters for Azure HDInsight using the management portal, PowerShell, or the command line." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision HDInsight clusters" authors="jgao" />
+<properties linkid="manage-services-hdinsight-provision-hadoop-clusters" urlDisplayName="HDInsight Administration" pageTitle="Provision Hadoop clusters in HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to provision clusters for Azure HDInsight using the management portal, PowerShell, or the command line." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
 
-#Provision HDInsight clusters
+#Provision Hadoop clusters in HDInsight
 
 In this article, you will learn different ways to provision HDInsight cluster.
 
@@ -25,7 +25,7 @@ HDInsight cluster uses an Azure Blob Storage container as the default file syste
 
 > [WACOM.NOTE] Currently, only the Southeast Asia, North Europe, West Europe, East US and the West US regions can host HDInsight clusters.
 
-This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Get Started with Azure HDInsight][hdinsight-getting-started].
+This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Get Started with Azure HDInsight][hdinsight-get-started].
 
 
 **To create a HDInsight cluster using the custom create option**
@@ -45,7 +45,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 		<tr><td>DATA NODES</td>
 			<td>Specify the number of nodes in the cluster. The default value is 4.</td></tr>
 		<tr><td>HDINSIGHT VERSION</td>
-			<td>Choose the version. The default is 2.0 running Hadoop 1.2 clusters.  The 3.0 uses Hadoop 2.2 clusters. For more information, see <a href="http://www.windowsazure.com/en-us/manage/services/hdinsight/versioning-in-hdinsight/">What version of Hadoop is in Azure HDInsight?</a>.</td></tr>
+			<td>Choose the version. The default is 2.0 running Hadoop 1.2 clusters.  The 3.0 uses Hadoop 2.2 clusters. For more information, see <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/">What version of Hadoop is in Azure HDInsight?</a>.</td></tr>
 		<tr><td>REGION</td>
 			<td>Specify the data center where the cluster is installed. The location has to be the same as the Azure Blob storage that will be used as the default file system. Currently you can only choose *Southeast Asia*, *North Europe*, *West Europe*, *East US* or *West US*.</td>
 		</tr>
@@ -383,7 +383,7 @@ You can also provision cluster and configure it to connect to more than one Azur
 
 ##<a id="cli"></a> Using Cross-platform command line
 
-Another option for provisioning an HDInsight cluster is the Cross-platform Command-line Interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux][azure-command-line-tool]. This article only covers using the command-line interface from Windows.
+Another option for provisioning an HDInsight cluster is the Cross-platform Command-line Interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/Azure/azure-sdk-tools-xplat">https://github.com/Azure/azure-sdk-tools-xplat</a>. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux][azure-command-line-tool]. This article only covers using the command-line interface from Windows.
 
 
 The following procedures are needed to provision an HDInsight cluster using Cross-platform command line:
@@ -662,30 +662,32 @@ While the application is open in Visual Studio, press **F5** to run the applicat
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned several ways to provision an HDInsight cluster. To learn more, see the following articles:
 
-* [Get started with Azure HDInsight][hdinsight-getting-started]
+* [Get started with Azure HDInsight][hdinsight-get-started]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-[hdinsight-version]: /en-us/manage/services/hdinsight/versioning-in-hdinsight/
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
-[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
-[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
-[hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
+
+[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
+
+[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
 
-[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+[azure-create-storageaccount]: ../storage-create-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-command-line-tools]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[azure-command-line-tool]: /en-us/manage/linux/other-resources/command-line-tools/
-[azure-manage-storageaccount]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
+
+[azure-command-line-tools]: ../xplat-cli/
+[azure-command-line-tool]: ../command-line-tools/
+[azure-manage-storageaccount]: ../storage-manage-storage-account/
 
 [azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: ../install-configure-powershell/
 
 
 [image-customprovision-page1]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page1.png 
