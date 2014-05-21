@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-howto-pig" urlDisplayName="Use Pig with HDInsight Hadoop" pageTitle="Use Pig with HDInsight Hadoop | Azure" metaKeywords="" description="Learn how to use Pig with HDInsight Hadoop. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Pig with HDInsight Hadoop" authors="jgao" solutions="big data" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-howto-pig" urlDisplayName="Use Hadoop Pig in HDInsight" pageTitle="Use Hadoop Pig in HDInsight | Azure" metaKeywords="" description="Learn how to use Pig with HDInsight. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Pig in HDInsight" authors="jgao" solutions="big data" manager="paulettm" editor="cgronlun" />
 
 
 
-# Use Pig with HDInsight Hadoop
+# Use Hadoop Pig in HDInsight
 
 Learn how to run [Apache Pig][apachepig-home] jobs on HDInsight to analyze an Apache log4j log file.
 
