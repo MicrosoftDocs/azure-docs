@@ -5,12 +5,14 @@
 
 #How to Log on to a Virtual Machine Running Linux #
 
-For a virtual machine that is running the Linux operating system, you use a Secure Shell (SSH) client to logon.
+For a virtual machine running a Linux operating system, you use a Secure Shell (SSH) client to log on.
 
 You'll need to install an SSH client on the computer you want to use to log on to the virtual machine. There are many SSH client programs that you can choose from. The following are possible choices:
 
 - On a computer running a Windows operating system, you might want to use an SSH client such as PuTTY. For more information, see the [PuTTY Download Page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - On a computer running a Linux operating system, you might want to use an SSH client such as OpenSSH. For more information, see [OpenSSH](http://www.openssh.org/).
+
+>[WACOM.NOTE] For more requirements and troubleshooting tips, see [Connect to a Windows Azure virtual machine with RDP or SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
 
 This procedure shows you how to use the PuTTY program to access the virtual machine.
 
@@ -30,4 +32,3 @@ This procedure shows you how to use the PuTTY program to access the virtual mach
 
 	You can now work with the virtual machine just as you would with any other server.
 
-[WACOM.NOTE] For requirements and troubleshooting tips, see [Connect to a Windows Azure virtual machine with RDP or SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
