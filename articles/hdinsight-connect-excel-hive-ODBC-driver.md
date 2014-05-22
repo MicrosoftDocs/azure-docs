@@ -1,11 +1,11 @@
-<properties linkid="manage-services-hdinsight-connect-excel-with-hive-ODBC" urlDisplayName="Connect Excel to HDInsight" pageTitle="Connect Excel to HDInsight with the Hive ODBC Driver | Azure" metaKeywords="" description="Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in an HDInsight cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to HDInsight with the Microsoft Hive ODBC Driver" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-connect-excel-with-hive-ODBC" urlDisplayName="Connect Excel to HDInsight" pageTitle="Connect Excel to Hadoop with the Hive ODBC Driver | Azure" metaKeywords="" description="Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in an HDInsight cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to Hadoop with the Microsoft Hive ODBC Driver" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
-#Connect Excel to HDInsight with the Microsoft Hive ODBC Driver
+#Connect Excel to Hadoop with the Microsoft Hive ODBC Driver
 
 
-One key feature of Microsoft's Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed by the Azure HDInsight. An example of this integration is the ability to connect Excel to the Hive data warehouse of an HDInsight Hadoop cluster using the Microsoft Hive Open Database Connectivity (ODBC) Driver. 
+One key feature of Microsoft's Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed by the Azure HDInsight. An example of this integration is the ability to connect Excel to the Hive data warehouse of an Hadoop cluster in HDInsight using the Microsoft Hive Open Database Connectivity (ODBC) Driver. 
 
 It is also possible to connect the data associated with an HDInsight cluster and other data sources, including other (non-HDInsight) Hadoop clusters, from Excel using the Microsoft Power Query add-in for Excel. For information on installing and using Power Query, see [Connect Excel to HDInsight with Power Query][hdinsight-power-query].
 
@@ -87,7 +87,7 @@ The steps below describe the way to import data from a hive table into an Excel 
 5. Re-enter the password for the cluster in the wizard, and then click **Test** to verify the configuration
 6. Click **OK** to close the test dialog.
 7. Click **OK**. Wait for the **Select Database and Table** dialog to open. This can take a few seconds.
-8. Select the table that you want to import, and then click **Next**. The *hivesampletable* is a sample hive table that comes with HDInsight clusters.  You can choose it if you haven't created one. For more information on run Hive queries and create Hive tables, see [Use Hive with HDInsight][hdinsight-hive].
+8. Select the table that you want to import, and then click **Next**. The *hivesampletable* is a sample hive table that comes with HDInsight clusters.  You can choose it if you haven't created one. For more information on run Hive queries and create Hive tables, see [Use Hive with HDInsight][hdinsight-use-hive].
 8. Click **Finish**.
 9. In the **Import Data** dialog, you can change or specify the query. To do so, click **Properties**. This can take a few seconds.
 10. Click on the **Definition** tab,  and then append **LIMIT 200** to the Hive select statement in the **Command text** textbox. The modification will limit the returned record set to 200.
@@ -102,17 +102,17 @@ The steps below describe the way to import data from a hive table into an Excel 
 
 In this article you learned how to use the Microsoft Hive ODBC driver to retrieve data from the HDInsight Service into Excel. Similarly, you can retrieve data from the HDInsight Service into SQL Database. It is also possible to upload data into an HDInsight Service. To learn more, see:
 
-- [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]
+- [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-data]
 - [Upload Data to HDInsight][hdinsight-upload-data]
-- [Use Sqoop with HDInsight][hdinsight-sqoop]
+- [Use Sqoop with HDInsight][hdinsight-use-sqoop]
 
 
-[hdinsight-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-analyze-flight-delay-data]: /en-us/documentation/articles/hdinsight-analyze-flight-delay-data/
-[hdinsight-hive]: /en-us/documentation/articles/hdinsight-use-hive/
-[hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
-[hdinsight-power-query]: /en-us/documentation/articles/hdinsight-connect-excel-power-query/
-[hdinsight-get-started]: /en-us/documentation/articles/hdinsight-get-started/
+[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
+[hdinsight-analyze-flight-data]: ../hdinsight-analyze-flight-delay-data/
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
+[hdinsight-get-started]: ../hdinsight-get-started/
 
 [hive-odbc-driver-download]: http://go.microsoft.com/fwlink/?LinkID=286698
 

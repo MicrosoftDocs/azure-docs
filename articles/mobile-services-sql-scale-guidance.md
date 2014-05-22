@@ -16,6 +16,7 @@ This topic walks you through these basic sections:
 ## Diagnosing Problems
 
 If you suspect your mobile service is experiencing problems under load, the first place to check is the **Dashboard** tab for your service in the [Azure Management Portal][]. Some of the things to verify here:
+
 - Your usage meters including **API Calls** and **Active Devices** meters are not over quota
 - **Endpoint Monitoring** status indicates service is up (only available if service is using the Standard tier and Endpoint Monitoring is enabled) 
 
@@ -24,6 +25,7 @@ If any of the above is not true, consider adjusting your scale settings on the *
 ### Choosing the Right SQL Database Tier 
 
 It is important to understand the different database tiers you have at your disposal to ensure you've picked the right tier given your app's needs. Azure SQL Database offers two different database editions with different tiers:
+
 - Web and Business Edition
 - Basic, Standard, and Premium Edition (currently in preview)
 
@@ -32,6 +34,7 @@ While the Web and Business Edition is fully supported, it is being sunset by Apr
 #### Web and Business Edition
 
 Currently this is the default edition used by Mobile Services. Here are some recommendations in selecting the tier for your database:
+
 - **Free 20 MB database** - use for development purposes only 
 - **Web and Business** - use for development and production services. The two tiers provide the same level of performance, though the Web tier only supports databases up to 5GB in size. For larger databases, use the Business tier. 
 
@@ -49,6 +52,7 @@ This new edition provides a variety of new tiers and monitoring capabilities tha
     - If you already have a mobile service, navigate to the **Configure** tab for that service and select **Change Database** in the toolbar. On the next screen, select **Use an existing SQL database** in the **SQL Database** field and then select **Next**. On the next screen be sure to pick the database you created in step 5, then select **OK**.
 
 Here are some recommendations on selecting the right tier for your database:
+
 - **Basic** - use at development time or for small production services where you only expect to make a single database query at a time
 - **Standard** - use for production services where you expect multiple concurrent database queries
 - **Premium** - use for large scale production services with many concurrent queries, high peak load, and expected low latency for every request.
@@ -75,10 +79,10 @@ Once you are familiar with the different database tiers, we can explore database
 
 If any metric exceeds 80% utilization for an extended period of time, this could indicate a performance problem. For more detailed information on understanding database utilization, see [Understanding Resource Use](http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Resource).
 
-If the metrics indicate your database is incurring high utilization, consider the following mitigation steps:
-- **Scale up the database to a higher service tier.**
-  To immediately resolve issues, consider using the **Scale** tab for your database to scale up your database. This will result in an increase in your bill.
-    ![Azure Management Portal - SQL Database Scale][PortalSqlScale]
+If the metrics indicate your database is incurring high utilization, consider **scaling up the database to a higher service tier** as a first mitigation step. To immediately resolve issues, consider using the **Scale** tab for your database to scale up your database. This will result in an increase in your bill.
+![Azure Management Portal - SQL Database Scale][PortalSqlScale]
+
+As soon as possible, consider these additional mitigation steps:
 
 - **Tune your database.**
   It is frequently possible to reduce database utilization and avoid having to scale to a higher tier by optimizing your database. 
@@ -86,6 +90,7 @@ If the metrics indicate your database is incurring high utilization, consider th
   Frequently your service load is not distributed evenly over time but contains "spikes" of high demand. Instead of scaling the database up to handle the spikes, and having it go underutilized during periods of low demand, it is frequently possible to adjust the service architecture to avoid such spikes, or to handle them without incurring database hits.
 
 The remaining sections of this document contain tailored guidance to help with implementing these mitigations.
+
 
 ### Configuring Alerts
 
@@ -107,7 +112,7 @@ For more information on diagnosing SQL issues, see [Advanced Diagnostics](#Advan
 
 When you start to see problems with your query performance, the first thing you should investigate is the design of your indexes. Indexes are important because they directly affect how the SQL engine executes a query. 
 
-For instance, if you often need to look up an element by ID, you should consider adding an index for that column. Otherwise, the SQL engine will be forced to perform a table scan and read each physical record (or at least the query column) and the records could be substantially spread out on disk.
+For instance, if you often need to look up an element by a certain field, you should consider adding an index for that column. Otherwise, the SQL engine will be forced to perform a table scan and read each physical record (or at least the query column) and the records could be substantially spread out on disk.
 
 So, if you are frequently doing WHERE or JOIN statements on particular columns, you should make sure you index them. See the section [Creating Indexes](#CreatingIndexes) for more information.
 
@@ -126,7 +131,7 @@ As mentioned above, it's not always better to add more indexes to a table, becau
 
 Large numbers of indexes on a table affect the performance of INSERT, UPDATE, DELETE, and MERGE statements because all indexes must be adjusted appropriately as data in the table changes.
 
-- For **heavily updated** tables, avoid indexing heavily updated columns. For composite indexes, use as few columns as possible.
+- For **heavily updated** tables, avoid indexing heavily updated columns.
 - For tables that are **not frequently updated** but that have large volumes of data, use many indexes. This can improve the performance of queries that do not modify data (such as SELECT statements) because the query optimizer will have more options for finding the best access method.
 
 Indexing small tables may not be optimal because it can take the query optimizer longer to traverse the index searching for data than to perform a simple table scan. Therefore, indexes on small tables might never be used, but must still be maintained as data in the table changes.
@@ -167,19 +172,21 @@ For more information on indexes, see [Index Annotations in Entity Framework][]. 
 ## Schema Design
 
 Here are a few issues to be aware of when picking the data types for your objects, which in turn translates to the schema of your SQL database. Tuning the schema can frequently bring significant performance improvements since SQL has custom optimized ways of handling indexing and storage for different data types:
-* **Use the provided ID column**. Every mobile service table comes with a default ID column configured as the primary key and has an index set on it. There is no need to create an additional ID column.
-* **Use the correct datatypes in your model.** If you know a certain property of your model will be a numeric or boolean, be sure to define it that way in your model instead of as a string. In the JavaScript backend, use literals such as `true` instead of `"true"` and `5` instead of `"5"`. In the .NET backend, use the `int` and `bool` types when you declare the properties of your model. This enables SQL to create the correct schema for those types, which makes queries more efficient.  
+
+- **Use the provided ID column**. Every mobile service table comes with a default ID column configured as the primary key and has an index set on it. There is no need to create an additional ID column.
+- **Use the correct datatypes in your model.** If you know a certain property of your model will be a numeric or boolean, be sure to define it that way in your model instead of as a string. In the JavaScript backend, use literals such as `true` instead of `"true"` and `5` instead of `"5"`. In the .NET backend, use the `int` and `bool` types when you declare the properties of your model. This enables SQL to create the correct schema for those types, which makes queries more efficient.  
 
 <a name="Query"></a>
 ## Query Design
 
 Here are some guidelines to consider when querying the database:
-* **Always execute join operations in the database.** Frequently you will need to combine records from two or more tables where the records being combined share a common field (also known as a *join*). This operation can be inefficient if performed incorrectly since it may involve pulling down all the entities from both tables and then iterating through all of them. This kind of operation is best left to the database itself, but it is sometimes easy to mistakenly perform it on the client or in the mobile service code.
-    * Don't perform joins in your app code
-    * Don't perform joins in your mobile service code. When using the JavaScript backend, be aware that the [table object](http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx) does not handle joins. Be sure to use the [mssql object](http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx) directly to ensure the join happens in the database. For more information, see [Join relational tables](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/#joins). If using the .NET backend and querying via LINQ, joins are automatically handled at the database level by Entity Framework.
-* **Implement paging.** Querying the database can sometimes result in a large number of records being returned to the client. To minimize the size and latency of operations, consider implementing paging.
-    * By default the Mobile Services client SDKs will automatically apply a page size of 50, and you can manually request up to 1,000 records. For more information, see "Return data in pages" for [Windows Store](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging), [iOS](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging), [Android](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-android-how-to-use-client-library/#paging), [HTML/JavaScript](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-html-how-to-use-client-library/#paging), and [Xamarin](http://azure.microsoft.com/en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging).
-    * There is no default page size for queries made from your mobile service code. If your app does not implement paging, or as a defensive measure, consider applying default limits to your queries. In the JavaScript backend, use the **take** operator on the [query object](http://msdn.microsoft.com/en-us/library/azure/jj613353.aspx). If using the .NET backend, consider using the [Take method](http://msdn.microsoft.com/en-us/library/vstudio/bb503062(v=vs.110).aspx) as part of your LINQ query.  
+
+- **Always execute join operations in the database.** Frequently you will need to combine records from two or more tables where the records being combined share a common field (also known as a *join*). This operation can be inefficient if performed incorrectly since it may involve pulling down all the entities from both tables and then iterating through all of them. This kind of operation is best left to the database itself, but it is sometimes easy to mistakenly perform it on the client or in the mobile service code.
+    - Don't perform joins in your app code
+    - Don't perform joins in your mobile service code. When using the JavaScript backend, be aware that the [table object](http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx) does not handle joins. Be sure to use the [mssql object](http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx) directly to ensure the join happens in the database. For more information, see [Join relational tables](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/#joins). If using the .NET backend and querying via LINQ, joins are automatically handled at the database level by Entity Framework.
+- **Implement paging.** Querying the database can sometimes result in a large number of records being returned to the client. To minimize the size and latency of operations, consider implementing paging.
+    - By default your mobile service will limit any incoming queries to a page size of 50, and you can manually request up to 1,000 records. For more information, see "Return data in pages" for [Windows Store](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging), [iOS](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging), [Android](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-android-how-to-use-client-library/#paging), [HTML/JavaScript](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-html-how-to-use-client-library/#paging), and [Xamarin](http://azure.microsoft.com/en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging).
+    - There is no default page size for queries made from your mobile service code. If your app does not implement paging, or as a defensive measure, consider applying default limits to your queries. In the JavaScript backend, use the **take** operator on the [query object](http://msdn.microsoft.com/en-us/library/azure/jj613353.aspx). If using the .NET backend, consider using the [Take method](http://msdn.microsoft.com/en-us/library/vstudio/bb503062(v=vs.110).aspx) as part of your LINQ query.  
 
 For more information on improving query design, including how to analyze query plans, see [Advanced Query Design](#AdvancedQuery) at the bottom of this document.
 
@@ -187,6 +194,7 @@ For more information on improving query design, including how to analyze query p
 ## Service Architecture
 
 Imagine a scenario where you are about to send a push notification to all your customers to check out some new content in your app. As they tap on the notification, the app launches, which possibly triggers a call to your mobile service and a query execution against your SQL database. As potentially millions of customers take this action over the span of just a few minutes, this will generate a surge of SQL load, which may be orders of magnitude higher than your app's steady state load. This could be addressed by scaling your app to a higher SQL tier during the spike and then scaling it back down, however that solution requires manual intervention and comes with increased cost. Frequently slight tweaks in your mobile service architecture can significantly balance out the load clients drive to your SQL database and eliminate problematic spikes in demand. These modifications can often be implemented easily with minimal impact to your customer's experience. Here are some examples:
+
 - **Spread out the load over time.** If you control the timing of certain events (for example, a broadcast push notification), which are expected to generate a spike in demand, and the timing of those events is not critical, consider spreading them out over time. In the example above, perhaps it is acceptable for your app customers to get notified of the new app content in batches over the span of a day instead of nearly simultaneously. Consider batching up your customers into groups which will allow staggered delivery to each batch. If using Notification Hubs, applying an additional tag to track the batch, and then delivering a push notification to that tag provides an easy way to implement this strategy. For more information on tags, see [Use Notification Hubs to send breaking news](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/).
 - **Use Blob and Table Storage whenever appropriate.** Frequently the content that the customers will view during the spike is fairly static and doesn't need to be stored in a SQL database since you are unlikely to need relational querying capabilities over that content. In that case, consider storing the content in Blob or Table Storage. You can access public blobs in Blob Storage directly from the device. To access blobs in a secure way or use Table Storage, you will need to go through a Mobile Services Custom API in order to protect your storage access key. For more information, see [Upload images to Azure Storage by using Mobile Services](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/).
 - **Use an in-memory cache**. Another alternative is to store data, which would commonly be accessed during a traffic spike, in an in-memory cache such as [Azure Cache](http://azure.microsoft.com/en-us/services/cache/). This means incoming requests would be able to fetch the information they need from memory, instead of repeatedly querying the database.
@@ -198,11 +206,11 @@ This section covers some more advanced diagnostic tasks, which may be useful if 
 ### Prerequisites
 To perform some of the diagnostic tasks in this section, you need access to a management tool for SQL databases such as **SQL Server Management Studio** or the management functionality built into the **Azure Management Portal**.
 
-SQL Server Management Studio is a free Windows application, which offers the most advanced capabilities. If you do not have access to a Windows machine, consider provisioning a Virtual Machine in Azure as shown in [Create a Virtual Machine Running Windows Server](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/). If you intend to use the VM primarily for the purpose of running SQL Server Management Studio, a **Basic A0** (formerly "Extra Small") instance should be sufficient. 
+SQL Server Management Studio is a free Windows application, which offers the most advanced capabilities. If you do not have access to a Windows machine (for example if you are using a Mac), consider provisioning a Virtual Machine in Azure as shown in [Create a Virtual Machine Running Windows Server](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/) and then connecting remotely to it. If you intend to use the VM primarily for the purpose of running SQL Server Management Studio, a **Basic A0** (formerly "Extra Small") instance should be sufficient. 
 
 The Azure Management Portal offers a built-in management experience, which is more limited, but is available without a local install.
 
-The the following steps walk you through obtaining the connection information for the SQL database backing your mobile service and then using either of the two tools to connect to it. You may pick whichever tool you prefer.
+The following steps walk you through obtaining the connection information for the SQL database backing your mobile service and then using either of the two tools to connect to it. You may pick whichever tool you prefer.
 
 #### Obtain SQL connection information 
 1. Launch the [Azure Management Portal][].
@@ -244,7 +252,7 @@ A lot of diagnostic tasks can be completed easily right in the **Azure Managemen
 
 After completing the steps in the previous section to connect to your database in SQL Server Management Studio, select your database in **Object Explorer**. Expanding **Views** and then **System Views** reveals a list of the management views. To execute the queries below, select **New Query**, while you have selected your database in **Object Explorer**, then paste the query and select **Execute**.
 
-![SQL Server Management Studio - dynamic management views][SSMSDMVs]
+![SQL Server management Studio - dynamic management views][SSMSDMVs]
 
 Alternatively if you are using the SQL Database Management Portal, first select your database and then pick **New Query**.
 
@@ -254,19 +262,31 @@ To execute any of the queries below, past it into the window and select **Run**.
 
 ![SQL Database Management Portal - run query][PortalSqlManagementRunQuery]
 
+#### Advanced Metrics
+
+The management portal makes certain metrics readily available if using the Basic, Standard, and Premium tiers. However if using the Web and Business tiers, only the Storage metric is available via the portal. Fortunately, it is easy to obtain these and other metrics using the **[sys.resource\_stats](http://msdn.microsoft.com/en-us/library/dn269979.aspx)** management view, regardless of what tier you're using. Consider the following query:
+
+    SELECT TOP 10 * 
+    FROM sys.resource_stats 
+    WHERE database_name = 'todoitem_db' 
+    ORDER BY start_time DESC
+
+> [WACOM.NOTE] 
+> Please execute this query on the **master** database on your server, the **sys.resource\_stats** view is only present on that database.
+
+The result will contain the following useful metrics: CPU (% of tier limit), Storage (megabytes), Physical Data Reads (% of tier limit), Log Writes (% of tier limit), Memory (% of tier limit), Worker Count, Session Count, etc. 
+
 #### SQL connectivity events
 
-The **sys.event\_log** view contains the details of connectivity-related events. The columns contained in this view, and the types of events it collects, are described in [sys.event_log](http://msdn.microsoft.com/en-us/library/azure/jj819229.aspx).
-x`
+The **[sys.event\_log](http://msdn.microsoft.com/en-us/library/azure/jj819229.aspx)** view contains the details of connectivity-related events.
+
     select * from sys.event_log 
-    where database_name = 'my_user_db'
+    where database_name = 'todoitem_db'
     and event_type like 'throttling%'
     order by start_time desc
 
-
-    event_type                   event_count description
-    ---------------------------- ----------- ----------------
-    throttling_long_transaction  2           The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.
+> [WACOM.NOTE] 
+> Please execute this query on the **master** database on your server, the **sys.event\_log** view is only present on that database.
 
 <a name="AdvancedIndexing" />
 ### Advanced Indexing
@@ -326,7 +346,6 @@ The following guides describe how to set a clustered or nonclustered index by mo
 - [Create Clustered Indexes][]
 - [Create Unique Indexes][]
 
-
 #### Find top N missing indexes 
 You can write SQL queries on dynamic management views that will tell you more detailed information about the resource usage of individual queries or give you heuristics on what indexes to add. The following query determines which 10 missing indexes would produce the highest anticipated cumulative improvement, in descending order, for user queries.
 
@@ -356,11 +375,12 @@ For more information, see [Monitoring SQL Database Using Dynamic Management View
 <a name="AdvancedQuery" />
 ### Advanced Query Design 
 
+Frequently it's difficult to diagnose what queries queres are most expensive for the database. 
+
 #### Finding top N queries
 
 The following example returns information about the top five queries ranked by average CPU time. This example aggregates the queries according to their query hash, so that logically equivalent queries are grouped by their cumulative resource consumption.
 
-	-- Find top 5 queries
 	SELECT TOP 5 query_stats.query_hash AS "Query Hash", 
 	    SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
 	    MIN(query_stats.statement_text) AS "Statement Text"
@@ -376,7 +396,19 @@ The following example returns information about the top five queries ranked by a
 	GROUP BY query_stats.query_hash
 	ORDER BY 2 DESC;
 
-For more information, see [Monitoring SQL Database Using Dynamic Management Views][].
+For more information, see [Monitoring SQL Database Using Dynamic Management Views][]. In addition to executing the query, the **SQL Database Management Portal** gives you a nice shortcut to see this data, by slecting **Summary** for your database and then selecting **Query Performance**:
+
+![SQL Database Management Portal - query performance][PortalSqlManagementQueryPerformance]
+
+#### Analyzing the query plan
+
+Once you have identified expensive queries or if you are about to deploy code using new queries and you would like to investigate their performance, the tooling offers great support for analyzing the **query plan**. The query plan enables you to see what operations take up the builk of CPU time and IO resources when a given SQL query runs. To analyze the query plan in **SQL Server Management Studio**, use the highlighted toolbar buttons.
+
+![SQL Server Management Studio - query plan][SSMSQueryPlan]
+
+To analyze the query plan in the **SQL Database Management Portal**, use the highlightd toolbar buttons.
+
+![SQL Database Management Portal - query plan][PortalSqlManagementQueryPlan]
 
 ## See Also
 
@@ -410,7 +442,10 @@ For more information, see [Monitoring SQL Database Using Dynamic Management View
 [SSMSDMVs]: ./media/mobile-services-sql-scale-guidance/8.png
 [PortalSqlManagementNewQuery]: ./media/mobile-services-sql-scale-guidance/9.png
 [PortalSqlManagementRunQuery]: ./media/mobile-services-sql-scale-guidance/10.png
- 
+[PortalSqlManagementQueryPerformance]: ./media/mobile-services-sql-scale-guidance/11.png
+[SSMSQueryPlan]: ./media/mobile-services-sql-scale-guidance/12.png
+[PortalSqlManagementQueryPlan]: ./media/mobile-services-sql-scale-guidance/13.png
+
 <!-- LINKS -->
 
 [Azure Management Portal]: http://manage.windowsazure.com

@@ -16,6 +16,8 @@ This topic shows you how to register your app to be able to use Live Connect as 
 
 10. Click **API Settings**, enable **Enhanced redirection security**, supply a value of `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` in **Redirect URL**, then click **Save**.
 
+	>[WACOM.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-microsoft_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-microsoft</code>.
+
 	![][3]
 
 	This enables Microsoft Account authentication for your app.
