@@ -1,12 +1,12 @@
-<properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use offline data in your Xamarin iOS application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="donnam,wesmc" editor="wesmc" />
+<properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Xamarin Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use offline data in your Xamarin Android application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="donnam,wesmc" editor="wesmc" />
 
 # Get started with Offline Data in Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows Store C#">Windows Store C#</a>
 <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone">Windows Phone</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS" class="current">Xamarin.iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
+<a href="/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android" class="current">Xamarin.Android</a>
 </div>
 
 This topic shows you how to use use the offline capabilities of Azure Mobile Services. These features allow you to interact with a local database when you are in an offline scenario with your Mobile Service. The offline features allow you to sync your local changes with the mobile service when you are online again. 
@@ -22,13 +22,12 @@ This tutorial walks you through these basic steps:
 
 This tutorial requires the following:
 
-* XCode 4.5 and iOS 6.0 (or later versions) 
-* Visual Studio with the [Xamarin extension] **or** [Xamarin Studio] on OS X
+* Visual Studio with the [Xamarin extension] **or** [Xamarin Studio] 
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
 * [Azure Mobile Services SDK version 1.3.0-alpha3](Mobile Services SDK Nuget)
 * [Azure Mobile Services SQLite Store version 1.0.0-alpha2](SQLite store nuget)
 
->[WACOM.NOTE] The instructions below assume you are using Visual Studio 2012 or higher with the Xamarin extension. If you are using Xamarin Studio on OS X, most of the instructions are the same, but you should also install the [NuGet Addin for Xamarin] so that you can easily add the prerelease Mobile Services NuGet packages to your project.
+>[WACOM.NOTE] The instructions below assume you are using Visual Studio 2012 or higher with the Xamarin extension. If you are using Xamarin Studio, most of the instructions are the same, but you should also install the [NuGet Addin for Xamarin] so that you can easily add the prerelease Mobile Services NuGet packages to your project.
 
 >[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 
@@ -44,85 +43,61 @@ Azure Mobile Services offline features allow you to interact with a local databa
 
     This will also install all of the required dependencies.
     
-3. In the references node, remove the references to `System.IO`, `System.Runtime` and `System.Threading.Tasks` 
+3. In the references node, remove the references to `System.IO`, `System.Runtime` and `System.Threading.Tasks`.
 
-### Edit the file QSTodoService.cs 
+### Edit ToDoActivity.cs
 
-1. Add the following using statements to the top of the file.
+- Add the declarations
 
-		using Microsoft.WindowsAzure.MobileServices; 
-		using Microsoft.WindowsAzure.MobileServices.Sync; 
+		using Microsoft.WindowsAzure.MobileServices.Sync;
+		using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
+		using System.IO;
 
-2. Change the type of the member `todoTable` from `IMobileServiceTable` to `IMobileServicesSyncTable`
+- Change the type of the member `ToDoActivity.toDoTable` from  `IMobileServiceTable<>` to `IMobileServiceSyncTable<>`
 
-		IMobileServiceSyncTable<ToDoItem> todoTable; 
+- In the method `OnCreate(Bundle)`, after the line that initializes the member `client`, add the following code:
 
-3. In the constructor for `QSTodoService`, change the initializer for `todoTable`:
+	    // existing initializer
+	    client = new MobileServiceClient (applicationURL, applicationKey, progressHandler);
+	
+		// new code to initialize the SQLite store
+	    string path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "test1.db");
+	
+	    if (!File.Exists(path))
+	    {
+	        File.Create(path).Dispose();
+	    }
 
-        todoTable = client.GetSyncTable <ToDoItem> ();
+	    var store = new MobileServiceSQLiteStore(path);
+	    store.DefineTable<ToDoItem>();
+	
+	    await client.SyncContext.InitializeAsync(store, new TodoSyncHandler(this));
 
-4. In the constructor for `QSTodoService`, add this as the second line:
- 
-        SQLitePCL.CurrentPlatform.Init();
- 
-5. In the class `QSTodoService`, define a new method `InitializeAsync`:
- 
-		public async Task InitializeStoreAsync()
+- In the same method, change the line that initializes `toDoTable` to use the method `GetSyncTable<>` instead of `GetTable<>`:
+
+		toDoTable = client.GetSyncTable <ToDoItem> ();
+
+- Modify the method `OnRefreshItemsSelected` to add calls to `PushAsync` and `PullAsync`:
+
+		async void OnRefreshItemsSelected ()
 		{
-		    string path = "test1.db";
-		    var store = new MobileServiceSQLiteStore(path);
-		    store.DefineTable<ToDoItem>();
-		    await client.SyncContext.InitializeAsync(store);
+		    await client.SyncContext.PushAsync();
+		    await toDoTable.PullAsync();
+		    await RefreshItemsFromTableAsync();
 		}
-
-6. In the class `QSTodoService`, define a new method `SyncAsync`:
- 
-		public async Task SyncAsync()
-		{
-		    try
-		    {
-		        await this.client.SyncContext.PushAsync();
-		        await this.todoTable.PullAsync();
-		    }
-		    catch (MobileServiceInvalidOperationException e)
-		    {
-		        Console.Error.WriteLine(@"Sync Failed: {0}", e.Message);
-		    }
-		}
-
-
-### Edit QSTodoListViewController.cs 
- 
-1. Add a call to `InitializeStoreAsync` in `ViewDidLoad()`, after the initialization of `todoService`:
-
-		public override async void ViewDidLoad ()
-		{
-		    base.ViewDidLoad ();
-		
-		
-		    todoService = QSTodoService.DefaultService;
-			await todoService.InitializeStoreAsync();
-			...    // more code
-		}
-
-2. Modify the method `AddRefreshControl` to call `SyncAsync` before the call to `RefreshAsync`:
-
-
-		RefreshControl.ValueChanged += async (sender, e) => {
-            await todoService.SyncAsync();
-			await RefreshAsync();
-		}; 
 
 ### Edit ToDoItem.cs 
 
-1. In the top of the file, add the using statement: 
+- Add the using statement: 
 
         using Microsoft.WindowsAzure.MobileServices; 
 
-2. Add the following members to the class `ToDoItem`:
+
+- Add the following members to the class `ToDoItem`:
  
 		[Version]
 		public string Version { get; set; }
+		
 		
 		public override string ToString()
 		{
@@ -137,24 +112,19 @@ In this section you will test the  `SyncAsync` method that synchronizes the loca
 
 2. Notice that the list of items in the app is empty. As a result of the code changes in the previous section, the app no longer reads items from the mobile service, but rather from the local store. 
 
-    ![][1]
-
 3. Add items to the To Do list.
 
 4. Log into the Microsoft Azure Management portal and look at the database for your mobile service. If your service uses the JavaScript backend for mobile services, you can browse the data from the **Data** tab of the mobile service. If you are using the .NET backend for your mobile service, you can click on the **Manage** button for your database in the SQL Azure Extension to execute a query against your table.
 
     Notice the data has not been synchronized between the database and the local store.
 
-5. In the app, perform the refresh gesture by pulling down the list of items. This causes the app to call `MobileServiceClient.SyncContext.PushAsync` and `IMobileServiceSyncTable.PullAsync()`, then `RefreshTodoItems` to refresh the app with the items from the local store. 
+5. In the app, push the **Refresh** button. This causes the app to call `MobileServiceClient.SyncContext.PushAsync` and `IMobileServiceSyncTable.PullAsync()`, then `RefreshTodoItems` to refresh the app with the items from the local store. 
 
     The push operation results in the mobile service database receiving the data from the store. It is executed off the `MobileServiceClient.SyncContext` instead of the `IMobileServicesSyncTable` and pushes changes on all tables associated with that sync context. This is to cover scenarios where there are relationships between tables.
     
     In contrast, the pull operation retrieves records from only the table that was specified. If there are pending operations for this table in the sync context, a `PushAsync` operation will be implictly called by the Mobile Services SDK.
         
-    ![][2]
-
-
-    ![][3] 
+    ![][2] 
   
 
 ##Summary
@@ -186,9 +156,7 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [Next Steps]:#next-steps
 
 <!-- Images -->
-[1]: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-quickstart-startup-ios.png
-[2]: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-data-browse.png
-[3]: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-quickstart-completed-ios.png
+[2]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-data-browse.png
 
 
 
