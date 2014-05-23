@@ -48,11 +48,11 @@ Getting started with Azure Redis Cache is easy. To get started, you provision an
 <a name="create-cache"></a>
 ## Create a cache
 
-To create a cache, first sign in to the Azure management preview portal, and click **New**, **Cache**.
+To create a cache, first sign in to the Azure management preview portal, and click **New**, **Redis Cache (Preview)**.
 
 ![New cache][NewCacheMenu]
 
-In the **Create cache** blade, specify the desired configuration for the cache.
+In the **New Redis Cache (Preview)** blade, specify the desired configuration for the cache.
 
 ![Create cache][CacheCreate]
 
@@ -128,6 +128,8 @@ To connect to an Azure Redis Cache and be returned an instance of a connected `C
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
 
+>Warning: Never store credentials is source code. To keep this sample simple, I’m showing them in the source code. See [Windows Azure Web Sites: How Application Strings and Connection Strings Work][] for information on how to store credentials.
+
 If you don't want to use SSL, either set `ssl=false` or just pass in the endpoint and key.
 
 	connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,password=...");
@@ -188,6 +190,8 @@ When calling `StringGet`, if the object exists, it is returned, and if it does n
         cache.StringSet("key1", value);
     }
 
+>Azure Redis Cache can cache .NET objects as well as primitive data types, but before a .NET object can be cached it must be serialized. This is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer. For more information, see [Work with .NET objects in the cache][].
+
 <a name="specify-expiration"></a>
 ## Specify the expiration of an item in the cache
 
@@ -206,7 +210,7 @@ To configure a client application in Visual Studio using the Redis Cache Session
 
 ![Manage NuGet packages][NuGetMenu]
 
-Type **Redis Cache Session State** into the **Search Online** text box, select it from the results, and click **Install**.
+Type **RedisSessionStateProvider** into the **Search Online** text box, select it from the results, and click **Install**.
 
 ![Redis Cache Session State NuGet Package][SessionStateNuGet]
 
@@ -333,6 +337,8 @@ follow these links to learn how to do more complex caching tasks.
 
 [StackExchange.Redis configuration model]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
+[Work with .NET objects in the cache]: http://msdn.microsoft.com/en-us/library/dn690521.aspx#Objects
+
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Cache Pricing Details]: http://www.windowsazure.com/en-us/pricing/details/cache/
@@ -351,3 +357,5 @@ follow these links to learn how to do more complex caching tasks.
 [Redis]: http://redis.io/documentation
 [Redis data types]: http://redis.io/topics/data-types
 [a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
+
+[Windows Azure Web Sites: How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/

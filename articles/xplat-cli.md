@@ -158,9 +158,9 @@ If you have multiple Azure subscriptions, logging in will grant access to all su
 	data:    Azure-sub-1       ####################################  true
 	data:    Azure-sub-2       ####################################  false
 
-In the above list, the **Current** column indicates the current default subscription as Azure-sub-1. To change the default subscription, use the `azure account select` command, and specify the subscription that you wish to be the default. For example:
+In the above list, the **Current** column indicates the current default subscription as Azure-sub-1. To change the default subscription, use the `azure account set` command, and specify the subscription that you wish to be the default. For example:
 
-	azure account select Azure-sub-2
+	azure account set Azure-sub-2
 
 This will change the default subscription to Azure-sub-2. 
 
