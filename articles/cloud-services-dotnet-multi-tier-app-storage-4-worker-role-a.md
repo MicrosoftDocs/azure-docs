@@ -501,7 +501,7 @@ The `CheckAndUpdateStatusIfComplete` method checks messages that are in Processi
 
 
 
-<h2><a name="testing"></a>Testing worker role A</h2>
+<h2><a name="testing"></a>Test worker role A</h2>
 
 1. Run the application by pressing F5.
 

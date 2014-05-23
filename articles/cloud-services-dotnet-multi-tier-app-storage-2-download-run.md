@@ -17,7 +17,7 @@ In this tutorial you'll learn:
 
 - [Set up the development environment][]
 - [Download and run the completed solution][]
-- [View developer storage in Visual Studio][]
+- [View development storage in Visual Studio][]
 - [Create an Azure Storage account][]
 - [Create a Cloud Service][]
 - [Configure the application for Azure Storage][]
@@ -78,7 +78,7 @@ In this tutorial you'll learn:
 	<br/><br/>
    ![Message Index Page][mtas-message-index-page]
 
-The data that you have been entering and viewing is being managed by the Azure storage emulator. The storage emulator uses a SQL Server Express LocalDB database to emulate the way Azure Storage works in the cloud.  The application is using the storage emulator because that is what the project was configured to use when you downloaded it. This setting is stored in *.cscfg* files in the **AzureEmailService** project.  The *ServiceConfiguration.Local.cscfg* file determines what is used when you run the application locally in Visual Studio, and the *ServiceConfiguration.Cloud.cscfg* file determines what is used when you deploy the application to the cloud. Later you'll see how to configure the application to use an Azure Storage account.
+	The data that you have been entering and viewing is being managed by the Azure storage emulator. The storage emulator uses a SQL Server Express LocalDB database to emulate the way Azure Storage works in the cloud.  The application is using the storage emulator because that is what the project was configured to use when you downloaded it. This setting is stored in *.cscfg* files in the **AzureEmailService** project.  The *ServiceConfiguration.Local.cscfg* file determines what is used when you run the application locally in Visual Studio, and the *ServiceConfiguration.Cloud.cscfg* file determines what is used when you deploy the application to the cloud. Later you'll see how to configure the application to use an Azure Storage account.
 
 5. Close the browser.
 
@@ -86,7 +86,7 @@ The data that you have been entering and viewing is being managed by the Azure s
 
 
 
-<h2><a name="StorageExpVS"></a><span class="short-header">Developer storage</span>Viewing developer storage in Visual Studio</h2>
+<h2><a name="StorageExpVS"></a>View development storage in Visual Studio</h2>
 
 The **Azure Storage** browser in **Server Explorer** provides a convenient way to work directly with Azure Storage resources.
 
@@ -111,7 +111,7 @@ Another tool you can use to work with Azure Storage resources is [Azure Storage 
 
 
 
-<h2><a name="createWASA">Create an Azure Storage account</h2>
+<h2><a name="createWASA"></a>Create an Azure Storage account</h2>
 
 When you run the sample application in Visual Studio, you can access tables, queues, and blobs in the Azure storage emulator or in an Azure Storage account in the cloud. In this section of the tutorial you create the Azure Storage account that you'll configure Visual Studio to use later in the tutorial.
 
@@ -467,7 +467,7 @@ The following steps explain how to scale out by using the Azure Management Porta
 
 	It can take a few minutes for the new VMs to be provisioned.
 
-1. Select the **Instances** tab to see your each role instance in your application.
+1. Select the **Instances** tab to see each role instance in your application.
 
 	![view instances][mtas-in2]
 
