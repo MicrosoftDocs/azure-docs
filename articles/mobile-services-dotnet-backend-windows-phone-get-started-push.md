@@ -124,7 +124,7 @@ This enables the mobile service to connect to MPNS in unauthenticated mode to se
 
 5. In the app, enter the text "hello push" in the textbox, click **Save**, then immediately click the start button or back button to leave the app.
 
-   	![][3]
+   	![][2]
 
   	This sends an insert request to the mobile service to store the added item. Notice that the device receives a toast notification that says **hello push**.
 
