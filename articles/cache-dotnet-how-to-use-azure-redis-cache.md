@@ -48,11 +48,11 @@ Getting started with Azure Redis Cache is easy. To get started, you provision an
 <a name="create-cache"></a>
 ## Create a cache
 
-To create a cache, first sign in to the Azure management preview portal, and click **New**, **Cache**.
+To create a cache, first sign in to the Azure management preview portal, and click **New**, **Redis Cache (Preview)**.
 
 ![New cache][NewCacheMenu]
 
-In the **Create cache** blade, specify the desired configuration for the cache.
+In the **New Redis Cache (Preview)** blade, specify the desired configuration for the cache.
 
 ![Create cache][CacheCreate]
 
@@ -127,6 +127,8 @@ The connection to the Azure Redis Cache is managed by the `ConnectionMultiplexer
 To connect to an Azure Redis Cache and be returned an instance of a connected `ConnectionMultiplexer`, call the static `Connect` method and pass in the cache endpoint and key like the following example.
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
+
+>Warning: Never store credentials is source code. To keep this sample simple, I’m showing them in the source code. See [Windows Azure Web Sites: How Application Strings and Connection Strings Work][] for information on how to store credentials.
 
 If you don't want to use SSL, either set `ssl=false` or just pass in the endpoint and key.
 
@@ -355,3 +357,5 @@ follow these links to learn how to do more complex caching tasks.
 [Redis]: http://redis.io/documentation
 [Redis data types]: http://redis.io/topics/data-types
 [a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
+
+[Windows Azure Web Sites: How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/

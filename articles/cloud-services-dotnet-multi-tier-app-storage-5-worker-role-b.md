@@ -521,7 +521,7 @@ As with emails sent to lists, the actual sending of the email is in a separate m
 
 
 
-<h2><a name="testing"></a>Testing Worker Role B</h2>
+<h2><a name="testing"></a>Test Worker Role B</h2>
 
 1. Run the application by pressing F5.
 
