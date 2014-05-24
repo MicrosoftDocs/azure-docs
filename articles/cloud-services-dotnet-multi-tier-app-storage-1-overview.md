@@ -8,7 +8,9 @@ Here's a diagram that shows how the parts of the application interact:
 
 ![Email message processing][mtas-worker-roles-a-and-b]
 
-You'll learn:
+This is a 5-part tutorial series. If you want a quicker, simpler introduction to cloud services, queues, and blobs, see [Get Started with Azure Cloud Services and ASP.NET](/en-us/documentation/articles/cloud-services-dotnet-get-started/).
+
+In this tutorial series you'll learn:
 
 * How to enable your machine for Azure development by installing the Azure SDK.
 * How to create a Visual Studio cloud project with an ASP.NET MVC web role and two worker roles.
@@ -35,7 +37,6 @@ There are five tutorials in the series:
 ## Segments of this tutorial
 
 - [Prerequisites](#prerequisites)
-- [Why an email list](#whyanemaillistapp)
 - [Front-end overview](#frontend)
 - [Back-end overview](#backend)
 - [Azure tables](#tables)
@@ -748,7 +749,7 @@ An alternative architecture is to run the front-end in an Azure Web Site.
 
 ![Alternative application architecture][mtas-alternative-architecture]
 
-Another alternative is to run the front-end in an Azure web site and use the WebJobs feature to run the back-end in the same servers that run the front-end. For more information about Cloud Services, Web Sites, and WebJobs, see [Azure Web Sites, Cloud Services and Virtual Machines comparison](/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
+Another alternative is to run the front-end in an Azure web site and use the WebJobs feature to run the back-end in the same servers that run the front-end. For more information, see [Azure Web Sites, Cloud Services and Virtual Machines comparison](/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
 
 
 <h2><a name="cost"></a>Cost</h2>
