@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-administer-hdinsight-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to perform administrative tasks for the HDInsight clusters using PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer HDInsight using PowerShell" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Manage Hadoop clusters in HDInsight using Azure PowerShell" authors="jgao" />
 
-# Administer HDInsight using PowerShell
+# Manage Hadoop clusters in HDInsight using Azure PowerShell
 
-Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. In this article, you will learn how to manage HDInsight clusters using a local Azure PowerShell console through the use of Windows PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
+Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. In this article, you will learn how to manage Hadoop clusters in HDInsight using a local Azure PowerShell console through the use of Windows PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
 **Prerequisites:**
 
@@ -53,7 +53,7 @@ After you have imported the publishsettings file, you can use the following comm
 
 
 
-For information on creating an Azure storage account using the management portal, see [How to Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/).
+For information on creating an Azure storage account using the management portal, see [How to Create a Storage Account](../storage-create-storage-account/).
 
 If you have already had a storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
@@ -62,7 +62,7 @@ If you have already had a storage account but do not know the account name and a
 	# List the keys for a storage account
 	Get-AzureStorageKey <StorageAccountName>
 
-For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](../storage-manage-storage-account/).
 
 **To create Azure storage container**
 
@@ -178,7 +178,7 @@ The following PowerShell script retrieves the MapReduce job output from the last
 	# Display the output
 	cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
-For more information on developing and running MapReduce jobs, see [Using MapReduce with HDInsight][hdinsight-mapreduce].
+For more information on developing and running MapReduce jobs, see [Using MapReduce with HDInsight][hdinsight-use-mapreduce].
 
 
 
@@ -239,7 +239,7 @@ The following script submit a hive job to list the Hive tables:
 
 The Hive job will first show the Hive tables created on the cluster, and the data returned from the hivesampletable.
 
-For more information on using Hive, see [Using Hive with HDInsight][hdinsight-hive].
+For more information on using Hive, see [Using Hive with HDInsight][hdinsight-use-hive].
 
 
 ##<a id="upload"></a>Upload data to the Blob storage
@@ -258,26 +258,25 @@ See the [Submit MapReduce jobs](#mapreduce) session in this article.
 * [Get started with Azure HDInsight][hdinsight-get-started]
 
 
-[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
-[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
-[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 
-[hdinsight-get-started]: /en-us/documentation/articles/hdinsight-get-started/
-[hdinsight-provision]: /en-us/documentation/articles/hdinsight-provision-clusters/
+[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-provision]: ../hdinsight-provision-clusters/
 
-[hdinsight-submit-jobs]: /en-us/documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/
+[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 
-[hdinsight-admin-portal]: /en-us/documentation/articles/hdinsight-administer-use-management-portal/
-[hdinsight-admin-cli]: /en-us/documentation/articles/hdinsight-administer-use-command-line/
-[hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
-[hdinsight-mapreduce]: /en-us/documentation/articles/hdinsight-use-mapreduce/
-
-[hdinsight-hive]: /en-us/documentation/articles/hdinsight-use-hive/
-[hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
+[hdinsight-admin-cli]: ../hdinsight-administer-use-command-line/
+[hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
+[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
+[hdinsight-upload-data]: ../hdinsight-upload-data/
 
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 

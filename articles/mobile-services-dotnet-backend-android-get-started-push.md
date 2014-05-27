@@ -47,7 +47,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
-[WACOM.INCLUDE (../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
 ##<a id="configure"></a>Configure Mobile Services to send push requests
@@ -103,7 +103,7 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 ###Add code
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push] (../includes/mobile-services-android-getting-started-with-push)
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 <h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against the published mobile service</h2>
 

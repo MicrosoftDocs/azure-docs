@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-sample-10gb-graysort" urlDisplayName="HDInsight Samples" pageTitle="The 10GB GraySort sample | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to run a general purpose GraySort with HDInsight using Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-sample-10gb-graysort" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The 10GB GraySort sample | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="Learn how to run a general purpose GraySort on Hadoop with HDInsight using Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
 
-# The 10GB GraySort sample
+# The 10GB GraySort Hadoop sample in HDInsight
  
-This sample topic shows how to run a general purpose GraySort with Azure HDInsight using Azure PowerShell. A GraySort is a benchmark sort whose metric is the sort rate (TB/minute) that is achieved while sorting very large amounts of data, usually a 100 TB minimum. 
+This sample topic shows how to run a general purpose GraySort Hadoop MapReduce program on Azure HDInsight using Azure PowerShell. A GraySort is a benchmark sort whose metric is the sort rate (TB/minute) that is achieved while sorting very large amounts of data, usually a 100 TB minimum. 
 
 This sample uses a modest 10 GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy that won the annual general purpose ("daytona") terabyte sort benchmark in 2009 with a rate of 0.578 TB/min (100 TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sortbenchmark](http://sortbenchmark.org/)   site.
 
@@ -22,9 +22,9 @@ The input and output format, used by all three applications, read and write the 
 
 **Prerequisites**:	
 
-- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://azure.microsoft.com/en-us/pricing/free-trial/) page.
 
-- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](../hdinsight-provision-clusters/)
 
 - You must have installed Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
@@ -402,25 +402,28 @@ This sample has demonstrated how to run a series of MapReduce jobs using Azure H
 
 For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Azure HDInsight with Azure PowerShell, see the following topics:
 
-* [Get started with Azure HDInsight][getting-started]
-* [Sample: Pi estimator][pi-estimator]
-* [Sample: Wordcount][wordcount]
-* [Sample: C# Steaming][cs-streaming]
-* [Use Pig with HDInsight][pig]
-* [Use Hive with HDInsight][hive]
+* [Get started with Azure HDInsight][hdinsight-get-started]
+* [Sample: Pi estimator][hdinsight-sample-pi-estimator]
+* [Sample: Wordcount][hdinsight-sample-wordcount]
+* [Sample: C# Steaming][hdinsight-sample-csharp-streaming]
+* [Use Pig with HDInsight][hdinsight-use-pig]
+* [Use Hive with HDInsight][hdinsight-use-hive]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
 
+[Powershell-install-configure]: ../install-configure-powershell/
 
-[getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
-[pi-estimator]: /en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/
-[wordcount]: /en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/
-[cs-streaming]: /en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/
+[hdinsight-get-started]: ../hdinsight-get-started/
 
+[hdinsight-samples]: ../hdinsight-run-samples/
+[hdinsight-sample-10gb-graysort]: ../hdinsight-sample-10gb-graysort/
+[hdinsight-sample-csharp-streaming]: ../hdinsight-sample-csharp-streaming/
+[hdinsight-sample-pi-estimator]: ../hdinsight-sample-pi-estimator/
+[hdinsight-sample-wordcount]: ../hdinsight-sample-wordcount/
 
-[hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
-[pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-pig]: ../hdinsight-use-pig/
+
 

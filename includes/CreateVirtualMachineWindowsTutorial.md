@@ -89,7 +89,7 @@ This section will show you how to log on to the virtual machine that you created
 
 ## <a id="attachdisk"> </a>How to attach a data disk to the new virtual machine ##
 
-This section will show you how to attach an empty data disk to the virtual machine. See the [Attach a Data Disk Tutorial] (http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/) for more information on attaching empty disks as well as how to attach existing disks.
+This section shows you how to attach an empty data disk to the virtual machine. See the [Attach a Data Disk Tutorial] (http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/) for more information on attaching empty disks as well as how to attach existing disks.
 
 1. Sign in to the Azure [Management Portal](http://manage.windowsazure.com).
 

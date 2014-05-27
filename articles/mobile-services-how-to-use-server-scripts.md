@@ -1,4 +1,4 @@
-<properties pageTitle="Work with a JavaScript backend mobile service" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
+<properties pageTitle="Work with a JavaScript backend mobile service" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
 
 # Work with a JavaScript backend mobile service
@@ -37,7 +37,7 @@ This article provides detailed information about and examples of how to work wit
 
 ##<a name="intro"></a>Introduction
 
-In a JavaScript backend mobile service, you can define custom business logic as JavaScript code that's stored and executed on the server. This server script code is assigned to one of the following server functionalities:
+In a JavaScript backend mobile service, you can define custom business logic as JavaScript code that's stored and executed on the server. This server script code is assigned to one of the following server functions:
 
 + [Insert, read, update, or delete operations on a given table][Table operations].
 + [Scheduled jobs][Job Scheduler].

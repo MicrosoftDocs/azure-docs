@@ -389,8 +389,8 @@ In this section you will extend the basic application created by the **express**
 
 3. In the app.js file, scroll down to where you see the following line:
 
-		app.get('/', routes.index);
-		app.get('/users', user.list);
+		app.use('/', routes);
+		app.use('/users', users);
 
 	Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
@@ -515,15 +515,9 @@ To test the application on your local machine, perform the following steps:
 
 The steps in this section use the Azure command-line tools to create a new Azure Web Site, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see <a href="http://content-ppe.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Web Site</a>.</p>
-</div>
+> [WACOM.NOTE] These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site].
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>If this is the first Azure Web Site you have created, you must use the Azure portal to deploy this application.</p>
-</div>
+> [WACOM.NOTE] If this is the first Azure Web Site you have created, you must use the Azure portal to deploy this application.
 
 ###Enable the Azure Web Site feature
 
@@ -616,10 +610,7 @@ Before using the command-line tools with Azure, you must first download a file c
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If this is the first Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Web Site</a>.</p>
-	</div>
+	> [WACOM.NOTE] If this is the first Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see [Create and deploy a Node.js application to an Azure Web Site].
 
 ###Publish the application
 
@@ -685,8 +676,8 @@ While the steps in this article describe using the Table Service to store inform
 ##Additional resources
 
 [Azure command-line tool for Mac and Linux]    
-[Create and deploy a Node.js application to Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publishing to Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
+[Create and deploy a Node.js application to Azure Web Sites]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Publishing to Azure Web Sites with Git]: /en-us/documentation/articles/web-sites-publish-source-control/
 [Azure Developer Center]: /en-us/develop/nodejs/
 
 
@@ -696,11 +687,11 @@ While the steps in this article describe using the Table Service to store inform
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 
-[Node.js Web Application with MongoDB]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(Mac)/
-[Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[Create and deploy a Node.js application to an Azure Web Site]: ./web-site-with-mongodb-Mac
-[Publishing to Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
-[azure]: https://github.com/WindowsAzure/azure-sdk-for-node
+[Node.js Web Application with MongoDB]: /en-us/documentation/articles/web-sites-nodejs-store-data-mongodb/
+[Azure command-line tool for Mac and Linux]: /en-us/documentation/articles/xplat-cli/
+
+[Publishing to Azure Web Sites with Git]: /en-us/documentation/articles/web-sites-publish-source-control/
+[azure]: https://github.com/Azure/azure-sdk-for-node
 
 
 [Azure Portal]: http://windowsazure.com
@@ -718,3 +709,5 @@ While the steps in this article describe using the Table Service to store inform
 [web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
+
+[Create and deploy a Node.js application to an Azure Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/

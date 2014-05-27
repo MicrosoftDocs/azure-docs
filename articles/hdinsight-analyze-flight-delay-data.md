@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-analyze-flight-delay-data" urlDisplayName="Analyze flight delay data with HDInsight" pageTitle="Analyze flight delay data using HDInsight | Azure" metaKeywords="" description="Learn how to upload data to HDInsight, how to process the data using Hive, and how to export the results to SQL Database using Sqoop." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-analyze-flight-delay-data" urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="Analyze flight delay data using Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to upload data to HDInsight, how to process the data using Hive, and how to export the results to SQL Database using Sqoop." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using Hadoop in HDInsight " authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-#Analyze flight delay data using HDInsight
+#Analyze flight delay data using Hadoop in HDInsight
 
-Hive provides a means of running MapReduce job through an SQL-like scripting language, called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarization, querying, and analysis of large volumes of data. This tutorial shows you how to use Hive to calculate average delays among airports, and how to use Sqoop to export the results to SQL Database. 
+Hive provides a means of running Hadoop MapReduce jobs through an SQL-like scripting language, called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarization, querying, and analysis of large volumes of data. This tutorial shows you how to use Hive to calculate average delays at airports, and how to use Sqoop to export the results to SQL Database. 
 
 **Prerequisites:**
 
@@ -417,7 +417,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 
 ##<a id="executehqlscript"></a>Execute HiveQL script 
 
-There are several Azure PowerShell cmdlets you can use to run Hive. This tutorial uses Invoke-Hive. For other methods, see [Use Hive with HDInsight][hdinsight-hive]. Using Invoke-Hive, you can run either a HiveQL statement or a HiveQL script. You will use the HiveQL script you have created and uploaded to Azure Blob storage.
+There are several Azure PowerShell cmdlets you can use to run Hive. This tutorial uses Invoke-Hive. For other methods, see [Use Hive with HDInsight][hdinsight-use-hive]. Using Invoke-Hive, you can run either a HiveQL statement or a HiveQL script. You will use the HiveQL script you have created and uploaded to Azure Blob storage.
 
 There is a known Hive path issue. The instructions for fixing the issue can be found at [TechNet Wiki][technetwiki-hive-error].
 
@@ -542,10 +542,10 @@ The last steps is to run Sqoop export to export the data to SQL Database. You ha
 Now that you understand how to upload file to Blob storage, how to populate a Hive table using the data from Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to Azure SQL Database. To learn more, see the following articles:
 
 * [Getting Started with HDInsight][hdinsight-get-started]
-* [Use Hive with HDInsight][hdinsight-hive]
-* [Use Oozie with HDInsight][hdinsight-oozie]
-* [Use Sqoop with HDInsight][hdinsight-sqoop]
-* [Use Pig with HDInsight][hdinsight-pig]
+* [Use Hive with HDInsight][hdinsight-use-hive]
+* [Use Oozie with HDInsight][hdinsight-use-oozie]
+* [Use Sqoop with HDInsight][hdinsight-use-sqoop]
+* [Use Pig with HDInsight][hdinsight-use-pig]
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 * [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
 
@@ -553,14 +553,14 @@ Now that you understand how to upload file to Blob storage, how to populate a Hi
 
 [Powershell-install-configure]: ../install-configure-powershell/
 
-[hdinsight-oozie]: ../hdinsight-use-oozie/
-[hdinsight-hive]: ../hdinsight-use-hive/
+[hdinsight-use-oozie]: ../hdinsight-use-oozie/
+[hdinsight-use-hive]: ../hdinsight-use-hive/
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
 [hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-pig]: ../hdinsight-use-pig/
+[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
+[hdinsight-use-pig]: ../hdinsight-use-pig/
 [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 
