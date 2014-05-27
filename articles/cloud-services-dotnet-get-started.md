@@ -78,7 +78,9 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 1. Press CTRL+F5 to run the application.
 
-	The application home page appears in your browser.
+	When you run a cloud service project locally, Visual Studio automatically invokes the Azure *compute emulator* and Azure *storage emulator*. The compute emulator uses your computer's resources to simulate the web role and worker role environments. The storage emulator uses a [SQL Server Express LocalDB](http://msdn.microsoft.com/en-us/library/hh510202.aspx) database to simulate Azure cloud storage. 
+
+	The first time you run a cloud service project, the it takes a minute or so for the emulators to start up. When emulator startup is finished, the default browser opens to the application home page.
 
 	![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/home.png)
 
@@ -98,11 +100,9 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 	![Details page](./media/cloud-services-dotnet-get-started/details.png)
 
-You've been running a cloud app on your development machine without using any connection to the cloud. When you ran the cloud service project, Visual Studio automatically invoked the Azure *compute emulator* and Azure *storage emulator*. The compute emulator uses your computer's resources to simulate the web role and worker role environments. The storage emulator uses a [SQL Server Express LocalDB](http://msdn.microsoft.com/en-us/library/hh510202.aspx) database to simulate Azure cloud storage.
+You've been running the application entirely on your local computer, with no connection to the cloud. The storage emulator stores the queue and blob data in a SQL Server Express LocalDB database, and the application stores the ad data in another LocalDB database. Entity Framework Code First automatically created the ad database the first time the web app tried to access it.
 
-Ad data is also stored locally, in another SQL Server Express LocalDB database. Entity Framework Code First automatically created the database the first time the web app tried to access it. 
-
-In the following section of the tutorial you'll configure the solution so that when the app runs in the cloud, it will use Azure cloud resources for queues and blobs and the application database.
+In the following section you'll configure the solution to use Azure cloud resources for queues, blobs, and the application database when it runs in the cloud. If you wanted to continue to run locally but use cloud storage and database resources, you could do that; it's just a matter of setting connection strings, which you'll see how to do. 
 
 ## Deploy the application to Azure
 
@@ -323,7 +323,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 9. You can now test the app by creating, viewing, and editing some ads, as you did when you ran the application locally.
 
->[WACOM.NOTE] Anyone who finds your URL can create and view ads. To prevent other people from using the site, you can stop it when you're not using it. In the Azure management portal, click your cloud service and go to the **Dashboard** tab, then click the **Stop** button at the bottom of the page. With the cloud service stopped, you are still accruing charges for it, however. To avoid paying for resources that you aren't using, click **Delete** instead of **Stop**. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
+>[WACOM.NOTE] When you're finished testing, delete or stop the cloud service. Even if you're not using the cloud service, it's accruing charges because virtual machine resources are reserved for it. And if you leave it running, anyone who finds your URL can create and view ads. In the Azure management portal, go to the **Dashboard** tab for your cloud service, and then click the **Delete** button at the bottom of the page. If you just want to temporarily prevent others from accessing the site, click **Stop** instead. In that case, charges will continue to accrue. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
 
 ## Create the application from scratch 
 
@@ -455,7 +455,11 @@ To add files to a project or a folder, right-click the project or folder and cli
 
 You can now build and run the application as instructed earlier in the tutorial, and the app will use local database and storage emulator resources.
 
-The following sections explain the code related to working with the Azure environment, blobs, and queues. For help understanding the code related to working with Entity Framework Code First, see an [introductory MVC tutorial](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) or [introductory MVC with EF tutorial](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc). For help understanding the asynchronous code (async and await keywords and Task class), see [an introduction to asynchronous programming in .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
+The following sections explain the code related to working with the Azure environment, blobs, and queues. This tutorial does not explain how to create MVC controllers and views using scaffolding, how to write Entity Framework code that works with SQL Server databases, or the basics of asynchronous programming in ASP.NET 4.5 For information on these topics, see the following resources:
+
+* [Get started with MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
+* [Get started with EF 6 and MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
+* [Introduction to asynchronous programming in .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -776,6 +780,7 @@ For a video introduction to Azure Storage best practices and patterns, see [Micr
 
 For more information, see the following resources:
 
+* [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Azure Cloud Services](/en-us/documentation/services/cloud-services/)
 * [Azure Storage](/en-us/documentation/services/storage/)
 * [How to use Blob Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)
