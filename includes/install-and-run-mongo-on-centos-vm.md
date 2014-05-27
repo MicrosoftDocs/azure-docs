@@ -16,6 +16,7 @@ Follow these steps to install and run MongoDB on a virtual machine running CentO
 2. Save the repo file and then run the following command to update the local package database:
 
 		$ sudo yum update
+
 3. To install the package, run the following command to install the latest stable version of MongoDB and the associated tools:
 
 		$ sudo yum install mongo-10gen mongo-10gen-server
@@ -24,16 +25,16 @@ Follow these steps to install and run MongoDB on a virtual machine running CentO
 
 4. Create a data directory. By default MongoDB stores data in the */data/db* directory, but you must create that directory. To create it, run:
 
-		$ sudo mkdir -p /mnt/datadrive/data
-		$ sudo chown `id -u` /mnt/datadrive/data
+		$ sudo mkdir -p /srv/datadrive/data
+		$ sudo chown `id -u` /srv/datadrive/data
 
 	For more information on installing MongoDB on Linux, see [Quickstart Unix][QuickstartUnix].
 
 5. To start the database, run:
 
-		$ mongod --dbpath /mnt/datadrive/data --logpath /mnt/datadrive/data/mongod.log
+		$ mongod --dbpath /srv/datadrive/data --logpath /srv/datadrive/data/mongod.log
 
-	All log messages will be directed to the */mnt/datadrive/data/mongod.log* file as MongoDB server starts and preallocates journal files. It may take several minutes for MongoDB to preallocate the journal files and start listening for connections.
+	All log messages will be directed to the */srv/datadrive/data/mongod.log* file as MongoDB server starts and preallocates journal files. It may take several minutes for MongoDB to preallocate the journal files and start listening for connections.
 
 6. To start the MongoDB administrative shell, open a separate SSH or PuTTY window and run:
 

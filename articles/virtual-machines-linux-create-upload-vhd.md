@@ -201,7 +201,7 @@ You must complete specific configuration steps in the operating system for the v
 
 19.	Do not create swap space on the OS disk
 
-	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -296,7 +296,7 @@ You must complete specific configuration steps in the operating system for the v
 
 10.	Do not create swap space on the OS disk
 
-	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -380,7 +380,7 @@ You must complete specific configuration steps in the operating system for the v
 
 10.	Do not create swap space on the OS disk
 
-	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -468,7 +468,7 @@ You must complete specific configuration steps in the operating system for the v
 
 12.	Do not create swap space on the OS disk
 
-	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -592,7 +592,7 @@ The list below replaces step 1 of the process to create your own VHD:
 
 10.	Do not create swap space on the OS disk
 
-	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
