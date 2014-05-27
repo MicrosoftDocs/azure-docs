@@ -39,7 +39,7 @@ For the purposes of this release, only **CPython** is tested and supported.  We 
 There are several ways to get CPython:
 
 * Directly from www.python.org
-* From a reputable distro such as www.enthought.com or www.ActiveState.com
+* From a reputable distro such as www.enthought.com, www.ActiveState.com, www.continuum.io
 * Build from source!
 
 Unless you have a specific need, we recommend the first two options, as described below.
