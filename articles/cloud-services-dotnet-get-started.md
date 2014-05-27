@@ -224,7 +224,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 5. In **Solution Explorer**, under **Roles** in the cloud service project, right-click **ContosoAdsWorker** and click **Properties**.
 
-	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)	
+	![Role properties](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)	
 
 6. Click the **Settings** tab.
 
