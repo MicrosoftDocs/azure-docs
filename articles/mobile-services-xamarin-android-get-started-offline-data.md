@@ -15,6 +15,9 @@ In this tutorial, you will update the app from the [Get started with Mobile Serv
 
 >[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].
 
+>[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+
+
 This tutorial walks you through these basic steps:
 
 1. [Update the app to support offline features]
@@ -23,13 +26,11 @@ This tutorial walks you through these basic steps:
 This tutorial requires the following:
 
 * Visual Studio with the [Xamarin extension] **or** [Xamarin Studio] 
-* Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
-* [Azure Mobile Services SDK version 1.3.0-alpha3](Mobile Services SDK Nuget)
-* [Azure Mobile Services SQLite Store version 1.0.0-alpha2](SQLite store nuget)
+* Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial
+* [Azure Mobile Services SDK version 1.3.0-alpha3][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0-alpha2][SQLite store nuget]
 
 >[WACOM.NOTE] The instructions below assume you are using Visual Studio 2012 or higher with the Xamarin extension. If you are using Xamarin Studio, most of the instructions are the same, but you should also install the [NuGet Addin for Xamarin] so that you can easily add the prerelease Mobile Services NuGet packages to your project.
-
->[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 
 ## <a name="enable-offline-app"></a>Update the app to support offline features
 
@@ -114,6 +115,9 @@ In this section you will test the  `SyncAsync` method that synchronizes the loca
 
 3. Add items to the To Do list.
 
+    ![][1]
+
+
 4. Log into the Microsoft Azure Management portal and look at the database for your mobile service. If your service uses the JavaScript backend for mobile services, you can browse the data from the **Data** tab of the mobile service. If you are using the .NET backend for your mobile service, you can click on the **Manage** button for your database in the SQL Azure Extension to execute a query against your table.
 
     Notice the data has not been synchronized between the database and the local store.
@@ -124,7 +128,13 @@ In this section you will test the  `SyncAsync` method that synchronizes the loca
     
     In contrast, the pull operation retrieves records from only the table that was specified. If there are pending operations for this table in the sync context, a `PushAsync` operation will be implictly called by the Mobile Services SDK.
         
-    ![][2] 
+    ![][3] 
+
+
+
+    ![][2]
+
+
   
 
 ##Summary
@@ -156,7 +166,9 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [Next Steps]:#next-steps
 
 <!-- Images -->
+[1]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-startup-android.png
 [2]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-data-browse.png
+[3]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-completed-android.png
 
 
 
