@@ -131,7 +131,9 @@ After you answer **Yes** to the confirmation message, one or all slots will be d
 
 - You can still publish directly to your production site slot if you wish.
 
-- Currently, your deployment slots (sites) share the same resources as your production slots (sites) and run on the same VMs. If you run stress testing on a stage slot, your production environment will experience a comparable stress load. 
+- By default, your deployment slots (sites) share the same resources as your production slots (sites) and run on the same VMs. If you run stress testing on a stage slot, your production environment will experience a comparable stress load. 
+	
+	> [WACOM.NOTE] In the [Azure Preview Portal](https://portal.azure.com) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different Web Hosting Plan. Note that the test and production slots must once again share the same Web Hosting Plan before you can swap the test slot into production.
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
