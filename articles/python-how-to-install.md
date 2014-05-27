@@ -56,15 +56,15 @@ You can choose to install Python 2.7 and/or Python 3.4 using WebPI.
 
 The WebPI installer provides everything you need to develop Python Azure apps.
 
-![how-to-install-python-webpi-1](./media/python-how-to-install/how-to-install-python-webpi-27-1.png)
+![how-to-install-python-webpi-27-1](./media/python-how-to-install/how-to-install-python-webpi-27-1.png)
 
 Once finished, you should see this screen confirming your install choices:
 
-![how-to-install-python-webpi-3](./media/python-how-to-install/how-to-install-python-webpi-27-2.png)
+![how-to-install-python-webpi-27-2](./media/python-how-to-install/how-to-install-python-webpi-27-2.png)
 
 After installation is complete, type python at the prompt to make sure things went smoothly.  Depending on how you installed, you may need to set your "path" variable to find (the right version of) Python:
 
-![how-to-install-python-win-run](./media/python-how-to-install/how-to-install-python-win-run-27.png)
+![how-to-install-python-win-run-27](./media/python-how-to-install/how-to-install-python-win-run-27.png)
 
 After the installation you should have Python and the Client Libraries available at the default location:
 
@@ -75,15 +75,15 @@ After the installation you should have Python and the Client Libraries available
 
 The WebPI installer provides everything you need to develop Python Azure apps.
 
-![how-to-install-python-webpi-1](./media/python-how-to-install/how-to-install-python-webpi-34-1.png)
+![how-to-install-python-webpi-34-1](./media/python-how-to-install/how-to-install-python-webpi-34-1.png)
  
 Once finished, you should see this screen confirming your install choices:
 
-![how-to-install-python-webpi-3](./media/python-how-to-install/how-to-install-python-webpi-34-2.png)
+![how-to-install-python-webpi-34-2](./media/python-how-to-install/how-to-install-python-webpi-34-2.png)
 
 After installation is complete, type python at the prompt to make sure things went smoothly.  Depending on how you installed, you may need to set your "path" variable to find (the right version of) Python:
 
-![how-to-install-python-win-run](./media/python-how-to-install/how-to-install-python-win-run-34.png)
+![how-to-install-python-win-run-34](./media/python-how-to-install/how-to-install-python-win-run-34.png)
 
 After the installation you should have Python and the Client Libraries available at the default location:
 
@@ -135,7 +135,7 @@ The command above will silently prompt for the root password. Type it and press 
 
 You should now see the client libraries installed under **site-packages**.  On MacOS:
 
-![MacOS site-packages](./media/python-how-to-install/how-to-install-python-mac-site.png)
+![how-to-install-python-mac-site](./media/python-how-to-install/how-to-install-python-mac-site.png)
 
 When developing from mac/linux, there are two main scenarios supported:
 
