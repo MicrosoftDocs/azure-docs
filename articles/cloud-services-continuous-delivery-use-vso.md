@@ -131,14 +131,10 @@ The following table shows the available properties in the Deployment section:
 <tr><td>Allow Upgrade</td><td>Allows a the deployment to update an existing deployment instead of creating a new one. Preserves the IP address.</td></tr>
 ><tr><td>Do Not Delete</td><td>If true, do not overwrite an existing unrelated deployment (upgrade is allowed).</td></tr>
 <tr><td>Path to Deployment Settings</td><td>The path to your .pubxml file for a web site, relative to the root folder of the repo. Ignored for cloud services.</td></tr>
-<tr><td>Cloud Service Name</td><td>The name of the service you are connected to</td></tr>
-><tr><td>Sharepoint Deployment Environment</td><td>The same as the service name</td></tr>
+<tr><td>Sharepoint Deployment Environment</td><td>The same as the service name</td></tr>
 <tr><td>Windows Azure Deployment Environment</td><td>The web site or cloud service name</td></tr>
 </table>
 <br/>
-If the storage account property is left blank, Azure searches for one. If there is a storage
-account with the same name as the cloud service, it is used. Otherwise, it uses another storage account,
-or if there is no storage account, it creates one. The storage account provides a place in Azure for storage files and other data. For more information, see [What is a storage account?](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account).
 
 If you are using multiple service configurations (.cscfg files), you can specify the desired service configuration in the **Build, Advanced, MSBuild arguments** setting. For example, to use ServiceConfiguration.Test.cscfg, set MSBuild arguments line option /p:TargetProfile=Test.<br/>
 ![][37]

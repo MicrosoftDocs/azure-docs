@@ -1,4 +1,4 @@
-<properties linkid="manage-services-networking-replica-domain-controller" urlDisplayName="Replica domain controller" pageTitle="Install a replica domain controller in Azure" metaKeywords="" description="A tutorial that teaches you how to install a domain controller from your Corp Active Directory forest on your Azure virtual machine." metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller in Azure Virtual Networks" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-networking-replica-domain-controller" urlDisplayName="Replica domain controller" pageTitle="Install a replica domain controller in Azure" metaKeywords="" description="A tutorial that teaches you how to install a domain controller from your Corp Active Directory forest on your Azure virtual machine." metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller in Azure Virtual Networks" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft" />
 
 
 
@@ -22,13 +22,13 @@ This tutorial walks you through the steps to install an additional domain contro
 
 <h2><a id="Prerequisites"></a>Prerequisites</h2>
 
--	[Configure a Site-to-Site VPN in the Management Portal](http://msdn.microsoft.com/en-us/library/azure/dn133795.aspx) configured between Azure Virtual network and Corp network.
+-	[Configure a Site-to-Site VPN in the Management Portal](http://msdn.microsoft.com/en-us/library/dn133795.aspx) configured between Azure Virtual network and Corp network.
 -	Create a cloud service in the virtual network.
--	Deploy two VMs in the Cloud Service that are part of the virtual network (specify the subnet where you want to place the VM). For more information, see [Add a Virtual Machine to a Virtual Network](http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/). One VM must be size L or greater in order to attach two data disks to it. The data disks are needed to store:
+-	Deploy two VMs in the Cloud Service that are part of the virtual network (specify the subnet where you want to place the VM). For more information, see [Add a Virtual Machine to a Virtual Network](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-add-virtual-machine/). One VM must be size L or greater in order to attach two data disks to it. The data disks are needed to store:
 	- The Active Directory database and logs.
 	- System state backups.
 -	A Corp network with two VMs (YourPrimaryDC and FileServer).
--	Domain Name System (DNS) infrastructure deployed if you need to have external users resolve names for accounts in Active Directory. In this case, you should create a DNS zone delegation before you install DNS server on the domain controller, or allow the Active Directory Domain Services Installation Wizard create the delegation. For more information about creating a DNS zone delegation, see [Create a Zone Delegation](http://technet.microsoft.com/en-us/library/cc753500.aspx).
+-	Domain Name System (DNS) infrastructure deployed if you need to have external users resolve names for accounts in Active Directory. In this case, you should create a DNS zone delegation before you install DNS server on the domain controller, or allow the Active Directory Domain Services Installation Wizard create the delegation. For more information about creating a DNS zone delegation, see [Create a Zone Delegation](http://technet.microsoft.com/library/cc753500.aspx).
 -	On the DC that you install on an Azure VM, configure DNS client resolver settings as follows:
 	- Preferred DNS server: on-premises DNS server 
 	- Alternate DNS server: loopback address or, if possible, another DNS server running on a DC on the same virtual network.
@@ -302,6 +302,10 @@ Log on to the client VM in each site and create a shared folder on the VM
 ## See Also
 
 -  [Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+
+-  [Windows Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
+
+-  [Windows Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 
 -  [Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx)
 

@@ -1,16 +1,16 @@
-<properties linkid="manage-services-hdinsight-develop-hadoop-streaming-programs-for-hdinsight" urlDisplayName="" pageTitle="Develop C# Hadoop streaming programs for HDInsight | Azure" metaKeywords="hdinsight hdinsight development, hadoop development, dhinsight deployment, development, deployment, tutorial, MapReduce" description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Develop C# Hadoop streaming programs for HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-develop-hadoop-streaming-programs-for-hdinsight" urlDisplayName="" pageTitle="Develop C# Hadoop streaming programs for HDInsight | Azure" metaKeywords="hdinsight hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce" description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Develop C# Hadoop streaming programs for HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
 # Develop C# Hadoop streaming programs for HDInsight
 
-Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial walks you through an end-to-end scenario from developing/testing a Hadoop streaming MapReduce program using C# on an HDInsight emulator to running the MapReduce job on Azure HDInsight and to retrieving the results.
+Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial walks you through an end-to-end scenario from developing/testing a Hadoop streaming MapReduce program using C# on an HDInsight emulator, to running the MapReduce job on Azure HDInsight, and then to retrieving the results.
 
 **Prerequisites:**
 
 Before you begin this tutorial, you must have the following:
 
-- Install Azure HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator-get-started].
+- Install Azure HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-get-started-emulator].
 - Install Azure PowerShell on the emulator computer. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure]
 - Obtain an Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
@@ -416,7 +416,7 @@ The following PowerShell script performs the following tasks:
 		$serviceNameToken = "<ServiceNameTokenString>"
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
-		$location = "East US"     ### must match the data storage account location
+		$location = "<MicrosoftDataCenter>"     ### must match the data storage account location
 		$clusterNodes = 1
 		
 		$clusterName = $serviceNameToken + "hdicluster"
@@ -499,7 +499,7 @@ For a HDInsight .NET SDK sample on submitting Hadoop streaming jobs, see [Submit
 
 
 ##<a name="retrieve"></a>Retrieve the MapReduce job output
-This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-excel], and [Connect Excel to HDInsight with Power Query][hdinsight-powerquery].
+This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-ODBC], and [Connect Excel to HDInsight with Power Query][hdinsight-power-query].
 
 
 **To retrieve the output**
@@ -512,7 +512,7 @@ This section shows you how to download and display the output.  For the informat
 		$containerName = "<TheDataBlobStorageContainerName>"
 		$blobName = "WordCount/Output/part-00000"
 	
-3. Run the following commands to create an Azure storage contect object: 
+3. Run the following commands to create an Azure storage context object: 
 		
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
@@ -528,14 +528,14 @@ This section shows you how to download and display the output.  For the informat
 ##<a id="nextsteps"></a>Next steps
 In this tutorial, you have learned how to develop a Hadoop streaming MapReduce job, how to test the application on HDInsight emulator, and how to write a PowerShell script to provision an HDInsight cluster and run a MapReduce on the cluster. To learn more, see the following articles:
 
-- [Get started with Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
-- [Get started with the HDInsight Emulator][hdinsight-emulator]
+- [Get started with Azure HDInsight](../hdinsight-get-started/)
+- [Get started with the HDInsight Emulator][hdinsight-get-started-emulator]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Upload data to HDInsight][hdinsight-upload-data]
-- [Use Hive with HDInsight][hdinsight-hive]
-- [Use Pig with HDInsight][hdinsight-pig]
+- [Use Hive with HDInsight][hdinsight-use-hive]
+- [Use Pig with HDInsight][hdinsight-use-pig]
 
 [azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
@@ -544,17 +544,16 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 
-[hdinsight-emulator-get-started]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
-[hdinsight-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
-[hdinsight-emulator-wasb]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/#blobstorage
-[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
-[hdinsight-emulator]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
-[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
-[hdinsight-hive]:/en-us/manage/services/hdinsight/using-hive-with-hdinsight/
-[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
-[hdinsight-excel]: /en-us/manage/services/hdinsight/connect-excel-with-hive-ODBC/
-[hdinsight-powerquery]:/en-us/manage/services/hdinsight/connect-excel-with-power-query/
+[hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator/
+[hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator/#blobstorage
+[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
+
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-pig]: ../hdinsight-use-pig/
+[hdinsight-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
+[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 [Powershell-install-configure]: ../install-configure-powershell/

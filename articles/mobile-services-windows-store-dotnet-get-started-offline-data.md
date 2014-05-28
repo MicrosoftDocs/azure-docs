@@ -4,6 +4,9 @@
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows Store C#" class="current">Windows Store C#</a>
+<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone">Windows Phone</a>
+<a href="/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 This topic shows you how to use use the offline capabilities of Azure Mobile Services. Azure Mobile Services offline features allow you to interact with a local database when you are in an offline scenario with your Mobile Service. The offline features allow you to sync your local changes with the mobile service when you are online again. 
@@ -43,28 +46,28 @@ This section uses SQLite as the local store for the offline features.
 
     >[WACOM.NOTE] If you are using Internet Explorer, clicking the link to install SQLite may prompt you to download the .vsix as a .zip file. Save the file to a location on your hard drive with the .vsix extension instead of .zip. The double click the .vsix file in Windows Explorer to run the installation.
 
-2. In Visual Studio open the project that you completed in the [Get started with Mobile Services] or [Get Started with Data] tutorial. Add a **Windows Extension** reference to **SQLite for Windows Runtime (Windows 8.1)**. 
+2. In Visual Studio open the project that you completed in the [Get started with Mobile Services] or [Get Started with Data] tutorial. In Solution Explorer, right click **References** under the project and add a reference to **SQLite for Windows Runtime** under **Windows** > **Extensions**. 
 
     ![][1]
 
-    >[WACOM.NOTE] The SQLite Runtime requires you to change the processor architecture of the project being built to **x86**, **x64**, or **ARM**. **Any CPU** is not supported.
+3. The SQLite Runtime requires you to change the processor architecture of the project being built to **x86**, **x64**, or **ARM**. **Any CPU** is not supported. Change the processor architecture to one of the supported settings that you want to test.
 
-3. In Solution Explorer for Visual Studio, right click your client app project and click **Manage Nuget Packages** to run NuGet Package Manager. Search for **SQLiteStore** to install the **WindowsAzure.MobileServices.SQLiteStore** package.
+4. In Solution Explorer for Visual Studio, right click your client app project and click **Manage Nuget Packages** to run NuGet Package Manager. Search for **SQLiteStore** to install the **WindowsAzure.MobileServices.SQLiteStore** package.
 
     ![][2]
 
-4. In Solution Explorer for Visual Studio, open the MainPage.xaml.cs file. Add the following using statements to the top of the file.
+5. In Solution Explorer for Visual Studio, open the MainPage.xaml.cs file. Add the following using statements to the top of the file.
 
         using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
         using Microsoft.WindowsAzure.MobileServices.Sync;
         using Newtonsoft.Json.Linq;
 
-5. In Mainpage.xaml.cs replace the declaration of `todoTable` with a declaration of type `IMobileServicesSyncTable` that is initialized by calling `MobileServicesClient.GetSyncTable()`.
+6. In Mainpage.xaml.cs replace the declaration of `todoTable` with a declaration of type `IMobileServicesSyncTable` that is initialized by calling `MobileServicesClient.GetSyncTable()`.
 
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>();
 
-6. In MainPage.xaml.cs, update the `TodoItem` class so that the class includes the **Version** system property as follows.
+7. In MainPage.xaml.cs, update the `TodoItem` class so that the class includes the **Version** system property as follows.
 
         public class TodoItem
         {
@@ -78,7 +81,7 @@ This section uses SQLite as the local store for the offline features.
         }
 
 
-7. In MainPage.xaml.cs, update the `OnNavigatedTo` event handler so that it initializes the client sync context with a SQLite store. The SQLite store is created with a table that matches the schema of the mobile service table but it must contain the **Version** system property added in the previous step.
+8. In MainPage.xaml.cs, update the `OnNavigatedTo` event handler so that it is an `async` method and initializes the client sync context with a SQLite store. The SQLite store is created with a table that matches the schema of the mobile service table but it must contain the **Version** system property added in the previous step.
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -91,7 +94,7 @@ This section uses SQLite as the local store for the offline features.
             RefreshTodoItems();
         }
 
-8. In Solution Explorer for Visual Studio, open the MainPage.xaml file. Find the the Grid element that contains the StackPanel titled **Query and Update Data**. Add the following UI code that replaces the elements from the row definitions down to the start tag of the ListView. 
+9. In Solution Explorer for Visual Studio, open the MainPage.xaml file. Find the Grid element that contains the StackPanel titled **Query and Update Data**. Add the following UI code that replaces the elements from the row definitions down to the start tag of the ListView. 
 
     This code adds row and column definitions to the grid to layout the elements. It also adds two button controls with click event handlers for **Push** and **Pull** operations. The buttons are positioned just above the `ListView` named ListItems. Save the file.
 
@@ -116,7 +119,7 @@ This section uses SQLite as the local store for the offline features.
         
 
 
-9. In MainPage.xaml.cs, add the button click event handlers for the **Push** and **Pull** buttons and save the file.
+10. In MainPage.xaml.cs, add the button click event handlers for the **Push** and **Pull** buttons and save the file.
 
         private async void ButtonPull_Click(object sender, RoutedEventArgs e)
         {
@@ -162,7 +165,7 @@ This section uses SQLite as the local store for the offline features.
             }
         }
 
-10. Don't run the app yet. Press the **F7** key to rebuild the project. Verify no build errors occurred.
+11. Don't run the app yet. Press the **F7** key to rebuild the project. Verify no build errors occurred.
 
 
 ## <a name="test-offline-app"></a>Test the app in an offline scenario

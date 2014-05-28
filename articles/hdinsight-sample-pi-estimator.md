@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-sample-pi-estimator" urlDisplayName="HDInsight Samples" pageTitle="The HDInsight Pi estimator sample | Azure" metaKeywords="hdinsight, hdinsight sample, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The HDInsight Pi estimator sample" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-sample-pi-estimator" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The Pi estimator Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="Learn how to run an Hadoop MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The Pi estimator Hadoop sample in HDInsight" authors="bradsev" />
 
-# The HDInsight Pi estimator sample
+# The Pi estimator Hadoop sample in HDInsight
  
-This topic shows how to run a simple MapReduce program that estimates the value of the mathematical constant Pi with Azure HDinsight using Azure Powershell. 
+This topic shows how to run an Hadoop MapReduce program that estimates the value of the mathematical constant Pi using Azure PowerShell to run the program in HDInsight. It also provides the Java code used in the MapReduce program used to estimate the value of Pi.
 
 The program uses a statistical (quasi-Monte Carlo) method to estimate the value of Pi. Points placed at random inside of a unit square also fall within a circle inscribed within that square with a probability equal to the area of the circle, Pi/4. The value of Pi can be estimated from the value of 4R where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
 
@@ -12,7 +12,7 @@ The script provided for this sample submits a Hadoop JAR job and is set up to ru
 
 The .jar file that contains the files needed by Hadoop on Azure to deploy the application is a .zip file and is available for download. You can unzip it with various compression utilities then explore the files at your convenience.
 
-The other samples that are available to help you get up to speed using HDInsight to run MapReduce jobs are listed on [Running the HDInsight Samples][run-samples] along with links to instructions on how to run them.
+The other samples that are available to help you get up to speed using HDInsight to run MapReduce jobs are listed on [Running the HDInsight Samples][hdinsight-samples] along with links to instructions on how to run them.
 
 **You will learn:**
 		
@@ -21,9 +21,9 @@ The other samples that are available to help you get up to speed using HDInsight
 
 **Prerequisites**:	
 
-- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://azure.microsoft.com/en-us/pricing/free-trial/) page.
 
-- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](../hdinsight-provision-clusters/)
 
 - You must have installed Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
@@ -414,32 +414,56 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 
 <h2><a id="summary"></a>Summary</h2>
 
-In this tutorial, you saw how to run a MapReduce job on HDInsight and how to use Monte Carlo methods that require and generare large datasets that can be managed by this service.
+In this tutorial, you saw how to run a MapReduce job on HDInsight and how to use Monte Carlo methods that require and generate large data sets that can be managed by this service.
+
+Here is the complete script used to run this sample on a default HDInsight 2.1 cluster. (Only the name of the .jar file needs to be changed to run the sample on an HDInsight 3.0 cluster: hadoop-examples.jar becomes hadoop-mapreduce-examples.jar.)
+
+	### Provide the Windows Azure subscription name and the HDInsight cluster name. 
+	$subscriptionName = "<SubscriptionName>" 
+	$clusterName = "<ClusterName>"  
+
+	###Select the Azure subscription to use.
+	Select-AzureSubscription $subscriptionName 
+
+	### Create a MapReduce job definition. 
+	$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -ClassName "pi" –Arguments “32”, “1000000000” -JarFile "wasb:///example/jars/hadoop-examples.jar"
+
+	### Run the MapReduce job. 
+	$piJob = $piEstimatorJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName
+ 
+	### Wait for the job to complete.  
+	$piJob | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600
+
+	### Print the standard error file of the MapReduce job.
+	Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $piJob.JobId -StandardOutput
+
+
 
 <h2><a id="next-steps"></a>Next steps</h2>
 
 For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Azure HDInsight with Azure PowerShell, see the following topics:
 
-* [Get Started with Azure HDInsight][getting-started]
-* [Sample: 10GB GraySort][10gb-graysort]
-* [Sample: Wordcount][wordcount]
-* [Sample: C# Steaming][cs-streaming]
-* [Use Pig with HDInsight][pig]
-* [Use Hive with HDInsight][hive]
+* [Get Started with Azure HDInsight][hdinsight-get-started]
+* [Sample: 10GB GraySort][hdinsight-sample-10gb-graysort]
+* [Sample: Wordcount][hdinsight-sample-wordcount]
+* [Sample: C# Steaming][hdinsight-sample-csharp-streaming]
+* [Use Pig with HDInsight][hdinsight-use-pig]
+* [Use Hive with HDInsight][hdinsight-use-hive]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: ../install-configure-powershell/
 
-[run-samples]: /en-us/manage/services/hdinsight/howto-run-samples
-[getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
-[10gb-graysort]: /en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/
-[wordcount]: /en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/
-[cs-streaming]: /en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/
+[hdinsight-get-started]: ../hdinsight-get-started/
 
+[hdinsight-samples]: ../hdinsight-run-samples/
+[hdinsight-sample-10gb-graysort]: ../hdinsight-sample-10gb-graysort/
+[hdinsight-sample-csharp-streaming]: ../hdinsight-sample-csharp-streaming/
+[hdinsight-sample-pi-estimator]: ../hdinsight-sample-pi-estimator/
+[hdinsight-sample-wordcount]: ../hdinsight-sample-wordcount/
 
-[hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
-[pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-pig]: ../hdinsight-use-pig/
  
 

@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-howto-upload-data-to-hdinsight" urlDisplayName="Upload Data" pageTitle="Upload data to HDInsight | Azure" metaKeywords="" description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, the interactive console, the Hadoop command line, or Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data to HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-upload-data-for-hadoop-jobs-in-hdinsight" urlDisplayName="Upload Data" pageTitle="Upload data for Hadoop jobs in HDInsight | Azure" metaKeywords="" description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
-#Upload data to HDInsight
+#Upload data for Hadoop jobs in HDInsight
 
 Azure HDInsight provides a full-featured Hadoop Distributed File System (HDFS) over Azure Blob storage. It has been designed as an HDFS extension to provide a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Both Azure Blob storage and HDFS are distinct file systems that are optimized for storage of data and computations on that data. For the benefits of using Azure Blob storage, see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
@@ -20,7 +20,7 @@ Azure Blob storage can either be accessed through [AzCopy][azure-azcopy], [Azure
 
 Note the following requirements before you begin this article:
 
-* An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+* An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
 
 ##In this article
 
@@ -248,17 +248,17 @@ The following procedure uses PowerShell to submit a Sqoop job.
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-3. Paste the script into the Azure PowerShell console window to run it. See [Get started with HDInsight][hdinsight-getting-started] for a PowerShell sample for retrieving the data file from Azure Blob storage.
+3. Paste the script into the Azure PowerShell console window to run it. See [Get started with HDInsight][hdinsight-get-started] for a PowerShell sample for retrieving the data file from Azure Blob storage.
 
-For more information on using Sqoop, see [Use Sqoop with HDInsight][hdinsight-sqoop].
+For more information on using Sqoop, see [Use Sqoop with HDInsight][hdinsight-use-sqoop].
 
 ## Next steps
 Now that you understand how to get data into HDInsight, use the following articles to learn how to perform analysis:
 
-* [Get started with Azure HDInsight][hdinsight-getting-started]
+* [Get started with Azure HDInsight][hdinsight-get-started]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
-* [Use Hive with HDInsight][hdinsight-hive]
-* [Use Pig with HDInsight][hdinsight-pig]
+* [Use Hive with HDInsight][hdinsight-use-hive]
+* [Use Pig with HDInsight][hdinsight-use-pig]
 
 
 
@@ -271,14 +271,14 @@ Now that you understand how to get data into HDInsight, use the following articl
 [azure-azcopy-download]: http://aka.ms/WaCopy
 [azure-azcopy]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
 
-[hdinsight-sqoop]: ../hdinsight-use-sqoop/
+[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-getting-started]: ../hdinsight-get-started/
+[hdinsight-get-started]: ../hdinsight-get-started/
 
-[hdinsight-hive]: ../hdinsight-use-hive/
-[hdinsight-pig]: ../hdinsight-use-pig
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-pig]: ../hdinsight-use-pig
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 
 [sqldatabase-create-configue]: ../sql-database-create-configure/

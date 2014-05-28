@@ -249,7 +249,7 @@ This specifies the filesystem type for the resource disk. Supported values vary 
 Type: String  
 Default: /mnt/resource 
 
-This specifies the path at which the resource disk is mounted.
+This specifies the path at which the resource disk is mounted. Note that the resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned.
 
 **ResourceDisk.EnableSwap:**
 
