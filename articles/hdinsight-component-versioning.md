@@ -63,8 +63,7 @@ The following table lists the versions of HDInsight currently available, the cor
 <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>10/28/2013</td><td>04/26/2014</td><td>05/31/2015</td></tr>
 </table></br>
 
-
-### The Service-Level Agreement (SLA) for HDInsight cluster versions 
+### The Service-Level Agreement (SLA) for HDInsight cluster versions
 
 The SLA is defined in terms of a "Support Window". A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Support.  An HDInsight cluster is outside the Support Window if its version has a **Support Expiration Date** past the current date.  A list of supported HDInsight cluster versions may be found in the table above.  The Support Expiration Date for a given HDInsight version (denoted as version X) is calculated as the later of:  
 
@@ -75,12 +74,11 @@ The **Deprecation Date** is the date after which the cluster version can not be 
 
 > [WACOM.NOTE] Both HDInsight 2.1 and 3.0 cluster run on Azure Guest OS [Family 4](http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation) which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5. and 4.5.1. 
 
-### Additional notes and information on versioning	
+### Additional notes and information on versioning
 
-* The SQL Server JDBC Driver is used internally by HDInsight and is not used for external operations. If you wish to connect to HDInsight using ODBC, please use the Microsoft Hive ODBC driver. For more information on using Hive ODBC, [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC].
+- The SQL Server JDBC Driver is used internally by HDInsight and is not used for external operations. If you wish to connect to HDInsight using ODBC, please use the Microsoft Hive ODBC driver. For more information on using Hive ODBC, [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC].
 
-* The ports used by the HDInsight service have been changed. The port numbers which were being used were within the Windows OS ephemeral port range. Ports are allocated automatically from a predefined ephemeral range for short-lived internet protocol-based communications. The new set of allowed HDP service port numbers are now outside of this range to avoid encountering conflicts that could arise with the ports used by services running on the headnode. The new port numbers should not cause any breaking changes. The numbers used now are as follows:
-
+- The ports used by the HDInsight service have been changed. The port numbers which were being used were within the Windows OS ephemeral port range. Ports are allocated automatically from a predefined ephemeral range for short-lived internet protocol-based communications. The new set of allowed HDP service port numbers are now outside of this range to avoid encountering conflicts that could arise with the ports used by services running on the headnode. The new port numbers should not cause any breaking changes. The numbers used now are as follows:
 
  **HDP1.1**
 <table border="1">
@@ -94,7 +92,7 @@ The **Deprecation Date** is the date after which the cluster version can not be 
 <tr><td>mapred.task.tracker.http.address</td><td>0.0.0.0:30060</td></tr>
 <tr><td>mapreduce.history.server.http.address</td><td>0.0.0.0:31111</td></tr>
 <tr><td>templeton.port</td><td>30111</td></tr>
-</table>
+</table></br>
 
 
  **HDP2.0 and 2.1**
@@ -108,8 +106,7 @@ The **Deprecation Date** is the date after which the cluster version can not be 
 <tr><td>dfs.namenode.secondary.http-address</td><td>0.0.0.0:30090</td></tr>
 <tr><td>yarn.nodemanager.webapp.address</td><td>0.0.0.0:30060</td></tr>
 <tr><td>templeton.port</td><td>30111</td></tr>
-</table>
-
+</table></br>
 
 
 * HDInsight cluster version 3.0 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.0][hdp-2-0-8].
