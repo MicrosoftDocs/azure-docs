@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use offline data in your Xamarin iOS application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="donnam,wesmc" editor="wesmc" />
+<properties linkid="develop-mobile-tutorials-get-started-offline-data-ios" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use offline data in your Xamarin iOS application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="donnam,wesmc" editor="wesmc" />
 
 # Get started with Offline Data in Mobile Services
 
@@ -15,6 +15,8 @@ In this tutorial, you will update the app from the [Get started with Mobile Serv
 
 >[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].
 
+>[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+
 This tutorial walks you through these basic steps:
 
 1. [Update the app to support offline features]
@@ -24,13 +26,11 @@ This tutorial requires the following:
 
 * XCode 4.5 and iOS 6.0 (or later versions) 
 * Visual Studio with the [Xamarin extension] **or** [Xamarin Studio] on OS X
-* Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
-* [Azure Mobile Services SDK version 1.3.0-alpha3](Mobile Services SDK Nuget)
-* [Azure Mobile Services SQLite Store version 1.0.0-alpha2](SQLite store nuget)
+* Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial
+* [Azure Mobile Services SDK version 1.3.0-alpha3][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0-alpha2][SQLite store nuget]
 
->[WACOM.NOTE] The instructions below assume you are using Visual Studio 2012 or higher with the Xamarin extension. If you are using Xamarin Studio on OS X, most of the instructions are the same, but you should also install the [NuGet Addin for Xamarin] so that you can easily add the prerelease Mobile Services NuGet packages to your project.
-
->[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+>[WACOM.NOTE] The instructions below assume you are using Visual Studio 2012 or higher with the Xamarin extension. If you are using Xamarin Studio on OS X, most of the instructions are the same, but you should also install the [NuGet Addin for Xamarin] so that you can easily add the pre-release Mobile Services NuGet packages to your project.
 
 ## <a name="enable-offline-app"></a>Update the app to support offline features
 
@@ -44,9 +44,11 @@ Azure Mobile Services offline features allow you to interact with a local databa
 
     This will also install all of the required dependencies.
     
-3. In the references node, remove the references to `System.IO`, `System.Runtime` and `System.Threading.Tasks` 
+3. In the references node, remove the references to `System.IO`, `System.Runtime` and `System.Threading.Tasks`.
 
 ### Edit the file QSTodoService.cs 
+
+Edit the class `QSTodoService` to enable use of the Mobile Services offline features with a SQLite local store.
 
 1. Add the following using statements to the top of the file.
 
@@ -61,15 +63,25 @@ Azure Mobile Services offline features allow you to interact with a local databa
 
         todoTable = client.GetSyncTable <ToDoItem> ();
 
-4. In the constructor for `QSTodoService`, add this as the second line:
- 
-        SQLitePCL.CurrentPlatform.Init();
+4. In the constructor for `QSTodoService`, add a call to `SQLitePCL.CurrentPlatform.Init()` as the second line of code:
+
+		QSTodoService ()
+		{
+			CurrentPlatform.Init ();
+            SQLitePCL.CurrentPlatform.Init(); // add this line
+
+			// Initialize the Mobile Service client with your URL and key
+			client = new MobileServiceClient (applicationURL, applicationKey, this);
+
+			// Create an MSTable instance to allow us to work with the TodoItem table
+			todoTable = client.GetSyncTable <ToDoItem> ();
+		}
  
 5. In the class `QSTodoService`, define a new method `InitializeAsync`:
  
 		public async Task InitializeStoreAsync()
 		{
-		    string path = "test1.db";
+		    string path = "syncstore.db";
 		    var store = new MobileServiceSQLiteStore(path);
 		    store.DefineTable<ToDoItem>();
 		    await client.SyncContext.InitializeAsync(store);
@@ -92,6 +104,8 @@ Azure Mobile Services offline features allow you to interact with a local databa
 
 
 ### Edit QSTodoListViewController.cs 
+
+Modify `QSTodoListViewController` to call the new `SyncAsync` method when the user performs the refresh gesture.
  
 1. Add a call to `InitializeStoreAsync` in `ViewDidLoad()`, after the initialization of `todoService`:
 
@@ -99,10 +113,10 @@ Azure Mobile Services offline features allow you to interact with a local databa
 		{
 		    base.ViewDidLoad ();
 		
-		
 		    todoService = QSTodoService.DefaultService;
 			await todoService.InitializeStoreAsync();
-			...    // more code
+			
+			...    // the rest of the code in the method is unchanged
 		}
 
 2. Modify the method `AddRefreshControl` to call `SyncAsync` before the call to `RefreshAsync`:
@@ -113,7 +127,11 @@ Azure Mobile Services offline features allow you to interact with a local databa
 			await RefreshAsync();
 		}; 
 
+<!-- 
+DM: commenting this out because this tutorial doesn't show OC conflict handling
 ### Edit ToDoItem.cs 
+
+Modify the strongly-type data class to add a version field
 
 1. In the top of the file, add the using statement: 
 
@@ -129,6 +147,8 @@ Azure Mobile Services offline features allow you to interact with a local databa
 		    return "Text: " + Text + "\nComplete: " + Complete + "\n";
 		}
 
+-->
+
 ## <a name="test-online-app"></a>Test the app 
 
 In this section you will test the  `SyncAsync` method that synchronizes the local store with the mobile service database.
@@ -137,9 +157,10 @@ In this section you will test the  `SyncAsync` method that synchronizes the loca
 
 2. Notice that the list of items in the app is empty. As a result of the code changes in the previous section, the app no longer reads items from the mobile service, but rather from the local store. 
 
+3. Add items to the To Do list.
+
     ![][1]
 
-3. Add items to the To Do list.
 
 4. Log into the Microsoft Azure Management portal and look at the database for your mobile service. If your service uses the JavaScript backend for mobile services, you can browse the data from the **Data** tab of the mobile service. If you are using the .NET backend for your mobile service, you can click on the **Manage** button for your database in the SQL Azure Extension to execute a query against your table.
 
@@ -151,10 +172,13 @@ In this section you will test the  `SyncAsync` method that synchronizes the loca
     
     In contrast, the pull operation retrieves records from only the table that was specified. If there are pending operations for this table in the sync context, a `PushAsync` operation will be implictly called by the Mobile Services SDK.
         
+    ![][3] 
+
+
+
     ![][2]
 
 
-    ![][3] 
   
 
 ##Summary
@@ -177,7 +201,8 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 
 ## Next steps
 
-* [Handling conflicts with offline support for Mobile Services]
+<!--* [Handling conflicts with offline support for Mobile Services]
+-->
 * [How to use the Xamarin Component client for Azure Mobile Services]
 
 <!-- Anchors. -->
@@ -193,14 +218,11 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-xamarin-ios-handling-conflicts-offline-data/ 
+[Get started with data]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
+[Get started with Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
 [How to use the Xamarin Component client for Azure Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
 
-[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha3
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha2
 [Xamarin Studio]: http://xamarin.com/download
