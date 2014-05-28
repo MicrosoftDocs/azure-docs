@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use offline data in your Xamarin iOS application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="donnam,wesmc" editor="wesmc" />
+<properties linkid="develop-mobile-tutorials-get-started-offline-data-" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use offline data in your Xamarin iOS application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="donnam,wesmc" editor="wesmc" />
 
 # Get started with Offline Data in Mobile Services
 
@@ -201,7 +201,8 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 
 ## Next steps
 
-* [Handling conflicts with offline support for Mobile Services]
+<!--* [Handling conflicts with offline support for Mobile Services]
+-->
 * [How to use the Xamarin Component client for Azure Mobile Services]
 
 <!-- Anchors. -->
@@ -217,14 +218,11 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-xamarin-ios-handling-conflicts-offline-data/ 
+[Get started with data]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
+[Get started with Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
 [How to use the Xamarin Component client for Azure Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
 
-[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha3
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha2
 [Xamarin Studio]: http://xamarin.com/download
