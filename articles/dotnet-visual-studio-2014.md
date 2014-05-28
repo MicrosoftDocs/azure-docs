@@ -2,12 +2,12 @@
 
 ## Installing the Azure SDK 2.3 for Visual Studio 2014 CTP1
 
-To install the Azure SDK 2.3 for .NET with Visual Studio 2014 CTP1, follow these steps. This procedure installs SDKs, basic tools, and extended tools for Azure development with Visual Studio 2014 CPT1 and is not intended to be used with any other version of Visual Studio.
+To install the Azure SDK 2.3 for .NET with Visual Studio 2014 CTP1, follow these steps. This procedure installs SDKs, basic tools, and extended tools for Azure development with Visual Studio 2014 CTP1 and is not intended to be used with any other version of Visual Studio.
 
 To install the Azure SDK 2.3 for .NET, follow these steps:
 
 1.       Install [Visual Studio 2014 CTP1](http://go.microsoft.com/fwlink/p/?LinkId=400776)
-2.       To download each component of the [Azure SDK](http://go.microsoft.com/fwlink/p/?LinkId=400777), use the links in the following list. Choose the x86 or x64 version of each of the following components.
+2.       To download each component of the Azure SDK, use the links in the following list. Choose the x86 or x64 version of each of the following components.
        <ul>
         <li>Azure authoring tools: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400892">WindowsAzureAuthoringTools-x86.msi</a> or <a href=" http://go.microsoft.com/fwlink/p/?LinkId=400893">WindowsAzureAuthoringTools-x64.msi</a>.</li>
        <li>Azure compute emulator: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400894">WindowsAzureEmulator-x86.msi</a> or <a href="http://go.microsoft.com/fwlink/?LinkId=400895">WindowsAzureEmulator-x64.msi</a>.</li>
