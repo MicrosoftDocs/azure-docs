@@ -519,9 +519,9 @@ The steps in this section use the Azure command-line tools to create a new Azure
 
 > [WACOM.NOTE] If this is the first Azure Web Site you have created, you must use the Azure portal to deploy this application.
 
-###Enable the Azure Web Site feature
+###Create an Azure subscription
 
-If you do not already have an Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Azure Web Site feature.
+If you do not already have an Azure subscription, you can sign up [for free]. After signing up, follow these steps to continue this tutorial.
 
 [WACOM.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
 
