@@ -344,13 +344,19 @@ Next, you will use your live web application to see its Hybrid Connection in act
 You have now created and deployed an ASP.NET web application that uses a hybrid connection between a website in the Azure cloud and an on-premises SQL Server database. Congratulations!
 
 ##See Also##
-[Hybrid Connections web site](http://azure.microsoft.com/en-us/services/biztalk-services/)
-
 [Hybrid Connections overview](http://go.microsoft.com/fwlink/p/?LinkID=397274)
+
+[Josh Twist introduces hybrid connections (Channel 9 video)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
+
+[Hybrid Connections web site](http://azure.microsoft.com/en-us/services/biztalk-services/)
 
 [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
+[Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
+
 [Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)
+
+[Connect to an on-premises SQL Server from Azure Mobile Services using Hybrid Connections (Channel 9 video)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
 [ASP.NET Identity Overview](http://www.asp.net/identity)
 
