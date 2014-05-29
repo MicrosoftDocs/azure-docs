@@ -100,7 +100,7 @@ Note that in some cases completion may only indicate that the request was accept
 - serviceOptions is an optional object. It may contain these properties
 	- Description - default to 'Service host'
 	- Label - default to serviceName if not set.
-	- Location - default to 'Azure Preview' -TODO change when released.
+	- Location - the region to create the service in
 -	callback is required.
 
 **iaasClient.GetStorageAccountKeys(serviceName, callback)**
