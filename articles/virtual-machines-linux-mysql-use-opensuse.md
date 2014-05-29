@@ -10,9 +10,9 @@ In this tutorial, you will learn:
 - How to connect to the virtual machine using SSH or PuTTY.
 - How to install MySQL on the virtual machine.
 
-## Sign up for the Virtual Machines preview feature
+## Create an Azure subscription
 
-You will need to sign up for the Azure Virtual Machines preview feature in order to create a virtual machine. You can also sign up for a free trial account if you do not have an Azure account.
+If you do not already have an Azure subscription, you can sign up [for free]. After signing up, follow these steps to continue this tutorial.
 
 [WACOM.INCLUDE [antares-iaas-signup-iaas](../includes/antares-iaas-signup-iaas.md)]
 
@@ -30,3 +30,4 @@ In this tutorial you learned how to create a virtual machine running OpenSUSE Li
 [MySQLDocs]: http://dev.mysql.com/doc/
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
+[for free]: http://azure.microsoft.com
