@@ -61,7 +61,7 @@ The following table lists the versions of HDInsight currently available, the cor
 <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Yes</td><td>02/11/2014</td><td></td><td></td></tr>
 <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Yes</td><td>10/28/2013</td><td>05/12/2014</td><td>05/31/2015</td></tr>
 <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>10/28/2013</td><td>04/26/2014</td><td>05/31/2015</td></tr>
-</table></br>
+</table><br>
 
 ### The Service-Level Agreement (SLA) for HDInsight cluster versions
 
@@ -92,8 +92,7 @@ The **Deprecation Date** is the date after which the cluster version can not be 
 <tr><td>mapred.task.tracker.http.address</td><td>0.0.0.0:30060</td></tr>
 <tr><td>mapreduce.history.server.http.address</td><td>0.0.0.0:31111</td></tr>
 <tr><td>templeton.port</td><td>30111</td></tr>
-</table></br>
-
+</table><br>
 
  **HDP2.0 and 2.1**
 <table border="1">
@@ -106,7 +105,7 @@ The **Deprecation Date** is the date after which the cluster version can not be 
 <tr><td>dfs.namenode.secondary.http-address</td><td>0.0.0.0:30090</td></tr>
 <tr><td>yarn.nodemanager.webapp.address</td><td>0.0.0.0:30060</td></tr>
 <tr><td>templeton.port</td><td>30111</td></tr>
-</table></br>
+</table><br>
 
 
 * HDInsight cluster version 3.0 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.0][hdp-2-0-8].
