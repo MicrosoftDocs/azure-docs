@@ -74,9 +74,9 @@ In this tutorial you'll learn:
 
 4. Click **Messages**, and then add some messages. Select the files that you created in the previous step. Don't change the scheduled date which defaults to one week in the future. The application can't send messages until you configure SendGrid.
 
-   ![Message Create Page][mtas-message-create-page]
-	<br/><br/>
-   ![Message Index Page][mtas-message-index-page]
+	![Message Create Page][mtas-message-create-page]
+
+	![Message Index Page][mtas-message-index-page]
 
 	The data that you have been entering and viewing is being managed by the Azure storage emulator. The storage emulator uses a SQL Server Express LocalDB database to emulate the way Azure Storage works in the cloud.  The application is using the storage emulator because that is what the project was configured to use when you downloaded it. This setting is stored in *.cscfg* files in the **AzureEmailService** project.  The *ServiceConfiguration.Local.cscfg* file determines what is used when you run the application locally in Visual Studio, and the *ServiceConfiguration.Cloud.cscfg* file determines what is used when you deploy the application to the cloud. Later you'll see how to configure the application to use an Azure Storage account.
 
