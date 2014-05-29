@@ -53,7 +53,7 @@ The table also includes a link to the Kernel compatibility patch required by som
 		<td>In Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">Required for 12.04 or 12.04.01 only</a></td>
 		<td>Package: In package repo under walinuxagent <br />
-			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
+			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
 		<th> CENTOS by Open Logic </th>
@@ -61,7 +61,7 @@ The table also includes a link to the Kernel compatibility patch required by som
 	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/p/?LinkID=254263">LIS drivers</a>; CentOS 6.4+ drivers: in Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Required for 6.3 only</a></td>
 		<td>Package:In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">Open Logic package repo </a> under walinuxagent<br />
-			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
+			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
  		
 	</tr>
 	<tr>
@@ -69,17 +69,16 @@ The table also includes a link to the Kernel compatibility patch required by som
 		<td> 6.4+</td>
         <td>In Kernel</td>
 		<td>N/A</td>
-		<td>Package: In repo, name: WALinuxAgent
-<br />
-			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
+		<td>Package: In repo, name: WALinuxAgent<br />
+			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr><tr>
 		<th> SUSE Linux Enterprise </th>
 		<td> SLES 11 SP3+</td>
         <td>In Kernel</td>
 		<td>N/A</td>
-		<td>Package: In <A HREF="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</A> repo, name: WALinuxAgent<br />
-			Source Code: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
+		<td>Package: In <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo, name: WALinuxAgent<br />
+			Source Code: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 	<tr>
@@ -87,8 +86,8 @@ The table also includes a link to the Kernel compatibility patch required by som
 		<td> OpenSUSE 13.1+</td>
 		<td>In Kernel</td>
 		<td>N/A</td>
-		<td>Package: In <A HREF="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</A> repo, name: WALinuxAgent<br />
-			Source Code: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
+		<td>Package: In <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo, name: WALinuxAgent<br />
+			Source Code: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 </table>
