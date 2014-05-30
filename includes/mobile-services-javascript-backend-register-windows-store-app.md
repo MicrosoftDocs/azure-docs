@@ -46,7 +46,7 @@
 
    	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-selection.png)
 
-11. Click the **Push** tab, click **Enable enhanced push**, and click **Yes** to accept the configuration change.
+11. Click the **Push** tab. If you are using the Javascript backend for your Mobile Service, click **Enable enhanced push**, and click **Yes** to accept the configuration change. This feature is not currently available for .Net backend mobile services.
 
 
 	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-enable-enhanced-push.png)
