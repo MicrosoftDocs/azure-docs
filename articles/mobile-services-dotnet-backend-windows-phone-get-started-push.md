@@ -122,11 +122,17 @@ This enables the mobile service to connect to MPNS in unauthenticated mode to se
 
 1. In Visual Studio, press the F5 key to run the app.
 
-5. In the app, enter the text "hello push" in the textbox, and then click **Save**.
+    >[WACOM.NOTE] You may encounter a 401 Unauthorized RegistrationAuthorizationException when testing on the Windows Phone emulator. This can occur during the `RegisterNativeAsync()` call because of the way the Windows Phone emulator syncs it's clock with the host PC. It can result in a security token that will be rejected. To resolve this simply manually set the clock in the emulator before testing.
+
+5. In the app, enter the text "hello push" in the textbox, click **Save**, then immediately click the start button or back button to leave the app.
 
    	![][2]
 
-  	This sends an insert request to the mobile service to store the added item. Notice that the application receives a toast notification that says **hello push**.
+  	This sends an insert request to the mobile service to store the added item. Notice that the device receives a toast notification that says **hello push**.
+
+	![][5]
+
+	>[WACOM.NOTE]You will not receive the notification when you are still in the app. To receive a toast notification while the app is active, you must handle the [ShellToastNotificationReceived](http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx) event.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -167,6 +173,7 @@ Consider finding out more about the following Mobile Services topics:
 [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
 [3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
 [4]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png
+[5]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
