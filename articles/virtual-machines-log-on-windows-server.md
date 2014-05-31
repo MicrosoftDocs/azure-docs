@@ -32,4 +32,4 @@ For a virtual machine that is running the Windows Server operating system, you u
 
 	You can now work with the virtual machine just as you would with any other server.
 
-
+	>[WACOM.NOTE] For requirements and troubleshooting tips, see [Connect to a Windows Azure virtual machine with RDP or SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
