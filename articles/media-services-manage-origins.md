@@ -27,7 +27,7 @@ The CONFIGURE tab enables you to do the following configurations:
 
 2. Specify IP addresses that would be allowed to connect to the published streaming endpoint. If no IP addresses specified, any IP address would be able to connect.
 
-3. Specify configuration for G20 authentication requests from Akami servers.
+3. Specify configuration for G20 authentication requests from Akamai servers.
 
 
 	![Configure origin][configure-origin]
