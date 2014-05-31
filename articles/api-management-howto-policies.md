@@ -18,10 +18,6 @@ The policies editor consists of three main sections: the policy scope (top), the
 
 ![Policies editor][policies-editor]
 
-[Product]: ../apimanagement-howto-add-products
-[API]: ../apimanagement-howto-add-apis 
-[Operation]: ../apimanagement-howto-add-operations
-
 To begin configuring a policy you must first select the scope at which the policy should apply. In the screenshot below the 15 Day Free Trial product is selected. Note that the square symbol next to the policy name indicates that a policy is already applied at this level.
 
 ![Scope][policies-scope]
@@ -90,7 +86,11 @@ In the example policy definition above, the cross-domain statement would execute
 
 Note: A global policy has no higher policy to the the *base* element is always a *no-op*, or has no effect.
 
-[Policy Reference]: /api-management-policy-reference
+[Policy Reference]: ../api-management-policy-reference
+[Product]: ../api-management-howto-add-products
+[API]: ../api-management-howto-add-products/#add-apis 
+[Operation]: ../api-management-howto-add-operations
+
 [policies-menu]: ./media/api-management-howto-policies/api-management-policies-menu.png
 [policies-editor]: ./media/api-management-howto-policies/api-management-policies-editor.png
 [policies-scope]: ./media/api-management-howto-policies/api-management-policies-scope.png
