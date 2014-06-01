@@ -2,13 +2,11 @@
 
 # How to enable Google Cloud Messaging
 
-This topic shows you how to use the [Azure Management Portal][Management Portal] to create a new JavaScript backend in Azure Mobile Services, which uses JavaScript for server-side business logic. To create both the mobile service backend and a mobile client app that consumes the new mobile service, you should instead see [Get started with Mobile Services].
+This topic shows you how to enable your Android app for push notifications by using Google Cloud Messaging (GCM). The API key obtained is used to register the Android app for push notifications in the [Azure Management Portal][Management Portal]. For the complete end-to-end tutorial that includes updates to your app, see [Get started with push notifications]. 
 
->[WACOM.NOTE]To complete this tutorial, you need an Azure account that has the Azure Mobile Services feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F" target="_blank">Azure Free Trial</a>. 
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
-
-
+Now, you can use this API key value to enable services to authenticate with GCM and send push notifications on behalf of your app.
 
 <!-- Anchors. -->
 
@@ -17,7 +15,7 @@ This topic shows you how to use the [Azure Management Portal][Management Portal]
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
