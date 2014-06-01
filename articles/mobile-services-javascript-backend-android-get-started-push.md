@@ -37,6 +37,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
+>[WACOM.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 [WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
