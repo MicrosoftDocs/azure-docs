@@ -46,6 +46,7 @@ Now that the mobile service is setup to validate data and send error responses f
 1. In the Solution Explorer window in Visual Studio, navigate to the client project and open the MainPage.xaml.cs file. Add the following **using** statement in that file:
 
         using Windows.UI.Popups;
+        using Newtonsoft.Json;
         using Newtonsoft.Json.Linq;
 
 2. In MainPage.xaml.cs replace the existing **InsertTodoItem** method with the following code:
