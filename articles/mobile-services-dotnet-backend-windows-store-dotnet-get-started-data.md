@@ -326,13 +326,12 @@ Once you have completed the data series, try one of these other tutorials:
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Validate and modify data with scripts]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/
+[Refine queries with paging]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data/
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
-[JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+[JavaScript backend version]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
