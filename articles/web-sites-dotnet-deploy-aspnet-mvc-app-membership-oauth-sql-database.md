@@ -334,7 +334,24 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
 
 In addition to authentication, the tutorial will also use roles to implement authorization. Only those users you add to the *canEdit* role will be able to change data (that is, create, edit, or delete contacts).
 
-1. Open the *App_Start\Startup.Auth.cs* file. Remove the comment characters from the *app.UseGoogleAuthentication()* method.
+1. Open the *App_Start\Startup.Auth.cs* file. Remove the comment characters from the *app.UseGoogleAuthentication()* method and enter the **clientId** and **clientSecret**.
+
+public void ConfigureAuth(IAppBuilder app)
+{
+   // Enable the application to use a cookie to store information for the signed in user
+   app.UseCookieAuthentication(new CookieAuthenticationOptions
+   {
+      AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+      LoginPath = new PathString("/Account/Login")
+   });
+   // Use a cookie to temporarily store information about a user logging in with a third party login provider
+   app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+
+
+   app.UseGoogleAuthentication(
+   clientId: "000-000.apps.googleusercontent.com",
+   clientSecret: "00000000000");
+}
 
 1. Run the application and click  the **Log In** link. 
 1. Under **Use another service to log in**, click the **Google** button. 
