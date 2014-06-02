@@ -43,9 +43,10 @@ This tutorial builds on the steps and the sample code from the previous tutorial
 
 Now that the mobile service is setup to validate data and send error responses for an invalid text length, you need to update your app to be able to handle error responses from validation. The error will be caught as a `MobileServiceInvalidOperationException` from the client app's call to `IMobileServiceTable<TodoItem].InsertAsync()`.
 
-1. In the Solution Explorer window in Visual Studio, navigate to the client project and open the MainPage.xaml.cs file. Add the following **using** statement in that file:
+1. In the Solution Explorer window in Visual Studio, navigate to the client project and open the MainPage.xaml.cs file. Add the following **using** statements in that file:
 
         using Windows.UI.Popups;
+        using Newtonsoft.Json;
         using Newtonsoft.Json.Linq;
 
 2. In MainPage.xaml.cs replace the existing **InsertTodoItem** method with the following code:
