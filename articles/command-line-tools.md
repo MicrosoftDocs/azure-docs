@@ -47,6 +47,7 @@ This command launches a browser to download your .publishsettings file from the 
 
 **account import [options] &lt;file>**
 
+
 This command imports a publishsettings file or certificate so that it can be used by the tool going forward.
 
 	~$ azure account import publishsettings.publishsettings
