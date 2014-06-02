@@ -12,7 +12,7 @@
 
 HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the cloud. It makes the MapReduce software framework available in a simpler, more scalable, and cost efficient Azure environment. HDInsight also provides a cost efficient approach to the managing and storing of data using Azure Blob storage. 
 
-In this tutorial, you will provision an Hadoop cluster in HDInsight using the Azure Management Portal, submit an Hive job to query against a sample Hive table using the HDInsight cluster dashboard, and then import the Hive job output data into Excel for examination.
+In this tutorial, you will provision an Hadoop cluster in HDInsight using the Azure Management Portal, submit an Hive job to query against a sample Hive table using the cluster dashboard, and then import the Hive job output data into Excel for examination.
 
 > [WACOM.NOTE] This tutorial covers using Hadoop 2.2 clusters on HDInsight. For other supported version, click the selector on the top of the page. For version information, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions]
 
@@ -54,7 +54,7 @@ When provision an HDInsight cluster, an Azure Storage account and a specific Blo
 
 In addition to this storage account, you can add additional storage accounts from either the same Azure subscription or different Azure subscriptions. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. 
 
-To simply this tutorial, only the default storage account is used, and all of the files are stored in the default file system container, located at */tutorials/getstarted/*.
+To simply this tutorial, only the default blob container and the default storage account are used, and all of the files are stored in the default file system container, located at */tutorials/getstarted/*. In practice, the data files are usually stored in a designated storage account.
 
 **To create an Azure Storage account**
 
@@ -143,12 +143,12 @@ For information on using the **CUSTOM CREATE** option, see [Provision HDInsight 
 
 Now you have an HDInsight cluster provisioned. The next step is to run an Hive job to query a sample Hive table that comes with HDInsight clusters.  The table name is *hivesampletable*.
 
-**To open HDInsight cluster dashboard**
+**To open cluster dashboard**
 
 1. Sign in to the [Azure Management Portal][azure-management-portal]. 
 2. Click **HDINSIGHT** from the left pane. You shall see a list of clusters created including the one you just created in the last section.
 3. Click the cluster name where you want to run the Hive job.
-4. Click **MANAGE CLUSTER** from the bottom of the page to open HDInsight cluster dashboard. It opens a Web page on a different browser tab.   
+4. Click **MANAGE CLUSTER** from the bottom of the page to open cluster dashboard. It opens a Web page on a different browser tab.   
 5. Enter the Hadoop User account username and password.  The default username is **admin**, the password is what you entered during the provision process.  The dashboard looks like :
 
 	![hdi.dashboard][img-hdi-dashboard]
@@ -183,7 +183,7 @@ Now you have an HDInsight cluster provisioned. The next step is to run an Hive j
 
 **To browse the output file**
 
-1. From HDInsight cluster dashboard, click **Files** from the top.
+1. From the cluster dashboard, click **Files** from the top.
 2. Click **Templeton-Job-Status**.
 3. Click the GUID number which has the last Modified time a little after the Job Start Time you wrote down earlier. Make a note of this GUID.  You will need it in the next section.
 4. The **stdout** file has the data you need in the next section. You can click **stdout** to download a copy of the data file if you want.
