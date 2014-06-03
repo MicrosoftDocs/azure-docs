@@ -2,7 +2,7 @@
 
 
 
-# Use Hadoop Pig in HDInsight
+# Use Pig with Hadoop in HDInsight
 
 Learn how to run [Apache Pig][apachepig-home] jobs on HDInsight to analyze an Apache log4j log file.
 
