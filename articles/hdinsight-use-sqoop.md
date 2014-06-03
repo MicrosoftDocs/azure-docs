@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-use-sqoop" urlDisplayName="Use Hadoo Sqoop in HDInsight" pageTitle="Use Hadoop Sqoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an Hadoop cluster and an Azure SQL database." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Use Hadoop Sqoop in HDInsight" authors="jgao" />
 
-# Use Hadoop Sqoop in HDInsight
+# Use Sqoop with Hadoop in HDInsight
  
 Learn how to use Azure PowerShell and HDInsight .NET SDK from a workstation to run Sqoop import and export between an HDInsight cluster and an Azure SQL database.
 

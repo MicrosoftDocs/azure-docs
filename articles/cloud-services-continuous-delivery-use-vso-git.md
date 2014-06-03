@@ -28,12 +28,21 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 <h2> <a name="step1"></a><span class="short-header">Step 1: Sign up for Visual Studio Online and create a Git repository.</span>Step 1: Sign up for Visual Studio Online and create a Git repository</h2>
 
 
-1. If you don’t yet have a Visual Studio Online account, follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=397665). When you create your team project, choose Git as your source control system. Follow the instructions to connect Visual Studio to your team project.
+1. If you don’t yet have a Visual Studio Online account, follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=397665).
 
-2. In Team Explorer, choose the **Clone this repository** link. 
+2. Create an account URL for your new project, using this format: https://&lt;accountname&gt;.visualstudio.com.<br/>
+![][37]
+ 
+3. Now you can create your first project. Enter the project name and description. Choose Git as your source control system. Then choose the process template your organization uses, and choose the **Create Project** button. For more information about process templates, see [Work with team project artifacts, choose a process template](http://go.microsoft.com/fwlink/?LinkId=324035).<br/>
+![][1]
+
+4. Choose the **Open in Visual Studio to connect** button to automatically launch Visual Studio connected to your team project. If you see any security dialog boxes, choose **Allow**.<br/>
+![][2]
+
+5. In Team Explorer, choose the **Clone this repository** link. 
 ![][3]
 
-3. Specify the location of the local copy, and choose the **Clone** button.
+6. Specify the location of the local copy, and choose the **Clone** button.
  
 <h2><a name="step2"> </a><span class="short-header">Create a project and commit it to the repository.</span>Step 2: Create a project and commit it to the repository</h2>
 
