@@ -5,10 +5,12 @@
 
 # Get started using Hadoop 1.2 in HDInsight
 
-> [AZURE.SELECTOR]
--[Hadoop 2.2][../hdinsight-get-started]
--[Hadoop 2.4][../hdinsight-get-started-31]
--[Hadoop 1.2][../hdinsight-get-started-21]
+<div class="dev-center-tutorial-selector sublanding">
+<a href="../hdinsight-get-started" title="Get started using Hadoop 2.2 in HDInsight">Get started using Hadoop 2.2 in HDInsight</a>
+<a href="../hdinsight-get-started-31" title="Get started using Hadoop 2.4 in HDInsight">Get started using Hadoop 2.4 in HDInsight</a>
+<a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight" class="current">Get started using Hadoop 1.2 in HDInsight</a>
+</div>
+
 
 HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the cloud. It makes the MapReduce software framework available in a simpler, more scalable, and cost efficient Azure environment. HDInsight also provides a cost efficient approach to the managing and storing of data using Azure Blob storage. 
 
@@ -274,3 +276,4 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
+[img-hdi-getstarted-video]: ./media/hdinsight-get-started/HDI.GetStarted.Video.png
