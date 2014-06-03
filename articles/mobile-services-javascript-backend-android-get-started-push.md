@@ -23,7 +23,7 @@
 
 This topic shows how to use Azure Mobile Services to send push notifications to your Android app. In this tutorial you add push notifications using Google Cloud Messaging (GCM) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
-[WACOM.NOTE]This tutorial demonstrates Mobile Services integration with Notification Hubs, which is currently in preview. By default, sending push notifications using Notification Hubs is not enabled from a JavaScript backend.  Once the new notification hub has been created, the integration process cannot be reverted. 
+>[WACOM.NOTE]This tutorial demonstrates Mobile Services integration with Notification Hubs, which is currently in preview. By default, sending push notifications using Notification Hubs is not enabled from a JavaScript backend.  Once the new notification hub has been created, the integration process cannot be reverted. 
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -37,10 +37,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
+>[WACOM.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 [WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-Next, you will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of you app.
+Next, you will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of your app.
 
 ##<a id="configure"></a>Configure Mobile Services to send push requests
 
