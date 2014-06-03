@@ -4,7 +4,7 @@
 
 
 
-# Use Hadoop Hive in HDInsight
+# Use Hive with Hadoop in HDInsight
 
 [Apache Hive][apache-hive] provides a means of running MapReduce job through an SQL-like scripting language, called *HiveQL*, which can be applied towards summarization, querying, and analysis of large volumes of data. In this article, you will use HiveQL to query the data in an Apache log4j log file and report basic statistics. 
 
