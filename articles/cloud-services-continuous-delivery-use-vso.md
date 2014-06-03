@@ -1,11 +1,11 @@
-<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure web sites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="" editor="" />
+<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure web sites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="" editor="" />
 
 
 
 
 # Continuous delivery to Azure using Visual Studio Online
 
-Visual Studio Online (previously Team Foundation Service) is a cloud-hosted service version of Microsoft's popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Visual Studio Online team projects to automatically build and deploy to Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Services in Azure](../cloud-services-dotnet-continuous-delivery).
+  You can configure your Visual Studio Online team projects to automatically build and deploy to Azure web sites or cloud services.  (For information on how to set up a continuous build and deploy system using an *on-premises* Team Foundation Server, see [Continuous Delivery for Cloud Services in Azure](../cloud-services-dotnet-continuous-delivery).)
 
 This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed. If you don't already have Visual Studio 2013, download it by choosing the **Get started for free** link at [www.visualstudio.com](http://www.visualstudio.com). Install the Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
@@ -23,23 +23,9 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 
 -   [Step 6: Change the Production deployment (cloud services only)][]
 
-<h2> <a name="step1"></a><span class="short-header">Sign up for Visual Studio Online</span>Step 1: Sign up for Visual Studio Online</h2>
+<h2> <a name="step1"></a><span class="short-header">Sign up for Visual Studio Online</span>Step 1: Sign up for Visual Studio Online and create a team project</h2>
 
-1. Create a Visual Studio Online account by navigating to [http://www.visualstudio.com](http://www.visualstudio.com). Click the **Sign In** link.
-  You will need to sign-in using a Microsoft account. If this is the first time you've signed in, you are asked to provide some information about yourself, such as your name and email address.
-![][0]
-  
-2. If this isn't the first time you've signed in, you see this screen when you sign in. Click the **Create a free account now** link.<br/>
-![][36]
-
-3. Create an account URL for your new project. Your account will have the form: https://&lt;accountname&gt;.visualstudio.com.<br/>
-![][37]
- 
-4. Now you can create your first project. Enter the project name and description. Choose the version control system you want to use. Team Foundation Version Control (TFVC) or Git are both supported.  You can find out more about these options at [Use version control](http://go.microsoft.com/fwlink/?LinkId=324037). This walkthrough assumes you are using TFVC. If you are using Git, see [Continuous delivery to Azure with Visual Studio Online and Git](http://go.microsoft.com/fwlink/?LinkId=397358) Then choose the process template your organization uses, and choose the **Create Project** button. For more information about process templates, see [Work with team project artifacts, choose a process template](http://go.microsoft.com/fwlink/?LinkId=324035).<br/>
-![][1]
-
-5. When project creation is done, click the **Open with Visual Studio to connect** button to automatically launch Visual Studio connected to your team project. If you see any security dialog boxes, choose Allow.<br/>
-![][2]
+Follow the instructions [here](http://go.microsoft.com/fwlink/p/?LinkId=239540) to create your team project and link it to Visual Studio. This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution. If you want to use Git for version control, see [the Git version of this walkthrough](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
 <h2><a name="step2"> </a><span class="short-header">Check in a project to source control.</span>Step 2: Check in a project to source control</h2>
 
