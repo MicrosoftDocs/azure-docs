@@ -334,7 +334,24 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
 
 In addition to authentication, the tutorial will also use roles to implement authorization. Only those users you add to the *canEdit* role will be able to change data (that is, create, edit, or delete contacts).
 
-1. Open the *App_Start\Startup.Auth.cs* file. Remove the comment characters from the *app.UseGoogleAuthentication()* method.
+1. Open the *App_Start\Startup.Auth.cs* file. Remove the comment characters from the *app.UseGoogleAuthentication()* method and enter the **clientId** and **clientSecret**.
+
+public void ConfigureAuth(IAppBuilder app)
+{
+   // Enable the application to use a cookie to store information for the signed in user
+   app.UseCookieAuthentication(new CookieAuthenticationOptions
+   {
+      AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+      LoginPath = new PathString("/Account/Login")
+   });
+   // Use a cookie to temporarily store information about a user logging in with a third party login provider
+   app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+
+
+   app.UseGoogleAuthentication(
+   clientId: "000-000.apps.googleusercontent.com",
+   clientSecret: "00000000000");
+}
 
 1. Run the application and click  the **Log In** link. 
 1. Under **Use another service to log in**, click the **Google** button. 
@@ -563,6 +580,9 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/en-us/l
 1. Click an Edit link. You will be redirected to the log in page. Under **Use another service to log in**, Click Google or Facebook and log in with the account you previously registered. (If you're working quickly and your session cookie has not timed out, you will be automatically logged in with the Google or Facebook account you previously used.)
 2. Verify you can edit data while logged into that account.
  	**Note:** You cannot log out of Google from this app and log into a different google account with the same browser. If you are using one browser, you will have to navigate to Google and log out. You can log on with another account from the same third party authenticator (such as Google) by using a different browser.
+
+If you have not filled out the first and last name of your Google account information, a NullReferenceException will occur.
+
 
 ## Examine the SQL Azure DB ##
 
