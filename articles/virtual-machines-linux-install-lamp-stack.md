@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="" editor="" />
 
 
 
@@ -21,18 +21,20 @@ You will need the following packages installed:
 - `mysql-server`
 - `php5`
 - `php5-mysql`
-- `libapache2-mod-auth-mysql`
-- `libapache2-mod-php5`
-- `php5-xsl`
-- `php5-gd`
-- `php-pear`
 
-You can run this as a single `apt-get install` command:
+After running `apt-get update` to update the local list of packages, you can then install these packages with a single `apt-get install` command:
 
-	apt-get install apache2 mysql-server php5 php5-mysql libapache2-mod-auth-mysql libapache2-mod-php5 php5-xsl php5-gd php-pear
+	# sudo apt-get update
+	# sudo apt-get install apache2 mysql-server php5 php5-mysql
+
+After running the above command you will be prompted to install these packages and a number of other dependencies.  Press 'y' and then 'Enter' to continue, and follow any other prompts to set an administrative password for MySQL.
+
+This will install the minimum required PHP extensions needed to use PHP with MySQL. Run the following command to see other PHP extensions that are available as packages:
+
+	# apt-cache search php5
 
 
-##Installing On CentOS
+##Installing On CentOS & Oracle Linux
 
 You will need the following packages installed:
 
@@ -42,37 +44,61 @@ You will need the following packages installed:
 - `php`
 - `php-mysql`
 
-You can run this as a single `yum install` command:
+You can install these packages with a single `yum install` command:
 
-	yum install httpd mysql mysql-server php-php-mysql
+	# sudo yum install httpd mysql mysql-server php php-mysql
+
+After running the above command you will be prompted to install these packages and a number of other dependencies.  Press 'y' and then 'Enter' to continue.
+
+This will install the minimum required PHP extensions needed to use PHP with MySQL. Run the following command to see other PHP extensions that are available as packages:
+
+	# yum search php
+
+
+## Installing on SUSE Linux Enterprise Server
+
+You will need the following packages installed:
+
+- apache2
+- mysql
+- apache2-mod_php53
+- php53-mysql
+
+You can install these packages with a single `zypper install` command:
+
+	# sudo zypper install apache2 mysql apache2-mod_php53 php53-mysql
+
+After running the above command you will be prompted to install these packages and a number of other dependencies.  Press 'y' and then 'Enter' to continue.
+
+This will install the minimum required PHP extensions needed to use PHP with MySQL. Run the following command to see other PHP extensions that are available as packages:
+
+	# zypper search php
 
 
 Setting Up
 ----------
 
-1. Set up **Apache**.
+1. Set up **Apache**
 
-	1. You will need to restart the Apache Web Server. Run the following command:
+	- Run the following command to ensure the Apache web server is started:
 
-			sudo /etc/init.d/apache2 restart
-	2. Check to see that the installation is running. Point your browser to: [http://localhost](http://localhost). It should read "It works!".
+		- Ubuntu & SLES: `sudo service apache2 restart`
 
-2. Set up **MySQL**.
-	1. Set the root password for mysql by running the following command
-	
-			mysqladmin -u root -p password yourpassword
+		- CentOS & Oracle: `sudo service httpd restart`
 
-	2. Log into the console using the `mysql` or a variety of MySQL clients.
+	- Apache listens on port 80 by default. You may need to open an endpoint to access your Apache server remotely.  Please see the documentation on [configuring endpoints](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/) for more detailed instructions.
 
-3. Set up **PHP**.
+	- You can now check to see that Apache is running and serving content. Point your browser to `http://[MYSERVICE].cloudapp.net`, where **[MYSERVICE]** is the name of the cloud service in which your virtual machine resides. On some distributions you may be greeted by a default web page that simply states "It works!". On others you may see a more complete web page with links to additional documentation and content for configuring the Apache server.
 
-	1. Enable the Apache PHP Module by running the following command:
+2. Set up **MySQL**
 
-			sudo a2enmod php5
+	- Note that this step is not necessary on Ubuntu, which prompts you for a MySQL `root` password when the mysql-server package was installed.
 
-	2. Relaunch Apache by running the following command:
+	- On other distributions, set the root password for MySQL by running the following command:
 
-			sudo service apache2 restart
+			# mysqladmin -u root -p password yourpassword
+
+	- You can then manage MySQL using the `mysql` or `mysqladmin` utilities.
 
 
 ##Further Reading
