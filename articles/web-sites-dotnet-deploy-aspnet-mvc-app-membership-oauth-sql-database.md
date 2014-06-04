@@ -337,7 +337,7 @@ In addition to authentication, the tutorial will also use roles to implement aut
 1. Follow the instructions in my tutorial [Create an ASP.NET MVC 5 App with Facebook and Google OAuth2 and OpenID Sign-on](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on) under **Creating a Google app for OAuth 2 to set up a Google app for OAuth2**.
 2. Open the *App_Start\Startup.Auth.cs* file. Remove the comment characters from the *app.UseGoogleAuthentication()* method and enter the **clientId** and **clientSecret**.
 
-
+<pre>
          public void ConfigureAuth(IAppBuilder app)
          {
             // Enable the application to use a cookie to store information for the signed in user
@@ -349,10 +349,11 @@ In addition to authentication, the tutorial will also use roles to implement aut
             // Use a cookie to temporarily store information about a user logging in with a third party login provider
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
-            app.UseGoogleAuthentication(
+            <mark>app.UseGoogleAuthentication(
                clientId: "000-000.apps.googleusercontent.com",
-               clientSecret: "00000000000");
+               clientSecret: "00000000000");</mark>
          } 
+</pre>
 
 1. Run the application and click  the **Log In** link. 
 1. Under **Use another service to log in**, click the **Google** button. 
