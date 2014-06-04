@@ -7,10 +7,10 @@ Apache HBase is an open source, distributed, large-scale data store that provide
 
 In this tutorial, you learn how to create and query HBase tables with HDInsight. The following procedures are described:
 
-- How to provision an HBase cluster from the HDInsight portal and  how to enable and use RDP to access the cluster.
-- How to create an HBase sample table, add rows, and then list the rows in the table.
+- How to provision an HBase cluster using PowerShell.
+- How to enable and use RDP to access the HBase shell and use the HBase shell to create an HBase sample table, add rows, and then list the rows in the table.
 - How to create a Hive table that maps to an existing HBase table and use HiveQL to query the data in the HBase table.
-- How to use PowerShell to create a new HBase table, list the HBase tables in your account, and how to add and retrieve the rows from your tables.
+- How to use HBase REST APIs to create a new HBase table, list the HBase tables in your account, and how to add and retrieve the rows from your tables.
 
 
 > [WACOM.NOTE] HBase is currently only available in preview for use with HDInsight 3.1 clusters on HDInsight (based on Hadoop 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
@@ -27,39 +27,34 @@ Before you begin this tutorial, you must have the following:
 
 ##In this tutorial
 
-* [Provision an HBase cluster](#create-hbase-cluster)
-* [Create an HBase sample table](#create-sample-table)
+* [Provision an HBase cluster with PowerShell](#create-hbase-cluster)
+* [Create an HBase sample table from the HBase shell](#create-sample-table)
 * [Use Hive to query an HBase table](#hive-query)
-* [Use PowerShell to create an HBase table and retrieve data from the table](#hbase-powershell)
-* [Next steps](#next-steps)
-
+* [Use HBase REST APIs to create an HBase table and retrieve data from the table](#hbase-powershell)
+* [Summary](#summary)
 	
-##<a name="create-hbase-cluster"></a>Provision an HBase cluster
+##<a name="create-hbase-cluster"></a>Provision an HBase cluster with PowerShell
 
+This section describes how to provision an HBase cluster using PowerShell and  how to enable and use RDP to access the cluster.
 
 **To provision an HDInsight cluster** 
 
-1. Sign in to the [Azure Management Portal][azure-management-portal]. 
+1. Open the Windows PowerShell window on the windows machine.
+ 
+2. To enter your cluster credentials, execute the following script in PowerShell to capture your cluster credentials in the PowerShell variable.
 
-2. Click **HDInsight** on the left to list the status of the clusters in your account.
+	$creds = Get-Credential
 
-3. Click **NEW** on the lower left side, click **Data Services**, click **HDInsight**, and then click **HBase**.
+3. To create a cluster, execute the following script in PowerShell. You will need to retrieve your default storage account key from the portal and use it for the *DefaultStorageAccountKey* parameter value in this command.
 
-	![](http://i.imgur.com/gyEJ23t.jpg)
-
-4. On the Cluster Details wizard, provide values for the cluster name and subscription name, and select HBase in the  field of the **CLUSTER TYPE** box. 
-
-	![](http://i.imgur.com/5ZYLUrb.jpg)
-
-5. Continue to the next **Cluster Size** page to configure cluster size and region.
-6. Provide user information for the cluster on the next **Configure Cluster User** page.
-7. Select the *Create New Storage* in the **STORAGE ACCOUNT** field on the next **Storage Account** page, provide your subscription credentials and click the circled check on the lower left to create the cluster.
+	New-AzureHDInsightCluster -Name maxlukhbaseprod -ClusterType HBase -Version 3.0 -Location "West US" -DefaultStorageAccountName hditeststorage.blob.core.windows.net -DefaultStorageAccountKey "<*Enter your storage key here.*>" -DefaultStorageContainerName hbasedocs -Credential $creds -ClusterSizeInNodes 4 
 
 
 
-##<a name="create-sample-table"></a>Create an HBase sample table
+##<a name="create-sample-table"></a>Create an HBase sample table from the HBase shell
+This section describes how to enable and use the Remote Desktop Protocol (RDP) to access the HBase shell and then use it to create an HBase sample table, add rows, and then list the rows in the table.
 
-How to create an HBase sample table, add rows, and then list the rows in the table. It assumes you have completed the procedure outlined in the first section, and so have successfully created an HBase cluster.
+It assumes you have completed the procedure outlined in the first section, and so have already successfully created an HBase cluster.
 
 **Enable the RDP connection to the HBase cluster**
 
@@ -82,18 +77,20 @@ How to create an HBase sample table, add rows, and then list the rows in the tab
 **Create a sample table, add data and retrieve the data**
 
 1. Create a sample table:
-	create 'sampletable1', 'cf1'
+
+	create 'sampletable', 'cf1'
 
 2. Add a row to the sample table:
 
-put 'sampletable1', 'row1', 'cf1:col1', 'value1'
+	put 'sampletable', 'row1', 'cf1:col1', 'value1'
 
 3. List the rows in the sample table:
-	scan 'sampletable1'
+	
+	scan 'sampletable'
 
 ##<a name="hive-query"></a>Use Hive to query an HBase table
 
-Now you have an HDInsight cluster provisioned. The next step is to run an Hive job to query a sample Hive table that comes with HDInsight clusters.  The table name is *hivesampletable*.
+Now you have an HBase cluster provisioned and have created a table, you can query it using Hive. This section creates a Hive table that maps to the HBase table and uses it to queries the data in your HBase table.
 
 **To open cluster dashboard**
 
@@ -103,35 +100,34 @@ Now you have an HDInsight cluster provisioned. The next step is to run an Hive j
 4. Click **MANAGE CLUSTER** from the bottom of the page to open cluster dashboard. It opens a Web page on a different browser tab.   
 5. Enter the Hadoop User account username and password.  The default username is **admin**, the password is what you entered during the provision process.  The dashboard looks like :
 
-	![hdi.dashboard][img-hdi-dashboard]
+	![](http://i.imgur.com/DzLkLQL.png)
 
-	There are several tabs on the top.  The default tab is *Hive Editor*, other tabs include Jobs and Files.  Using the dashboard, you can submit Hive queryes, check Hadoop job logs, and browse WASB files. 
-
-> [wacom.note] Notice is the URL is *&lt;ClusterName&gt;.azurehdinsight.net*. Instead of opening the dashboard from the Management portal, you can also open the dashboard from a Web browser using the URL.
 
 **To run an Hive query**
 
-1. From HDInsight cluster dashboard, click **Hive Editor** from the top.
-2. In **Query Name**, enter **HTC20**.  The query name is job title.
-3. In the query pane, enter the following query: 
+1. To create a Hive Table with a mapping to HBase table, enter HiveQL script below into Hive console window and click **SUBMIT** button. Make sure that you have created the sampletable referenced here in HBase using the HBase Shell before executing this statement.
 
-		SELECT * FROM hivesampletable
-			WHERE devicemake LIKE "HTC%"
-			LIMIT 20;
-
-	![hdi.dashboard.query.select][img-hdi-dashboard-query-select]
-
-4. Click **Submit**. It takes a few moments to get the results back. The screen refreshes every 30 seconds. You can also click **Refresh** to refresh the screen.
+	SET hbase.zookeeper.quorum=zookeepernode0,zookeepernode1,zookeepernode2;
  
-	Once completed, the screen looks like:
+	CREATE EXTERNAL TABLE hbasesampletable(rowkey STRING, col1 STRING, col2 STRING)
+	STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+	WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,cf1:col1,cf1:col2')
+	TBLPROPERTIES ('hbase.table.name' = 'sampletable');
 
-	![hdi.dashboard.query.select.result][img-hdi-dashboard-query-select-result]
+ 
+2. To execute a Hive Query Over the Data in HBase, enter the HiveQL script below into Hive console window and click **SUBMIT** button.
 
-	Make a note of **Job Start Time (UTC)**. You will need it later.
+	SET hbase.zookeeper.quorum=zookeepernode0,zookeepernode1,zookeepernode2;
+	SET hive.aux.jars.path=file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hive-hbase-handler-0.12.0.2.0.9.0-1677.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hbase-server-0.96.0.2.0.9.0-1677-hadoop2.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hbase-protocol-0.96.0.2.0.9.0-1677-hadoop2.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/htrace-core-2.01.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hbase-client-0.96.0.2.0.9.0-1677-hadoop2.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/guava-12.0.1.jar;
+ 
+	SELECT count(*) FROM hbasesampletable;
+ 
+4. To retrieve the results of the Hive query, click on the **View Details** link in the **Job Session** window when the job finishes executing.
 
-	Scroll down a little more, you will see **Job Log**. Job Output is stdout, Job Log is stderr.
 
-5. If you want to reopen the log file again in the future, you can click **Jobs** from the top of the screen, and then click the job title (query name). For example **HTC20** in this case.
+Note: The HBase shell link switches the tab to the **HBase Shell**.
+
+
 
 **To browse the output file**
 
@@ -141,15 +137,57 @@ Now you have an HDInsight cluster provisioned. The next step is to run an Hive j
 4. The **stdout** file has the data you need in the next section. You can click **stdout** to download a copy of the data file if you want.
 
 	
-##<a name="hbase-powershell"></a>Use PowerShell to create an HBase table and retrieve data from the table
+##<a name="hbase-powershell"></a>Use HBase REST APIs to create an HBase table and retrieve data from the table
+
+1. Open the Windows PowerShell window on the windows machine.
+ 
+2. To enter your cluster credentials, execute the following script in PowerShell to capture your cluster credentials in the PowerShell variable.
+
+	$creds = Get-Credential
+
+3. To get a list of HBase tables, execute an HTTP GET request against the HBase REST end-point.
+
+	Invoke-RestMethod https://clustername.azurehdinsight.net/hbaserest -Credential $creds
+ 
+
+4. To retrieve a row by its key, specify the table name and a row key in the URI to retrieve a row value using a GET request. Make sure that you have created the sampletable in HBase using HBase Shell before executing this statement.
+
+	$row = Invoke-RestMethod https://clustername.azurehdinsight.net/hbaserest/sampletable/row1 -Credential $creds
+	$row.CellSet.Row.Cell
+
+ 
+5. To create a new HBase table, use an HTTP PUT request. (The schema of the table is specified by the JSON format.)
+
+	Invoke-RestMethod "https://clustername.azurehdinsight.net/hbaserest/sampletable2/schema" -Method Put -ContentType "application/json" -Credential $creds -Body '{"name":"sampletable2","ColumnSchema":[{"name":"cf1"},{"name":"cf2"}]}'
+
+6. To create a new row in the table, use an HTTP PUT request. Values of the column name and the cell are base64 encoded.
+
+	Invoke-RestMethod "https://maxlukhbasenew1.hdinsight-stable.azure-test.net/hbaserest/sampletable/row3" -Method Put -ContentType "application/json" -Credential $creds `-Body @"
+	{
+	   "Row":[
+	      {
+	         "key":"cm93Mw==",
+	         "Cell":[
+	            {
+	               "column":"Y2YxOmNvbDE=",
+               "$":"c29tZURhdGE="
+	           }
+	         ]
+	      }
+	   ]
+	}
+	"@ 
+
+7. To scan the rows in the table, use the following set of commands. Note that you must use the hbaserest0 type of URI where the end-point is assigned to a specific rest server. The scanner created in the first call keeps it’s state on the specific rest server therefore subsequent calls should be made to the same rest end-point.
+	$scanner = Invoke-WebRequest "https://maxlukhbasenew1.hdinsight-stable.azure-test.net/hbaserest0/sampletable/scanner" -Method Put -ContentType "text/xml" -Credential $creds -Body '<Scanner batch="10"/>'
+	$scannerparts = $scanner.Headers.Location.Split('/')
+	$scannerid = $scannerparts[$scannerparts.Length-1]
+	$rows = Invoke-RestMethod "https://maxlukhbasenew1.hdinsight-stable.azure-test.net/hbaserest0/sampletable/scanner/$scannerid" -Credential $creds
+	$rows.InnerXml 
 
 
-
-##<a name="next-steps"></a>Next steps
-In this tutorial, you have learned how to provision an HBase cluster with HDInsight, create tables, and and view the data in those tables. You also learned how use Hive to query the data in HBase tables. To learn more about using Hive, see the following article:
-
-- [Use Hive with HDInsight][hdinsight-use-hive]
-
+##<a name="summary"></a>Summary
+In this tutorial, you have learned how to provision an HBase cluster, create tables, and and view the data in those tables with PowerShell. You also learned how use Hive to query the data in HBase tables and how to use the HBase REST APIs to create an HBase table and retrieve data from the table.
 
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -184,12 +222,8 @@ In this tutorial, you have learned how to provision an HBase cluster with HDInsi
 [img-hdi-dashboard-query-select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
 [img-hdi-dashboard-query-select-result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png
 
-[img-hdi-getstarted-video]: ./media/hdinsight-get-started/HDI.GetStarted.Video.png
 
 
-[image-hdi-storageaccount-quickcreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
-[image-hdi-clusterstatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
-[image-hdi-quickcreatecluster]: ./media/hdinsight-get-started/HDI.QuickCreateCluster.png
 
-[image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
-[image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
+
+
