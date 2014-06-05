@@ -18,8 +18,9 @@ This tutorial walks you through the process of creating a cloud deployment. Ther
 
 You need to do the following before creating the service:
 
-
+- Sign up for the preview of RemoteApp. You can do that at [http://azure.microsoft.com/en-us/services/remoteapp/](http://azure.microsoft.com/en-us/services/remoteapp/).
 - Gather information about the users and groups that you want to grant access to. This can be either Microsoft account information or Active Directory organizational account information for users or groups.
+- This procedure assumes you are either going to use the template image that is provided as part of your subscription or that you have already uploaded the template image you want to use. If you need to upload a different template image, you can do that from the Template Images page. Just click **upload a template image** and follow the steps in the wizard. 
 
 ## **Step 1: Create a RemoteApp service** ##
 
@@ -33,6 +34,8 @@ You need to do the following before creating the service:
 5. Choose the template to use for this service. 
 
 	**Tip:** Your subscription for RemoteApp comes with a template image that contains Office 2013 programs, some published (such as Word) and others ready to publish.
+
+
 1. Click **Create RemoteApp service**.
 	
 	**Important:** It can take up to 30 minutes to provision your service.
