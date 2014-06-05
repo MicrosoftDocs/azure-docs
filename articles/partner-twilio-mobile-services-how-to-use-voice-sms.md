@@ -78,7 +78,7 @@ For example, change:
 
 to:
 
-    https://twilioSample.scm.azure-mobile.net/DebugConsole/index.html
+    https://twilioSample.scm.azure-mobile.net/DebugConsole
 
 When prompted, enter the credentials you used when setting up the source control for the service.  Once logged in you will see the Azure Mobile Service console.  
 
