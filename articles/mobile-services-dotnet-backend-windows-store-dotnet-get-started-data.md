@@ -8,6 +8,7 @@
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#" class="current">Windows Store C#</a>
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS">iOS</a>
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android">Android</a>
 </div>
 
@@ -326,12 +327,13 @@ Once you have completed the data series, try one of these other tutorials:
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/
-[Refine queries with paging]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data/
+[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
-[JavaScript backend version]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
+[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
+[JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
@@ -339,3 +341,4 @@ Once you have completed the data series, try one of these other tutorials:
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+ 
