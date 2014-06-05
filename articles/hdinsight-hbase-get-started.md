@@ -3,7 +3,7 @@
 
 
 # Get started using HBase with Hadoop in HDInsight
-Apache HBase is an open source, distributed, large-scale data store that provides low latency for random reads and writes. HDInsight makes HBase available as part of its [Apache Hadoop][apache-hadoop] cloud service. 
+Apache HBase is a NoSQL, open source, distributed, large-scale data store that provides low latency for random reads and writes. HDInsight makes HBase available as part of its [Apache Hadoop][apache-hadoop] cloud service. 
 
 In this tutorial, you learn how to create and query HBase tables with HDInsight. The following procedures are described:
 
@@ -13,7 +13,7 @@ In this tutorial, you learn how to create and query HBase tables with HDInsight.
 - How to use HBase REST APIs to create a new HBase table, list the HBase tables in your account, and how to add and retrieve the rows from your tables.
 
 
-> [WACOM.NOTE] HBase is currently only available in preview for use with HDInsight 3.1 clusters on HDInsight (based on Hadoop 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
+> [WACOM.NOTE] HBase is currently only available in preview for use with HDInsight 3.0 clusters on HDInsight (based on Hadoop 2.2.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
 
 
 **Prerequisites:**
@@ -47,7 +47,7 @@ This section describes how to provision an HBase cluster using PowerShell and  h
 
 3. To create a cluster, execute the following script in PowerShell. You will need to retrieve your default storage account key from the portal and use it for the *DefaultStorageAccountKey* parameter value in this command.
 
-	New-AzureHDInsightCluster -Name maxlukhbaseprod -ClusterType HBase -Version 3.0 -Location "West US" -DefaultStorageAccountName hditeststorage.blob.core.windows.net -DefaultStorageAccountKey "<*Enter your storage key here.*>" -DefaultStorageContainerName hbasedocs -Credential $creds -ClusterSizeInNodes 4 
+	New-AzureHDInsightCluster -Name maxlukhbaseprod -ClusterType HBase -Version 3.0 -Location "West US" -DefaultStorageAccountName hditeststorage.blob.core.windows.net -DefaultStorageAccountKey "<*yourstoragekey.*>" -DefaultStorageContainerName hbasedocs -Credential $creds -ClusterSizeInNodes 4 
 
 
 
@@ -100,7 +100,7 @@ Now you have an HBase cluster provisioned and have created a table, you can quer
 4. Click **MANAGE CLUSTER** from the bottom of the page to open cluster dashboard. It opens a Web page on a different browser tab.   
 5. Enter the Hadoop User account username and password.  The default username is **admin**, the password is what you entered during the provision process.  The dashboard looks like :
 
-	![](http://i.imgur.com/DzLkLQL.png)
+	![](http://i.imgur.com/tMwXlj9.jpg)
 
 
 **To run an Hive query**
@@ -158,11 +158,11 @@ Note: The HBase shell link switches the tab to the **HBase Shell**.
  
 5. To create a new HBase table, use an HTTP PUT request. (The schema of the table is specified by the JSON format.)
 
-	Invoke-RestMethod "https://clustername.azurehdinsight.net/hbaserest/sampletable2/schema" -Method Put -ContentType "application/json" -Credential $creds -Body '{"name":"sampletable2","ColumnSchema":[{"name":"cf1"},{"name":"cf2"}]}'
+	Invoke-RestMethod "https://*yourclustername*.azurehdinsight.net/hbaserest/sampletable2/schema" -Method Put -ContentType "application/json" -Credential $creds -Body '{"name":"sampletable2","ColumnSchema":[{"name":"cf1"},{"name":"cf2"}]}'
 
 6. To create a new row in the table, use an HTTP PUT request. Values of the column name and the cell are base64 encoded.
 
-	Invoke-RestMethod "https://maxlukhbasenew1.hdinsight-stable.azure-test.net/hbaserest/sampletable/row3" -Method Put -ContentType "application/json" -Credential $creds `-Body @"
+	Invoke-RestMethod "https://*yourclustername*.hdinsight-stable.azure-test.net/hbaserest/sampletable/row3" -Method Put -ContentType "application/json" -Credential $creds `-Body @"
 	{
 	   "Row":[
 	      {
@@ -179,10 +179,17 @@ Note: The HBase shell link switches the tab to the **HBase Shell**.
 	"@ 
 
 7. To scan the rows in the table, use the following set of commands. Note that you must use the hbaserest0 type of URI where the end-point is assigned to a specific rest server. The scanner created in the first call keeps it’s state on the specific rest server therefore subsequent calls should be made to the same rest end-point.
-	$scanner = Invoke-WebRequest "https://maxlukhbasenew1.hdinsight-stable.azure-test.net/hbaserest0/sampletable/scanner" -Method Put -ContentType "text/xml" -Credential $creds -Body '<Scanner batch="10"/>'
-	$scannerparts = $scanner.Headers.Location.Split('/')
-	$scannerid = $scannerparts[$scannerparts.Length-1]
-	$rows = Invoke-RestMethod "https://maxlukhbasenew1.hdinsight-stable.azure-test.net/hbaserest0/sampletable/scanner/$scannerid" -Credential $creds
+
+	$scanner = Invoke-WebRequest "https://*yourclustername*.hdinsight-stable.azure-test.net/hbaserest0/sampletable/scanner" -Method Put -ContentType "text/xml" -Credential $creds -Body '<Scanner batch="10"/>'	
+	
+	$scannerparts = $scanner.Headers.Location.Split('/')	
+	
+	$scannerid = $scannerparts[$scannerparts.Length-1]	
+	
+	$rows = Invoke-RestMethod "https://maxlukhbasenew1.hdinsight-stable.azure-test.net/hbaserest0/sampletable/scanner/	
+	
+	$scannerid" -Credential $creds	
+
 	$rows.InnerXml 
 
 
