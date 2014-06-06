@@ -4,15 +4,15 @@
 <properties title="required" pageTitle="required" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
-# Export data from you ISS account to Excel 
+# Export data from your ISS account to Excel 
 
 <p> This tutorial walks you through two different ways to retrieve device data from the Azure Intelligent Systems Service (ISS) agent. 
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
-+ [Use Power Query for Excel to retrieve your data]<!--can we use "export" here for consistency--> 
-+ [Use the REST APIs to retrieve your data]
-+ [Next steps]
++ [Use Power Query for Excel to retrieve your data]  
++ [Use the REST APIs to retrieve your data]  
++ [Next steps]  
 
 ## Prerequisites
 
@@ -28,24 +28,20 @@ If you did not receive this information, contact your Limited Public Preview Bud
 
 The following table shows the sample values used in this lab.
 
-<!--figure out how to insert table here-->
+<!--Go to http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx for information about formatting tables. Once the Markdown is converted to HTML, these should render properly.-->
 
 
-| Tables        | Are           | Cool  |  
-| ------------- |:-------------:| -----:|  
-| col 3 is      | right-aligned | $1600 |  
-| col 2 is      | centered      |   $12 |  
-| zebra stripes | are neat      |    $1 |  
+| Connection setting  | Sample value   |  
+| :-----------| :-----------|  
+| Account name   | TreyResearch  |   
+| Data endpoint    | https://treyresearchegress.cloudapp.net/EgressService.svc/   |  
+| Host for the data endpoint  | treyresearchegress.cloudapp.net   |   
+| Data secret key   | opqrst456789def   |   
+| Data authorization <base-64 encoded key   | VHJleVJlc2VhcmNoOm9wcXJzdDQ1Njc4OWRlZg==  | 
 
 
-+ <b>Account name</b>   TreyResearch
-+ <b>Data endpoint</b>  https://treyresearchegress.cloudapp.net/EgressService.svc/
-+ <b>Host for the data endpoint</b>   treyresearchegress.cloudapp.net
-+ <b>Data secret key</b>   opqrst456789def
-+ <b>Data authorization <base-64 encoded key</b>   VHJleVJlc2VhcmNoOm9wcXJzdDQ1Njc4OWRlZg==
-link
 
-## Use Power Query for Excel to retrieve your data
+## Use Power Query for Excel to retrieve your data 
 
 You can retrieve your data from the service directly through the OData feed on the Data Endpoint. The simplest way to connect to the Odata feed is through Microsoft Power Query for Excel.
 
