@@ -6,12 +6,16 @@
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Export data from your ISS account to Excel 
 
-<p> This tutorial walks you through two different ways to retrieve device data from the Azure Intelligent Systems Service (ISS) agent. 
+This tutorial walks you through two different ways to retrieve device data from the Azure Intelligent Systems Service (ISS) agent. 
+
+<!--please add more information to the introduction here. Think of SEO and someone coming to this topic with absolutely no background on what ISS is-->
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 + [Use Power Query for Excel to retrieve your data]  
+
 + [Use the REST APIs to retrieve your data]  
+
 + [Next steps]  
 
 ## Prerequisites
@@ -47,17 +51,76 @@ You can retrieve your data from the service directly through the OData feed on t
 
 Power Query for Excel is an Excel add-in that allows advanced query and filtering options. For more information on Power Query, see [Power BI - Getting Started Guide](http://go.microsoft.com/fwlink/p/?LinkId=394606) or [Microsoft Power Query for Excel Help](http://go.microsoft.com/fwlink/p/?LinkId=401291). To download the Power Query add-in, see [Microsoft Power Query for Excel](http://go.microsoft.com/fwlink/p/?LinkId=401139).
 
-> [WACOM.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
+> [WACOM.NOTE] Power Query allows 1,000,000 rows per worksheet or download. If your data table on the service contains more than 1,000,000 rows, use the Data Endpoint REST APIs to retrieve your data.
 
-1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio. 
+**To connect to the OData feed from Power Query**
 
-2. Aenean tellus lectus, faucibus in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
+1. In Excel, open the workbook where you want to import your data. 
  
-  	![][5]
+2. In the top ribbon, click **Power Query** > **From Other Sources** > **From ODATA feed**. Power Query launches the **Access an OData feed** wizard.
 
-3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl. 
+3. In **URL** on the OData feed, enter the data endpoint for your account. Remember to include the single slash at the end of the URL. 
 
-  	![][6]
+4. Power Query prompts you to choose an authorization option for the OData feed. In the panel on the left, select **Basic**. Then enter the following information: 
+
+	+ In **Username**, enter your account name. 
+	
+	+ In **Password**, enter the data secret key.
+	
+	+ In **Select which URL to apply these settings to**, select the complete URL for the data endpoint. 
+	
+5. Click **Save**. Power Query will try to connect to the OData feed. If it can’t connect, Power Query displays an error message indicating the reason it can't connect.
+
+6. After it connects to the OData feed, Power Query displays the **Navigator** pane with a list of the available data tables. Select the tables you want, and then click **Edit** or **Load**. 
+
+##Use the REST APIs to retrieve your data
+
+This section explains how you can retrieve your data through the REST APIs. The APIs provide an unattended method of retrieving your data and give you some powerful options for sorting and filtering your data.
+
+All the REST API examples use the sample values for the connection settings. In addition, the examples all use the same values for the following headers.
+
+| Parameter | Sample value |  
+|:------------|:------------|  
+| Accept (requested format) | application/xml |  
+|Content-Length | ### |  
+| Content-Type | application/json; charset=utf-8 |  
+
+For a complete reference to all the Data Endpoint APIs, see Data Endpoint REST APIs.
+<!--I need to ask Tyson about linking to content that will be on MSDN. Do we just create FWLinks here? -->
+
+> [WACOM.NOTE] To test the APIs in this section, you will need some kind of tool for debugging REST APIs. There are many tools available, but if you are new to REST APIs, you might try Fiddler, a "free web debugging proxy for any browser, system or platform" from Telerik.
+
+###Get a list of available tables
+
+To discover all the data tables that are available on your account, use the GET operation on the Data Endpoint API, using the following structure:
+    
+    GET https://<Data Endpoint> HTTP/1.1
+    Host: <Data Host>
+    Accept: <requested format> (optional)
+    x-ms-iot-account: <Account Name>
+    Authorization: Basic <Data authorization>
+
+> [WACOM.NOTE] You must use single slash after the *<Data Endpoint>*. If your *<Data Endpoint>* does not already end in a slash, be sure to add one.
+
+With our sample values, this request would be:
+
+    GET https://treyresearchegress.cloudapp.net/EgressService.svc/ HTTP/1.1
+    Host: treyresearchegress.cloudapp.net
+    Accept: application/xml
+    x-ms-iot-account: TreyResearch
+    Authorization: Basic VHJleVJlc2VhcmNoOmhBNmc0T1dCL096S09obGpSKzV0UUE9PQ==
+
+###Get the column names and data types for all tables
+
+To get a list of all the column names and data types for your tables, use the **GET** operation with the *$metadata* parameter. This request has the following structure:
+
+    GET https://<Data Endpoint>$metadata HTTP/1.1
+    Host: <Data Host>
+    Accept: <requested format>
+    x-ms-iot-account: <Account Name>
+    Authorization: Basic <Data authorization>
+    
+> [WACOM.NOTE] You must use single slash after the *<Data Endpoint>*, before any parameters. If your *<Data Endpoint>* does not already end in a slash, be sure to add one.
 
 
 Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic]
@@ -119,9 +182,8 @@ Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus
 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
 
 <!--Anchors-->
-[Subheading 1]: #subheading-1
-[Subheading 2]: #subheading-2
-[Subheading 3]: #subheading-3
+[Use Power Query for Excel to retrieve your data]: #subheading-1
+[Use the REST APIs to retrieve your data]: #subheading-2
 [Next steps]: #next-steps
 
 <!--Image references-->
