@@ -8,6 +8,9 @@ To create a virtual machine when you create a web site, follow these steps:
 
 1. In Visual Studio, choose **File**, **New Project**, choose **Web**, and then choose **ASP.NET Web Application**.
 2. In the **New ASP.NET Project** dialog box, select the type of web application you want, and in the Azure section of the dialog box (in the lower-right corner), make sure that the **Host in the cloud** check box is selected (this check box is labeled **Create remote resources** in some installations).
+
+	![][0]
+
 3. Choose **Virtual Machine**, and then choose the **OK **button.
 4. If prompted, sign in to Azure.
 5. In the DNS name box, type a name for the virtual machine. The DNS name must be unique in Azure. If the name you entered isn't available, a red exclamation point appears.
@@ -28,4 +31,12 @@ To create a virtual machine when you create a web site, follow these steps:
 <br/>
 13. (Optional) In **Server Explorer**, expand the **Virtual Machines** node, choose the node for the virtual machine you created, and then choose **Connect with Remote Desktop** to connect to the virtual machine.
 
+# Next Steps
+
 If you want to customize the publish scripts you created, see more in-depth information [here](http://msdn.microsoft.com/library/dn642480.aspx).
+
+[0]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_NewProject.PNG
+[1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SignIn.PNG
+[2]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_CreateVM.PNG
+[3]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_Provisioning.png
+[4]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SolutionExplorer.png
