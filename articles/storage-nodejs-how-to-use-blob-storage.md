@@ -16,15 +16,17 @@ see the [Next Steps][] section.
 
 * [What is the Blob Service?][]    
 * [Concepts][]    
-* [Create an Azure Storage Account][]   
-* [Create a Node.js Application][]   
-* [Configure your Application to Access Storage][]   
-* [Setup an Azure Storage Connection String][]   
-* [How To: Create a Container][]   
-* [How To: Upload a Blob into a Container][]   
-* [How To: List the Blobs in a Container][]   
-* [How To: Download Blobs][]   
-* [How To: Delete a Blob][]   
+* [Create an Azure Storage Account](#create-account)  
+* [Create a Node.js Application](#create-app)
+* [Configure your Application to Access Storage](#configure-access)   
+* [Setup an Azure Storage Connection String](#setup-connection-string)
+* [How To: Create a Container](#create-container)
+* [How To: Upload a Blob into a Container](#upload-blob)
+* [How To: List the Blobs in a Container](#list-blob)
+* [How To: Download Blobs](#download-blob) 
+* [How To: Delete a Blob](#delete-blob)
+* [How To: Concurrent access](#concurrent-access)
+* [How To: Work with Shared Access Signatures](#sas)
 * [Next Steps][]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
@@ -87,41 +89,45 @@ The **BlobService** object lets you work with containers and blobs. The
 following code creates a **BlobService** object. Add the following near
 the top of **server.js**:
 
-    var blobService = azure.createBlobService();
+    var blobSvc = azure.createBlobService();
 
-All blobs reside in a container. The call to
-**createContainerIfNotExists** on the **BlobService** object will return
-the specified container if it exists or create a new container with the
-specified name if it does not already exist. By default, the new
-container is private and requires the use of the access key to download blobs from this container.
+> [WACOM.NOTE] You can access a blob anonymously by using **createBlobServiceAnonymous** and providing the host address. For example, `var blobSvc = azure.createBlobService('https://myblob.blob.core.windows.net/');`.
 
-	blobService.createContainerIfNotExists(containerName, function(error){
-    	if(!error){
-        	// Container exists and is private
-    	}
+All blobs reside in a container. To create a new container, use **createContainerIfNotExists**. The following creates a new container named 'mycontainer'
+
+	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
+      if(!error){
+        // Container exists and is private
+      }
 	});
 
+If the container is created, `result` will be true. If the container already exists, `result` will be false. `response` will contain information about the operation, including the [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) information for the container.
 
-If you want to make the files in the container public so that they can be accessed without requiring the access key, you can set the
-container's access level to **blob** or **container**. Setting the access level to **blob** allows anonymous read access to blob content and metadata within this container, but not to container metadata such as listing all blobs within a container. Setting the access level to **container** allows anonymous read access to blob content and metadata as well as container metadata. The following example demonstrates setting the access level to **blob**: 
+###Container security
 
-    blobService.createContainerIfNotExists(containerName
-		, {publicAccessLevel : 'blob'}
-		, function(error){
-			if(!error){
-				// Container exists and is public
-			}
-		});
+By default, new containers are private and cannot be accessed anonymously. To make the container public so that they can be accessed anonymously, you can set the container's access level to **blob** or **container**.
+
+* **blob** - allows anonymous read access to blob content and metadata within this container, but not to container metadata such as listing all blobs within a container. 
+
+* **container** - allows anonymous read access to blob content and metadata as well as container metadata. 
+
+The following example demonstrates setting the access level to **blob**: 
+
+    blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
+      if(!error){
+        // Container exists and is private
+      }
+	});
 
 Alternatively, you can modify the access level of a container by using **setContainerAcl** to specify the access level. The following example changes the access level to container:
 
-    blobService.setContainerAcl(containerName
-		, 'container'
-		, function(error){
-			if(!error){
-				// Container access level set to 'container'
-			}
-		});
+    blobSvc.setContainerAcl('mycontainer', null, 'container', function(error, result, response){
+	  if(!error){
+		// Container access level set to 'container'
+	  }
+	});
+
+The result will contain information about the operation, including the current **ETag** for the container.
 
 ###Filters
 
@@ -138,63 +144,183 @@ In this callback, and after processing the returnObject (the response from the r
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **BlobService** object that uses the **ExponentialRetryPolicyFilter**:
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
-	var blobService = azure.createBlobService().withFilter(retryOperations);
+	var blobSvc = azure.createBlobService().withFilter(retryOperations);
 
 ## <a name="upload-blob"> </a>How to: Upload a Blob into a Container
 
-To upload data to a blob, use the **createBlockBlobFromFile**, **createBlockBlobFromStream** or **createBlockBlobFromText** methods. **createBlockBlobFromFile** uploads the contents of a file, while **createBlockBlobFromStream** uploads the contents of a stream.  **createBlockBlobFromText** uploads the specified text value.
+A blob can be either block, or page based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx).
 
-The following example uploads the contents of the **test1.txt** file into the 'test1' blob.
+###Block blobs
 
-	blobService.createBlockBlobFromFile(containerName
-		, 'test1'
-		, 'test1.txt'
-		, function(error){
-			if(!error){
-				// File has been uploaded
-			}
-		});
+To upload data to a block blob, use the following:
+
+* **createBlockBlobFromFile** - creates a new block blob and uploads the contents of a file.
+
+* **createBlockBlobFromStream** - creates a new block blob and uploads the contents of a stream.
+
+* **createBlockBlobFromText** - creates a new block blob and uploads the contents of a string.
+
+* **createWriteStreamToBlockBlob** - provides a write stream to a block blob.
+
+The following example uploads the contents of the **test.txt** file into **myblob**.
+
+	blobSvc.createBlockBlobFromFile('mycontainer', 'myblob', 'test.txt', function(error, result, response){
+	  if(!error){
+	    // file uploaded
+	  }
+	});
+
+The `result` returned by these methods will contain information on the operation, such as the **ETag** of the blob.
+
+###Page blobs
+
+To upload data to a page blob, use the following:
+
+* **createPageBlob** - creates a new page blob of a specific length.
+
+* **createPageBlobFromFile** - creates a new page blob and uploads the contents of a file.
+
+* **createPageBlobFromStream** - creates a new page blob and uploads the contents of a stream.
+
+* **createWriteStreamToExistingPageBlob** - provides a write stream to an existing page blob.
+
+* **createWriteStreamToNewPageBlob** - creates a new blob and then provides a stream to write to it.
+
+The following example uploads the contents of the **test.txt** file into **mypageblob**.
+
+	blobSvc.createPageBlobFromFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
+	  if(!error){
+	    // file uploaded
+	  }
+	});
+
+> [WACOM.NOTE] Page blobs consist of 512-byte 'pages'. You may receive an error when uploading data with a size that is not a multiple of 512.
 
 ## <a name="list-blob"> </a>How to: List the Blobs in a Container
 
-To list the blobs in a container, use the **listBlobs** method with a
-**for** loop to display the name of each blob in the container. The
-following code outputs the **name** of each blob in a container to the
-console.
+To list the blobs in a container, use the **listBlobsSegmented** method. If you would like to return blobs with a specific prefix, use **listBlobsSegmentWithPrefix**.
 
-    blobService.listBlobs(containerName, function(error, blobs){
-		if(!error){
-			for(var index in blobs){
-				console.log(blobs[index].name);
-			}
-		}
+    blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
+      if(!error){
+        // result contains the entries
+	  }
 	});
 
-## <a name="download-blobs"> </a>How to: Download Blobs
+The `result` will contain an `entries` collection, which is an array of objects describing each blob. If all blobs cannot be returned, the `result` will also provide a `continuationToken`, which may be used as the second parameter to retrieve additional entries.
 
-To download data from a blob, use **getBlobToFile**, **getBlobToStream**, or **getBlobToText**. The following example demonstrates using **getBlobToStream** to download the contents of the **test1** blob and store it to the **output.txt** file using a stream:
+## <a name="download-blob"> </a>How to: Download Blobs
+
+To download data from a blob, use the following:
+
+* **getBlobToFile** - writes the blob contents to file
+
+* **getBlobToStream** - writes the blob contents to a stream.
+
+* **getBlobToText** - writes the blob contents to a string. 
+
+The following example demonstrates using **getBlobToStream** to download the contents of the **myblob** blob and store it to the **output.txt** file using a stream:
 
     var fs=require('fs');
-	blobService.getBlobToStream(containerName
-		, 'test1'
-		, fs.createWriteStream('output.txt')
-		, function(error){
-			if(!error){
-				// Wrote blob to stream
-			}
-		});
+	blobSvc.getBlobToStream('mycontainer', 'myblob', fs.createWriteStream('output.txt'), function(error, result, response){
+	  if(!error){
+	    // blob retrieved
+	  }
+	});
 
-## <a name="delete-blobs"> </a>How to: Delete a Blob
+The `result` will contain information about the blob, including **ETag** information.
 
-Finally, to delete a blob, call **deleteBlob**. The following example deletes the blob named 'blob1'.
+## <a name="delete-blob"> </a>How to: Delete a Blob
 
-    blobService.deleteBlob(containerName
-		, 'blob1'
-		, function(error){
-			if(!error){
-				// Blob has been deleted
-			}
-		});
+Finally, to delete a blob, call **deleteBlob**. The following example deletes the blob named **myblob**.
+
+    blobSvc.deleteBlob(containerName, 'myblob', function(error, response){
+	  if(!error){
+		// Blob has been deleted
+	  }
+	});
+
+##<a name="concurrent-access"></a>How to: Concurrent access
+
+To support concurrent access to a blob from multiple clients or multiple process instances, you can use **ETags** or **leases**.
+
+* **Etag** - provides a way to detect that the blob or container has been modified by another process.
+
+* **Lease** - provides a way to obtain exclusive, renewable, write or delete access to a blob for a period of time.
+
+###ETag
+
+ETags should be used if you need to allow multiple clients or instances to write to the blob simultaneously. The ETag allows you to determine if the container or blob has been modified since you initially read or created it, which allows you to avoid overwriting changes committed by another client or process.
+
+ETag conditions can be set using the optional `options.contentDisposition` parameter. The following example will only upload the **test.txt** file if the blob already exists and has the ETag value contained by `etagToMatch`.
+
+	blobSvc.createBlockBlobFromFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { 'if-match': etagToMatch} }, function(error, result, response){
+      if(!error){
+	    // file uploaded
+	  }
+	});
+
+The general pattern when using ETags is:
+
+1. Obtain the ETag as the result of a create, list, or get operation.
+
+2. Perform an action, checking that the ETag value has not been modified.
+
+If the value has been modified, this indicates that another client or instance has modified the blob or container since you obtained the ETag value.
+
+###Lease
+
+A new lease can be acquired using the **acquireLease** method, specifying the blob or container that you wish to obtain a lease on. For example, the following acquires a lease on **myblob**.
+
+	blobSvc.acquireLease('mycontainer', 'myblob', function(error, result, response){
+	  if(!error) {
+	    console.log(result);
+	  }
+	});
+
+Subsequent operations on **myblob** must provide `options.leaseId` parameter. The lease ID is returned as `result.id` from **acquireLease**.
+
+> [WACOM.NOTE] By default, the lease duration is infinite. You can specify a non-infinite duration (between 15 and 60 seconds,) by providing the `options.leaseDuration` parameter.
+
+To remove a lease, use **releaseLease**. To break a lease, but prevent others from obtaining a new lease until the original duration has expired, use **breakLease**.
+
+## <a name="sas"></a>How to: Work with Shared Access Signatures
+
+Shared Access Signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to access blobs.
+
+> [WACOM.NOTE] While you can also allow anonymous access to blobs, SAS allows you to provide more controlled access, as you must generate the SAS.
+
+A trusted application such as a cloud-based service generates a SAS token using the **generateSharedAccessSignature** of the **BlobService**, and provides it to an untrusted or semi-trusted application. For example, a mobile app. The token is generated using a policy, which describes the start and end dates during which the token is valid, as well as the access level granted to the token holder.
+
+The following example generates a new shared access policy that will allow the token holder to perform read operations on the **myblob** blob, and expires 100 minutes after the time it is created.
+
+	var startDate = new Date();
+	var expiryDate = new Date(startDate);
+	expiryDate.setMinutes(startDate.getMinutes() + 100);
+	startDate.setMinutes(startDate.getMinutes() - 100);
+	    
+	var sharedAccessPolicy = {
+	  AccessPolicy: {
+	    Permissions: azure.BlobUtilities.SharedAccessPermissions.READ,
+	    Start: startDate,
+	    Expiry: expiryDate
+	  },
+	};
+	
+	var blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', 'myblob', sharedAccessPolicy);
+	var host = blobSvc.host;
+
+Note that the host information must be provided also, as it is required when the SAS token holder attempts to access the container.
+
+The client application then uses the SAS token with **BlobServiceWithSAS** to perform operations against the blob. The following gets information about **myblob**.
+
+	var sharedBlobSvc = azure.createBlobServiceWithSas(host, blobSAS);
+	sharedBlobSvc.getBlobProperties('mycontainer', 'myblob', function (error, result, response) {
+	  if(!error) {
+	    // retreived info
+	  }
+	});
+
+Since the SAS token was generated with only query access, if an attempt were made to modify the blob, an error would be returned.
 
 ## <a name="next-steps"> </a>Next Steps
 
