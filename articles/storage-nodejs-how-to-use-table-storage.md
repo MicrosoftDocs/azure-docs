@@ -333,9 +333,9 @@ If you are uncertain whether the table exists, use **deleteTableIfExists**.
 
 Shared Access Signatures (SAS) are a secure way to provide granular access to tables without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.
 
-A trusted application such as a cloud-based service generates a SAS token using the **generateSharedAccessSignature** of the **TableService**, and provides it to an untrusted or semi-trusted application. For example, a mobile app. The token is generated using a policy, which describes the start and end dates during which the token is valid, as well as the access level granted to the token holder.
+A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **TableService**, and provides it to an untrusted or semi-trusted application. For example, a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
 
-The following example generates a new shared access policy that will allow the token holder to query ('r') the table, and expires 100 minutes after the time it is created.
+The following example generates a new shared access policy that will allow the SAS holder to query ('r') the table, and expires 100 minutes after the time it is created.
 
 	var startDate = new Date();
 	var expiryDate = new Date(startDate);
@@ -344,7 +344,7 @@ The following example generates a new shared access policy that will allow the t
 		
 	var sharedAccessPolicy = {
 	  AccessPolicy: {
-	    Permissions: 'r',
+	    Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
 	    Start: startDate,
 	    Expiry: expiryDate
 	  },
@@ -353,9 +353,9 @@ The following example generates a new shared access policy that will allow the t
 	var tableSAS = tableSvc.generateSharedAccessSignature('mytable', sharedAccessPolicy);
 	var host = tableSvc.host;
 
-Note that the host information must be provided also, as it is required when the SAS token holder attempts to access the table.
+Note that the host information must be provided also, as it is required when the SAS holder attempts to access the table.
 
-The client application then uses the SAS token with **TableServiceWithSAS** to perform operations against the table. The following example connects to the table and performs a query.
+The client application then uses the SAS with **TableServiceWithSAS** to perform operations against the table. The following example connects to the table and performs a query.
 
 	var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 	var query = azure.TableQuery
@@ -369,7 +369,50 @@ The client application then uses the SAS token with **TableServiceWithSAS** to p
 	  }
 	});
 
-Since the SAS token was generated with only query access, if an attempt were made to insert, update, or delete entities, an error would be returned.
+Since the SAS was generated with only query access, if an attempt were made to insert, update, or delete entities, an error would be returned.
+
+###Access control lists
+
+You can also use an Access Control List (ACL) to set the access policy for an SAS. This is useful if you wish to allow multiple clients to access the table, but provide different access policies for client.
+
+An ACS is implemented using an array of access policies, with an ID associated with each policy. The  following example defines two policies; one for 'user1' and one for 'user2':
+
+	var sharedAccessPolicy = [
+	  {
+	    AccessPolicy: {
+	      Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
+	      Start: startDate,
+	      Expiry: expiryDate
+	    },
+	    Id: 'user1'
+	  },
+	  {
+	    AccessPolicy: {
+	      Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
+	      Start: startDate,
+	      Expiry: expiryDate
+	    },
+	    Id: 'user2'
+	  }
+	];
+
+The following example gets the current ACL for the **hometasks** table, then adds the new policies using **setTableAcl**. This approach allows:
+
+	tableSvc.getTableAcl('hometasks', function(error, result, response) {
+      if(!error){
+		//push the new policy into signedIdentifiers
+		result.signedIdentifiers.push(sharedAccessPolicy);
+		tableSvc.setTableAcl('hometasks', result, function(error, result, response){
+	  	  if(!error){
+	    	// ACL set
+	  	  }
+		});
+	  }
+	});
+
+Once the ACL has been set, you can then create a SAS based on the ID for a policy. The following example creates a new SAS for 'user2':
+
+	tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 
 ## <a name="next-steps"> </a>Next Steps
 

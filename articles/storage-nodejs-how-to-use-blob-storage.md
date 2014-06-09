@@ -16,17 +16,17 @@ see the [Next Steps][] section.
 
 * [What is the Blob Service?][]    
 * [Concepts][]    
-* [Create an Azure Storage Account](#create-account)  
-* [Create a Node.js Application](#create-app)
-* [Configure your Application to Access Storage](#configure-access)   
-* [Setup an Azure Storage Connection String](#setup-connection-string)
-* [How To: Create a Container](#create-container)
-* [How To: Upload a Blob into a Container](#upload-blob)
-* [How To: List the Blobs in a Container](#list-blob)
-* [How To: Download Blobs](#download-blob) 
-* [How To: Delete a Blob](#delete-blob)
-* [How To: Concurrent access](#concurrent-access)
-* [How To: Work with Shared Access Signatures](#sas)
+* [Create an Azure Storage Account][]    
+* [Create a Node.js Application][]  
+* [Configure your Application to Access Storage][]     
+* [Setup an Azure Storage Connection String][]  
+* [How To: Create a Container][]  
+* [How To: Upload a Blob into a Container][]  
+* [How To: List the Blobs in a Container][]  
+* [How To: Download Blobs][]  
+* [How To: Delete a Blob][]  
+* [How To: Concurrent access][]     
+* [How To: Work with Shared Access Signatures][]     
 * [Next Steps][]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
@@ -289,9 +289,9 @@ Shared Access Signatures (SAS) are a secure way to provide granular access to bl
 
 > [WACOM.NOTE] While you can also allow anonymous access to blobs, SAS allows you to provide more controlled access, as you must generate the SAS.
 
-A trusted application such as a cloud-based service generates a SAS token using the **generateSharedAccessSignature** of the **BlobService**, and provides it to an untrusted or semi-trusted application. For example, a mobile app. The token is generated using a policy, which describes the start and end dates during which the token is valid, as well as the access level granted to the token holder.
+A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **BlobService**, and provides it to an untrusted or semi-trusted application. For example, a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
 
-The following example generates a new shared access policy that will allow the token holder to perform read operations on the **myblob** blob, and expires 100 minutes after the time it is created.
+The following example generates a new shared access policy that will allow the SAS holder to perform read operations on the **myblob** blob, and expires 100 minutes after the time it is created.
 
 	var startDate = new Date();
 	var expiryDate = new Date(startDate);
@@ -309,9 +309,9 @@ The following example generates a new shared access policy that will allow the t
 	var blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', 'myblob', sharedAccessPolicy);
 	var host = blobSvc.host;
 
-Note that the host information must be provided also, as it is required when the SAS token holder attempts to access the container.
+Note that the host information must be provided also, as it is required when the SAS holder attempts to access the container.
 
-The client application then uses the SAS token with **BlobServiceWithSAS** to perform operations against the blob. The following gets information about **myblob**.
+The client application then uses the SAS with **BlobServiceWithSAS** to perform operations against the blob. The following gets information about **myblob**.
 
 	var sharedBlobSvc = azure.createBlobServiceWithSas(host, blobSAS);
 	sharedBlobSvc.getBlobProperties('mycontainer', 'myblob', function (error, result, response) {
@@ -320,7 +320,50 @@ The client application then uses the SAS token with **BlobServiceWithSAS** to pe
 	  }
 	});
 
-Since the SAS token was generated with only query access, if an attempt were made to modify the blob, an error would be returned.
+Since the SAS was generated with only query access, if an attempt were made to modify the blob, an error would be returned.
+
+###Access control lists
+
+You can also use an Access Control List (ACL) to set the access policy for an SAS. This is useful if you wish to allow multiple clients to access a container, but provide different access policies for client.
+
+An ACS is implemented using an array of access policies, with an ID associated with each policy. The  following example defines two policies; one for 'user1' and one for 'user2':
+
+	var sharedAccessPolicy = [
+	  {
+	    AccessPolicy: {
+	      Permissions: azure.BlobUtilities.SharedAccessPermissions.READ,
+	      Start: startDate,
+	      Expiry: expiryDate
+	    },
+	    Id: 'user1'
+	  },
+	  {
+	    AccessPolicy: {
+	      Permissions: azure.BlobUtilities.SharedAccessPermissions.WRITE,
+	      Start: startDate,
+	      Expiry: expiryDate
+	    },
+	    Id: 'user2'
+	  }
+	];
+
+The following example gets the current ACL for **mycontainer**, then adds the new policies using **setBlobAcl**. This approach allows:
+
+	blobSvc.getBlobAcl('mycontainer', function(error, result, response) {
+      if(!error){
+		//push the new policy into signedIdentifiers
+		result.signedIdentifiers.push(sharedAccessPolicy);
+		blobSvc.setBlobAcl('mycontainer', result, function(error, result, response){
+	  	  if(!error){
+	    	// ACL set
+	  	  }
+		});
+	  }
+	});
+
+Once the ACL has been set, you can then create a SAS based on the ID for a policy. The following example creates a new SAS for 'user2':
+
+	blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 
 ## <a name="next-steps"> </a>Next Steps
 
@@ -344,6 +387,8 @@ to learn how to do more complex storage tasks.
   [How To: List the Blobs in a Container]: #list-blob
   [How To: Download Blobs]: #download-blobs
   [How To: Delete a Blob]: #delete-blobs
+  [How To: Concurrent access]: #concurrent-access
+  [How To: Work with Shared Access Signatures]: #sas
 [Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Node.js Web Application with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/

@@ -16,7 +16,7 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 * [What is the Queue Service?][]   
 * [Concepts][]   
-* [Create an Azure Storage Account][]   
+* [Create an Azure Storage Account][]  
 * [Create a Node.js Application][]   
 * [Configure your Application to Access Storage][]   
 * [Setup an Azure Storage Connection String][]   
@@ -28,6 +28,7 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 * [How To: Additional Options for Dequeuing Messages][]   
 * [How To: Get the Queue Length][]   
 * [How To: Delete a Queue][]   
+* [How To: Working with Shared Access Signatures][]
 * [Next Steps][]
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
@@ -96,11 +97,13 @@ Use the **createQueueIfNotExists** method, which returns the specified
 queue if it already exists or creates a new queue with the specified
 name if it does not already exist.
 
-	queueService.createQueueIfNotExists(queueName, function(error){
-    	if(!error){
-        	// Queue exists
-	    }
+	queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
+      if(!error){
+        // Queue created or exists
+	  }
 	});
+
+If the queue is created, `result` is true. If the queue exists, `result` is false.
 
 ###Filters
 
@@ -117,19 +120,18 @@ In this callback, and after processing the returnObject (the response from the r
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **QueueService** object that uses the **ExponentialRetryPolicyFilter**:
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
-	var queueService = azure.createQueueService().withFilter(retryOperations);
+	var queueSvc = azure.createQueueService().withFilter(retryOperations);
 
 ## <a name="insert-message"> </a>How To: Insert a Message into a Queue
 
 To insert a message into a queue, use the **createMessage** method to
 create a new message and add it to the queue.
 
-	queueService.createMessage(queueName, "Hello world!", function(error){
-	    if(!error){
-	        // Message inserted
-	    }
+	queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
+	  if(!error){
+	    // Message inserted
+	  }
 	});
-
 
 ## <a name="peek-message"> </a>How To: Peek at the Next Message
 
@@ -137,116 +139,93 @@ You can peek at the message in the front of a queue without removing it
 from the queue by calling the **peekMessages** method. By default,
 **peekMessages** peeks at a single message.
 
-	queueService.peekMessages(queueName, function(error, messages){
-		if(!error){
-			// Messages peeked
-			// Text is available in messages[0].messagetext
-		}
+	queueSvc.peekMessages('myqueue', function(error, result, response){
+	  if(!error){
+		// Messages peeked
+	  }
 	});
 
+The `result` contains the message.
 
 > [WACOM.NOTE] 
 >Using <strong>peekMessage</strong> when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## <a name="get-message"> </a>How To: Dequeue the Next Message
 
-Your code removes a message from a queue in two steps. When you call
-**getMessages**, you get the next message in a queue by default. A
-message returned from **getMessages** becomes invisible to any other
-code reading messages from this queue. By default, this message stays
-invisible for 30 seconds. To finish removing the message from the queue,
-you must also call **deleteMessage**. This two-step process of removing
-a message assures that when your code fails to process a message due to
-hardware or software failure, another instance of your code can get the
-same message and try again. Your code calls **deleteMessage** right
-after the message has been processed.
+Processing a message is a two-stage process:
 
-	queueService.getMessages(queueName, function(error, messages){
-	    if(!error){
-	        // Process the message in less than 30 seconds, the message
-	        // text is available in messages[0].messagetext 
-			var message = messages[0]
-	        queueService.deleteMessage(queueName
-				, message.messageid
-				, message.popreceipt
-				, function(error){
-	            	if(!error){
-	                	// Message deleted
-	            	}
-	        	});
-	    }
+1. Dequeue the message.
+
+2. Delete the message.
+
+To dequeue a message, use **getMessage**. This makes the message invisible in the queue, so no other clients can process it. Once your application has processed the message, call **deleteMessage** to delete it from the queue. The following example gets a message, then deletes it:
+
+	queueSvc.getMessages('myqueue', function(error, result, response){
+      if(!error){
+	    // message dequed
+        var message = result[0];
+        queueSvc.deleteMessage('myqueue', message.messageid, message.popreceipt, function(error, response){
+	      if(!error){
+		    //message deleted
+		  }
+		});
+	  }
 	});
+
+> [WACOM.NOTE] By default, a message is only hidden for 30 seconds, after which it is visible to other clients. You can specify a different value by using `options.visibilitytimeout`.
 
 > [WACOM.NOTE]
 > Using <b>getMessages</b> when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## <a name="change-contents"> </a>How To: Change the Contents of a Queued Message
 
-You can change the contents of a message in-place in the queue. If the
-message represents a work task, you could use this feature to update the
-status of the work task. The code below uses the **updateMessage**
-method to update a message.
+You can change the contents of a message in-place in the queue using **updateMessage**. The following example updates the text of a message:
 
-    queueService.getMessages(queueName, function(error, messages){
-		if(!error){
-			// Got the message
-			var message = messages[0];
-			queueService.updateMessage(queueName
-				, message.messageid
-				, message.popreceipt
-				, 10
-				, { messagetext: 'in your message, doing stuff.' }
-				, function(error){
-					if(!error){
-						// Message updated successfully
-					}
-				});
-		}
+    queueSvc.getMessages('myqueue', function(error, result, response){
+	  if(!error){
+		// Got the message
+		var message = result[0];
+		queuevc.queueSvc.updateMessage('myqueue', message.messageid, message.popreceipt, 10, {messagetext: 'new text'}, function(error, result, response){
+		  if(!error){
+			// Message updated successfully
+		  }
+		});
+	  }
 	});
 
 ## <a name="advanced-get"> </a>How To: Additional Options for Dequeuing Messages
 
-There are two ways you can customize message retrieval from a queue.
-First, you can get a batch of messages (up to 32). Second, you can set a
-longer or shorter invisibility timeout, allowing your code more or less
-time to fully process each message. The following code example uses the
-**getMessages** method to get 15 messages in one call. Then it processes
-each message using a for loop. It also sets the invisibility timeout to
-five minutes for each message.
+There are two ways you can customize message retrieval from a queue:
 
-    queueService.getMessages(queueName
-		, {numofmessages: 15, visibilitytimeout: 5 * 60}
-		, function(error, messages){
-		if(!error){
-			// Messages retreived
-			for(var index in messages){
-				// text is available in messages[index].messagetext
-				var message = messages[index];
-				queueService.deleteMessage(queueName
-					, message.messageid
-					, message.popreceipt
-					, function(error){
-						if(!error){
-							// Message deleted
-						}
-					});
+* `options.numofmessages` - Retrieve a batch of messages (up to 32.)
+* `options.visibilitytimeout` - Set a longer or shorter invisibility timeout.
+
+The following example uses the **getMessages** method to get 15 messages in one call. Then it processes
+each message using a for loop. It also sets the invisibility timeout to five minutes for all messages returned by this method.
+
+    queueSvc.getMessages('myqueue', {numofmessages: 15, visibilitytimeout: 5 * 60}, function(error, result, response){
+	  if(!error){
+		// Messages retreived
+		for(var index in result){
+		  // text is available in result[index].messagetext
+		  var message = result[index];
+		  queueSvc.deleteMessage(queueName, message.messageid, message.popreceipt, function(error, response){
+			if(!error){
+			  // Message deleted
 			}
+		  });
 		}
+	  }
 	});
 
 ## <a name="get-queue-length"> </a>How To: Get the Queue Length
 
-You can get an estimate of the number of messages in a queue. The
-**getQueueMetadata** method asks the queue service to return metadata
-about the queue, and the **approximatemessagecount** property of the
-response contains a count of how many messages are in a queue. The count
-is only approximate because messages can be added or removed after the
-queue service responds to your request.
+The **getQueueMetadata** returns metadata about the queue, including the approximate number of messages waiting in the queue.
 
-    queueService.getQueueMetadata(queueName, function(error, queueInfo){
-		if(!error){
-			// Queue length is available in queueInfo.approximatemessagecount
-		}
+    queueSvc.getQueueMetadata('myqueue', function(error, result, response){
+	  if(!error){
+		// Queue length is available in result.approximatemessagecount
+	  }
 	});
 
 ## <a name="delete-queue"> </a>How To: Delete a Queue
@@ -254,11 +233,93 @@ queue service responds to your request.
 To delete a queue and all the messages contained in it, call the
 **deleteQueue** method on the queue object.
 
-    queueService.deleteQueue(queueName, function(error){
+    queueSvc.deleteQueue(queueName, function(error, response){
 		if(!error){
 			// Queue has been deleted
 		}
 	});
+
+To clear all messages from a queue without deleting it, use **clearQueue**.
+
+## <a name="sas"></a>How to: Work with Shared Access Signatures
+
+Shared Access Signatures (SAS) are a secure way to provide granular access to queues without providing your storage account name or keys. SAS are often used to provide limited access to your queues, such as allowing a mobile app to submit messages.
+
+A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **QueueService**, and provides it to an untrusted or semi-trusted application. For example, a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
+
+The following example generates a new shared access policy that will allow the SAS holder to add messages to the queue, and expires 100 minutes after the time it is created.
+
+	var startDate = new Date();
+	var expiryDate = new Date(startDate);
+	expiryDate.setMinutes(startDate.getMinutes() + 100);
+	startDate.setMinutes(startDate.getMinutes() - 100);
+	
+	var sharedAccessPolicy = {
+	  AccessPolicy: {
+	    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
+	    Start: startDate,
+	    Expiry: expiryDate
+	  }
+	};
+
+	var queueSAS = queueSvc.generateSharedAccessSignature('myqueue', sharedAccessPolicy);
+	var host = queueSvc.host;
+
+Note that the host information must be provided also, as it is required when the SAS holder attempts to access the queue.
+
+The client application then uses the SAS with **QueueServiceWithSAS** to perform operations against the queue. The following example connects to the queue and creates a message.
+
+	var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
+	sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
+	  if(!error){
+	    //message added
+	  }
+	});
+
+Since the SAS was generated with add access, if an attempt were made to read or delete messages, an error would be returned.
+
+###Access control lists
+
+You can also use an Access Control List (ACL) to set the access policy for an SAS. This is useful if you wish to allow multiple clients to access the queue, but provide different access policies for client.
+
+An ACS is implemented using an array of access policies, with an ID associated with each policy. The  following example defines two policies; one for 'user1' and one for 'user2':
+
+	var sharedAccessPolicy = [
+	  {
+	    AccessPolicy: {
+	      Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
+	      Start: startDate,
+	      Expiry: expiryDate
+	    },
+	    Id: 'user1'
+	  },
+	  {
+	    AccessPolicy: {
+	      Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
+	      Start: startDate,
+	      Expiry: expiryDate
+	    },
+	    Id: 'user2'
+	  }
+	];
+
+The following example gets the current ACL for **myqueue**, then adds the new policies using **setQueueAcl**. This approach allows:
+
+	queueSvc.getQueueAcl('myqueue', function(error, result, response) {
+      if(!error){
+		//push the new policy into signedIdentifiers
+		result.signedIdentifiers.push(sharedAccessPolicy);
+		queueSvc.setQueueAcl('myqueue', result, function(error, result, response){
+	  	  if(!error){
+	    	// ACL set
+	  	  }
+		});
+	  }
+	});
+
+Once the ACL has been set, you can then create a SAS based on the ID for a policy. The following example creates a new SAS for 'user2':
+
+	queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 
 ## <a name="next-steps"> </a>Next Steps
 
@@ -285,6 +346,7 @@ to learn how to do more complex storage tasks.
   [How To: Additional Options for Dequeuing Messages]: #advanced-get
   [How To: Get the Queue Length]: #get-queue-length
   [How To: Delete a Queue]: #delete-queue
+  [How To: Working with Shared Access Signatures]: #sas
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [Create and deploy a Node.js application to an Azure Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
