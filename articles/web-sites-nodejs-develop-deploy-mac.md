@@ -70,7 +70,6 @@ In this section, you will create a **server.js** file containing the 'hello worl
 3. Open the command-line, and use the following command to start the web page locally:
 
         node server.js
-    [WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 4. Open your web browser and navigate to http://localhost:1337. A web page displaying "Hello World" will appear as shown in the screenshot below:
 
