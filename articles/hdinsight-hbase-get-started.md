@@ -43,11 +43,11 @@ This section describes how to provision an HBase cluster using PowerShell and  h
  
 2. To enter your cluster credentials, execute the following script in PowerShell to capture your cluster credentials in the PowerShell variable.
 
-	`$creds = Get-Credential`
+		`$creds = Get-Credential`
 
 3. To create a cluster, execute the following script in PowerShell. You will need to retrieve your default storage account key from the portal and use it for the *DefaultStorageAccountKey* parameter value in this command.
 
-	`New-AzureHDInsightCluster -Name <YourClusterName> -ClusterType HBase -Version 3.0 -Location "West US" -DefaultStorageAccountName   <YourStorageAccountName>.blob.core.windows.net -DefaultStorageAccountKey "<YourStorageKey>" -DefaultStorageContainerName <HBaseContainerName> -Credential $creds -ClusterSizeInNodes <NumberOfNodesHBaseCluster> `
+		`New-AzureHDInsightCluster -Name <YourClusterName> -ClusterType HBase -Version 3.0 -Location <YourAzureRegion, e.g. "West US"> -DefaultStorageAccountName   <YourStorageAccountName>.blob.core.windows.net -DefaultStorageAccountKey "<YourStorageKey>" -DefaultStorageContainerName <HBaseContainerName> -Credential $creds -ClusterSizeInNodes <NumberOfNodesHBaseCluster> `
 
 
 
@@ -68,25 +68,27 @@ It assumes you have completed the procedure outlined in the first section, and s
 1. Within your RDP session, click on the **Hadoop Command Prompt** shortcut located on the desktop.
 
 2. Change the folder to the HBase home directory:
-	`cd %HBASE_HOME%\bin`
+		
+		`cd %HBASE_HOME%\bin`
 
 3. Open the HBase shell:
-	`hbase shell`
+
+		`hbase shell`
 
 
 **Create a sample table, add data and retrieve the data**
 
 1. Create a sample table:
 
-	`create 'sampletable', 'cf1'`
+		`create 'sampletable', 'cf1'`
 
 2. Add a row to the sample table:
 
-	`put 'sampletable', 'row1', 'cf1:col1', 'value1'`
+		`put 'sampletable', 'row1', 'cf1:col1', 'value1'`
 
 3. List the rows in the sample table:
 	
-	`scan 'sampletable'`
+		`scan 'sampletable'`
 
 ##<a name="hive-query"></a>Use Hive to query an HBase table
 
@@ -141,11 +143,11 @@ Note: The HBase shell link switches the tab to the **HBase Shell**.
  
 2. To enter your cluster credentials, execute the following script in PowerShell to capture your cluster credentials in the PowerShell variable.
 
-	`$creds = Get-Credential`
+		`$creds = Get-Credential`
 
 3. To get a list of HBase tables, execute an HTTP GET request against the HBase REST end-point.
 
-	`Invoke-RestMethod https://yourclustername.azurehdinsight.net/hbaserest -Credential $creds`
+		`Invoke-RestMethod https://yourclustername.azurehdinsight.net/hbaserest -Credential $creds`
  
 4. To retrieve a row by its key, specify the table name and a row key in the URI to retrieve a row value using a GET request. Make sure that you have created the sampletable in HBase using HBase Shell before executing this statement.
 
@@ -155,7 +157,7 @@ Note: The HBase shell link switches the tab to the **HBase Shell**.
  
 5. To create a new HBase table, use an HTTP PUT request. (The schema of the table is specified by the JSON format.)
 
-	`Invoke-RestMethod "https://yourclustername.azurehdinsight.net/hbaserest/sampletable2/schema" -Method Put -ContentType "application/json" -Credential $creds -Body '{"name":"sampletable2","ColumnSchema":[{"name":"cf1"},{"name":"cf2"}]}'`
+		`Invoke-RestMethod "https://yourclustername.azurehdinsight.net/hbaserest/sampletable2/schema" -Method Put -ContentType "application/json" -Credential $creds -Body '{"name":"sampletable2","ColumnSchema":[{"name":"cf1"},{"name":"cf2"}]}'`
 
 6. To create a new row in the table, use an HTTP PUT request. Values of the column name and the cell are base64 encoded.
 
@@ -175,7 +177,48 @@ Note: The HBase shell link switches the tab to the **HBase Shell**.
     	}
     	"@ 
 
-7. To scan the rows in the table, use the following set of commands. Note that you must use the hbaserest0 type of URI where the end-point is assigned to a specific rest server. The scanner created in the first call keeps it’s state on the specific rest server therefore subsequent calls should be made to the same rest end-point.
+7. To retrieve or create a row with Base 64 encoding, use the following GET and PUT commands.
+
+		`function Base64Encode()
+		{
+		    param(
+		        [string]$str)
+		    return [System.Convert]::ToBase64String([System.Text.Encoding]::Default.GetBytes($str))
+		}
+
+		function Base64Decode()
+		{
+		    param(
+		        [string]$base64str)
+		    return [System.Text.Encoding]::Default.GetString([System.Convert]::FromBase64String($base64str))
+		}
+
+		// GET Row
+		$row = Invoke-RestMethod https://maxlukhbasenew1.hdinsight-stable.azure-test.net/hbaserest/sampletable/row2 -Credential $creds
+		"$(Base64Decode($row.CellSet.Row.Cell.column)) = $(Base64Decode($row.CellSet.Row.Cell.'#text'))"
+
+		// PUT Row
+		$newrow = "row4"
+		$newcolumn = "cf1:col1"
+		$newvalue = "value4"
+		Invoke-RestMethod "https://maxlukhbasenew1.hdinsight-stable.azure-test.net/hbaserest/sampletable/$newrow" -Method Put -ContentType "application/json" -Credential $creds `
+		-Body @"
+		{
+		   "Row":[
+		      {
+		         "key":"$(Base64Encode($newrow))",
+		         "Cell":[
+		            {
+		               "column":"$(Base64Encode($newcolumn))",
+		               "$":"$(Base64Encode($newvalue))"
+		            }
+		         ]
+		      }
+		   ]
+		}
+		"@ `
+
+8. To scan the rows in the table, use the following set of commands. Note that you must use the hbaserest0 type of URI where the end-point is assigned to a specific rest server. The scanner created in the first call keeps it’s state on the specific rest server therefore subsequent calls should be made to the same rest end-point.
 
 	    $scanner = Invoke-WebRequest "https://yourclustername.hdinsight-stable.azure-test.net/hbaserest0/sampletable/scanner" -Method Put -ContentType "text/xml" -Credential $creds -Body '<Scanner batch="10"/>'	
     	$scannerparts = $scanner.Headers.Location.Split('/')	

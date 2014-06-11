@@ -166,18 +166,26 @@ Mobile Services limits the amount of records that are returned in a single respo
 +	`NSInteger fetchLimit`
 +	`NSInteger fetchOffset`
 
+
 In the following example, a simple function requests 20 records from the server and then appends them to the local collection of previously loaded records:
 
+	- (bool) loadResults() {
 		MSQuery *query = [table query];
 
 		query.includeTotalCount = YES;
 		query.fetchLimit = 20;
-		query.fetchOffset = 0;
+		query.fetchOffset = self.loadedItems.count;
+
 		[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
 			if(!error) {
-				//code to parse results here
+				// Add the items to our local copy
+				[self.loadedItems addObjectsFromArray:items];		
+
+				// Set a flag to keep track if there are any additional records we need to load
+				self.moreResults = (self.loadedItems.count < totalCount);
 			}
 		}];
+	}
 
 #### <a name="selecting"></a>Limiting the returned fields
  
