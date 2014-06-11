@@ -5,13 +5,15 @@
 
 Azure HDInsight now supports Hadoop 2.2 with HDInsight cluster version 3.0 (using Hortonworks Data Platform 2.0) by default. Azure HDInsight also makes Hadoop 2.4 available in preview with HDInsight cluster version 3.1 (using Hortonworks Data Platform 2.1).Both take full advantage of their respective platforms to provide a range of significant benefits to customers. These include, most notably:
 
+- **HBase (Preview)**: HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs.
+
 - **Cluster Dashboard**: A new web application that is deployed to your HDInsight cluster.  Use it to run Hive Queries, check job logs, and browse Azure Blob storage. The URL used to access the web application is <*ClusterName*>.azurehdinsight.net.
 
 - **Microsoft Avro Library**: This library implements the Apache Avro data serialization system for the Microsoft.NET environment. Apache Avro provides a compact binary data interchange format for serialization. It uses JSON to define language agnostic schema that underwrites language interoperability. Data serialized in one language can be read in another. Currently C, C++, C#, Java, PHP, Python, and Ruby are supported. The Apache Avro serialization format is widely used in Azure HDInsight to represent complex data structures within a Hadoop MapReduce job.
 
 - **YARN**: A new, general-purpose, distributed, application management framework that has replaced the classic Apache Hadoop MapReduce framework for processing data in Hadoop clusters. It effectively serves as the Hadoop operating system, and takes Hadoop from a single-use data platform for batch processing to a multi-use platform that enables batch, interactive, online and stream processing. This new management framework improves scalability and cluster utilization according to criteria such as capacity guarantees, fairness, and service-level agreements.
 
-- **Tez (HDInsight 3.1 preview)**: A general-purpose and customizable framework that creates simplified data-processing tasks across both small scale and large-scale workloads in Hadoop. It provides the ability to execute a complex directed acyclic graph (DAG) of tasks for a single job, so that projects in the Apache Hadoop ecosystem such as Apache Hive and Apache Pig can meet requirements for human-interactive response times and extreme throughput at petabyte scale. Note that Hive 0.13 allows Hive queries to run on top of Tez, rather than on MapReduce.
+- **Tez (HDInsight 3.1 Preview only)**: A general-purpose and customizable framework that creates simplified data-processing tasks across both small scale and large-scale workloads in Hadoop. It provides the ability to execute a complex directed acyclic graph (DAG) of tasks for a single job, so that projects in the Apache Hadoop ecosystem such as Apache Hive and Apache Pig can meet requirements for human-interactive response times and extreme throughput at petabyte scale. Note that Hive 0.13 allows Hive queries to run on top of Tez, rather than on MapReduce.
 
 - **High Availability**: A second headnode has been added to the Hadoop clusters deployed by HDInsight to increase the availability of the service. Standard implementations of Hadoop clusters typically have a single headnode. HDInsight removes this single point of failure with the addition of a secondary headnode. The switch to new HA cluster configuration doesn’t change the price of the cluster, unless customers provision clusters with extra large head node instead of the default large size node.
 
@@ -40,7 +42,7 @@ HDInsight supports multiple Hadoop cluster versions that can be deployed at any 
 <tr><td>Tez</td><td>0.4.0</td><td></td><td></td><td></td></tr>
 <tr><td>Apache Pig</td><td>0.12.1</td><td>0.12.0</td><td>0.11.0</td><td>0.9.3</td></tr>
 <tr><td>Apache Hive & HCatalog</td><td>0.13.0</td><td>0.12.0</td><td>0.11.0</td><td>0.9.0</td></tr>
-<tr><td>HBase</td><td>0.98.0</td><td></td><td></td><td></td></tr>
+<tr><td>HBase (Preview)</td><td></td><td>0.96.0</td><td></td><td></td></tr>
 <tr><td>Apache Sqoop</td><td>1.4.4</td><td>1.4.4</td><td>1.4.3</td><td>1.4.2</td></tr>
 <tr><td>Apache Oozie</td><td>4.0.0</td><td>4.0.0</td><td>3.3.2</td><td>3.2.0</td></tr>
 <tr><td>Apache HCatalog</td><td>Merged with Hive</td><td>Merged with Hive</td><td>Merged with Hive</td><td>0.4.1</td></tr>
