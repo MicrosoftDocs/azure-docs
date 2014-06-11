@@ -57,6 +57,8 @@ In a real leaderboard app, PlayerRank might also have a game ID, so that a playe
 
 The client app can perform the full set of CRUD operations on Players. It can read or delete existing PlayerRank entities, but it cannot create or update them directly. That’s because the rank value is calculated by the service. Instead, the client submits a score, and the service updates the ranks for all players.
 
+Download the completed project [here](http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af).
+
 
 ## Create the project
 
@@ -319,7 +321,7 @@ To learn more about the **[Route]** attribute, see [Attribute Routing in Web API
 
 ## Create the Windows Store app
 
-In this section, I’ll describe the Windows Store app that consumes the mobile service. However, I won’t focus much on the XAML or the UI. Instead, I want to focus on the application logic.  You can download the code from xxxxx.
+In this section, I’ll describe the Windows Store app that consumes the mobile service. However, I won’t focus much on the XAML or the UI. Instead, I want to focus on the application logic. You can download the complete project [here](http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af).
 
 Add a new Windows Store App project to the solution. I used the Blank App (Windows) template. 
 
