@@ -48,20 +48,18 @@ communicate with the storage REST services.
 
 1.  Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
 
-2.  Type **npm install azure** in the command window, which should
+2.  Type **npm install azure-storage** in the command window, which should
     result in the following output:
 
-        azure@0.7.5 node_modules\azure
-		├── dateformat@1.0.2-1.2.3
-		├── xmlbuilder@0.4.2
-		├── node-uuid@1.2.0
-		├── mime@1.2.9
+        azure-storage@0.1.0 node_modules\azure-storage
+		├── extend@1.2.1
+		├── xmlbuilder@0.4.3
+		├── mime@1.2.11
 		├── underscore@1.4.4
-		├── validator@1.1.1
-		├── tunnel@0.0.2
-		├── wns@0.5.3
+		├── validator@3.1.0
+		├── node-uuid@1.4.1
 		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder find the
@@ -73,13 +71,11 @@ communicate with the storage REST services.
 Using Notepad or another text editor, add the following to the top the
 **server.js** file of the application where you intend to use storage:
 
-    var azure = require('azure');
+    var azure = require('azure-storage');
 
 ## <a name="setup-connection-string"> </a>Setup an Azure Storage Connection
 
-The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
-
-For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage].
+The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
 For an example of setting the environment variables in the management portal for an Azure Web Site, see [Node.js Web Application with Storage]
 
@@ -198,7 +194,7 @@ The following example uploads the contents of the **test.txt** file into **mypag
 
 ## <a name="list-blob"> </a>How to: List the Blobs in a Container
 
-To list the blobs in a container, use the **listBlobsSegmented** method. If you would like to return blobs with a specific prefix, use **listBlobsSegmentWithPrefix**.
+To list the blobs in a container, use the **listBlobsSegmented** method. If you would like to return blobs with a specific prefix, use **listBlobsSegmentedWithPrefix**.
 
     blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
       if(!error){
@@ -217,6 +213,8 @@ To download data from a blob, use the following:
 * **getBlobToStream** - writes the blob contents to a stream.
 
 * **getBlobToText** - writes the blob contents to a string. 
+
+* **createReadStream** - provides a stream to read from the blob
 
 The following example demonstrates using **getBlobToStream** to download the contents of the **myblob** blob and store it to the **output.txt** file using a stream:
 
@@ -324,9 +322,9 @@ Since the SAS was generated with only query access, if an attempt were made to m
 
 ###Access control lists
 
-You can also use an Access Control List (ACL) to set the access policy for an SAS. This is useful if you wish to allow multiple clients to access a container, but provide different access policies for client.
+You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you wish to allow multiple clients to access a container, but provide different access policies for each client.
 
-An ACS is implemented using an array of access policies, with an ID associated with each policy. The  following example defines two policies; one for 'user1' and one for 'user2':
+An ACL is implemented using an array of access policies, with an ID associated with each policy. The  following example defines two policies; one for 'user1' and one for 'user2':
 
 	var sharedAccessPolicy = [
 	  {
@@ -372,9 +370,9 @@ to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Azure][].
 -   Visit the [Azure Storage Team Blog][].
--   Visit the [Azure SDK for Node] repository on GitHub.
+-   Visit the [Azure Storage SDK for Node][] repository on GitHub.
 
-  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [Next Steps]: #next-steps
   [What is the Blob Service?]: #what-is
   [Concepts]: #concepts
