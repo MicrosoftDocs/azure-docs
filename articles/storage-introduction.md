@@ -112,10 +112,10 @@ Azure Storage exposes storage resources via a [REST API](http://msdn.microsoft.c
 - [.NET](http://msdn.microsoft.com/library/dn495001.aspx)
 - [Native code](http://msdn.microsoft.com/library/dn495438.aspx)
 - [Java](/en-us/develop/java/)
-- [Node.js](../storage/#node)
-- [PHP](../storage/#php)
-- [Ruby](../storage/#ruby)
-- [Python](../storage/#python)
+- [Node.js](/en-us/develop/nodejs/)
+- [PHP](/en-us/develop/php/)
+- [Ruby](/en-us/develop/ruby/)
+- [Python](/en-us/develop/python/)
 - [PowerShell](http://msdn.microsoft.com/library/dn495240.aspx)
 
 ## Next Steps ##
