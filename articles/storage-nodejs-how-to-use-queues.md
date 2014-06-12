@@ -33,7 +33,7 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-<h2><a name="create-account"></a><span  class="short-header">Create an account</span>Create an Azure Storage account</h2>
+<h2><a name="create-account"></a>Create an Azure Storage account</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -86,7 +86,7 @@ For an example of setting the environment variables in the management portal for
 The following code creates a **QueueService** object, which enables you
 to work with queues.
 
-    var queueService = azure.createQueueService();
+    var queueSvc = azure.createQueueService();
 
 Use the **createQueueIfNotExists** method, which returns the specified
 queue if it already exists or creates a new queue with the specified
@@ -158,7 +158,7 @@ To dequeue a message, use **getMessage**. This makes the message invisible in th
       if(!error){
 	    // message dequed
         var message = result[0];
-        queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
+        queueSvc.deleteMessage('myqueue', message.messageid, message.popreceipt, function(error, response){
 	      if(!error){
 		    //message deleted
 		  }
@@ -179,7 +179,7 @@ You can change the contents of a message in-place in the queue using **updateMes
 	  if(!error){
 		// Got the message
 		var message = result[0];
-		queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, result, response){
+		queueSvc.updateMessage('myqueue', message.messageid, message.popreceipt, 10, {messageText: 'new text'}, function(error, result, response){
 		  if(!error){
 			// Message updated successfully
 		  }
@@ -203,7 +203,7 @@ each message using a for loop. It also sets the invisibility timeout to five min
 		for(var index in result){
 		  // text is available in result[index].messageText
 		  var message = result[index];
-		  queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, response){
+		  queueSvc.deleteMessage(queueName, message.messageid, message.popreceipt, function(error, response){
 			if(!error){
 			  // Message deleted
 			}
