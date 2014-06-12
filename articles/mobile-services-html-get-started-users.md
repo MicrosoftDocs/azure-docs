@@ -6,7 +6,7 @@
 </div>
 
 
-This topic shows you how to authenticate users in Azure Mobile Services from your HTML app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
+This topic shows you how to authenticate users in Azure Mobile Services from your HTML or PhoneGap app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
 
 This tutorial walks you through these basic steps to enable authentication in your app:
 
