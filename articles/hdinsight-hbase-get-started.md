@@ -158,39 +158,7 @@ Note: The HBase shell link switches the tab to the **HBase Shell**.
 
 		Invoke-RestMethod "https://yourclustername.azurehdinsight.net/hbaserest/sampletable/schema" -Method Put -ContentType "application/json" -Credential $creds -Body '{"name":"sampletable2","ColumnSchema":[{"name":"cf1"},{"name":"cf2"}]}'
 
-6. To create a new row in the table, use an HTTP PUT request. Values of the column name and the cell are Base64 encoded.
-
-	    Invoke-RestMethod "https://yourclustername.azurehdinsight.net/hbaserest/sampletable/row3" -Method Put -ContentType "application/json" -Credential $creds `-Body @"
-    	{
-    	   "Row":[
-    	  		{
-    	 		"key":"cm93Mw==",
-    	 		"Cell":[
-    						{
-    	   					"column":"Y2YxOmNvbDE=",
-       						"$":"c29tZURhdGE="
-    	   					}
-    	 				]
-    	  		}
-    	   		]
-    	}
-    	"@ 
-
-7. To retrieve a row with Base64 encoding, use the following GET command.
-
-		function Base64Decode()
-		{
-		    param(
-		        [string]$base64str)
-		    return [System.Text.Encoding]::Default.GetString([System.Convert]::FromBase64String($base64str))
-		}
-
-		// GET Row
-		$row = Invoke-RestMethod https://yourclustername.azurehdinsight.net/hbaserest/sampletable/row2 -Credential $creds
-		"$(Base64Decode($row.CellSet.Row.Cell.column)) = $(Base64Decode($row.CellSet.Row.Cell.'#text'))"
-
-
-8. To create a new row with Base64 encoding, use the following PUT command.
+6. To create a new row with Base64 encoding, use the following PUT command.
 
 		function Base64Encode()
 		{
@@ -221,7 +189,21 @@ Note: The HBase shell link switches the tab to the **HBase Shell**.
 		}
 		"@ 
 
-9. To scan the rows in the table, use the following set of commands. Note that you must use the hbaserest0 type of URI where the end-point is assigned to a specific rest server. The scanner created in the first call keeps it’s state on the specific rest server therefore subsequent calls should be made to the same rest end-point.
+7. To retrieve a row with Base64 encoding, use the following GET command.
+
+		function Base64Decode()
+		{
+		    param(
+		        [string]$base64str)
+		    return [System.Text.Encoding]::Default.GetString([System.Convert]::FromBase64String($base64str))
+		}
+
+		// GET Row
+		$row = Invoke-RestMethod https://yourclustername.azurehdinsight.net/hbaserest/sampletable/row2 -Credential $creds
+		"$(Base64Decode($row.CellSet.Row.Cell.column)) = $(Base64Decode($row.CellSet.Row.Cell.'#text'))"
+
+
+8. To scan the rows in the table, use the following set of commands. Note that you must use the hbaserest0 type of URI where the end-point is assigned to a specific rest server. The scanner created in the first call keeps it’s state on the specific rest server therefore subsequent calls should be made to the same rest end-point.
 
 	    $scanner = Invoke-WebRequest "https://yourclustername.azurehdinsight.net/hbaserest0/sampletable/scanner" -Method Put -ContentType "text/xml" -Credential $creds -Body '<Scanner batch="10"/>'	
     	$scannerparts = $scanner.Headers.Location.Split('/')	
