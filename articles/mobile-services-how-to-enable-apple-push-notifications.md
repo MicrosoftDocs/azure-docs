@@ -1,0 +1,22 @@
+<properties pageTitle="How to enable Apple push notifications" metaKeywords="" description="Follow this tutorial to create a new service using Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to Apple push notifications" authors="glenga" solutions="" manager="" editor="" />
+
+# How to enable Apple push notifications
+
+This topic shows you how to enable your iOS app for push notifications by using the Apple Push Notification Service (APNS). The certificate obtained is used to register the iOS app for push notifications in the [Azure Management Portal][Management Portal]. For the complete end-to-end tutorial that includes updates to your app, see [Get started with push notifications]. 
+
+[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+
+Now, you can use this .p12 certificate to enable services to authenticate with APNS and send push notifications on behalf of your app.
+
+<!-- Anchors. -->
+
+
+<!-- Images. -->
+
+
+<!-- URLs. -->
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+[Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
+
+[Management Portal]: https://manage.windowsazure.com/
+
