@@ -1,5 +1,5 @@
-<properties linkid="cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging" urlDisplayName="Enable remote debugging with continuous delivery" pageTitle="Enable remote debugging with continuous delivery" metaKeywords="" description="Learn how to enable remote debugging when using continuous delivery to deploy to Azure." metaCanonical="" services="cloud-services,virtual machines" documentationCenter=".NET" title="Enable remote debugging when using continuous delivery to Azure" authors="ghogen" solutions="" manager="" editor="" />
-# Enable remote debugging when using Continuous Delivery to Azure
+<properties linkid="cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging" urlDisplayName="Enable remote debugging with continuous delivery" pageTitle="Enable remote debugging with continuous delivery" metaKeywords="" description="Learn how to enable remote debugging when using continuous delivery to deploy to Azure." metaCanonical="" services="cloud-services,virtual machines" documentationCenter=".NET" title="Enable remote debugging when using continuous delivery to publish to Azure" authors="ghogen" solutions="" manager="" editor="" />
+# Enable remote debugging when using continuous delivery to publish to Azure
 
 You can enable remote debugging in Azure when you use [continuous delivery](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-continuous-delivery/) to publish to Azure by following these steps.
 
@@ -9,19 +9,19 @@ In this topic:
 
 [Enabling remote debugging for virtual machines](#virtualmachine)
 
-## <span href="cloudservice">Enabling remote debugging for cloud services</a>
+<h2> <a name="cloudservice"></a>Enabling remote debugging for cloud services</h2>
 
 1. On the build agent, set up the initial environment for Azure as outlined in [Command-Line Build for Azure](http://msdn.microsoft.com/en-us/library/hh535755.aspx).
 2. Because the remote debug runtime (msvsmon.exe) is required for the package, install the [Remote Tools for Visual Studio 2013](http://www.microsoft.com/en-us/download/details.aspx?id=40781) (or the [Remote Tools for Visual Studio 2012 Update 4](http://www.microsoft.com/en-us/download/details.aspx?id=38184) if you’re using Visual Studio 2012). As an alternative, you can copy the remote debug binaries from a system that has Visual Studio installed.
-3. Create a certificate as outlined in [Create a Service Certificate for Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx). Keep the .pfx and RDP certificate thumbprint and upload the certificate to the target Cloud Service.
+3. Create a certificate as outlined in [Create a Service Certificate for Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx). Keep the .pfx and RDP certificate thumbprint and upload the certificate to the target cloud service.
 4. Use the following options in the MSBuild command line to build and package with remote debug enabled. (Update the paths for your system and project files.)
 
 	/TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath=”C:\Remote Debugger\x64\\”;RemoteDebuggerConnectorCertificateThumbprint="56D7D1B25B472268E332F7FC0C87286458BFB6B2";RemoteDebuggerConnectorVersion="2.3" "C:\Users\yourusername\Documents\visual studio 2013\Projects\WindowsAzure1\WindowsAzure1.sln"
 
-5. Publish to the target Cloud Service by using the package and cscfg file generated in the previous step.
+5. Publish to the target cloud service by using the package and .cscfg file generated in the previous step.
 6. Import the certificate (.pfx file) to the machine that has Visual Studio with Azure SDK 2.3 installed.
 
-## <span href="virtualmachine">Enabling remote debugging for virtual machines</span>
+<h2> <a name="virtualmachine"></a>Enabling remote debugging for virtual machines</h2>
 
 1. Create an Azure virtual machine. See [Create a Virtual Machine Running Windows Server](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/) or [Creating Azure Virtual Machines in Visual Studio](http://msdn.microsoft.com/en-us/library/azure/dn569263.aspx).
 2. On the [Azure portal page](http://go.microsoft.com/fwlink/p/?LinkID=269851), view the virtual machine dashboard to see the virtual machine’s “RDP Certificate Thumbprint”. This is used for the ServerThumbprint value in the extension configuration.
