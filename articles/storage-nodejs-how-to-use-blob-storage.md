@@ -40,7 +40,7 @@ Create a blank Node.js application. For instructions creating a Node.js applicat
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
-To use Azure storage, you need to Azure Storage SDK for Node.js, which includes a set of convenience libraries that
+To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
 communicate with the storage REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
@@ -62,7 +62,7 @@ communicate with the storage REST services.
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder find the
-    **azure** package, which contains the libraries you need to access
+    **azure-storage** package, which contains the libraries you need to access
     storage.
 
 ### Import the package
@@ -92,7 +92,9 @@ All blobs reside in a container. To create a new container, use **createContaine
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
       if(!error){
-        // Container exists and is private
+        // Container exists and allows 
+        // anonymous read access to blob 
+        // content and metadata within this container
       }
 	});
 
