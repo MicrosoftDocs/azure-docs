@@ -226,7 +226,7 @@ With these changes, the two GET methods return `PlayerRankDto` objects to the cl
 
 Notice that the JSON payload now includes the player names.
 
-    > [WACOM.NOTE] Instead of using LINQ Select statements, another option is to use AutoMapper. This option requires some additional setup code, but enables automatic mapping from domain entities to DTOs. For more information, see [Mapping between Database Types and Client Types in the .NET Backend using AutoMapper](http://blogs.msdn.com/b/azuremobile/archive/2014/05/19/mapping-between-database-types-and-client-type-in-the-net-backend-using-automapper.aspx).
+Instead of using LINQ Select statements, another option is to use AutoMapper. This option requires some additional setup code, but enables automatic mapping from domain entities to DTOs. For more information, see [Mapping between Database Types and Client Types in the .NET Backend using AutoMapper](http://blogs.msdn.com/b/azuremobile/archive/2014/05/19/mapping-between-database-types-and-client-type-in-the-net-backend-using-automapper.aspx).
 
 ## Define a custom API to submit scores
 
