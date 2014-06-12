@@ -43,7 +43,7 @@ Create a blank Node.js application. For instructions creating a Node.js applicat
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
-To use Azure storage, you need to use the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
+To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
 communicate with the storage REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
@@ -65,7 +65,7 @@ communicate with the storage REST services.
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder you will
-    find the **azure** package, which contains the libraries you need to
+    find the **azure-storage** package, which contains the libraries you need to
     access storage.
 
 ### Import the package
@@ -179,7 +179,7 @@ You can change the contents of a message in-place in the queue using **updateMes
 	  if(!error){
 		// Got the message
 		var message = result[0];
-		queuevc.queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messagetext: 'new text'}, function(error, result, response){
+		queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, result, response){
 		  if(!error){
 			// Message updated successfully
 		  }
@@ -201,7 +201,7 @@ each message using a for loop. It also sets the invisibility timeout to five min
 	  if(!error){
 		// Messages retreived
 		for(var index in result){
-		  // text is available in result[index].messagetext
+		  // text is available in result[index].messageText
 		  var message = result[index];
 		  queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, response){
 			if(!error){

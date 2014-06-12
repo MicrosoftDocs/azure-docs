@@ -39,7 +39,7 @@ Create a blank Node.js application. For instructions creating a Node.js applicat
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
-To use Azure storage, you need to Azure Storage SDK for Node.js, which includes a set of convenience libraries that
+To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
 communicate with the storage REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
@@ -60,7 +60,7 @@ communicate with the storage REST services.
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder you will
-    find the **azure** package, which contains the libraries you need to
+    find the **azure-storage** package, which contains the libraries you need to
     access storage.
 
 ### Import the package
@@ -355,9 +355,7 @@ Note that the host information must be provided also, as it is required when the
 The client application then uses the SAS with **TableServiceWithSAS** to perform operations against the table. The following example connects to the table and performs a query.
 
 	var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
-	var query = azure.TableQuery
-	  .select()
-	  .from('mytable')
+	var query = azure.TableQuery()
 	  .where('PartitionKey eq ?', 'hometasks');
 		
 	sharedTableService.queryEntities(query, null, function(error, result, response) {
