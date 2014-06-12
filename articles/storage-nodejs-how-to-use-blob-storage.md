@@ -40,8 +40,7 @@ Create a blank Node.js application. For instructions creating a Node.js applicat
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
-To use Azure storage, you need to download and use the Node.js
-azure package, which includes a set of convenience libraries that
+To use Azure storage, you need to Azure Storage SDK for Node.js, which includes a set of convenience libraries that
 communicate with the storage REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
@@ -249,7 +248,7 @@ To support concurrent access to a blob from multiple clients or multiple process
 
 ETags should be used if you need to allow multiple clients or instances to write to the blob simultaneously. The ETag allows you to determine if the container or blob has been modified since you initially read or created it, which allows you to avoid overwriting changes committed by another client or process.
 
-ETag conditions can be set using the optional `options.contentDisposition` parameter. The following example will only upload the **test.txt** file if the blob already exists and has the ETag value contained by `etagToMatch`.
+ETag conditions can be set using the optional `options.accessConditions` parameter. The following example will only upload the **test.txt** file if the blob already exists and has the ETag value contained by `etagToMatch`.
 
 	blobSvc.createBlockBlobFromFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { 'if-match': etagToMatch} }, function(error, result, response){
       if(!error){
@@ -318,7 +317,7 @@ The client application then uses the SAS with **BlobServiceWithSAS** to perform 
 	  }
 	});
 
-Since the SAS was generated with only query access, if an attempt were made to modify the blob, an error would be returned.
+Since the SAS was generated with only read access, if an attempt were made to modify the blob, an error would be returned.
 
 ###Access control lists
 

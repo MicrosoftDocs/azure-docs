@@ -207,6 +207,7 @@ In this section you will extend the basic application created by the **express**
 
         var azure = require('azure-storage');
   		var uuid = require('node-uuid');
+		var entityGen = azure.TableUtilities.entityGenerator;
 
 4. Next, you will add code to define and export the Task object. This object is responsible for connecting to the table.
 
@@ -239,12 +240,15 @@ In this section you will extend the basic application created by the **express**
 
 		  addItem: function(item, callback) {
 		    self = this;
+		    // use entityGenerator to set types
+			// NOTE: RowKey must be a string type, even though
+            // it contains a GUID in this example.
 		    var itemDescriptor = {
-		      PartitionKey: {'_': self.partitionKey},
-		      RowKey: {'_': uuid()},
-		      name: {'_': item.name},
-		      category: {'_': item.category},
-		      completed: {'_': false}
+		      PartitionKey: entityGen.String(self.partitionKey),
+		      RowKey: entityGen.String(uuid()),
+		      name: entityGen.String(item.name),
+		      category: entityGen.String(item.category),
+		      completed: entityGen.Boolean(false)
 		    };
 		    self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
 		      if(error){  
@@ -254,9 +258,9 @@ In this section you will extend the basic application created by the **express**
 		    });
 		  },
 
-		  updateItem: function(item, callback) {
+		  updateItem: function(rKey, callback) {
 		    self = this;
-		    self.storageClient.retrieveEntity(self.tableName, self.partitionKey, item, function entityQueried(error, entity) {
+		    self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
 		      if(error) {
 		        callback(error);
 		      }
@@ -293,9 +297,7 @@ In this section you will extend the basic application created by the **express**
 		TaskList.prototype = {
 		  showTasks: function(req, res) {
 		    self = this;
-		    var query = azure.TableQuery
-		      .select()
-		      .from(self.task.tableName)
+		    var query = azure.TableQuery()
 		      .where('completed eq ?', false);
 		    self.task.find(query, function itemsFound(error, items) {
 		      res.render('index',{title: 'My ToDo List ', tasks: items});

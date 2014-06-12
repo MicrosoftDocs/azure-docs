@@ -43,8 +43,7 @@ Create a blank Node.js application. For instructions creating a Node.js applicat
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
-To use Azure storage, you need to download and use the Node.js
-azure package, which includes a set of convenience libraries that
+To use Azure storage, you need to use the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
 communicate with the storage REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
@@ -143,8 +142,7 @@ from the queue by calling the **peekMessages** method. By default,
 
 The `result` contains the message.
 
-> [WACOM.NOTE] 
->Using <strong>peekMessage</strong> when there are no messages in the queue will not return an error, however no messages will be returned.
+> [WACOM.NOTE] Using **peekMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## <a name="get-message"> </a>How To: Dequeue the Next Message
 
@@ -160,7 +158,7 @@ To dequeue a message, use **getMessage**. This makes the message invisible in th
       if(!error){
 	    // message dequed
         var message = result[0];
-        queueSvc.deleteMessage('myqueue', message.messageid, message.popreceipt, function(error, response){
+        queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
 	      if(!error){
 		    //message deleted
 		  }
@@ -168,7 +166,7 @@ To dequeue a message, use **getMessage**. This makes the message invisible in th
 	  }
 	});
 
-> [WACOM.NOTE] By default, a message is only hidden for 30 seconds, after which it is visible to other clients. You can specify a different value by using `options.visibilitytimeout` with **getMessages**.
+> [WACOM.NOTE] By default, a message is only hidden for 30 seconds, after which it is visible to other clients. You can specify a different value by using `options.visibilityTimeout` with **getMessages**.
 
 > [WACOM.NOTE]
 > Using <b>getMessages</b> when there are no messages in the queue will not return an error, however no messages will be returned.
@@ -181,7 +179,7 @@ You can change the contents of a message in-place in the queue using **updateMes
 	  if(!error){
 		// Got the message
 		var message = result[0];
-		queuevc.queueSvc.updateMessage('myqueue', message.messageid, message.popreceipt, 10, {messagetext: 'new text'}, function(error, result, response){
+		queuevc.queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messagetext: 'new text'}, function(error, result, response){
 		  if(!error){
 			// Message updated successfully
 		  }
@@ -193,19 +191,19 @@ You can change the contents of a message in-place in the queue using **updateMes
 
 There are two ways you can customize message retrieval from a queue:
 
-* `options.numofmessages` - Retrieve a batch of messages (up to 32.)
-* `options.visibilitytimeout` - Set a longer or shorter invisibility timeout.
+* `options.numOfMessages` - Retrieve a batch of messages (up to 32.)
+* `options.visibilityTimeout` - Set a longer or shorter invisibility timeout.
 
 The following example uses the **getMessages** method to get 15 messages in one call. Then it processes
 each message using a for loop. It also sets the invisibility timeout to five minutes for all messages returned by this method.
 
-    queueSvc.getMessages('myqueue', {numofmessages: 15, visibilitytimeout: 5 * 60}, function(error, result, response){
+    queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
 	  if(!error){
 		// Messages retreived
 		for(var index in result){
 		  // text is available in result[index].messagetext
 		  var message = result[index];
-		  queueSvc.deleteMessage(queueName, message.messageid, message.popreceipt, function(error, response){
+		  queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, response){
 			if(!error){
 			  // Message deleted
 			}
@@ -247,7 +245,7 @@ To delete a queue and all the messages contained in it, call the
 		}
 	});
 
-To clear all messages from a queue without deleting it, use **clearQueue**.
+To clear all messages from a queue without deleting it, use **clearMessages**.
 
 ## <a name="sas"></a>How to: Work with Shared Access Signatures
 
@@ -284,7 +282,7 @@ The client application then uses the SAS with **QueueServiceWithSAS** to perform
 	  }
 	});
 
-Since the SAS was generated with add access, if an attempt were made to read or delete messages, an error would be returned.
+Since the SAS was generated with add access, if an attempt were made to read, update or delete messages, an error would be returned.
 
 ###Access control lists
 

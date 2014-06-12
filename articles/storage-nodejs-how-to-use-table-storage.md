@@ -39,8 +39,7 @@ Create a blank Node.js application. For instructions creating a Node.js applicat
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
-To use Azure storage, you need to download and use the Node.js
-azure package, which includes a set of convenience libraries that
+To use Azure storage, you need to Azure Storage SDK for Node.js, which includes a set of convenience libraries that
 communicate with the storage REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
@@ -110,21 +109,20 @@ In this callback, and after processing the returnObject (the response from the r
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **TableService** object that uses the **ExponentialRetryPolicyFilter**:
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
-	var tableSvc = azure.createTableSvc().withFilter(retryOperations);
+	var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 ## <a name="add-entity"> </a>How to Add an Entity to a Table
 
 To add an entity, first create an object that defines your entity
-properties. Note that for every entity you must
-specify a **PartitionKey** and **RowKey**. These are the unique
-identifiers of your entities, and are values that can be queried much
-faster than your other properties. The system uses **PartitionKey** to
-automatically distribute the table's entities over many storage nodes.
-Entities with the same **PartitionKey** are stored on the same node. The
-**RowKey** is the unique ID of the entity within the partition it
-belongs to. 
+properties. All entities must contain a **PartitionKey** and **RowKey**, which are unique identifiers for the entity.
 
-The following defines an entity with a **PartitionKey** of *hometasks*, a **RowKey** of *1*, and then a **description**, and a **dueDate** field. Note that **dueDate** is defined as a type of **Edm.DateTime**. Specifying the type is optional, and types will be inferred if not specified.
+* **PartitionKey** - Determines the partition that the entity is stored in.
+
+* **RowKey** - Uniquely identifies the entity within the partition.
+
+Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table Service data model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+
+The following is an example of defining an entity. Note that **dueDate** is defined as a type of **Edm.DateTime**. Specifying the type is optional, and types will be inferred if not specified.
 
 	var task = { 
 	  PartitionKey: {'_':'hometasks'},
@@ -137,7 +135,7 @@ The following defines an entity with a **PartitionKey** of *hometasks*, a **RowK
 
 You can also use the **entityGenerator** to create entities. The following example creates the same task entity using the **entityGenerator**.
 
-	var entGen = TableUtilities.entityGenerator;
+	var entGen = azure.TableUtilities.entityGenerator;
     var task = {
 	  PartitionKey: entGen.String('hometasks'),
       RowKey: entGen.String('1'),
@@ -272,7 +270,7 @@ expression using the following clauses:
 
 The following example builds a query that will return the top 5 items with a PartitionKey of 'hometasks'.
 
-	var query = new azure.TableQuery
+	var query = new azure.TableQuery()
 	  .top(5)
 	  .where('PartitionKey eq ?', 'hometasks');
 
@@ -291,7 +289,7 @@ If successful, `result.entities` will contain an array of entities that match th
 A query to a table can retrieve just a few fields from an entity.
 This reduces bandwidth and can improve query performance, especially for large entities. Use the **select** clause and pass the names of the fields to be returned. For example, the following query will only return the **description** and **dueDate** fields.
 
-	var query = new azure.TableQuery
+	var query = new azure.TableQuery()
 	  .select(['description', 'dueDate'])
 	  .top(5)
 	  .where('PartitionKey eq ?', 'hometasks');
@@ -313,6 +311,8 @@ passed to the **deleteEntity** method.
 		// Entity deleted
 	  }
 	});
+
+> [WACOM.NOTE] You should consider using ETags when deleting items, to ensure that the item hasn't been modified by another process. See [How To: Update an Entity][] for information in using ETags.
 
 ## <a name="delete-table"> </a>How to Delete a Table
 
