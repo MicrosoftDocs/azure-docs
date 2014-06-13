@@ -90,8 +90,7 @@ Oozie workflows definitions are written in hPDL (a XML Process Definition Langua
 The Hive action in the workflow calls a HiveQL script file. This script file contains three HiveQL statements:
 
 1. **The DROP TABLE statement** deletes the log4j Hive table in case it exists.
-2. **The CREATE TABLE statement** creates a log4j Hive external table pointing to the 
-3.  location of the log4j log file. The field delimiter is ",". The default line delimiter is "\n".  Hive external table is used to avoid the data file being removed from the original location, in case you want to run the Oozie workflow multiple times.
+2. **The CREATE TABLE statement** creates a log4j Hive external table pointing to the location of the log4j log file. The field delimiter is ",". The default line delimiter is "\n".  Hive external table is used to avoid the data file being removed from the original location, in case you want to run the Oozie workflow multiple times.
 3. **The INSERT OVERWRITE statement** counts the occurrences of each log level type from the log4j Hive table, and saves the output to an Azure Storage - Blob (WASB) location. 
 
 There is a known Hive path issue. You will run into this problem when submitting an Oozie job. The instructions for fixing the issue can be found at [TechNet Wiki][technetwiki-hive-error].
