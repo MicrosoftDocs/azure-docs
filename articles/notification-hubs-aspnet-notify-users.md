@@ -27,7 +27,7 @@ This tutorial walks you through the following basic steps:
 
 First you will create an ASP.NET Web API application. This backend service will authenticate clients, register for push notifications on behalf of an authenticated user, and send out notifications.
 
-1. In Visual Studio or Visual Studio Express 2012 for Web, click **File** then **New project from the File menu, expand **Templates**, **Visual C#**, then click **Web** and **ASP.NET MVC 4 Web Application**, enter the name  _NotificationService_, and click **OK**.
+1. In Visual Studio or Visual Studio Express 2012 for Web, click **File**, then click **New project**, expand **Templates**, **Visual C#**, then click **Web** and **ASP.NET MVC 4 Web Application**, enter the name  _NotificationService_, and click **OK**.
 
 	![][0]
 
