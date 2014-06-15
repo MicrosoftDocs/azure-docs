@@ -41,7 +41,7 @@ This topic shows you how to register your apps to be able to use Facebook to aut
     </div>
 
 
-8. Click the **Advanced** tab, type the URL of your mobile service appended with the path _/login/facebook_ in **Valid OAuth redirect URIs**. 
+8. Click the **Advanced** tab, type the URL of your mobile service appended with the path _/login/facebook_ in **Valid OAuth redirect URIs**, then click **Save Changes**. 
 
 	>[WACOM.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-facebook_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-facebook</code>.  
 	
