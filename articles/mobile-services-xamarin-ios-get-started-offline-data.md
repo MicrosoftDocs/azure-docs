@@ -54,6 +54,7 @@ Edit the class `QSTodoService` to enable use of the Mobile Services offline feat
 
 		using Microsoft.WindowsAzure.MobileServices; 
 		using Microsoft.WindowsAzure.MobileServices.Sync; 
+		using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 
 2. Change the type of the member `todoTable` from `IMobileServiceTable` to `IMobileServicesSyncTable`
 
