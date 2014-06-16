@@ -30,7 +30,7 @@ In this article:
 
 To associate your custom domain with an Azure Web Site, you must add a new entry in the DNS table for your custom domain by using tools provided by Directnic. Use the following steps to locate the DNS tools for Directnic.com
 
-1. Log on to your account with Directnic.com, and select **My Services** and then **Domains**. 
+1. Log on to your account with Directnic.com, and select **My Services** and then **Domains**.
 
     ![Directnic Services Menu](.\media\web-sites-directnic-custom-domain-name\Directnic_DomainMenu.png)
 
@@ -40,7 +40,7 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 
     ![Services Panel](.\media\web-sites-directnic-custom-domain-name\Directnic_DomainManagement.png)
 
-4. Add DNS records by filling in the **Type**, **Name**, and **Data** fields. When complete, click the **Add Record** button.
+4. Add DNS records by filling in the **Type**, **Name**, and **Data** fields. When complete, click the **Add Record** button.   
 
     ![](.\media\web-sites-directnic-custom-domain-name\Directnic_DNS.png)
 
