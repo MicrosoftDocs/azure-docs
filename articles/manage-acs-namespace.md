@@ -13,7 +13,7 @@ This topic outlines management tasks that it is recommended you perform regularl
 
 2. Review your identity providers, service identities, rules, and portal administrators and remove the outdated ones. 
 
-For more information about ACS, see [Access Control Service 2.0](http://msdn.microsoft.com/en-us/library/gg429786.aspx).
+For more information about ACS, see [Access Control Service 2.0](http://msdn.microsoft.com/library/azure/hh147631.aspx).
 
 
 
