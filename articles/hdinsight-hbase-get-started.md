@@ -15,6 +15,7 @@ In this tutorial, you learn how to create and query HBase tables with HDInsight.
 
 > [WACOM.NOTE] HBase is currently only available in preview for use with HDInsight 3.0 clusters on HDInsight (based on Hadoop 2.2.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
 
+During preview period, it is recommended that a backup copy of the original version of any data used in the HBase cluster be stored outside of that cluster. This is because the format of the database files may be changed in future versions and the current data file formats used in the preview version may not be supported or upgradable to subsequent versions.
 
 **Prerequisites:**
 
