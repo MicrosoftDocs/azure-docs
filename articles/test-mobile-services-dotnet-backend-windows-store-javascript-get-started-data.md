@@ -4,21 +4,18 @@
 
 # Get started with data in Mobile Services
 
-
-<div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS">iOS</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android">Android</a>
-
-</div>
-
-
-<div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title=".NET backend" class="current">.NET backend</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/"  title="JavaScript backend">JavaScript backend</a>
-</div>
+> [AZURE.SELECTOR-LIST (Platform | Backend )]
+- [(Android | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-android-get-started-data/)
+- [(Android | JavaScript)](/en-us/documentation/articles/test-mobile-services-android-get-started-data/)
+- [(HTML | JavaScript)](/en-us/documentation/articles/test-mobile-services-get-started-data/)
+- [(iOS | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-ios-get-started-data/)
+- [(iOS | Javascript)](/en-us/documentation/articles/test-mobile-services-ios-get-started-data/)
+- [(Windows Phone | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-windows-phone-get-started-data/)
+- [(Windows Phone | Javascript)](/en-us/documentation/articles/test-mobile-services-windows-phone-get-started-data/)
+- [(Windows Store C# | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)
+- [(Windows Store C# | Javascript)](/en-us/documentation/articles/test-mobile-services-windows-store-dotnet-get-started-data/)
+- [(Windows Store JavaScript | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-windows-store-javascript-get-started-data/)
+- [(Windows Store JavaScript | Javascript)](/en-us/documentation/articles/test-mobile-services-windows-store-javascript-get-started-data/)
 
 This topic shows you how to use Azure Mobile Services as a backend datasource for a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
 
