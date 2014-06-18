@@ -1,4 +1,4 @@
-<properties title="How to use table storage (PHP)" pageTitle="How to use table storage (PHP) - Windows Azure feature guide" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" services="storage" solutions="" documentationCenter="php" authors="" videoId="" scriptId="" />
+<properties title="Securing an Azure Web Site" pageTitle="Securing an Azure Web Site." description="Learn how to secure an Azure Web Site." metaKeywords="Azure web site security, azure web site https, azure web site ftps, azure web site ssl, azure web site ssl rewrite" services="web-sites" solutions="" documentationCenter="web" authors="larryfr" videoId="" scriptId="" />
 
 
 ##Securing a web application in an Azure Web Site
