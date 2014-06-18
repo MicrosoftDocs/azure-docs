@@ -8,7 +8,7 @@
 
 Azure Storage includes three services: Blob storage, Table storage, and Queue storage. These services are included in every storage account. A storage account provides your unique namespace for working with blobs, queues, and tables.
 
-A storage account can contain up to 200TB of blob, queue, and table data if it was created June 8th, 2012, or later; for storage accounts created before that date, total capacity is 100TB. You can create up to 20 uniquely named storage accounts beneath a single subscription. For more information about storage accounts, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx).
+For information about storage account limits, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx).
 
 All of the information about your storage account, including when it was created, is available in the Management Portal, on the **Dashboard** page for **Storage**.
 
