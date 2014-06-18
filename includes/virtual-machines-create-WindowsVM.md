@@ -1,5 +1,3 @@
-
-
 1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com). Check out the [Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/) offer if you do not have a subscription yet.
 
 2. On the command bar at the bottom of the screen, click **New**.
@@ -12,7 +10,7 @@
 	
 4. The first configuration screen lets you **Choose an Image** for your virtual machine from one of the lists in the Image Gallery. (The available images may differ depending on the subscription you're using.) For this tutorial, we will select **Windows Server 2012 R2 Datacenter**. Click the arrow to continue.
 
-	![Choose an image](./media/virtual-machines-create-WindowsVM/virtual-machines-create-WindowsVM/chooseimage.png)
+	![Choose an image](./media/virtual-machines-create-WindowsVM/chooseimage.png)
 
 5. The second configuration screen lets you specify **attributes of the virtual machine** itself. For this tutorial, fill in the fields as shown in the image below. Once this screen is complete, click the arrow to continue.
 
@@ -40,6 +38,3 @@
 8. After the virtual machine is created, the Management Portal lists the new virtual machine under **Virtual Machines**. The corresponding cloud service and storage account are also created under their respective sections. Both the virtual machine and cloud service are started automatically and the Management Portal shows their status as **Running**. 
 
 	![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-create-WindowsVM/vmcreated.png)
-
-
-
