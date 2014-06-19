@@ -52,7 +52,6 @@
 10. Add the following import statements:
 
 		import android.content.Context;
-		import android.content.Context;
 		import android.content.Intent;
 
 		import com.microsoft.windowsazure.mobileservices.RegistrationCallback;
@@ -113,3 +112,6 @@
 
 
 Your app is now updated to support push notifications.
+
+<!-- URLs. -->
+[Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
