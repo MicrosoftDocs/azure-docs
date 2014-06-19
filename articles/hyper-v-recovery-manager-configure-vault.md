@@ -1,8 +1,7 @@
-The account should be associated with the same subscription as Azure Site Recovery and it should have geo-replication enabled.<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Configure Microsoft Azure Site Recovery to protect virtual machines on Hyper-V server located in VMM clouds" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in VMM clouds from one on-premises site to another. Azure Site Recovery can also replicate, failover and recover Hyper-V virtual machine data between in VMM clouds and Microsoft Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to On-Premises Protection" editor="jimbe" manager="cfreeman" authors="" />
+<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Configure Site Recovery to protect virtual machines on Hyper-V server located in VMM clouds" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in VMM clouds from one on-premises site to another. Azure Site Recovery can also replicate, failover and recover Hyper-V virtual machine data between in VMM clouds and Microsoft Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to On-Premises Protection" editor="jimbe" manager="cfreeman" authors="raynew" />
 
 
 # Getting Started with Azure Site Recovery:  On-Premises to On-Premises Protection
-
 
 
 <div class="dev-callout"> 
@@ -62,7 +61,7 @@ The account should be associated with the same subscription as Azure Site Recove
 	<LI>One or more Hyper-V host servers or clusters in each host group.</LI>
 	<li>◦One or more virtual machines located on the source Hyper-V server in the cloud.</li>
 		</UL></LI>
-
+	
 
 </UL>
 
@@ -187,7 +186,7 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 
 
 <a name="download"></a> <h2>Step 4: Install the Azure Site Recovery Provider</h2>
- 
+	
 
 1. On the <b>Quick Start</b> page, click <b>Download Provider</b> to obtain the latest version of the Provider installation file.
 
@@ -211,7 +210,7 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 	<li>Select the vault in which you want to register the server.</li>
 	<li>Specify in the vault key. This is the vault key you generated earlier. Cut and paste the key value from the Quick Start page.</li>
 	</ul>
-	
+
 	![Certificate Register](./media/hyper-v-recovery-manager-configure-vault/RS_CertReg1.png)
 
 
@@ -224,7 +223,7 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 
 	- Specify a friendly name for the VMM server. This name is used to identify the server in the Azure Site Recovery console.
 	- Select <b>Synchronize cloud metadata with the vault</b> to synchronize information about VMM clouds with Azure Site Recovery vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can publish each cloud individually to synchronize it, before you configure cloud protection settings. 
- 
+
 8. Click <b>Register</b> to complete the process. 
 
 	![PublishCloud](./media/hyper-v-recovery-manager-configure-vault/RS_VMMServerName.png)
@@ -250,7 +249,7 @@ After VMM servers are registered, you can configure cloud protection settings. Y
 4. In <b>Target cloud</b>, select the target cloud you want to use for failover of virtual machines in the source cloud. Note that:
 	- We recommend that you select a target cloud that meets recovery requirements for the virtual machines you'll protect.
 	- A cloud can only belong to a single cloud pair — either as a primary or a target cloud.
-	
+
 6. In <b>Copy frequency</b> leave the default setting. This value specifies how frequently data should be synchronized between source and target locations. It's only relevant when the Hyper-V host is running Windows Server 2012 R2. For other servers a default setting of five minutes is used.
 7. In <b>Additional recovery points</b>, leave the default setting. This value specifies whether you want to create addition recovery points.The default zero value specifies that only the latest recovery point for a primary virtual machine is stored on a replica host server.
 8. In <b>Frequency of application-consistent snapshots</b>, leave the default setting. This value specifies how often to create snapshots. Snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken.  If you do want to set this value for the tutorial walkthrough, ensure that it is set to less than the number of additional recovery points you configure.
@@ -274,7 +273,6 @@ After VMM servers are registered, you can configure cloud protection settings. Y
 <p>This tutorial describes the simplest path to deploy Azure Site Recovery in a test environment. If you do want to configure storage mapping as part of this tutorial, follow the steps to <a href="http://go.microsoft.com/fwlink/?LinkId=402535">Configure storage mapping</a> in the deployment guide.</p>
 
 
-<h2><a id="virtualmachines"></a>Step 6: Enable protection for virtual machines</h2>
 
 <p>After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud.</p>
 <OL>
@@ -348,7 +346,7 @@ Run a test failover for a recovery plan as follows:
 <p>From the **Dashboard** you can download the latest versions of Provider and Agent installation files, get configuration information for the vault, see the number of virtual machines that have protection managed by the vault, see recent jobs, manage the vault certificate, and resynchronize virtual machines.</p>
 
 <p>For more information about interacting with jobs and the dashboard, see the <a href="http://go.microsoft.com/fwlink/?LinkId=398534">Operations and Monitoring Guide</a>.</p>
-
+	
 <h2><a id="next"></a>Next steps</h2>
 <UL>
 <LI>To plan and deploy Azure Site Recovery in a full production environment, see <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Planning Guide for Azure Site Recovery</a> and <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Deployment Guide for Azure Site Recovery</a>.</LI>
