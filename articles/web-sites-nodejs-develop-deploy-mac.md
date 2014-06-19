@@ -7,7 +7,7 @@
 
 # Build and deploy a Node.js web site to Azure
 
-This tutorial shows you how to create a [Node] application and deploy it to an Azure Web Site using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
+This tutorial shows you how to create a [Node] [nodejs.org] application and deploy it to an Azure Web Site using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
 
 If you prefer to watch a video, the clip in the right follows the same steps as this tutorial.
  
@@ -160,7 +160,8 @@ If you encounter problems with your application after it has been deployed to Az
 
 [Azure PowerShell]: /en-us/documentation/articles/install-configure-powershell/
 
-
+[nodejs.org]: http://nodejs.org
+[Git]: http://git-scm.com
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [Azure Command-Line Tools for Mac and Linux]: /en-us/documentation/articles/xplat-cli/
