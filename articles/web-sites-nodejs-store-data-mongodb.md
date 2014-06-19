@@ -37,7 +37,9 @@ Additionally, the [Git] must be available from the command-line in your developm
 
 After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.-->
 
-While it is possible to create a new VM, and then install MongoDB into it following the [MongoDB installation guides][installguides], most of this work has already been performed by the community, and is available in the VM Depot. The following steps demonstrate how to use an image from VM Depot that already has Mongo DB installed and configured.
+While it is possible to create a new VM, and then install MongoDB into it following the [MongoDB installation guides][installguides], most of this work has already been performed by the community, and is available in the VM Depot. The following steps demonstrate how to use an image from VM Depot that already has Mongo DB installed and configured. 
+
+> [WACOM.NOTE] The community image used by this tutorial stores MongoDB data on the OS disk. While this is sufficient for tutorial purposes, storing MongoDB data on a data disk will provide greater performance. For steps on creating a new VM, including a data disk, and storing MongoDB data on the data disk, see [Install MongoDB on Linux on Azure][mongodbonazure].
 
 1. Log in to the [Azure Management portal][azureportal], select __Virtual Machines__, select __Images__, and then select __VM Depot__.
 
@@ -107,6 +109,7 @@ While it is possible to create a new VM, and then install MongoDB into it follow
            18:57:17 [initandlisten] waiting for connections on port 27017
 
 	If the log displays errors, please consult the [MongoDB documentation][mongodocs] for troubleshooting steps.
+
 
 ##Install modules and generate scaffolding
 
@@ -571,3 +574,4 @@ To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 [vmconfig]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
 [vmendpoint]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
 [sshazure]: http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/
+[mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/ 
