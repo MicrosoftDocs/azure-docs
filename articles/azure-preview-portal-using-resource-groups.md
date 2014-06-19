@@ -20,7 +20,7 @@ Whenever a resource is created in the preview portal, it is always created withi
 ![](http://i.imgur.com/USKkQdW.png)
 
 <br><br />
-When you are create an application that consists of a few resources working together (e.g. Website + Database) it is always created in its own resource group, so you can manage the lifecycle of all related assets using the resource group. You can additional or remove additional resources from the resource group as your application evolves. 
+When you create an application that consists of a few resources working together (e.g. Website + Database) it is always created in its own resource group, so you can manage the lifecycle of all related assets using the resource group. You can add or remove additional resources from the resource group as your application evolves. 
 
 ![](http://i.imgur.com/Me0jbio.png)
 
@@ -29,7 +29,7 @@ When you are create an application that consists of a few resources working toge
 
 ### Browsing Resource groups
 
-You can browse all resource groups by clicking on the Jumpbar on the left side of your screen. A resource group has a blade that gives you all the information on a particular resource group. The Resource group blade will also give you a unified view of your billing and monitoring information for all the resources in the Resource group.
+You can browse all resource groups by clicking the Jumpbar on the left side of your screen. A resource group has a blade that gives you all the information on a particular resource group. The Resource group blade will also give you a unified view of your billing and monitoring information for all the resources in the Resource group.
 
 The summary section shows a visual resource map of all the resources in the resource group, it also shows resources in other resource groups that are linked to the resource group. The resource map also shows the status of each resource. 
 ![](http://i.imgur.com/PhJeLZQ.png)

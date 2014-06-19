@@ -7,7 +7,7 @@
 
 <div class="dev-callout"> 
 
-<p>Use Azure Site Recovery to protect virtual machines running on Hyper-V hosts located in System Center Virtual Machine Manager (VMM) clouds. You can configure:</p>
+<p>Use Azure Site Recovery to protect virtual machines that run on Hyper-V hosts located in System Center Virtual Machine Manager (VMM) clouds. You can configure:</p>
 
 <ul>
 <li><b>On-premises to Azure protection</b>—Replicate on-premise virtual machines located on Hyper-V host servers in VMM clouds to Azure. You configure and enable protection settings in Azure Site Recovery vaults. Virtual machine data is replicated from the on-premises Hyper-V server to Azure storage.</li>
@@ -289,7 +289,7 @@ After saving, cloud settings can be modified on the <b>Configure</b> tab. To mod
 
 <h2><a id="networkmapping"></a>Step 7: Configure network mapping</h2>
 
-<p>You can optionally enable network mapping to map source VM networks to target Azure virtual networks. If you don’t create network mappings then only virtual machines that fail over in the same recovery plan can connect to each other in Azure. If you create a network mapping then all virtual machines that fail over on the same network can connect to each other, irrespective of which recovery plan they belong to. In addition if a network gateway is setup on the target Azure network then virtual machines can connect to onpremises virtual machines. If you want to configure network mapping as part of this tutorial, see <a href="http://go.microsoft.com/fwlink/?LinkId=402533">Configure network mapping</a> in the deployment guide.</p>
+<p>You can optionally enable network mapping to map source VM networks to target Azure virtual networks. If you don’t create network mappings then only virtual machines that fail over in the same recovery plan can connect to each other in Azure. If you create a network mapping then all virtual machines that fail over on the same network can connect to each other, irrespective of which recovery plan they belong to. In addition if a network gateway is setup on the target Azure network then virtual machines can connect to on-premises virtual machines. If you want to configure network mapping as part of this tutorial, see <a href="http://go.microsoft.com/fwlink/?LinkId=402533">Configure network mapping</a> in the deployment guide.</p>
 
 
 
