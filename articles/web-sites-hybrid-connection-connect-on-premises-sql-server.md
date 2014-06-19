@@ -79,7 +79,7 @@ This section shows you how to install SQL Server Express, enable TCP/IP, and cre
 6. Step through the rest of the wizard to complete the installation.
 
 ###Enable TCP/IP###
-To enable TCP/IP, you will use SQL Server Configuration Manager, which was installed when you installed SQL Server Express. Follow the steps in [Enable TCP/IP Network Protocol for SQL Server](http://technet.microsoft.com/en-us/library/hh231672.aspx) before continuing.
+To enable TCP/IP, you will use SQL Server Configuration Manager, which was installed when you installed SQL Server Express. Follow the steps in [Enable TCP/IP Network Protocol for SQL Server](http://technet.microsoft.com/en-us/library/hh231672%28v=sql.110%29.aspx) before continuing.
 
 <a name="CreateSQLDB"></a>
 ###Create a SQL Server database on-premises###
