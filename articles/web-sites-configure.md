@@ -38,7 +38,7 @@ Follow these steps to change configuration options for a web site.
 <li><strong>Java Version</strong> - Select the displayed version of Java to enable it for your web application, or <strong>OFF</strong> to disable Java. If you enable Java for your web application, the <strong>Web Container</strong> option lets you choose between Tomcat and Jetty versions.
 <p><strong>Note</strong>: For technical reasons, enabling Java for your web site disables the .NET, PHP, and Python options.</p>
 </li>
-<li><strong>Python  Version</strong> - Shows the Python version (non-configurable).</li>
+<li><strong>Python  Version</strong> - Select the Python version you want to use, or set it to <strong>Off</strong>, which is the default.</li>
 <li><strong>Managed Pipeline Mode</strong> - Of the two choices, <strong>Classic</strong> and <strong>Integrated</strong>, Integrated is the default. You should use the Classic option only if you have legacy web sites that run exclusively on older versions of IIS.</li>
 
 <li><strong>Platform</strong> - For sites in Standard mode, you can choose whether you want your application to run in a 32-bit or 64-bit environment. Sites in the Free and Shared modes always run in a 32-bit environment.</li>

@@ -6,7 +6,7 @@ When someone visits your web site using HTTPS, the communication between the web
 
 <a href="bkmk_azurewebsites"></a><h2>The \*.azurewebsites.net domain</h2>
 
-If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your web site by Azure (for example, contoso.azurewebsites.net,) then your site is already secured by a certificate provided by Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your site securely.
+If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your web site by Azure (for example, contoso.azurewebsites.net,) then your site is already secured by a certificate provided by Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your site securely. However, \*.azurewebsites.net is a shared domain, and like all shared domains is not as secure as using a custom domain with your own certificate.
 
 The rest of this document provides details on enabling HTTPS for custom domain names, such as **contoso.com**, **www.contoso.com**, or **\*.contoso.com**
 
