@@ -5,17 +5,12 @@
 # Get started with data in Mobile Services
 
 > [AZURE.SELECTOR-LIST (Platform | Backend )]
-- [(Android | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-android-get-started-data/)
-- [(Android | JavaScript)](/en-us/documentation/articles/test-mobile-services-android-get-started-data/)
-- [(HTML | JavaScript)](/en-us/documentation/articles/test-mobile-services-get-started-data/)
-- [(iOS | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-ios-get-started-data/)
-- [(iOS | Javascript)](/en-us/documentation/articles/test-mobile-services-ios-get-started-data/)
-- [(Windows Phone | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-windows-phone-get-started-data/)
-- [(Windows Phone | Javascript)](/en-us/documentation/articles/test-mobile-services-windows-phone-get-started-data/)
-- [(Windows Store C# | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)
-- [(Windows Store C# | Javascript)](/en-us/documentation/articles/test-mobile-services-windows-store-dotnet-get-started-data/)
-- [(Windows Store JavaScript | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-windows-store-javascript-get-started-data/)
-- [(Windows Store JavaScript | Javascript)](/en-us/documentation/articles/test-mobile-services-windows-store-javascript-get-started-data/)
+- [(HTML | Javascript)](/xx-yy/documentation/articles/example-azure-selector-list/)
+- [(Windows Store | C#)](/xx-yy/documentation/articles/example-azure-selector-list2/)
+- [(Windows Store | Javascript)](http://www.windowsazure.com/)
+- [(iOS | C#)](/documentation/ios/csharp/)
+- [(iOS | Javascript)](/documentation/ios/javascript/)
+
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">

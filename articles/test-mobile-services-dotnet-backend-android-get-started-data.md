@@ -7,7 +7,7 @@
 > [AZURE.SELECTOR-LIST (Platform | Backend )]
 - [(Android | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-android-get-started-data/)
 - [(Android | JavaScript)](/en-us/documentation/articles/test-mobile-services-android-get-started-data/)
-- [(HTML | JavaScript)](/en-us/documentation/articles/test-mobile-services-get-started-data/)
+- [(HTML | JavaScript)](/en-us/documentation/articles/test-mobile-services-html-get-started-data/)
 - [(iOS | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-ios-get-started-data/)
 - [(iOS | Javascript)](/en-us/documentation/articles/test-mobile-services-ios-get-started-data/)
 - [(Windows Phone | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-windows-phone-get-started-data/)
