@@ -13,7 +13,9 @@ This tutorial shows you how to deploy an application built using the Django web 
 
 This tutorial uses Python 2.7 and Django 1.4.  You can either get these on your own, or you can quickly and easily install these by using the Windows Installer link on [http://www.windowsazure.com/en-us/develop/python/](http://www.windowsazure.com/en-us/develop/python/).  
 
-**Note**: Azure web sites now come with Python 2.7 and wfastcgi handler pre-installed.  However, web frameworks such as Django are not included.  You can still use a different Python interpreter if you prefer.  You just need to include it in the Git repository and configure the web site to use that interpreter instead of the Python 2.7 interpreter already installed.
+**Note**: Azure web sites now come with Python (2.7.3 or 3.4.0, your choice) and wfastcgi handler pre-installed.  However, web frameworks such as Django are not included.  You can still use a different Python interpreter if you prefer.  You just need to include it in the Git repository and configure the web site to use that interpreter instead of the Python 2.7 interpreter already installed.
+
+> [WACOM.NOTE] You can now select the version of Python that you want to use in the Azure Web Sites portal by opening the Configure tab of your web site and changing the **Python Version** setting.
 
 You will also need to install a deployment option for pushing the site to Azure. There are various deployment tools available, but this tutorial uses Git. We recommend [msysgit](http://code.google.com/p/msysgit/). 
 
