@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-android" urlDisplayName="Get Started with Data - Android" pageTitle="Get started with data (Android) | Mobile Dev Center" metaKeywords="Azure android data, Azure mobile services data, windows droid, windows android, microsoft droid, microsoft android" description="Learn how to get started using Mobile Services to leverage data in your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="ricksal,glenga" solutions="" manager="" editor="" />
 
-
+<tags ms.devlang="dotnet" ms.tgt_pltfrm="mobile-windows-phone" ms.service="mobile-services" ms.workload="mobile" ms.topic="Article" ms.date="06/20/2014" ms.author="mollybos" />
 
 # Get started with data in Mobile Services
 

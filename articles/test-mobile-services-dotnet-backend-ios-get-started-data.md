@@ -2,6 +2,9 @@
 
 
 
+<tags ms.tgt_pltfrm="mobile-windows-phone" ms.service="mobile-services" ms.workload="mobile" ms.date="06/20/2014" ms.author="mollybos" />
+
+
 
 # Get started with data in Mobile Services
 
