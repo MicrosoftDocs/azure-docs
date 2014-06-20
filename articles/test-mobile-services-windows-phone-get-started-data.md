@@ -1,20 +1,22 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-wp8" urlDisplayName="Get Started with Data" pageTitle="Get started with data (WP8) - Azure Mobile Services" metaKeywords="" description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
-
+<tags ms.tgt_pltfrm="na" ms.service="automation" ms.topic="IndexPage" ms.workload="integration" ms.devlang="multiple" ms.date="06/20/2014" ms.author="mollybos@microsoft.com" />
 
 # Get started with data in Mobile Services
 
+
 > [AZURE.SELECTOR-LIST (Platform | Backend )]
-- [(Android | .NET)](test-mobile-services-dotnet-backend-android-get-started-data)
-- [(Android | JavaScript)](test-mobile-services-android-get-started-data)
-- [(HTML | JavaScript)](test-mobile-services-get-started-data)
-- [(iOS | .NET)](test-mobile-services-dotnet-backend-ios-get-started-data)
-- [(iOS | Javascript)](test-mobile-services-ios-get-started-data)
-- [(Windows Phone | .NET)](test-mobile-services-dotnet-backend-windows-phone-get-started-data)
-- [(Windows Phone | Javascript)](test-mobile-services-windows-phone-get-started-data)
-- [(Windows Store C# | .NET)](test-mobile-services-dotnet-backend-windows-store-dotnet-get-started-data)
-- [(Windows Store C# | Javascript)](test-mobile-services-windows-store-dotnet-get-started-data)
-- [(Windows Store JavaScript | .NET)](test-mobile-services-dotnet-backend-windows-store-javascript-get-started-data)
-- [(Windows Store JavaScript | Javascript)](test-mobile-services-windows-store-javascript-get-started-data)
+- [(Android | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-android-get-started-data/)
+- [(Android | JavaScript)](/en-us/documentation/articles/test-mobile-services-android-get-started-data/)
+- [(HTML | JavaScript)](/en-us/documentation/articles/test-mobile-services-html-get-started-data/)
+- [(iOS | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-ios-get-started-data/)
+- [(iOS | Javascript)](/en-us/documentation/articles/test-mobile-services-ios-get-started-data/)
+- [(Windows Phone | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-windows-phone-get-started-data/)
+- [(Windows Phone | Javascript)](/en-us/documentation/articles/test-mobile-services-windows-phone-get-started-data/)
+- [(Windows Store C# | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)
+- [(Windows Store C# | Javascript)](/en-us/documentation/articles/test-mobile-services-windows-store-dotnet-get-started-data/)
+- [(Windows Store JavaScript | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-windows-store-javascript-get-started-data/)
+- [(Windows Store JavaScript | Javascript)](/en-us/documentation/articles/test-mobile-services-windows-store-javascript-get-started-data/)
+
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
