@@ -103,6 +103,23 @@ Edit the class `QSTodoService` to enable use of the Mobile Services offline feat
 		    }
 		}
 
+### Edit ToDoItem.cs 
+
+- Add the using statement: 
+
+        using Microsoft.WindowsAzure.MobileServices; 
+
+
+- Add the following members to the class `ToDoItem`:
+ 
+		[Version]
+		public string Version { get; set; }
+		
+		
+		public override string ToString()
+		{
+		    return "Text: " + Text + "\nComplete: " + Complete + "\n";
+		}
 
 ### Edit QSTodoListViewController.cs 
 
