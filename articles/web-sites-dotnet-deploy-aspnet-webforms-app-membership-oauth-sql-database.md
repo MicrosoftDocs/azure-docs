@@ -761,8 +761,7 @@ Earlier in the tutorial you used code to add users to the canEdit role. An alter
 2. Copy the *RoleId* and paste it into the empty (new) row.  
 	![AspNetUserRoles data](./media/web-sites-dotnet-web-forms-secure/SecureWebForms37.png)  
 3. In the **dbo.AspNetUsers** table, find the user you want to put in the role, and copy the user's *Id*.
-4. 
-5. Id into the **UserId** field of the new row in the **AspNetUserRoles** table.  
+4. Paste the copied *Id* into the **UserId** field of the new row in the **AspNetUserRoles** table.  
 
 >[WACOM.NOTE]  
 We are working on a tool that will make managing users and roles much easier.  
