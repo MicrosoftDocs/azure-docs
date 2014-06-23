@@ -6,7 +6,7 @@
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # H1 (Article Title) 
 
-<p> Intro paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
+<p> Intro paragraph: Lorem ipsum dolor amet, consectetur adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
