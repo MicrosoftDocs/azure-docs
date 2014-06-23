@@ -43,23 +43,11 @@ This tutorial contains the following sections:
 - [Review the Database](#Review-the-Database)
 - [Next Steps](#Next-Steps)
 
-##Set up the Development Environment 
-To start, set up your development environment by installing the Visual Studio 2013 and the Azure SDK for .NET.
+[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
-1. Install [Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=306566).  
-2. Install [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). This tutorial requires Visual Studio 2013 before installing the Azure SDK for Visual Studio 2013.  
-	>[WACOM.NOTE]  
-	Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
-2. If you are prompted to run or save the installation executable, click **Run**.
-3. In the **Web Platform Installer** window, click **Install** and proceed with the installation.
-	![Web Platform Installer](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-01.png)
-	>[WACOM.NOTE] 
-	If you already have the SDK installed, there will be 0 items to be installed. The number of items to install will be noted at the lower left of the **Web Platform Installer** window.
-4. If you don't already have **Visual Studio Update 2**, download and install **Visual Studio 2013 Update 2** or higher.  
-	>[WACOM.NOTE]  
-	You must install Visual Studio 2013 Update 2 or higher to use Goggle OAuth 2.0 and to use SSL locally without warnings. Also, you need Update 2 to use Web Forms Scaffolding.
+>[WACOM.NOTE] 
+You must install Visual Studio 2013 Update 2 or higher to use Goggle OAuth 2.0 and to use SSL locally without warnings. Also, you need Update 2 to use Web Forms Scaffolding.
 
-When the installation is complete, you have everything necessary to start developing.
 ##Set up the Azure Environment
 In this section you’ll set up the Azure environment by creating an Azure Web Site and a SQL database in Azure.
 
@@ -100,7 +88,8 @@ You have created an Azure Web Site, but there is no content in it yet. Your next
 3. Choose the **ASP.NET Web Application** template in the center column.
 4. Name your project *ContactManager* and click **OK**.  
 	![New Project Dialog](./media/web-sites-dotnet-web-forms-secure/SecureWebForms02.png)  
-	**Note**  
+
+	>[WACOM.NOTE]  
 	The name of the project in this tutorial series is **ContactManager**. It is recommended that you use this exact project name so that the code provided throughout the tutorial series functions as expected.  
 
 5. In the **New ASP.NET Project** dialog box, select the **Web Forms** template. Uncheck the **Host in the cloud** check box if it is selected and click **OK**.  
@@ -672,7 +661,7 @@ You will create a folder named *Admin* where only users that are assigned to the
 
 	Now the links will all work correctly when you display and update the contact data.
 5. To restrict access to the *Admin* folder, from the **Solution Explorer** right-click the *Admin* folder and select **Add New Item**.
-6. From the list of Visual C# Web templates, select **Web Configuration File**** **from the middle list, accept the default name of *Web.config***,** and then select **Add**.
+6. From the list of Visual C# Web templates, select **Web Configuration File** from the middle list, accept the default name of *Web.config*, and then select **Add**.
 7. Replace the existing XML content in the *Web.config* file with the following:
 	<pre class="prettyprint">
 	&lt;?xml version=&quot;1.0&quot;?&gt;
@@ -712,7 +701,8 @@ Now that the web application is complete, you can publish it to Azure.
 9. Check the **Execute Code First Migrations** checkbox and then click **Publish**.  
 	Your application will be published to Azure.
 
->[WACOM.NOTE]  
+>[
+>WACOM.NOTE] 
 If you closed and re-opened Visual Studio after you created the publish profile, you might not see the connection string in the drop-down list. In that case, instead of editing the publish profile that you created earlier, create a new one the same way you did earlier, and then follow these steps on the **Settings** tab.)
 ###Review the Application in Azure 
 1. In the browser, click the **Contact Demo** link.  
@@ -756,7 +746,7 @@ It is important to know how to view and modify the database directly. Knowing ho
 4. If the **Connect to Server** dialog box is displayed, enter the **password** you created at the beginning of this tutorial and press the **Connect** button.  
 
 	>[WACOM.NOTE]  
-	**If you don’t recall the password, you can find it in your local project file. In **Solution Explorer**, expand the *Properties* folder and then expand the *PublishProfiles* folder. Open the *contactmanager.pubxml* file (your file may be named differently). Search the file for your publishing password.
+	If you don’t recall the password, you can find it in your local project file. In **Solution Explorer**, expand the *Properties* folder and then expand the *PublishProfiles* folder. Open the *contactmanager.pubxml* file (your file may be named differently). Search the file for your publishing password.
 5. Expand the **contactDB** database and then expand **Tables**.
 6. Right-click the **dbo.AspNetUsers** table and select **View Data**.  
 	![View Data menu item](./media/web-sites-dotnet-web-forms-secure/SecureWebForms34.png)  
@@ -771,9 +761,11 @@ Earlier in the tutorial you used code to add users to the canEdit role. An alter
 2. Copy the *RoleId* and paste it into the empty (new) row.  
 	![AspNetUserRoles data](./media/web-sites-dotnet-web-forms-secure/SecureWebForms37.png)  
 3. In the **dbo.AspNetUsers** table, find the user you want to put in the role, and copy the user's *Id*.
-4. Paste the copied Id into the **UserId** field of the new row in the **AspNetUserRoles** table.
-	>[WACOM.NOTE]  
-	We are working on a tool that will make managing users and roles much easier.
+4. Paste the copied *Id* into the **UserId** field of the new row in the **AspNetUserRoles** table.  
+
+>[WACOM.NOTE]  
+We are working on a tool that will make managing users and roles much easier.  
+
 ##Next steps
 For more information about ASP.NET Web Forms, see [Learn About ASP.NET Web Forms](http://www.asp.net/web-forms) on the ASP.NET web site and [Microsoft Azure Tutorials and Guides](http://azure.microsoft.com/en-us/documentation/services/web-sites/#net).
 
