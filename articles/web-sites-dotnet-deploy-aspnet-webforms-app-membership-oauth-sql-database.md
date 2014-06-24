@@ -56,7 +56,7 @@ In this tutorial your Azure Web Site will run in a shared hosting environment, w
 
 Azure SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
-1. In the Azure Management Portal, click **Web Sites** in the left tab, and then click **New**.  
+1. In the [Azure Management Portal](https://manage.windowsazure.com/), click **Web Sites** in the left tab, and then click **New**.  
 	![Web Platform Installer](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-02.png)
 2. Click **Web Site**, and then click **Custom Create**.  
 	![Custom Create](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-03.png)  
@@ -270,7 +270,7 @@ The following steps will allow you to use the Web Forms Scaffolder.
 	The **Extensions and Updates** dialog box is displayed.
 2. From the left pane of the dialog box, select **Online** -> **Visual Studio Gallery** -> **Tools** -> **Scaffolding**.
 3. If you don't see 'Web Forms Scaffolding' in the list, enter 'Web Forms Scaffolding' in the search box on the right of the dialog box.  
-4. Select **Download** to download and install 'Web Forms Scaffolding'. Restart Visual Studio if needed. Be sure to save your changes to the project when requested.  
+4. If the Web Forms Scaffolder is not already installed, select **Download** to download and install 'Web Forms Scaffolding'. Restart Visual Studio if needed. Be sure to save your changes to the project when requested.  
 	![Extensions and Updates dialog box](./media/web-sites-dotnet-web-forms-secure/ExtensionsAndUpdatesDB.png)  
 5. Build the project (**Ctrl+Shift+B**).  
 	You must build the project before using the scaffolding mechanism.  
@@ -571,7 +571,7 @@ Using ASP.NET Identity, you can add an administrator role and assign a user to t
         {
             <mark>AddUserAndRole(context);</mark>
 	</pre>  
-5. In the Package Manager Console run the following command:  
+5. After saving all your changes, in the **Package Manager Console** run the following command:  
 	<pre class="prettyprint">
 	Update-Database
 	</pre>
