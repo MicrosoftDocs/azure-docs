@@ -24,15 +24,15 @@ The following illustration shows the completed application:
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
   <ul>
-    <li>You can <a href="http://acom-int.azurewebsites.net/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Sites.</li>
-    <li>You can activate <a href="http://acom-int.azurewebsites.net/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
+    <li>You can <a href="http://acom-int.azurewebsites.net/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> – You get credits you can use to try out paid Azure services, and even after they’re used up you can keep the account and use free Azure services, such as Web Sites.</li>
+    <li>You can activate <a href="http://acom-int.azurewebsites.net/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN subscriber benefits</a> – Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
   <ul>
 </div>
  
 ### Tutorial segments
 
 * [Set up the development environment](#set-up-the-development-environment)
-* [Create an ASP.NET web project in Visual Studio](#create-an-asp.net-web-project)
+* [Create an ASP.NET web application in Visual Studio](#create-an-asp.net-web-application)
 * [Deploy the application to Azure](#deploy-the-application-to-azure)
 * [Make a change and redeploy](#make-a-change-and-redeploy)
 * [Monitor and manage the site in the management portal](#monitor-and-manage-the-site-in-the-management-portal)
@@ -107,7 +107,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	In a few seconds, Visual Studio creates the web project in the folder you specified, and it creates the web site in the Azure region you specified.  
 
-	The **Solution Explorer** window shows the files and folders in the new project. (The screenshot is for a Web Forms project; an MVC project has different folders and files.)
+	The **Solution Explorer** window shows the files and folders in the new project.
 
 	![Solution Explorer](./media/web-sites-dotnet-get-started-vs2013/solutionexplorer.png)
 
@@ -145,11 +145,11 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
 
-	You can accept the default settings on this tab.  You're deploying a Release build and you don't need to change any of the default **File Publish Options** settings.
+	You can accept the default **Configuration** and **File Publish Options**.
 
-	The [Next Steps](#next-steps) section at the end of the tutorial links to a tutorial that deploys a Debug build and shows how to run Visual Studio in debug mode remotely.
+	The **Configuration** drop-down enables you to deploy a Debug build for remote debugging. The [Next Steps](#next-steps) section links to a tutorial that shows how to run Visual Studio in debug mode remotely.
 
-	The **File Publish Options** include:
+	If you expand **File Publish Options** you'll see several settings that enable you to handle scenarios that don't apply to this tutorial:
  
 	* Remove additional files at destination.
 	  
@@ -188,7 +188,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 ## Make a change and redeploy
 
-In this optional section of the tutorial, you change the **h1** heading of the home page, run the project locally on your development computer to verify the change, and then deploy the change to Azure.
+In this section of the tutorial, you change the **h1** heading of the home page, run the project locally on your development computer to verify the change, and then deploy the change to Azure.
 
 2. Open the *Views/Home/Index.cshtml* or *.vbhtml* file in **Solution Explorer**, change the **h1** heading from "ASP.NET" to "ASP.NET and Azure", and save the file. 
 
@@ -219,13 +219,13 @@ In this optional section of the tutorial, you change the **h1** heading of the h
 
 	![Changed site deployed](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
-**Tip:** You can enable the Web One Click Publish toolbar for even quicker deployment. Click **View** > **Toolbars**, and then select **Web One Click Publish**. The toolbar enables you to select a profile, click a button to publish, or click a button to open the **Publish Web** wizard. 
+**Tip:** You can enable the **Web One Click Publish** toolbar for even quicker deployment. Click **View** > **Toolbars**, and then select **Web One Click Publish**. The toolbar enables you to select a profile, click a button to publish, or click a button to open the **Publish Web** wizard. 
 
 ![Web One Click Publish Toolbar](./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png)
 
 ## Monitor and manage the site in the management portal
 
-The [Azure Management Portal](/en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the web sites you just created. In this optional section of the tutorial you look at some of what you can do in the portal.
+The [Azure Management Portal](/en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the web sites you just created. In this section of the tutorial you look at some of what you can do in the portal.
 
 1. In your browser, go to [http://manage.windowsazure.com](), and sign in with your Azure credentials.
 
@@ -259,7 +259,7 @@ The [Azure Management Portal](/en-us/services/management-portal/) is a web inter
 
 These are just a few of the management portal's features.  
 
-**Tip:** There is a new management portal in preview which will eventually replace the one you've been using. You can try it out at [https://portal.azure.com]().
+**Tip:** There is a new management portal in preview which will eventually replace the one you've been using. For more information, see [Azure Preview Portal](/en-us/overview/preview-portal/).
 
 ## Next steps
 
@@ -269,7 +269,7 @@ In this tutorial you've seen how to create a simple web application and deploy i
 
 	In this tutorial you saw the quickest way to create a site and deploy it all in one operation. For an overview of other ways to deploy, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to Deploy an Azure Web Site](/en-us/documentation/articles/web-sites-deploy/"). 
 
-	Visual Studio can also generate Windows Powershell scripts that enable you to automate deployment. For more information, see [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
+	Visual Studio can also generate Windows PowerShell scripts that enable you to automate deployment. For more information, see [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
 * How to manage a web site in Visual Studio
 
