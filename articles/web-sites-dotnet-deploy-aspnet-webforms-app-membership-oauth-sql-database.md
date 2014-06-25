@@ -56,7 +56,7 @@ In this tutorial your Azure Web Site will run in a shared hosting environment, w
 
 Azure SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
-1. In the Azure Management Portal, click **Web Sites** in the left tab, and then click **New**.  
+1. In the [Azure Management Portal](https://manage.windowsazure.com/), click **Web Sites** in the left tab, and then click **New**.  
 	![Web Platform Installer](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-02.png)
 2. Click **Web Site**, and then click **Custom Create**.  
 	![Custom Create](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-03.png)  
@@ -270,7 +270,7 @@ The following steps will allow you to use the Web Forms Scaffolder.
 	The **Extensions and Updates** dialog box is displayed.
 2. From the left pane of the dialog box, select **Online** -> **Visual Studio Gallery** -> **Tools** -> **Scaffolding**.
 3. If you don't see 'Web Forms Scaffolding' in the list, enter 'Web Forms Scaffolding' in the search box on the right of the dialog box.  
-4. Select **Download** to download and install 'Web Forms Scaffolding'. Restart Visual Studio if needed. Be sure to save your changes to the project when requested.  
+4. If the Web Forms Scaffolder is not already installed, select **Download** to download and install 'Web Forms Scaffolding'. Restart Visual Studio if needed. Be sure to save your changes to the project when requested.  
 	![Extensions and Updates dialog box](./media/web-sites-dotnet-web-forms-secure/ExtensionsAndUpdatesDB.png)  
 5. Build the project (**Ctrl+Shift+B**).  
 	You must build the project before using the scaffolding mechanism.  
@@ -571,23 +571,23 @@ Using ASP.NET Identity, you can add an administrator role and assign a user to t
         {
             <mark>AddUserAndRole(context);</mark>
 	</pre>  
-5. In the Package Manager Console run the following command:  
+5. After saving all your changes, in the **Package Manager Console** run the following command:  
 	<pre class="prettyprint">
 	Update-Database
 	</pre>
 	This code creates a new role called `canEdit` and creates a new local user with the email of canEditUser@wideworldimporters.com. Then, the code adds canEditUser@wideworldimporters.com to the `canEdit` role. For more information, see the [ASP.NET Identity](http://www.asp.net/identity) resource page.  
 
 ###Restrict Access to the Administration Folder 
-The **ContactManager** sample application allows both anonymous users and logged-in users to view contacts. However, after you complete this section, the logged-in users that are assigned to the “canEdit” role will be the only users able to modify the contacts.
+The **ContactManager** sample application allows both anonymous users and logged-in users to view contacts. However, after you complete this section, the logged-in users that are assigned to the "canEdit" role will be the only users able to modify the contacts.
 
-You will create a folder named *Admin* where only users that are assigned to the “canEdit” role can access.
+You will create a folder named *Admin* where only users that are assigned to the "canEdit" role can access.
 
 1. In **Solution Explorer**, add a sub-folder to the *Contacts* folder and name the new sub-folder *Admin*.
 2. Move the following files from the *Contacts* folder to the *Contacts/Admin* folder:  
 	- *Delete.aspx *and* Delete.aspx.cs*
 	- *Edit.aspx *and* Edit.aspx.cs*
 	- *Insert.aspx *and* Insert.aspx.cs*
-3. Update the link references in *Contacts/Default.aspx* by adding “Admin/” before the pages references that link to *Insert.aspx*, *Edit.aspx*, and *Delete.aspx*:  
+3. Update the link references in *Contacts/Default.aspx* by adding "Admin/" before the pages references that link to *Insert.aspx*, *Edit.aspx*, and *Delete.aspx*:  
 	<pre class="prettyprint">
 	&lt;%@ Page Title=&quot;ContactsList&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site.Master&quot; CodeBehind=&quot;Default.aspx.cs&quot; Inherits=&quot;ContactManager.Contacts.Default&quot; ViewStateMode=&quot;Disabled&quot; %&gt;
 	&lt;%@ Register TagPrefix=&quot;FriendlyUrls&quot; Namespace=&quot;Microsoft.AspNet.FriendlyUrls&quot; %&gt;
@@ -654,7 +654,7 @@ You will create a folder named *Admin* where only users that are assigned to the
 	    &lt;/div&gt;
 	&lt;/asp:Content&gt;
 	</pre>
-4. Update the six references of the `Response.Redirect(“Default.aspx”)` code to `Response.Redirect(“~/Contacts/Default.aspx”)` for the following three files:  
+4. Update the six references of the `Response.Redirect("Default.aspx")` code to `Response.Redirect("~/Contacts/Default.aspx")` for the following three files:  
 	- *Delete.aspx.cs*
 	- *Edit.aspx.cs*
 	- *Insert.aspx.cs*  
@@ -675,9 +675,9 @@ You will create a folder named *Admin* where only users that are assigned to the
 	&lt;/configuration&gt;
 	</pre>
 8. Save the *Web.config* file. 
-	The *Web.config* file specifies that only users assigned to the “canEdit” role can access the pages contained in the *Admin* folder. 
+	The *Web.config* file specifies that only users assigned to the "canEdit" role can access the pages contained in the *Admin* folder. 
 
-When a user that is not part of the “canEdit” role attempts to modify the data, they will be redirected to the *Log in* page.
+When a user that is not part of the "canEdit" role attempts to modify the data, they will be redirected to the *Log in* page.
 
 ##Deploy the Application with the Database to Azure 
 Now that the web application is complete, you can publish it to Azure.
@@ -698,12 +698,17 @@ Now that the web application is complete, you can publish it to Azure.
 	![Select Existing Web Site dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms26.png)  
 7. Set the **Configuration** dropdown box to **Debug**.
 8. Click the **down arrow** icon next to **ApplicationDbContext** and set it to **ContactDB**.
-9. Check the **Execute Code First Migrations** checkbox and then click **Publish**.  
+9. Check the **Execute Code First Migrations** checkbox.  
+
+	>[WACOM.NOTE]  
+	In this example, you should select this checkbox only the first time you publish the application. This way, the *Seed* method in the *Configuration.cs* file will only be called once.  
+
+10. Then, click **Publish**.  
 	Your application will be published to Azure.
 
->[
->WACOM.NOTE] 
-If you closed and re-opened Visual Studio after you created the publish profile, you might not see the connection string in the drop-down list. In that case, instead of editing the publish profile that you created earlier, create a new one the same way you did earlier, and then follow these steps on the **Settings** tab.)
+>[WACOM.NOTE]  
+If you closed and re-opened Visual Studio after you created the publish profile, you might not see the connection string in the drop-down list. In that case, instead of editing the publish profile that you created earlier, create a new one the same way you did earlier, and then follow these steps on the **Settings** tab.)  
+
 ###Review the Application in Azure 
 1. In the browser, click the **Contact Demo** link.  
 	The Contacts List is displayed.
@@ -743,6 +748,10 @@ It is important to know how to view and modify the database directly. Knowing ho
 2. Right-click on **ContactDB** and select **Open in SQL Server Object Explorer**.  
 	![Open in SQL Server Object Explorer menu item](./media/web-sites-dotnet-web-forms-secure/SecureWebForms32.png)  
 3. If the **Add Firewall Rule** dialog box is displayed, select **Add Firewall Rule**.  
+
+	>[WACOM.NOTE]  
+	If you can't expand **SQL Databases** and can't see **ContactDB** from Visual Studio, you can follow the instructions to open a firewall port or a range of ports. To do this, follow the instructions under **Set up Azure firewall rules** near the end of the [MVC tutorial](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). As an alternative, you can also review the data of the local database by building, running, and adding data the application locally (**CTRL+F5** from Visual Studio).  
+
 4. If the **Connect to Server** dialog box is displayed, enter the **password** you created at the beginning of this tutorial and press the **Connect** button.  
 
 	>[WACOM.NOTE]  
@@ -756,7 +765,7 @@ It is important to know how to view and modify the database directly. Knowing ho
 ###Add a User to the Admin Role by Editing the Database 
 Earlier in the tutorial you used code to add users to the canEdit role. An alternative method is to directly manipulate the data in the membership tables. The following steps show how to use this alternate method to add a user to a role.
 
-1. In **SQL Server Object Explorer**, right click on **dbo.****AspNetUserRoles** and select **View Data**.
+1. In **SQL Server Object Explorer**, right click on **dbo.AspNetUserRoles** and select **View Data**.
 	![AspNetUserRoles data](./media/web-sites-dotnet-web-forms-secure/SecureWebForms36.png)  
 2. Copy the *RoleId* and paste it into the empty (new) row.  
 	![AspNetUserRoles data](./media/web-sites-dotnet-web-forms-secure/SecureWebForms37.png)  
