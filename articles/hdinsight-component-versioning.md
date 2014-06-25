@@ -42,7 +42,7 @@ HDInsight supports multiple Hadoop cluster versions that can be deployed at any 
 <tr><td>Tez</td><td>0.4.0</td><td></td><td></td><td></td></tr>
 <tr><td>Apache Pig</td><td>0.12.1</td><td>0.12.0</td><td>0.11.0</td><td>0.9.3</td></tr>
 <tr><td>Apache Hive & HCatalog</td><td>0.13.0</td><td>0.12.0</td><td>0.11.0</td><td>0.9.0</td></tr>
-<tr><td>HBase (Preview)</td><td></td><td>0.96.0</td><td></td><td></td></tr>
+<tr><td>HBase (Preview)</td><td>0.98.0</td><td>0.96.0</td><td></td><td></td></tr>
 <tr><td>Apache Sqoop</td><td>1.4.4</td><td>1.4.4</td><td>1.4.3</td><td>1.4.2</td></tr>
 <tr><td>Apache Oozie</td><td>4.0.0</td><td>4.0.0</td><td>3.3.2</td><td>3.2.0</td></tr>
 <tr><td>Apache HCatalog</td><td>Merged with Hive</td><td>Merged with Hive</td><td>Merged with Hive</td><td>0.4.1</td></tr>
