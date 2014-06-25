@@ -9,13 +9,21 @@ Reasons why you might want to call SQL Server stored procedures:
 - your application architecture dictates the use of stored procedures for database access
 - personal preference
 
+
+
 This topic tells you how to:
+
+
 
 + [Call a simple stored procedure]
 + [Call a stored procedure with parameters]
 + [Find out more]
 
-This article discusses stored procedures in a mobile service with a JavaScript back end. But you can instead create mobile services with a .Net back end, which has a completely different architecture based on the Entity Framework. To learn more, see [How the Azure Mobile Services .Net Backend works].
+
+
+This article discusses stored procedures in a mobile service with a JavaScript back end. 
+
+But you can instead create mobile services with a .Net back end, which has a completely different architecture based on the Entity Framework. To learn more, see [How the Azure Mobile Services .Net Backend works].
 
 
 
@@ -34,7 +42,11 @@ You do this with the [mssql object], which lets you execute *Transact-SQL* ("T-S
 
 
 
+
+
 ###Writing and testing the Transact SQL code
+
+
 
 
 Assume the stored stored procedure is named *GetAll*, and your mobile service is named **todolist**.
@@ -85,7 +97,6 @@ If you need to call the stored procedure directly, the most flexible way is to w
 
 
 		exports.get = function(request, response) {
-		
 		    var mssql = request.service.mssql;
 		    var sql = "EXEC todolist.GetAll";
 		    mssql.query(sql, {
@@ -112,7 +123,7 @@ If you need to call the stored procedure directly, the most flexible way is to w
 
 
 
-You can alternatively put similar code inside a standard *read*, *insert*, *update*, or *delete*  server script of a table, and your code will bypass the default behavior, and call the stored procedure. Similar code can go inside a *Scheduler* script. However, creating a custom API is the most flexible.
+You can instead put similar code inside a standard *read*, *insert*, *update*, or *delete*  server script of a table, and your code will bypass the default behavior, and call the stored procedure. Similar code can go inside a *Scheduler* script. However, creating a custom API is the most flexible.
 
 
 
@@ -173,7 +184,7 @@ Let's assume the stored stored procedure is named *ItemsByStatus*, that it has a
 
 
 
-2. Click the **Run** symbol and view the results. 
+2. Click the **Run** symbol and verify the results. 
 
 
 
@@ -181,7 +192,7 @@ Let's assume the stored stored procedure is named *ItemsByStatus*, that it has a
 
 
 
-3. As in the preceding step, create a new custom API named **completeall** with the following code that calls the stored procedure. Note that you replace the actual value of the **@Status** parameter that you used in testing with **"?"**, which will get filled at run-time with the supplied parameter.
+3. As in the preceding step, create a new custom API named **completeall** with the following code that calls the stored procedure. Note that in the code below, you replace the actual value of the **@Status** parameter that you used in testing with **"?"**, which will get filled at run-time with the supplied parameter.
 
 
 
@@ -209,6 +220,9 @@ Let's assume the stored stored procedure is named *ItemsByStatus*, that it has a
 
 
 		https://todolist.azure-mobile.net/api/completeall?status=1
+
+
+
 
 
 5. Call the API from the client as described in the preceding section.
