@@ -52,7 +52,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 	
         public static HttpNotificationChannel CurrentChannel { get; private set; }
 
-		private void AcquirePushChannel()
+		private async void AcquirePushChannel()
         {
             CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
 
@@ -64,7 +64,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             }
                   
 	       IMobileServiceTable<Registrations> registrationsTable = App.MobileService.GetTable<Registrations>();
-	       var registration = new Registrations { Handle = CurrentChannel.Uri };
+	       var registration = new Registrations { Handle = CurrentChannel.ChannelUri.AbsoluteUri };
 	       await registrationsTable.InsertAsync(registration);
         }
 
@@ -110,7 +110,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
         	    registrationsTable.read({
             	    success: function(registrations) {
                 	    registrations.forEach(function(registration) {
-                    	    push.mpns.sendFlipTile(registration.uri, {
+                    	    push.mpns.sendFlipTile(registration.handle, {
                         	    title: item.text
                     	    }, {
                         	    success: function(pushResponse) {
