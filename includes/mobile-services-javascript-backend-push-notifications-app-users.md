@@ -23,6 +23,6 @@
 		    done();
 		}; 
 
-	This adds a tag to the registration that is the ID of the logged-in user. When a notification is sent to this user, it is recieved on this device.
+	This adds a tag to the registration that is the ID of the logged-in user. When a notification is sent to this user, it is received on this device.
 
 4. Click the back arrow, click the **Data** tab, click **TodoItem**, click **Script** and select **Insert**. 

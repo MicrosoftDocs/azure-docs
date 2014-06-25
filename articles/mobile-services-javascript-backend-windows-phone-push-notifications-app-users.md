@@ -1,4 +1,4 @@
-<properties linkid="/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users" pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="" editor="" />
+<properties linkid="/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users" pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="" editor="" />
 
 # Send push notifications to authenticated users
 
@@ -26,7 +26,7 @@ Before you start this tutorial, you must have already completed these Mobile Ser
 
 After you have completed both tutorials, you can prevent unauthenticated users from registering for push notifications from your mobile service.
 
-##<a name="register"></a>Update the service to require authentication for registration
+##<a name="register"></a>Update the service to require authentication to register
 
 [WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)] 
 
@@ -62,20 +62,8 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 
 ##<a name="update-app"></a>Update the app to log in before registration
 
-Next, you need to change the way that push notifications are registered to make sure that the user is authenticated before registration is attempted. 
+[WACOM.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../includes/mobile-services-windows-phone-push-notifications-app-users.md)] 
 
-1. In Visual Studio in Solution Explorer, open the app.xaml.cs project file and in the **Application_Launching** event handler comment-out or delete the call to the **AcquirePushChannel** method. 
- 
-2. Change the accessibility of the **AcquirePushChannel** method from `private` to `public` and add the `static` modifier. 
-
-3. Open the MainPage.xaml.cs project file and replace the **OnNavigatedTo** method override with the following:
-
-	    protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            await AuthenticateAsync();            
-            app.AcquirePushChannel();
-            RefreshTodoItems();
-        }
 
 ##<a name="test"></a>Test the app
 
