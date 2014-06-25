@@ -145,7 +145,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
 
-	You can accept the default **Configuration** and **File Publish Options**.
+	You can accept the default values for **Configuration** and **File Publish Options**.
 
 	The **Configuration** drop-down enables you to deploy a Debug build for remote debugging. The [Next Steps](#next-steps) section links to a tutorial that shows how to run Visual Studio in debug mode remotely.
 
