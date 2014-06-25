@@ -58,5 +58,7 @@
 		// Use a tag to only send the notification to the logged-in user.
         var result = await Services.Push.SendAsync(message, currentUser.Id);
 
-This modifies the service to use the user ID tag to send a push notification (with the text of the inserted item) to all registrations created by the logged-in user.
+7. Republish the mobile service project.
+
+Now, the service uses the user ID tag to send a push notification (with the text of the inserted item) to all registrations created by the logged-in user.
  
