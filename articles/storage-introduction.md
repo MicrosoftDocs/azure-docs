@@ -29,6 +29,7 @@ Azure Storage supports clients using a diverse set of operating systems (includi
 The Azure Storage services are Blob storage, Table storage, and Queue storage. These three services are included in every storage account:
 
 - **Blob storage** stores file data. A blob can be any type of text or binary data, such as a document, media file, or application installer. 
+- **File storage** offers shared storage for legacy applications using the standard SMB 2.1 protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares.
 - **Table storage** stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
 - **Queue storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
 
@@ -58,6 +59,17 @@ Every blob is organized into a container. Containers also provide a useful way t
 Blob storage offers two types of blobs, block blobs and page blobs (disks). Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. A block blob can be up to 200 GB in size. Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB in size. An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.
 
 For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a hard drive to Microsoft to import or export data directly from the data center using the [Azure Import/Export Service](http://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/). You can also copy blob data within your storage account or across storage accounts. 
+
+## File Storage ##
+
+File storage exposes standard SMB file shares, so that applications running in Azure virtual machines or cloud services can rely on shared file data. A distributed application can mount a file share that is accessible to multiple components. 
+
+Developers can access file data in a share via native OS I/O APIs as well as via the File service APIs, so they can use familiar skills to develop applications for Azure. 
+
+
+Users with legacy applications that rely on file shares can take advantage of Azure File storage to move those applications to Azure virtual machines or cloud services without rewriting their applications. 
+
+ 
 
 ## Table Storage ##
 
