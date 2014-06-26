@@ -61,9 +61,6 @@ To start, set up your development environment by installing the Visual Studio 20
 
 When the installation is complete, you have everything necessary to start developing.
 
->[WACOM.NOTE] 
-You must install Visual Studio 2013 Update 2 or higher to use Goggle OAuth 2.0 and to use SSL locally without warnings. Also, you need Update 2 to use Web Forms Scaffolding.
-
 ##Set up the Azure Environment
 In this section you'll set up the Azure environment by creating an Azure Web Site and a SQL database in Azure.
 
