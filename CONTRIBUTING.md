@@ -245,4 +245,4 @@ By using references grouped at the bottom of your file, you can easily find, edi
 [Set Up Git]: http://help.github.com/win-set-up-git/
 [Markdown Home]: http://daringfireball.net/projects/markdown/
 [Markdown Pad]: http://markdownpad.com/
-Azure/Azure-Content issue]: https://github.com/Azure/azure-content/issues
+[Azure/Azure-Content issues]: https://github.com/Azure/azure-content/issues
