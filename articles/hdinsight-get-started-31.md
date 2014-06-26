@@ -31,6 +31,7 @@ Before you begin this tutorial, you must have the following:
 
 - An Azure subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 - A computer with Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
+- For notes on the latest HDInsight releases, see [HDInsight Release Notes](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/).
 
 **Estimated time to complete:** 30 minutes
 

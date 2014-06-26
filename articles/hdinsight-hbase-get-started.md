@@ -200,7 +200,7 @@ Note: The HBase shell link switches the tab to the **HBase Shell**.
 		}
 
 		// GET Row
-		$row = Invoke-RestMethod https://yourclustername.azurehdinsight.net/hbaserest/sampletable/row2 -Credential $creds
+		$row = Invoke-RestMethod https://yourclustername.azurehdinsight.net/hbaserest/sampletable/row -Credential $creds
 		"$(Base64Decode($row.CellSet.Row.Cell.column)) = $(Base64Decode($row.CellSet.Row.Cell.'#text'))"
 
 
