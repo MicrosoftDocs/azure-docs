@@ -17,7 +17,7 @@ Finally, you must update the script registered to the insert operation on the To
 		request.execute({
 		    success: function() {
 		        // If the insert succeeds, send a notification.
-		    	push.wns.send(null,payload, 'wns/toast', {
+		    	push.wns.send(null, payload, 'wns/toast', {
 		            success: function(pushResponse) {
 		                console.log("Sent push:", pushResponse);
 						request.respond();
