@@ -42,9 +42,9 @@ Before your app can receive push notifications, you must register a notification
                 client.push.registerNative(channel.uri);                    
             });      
 
-         This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.
+	This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.
 
-5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
+2. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
 
 6. Open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
 
@@ -58,15 +58,7 @@ Before your app can receive push notifications, you must register a notification
 
 ##<a id="test"></a> Test push notifications in your app
 
-1. In Visual Studio, press the F5 key to run the app.
-
-2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
-
-   	![][13]
-
-   	Note that after the insert completes, the app receives a push notification from WNS.
-
-   	![][14]
+[WACOM.INCLUDE [mobile-services-windows-store-test-push](../includes/mobile-services-windows-store-test-push.md)]
 
 ## <a name="next-steps"> </a>Next steps
 

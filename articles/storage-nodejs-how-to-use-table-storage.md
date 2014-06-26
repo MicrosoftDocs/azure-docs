@@ -435,16 +435,11 @@ to learn how to do more complex storage tasks.
   [How To: Query a Subset of Entity Properties]: #query-entity-properties
   [How To: Delete an Entity]: #delete-entity
   [How To: Delete a Table]: #delete-table
-  [Table1]: ./media/storage-nodejs-how-to-use-table-storage/table1.png
+
   [OData.org]: http://www.odata.org/
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
 
-  [plus-new]: ./media/storage-nodejs-how-to-use-table-storage/plus-new.png
-  [quick-create-storage]: ./media/storage-nodejs-how-to-use-table-storage/quick-storage.png
-  
-  
-  
   [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Visit the Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
