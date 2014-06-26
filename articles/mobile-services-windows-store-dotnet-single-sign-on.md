@@ -15,6 +15,11 @@ This topic shows you how to use Live Connect single sign-on to authenticate user
 	<p>This tutorial demonstrates the benefits of using the single sign-on experience provided by Live Connect for Windows Store apps. This enables you to more easily authenticate an already logged-on user with you mobile service. For a more generalized authentication experience that supports multiple authentication providers, see the topic <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/">Get started with authentication</a>. </p>
 </div>
 
+<div class="dev-callout"><b>Note</b>
+	<p>This tutorial uses an Azure Mobile Service with a Javascript backend. Azure Mobile Services with a .NET backend 
+	currently do not support authentication tokens from provider SDKs such as Live Connect.</p>
+</div>
+
 This tutorial walks you through these basic steps to enable Live Connect authentication:
 
 1. [Register your app for authentication and configure Mobile Services]
