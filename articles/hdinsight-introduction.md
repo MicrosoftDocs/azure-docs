@@ -108,6 +108,8 @@ HDInsight (and Hadoop technologies in general) are most suitable for handling a 
 
 * [HDInsight Documentation](http://go.microsoft.com/fwlink/?LinkID=285601): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
 
+* [HDInsight Release Notes](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/): Notes on the latest releases.
+
 * [Get started with Azure HDInsight][hdinsight-get-started]: A tutorial that provides a quickstart for using HDInsight.
 
 * [Run the HDInsight samples][hdinsight-samples]: A tutorial on how the run the samples that ship with HDInsight.
