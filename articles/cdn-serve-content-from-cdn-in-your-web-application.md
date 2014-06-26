@@ -15,9 +15,9 @@ This tutorial shows you how to take advantage of Azure CDN to improve the reach 
 In this tutorial, you will learn how to do the following:
 
 -	[Serve static content from an Azure CDN endpoint](#deploy)
--	[Easily upload all content in your ASP.NET application to your CDN endpoint](#upload)
+-	[Automating uploading content in your ASP.NET application to your CDN endpoint](#upload)
 -	[Configure the CDN cache to reflect the desired content update](#update)
--	[Serve fresh content immediately through query strings](#query)
+-	[Serve fresh content immediately using query strings](#query)
 
 ## What you will need ##
 
@@ -25,9 +25,10 @@ This tutorial has the following prerequisites:
 
 -	An active [Microsoft Azure account](http://azure.microsoft.com/en-us/account/). You can sign up for a trial account
 -	Visual Studio 2013 with [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+-	A simple ASP.NET MVC application to test CDN URLs. [Automating uploading content in your ASP.NET application to your CDN endpoint](#upload) uses an ASP.NET MVC application as an example.  
 
 <a name="static"></a>
-## Use Azure CDN for your static content##
+## Serve static content from an Azure CDN endpoint ##
 
 In this tutorial section, you will learn how to create a CDN and use it to serve your static content. The major steps involved are:
 
@@ -126,7 +127,7 @@ Let's get to it. Follow the steps below to start using the Azure CDN:
 In this section, you have learned how to create a CDN endpoint, upload content to it, and link to CDN contentfrom any Web page.
 
 <a name="upload"></a>
-## Uploading content to Azure CDN from ASP.NET MVC ##
+## Automating uploading content in your ASP.NET application to your CDN endpoint ##
 
 What if you want to easily upload all of the static content in your ASP.NET Web application to your CDN endpoint? With a little bit of coding, bulk-uploading content from an ASP.NET Web application project to Azure CDN is quite straightforward. [Maarten Balliauw](https://twitter.com/maartenballiauw) has provided an excellent way to do it with ASP.NET MVC in his video [Reducing latency on the web with the Windows Azure CDN](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN), which I will simply reproduce here. 
 
@@ -215,12 +216,12 @@ What if you want to easily upload all of the static content in your ASP.NET Web 
 
 4. Debug your MVC application by typing `F5`, then navigate to your action method, like `http://localhost:####/Home/Synchronize`.
 
-	Once the content has finished uploading, you should see the message "Content is synchronized with the blob container." You can now link to anything in your *\Content* and *\Scripts* folder in your .cshtml files, using `http://<cdnName>.vo.msecnd.net/<containerName>`. Here is an example of something I can use in my own code: 
+	Once the content has finished uploading, you should see the message "Content is synchronized with the blob container." You can now link to anything in your *\Content* and *\Scripts* folder in your .cshtml files, using `http://<cdnName>.vo.msecnd.net/<containerName>`. Here is an example of something I can use in a Razor view: 
 
 		<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
 
 <a name="update"></a>
-## Publish content updates to Azure CDN ##
+## Configure the CDN cache to reflect the desired content update ##
 
 Now, suppose after you have uploaded the static files from your Web app in a blob container, you make a change to one of the files in your project and upload it to the blob container again. You may think that it's automatically updated to your CDN endpoint, but are actually puzzled why you don't see the update reflected when you access the content's CDN URL. 
 
@@ -243,49 +244,52 @@ The complete blob upload code snippet then looks like the following:
     blob.UploadFromFile(file, FileMode.OpenOrCreate);
     blob.SetProperties();
 
-You may be irked to find that you still need to wait for the full 7-day cached content on your Azure CDN to expire before it pulls the new content, with the new Cache-Control header. This illustrates the fact that custom caching values do not help if you want your content update to go live immediately, such as JavaScript or CSS updates. However, you can work around this issue by versioning your content through query strings. For more information, see [TODO].
+You may still need to wait for the full 7-day cached content on your Azure CDN to expire before it pulls the new content, with the new Cache-Control header. This illustrates the fact that custom caching values do not help if you want your content update to go live immediately, such as JavaScript or CSS updates. However, you can work around this issue by versioning your content through query strings. For more information, see [Serve fresh content immediately using query strings](#query).
 
-There is, of course, a time and place for caching. For example, you may have content that does not require the frequent update, such as the upcoming World Cup games that can be refreshed every 3 hours, but gets enough global traffic that you want to offload it from your own Web server. That can be a good candidate to use the Azure CDN caching. 
+There is, of course, a time and place for caching. For example, you may have content that does not require the frequent update, such as the upcoming World Cup games that can be refreshed every 3 hours, but gets enough global traffic that you want to offload it from your own Web server. That can be a good candidate to use the Azure CDN caching.
 
 <a name="query"></a>
-## Refreshing CDN Content Access through Query String ##
+## Serve fresh content immediately using query strings ##
 
-In Azure CDN, you can enable query strings so that each HTTP request with a specific query string is cached separately. This is a great feature to use if you want to push certain content updates to the client browsers immediately instead of waiting for the cache to expire. Suppose I publish my Web page with a version number in the query string.
+In Azure CDN, you can enable query strings so that content from URLs with specific query strings are cached separately. This is a great feature to use if you want to push certain content updates to the client browsers immediately instead of waiting for the cached CDN content to expire. Suppose I publish my Web page with a version number in the URL.  
+<pre class="prettyprint">
+&lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.0.0</mark>&quot; rel=&quot;stylesheet&quot;/&gt;
+</pre>
 
-    <link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.0.0" rel="stylesheet"/>
+When I publish a CSS update and use a different version number in my CSS URL:  
+<pre class="prettyprint">
+&lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.1.1</mark>&quot; rel=&quot;stylesheet&quot;/&gt;
+</pre>
 
-When I publish a CSS update and use a different version number in your CSS link:
+To a CDN endpoint that has query strings enabled, the two URLs are unique to each other, and it will make a new request to my Web server to retrieve the new *bootstrap.css*. To a CDN endpoint that doesn't have query strings enabled, however, these are the same URL, and it will simply serve the cached *bootstrap.css*. 
 
-    <link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.1.1" rel="stylesheet"/>
+The trick then is to update the version number automatically. In Visual Studio, this is easy to do. In a .cshtml file where you would use the link above, you can specify a version number based on the assembly number.  
+<pre class="prettyprint">
+@{
+    <mark>var cdnVersion = System.Reflection.Assembly.GetAssembly(
+        typeof(MyMvcApp.Controllers.HomeController))
+        .GetName().Version.ToString();</mark>
+}
 
-To an Azure CDN that has query strings enabled, the two links are unique to each other, and it will make a new request to my Web server to retrieve the new bootstrap.css.
+...
 
-The trick then is to update the version number automatically. In Visual Studio, this is easy to do. In a .cshtml file where I would use the link above, I can specify a version number based on the assembly number.
+&lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=@cdnVersion</mark>&quot; rel=&quot;stylesheet&quot;/&gt;
+</pre>
 
-	@{
-	    var cdnVersion = System.Reflection.Assembly.GetAssembly(
-	        typeof(MyMvcApp.Controllers.HomeController))
-	        .GetName().Version.ToString();
-	}
-
-	...
-
-    <link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion" rel="stylesheet"/>
-
-If you change the assembly number as part of every publish cycle, then you can be sure to get a unique version number every time you publish your Web app, which will remain the same until the next publish cycle. Or, you can make Visual Studio automatically increment the assembly version number every time the Web app builds by opening `Properties\AssemblyInfo.cs` and use * in `AssemblyVersion`. For example:
+If you change the assembly number as part of every publish cycle, then you can be sure to get a unique version number every time you publish your Web app, which will remain the same until the next publish cycle. Or, you can make Visual Studio automatically increment the assembly version number every time the Web app builds by opening *Properties\AssemblyInfo.cs* in your Visual Studio project and use * in `AssemblyVersion`. For example:
 
 	[assembly: AssemblyVersion("1.0.0.*")]
 
 ## What about bundled scripts and CSS? ##
 
-Currently, the only place you find adequate integration between ASP.NET bundling and Azure CDN is in Azure Cloud Services. Without Azure Cloud Services, it is possible to use Azure CDN for your script bundles, with the following caveats:
+Currently, the only place you find adequate integration between ASP.NET bundling and Azure CDN is in [Azure Cloud Services](http://azure.microsoft.com/en-us/services/cloud-services/). Without Azure Cloud Services, it is possible to use Azure CDN for your script bundles, with the following caveats:
 
 - You must manually upload the bundled scripts to blob storage. A programmatic solution is proposed at [stackoverflow](http://stackoverflow.com/a/13736433).
 - In your .cshtml files, transform the rendered script/CSS tags to use the Azure CDN. For example:
 
 		@Html.Raw(Styles.Render("~/Content/css").ToString().Insert(0, "http://az623979.vo.msecnd.net"))
 
-For more information, see [TODO].    
+For more information on integrating Azure CDN with Azure Cloud Services, see [Integrate a cloud application with Azure CDN](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-create-deploy/).    
 
 # More Information #
-http://msdn.microsoft.com/library/azure/ff919703.aspx
+[Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
