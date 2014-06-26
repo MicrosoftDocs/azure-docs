@@ -32,49 +32,51 @@ You need to do the following before creating the service:
 ## **Step 1: Create a template image**##
 Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users. To create a custom RemoteApp template image, you can start with an existing image or create a new one. The requirements for the image that can be uploaded for use with Azure RemoteApp are:
 
-- It must be on a fixed-size VHD (VHDX files are not currently supported).
-- The disk must contain a single NTFS volume.
-- The operating system must be Windows Server 2012 R2.
+- It must be on a VHD file (VHDX files are not currently supported).
+- The VHD can be either fixed-size or dynamically expanding. A dynamically expanding VHD is recommended because it takes less time to upload to Azure than a fixed-size VHD file.
+- The disk must be initialized using the Master Boot Record (MBR) partitioning style. The GUID partition table (GPT) partition style is not supported. 
+- The VHD must contain a single installation of Windows Server 2012 R2. It can contain multiple volumes, but only one that contains an installation of Windows. 
 - The Remote Desktop Session Host (RDSH) role and the Desktop Experience feature must be installed.
+- The Encrypting File System (EFS) must be disabled.
 - The image must be SYSPREPed using the parameters **/oobe /generalize /shutdown** (DO NOT use the **/mode:vm** parameter).
 
 To create a new template image from scratch:
 
-1.	Locate a Windows Server 2012 R2 DVD or ISO image
-2.	Create a fixed-size VHD file
-3.	Create a single NTFS volume
-4.	Install Windows Server 2012 R2
-5.	Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature
-6.	Install additional features required by your applications
-7.	Install and configure your applications
-8.	Perform any additional Windows configurations required by your applications
-9.	SYSPREP the image
+1.	Locate a Windows Server 2012 R2 DVD or ISO image.
+2.	Create a VHD file.
+4.	Install Windows Server 2012 R2.
+5.	Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature.
+6.	Install additional features required by your applications.
+7.	Install and configure your applications.
+8.	Perform any additional Windows configurations required by your applications.
+9.	Disable the Encrypting File System (EFS).
+9.	SYSPREP the image.
 
 The detailed steps for creating a new image are:
 
-1.	Locate a Windows Server 2012 R2 DVD or ISO image. Use a DVD or ISO image preferred by your organization or download one from [here](http://technet.microsoft.com/evalcenter/dn205286.aspx).
-2.	Create a fixed-size VHD file:
+1.	Locate a Windows Server 2012 R2 DVD or ISO image. 
+2.	Create a VHD file by using Disk Management. 
 	1.	Launch Disk Management (diskmgmt.msc). 
-	2.	Create a fix-sized VHD of 40 GB or more in size. (Estimate the amount of space needed for Windows, your applications, and customizations. Windows Server with the RDSH role and Desktop Experience feature installed will require about 10 GB of space).
+	2.	Create a dynamically expanding VHD of 40 GB or more in size. (Estimate the amount of space needed for Windows, your applications, and customizations. Windows Server with the RDSH role and Desktop Experience feature installed will require about 10 GB of space).
 		1.	Click **Action > Create VHD**.
-		2.	Specify the location, size, VHD format, and fixed size, then click **OK**.
+		2.	Specify the location, size, and VHD format. Select **Dynamically expanding**, then click **OK**.
 
-			This will run for several minutes. When the VHD creation is complete, you should see a new disk without any drive letter and in “Not initialized" state in the Disk Management console.
+			This will run for several seconds. When the VHD creation is complete, you should see a new disk without any drive letter and in “Not initialized" state in the Disk Management console.
 
-		- Right-click the disk (not the unallocated space), and then click Initialize Disk. Select **MBR** (Master Boot Record) as the partition style, and then click **OK**.
+		- Right-click the disk (not the unallocated space), and then click **Initialize Disk**. Select **MBR** (Master Boot Record) as the partition style, and then click **OK**.
+		- Create a new volume: right-click the unallocated space, and then click **New Simple Volume**. You can accept the defaults in the wizard, but make sure you assign a drive letter to avoid potential problems when you upload the template image.
+		- Right-click the disk, and then click **Detach VHD**.
+
+			
 
 
-1. Create a single NTFS volume:
-	1.  Right-click the unallocated space on the disk, and then click **New Simple Volume**.
-	2.  Complete the steps in the wizard, accepting the default values. On the Format Partition page, be sure it will be formatted as NTFS and that **Perform a quick format** is selected. 
 
-		After the volume is formatted, you should see a drive letter assigned to it.
-
-		Detach this VHD for use in the next step. (Right-click the disk, then select Detach VHD, and click OK at the prompt).
 1. Install Windows Server 2012 R2:
-	1. Create a new virtual machine. Use the New Virtual Machine Wizard in Hyper-V Manager or Client Hyper-V. On the Connect Virtual Hard Disk page, select **Use an existing virtual hard disk** and browse to the VHD you created in step 2.
-	2.  After the wizard finishes, edit the settings of the VM. Under **Hardware** click **DVD Drive** (usually under one of the IDE Controllers). In the right pane under Media, click **Image file** and browse to the Windows Server® 2012 R2 ISO from step 1, or select the physical DVD drive if you are using physical installation media.
-	3.  Make any other changes in VM settings necessary to install Windows and programs to be published, and then click **OK**.
+	1. Create a new virtual machine. Use the New Virtual Machine Wizard in Hyper-V Manager or Client Hyper-V. 
+		1. On the Connect Virtual Hard Disk page, select **Use an existing virtual hard disk**, and browse to the VHD you created in the previous step.
+		2. On the Installation Options page, select **Install an operating system from a boot CD/DVD_ROM**, and then select the location of your Windows Server 2012 R2 installation media.
+		3. Choose other options in the wizard necessary to install Windows and your applications. Finish the wizard.
+	2.  After the wizard finishes, edit the settings of the VM and make any other changes necessary to install Windows and your programs, such as the number of virtual processors, and then click **OK**.
 	4.  Connect to the VM and install Windows Server 2012 R2.
 1. Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature:
 	1. Launch Server Manager.
@@ -96,6 +98,13 @@ The detailed steps for creating a new image are:
  	**Important:** Microsoft recommends that you install the RDSH role before installing applications to ensure that any issues with application compatibility are discovered before the image is uploaded to RemoteApp.
 
 8.	Perform any additional Windows configurations required by your applications.
+9.	Disable the Encrypting File System (EFS). Run the following command at an elevated command window:
+
+		Fsutil behavior set disableencryption 1
+
+	Alternatively, you can set or add the following DWORD value in the registry: 
+
+		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
 9.	SYSPREP the image. At an elevated command prompt, run the following command: 
 
 	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**

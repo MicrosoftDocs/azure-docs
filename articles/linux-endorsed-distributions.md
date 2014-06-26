@@ -6,7 +6,7 @@
 
 #Linux on Azure-Endorsed Distributions
 
-The distribution images on the Gallery are provided by the following partners and we are working with the community to bring even more endorsed distributions. In the meantime you can always Bring your Own Linux following the guidelines in this page.
+The distribution images on the Azure Gallery are provided by the following partners, and we are working with the various Linux communities to bring even more endorsed distributions. In the meantime, for distributions not available from the Gallery you can always Bring Your Own Linux by following the guidelines on [this page](../virtual-machines-linux-create-upload-vhd/).
 
 ## Canonical ##
  
@@ -20,7 +20,7 @@ With developers and engineering centers around the world, Canonical is uniquely 
  
 [http://www.openlogic.com/azure](http://www.openlogic.com/azure)
 
-OpenLogic is a leading provider of enterprise open source solutions for the cloud and the data center. OpenLogic helps hundreds of leading enterprise across a wide range of industries to safely acquire, support, and control open source software. OpenLogic offers commercial-grade technical support and indemnification for 600 open source packages backed by the OpenLogic Expert Community, including enterprise level support for CentOS as well as being the launch partner for providing Centos images on Azure.
+OpenLogic is a leading provider of enterprise open source solutions for the cloud and the data center. OpenLogic helps hundreds of leading enterprise across a wide range of industries to safely acquire, support, and control open source software. OpenLogic offers commercial-grade technical support and indemnification for 600 open source packages backed by the OpenLogic Expert Community, including enterprise level support for CentOS as well as being the launch partner for providing CentOS-based images on Azure.
 
 ## Oracle##
 [http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
@@ -35,9 +35,9 @@ SUSE Linux Enterprise Server on Azure is a proven platform that provides superio
 
 ## Supported Versions ##
 
-The following table shows the different distribution versions, Linux Integration Services (LIS) drivers and Azure Linux Agent versions that have been tested to work on Azure. LIS drivers are available at [http://www.microsoft.com/en-us/download/details.aspx?id=34603](http://www.microsoft.com/en-us/download/details.aspx?id=34603). Linux Agent versions are available at [https://github.com/windowsazure/walinuxagent](https://github.com/windowsazure/walinuxagent).
+The following table shows the different distribution versions, Linux Integration Services (LIS) drivers and Azure Linux Agent versions that have been tested to work on Azure. LIS drivers are either built into the distribution's kernel by default, or are available [here](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Linux Agent versions are available from the distribution's package repository or on [Github](https://github.com/azure/walinuxagent).
 
-The table also includes a link to the Kernel compatibility patch required by some distribution versions to work optimally in Azure.
+The table also includes a link to the [Linux kernel compatibility patch](http://go.microsoft.com/fwlink/?LinkID=403027&clcid=0x409) required by some distribution/kernel versions to work optimally in Azure.
 
 <table border="1" width="600">
   <tr bgcolor="#E9E7E7">
@@ -48,17 +48,17 @@ The table also includes a link to the Kernel compatibility patch required by som
 		<th>Agent</th>
 			</tr>
 	<tr>
-		<th>  Canonical UBUNTU </th>
-		<td> Ubuntu 12.04.1, 12.10, and 13.04</td>
+		<th>  Canonical Ubuntu </th>
+		<td> Ubuntu 12.04.1+, 13.10, & 14.04</td>
 		<td>In Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">Required for 12.04 or 12.04.01 only</a></td>
 		<td>Package: In package repo under walinuxagent <br />
 			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
-		<th> CENTOS by Open Logic </th>
+		<th> CentOS by OpenLogic </th>
 		<td> CentOS 6.3+</td>
-	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/p/?LinkID=254263">LIS drivers</a>; CentOS 6.4+ drivers: in Kernel</td>
+	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS drivers</a>; CentOS 6.4+ drivers: in Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Required for 6.3 only</a></td>
 		<td>Package:In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">Open Logic package repo </a> under walinuxagent<br />
 			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
@@ -83,7 +83,7 @@ The table also includes a link to the Kernel compatibility patch required by som
 	</tr>
 	<tr>
 		<th> openSUSE </th>
-		<td> OpenSUSE 13.1+</td>
+		<td> openSUSE 13.1+</td>
 		<td>In Kernel</td>
 		<td>N/A</td>
 		<td>Package: In <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo, name: WALinuxAgent<br />
