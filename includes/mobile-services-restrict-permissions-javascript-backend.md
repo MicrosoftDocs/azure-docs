@@ -1,6 +1,6 @@
 
 
-1. In Visual Studio, In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
+1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
 
    	![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-data-tables.png)
 

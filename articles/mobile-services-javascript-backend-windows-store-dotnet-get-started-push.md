@@ -71,15 +71,7 @@ Before your app can receive push notifications, you must register a notification
 
 ##<a id="test"></a> Test push notifications in your app
 
-1. In Visual Studio, press the F5 key to run the app.
-
-2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
-
-   	![][13]
-
-   	Note that after the insert completes, the app receives a push notification from WNS.
-
-   	![][14]
+[WACOM.INCLUDE [mobile-services-windows-store-test-push](../includes/mobile-services-windows-store-test-push.md)]
 
 ## <a name="next-steps"> </a>Next steps
 
