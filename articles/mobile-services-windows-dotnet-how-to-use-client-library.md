@@ -299,6 +299,15 @@ If you attempt to delete an item without the "Id" field already set, there is no
 			
 ##<a name="#custom-api"></a>How to: Call a custom API
 
+A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON. For a complete example, including how to create a custom API in your mobile service, see [Call a custom API from the client].
+
+You call a custom API by calling one of the [InvokeApiAsync] method overloads on the client. For example, the following line of code sends a POST request to the **completeAll** API on the mobile service:
+
+    var result = await App.MobileService
+        .InvokeApiAsync<MarkAllResult>("completeAll", 
+        System.Net.Http.HttpMethod.Post, null);
+
+Note that this a typed method call, which requires that the **MarkAllResult** return type be defined. Both typed and untyped methods are supported. This is an almost trivial example as it is typed, sends no payload, has no query parameters, and doesn't change the request headers. For more realistic examples and a more a complete discussion of [InvokeApiAsync], see [Custom API in Azure Mobile Services Client SDKs].
 
 
 ##<a name="optimisticconcurrency"></a>How to: Use Optimistic Concurrency
@@ -389,11 +398,7 @@ The following code shows how to resolve a write conflict once detected. The corr
 	}
 
 
-
-
-
 For a more complete example of using optimistic concurrency for Mobile Services, see the [Optimistic Concurrency Tutorial].
-
 
 
 <h2><a name="binding"></a><span class="short-header">Displaying data</span>How to: Bind data to user interface in a mobile service</h2>
@@ -726,3 +731,6 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Skip]: http://msdn.microsoft.com/en-us/library/windowsazure/dn250573.aspx
 [Take]: http://msdn.microsoft.com/en-us/library/windowsazure/dn250574.aspx 
 [Fiddler]: http://www.telerik.com/fiddler
+[Custom API in Azure Mobile Services Client SDKs]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
+[Call a custom API from the client]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
+[InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
