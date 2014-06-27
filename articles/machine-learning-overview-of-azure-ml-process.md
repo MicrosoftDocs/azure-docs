@@ -1,4 +1,4 @@
-<properties title="Overview of Azure ML Process" pageTitle="Overview of Azure ML Process" description="Azure ML enables creation of Web Services from ML experiments defined in the Azure Machine Learning Studio (ML Studio)" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+﻿<properties title="ML API service operations" pageTitle="ML API service operations" description="Creating and managing Azure ML web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 # Introduction #
 The typical Microsoft Azure Machine Learning (Azure ML) project involves the following high level steps:  

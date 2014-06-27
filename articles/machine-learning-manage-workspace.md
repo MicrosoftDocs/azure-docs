@@ -1,4 +1,4 @@
-<properties title="Manage a Workspace" pageTitle="Manage a  Workspace" description="You can manage your Microsoft Azure Machine Learning Workspaces (Azure ML) to manage access, deploy production web services, and manage your Azure ML web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Manage a Workspace" pageTitle="Manage a ML Workspace" description="Manage access to ML workspaces, and deploy and manage ML API web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 # Manage a workspace #
 You can manage your Microsoft Azure Machine Learning Workspaces (Azure ML) to manage access, deploy production web services, and manage your Azure ML web services. In addition, the dashboard tab shows you overview workspace usage and a quick glance of workspace information.  
