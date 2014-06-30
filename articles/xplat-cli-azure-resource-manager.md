@@ -6,13 +6,13 @@
 
 We recently introduced a preview of Resource Manager, which is a new way to manage Microsoft Azure. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
 
->[WACOM.NOTE] The Resource Manager is currently in preview, and does not provide the same  level of management capabilities as Azure Service Management.
+>[WACOM.NOTE] The Resource Manager is currently in preview, and does not provide the same level of management capabilities as Azure Service Management.
 
->[WACOM.NOTE] If you have not already installed and configured xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
+>[WACOM.NOTE] If you have not already installed and configured the xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
 
 ##Resource Manager
 
-The Resource Manager allows you to managing a group of _resources_ (user-managed entities such as a database server, database, or web site,) as a single logical unit, or _resource group_. For example, a resource group might contain a Web Site and SQL Database resources.
+The Resource Manager allows you to manage a group of _resources_ (user-managed entities such as a database server, database, or web site,) as a single logical unit, or _resource group_. For example, a resource group might contain a Web Site and SQL Database resources.
 
 To support a more declarative way of describing changes to resources within a resource group, Resource Manager uses *templates*, which are JSON documents. The template language also allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the the region the Web Site will be located in, and other common parameters.
 

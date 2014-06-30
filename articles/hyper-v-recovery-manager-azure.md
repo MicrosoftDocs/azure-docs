@@ -1,4 +1,4 @@
-<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Configure Azure Site Recovery to protect virtual machines on Hyper-V server located in VMM clouds" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in VMM clouds from one on-premises site to another. Azure Site Recovery can also replicate, failover, and recover Hyper-V virtual machine data between in VMM clouds and Microsoft Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to Azure Protection" editor="jimbe" manager="cfreeman" authors="" />
+<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Configure Azure Site Recovery to protect virtual machines on Hyper-V server located in VMM clouds" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in VMM clouds from one on-premises site to another. Azure Site Recovery can also replicate, failover, and recover Hyper-V virtual machine data between VMM clouds and Microsoft Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to Azure Protection" editor="jimbe" manager="cfreeman" authors="" />
 
 
 # Getting Started with Azure Site Recovery: On-Premises to Azure Protection
@@ -109,8 +109,9 @@ Obtain and configure certificates as follows:
 <ol>
 <LI>
 On the computer on which you want to run MakeCert, download the latest version of the <a href="http://go.microsoft.com/fwlink/?LinkId=378269">Windows SDK</a>. You won't need to install the entire SDK.</LI>
-<LI>On the Specify Location page, select **Install the Windows Software Development Kit for Windows 8.1 to this computer**.</LI>
-<LI>On the Select the Features you Want to Install page, clear all options except **Windows Software Development Kit**.</LI>
+<ol>
+<LI>On the Specify Location page, select <b>Install the Windows Software Development Kit for Windows 8.1 to this computer</b>.</LI>
+<LI>On the Select the Features you Want to Install page, clear all options except <b>Windows Software Development Kit</b>.</LI>
 <LI>After the installation is complete, verify that makecert.exe appears in the folder C:\ProgramFiles (x86)\Windows Kits\<i>WindowsVersion</i>\bin\x64.</LI>
 <LI>Open a command prompt (cmd.exe) with Administrator privileges and navigate to the makecert.exe folder.</LI> 
 <LI>Run the following command to create your self-signed certificate. Replace CertificateName with the name you want to use for the certificate, and specify the actual expiration date of your certificate after -e:</LI>
@@ -155,17 +156,15 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 
 2. Expand <b>Data Services</b>, expand <b>Recovery Services</b>, and click <b>Site Recovery Vault</b>.
 
-	![Preview Program](./media/hyper-v-recovery-manager-configure-vault/RS_PreviewProgram.png)
-
 3. Click <b>Create New</b> and then click <b>Quick Create</b>.
 	
 
-3. In <b>Name</b>, enter a friendly name to identify the vault.
+4. In <b>Name</b>, enter a friendly name to identify the vault.
 
-4. In <b>Region</b>, select the geographic region for the vault. Available geographic regions include East Asia, West Europe, West US, East US, North Europe, Southeast Asia.
-5. Click <b>Create vault</b>. 
+5. In <b>Region</b>, select the geographic region for the vault. Available geographic regions include East Asia, West Europe, West US, East US, North Europe, Southeast Asia.
+6. Click <b>Create vault</b>. 
 
-	![New Vault](./media/hyper-v-recovery-manager-configure-vault/RS_hvvault.png)
+	![New Vault](./media/hyper-v-recovery-manager-configure-vault/SR_HvVault.png)
 
 <P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as <b>Active</b> on the main Recovery Services page.</P>
 
@@ -174,21 +173,21 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 
 1. In the <b>Recovery Services</b> page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
 
-	![Quick Start Icon](./media/hyper-v-recovery-manager-configure-vault/RS_QuickStartIcon.png)
+	![Quick Start Icon](./media/hyper-v-recovery-manager-configure-vault/SR_QuickStartIcon.png)
 
 2. In the <b>Setup Recovery</b> dropdown list, select <b>Between an on-premises site and Microsoft Azure</b>.
 3. To upload the certificate (.cer) to the vault, click <b>Manage Certificate</b>.
 
-	![Quick Start](./media/hyper-v-recovery-manager-configure-vault/RS_QuickStart.png)
+	![Quick Start](./media/hyper-v-recovery-manager-configure-vault/SR_QuickStart.png)
 
 3. In the <b>Manage Certificate</b> dialog box, click <b>Browse for file</b> and select the .cer file.
 
 
-	![Manage Certificate](./media/hyper-v-recovery-manager-configure-vault/RS_ManageCert.png)
+	![Manage Certificate](./media/hyper-v-recovery-manager-configure-vault/SR_ManageCert.png)
 
-4. To generate a key for the vault, click **Get a vault key**. The key is generated automatically. If you regenerate a key it overwrites the previous key. Note  that you'll need this key later when you install the Azure Site Recovery Provider on the VMM server.
+4. To generate a key for the vault, click **Get the vault key**. The key is generated automatically. If you regenerate a key it overwrites the previous key. Note  that you'll need this key later when you install the Azure Site Recovery Provider on the VMM server.
 
-	![Manage Certificate](./media/hyper-v-recovery-manager-configure-vault/RS_VaultKey.png)
+	![Manage Certificate](./media/hyper-v-recovery-manager-configure-vault/SR_VaultKey.png)
 
 
  <a name="download"></a> <h2>Step 4: Install the Azure Site Recovery Provider</h2>
@@ -196,20 +195,16 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 
 1. On the <b>Quick Start</b> page, click <b>Download Provider</b> to obtain the latest version of the Provider installation file.
 
-	![Download Provider File](./media/hyper-v-recovery-manager-configure-vault/RS_DownloadProviderFile.png)
+	![Download Provider File](./media/hyper-v-recovery-manager-configure-vault/SR_DownloadProviderFile.png)
 
 2. Run this file on the source VMM server.
 
-	![Download Agent](./media/hyper-v-recovery-manager-configure-vault/RS_ProviderInstall1.png)
+	![Download Agent](./media/hyper-v-recovery-manager-configure-vault/SR_ProviderInstall1.png)
 
 3. After the Provider is installed, continue Setup to register the server in the vault.
-
-	![Setup Complete](./media/hyper-v-recovery-manager-configure-vault/RS_installwiz.png)
-
+	![Setup Complete](./media/hyper-v-recovery-manager-configure-vault/SR_InstallWiz.png)
 4. On the Internet Connection page specify how the Provider running on the VMM server connects to the Internet. Click  <b>Next</b> to use the default Internet connection settings configured on the server.
-
-	![Internet Settings](./media/hyper-v-recovery-manager-configure-vault/RS_ProviderProxy.png)
-
+	![Internet Settings](./media/hyper-v-recovery-manager-configure-vault/SR_ProviderProxy.png)
 5. On the Vault Registration page, do the following:
 	<ul>
 	<li>Select the private key (.pfx) that you imported to the VMM server.</li>
@@ -217,12 +212,11 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 	<li>Specify the vault key. This is the vault key you generated earlier. Cut and paste the key value from the Quick Start page.</li>
 	</ul>
 	
-	![Certificate Register](./media/hyper-v-recovery-manager-configure-vault/RS_CertReg1.png)
-
+	![Certificate Register](./media/hyper-v-recovery-manager-configure-vault/SR_CertReg1.png)
 
 6. On the Data Encryption page, you specify whether you want to allow the option to encrypt data during replication for a specific cloud. If you select this option, an SSL certificate will be automatically generated. When you run a failover, you’ll need to select this certificate. After you enable this setting, you can enable or disable data encryption for a cloud in the Azure Site Recovery portal. For this tutorial leave the default setting and click <b>Next</b>.
 
-	![Certificate Vault](./media/hyper-v-recovery-manager-configure-vault/RS_CertReg2.png)
+	![Certificate Vault](./media/hyper-v-recovery-manager-configure-vault/SR_CertReg2.png)
 
 7. On the VMM Server page, do the following:
 
@@ -231,7 +225,7 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
  
 8. Click <b>Register</b> to complete the process. 
 
-	![PublishCloud](./media/hyper-v-recovery-manager-configure-vault/RS_VMMServerName.png)
+	![PublishCloud](./media/hyper-v-recovery-manager-configure-vault/SR_VMMServerName.png)
 
 
 <P>After a server has been successfully registered its friendly name will be displayed on the <b>Resources</b> tab on the Servers page in the vault.</P>
@@ -242,16 +236,16 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 
 1. On the Quick Start page, click <b>Download Azure Site Recovery Services Agent and install on hosts</b>, to obtain the latest version of the agent installation file.
 
-	![Install Recovery Services Agent](./media/hyper-v-recovery-manager-configure-vault/RS_HyperVAgent.png)
+	![Install Recovery Services Agent](./media/hyper-v-recovery-manager-configure-vault/SR_HyperVAgent.png)
 
 2. Run the installation file on each Hyper-V host server that's located in VMM clouds you want to protect.
 3. On the Prerequisites Check page click <b>Next</b>. Any missing prerequisites will be automatically installed.
 
-![Prerequisites Recovery Services Agent](./media/hyper-v-recovery-manager-configure-vault/RS_AgentPrereqs.png)
+![Prerequisites Recovery Services Agent](./media/hyper-v-recovery-manager-configure-vault/SR_AgentPrereqs.png)
 
 4. On the Installation Settings page, specify where you want to install the Agent and select the cache location in which backup metadata will be installed. Then click <b>Install</b>.
 	
-On the Internet Connection page specify how the Provider running on the VMM server connects to the Internet. Click  <b>Next</b> to use the default Internet connection settings configured on the server![Recovery Services Agent location](./media/hyper-v-recovery-manager-configure-vault/RS_AgentInstallSettings.png)
+On the Internet Connection page specify how the Provider running on the VMM server connects to the Internet. Click  <b>Next</b> to use the default Internet connection settings configured on the server![Recovery Services Agent location](./media/hyper-v-recovery-manager-configure-vault/SR_AgentInstallSettings.png)
 
 
 <h2><a id="clouds"></a>Step 6: Configure cloud protection settings</h2>
@@ -259,7 +253,7 @@ On the Internet Connection page specify how the Provider running on the VMM serv
 After VMM servers are registered, you can configure cloud protection settings. You enabled the option **Synchronize cloud data with the vault** when you installed the Provider so all clouds on the VMM server will appear in the <b>Protected Items</b> tab in the vault.
 
 
-![Published Cloud](./media/hyper-v-recovery-manager-configure-vault/RS_Clouds.png)
+![Published Cloud](./media/hyper-v-recovery-manager-configure-vault/SR_Clouds.png)
 
 
 Configure protection settings as follows:
@@ -267,7 +261,7 @@ Configure protection settings as follows:
 
 1. On the Quick Start page, click **Set up protection for VMM clouds**.
 
-![Enable cloud protection](./media/hyper-v-recovery-manager-configure-vault/RS_EnableCloudProtection.png)
+![Enable cloud protection](./media/hyper-v-recovery-manager-configure-vault/SR_EnableCloudProtection.png)
 
 2. On the **Protected Items** tab, click on the cloud you want to configure and go to the **Configuration** tab.
 3. In <b>Target</b>, select <b>Microsoft Azure</b>.
@@ -277,11 +271,11 @@ Configure protection settings as follows:
 7. In <b>Retain recovery points for</b>, leave the default setting. With a default value of zero only the latest recovery point for a primary virtual machine is stored on a replica host server. 
 8. In <b>Frequency of application-consistent snapshots</b>, leave the default setting. This value specifies how often to create snapshots. Snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken.  If you do set a value, make sure it's less than the number of additional recovery points you configure.
 
-	![Cloud Configuration](./media/hyper-v-recovery-manager-configure-vault/RS_CloudConfigureE2A1.png)
+	![Cloud Configuration](./media/hyper-v-recovery-manager-configure-vault/SR_CloudConfigureE2A1.png)
 
 9. In <b>Replication start time</b>, specify when initial replication of data to Azure should start. The timezone on the Hyper-V host server will be used. We recommend that you schedule the initial replication during off-peak hours. 
 
-	![Cloud replication settings](./media/hyper-v-recovery-manager-configure-vault/RS_PublishCloudSetup2.png)
+	![Cloud replication settings](./media/hyper-v-recovery-manager-configure-vault/SR_PublishCloudSetup2.png)
 
 <p>After you save the settings a job will be created and can be monitored on the <b>Jobs</b> tab. All Hyper-V host servers in the VMM source cloud will be configured for replication.
 
@@ -296,18 +290,29 @@ After saving, cloud settings can be modified on the <b>Configure</b> tab. To mod
 
 <h2><a id="virtualmachines"></a>Step 8: Enable protection for virtual machines</h2>
 
-<p>After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud.</p>
+<p>After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. </p>
+
+
+
+<p> Before you enable protection for a virtual machine verify and update its settings if required. For example the guest operating system on the virtual machine must be Windows Server 2008 or later, or Linux. The virtual machine must be generation 1 only. For a full list of Azure Site Recovery requirements, see <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Prerequisites and support</a> in the Planning guide.</p>
+
+<p>In the VMM console check and update settings. You modify operating system settings for the virtual machine in the General page of the virtual machine properties. You update the operating system disk settings in the Hardware Configuration page.</p>
+
+![Modify virtual machine properties](./media/hyper-v-recovery-manager-configure-vault/SR_VMMVMPropsGeneral.png)
+
+![Modify virtual machine properties](./media/hyper-v-recovery-manager-configure-vault/SR_VMMVMPropsHW.png)
+
 <OL>
-<li>On the <b>Virtual Machines</b> tab in the cloud in which the virtual machine is located, click <b>Enable protection</b> and then select <b>Add virtual machines</b>. </li>
+<li>To enable protection, on the <b>Virtual Machines</b> tab in the cloud in which the virtual machine is located, click <b>Enable protection</b> and then select <b>Add virtual machines</b>. </li>
 <li>From the list of virtual machines in the cloud, select the one you want to protect.</li> 
 </OL>
 
-![Enable virtual machine protection](./media/hyper-v-recovery-manager-configure-vault/RS_EnableProtectionVM.png)
+![Enable virtual machine protection](./media/hyper-v-recovery-manager-configure-vault/SR_EnableProtectionVM.png)
 
 
 <P>After protection is enabled two jobs are created. The Enable Protection job runs. Then after the initial replication is completed the Finalize Protection job runs. The virtual machine is only ready for failover after these jobs have finished successfully. You can monitor progress on the <b>Jobs</b> tab.</p>
 
-![Virtual machine protection job](./media/hyper-v-recovery-manager-configure-vault/RS_VMJobs.png)
+![Virtual machine protection job](./media/hyper-v-recovery-manager-configure-vault/SR_VMJobs.png)
 
 
 <h2><a id="recoveryplans"></a>Step 9: Configure and run a recovery plan</h2>
@@ -316,12 +321,12 @@ A recovery plan gathers virtual machines into groups so that they can fail over 
 1. On the <b>Recovery Plans</b> tab, click <b>Create</b>.
 2. On the Specify the Recovery Page Name and Target page, select the source VMM server and  Azure as the target. 
 
-	![Create Recovery Plan](./media/hyper-v-recovery-manager-configure-vault/RS_RecoveryPlan1.png)
+	![Create Recovery Plan](./media/hyper-v-recovery-manager-configure-vault/SR_RecoveryPlan1.png)
 
 3. On the Select Virtual Machines page, select virtual machines to add to the recovery plan.  Only virtual machines with protection enabled are shown. The virtual machines are added to the recovery plan in default group (Group 1).
 4. Click the check mark to create the recovery plan. 
 
-	![Recovery Plan VMs](./media/hyper-v-recovery-manager-configure-vault/RS_RecoveryPlan2.png)
+	![Recovery Plan VMs](./media/hyper-v-recovery-manager-configure-vault/SR_RecoveryPlan2.png)
 
 
 
@@ -336,33 +341,29 @@ Recovery plans can run as part of a proactive test or planned failover, or durin
 Run a test failover for a recovery plan as follows:
 
 
+1. Before you run the recovery plan you can validate the settings of virtual machines in the plan. To do this, on the properties page for the cloud, click the virtual machine. On the Source and Target Properties for Failover page, verify the settings. In particular verify that the suggested size for the target virtual machine in Azure is correct, and that network settings are accurate. For a full list of virtual machine prerequirements, see <a href="http://go.microsoft.com/fwlink/?LinkId=402676">Prerequisites and support</a>. 
 
-
-1. Before you run the recovery plan you should validate the settings of virtual machines in the plan. To do this, On the properties page for the cloud, click the virtual machine. On the Source and Target Properties for Failover page, verify the settings. In particular verify that the suggested size for the target virtual machine in Azure is correct, and that network settings are accurate. For a full list of virtual machine prerequirements, see <href="http://go.microsoft.com/fwlink/?LinkId=402676">Prerequisites and support</a>. 
-
-![Virtual Machine Properties](./media/hyper-v-recovery-manager-configure-vault/RS_VMPropertiesE2A.png)
+![Virtual Machine Properties](./media/hyper-v-recovery-manager-configure-vault/SR_VMPropertiesE2A.png)
 
 2. On the **Recovery Plans** tab, select the required recovery plan.
 3. To initiate the failover, click the **Test Failover** button.
 4. On the Confirm Test Failover page, select the Azure network to which your virtual machines will be connected after failover. Optionally you can select <b>No Network</b>. With this setting selected the virtual machines won't be connected to a network after failover.
 
 
-![Test Failover](./media/hyper-v-recovery-manager-configure-vault/RS_TestFailover.png)
+![Test Failover](./media/hyper-v-recovery-manager-configure-vault/SR_TestFailover.png)
 
-<P>You can follow the progress of test failover jobs on the <b>Jobs</b> tab. After the test failover is complete, do the following:</P>
-<OL>
-<LI>Verify that the virtual machines start successfully in Azure.</LI>
-<LI>Click **Notes** to record and save any observations associated with the test failover.</LI>
-<LI>In addition to details on the **Jobs** tab, when you run a test failover for a recovery plan the  process is displayed on the recovery plan details page. You can view failover steps and status, and view or create notes for the test failover. </LI>
+You can follow the progress of test failover jobs on the <b>Jobs</b> tab. After the test failover is complete, do the following:
 
-</OL>
+1. Verify that the virtual machines start successfully in Azure.
+2. Click **Notes** to record and save any observations associated with the test failover.
+3. In addition to details on the **Jobs** tab, when you run a test failover for a recovery plan the  process is displayed on the recovery plan details page. You can view failover steps and status, and view or create notes for the test failover.  
 
 <h4><a id="runtest"></a>Monitor activity</h5>
-<p>You can use the **Jobs** tab and **Dashboard** to view and monitor the main jobs performed by the Azure Site Recovery vault, including configuring protection for a cloud, enabling and disabling protection for a virtual machine, running a failover (planned, unplanned, or test), and committing an unplanned failover.</p>
+<p>You can use the <b>Jobs</b> tab and <b>Dashboard</b> to view and monitor the main jobs performed by the Azure Site Recovery vault, including configuring protection for a cloud, enabling and disabling protection for a virtual machine, running a failover (planned, unplanned, or test), and committing an unplanned failover.</p>
 
-<p>From the **Jobs** tab you view jobs, drill down into job details and errors, run job queries to retrieve jobs that match specific criteria, export jobs to Excel, and restart failed jobs.</p>
+<p>From the <b>Jobs</b> tab you view jobs, drill down into job details and errors, run job queries to retrieve jobs that match specific criteria, export jobs to Excel, and restart failed jobs.</p>
 
-<p>From the **Dashboard** you can download the latest versions of Provider and Agent installation files, get configuration information for the vault, see the number of virtual machines that have protection managed by the vault, see recent jobs, manage the vault certificate, and resynchronize virtual machines.</p>
+<p>From the <b>Dashboard</b> you can download the latest versions of Provider and Agent installation files, get configuration information for the vault, see the number of virtual machines that have protection managed by the vault, see recent jobs, manage the vault certificate, and resynchronize virtual machines.</p>
 
 <p>For more information about interacting with jobs and the dashboard, see the <a href="http://go.microsoft.com/fwlink/?LinkId=398534">Operations and Monitoring Guide</a>.</p>
 
