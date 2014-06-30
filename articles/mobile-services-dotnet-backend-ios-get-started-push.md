@@ -271,7 +271,7 @@ In this simple example a user receives a push notification with the data that wa
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/mobile-services-dotnet-backend-ios-get-started
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
