@@ -1,14 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-html" urlDisplayName="Get Started with Data (HTML5)" pageTitle="Get started with data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your HTML app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags 
-  ms.tgt_pltfrm="cache-redis" 
-  ms.service="mobile-services" 
-  ms.topic="Article" 
-  ms.workload="integration" 
-  ms.devlang="multiple" 
-  ms.date="06/20/2014" 
-  ms.author="mollybos@microsoft.com" />
-
+<tags ms.devlang="dotnet" ms.tgt_pltfrm="mobile-windows-phone" ms.service="mobile-services" ms.workload="mobile" ms.topic="hero-article" ms.date="06/20/2014" ms.author="mollybos" />
 
 # Get started with data in Mobile Services
 

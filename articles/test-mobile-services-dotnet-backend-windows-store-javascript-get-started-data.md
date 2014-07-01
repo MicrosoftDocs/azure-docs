@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-javascript-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="" editor="" />
 
-<tags ms.tgt_pltfrm="cache-redis" ms.service="cloud-services" ms.topic="Article" ms.workload="integration" ms.devlang="multiple" ms.date="06/20/2014" ms.author="mollybos@microsoft.com" />
+<tags ms.tgt_pltfrm="cache-redis" ms.service="cloud-services" ms.service="mobile-services" ms.service="web-sites" ms.topic="article" ms.workload="integration" ms.devlang="multiple" ms.date="06/20/2014" ms.author="mollybos@microsoft.com" />
 
 # Get started with data in Mobile Services
 

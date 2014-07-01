@@ -1,7 +1,5 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-dotnet-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="" editor="" />
 
-<tags ms.tgt_pltfrm="cache-redis" ms.service="mobile-services" ms.topic="Article" ms.workload="integration" ms.devlang="multiple" ms.date="na" ms.author="mollybos@microsoft.com" ms.editor="mollybos" />
-
 # Get started with data in Mobile Services
 
 > [AZURE.SELECTOR-LIST (Platform | Backend )]
