@@ -1,4 +1,4 @@
-<properties linkid="video-center-detail" urlDisplayName="details" pageTitle="Video Center Details" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use ASP.NET Web Forms Output Caching with Azure Web Sites" authors="jroth" solutions="" manager="" editor="" />
+<properties linkid="video-center-detail" urlDisplayName="details" pageTitle="Video Center Details" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use ASP.NET Web Forms Output Caching with Azure Web Sites" authors="sdanie" solutions="" manager="" editor="" />
 
 
 
@@ -16,21 +16,72 @@ The basic steps to use the Cache Service (Preview) for page output caching inclu
 * [Use output caching to temporarily return cached versions of a page.](#useoutputcaching)
 
 <h2><a id="createcache"></a>Create the Cache</h2>
-1. At the bottom of the Azure Management Portal, click on the **New** icon.
+Cache instances in Managed Cache Service are created using PowerShell cmdlets. 
 
-	![NewIcon][NewIcon]
+>Once a Managed Cache Service instance is created using the PowerShell cmdlets it can be viewed and configured in the [Azure Management Portal][].
 
-2. Select **Data Services**, **Cache**, and then click **Quick Create**.
+To create a Managed Cache Service instance, open an Azure PowerShell command window.
 
-	![NewCacheDialog][NewCacheDialog]
+>For instructions on installing and using Azure PowerShell, see [How to install and configure Azure PowerShell][].
 
-3. Type a unique name for the cache in the **Endpoint** text box. Then select appropriate values for the other cache properties, and click **Create a New Cache**.
+Invoke the [Add-AzureAccount][] cmdlet, and enter the email address and password associated with your account. A subscription is chosen by default and is displayed after you invoke the [Add-AzureAccount][] cmdlet. To change the subscription, invoke the [Select-AzureSubscription][] cmdlet.
 
-4. Select the **Cache** icon in the Management Portal to view all of your Cache Service endpoints.
+>If you have configured Azure PowerShell with a certificate for your account then you can skip this step. For more information about connecting Azure PowerShell with your Azure account, see [How to install and configure Azure PowerShell][].
 
-	![CacheIcon][CacheIcon]
+A subscription is chosen by default and is displayed. To change the subscription, invoke the [Select-AzureSubscription][] cmdlet.
 
-5. You can then select one of the Cache Service endpoints to view its properties. The following sections will use settings from the **Dashboard** tab to configure Caching for an ASP.NET project.
+Invoke the [New-AzureManagedCache][] cmdlet and specify the name, region, cache offering, and size for the cache.
+
+For **Name**, enter a subdomain name to use for the cache endpoint. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
+
+For **Location**, specify a region for the cache. For the best performance, create the cache in the same region as the cache client application.
+
+**Sku** and **Memory** work together to determine the size of the cache. Managed Cache Service is available in the three following tiers.
+
+-	Basic - Cache in sizes from 128MB to 1GB in 128MB increments, with one default named cache
+-	Standard - Cache in sizes from 1GB to 10GB in 1GB increments, with support for notifications and up to ten named caches
+-	Premium - Cache in sizes from 5GB to 150GB in 5GB increments, with support for notifications, high availability, and up to ten named caches
+
+Choose the **Sku** and **Memory** that meets the needs of your application. Note that some cache features, such as notifications and high availability, are only available with certain cache offerings. For more information on choosing the cache offering and size that's best for your application, see [Cache offerings][].
+
+ In the following example, a Basic 128MB cache is created with name contosocache, in the South Central US geographic region.
+
+	New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+
+>For a complete list of parameters and values that can be used when creating a cache, see the [New-AzureManagedCache][] cmdlet documentation.
+
+Once the PowerShell cmdlet is invoked, it can take a few minutes for the cache to be created. After the cache has been created, your new cache has a `Running` status and is ready for use with default settings, and can be viewed and configured in the [Azure Management Portal][].
+
+You can monitor the creation progress in the Azure PowerShell window. Once the cache is ready for use, the [New-AzureManagedCache][] cmdlet will display the cache information, as shown in the following example.
+
+	PS C:\> Add-AzureAccount
+	VERBOSE: Account "user@domain.com" has been added.
+	VERBOSE: Subscription "MySubscription" is selected as the default subscription.
+	VERBOSE: To view all the subscriptions, please use Get-AzureSubscription.
+	VERBOSE: To switch to a different subscription, please use Select-AzureSubscription.
+	PS C:\> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+	VERBOSE: Intializing parameters...
+	VERBOSE: Creating prerequisites...
+	VERBOSE: Verify cache service name...
+	VERBOSE: Creating cache service...
+	VERBOSE: Waiting for cache service to be in ready state...
+
+
+	Name     : contosocache
+	Location : South Central US
+	State    : Active
+	Sku      : Basic
+	Memory   : 128MB
+
+
+
+	PS C:\>
+
+
+
+
+
+The following sections will use settings from the **Dashboard** tab to configure Caching for an ASP.NET project.
 
 <h2><a id="configureproject"></a>Configure the ASP.NET project</h2>
 1. First, ensure that you have [installed the latest][]  **Azure SDK for .NET**.
@@ -87,6 +138,13 @@ The previous example caches the page for forty-five seconds. Because **VaryByPar
 [CacheConfig]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_CacheConfig.PNG
 [EndpointURL]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_EndpointURL.PNG
 [ManageKeys]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_ManageAccessKeys.PNG
+
+[New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
+[Azure Managed Cache Cmdlets]: http://go.microsoft.com/fwlink/?LinkID=398555
+[How to install and configure Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
+[Add-AzureAccount]: http://msdn.microsoft.com/en-us/library/dn495128.aspx
+[Select-AzureSubscription]: http://msdn.microsoft.com/en-us/library/dn495203.aspx
+[Azure Management Portal]: https://manage.windowsazure.com/
   
   
   
