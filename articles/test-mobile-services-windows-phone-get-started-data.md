@@ -1,5 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-wp8" urlDisplayName="Get Started with Data" pageTitle="Get started with data (WP8) - Azure Mobile Services" metaKeywords="" description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
-<tags ms.tgt_pltfrm="na" ms.service="automation" ms.topic="IndexPage" ms.workload="integration" ms.devlang="multiple" ms.date="06/20/2014" ms.author="mollybos@microsoft.com" />
+
+<tags ms.devlang="dotnet" ms.tgt_pltfrm="mobile-windows-phone" ms.service="mobile-services" ms.workload="mobile" ms.topic="dev-center-home-page" ms.date="06/20/2014" ms.author="mollybos" />
 
 # Get started with data in Mobile Services
 

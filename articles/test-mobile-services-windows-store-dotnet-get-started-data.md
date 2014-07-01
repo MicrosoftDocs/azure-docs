@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="biztalk-services" ms.topic="HeroArticle" ms.workload="tbd" ms.devlang="objective-c" ms.author="mollybos@microsoft.com" />
+<tags ms.devlang="dotnet" ms.tgt_pltfrm="mobile-windows-phone" ms.service="mobile-services" ms.workload="mobile" ms.topic="reference" ms.date="06/20/2014" ms.author="mollybos" />
 
 # Get started with data in Mobile Services
 
