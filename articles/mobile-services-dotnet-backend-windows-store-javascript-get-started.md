@@ -60,7 +60,7 @@ In this section you will create a new Windows Store app that is connected to you
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 <ol start="4">
-<li><p>In the Windows Store app project, open the default.js file, locate the code that creates a <a href="http://msdn.microsoft.com/en-us/library/azure/jj554219.aspx" target="_blank">WindowsAzure.MobileServiceClient</a> instance, comment-out the code that creates this client using <em>localhost</em> and uncomment the code that creates the client using the remote mobile service URL, which looks like the following:</p>
+<li><p>In the Windows Store app project, open the default.js file, locate the code that creates a <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx" target="_blank">WindowsAzure.MobileServiceClient</a> instance, comment-out the code that creates this client using <em>localhost</em> and uncomment the code that creates the client using the remote mobile service URL, which looks like the following:</p>
 
         <pre><code>var client = new WindowsAzure.MobileServiceClient(
             "https://todolist.azure-mobile.net/",
