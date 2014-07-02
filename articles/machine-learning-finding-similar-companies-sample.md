@@ -1,0 +1,1 @@
+<properties title="Finding similar companies sample" pageTitle="Finding similar companies sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

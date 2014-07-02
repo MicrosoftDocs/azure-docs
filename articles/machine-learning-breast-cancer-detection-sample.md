@@ -1,0 +1,1 @@
+<properties title="Breast cancer detection sample" pageTitle="Breast cancer detection sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
