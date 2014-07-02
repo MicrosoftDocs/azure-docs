@@ -65,21 +65,21 @@ Before your app can receive push notifications, you must register a notification
 
 ## <a name="next-steps"> </a>Next steps
 
-This tutorial demonstrated the basics of enabling a Windows Store app to work with data in Mobile Services. Next, consider completing one of the following tutorial:
+This tutorial demonstrated the basics of enabling a Windows Store app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorial:
 
 + [Send push notifications to authenticated users]
-	<br/>Learn how to send push notifications from a Mobile Service to specific users on any device.
+	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
-+ [Send notifications to subscribers]
-	<br/>Learn how users can register and receive push notifications for categories they're interested in.
-
-Consider finding out more about the following Mobile Services topics:
+Consider finding out more about the following Mobile Services and Notification Hubs topics:
 
 * [Get started with data]
-  <br/>Learn more about storing and querying data using .Net runtime mobile services.
+  <br/>Learn more about storing and querying data using mobile services.
 
 * [Get started with authentication]
-  <br/>Learn how to authenticate users of your app with different account types using .Net runtime mobile services.
+  <br/>Learn how to authenticate users of your app with different account types using mobile services.
+
+* [What are Notification Hubs?]
+  <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
 
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.
@@ -104,7 +104,7 @@ Consider finding out more about the following Mobile Services topics:
 [Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users/
 
 [What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
-[Send notifications to subscribers]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Send cross-platform notifications to users]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
