@@ -102,7 +102,7 @@ Before your app can receive push notifications, you must register a notification
 
 ##<a id="update-server"></a> Update the server to send push notifications
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push-mpns](../includes/mobile-services-dotnet-backend-update-server-push-mpns.md)]
 
 <ol start="2">
 <li><p>Log on to the <a href=" https://manage.windowsazure.com/" target="_blank">Windows Azure Management Portal</a>, click <strong>Mobile Services</strong>, and then click your app.</p></li>
