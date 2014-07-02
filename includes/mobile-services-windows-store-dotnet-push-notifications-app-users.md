@@ -55,6 +55,6 @@ In this method, you added registration code from the tutorial directly to the ap
 	    protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await AuthenticateAsync();            
-            app.InitNotificationsAsync();
+            App.InitNotificationsAsync();
             RefreshTodoItems();
         }
