@@ -1,8 +1,8 @@
-<properties title="Credit Risk Prediction Sample Experiment" pageTitle="Credit Risk Prediction Sample Experiment" description="A sample experiment of a binary classification model to predict if an applicant is a good credit risk or a bad credit risk." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Credit Risk Prediction Sample Experiment" pageTitle="Credit Risk Prediction Sample Experiment" description="A sample experiment of a binary classification model to predict if an applicant is a low credit risk or a high credit risk." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
 #Credit Risk Prediction 
 
-The purpose of this experiment is to predict credit risk based on information given on a credit application. The prediction is a binary value: good risk or bad risk. 
+The purpose of this experiment is to predict credit risk based on information given on a credit application. The prediction is a binary value: low risk or high risk. 
 
 For a detailed walkthrough of how to create and use a simplified version of this experiment, see **Developing a Predictive Solution with Azure ML**.
 
@@ -16,7 +16,7 @@ This example is divided into 3 sample experiments:
 
 The experiment uses the UCI Statlog (German Credit Card) dataset which can be found here: [http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)](http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)). We are using the german.data file from this website.
 
-The dataset classifies people, described by a set of attributes, as good or bad credit risks. Each example represents a person. There are 20 features, both numerical and categorical, and a binary label (the credit risk value). Bad credit risk entries have label = 2, good credit risk entries have label = 1. The cost of misclassifying a good example as bad is 1, whereas the cost of misclassifying a bad example as good is 5.
+The dataset classifies people, described by a set of attributes, as low or high credit risks. Each example represents a person. There are 20 features, both numerical and categorical, and a binary label (the credit risk value). High credit risk entries have label = 2, low credit risk entries have label = 1. The cost of misclassifying a low risk example as high is 1, whereas the cost of misclassifying a high risk example as low is 5.
 
 ##Development Experiment
 
@@ -32,7 +32,7 @@ We start by using the **Metadata Editor** to add column names to replace the def
 
 Next, we generate training and test sets that will be used for developing the risk prediction model. We split the original dataset into training and test sets of the same size using the **Split** module with **Ratio of first output rows to input** set to 0.5.
  
-Since the cost of misclassifying a bad example as good is 5 times larger than the cost of misclassifying a good one as bad, we generate a new dataset that reflects this cost function. In the new dataset each bad example is replicated 5 times, whereas good examples are kept as-is. The split of training and test datasets is done before this replication to prevent the same example from being in both the training and test sets. 
+Since the cost of misclassifying a high risk example as low is 5 times larger than the cost of misclassifying a low risk as high, we generate a new dataset that reflects this cost function. In the new dataset each high risk example is replicated 5 times, whereas low risk examples are kept as-is. The split of training and test datasets is done before this replication to prevent the same example from being in both the training and test sets. 
 
 This replication is done by the following R code that is run using the **Execute R Script** module:
 
@@ -40,9 +40,9 @@ This replication is done by the following R code that is run using the **Execute
 	data.set<-dataset1[dataset1[,21]==1,]
 	pos<-dataset1[dataset1[,21]==2,]
 	for (i in 1:5) data.set<-rbind(data.set,pos)
-	maml.mapOutputPort("data.set");
+	maml.mapOutputPort("data.set")
 
-In our experiment we compare two approaches for generating models: training over the original dataset and training over the replicated dataset. In both approaches, to be aligned with the cost function of the problem, we test on the test set with replication. The final workflow for splitting and replication is depicted below. In this workflow dataset1 (of the **Split** module) is a training set and dataset2 is a test set. Note that the training set is subsequently used both with and without **Execute R Script** - that is, with and without replication.
+In our experiment we compare two approaches for generating models: training over the original dataset and training over the replicated dataset. In both approaches, to be aligned with the cost function of the problem, we test on the test set with replication. The final workflow for splitting and replication is depicted below. In this workflow the left output of the **Split** module is a training set and the right output is a test set. Note that the training set is subsequently used both with and without **Execute R Script** - that is, with and without replication.
 
 ![Splitting training and test data][screen1]
  
@@ -89,7 +89,9 @@ After running this experiment and verifying that it generates the right scores w
 
 After setting up the service input and output we need to rerun the experiment and then click **Publish Web Service**. This publishes the web service to the staging environment and takes us to the ML Studio **WEB SERVICES** page. Here we can configure and test the service with sample data.
 
-When the service is ready to go live, click **READY FOR PRODUCTION?** and a request will be sent to the IT administrator for Machine Learning who can promote the service to the production environment.
+When the service is ready to go live, go to the **CONFIGURATION** tab on the **WEB SERVICES** page and click **READY FOR PRODUCTION?**. A request will be sent to the IT administrator for Machine Learning who can promote the service to the production environment.
+
+![Web service ready for production][screen4] 
 
 
 [screen1]:./media/machine-learning-credit-risk-prediction-sample-experiment/screen1.jpg
@@ -97,3 +99,4 @@ When the service is ready to go live, click **READY FOR PRODUCTION?** and a requ
 [formula]:./media/machine-learning-credit-risk-prediction-sample-experiment/formula.jpg
 [results]:./media/machine-learning-credit-risk-prediction-sample-experiment/results.jpg
 [screen3]:./media/machine-learning-credit-risk-prediction-sample-experiment/screen3.jpg
+[screen4]:./media/machine-learning-credit-risk-prediction-sample-experiment/screen4.jpg
