@@ -29,12 +29,14 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 Before your app can receive push notifications, you must register a notification channel.
 
-1. In Visual Studio, open the file App.xaml.cs and add the following `using` statements:
+1. In Visual Studio, open the file App.xaml.cs and add the following `using` statement:
 
         using Microsoft.Phone.Notification;
 
 2. Add the following `AcquirePushChannel` method to `App` class: 
-	
+
+        public static HttpNotificationChannel CurrentChannel { get; private set; }	
+        
         private void AcquirePushChannel()
         {
             CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
@@ -132,9 +134,9 @@ This enables the mobile service to connect to MPNS in unauthenticated mode to se
 
 	![][5]
 
-	>[WACOM.NOTE]You will not receive the notification when you are still in the app. To receive a toast notification while the app is active, you must handle the [ShellToastNotificationReceived](http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx) event.
+	>[WACOM.NOTE]You will not receive the notification when you are still in the app. To receive a toast notification while the app is active, you must handle the [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived.aspx) event.
 
-## <a name="next-steps"> </a>Next steps
+## <a name="next-steps">Next steps</a>
 
 This tutorial demonstrated the basics of enabling a Windows Phone Silverlight app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorial:
 
