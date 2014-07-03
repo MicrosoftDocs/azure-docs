@@ -70,7 +70,7 @@ Both your mobile service is now configured to work with APNS.
 
 1. In Xcode, open the QSAppDelegate.h file and add the following property below the ***window** property:
 
-        @property (strong, nonatomic) NSString *deviceToken;
+        @property (strong, nonatomic) NSData *deviceToken;
 
     > [WACOM.NOTE] When dynamic schema is enabled on your mobile service, a new 'deviceToken' column is automatically added to the **TodoItem** table when a new item that contains this property is inserted.
 
@@ -87,12 +87,13 @@ Both your mobile service is now configured to work with APNS.
 
 3. In QSAppDelegate.m, add the following handler method inside the implementation: 
 
-        // We are registered, so now store the device token (as a string) on the AppDelegate instance
+        // We are registered, so now store the device token on the AppDelegate instance
         // taking care to remove the angle brackets first.
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
             NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
-            self.deviceToken = [[deviceToken description] stringByTrimmingCharactersInSet:angleBrackets];
+            self.deviceToken = [[[deviceToken description] stringByTrimmingCharactersInSet:angleBrackets] dataUsingEncoding:NSUTF8StringEncoding];
+			client.push.registerNative(deviceToken, @”uniqueTag”);
         }
 
 4. In QSAppDelegate.m, add the following handler method inside the implementation: 
@@ -102,12 +103,12 @@ Both your mobile service is now configured to work with APNS.
         - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
         (NSError *)error {
             NSLog(@"Failed to register for remote notifications: %@", error);
-            self.deviceToken = @"";
+            self.deviceToken = [@"" dataUsingEncoding:NSUTF8StringEncoding];
         }
 
 5. In QSAppDelegate.m, add the following handler method inside the implementation:  
 
-        // Because toast alerts don't work when the app is running, the app handles them.
+        // Because alerts don't work when the app is running, the app handles them.
         // This uses the userInfo in the payload to display a UIAlertView.
         - (void)application:(UIApplication *)application didReceiveRemoteNotification:
         (NSDictionary *)userInfo {
@@ -135,7 +136,7 @@ Both your mobile service is now configured to work with APNS.
             @"text" : itemText.text,
             @"complete" : @(NO),
             // add the device token property to our todo item payload
-            @"deviceToken" : delegate.deviceToken
+            @"deviceToken" : [[NSString alloc] initWithData:delegate.deviceToken encoding:NSUTF8StringEncoding]
         };
 
    This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
@@ -161,10 +162,10 @@ Your app is now updated to support push notifications.
         function insert(item, user, request) {
             request.execute();
             // Set timeout to delay the notification, to provide time for the 
-            // app to be closed on the device to demonstrate toast notifications
+            // app to be closed on the device to demonstrate push notifications
             setTimeout(function() {
-                push.apns.send(item.deviceToken, {
-                    alert: "Toast: " + item.text,
+                push.apns.send(null, {
+                    alert: "Alert: " + item.text,
                     payload: {
                         inAppMessage: "Hey, a new item arrived: '" + item.text + "'"
                     }
@@ -175,7 +176,7 @@ Your app is now updated to support push notifications.
    	This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. 
 
 
-   	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a toast notification.
+   	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.
 
 ## Test push notifications in your app
 
@@ -193,7 +194,7 @@ Your app is now updated to support push notifications.
 
   	![][25]
 
-4. Repeat step 2 and immediately close the app, then verify that the following toast is shown.
+4. Repeat step 2 and immediately close the app, then verify that the following push is shown.
 
   	![][26]
 
@@ -255,7 +256,7 @@ In this simple example a user receives a push notification with the data that wa
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/mobile-services-dotnet-backend-ios-get-started
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios

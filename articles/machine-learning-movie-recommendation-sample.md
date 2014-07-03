@@ -1,0 +1,1 @@
+<properties title="Movie Recommendation sample" pageTitle="Movie Recommendation sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
