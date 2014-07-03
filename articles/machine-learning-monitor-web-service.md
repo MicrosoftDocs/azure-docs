@@ -1,0 +1,1 @@
+<properties title="Monitor a web service" pageTitle="Monitor a web service" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
