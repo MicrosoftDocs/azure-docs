@@ -7,7 +7,7 @@ To use ML Studio, you need to have an ML workspace. This workspace contains the 
 
 1.	Sign in to your Microsoft Azure account.
 2.	In the Microsoft Azure services panel, click **MACHINE LEARNING**.  
-![][1]
+![Create workspace][1]
 
 3.	Click **CREATE AN ML WORKSPACE**.
 4.	In the **QUICK CREATE** page enter your workspace information and then click **CREATE AN ML WORKSPACE**.

@@ -26,13 +26,13 @@ We can add column headings using the **Metadata Editor** module.
 
 The Properties pane will look like this:
 
-![][1] 
+![Properties for Metadata Editor][1] 
 
 >Tip - If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas), right-click the output port of the **Metadata Editor** module and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
 
 The experiment should now look something like this:  
 
-![][2]
+![Adding Metadata Editor][2]
  
 ##Create training and test datasets
 The next step of the experiment is to generate separate datasets that will be used for training and testing our model. To do this, we use the **Split** module.  
@@ -43,7 +43,7 @@ The next step of the experiment is to generate separate datasets that will be us
 	
 We can use the outputs of the **Split** module however we like, but let’s choose to use the left output as training data and the right output as scoring data.  
 
-As mentioned on the UCI website, the cost of misclassifying a bad credit risk as good is 5 times larger than the cost of misclassifying a good credit risk as bad. To account for this we’ll generate a new dataset that reflects this cost function. In the new dataset each bad example is replicated 5 times, while each good example is not replicated.   
+As mentioned on the UCI website, the cost of misclassifying a high credit risk as low is 5 times larger than the cost of misclassifying a low credit risk as high. To account for this we’ll generate a new dataset that reflects this cost function. In the new dataset each high example is replicated 5 times, while each low example is not replicated.   
 
 We can do this replication using R code:  
 
@@ -54,10 +54,10 @@ We can do this replication using R code:
 		data.set<-dataset1[dataset1[,21]==1,]
 		pos<-dataset1[dataset1[,21]==2,]
 		for (i in 1:5) data.set<-rbind(data.set,pos)
-		maml.mapOutputPort("data.set");  
+		maml.mapOutputPort("data.set")
 
 
-**We need to do this same replication operation for each output of the Split module so that the training and scoring data have the same cost adjustment. **
+We need to do this same replication operation for each output of the **Split** module so that the training and scoring data have the same cost adjustment.
 
 1.	Right-click the **Execute R Script** module and select **Copy**.
 2.	Right-click the experiment canvas and select **Paste**.
@@ -67,7 +67,7 @@ We can do this replication using R code:
 >
 Our experiment now looks something like this:
  
-![][3]
+![Adding Split module and R scripts][3]
 
 [1]: ./media/machine-learning-3-create-new-experiment/create1.png
 [2]: ./media/machine-learning-3-create-new-experiment/create2.png

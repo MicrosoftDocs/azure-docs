@@ -16,7 +16,7 @@ First, let’s set up the boosted decision tree model:
 
 This portion of the experiment now looks something like this:  
 
-![][1]
+![Training a model][1]
  
 Next, we’ll set up the SVM model.  
 
@@ -38,7 +38,7 @@ The **Transform Data by Scaling** module is now set to perform a tanh transform 
 
 This portion of our experiment should now look something like this:  
 
-![][2]  
+![Training the second model][2]  
 
 ##Score and evaluate the models
 We’ll use the scoring data that was separated out by the **Split** module to score our trained models. We can then compare the results of the two models to see which generated better results.  
@@ -59,7 +59,7 @@ To evaluate the two scoring results we’ll use the **Evaluate Model** module.
 
 The experiment should now look something like this:  
 
-![][3]
+![Evaluating both models][3]
  
 Click the **RUN** button below the canvas to run the experiment. It may take a few minutes. You’ll see a spinning indicator on each module to indicate that it’s running, and then a green check mark when the module is finished.   
 
@@ -69,7 +69,7 @@ The **Evaluate Model** module produces a pair of curves and metrics that allow y
 
 Click “Scored dataset” or “Scored dataset to compare” to highlight the associated curve and to display the associated metrics below. In the legend for the curves, “Scored dataset” corresponds to the left input port of the **Evaluate Model** module – in our case, this is the boosted decision tree model. The “Scored dataset to compare” corresponds to the right input port – the SVM model in our case. When you click one of these labels you will highlight the curve for that model and display the corresponding metrics below.  
 
-![][4]
+![ROC curves for models][4]
  
 By examining these values you can decide which model is closest to giving you the results you’re looking for. You can go back and iterate on your experiment by changing values in the different models.  
 

@@ -18,7 +18,7 @@ Before going further, you should create a copy of this experiment to edit. That 
 
 You can now see both the original experiment and the copy listed in the EXPERIMENTS list of ML Studio.  
 
-![][1]
+![Experiments list][1]
  
 ##Prepare the scoring experiment
 We need to do two things to get our model ready to be published as a web service.  
@@ -65,7 +65,7 @@ One more thing: The original credit card data included the Credit Risk column. W
 
 Our experiment should now look like this:  
 
-![][2]  
+![Scoring the trained model][2]  
 
 ###Select the service input and output
 In the original model, the data to be scored was passed into the right input port (“Dataset”) of the **Score Model** module, and the scored result appeared at the output port (“Scored Dataset”). When the service is running, we want the user’s data and the results to use these same ports.  
@@ -103,6 +103,10 @@ So far the service has been running on the ML staging server. When you’re read
 
 On the **CONFIGURATION** tab, click “YES” next to **READY FOR PRODUCTION?** This sends a notice to your IT administrator that this web service is ready to go live. The administrator can then promote it to the live server.
 
+![Promoting the service to the live environment][3]  
+
+
 
 [1]: ./media/machine-learning-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-5-publish-web-service/publish2.png
+[3]: ./media/machine-learning-5-publish-web-service/publish3.png
