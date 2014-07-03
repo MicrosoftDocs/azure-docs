@@ -231,7 +231,9 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 
 ----------
 ## Next Steps ##
-To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
+[Azure Web Sites – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+
+[Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/)
 
 
 <!-- IMAGES -->

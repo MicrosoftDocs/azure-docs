@@ -2,7 +2,6 @@
 
 
 # Deploy a Secure ASP.NET Web Forms App with Membership, OAuth, and SQL Database to an Azure Web Site
-*By [Erik Reitan](https://twitter.com/ReitanErik) | June 2014*
 
 
 This tutorial shows you how to build a secure ASP.NET 4.5 Web Forms web app that incorporates a SQL Database and deploy the application to Azure. 
@@ -43,13 +42,31 @@ This tutorial contains the following sections:
 - [Review the Database](#Review-the-Database)
 - [Next Steps](#Next-Steps)
 
-[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+##Set up the Development Environment 
+To start, set up your development environment by installing the Visual Studio 2013 and the Azure SDK for .NET.
 
->[WACOM.NOTE] 
-You must install Visual Studio 2013 Update 2 or higher to use Goggle OAuth 2.0 and to use SSL locally without warnings. Also, you need Update 2 to use Web Forms Scaffolding.
+1. Install [Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=306566), if you don't already have it installed.  
+2. Install [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). This tutorial requires Visual Studio 2013 before installing the Azure SDK for Visual Studio 2013.  
+
+	>[WACOM.NOTE]  
+	Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.  
+
+3. If you are prompted to run or save the installation executable, click **Run**.
+4. In the **Web Platform Installer** window, click **Install** and proceed with the installation.  
+	![Web Platform Installer](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-01.png)  
+
+	>[WACOM.NOTE]  
+	If you already have the SDK installed, there will be 0 items to be installed. The number of items to install will be noted at the lower left of the **Web Platform Installer** window.  
+
+5. If you don't already have **Visual Studio Update 2**, download and install **[Visual Studio 2013 Update 2](http://www.microsoft.com/download/details.aspx?id=42666)** or higher.  
+
+	>[WACOM.NOTE]  
+	You must install Visual Studio 2013 Update 2 or higher to use Goggle OAuth 2.0 and to use SSL locally without warnings. Also, you need Update 2 to use Web Forms Scaffolding.  
+
+When the installation is complete, you have everything necessary to start developing.
 
 ##Set up the Azure Environment
-In this section you’ll set up the Azure environment by creating an Azure Web Site and a SQL database in Azure.
+In this section you'll set up the Azure environment by creating an Azure Web Site and a SQL database in Azure.
 
 ###Create a Web Site and a SQL Database in Azure 
 In this tutorial your Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure web sites. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs. 
@@ -259,10 +276,10 @@ You begin by creating a simple data model using code. This data model will be co
 	}
 	</pre>
 
-The **Contacts** class defines the data that you will store for each contact, plus a primary key (`ContactID`) that is needed by the database. The **Contacts** class represents the contact data that will be displayed. Each instance of a Contacts object will correspond to a row within a relational database table, and each property of the Contacts class will map to a column in the relational database table. Later in this tutorial, you’ll review the contact data contained in the database.
+The **Contacts** class defines the data that you will store for each contact, plus a primary key (`ContactID`) that is needed by the database. The **Contacts** class represents the contact data that will be displayed. Each instance of a Contacts object will correspond to a row within a relational database table, and each property of the Contacts class will map to a column in the relational database table. Later in this tutorial, you'll review the contact data contained in the database.
 
 ###Web Forms Scaffolding 
-You’ve created the **Contacts** model class above. Now, you can use the Web Forms Scaffolder to generate *List*, *Insert*, *Edit* and *Delete* pages that are used when working with this data. The Web Forms Scaffolder uses Entity Framework, Bootstrap, and Dynamic Data. By default, the Web Forms Scaffolder is installed as an extension to your project as part of the project template when using Visual Studio 2013.
+You've created the **Contacts** model class above. Now, you can use the Web Forms Scaffolder to generate *List*, *Insert*, *Edit* and *Delete* pages that are used when working with this data. The Web Forms Scaffolder uses Entity Framework, Bootstrap, and Dynamic Data. By default, the Web Forms Scaffolder is installed as an extension to your project as part of the project template when using Visual Studio 2013.
 
 The following steps will allow you to use the Web Forms Scaffolder.
 
@@ -750,12 +767,12 @@ It is important to know how to view and modify the database directly. Knowing ho
 3. If the **Add Firewall Rule** dialog box is displayed, select **Add Firewall Rule**.  
 
 	>[WACOM.NOTE]  
-	If you can't expand **SQL Databases** and can't see **ContactDB** from Visual Studio, you can follow the instructions to open a firewall port or a range of ports. To do this, follow the instructions under **Set up Azure firewall rules** near the end of the [MVC tutorial](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). As an alternative, you can also review the data of the local database by building, running, and adding data the application locally (**CTRL+F5** from Visual Studio).  
+	If you can't expand **SQL Databases** and can't see **ContactDB** from Visual Studio, you can follow the instructions to open a firewall port or a range of ports. To do this, follow the instructions under **Set up Azure firewall rules** near the end of the [MVC tutorial](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). As an alternative, you can also review the data of the local database by building, running, and adding data to the application locally (**CTRL+F5** from Visual Studio).  
 
 4. If the **Connect to Server** dialog box is displayed, enter the **password** you created at the beginning of this tutorial and press the **Connect** button.  
 
 	>[WACOM.NOTE]  
-	If you don’t recall the password, you can find it in your local project file. In **Solution Explorer**, expand the *Properties* folder and then expand the *PublishProfiles* folder. Open the *contactmanager.pubxml* file (your file may be named differently). Search the file for your publishing password.
+	If you don't recall the password, you can find it in your local project file. In **Solution Explorer**, expand the *Properties* folder and then expand the *PublishProfiles* folder. Open the *contactmanager.pubxml* file (your file may be named differently). Search the file for your publishing password.
 5. Expand the **contactDB** database and then expand **Tables**.
 6. Right-click the **dbo.AspNetUsers** table and select **View Data**.  
 	![View Data menu item](./media/web-sites-dotnet-web-forms-secure/SecureWebForms34.png)  

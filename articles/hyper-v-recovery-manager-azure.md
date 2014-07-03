@@ -290,9 +290,20 @@ After saving, cloud settings can be modified on the <b>Configure</b> tab. To mod
 
 <h2><a id="virtualmachines"></a>Step 8: Enable protection for virtual machines</h2>
 
-<p>After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud.</p>
+<p>After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. </p>
+
+
+
+<p> Before you enable protection for a virtual machine verify and update its settings if required. For example the guest operating system on the virtual machine must be Windows Server 2008 or later, or Linux. The virtual machine must be generation 1 only. For a full list of Azure Site Recovery requirements, see <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Prerequisites and support</a> in the Planning guide.</p>
+
+<p>In the VMM console check and update settings. You modify operating system settings for the virtual machine in the General page of the virtual machine properties. You update the operating system disk settings in the Hardware Configuration page.</p>
+
+![Modify virtual machine properties](./media/hyper-v-recovery-manager-configure-vault/SR_VMMVMPropsGeneral.png)
+
+![Modify virtual machine properties](./media/hyper-v-recovery-manager-configure-vault/SR_VMMVMPropsHW.png)
+
 <OL>
-<li>On the <b>Virtual Machines</b> tab in the cloud in which the virtual machine is located, click <b>Enable protection</b> and then select <b>Add virtual machines</b>. </li>
+<li>To enable protection, on the <b>Virtual Machines</b> tab in the cloud in which the virtual machine is located, click <b>Enable protection</b> and then select <b>Add virtual machines</b>. </li>
 <li>From the list of virtual machines in the cloud, select the one you want to protect.</li> 
 </OL>
 
@@ -330,9 +341,7 @@ Recovery plans can run as part of a proactive test or planned failover, or durin
 Run a test failover for a recovery plan as follows:
 
 
-
-
-1. Before you run the recovery plan you should validate the settings of virtual machines in the plan. To do this, On the properties page for the cloud, click the virtual machine. On the Source and Target Properties for Failover page, verify the settings. In particular verify that the suggested size for the target virtual machine in Azure is correct, and that network settings are accurate. For a full list of virtual machine prerequirements, see <a href="http://go.microsoft.com/fwlink/?LinkId=402676">Prerequisites and support</a>. 
+1. Before you run the recovery plan you can validate the settings of virtual machines in the plan. To do this, on the properties page for the cloud, click the virtual machine. On the Source and Target Properties for Failover page, verify the settings. In particular verify that the suggested size for the target virtual machine in Azure is correct, and that network settings are accurate. For a full list of virtual machine prerequirements, see <a href="http://go.microsoft.com/fwlink/?LinkId=402676">Prerequisites and support</a>. 
 
 ![Virtual Machine Properties](./media/hyper-v-recovery-manager-configure-vault/SR_VMPropertiesE2A.png)
 
