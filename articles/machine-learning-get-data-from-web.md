@@ -1,0 +1,1 @@
+<properties title="Get data from the Web" pageTitle="Get data from the Web" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

@@ -1,0 +1,1 @@
+<properties title="Get data from Azure storage" pageTitle="Get data from Azure storage" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
