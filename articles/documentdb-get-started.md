@@ -1,4 +1,4 @@
-<properties title="DocumentDB fundamentals" pageTitle="DocumentDB fundamentals | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Getting Started with a DocumentDB Account" pageTitle="Getting Started with a DocumentDB Account | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 #Getting Started with a DocumentDB Account  
 
@@ -194,4 +194,4 @@ DocumentDB supports rich queries against the JSON documents stored in each colle
 [Query DocumentDB Resources]: #Query
 [Next steps]: #NextSteps
 
-[1]: ./media/documentdb-getting-started/gs1.png
+[1]: ./media/documentdb-get-started/gs1.png

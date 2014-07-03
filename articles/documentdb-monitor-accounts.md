@@ -1,3 +1,5 @@
+<properties title="How to Monitor a DocumentDB Account" pageTitle="How to Monitor a DocumentDB Account | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+
 #How to Monitor a DocumentDB Account  
 
 You can monitor your DocumentDB accounts in the [Azure Preview Management Portal](https://portal.azure.com/). For each DocumentDB account, both performance metrics (e.g. requests, server errors) and usage metrics (e.g. storage consumption) are available.
@@ -90,15 +92,15 @@ The Azure management preview portal allows you to create side-by-side metric cha
 -	To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)
 
 
-[1]: ./media/documentdb-monitoring-accounts/madocdb1.png
-[2]: ./media/documentdb-monitoring-accounts/madocdb2.png
-[3]: ./media/documentdb-monitoring-accounts/madocdb3.png
-[4]: ./media/documentdb-monitoring-accounts/madocdb4.png
-[5]: ./media/documentdb-monitoring-accounts/madocdb5.png
-[6]: ./media/documentdb-monitoring-accounts/madocdb6.png
-[7]: ./media/documentdb-monitoring-accounts/madocdb7.png
-[8]: ./media/documentdb-monitoring-accounts/madocdb8.png
-[9]: ./media/documentdb-monitoring-accounts/madocdb9.png
-[10]: ./media/documentdb-monitoring-accounts/madocdb10.png
-[11]: ./media/documentdb-monitoring-accounts/madocdb11.png
-[12]: ./media/documentdb-monitoring-accounts/madocdb12.png
+[1]: ./media/documentdb-monitor-accounts/madocdb1.png
+[2]: ./media/documentdb-monitor-accounts/madocdb2.png
+[3]: ./media/documentdb-monitor-accounts/madocdb3.png
+[4]: ./media/documentdb-monitor-accounts/madocdb4.png
+[5]: ./media/documentdb-monitor-accounts/madocdb5.png
+[6]: ./media/documentdb-monitor-accounts/madocdb6.png
+[7]: ./media/documentdb-monitor-accounts/madocdb7.png
+[8]: ./media/documentdb-monitor-accounts/madocdb8.png
+[9]: ./media/documentdb-monitor-accounts/madocdb9.png
+[10]: ./media/documentdb-monitor-accounts/madocdb10.png
+[11]: ./media/documentdb-monitor-accounts/madocdb11.png
+[12]: ./media/documentdb-monitor-accounts/madocdb12.png
