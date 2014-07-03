@@ -1,0 +1,1 @@
+<properties title="Get data from Power Query" pageTitle="Get data from Power Query" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
