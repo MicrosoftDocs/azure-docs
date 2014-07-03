@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-website-with-mongodb-mongolab" urlDisplayName="Web Site with MongoDB on MongoLab" pageTitle="Create a Web Site that uses MongoDB on MongoLab (.NET)" metaKeywords="" description="Learn how to create an Azure web site that stores data in MongoDB hosted by MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="riande" solutions="" manager="" editor="" />
+<properties linkid="develop-net-tutorials-website-with-mongodb-mongolab" urlDisplayName="Web Site with MongoDB on MongoLab" pageTitle="Create a Web Site that uses MongoDB on MongoLab (.NET)" metaKeywords="" description="Learn how to create an Azure web site that stores data in MongoDB hosted by MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="eric@mongolab.com" solutions="" manager="" editor="mollybos" />
 
 
 

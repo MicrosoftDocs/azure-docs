@@ -1,9 +1,11 @@
 
 Next, you need to change the way that push notifications are registered to make sure that the user is authenticated before registration is attempted. The client app updates depend on the way in which you implemented push notifications.
 
-###Using the Push Notification Wizard in Visual Studio 2013 Update 2 or a later version
+###Using the Add Push Notification Wizard in Visual Studio 2013 Update 2 or a later version
 
 In this method, the wizard generated a new push.register.cs file in your project.
+
+>[WACOM.NOTE]The Add Push Notification Wizard is currently only supported for a .NET backend mobile service.
 
 1. In Visual Studio in Solution Explorer, open the app.xaml.cs project file and in the **OnLaunched** event handler comment-out or delete the call to the **UploadChannel** method. 
 
@@ -53,6 +55,6 @@ In this method, you added registration code from the tutorial directly to the ap
 	    protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await AuthenticateAsync();            
-            app.InitNotificationsAsync();
+            App.InitNotificationsAsync();
             RefreshTodoItems();
         }
