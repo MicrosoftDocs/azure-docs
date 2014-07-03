@@ -48,7 +48,7 @@ Close the visualization window by clicking the "x" in the upper-right corner.
 
 A dataset usually requires some pre-processing before it can be analyzed. Notice the missing values present in the columns of various rows (for this particular set each missing value is denoted by "?"). To analyze the data, these have to be cleaned. Notice also that the "normalized losses" column has a very large proportion of missing values, so we will exclude that column from the model altogether. 
 
-1. Select and drag the **Convert To Dataset** module to the experiment canvas, connect it to the dataset. In the module properties pane on the right, select "ReplaceVlaues" for the **Action** parameter, "Missing" for the **Replace** parameter, and enter "?" for **New value**. This will convert the data to a Data Table, the internal binary format for ML Studio, and represent missing string values with "?".  
+1. Select and drag the **Convert To Dataset** module to the experiment canvas and connect it to the dataset. In the module properties pane on the right, select "ReplaceVlaues" for the **Action** parameter, "Missing" for the **Replace** parameter, and enter "?" for **New value**. This will convert the data to a Data Table, the internal binary format for ML Studio, and represent missing string values with "?".  
 
 2. Select and drag the **Project Columns** module to the experiment canvas and connect it to the output from the **Convert To Dataset** module.  
 
