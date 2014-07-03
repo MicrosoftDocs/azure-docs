@@ -1,4 +1,4 @@
-<properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor=""  />
 
 
 # Get started with push notifications in Mobile Services
@@ -71,15 +71,7 @@ Before your app can receive push notifications, you must register a notification
 
 ##<a id="test"></a> Test push notifications in your app
 
-1. In Visual Studio, press the F5 key to run the app.
-
-2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
-
-   	![][13]
-
-   	Note that after the insert completes, the app receives a push notification from WNS.
-
-   	![][14]
+[WACOM.INCLUDE [mobile-services-windows-store-test-push](../includes/mobile-services-windows-store-test-push.md)]
 
 ## <a name="next-steps"> </a>Next steps
 

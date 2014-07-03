@@ -121,4 +121,4 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
 
-This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to Mobile Services.
+This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to Azure.

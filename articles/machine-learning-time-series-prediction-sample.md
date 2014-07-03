@@ -1,0 +1,1 @@
+<properties title="Time series prediction sample" pageTitle="Time series prediction sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

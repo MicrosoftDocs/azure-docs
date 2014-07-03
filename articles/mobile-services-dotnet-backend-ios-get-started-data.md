@@ -67,7 +67,7 @@ This tutorial is built on the [GetStartedWithData app][GitHub], which is an iOS 
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
-<h2><a name="download-the-service"></a><span class="short-header">Download the service</span>Download the service to your local computer</h2>
+<h2><a name="download-the-service-locally"></a><span class="short-header">Download the service</span>Download the service to your local computer</h2>
 
 [WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
@@ -75,7 +75,7 @@ This tutorial is built on the [GetStartedWithData app][GitHub], which is an iOS 
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
-<h2><a name="publish-the-service"></a><span class="short-header">Publish the service</span>Publish the mobile service to Azure</h2>
+<h2><a name="publish-mobile-service"></a><span class="short-header">Publish the service</span>Publish the mobile service to Azure</h2>
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -264,6 +264,7 @@ Once you have completed the data series, try these other iOS tutorials:
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
+[JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

@@ -1,8 +1,4 @@
-<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous deliver PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
-
-
-
-
+<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
 
 # Continuous Delivery for Cloud Services in Azure
 
@@ -773,6 +769,10 @@ $deploymentUrl = $deployment.Url
 Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl."
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
 </pre>
+
+## Next steps
+
+To enable remote debugging when using continuous delivery, see [these instructions](http://go.microsoft.com/fwlink/p/?LinkID=402354). 
 
   [Continuous Delivery to Azure by Using Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
   [Step 1: Configure the Build Server]: #step1

@@ -1,11 +1,11 @@
-<properties linkid="storage-introduction" urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction to Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure " description="An overview of Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties linkid="storage-introduction" urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction to Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="An overview of Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 # Introduction to Microsoft Azure Storage
 
 This article provides an introduction to Microsoft Azure Storage for developers, IT Pros, and business decision makers. By reading it, you'll learn about:
 
 - What Azure Storage is, and how you can take advantage of it in your cloud, mobile, server, and desktop applications
-- What kinds of data you can store with the Azure Storage services: Blob, Table and Queue storage
+- What kinds of data you can store with the Azure Storage services: Blob, Table, Queue, and File storage
 - How access to your data in Azure Storage is managed
 - How your Azure Storage data is protected via redundancy and replication 
 - Where to go next to build your first Azure Storage application
@@ -26,13 +26,16 @@ Azure Storage supports clients using a diverse set of operating systems (includi
 
 ## Introducing the Azure Storage Services ##
 
-The Azure Storage services are Blob storage, Table storage, and Queue storage. These three services are included in every storage account:
+The Azure Storage services are Blob storage, Table storage, Queue storage, and File storage:
 
 - **Blob storage** stores file data. A blob can be any type of text or binary data, such as a document, media file, or application installer. 
 - **Table storage** stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
 - **Queue storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
+- **File storage** offers shared storage for legacy applications using the standard SMB 2.1 protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File service API.
 
-The storage account is a unique namespace that gives you access to Azure Storage. Each storage account can contain up to 500 TB of combined blob, queue, and table data.
+Blob, Table, and Queue storage are included in every storage account, while File storage is available by request via the [Azure Preview page](/en-us/services/preview/).
+
+The storage account is a unique namespace that gives you access to Azure Storage. Each storage account can contain up to 500 TB of combined blob, queue, table, and file data. See the [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx) for details about Azure storage account capacity.
 
 The image below shows the relationships between the Azure storage resources:
 
@@ -77,13 +80,26 @@ In designing applications for scale, application components are often decoupled,
 
 A storage account can contain any number of queues. A queue can contain any number of messages, up to the 200 TB capacity limit of the storage account. Individual messages may be up to 64 KB in size.
 
-## Access to Blob, Table, and Queue Resources ##
+## File Storage ##
+
+Many legacy applications rely on file shares, a dependency that has complicated moving these applications to the cloud. File storage offers cloud-based file shares, so that you can migrate legacy applications to Azure quickly and without costly rewrites. 
+
+Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of application components can mount and access the File storage share simultaneously.
+
+Since a File storage share is a standard SMB 2.1 file share, applications running in Azure can access data in the share via native file I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.
+
+Like the other Azure storage services, File storage exposes a REST API for accessing data in a share. On-premise applications can call the File storage REST API to access data in a file share. This way, an enterprise can choose to migrate some legacy applications to Azure and continue running others from within their own organization. Note that mounting a file share is only possible for applications running in Azure; an on-premise application may only access the file share via the API.
+
+Distributed applications can also use File storage to store and share useful application data and development and testing tools. For example, an application may store configuration files and diagnostic data such as logs, metrics, and crash dumps in a File storage share so that they are available to multiple virtual machines or roles. Developers and administrators can store utilities that they need to build or manage an application in a File storage share that is available to all components, rather than installing them on every virtual machine or role instance.
+
+
+## Access to Blob, Table, Queue, and File Resources ##
 
 By default, only the storage account owner can access resources in the storage account. For the security of your data, every request made against resources in your account must be authenticated. Authentication relies on a Shared Key model. Blobs can also be configured to support anonymous authentication. 
 
 Your storage account is assigned two private access keys on creation that are used for authentication. Having two keys ensures that your application remains available when you regularly regenerate the keys as a common security key management practice.
 
-If you do need to allow users controlled access to your storage resources, then you can create a [shared access signature](../storage-dotnet-shared-access-signature-part-1/). A shared access signature is a token that can be appended to a URL that enables delegated access to a container, blob, table, or queue. Anyone who possesses the token can access the resource it points to with the permissions it specifies, for the period of time that it is valid.
+If you do need to allow users controlled access to your storage resources, then you can create a [shared access signature](../storage-dotnet-shared-access-signature-part-1/). A shared access signature is a token that can be appended to a URL that enables delegated access to a container, blob, table, or queue. Anyone who possesses the token can access the resource it points to with the permissions it specifies, for the period of time that it is valid. Note that Azure File storage does not currently support shared access signatures.
 
 Finally, you can specify that a container and its blobs, or a specific blob, are available for public access. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required.  Public containers and blobs are useful for exposing resources such as media and documents that are hosted on websites.  To decrease network latency for a global audience, you can cache blob data used by websites with the Azure CDN.
 
@@ -111,11 +127,11 @@ Azure Storage exposes storage resources via a [REST API](http://msdn.microsoft.c
 
 - [.NET](http://msdn.microsoft.com/library/dn495001.aspx)
 - [Native code](http://msdn.microsoft.com/library/dn495438.aspx)
-- [Java](/en-us/develop/java/)
-- [Node.js](../storage/#node)
-- [PHP](../storage/#php)
-- [Ruby](../storage/#ruby)
-- [Python](../storage/#python)
+- [Java/Android](/en-us/develop/java/)
+- [Node.js](/en-us/develop/nodejs/)
+- [PHP](/en-us/develop/php/)
+- [Ruby](/en-us/develop/ruby/)
+- [Python](/en-us/develop/python/)
 - [PowerShell](http://msdn.microsoft.com/library/dn495240.aspx)
 
 ## Next Steps ##
@@ -131,11 +147,11 @@ To get started with Azure Storage, explore these resources:
 - [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables/)
 - [How to use Queue Storage from .NET](../storage-dotnet-how-to-use-queues/)
 
-<h3>For Java Developers</h3>
+<h3>For Java/Android Developers</h3>
 
-- [How to use Blob Storage from Java](../storage-java-how-to-use-blob-storage/)
-- [How to use Table Storage from Java](../storage-java-how-to-use-table-storage/)
-- [How to use Queue Storage from Java](../storage-java-how-to-use-queue-storage/)
+- [How to use Blob Storage from Java/Android](../storage-java-how-to-use-blob-storage/)
+- [How to use Table Storage from Java/Android](../storage-java-how-to-use-table-storage/)
+- [How to use Queue Storage from Java/Android](../storage-java-how-to-use-queue-storage/)
 
 <h3>For Node.js Developers</h3>
 

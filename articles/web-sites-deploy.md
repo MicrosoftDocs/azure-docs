@@ -37,8 +37,9 @@ If you don't have source control set up yet, the easiest way to get started is t
 
 For more information, see the following resources:
 
-* [Deliver to Azure Continuously using VSO and TFVC](http://www.visualstudio.com/en-us/learn/continuous-delivery-in-vs). Step by step tutorial that shows how to set up continuous delivery from VSO to an Azure Web Site, using TFVC. TFVC is the centralized source control option in VSO, as opposed to Git, which is the distributed source control option.
-* [Continuous delivery to Azure using VSO and TFVC](/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/). The scenario covered is similar to the previous tutorial, but this tutorial also goes through the steps for signing up for a VSO account and checking in a project to source control. This tutorial was written mainly for cloud services, so parts of it don't apply to web sites.
+* [Deliver to Azure Continuously using VSO and TFVC](http://www.visualstudio.com/en-us/learn/continuous-delivery-in-vs). Brief step-by-step tutorial that shows how to set up continuous delivery from VSO to an Azure Web Site, using TFVC. TFVC is the centralized source control option in VSO, as opposed to Git, which is the distributed source control option.
+* [Continuous delivery to Azure using VSO and TFVC](/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/). Similar to the previous tutorial, but this one also goes through the steps for signing up for a VSO account and checking in a project to source control.
+* [Continuous delivery to Azure using Visual Studio Online and Git](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso-git/). Similar to the previous tutorial but uses Git instead of TFVC.
 
 ###<a name="git"></a>Repository web sites using Git
 
@@ -47,6 +48,7 @@ For more information, see the following resources:
 For more information, see the following resources:
 
 * [Publishing from Source Control to Azure Web Sites](/en-us/documentation/articles/web-sites-publish-source-control/). How to use Git to publish directly from your local computer to an Azure Web Site (in Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.
+* [Deploying to Web Sites with GitHub using Kudu](/en-us/documentation/videos/deploying-to-azure-from-github/). Video by Scott Hanselman and David Ebbo that shows how to deploy a web site directly from GitHub to an Azure Web Site.
 * [Azure Forum for Git, Mercurial, and DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
 ###<a name="mercurial"></a>Repository web sites using Mercurial
@@ -180,7 +182,7 @@ For more information, see the following resource:
 
 ###<a name="powershell"></a>Windows PowerShell
 
-You can perform MSBuild or FTP functions from [Windows PowerShell](http://msdn.microsoft.com/en-us/library/dd835506.aspx). If you do that, you can also use a collection of Windows PowerShell cmdlets that make the Azure REST management API easy to call.
+You can perform MSBuild or FTP deployment functions from [Windows PowerShell](http://msdn.microsoft.com/en-us/library/dd835506.aspx). If you do that, you can also use a collection of Windows PowerShell cmdlets that make the Azure REST management API easy to call.
 
 For more information, see the following resource:
 

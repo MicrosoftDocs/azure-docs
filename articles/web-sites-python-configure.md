@@ -1,11 +1,13 @@
-<properties linkid="develop-python-tutorials-web-sites-configuration" urlDisplayName="Configuring Python with Azure Web Sites" pageTitle="Configuring Python with Azure Web Sites" metaKeywords="" description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="Python" title="Configuring Python with Azure Web Sites" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-python-tutorials-web-sites-configuration" urlDisplayName="Configuring Python with Azure Web Sites" pageTitle="Configuring Python with Azure Web Sites" metaKeywords="" description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="Python" title="Configuring Python with Azure Web Sites" authors="huvalo" solutions="" manager="" editor="" />
 
 
 
 
 # Configuring Python with Azure Web Sites #
 
-This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on Azure Web Sites. Getting started with Azure Web Sites is easy, and your Python application will have room to scale and extend to other Azure services. The Azure Web Sites platform includes Python 2.7 and the generic wfastcgi.py FastCGI handler for Python. All you have to do is configure your web site to use the Python handler.  
+This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on Azure Web Sites. Getting started with Azure Web Sites is easy, and your Python application will have room to scale and extend to other Azure services. The Azure Web Sites platform includes Python (2.7.3 or 3.4.0, your choice) and the generic wfastcgi.py FastCGI handler for Python. All you have to do is configure your web site to use the Python handler. 
+
+> [WACOM.NOTE] You can select the version of Python that you want to use in the Azure Web Sites portal by opening the Configure tab of your web site and changing the **Python Version** setting.
 
 For a more complex example configuring the Django framework on Azure Web Sites, please see the following tutorial: 
 [http://www.windowsazure.com/en-us/develop/python/tutorials/web-sites-with-django](http://www.windowsazure.com/en-us/develop/python/tutorials/web-sites-with-django).  

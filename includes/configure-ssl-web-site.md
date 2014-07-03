@@ -6,7 +6,7 @@ When someone visits your web site using HTTPS, the communication between the web
 
 <a href="bkmk_azurewebsites"></a><h2>The \*.azurewebsites.net domain</h2>
 
-If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your web site by Azure (for example, contoso.azurewebsites.net,) then your site is already secured by a certificate provided by Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your site securely.
+If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your web site by Azure (for example, contoso.azurewebsites.net,) then your site is already secured by a certificate provided by Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your site securely. However, \*.azurewebsites.net is a shared domain, and like all shared domains is not as secure as using a custom domain with your own certificate.
 
 The rest of this document provides details on enabling HTTPS for custom domain names, such as **contoso.com**, **www.contoso.com**, or **\*.contoso.com**
 
@@ -49,6 +49,8 @@ The certificate must meet the following requirements for SSL certificates in Azu
 > [WACOM.NOTE] Certificates issued from private CA servers are not supported by Azure Web Sites.
 
 To get an SSL certificate from a Certificate Authority you must generate a Certificate Signing Request (CSR), which is sent to the CA. The CA will then return a certificate that is used to complete the CSR. Two common ways to generate a CSR are by using the certmgr.exe or [OpenSSL][openssl] applications. Certmgr.exe is only available on Windows, while OpenSSL is available for most platforms. The steps for using both of these utilities are below.
+
+> [WACOM.NOTE] Elliptic Curve Cryptography (ECC) certificates are supported with Azure Web Sites; however, they are relatively new and you should work with your CA on the exact steps to create the CSR. Once you have obtained an ECC certificate, you can upload it to your Web Site as described in the steps below.
 
 You may also need to obtain **intermediate certificates** (also known as chain certificates), if these are used by your CA. The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them. Intermediate certificates are often provided as a separate download from the CAs web site. The steps in this article provide steps on how to ensure that any intermediate certificates are merged with the certificate uploaded to your Azure web site. 
 
