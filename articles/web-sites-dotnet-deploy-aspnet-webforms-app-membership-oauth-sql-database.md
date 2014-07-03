@@ -2,7 +2,6 @@
 
 
 # Deploy a Secure ASP.NET Web Forms App with Membership, OAuth, and SQL Database to an Azure Web Site
-*By [Erik Reitan](https://twitter.com/ReitanErik) | June 2014*
 
 
 This tutorial shows you how to build a secure ASP.NET 4.5 Web Forms web app that incorporates a SQL Database and deploy the application to Azure. 
@@ -48,16 +47,21 @@ To start, set up your development environment by installing the Visual Studio 20
 
 1. Install [Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=306566), if you don't already have it installed.  
 2. Install [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). This tutorial requires Visual Studio 2013 before installing the Azure SDK for Visual Studio 2013.  
+
 	>[WACOM.NOTE]  
-	Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
-2. If you are prompted to run or save the installation executable, click **Run**.
-3. In the **Web Platform Installer** window, click **Install** and proceed with the installation.
-	![Web Platform Installer](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-01.png)
-	>[WACOM.NOTE] 
-	If you already have the SDK installed, there will be 0 items to be installed. The number of items to install will be noted at the lower left of the **Web Platform Installer** window.
-4. If you don't already have **Visual Studio Update 2**, download and install **[Visual Studio 2013 Update 2](http://www.microsoft.com/download/details.aspx?id=42666)** or higher.  
->[WACOM.NOTE] 
-You must install Visual Studio 2013 Update 2 or higher to use Goggle OAuth 2.0 and to use SSL locally without warnings. Also, you need Update 2 to use Web Forms Scaffolding.
+	Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.  
+
+3. If you are prompted to run or save the installation executable, click **Run**.
+4. In the **Web Platform Installer** window, click **Install** and proceed with the installation.  
+	![Web Platform Installer](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-01.png)  
+
+	>[WACOM.NOTE]  
+	If you already have the SDK installed, there will be 0 items to be installed. The number of items to install will be noted at the lower left of the **Web Platform Installer** window.  
+
+5. If you don't already have **Visual Studio Update 2**, download and install **[Visual Studio 2013 Update 2](http://www.microsoft.com/download/details.aspx?id=42666)** or higher.  
+
+	>[WACOM.NOTE]  
+	You must install Visual Studio 2013 Update 2 or higher to use Goggle OAuth 2.0 and to use SSL locally without warnings. Also, you need Update 2 to use Web Forms Scaffolding.  
 
 When the installation is complete, you have everything necessary to start developing.
 
