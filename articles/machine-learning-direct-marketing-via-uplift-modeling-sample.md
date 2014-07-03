@@ -1,0 +1,1 @@
+<properties title="Direct marketing via uplift modeling sample" pageTitle="Direct marketing via uplift modeling sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

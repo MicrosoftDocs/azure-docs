@@ -10,6 +10,6 @@ Next, you must change the way that push notifications are registered to make sur
 	    protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await AuthenticateAsync();            
-            app.AcquirePushChannel();
+            App.AcquirePushChannel();
             RefreshTodoItems();
         }
