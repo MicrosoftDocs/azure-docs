@@ -138,7 +138,7 @@ The previous example caches the page for forty-five seconds. Because **VaryByPar
 [CacheConfig]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_CacheConfig.PNG
 [EndpointURL]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_EndpointURL.PNG
 [ManageKeys]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_ManageAccessKeys.PNG
-
+  
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
 [Azure Managed Cache Cmdlets]: http://go.microsoft.com/fwlink/?LinkID=398555
 [How to install and configure Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
