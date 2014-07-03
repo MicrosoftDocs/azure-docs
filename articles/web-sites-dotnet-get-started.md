@@ -225,7 +225,7 @@ In this section of the tutorial, you change the **h1** heading of the home page,
 
 ## Monitor and manage the site in the management portal
 
-The [Azure Management Portal](/en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the web sites you just created. In this section of the tutorial you look at some of what you can do in the portal.
+The [Azure Management Portal](/en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the web site you just created. In this section of the tutorial you look at some of what you can do in the portal.
 
 1. In your browser, go to [http://manage.windowsazure.com](), and sign in with your Azure credentials.
 
@@ -257,7 +257,7 @@ The [Azure Management Portal](/en-us/services/management-portal/) is a web inter
 
 	![Portal web site scale tab](./media/web-sites-dotnet-get-started-vs2013/portalscale.png)
 
-These are just a few of the management portal's features.  
+These are just a few of the management portal's features. You can also create new web sites, delete existing sites, stop and restart sites, and manage other kinds of Azure services, such as databases and virtual machines.  
 
 **Tip:** There is a new management portal in preview which will eventually replace the one you've been using. For more information, see [Azure Preview Portal](/en-us/overview/preview-portal/).
 
