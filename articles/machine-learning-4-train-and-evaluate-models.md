@@ -1,5 +1,16 @@
 <properties title="Train and evaluate models" pageTitle="Train and evaluate models" description="Step 4: Train, score, and evaluate multiple models in ML Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
+This is the fourth step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
+
+1.	[Create an ML workspace](machine-learning-1-create-ml-workspace)
+2.	[Upload existing data](machine-learning-2-upload-data)
+3.	[Create a new experiment](machine-learning-3-create-new-experiment)
+4.	**Train and evaluate the models**
+5.	[Publish the web service](machine-learning-5-publish-web-service)
+6.	[Access the web service](machine-learning-6-access-web-service)
+
+----------
+
 #Train and evaluate the models
 In this experiment we want to try different algorithms for our predictive model. We’ll create two different types of models and then compare their scoring results to decide which algorithm we want to use in our final experiment.  
 

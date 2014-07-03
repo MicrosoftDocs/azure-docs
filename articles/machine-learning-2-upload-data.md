@@ -1,5 +1,16 @@
 <properties title="Upload existing data" pageTitle="Upload existing data" description="Step 2: Upload existing public data into ML Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
+This is the second step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
+
+1.	[Create an ML workspace](machine-learning-1-create-ml-workspace)
+2.	**Upload existing data**
+3.	[Create a new experiment](machine-learning-3-create-new-experiment)
+4.	[Train and evaluate the models](machine-learning-4-train-and-evaluate-models)
+5.	[Publish the web service](machine-learning-5-publish-web-service)
+6.	[Access the web service](machine-learning-6-access-web-service)
+
+----------
+
 #Upload existing data  
 
 To develop a predictive model for credit risk, we’ll use the “UCI Statlog (German Credit Data) Data Set” from the UCI Machine Learning repository. You can find it here:  
