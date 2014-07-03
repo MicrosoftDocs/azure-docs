@@ -33,7 +33,7 @@ Before you begin this tutorial, you must reserve an application name, then creat
 
 The first step is to create an ASP.NET WebAPI project.
 
-> [AZURE.NOTE] **Important**: before beginning this tutorial, please ensure that you have installed the latest version of the NuGet Package Manager. To check, start Visual Studio. From the **Tools** menu, click **Extensions and Updates**. Search for **NuGet Package Manager for Visual Studio 2013**, and make sure you have version 2.8.50313.46 or later. If not, please uninstall, then reinstall the NuGet Package Manager.
+> [AZURE.NOTE] **Important**: before starting this tutorial, please ensure that you have installed the latest version of the NuGet Package Manager. To check, start Visual Studio. From the **Tools** menu, click **Extensions and Updates**. Search for **NuGet Package Manager for Visual Studio 2013**, and make sure you have version 2.8.50313.46 or later. If not, please uninstall, then reinstall the NuGet Package Manager.
 > 
 > ![][4]
 

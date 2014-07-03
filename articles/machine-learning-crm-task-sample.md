@@ -1,0 +1,1 @@
+<properties title="CRM task sample" pageTitle="CRM task sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
