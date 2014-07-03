@@ -77,7 +77,7 @@
         }
     }
 
-	The **Register** method is called during registration. This lets you add a tag to the registration that is the ID of the logged-in user. When a notification is sent to this user, it is recieved on this device. 
+	The **Register** method is called during registration. This lets you add a tag to the registration that is the ID of the logged-in user. The supplied tags are validated to prevent a user from registering for another user's ID. When a notification is sent to this user, it is received on this and any other device registered by the user. 
 
 6. Expand the Controllers folder, open the TodoItemController.cs project file, locate the **PostTodoItem** method and replace the line of code that calls **SendAsync** with the following code:
 
