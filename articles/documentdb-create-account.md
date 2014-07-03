@@ -68,7 +68,7 @@ To use DocumentDB, you must create a DocumentDB account in an available geograph
 
 <!--Image references-->
 [1]: ./media/documentdb-create-account/ca1.png
-[2]: ./media/documentdb-create-account/ca2.png
+[2]: ./media/documentdb-.create-account/ca2.png
 [3]: ./media/documentdb-create-account/ca3.png
 [4]: ./media/documentdb-create-account/ca4.png
 [5]: ./media/documentdb-create-account/ca5.png
