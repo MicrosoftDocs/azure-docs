@@ -113,13 +113,9 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
 
 ## <a name="add-authentication-code"></a>Add authentication code to the client app
 
-1. open your Windows store client app project in Visual Studio.
+1. Open your Windows store client app project in Visual Studio.
 
-2. In the Solution Explorer window of Visual Studio, right click the client app project and click **Manage NuGet Packages**.
-
-3. In the NuGet Package manager, click **Online** and **Include Prerelease**. Enter **Microsoft.IdentityModel.Clients** as a search term. Then click **Install** to install the Active Directory Authentication Library Nuget package. 
-
-    ![][13]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 4. In the Solution Explorer window of Visual Studio, open the MainPage.xaml.cs file and add the following using statements.
 
@@ -212,7 +208,6 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
 [10]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-sid-redirect-uri.png
 [11]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-client-id.png
 [12]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-add-permissions.png
-[13]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-adal-nuget-package.png
 [14]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-package-appxmanifest.png
 [15]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-app-run.png
 
