@@ -1,0 +1,1 @@
+<properties pageTitle="Connect Millions of Things to the Cloud" metaKeywords="Service Bus, internet of things" description="Learn how to connect millions of things to the cloud using Microsoft Azure." services="service-bus" documentationCenter=".NET" title="Connect Millions of Things to the Cloud" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
