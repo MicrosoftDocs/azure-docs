@@ -16,3 +16,6 @@ We’ll follow these steps:
 4.	[Train and evaluate the models](machine-learning-4-train-and-evaluate-models)
 5.	[Publish the web service](machine-learning-5-publish-web-service)
 6.	[Access the web service](machine-learning-6-access-web-service)
+
+This walkthrough is based on a simplified version of the 
+[Credit risk prediction sample](machine-learning-credit-risk-prediction-sample-experiment) experiment included with ML Studio.
