@@ -10,9 +10,9 @@ In this walkthrough, we’ll follow the process of developing a predictive analy
 
 We’ll follow these steps:  
 
-1.	Create an ML workspace
-2.	Upload existing data
-3.	Create a new experiment
-4.	Train and evaluate models
-5.	Publish the web service
-6.	Access the web service
+1.	[Create an ML workspace](machine-learning-1-create-ml-workspace)
+2.	[Upload existing data](machine-learning-2-upload-data)
+3.	[Create a new experiment](machine-learning-3-create-new-experiment)
+4.	[Train and evaluate the models](machine-learning-4-train-and-evaluate-models)
+5.	[Publish the web service](machine-learning-5-publish-web-service)
+6.	[Access the web service](machine-learning-6-access-web-service)

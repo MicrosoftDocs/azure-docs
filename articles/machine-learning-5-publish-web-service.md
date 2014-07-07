@@ -1,5 +1,16 @@
 <properties title="Publish the web service" pageTitle="Publish the web service" description="Step 5: Publish a scoring experiment in ML Studio as an ML API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
+This is the fifth step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
+
+1.	[Create an ML workspace](machine-learning-1-create-ml-workspace)
+2.	[Upload existing data](machine-learning-2-upload-data)
+3.	[Create a new experiment](machine-learning-3-create-new-experiment)
+4.	[Train and evaluate the models](machine-learning-4-train-and-evaluate-models)
+5.	**Publish the web service**
+6.	[Access the web service](machine-learning-6-access-web-service)
+
+----------
+
 #Publish the web service
 To make this predictive model useful to others, we’ll publish it as a web service on Azure. A user will be able to send the service a set of credit application data and the service will return the prediction of credit risk.  
 
@@ -18,7 +29,7 @@ Before going further, you should create a copy of this experiment to edit. That 
 
 You can now see both the original experiment and the copy listed in the EXPERIMENTS list of ML Studio.  
 
-![][1]
+![Experiments list][1]
  
 ##Prepare the scoring experiment
 We need to do two things to get our model ready to be published as a web service.  
@@ -65,7 +76,7 @@ One more thing: The original credit card data included the Credit Risk column. W
 
 Our experiment should now look like this:  
 
-![][2]  
+![Scoring the trained model][2]  
 
 ###Select the service input and output
 In the original model, the data to be scored was passed into the right input port (“Dataset”) of the **Score Model** module, and the scored result appeared at the output port (“Scored Dataset”). When the service is running, we want the user’s data and the results to use these same ports.  
@@ -103,6 +114,10 @@ So far the service has been running on the ML staging server. When you’re read
 
 On the **CONFIGURATION** tab, click “YES” next to **READY FOR PRODUCTION?** This sends a notice to your IT administrator that this web service is ready to go live. The administrator can then promote it to the live server.
 
+![Promoting the service to the live environment][3]  
+
+
 
 [1]: ./media/machine-learning-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-5-publish-web-service/publish2.png
+[3]: ./media/machine-learning-5-publish-web-service/publish3.png
