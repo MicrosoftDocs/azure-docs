@@ -2,6 +2,10 @@
 
 #Azure Notification Hubs Notify Users
 
+Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications. This tutorial builds on the notification hub that you created in the **Get started with Notification Hubs** tutorial.
+
+This tutorial is also the prerequisite to the **Secure Push** tutorial. After you have completed the steps in this **Notify Users** tutorial, you can proceed to the **Secure Push** tutorial, which shows how to modify the **Notify Users** code to send a push notification securely. 
+
 Note that this tutorial also implements user authentication as explained in [Registering from your app backend](http://msdn.microsoft.com/en-us/library/dn743807.aspx).
 
 > [AZURE.NOTE] This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Windows Store)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
@@ -12,11 +16,11 @@ Note that this tutorial also implements user authentication as explained in [Reg
 
 ## Create and Configure the Notification Hub
 
-Before you begin this tutorial, you must reserve an application name, then create an Azure Notification Hub and connect it to that application. Please follow the steps in [Getting Started with Notification Hubs (Windows Store)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/); specifically, the sections [Register your app for the Windows Store](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register) and [Configure your Notification Hub](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). In particular, make sure that you have configured the **Package SID** and **Client Secret** values on your Notification Hub **Configure** tab in the portal. This configuration procedure is described in the section [Configure your Notification Hub](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub).
+Before you begin this tutorial, you must reserve an application name, then create an Azure Notification Hub and connect it to that application. Please follow the steps in [Getting Started with Notification Hubs (Windows Store)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/); specifically, the sections [Register your app for the Windows Store](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register) and [Configure your Notification Hub](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). In particular, make sure that you have entered the **Package SID** and **Client Secret** values in the portal, in the **Configure** tab for your notification hub. This configuration procedure is described in the section [Configure your Notification Hub](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). This is an important step: if the credentials on the portal do not match those specified for the app name you choose, the push notification will not succeed.
 
 ## Create the WebAPI Project
 
-The first step is to create an ASP.NET WebAPI project.
+The first step is to create an ASP.NET WebAPI project. This is the backend that is used to authenticate clients and to generate notifications.
 
 > [AZURE.NOTE] **Important**: before starting this tutorial, please ensure that you have installed the latest version of the NuGet Package Manager. To check, start Visual Studio. From the **Tools** menu, click **Extensions and Updates**. Search for **NuGet Package Manager for Visual Studio 2013**, and make sure you have version 2.8.50313.46 or later. If not, please uninstall, then reinstall the NuGet Package Manager.
 > 
@@ -282,7 +286,7 @@ The next step is to create the Windows Phone application. To add this project to
 
 	![][11]
 	
-	> [AZURE.NOTE] Be sure to make a note of the name of the application you choose during this procedure. You must configure the notification hub on the portal using the credentials you obtain from the [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409) for this specific reserved app name. This configuration procedure is described in [Configure your Notification Hub](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). This is an important step: if the credentials on the portal do not match those specified for the app name you choose, the push notification may not be received.
+	> [AZURE.NOTE] Be sure to make a note of the name of the application you choose during this procedure. You must configure the notification hub on the portal using the credentials you obtain from the [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409) for this specific reserved app name. This configuration procedure is described in [Configure your Notification Hub](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). This is an important step: if the credentials on the portal do not match those specified for the app name you choose, the push notification will not succeed.
 
 6. In Solution Explorer, right-click the **SecurePushWindowsPhone (Windows Phone 8.1)** project and then click **Manage NuGet Packages**.
 
@@ -477,19 +481,19 @@ To run the application, do the following:
 
 3. In the **SecurePushWindowsPhone** app UI, enter a username and password. These can be any string, but they must be the same value.
 
-4. In the **SecurePushWindowsPhone** app UI, click **Log in and register**. Then click **Send secure push**.
+4. In the **SecurePushWindowsPhone** app UI, click **Log in and register**. Then click **Send push**.
 
-[1]: ./media/notification-hubs-secure-push/notification-hubs-secure-push1.png
-[2]: ./media/notification-hubs-secure-push/notification-hubs-secure-push2.png
-[3]: ./media/notification-hubs-secure-push/notification-hubs-secure-push3.png
-[4]: ./media/notification-hubs-secure-push/notification-hubs-secure-push4.png
-[5]: ./media/notification-hubs-secure-push/notification-hubs-secure-push5.png
-[6]: ./media/notification-hubs-secure-push/notification-hubs-secure-push6.png
-[7]: ./media/notification-hubs-secure-push/notification-hubs-secure-push7.png
-[8]: ./media/notification-hubs-secure-push/notification-hubs-secure-push8.png
-[9]: ./media/notification-hubs-secure-push/notification-hubs-secure-push9.png
-[10]: ./media/notification-hubs-secure-push/notification-hubs-secure-push10.png
-[11]: ./media/notification-hubs-secure-push/notification-hubs-secure-push11.png
-[12]: ./media/notification-hubs-secure-push/notification-hubs-secure-push12.png
-[13]: ./media/notification-hubs-secure-push/notification-hubs-secure-push13.png
-[14]: ./media/notification-hubs-secure-push/notification-hubs-secure-push14.png
+[1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push1.png
+[2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push2.png
+[3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push3.png
+[4]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push4.png
+[5]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push5.png
+[6]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push6.png
+[7]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push7.png
+[8]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push8.png
+[9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
+[10]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
+[11]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push11.png
+[12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push12.png
+[13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push13.png
+[14]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push14.png

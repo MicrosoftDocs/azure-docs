@@ -2,7 +2,7 @@
 
 #Azure Notification Hubs Secure Push
 
-Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. 
+Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. 
 
 Due to regulatory or security constraints, sometimes an application might want to include something in the notification that cannot be transmitted through the standard push notification infrastructure. This tutorial describes how to achieve the same experience by sending sensitive information through a secure, authenticated connection between the client device and the app backend.
 
@@ -15,9 +15,9 @@ At a high level, the flow is as follows:
 	- The device contacts the back-end requesting the secure payload.
 	- The app can show the payload as a notification on the device.
 
-It is important to note that in the preceding flow (and in this tutorial), we assume that the device stores an authentication token in local storage, after the user logs in. This guarantees a completely seamless experience, as the device can retrieve the notification’s secure payload using this token. If your application does not store authentication tokens on the device, or these tokens can be expired, the device app, upon receiving the notification, should display a generic notification prompting the user to launch the app, which results in authenticating the user and showing the notification payload.
+It is important to note that in the preceding flow (and in this tutorial), we assume that the device stores an authentication token in local storage, after the user logs in. This guarantees a completely seamless experience, as the device can retrieve the notification’s secure payload using this token. If your application does not store authentication tokens on the device, or if these tokens can be expired, the device app, upon receiving the notification should display a generic notification prompting the user to launch the app. The app then authenticates the user and shows the notification payload.
 
-This tutorial shows how to send a push notification securely. The Secure Push tutorial builds on the Notify Users tutorial, so you should complete the steps in that tutorial first.
+This Secure Push tutorial shows how to send a push notification securely. The tutorial builds on the **Notify Users** tutorial, so you should complete the steps in that tutorial first.
 
 > [AZURE.NOTE] This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Windows Store)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
 
@@ -27,8 +27,8 @@ This tutorial shows how to send a push notification securely. The Secure Push tu
 
 ## WebAPI Project
 
-1. Open the **SecurePush** project in Visual Studio.
-2. In Notifications.cs, replace the entire contents of the **SecurePush.Models** namespace with the following code. Be sure to replace the placeholders with your connection string (with full access) for your notification hub, and the hub name. You can obtain these values from the [Azure Management Portal](http://manage.windowsazure.com). This module will now represent the different secure notifications that will be sent. In a complete implementation the notifications will be stored in a database, while in this case we store them in memory for simplicity.
+1. In Visual Studio, open the **SecurePush** project that you created in the **Notify Users** tutorial.
+2. In Notifications.cs, replace the entire contents of the **SecurePush.Models** namespace with the following code. Be sure to replace the placeholders with your connection string (with full access) for your notification hub, and the hub name. You can obtain these values from the [Azure Management Portal](http://manage.windowsazure.com). This module now represents the different secure notifications that will be sent. In a complete implementation, the notifications will be stored in a database; for simplicity, in this case we store them in memory.
 
 		public class Notification
 	    {
@@ -69,7 +69,7 @@ This tutorial shows how to send a push notification securely. The Secure Push tu
 	        }
 	    }
 
-20. In NotificationsController.cs, replace the code inside the **NotificationsController** class definition with the following code. This component exposes a way for the device to retrieve the notification securely, and also provides a way (for the purposes of this tutorial) to trigger a secure push to your devices. Note that when sending the notification to the notification hub, we only send a raw notification with the ID of the notification (and no actual message):
+20. In NotificationsController.cs, replace the code inside the **NotificationsController** class definition with the following code. This component implements a way for the device to retrieve the notification securely, and also provides a way (for the purposes of this tutorial) to trigger a secure push to your devices. Note that when sending the notification to the notification hub, we only send a raw notification with the ID of the notification (and no actual message):
 
 		public NotificationsController()
         {
@@ -99,7 +99,7 @@ This tutorial shows how to send a push notification securely. The Secure Push tu
 
 ## Modify the Windows Phone Project
 
-18. Add code to App.xaml.cs to register the push background task. Add the following line of code at the end of the `OnLaunched()` method:
+18. In the **SecurePushWindowsPhone** project, add the following code to App.xaml.cs to register the push background task. Add the following line of code at the end of the `OnLaunched()` method:
 
 		RegisterBackgroundTask();
 
@@ -230,19 +230,8 @@ To run the application, do the following:
 
 3. In the **SecurePushWindowsPhone** app UI, enter a username and password. These can be any string, but they must be the same value.
 
-4. In the **SecurePushWindowsPhone** app UI, click **Log in and register**. Then click **Send secure push**.
+4. In the **SecurePushWindowsPhone** app UI, click **Log in and register**. Then click **Send push**.
 
-[1]: ./media/notification-hubs-secure-push/notification-hubs-secure-push1.png
-[2]: ./media/notification-hubs-secure-push/notification-hubs-secure-push2.png
-[3]: ./media/notification-hubs-secure-push/notification-hubs-secure-push3.png
-[4]: ./media/notification-hubs-secure-push/notification-hubs-secure-push4.png
-[5]: ./media/notification-hubs-secure-push/notification-hubs-secure-push5.png
-[6]: ./media/notification-hubs-secure-push/notification-hubs-secure-push6.png
-[7]: ./media/notification-hubs-secure-push/notification-hubs-secure-push7.png
-[8]: ./media/notification-hubs-secure-push/notification-hubs-secure-push8.png
-[9]: ./media/notification-hubs-secure-push/notification-hubs-secure-push9.png
-[10]: ./media/notification-hubs-secure-push/notification-hubs-secure-push10.png
-[11]: ./media/notification-hubs-secure-push/notification-hubs-secure-push11.png
-[12]: ./media/notification-hubs-secure-push/notification-hubs-secure-push12.png
-[13]: ./media/notification-hubs-secure-push/notification-hubs-secure-push13.png
-[14]: ./media/notification-hubs-secure-push/notification-hubs-secure-push14.png
+[3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
+[12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
+[13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
