@@ -1,4 +1,4 @@
-<properties title="Create a new experiment" pageTitle="Create a new experiment" description="Step 3: Create a new training experiment in ML Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+﻿<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Step 3: Create a new Machine Learning experiment | Azure" description="Step 3: Create a new training experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 This is the third step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
@@ -11,7 +11,8 @@ This is the third step of the walkthrough, [Developing a Predictive Solution wit
 
 ----------
 
-#Create a new experiment
+#Step 3: Create a new Azure Machine Learning experiment
+
 We need to create a new experiment in CloudML Studio that uses the dataset we uploaded.  
 
 1.	In CloudML Studio, click **+NEW** at the bottom of the window.

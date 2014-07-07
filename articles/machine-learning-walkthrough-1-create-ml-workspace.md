@@ -1,4 +1,4 @@
-<properties title="Create an ML workspace" pageTitle="Create an ML workspace" description="Step 1: Create a new ML Studio workspace" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+﻿<properties title="Step 1: Create an Azure Machine Learning workspace pageTitle="Step 1: Create a Machine Learning workspace | Azure" description="Step 1: Create a new Azure Machine Learning Studio workspace" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 This is the first step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
@@ -11,7 +11,7 @@ This is the first step of the walkthrough, [Developing a Predictive Solution wit
 
 ----------
 
-#Create an ML workspace
+#Step 1: Create an Azure Machine Learning workspace
 
 To use ML Studio, you need to have an ML workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
 

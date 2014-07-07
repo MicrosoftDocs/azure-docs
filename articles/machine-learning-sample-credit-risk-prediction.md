@@ -1,6 +1,6 @@
-<properties title="Credit Risk Prediction Sample Experiment" pageTitle="Credit Risk Prediction Sample Experiment" description="A sample experiment of a binary classification model to predict if an applicant is a low credit risk or a high credit risk." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+﻿<properties title="Azure Machine Learning Sample: Credit risk prediction" pageTitle="Machine Learning Sample: Credit risk prediction | Azure" description="A sample Azure Machine Learning experiment of a binary classification model to predict if an applicant is a low credit risk or a high credit risk." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-#Credit Risk Prediction 
+#Azure Machine Learning Sample: Credit risk prediction 
 
 The purpose of this experiment is to predict credit risk based on information given on a credit application. The prediction is a binary value: low risk or high risk. 
 

@@ -1,6 +1,6 @@
-<properties title="Creating and Iterating a Machine Learning Experiment" pageTitle="Creating and Iterating a Machine Learning Experiment" description="How to create and iterate on an experiment in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+﻿<properties title="Create your first experiment in Azure Machine Learning Studio" pageTitle="Create your first experiment in Machine Learning Studio | Azure" description="How to create and iterate on an experiment in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
-#Creating and Iterating a Machine Learning Experiment 
+#Create your first experiment in Azure Machine Learning Studio 
  
 A predictive analytics experiment, at its core, consists of components to *create a model*, *train the model*, and *score and test the model*. You can combine these to create an experiment that takes data, trains a model against it, and applies the model to new data. You can also add modules to pre-process data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
 

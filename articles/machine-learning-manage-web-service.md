@@ -1,1 +1,3 @@
-<properties title="Manage a web service" pageTitle="Manage a web service" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Manage an Azure Machine Learning web service" pageTitle="Manage a Machine Learning web service | Azure" description="Manage an Azure Machine Learning web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+
+#Manage an Azure Machine Learning web service
