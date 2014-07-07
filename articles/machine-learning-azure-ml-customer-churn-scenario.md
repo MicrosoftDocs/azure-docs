@@ -1,7 +1,8 @@
-<properties title="Azure ML customer churn scenario" pageTitle="Operationalizing a customer churn scenario using Microsoft Azure Machine Learning"description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+﻿<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure"description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 
-#Introduction
+#Analyzing Customer Churn using Microsoft Azure Machine Learning
+
 This paper presents a reference implementation of a customer churn analysis project built using Microsoft Azure Cloud ML Studio, and discusses associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models built using Azure Cloud ML, and assess directions for further development.  
 
 ##The Problem of Customer Churn

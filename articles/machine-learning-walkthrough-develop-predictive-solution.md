@@ -1,7 +1,7 @@
-<properties title="Create your first predictive analytics experiment
-" pageTitle="Create your first predictive analytics experiment" description="Walkthrough of how to create a predictive analytics experiment in ML Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+﻿<properties title="Developing a predictive solution with Azure Machine Learning" pageTitle="Developing a predictive solution with Machine Learning | Azure" description="Walkthrough of how to create a predictive analytics experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
-#Developing a Predictive Solution with Azure ML 
+#Developing a predictive solution with Azure Machine Learning
+ 
 Suppose you need to predict an individual’s credit risk based on the information they give on a credit application.  
 
 That’s a complex problem, of course, but let’s simplify the parameters of the question a bit and use it as an example of how you might be able to use Microsoft Azure Machine Learning with ML Studio and ML API service to create such a predictive analytics solution.  

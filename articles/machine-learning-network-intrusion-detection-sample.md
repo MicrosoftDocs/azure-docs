@@ -1,1 +1,0 @@
-<properties title="Network intrusion detection sample" pageTitle="Network intrusion detection sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

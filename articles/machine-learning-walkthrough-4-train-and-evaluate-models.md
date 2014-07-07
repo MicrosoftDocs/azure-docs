@@ -1,4 +1,4 @@
-<properties title="Train and evaluate models" pageTitle="Train and evaluate models" description="Step 4: Train, score, and evaluate multiple models in ML Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+﻿<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Step 4: Train and evaluate the predictive analytic models | Azure" description="Step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 This is the fourth step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
@@ -11,7 +11,8 @@ This is the fourth step of the walkthrough, [Developing a Predictive Solution wi
 
 ----------
 
-#Train and evaluate the models
+#Step 4: Train and evaluate the predictive analytic models
+
 In this experiment we want to try different algorithms for our predictive model. We’ll create two different types of models and then compare their scoring results to decide which algorithm we want to use in our final experiment.  
 
 There are a number of models we could choose from. To see the models available, expand the **Machine Learning** node in the module palette, and then expand **Initialize Model** and the nodes beneath it. For the purposes of this experiment, we’ll select the Support Vector Machine (SVM) and the Two-Class Boosted Decision Trees. We’ll use the appropriate modules to initialize the learning algorithms and use **Train Model** modules to train the models.   

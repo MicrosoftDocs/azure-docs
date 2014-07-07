@@ -1,4 +1,4 @@
-<properties title="Upload existing data" pageTitle="Upload existing data" description="Step 2: Upload existing public data into ML Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+﻿<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 This is the second step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
@@ -11,7 +11,7 @@ This is the second step of the walkthrough, [Developing a Predictive Solution wi
 
 ----------
 
-#Upload existing data  
+#Step 2: Upload existing data into an Azure Machine Learning experiment  
 
 To develop a predictive model for credit risk, we’ll use the “UCI Statlog (German Credit Data) Data Set” from the UCI Machine Learning repository. You can find it here:  
 [http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)](http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data))  

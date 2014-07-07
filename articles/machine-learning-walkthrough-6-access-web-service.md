@@ -1,4 +1,4 @@
-<properties title="Access the web service" pageTitle="Access the web service" description="Step 6: Access an active ML API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />  
+﻿<properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="Step 6: Access the Machine Learning web service | Azure" description="Step 6: Access an active Azure Machine Learning API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />  
 
 This is the last step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
@@ -11,7 +11,8 @@ This is the last step of the walkthrough, [Developing a Predictive Solution with
 
 ----------
 
-#Access the web service
+#Step 6: Access the Azure Machine Learning web service
+
 To be useful as a web service, users need to be able to send data to the service and receive results. The web service is an Azure web service which can receive and return data in one of two ways:  
 
 -	**Request/Response** – The user sends a single set of credit data to the service using an HTTP protocol, and the service responds with a single set of results.

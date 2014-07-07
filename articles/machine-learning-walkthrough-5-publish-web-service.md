@@ -1,4 +1,4 @@
-<properties title="Publish the web service" pageTitle="Publish the web service" description="Step 5: Publish a scoring experiment in ML Studio as an ML API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+﻿<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="Step 5: Publish the Machine Learning web service | Azure" description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 This is the fifth step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
@@ -11,7 +11,8 @@ This is the fifth step of the walkthrough, [Developing a Predictive Solution wit
 
 ----------
 
-#Publish the web service
+#Step 5: Publish the Azure Machine Learning web service
+
 To make this predictive model useful to others, we’ll publish it as a web service on Azure. A user will be able to send the service a set of credit application data and the service will return the prediction of credit risk.  
 
 To do this, we need to:  
