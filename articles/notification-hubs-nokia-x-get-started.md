@@ -339,19 +339,19 @@ To test this app with the emulator:
 4.	To send a test notification when using the .Net console application, just press the F5 key in Visual Studio to run the application, and it will send a notification that will appear in the top notification area of your device or emulator. 
 
 <!-- Images. -->
-[1]: .\media\notification-hubs-nokia-x-get-started\AndroidAppProperties.png
-[2]: .\media\notification-hubs-nokia-x-get-started\AzureManagementCreateNH.png
-[3]: .\media\notification-hubs-nokia-x-get-started\AzureManagementPortal.png
-[4]: .\media\notification-hubs-nokia-x-get-started\ConsoleProject.png
-[5]: .\media\notification-hubs-nokia-x-get-started\NewAndroidApp.png
-[6]: .\media\notification-hubs-nokia-x-get-started\NewJavaClass.png
-[7]: .\media\notification-hubs-nokia-x-get-started\NHConfigure.png
-[8]: .\media\notification-hubs-nokia-x-get-started\NHConfigureNokiaX.png
-[9]: .\media\notification-hubs-nokia-x-get-started\NHConfigureTopItem.png
-[10]: .\media\notification-hubs-nokia-x-get-started\NHDashboard.png
-[11]: .\media\notification-hubs-nokia-x-get-started\NokiaConsole.png
-[12]: .\media\notification-hubs-nokia-x-get-started\NokiaConsoleService.png
-[13]: .\media\notification-hubs-nokia-x-get-started\AndroidBuildTarget.png
+[1]: ./media/notification-hubs-nokia-x-get-started/AndroidAppProperties.png
+[2]: ./media/notification-hubs-nokia-x-get-started/AzureManagementCreateNH.png
+[3]: ./media/notification-hubs-nokia-x-get-started/AzureManagementPortal.png
+[4]: ./media/notification-hubs-nokia-x-get-started/ConsoleProject.png
+[5]: ./media/notification-hubs-nokia-x-get-started/NewAndroidApp.png
+[6]: ./media/notification-hubs-nokia-x-get-started/NewJavaClass.png
+[7]: ./media/notification-hubs-nokia-x-get-started/NHConfigure.png
+[8]: ./media/notification-hubs-nokia-x-get-started/NHConfigureNokiaX.png
+[9]: ./media/notification-hubs-nokia-x-get-started/NHConfigureTopItem.png
+[10]: ./media/notification-hubs-nokia-x-get-started/NHDashboard.png
+[11]: ./media/notification-hubs-nokia-x-get-started/NokiaConsole.png
+[12]: ./media/notification-hubs-nokia-x-get-started/NokiaConsoleService.png
+[13]: ./media/notification-hubs-nokia-x-get-started/AndroidBuildTarget.png
 
 <!-- URLs. -->
 [Azure Management Portal]: https://manage.windowsazure.com/
