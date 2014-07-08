@@ -2,7 +2,7 @@
 
 ## Installing the Azure SDK 2.3 for Visual Studio "14" CTP
 
-To install the Azure SDK 2.3 for .NET with Visual Studio "14" CTP, follow these steps. This procedure installs SDKs, basic tools, and extended tools for Azure development with Visual Studio "14" CTP1 or CTP2 and is not intended to be used with any other version of Visual Studio.
+To install the Azure SDK 2.3 for .NET with Visual Studio "14" CTP1 or CTP2, follow these steps. This procedure installs SDKs, basic tools, and extended tools for Azure development with Visual Studio "14" CTP1 or CTP2 and is not intended to be used with any other version of Visual Studio.
 
 To install the Azure SDK 2.3 for .NET, follow these steps:
 
