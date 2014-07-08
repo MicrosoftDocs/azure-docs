@@ -90,9 +90,9 @@ The next step is to create the Windows Phone application. To add this project to
 
 13. In Solution Explorer, right-click the **NotifyUserWindowsPhone (Windows Phone 8.1)** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class. This component implements the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [link to SMDN registering from back-end]. Note that it uses an authorization token stored in local storage when you click the **Log in and register** button.
 
-14. Add the following code inside the `RegisterClient` class definition. Be sure to replace `[yourPortNum]` with the number of your localhost port:
+14. Add the following code inside the `RegisterClient` class definition. Be sure to replace `{backend endpoint}` with the your backend endpoint obtained in the previous section:
 
-		private string POST_URL = "http://localhost:[yourPortNum]/api/register";
+		private string POST_URL = "{backend endpoint}/api/register";
 
         private class DeviceRegistration
         {
@@ -181,11 +181,11 @@ The next step is to create the Windows Phone application. To add this project to
 		
 16. Add code for buttons in MainPage.xaml.cs. The callback for **Log in and register** stores the basic authentication token in local storage (note that this represents any token your authentication scheme uses), then uses `RegisterClient` to call the backend. The callback for **AppBackend** calls the backend to trigger a secure notification to all devices of this user. 
 
-	Add the following code to MainPage.xaml.cs after the `OnNavigatedTo()` method. Be sure to replace `[yourPortNum]` with the number of your localhost port:
+	Add the following code to MainPage.xaml.cs after the `OnNavigatedTo()` method. Be sure to replace `{backend endpoint}` with the backend endpoint obtained in the previous section:
 
 		private async void PushClick(object sender, RoutedEventArgs e)
         {
-            var POST_URL = "http://localhost:[yourPortNum]/api/notifications";
+            var POST_URL = "{backend endpoint}/api/notifications";
 
             using (var httpClient = new HttpClient())
             {

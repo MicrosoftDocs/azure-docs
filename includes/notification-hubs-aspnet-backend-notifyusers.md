@@ -243,8 +243,21 @@ The first step is to create an ASP.NET WebAPI project. This is the backend that 
 		using System.Threading.Tasks;
 		using System.Web;
 
-22. Press **F5** to run the application and to ensure the accuracy of your work so far. The app should launch a web browser and display the ASP.NET home page. **Important**: make a note of the *localhost* port in the URL of this web page, as it is required later in this tutorial.
+22. Press **F5** to run the application and to ensure the accuracy of your work so far. The app should launch a web browser and display the ASP.NET home page. 
 
+23. Now we will deploy this app to an Azure Web Site in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
+
+24. Select Azure Web Site as your publish target.
+
+	![][B15]
+
+25. Log in with your Azure account and select an existing or new Web Site.
+
+	![][B16]
+
+26. Make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial.
+
+	![][B18]
 
 
 [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push1.png
@@ -256,3 +269,7 @@ The first step is to create an ASP.NET WebAPI project. This is the backend that 
 [7]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push7.png
 [8]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push8.png
 [14]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push14.png
+
+[B15]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-notify-users15.PNG
+[B16]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-notify-users16.PNG
+[B18]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-notify-users18.PNG
