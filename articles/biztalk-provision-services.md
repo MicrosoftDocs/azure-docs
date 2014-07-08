@@ -257,7 +257,7 @@ When you create an Azure BizTalk Service, the **Hybrid Connections** tab is avai
 
 ![Hybrid Connections Tab][HybridConnectionTab]
 
-Hybrid Connections are used to connect an Azure web site to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services.  Hybrid Connections and the BizTalk Adapter Service are different. The BizTalk Adapter Service is used to connect Azure BizTalk Services to an on-premises Line of Business (LOB) system. 
+Hybrid Connections are used to connect an Azure web site or Azure mobile service to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services.  Hybrid Connections and the BizTalk Adapter Service are different. The BizTalk Adapter Service is used to connect Azure BizTalk Services to an on-premises Line of Business (LOB) system. 
 
  See [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274) to learn more, including creating and managing Hybrid Connections. 
 
