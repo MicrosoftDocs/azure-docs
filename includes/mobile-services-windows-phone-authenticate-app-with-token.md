@@ -5,7 +5,8 @@ The previous example showed a standard sign-in, which requires the client to con
 
 1. In the MainPage.xaml.cs project file, add the following **using** statements:
 
-		using Windows.Security.Credentials;		
+		using System.IO.IsolatedStorage;
+		using System.Security.Cryptography;		
 
 2. Replace the **AuthenticateAsync** method with the following code:
 
@@ -14,30 +15,30 @@ The previous example showed a standard sign-in, which requires the client to con
             string message;
             // This sample uses the Facebook provider.
             var provider = "Facebook";
-              
-            // Use the PasswordVault to securely store and access credentials.
-            PasswordVault vault = new PasswordVault();
-            PasswordCredential credential = null;
 
-            while (credential == null)
+            // Provide some additional app-specific security for the encryption.
+            byte [] entropy = { 1, 8, 3, 6, 5 };
+
+            // Authorization credential.
+            MobileServiceUser user = null;
+
+            // Isolated storage for the app.
+            IsolatedStorageSettings settings =
+                IsolatedStorageSettings.ApplicationSettings;
+
+            while (user == null)
             {
-                try
+                // Try to get an existing encrypted credential from isolated storage.                    
+                if (settings.Contains(provider))
                 {
-                    // Try to get an existing credential from the vault.
-                    credential = vault.FindAllByResource(provider).FirstOrDefault();
+                    // Get the encrypted byte array, decrypt and deserialize the user.
+                    var encryptedUser = settings[provider] as byte[];
+                    var userBytes = ProtectedData.Unprotect(encryptedUser, entropy);
+                    user = JsonConvert.DeserializeObject<MobileServiceUser>(
+                        System.Text.Encoding.Unicode.GetString(userBytes, 0, userBytes.Length));
                 }
-                catch (Exception)
+                if (user != null)
                 {
-                    // When there is no matching resource an error occurs, which we ignore.
-                }
-
-                if (credential != null)
-                {
-                    // Create a user from the stored credentials.
-                    user = new MobileServiceUser(credential.UserName);
-                    credential.RetrievePassword();
-                    user.MobileServiceAuthenticationToken = credential.Password + "aa";
-                    
                     // Set the user from the stored credentials.
                     App.MobileService.CurrentUser = user;
 
@@ -47,12 +48,12 @@ The previous example showed a standard sign-in, which requires the client to con
                         await App.MobileService.GetTable<TodoItem>().Take(1).ToListAsync();
                     }
                     catch (MobileServiceInvalidOperationException ex)
-                    {                        
+                    {
                         if (ex.Response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                         {
                             // Remove the credential with the expired token.
-                            vault.Remove(credential);
-                            credential = null;
+                            settings.Remove(provider);
+                            user = null;
                             continue;
                         }
                     }
@@ -63,12 +64,16 @@ The previous example showed a standard sign-in, which requires the client to con
                     {
                         // Login with the identity provider.
                         user = await App.MobileService
-                            .LoginAsync(provider);                        
+                            .LoginAsync(provider);
 
-                        // Create and store the user credentials.
-                        credential = new PasswordCredential(provider,
-                            user.UserId, user.MobileServiceAuthenticationToken);
-                        vault.Add(credential);
+                        // Serialize the user into an array of bytes and encrypt with DPAPI.
+                        var userBytes = System.Text.Encoding.Unicode
+                            .GetBytes(JsonConvert.SerializeObject(user));
+                        byte[] encryptedUser = ProtectedData.Protect(userBytes, entropy);
+
+                        // Store the encrypted user credentials in local settings.
+                        settings.Add(provider, encryptedUser);
+                        settings.Save();
                     }
                     catch (MobileServiceInvalidOperationException ex)
                     {
@@ -76,16 +81,14 @@ The previous example showed a standard sign-in, which requires the client to con
                     }
                 }
                 message = string.Format("You are now logged in - {0}", user.UserId);
-                var dialog = new MessageDialog(message);
-                dialog.Commands.Add(new UICommand("OK"));
-                await dialog.ShowAsync();
+                MessageBox.Show(message);
             }
         }
 
-	In this version of **AuthenticateAsync**, the app tries to use credentials stored in the **PasswordVault** to access the mobile service. A simple query is sent to verify that the stored token is not expired. When a 401 is returned, a regular provider-based sign-in is attempted. A regular sign-in is also performed when there is no stored credential.
+	In this version of **AuthenticateAsync**, the app tries to use credentials stored encrypted in local storage to access the mobile service. A simple query is sent to verify that the stored token is not expired. When a 401 is returned, a regular provider-based sign-in is attempted. A regular sign-in is also performed when there is no stored credential.	
 
 	>[WACOM.NOTE]This app tests for expired tokens during login, but token expiration can occur after authentication when the app is in use. For a solution to handling authorization errors related to expiring tokens, see the post [Caching and handling expired tokens in Azure Mobile Services managed SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
-
+	
 3. Restart the app twice.
 
 	Notice that on the first start-up, sign-in with the provider is again required. However, on the second restart the cached credentials are used and sign-in is bypassed. 
