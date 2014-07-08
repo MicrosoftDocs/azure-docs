@@ -3,7 +3,7 @@
 #Azure Notification Hubs Notify Users
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/documentation/articles/notification-hubs-/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS" class="current">iOS</a>
+    	<a href="/en-us/documentation/articles/notification-hubs-/" title="Windows Universal" class="current">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
 </div>
 
 Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](http://msdn.microsoft.com/en-us/library/dn743807.aspx). This tutorial builds on the notification hub that you created in the **Get started with Notification Hubs** tutorial.
@@ -24,7 +24,7 @@ Before you begin this tutorial, you must reserve an application name, then creat
 
 The next step is to create the Windows Phone application. To add this project to the current solution, do the following:
 
-1. In Solution Explorer, right-click the top-level node of the solution (**Solution SecurePush** in this case), then click **Add**, then click **New Project**.
+1. In Solution Explorer, right-click the top-level node of the solution (**Solution NotifyUsers** in this case), then click **Add**, then click **New Project**.
 
 2. Expand **Store Apps**, then click **Windows Phone Apps**, then click **Blank App (Windows Phone)**.
 
