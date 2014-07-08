@@ -27,7 +27,7 @@ This Secure Push tutorial shows how to send a push notification securely. The tu
 
 ## WebAPI Project
 
-1. In Visual Studio, open the **SecurePush** project that you created in the **Notify Users** tutorial.
+1. In Visual Studio, open the **AppBackend** project that you created in the **Notify Users** tutorial.
 2. In Notifications.cs, replace the entire contents of the **SecurePush.Models** namespace with the following code. Be sure to replace the placeholders with your connection string (with full access) for your notification hub, and the hub name. You can obtain these values from the [Azure Management Portal](http://manage.windowsazure.com). This module now represents the different secure notifications that will be sent. In a complete implementation, the notifications will be stored in a database; for simplicity, in this case we store them in memory.
 
 		public class Notification
@@ -99,7 +99,7 @@ This Secure Push tutorial shows how to send a push notification securely. The tu
 
 ## Modify the Windows Phone Project
 
-18. In the **SecurePushWindowsPhone** project, add the following code to App.xaml.cs to register the push background task. Add the following line of code at the end of the `OnLaunched()` method:
+18. In the **NotifyUserWindowsPhone** project, add the following code to App.xaml.cs to register the push background task. Add the following line of code at the end of the `OnLaunched()` method:
 
 		RegisterBackgroundTask();
 
@@ -204,9 +204,9 @@ The next step is to create the push background component.
 		using Windows.UI.Notifications;
 		using Windows.Data.Xml.Dom;
 
-11. In Solution Explorer, in the **SecurePushWindowsPhone (Windows Phone 8.1)** project, right-click **References**, then click **Add Reference...**. In the Reference Manager dialog, check the box next to **PushBackgroundComponent**, and then click **OK**.
+11. In Solution Explorer, in the **NotifyUserWindowsPhone (Windows Phone 8.1)** project, right-click **References**, then click **Add Reference...**. In the Reference Manager dialog, check the box next to **PushBackgroundComponent**, and then click **OK**.
 
-12. In Solution Explorer, double-click **Package.appxmanifest** in the **SecurePushWindowsPhone (Windows Phone 8.1)** project. Under **Notifications**, set **Toast Capable** to **Yes**.
+12. In Solution Explorer, double-click **Package.appxmanifest** in the **NotifyUserWindowsPhone (Windows Phone 8.1)** project. Under **Notifications**, set **Toast Capable** to **Yes**.
 
 	![][3]
 
@@ -224,13 +224,13 @@ The next step is to create the push background component.
 
 To run the application, do the following:
 
-1. In Visual Studio, run the **SecurePush** Web API application. An ASP.NET web page is displayed.
+1. In Visual Studio, run the **AppBackend** Web API application. An ASP.NET web page is displayed.
 
-2. In Visual Studio, run the **SecurePushWindowsPhone (Windows Phone 8.1)** Windows Phone app. The Windows Phone emulator runs and loads the app automatically.
+2. In Visual Studio, run the **NotifyUserWindowsPhone (Windows Phone 8.1)** Windows Phone app. The Windows Phone emulator runs and loads the app automatically.
 
-3. In the **SecurePushWindowsPhone** app UI, enter a username and password. These can be any string, but they must be the same value.
+3. In the **NotifyUserWindowsPhone** app UI, enter a username and password. These can be any string, but they must be the same value.
 
-4. In the **SecurePushWindowsPhone** app UI, click **Log in and register**. Then click **Send push**.
+4. In the **NotifyUserWindowsPhone** app UI, click **Log in and register**. Then click **Send push**.
 
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
