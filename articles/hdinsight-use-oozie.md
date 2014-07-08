@@ -445,7 +445,7 @@ the Invoke-RestMethod PowerShell cmdlet to invoke Oozie web services. The Oozie 
 		
 		   <property>
 		       <name>user.name</name>
-		       <value>admin</value>
+		       <value>$clusterUsername</value>
 		   </property>
 		
 		   <property>
