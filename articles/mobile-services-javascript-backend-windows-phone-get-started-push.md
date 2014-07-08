@@ -9,7 +9,7 @@
 
 This topic shows you how to use Azure Mobile Services to send push notifications to a Windows Phone Silverlight app. In this tutorial you enable push notifications using Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
 
->[WACOM.NOTE]This tutorial demonstrates Mobile Services integration with Notification Hubs, which is currently in preview. By default, sending push notifications using Notification Hubs is not enabled from a JavaScript backend.  Once the new notification hub has been created, the integration process cannot be reverted. 
+>[WACOM.NOTE]This tutorial demonstrates Mobile Services integration with Notification Hubs, which is currently how you send push notifications from a newly created mobile service. If you are using an older mobile service that has not yet been upgraded to use Notification Hubs, we recommend that you do so as part of this tutorial. If you choose not to upgrade now, you should follow [this version](/en-us/documentation/articles/mobile-services-windows-phone-get-started-push/) of the tutorial. 
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -109,6 +109,8 @@ Finally, you must update the script registered to the insert operation on the To
 	This insert script sends a push notification (with the text of the inserted item) to all Windows Phone app registrations after the insert succeeds.
 
 3. Click the **Push** tab, check **Enable unauthenticated push notifications**, then click **Save**.
+
+	>[WACOM.NOTE]When you are completing this tutorial using an older mobile service, you might see a link at the bottom of the **Push** tab that says **Enable Enhanced Push**. Click this now to upgrade your mobile service to integrate with Notification Hubs. This change cannot be reverted. For details on how to enable enhanced push notifications in a production mobile service, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">this guidance</a>.
 
 	![][11]
 
