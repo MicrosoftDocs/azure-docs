@@ -1,1 +1,3 @@
-<properties title="Use the sample datasets" pageTitle="Use the sample datasets" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Use the sample datasets in Azure Machine Learning Studio" pageTitle="Use the sample datasets in Machine Learning Studio | Azure" description="Use the sample datasets in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+
+#Use the sample datasets in Azure Machine Learning Studio

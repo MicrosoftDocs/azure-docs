@@ -1,1 +1,0 @@
-<properties title="Sentiment analysis sample" pageTitle="Sentiment analysis sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
