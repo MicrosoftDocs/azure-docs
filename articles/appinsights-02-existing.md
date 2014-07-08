@@ -1,0 +1,94 @@
+<properties title="Monitor usage and performance of an existing web project with Application Insights" pageTitle="Monitor usage and performance of an existing web project with Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
+ 
+# H1 (Add Application Insights to an existing web project) 
+
+*Application Insights is in preview.*
+
+Find out what users are doing with your web application, so that you can better tune it to their needs. Make sure it's constantly available and performing well. Application Insights will alert you to any issues and help you find and diagnose the root causes.
+
+Application Insights can monitor live and in-development web applications, hosted on-premise or on virtual machines, as well as Microsoft Azure websites.
+
+You'll need <a href="http://go.microsoft.com/fwlink/?LinkId=397827">Visual Studio Update 3</a>.
+
++ [1. Add Application Insights to your web service] 
++ [2. Add Application Insights to your web client]
++ [3. Run your project]
++ [4. See monitor data]
++ [Next steps]
+
+*If you are [creating a new web project, it's even easier][newproject].*
+
+
+## 1. Add Application Insights to your web service
+
+Open your ASP.NET project in Visual Studio Update 3. 
+
+Right-click and add Application Insights to the project.
+
+![Add to an existing project](./media/appinsights/appinsights-03-addExisting.png)
+
+## 2. Add Application Insights to your web client
+
+Go to your application in Application Insights.
+
+![Right-click your project and open the Azure portal](./media/appInsights/appinsights-04-openPortal.png)
+
+
+Get the code snippet for the client pages.
+
+![Get code from Quick Start](./media/appinsights/appinsights-06webcode.png)
+
+In Visual Studio, put the code in each web page that you want to monitor. In an ASP.NET app, a way to do that is to insert it in the Shared/_Layout page.
+
+Notice that the snippet contains the id of this application.
+
+
+
+## 3. Run your project
+
+Run your application with F5 and try it out.
+
+## 4. See monitor data
+
+
+**Close and re-open your application's home blade**, and look for data in the Application health and Usage analytics tiles. For example:
+
+![Click through to more data](./media/appInsights/appinsights-05-usageTiles.png)
+
+> [WACOM.NOTE] Currently, reports do not refresh automatically. If you are waiting for data in a report, you should close and re-open its blade. 
+
+Click any tile to see more detail.
+
+> [WACOM.NOTE] The detail on many of the tiles is limited in this preview version. 
+
+## 4. Deploy your application
+
+Deploy your application and watch the data accumulate.
+
+Before you deploy your application for live use, open ApplicationInsights.config. Find and set the following parameter:
+
+    <DeveloperMode>false</DeveloperMode>
+
+This will change the thresholds for performance notification so that less data is sent.
+
+## Next steps
+
+[Understand the data from your application][monitor]
+
+[Web tests]
+
+
+<!--Anchors-->
+[1. Add Application Insights to your web service]: #subheading-1
+[2. Add Application Insights to your web client]: #subheading-2
+[3. Run your project]: #subheading-3
+[4. See monitor data]: #subheading-4
+[Next steps]: #next-steps
+
+
+<!--Link references-->
+[Web tests]: ../appinsights-10Avail/
+[monitor]: ../appinsights-04monitor/
+[usage]: ../appinsights-30usage/
+[newproject]: ../appinsights-01-start/
+
