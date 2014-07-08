@@ -9,7 +9,7 @@
  
 This topic shows you how to use Azure Mobile Services to send push notifications to an iOS app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE] This topic shows how to enable push notifications by using the legacy support provided by Mobile Services. Azure Notification Hubs integrates with Mobile Services to enable you to send template-based and cross-platform push notifications to millions of devices. By default, push notifications using Notification Hubs is not enabled.
+>[WACOM.NOTE]This tutorial demonstrates Mobile Services integration with Notification Hubs, which is currently how you send push notifications from a newly created mobile service. If you are using an older mobile service that has not yet been upgraded to use Notification Hubs, we recommend that you do so as part of this tutorial. If you choose not to upgrade now, you should follow [this version](/en-us/documentation/articles/mobile-services-ios-get-started-push/) of the tutorial. 
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -53,6 +53,8 @@ After you have registered your app with APNS and configured your project, you mu
    	![][18]
 
 3. Click the **Push** tab and click **Upload**.
+
+	>[WACOM.NOTE]When you are completing this tutorial using an older mobile service, you might see a link at the bottom of the **Push** tab that says **Enable Enhanced Push**. Click this now to upgrade your mobile service to integrate with Notification Hubs. This change cannot be reverted. For details on how to enable enhanced push notifications in a production mobile service, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">this guidance</a>.
 
    	![][19]
 

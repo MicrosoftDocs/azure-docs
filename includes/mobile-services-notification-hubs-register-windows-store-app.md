@@ -46,17 +46,13 @@
 
    	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-selection.png)
 
-11. Click the **Push** tab. 
+11. Click the **Push** tab and enter the **Client secret** and **Package SID** values obtained from WNS in Step 4, then click **Save**.
 
-  >[WACOM.NOTE]If you are using the JavaScript backend for your mobile service, you may have to click **Enable enhanced push**, and click **Yes** to accept the configuration change. This operation resets your push credentials and changes the behavior of the push methods in your scripts. These changes cannot be reverted. Do not use this method to add a notification hub to a production mobile service. For guidance on how to enable enhanced push notifications in a production mobile service, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">this guidance</a>.
-
-12. Enter the **Client secret** and **Package SID** values obtained from WNS in Step 4, and then click **Save**.
+	>[WACOM.NOTE]When you are completing this tutorial using an older mobile service, you might see a link at the bottom of the **Push** tab that says **Enable Enhanced Push**. Click this now to upgrade your mobile service to integrate with Notification Hubs. This change cannot be reverted. For details on how to enable enhanced push notifications in a production mobile service, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">this guidance</a>. 
 
    	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-push-tab.png)
 
-<!-- Anchors. -->
-
-
+	>[WACOM.NOTE]When you set your WNS credentials for enhanced push notifications in the **Push** tab in the portal, they are shared with Notification Hubs to configure the notification hub for your app.
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
