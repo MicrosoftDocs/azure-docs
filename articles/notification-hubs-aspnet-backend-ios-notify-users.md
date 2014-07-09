@@ -1,9 +1,10 @@
-<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging, secure push" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
+<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
 #Azure Notification Hubs Notify Users
 
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/en-us/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
+		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
 Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](http://msdn.microsoft.com/en-us/library/dn743807.aspx). This tutorial builds on the notification hub that you created in the **Get started with Notification Hubs** tutorial.
@@ -54,7 +55,7 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 		
 6. In the RegisterClient.m add the following interface section:
 
-		@interface ANHRegisterClient ()
+		@interface RegisterClient ()
 		
 		@property (strong, nonatomic) NSURLSession* session;
 		-(void) tryToRegisterWithDeviceToken:(NSData*) token tags:(NSSet*) tags retry: (BOOL) retry andCompletion: (void(^)(NSError*)) completion;
@@ -65,7 +66,7 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 
 7. Then add the following code in the implementation section, and substitute the *{backend endpoint}* placeholder with the endpoint you used to deploy your app backend in the previous section.
 		
-		NSString *const RegistrationIdLocalStorageKey = @"ANHRegistrationId";
+		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";
 		NSString *const BackEndEndpoint = @"{backend endpoint}/api/register";
 		
 		- (instancetype)init
@@ -203,13 +204,13 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 
 9. In ViewController.m, make the ViewController class a UITextFieldDelegate, add a property to reference a RegisterClient instance, and add a private method declaration. Your interface section should be:
 
-		@interface ANHViewController () <UITextFieldDelegate>
+		@interface ViewController () <UITextFieldDelegate>
 		@property (weak, nonatomic) IBOutlet UITextField *UsernameField;
 		@property (weak, nonatomic) IBOutlet UITextField *PasswordField;
 		@property (weak, nonatomic) IBOutlet UIButton *LogInButton;
 		@property (weak, nonatomic) IBOutlet UIButton *SendPushButton;
 		
-		@property (strong, nonatomic) ANHRegisterClient* registerClient;
+		@property (strong, nonatomic) RegisterClient* registerClient;
 		
 		-(void) createAndSetAuthenticationHeaderWithUsername: (NSString*) username AndPassword: (NSString*) password;
 		@end
@@ -252,7 +253,7 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 		    
 		    [self createAndSetAuthenticationHeaderWithUsername:username AndPassword:password];
 		    
-		    __weak ANHViewController* selfie = self;
+		    __weak ViewController* selfie = self;
 		    [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil andCompletion: ^(NSError* error) {
 		        if (!error) {
 		            dispatch_async(dispatch_get_main_queue(), ^{
@@ -296,7 +297,7 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 
 		self.UsernameField.delegate = self;
 		self.PasswordField.delegate = self;
-		self.registerClient = [[ANHRegisterClient alloc] init];
+		self.registerClient = [[RegisterClient alloc] init];
 
 11. Now in your **AppDelegate.m** remove all the content of the method **application:didRegisterForPushNotificationWithDeviceToken:** and replace it with:
 

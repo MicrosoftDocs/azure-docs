@@ -1,10 +1,10 @@
 <properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-#Azure Notification Hubs Notify Users
+#Azure Notification Hubs Notify Users - placeholder for Android
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/documentation/articles/notification-hubs-/" title="Windows Universal" class="current">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
-		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
+    	<a href="/en-us/documentation/articles/notification-hubs-/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android" class="current">Android</a>
 </div>
 
 Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](http://msdn.microsoft.com/en-us/library/dn743807.aspx). This tutorial builds on the notification hub that you created in the **Get started with Notification Hubs** tutorial.

@@ -1,9 +1,9 @@
 <properties linkid="develop-notificationhubs-tutorials-send-breaking-news-ios" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="krisragh" solutions="" manager="" editor="" />
 
-# Use Notification Hubs to send breaking news
+# Use Notification Hubs to send breaking news - placeholder for Android
 <div class="dev-center-tutorial-selector sublanding">     	
-	<a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Store C#" >Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS" class="current">iOS</a>
-	<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
+	<a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Store C#" >Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a>
+	<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android" class="current">Android</a>
 </div>
 
 This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to an iOS app. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
