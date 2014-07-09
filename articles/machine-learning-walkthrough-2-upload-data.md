@@ -1,4 +1,4 @@
-﻿<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 This is the second step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
@@ -55,4 +55,4 @@ This uploads the data into a Dataset module that we can use in an experiment.
 
 
 
-[1]: ./media/machine-learning-2-upload-data/upload1.png
+[1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png

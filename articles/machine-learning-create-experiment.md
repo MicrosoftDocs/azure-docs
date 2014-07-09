@@ -1,4 +1,4 @@
-﻿<properties title="Create your first experiment in Azure Machine Learning Studio" pageTitle="Create your first experiment in Machine Learning Studio | Azure" description="How to create and iterate on an experiment in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Create your first experiment in Azure Machine Learning Studio" pageTitle="Create your first experiment in Machine Learning Studio | Azure" description="How to create and iterate on an experiment in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 #Create your first experiment in Azure Machine Learning Studio 
  
@@ -11,13 +11,13 @@ Microsoft Azure Cloud Machine Learning Studio is designed to help you develop an
 The five basic steps you follow to build an experiment in ML Studio allow you to create, train, and score your model:  
 
 - Create a Model 
-	- <a href="machine-learning-create-experiment#1getdata">        Step 1: Get data</a>
-	- <a href="machine-learning-create-experiment#2processdata">    Step 2: Pre-process data</a>
-	- <a href="machine-learning-create-experiment#3definefeatures"> Step 3: Define, extract, and enrich features</a>
+	- <a href=".\machine-learning-create-experiment#1getdata">        Step 1: Get data</a>
+	- <a href=".\machine-learning-create-experiment#2processdata">    Step 2: Pre-process data</a>
+	- <a href=".\machine-learning-create-experiment#3definefeatures"> Step 3: Define, extract, and enrich features</a>
 - Train the Model 
-	- <a href="machine-learning-create-experiment#4applyalgorithm"> Step 4: Choose and apply a learning algorithm</a>
+	- <a href=".\machine-learning-create-experiment#4applyalgorithm"> Step 4: Choose and apply a learning algorithm</a>
 - Score and Test the Model 
-	- <a href="machine-learning-create-experiment#5predictnewdata"> Step 5: Predict over new data</a> 
+	- <a href=".\machine-learning-create-experiment#5predictnewdata"> Step 5: Predict over new data</a> 
 
 There are two types of predictive analytics you may want to perform with your data: 
 

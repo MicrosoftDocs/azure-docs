@@ -1,4 +1,4 @@
-﻿<properties title="Step 1: Create an Azure Machine Learning workspace pageTitle="Step 1: Create a Machine Learning workspace | Azure" description="Step 1: Create a new Azure Machine Learning Studio workspace" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Step 1: Create a Machine Learning workspace | Azure" description="Step 1: Create a new Azure Machine Learning Studio workspace" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 This is the first step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
@@ -30,4 +30,4 @@ After your ML workspace is created, you will see it listed on the **machine lear
 >**Tip** – You can share the experiments you’re working on by inviting others to your workspace. You can do this in ML Studio on the **SETTINGS** page. You just need the Microsoft Live ID for each user.
 
 
-[1]: ./media/machine-learning-1-create-ml-workspace/create1.png
+[1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
