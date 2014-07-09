@@ -34,7 +34,7 @@ Charges are aggregated per workspace for your subscription. Within each workspac
 +	API Service Prediction Hours – this meter includes compute charges accrued by Web services running in production. 
 +	API Service Predictions (in 1000s) – this meter includes charges accrued per call to your production web service.
 
-Visit the Pricing page for pricing details, <http://azure.microsoft.com/en-us/pricing/details/hdinsight/> 
+Visit the Pricing page for pricing details, <http://azure.microsoft.com/en-us/pricing/details/machinelearning> 
 
 6.**Does Azure Machine Learning have a Free Trial?**
 
