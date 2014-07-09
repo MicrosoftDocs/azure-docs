@@ -16,10 +16,11 @@ This tutorial walks you through these basic steps to enable push notifications:
 1. [Generate the certificate signing request] 
 2. [Register your app and enable push notifications]
 3. [Create a provisioning profile for the app]
-3. [Configure Mobile Services]
-4. [Add push notifications to the app]
-5. [Update scripts to send push notifications]
-6. [Insert data to receive notifications]
+4. [Configure Mobile Services]
+5. [Add push notifications to the app]
+6. [Update scripts to send push notifications]
+7. [Enable push notifications for local testing](#local-testing)
+8. [Insert data to receive notifications]
 
 This tutorial requires the following:
 
@@ -177,6 +178,10 @@ Your app is now updated to support push notifications.
 
 
    	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.
+
+##<a id="local-testing"></a> Enable push notifications for local testing
+
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ## Test push notifications in your app
 

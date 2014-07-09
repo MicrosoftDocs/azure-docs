@@ -5,8 +5,8 @@
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="Windows Store C#" class="current">Windows Store C#</a>
-<a href="/en-us/documentation/articles/mobile-services-ios-dotnet-adal-sso-authentication" title="iOS" >iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-ios-dotnet-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS" >iOS</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
 </div>
 
 In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library. 
@@ -137,7 +137,7 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
                 string message;
                 try
                 {
-                  AuthenticationContext ac = new AuthenticationContext(authority, false);
+                  AuthenticationContext ac = new AuthenticationContext(authority);
                   AuthenticationResult ar = await ac.AcquireTokenAsync(resourceURI, clientID);
                   JObject payload = new JObject();
                   payload["access_token"] = ar.AccessToken;
