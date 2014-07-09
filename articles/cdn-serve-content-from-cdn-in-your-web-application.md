@@ -3,7 +3,7 @@
 # Serve Content from Azure CDN in Your Web Application #
 ***By [Cephas Lin](https://twitter.com/Cephas_MSFT) Updated 14 July 2014.***
 
-This tutorial shows you how to take advantage of Azure CDN to improve the reach and performance of your WEb application. Azure CDN can help improve the performance of your Web application when:
+This tutorial shows you how to take advantage of Azure CDN to improve the reach and performance of your Web application. Azure CDN can help improve the performance of your Web application when:
 
 - You have many links to static or semi-static content on your pages
 - Your application is accessed by clients globally
