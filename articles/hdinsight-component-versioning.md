@@ -63,14 +63,17 @@ If you use the **Quick Create** option, you will get the version 3.1 of HDInsigh
 
 
 ## Supported versions
-The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform (HDP) versions that they use, and their release dates. When known, their support expiration and deprecation dates will also be provided. Note that highly available clusters with two head nodes are deployed by default for HDInsight 2.1, 3.0, and 3.1 clusters. They are not available for HDInsight 1.6 clusters.
+The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform (HDP) versions that they use, and their release dates. When known, their support expiration and deprecation dates will also be provided. Please note  the following:
+
+* Highly available clusters with two head nodes are deployed by default for HDInsight 2.1, 3.0, and 3.1 clusters. They are not available for HDInsight 1.6 clusters.
+* Once the support has expired for a particular version, it may not be available through the Azure management portal. The following table indicates which versions are available on the Azure management portal. Cluster versions will continue to be available through PowerShell (`New-AzureHDInsightCluster –Version`) and the SDK until its deprecation date. 
 
 <table border="1">
-<tr><th>HDInsight Version</th><th>HDP Version</a><th>High Availability</th></th><th>Release Date</th><th>Support Expiration Date</th><th>Deprecation Date</th></tr>
-<tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Yes</td><td></td><td></td><td></td></tr>
-<tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Yes</td><td>02/11/2014</td><td>09/17/2014</td><td>06/30/2015</td></tr>
-<tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Yes</td><td>10/28/2013</td><td>05/12/2014</td><td>05/31/2015</td></tr>
-<tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>10/28/2013</td><td>04/26/2014</td><td>05/31/2015</td></tr>
+<tr><th>HDInsight Version</th><th>HDP Version</a><th>High Availability</th></th><th>Release Date</th><th>Available on Azure Management Portal</th><th>Support Expiration Date</th><th>Deprecation Date</th></tr>
+<tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Yes</td><td></td><td>Yes</td><td></td><td></td></tr>
+<tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Yes</td><td>02/11/2014</td><td>Yes</td><td>09/17/2014</td><td>06/30/2015</td></tr>
+<tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Yes</td><td>10/28/2013</td><td>Yes</td><td>05/12/2014</td><td>05/31/2015</td></tr>
+<tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>10/28/2013</td><td>Yes</td><td>04/26/2014</td><td>05/31/2015</td></tr>
 </table><br>
 
 ### The Service-Level Agreement (SLA) for HDInsight cluster versions
