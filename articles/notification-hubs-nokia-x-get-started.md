@@ -1,7 +1,7 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-nokia-x" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="kirillg" editor="" />
 # Get started with Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android" class="current">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/notification-hubs-nokia-x-get-started/" title="Nokia X">Nokia X</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/notification-hubs-nokia-x-get-started/" title="Nokia X" class="current">Nokia X</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
 This topic shows you how to use **Azure Notification Hubs** to send push notifications to an Android application on **Nokia X**. In this tutorial, you will create a blank Android app that receives push notifications using Nokia Notification Service. When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
 
@@ -13,14 +13,14 @@ The tutorial walks you through these basic steps to enable push notifications:
 * [How to send a notification to your app](#send)
 * [Testing your app](#test-app)
 
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.</p></div>
+
 This tutorial requires the following:
 
 1.	Nokia X development environment which you can configure by following the instructions <a href="http://developer.nokia.com/resources/library/nokia-x/getting-started/environment-setup.html">here</a>. Make sure to install the Nokia X specific packages and set up the Nokia X emulator by following the instructions. 
 2.	Nokia X device setup (optional) which you can configure by following the instructions <a href="http://developer.nokia.com/resources/library/nokia-x/getting-started/device-setup.html">here</a>.
 3.	Android SDK (it is assumed you will be using Eclipse) which you can download from <a href="http://go.microsoft.com/fwlink/?linkid=389797&clcid=0x409">here</a>.
 4.	Mobile Services Android SDK which you can download from <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">here<a>. 
-
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.</p></div>
 
 ##<a id="register"></a>Configure Nokia Notification service
 
@@ -83,11 +83,11 @@ This tutorial requires the following:
 	![][13]
 
 4.	Add the Nokia Notification Service's JAR file to your project. This Nokia Notifications helper library **push.jar** provides an API similar to the GCM helper library. 
-Navigate to Project Properties -> Java Build Path -> Libraries -> Add External JARs and add the **push.jar** available in **<android-sdk-path>\extras\nokia\nokia_x_services\libs\nna\push.jar**. The Javadoc for the library is located in <android-sdk-path>\extras\nokia\nokia_x_services\javadocs\nna.
+Navigate to Project Properties -> Java Build Path -> Libraries -> Add External JARs and add the **push.jar** available in **<android-sdk-path>\extras\nokia\nokia_x_services\libs\nna\push.jar**. The Javadoc for the library is located in **<android-sdk-path>\extras\nokia\nokia_x_services\javadocs\nna**.
 
 5. Make sure to also copy this push.jar library to the \libs directory of your project in the Package explorer. 
 
-6. Download the Notification Hubs Android SDK from <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">here</a>. Extract the .zip file and copy the file notificationhubs\notification-hubs-0.1.jar to the \libs directory of your project in the Package Explorer.
+6. Download the Notification Hubs Android SDK from <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">here</a>. Extract the .zip file and copy the file notificationhubs\notification-hubs-0.3.jar to the \libs directory of your project in the Package Explorer.
 
     <div class="dev-callout"><b>Note</b>
 	<p>The numbers at the end of the file name may change in subsequent SDK releases.</p>
@@ -126,7 +126,6 @@ Navigate to Project Properties -> Java Build Path -> Libraries -> Add External J
 	            android:label="@string/app_name" >
 	            <intent-filter>
 	                <action android:name="android.intent.action.MAIN" />
-	
 	                <category android:name="android.intent.category.LAUNCHER" />
 	            </intent-filter>
 	        </activity>
@@ -140,7 +139,6 @@ Navigate to Project Properties -> Java Build Path -> Libraries -> Add External J
 	                <action android:name="com.nokia.pushnotifications.intent.RECEIVE" />
 	                <!-- Receives the registration id. -->
 	                <action android:name="com.nokia.pushnotifications.intent.REGISTRATION" />
-	                
 	                <category android:name="[YourPackageName]" />
 	            </intent-filter>
 	        </receiver>
@@ -159,7 +157,7 @@ Navigate to Project Properties -> Java Build Path -> Libraries -> Add External J
 	    	public static String SenderId = "";
 		}
 	
-	Fill up the above constants with your configuration – **SenderId** from Nokia push console and **NotificationHubName** and **NotificationHubConnectionString** (DefaultListenSharedAccessSignature) from the management portal. 
+	Fill up the above constants with your configuration **SenderId** from Nokia push console and **NotificationHubName** and **NotificationHubConnectionString** (DefaultListenSharedAccessSignature) from the management portal. 
 
 3. In the **MainActivity.java**, add the following import statement:
 	
@@ -331,8 +329,8 @@ To test this app with the emulator:
 
     <div class="dev-callout"><b>Note</b>
 	<p>
-	If the Android app is able to register successfully with the Notification Hub, you will see a message like the following in your **Eclipse – Logcat** logs:
-	**Registered with Notification Hub - '<yourNotificationHubName>' with RegistrationID - '<RegistrationIdReturnedByNokiaNotificationService'**
+	If the Android app is able to register successfully with the Notification Hub, you will see a message like the following in your 'Eclipse Logcat' logs:
+	'Registered with Notification Hub - '<yourNotificationHubName>' with RegistrationID - '<RegistrationIdReturnedByNokiaNotificationService''
 	</p>
     </div>
 	
