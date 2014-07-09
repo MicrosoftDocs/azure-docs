@@ -23,11 +23,11 @@ By default, the token you receive from AAD has limited permissions. In order to 
 
 1. In the **Active Directory** Section of the [Azure Management Portal], select your tenant. Navigate to the web application that you created for the mobile service.
 
-   ![][0]
+    ![][0]
 
-2. In the **Configure** tab, scroll the page down to the permissions to other applications section. Select “Office 365 SharePoint Online” and grant the “Edit or delete users’ files” delegated permission. Then click **Save**.
+2. In the **Configure** tab, scroll the page down to the permissions to other applications section. Select **Office 365 SharePoint Online** and grant the **Edit or delete users’ files** delegated permission. Then click **Save**.
 
-   ![][1]
+    ![][1]
 
 You have now configured AAD to issue a SharePoint access token to the mobile service.
 
@@ -39,11 +39,11 @@ In order to make a call to SharePoint, you need to specify the endpoints that th
 
 2. Under Configure, scroll down to Keys. You will obtain a Client Secret by generating a new key. Note once you create a key and leave the page, there is no way to get it out of the portal again. Upon creation you must copy and save this value in a secure location. Select a duration for your key, then click save, and copy out the resulting value.
 
-   ![][2]
+    ![][2]
 
 3. In the Mobile Services section of the Management Portal, navigate to the Configure tab, and scroll down to App Settings. Here you can provide a key-value pair to help you reference the necessary credentials.
 
-   ![][3]
+    ![][3]
 
 4. Set SP_Authority to be the authority endpoint for your AAD tenant. This should be the same as the authority value used for your client app. It will be of the form https://login.windows.net/contoso.onmicrosoft.com
 
@@ -53,7 +53,7 @@ In order to make a call to SharePoint, you need to specify the endpoints that th
 
 You will be able to obtain these values again in our code using ApiServices.Settings.
 
-## <a name="obtain-token">Obtain an access token and call the SharePoint API
+## <a name="obtain-token"></a>Obtain an access token and call the SharePoint API
 
 In order to access SharePoint, you need a special access token with SharePoint as the target audience. To get this token, you will need to call back into AAD with the identity of the Mobile Service and the token that was issued for the user.
 
@@ -117,7 +117,7 @@ In order to access SharePoint, you need a special access token with SharePoint a
             return true;
         }
 
-## <a name="create-document">Create and upload a Word document
+## <a name="create-document"></a>Create and upload a Word document
 
 To create a Word document, you will use the OpenXML NuGet package. Install this package by opening the NuGet Manager and searching for DocumentFormat.OpenXml.
 
@@ -162,7 +162,7 @@ To create a Word document, you will use the OpenXML NuGet package. Install this 
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-## <a name="test-application">Test the application
+## <a name="test-application"></a>Test the application
 
 1. Publish the changes to the backend, and then run your client application. Log in when prompted, and insert a new TodoItem.
 
@@ -170,7 +170,7 @@ To create a Word document, you will use the OpenXML NuGet package. Install this 
 
 3. Select the OneDrive tab. Under the Documents Folder, you should see a Word document with a GUID title. When you open it, you should find the text for your TodoItem.
 
-   ![][4]
+    ![][4]
 
 
 <!-- Images. -->
