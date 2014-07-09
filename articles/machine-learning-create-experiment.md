@@ -11,13 +11,13 @@ Microsoft Azure Cloud Machine Learning Studio is designed to help you develop an
 The five basic steps you follow to build an experiment in ML Studio allow you to create, train, and score your model:  
 
 - Create a Model 
-	- [Step 1: Get data](#step-1-get-data)
-	- [Step 2: Pre-process data](#2processdata)
-	- [Step 3: Define, extract, and enrich features](#3definefeatures)
+	- [Step 1: Get data]
+	- [Step 2: Pre-process data]
+	- [Step 3: Define, extract, and enrich features]
 - Train the Model 
-	- [Step 4: Choose and apply a learning algorithm](#4applyalgorithm)
+	- [Step 4: Choose and apply a learning algorithm]
 - Score and Test the Model 
-	- [Step 5: Predict over new data](#5predictnewdata) 
+	- [Step 5: Predict over new data] 
 
 There are two types of predictive analytics you may want to perform with your data: 
 
@@ -28,7 +28,7 @@ In this example, we'll walk through a regression task using automobile price and
 
 > [WACOM.NOTE] In addition to classification and regression, it is also possible to perform recommendation and clustering tasks. Because the workflows for these are somewhat different, they are not covered here. 
 
-###<a id="1getdata"></a>Step 1: Get data
+### Step 1: Get data
 
 There are a number of sample datasets included with ML Studio, and you can import data from many different sources. For this example, we will use the included sample dataset that represents automobile price data.
 
@@ -44,7 +44,7 @@ In the dataset, the variables appear as columns and the instances of automobile 
 
 Close the visualization window by clicking the "x" in the upper-right corner.
 
-###<a id="2processdata"></a>Step 2: Pre-process data
+### Step 2: Pre-process data
 
 A dataset usually requires some pre-processing before it can be analyzed. Notice the missing values present in the columns of various rows (for this particular set each missing value is denoted by "?"). To analyze the data, these have to be cleaned. Notice also that the "normalized losses" column has a very large proportion of missing values, so we will exclude that column from the model altogether. 
 
@@ -68,7 +68,7 @@ To view the cleaned dataset, right-click the output port of the **Missing Values
 
 > [WACOM.NOTE] Cleaning the missing values from input data is a prerequisite for using most of the modules. 
 
-###<a id="3definefeatures"></a>Step 3: Define, extract and enrich features
+### Step 3: Define, extract and enrich features
 
 Certain variables are better for predicting the target than others. Finding a good set of feature variables requires experimentation and knowledge about the problem at hand. Also, some features have a strong correlation with other features, for example *city-mpg* versus *highway-mpg*, so they will not add much new information to the model and can be removed. 
 
@@ -100,7 +100,7 @@ This will produce the dataset that will be used in the learning algorithm in the
 
 To view the dataset so far after the experiment finishes running, right-click the output port of the last **Metadata Editor** and select **Visualize**.
 
-###<a id="4applyalgorithm"></a>Step 4: Choose and apply a learning algorithm
+### Step 4: Choose and apply a learning algorithm
 
 Constructing a predictive model consists of training, validation, and testing. Here we will use the **Cross Validate Model** module for training and validation, and in the next section we'll walk through testing. 
 
@@ -140,7 +140,7 @@ Once cross-validation is complete, the next step is to train the model.
 
 The result is a trained regression model that can be used to score new samples (make predictions). 
 
-###<a id="5predictnewdata"></a>Step 5: Predict over new data 
+### Step 5: Predict over new data 
 
 1. To use the trained model, drag the **Score Model** module to the experiment canvas and connect the **Trained model** input port of the **Score Model** module to the **Trained model** output port of the **Train Model** module, and the **Dataset** input port of the **Score Model** module to the test data output port (**Results dataset1**) of the **Split** module.  
 
