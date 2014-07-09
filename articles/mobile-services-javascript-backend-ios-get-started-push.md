@@ -74,8 +74,6 @@ Both your mobile service is now configured to work with APNS.
 
         @property (strong, nonatomic) NSData *deviceToken;
 
-    > [WACOM.NOTE] When dynamic schema is enabled on your mobile service, a new 'deviceToken' column is automatically added to the **TodoItem** table when a new item that contains this property is inserted.
-
 2. In QSAppDelegate.m, replace the following handler method inside the implementation: 
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
