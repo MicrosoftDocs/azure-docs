@@ -29,18 +29,21 @@ Right-click and add Application Insights to the project.
 
 ## 2. Add Application Insights to your web client
 
-Go to your application in Application Insights.
+Open Microsoft Azure.
 
-![Right-click your project and open the Azure portal](./media/appInsights/appinsights-04-openPortal.png)
+![Right-click your project and open the Azure portal](./media/appinsights/appinsights-04-openPortal.png)
 
+Open the Applicataion Insights resource for your application.
+
+![](./media/appinsights/appinsights-08openApp.png)
 
 Get the code snippet for the client pages.
 
 ![Get code from Quick Start](./media/appinsights/appinsights-06webcode.png)
 
-In Visual Studio, put the code in each web page that you want to monitor. In an ASP.NET app, a way to do that is to insert it in the Shared/_Layout page.
+In Visual Studio, put the code in each web page that you want to monitor, immediately before the closing &lt;/head&gt; tag. In an ASP.NET app, a way to do that is to insert it in the Views/Shared/_Layout page.
 
-Notice that the snippet contains the id of this application.
+Notice that the snippet contains the id of this application resource, so if you have several applications, you can't reuse the same snippet.
 
 
 
@@ -58,6 +61,7 @@ Run your application with F5 and try it out.
 > [WACOM.NOTE] Currently, reports do not refresh automatically. If you are waiting for data in a report, you should close and re-open its blade. 
 
 Click any tile to see more detail.
+[Learn more about the data on the tiles and reports.][monitor]
 
 > [WACOM.NOTE] The detail on many of the tiles is limited in this preview version. 
 
@@ -65,15 +69,10 @@ Click any tile to see more detail.
 
 Deploy your application and watch the data accumulate.
 
-Before you deploy your application for live use, open ApplicationInsights.config. Find and set the following parameter:
-
-    <DeveloperMode>false</DeveloperMode>
-
-This will change the thresholds for performance notification so that less data is sent.
 
 ## Next steps
 
-[Understand the data from your application][monitor]
+[Learn more about the tiles and reports][monitor]
 
 [Web tests]
 

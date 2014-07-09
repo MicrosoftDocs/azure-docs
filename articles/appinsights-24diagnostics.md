@@ -19,8 +19,12 @@ The monitored web application can be hosted on-premise or in a virtual machine, 
 
 1. If you haven't done this already, add Application Insights to your [existing] or [new][setup] web service project in Visual Studio.
 2. In Solution Explorer, in the context menu of your project, choose **Manage NuGet Packages**.
-3. Select Online > All and search for "Microsoft.ApplicationInsights"
-4. Select the appropriate package - one of:
+3. Select Online > All, select **Include Prerelease** and search for "Microsoft.ApplicationInsights"
+
+    ![Get the prerelease version of the appropriate adapter](./media/appinsights/appinsights-36nuget.png)
+
+
+4. Select the prerelease version of the appropriate package - one of:
   + Microsoft.ApplicationInsights.TraceListener
   + Microsoft.ApplicationInsights.NLogTarget
   + Microsoft.ApplicationInsights.Log4NetAppender
@@ -36,8 +40,7 @@ In Web.config, insert the following code into the `<configuration>` section:
       <listeners>
        <add name="myAppInsightsListener"  
           type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, 
-         Microsoft.ApplicationInsights.TraceListener"
-        initializeData="a12bc34-5678-9d01-2345-6789012345ef" />
+         Microsoft.ApplicationInsights.TraceListener" />
       </listeners>
      </trace>
     </system.diagnostics> 
@@ -51,7 +54,7 @@ In Nlog.config, merge the following snippets into the `<extensions>`, `<targets>
     </extensions> 
     
     <targets>
-     <target xsi:type="ApplicationInsightsTarget" name="aiTarget" InstrumentationKey="a12bc34-5678-9d01-2345-6789012345ef"/>
+     <target xsi:type="ApplicationInsightsTarget" name="aiTarget"/>
     </targets>
     
     <rules>
@@ -71,14 +74,12 @@ In Web.config, merge these snippets into the `<configsections>` and `<log4net>` 
       <level value="ALL" /> <appender-ref ref="aiAppender" />
      </root>
      <appender name="aiAppender" type="Microsoft.ApplicationInsights.Log4NetAppender.ApplicationInsightsAppender, Microsoft.ApplicationInsights.Log4NetAppender">
-      <param name="InstrumentationKey" value="00000000-0000-0000-0000-000000000000" />
       <layout type="log4net.Layout.PatternLayout">
        <conversionPattern value="%date [%thread] %-5level %logger - %message%newline" />
       </layout>
      </appender>
     </log4net>
 
-Replace the InstrumentationKey value with instrumentation key from your ApplicationInsights.config.
 
 ## 3. Insert log statements, build and deploy
 
