@@ -43,64 +43,64 @@ Let's get to it. Follow the steps below to start using the Azure CDN:
 1. To create a CDN endpoint, log into your [Azure management portal](http://manage.windowsazure.com/). 
 1. Create a storage account by clicking **New > Data Services > Storage > Quick Create**. Specify a URL, a location, and click **Create Storage Account**. 
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-1.PNG)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG)
 
 	>[WACOM.NOTE] Note that I'm using East Asia as the region as it is far enough away for me to test my CDN from North America later.
 
 2. Once the new storage account's status is **Online**, create a new CDN endpoint that's tied to the storage account you created. Click **New > App Services > CDN > Quick Create**. Select the storage account you created and click **Create**.
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-2.PNG)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG)
 
 	>[WACOM.NOTE] Once your CDN is created, the Azure portal will show you its URL and the origin domain that it's tied to. However, it can take awhile for the CDN endpoint's configuration to be fully propagated to all the node locations.  
 
 3. Test your CDN endpoint to make sure that it's online by pinging it. If your CDN endpoint has not propagated to all the nodes, you will see a message similar to the one below.
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-3-fail.PNG)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-fail.PNG)
 
 	Wait another hour and test again. Once your CDN endpoint has finished propagating to the nodes, it should respond to your pings.
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-3-succeed.PNG)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-succeed.PNG)
 
 4. At this point, you can already see where the CDN endpoint determines to be the closest CDN node to you. From my desktop computer, the responding IP address is **93.184.215.201**. Plug it into a site like [www.ip-address.org](http://www.ip-address.org) and see that the server is located in Washington D.C.
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-4.PNG)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-4.PNG)
 
 	For a list of all CDN node locations, see [Azure Content Delivery Network (CDN) Node Locations](http://msdn.microsoft.com/en-us/library/azure/gg680302.aspx).
 
 3. Back in the Azure portal, in the **CDN** tab, click the name of the CDN endpoint you just created.
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-2-enablequerya.PNG)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequerya.PNG)
 
 3. Click **Enable Query String** to enable query strings in the Azure CDN cache. Once you enable this, the same link accessed with different query strings will be cached as separate entries.
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-2-enablequeryb.PNG)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequeryb.PNG)
 
 	>[WACOM.TIP] While enabling the query string is not necessary for this part of the tutorial, you want to do this as early as possible for convenience sake since any change here is going to take time to propagate to the rest of the nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later). You will find out how to take advantage of this in [Serve fresh content immediately through query strings](#query).
 
 6. In Visual Studio 2013, in Server Explorer, click the **Connect to Windows Azure** button.
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-5.PNG)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-5.PNG)
 
 7.  Follow the prompt to sign into your Azure account. 
 8.  Once you sign in, expand the **Windows Azure > Storage > your storage account**. Right-click **Blob** and select **Create Blob Container**.
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-6.png)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-6.PNG)
 
 8.	Specify a blob container name and click **OK**.
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-7.png)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-7.PNG)
 
 9.	In Server Explorer, double-click the blob container you created to manage it. You should see the management interface in the center pane.
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-8.png)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-8.PNG)
 
 10.	Click the **Upload Blob** button to upload images, scripts, or stylesheets that are used by your Web pages into the blob container. The upload progress will be shown in the **Windows Azure Activity Log**, and the blobs will appear in the container view when they are uploaded. 
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-9.png)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-9.PNG)
 
 11.	Now that you have uploaded the blobs, you must make them public for you to access them. In Server Explorer, right-click the container and select **Properties**. Set the **Public Read Access** property to **Blob**.
 
-	![](media/cdn-serve-content-from-cdn-in-your-web-application\cdn-static-10.png)
+	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-10.PNG)
 
 12.	Test the public access of your blobs by navigating to the URL for one of the blobs in a browser. For example, I can test the first image in my uploaded list with `http://cephalinstorage.blob.core.windows.net/cdn/cephas_lin.png`.
 
