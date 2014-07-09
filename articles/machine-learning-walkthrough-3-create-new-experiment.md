@@ -1,4 +1,4 @@
-﻿<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Step 3: Create a new Machine Learning experiment | Azure" description="Step 3: Create a new training experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Step 3: Create a new Machine Learning experiment | Azure" description="Step 3: Create a new training experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 This is the third step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
@@ -81,6 +81,6 @@ Our experiment now looks something like this:
  
 ![Adding Split module and R scripts][3]
 
-[1]: ./media/machine-learning-3-create-new-experiment/create1.png
-[2]: ./media/machine-learning-3-create-new-experiment/create2.png
-[3]: ./media/machine-learning-3-create-new-experiment/create3.png
+[1]: ./media/machine-learning-walkthrough-3-create-new-experiment/create1.png
+[2]: ./media/machine-learning-walkthrough-3-create-new-experiment/create2.png
+[3]: ./media/machine-learning-walkthrough-3-create-new-experiment/create3.png

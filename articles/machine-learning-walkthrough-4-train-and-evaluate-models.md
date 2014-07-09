@@ -1,4 +1,4 @@
-﻿<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Step 4: Train and evaluate the predictive analytic models | Azure" description="Step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Step 4: Train and evaluate the predictive analytic models | Azure" description="Step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 This is the fourth step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
@@ -92,7 +92,7 @@ You can also make a copy of any iteration of your experiment by clicking **SAVE 
 As an additional help to track the changes you make to module parameters, you can add comments to any module on the experiment canvas. Just double-click the module or right-click and select **Edit Comment**. These comments are saved with the experiment iterations and can help you annotate your work.
 
 
-[1]: ./media/machine-learning-4-train-and-evaluate-models/train1.png
-[2]: ./media/machine-learning-4-train-and-evaluate-models/train2.png
-[3]: ./media/machine-learning-4-train-and-evaluate-models/train3.png
-[4]: ./media/machine-learning-4-train-and-evaluate-models/train4.png
+[1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png
+[2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
+[3]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train3.png
+[4]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train4.png
