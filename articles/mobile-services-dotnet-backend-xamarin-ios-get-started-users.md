@@ -35,6 +35,8 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
    	<p>This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
 </ol>
 
+Next, you will update the app to authenticate users before requesting resources from the mobile service.
+
 ##<a name="add-authentication"></a>Add authentication to the app
 
 In this section, you will modify the app to display a login screen before displaying data. When the app starts, it will not not connect to your mobile service and will not display any data. After the first time that the user performs the refresh gesture, the login screen will appear; after successful login the list of todo items will be displayed.

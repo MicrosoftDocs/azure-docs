@@ -16,7 +16,7 @@ This tutorial walks you through these basic steps to enable authentication in yo
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
-Completing this tutorial requires [Xamarin.Android] and Android SDK 4.2 or a later version. 
+Completing this tutorial requires Xamarin.Android and Android SDK 4.2 or a later version. 
 
 <h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
 
@@ -38,7 +38,11 @@ Next, you will update the app to authenticate users before requesting resources 
 
 <h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
-1. Add the following method to the **TodoActivity** class: 
+1. Add the following property to the **TodoActivity** class:
+
+			private MobileServiceUser user;
+
+2. Add the following method to the **TodoActivity** class: 
 
 	        private async Task Authenticate()
 	        {
@@ -59,13 +63,13 @@ Next, you will update the app to authenticate users before requesting resources 
 	<p>If you are using an identity provider other than Microsoft, change the value passed to the <strong>login</strong> method above to one of the following: <i>Facebook</i>, <i>Google</i>, <i>Twitter</i>, or <i>WindowsAzureActiveDirectory</i>.</p>
     </div>
 
-2. In the **OnCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
+3. In the **OnCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
 
 		await Authenticate();
 
 	This call starts the authentication process and awaits it asynchronously.
 
-3. Move the remaining code after `await Authenticate();` in the **OnCreate** method to a new **CreateTable** method, which looks like this:
+4. Move the remaining code after `await Authenticate();` in the **OnCreate** method to a new **CreateTable** method, which looks like this:
 
 	        private async Task CreateTable()
 	        {
@@ -83,12 +87,12 @@ Next, you will update the app to authenticate users before requesting resources 
 	            await RefreshItemsFromTableAsync();
 	        }
 
-4. Then call the new **CreateTable** method in **OnCreate** after the **Authenticate** call added in step 2:
+5. Then call the new **CreateTable** method in **OnCreate** after the **Authenticate** call added in step 2:
 
 		await CreateTable();
 
 
-5. From the **Run** menu, then click **Run** to start the app and sign in with your chosen identity provider. 
+6. From the **Run** menu, then click **Run** to start the app and sign in with your chosen identity provider. 
 
    	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
