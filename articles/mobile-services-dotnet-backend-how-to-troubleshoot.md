@@ -21,8 +21,8 @@ You can use any HTTP debugger to send and inspect HTTP traffic. [Fiddler](http:/
 
     > [WACOM.NOTE] 
     > If the service is hosted locally, clicking the link will direct you to the next page. However, if hosting in the cloud, you will be prompted for a set of credentials. This is to ensure that unauthenticated users don't have access to information about your API and payloads. In order to see the page, you need to log in with a **blank username** and your **application key** as the password. Your application key is available in the **Azure Management Portal** by navigating to the **Dashboard** tab for your mobile service and selecting **Manage keys**.
+    >
     > ![Authentication prompt to access help page][HelpPageAuth]
-    > FIX ME  
 
 3. The page you see (referred to as the "help page") shows a list of all HTTP APIs that your mobile service is making available. Select one of the APIs (if you started using the Mobile Services project template in Visual Studio, you should see **GET tables/TodoItem**).
 
@@ -58,8 +58,8 @@ One of the key features of the .NET backend is the ability to debug the service 
 
 4. Set a breakpoint in the piece of code you would like to debug. For example set a breakpoint in the **GetAllTodoItems()** method of the **TodoItemController** that comes with the Mobile Services project template in Visual Studio.
 5. Debug the service locally by pressing **F5**. The first load may be slow as Visual Studio is downloading symbols for the Mobile Services .NET backend.
-6. As described in the previous section on HTTP debugging, use the test client to send a HTTP request to the method where you set the breakpoint. For example you can send a request to the **GetAllTodoItems()** method by selecting **GET tables/TodoItem** on the help page, then selecting **try this out** and then **send**. 
-7. Visual Studio should break at the breakpoint you set, and a full stack trace with source code should be available in the **Call Stack** window in Visual Studio. 
+6. As described in the previous section on HTTP debugging, use the test client to send a HTTP request to the method where you set the breakpoint. For example you can send a request to the **GetAllTodoItems()** method by selecting **GET tables/TodoItem** on the help page, then selecting **try this out** and then **send**.
+7. Visual Studio should break at the breakpoint you set, and a full stack trace with source code should be available in the **Call Stack** window in Visual Studio.
 
     ![Hitting a breakpoint][Breakpoint]
 
@@ -81,42 +81,41 @@ You now have access the the full power of the Visual Studio debugger when develo
 <a name="Logs"></a>
 ## Analyzing Diagnostic Logs
 
+As your mobile service handles requests from your customers, it generates a variety of useful diagnostic information, and also captures any exceptions encountered. In addition to that, you can instrument your controller code with additional logs by taking advantage of the [**Log**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.apiservices.log.aspx) property available on the [**Services**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.tables.tablecontroller.services.aspx) property of every [**TableController**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.tables.tablecontroller.aspx).
+
+When debugging locally, the logs will appear in the Visual Studio **Output** window.
+
+[Logs in Visual Studio Output window](#LogsOutputWindow)
+
+After you publish your service to Azure, the logs for the service instance running in the cloud are available by right-clicking the mobile service in Visual Studio's **Server Explorer** and then selecting **View Logs**.
+
+[Logs in Visual Studio Server Explorer](#LogsServerExplorer)
+
+The same logs are also available in the **Azure Management Portal** on the **Logs** tab for your mobile service.
+
+[Logs in Azure Management Portal](#LogsPortal)
+
 <a name="AssemblyResolution"></a>
 ## Debugging Cloud Assembly Resolution
+
+When you publish your mobile service to Azure, it gets loaded by the Mobile Services hosting environment, which ensures seamless upgrades and patches to the HTTP pipeline hosting your controller code. This includes all assemblies referenced by the [.NET backend NuGet packages](http://www.nuget.org/packages?q=%22mobile+services+.net+backend%22): the team constantly updates the service to use the latest versions of those assemblies. 
+
+It is sometimes possible to introduce versioning conflicts by referencing *different major versions* of required assemblies (different *minor* versions are allowed). Frequently this happens when NuGet prompts you to upgrade to the latest version of one of the packages used by the Mobile Services .NET backend. When you publish the updated service to Azure, you will see a warning page indicating the conflict.
+
+[Help page indicating assembly loading conflict](#HelpConflict)
+
+This will be accompanied by an exception message similar to the following being recored in your service logs:
+
+    Found conflicts between different versions of the same dependent assembly 'Microsoft.ServiceBus': 2.2.0.0, 2.3.0.0. Please change your project to use version '2.2.0.0' which is the one currently supported by the hosting environment.
+
+This problem is easy to correct: simply revert to a supported version of the required assembly and republish your service.
 
 <a name="EFMigrations"></a>
 ## Troubleshooting Entity Framework Migrations
 
-##Debugging database connectivity issues
+When using the Mobile Services .NET backend with a SQL Database, Entity Framework (EF) is used as the data access technology that enables you to query the database and persist objects into it. One important aspect that EF handles on behalf of the developer is how the database columns (also known as *schema*) change as the model classes specified in code change. This process is known as [Code First Migrations](http://msdn.microsoft.com/en-us/data/jj591621).
 
-The best debugging is to put yourself in the service's shoes, using it's connection string (Which is different that the one you used to setup the service)
-
-###Get the service's connection string
-1. Open the SCM endpoint for your service. If your service is https://yourServiceName.azure-mobile.net/, go to https://yourServiceName.scm.azure-mobile.net/. If you are already logged into the Azure portal with an account that has access to the service, then your will be auto-logged into the SCM endpoint. Otherwise, you will need to enter your source control credentials.
-2. Go to the *Environment* tab, then click on the *Connection Strings* link.
-3. Copy the value of `MS_TableConnectionString`.
-
-###Option 1: Use SQL Azure Portal
-
-**Note:** for this to work you need to know the tables in your DB; the restricted access user cannot list the tables in the portal):
-4. Go to the Mobile Service portal for your app.
-5. Click on the Configure tab, then click on the link for the SQL Database.
-6. On the portal page for your SQL database, click "Set up Windows Azure firewall rules for this IP address".
-7. Click the Manage button at the bottom of the page.
-8. In the Windows Azure login page, enter the username and password from the connection string. (Note: The password usually ends with "$$"; the semicolon is not part of the password.)
-9. Click "New Query", and go nuts with your queries.
-
-###Option 2: Use SQL Server Management Studio
-
-SSMS is the highest-fidelity way to view what is happening in your database.
-4. Enter the value of the "Data Source" part of the connection string as the "Server Name"
-5. Choose SQL Server Login
-6. Enter the value of the "User Id" part of the connection string as the "Login"
-7. Enter the value of the "Password" part of the connection string as the "Password".  (Note: The password usually ends with "$$"; the semicolon is not part of the password.)
-8. Click the Options button.
-9. In the Connect to Database dropdown, enter the value of the "Initial Catalog" part of the connection string.
-10. Click connect.
-11. Click "New Query", and go nuts with your queries.
+Migrations can be complex and require that the database state be kept in sync with the EF model in order to succeed. For instructions on how to handle migrations with you mobile service and errors that can arise, see [How to make data model changes to a .NET backend mobile service](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/).
 
 <!-- IMAGES -->
 
@@ -130,4 +129,9 @@ SSMS is the highest-fidelity way to view what is happening in your database.
 [Breakpoint]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/3.png
 [PublishDebug]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/4.png
 [AttachDebugger]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/5.png
+[LogsOutputWindow]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/11.png
+[LogsServerExplorer]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/12.png
+[LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
+[HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
+
 
