@@ -11,7 +11,7 @@ Microsoft Azure Cloud Machine Learning Studio is designed to help you develop an
 The five basic steps you follow to build an experiment in ML Studio allow you to create, train, and score your model:  
 
 - Create a Model 
-	- [Step 1: Get data](#1getdata)
+	- [Step 1: Get data](#step-1-get-data)
 	- [Step 2: Pre-process data](#2processdata)
 	- [Step 3: Define, extract, and enrich features](#3definefeatures)
 - Train the Model 

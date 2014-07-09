@@ -1,4 +1,4 @@
-<properties title="Azure Machine Learning Sample: Time series prediction" pageTitle="Machine Learning Sample: Time series prediction | Azure" description="Azure Machine Learning Sample: Time series prediction" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Azure Machine Learning Sample: Time series prediction" pageTitle="Machine Learning Sample: Time series prediction | Azure" description="A sample Azure Machine Learning experiment that uses time series data to build a forecasting model with R." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
 #Azure Machine Learning sample: Time series prediction
 
