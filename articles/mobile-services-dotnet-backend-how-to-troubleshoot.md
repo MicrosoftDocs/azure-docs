@@ -85,15 +85,15 @@ As your mobile service handles requests from your customers, it generates a vari
 
 When debugging locally, the logs will appear in the Visual Studio **Output** window.
 
-[Logs in Visual Studio Output window](#LogsOutputWindow)
+![Logs in Visual Studio Output window][LogsOutputWindow]
 
 After you publish your service to Azure, the logs for the service instance running in the cloud are available by right-clicking the mobile service in Visual Studio's **Server Explorer** and then selecting **View Logs**.
 
-[Logs in Visual Studio Server Explorer](#LogsServerExplorer)
+![Logs in Visual Studio Server Explorer][LogsServerExplorer]
 
 The same logs are also available in the **Azure Management Portal** on the **Logs** tab for your mobile service.
 
-[Logs in Azure Management Portal](#LogsPortal)
+![Logs in Azure Management Portal][LogsPortal]
 
 <a name="AssemblyResolution"></a>
 ## Debugging Cloud Assembly Resolution
@@ -102,7 +102,7 @@ When you publish your mobile service to Azure, it gets loaded by the Mobile Serv
 
 It is sometimes possible to introduce versioning conflicts by referencing *different major versions* of required assemblies (different *minor* versions are allowed). Frequently this happens when NuGet prompts you to upgrade to the latest version of one of the packages used by the Mobile Services .NET backend. When you publish the updated service to Azure, you will see a warning page indicating the conflict.
 
-[Help page indicating assembly loading conflict](#HelpConflict)
+![Help page indicating assembly loading conflict][HelpConflict]
 
 This will be accompanied by an exception message similar to the following being recored in your service logs:
 
@@ -133,5 +133,3 @@ Migrations can be complex and require that the database state be kept in sync wi
 [LogsServerExplorer]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/12.png
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
-
-
