@@ -31,7 +31,7 @@ Completing this tutorial is a prerequisite for all other Mobile Services tutoria
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
-In this section you will create a new Xamarin iOS app and a service project for your mobile service.
+In this section you will download a new Xamarin iOS app and a service project for your mobile service.
 
 1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
    
