@@ -251,7 +251,7 @@ In this simple example a user receives a push notification with the data that wa
 [116]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-16.png
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
-<!-- URLs. -->
+<!-- URLs.   -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533

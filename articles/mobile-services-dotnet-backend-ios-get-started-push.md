@@ -223,7 +223,7 @@ You have successfully completed this tutorial.
 
 In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
 
-<!-- Anchors. -->
+<!-- Anchors.  -->
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
 [Create a provisioning profile for the app]: #profile
@@ -236,7 +236,7 @@ In this simple example a user receives a push notification with the data that wa
 [Download the service locally]: #download-the-service-locally
 [Test the mobile service]: #test-the-service
 [Publish the mobile service to Azure]: #publish-mobile-service
-
+   
 <!-- Images. -->
 [5]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
 [6]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png

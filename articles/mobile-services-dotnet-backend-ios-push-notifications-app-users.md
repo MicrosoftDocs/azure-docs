@@ -6,7 +6,7 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/"  title="JavaScript backend">JavaScript backend</a></div>
 
-This topic shows you how to send push notifications to an authenticate user on any registered device. Unlike the previous [push notification][Get started with push notifications] tutorial, this tutorial changes your mobile service to require that a user be authenticated before the client can register with the notification hub for push notifications. Registration is also modified to add a tag based on the assigned user ID. Finally, the server code is updated to send the notification only to the authenticated user instead of to all registrations.
+This topic shows you how to send push notifications to an authenticated user on any registered iOS device. Unlike the previous [push notification][Get started with push notifications] tutorial, this tutorial changes your mobile service to require that a user be authenticated before the client can register with the notification hub for push notifications. Registration is also modified to add a tag based on the assigned user ID. Finally, the server code is updated to send the notification only to the authenticated user instead of to all registrations.
 
 This tutorial walks you through the following process:
 
@@ -36,22 +36,42 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 
 ##<a name="test"></a>Test the app
 
-[WACOM.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)] 
+1. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications
 
-<!---## <a name="next-steps"> </a>Next steps
+  	![][23]
 
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]-->
+    > [WACOM.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+
+2. Log in using the selected identity provider and verify that authentication succeeds.
+
+3. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
+
+  	![][24]
+
+4. Verify that a notification is received, then click **OK** to dismiss the notification.
+
+  	![][25]
+
+5. Repeat step 2 and immediately close the app, then verify that the following push is shown.
+
+  	![][26]
+
+You have successfully completed this tutorial.
 
 <!-- Anchors. -->
 [Updating the service to require authentication for registration]: #register
 [Updating the app to log in before registration]: #update-app
 [Testing the app]: #test
 [Next Steps]:#next-steps
+[23]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
+[24]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
+[25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
+[26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
 
 
 <!-- URLs. -->
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
