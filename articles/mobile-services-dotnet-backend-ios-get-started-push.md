@@ -3,7 +3,8 @@
  
 # Get started with push notifications in Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="iOS" class="current">iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title="Android">Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="iOS" class="current">iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title="Android">Android</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a>
+</div>
 
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/"  title="JavaScript backend">JavaScript backend</a></div>
 
@@ -16,11 +17,14 @@ This tutorial walks you through these basic steps to enable push notifications:
 1. [Generate the certificate signing request] 
 2. [Register your app and enable push notifications]
 3. [Create a provisioning profile for the app]
-4. [Configure Mobile Services]
-5. [Add push notifications to the app]
-6. [Update scripts to send push notifications]
-7. [Enable push notifications for local testing](#local-testing)
-8. [Insert data to receive notifications]
+4. [Download the service locally]
+5. [Test the mobile service]
+6. [Update the server to send push notifications](#update-server)
+7. [Publish the mobile service to Azure]
+8. [Add push notifications to the app]
+9. [Update scripts to send push notifications]
+10. [Enable push notifications for local testing](#local-testing)
+11. [Test the app against the published mobile service]
 
 This tutorial requires the following:
 
@@ -65,7 +69,50 @@ After you have registered your app with APNS and configured your project, you mu
 
     > [WACOM.NOTE] This tutorial uses developement certificates.
 
-Both your mobile service is now configured to work with APNS.
+Your mobile service is now configured to work with APNS.
+
+<h2><a name="download-the-service"></a><span class="short-header">Download the service</span>Download the service to your local computer</h2>
+
+[WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
+
+<h2><a name="test-the-service"></a><span class="short-header">Test the service</span>Test the mobile service</h2>
+
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
+
+##<a id="update-server"></a>Update the server to send push notifications
+
+1. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile service project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
+
+
+		using System;
+		using System.Collections.Generic;
+
+2. Update the `PostTodoItem` method definition with the following code:  
+
+        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
+        {
+            TodoItem current = await InsertAsync(item);
+
+            ApplePushMessage message = new ApplePushMessage("Hello from Mobile Services!", TimeSpan.FromHours(1));
+
+            try
+            {
+                var result = await Services.Push.SendAsync(message);
+                Services.Log.Info(result.State.ToString());
+            }
+            catch (System.Exception ex)
+            {
+                Services.Log.Error(ex.Message, null, "Push.SendAsync Error");
+            }
+            return CreatedAtRoute("Tables", new { id = current.Id }, current);
+        }
+
+    This code will send a push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
+
+
+<h2><a name="publish-the-service"></a><span class="short-header">Publish the service</span>Publish the mobile service to Azure</h2>
+
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## Add push notifications to your app
 
@@ -146,39 +193,6 @@ Both your mobile service is now configured to work with APNS.
 
 Your app is now updated to support push notifications.
 
-## Update the registered insert script in the Management Portal
-
-1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
-
-   	![][21]
-
-2. In **todoitem**, click the **Script** tab and select **Insert**.
-   
-  	![][22]
-
-   	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
-
-3. Replace the insert function with the following code, and then click **Save**:
-
-        function insert(item, user, request) {
-            request.execute();
-            // Set timeout to delay the notification, to provide time for the 
-            // app to be closed on the device to demonstrate push notifications
-            setTimeout(function() {
-                push.apns.send(null, {
-                    alert: "Alert: " + item.text,
-                    payload: {
-                        inAppMessage: "Hey, a new item arrived: '" + item.text + "'"
-                    }
-                });
-            }, 2500);
-        }
-
-   	This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. 
-
-
-   	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.
-
 ##<a id="local-testing"></a> Enable push notifications for local testing
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
@@ -209,7 +223,7 @@ You have successfully completed this tutorial.
 
 In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
 
-<!-- Anchors. -->
+<!-- Anchors.  -->
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
 [Create a provisioning profile for the app]: #profile
@@ -217,8 +231,12 @@ In this simple example a user receives a push notification with the data that wa
 [Update scripts to send push notifications]: #update-scripts
 [Add push notifications to the app]: #add-push
 [Insert data to receive notifications]: #test
+[Test the app against the published mobile service]: #test-app
 [Next Steps]:#next-steps
-
+[Download the service locally]: #download-the-service-locally
+[Test the mobile service]: #test-the-service
+[Publish the mobile service to Azure]: #publish-mobile-service
+   
 <!-- Images. -->
 [5]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
 [6]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png

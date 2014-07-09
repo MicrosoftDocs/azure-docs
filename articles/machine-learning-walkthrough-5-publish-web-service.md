@@ -1,4 +1,4 @@
-﻿<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="Step 5: Publish the Machine Learning web service | Azure" description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="Step 5: Publish the Machine Learning web service | Azure" description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 This is the fifth step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
@@ -119,6 +119,6 @@ On the **CONFIGURATION** tab, click “YES” next to **READY FOR PRODUCTION?** 
 
 
 
-[1]: ./media/machine-learning-5-publish-web-service/publish1.png
-[2]: ./media/machine-learning-5-publish-web-service/publish2.png
-[3]: ./media/machine-learning-5-publish-web-service/publish3.png
+[1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
+[2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
+[3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png

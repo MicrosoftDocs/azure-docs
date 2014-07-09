@@ -1,4 +1,4 @@
-﻿<properties title="Azure Machine Learning Sample: Credit risk prediction" pageTitle="Machine Learning Sample: Credit risk prediction | Azure" description="A sample Azure Machine Learning experiment of a binary classification model to predict if an applicant is a low credit risk or a high credit risk." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Azure Machine Learning Sample: Credit risk prediction" pageTitle="Machine Learning Sample: Credit risk prediction | Azure" description="A sample Azure Machine Learning experiment of a binary classification model to predict if an applicant is a low credit risk or a high credit risk." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
 #Azure Machine Learning Sample: Credit risk prediction 
 
@@ -94,9 +94,9 @@ When the service is ready to go live, go to the **CONFIGURATION** tab on the **W
 ![Web service ready for production][screen4] 
 
 
-[screen1]:./media/machine-learning-credit-risk-prediction-sample-experiment/screen1.jpg
-[screen2]:./media/machine-learning-credit-risk-prediction-sample-experiment/screen2.jpg
-[formula]:./media/machine-learning-credit-risk-prediction-sample-experiment/formula.jpg
-[results]:./media/machine-learning-credit-risk-prediction-sample-experiment/results.jpg
-[screen3]:./media/machine-learning-credit-risk-prediction-sample-experiment/screen3.jpg
-[screen4]:./media/machine-learning-credit-risk-prediction-sample-experiment/screen4.jpg
+[screen1]:./media/machine-learning-sample-credit-risk-prediction/screen1.jpg
+[screen2]:./media/machine-learning-sample-credit-risk-prediction/screen2.jpg
+[formula]:./media/machine-learning-sample-credit-risk-prediction/formula.jpg
+[results]:./media/machine-learning-sample-credit-risk-prediction/results.jpg
+[screen3]:./media/machine-learning-sample-credit-risk-prediction/screen3.jpg
+[screen4]:./media/machine-learning-sample-credit-risk-prediction/screen4.jpg

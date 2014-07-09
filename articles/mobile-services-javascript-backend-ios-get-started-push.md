@@ -74,8 +74,6 @@ Both your mobile service is now configured to work with APNS.
 
         @property (strong, nonatomic) NSData *deviceToken;
 
-    > [WACOM.NOTE] When dynamic schema is enabled on your mobile service, a new 'deviceToken' column is automatically added to the **TodoItem** table when a new item that contains this property is inserted.
-
 2. In QSAppDelegate.m, replace the following handler method inside the implementation: 
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
@@ -253,7 +251,7 @@ In this simple example a user receives a push notification with the data that wa
 [116]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-16.png
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
-<!-- URLs. -->
+<!-- URLs.   -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
