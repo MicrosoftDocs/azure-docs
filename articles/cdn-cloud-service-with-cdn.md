@@ -1,4 +1,4 @@
-<properties linkid="cdn-cloud-service-with-cdn" urlDisplayName="Integrate a cloud application with Azure CDN" pageTitle="Integrate a cloud application with Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, cloud service" description="A tutorial that teaches you how to deploy a cloud application that serves content from an integrated Azure CDN endpoint" metaCanonical="" services="cdn" documentationCenter=".NET" title="Integrate a cloud application with Azure CDN" authors="cephalin" solutions="" manager="" editor="" />
+<properties linkid="cdn-cloud-service-with-cdn" urlDisplayName="Integrate a cloud application with Azure CDN" pageTitle="Integrate a cloud application with Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, cloud service" description="A tutorial that teaches you how to deploy a cloud application that serves content from an integrated Azure CDN endpoint" metaCanonical="" services="cdn" documentationCenter=".NET" title="Integrate a cloud application with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
 
 <a name="intro"></a>
 # Integrate a cloud application with Azure CDN #
@@ -52,16 +52,16 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 4. Now, publish this Web role to an Azure cloud service. Right-click the cloud service project and select **Publish**.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.PNG)
+	![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png)
 
 5. If you have not yet signed into Microsoft Azure, click the **Sign In** button.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-5-publish-signin.PNG)
+	![](media/cdn-cloud-service-with-cdn/cdn-cs-5-publish-signin.png)
 
 6. In the sign-in page, sign in with the Microsoft account you used to activate your Azure account.
 7. One you're signed in, click **Next**.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-6-publish-signedin.PNG)
+	![](media/cdn-cloud-service-with-cdn/cdn-cs-6-publish-signedin.png)
 
 8. Assuming that you haven't created a cloud service or storage account, Visual Studio will help you create both. In the **Create Cloud Service and Account** dialog, type the desired service name. Then, click **Create**.
 
@@ -70,7 +70,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 	>[WACOM.NOTE]Note that I'm using **East Asia** as the region for this cloud service. My goal here is to make sure that the cloud service (and the content in the storage account) is far enough away from the client (in this case, my computer in the US) to test the CDN later.
 9. In the publish settings page, verify the configuration and click **Publish**.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.PNG)
+	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
 	>[WACOM.NOTE] The publishing process for cloud services takes a long time. The Enable Web Deploy for all roles option can make debugging your cloud application much quicker by providing fast (but temporary) updates to your Web roles. For more information on this option, see [Publishing a Cloud Service using the Azure Tools](http://msdn.microsoft.com/en-us/library/ff683672.aspx).
 
@@ -91,7 +91,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 3. Click **Enable Query String** to enable query strings in the CDN cache. Once you enable this, the same link accessed with different query strings will be cached as separate entries.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-11-disablequeryb.png)
+	![](media/cdn-cloud-service-with-cdn/cdn-cs-11-disablequeryb.PNG)
 
 	>[WACOM.TIP] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
 
@@ -116,7 +116,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 4. Publish the cloud service again. Right-click the cloud service project and select **Publish**.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.PNG)
+	![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png)
 
 1. When the publishing status is **Completed**, open a browser window and navigate to **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. In my setup, this URL is:
 
