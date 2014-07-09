@@ -7,7 +7,7 @@
 Before you begin, make sure you’ve got the following: 
 
 - One attached data disk that you can use to store the Windows page file (pagefile.sys) during this procedure. For instructions, see [How to Attach a Data Disk to a Windows Virtual Machine](../storage-windows-attach-disk).
-- If you want to use an existing data disk on the D drive, the uploaded VHD available in the storage account. For instructions, see 
+- An uploaded VHD in the storage account, if you want to use a VHD of an existing data disk on the D drive. For  instructions, see steps 3 and 4 in [Create and Upload a Windows Server VHD to Azure].
 
 
 ##Change the drive letter
@@ -36,6 +36,8 @@ Before you begin, make sure you’ve got the following:
 [What is a Storage Account?]
 
 <!--Link references-->
+
+[Create and Upload a Windows Server VHD to Azure]: ../virtual-machines-create-upload-vhd-windows-server/
 [How to Log on to a Virtual Machine Running Windows Server]: ../virtual-machines-log-on-windows-server/
 [How to Detach a Data Disk from a Virtual Machine]: ../storage-windows-detach-disk/
 [What is a Storage Account?]: ../storage-whatis-account/

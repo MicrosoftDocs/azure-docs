@@ -32,14 +32,14 @@ To do this, you'll need the following:
 
 - The Azure PowerShell module, version 0.8.2 or newer. For instructions and a link to the latest version, see [How to Install and Configure Azure PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=320552).  
 
-- The VM Agent. For instructions and a link to the download, see the blog post [VM Agent and Extensions – Part 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
+- The VM Agent. For instructions and a link to the download, see the blog post [VM Agent and Extensions - Part 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
 
 Open an Azure PowerShell session and run the following commands. Be sure to substitute your own values for the placeholders, such as MyServiceName.
 
 1.	Get the cloud service name, virtual machine name, and VM and store each of those in variables so the next commands can use them:
 	<p>$servicename = MyServiceName
 	<p>$name = MyVmName
-	<p>$vm = Get-AzureVM –ServiceName $servicename –Name $name
+	<p>$vm = Get-AzureVM -ServiceName $servicename -Name $name
 
  > [WACOM.NOTE] If you don't know the cloud service and VM name, run Get-AzureVM to display that information for all VMs in the current subscription.
 
@@ -47,7 +47,7 @@ Open an Azure PowerShell session and run the following commands. Be sure to subs
 <p> Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA -VM $vm.VM
 
  > [WACOM.NOTE] If you want to install a specific version, run the following to get a list of available versions:
-<p> Get-AzureVMAvailableExtension –Publisher TrendMicro.DeepSecurity –ExtensionName TrendMicroDSA 
+<p> Get-AzureVMAvailableExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA 
 <p> Then, include the -Version parameter when you run Set-AzureVMExtension.
 
 3.	Update the VM, which installs the Deep Security Agent:
