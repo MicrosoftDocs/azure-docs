@@ -1,6 +1,6 @@
 <properties title="Q & A about Application Insights" pageTitle="Q & A about Application Insights" description="Tips and troubleshooting" metaKeywords="analytics monitoring" authors="awills"  />
  
-# H1 (Troubleshooting and Q&A - Application Insights on Microsoft Azure Preview) 
+# Troubleshooting and Q&A - Application Insights on Microsoft Azure Preview
 
 + [I don't see any option to Add Application Insights to my project in Visual Studio]
 + [My new web project was created, but adding Application Insights failed.]
@@ -70,11 +70,11 @@ The help pages you're looking at refer to Application Insights for Microsoft Azu
 
 Yes, you can monitor health and usage if your server can send data to the public internet.
 
-But to run webtests, a service has to be accessible from the public internet.
+But if you want to run web tests for your service, it must be accessible from the public internet.
 
 ## How do I get data for Windows Phone or Windows Store?
 
-We don't support that yet in the Microsoft Azure version. Coming soon. Meanwhile, you could try the [older version][older].
+We don't support that yet in the Microsoft Azure version. Coming soon. Meanwhile, you could try the [older version in Visual Studio Online][older].
 
 ## How can I see the events and page views that I logged in my code?
 
@@ -101,7 +101,11 @@ But just at present, the main missing features are: support for device apps such
 
 ## What does Application Insights modify in my project?
 
-+ Inserts ApplicationInsights.config. 
++ Adds these files to your project:
+
+ + ApplicationInsights.config. 
+ + ai.js
+
 
 + Installs these NuGet packages:
 
@@ -117,7 +121,7 @@ But just at present, the main missing features are: support for device apps such
 
  - Microsoft.ApplicationInsights.Platform
 
-+ Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into:
++ (New projects only - if you [add Application Insights to an existing project][start existing], you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into:
 
  - the master page Views/Shared/_Layout.cshtml
 

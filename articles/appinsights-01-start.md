@@ -1,6 +1,6 @@
 <properties title="Monitor health and usage of a web project with Application Insights" pageTitle="Monitor health and usage of a web project with Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
  
-# H1 (Monitor your web application's health and usage) 
+# Monitor your web application's health and usage
 
 *Application Insights is in preview.*
 
@@ -38,17 +38,21 @@ Run your application with F5 and try it out.
 
 ## 3. See monitor data
 
-Go to your application in Application Insights.
+Open the Azure Portal.
 
-![Right-click your project and open the Azure portal](./media/appInsights/appinsights-04-openPortal.png)
+![Right-click your project and open the Azure portal](./media/appinsights/appinsights-04-openPortal.png)
 
-In your application's home blade, look for data in the  Application health and Usage analytics tiles. For example:
+Go to the Application Insights resource for your application.
 
-![Click through to more data](./media/appInsights/appinsights-05-usageTiles.png)
+![Browse Application Insights](./media/appinsights/appinsights-08openApp.png)
+
+Look for data in the  Application health and Usage analytics tiles. For example:
+
+![Click through to more data](./media/appinsights/appinsights-05-usageTiles.png)
 
 > [WACOM.NOTE] If you already had your application blade open, close it and re-open it to see the data. In the current version, the reports are not automatically refreshed. 
 
-Click any tile to see more detail.
+Click any tile to see more detail. [Learn more about the tiles and reports.][monitor]
 
 > [WACOM.NOTE] Many of the tiles show limited detail in this preview version. 
 
@@ -56,16 +60,10 @@ Click any tile to see more detail.
 
 Deploy your application and watch the data accumulate.
 
-Before you deploy your application for live use, open ApplicationInsights.config. Find and set the following parameter:
-
-    <DeveloperMode>false</DeveloperMode>
-
-This will change the thresholds for performance notification so that less data is sent.
-
 
 ## Next steps
 
-[Understand the data from your application][monitor]
+[Learn more about the tiles and reports][monitor]
 
 [Web tests]
 
