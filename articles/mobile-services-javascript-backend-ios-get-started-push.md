@@ -202,7 +202,33 @@ You have successfully completed this tutorial.
 
 ## Next steps
 
-In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
+This tutorial demonstrated the basics of enabling an iOS app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorials:
+
++ [Send push notifications to authenticated users]
+	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
+
++ [Send broadcast notifications to subscribers]
+	<br/>Learn how users can register and receive push notifications for categories they're interested in.
+<!---
++ [Send template-based notifications to subscribers]
+	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
+-->
+Learn more about Mobile Services and Notification Hubs in the following topics:
+
+* [Get started with data]
+  <br/>Learn more about storing and querying data using mobile services.
+
+* [Get started with authentication]
+  <br/>Learn how to authenticate users of your app with different account types using mobile services.
+
+* [What are Notification Hubs?]
+  <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
+
+* [Mobile Services Objective-C how-to conceptual reference]
+  <br/>Learn more about how to use Mobile Services with Objective-C and iOS.
+
+* [Mobile Services server script reference]
+  <br/>Learn more about how to implement business logic in your mobile service. 
 
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
@@ -256,12 +282,18 @@ In this simple example a user receives a push notification with the data that wa
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started
+[Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-ios-get-started-users
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+
+[Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
+
+[What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
+[Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-ios-send-breaking-news/
+[Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
+
+[Mobile Services Objective-C how-to conceptual reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library

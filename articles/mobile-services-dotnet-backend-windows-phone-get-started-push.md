@@ -163,14 +163,14 @@ This enables the mobile service to connect to MPNS in unauthenticated mode to se
 
 ## <a name="next-steps">Next steps</a>
 
-This tutorial demonstrated the basics of enabling a Windows Phone Silverlight app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorial:
+This tutorial demonstrated the basics of enabling a Windows Phone app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
-+ [Send push notifications to authenticated users]
+<!--+ [Send push notifications to authenticated users]
 	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 + [Send broadcast notifications to subscribers]
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
-
+-->
 Consider finding out more about the following Mobile Services and Notification Hubs topics:
 
 * [Get started with data]
