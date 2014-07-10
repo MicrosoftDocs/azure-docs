@@ -1,6 +1,7 @@
 <properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Publishing Azure ML Web Services to the Azure Marketplace | Azure" description="Publishing Azure ML Web Services to the Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
 # Publishing Azure ML Web Services to the Azure Marketplace 
+<<<<<<< HEAD
 
 In this document:
 
@@ -69,3 +70,5 @@ The publishing process can take a few business days. We are working on shortenin
 
 
 [image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
+=======
+>>>>>>> 3bfa5e46d73a362c7b29893fc4a975fc5c541c1f
