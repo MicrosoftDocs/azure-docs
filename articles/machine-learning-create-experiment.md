@@ -19,11 +19,11 @@ The five basic steps you follow to build an experiment in ML Studio allow you to
 - Score and Test the Model 
 	- [Step 5 - Predict over new data] 
 
-[Step 1: Get data]: #Step-1:-Get-data
-[Step 2 - Pre-process data]: #Step-2---Pre-process-data
-[Step 3 - Define, extract, and enrich features]: #Step-3---Define,-extract,-and-enrich-features
-[Step 4 - Choose and apply a learning algorithm]: #Step-4---Choose-and-apply-a-learning-algorithm
-[Step 5 - Predict over new data]: #Step-5---Predict-over-new-data 
+[Step 1: Get data]: #step-1:-get-data
+[Step 2 - Pre-process data]: #step-2---pre-process-data
+[Step 3 - Define, extract, and enrich features]: #step-3---define,-extract,-and-enrich-features
+[Step 4 - Choose and apply a learning algorithm]: #step-4---choose-and-apply-a-learning-algorithm
+[Step 5 - Predict over new data]: #step-5---predict-over-new-data 
 
 There are two types of predictive analytics you may want to perform with your data: 
 
