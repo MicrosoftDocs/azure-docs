@@ -8,10 +8,6 @@
 
 <p> If you have existing subscription from Trend for an on-premises solution, you can use it to protect your Azure virtual machines. If you're not a customer yet, you can sign up for a trial subscription. For more information about this solution, see the blog post [Microsoft Azure VM Agent Extension For Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 
-+ [Install the Deep Security Agent on a new virtual machine] 
-+ [Install the Deep Security Agent on an existing virtual machine]
-+ [Next steps]
-
 ## Install the Deep Security Agent on a new virtual machine
 
 The [Azure Management Portal](http://manage.windowsazure.com) lets you install the VM Agent and the Trend security extension when you use the **From Gallery** option to create the virtual machine. Using this approach is an easy way to add protection from Trend if you're creating a single virtual machine.
@@ -37,21 +33,19 @@ To do this, you'll need the following:
 Open an Azure PowerShell session and run the following commands. Be sure to substitute your own values for the placeholders, such as MyServiceName.
 
 1.	Get the cloud service name, virtual machine name, and VM and store each of those in variables so the next commands can use them:
-	<p>$servicename = MyServiceName
-	<p>$name = MyVmName
-	<p>$vm = Get-AzureVM -ServiceName $servicename -Name $name
+	<p>`$servicename = MyServiceName`
+	<p>`$name = MyVmName`
+	<p>`$vm = Get-AzureVM -ServiceName $servicename -Name $name`
 
  > [WACOM.NOTE] If you don't know the cloud service and VM name, run Get-AzureVM to display that information for all VMs in the current subscription.
 
 2.	Add the Deep Security Agent to the virtual machine:
-<p> Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA -VM $vm.VM
+<p> `Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA -VM $vm.VM`
 
- > [WACOM.NOTE] If you want to install a specific version, run the following to get a list of available versions:
-<p> Get-AzureVMAvailableExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA 
-<p> Then, include the -Version parameter when you run Set-AzureVMExtension.
+ > [WACOM.NOTE] If you want to install a specific version, run the following command to get a list of available versions: `Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA`. Then, include the Version parameter when you run Set-AzureVMExtension.
 
 3.	Update the VM, which installs the Deep Security Agent:
-<p> Update-AzureVM -Name $servicename -ServiceName $name -VM $vm.VM
+<p> `Update-AzureVM -ServiceName $servicename -Name $name -VM $vm.VM`
 
 
 ## Next steps

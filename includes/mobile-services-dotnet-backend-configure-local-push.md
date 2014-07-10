@@ -19,4 +19,4 @@ You can optionally test push notifications with your mobile service running on t
 
 5. In **appSettings**, replace the value of the **MS_NotificationHubName** app setting with the name of the notification hub.
 
-Now, the mobile service project is configured to connect to the notification hub in Azure when running locally. Note that it is important to use the same notification hub name and connection string as the portal because these web.config settings are overridden by the portal settings when running in Azure.
+Now, the mobile service project is configured to connect to the notification hub in Azure when running locally. Note that it is important to use the same notification hub name and connection string as the portal because these Web.config project settings are overridden by the portal settings when running in Azure.
