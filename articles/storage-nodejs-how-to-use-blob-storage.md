@@ -145,7 +145,7 @@ Two filters that implement retry logic are included with the Azure SDK for Node.
 
 ## <a name="upload-blob"> </a>How to: Upload a Blob into a Container
 
-To upload data to a blob, use the **createBlockBlobFromLocalFile**, **createBlockBlobFromStream** or **createBlockBlobFromText** methods. **createBlockBlobFromLocalFile** uploads the contents of a file, while **createBlockBlobFromStream** uploads the contents of a stream.  **createBlockBlobFromText** uploads the specified text value.
+A blob can be either block, or page based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx).
 
 ###Block blobs
 
