@@ -1,6 +1,6 @@
 <properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  />
  
-# H1 (Search diagnostic logs with Application Insights) 
+# Search diagnostic logs with Application Insights
 
 You can capture and search diagnostic data from System.Diagnostics.Trace, NLog, and Log4Net. Application Insights provides an efficient and easy-to-use tool for collecting and investigating logged events from one or more sources, complementing the application health monitoring features.
 
@@ -241,7 +241,7 @@ Here are the search expressions you can use:
 
 
 <!--Link references-->
-[setup]: ./appInsights-01start/
+[setup]: ./appinsights-01-start/
 [existing]: ./appinsights-02-existing/
 [web tests]: ./appinsights-10Avail/
 
