@@ -3,11 +3,11 @@
 This is the first step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
 1.	**Create an ML workspace**
-2.	[Upload existing data](machine-learning-2-upload-data)
-3.	[Create a new experiment](machine-learning-3-create-new-experiment)
-4.	[Train and evaluate the models](machine-learning-4-train-and-evaluate-models)
-5.	[Publish the web service](machine-learning-5-publish-web-service)
-6.	[Access the web service](machine-learning-6-access-web-service)
+2.	[Upload existing data](..\machine-learning-2-upload-data)
+3.	[Create a new experiment](..\machine-learning-3-create-new-experiment)
+4.	[Train and evaluate the models](..\machine-learning-4-train-and-evaluate-models)
+5.	[Publish the web service](..\machine-learning-5-publish-web-service)
+6.	[Access the web service](..\machine-learning-6-access-web-service)
 
 ----------
 
