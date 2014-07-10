@@ -11,7 +11,7 @@ Microsoft Azure Cloud Machine Learning Studio is designed to help you develop an
 The five basic steps you follow to build an experiment in ML Studio allow you to create, train, and score your model:  
 
 - Create a Model 
-	- [Step 1: Get data]
+	- [Step 1 - Get data]
 	- [Step 2 - Pre-process data]
 	- [Step 3 - Define, extract, and enrich features]
 - Train the Model 
@@ -19,7 +19,7 @@ The five basic steps you follow to build an experiment in ML Studio allow you to
 - Score and Test the Model 
 	- [Step 5 - Predict over new data] 
 
-[Step 1: Get data]: #step-1:-get-data
+[Step 1 - Get data]: #step-1---get-data
 [Step 2 - Pre-process data]: #step-2---pre-process-data
 [Step 3 - Define, extract, and enrich features]: #step-3---define,-extract,-and-enrich-features
 [Step 4 - Choose and apply a learning algorithm]: #step-4---choose-and-apply-a-learning-algorithm
@@ -34,7 +34,7 @@ In this example, we'll walk through a regression task using automobile price and
 
 > [WACOM.NOTE] In addition to classification and regression, it is also possible to perform recommendation and clustering tasks. Because the workflows for these are somewhat different, they are not covered here. 
 
-### Step 1: Get data
+### Step 1 - Get data
 
 There are a number of sample datasets included with ML Studio, and you can import data from many different sources. For this example, we will use the included sample dataset that represents automobile price data.
 
