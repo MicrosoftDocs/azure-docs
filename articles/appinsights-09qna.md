@@ -1,6 +1,6 @@
 <properties title="Q & A about Application Insights" pageTitle="Q & A about Application Insights" description="Tips and troubleshooting" metaKeywords="analytics monitoring" authors="awills"  />
  
-# H1 (Troubleshooting and Q&A - Application Insights on Microsoft Azure Preview) 
+# Troubleshooting and Q&A - Application Insights on Microsoft Azure Preview
 
 + [I don't see any option to Add Application Insights to my project in Visual Studio]
 + [My new web project was created, but adding Application Insights failed.]

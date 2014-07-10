@@ -1,6 +1,6 @@
 <properties title="Monitor your web app's availability and responsiveness" pageTitle="Web tests in Application Insights" description="Make sure your web application is available and responsive. Get alerts if it becomes unavailable or responds slowly." metaKeywords="analytics web test" authors="awills"  />
  
-# H1 (Monitor your web app's availability and responsiveness) 
+# Monitor your web app's availability and responsiveness
 
 If your web app is unavailable to your users, you'll want to know about it. After you've deployed your web app, set up web tests to monitor its availability and responsiveness. Application Insights will send web requests at regular intervals from points around the world, and can alert you if your application responds slowly or not at all.
 
@@ -70,7 +70,7 @@ In the specific web test blade, scroll down to **Failed tests** and pick a resul
 
 The result shows the reason for failure.
 
-![Webtest run result](./media/appInsights/appinsights-18-availDetails.png)
+![Webtest run result](./media/appinsights/appinsights-18-availDetails.png)
 
 For more detail, download the result file and inspect it in Visual Studio.
 
