@@ -7,15 +7,15 @@ If your web app is unavailable to your users, you'll want to know about it. Afte
 You can set up web tests for any HTTP endpoint that is accessible from the public internet.
 
 
-+ [1. Create a new application?] 
-+ [2. Set up a web test]
-+ [3. See monitor reports]
-+ [4. Edit or disable a test]
-+ [Next steps]
+1. [Create a new application?](#create)
++ [Set up a web test](#setup)
++ [See monitor reports](#monitor)
++ [Edit or disable a test](#edit)
++ [Next steps](#next)
 
 
 
-## 1. Create a new application?
+## <a name="create"></a>1. Create a new application?
 
 Skip this step if you're already [monitoring usage and health][setup] for this web app, and you want to see the availability data in the same place.
 
@@ -23,7 +23,7 @@ But if you want to keep these results separate, login to Microsoft Azure preview
 
 ![New > Application Insights](./media/appinsights/appinsights-11newApp.png)
 
-## 2. Set up a web test
+## <a name="setup"></a>2. Set up a web test
 
 In the home blade for your application in Application Insights, click through the empty webtests tile. 
 
@@ -50,7 +50,7 @@ You can add more tests for as many URLs as you like. For example, as well as tes
 ![On the web tests blade, choose Add](./media/appinsights/appinsights-16anotherWebtest.png)
 
 
-## 3. See monitor reports
+## <a name="monitor"></a>3. See monitor reports
 
 After 1-2 minutes, close and re-open the application blade. (In this release, it doesn't refresh automatically.)
 
@@ -74,7 +74,7 @@ The result shows the reason for failure.
 
 For more detail, download the result file and inspect it in Visual Studio.
 
-## 4. Edit or disable a test
+## <a name="edit"></a>4. Edit or disable a test
 
 Open an individual test to edit or disable it.
 
@@ -82,19 +82,23 @@ Open an individual test to edit or disable it.
 
 You might want to disable web tests while you are performing maintenance on your service.
 
-## Next steps
+## <a name="next"></a>Next steps
 
 [Search diagnostic logs][diagnostics]
 
-<!--Anchors-->
-[1. Create a new application?]: #subheading-1
-[2. Set up a web test]: #subheading-2
-[3. See monitor reports]: #subheading-3
-[4. Edit or disable a test]: #subheading-4
-[Next steps]: #next-steps
+[Troubleshooting][trouble]
+
+### Application Insights
+
+* [Set up monitoring in a new project](../appinsights-01-start/)
+* [Add monitoring to an existing project](../appinsights-02-existing/)
+* [Set up availability and responsiveness tests](../appinsights-10Avail/)
+* [Search diagnostic logs](../appinsights-24diagnostics/)
+* [Application Insights SDK](../appinsights-90SDK/)
+
 
 <!--Link references-->
-[setup]: ../appInsights-01-start/
-[setup existing]: ../appInsights-02-existing/
-[diagnostics]: ../appInsights-24diagnostics/
-
+[setup]: ../appinsights-01-start/
+[setup existing]: ../appinsights-02-existing/
+[diagnostics]: ../appinsights-24diagnostics/
+[trouble]: ../appinsights-09qna/

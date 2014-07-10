@@ -1,4 +1,4 @@
-<properties title="Monitor health and usage of a web project with Application Insights" pageTitle="Monitor health and usage of a web project with Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
+<properties title="Monitor health and usage of a new web project with Application Insights" pageTitle="Monitor health and usage of a new web project with Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
  
 # Monitor your web application's health and usage
 
@@ -10,15 +10,16 @@ Application Insights can monitor live and in-development web applications, hoste
 
 You'll need <a href="http://go.microsoft.com/fwlink/?LinkId=397827">Visual Studio Update 3</a>.
 
-+ [1. Add Application Insights] 
-+ [2. Run your project]
-+ [3. See monitor data]
-+ [Next steps]
+1. [Add Application Insights](#add)
++ [Run your project](#run)
++ [See monitor data](#monitor)
++ [Deploy your application](#deploy)
++ [Next steps](#next)
 
 
 *Already got your web project? Go to [Add Application Insights to an existing project][existing].*
 
-## 1. Add Application Insights
+## <a name="add"></a>1. Add Application Insights
 
 When you create a new ASP.NET project, make sure Application Insights is selected. 
 
@@ -32,11 +33,11 @@ If this is your first time, you'll be asked to provide your login for Microsoft 
 It doesn't matter whether you host your application on premises, in a virtual machine, or in a Microsoft Azure website.
 
 
-## 2. Run your project
+## <a name="run"></a>2. Run your project
 
 Run your application with F5 and try it out.
 
-## 3. See monitor data
+## <a name="monitor"></a>3. See monitor data
 
 Open the Azure Portal.
 
@@ -56,28 +57,29 @@ Click any tile to see more detail. [Learn more about the tiles and reports.][mon
 
 > [WACOM.NOTE] Many of the tiles show limited detail in this preview version. 
 
-## 4. Deploy your application
+## <a name="deploy"></a>4. Deploy your application
 
 Deploy your application and watch the data accumulate.
 
 
-## Next steps
+## <a name="next"></a>Next steps
 
 [Learn more about the tiles and reports][monitor]
 
 [Web tests]
 
+[Capture and search diagnostic logs][diagnostics]
 
-<!--Anchors-->
-[1. Add Application Insights]: #subheading-1
-[2. Run your project]: #subheading-2
-[3. See monitor data]: #subheading-3
-[Next steps]: #next-steps
+[Troubleshooting][trouble]
 
 
 <!--Link references-->
 [Web tests]: ../appinsights-10Avail/
 [monitor]: ../appinsights-04monitor/
 [existing]: ../appinsights-02-existing/
+[diagnostics]: ../appinsights-24diagnostics/
+[trouble]: ../appinsights-09qna/
+
+
 
 
