@@ -65,7 +65,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 8. Assuming that you haven't created a cloud service or storage account, Visual Studio will help you create both. In the **Create Cloud Service and Account** dialog, type the desired service name. Then, click **Create**.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-7-publish-createserviceandstorage.PNG)
+	![](media/cdn-cloud-service-with-cdn/cdn-cs-7-publish-createserviceandstorage.png)
 
 	>[WACOM.NOTE]Note that I'm using **East Asia** as the region for this cloud service. My goal here is to make sure that the cloud service (and the content in the storage account) is far enough away from the client (in this case, my computer in the US) to test the CDN later.
 9. In the publish settings page, verify the configuration and click **Publish**.
@@ -91,7 +91,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 3. Click **Enable Query String** to enable query strings in the CDN cache. Once you enable this, the same link accessed with different query strings will be cached as separate entries.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-11-disablequeryb.PNG)
+	![](media/cdn-cloud-service-with-cdn/cdn-cs-12-disablequeryb.png)
 
 	>[WACOM.TIP] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
 
