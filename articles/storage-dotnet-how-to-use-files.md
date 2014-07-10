@@ -1,130 +1,252 @@
-<properties linkid="dev-net-how-to-file-storage" urlDisplayName="File Service" pageTitle="How to use file storage from .NET | Microsoft Azure" metaKeywords="Get started Azure file Azure unstructured data   Azure unstructured storage   Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file C#" description="Learn how to use Microsoft Azure File storage to upload,  download, list, and delete file content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties linkid="dev-net-how-to-file-storage" urlDisplayName="File Service" pageTitle="How to use Azure File storage | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-# How to use File Storage from .NET
+# How to use Azure File storage
 
-This getting started guide demonstrates how to perform common scenarios using Azure File storage.
+In this getting started guide, we demonstrate the basics of using Microsoft Azure File storage. First we use PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory. Then we show how to mount the file share from an Azure virtual machine, just as you would any SMB share.
 
-http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+For users who may want to access files in a share from an on-premise application as well as from an Azure virtual machine or cloud service, we show how to use the Azure .NET Storage Client Library to work with the file share from a desktop application.
 
-> [WACOM.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/en-us/downloads/). See [How to: Programmatically access File storage][] below for more details on obtaining the Storage Client Library.
+> [WACOM.NOTE] Running the .NET code examples in this guide requires the Azure .NET Storage Client Library 4.x or later. The Storage Client Library is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
 
 ##Table of contents
 
--   [What is File Storage][]
--   [Concepts][]
--   [Create an Azure Storage account][]
--   [Setup a storage connection string][]
--   [How to: Programmatically access File storage][]
--   [How to: Create a container][]
--   [How to: Upload a blob into a container][]
--   [How to: List the blobs in a container][]
--   [How to: Download blobs][]
--   [How to: Delete blobs][]
+-   [What is File storage?][]
+-   [File storage concepts][]
+-   [Create an Azure storage account][]
+-   [Use PowerShell to create a file share][]
+-	[Mount the share from an Azure virtual machine][]
+-   [Create an on-premise application to access File storage][]
 -   [Next steps][]
 
 
-about files...
+##<a name="what-is-file-storage"></a><span class="short-header">What is Azure File storage?</span>What is Azure File storage?
 
-##<a name="create-account"></a><span  class="short-header">Create an account</span>Create an Azure Storage account
+File storage offers shared storage for legacy applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File storage API.
+
+Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.
+
+Since a File storage share is a standard SMB 2.1 file share, applications running in Azure can access data in the share via file I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications. This guide will show examples of both.
+
+Common uses of File storage include:
+
+- Migrating on-premise applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites
+- Storing shared application settings, for example in configuration files
+- Storing diagnostic data such as logs, metrics, and crash dumps in a shared location 
+- Storing tools and utilities needed for developing or administering Azure virtual machines or cloud services
+
+##<a name="file-storage-concepts"></a><span class="short-header">File storage concepts</span>File storage concepts
+
+File storage contains the following components:
+
+![files-concepts][files-concepts]
+
+
+-   **Storage Account:** All access to Azure Storage is done
+    through a storage account. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
+
+-   **Share:** A File storage share is an SMB 2.1 file share in Azure. 
+    All directories and files must be created in a parent share. An account can contain an
+    unlimited number of shares, and a share can store an unlimited
+    number of files, up to the capacity limits of the storage account.
+
+-   **Directory:** An optional file directory or subdirectory. 
+
+-	**File:** A file in the share. A file may be up to 1 TB in size.
+
+-   **URL format:** Files are addressable using the following URL
+    format:   
+    https://`<storage
+    account>`.file.core.windows.net/`<share>`/`<directory>`/`<file>`  
+    
+    The following example URL could be used to address one of the files in the
+    diagram above:  
+    `http://acmecorp.file.core.windows.net/cloudfiles/diagnostics/log.txt`
+
+
+
+For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/en-us/library/azure/dn167011.aspx).
+
+##<a name="create-account"></a><span class="short-header">Create an Azure Storage account</span>Create an Azure Storage account
+
+Azure File storage is currently in preview. To request access to the preview, navigate to the [Microsoft Azure Preview page](/en-us/services/preview/), and request access to **Azure Files**. Once your request is approved, you'll be notified that you can access the File storage preview. You can then create a storage account for accessing File storage.
+
+> [WACOM.NOTE] File storage is currently available only for new storage accounts. After your subscription is granted access to File storage, create a new storage account for use with this guide.
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-##<a name="create-worker-role"></a><span  class="short-header">Create a worker role in an Azure cloud service</span>Create a worker role in an Azure cloud service
+##<a name="use-cmdlets"></a><span class="short-header">Use PowerShell to create a file share</span>Use PowerShell to create a file share
 
-Azure File storage offers shared file storage for applications running in an Azure cloud service or an Azure virtual machine. In this tutorial, we'll create a worker role in an Azure cloud service, and mount a File storage share from within the worker role.
+###Install the PowerShell cmdlets for Azure Storage
 
-To create an Azure cloud service, you'll need the to download and install the [Azure SDK for .NET](/en-us/downloads/). Once you've got the SDK, follow these steps to create a cloud service that contains a worker role:
+To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/) for the install point and installation instructions.
 
-1. Open Visual Studio and choose **File**, then **New Project**.
+Open an Azure PowerShell window by clicking **Start** and typing **Windows Azure PowerShell**. The Azure PowerShell window loads the Azure Powershell module for you.
 
-2. In the New Project dialog, select **Installed -> Templates -> Visual C# -> Cloud**, and select the template for Windows Azure Cloud Service. Provide a name for the project and click **OK**.
+###Create a new file share
 
-3. In the New Windows Azure Cloud Service dialog, add a worker role to the project. If desired, rename the worker role, and click **OK** to create your cloud service project.
+Now, import the PowerShell module, and create the storage account context. The context encapsulates the account name and account key. Replace `account-name` and `account-key` with your account name and key in the following example:
 
-Next, we'll configure the project to include a connection string that points to your Azure storage account.
+    # import the Azure Storage module and create a context for account and key
+    import-module .\AzureStorageFile.psd1
+    $ctx=New-AzureStorageContext account-name account-key
+    
+Next, create the new share, named `sampleshare` in this example:
 
-##<a name="setup-connection-string"></a><span  class="short-header">Setup a connection string</span>Setup a storage connection string
+    # create a new share
+    $s = New-AzureStorageShare sampleshare -Context $ctx
 
-The Azure Storage Client Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services. We recommend that you maintain your storage connection string in a configuration file, rather than hard-coding it into your application. You have two options for saving your connection string:
+You now have a file share in File storage. Next we'll add a directory and a file.
 
-- If your application runs in an Azure cloud service, save your connection string using the Azure service configuration system (`*.csdef` and `*.cscfg` files). Since we are building a cloud service to demonstrate File storage, this is the option we will demonstrate in this guide.
-- If your application runs on Azure virtual machines, or if you are building .NET applications that will run outside of Azure, save your connection string using the .NET configuration system (e.g. `web.config` or `app.config` file).
+###Add a directory to the file share
 
-Later on in this guide, we will show how to retrieve your connection string from your code.
+Next, add a directory to the share. In the following example, the directory is named `sampledir`:
 
-To configure your connection string for your cloud service:
+    # create a directory in the share
+    New-AzureStorageDirectory -Share $s -Path sampledir
 
-1. From Solution Explorer in Visual Studio, beneath your cloud service project, open the ServiceDefinition.csdef file. Add a configuration setting named `StorageConfigurationString`. Your ServiceDefinition.csdef file should look similar to the following example:
+###Upload a local file to the directory
 
-		<?xml version="1.0" encoding="utf-8"?>
-		<ServiceDefinition name="MyCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2014-01.2.3">
-		  <WorkerRole name="MyWorkerRole" vmsize="Small">
-		    <Imports>
-		      <Import moduleName="Diagnostics" />
-		    </Imports>
-		    <ConfigurationSettings>
-		      <Setting name="StorageConfigurationString" />
-		    </ConfigurationSettings>
-		  </WorkerRole>
-		</ServiceDefinition>
-	
-2. Open the ServiceConfiguration.Cloud.cscfg and ServiceConfiguration.Local.cscfg files, and add a configuration setting for `StorageConfigurationString`. Include your account name for the `AccountName` portion of the configuration setting, and your account key for `AccountKey` portion. Both files should appear similar to the following example:
+Now upload a local file to the directory. The following example uploads a file from `C:\temp\samplefile.txt`. Edit the file path so that it points to a valid file on your local machine: 
+    
+    # upload a local file to the new directory
+    Set-AzureStorageFileContent -Share $s -Source C:\temp\samplefile.txt -Path sampledir
 
-	    <ServiceConfiguration serviceName="MyCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
-			<Role name="MyWorkerRole">
-	    		<Instances count="1" />
-	    		<ConfigurationSettings>
-	      			<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-	      			<Setting name="StorageConfigurationString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=jVRj5Dia3dtFjKEz8kWMPTAatkr2gZ2D/13dRzgVRpAmNsqrl6TMPVCdser2yRQKzUO/T72BcAcxdrj/1FAKbg==" />
-	    		</ConfigurationSettings>
-	      	</Role>
-	    </ServiceConfiguration>
+###List the files in the directory
 
-You can also configure your storage connection string through the Visual Studio user interface. In Solution Explorer, beneath your cloud service project, right-click on the name of your worker role, and choose **Properties**. On the **Settings** tab, add a connection string that points to your storage account.
+To see the file in the directory, you can list the directory's files. This command will also list subdirectories, but in this example, there is no subdirectory, so only the file will be listed.  
 
-## <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access File storage
+    # list files in the new directory
+    Get-AzureStorageFile -Share $s -Path sampledir
 
-###Obtaining the assembly
+##<a name="mount-share"></a><span class="short-header">Mount the share from an Azure virtual machine</span>Mount the share from an Azure virtual machine
 
-You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
+To demonstrate how to mount an Azure file share, we'll now create an Azure virtual machine, and remote into it to mount the share. 
 
-`Microsoft.WindowsAzure.Storage.dll` is also included in the Azure SDK for .NET, which can be downloaded from the <a href="http://www.windowsazure.com/en-us/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` directory.
+1. First, create a new Azure virtual machine by following the instructions in [Create a Virtual Machine Running Windows Server](/en-us/documentation/articles/virtual-machines-windows-tutorial/).
+2. Next, remote into the virtual machine by following the instructions in [How to Log on to a Virtual Machine Running Windows Server](/en-us/documentation/articles/virtual-machines-log-on-windows-server/).
 
-###Namespace declarations
-Add the following namespace declarations to the top of any C\# file
-in which you wish to programmatically access Azure Storage:
+Once you have a remote connection to the virtual machine, you can open a command prompt and execute the `net use` command to mount the file share:
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
+1. Open a PowerShell window on the virtual machine.
+2. Execute the `net use` command, using the following syntax. Replace `<storage-account>` with the name of your storage account, `<share-name>` with the name of your File storage share, and `<account-key>` with your storage account key:
+
+	    net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
+
+You can now work with the File storage share from within the virtual machine as you would with any other SMB share. You can issue standard file commands from the command prompt, or view the mounted share and its contents from File Explorer. You can also run code within the virtual machine that accesses the file share using standard Windows file I/O APIs, such as those provided by the [System.IO namespaces](http://msdn.microsoft.com/en-us/library/gg145019(v=vs.110).aspx) in the .NET Framework. 
+
+You can also mount the file share from a role running in an Azure cloud service by remoting into the role.
+
+##<a name="create-console-app"></a><span class="short-header">Create an on-premise application to work with File storage</span>Create a on-premise application to work with File storage
+
+You can mount a File storage share from within a virtual machine or a cloud service running in Azure, as demonstrated above. However, you cannot mount a File storge share from an on-premise application. To access share data from an on-premise application, you must use the File storage API. This example demonstrates how to work with a file share via the [Azure .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409). 
+
+To show how to use the API from an on-premise application, we'll create a simple console application running on the desktop.
+
+###Create the console application and obtain the assembly
+
+To create a new console application in Visual Studio and install the Azure Storage NuGet package:
+
+1. In Visual Studio, choose **File** -> **New Project**, and choose **Windows** -> **Console Application** from the list of Visual C# templates.
+2. Provide a name for the console application, and click **OK**.
+3. Once your project has been created, right-click the project in Solution Explorer and choose **Manage NuGet Packages**. Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
+
+###Save your storage account credentials to the app.config file
+
+Next, save your credentials in your project's app.config file. Edit the app.config file so that it appears similar to the following example, replacing `myaccount` with your storage account name, and `mykey` with your storage account key:
+
+    <?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+		<startup> 
+			<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+		</startup>
+		<appSettings>
+			<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey" />
+		</appSettings>
+	</configuration>
+
+> [WACOM.NOTE] The latest version of the Azure storage emulator does not support File storage. Your connection string must target an Azure storage account in the cloud with access to the Files preview.
+
+
+###Add namespace declarations
+Open the program.cs file from Solution Explorer, and add the following namespace declarations to the top of the file:
+
+    using Microsoft.WindowsAzure;
+	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.File;
 
-Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
-
-###Retrieving your connection string
-You can use the **CloudStorageAccount** type to represent 
-your Storage Account information. If you are using an 
-Azure project template and/or have a reference to 
-Microsoft.WindowsAzure.CloudConfigurationManager, you 
-can you use the **CloudConfigurationManager** type
-to retrieve your storage connection string and storage account
-information from the Azure service configuration:
+###Retrieve your connection string programmatically
+You can retrieve your saved credentials from the app.config file using either the `Microsoft.WindowsAzure.CloudConfigurationManager` class, or the `System.Configuration.ConfigurationManager `class. The example here shows how to retrieve your credentials using the `CloudConfigurationManager` class and encapsulate them with the `CloudStorageAccount` class. Add the following code to the `Main()` method in program.cs:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-If you are creating an application with no reference to Microsoft.WindowsAzure.CloudConfigurationManager, and your connection string is located in the `web.config` or `app.config` as show above, then you can use **ConfigurationManager** to retrieve the connection string.  You will need to add a reference to System.Configuration.dll to your project, and add another namespace declaration for it:
+###Access the File storage share programmatically
 
-	using System.Configuration;
-	...
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
+Next, add the following code to the `Main()` method, after the code shown above to retrieve the connection string. This code gets a reference to the file we created earlier and outputs its contents to the console window.
 
-A **CloudFileClient** type allows you to retrieve objects that represent
-containers and blobs stored within File storage. The
-following code creates a **CloudFileClient** object using the storage
-account object we retrieved above:
-
+	//Create a CloudFileClient object for credentialed access to File storage.
     CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
+	//Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("sampleshare");
+
+	//Ensure that the share exists.
+    if (share.ExistsAsync().Result)
+    {
+		//Get a reference to the root directory for the share.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+
+		//Get a reference to the sampledir directory we created previously.
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("sampledir");
+
+		//Ensure that the directory exists.
+        if (sampleDir.ExistsAsync().Result)
+        {
+			//Get a reference to the file we created previously.
+            CloudFile file = sampleDir.GetFileReference("samplefile.txt");
+
+			//Ensure that the file exists.
+            if (file.ExistsAsync().Result)
+            {
+				//Write the contents of the file to the console window.
+                Console.WriteLine(file.DownloadTextAsync().Result);
+            }
+        }
+    }
+
+Run the console application to see the output.
+
+## <a name="next-steps"></a><span  class="short-header">Next steps</span>Next steps
+
+Now that you've learned the basics of File storage, follow these links
+for more detailed information.
+<ul>
+<li>View the File service reference documentation for complete details about available APIs:
+  <ul>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
+    </li>
+    <li><a href="http://msdn.microsoft.com/en-us/library/azure/dn167006.aspx">File Service REST API reference</a></li>
+  </ul>
+</li>
+<li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
+<li>View more feature guides to learn about additional options for storing data in Azure.
+  <ul>
+    <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>
+    <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>
+    <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store unstructured data.</li>
+    <li>Use <a href="/en-us/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
+  </ul>
+</li>
+</ul>
+
+[Next Steps]: #next-steps
+[What is File storage?]: #what-is-file-storage 
+[File storage concepts]: #file-storage-concepts
+[Create an Azure storage account]: #create-account
+[Use PowerShell to create a file share]: #use-cmdlets
+[Mount the share from an Azure virtual machine]: #mount-share
+[Create an on-premise application to access File storage]: #create-console-app
+
+[files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
 
