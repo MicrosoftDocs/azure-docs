@@ -260,16 +260,16 @@ The first step is to create an ASP.NET WebAPI project. This is the backend that 
 	![][B18]
 
 
-[1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push1.png
-[2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push2.png
-[3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push3.png
-[4]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push4.png
-[5]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push5.png
-[6]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push6.png
-[7]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push7.png
-[8]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push8.png
-[14]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push14.png
+[1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
+[2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
+[3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push3.png
+[4]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
+[5]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png
+[6]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push6.png
+[7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
+[8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
+[14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
 
-[B15]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-notify-users15.PNG
-[B16]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-notify-users16.PNG
-[B18]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-notify-users18.PNG
+[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
+[B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
+[B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
