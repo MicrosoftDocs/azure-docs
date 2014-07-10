@@ -1,6 +1,6 @@
 <properties title="Monitor usage and performance of a web project with Application Insights" pageTitle="Monitor usage and performance of a web project with Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
  
-# H1 (Monitor your web application) 
+# Monitor your web application 
 
 If you haven't yet [set up your web project for Application Insights][existing], do that now.
 

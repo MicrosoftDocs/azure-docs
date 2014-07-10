@@ -1,6 +1,6 @@
 <properties title="Monitor usage and performance of an existing web project with Application Insights" pageTitle="Monitor usage and performance of an existing web project with Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
  
-# H1 (Add Application Insights to an existing web project) 
+# Add Application Insights to an existing web project
 
 *Application Insights is in preview.*
 
@@ -56,7 +56,7 @@ Run your application with F5 and try it out.
 
 **Close and re-open your application's home blade**, and look for data in the Application health and Usage analytics tiles. For example:
 
-![Click through to more data](./media/appInsights/appinsights-05-usageTiles.png)
+![Click through to more data](./media/appinsights/appinsights-05-usageTiles.png)
 
 > [WACOM.NOTE] Currently, reports do not refresh automatically. If you are waiting for data in a report, you should close and re-open its blade. 
 
@@ -88,6 +88,5 @@ Deploy your application and watch the data accumulate.
 <!--Link references-->
 [Web tests]: ../appinsights-10Avail/
 [monitor]: ../appinsights-04monitor/
-[usage]: ../appinsights-30usage/
 [newproject]: ../appinsights-01-start/
 
