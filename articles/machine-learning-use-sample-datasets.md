@@ -23,12 +23,12 @@ The following table provides additional information about the datasets that migh
 Some descriptions are adapted from the documentation provided by the source (typically the [UC Irvine Machine Learning Repository](http://archive.ics.uci.edu/ml/ "UC Irvine Machine Learning Repository")), while other descriptions are based on additional investigation or reflect changes made in these samples.
 
 <table>
-<tr>
+<tr valign=top>
 <th>Dataset name</th>
 <th>Dataset description</th>
 <th>Related research</th>
 </tr>
-<tr>
+<tr valign=top>
 <td>Adult Census Income Binary Classification dataset</td>
 <td>
 <p>A subset of the 1994 Census database, using working adults over the age of 16 with an adjusted income index of > 100.</p>
@@ -39,7 +39,7 @@ Some descriptions are adapted from the documentation provided by the source (typ
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Automobile price data (Raw)</p>
 </td>
@@ -55,7 +55,7 @@ Schlimmer, J.C. (1987). UCI Machine Learning Repository [<a href=“http//archiv
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Blood donation data</p>
 </td>
@@ -80,7 +80,7 @@ Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM m
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Breast cancer data</p>
 </td>
@@ -95,7 +95,7 @@ Wohlberg, W.H., Street, W.N., &amp; Mangasarian, O.L. (1995). UCI Machine Learni
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Energy Efficiency Regression data</p>
 </td>
@@ -110,7 +110,7 @@ Xifara, A. &amp; Tsanas, A. (2012). UCI Machine Learning Repository  [<a href=�
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Flight on-time performance (Raw)</p>
 </td>
@@ -125,7 +125,7 @@ From US Dept. of Transportation [<a href=“http://www.transtats.bts.gov/DL_Sele
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Forest fires data</p>
 </td>
@@ -154,7 +154,7 @@ December, Guimar&#227;es, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Iris two class data</p>
 </td>
@@ -173,7 +173,7 @@ Fisher, R.A. (1988). UCI Machine Learning Repository  [<a href=“http//archive.
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>MPG data for various automobiles</p>
 </td>
@@ -189,7 +189,7 @@ StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository [<a
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Pima Indians Diabetes Binary Classification dataset</p>
 </td>
@@ -204,7 +204,7 @@ Sigillito, V. (1990). UCI Machine Learning Repository  [<a href=“http//archive
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Restaurant customer data</p>
 </td>
@@ -221,7 +221,7 @@ Irvine, CA: University of California, School of Information and Computer Science
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Restaurant feature data</p>
 </td>
@@ -238,7 +238,7 @@ Irvine, CA: University of California, School of Information and Computer Science
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Restaurant ratings</p>
 </td>
@@ -255,7 +255,7 @@ Irvine, CA: University of California, School of Information and Computer Science
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Steel Annealing multi-class dataset</p>
 </td>
@@ -274,7 +274,7 @@ Sterling, D. &amp; Buntine, W., (NA). UCI Machine Learning Repository  [<a href=
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td>
 <p>Telescope data</p>
 </td>

@@ -1,13 +1,13 @@
-<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="Step 5: Publish the Machine Learning web service | Azure" description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="Step 5: Publish the Machine Learning web service | Azure" description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
 This is the fifth step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
 
-1.	[Create an ML workspace](machine-learning-1-create-ml-workspace)
-2.	[Upload existing data](machine-learning-2-upload-data)
-3.	[Create a new experiment](machine-learning-3-create-new-experiment)
-4.	[Train and evaluate the models](machine-learning-4-train-and-evaluate-models)
+1.	[Create an ML workspace](..\machine-learning-1-create-ml-workspace)
+2.	[Upload existing data](..\machine-learning-2-upload-data)
+3.	[Create a new experiment](..\machine-learning-3-create-new-experiment)
+4.	[Train and evaluate the models](..\machine-learning-4-train-and-evaluate-models)
 5.	**Publish the web service**
-6.	[Access the web service](machine-learning-6-access-web-service)
+6.	[Access the web service](..\machine-learning-6-access-web-service)
 
 ----------
 

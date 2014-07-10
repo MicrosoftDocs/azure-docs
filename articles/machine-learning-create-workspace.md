@@ -1,4 +1,4 @@
-<properties title="Create an Azure Machine Learning workspace" pageTitle="Create a Machine Learning workspace | Azure" description="Create a workspace for Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Create an Azure Machine Learning workspace" pageTitle="Create a Machine Learning workspace | Azure" description="Create a workspace for Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="derrickv" videoId="" scriptId="" />
 
 # Create an Azure Machine Learning workspace #
 A Microsoft Azure Machine Learning Workspace (ML Workspace) contains the tools you need to manage and publish experiments. For more information about the Machine Learning Workspace, link.
