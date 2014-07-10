@@ -106,6 +106,7 @@ But just at present, the main missing features are: support for device apps such
  + ApplicationInsights.config. 
  + ai.js
 
++ Inserts a line in the project file.
 
 + Installs these NuGet packages:
 
