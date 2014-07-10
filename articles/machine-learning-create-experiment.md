@@ -11,13 +11,19 @@ Microsoft Azure Cloud Machine Learning Studio is designed to help you develop an
 The five basic steps you follow to build an experiment in ML Studio allow you to create, train, and score your model:  
 
 - Create a Model 
-	- [Step 1 - Get data]
-	- [Step 2 - Pre-process data]
-	- [Step 3 - Define, extract, and enrich features]
+	- [Step 1: Get data]
+	- [Step 2: Pre-process data]
+	- [Step 3: Define, extract, and enrich features]
 - Train the Model 
-	- [Step 4 - Choose and apply a learning algorithm]
+	- [Step 4: Choose and apply a learning algorithm]
 - Score and Test the Model 
-	- [Step 5 - Predict over new data] 
+	- [Step 5: Predict over new data] 
+
+[Step 1: Get data]: #step-1:-get-data
+[Step 2: Pre-process data]: #step-2:-pre-process-data
+[Step 3: Define, extract, and enrich features]: #step-3:-Define,-extract,-and-enrich-features
+[Step 4: Choose and apply a learning algorithm]: #Step-4:-Choose-and-apply-a-learning-algorithm
+[Step 5: Predict over new data]: #Step-5:-Predict-over-new-data 
 
 There are two types of predictive analytics you may want to perform with your data: 
 
@@ -28,7 +34,7 @@ In this example, we'll walk through a regression task using automobile price and
 
 > [WACOM.NOTE] In addition to classification and regression, it is also possible to perform recommendation and clustering tasks. Because the workflows for these are somewhat different, they are not covered here. 
 
-### Step 1 - Get data
+### Step 1: Get data
 
 There are a number of sample datasets included with ML Studio, and you can import data from many different sources. For this example, we will use the included sample dataset that represents automobile price data.
 
@@ -149,3 +155,4 @@ The result is a trained regression model that can be used to score new samples (
 	> [WACOM.NOTE] The input dataset of **Score Model** must have the same columns as the dataset used to train the model. Additional columns may be present, but they will be ignored. Also, any categorical columns must have the same levels.  
 
 3. Finally, to test the quality of the results, drag the **Evaluate Model** module to the experiment canvas, and connect it to the output from the **Score Model** module. Run the experiment and view the output from the **Evaluate Model** module to see different metrics that describe the quality of the model.  
+
