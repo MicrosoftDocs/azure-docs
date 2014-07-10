@@ -1,6 +1,6 @@
-<properties title="Developing a predictive solution with Azure Machine Learning" pageTitle="Developing a predictive solution with Machine Learning | Azure" description="Walkthrough of how to create a predictive analytics experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Develop a predictive solution with Azure Machine Learning" pageTitle="Develop a predictive solution with Machine Learning | Azure" description="Walkthrough of how to create a predictive analytics experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
-#Developing a predictive solution with Azure Machine Learning
+#Develop a predictive solution with Azure Machine Learning
  
 Suppose you need to predict an individual’s credit risk based on the information they give on a credit application.  
 
