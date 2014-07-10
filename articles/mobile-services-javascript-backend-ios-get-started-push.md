@@ -25,7 +25,7 @@ This tutorial requires the following:
 
 + [Mobile Services iOS SDK]
 + [XCode 4.5][Install Xcode] 
-+ An iOS 5.0 (or later version) capable device
++ An iOS 6.0 (or later version) capable device
 + iOS Developer Program membership
 
    > [WACOM.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
@@ -70,11 +70,7 @@ Both your mobile service is now configured to work with APNS.
 
 ## Add push notifications to your app
 
-1. In Xcode, open the QSAppDelegate.h file and add the following property below the ***window** property:
-
-        @property (strong, nonatomic) NSData *deviceToken;
-
-2. In QSAppDelegate.m, replace the following handler method inside the implementation: 
+1. In QSAppDelegate.m, replace the following handler method inside the implementation: 
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
         (NSDictionary *)launchOptions
@@ -85,28 +81,22 @@ Both your mobile service is now configured to work with APNS.
             return YES;
         }
 
-3. In QSAppDelegate.m, add the following handler method inside the implementation: 
+2. In QSAppDelegate.m, add the following handler method inside the implementation: 
 
-        // We are registered, so now store the device token on the AppDelegate instance
-        // taking care to remove the angle brackets first.
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
-            NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
-            self.deviceToken = [[[deviceToken description] stringByTrimmingCharactersInSet:angleBrackets] dataUsingEncoding:NSUTF8StringEncoding];
 			client.push.registerNative(deviceToken, @”uniqueTag”);
         }
 
-4. In QSAppDelegate.m, add the following handler method inside the implementation: 
+3. In QSAppDelegate.m, add the following handler method inside the implementation: 
 
-        // Handle any failure to register. In this case we set the deviceToken to an empty
-        // string to prevent the insert from failing.
+        // Handle any failure to register. 
         - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
         (NSError *)error {
             NSLog(@"Failed to register for remote notifications: %@", error);
-            self.deviceToken = [@"" dataUsingEncoding:NSUTF8StringEncoding];
         }
 
-5. In QSAppDelegate.m, add the following handler method inside the implementation:  
+4. In QSAppDelegate.m, add the following handler method inside the implementation:  
 
         // Because alerts don't work when the app is running, the app handles them.
         // This uses the userInfo in the payload to display a UIAlertView.
