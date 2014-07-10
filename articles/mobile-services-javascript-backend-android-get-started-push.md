@@ -148,9 +148,9 @@ You have successfully completed this tutorial.
 
 ## <a name="next-steps"> </a>Next steps
 
-This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
+<!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
-<!---+ [Send push notifications to authenticated users]
++ [Send push notifications to authenticated users]
 	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 + [Send broadcast notifications to subscribers]
