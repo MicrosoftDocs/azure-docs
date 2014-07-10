@@ -130,7 +130,7 @@ Before your app can receive push notifications, you must register a notification
 
     This code will send a push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
 
-2. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
 3. Click the **Push** tab, check **Enable unauthenticated push notifications**, then click **Save**.
 
@@ -200,6 +200,7 @@ Consider finding out more about the following Mobile Services and Notification H
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
 [Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
 
@@ -212,3 +213,4 @@ Consider finding out more about the following Mobile Services and Notification H
 
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
 [Windows Phone Silverlight 8.1 apps]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/dn642082(v=vs.105).aspx
+[Azure Management Portal]: https://manage.windowsazure.com/
