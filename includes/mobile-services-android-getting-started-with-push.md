@@ -51,10 +51,16 @@
 
 10. Add the following import statements:
 
+		import android.app.NotificationManager;
+		import android.app.PendingIntent;
 		import android.content.Context;
 		import android.content.Intent;
+		import android.os.Bundle;
+		import android.support.v4.app.NotificationCompat;
 
+		import com.microsoft.windowsazure.mobileservices.Registration;
 		import com.microsoft.windowsazure.mobileservices.RegistrationCallback;
+
 		
 11. Next add this code to the class:
 
