@@ -46,7 +46,8 @@ After you have registered your app with APNS and configured your project, you mu
 
   Make a note of the file name and location of the exported certificate.
 
-    > [WACOM.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
+
+>[WACOM.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
 
 2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 

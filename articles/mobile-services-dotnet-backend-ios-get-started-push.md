@@ -51,7 +51,7 @@ After you have registered your app with APNS and configured your project, you mu
 
   Make a note of the file name and location of the exported certificate.
 
-    > [WACOM.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
+>[WACOM.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
 
 2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
@@ -73,7 +73,7 @@ Your mobile service is now configured to work with APNS.
 
 <h2><a name="download-the-service"></a><span class="short-header">Download the service</span>Download the service to your local computer</h2>
 
-[WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
+[WACOM.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
 
 <h2><a name="test-the-service"></a><span class="short-header">Test the service</span>Test the mobile service</h2>
 
