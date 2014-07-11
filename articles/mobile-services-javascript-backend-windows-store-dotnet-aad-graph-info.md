@@ -147,7 +147,11 @@ If you've never used custom APIs with Mobile Services, you should consider revie
 
 ## <a name="update-app"></a>Update the app to use GetUserInfo
 
-1. In Visual Studio, open MainPage.xaml.cs and add the following class definition to the namespace to help serialize the user information.
+1. In Visual Studio, open MainPage.xaml.cs and add the following `using` statement to the top of the file.
+ 
+        using System.Net.Http;
+
+2. In MainPage.xaml.cs, add the following class definition to the namespace to help serialize the user information.
 
         public class UserDetails
         {
@@ -159,7 +163,7 @@ If you've never used custom APIs with Mobile Services, you should consider revie
         }
 
 
-2. In MainPage.xaml.cs update the `AuthenticateAsync` method you implemented in the [Get Started with Authentication] tutorial to call the custom API to return additional information about the user from the AAD. 
+3. In MainPage.xaml.cs, update the `AuthenticateAsync` method you implemented in the [Get Started with Authentication] tutorial to call the custom API to return additional information about the user from the AAD. 
 
         private async System.Threading.Tasks.Task AuthenticateAsync()
         {
@@ -188,7 +192,7 @@ If you've never used custom APIs with Mobile Services, you should consider revie
         }
 
 
-3. Save your changes and build the app to verify the changes.  
+4. Save your changes and build the app to verify the changes.  
 
 
 ## <a name="test-app"></a>Test the app
