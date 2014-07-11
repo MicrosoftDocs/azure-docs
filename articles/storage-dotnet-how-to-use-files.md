@@ -22,7 +22,7 @@ For users who may want to access files in a share from an on-premise application
 
 ##<a name="what-is-file-storage"></a><span class="short-header">What is Azure File storage?</span>What is Azure File storage?
 
-File storage offers shared storage for legacy applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File storage API.
+File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File storage API.
 
 Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.
 
@@ -50,14 +50,14 @@ File storage contains the following components:
     unlimited number of shares, and a share can store an unlimited
     number of files, up to the capacity limits of the storage account.
 
--   **Directory:** An optional file directory or subdirectory. 
+-   **Directory:** An optional hierarchy of directories. 
 
 -	**File:** A file in the share. A file may be up to 1 TB in size.
 
 -   **URL format:** Files are addressable using the following URL
     format:   
     https://`<storage
-    account>`.file.core.windows.net/`<share>`/`<directory>`/`<file>`  
+    account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
     
     The following example URL could be used to address one of the files in the
     diagram above:  
@@ -98,9 +98,9 @@ Next, create the new share, named `sampleshare` in this example:
 
 You now have a file share in File storage. Next we'll add a directory and a file.
 
-###Add a directory to the file share
+###Create a directory in the file share
 
-Next, add a directory to the share. In the following example, the directory is named `sampledir`:
+Next, create a directory in the share. In the following example, the directory is named `sampledir`:
 
     # create a directory in the share
     New-AzureStorageDirectory -Share $s -Path sampledir
@@ -133,7 +133,7 @@ Once you have a remote connection to the virtual machine, you can open a command
 
 	    net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
-You can now work with the File storage share from within the virtual machine as you would with any other SMB share. You can issue standard file commands from the command prompt, or view the mounted share and its contents from File Explorer. You can also run code within the virtual machine that accesses the file share using standard Windows file I/O APIs, such as those provided by the [System.IO namespaces](http://msdn.microsoft.com/en-us/library/gg145019(v=vs.110).aspx) in the .NET Framework. 
+You can now work with the File storage share from within the virtual machine as you would with any other drive. You can issue standard file commands from the command prompt, or view the mounted share and its contents from File Explorer. You can also run code within the virtual machine that accesses the file share using standard Windows file I/O APIs, such as those provided by the [System.IO namespaces](http://msdn.microsoft.com/en-us/library/gg145019(v=vs.110).aspx) in the .NET Framework. 
 
 You can also mount the file share from a role running in an Azure cloud service by remoting into the role.
 
@@ -229,12 +229,11 @@ for more detailed information.
     <li><a href="http://msdn.microsoft.com/en-us/library/azure/dn167006.aspx">File Service REST API reference</a></li>
   </ul>
 </li>
-<li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
 <li>View more feature guides to learn about additional options for storing data in Azure.
   <ul>
     <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>
     <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>
-    <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store unstructured data.</li>
+    <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store messages reliably.</li>
     <li>Use <a href="/en-us/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
   </ul>
 </li>
