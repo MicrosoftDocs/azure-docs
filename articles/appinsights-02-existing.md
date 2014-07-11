@@ -10,16 +10,17 @@ Application Insights can monitor live and in-development web applications, hoste
 
 You'll need <a href="http://go.microsoft.com/fwlink/?LinkId=397827">Visual Studio Update 3</a>.
 
-+ [1. Add Application Insights to your web service] 
-+ [2. Add Application Insights to your web client]
-+ [3. Run your project]
-+ [4. See monitor data]
-+ [Next steps]
+1. [Add Application Insights to your web service](#service)
++ [Add Application Insights to your web client](#client)
++ [Run your project](#run)
++ [See monitor data](#monitor)
++ [Deploy your application](#deploy)
++ [Next steps](#next)
 
-*If you are [creating a new web project, it's even easier][newproject].*
+*If you are [creating a new web project][newproject], it's even easier.*
 
 
-## 1. Add Application Insights to your web service
+## <a name="service"></a>1. Add Application Insights to your web service
 
 Open your ASP.NET project in Visual Studio Update 3. 
 
@@ -27,7 +28,7 @@ Right-click and add Application Insights to the project.
 
 ![Add to an existing project](./media/appinsights/appinsights-03-addExisting.png)
 
-## 2. Add Application Insights to your web client
+## <a name="client"></a>2. Add Application Insights to your web client
 
 Open Microsoft Azure.
 
@@ -47,11 +48,11 @@ Notice that the snippet contains the id of this application resource, so if you 
 
 
 
-## 3. Run your project
+## <a name="run"></a>3. Run your project
 
 Run your application with F5 and try it out.
 
-## 4. See monitor data
+## <a name="monitor"></a>4. See monitor data
 
 
 **Close and re-open your application's home blade**, and look for data in the Application health and Usage analytics tiles. For example:
@@ -65,28 +66,24 @@ Click any tile to see more detail.
 
 > [WACOM.NOTE] The detail on many of the tiles is limited in this preview version. 
 
-## 4. Deploy your application
+## <a name="deploy"></a>4. Deploy your application
 
 Deploy your application and watch the data accumulate.
 
 
-## Next steps
+## <a name="next"></a>Next steps
 
 [Learn more about the tiles and reports][monitor]
 
 [Web tests]
 
+[Capture and search diagnostic logs][diagnostics]
 
-<!--Anchors-->
-[1. Add Application Insights to your web service]: #subheading-1
-[2. Add Application Insights to your web client]: #subheading-2
-[3. Run your project]: #subheading-3
-[4. See monitor data]: #subheading-4
-[Next steps]: #next-steps
-
+[Troubleshooting][trouble]
 
 <!--Link references-->
 [Web tests]: ../appinsights-10Avail/
 [monitor]: ../appinsights-04monitor/
 [newproject]: ../appinsights-01-start/
-
+[trouble]: ../appinsights-09qna/
+[diagnostics]: ../appinsights-24diagnostics/
