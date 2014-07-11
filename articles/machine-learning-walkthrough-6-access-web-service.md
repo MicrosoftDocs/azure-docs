@@ -1,13 +1,22 @@
 <properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="Step 6: Access the Machine Learning web service | Azure" description="Step 6: Access an active Azure Machine Learning API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />  
 
-This is the last step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
+This is the last step of the walkthrough, [Developing a Predictive Solution with Azure ML]:
 
-1.	[Create an ML workspace](..\machine-learning-1-create-ml-workspace)
-2.	[Upload existing data](..\machine-learning-2-upload-data)
-3.	[Create a new experiment](..\machine-learning-3-create-new-experiment)
-4.	[Train and evaluate the models](..\machine-learning-4-train-and-evaluate-models)
-5.	[Publish the web service](..\machine-learning-5-publish-web-service)
+[Developing a Predictive Solution with Azure ML]: machine-learning-develop-predictive-solution/
+
+1.	[Create an ML workspace]
+2.	[Upload existing data]
+3.	[Create a new experiment]
+4.	[Train and evaluate the models]
+5.	[Publish the web service]
 6.	**Access the web service**
+
+[Create an ML workspace]: ..\machine-learning-1-create-ml-workspace/
+[Upload existing data]: ..\machine-learning-2-upload-data/
+[Create a new experiment]: ..\machine-learning-3-create-new-experiment/
+[Train and evaluate the models]: ..\machine-learning-4-train-and-evaluate-models/
+[Publish the web service]: ..\machine-learning-5-publish-web-service/
+[Access the web service]: ..\machine-learning-6-access-web-service/
 
 ----------
 
