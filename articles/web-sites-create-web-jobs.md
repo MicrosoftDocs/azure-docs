@@ -172,21 +172,25 @@ Scheduled jobs can be further configured in the Azure Scheduler portal.
 <a name="NextSteps"></a>
 ##Next Steps##
  
+<!-- ======= Do More with the Microsoft Azure WebJobs SDK ======== -->
+
 <a name="WebJobsSDK"></a>
 ###Do More with the Microsoft Azure WebJobs SDK###
-The Microsoft Azure WebJobs SDK simplifies the task of adding background processing to your Microsoft Azure web sites. The SDK integrates Microsoft Azure Storage, triggering a function in your program when items are added to Queues, Blobs or Tables. The dashboard, now integrated into the Azure portal, provides rich monitoring and diagnostics for the programs that you write by using the SDK. The monitoring and diagnostics features are built into the SDK and do not require you to add any special code in your program.
+The Microsoft Azure WebJobs SDK simplifies the task of programming a WebJob that works with Azure Storage queues, blobs, or tables, or Azure Service Bus queues. The dashboard, now integrated into the Azure portal, provides rich monitoring and diagnostics for the programs that you write by using the SDK. The monitoring and diagnostics features are built into the SDK and do not require you to add any special code in your program.
  
-For more information, see the tutorial [Getting Started with Microsoft Azure WebJobs SDK](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). The tutorial provides an overview of the features of the WebJobs SDK and walks you through creating and running a simple Hello World background process. 
+For more information, see the tutorial [Getting Started with Microsoft Azure WebJobs SDK](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs).
 
-To see a walkthrough of a sample command line app created with the Microsoft Azure WebJobs SDK, see [Introducing Windows Azure WebJobs][HanselIntro].
+<!-- =========== Alternative Methods of Deployment ============= -->
 
 <a name="AlternateDeployments"></a>
 ###Alternative Methods of Deployment###
-If you don't want to use the WebJobs portal page to upload your scripts, you can use FTP, git, or Web Deploy. For more information, see  [How to deploy Windows Azure WebJobs][AmitDeploy] and [Git deploying a .NET console app to Azure using WebJobs][AmitConsole].
+Visual Studio 2013 includes features that automate deployment of Console Application projects as WebJobs. For more information, see [How to Deploy Azure WebJobs to Azure Websites](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-webjobs).
+
+You can also use FTP, Git, or Web Deploy to deploy WebJobs. For more information, see [Git deploying a .NET console app to Azure using WebJobs][AmitConsole] and [How to deploy Windows Azure WebJobs][AmitDeploy].
 
 <a name="AdditionalResources"></a>
 ###Additional Resources###
-- For an annotated list of links on the WebJobs feature, see [Using the WebJobs feature of Windows Azure Web Sites][RickWebJobsCurah]. 
+- For an annotated list of links on the WebJobs feature, see [Azure WebJobs - Recommended Resources][WebJobsRecommendedResources].
 	
 - WebJobs-related videos:
 
@@ -202,13 +206,11 @@ To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microso
 <!-- LINKS -->
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 
-[HanselIntro]:http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx
-
 [AmitDeploy]:http://blog.amitapple.com/post/74215124623/deploy-azure-webjobs
 
 [AmitConsole]:http://blog.amitapple.com/post/73574681678/git-deploy-console-app
 
-[RickWebJobsCurah]:http://go.microsoft.com/fwlink/?LinkId=390226
+[WebJobsRecommendedResources]:http://go.microsoft.com/fwlink/?LinkId=390226
 
 <!-- IMAGES -->
 [OnDemandWebJob]: ./media/web-sites-create-web-jobs/01aOnDemandWebJob.png
