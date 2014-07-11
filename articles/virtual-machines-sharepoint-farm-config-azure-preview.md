@@ -58,7 +58,7 @@ Here are the configuration details:
 
 The high-availability SharePoint farm consists of nine virtual machines in the following configuration:
 
-![sharepointfarm](./virtual-machines-sharepoint-farm-config-azure-preview/SPFarm_HighAvail.png)
+![sharepointfarm](./media/virtual-machines-sharepoint-farm-config-azure-preview/SPFarm_HighAvail.png)
  
 Here are the configuration details:
 
