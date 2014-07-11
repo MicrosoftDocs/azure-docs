@@ -89,7 +89,7 @@ The next step is to create the Windows Phone application. To add this project to
     	</Grid>
 
 
-13. In Solution Explorer, right-click the **NotifyUserWindowsPhone (Windows Phone 8.1)** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class. This component implements the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [link to SMDN registering from back-end]. Note that it uses an authorization token stored in local storage when you click the **Log in and register** button.
+13. In Solution Explorer, right-click the **NotifyUserWindowsPhone (Windows Phone 8.1)** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class. This component implements the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](http://msdn.microsoft.com/en-us/library/dn743807.aspx). Note that it uses an authorization token stored in local storage when you click the **Log in and register** button.
 
 14. Add the following code inside the `RegisterClient` class definition. Be sure to replace `{backend endpoint}` with the your backend endpoint obtained in the previous section:
 

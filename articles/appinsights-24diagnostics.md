@@ -1,31 +1,35 @@
 <properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  />
  
-# H1 (Search diagnostic logs with Application Insights) 
+# Search diagnostic logs with Application Insights
 
 You can capture and search diagnostic data from System.Diagnostics.Trace, NLog, and Log4Net. Application Insights provides an efficient and easy-to-use tool for collecting and investigating logged events from one or more sources, complementing the application health monitoring features.
 
 The monitored web application can be hosted on-premise or in a virtual machine, or it can be a Microsoft Azure website.
 
-+ [1. Add a logging adapter] 
-+ [2. Configure diagnostics collection]
-+ [3. Insert log statements, build and deploy]
-+ [4. View log data]
-+ [5. Search the data]
-+ [Next steps]
+1. [Add a logging adapter](#add)
++ [Configure diagnostics collection](#configure)
++ [Insert log statements, build and deploy](#deploy)
++ [View log data](#view)
++ [Search the data](#search)
++ [Next steps](#next)
 
 
 
-## 1. Add a logging adapter
+## <a name="add"></a>1. Add a logging adapter
 
 1. If you haven't done this already, add Application Insights to your [existing] or [new][setup] web service project in Visual Studio.
 2. In Solution Explorer, in the context menu of your project, choose **Manage NuGet Packages**.
-3. Select Online > All and search for "Microsoft.ApplicationInsights"
-4. Select the appropriate package - one of:
+3. Select Online > All, select **Include Prerelease** and search for "Microsoft.ApplicationInsights"
+
+    ![Get the prerelease version of the appropriate adapter](./media/appinsights/appinsights-36nuget.png)
+
+
+4. Select the prerelease version of the appropriate package - one of:
   + Microsoft.ApplicationInsights.TraceListener
   + Microsoft.ApplicationInsights.NLogTarget
   + Microsoft.ApplicationInsights.Log4NetAppender
 
-## 2. Configure diagnostics collection
+## <a name="configure"></a>2. Configure diagnostics collection
 
 ### For System.Diagnostics.Trace
 
@@ -36,8 +40,7 @@ In Web.config, insert the following code into the `<configuration>` section:
       <listeners>
        <add name="myAppInsightsListener"  
           type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, 
-         Microsoft.ApplicationInsights.TraceListener"
-        initializeData="a12bc34-5678-9d01-2345-6789012345ef" />
+         Microsoft.ApplicationInsights.TraceListener" />
       </listeners>
      </trace>
     </system.diagnostics> 
@@ -51,7 +54,7 @@ In Nlog.config, merge the following snippets into the `<extensions>`, `<targets>
     </extensions> 
     
     <targets>
-     <target xsi:type="ApplicationInsightsTarget" name="aiTarget" InstrumentationKey="a12bc34-5678-9d01-2345-6789012345ef"/>
+     <target xsi:type="ApplicationInsightsTarget" name="aiTarget"/>
     </targets>
     
     <rules>
@@ -71,16 +74,14 @@ In Web.config, merge these snippets into the `<configsections>` and `<log4net>` 
       <level value="ALL" /> <appender-ref ref="aiAppender" />
      </root>
      <appender name="aiAppender" type="Microsoft.ApplicationInsights.Log4NetAppender.ApplicationInsightsAppender, Microsoft.ApplicationInsights.Log4NetAppender">
-      <param name="InstrumentationKey" value="00000000-0000-0000-0000-000000000000" />
       <layout type="log4net.Layout.PatternLayout">
        <conversionPattern value="%date [%thread] %-5level %logger - %message%newline" />
       </layout>
      </appender>
     </log4net>
 
-Replace the InstrumentationKey value with instrumentation key from your ApplicationInsights.config.
 
-## 3. Insert log statements, build and deploy
+## <a name="deploy"></a>3. Insert log statements, build and deploy
 
 Insert event logging calls using your chosen logging framework. For example if you use Log4Net, you might have calls like
 
@@ -88,7 +89,7 @@ Insert event logging calls using your chosen logging framework. For example if y
 
 Logged events will be sent to Application Insights both in development and in operation.
 
-## 4. View log data
+## <a name="view"></a>4. View log data
 
 In Application Insights, open diagnostic search.
 
@@ -103,7 +104,7 @@ The available fields depend on the logging framework and the parameters you used
 You can use plain strings (without wildcards) to filter the field data within an item.
 
 
-## 5. Search the data
+## <a name="search"></a>5. Search the data
 
 Set a time range and search for terms. Searches over a shorter range are faster. 
 
@@ -229,19 +230,16 @@ Here are the search expressions you can use:
                     </tr>
 </table>
 
+## <a name="add"></a>Next steps
+* [Set up monitoring in a new project][setup]
+* [Add monitoring to an existing project][existing]
+* [Set up availability and responsiveness tests][web tests]
+* [Troubleshooting][trouble]
+* [Application Insights SDK](../appinsights-90SDK/)
 
-<!--Anchors-->
-[1. Add a logging adapter]: #subheading-1
-[2. Configure diagnostics collection]: #subheading-2
-[3. Insert log statements, build and deploy]: #subheading-3
-[4. View log data]: #subheading-4
-[5. Search the data]: #subheading-5
-[Next steps]: #next-steps
-
-
-<!--Link references-->
-[setup]: ./appInsights-01start/
-[existing]: ./appinsights-02-existing/
-[web tests]: ./appinsights-10Avail/
+[setup]: ../appinsights-01-start/
+[existing]: ../appinsights-02-existing/
+[web tests]: ../appinsights-10Avail/
+[trouble]: ../appinsights-09qna/
 
 

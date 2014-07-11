@@ -1,4 +1,4 @@
-<properties title="Create your first experiment in Azure Machine Learning Studio" pageTitle="Create your first experiment in Machine Learning Studio | Azure" description="How to create and iterate on an experiment in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Create your first experiment in Azure Machine Learning Studio" pageTitle="Create your first experiment in Machine Learning Studio | Azure" description="How to create and iterate on an experiment in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
 #Create your first experiment in Azure Machine Learning Studio 
  
@@ -18,6 +18,12 @@ The five basic steps you follow to build an experiment in ML Studio allow you to
 	- [Step 4: Choose and apply a learning algorithm]
 - Score and Test the Model 
 	- [Step 5: Predict over new data] 
+
+[Step 1: Get data]: #step-1-get-data
+[Step 2: Pre-process data]: #step-2-pre-process-data
+[Step 3: Define, extract, and enrich features]: #step-3-define-extract-and-enrich-features
+[Step 4: Choose and apply a learning algorithm]: #step-4-choose-and-apply-a-learning-algorithm
+[Step 5: Predict over new data]: #step-5-predict-over-new-data 
 
 There are two types of predictive analytics you may want to perform with your data: 
 
@@ -149,3 +155,4 @@ The result is a trained regression model that can be used to score new samples (
 	> [WACOM.NOTE] The input dataset of **Score Model** must have the same columns as the dataset used to train the model. Additional columns may be present, but they will be ignored. Also, any categorical columns must have the same levels.  
 
 3. Finally, to test the quality of the results, drag the **Evaluate Model** module to the experiment canvas, and connect it to the output from the **Score Model** module. Run the experiment and view the output from the **Evaluate Model** module to see different metrics that describe the quality of the model.  
+

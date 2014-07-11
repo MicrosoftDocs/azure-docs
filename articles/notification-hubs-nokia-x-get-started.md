@@ -83,7 +83,7 @@ This tutorial requires the following:
 	![][13]
 
 4.	Add the Nokia Notification Service's JAR file to your project. This Nokia Notifications helper library **push.jar** provides an API similar to the GCM helper library. 
-Navigate to Project Properties -> Java Build Path -> Libraries -> Add External JARs and add the **push.jar** available in **<android-sdk-path>\extras\nokia\nokia_x_services\libs\nna\push.jar**. The Javadoc for the library is located in **<android-sdk-path>\extras\nokia\nokia_x_services\javadocs\nna**.
+Navigate to Project Properties -> Java Build Path -> Libraries -> Add External JARs and add the **push.jar** available in **\extras\nokia\nokia_x_services\libs\nna\push.jar**. The Javadoc for the library is located in **\extras\nokia\nokia_x_services\javadocs\nna** where Eclipse IDE is installed.
 
 5. Make sure to also copy this push.jar library to the \libs directory of your project in the Package explorer. 
 
@@ -203,6 +203,11 @@ Navigate to Project Properties -> Java Build Path -> Libraries -> Add External J
 		     */
 		    public PushIntentService() {
 		    }
+
+		    @Override
+		    protected String[] getSenderIds(Context context) {
+		        return new String[] { ConfigurationSettings.SenderId };
+		    }   
 		    
 		    @Override
 		    protected void onRegistered(Context context, String registrationId) {
@@ -307,7 +312,7 @@ You can send notifications using Notification Hubs from any back-end that uses o
 		private static async void SendNotificationAsync()
 		{
 			NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<DefaultFullSharedAccessSignatureSASConnectionString>", "<hub name>");
-			hub.SendNokiaXNativeNotificationAsync("{\"data\" : {\"payload\":\"" + "Hello from Azure" + "\"}}");
+			await hub.SendNokiaXNativeNotificationAsync("{\"data\" : {\"payload\":\"" + "Hello from Azure" + "\"}}");
 		}
 
 5. Then add the following lines in your Main method:
@@ -321,7 +326,7 @@ To test this app with an actual phone, just connect it to your computer with a U
 
 To test this app with the emulator:
 
-1. On the Eclipse top toolbar, click Run and then select your app. To test this app with the emulator:
+1. On the Eclipse top toolbar, click Run and then select your app. 
 
 2. This loads your app, either onto the attached phone, or else it starts the emulator, and loads and runs the app.
 

@@ -1,12 +1,12 @@
-<properties linkid="develop-notificationhubs-tutorials-send-breaking-news-ios" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="krisragh" solutions="" manager="" editor="" />
+<properties linkid="develop-notificationhubs-tutorials-send-breaking-news-ios" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="elioda" solutions="" manager="" editor="" />
 
-# Use Notification Hubs to send breaking news - placeholder for Android
+# Use Notification Hubs to send breaking news
 <div class="dev-center-tutorial-selector sublanding">     	
 	<a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Store C#" >Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a>
 	<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android" class="current">Android</a>
 </div>
 
-This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to an iOS app. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
+This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to an Android app. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
 
 Broadcast scenarios are enabled by including one or more _tags_ when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, refer to [Notification Hubs Guidance]. 
 
@@ -21,58 +21,134 @@ This topic builds on the app you created in [Get started with Notification Hubs]
 
 ##<a name="adding-categories"></a>Add category selection to the app
 
-The first step is to add the UI elements to your existing storyboard that enable the user to select categories to register. The categories selected by a user are stored on the device. When the app starts, a device registration is created in your notification hub with the selected categories as tags. 
+The first step is to add the UI elements to your existing main activity that enable the user to select categories to register. The categories selected by a user are stored on the device. When the app starts, a device registration is created in your notification hub with the selected categories as tags. 
 
-2. In your MainStoryboard_iPhone.storyboard add the following components from the object library:
-	+ A label with "Breaking News" text,
-	+ Labels with category texts "World", "Politics", "Business", "Technology", "Science", "Sports",
-	+ Six switches, one per category,
-	+ On button labeled "Subscribe"
-	
-	Your storyboard should look as follows:
-	
-	![][3]
-    
-3. In the assistant editor, create outlets for all the switches and call them "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
-
-	![][4]
-
-4. Create an Action for your button called "subscribe". Your BreakingNewsViewController.h should contain the following:
+1. Open your res/layout/activity_main.xml file, and substitute the content with the following:
 			
-		@property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
-		@property (weak, nonatomic) IBOutlet UISwitch *PoliticsSwitch;
-		@property (weak, nonatomic) IBOutlet UISwitch *BusinessSwitch;
-		@property (weak, nonatomic) IBOutlet UISwitch *TechnologySwitch;
-		@property (weak, nonatomic) IBOutlet UISwitch *ScienceSwitch;
-		@property (weak, nonatomic) IBOutlet UISwitch *SportsSwitch;
-
-		- (IBAction)subscribe:(id)sender;
-
-5. Create a new class called `Notifications`. Copy the following code in the interface section of the file Notifications.h:
-
-		- (void)storeCategoriesAndSubscribeWithCategories:(NSArray*) categories completion: (void (^)(NSError* error))completion;
-		- (void)subscribeWithCategories:(NSSet*) categories completion:(void (^)(NSError *))completion;
-
-6. Add the following import directive to Notifications.m:
-
-		#import <WindowsAzureMessaging/WindowsAzureMessaging.h>
-
-7. Copy the following code in the implementation section of the file Notifications.m:
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    xmlns:tools="http://schemas.android.com/tools"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:paddingBottom="@dimen/activity_vertical_margin"
+		    android:paddingLeft="@dimen/activity_horizontal_margin"
+		    android:paddingRight="@dimen/activity_horizontal_margin"
+		    android:paddingTop="@dimen/activity_vertical_margin"
+		    tools:context="com.example.breakingnews.MainActivity"
+		    android:orientation="vertical">
 		
-		- (void)storeCategoriesAndSubscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion {
-		    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-		    [defaults setValue:[categories allObjects] forKey:@"BreakingNewsCategories"];
-		    
-		    [self subscribeWithCategories:categories completion:completion];
+		        <CheckBox
+		            android:id="@+id/worldBox"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/label_world" />
+		        <CheckBox
+		            android:id="@+id/politicsBox"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/label_politics" />
+		        <CheckBox
+		            android:id="@+id/businessBox"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/label_business" />
+		        <CheckBox
+		            android:id="@+id/technologyBox"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/label_technology" />
+		        <CheckBox
+		            android:id="@+id/scienceBox"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/label_science" />
+		        <CheckBox
+		            android:id="@+id/sportsBox"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/label_sports" />
+			    <Button
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:onClick="subscribe"
+			        android:text="@string/button_subscribe" />
+		</LinearLayout>
+
+2. Open your res/values/strings.xml file and add the following lines:
+
+	    <string name="button_subscribe">Subscribe</string>
+	    <string name="label_world">World</string>
+	    <string name="label_politics">Politics</string>
+	    <string name="label_business">Business</string>
+	    <string name="label_technology">Technology</string>
+	    <string name="label_science">Science</string>
+	    <string name="label_sports">Sports</string>
+
+	Your main_activity.xml graphical layout should now look like this:
+
+	![][A1]
+
+3. Now create a class **Notifications** in the same package as your **MainActivity** class.
+
+		import java.util.HashSet;
+		import java.util.Set;
+		
+		import android.content.Context;
+		import android.content.SharedPreferences;
+		import android.os.AsyncTask;
+		import android.util.Log;
+		import android.widget.Toast;
+		
+		import com.google.android.gms.gcm.GoogleCloudMessaging;
+		import com.microsoft.windowsazure.messaging.NotificationHub;		
+		
+		public class Notifications {
+			private static final String PREFS_NAME = "BreakingNewsCategories";
+			private GoogleCloudMessaging gcm;
+			private NotificationHub hub;
+			private Context context;
+			private String senderId;
+			
+			public Notifications(Context context, String senderId) {
+				this.context = context;
+				this.senderId = senderId;
+				
+				gcm = GoogleCloudMessaging.getInstance(context);
+		        hub = new NotificationHub(<hub name>, <connection string with listen access>, context);
+			}
+			
+			public void storeCategoriesAndSubscribe(Set<String> categories)
+			{
+				SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
+			    settings.edit().putStringSet("categories", categories).commit();
+			    subscribeToCategories(categories);
+			}
+			
+			public void subscribeToCategories(final Set<String> categories) {
+				new AsyncTask<Object, Object, Object>() {
+					@Override
+					protected Object doInBackground(Object... params) {
+						try {
+							String regid = gcm.register(senderId);
+					        hub.register(regid, categories.toArray(new String[categories.size()]));
+						} catch (Exception e) {
+							Log.e("MainActivity", "Failed to register - " + e.getMessage());
+							return e;
+						}
+						return null;
+					}
+		
+					protected void onPostExecute(Object result) {
+						String message = "Subscribed for categories: "
+								+ categories.toString();
+						Toast.makeText(context, message,
+								Toast.LENGTH_LONG).show();
+					}
+				}.execute(null, null, null);
+			}
+			
 		}
 
-		- (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion{
-		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<connection string with listen access>" notificationHubPath:@"<hub name>"];
-		    
-		    [hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
-		}
- 
-	This class uses local storage to store the categories of news that this device has to receive. Also, it contains methods to register these categories.
+	This class uses the local storage to store the categories of news that this device has to receive. It also contains methods to register for these categories.
 
 4. In the above code, replace the `<hub name>` and `<connection string with listen access>` placeholders with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier.
 
@@ -80,61 +156,53 @@ The first step is to add the UI elements to your existing storyboard that enable
 		<p>Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.</p>
 	</div> 
 
-8. In the BreakingNewsAppDelegate.h file, add the following property:
+4. In your **MainActivity** class remove your private fields for **NotificationHub** and **GoogleCloudMessaging**, and add a field for **Notifications**:
 
-		@property (nonatomic) Notifications* notifications;
+		// private GoogleCloudMessaging gcm;
+		// private NotificationHub hub;
+		private Notifications notifications;
+ 
+5. Then, in the **onCreate** method, remove the initialization of the **hub** field and the **registerWithNotificationHubs** method. Then add the following lines which initialize an instance of the **Notifications** class. The method should contain the following lines:
 
-	This creates a singleton instance of the Notification class in the AppDelegate.
+		@Override
+		protected void onCreate(Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			setContentView(R.layout.activity_main);
 	
-9. In the **didFinishLaunchingWithOptions** method in BreakingNewsAppDelegate.m, add the following code before **registerForRemoteNotificationTypes**:
+			NotificationsManager.handleNotifications(this, SENDER_ID,
+					MyHandler.class);
 	
-		self.notifications = [[Notifications alloc] init];
-					   
-	The initializes the Notification singleton. 
+			notifications = new Notifications(this, SENDER_ID);
+		}
 
-10. In the **didRegisterForRemoteNotificationsWithDeviceToken** method in BreakingNewsAppDelegate.m, remove the call to **registerNativeWithDeviceToken** and add the following code:
+6. Then, add the following method:
 	
-		self.notifications.deviceToken = deviceToken;
-
-	Note that at this point there should be no other code in the **didRegisterForRemoteNotificationsWithDeviceToken** method. 
-
-11.	Add the following method in BreakingNewsAppDelegate.m:
-
-		- (void)application:(UIApplication *)application didReceiveRemoteNotification:
-			(NSDictionary *)userInfo {
-		    NSLog(@"%@", userInfo);
-		    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-		    [[userInfo objectForKey:@"aps"] valueForKey:@"alert"] delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
-		    [alert show];
+	    public void subscribe(View sender) {
+			final Set<String> categories = new HashSet<String>();
+	
+			CheckBox world = (CheckBox) findViewById(R.id.worldBox);
+			if (world.isChecked())
+				categories.add("world");
+			CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
+			if (politics.isChecked())
+				categories.add("politics");
+			CheckBox business = (CheckBox) findViewById(R.id.businessBox);
+			if (business.isChecked())
+				categories.add("business");
+			CheckBox technology = (CheckBox) findViewById(R.id.technologyBox);
+			if (technology.isChecked())
+				categories.add("technology");
+			CheckBox science = (CheckBox) findViewById(R.id.scienceBox);
+			if (science.isChecked())
+				categories.add("science");
+			CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
+			if (sports.isChecked())
+				categories.add("sports");
+	
+			notifications.storeCategoriesAndSubscribe(categories);
 	    }
-
-	This method handles notifications received when the app is running by displaying a simple **UIAlert**.
-
-9. In BreakingNewsViewController.m, copy the following code into the XCode-generated **subscribe** method:
-
-		NSMutableArray* categories = [[NSMutableArray alloc] init];
-	    
-	    if (self.WorldSwitch.isOn) [categories addObject:@"World"];
-	    if (self.PoliticsSwitch.isOn) [categories addObject:@"Politics"];
-	    if (self.BusinessSwitch.isOn) [categories addObject:@"Business"];
-	    if (self.TechnologySwitch.isOn) [categories addObject:@"Technology"];
-	    if (self.ScienceSwitch.isOn) [categories addObject:@"Science"];
-	    if (self.SportsSwitch.isOn) [categories addObject:@"Sports"];
-	    
-	    Notifications* notifications = [(BreakingNewsAppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
-	    
-	    [notifications storeCategoriesAndSubscribeWithCategories:categories completion: ^(NSError* error) {
-	        if (!error) {
-	            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-	                                  @"Subscribed!" delegate:nil cancelButtonTitle:
-	                                  @"OK" otherButtonTitles:nil, nil];
-	            [alert show];
-	        } else {
-	            NSLog(@"Error subscribing: %@", error);
-	        }
-	    }];
 	
-	This method creates an **NSMutableArray** of categories and uses the **Notifications** class to store the list in the local storage and registers the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
+	This method creates a list of categories and uses the **Notifications** class to store the list in the local storage and register the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
 
 Your app is now able to store a set of categories in local storage on the device and register with the notification hub whenever the user changes the selection of categories. 
 
@@ -143,55 +211,49 @@ Your app is now able to store a set of categories in local storage on the device
 These steps register with the notification hub on startup using the categories that have been stored in local storage. 
 
 <div class="dev-callout"><strong>Note</strong> 
-	<p>Because the device token assigned by the Apple Push Notification Service (APNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.</p>
-</div>  
+	<p>Because the registrationId assigned by Google Cloud Messaging (GCM) can change at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.</p>
+</div> 
 
-1. Add the following method in the interface section of the file Notifications.h:
+1. Add the following code to the **Notifications** class:
 
-		- (NSSet*)retrieveCategories;
-
-	This code retrieves the categories in the Notifications class.
-
-2. Add the corresponding implementation in the file Notifications.m:
-	
-		- (NSSet*)retrieveCategories {
-		    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-		    
-		    NSArray* categories = [defaults stringArrayForKey:@"BreakingNewsCategories"];
-		    
-		    if (!categories) return [[NSSet alloc] init];
-		    return [[NSSet alloc] initWithArray:categories];
+		public Set<String> retrieveCategories() {
+			SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
+			return settings.getStringSet("categories", new HashSet<String>());
 		}
 
-2. Add the following code in the **didRegisterForRemoteNotificationsWithDeviceToken** method:
+	This returns the categories defined in the class.
 
-		Notifications* notifications = [(BreakingNewsAppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
-    
-	    NSSet* categories = [notifications retrieveCategories];
-	    [notifications subscribeWithCategories:categories completion:^(NSError* error) {
-	        if (error != nil) {
-	            NSLog(@"Error registering for notifications: %@", error);
-	        }
-	    }];
+2. Now add this code at the end of the **onCreate** method in the **MainActivity** class:
 
-	This makes sure that every time the app starts it retrieves the categories from local storage and requests a registeration for these categories.
+		notifications.subscribeToCategories(notifications.retrieveCategories());
 
-3. In BreakingNewsViewController.h, add the following code in the **viewDidLoad** method:
+	This makes sure that every time the app starts it retrieves the categories from local storage and requests a registeration for these categories. The **InitNotificationsAsync** method was created as part of the [Get started with Notification Hubs] tutorial, but it is not needed in this topic.
 
-		Notifications* notifications = [(BreakingNewsAppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
-    
-	    NSSet* categories = [notifications retrieveCategories];
-	    
-	    if ([categories containsObject:@"World"]) self.WorldSwitch.on = true;
-	    if ([categories containsObject:@"Politics"]) self.PoliticsSwitch.on = true;
-	    if ([categories containsObject:@"Business"]) self.BusinessSwitch.on = true;
-	    if ([categories containsObject:@"Technology"]) self.TechnologySwitch.on = true;
-	    if ([categories containsObject:@"Science"]) self.ScienceSwitch.on = true;
-	    if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
+3. Then add the following method to **MainActivity**:
 
-	This updates the UI on startup based on the status of previously saved categories.
+		@Override
+		protected void onStart() {
+			super.onStart();
+			
+			Set<String> categories = notifications.retrieveCategories();
+			
+			CheckBox world = (CheckBox) findViewById(R.id.worldBox);
+			world.setChecked(categories.contains("world"));
+			CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
+			politics.setChecked(categories.contains("politics"));
+			CheckBox business = (CheckBox) findViewById(R.id.businessBox);
+			business.setChecked(categories.contains("business"));
+			CheckBox technology = (CheckBox) findViewById(R.id.technologyBox);
+			technology.setChecked(categories.contains("technology"));
+			CheckBox science = (CheckBox) findViewById(R.id.scienceBox);
+			science.setChecked(categories.contains("science"));
+			CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
+			sports.setChecked(categories.contains("sports"));
+		}
 
-The app is now complete and can store a set of categories in the device local storage used to register with the notification hub whenever the user changes the selection of categories. Next, you will define a backend that can send category notifications to this app.
+	This updates the main activity based on the status of previously saved categories. 
+
+The app is now complete and can store a set of categories in the device local storage used to register with the notification hub whenever the user changes the selection of categories. Next, we will define a backend that can send category notifications to this app.
 
 <h2><a name="send"></a><span class="short-header">Send notifications</span>Send notifications from your back-end</h2>
 
@@ -199,35 +261,34 @@ The app is now complete and can store a set of categories in the device local st
 
 ##<a name="test-app"></a>Run the app and generate notifications
 
-1. Press the Run button to build the project and start the app.
-
-	![][2] 
-
+1. In Eclipse, build the app and start it on a device or emulator.
+	
 	Note that the app UI provides a set of toggles that lets you choose the categories to subscribe to. 
 
 2. Enable one or more categories toggles, then click **Subscribe**.
 
-	When you choose **Subscribe**, the app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. 
+	The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a dialog.
 
 4. Send a new notification from the backend in one of the following ways:
 
-	+ **Console app:** start the console app.
+	+ **.NET Console app:** start the console app.
 
-	+ **Mobile Services:** click the **Scheduler** tab, click the job, then click **Run once**.
+	+ **Java/PHP:** run your app/script.
 
-5. Notifications for the selected categories appear as toast notifications.
+	Notifications for the selected categories appear as toast notifications.
 
 ## <a name="next-steps"> </a>Next steps
 
 In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
 
-+ **[Use Notification Hubs to broadcast localized breaking news]**
++ [Use Notification Hubs to broadcast localized breaking news]
 
 	Learn how to expand the breaking news app to enable sending localized notifications. 
 
-+ **[Notify users with Notification Hubs]**
++ [Notify users with Notification Hubs]
 
 	Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
+
 
 <!-- Anchors. -->
 [Add category selection to the app]: #adding-categories
@@ -237,24 +298,18 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
-[3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
-[4]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios3.png
+[A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
 
-
-
-
-
-
-
-<!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
-[Use Notification Hubs to broadcast localized breaking news]: /en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Mobile Service]: /en-us/develop/mobile/tutorials/get-started
-[Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users/
+<!-- URLs.-->
+[get-started]: /en-us/documentation/articles/notification-hubs-android-get-started/
+[Use Notification Hubs to broadcast localized breaking news]: /en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
+[Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users
+[Mobile Service]: /en-us/develop/mobile/tutorials/get-started/
+[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
-[get-started]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/
-
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
