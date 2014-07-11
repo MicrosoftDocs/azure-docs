@@ -3,7 +3,7 @@
 #Azure Notification Hubs Notify Users
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/documentation/articles/notification-hubs-/" title="Windows Universal" class="current">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+    	<a href="/en-us/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal" class="current">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
 		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
@@ -12,8 +12,7 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 This tutorial is also the prerequisite to the **Secure Push** tutorial. After you have completed the steps in this **Notify Users** tutorial, you can proceed to the **Secure Push** tutorial, which shows how to modify the **Notify Users** code to send a push notification securely. 
 
 > [AZURE.NOTE] This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Windows Store)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
-
-> [AZURE.NOTE] In this tutorial you will create a Windows Phone 8.1 app. The same code can be used for Windows Store and Windows Universal apps. All of these apps have to use Windows (not Windows Phone) credentials.
+Also note that in this tutorial you will create a Windows Phone 8.1 app. The same code can be used for Windows Store and Windows Universal apps. All of these apps have to use Windows (not Windows Phone) credentials.
 
 ## Create and Configure the Notification Hub
 
