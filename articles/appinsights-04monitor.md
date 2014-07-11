@@ -10,12 +10,12 @@ In this preview version, you can't edit the layout or configuration of the tiles
 
 **Close and re-open the blade periodically to refresh the data, in this version.**
 
-+ [Application Health] 
-+ [Usage Analytics]
-+ [Next steps]
++ [Application Health](#health) 
++ [Usage Analytics](#usage)
++ [Next steps](#next)
 
 
-## Application Health
+## <a name="health"></a>Application Health
 
 Application health is monitored by instrumenting your application's code.
 
@@ -63,7 +63,7 @@ A count of requests that threw uncaught exceptions.
 
 (Coming soon - click through to get the exception reports.)
 
-## Usage Analytics
+## <a name="usage"></a>Usage Analytics
 
 ![](./media/appinsights/appinsights-47usage.png)
 
@@ -82,18 +82,13 @@ Shows total counts in the last 24 hours.
 Click through to see graphs of page views over the past week.
 
 
-## Next steps
+## <a name="next"></a>Next steps
 
 [Set up web tests][Web tests]
 
 [Capture and search diagnostic logs][diagnostics]
 
-
-<!--Anchors-->
-[Application Health]: #subheading-1
-[Usage Analytics]: #subheading-2
-[Next steps]: #next-steps
-
+[Troubleshooting][trouble]
 
 <!--Link references-->
 [Web tests]: ../appinsights-10Avail/
@@ -101,5 +96,5 @@ Click through to see graphs of page views over the past week.
 [monitor]: ../appinsights-04monitor/
 [start new]: ../appinsights-01-start/
 [existing]: ../appinsights-02-existing/
-
+[trouble]: ../appinsights-09qna/
 
