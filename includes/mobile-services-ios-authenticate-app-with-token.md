@@ -4,7 +4,7 @@ The previous example showed a standard sign-in, which requires the client to con
 
 >[WACOM.NOTE] You can cache the token issued by Mobile Services regardless of whether you are using client-managed or service-managed authentication. This tutorial uses service-managed authentication.
 
-1. The recommended way to encrypt and store authentication tokens on an iOS client is use the Keychain. To do this, create a class KeychainWrapper, copying [KeychainWrapper.m](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.m) and [KeychainWrapper.h](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.h) from the [LensRocket sample](https://github.com/WindowsAzure-Samples/iOS-LensRocket). We use this KeychainWrapper as the KeychainWrapper defined in Apple's documentation does not account for automatic reference counting (ARC.)
+1. The recommended way to encrypt and store authentication tokens on an iOS client is use the Keychain. To do this, create a class KeychainWrapper, copying [KeychainWrapper.m](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.m) and [KeychainWrapper.h](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.h) from the [LensRocket sample](https://github.com/WindowsAzure-Samples/iOS-LensRocket). We use this KeychainWrapper as the KeychainWrapper defined in Apple's documentation does not account for automatic reference counting (ARC).
 
 
 2. Open the project file **QSTodoListViewController.m** and add the following code:
@@ -49,7 +49,7 @@ The previous example showed a standard sign-in, which requires the client to con
 		}
 
   
-4. Now that we’ve seen how we can cache the user token and ID, let’s see how we can load that when the app starts. In the **viewDidLoad** method in **QSTodoListViewController.m**, add a call to loadAuthInfo, after **self.todoService** has been initialized. 
+4. Now that we've seen how we can cache the user token and ID, let's see how we can load that when the app starts. In the **viewDidLoad** method in **QSTodoListViewController.m**, add a call to loadAuthInfo, after **self.todoService** has been initialized. 
 		
 		- (void)viewDidLoad
 		{
@@ -82,5 +82,5 @@ The previous example showed a standard sign-in, which requires the client to con
 		    [self refresh];
 		}
 
-5. If the app makes a request to your Mobile Service that should get through because the user is authenticated and you receive a 401 response (unauthorized error), it means the user token you’re passing over has expired. In the completion handler for every method that we have that interacts with our Mobile Service, we could check for a 401 response, or we can handle things in one place: the MSFilter’s handleRequest method.  To see how to handle this scenario, see [this blog post](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx)
+5. If the app makes a request to your Mobile Service that should get through because the user is authenticated and you receive a 401 response (unauthorized error), it means the user token you're passing over has expired. In the completion handler for every method that we have that interacts with our Mobile Service, we could check for a 401 response, or we can handle things in one place: the MSFilter's handleRequest method.  To see how to handle this scenario, see [this blog post](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx)
 
