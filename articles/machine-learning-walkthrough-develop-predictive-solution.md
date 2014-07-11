@@ -10,21 +10,21 @@ In this walkthrough, we’ll follow the process of developing a predictive analy
 
 We’ll follow these steps:  
 
-1.	[Create an ML workspace]
-2.	[Upload existing data]
-3.	[Create a new experiment]
-4.	[Train and evaluate the models]
-5.	[Publish the web service]
-6.	[Access the web service]
+1.	[Create an ML workspace][create-workspace]
+2.	[Upload existing data][upload-data]
+3.	[Create a new experiment][create-new]
+4.	[Train and evaluate the models][train-models]
+5.	[Publish the web service][publish]
+6.	[Access the web service][access-ws]
 
-[Create an ML workspace]: ..\machine-learning-1-create-ml-workspace/
-[Upload existing data]: ..\machine-learning-2-upload-data/
-[Create a new experiment]: ..\machine-learning-3-create-new-experiment/
-[Train and evaluate the models]: ..\machine-learning-4-train-and-evaluate-models/
-[Publish the web service]: ..\machine-learning-5-publish-web-service/
-[Access the web service]: ..\machine-learning-6-access-web-service/
+[create-workspace]: ..\machine-learning-1-create-ml-workspace/
+[upload-data]: ..\machine-learning-2-upload-data/
+[create-new]: ..\machine-learning-3-create-new-experiment/
+[train-models]: ..\machine-learning-4-train-and-evaluate-models/
+[publish]: ..\machine-learning-5-publish-web-service/
+[access-ws]: ..\machine-learning-6-access-web-service/
 
 This walkthrough is based on a simplified version of the 
-[Credit risk prediction sample experiment] included with ML Studio.
+[Credit risk prediction sample experiment][risk] included with ML Studio.
 
-[Credit risk prediction sample experiment]: machine-learning-credit-risk-prediction-sample-experiment/
+[risk]: ../machine-learning-credit-risk-prediction-sample-experiment/
