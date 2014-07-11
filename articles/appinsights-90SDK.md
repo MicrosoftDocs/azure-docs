@@ -1,6 +1,6 @@
 <properties title="Application Insights SDK" pageTitle="Application Insights SDK" description="Log user activities and diagnostic events." metaKeywords="analytics monitoring application insights" authors="awills"  />
  
-# H1 (Application Insights SDK) 
+# Application Insights SDK
 
 ### Coming soon
 
@@ -16,10 +16,6 @@ However, one thing you can do right now is to [capture and search diagnostic eve
 
 
 <!--Link references-->
-[Web tests]: ../appinsights-10Avail/
 [diagnostics]: ../appinsights-24diagnostics/
-[monitor]: ../appinsights-04monitor/
-[start new]: ../appinsights-01new/
-[existing]: ../appinsights-02-existing/
 
 

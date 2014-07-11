@@ -94,7 +94,7 @@ You might want to disable web tests while you are performing maintenance on your
 [Next steps]: #next-steps
 
 <!--Link references-->
-[setup]: ../appInsights-01-start/
-[setup existing]: ../appInsights-02-existing/
-[diagnostics]: ../appInsights-24diagnostics/
+[setup]: ../appinsights-01-start/
+[setup existing]: ../appinsights-02-existing/
+[diagnostics]: ../appinsights-24diagnostics/
 

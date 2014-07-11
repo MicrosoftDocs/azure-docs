@@ -99,7 +99,7 @@ Click through to see graphs of page views over the past week.
 [Web tests]: ../appinsights-10Avail/
 [diagnostics]: ../appinsights-24diagnostics/
 [monitor]: ../appinsights-04monitor/
-[start new]: ../appinsights-01new/
+[start new]: ../appinsights-01-start/
 [existing]: ../appinsights-02-existing/
 
 
