@@ -132,7 +132,7 @@ This tutorial requires the following:
 
 <!-- URLs. -->
 [Get started with data]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
 [How to Register with the Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Xamarin binding for the Active Directory Authentication Library for iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
