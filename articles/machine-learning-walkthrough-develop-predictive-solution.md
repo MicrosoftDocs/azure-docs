@@ -17,12 +17,12 @@ We’ll follow these steps:
 5.	[Publish the web service][publish]
 6.	[Access the web service][access-ws]
 
-[create-workspace]: ..\machine-learning-1-create-ml-workspace/
-[upload-data]: ..\machine-learning-2-upload-data/
-[create-new]: ..\machine-learning-3-create-new-experiment/
-[train-models]: ..\machine-learning-4-train-and-evaluate-models/
-[publish]: ..\machine-learning-5-publish-web-service/
-[access-ws]: ..\machine-learning-6-access-web-service/
+[create-workspace]: ../machine-learning-1-create-ml-workspace/
+[upload-data]: ../machine-learning-2-upload-data/
+[create-new]: ../machine-learning-3-create-new-experiment/
+[train-models]: ../machine-learning-4-train-and-evaluate-models/
+[publish]: ../machine-learning-5-publish-web-service/
+[access-ws]: ../machine-learning-6-access-web-service/
 
 This walkthrough is based on a simplified version of the 
 [Credit risk prediction sample experiment][risk] included with ML Studio.
