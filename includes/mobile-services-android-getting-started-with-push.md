@@ -49,7 +49,7 @@
 
 	This creates the new MyHandler class.
 
-10. Add the following import statements:
+10. Add the following import statements for the `MyHandler` class:
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -62,7 +62,7 @@
 		import com.microsoft.windowsazure.mobileservices.RegistrationCallback;
 
 		
-11. Next add this code to the class:
+11. Next add the following members for the `MyHandler` class:
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
@@ -70,7 +70,7 @@
 		Context ctx;
 
 
-12. Add the following code to override the **onRegistered** method: which registers your device with the mobile service Notification Hub.
+12. In the `MyHandler` class, add the following code to override the **onRegistered** method: which registers your device with the mobile service Notification Hub.
 
 		@Override
 		public void onRegistered(Context context, String gcmRegistrationId) {
@@ -87,7 +87,7 @@
 		}
 
 
-13. Add the following code to override the **onReceive** method, which causes the notification to display when it is received.
+13. In the `MyHandler` class, add the following code to override the **onReceive** method, which causes the notification to display when it is received.
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
