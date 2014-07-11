@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-administer-hdinsight-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using using the Cross-Platform Command-Line Interface | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to use the Cross-Platform Command-Line Interface to manage HDInsight clusters on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer HDInsight using the Cross-platform Command-line Interface" authors="jgao" />
+<properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
 
-# Administer HDInsight using the Cross-platform Command-line Interface
+# Manage Hadoop clusters in HDInsight using the Cross-platform Command-line Interface
 
-In this article, you learn how to use the Cross-Platform Command-Line Interface to manage HDInsight clusters. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. 
+In this article, you learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDInsight. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. 
 
 The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. 
 
@@ -53,7 +53,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 **To install the command-line interface using windows installer**
 
-1.	Browse to **http://www.windowsazure.com/en-us/downloads/**.
+1.	Browse to **http://azure.microsoft.com/en-us/downloads/**.
 2.	Scroll down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
 
 ##<a id="importsettings"></a> Download and import Azure account publishsettings
@@ -185,26 +185,25 @@ Use the following command to delete a cluster:
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:
 
-* [Administer HDInsight using management portal][hdinsight-admin]
+* [Administer HDInsight using management portal][hdinsight-admin-portal]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
-* [Get started with Azure HDInsight][hdinsight-getting-started]
+* [Get started with Azure HDInsight][hdinsight-get-started]
 * [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]
 * [Azure command-line tool for Mac and Linux][azure-command-line-tool]
 
 
-[azure-command-line-tools]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[azure-command-line-tool]: /en-us/manage/linux/other-resources/command-line-tools/
-[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
-[azure-manage-storageaccount]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
-[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
-[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
-[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+[azure-command-line-tools]: ../xplat-cli/
+[azure-command-line-tool]: ../command-line-tools/
+[azure-create-storageaccount]: ../storage-create-storage-account/ 
+[azure-manage-storageaccount]: ../storage-manage-storage-account/
+[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 
 
-[hdinsight-admin]: /en-us/manage/services/hdinsight/howto-administer-hdinsight/
-
-[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
-[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+[hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
+[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
+[hdinsight-get-started]: ../hdinsight-get-started/
 
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png 
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png

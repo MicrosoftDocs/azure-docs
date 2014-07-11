@@ -1,4 +1,4 @@
-<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="How to use the SendGrid email service (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="ollybos" authors="robmcm" scriptId="" videoId="" />
+<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="How to use the SendGrid email service (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
 
 # How to Use the SendGrid Email Service from PHP
 
@@ -13,7 +13,6 @@ The scenarios covered include **constructing email**, **sending email**, and **a
 -   [How To: Send an Email][]
 -   [How To: Add an Attachment][]
 -   [How to: Use Filters to Enable Footers, Tracking, and Analytics][]
--   [How to: Use Additional SendGrid Services][]
 -   [Next Steps][]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>What is the SendGrid Email Service?
@@ -243,10 +242,6 @@ code to the example script for sending an email with Swift Mailer.
           print_r($failures);
      }
 
-**Note:**The example script above is taken from the SendGrid
-documentation here:
-[http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-email-example-using-smtp/][].
-
 The additional line of code is as follows:
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
@@ -309,17 +304,12 @@ the parameter array must contain this element:
      // print everything out
      print_r($response);
 
-**Note:**The example script above is taken from the SendGrid
-documentation here:
-[http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-example-using-the-web-api/][].
-
 ## <a name="bkmk_HowToUseFilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Analytics
 
 SendGrid provides additional email functionality through the use of
 'filters'. These are settings that can be added to an email message to
 enable specific functionality such as enabling click tracking, Google
-analytics, subscription tracking, and so on. For a full list of filters,
-see [Filter Settings][].
+analytics, subscription tracking, and so on.
 
 Filters can be applied to a message by using the filters property. Each
 filter is specified by a hash containing filter-specific settings. The
@@ -443,24 +433,13 @@ that will be appended to the bottom of the email message:
      print_r($failures);
      }
 
-**Note:**The example script above is taken from the SendGrid
-documentation here:
-[http://docs.sendgrid.com/documentation/api/smtp-api/php-example/][].
-
-## <a name="bkmk_HowToUseAdditionalSvcs"> </a>How to: Use Additional SendGrid Services
-
-SendGrid offers web-based APIs that you can use to leverage additional
-SendGrid functionality from your Azure application. For full
-details, see the [SendGrid API documentation][].
-
 ## <a name="bkmk_NextSteps"> </a>Next Steps
 
 Now that you've learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
--   SendGrid API documentation: <http://docs.sendgrid.com/documentation/api/>
--   SendGrid special offer for Azure customers:
-    [http://sendgrid.com/azure.html][]
+-   SendGrid documentation: <https://sendgrid.com/docs>
+-   SendGrid special offer for Azure customers: <http://sendgrid.com/azure.html>
 
   [Next Steps]: #bkmk_NextSteps
   [What is the SendGrid Email Service]: #bkmk_WhatIsSendGrid
@@ -470,24 +449,11 @@ these links to learn more.
   [How To: Add an Attachment]: #bkmk_HowToAddAttachment
   [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #bkmk_HowToUseFilters
   [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
-
   [http://sendgrid.com]: http://sendgrid.com
   [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
   [special offer]: http://www.sendgrid.com/azure.html
-  [http://docs.sendgrid.com/documentation/get-started/]: http://docs.sendgrid.com/documentation/get-started/
-  [http://sendgrid.com/features]: http://sendgrid.com/features
   [Packaging and Deploying PHP Applications for Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh674499(v=VS.103).aspx
-  [SMTP vs. Web API]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
-  [http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-email-example-using-smtp/]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-email-example-using-smtp/
-  [http://docs.sendgrid.com/documentation/api/smtp-api/developers-guide/]: http://docs.sendgrid.com/documentation/api/smtp-api/developers-guide/
-  [http://docs.sendgrid.com/documentation/api/smtp-api/php-example/]: http://docs.sendgrid.com/documentation/api/smtp-api/php-example/
   [curl function]: http://php.net/curl
-  [http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-example-using-the-web-api/]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-example-using-the-web-api/
-  [http://docs.sendgrid.com/documentation/api/web-api/]: http://docs.sendgrid.com/documentation/api/web-api/
-  [http://docs.sendgrid.com/documentation/api/web-api/mail/]: http://docs.sendgrid.com/documentation/api/web-api/mail/
-  [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html 
-  [SendGrid API documentation]: http://docs.sendgrid.com/documentation/api/
-  [http://sendgrid.com/azure.html]: http://sendgrid.com/azure.html
   [cloud-based email service]: http://sendgrid.com/solutions
   [transactional email delivery]: http://sendgrid.com/transactional-email

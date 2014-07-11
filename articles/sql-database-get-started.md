@@ -554,7 +554,7 @@ After you create a SQL Server authentication login, the next step is to assign t
 
 4. Open a new query window and then enter and run the next statement. This statement runs a built-in stored procedure that assigns the db_datareader role to the new user you just created. 
 
-        EXEC sp&#95;addrolemember 'db&#95;datareader', 'SQLDBUser';
+        EXEC sp_addrolemember 'db_datareader', 'SQLDBUser';
 
 You now have a new SQL Server authentication login that has read-only permission to the **School** database. Using these steps, you can create other SQL Server authentication logins to allow different levels of access to your data.
 

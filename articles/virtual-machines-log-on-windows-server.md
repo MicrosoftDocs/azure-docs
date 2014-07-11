@@ -7,6 +7,8 @@
 
 For a virtual machine that is running the Windows Server operating system, you use the Connect button in the Management Portal to start a Remote Desktop Connection. 
 
+>[WACOM.NOTE] For requirements and troubleshooting tips, see [Connect to an Azure virtual machine with RDP or SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
+
 1. If you have not already done so, sign in to the [Azure Management Portal](http://manage.windowsazure.com).
 
 2. Click **Virtual Machines**, and then select the appropriate virtual machine.
@@ -15,7 +17,7 @@ For a virtual machine that is running the Windows Server operating system, you u
 
 	![Log on to the virtual machine](./media/virtual-machines-log-on-windows-server/connectwindows.png)
 
-4. Click **Open** to use the remote desktop protocol file that was automatically created for the virtual machine.
+4. Click **Open** to use the Remote Desktop Protocol file that was automatically created for the virtual machine.
 	
 5. Click **Connect** to proceed with the connection process.
 
@@ -30,4 +32,4 @@ For a virtual machine that is running the Windows Server operating system, you u
 
 	You can now work with the virtual machine just as you would with any other server.
 
-
+	>[WACOM.NOTE] For requirements and troubleshooting tips, see [Connect to a Windows Azure virtual machine with RDP or SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).

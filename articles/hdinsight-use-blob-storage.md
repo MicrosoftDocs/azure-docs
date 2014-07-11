@@ -1,9 +1,9 @@
-<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with HDInsight" pageTitle="Use Blob storage with HDInsight | Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Azure Blob storage with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Use Blob storage with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Azure Blob storage with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
 
 
 
 
-#Use Azure Blob storage with HDInsight
+#Use Azure Blob storage with Hadoop in HDInsight
 
 
 
@@ -17,7 +17,7 @@ Azure HDInsight supports both Hadoop Distributed Files System (HDFS) and Azure B
 > [WACOM.NOTE]
 > Most HDFS commands such as <b>ls</b>, <b>copyFromLocal</b>, <b>mkdir</b>, and so on, still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as <b>fschk</b> and <b>dfsadmin</b> will show different behavior on Azure Blob storage.
 
-For information on provisioning an HDInsight cluster, see [Get Started with HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+For information on provisioning an HDInsight cluster, see [Get Started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
 
 ##In this article
 
@@ -271,17 +271,17 @@ In this article, you learned how to use Blob storage with HDInsight and that Blo
 
 To learn more, see the following articles:
 
-* [Get Started with Azure HDInsight][hdinsight-getting-started]
+* [Get Started with Azure HDInsight][hdinsight-get-started]
 * [Upload data to HDInsight][hdinsight-upload-data]
-* [Use Hive with HDInsight][hdinsight-hive]
-* [Use Pig with HDInsight][hdinsight-pig]
+* [Use Hive with HDInsight][hdinsight-use-hive]
+* [Use Pig with HDInsight][hdinsight-use-pig]
 
 [Powershell-install]: ../install-configure-powershell/
 [hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-getting-started]: ../hdinsight-get-started/
+[hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-hive]: ../hdinsight-use-hive/
-[hdinsight-pig]: ../hdinsight-use-pig/
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-pig]: ../hdinsight-use-pig/
 
 [Powershell-install]: ../install-configure-powershell/
 [blob-storage-restAPI]: http://msdn.microsoft.com/en-us/library/windowsazure/dd135733.aspx

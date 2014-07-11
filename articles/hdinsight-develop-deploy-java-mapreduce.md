@@ -1,7 +1,7 @@
-<properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight" urlDisplayName="HDInsight Tutorials" pageTitle="Develop Java MapReduce programs for HDInsight | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight." services="hdinsight" title="Develop Java MapReduce programs for HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="jgao" />
+<properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight-Hadoop" urlDisplayName="HDInsight Tutorials" pageTitle="Develop Java MapReduce programs for Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight." services="hdinsight" title="Develop Java MapReduce programs for Hadoop in HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="jgao" />
 
-# Develop Java MapReduce programs for HDInsight
-This tutorial walks you through an end-to-end scenario from developing and testing a word counting MapReduce job on HDInsight Emulator, to deploying and running it on Azure HDInsight.
+# Develop Java MapReduce programs for Hadoop in HDInsight
+This tutorial walks you through an end-to-end scenario for developing and testing a word counting Hadoop MapReduce job in Java on the HDInsight Emulator and then for deploying and running it on Azure HDInsight.
 
 **Prerequisites:**
 
@@ -515,7 +515,7 @@ The following PowerShell script performs the following tasks:
 
 
 ##<a name="retrieve"></a>Retrieve the MapReduce job output
-This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-excel], and [Connect Excel to HDInsight with Power Query][hdinsight-powerquery].
+This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-ODBC], and [Connect Excel to HDInsight with Power Query][hdinsight-power-query].
 
 
 **To retrieve the output**
@@ -540,7 +540,7 @@ This section shows you how to download and display the output.  For the informat
 		Get-AzureStorageBlobContent -Container $containerName_Data -Blob $blobName -Context $storageContext -Force
 		cat "./$blobName" | findstr "there"
 
-After the job is completed, you have the options to export the data to SQL Server or Azure SQL database using [Sqoop][hdinsight-sqoop], or to export the data to Excel.  
+After the job is completed, you have the options to export the data to SQL Server or Azure SQL database using [Sqoop][hdinsight-use-sqoop], or to export the data to Excel.  
 
 ##<a id="nextsteps"></a>Next steps
 In this tutorial, you have learned how to develop a Java MapReduce job, how to test the application on HDInsight emulator, and how to write a PowerShell script to provision an HDInsight cluster and run a MapReduce on the cluster. To learn more, see the following articles:
@@ -551,17 +551,17 @@ In this tutorial, you have learned how to develop a Java MapReduce job, how to t
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Upload data to HDInsight][hdinsight-upload-data]
-- [Use Hive with HDInsight][hdinsight-hive]
-- [Use Pig with HDInsight][hdinsight-pig]
+- [Use Hive with HDInsight][hdinsight-use-hive]
+- [Use Pig with HDInsight][hdinsight-use-pig]
 - [Connect Excel to HDInsight with Power Query][hdinsight-power-query]
-- [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-hive-odbc]
+- [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-ODBC]
 
 [azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 
-[hdinsight-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
+[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
+[hdinsight-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 
 [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
@@ -572,10 +572,9 @@ In this tutorial, you have learned how to develop a Java MapReduce job, how to t
 [hdinsight-upload-data]: ../hdinsight-upload-data/
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-[hdinsight-hive]: ../hdinsight-use-hive/
-[hdinsight-pig]: ../hdinsight-use-pig/
-[hdinsight-excel]: ../hdinsight-connect-excel-hive-ODBC-driver/
-[hdinsight-powerquery]: ../hdinsight-connect-excel-power-query/
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-pig]: ../hdinsight-use-pig/
+[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 [Powershell-install-configure]: ../install-configure-powershell/

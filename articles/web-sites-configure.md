@@ -38,7 +38,7 @@ Follow these steps to change configuration options for a web site.
 <li><strong>Java Version</strong> - Select the displayed version of Java to enable it for your web application, or <strong>OFF</strong> to disable Java. If you enable Java for your web application, the <strong>Web Container</strong> option lets you choose between Tomcat and Jetty versions.
 <p><strong>Note</strong>: For technical reasons, enabling Java for your web site disables the .NET, PHP, and Python options.</p>
 </li>
-<li><strong>Python  Version</strong> - Shows the Python version (non-configurable).</li>
+<li><strong>Python  Version</strong> - Select the Python version you want to use, or set it to <strong>Off</strong>, which is the default.</li>
 <li><strong>Managed Pipeline Mode</strong> - Of the two choices, <strong>Classic</strong> and <strong>Integrated</strong>, Integrated is the default. You should use the Classic option only if you have legacy web sites that run exclusively on older versions of IIS.</li>
 
 <li><strong>Platform</strong> - For sites in Standard mode, you can choose whether you want your application to run in a 32-bit or 64-bit environment. Sites in the Free and Shared modes always run in a 32-bit environment.</li>
@@ -145,17 +145,15 @@ Custom domains are available only in Shared and Standard modes, and SSL support 
 
 <!-- APP SETTINGS -->
 	<li><strong>app settings</strong> - Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be 
-	injected into your .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node sites these settings will be 
-	available as environment variables at runtime.</li>
+	injected into your .NET configuration AppSettings at runtime, overriding existing settings. PHP, Python, Java and Node applications can access these settings as environment variables at runtime. For each app setting two environment variables are created; one with the name specified by the app setting entry, and another with a prefix of APPSETTING_. Both will contain the same value.</li>
 
 <!-- CONNECTION STRINGS -->
-	<li><strong>connection strings</strong> - View connection strings for linked resources. For .NET sites, these connection strings will be injected into your .NET configuration connectionStrings settings at runtime, overriding existing entries where the key equals the linked database name. For PHP 
-	and Node sites these settings will be available as environment variables at runtime, prefixed with the connection type. The environment variable prefixes are as follows: <br />
+	<li><strong>connection strings</strong> - View connection strings for linked resources. For .NET sites, these connection strings will be injected into your .NET configuration connectionStrings settings at runtime, overriding existing entries where the key equals the linked database name. For PHP, Python, Java and Node applications, these settings will be available as environment variables at runtime, prefixed with the connection type. The environment variable prefixes are as follows: <br />
 <ul><li>SQL Server: SQLCONNSTR_</li>
 <li>MySQL: MYSQLCONNSTR_</li>
 <li>SQL Database: SQLAZURECONNSTR_</li>
 <li>Custom: CUSTOMCONNSTR_</li></ul>For example, if a MySql connection string were named connectionstring1, it would be accessed through the environment variable <code>MYSQLCONNSTR_connectionString1</code>.
-	<br /><strong>Note</strong>: Connection strings are created when you link a database resource to a web site and are read only when viewed on the 
+	<br /><strong>Note</strong>: Connection strings are also created when you link a database resource to a web site. Connection strings created this way are read only when viewed on the 
 	configuration management page.</li>
 
 <!-- DEFAULT DOCUMENTS -->

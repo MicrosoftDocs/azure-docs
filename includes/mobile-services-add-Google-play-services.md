@@ -11,18 +11,21 @@
 
 	![](./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png)
 
-5. Next you must reference the Google Play Services SDK library that you just imported, from your project. 
+4. Next you must reference the Google Play Services SDK library that you just imported, from your project. 
 
-2. In **Package Explorer**, right-click your project and choose *Properties*.
+5. In **Package Explorer**, right-click your project and choose *Properties*.
  
-3. In the Properties window, choose Android on the left.
+6. In the Properties window, choose Android on the left.
 
 	![](./media/mobile-services-android-get-started-push/mobile-google-set-project-properties.png)
 
 
-5.  In the **Library** section, choose **Add** , and select the Google Play Services project (*google-play-services-lib*) and click **OK**.
+7. Under **Project Build Target**, ensure that `Google APIs x86` (or `Google APIs`, depending on your development platform) is selected for the appropriate SDK level.
 
-6. Click **Apply** and then **OK**.
+ 
+8. In the **Library** section, choose **Add** , and select the Google Play Services project (*google-play-services-lib*) and click **OK**.
+
+9. Click **Apply** and then **OK**.
 
 
 

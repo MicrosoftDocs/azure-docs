@@ -100,7 +100,7 @@ Using either the SMTP API or Web API requires that you first initialize
 the SendGrid function using the user and key of your SendGrid account as
 follows:
 
-    var sender = new SendGrid.SendGrid('user','key');
+    var sender = new SendGrid('user','key');
 
 The message can now be sent using either SMTP or the Web API. The calls
 are virtually identical, passing the email message and an optional

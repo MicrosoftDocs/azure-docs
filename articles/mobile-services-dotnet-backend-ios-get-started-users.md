@@ -1,8 +1,10 @@
-<properties pageTitle="Get started with authentication (Windows Store) | Mobile Dev Center" metaKeywords="authentication, Facebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" solutions="" manager="" editor="" />
+<properties pageTitle="Get started with authentication (Windows Store) | Mobile Dev Center" metaKeywords="authentication, Facebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
 # Get started with authentication in Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users" title="iOS" class="current">iOS</a><!--<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users" title="Android">Android</a>-->
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-ios-get-started-users/"  title="JavaScript backend">JavaScript backend</a></div>
@@ -14,6 +16,7 @@ This tutorial walks you through these basic steps to enable authentication in yo
 1. [Register your app for authentication and configure Mobile Services]
 2. [Restrict table permissions to authenticated users]
 3. [Add authentication to the app]
+4. [Storing authentication tokens in your app]
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
@@ -21,17 +24,14 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-<ol start="5">
-<li><p>In Visual Studio, open the Web.config file for the mobile service project, and in the appSettings section, set the app identifier and shared secret values obtained from your identity provider.</p>
-<p>These settings are used during local development. After publishing your mobile service project to Azure, these settings are overridden by the values set in the portal.</p></li>
-</ol>
+[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
 ##<a name="permissions"></a>Restrict permissions to authenticated users
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
 <ol start="6">
-<li><p>In Xcode, open the project that you created when you completed the tutorial <a href="/en-us/documentation/articles/mobile-services-ios-get-started">Get started with Mobile Services</a>.</p></li> 
+<li><p>In Xcode, open the client app quickstart project.</li> 
 <li><p>Press the <strong>Run</strong> button to build the project and start the app in the iPhone emulator; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.<p> 
    
    	<p>This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
@@ -43,6 +43,10 @@ Next, you will update the app to authenticate users before requesting resources 
 
 [WACOM.INCLUDE [mobile-services-ios-authenticate-app](../includes/mobile-services-ios-authenticate-app.md)]
 
+##<a name="store-authentication"></a>Storing authentication tokens in your app
+
+[WACOM.INCLUDE [mobile-services-ios-authenticate-app-with-token](../includes/mobile-services-ios-authenticate-app-with-token.md)]
+
 ##<a name="next-steps"></a>Next steps
 
 In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
@@ -52,7 +56,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Restrict table permissions to authenticated users]: #permissions
 [Add authentication to the app]: #add-authentication
 [Next Steps]:#next-steps
-
+[Storing authentication tokens in your app]:#store-authentication
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/

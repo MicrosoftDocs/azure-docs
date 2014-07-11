@@ -1,17 +1,16 @@
 <properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster" metaCanonical="" services="" documentationCenter="" title="Set up a Hybrid Cluster with Microsoft HPC Pack" authors="danlep" solutions="" manager="dongill" editor="mattshel" />
 
 
-
-#Set up a Hybrid Cluster with Microsoft HPC Pack
+#Set up a Hybrid Compute Cluster with Microsoft HPC Pack
 This tutorial shows you how to use Microsoft HPC Pack 2012 R2 and Azure to set up a small, hybrid high performance computing (HPC) cluster. The cluster will consist of an on-premises head node (a computer running the Windows Server operating system and HPC Pack) and some compute nodes you deploy on-demand as worker role instances in an Azure cloud service. You can then run compute jobs on the hybrid cluster.
  
 ![Hybrid HPC cluster][Overview] 
 
 This tutorial shows one approach, sometimes called cluster "burst to the cloud," to use scalable, on-demand compute resources in Azure to run compute intensive applications.
 
-This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid compute cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493).
 
->[WACOM.NOTE] Azure offers a [range of sizes](http://go.microsoft.com/fwlink/p/?LinkId=389844) for your compute resources, suitable for different workloads. For example, the A8 and A9 instances combine high performance and access to a low latency, high throughput application network needed for certain HPC applications. For information, see [A8 and A9 Compute Intensive Instances: Quick Start with HPC Pack](http://go.microsoft.com/fwlink/p/?Linkid=328042). 
+>[WACOM.NOTE] Azure offers a [range of sizes](http://go.microsoft.com/fwlink/p/?LinkId=389844) for your compute resources, suitable for different workloads. For example, the A8 and A9 instances combine high performance and access to a low latency, high throughput application network needed for certain HPC applications. For information, see [About the A8 and A9 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?Linkid=328042). 
 
 This tutorial walks you through these basic steps:
 
@@ -27,7 +26,7 @@ This tutorial walks you through these basic steps:
 
 <h2 id="BKMK_Prereq">Prerequisites</h2>
 
->[WACOM.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/" target="_blank">Azure Free Trial</a>.
+>[WACOM.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/en-us/pricing/free-trial/" target="_blank">Azure Free Trial</a>.
 
 In addition, you need the following for this tutorial.
 
@@ -49,7 +48,7 @@ In addition, you need the following for this tutorial.
 
 <h2 id="BKMK_DeployHN">Install HPC Pack on the head node</h2>
 
-You first install Microsoft HPC Pack on an on-premises computer that will be the head node of the cluster.
+You first install Microsoft HPC Pack on an on-premises computer running Windows Server that will be the head node of the cluster.
 
 1. Log on to the head node by using a domain account that has local Administrator permissions.
 
@@ -304,7 +303,7 @@ After you try out the cluster, you can use HPC Cluster Manager to stop the Azure
 * [HPC Pack 2012 R2 and HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Burst to Azure with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Deploying Applications to Azure Nodes](http://go.microsoft.com/fwlink/p/?LinkId=325317)
-* [Microsoft HPC Pack in an Azure Virtual Machine](http://go.microsoft.com/fwlink/p/?linkid=330375)
+* [Microsoft HPC Pack in Azure VMs](http://go.microsoft.com/fwlink/p/?linkid=330375)
 
 
 [Overview]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png

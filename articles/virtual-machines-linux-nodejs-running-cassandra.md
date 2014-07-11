@@ -43,7 +43,7 @@ In the above diagrams a 4-node Cassandra cluster is deployed inside Virtual Mach
 
 ##<a id="task1"> </a>Task 1: Deploy Linux Cluster##
 
-During the Virtual Machines preview release, in order for the Linux VMs to be part of the same virtual network, all the machines need to be deployed to the same cloud service. Typical sequence for creating a cluster is: 
+Typical sequence for creating a cluster is: 
 
 ![Sequence diagram for creating a cluster](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux4.png)
 

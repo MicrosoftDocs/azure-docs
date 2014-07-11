@@ -4,17 +4,8 @@
 
 # Get started with data in Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#" class="current">Windows Store C#</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android">Android</a>
-</div>
-
-<div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET backend" class="current">.NET backend</a> | 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/"  title="JavaScript backend">JavaScript backend</a>
-</div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android">Android</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET backend" class="current">.NET backend</a> | 	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/"  title="JavaScript backend">JavaScript backend</a></div>
 
 
 This topic shows you how to use Azure Mobile Services as a backend datasource for a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
@@ -340,3 +331,4 @@ Once you have completed the data series, try one of these other tutorials:
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+ 

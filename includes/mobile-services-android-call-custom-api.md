@@ -41,6 +41,7 @@
     	<string name="complete_button_text">Complete All</string>
 
 
+
 5. In Package Explorer, right click the project name in the *src* folder (`com.example.{your projects name}`), choose **New** then **Class**. In the dialog, enter **MarkAllResult** in the class name field, choose OK, and replace the resulting class definition with the following code:
 
 		import com.google.gson.annotations.SerializedName;
@@ -66,7 +67,11 @@
 
 	This filters the items so that completed items are not returned by the query.
 
-7. In the **ToDoActivity.java** file, add the following method:
+7. Make sure that **ToDoActivity.java** is importing ApiOperationCallback in the block of imports at the beginning of the file:
+
+	import com.microsoft.windowsazure.mobileservices.ApiOperationCallback;
+
+8. In the **ToDoActivity.java** file, add the following method:
 
 		public void completeItem(View view) {
 			mClient.invokeApi("completeAll", MarkAllResult.class, new ApiOperationCallback<MarkAllResult>() {
@@ -89,6 +94,7 @@
 1. From the **Run** menu, click **Run** to start the project in the Android emulator.
 
 	This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.
+
 
 2. In the app, type some text in **Insert a TodoItem**, then click **Add**.
 

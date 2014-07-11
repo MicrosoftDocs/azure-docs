@@ -1,653 +1,787 @@
-<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 4 mobile website" pageTitle=".NET ASP.NET MVC 4 mobile web site - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 4,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure web site using mobile features in ASP.NET MVC 4 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Web Sites" authors="tdykstra" solutions="" manager="" editor="" />
+<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile web site - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure web site using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Web Sites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 
+# Deploy an ASP.NET MVC 5 Mobile Web Application on Azure Web Sites
 
+***By [Cephas Lin](https://twitter.com/Cephas_MSFT) and [Rick Anderson](https://twitter.com/RickAndMSFT) Updated 21 May 2014.***
 
-
-
-# Deploy an ASP.NET MVC Mobile Web Application on Azure Web Sites
-
-***By [Rick Anderson](https://twitter.com/RickAndMSFT) Updated 26 June 2013.***
-
-This tutorial will teach you the basics of how to deploy a web application to to an Azure web site. For the purposes of this tutorial we will work with mobile features in an ASP.NET MVC 4 web application. To perform the steps in this tutorial, you can use Microsoft Visual Studio 2012. You can also use [Visual Studio Express 2012][], which is a free versions of Microsoft Visual Studio. 
-
-<h2>You will learn:</h2>
-
-- How the ASP.NET MVC 4 templates use the HTML5 viewport attribute and adaptive rendering to improve display on mobile devices.
-- How to create mobile-specific views.
-- How to create a view switcher that lets users toggle between a mobile view and a desktop view of the application.
-- How to deploy the web application to Azure.
-
-For this tutorial, you'll add mobile features to the simple conference-listing application that's provided in the starter project. The following screenshot shows the main page of the completed application as seen in the Windows 7 Phone Emulator.
-
-![MVC4 conference application main page.][AppMainPage]
+This tutorial will teach you the basics of how to build an ASP.NET MVC 5
+Web application that is mobile-friendly and deploy it into Windows Azure. For this tutorial, you need 
+[Visual Studio Express 2013 for Web][Visual Studio Express 2013]
+or the professional edition of Visual Studio if you already
+have that.
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-<h2>Setting up the development environment</h2>
+### What You'll Build
+
+For this tutorial, you'll add mobile features to the simple
+conference-listing application that's provided in the [starter project][StarterProject]. The following screenshot shows the ASP.NET sessions in the completed
+application, as seen in the browser emulator in Internet Explorer 11 F12
+developer tools.
+
+![][FixedSessionsByTag]
+
+You can use the Internet Explorer 11 F12 developer tools and the [Fiddler
+tool][Fiddler] to help debug your
+application. 
+
+### Skills You'll Learn
+
+Here's what you'll learn:
+
+-	How to use Visual Studio 2013 to publish your Web application directly to a Windows Azure Website.
+-   How the ASP.NET MVC 5 templates use the CSS Bootstrap framework to
+    improve display on mobile devices
+-   How to create mobile-specific views to target specific mobile
+    browsers, such as the iPhone and Android
+-   How to create responsive views (views that respond to different
+    browsers across devices)
+
+<h2>Set up the development environment</h2>
 
 Set up your development environment by installing the Azure SDK for the .NET Framework. 
 
-1. To install the Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. 
-[Azure SDK for Visual Studio 2012]( http://go.microsoft.com/fwlink/?LinkId=254364)
-1. When you are prompted to run or save the installation executable, click **Run**.
+1. To install the Azure SDK for .NET, click the link below. If you don't have Visual Studio 2013 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2013. [Azure SDK for Visual Studio 2013][AzureSDKVs2013]
 1. In the Web Platform Installer window, click **Install** and proceed with the installation.
 
-![Web Platform Installer - Azure SDK for .NET][WebPIAzureSdk20NetVS12]
+	![Web Platform Installer - Azure SDK for .NET][WebPIAzureSdk23NetVS13]
 
-You will also need a mobile browser emulator. Any of the following will work:
+You will also need a mobile browser emulator. Any of the following will
+work:
 
-- [Windows 7 Phone Emulator][Win7PhoneEmulator]. (This is the emulator that's used in most of the screen shots in this tutorial.)
-- Change the user agent string to emulate an iPhone. See [this blog entry][setuseragent] on How-To Geek.
-- [Opera Mobile Emulator][OperaMobileEmulator].
-- [Apple Safari][AppleSafari] with the user agent set to iPhone. For instructions on how to set the user agent in Safari to "iPhone", see [How to let Safari pretend it's IE][HowToSafari] on David Alison's blog.
-- [FireFox][FireFox] with the [FireFox User Agent Switcher][FireFoxUserAgentSwitcher].
+-   Browser Emulator in [Internet Explorer 11 F12 developer tools][EmulatorIE11] (used in all mobile
+    browser screenshots). It has user agent string presets for Windows Phone 8, Windows Phone 7, and Apple iPad.
+-	Browser Emulator in [Google Chrome DevTools][EmulatorChrome]. It contains presets for numerous Android devices, as well as Apple iPhone, Apple iPad, and Amazon Kindle Fire. It also emulates touch events.
+-   [Opera Mobile Emulator][EmulatorOpera]
 
-This tutorial shows code in C#. However, the starter project and completed project will be available in Visual Basic. Visual Studio projects with Visual Basic and C# source code are available to accompany this topic:
+Visual Studio projects with C\# source code are available to accompany
+this topic:
 
-- [Starter project download][MVC4StarterProject]
-- [Completed project download][FinishedProject]
+-   [Starter project download][StarterProject]
+-   [Completed project download][CompletedProject]
 
 <h2>Steps in this tutorial</h2>
 
-- [Create an Azure web site](#bkmk_CreateWebSite)
-- [Setup the starter Project](#bkmk_setupstarterproject)
+- [Deploy the starter project to a Windows Azure Website][]
+- [Bootstrap CSS Framework][]
 - [Override the Views, Layouts, and Partial Views][]
-- [Use jQuery Mobile to define the mobile broswer interface][]
 - [Improve the Speakers List][]
-- [Create a Mobile Speakers View][]
 - [Improve the Tags List][]
 - [Improve the Dates List][]
 - [Improve the SessionsTable View][]
 - [Improve the SessionByCode View][]
-- [Deploy the Application to the Azure Web Site][]
 
-<h3><a name="bkmk_CreateWebSite"></a>Create a web site in Azure</h3>
+<h3><a name="bkmk_DeployStarterProject"></a>Deploy the starter project to a Windows Azure Website</h3>
 
-Your Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure cloud service. Cloud services run on dedicated VMs that you can configure according to your needs.
+1.	Download the conference-listing application [starter project][StarterProject].
 
-1.	Log on to the [Azure Management Portal][managementportal]. In the Management Portal, click **New**.
+2. 	Then in Windows Explorer, right-click the Mvc5Mobile.zip file and choose *Properties*.
 
-	![][CreateWebSite1]
+3. 	In the **Mvc5Mobile.zip Properties** dialog box,
+choose the **Unblock** button. (Unblocking prevents a security warning
+that occurs when you try to use a *.zip* file that you've downloaded
+from the web.)
 
-2.	Click **Web Site**, then click **Quick Create**.
+4.	Right-click the *Mvc5Mobile.zip* file and select **Extract All** to
+unzip the file. 
 
-	![][CreateWebSite2]
+5. 	In Visual Studio, open the *Mvc5Mobile.sln* file.
 
-3.	In the **Create a New Web Site**, enter a string in the **URL** box to use as the unique URL for your application.
+6.  In Solution Explorer, right-click the project and click **Publish**.
 
-	![][CreateWebSite3]
+	![][DeployClickPublish]
 
-	The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "MyMobileMVC4WebSite", but if someone has already taken that URL you will have to choose a different one. Select the **REGION** in which you are located.
+7.	In Publish Web, click **Windows Azure Web Sites**.
 
-4. Click the check mark at the bottom of the box to indicate you're finished.
+	![][DeployClickWebSites]
 
-The Management Portal returns to the Web Sites page and the Status column shows that the site is being created. After a while (typically less than a minute) the Status column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears in the Web Sites icon, and the number of databases appears in the SQL Databases icon.
+8.	Click **Sign in**.
 
-![][CreateWebSite4]
+	![][DeploySignIn]
 
-<h3><a name="bkmk_setupstarterproject"></a>Setup the starter project.</h3>
+9.	Type your Windows Azure username and click **Continue**.
 
-1.	Download the [conference-listing application starter project][MVC4StarterProject].
+	![][DeployUsername]
 
-2. 	Then in Windows Explorer, right-click the MvcMobileStarterBeta.zip file and choose *Properties*.
+10.	Type your password and click **Sign in**.
 
-3. 	In the MvcMobileRTMStarter.zip Properties dialog box, choose the Unblock button. (Unblocking prevents a security warning that occurs when you try to use a .zip file that you've downloaded from the web.)
+	![][DeployPassword]
 
-	![Properties dialog box.][PropertiesPopup]
+11. The Select Existing Web Site dialog should now show you as signed in. Click **New**.
 
-4.	Right-click the MvcMobile.zip file and select Extract All to unzip the file.
+	![][DeployNewWebsite]  
 
-5. 	In Visual Studio, open the MvcMobile.sln file.
+12. In the **Site name** field, specify a unique site name prefix. Your fully-qualified site name will be *&lt;prefix>*.azurewebsites.net. Also, in the **Region** field, select a region. Then, click **Create**.
 
-<h3>To run the starter project</h3>
+	![][DeploySiteSettings]
 
-1.	Press CTRL+F5 to run the application, which will display it in your desktop browser.
-2.	Start your mobile browser emulator, copy the URL for the conference application into the emulator, and then click the Browse by tag link.
-	- If you are using the Windows Phone Emulator, click in the URL bar and press the Pause key to get keyboard access. The image below shows the AllTags view (from choosing Browse by tag).
+13.	The Publish Web dialog will be filled with the site settings for your new Website. Click **Publish**.
 
-	![Browse by tag page.][BrowseByTagWithCallout]
+	![][DeployPublishSite]
 
-The display is very readable on a mobile device. Choose the ASP.NET link.
+	Once Visual Studio finishes publishing the starter project to the Windows Azure Website, the desktop browser opens to display the live Website.
 
-![Browse sessions tagged as ASP.NET.][ASPNetPage]
+14.	Start your mobile browser emulator, copy the URL for
+the conference application (*<prefix>*.azurewebsites.net) into the emulator, and then click the
+top-right button and select **Browse by tag**. If you are using Internet
+Explorer 11 as the default browser, you just need to type `F12`, then
+`Ctrl+8`, and then change the browser profile to **Windows Phone**. The
+image below shows the *AllTags* view in portrait mode (from choosing
+**Browse by tag**).
 
-The ASP.NET tag view is very cluttered. For example, the Date column is very difficult to read. Later in the tutorial you'll create a version of the AllTags view that's specifically for mobile browsers and that will make the display readable.
+	![][AllTags]
+
+>[WACOM.NOTE] While you can debug your MVC 5 application from within Visual Studio, you can publish your Website to Windows Azure again to verify the live site directly from your mobile browser or a browser emulator.
+
+The display is very readable on a mobile device. You can also already
+see some of the visual effects applied by the Bootstrap CSS framework.
+Click the **ASP.NET** link.
+
+![][SessionsByTagASP.NET]
+
+The ASP.NET tag view is zoom-fitted to the screen, which Bootstrap does
+for you automatically. However, you can improve this view to better suit
+the mobile browser. For example, the **Date** column is difficult to
+read. Later in the tutorial you'll change the *AllTags* view to make it
+mobile-friendly.
+
+<h2><a name="bkmk_bootstrap"></a>Bootstrap CSS Framework</h2>
+
+New in the MVC 5 template is built-in Bootstrap support. You have
+already seen how it immediately improves the different views in your
+application. For example, the navigation bar at the top is automatically
+collapsible when the browser width is smaller. On the desktop browser,
+try resizing the browser window and see how the navigation bar changes
+its look and feel. This is the responsive web design that is built into
+Bootstrap.
+
+To see how the Web app would look without Bootstrap, open
+*App\_Start\\BundleConfig.cs* and comment out the lines that contain
+*bootstrap.js* and *bootstrap.css*. The following code shows the last
+two statements of the `RegisterBundles` method after the change:
+
+     bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+              //"~/Scripts/bootstrap.js",
+              "~/Scripts/respond.js"));
+
+    bundles.Add(new StyleBundle("~/Content/css").Include(
+              //"~/Content/bootstrap.css",
+              "~/Content/site.css"));
+
+Press `Ctrl+F5` to run the application.
+
+Observe that the collapsible navigation bar is now just an ordinary
+unordered list. Click **Browse by tag** again, then click **ASP.NET**.
+In the mobile emulator view, you can see now that it is no longer
+zoom-fitted to the screen, and you must scroll sideways in order to see
+the right side of the table.
+
+![][SessionsByTagASP.NETNoBootstrap]
+
+Undo your changes and refresh the mobile browser
+to verify that the mobile-friendly display has been restored.
+
+Bootstrap is not specific to ASP.NET MVC 5, and you can take advantage
+of these features in any web application. But it is now built into the
+ASP.NET MVC 5 project template, so that your MVC 5 Web application can
+take advantage of Bootstrap by default.
+
+For more information about Bootstrap, go to the
+[Bootstrap][BootstrapSite] site.
+
+In the next section you'll see how to provide mobile-browser specific
+views.
 
 <h2><a name="bkmk_overrideviews"></a>Override the Views, Layouts, and Partial Views</h2>
 
+You can override any view (including layouts and partial views) for
+mobile browsers in general, for an individual mobile browser, or for any
+specific browser. To provide a mobile-specific view, you can copy a view
+file and add *.Mobile* to the file name. For example, to create a mobile
+*Index* view, you can copy *Views\\Home\\Index.cshtml* to
+*Views\\Home\\Index.Mobile.cshtml*.
+
 In this section, you'll create a mobile-specific layout file.
 
-A significant new feature in ASP.NET MVC 4 is a simple mechanism that lets you override any view (including layouts and partial views) for mobile browsers in general, for an individual mobile browser, or for any specific browser. To provide a mobile-specific view, you can copy a view file and add .Mobile to the file name. For example, to create a mobile Index view, copy *Views\Home\Index.cshtml* to *Views\Home\Index.Mobile.cshtml*.
+To start, copy *Views\\Shared\\\_Layout.cshtml* to
+*Views\\Shared\\\_Layout.Mobile.cshtml*. Open *\_Layout.Mobile.cshtml*
+and change the title from **MVC5 Application** to **MVC5 Application
+(Mobile)**.
 
-To start, copy *Views\Shared\\_Layout.cshtml* to *Views\Shared\\_Layout.Mobile.cshtml*. Open *_Layout.Mobile.cshtml* and change the title from **MVC4 Conference** to **Conference (Mobile)**.
+In each `Html.ActionLink` call for the navigation bar, remove "Browse by" in each link
+*ActionLink*. The following code shows the completed `<ul class="nav navbar-nav">` tag of the mobile layout file.
 
-In each **Html.ActionLink** call, remove "Browse by" in each link ActionLink. The following code shows the completed body section of the mobile layout file.
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Date", "AllDates", "Home")</li>
+        <li>@Html.ActionLink("Speaker", "AllSpeakers", "Home")</li>
+        <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
+    </ul>
 
-     <body>
-        <div class="page">
-            <div id="header">
-                <div id="logindisplay"></div>
-                <div id="title">
-                    <h1> Conference (Mobile)</h1>
-                </div>
-                <div id="menucontainer">
-                    <ul id="menu">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Date", "AllDates", "Home")</li>
-                        <li>@Html.ActionLink("Speaker", "AllSpeakers", "Home")</li>
-                        <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
-                    </ul>
-                </div>
-            </div>
-            <div id="main">
-                @RenderBody()
-            </div>
-            <div id="footer">
-            </div>
-        </div>
-    </body>
+Copy the *Views\\Home\\AllTags.cshtml* file to
+*Views\\Home\\AllTags.Mobile.cshtml*. Open the new file and change the
+`<h2>` element from "Tags" to "Tags (M)":
 
-Copy the *Views\Home\AllTags.cshtml* file to *Views\Home\AllTags.Mobile.cshtml*. Open the new file and change the &lt;h2&gt; element from "Tags" to "Tags (M)":
+    <h2>Tags (M)</h2>
 
-     <h2>Tags (M)</h2>
+Browse to the tags page using a desktop browser and using mobile browser
+emulator. The mobile browser emulator shows the two changes you made
+(the title from *\_Layout.Mobile.cshtml* and the title from
+*AllTags.Mobile.cshtml*).
 
-Browse to the tags page using a desktop browser and using mobile browser emulator. The mobile browser emulator shows the two changes you made.
+![][AllTagsMobile_LayoutMobile]
 
-![Show changes to tags page][Overrideviews1]
+In contrast, the desktop display has not changed (with titles from from *\_Layout.cshtml* and 
+*AllTags.cshtml*).
 
-In contrast, the desktop display has not changed.
+![][AllTagsMobile_LayoutMobileDesktop]
 
-![Show desktop tags view][Overrideviews2]
+<h2><a name="bkmk_browserviews"></a>Create Browser-Specific Views</h2>
 
-<h2><a name="bkmk_usejquerymobile"></a>Use jQuery Mobile to define the mobile broswer interface</h2>
+In addition to mobile-specific and desktop-specific views, you can
+create views for an individual browser. For example, you can create
+views that are specifically for the iPhone or the Android browser. In this section,
+you'll create a layout for the iPhone browser and an iPhone version of
+the *AllTags* view.
 
-In this section you'll install the jQuery.Mobile.MVC NuGet package, which installs jQuery Mobile and a view-switcher widget.
+Open the *Global.asax* file and add the following code to the bottom of the
+`Application_Start` method.
 
-The [jQuery Mobile][jquerydocs] library provides a user interface framework that works on all the major mobile browsers. jQuery Mobile applies progressive enhancement to mobile browsers that support CSS and JavaScript. Progressive enhancement allows all browsers to display the basic content of a web page, while allowing more powerful browsers and devices to have a richer display. The JavaScript and CSS files that are included with jQuery Mobile style many elements to fit mobile browsers without making any markup changes.
+    DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone")
+    {
+        ContextCondition = (context => context.GetOverriddenUserAgent().IndexOf
+            ("iPhone", StringComparison.OrdinalIgnoreCase) >= 0)
+    });
 
-1. Delete the *Shared\\_Layout.Mobile.cshtml* file that you created earlier.
+This code defines a new display mode named "iPhone" that will be matched
+against each incoming request. If the incoming request matches the
+condition you defined (that is, if the user agent contains the string
+"iPhone"), ASP.NET MVC will look for views whose name contains the
+"iPhone" suffix.
 
-2. Rename the *Views\Home\AllTags.Mobile.cshtml* to *Views\Home\AllTags.Mobile.cshtml.hide* (you will use this file again later.) Because the file no longer has a .cshtml extension, it will not be used by the ASP.NET MVC runtime to render the *AllTags* view.
+>[WACOM.NOTE] When adding mobile browser-specific display modes, such as for iPhone and Android, be sure to set the first argument to `0` (insert at the top of the list) to make sure that the browser-specific mode takes precedence over the mobile template (*.Mobile.cshtml). If the mobile template is at the top of the list instead, it will be selected over your intended display mode (the first match wins, and the mobile template matches all mobile browsers). 
 
-3. Install the jQuery.Mobile.MVC NuGet package by doing this:
+In the code, right-click `DefaultDisplayMode`, choose **Resolve**, and
+then choose `using System.Web.WebPages;`. This adds a reference to the
+`System.Web.WebPages` namespace, which is where the
+`DisplayModeProvider` and `DefaultDisplayMode` types are defined.
 
-	a.  From the **Tools** menu, select **Package Manager** Console, and then select **Library Package Manager**.
+![][ResolveDefaultDisplayMode]
 
-		![Library package manager][jquery1]
-	
-	b. In the **Package Manager Console**, enter *Install-Package jQuery.Mobile.MVC -version 1.0.0*
+Alternatively, you can just manually add the following line to the
+`using` section of the file.
 
-		![Package manager console][jquery2]
+    using System.Web.WebPages;
 
-The jQuery.Mobile.MVC NuGet package installs the following:
+Save the changes. Copy the
+*Views\\Shared\\\_Layout.Mobile.cshtml* file to
+*Views\\Shared\\\_Layout.iPhone.cshtml*. Open the new file
+and then change the title from `MVC5 Application (Mobile)` to
+`MVC5 Application (iPhone)`.
 
-- The *App_Start\BundleMobileConfig.cs* file, which is needed to reference the jQuery JavaScript and CSS files added. You must follow the instructions below and reference the mobile bundle defined in this file.
-- jQuery Mobile CSS files.
-- A ViewSwitcher controller widget (*Controllers\ViewSwitcherController.cs)*. 
-- jQuery Mobile JavaScript files.
-- A jQuery Mobile-styled layout file (*Views\Shared\_Layout.Mobile.cshtml*). 
-- A view-switcher partial view (*MvcMobile\Views\Shared\_ViewSwitcher.cshtml*) that provides a link at the top of each page to switch from desktop view to mobile view and vice versa.
-- Several .png  and .gif image files in the Content\images folder. 
+Copy the *Views\\Home\\AllTags.Mobile.cshtml* file to
+*Views\\Home\\AllTags.iPhone.cshtml*. In the new file, change
+the `<h2>` element from "Tags (M)" to "Tags (iPhone)".
 
-Open the *Global.asax* file and add the following code as the last line of the Application_Start method.
+Run the application. Run a mobile browser emulator, make sure its user
+agent is set to "iPhone", and browse to the *AllTags* view. If you are
+using the emulator in Internet Explorer 11 F12 developer tools,
+configure emulation to the following:
 
- 	BundleMobileConfig.RegisterBundles(BundleTable.Bundles);
+-   Browser profile = **Windows Phone**
+-   User agent string =  **Custom**
+-   Custom string = **Apple-iPhone5C1/1001.525**
 
-The following code shows the complete Global.asax file.
+The following screenshot shows the *AllTags* view rendered in the
+emulator in Internet Explorer 11 F12 developer tools with the custom user agent string (this is an iPhone 5C user agent string).
 
-	using System; 
-	using System.Web.Http; 
-	using System.Web.Mvc; 
-	using System.Web.Optimization; 
-	using System.Web.Routing; 
-	using System.Web.WebPages; 
-	 
-	namespace MvcMobile 
-	{ 
-	 
-	    public class MvcApplication : System.Web.HttpApplication 
-	    { 
-	        protected void Application_Start() 
-	        { 
-	            DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone") 
-	            { 
-	                ContextCondition = (context => context.GetOverriddenUserAgent().IndexOf 
-	                    ("iPhone", StringComparison.OrdinalIgnoreCase) >= 0) 
-	            }); 
-	            AreaRegistration.RegisterAllAreas(); 
-	 
-	            WebApiConfig.Register(GlobalConfiguration.Configuration); 
-	            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters); 
-	            RouteConfig.RegisterRoutes(RouteTable.Routes); 
-	            BundleConfig.RegisterBundles(BundleTable.Bundles); 
-	            BundleMobileConfig.RegisterBundles(BundleTable.Bundles); 
-	        } 
-	    } 
-	}
+![][AllTagsIPhone_LayoutIPhone]
 
-Open the *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* file and add the following markup directly after the *Html.Partial* call:
+In the mobile browser, select the **Speakers** link. Because there's not
+a mobile view (*AllSpeakers.Mobile.cshtml*), the default speakers view
+(*AllSpeakers.cshtml*) is rendered using the mobile layout view
+(*\_Layout.Mobile.cshtml*). As shown below, the title **MVC5 Application
+(Mobile)** is defined in *\_Layout.Mobile.cshtml*.
 
-	<div data-role="header" align="center">
-	    @Html.ActionLink("Home", "Index", "Home")
-	    @Html.ActionLink("Date", "AllDates")
-	    @Html.ActionLink("Speaker", "AllSpeakers")
-	    @Html.ActionLink("Tag", "AllTags")
-	</div>
+![][AllSpeakers_LayoutMobile]
 
-The complete body section looks like this:
-
-	<body>
-	    <div data-role="page" data-theme="a">
-	        @Html.Partial("_ViewSwitcher")
-	        <div data-role="header" align="center">
-	            @Html.ActionLink("Home", "Index", "Home")
-	            @Html.ActionLink("Date", "AllDates")
-	            @Html.ActionLink("Speaker", "AllSpeakers")
-	            @Html.ActionLink("Tag", "AllTags")
-	        </div>
-	        <div data-role="header">
-	            <h1>@ViewBag.Title</h1>
-	        </div>
-	        <div data-role="content">
-	            @RenderSection("featured", false)
-	            @RenderBody()
-	        </div>
-	    </div>
-	</body>
-
-Build the application, and in your mobile browser emulator browse to the AllTags view. You see the following:
-
-![After install jquery through nuget.][jquery3]
-
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>You can debug the mobile specific code by setting the user agent string for IE or Chrome to iPhone and then using the F-12 developer tools.  If your mobile browser doesn't display the <strong>Home</strong>, <strong>Speaker</strong>, <strong>Tag</strong>, and <strong>Date</strong> links as buttons, the references to jQuery Mobile scripts and CSS files are probably not correct.</p> 
-</div>
-
-In addition to the style changes, you see **Displaying mobile view** and a link that lets you switch from mobile view to desktop view. Choose the **Desktop view link**, and the desktop view is displayed.
-
-<!--![Display desktop view][jquery4]-->
-
-The desktop view doesn't provide a way to directly navigate back to the mobile view. You'll fix that now. Open the *Views\Shared\\_Layout.cshtml* file. Just under the &lt;body> element, add the following code, which renders the view-switcher widget:
-
-    @Html.Partial("_ViewSwitcher")
-
-Here's the completed code:
-
-	<body>
-	    @Html.Partial("_ViewSwitcher")
-	
-	    <div id="title">
-	        <h1> MVC4 Conference </h1>
-	    </div>
-
-		@*Items removed for clarity.*@
-	</body>
-
-Refresh the **AllTags** view is the mobile browser. You can now navigate between desktop and mobile views.
-
-![Navigate to mobile views.][jquery5]
-
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>You can add the following code to the end of the Views\Shared\_ViewSwitcher.cshtml to help debug views when using a browser the user agent string set to a mobile device.</p> 
-
-<pre>
-	else 
-	{ 
-	     @:Not Mobile/Get 
-	} 
-</pre>
-<p>and adding the following heading to the Views\Shared\_Layout.cshtml file.</p> 
-<pre>
-	&lt;h1>Non Mobile Layout MVC4 Conference&lt;/h1>
-</pre>
-</div>
-
-Browse to the AllTags page in a desktop browser. The view-switcher widget is not displayed in a desktop browser because it's added only to the mobile layout page. Later in the tutorial you'll see how you can add the view-switcher widget to the desktop view.
-
-![View desktop experience.][jquery6]
-
-<h2><a name="bkmk_Improvespeakerslist"></a> Improve the Speakers List</h2>
-
-In the mobile browser and select the **Speakers** link. Because there's no mobile view(*AllSpeakers.Mobile.cshtml*), the default speakers display (*AllSpeakers.cshtml*) is rendered using the mobile layout view (*_Layout.Mobile.cshtml*).
-
-![View the mobile speakers list.][SpeakerList1]
-
-You can globally disable a default (non-mobile) view from rendering inside a mobile layout by setting RequireConsistentDisplayMode to true in the *Views\_ViewStart.cshtml* file, like this:
-
-![][SpeakerList2]
+You can globally disable a default (non-mobile) view from rendering
+inside a mobile layout by setting `RequireConsistentDisplayMode` to
+`true` in the *Views\\\_ViewStart.cshtml* file, like this:
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
-        DisplayModes.RequireConsistentDisplayMode = true;
+        DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
-When *RequireConsistentDisplayMode* is set to true, the mobile layout (*_Layout.Mobile.cshtml*) is used only for mobile views. (That is, the view file is of the form ViewName.Mobile.cshtml.) You might want to set *RequireConsistentDisplayMode* to true if your mobile layout doesn't work well with your non-mobile views. The screenshot below shows how the Speakers page renders when *RequireConsistentDisplayMode* is set to true.
 
-![][SpeakerList4]
+When `RequireConsistentDisplayMode` is set to `true`, the mobile layout
+(*\_Layout.Mobile.cshtml*) is used only for mobile views (i.e. when the
+view file is of the form ***ViewName**.Mobile.cshtml*). You might want
+to set `RequireConsistentDisplayMode` to `true` if your mobile layout
+doesn't work well with your non-mobile views. The screenshot below shows
+how the *Speakers* page renders when `RequireConsistentDisplayMode` is
+set to `true` (without the string "(Mobile)" in the navigational bar at the top).
 
-You can disable consistent display mode in a view by setting *RequireConsistentDisplayMode* to false in the view file. The following markup in the *Views\Home\AllSpeakers.cshtml* file sets *RequireConsistentDisplayMode* to false:
+![][AllSpeakers_LayoutMobileOverridden]
+
+You can disable consistent display mode in a specific view by setting
+`RequireConsistentDisplayMode` to `false` in the view file. The
+following markup in the *Views\\Home\\AllSpeakers.cshtml* file sets
+`RequireConsistentDisplayMode` to `false`:
 
     @model IEnumerable<string>
+
     @{
         ViewBag.Title = "All speakers";
-        DisplayModes.RequireConsistentDisplayMode = false;
+        DisplayModeProvider.Instance.RequireConsistentDisplayMode = false;
     }
-<h2><a name="bkmk_mobilespeakersview"></a>Create a Mobile Speakers View</h2>
 
-As you just saw, the Speakers view is readable, but the links are small and are difficult to tap on a mobile device. In this section, you'll create a mobile-specific Speakers view that looks like a modern mobile application - it displays large, easy-to-tap links and contains a search box to quickly find speakers.
+In this section we've seen how to create mobile layouts and views and
+how to create layouts and views for specific devices such as the iPhone.
+However, the main advantage of the Bootstrap CSS framework is the
+responsive layout, which means that a single stylesheet can be applied
+across desktop, phone, and tablet browsers to create a consistent look and
+feel. In the next section you'll see how to leverage Bootstrap to create
+mobile-friendly views.
 
-1. Copy *AllSpeakers.cshtml* to *AllSpeakers.Mobile.cshtml.* Open the *AllSpeakers.Mobile.cshtml* file and remove the &lt;h2&gt; heading element.
-2. In the **&lt;ul&gt;** tag, add the data-role attribute and set its value to *listview*. Like other *data-** attributes, *data-role="listview"* makes the large list items easier to tap. This is what the completed markup looks like:
+<h2><a name="bkmk_Improvespeakerslist"></a> Improve the Speakers List</h2>
 
-	    @model IEnumerable<string>
-	    @{
-	        ViewBag.Title = "All speakers";
-	    }
-	    <ul data-role="listview">
-	        @foreach(var speaker in Model) {
-	            <li>@Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker })</li>
-	        }
-	    </ul>
+As you just saw, the *Speakers* view is readable, but the links are
+small and are difficult to tap on a mobile device. In this section,
+you'll make the *AllSpeakers* view mobile-friendly, which displays
+large, easy-to-tap links and contains a search box to quickly find
+speakers.
 
-3.	Refresh the mobile browser. The updated view looks like this:
+You can use the Bootstrap [linked list group][] styling to
+improve the *Speakers* view. In *Views\\Home\\AllSpeakers.cshtml*,
+replace the contents of the Razor file with the code below.
 
-	![][MobileSpeakersView1]
+     @model IEnumerable<string>
 
-4.	In the **&lt;ul&gt;** tag, add the data-filter attribute and set it to true. The code below shows the ul markup.
+    @{
+        ViewBag.Title = "All Speakers";
+    }
 
-		<ul data-role="listview" data-filter="true">
+    <h2>Speakers</h2>
 
-The following image shows the search filter box at the top of the page that results from the data-filter attribute.
+    <div class="list-group">
+        @foreach (var speaker in Model)
+        {
+            @Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker }, new { @class = "list-group-item" })
+        }
+    </div>
 
-![][MobileSpeakersView2]
+The `class="list-group"` attribute in the `<div>` tag applies the
+Bootstrap list styling, and the `class="input-group-item"` attribute
+applies Bootstrap list item styling to each link.
 
-As you type each letter in the search box, jQuery Mobile filters the displayed list as shown in the image below.
+Refresh the mobile browser. The updated view looks like this:
 
-![][MobileSpeakersView3]
+![][AllSpeakersFixed]
+
+The Bootstrap [linked list group][] styling makes the entire box for each
+link clickable, which is a much better user experience. Switch to the
+desktop view and observe the consistent look and feel.
+
+![][AllSpeakersFixedDesktop]
+
+Although the mobile browser view has improved, it's difficult to
+navigate the long list of speakers. Bootstrap doesn't provide a
+search filter functionality out-of-the-box, but you can add it with a
+few lines of code. You will first add a search box to the view, then
+hook up with the JavaScript code for the filter function. In
+*Views\\Home\\AllSpeakers.cshtml*, add a \<form\> tag just after the \<h2\> tag, as shown below:
+
+    @model IEnumerable<string>
+
+    @{
+        ViewBag.Title = "All Speakers";
+    }
+
+    <h2>Speakers</h2>
+
+    <form class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+        <input type="text" class="form-control" placeholder="Search speaker">
+    </form>
+    <br />
+    <div class="list-group">
+        @foreach (var speaker in Model)
+        {
+            @Html.ActionLink(speaker, 
+                             "SessionsBySpeaker", 
+                             new { speaker }, 
+                             new { @class = "list-group-item" })
+        }
+    </div>
+
+Notice that the `<form>` and `<input>` tags both have the Bootstrap
+styles applied to them. The `<span>` element adds a Bootstrap
+[glyphicon][] to the
+search box.
+
+In the *Scripts* folder, add a JavaScript file called *filter.js*. Open
+the file and paste the following code into it:
+
+    $(function () {
+
+        // reset the search form when the page loads
+        $("form").each(function () {
+            this.reset();
+        });
+
+        // wire up the events to the <input> element for search/filter
+        $("input").bind("keyup change", function () {
+            var searchtxt = this.value.toLowerCase();
+            var items = $(".list-group-item");
+
+            // show all speakers that begin with the typed text and hide others
+            for (var i = 0; i < items.length; i++) {
+                var val = items[i].text.toLowerCase();
+                val = val.substring(0, searchtxt.length);
+                if (val == searchtxt) {
+                    $(items[i]).show();
+                }
+                else {
+                    $(items[i]).hide();
+                }
+            }
+        });
+    });
+
+You also need to include filter.js in your registered bundles. Open
+*App\_Start\\BundleConfig.cs* and change the first bundles. Change the
+first `bundles.Add` statement (for the **jquery** bundle) to include
+*Scripts\\filter.js*, as follows:
+
+     bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/filter.js"));
+
+The **jquery** bundle is already rendered by the default *\_Layout*
+view. Later, you can utilize the same JavaScript code to apply the
+filter functionality to other list views.
+
+Refresh the mobile browser and go to the *AllSpeakers* view. In the
+search box, type "sc". The speakers list should now be filtered
+according to your search string.
+
+![][AllSpeakersFixedSearchBySC]
 
 <h2><a name="bkmk_improvetags"></a> Improve the Tags List</h2>
 
-Like the default Speakers view, the Tags view is readable, but the links are small and difficult to tap on a mobile device. In this section, you'll fix the Tags view the same way you fixed the Speakers view.
+Like the *Speakers* view, the *Tags* view is readable, but the links
+are small and difficult to tap on a mobile device. You can fix the *Tags* view the same way you fix the *Speakers* view, if you use the code changes described earlier, but with the following `Html.ActionLink` method syntax in *Views\\Home\\AllTags.cshtml*:
 
-1. Rename the *Views\Home\AllTags.Mobile.cshtml.hide* file to the *Views\Home\AllTags.Mobile.cshtml*. Open the renamed file and remove the **&lt;h2&gt;** element.
+    @Html.ActionLink(tag, 
+                     "SessionsByTag", 
+                     new { tag }, 
+                     new { @class = "list-group-item" })
 
-2. Add the data-role and data-filter attributes to the **&lt;ul&gt;** tag, as shown here:
+The refreshed desktop browser looks as follows:
 
-		<ul data-role="listview" data-filter="true">
-The image below shows the tags page filtering on the letter J.
+![][AllTagsFixedDesktop]
 
-![][TagsList1]
+And the refreshed mobile browser looks as follows: 
+
+![][AllTagsFixed]
+
+>[WACOM.NOTE] If you notice that the original list formatting is still there in the mobile browser and wonder what happened to your nice Bootstrap styling, this is an artifact of your earlier action to create mobile specific views. However, now that you are using the Bootstrap CSS framework to create a responsive web design, go head and remove these mobile-specific views and the mobile-specific layout views. Once you have done so, the refreshed mobile browser will show the Bootstrap styling.
 
 <h2><a name="bkmk_improvedates"></a> Improve the Dates List</h2>
 
-You can improve the Dates view like you improved the **Speakers** and **Tags** views, so that it's easier to use on a mobile device.
+You can improve the *Dates* view like you improved the *Speakers* and
+*Tags* views if you use the code changes described earlier, but with the following `Html.ActionLink` method syntax in *Views\\Home\\AllDates.cshtml*:
 
-1. Copy the *Views\Home\AllDates.Mobile.cshtml* file to *Views\Home\AllDates.Mobile.cshtml*.
-2. Open the new file and remove the **&lt;h2&gt;** element.
-3. Add *data-role="listview"* to the &lt;ul&gt; tag, like this:
+    @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
+                     "SessionsByDate", 
+                     new { date }, 
+                     new { @class = "list-group-item" })
 
-		<ul data-role="listview">
+You will get a refreshed mobile browser view like this:
 
-The image below shows what the **Date** page looks like with the data-role attribute in place.
+![][AllDatesFixed]
 
-![][DatesList1]
-
-Replace the contents of the *Views\Home\AllDates.Mobile.cshtml* file with the following code:
+You can further improve the *Dates* view by organizing the date-time
+values by date. This can be done with the Bootstrap
+[panels][] styling. Replace
+the contents of the *Views\\Home\\AllDates.cshtml* file with the
+following code:
 
     @model IEnumerable<DateTime>
-    @{
-        ViewBag.Title = "All dates";
-        DateTime lastDay = default(DateTime);
-    }
-    <ul data-role="listview">
-        @foreach(var date in Model) {
-            if (date.Date != lastDay) {
-                lastDay = date.Date;
-                <li data-role="list-divider">@date.Date.ToString("ddd, MMM dd")</li>
-            }
-            <li>@Html.ActionLink(date.ToString("h:mm tt"), "SessionsByDate", new { date })</li>
-        }
-    </ul>
-This code groups all sessions by days. It creates a list divider for each new day, and it lists all the sessions for each day under a divider. Here's what it looks like when this code runs:
 
-![][DatesList2]
+    @{
+        ViewBag.Title = "All Dates";
+    }
+
+    <h2>Dates</h2>
+
+    @foreach (var dategroup in Model.GroupBy(x=>x.Date))
+    {
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                @dategroup.Key.ToString("ddd, MMM dd")
+            </div>
+            <div class="panel-body list-group">
+                @foreach (var time in dategroup)
+                {
+                    @Html.ActionLink(time.ToString("h:mm tt"), 
+                                     "SessionsByDate", 
+                                     new { time }, 
+                                     new { @class = "list-group-item" })
+                }
+            </div>
+        </div>
+    }
+
+This code creates a separate `<div class="panel panel-primary">` tag for
+each distinct date in the list, and uses the [linked list group][] for the
+respective links as before. Here's what the mobile browser looks like
+when this code runs:
+
+![][AllDatesFixed2]
+
+Switch to the desktop browser. Again, note the consistent look.
+
+![][AllDatesFixed2Desktop]
 
 <h2><a name="bkmk_improvesessionstable"></a> Improve the SessionsTable View</h2>
 
-In this section, you'll create a mobile-specific view of sessions. The changes we make will be more extensive than in other views we have created.
+In this section, you'll make the *SessionsTable* view more
+mobile-friendly. This change is more extensive the previous changes.
 
-In the mobile browser, tap the **Speaker** button, then enter Sc in the search box.
+In the mobile browser, tap the **Tag** button, then enter `asp` in the
+search box.
 
-![][SessionView1]
+![][AllTagsFixedSearchByASP]
 
-Tap the **Scott Hanselman** link.
+Tap the **ASP.NET** link.
 
-![][SessionView2]
+![][SessionsTableTagASP.NET]
 
-As you can see, the display is difficult to read on a mobile browser. The date column is hard to read and the tags column is out of the view. To fix this, copy Views\*Home\SessionsTable.cshtml* to *Views\Home\SessionsTable.Mobile.cshtml*, and then replace the contents of the file with the following code:
+As you can see, the display is formatted as a table, which is currently
+designed to be viewed in the desktop browser. However, it's a little bit
+difficult to read on a mobile browser. To fix this, open
+*Views\\Home\\SessionsTable.cshtml* and then replace the contents of the
+file with the following code:
 
-    @using MvcMobile.Models
-    @model IEnumerable<Session>
-	
-    <ul data-role="listview">
-        @foreach(var session in Model) {
-            <li>
-                <a href="@Url.Action("SessionByCode", new { session.Code })">
-                    <h3>@session.Title</h3>
-                    <p><strong>@string.Join(", ", session.Speakers)</strong></p>
-                    <p>@session.DateText</p>
-                </a>
-            </li>
-        }
-    </ul>
-The code removes the room and tags columns, and formats the title, speaker, and date vertically, so that all this information is readable on a mobile browser. The image below reflects the code changes.
+    @model IEnumerable<Mvc5Mobile.Models.Session>
 
-![][SessionView3]
+    <h2>@ViewBag.Title</h2>
+
+    <div class="container">
+        <div class="row">
+            @foreach (var session in Model)
+            {
+                <div class="col-md-4">
+                    <div class="list-group">
+                        @Html.ActionLink(session.Title, 
+                                         "SessionByCode", 
+                                         new { session.Code }, 
+                                         new { @class="list-group-item active" })
+                        <div class="list-group-item">
+                            <div class="list-group-item-text">
+                                @Html.Partial("_SpeakersLinks", session)
+                            </div>
+                            <div class="list-group-item-info">
+                                @session.DateText
+                            </div>
+                            <div class="list-group-item-info small hidden-xs">
+                                @Html.Partial("_TagsLinks", session)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+The code does 3 things:
+
+-   uses the Bootstrap [custom linked list group][]
+    to format the session information vertically, so that all this
+    information is readable on a mobile browser (using classes such as list-group-item-text)
+-   applies the [grid system][] to the
+    layout, so that the session items flow horizontally in the desktop
+    browser and vertically in the mobile browser (using the col-md-4 class)
+-   uses the [responsive utilities][] to
+    hide the session tags when viewed in the mobile browser (using the hidden-xs class)
+
+You can also tap a title link to go to the respective session. The image
+below reflects the code changes.
+
+![][FixedSessionsByTag]
+
+The Bootstrap grid system that you applied automatically arranges the
+sessions vertically in the mobile browser. Also, notice that the tags
+are not shown. Switch to the desktop browser.
+
+![][SessionsTableFixedTagASP.NETDesktop]
+
+In the desktop browser, notice that the tags are now displayed. Also, you can see that the Bootstrap grid system you
+applied arranges the session items in two columns. If you enlarge the
+browser, you will see that the arrangement changes to three columns.
 
 <h2><a name="bkmk_improvesessionbycode"></a> Improve the SessionByCode View</h2>
 
-Finally, you'll create a mobile-specific view of the **SessionByCode** view. In the mobile browser, tap the **Speaker** button, then enter Sc in the search box.
+Finally, you'll fix the *SessionByCode* view to make it mobile-friendly.
 
-![][SessionByCode1]
+In the mobile browser, tap the **Tag** button, then enter `asp` in the
+search box.
 
-Tap the **Scott Hanselman** link. Scott Hanselman's sessions are displayed.
+![][AllTagsFixedSearchByASP]
 
-![][SessionByCode2]
+Tap the **ASP.NET** link. Sessions for the ASP.NET tag are displayed.
 
-Choose the **An Overview of the MS Web Stack of Love** link.
+![][FixedSessionsByTag]
 
-![][SessionByCode3]
+Choose the **Building a Single Page Application with ASP.NET and
+AngularJS** link.
 
-The default desktop view is fine, but you can improve it.
+![][SessionByCode3-644]
 
-Copy the *Views\Home\SessionByCode.cshtml* to *Views\Home\SessionByCode.Mobile.cshtml* and replace the contents of the *Views\Home\SessionByCode.Mobile.cshtml* file with the following markup:
+The default desktop view is fine, but you can improve the look easily by using some Bootstrap GUI components.
 
+Open *Views\\Home\\SessionByCode.cshtml* and replace the contents with
+the following markup:
 
-    @model MvcMobile.Models.Session
-	
+    @model Mvc5Mobile.Models.Session
+
     @{
         ViewBag.Title = "Session details";
     }
-    <h2>@Model.Title</h2>
+    <h3>@Model.Title (@Model.Code)</h3>
     <p>
         <strong>@Model.DateText</strong> in <strong>@Model.Room</strong>
     </p>
-	
-    <ul data-role="listview" data-inset="true">
-        <li data-role="list-divider">Speakers</li>
-        @foreach (var speaker in Model.Speakers) {
-            <li>@Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker })</li>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Speakers
+        </div>
+        @foreach (var speaker in Model.Speakers)
+        {
+            @Html.ActionLink(speaker, 
+                             "SessionsBySpeaker", 
+                             new { speaker }, 
+                             new { @class="panel-body" })
         }
-    </ul>
-	
-    <p>@Model.Description</p>
-    <h4>Code: @Model.Code</h4>
+    </div>
 
-    <ul data-role="listview" data-inset="true">
-        <li data-role="list-divider">Tags</li>
-        @foreach (var tag in Model.Tags) {
-            <li>@Html.ActionLink(tag, "SessionsByTag", new { tag })</li>
+    <p>@Model.Abstract</p>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Tags
+        </div>
+        @foreach (var tag in Model.Tags)
+        {
+            @Html.ActionLink(tag, 
+                             "SessionsByTag", 
+                             new { tag }, 
+                             new { @class = "panel-body" })
         }
-    </ul>
-The new markup uses the **data-role** attribute to improve the layout of the view.
+    </div>
 
-Refresh the mobile browser. The following image reflects the code changes that you just made:
+The new markup uses Bootstrap panels styling to improve the mobile view. 
 
-![][SessionByCode4]
+Refresh the mobile browser. The following image reflects the code
+changes that you just made:
 
-<h2><a name="bkmk_deployapplciation"></a> Deploy the Application to the Azure Web Site</h2>
+![][SessionByCodeFixed3-644]
 
-1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
+Wrap Up and Review
+------------------
 
-	![Publish in project context menu][PublishVSSolution]
+This tutorial has shown you how to use ASP.NET MVC 5 to develop
+mobile-friendly Web applications. These include:
 
-	The **Publish Web** wizard opens.
-2. In the **Profile** tab of the **Publish Web** wizard, click **Import**.
+-	Deploy an ASP.NET MVC 5 application to a Windows Azure Website
+-   Use Bootstrap to create responsive web layout in your MVC 5
+    application
+-   Override layout, views, and partial views, both globally and for an
+    individual view
+-   Control layout and partial override enforcement using the
+    `RequireConsistentDisplayMode` property
+-   Create views that target specific browsers, such as the iPhone
+    browser
+-   Apply Boostrap styling in Razor code
 
-	![Import publish settings][ImportPublishSettings]
+See Also
+--------
 
-	The **Import Publish Profile** dialog box appears.
-
-3. If you have not previously added your Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from an Azure web site** will include your web site.
-	1. In the **Import Publish Profile** dialog box, click **Add Azure subscription**. 
-
-	![add win az sub](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzAddWAsub.png)
-
-	1. In the **Import Azure Subscriptions** dialog box, click **Download subscription file**.
-    
-	![download sub](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzDownLoad.png)
-    
-	1. In your browser window, save the *.publishsettings* file.
-    
-	![download pub file](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzDown2.png)
-    
-	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
-</br>
-    
-	1. In the **Import Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.
-    
-	![download sub](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzDownLoad.png)
-    
-	1. Click **Import**.
-    
-	![import](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzImp.png)
-
-	7. In the **Import Publish Profile** dialog box, select **Import from an Azure web site**, select your web site from the drop-down list, and then click **OK**.
-
-	![Import Publish Profile][ImportPublishProfile]
-
-
-	8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.
-
-	![Validate connection][ValidateConnection]
-
-	9. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.
-	![connection successful icon and Next button in Connection tab][firsdeploy007]
-
-	10. You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **UsersContext (DefaultConnection)** entry under **Databases** comes from the *UsersContext:DbContext* class which uses the DefaultConnection string. 
-Click **Next**.
-
-	![connection successful icon and Next button in Connection tab][rxPWS]
-
-	12. In the **Preview** tab, click **Start Preview**.
-The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed. The next time you publish, only the files that have changed will be in the preview list.
-
-	![StartPreview button in the Preview tab][firsdeploy009]
-
-	12. Click **Publish**.
-
-	Visual Studio begins the process of copying the files to the Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
-
-	15. The default browser automatically opens to the URL of the deployed site. The application you created is now running in the cloud.
-
-	![][DeployApplication10]
-
-You can test your live web site using the phone emulator by browsing to the site URL in the mobile browser.
+-   [Bootstrap][BootstrapSite] site
+-   [Official Bootstrap Blog][]
+-   [Twitter Bootstrap Tutorial from Tutorial Republic][]
+-   [The Bootstrap Playground][]
+-   [W3C Recommendation Mobile Web Application Best Practices][]
+-   [W3C Candidate Recommendation for media queries][]
 
 <!-- Internal Links -->
-[Create an Azure web site]: #bkmk_createaccount
-[Setup the starter Project]: #bbkmk_setupstarterproject
+[Deploy the starter project to a Windows Azure Website]: #bkmk_DeployStarterProject
+[Bootstrap CSS Framework]: #bkmk_bootstrap
 [Override the Views, Layouts, and Partial Views]: #bkmk_overrideviews
-[Use jQuery Mobile to define the mobile broswer interface]: #bkmk_usejquerymobile
-[Improve the Speakers List]: #bkmk_Improvespeakerslis
-[Create a Mobile Speakers View]: #bkmk_mobilespeakersview
+[Create Browser-Specific Views]:#bkmk_browserviews
+[Improve the Speakers List]: #bkmk_Improvespeakerslist
 [Improve the Tags List]: #bkmk_improvetags
 [Improve the Dates List]: #bkmk_improvedates
 [Improve the SessionsTable View]: #bkmk_improvesessionstable
 [Improve the SessionByCode View]: #bkmk_improvesessionbycode
-[Deploy the Application to the Azure Web Site]: #bkmk_deployapplciation
-
-<!-- Images -->
-[CreateWebSite1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_1.png
-[CreateWebSite2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_2.png
-[CreateWebSite3]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_3.png
-[CreateWebSite4]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_4.png
-[AppMainPage]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/FinishedAPPMainScreen.png
-[PropertiesPopup]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/propertiespopup.png
-[BrowseByTagWithCallout]:./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/BrowseByTagWithCallout.png
-[ASPNetPage]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/ASPNetPage.png
-[Overrideviews1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p2m_layouttags_mobile_thumb.png
-[Overrideviews2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/Windows-Live-Writer_ASP_NET-MVC-4-Mobile-Features_D2FF_p2_layoutTagsDesktop_thumb.png
-[jquery1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-mobile-open-packagmanager.png
-[jquery2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-mobile-open-install-jquey.png
-[jquery3]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_afternuget_thumb.png
-[jquery4]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_desktopviewwithmobilelink_thumb.png
-[jquery5]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_desktopviewwithmobilelink_thumb.png
-[jquery6]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/Windows-Live-Writer_ASP_NET-MVC-4-Mobile-Features_D2FF_p3_desktopBrowser_thumb.png
-[SpeakerList1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_speakersdesktop_thumb.png
-[SpeakerList2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_speakersconsistent_thumb.png
-[SpeakerList3]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_updatedspeakerview1_thumb.png
-[SpeakerList4]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_data_filter_thumb.png
-[MobileSpeakersView1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_updatedspeakerview1_thumb.png
-[MobileSpeakersView2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_data_filter_thumb.png
-[MobileSpeakersView3]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_data_filter_sc_thumb.png
-[TagsList1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_tags_j_thumb.png
-[DatesList1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_dates1_thumb.png
-[DatesList2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_dates2_thumb.png
-[SessionView1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_data_filter_sc_thumb_1.png
-[SessionView2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_scottha_thumb.png
-[SessionView3]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_sessionsbyscottha_thumb.png
-[SessionByCode1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_data_filter_sc_thumb_2.png
-[SessionByCode2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_scottha_thumb.png
-[SessionByCode3]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_love_thumb.png
-[SessionByCode4]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_love2_thumb.png
-[DeployApplication1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_5.png
-[DeployApplication2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_6.png
-[DeployApplication3]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_7.png
-[DeployApplication4]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_8.png
-[DeployApplication5]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_9.png
-[DeployApplication6]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_10.png
-[DeployApplication7]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_12.png
-[DeployApplication8]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_13.png
-[DeployApplication9]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_14.png
-[DeployApplication10]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_15.png
 
 <!-- External Links -->
-[MVC4DeveloperPreview]: http://www.asp.net/mvc/mvc4
-[WebDeployUpdate]: http://www.windowsazure.com/en-us/develop/net/
-[Visual Studio Express 2012]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-express-products
-[MVC4StarterProject]: http://go.microsoft.com/fwlink/?LinkId=228307
-[FinishedProject]: http://go.microsoft.com/fwlink/?LinkId=228306
-[Win7PhoneEmulator]: http://msdn.microsoft.com/en-us/library/ff402530(VS.92).aspx
-[OperaMobileEmulator]: http://www.opera.com/developer/tools/mobile/
-[AppleSafari]: http://www.apple.com/safari/download/
-[HowToSafari]: http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html
-[FireFox]: http://www.bing.com/search?q=firefox+download
-[FireFoxUserAgentSwitcher]: https://addons.mozilla.org/en-US/firefox/addon/user-agent-switcher/
-[CSSMediaQuries]: http://www.w3.org/TR/css3-mediaqueries/
-[jquerydocs]: http://jquerymobile.com/demos/1.0b3/#/demos/1.0b3/docs/about/intro.html
-[setuseragent]: http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/
-[managementportal]: https://manage.windowsazure.com
-[WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk20NetVS12.png
-[Add XSRF Protection]: #xsrf
-[ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/ImportPublishSettings.png
-[ImportPublishProfile]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/ImportPublishProfile.png
-[PublishVSSolution]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/PublishVSSolution.png
-[ValidateConnection]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/ValidateConnection.png
-[WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk20NetVS12.png
-[firsdeploy007]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/dntutmobile-deploy1-publish-005.png
-[firsdeploy009]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/dntutmobile-deploy1-publish-007.png
-[rxPWS]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rxPWS.png
+[Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
+[AzureSDKVs2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
+[Fiddler]: http://www.fiddler2.com/fiddler2/
+[EmulatorIE11]: http://msdn.microsoft.com/en-us/library/ie/dn255001.aspx
+[EmulatorChrome]: https://developers.google.com/chrome-developer-tools/docs/mobile-emulation
+[EmulatorOpera]: http://www.opera.com/developer/tools/mobile/
+[StarterProject]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
+[CompletedProject]: http://go.microsoft.com/fwlink/?LinkID=398781&clcid=0x409
+[BootstrapSite]: http://getbootstrap.com/
+[WebPIAzureSdk23NetVS13]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
+[linked list group]: http://getbootstrap.com/components/#list-group-linked
+[glyphicon]: http://getbootstrap.com/components/#glyphicons
+[panels]: http://getbootstrap.com/components/#panels
+[custom linked list group]: http://getbootstrap.com/components/#list-group-custom-content
+[grid system]: http://getbootstrap.com/css/#grid
+[responsive utilities]: http://getbootstrap.com/css/#responsive-utilities
+[Official Bootstrap Blog]: http://blog.getbootstrap.com/
+[Twitter Bootstrap Tutorial from Tutorial Republic]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
+[The Bootstrap Playground]: http://www.bootply.com/
+[W3C Recommendation Mobile Web Application Best Practices]: http://www.w3.org/TR/mwabp/
+[W3C Candidate Recommendation for media queries]: http://www.w3.org/TR/css3-mediaqueries/
 
+<!-- Images -->
+[DeployClickPublish]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-1.png
+[DeployClickWebSites]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-2.png
+[DeploySignIn]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-3.png
+[DeployUsername]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-4.png
+[DeployPassword]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-5.png
+[DeployNewWebsite]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-6.png
+[DeploySiteSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7.png
+[DeployPublishSite]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-8.png
+[MobileHomePage]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/mobile-home-page.png
+[FixedSessionsByTag]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
+[AllTags]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTags.png
+[SessionsByTagASP.NET]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET.png
+[SessionsByTagASP.NETNoBootstrap]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-NoBootstrap.png
+[AllTagsMobile_LayoutMobile]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTagsMobile-_LayoutMobile.png
+[AllTagsMobile_LayoutMobileDesktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTagsMobile-_LayoutMobile-Desktop.png
+[ResolveDefaultDisplayMode]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/Resolve-DefaultDisplayMode.png
+[AllTagsIPhone_LayoutIPhone]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTagsIPhone-_LayoutIPhone.png
+[AllSpeakers_LayoutMobile]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-_LayoutMobile.png
+[AllSpeakers_LayoutMobileOverridden]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-_LayoutMobile-Overridden.png
+[AllSpeakersFixed]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-Fixed.png
+[AllSpeakersFixedDesktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-Fixed-Desktop.png
+[AllSpeakersFixedSearchBySC]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-Fixed-SearchBySC.png
+[AllTagsFixedDesktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTags-Fixed-Desktop.png 
+[AllTagsFixed]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTags-Fixed.png
+[AllDatesFixed]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllDates-Fixed.png
+[AllDatesFixed2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllDates-Fixed2.png
+[AllDatesFixed2Desktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllDates-Fixed2-Desktop.png
+[AllTagsFixedSearchByASP]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTags-Fixed-SearchByASP.png
+[SessionsTableTagASP.NET]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsTable-Tag-ASP.NET.png
+[SessionsTableFixedTagASP.NETDesktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsTable-Fixed-Tag-ASP.NET-Desktop.png
+[SessionByCode3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
+[SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png

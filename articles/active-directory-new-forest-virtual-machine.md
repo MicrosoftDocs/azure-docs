@@ -30,7 +30,7 @@ There is not much difference between installing a domain controller on Azure ver
 
 To configure...  | On-premises  | Azure virtual network	
 ------------- | -------------  | ------------
-**IP address for the domain controller**  | Assign static IP address on the network adapter properties   | Obtain IP address via DHCP and run the Set-AzureStaticVNetIP cmdlet to make it static
+**IP address for the domain controller**  | Assign static IP address on the network adapter properties   | Obtain IP address via DHCP and optionally run the Set-AzureStaticVNetIP cmdlet to make it static
 **DNS client resolver**  | Set Preferred and Alternate DNS server address on the network adapter properties of domain members   | Set DNS server address on the the virtual network properties
 **Active Directory database storage**  | Optionally change the default storage location from C:\  | You need to change default storage location from C:\
 
@@ -82,7 +82,7 @@ To configure...  | On-premises  | Azure virtual network
 
 
 <h2><a id="domainmembers"></a>Step 5: Create VMs for domain members and join the domain</h2>
-Create additional VMS to provision domain member computers. You can use the UI or Azure PowerShell. If you use the UI, just follow the same steps that you used to create the first VM. Then join the VMs to the domain just as you would on-premises. If you use Azure PowerShell, you can provision VMs and have them domain-joined when they first start, as in the following example.
+<p>Create additional VMs to provision domain member computers. You can use the UI or Azure PowerShell. If you use the UI, just follow the same steps that you used to create the first VM. Then join the VMs to the domain just as you would on-premises. If you use Azure PowerShell, you can provision VMs and have them domain-joined when they first start. </p><p>This example will create a domain-joined VM named DC2 that runs Windows Server 2012 R2 Datacenter. After DC2 is provisioned, log on to it as a Domain Admin and promote it to be a replica DC. </p><p>You can run Get-AzureVMImage to get image names. For example, to return a list of images for Windows Server 2012 R2, run Get-AzureVMImage | where-object {$_.ImageFamily -eq "Windows Server 2012 R2 Datacenter"}.</p>
 	'
 
 	cls
@@ -93,18 +93,18 @@ Create additional VMS to provision domain member computers. You can use the UI o
 	#Deploy a new VM and join it to the domain
 	#-------------------------------------------
 	#Specify my DC's DNS IP (10.0.0.4)
-	$myDNS = New-AzureDNS -Name 'DC-1' -IPAddress '10.0.0.4'
+	$myDNS = New-AzureDNS -Name 'DC1' -IPAddress '10.0.0.4'
 	
 	# OS Image to Use
-	$image = 'a699494373c04fc0bc8f2bb1389d6106__Win2K8R2SP1-Datacenter-201310.01-en.us-127GB.vhd'
-	$service = 'ConApp1'
+	$image = 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201404.01-en.us-127GB.vhd'
+	$service = 'DC2'
 	$AG = 'YourAffinityGroup'
 	$vnet = 'YourVirtualNetwork'
 	$pwd = 'P@ssw0rd'
 	$size = 'Small'
 
 	#VM Configuration
-	$vmname = 'ConApp1'
+	$vmname = 'DC2'
 	$MyVM3 = New-AzureVMConfig -name $vmname -InstanceSize $size -ImageName $image |
     Add-AzureProvisioningConfig -AdminUserName 'PierreSettles' -WindowsDomain -Password $pwd -Domain 'Contoso' -DomainPassword 'P@ssw0rd' -DomainUserName 'PierreSettles' -JoinDomain 'contoso.com'|
     Set-AzureSubnet -SubnetNames 'FrontEnd' 
@@ -115,13 +115,17 @@ If you rerun the script, you need to supply a unique value for $service. You can
 
 ## See Also
 
--  [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx)
+-  [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156090.aspx)
 
--  [Configure a Cloud-Only Virtual Network in the Management Portal](http://msdn.microsoft.com/en-us/library/azure/dn631643.aspx)
+-  [Configure a Cloud-Only Virtual Network in the Management Portal](http://msdn.microsoft.com/en-us/library/dn631643.aspx)
 
--  [Create a Virtual Network for Site-to-Site Cross-Premises Connectivity](http://msdn.microsoft.com/en-us/library/azure/dn133795.aspx)
+-  [Configure a Site-to-Site VPN in the Management Portal](http://msdn.microsoft.com/en-us/library/dn133795.aspx)
 
--  [Install a Replica Active Directory Domain Controller in an Azure virtual network](http://www.windowsazure.com/en-us/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
+-  [Install a Replica Active Directory Domain Controller in an Azure virtual network](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
+
+-  [Windows Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
+
+-  [Windows Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 
 -  [Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
 
@@ -132,6 +136,8 @@ If you rerun the script, you need to supply a unique value for $service. You can
 -  [Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841)
 
 -  [Set Azure VM Static IP Address](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
+
+-  [How to assign Static IP to Azure VM](http://www.bhargavs.com/index.php/2014/03/13/how-to-assign-static-ip-to-azure-vm/)
 
 -  [Install a New Active Directory Forest](http://technet.microsoft.com/library/jj574166.aspx)
 

@@ -2,16 +2,19 @@
 
 # Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, and Azure Storage Tables, Queues, and Blobs - 1 of 5
 
-This tutorial series shows how to create and deploy a multi-tier ASP.NET MVC web application that runs in an Azure cloud service and uses Azure Storage tables, queues, and blobs. You can [download the completed application](http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) from the MSDN Code Gallery. Here is a diagram that shows how the parts of the application interact:
+This tutorial series shows how to create and deploy a multi-tier ASP.NET MVC web application that runs in an Azure cloud service and uses Azure Storage tables, queues, and blobs. You can download [the completed application](http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) from the MSDN Code Gallery or an [e-book](http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs) of an earlier version from the TechNet E-Book Gallery.
+
+Here's a diagram that shows how the parts of the application interact:
 
 ![Email message processing][mtas-worker-roles-a-and-b]
 
-In this tutorial series you'll learn the following:
+This is a 5-part tutorial series. If you want a quicker, simpler introduction to cloud services, queues, and blobs, see [Get Started with Azure Cloud Services and ASP.NET](/en-us/documentation/articles/cloud-services-dotnet-get-started/).
+
+In this tutorial series you'll learn:
 
 * How to enable your machine for Azure development by installing the Azure SDK.
 * How to create a Visual Studio cloud project with an ASP.NET MVC web role and two worker roles.
 * How to publish the cloud project to an Azure Cloud Service.
-* How to publish the MVC project to an Azure Web Site if you prefer, and still use the worker roles in a Cloud Service.
 * How to use the Azure Queue storage service for communication between tiers or between worker roles.
 * How to use the Azure Table storage service as a highly scalable data store for structured, non-relational data.
 * How to use the Azure Blob service to store files in the cloud.
@@ -22,7 +25,7 @@ In this tutorial series you'll learn the following:
 
 <h2><a name="toc"></a>Tutorials in the Series</h2>
 
-Here is a list of the tutorials with a summary of their contents:
+There are five tutorials in the series:
 
 1. **Introduction to the Azure Email Service application** (this tutorial). An in-depth look at the application and its architecture. You can skip this if you just want to see how to deploy or you want to see the code, and you can come back here later to better understand the architecture. 
 2. [Configuring and Deploying the Azure Email Service application][tut2]. How to download the sample application, configure it, test it locally, deploy it, and test it in the cloud.  
@@ -30,10 +33,10 @@ Here is a list of the tutorials with a summary of their contents:
 4. [Building worker role A (email scheduler) for the Azure Email Service application][tut4]. How to build the back-end component that creates queue work items for sending emails, and test it locally.
 5. [Building worker role B (email sender) for the Azure Email Service application][tut5]. How to build the back-end component that processes queue work items for sending emails, and test it locally.
 
+
 ## Segments of this tutorial
 
 - [Prerequisites](#prerequisites)
-- [Why an email list](#whyanemaillistapp)
 - [Front-end overview](#frontend)
 - [Back-end overview](#backend)
 - [Azure tables](#tables)
@@ -50,32 +53,17 @@ Here is a list of the tutorials with a summary of their contents:
 
 The instructions in these tutorials work for the following products:
 
-* Visual Studio 2012
-* Visual Studio 2012 Express for Web
-* Visual Studio 2010
-* Visual Web Developer Express 2010.
+* Visual Studio 2013 with Update 2
+* Visual Studio 2013 Express for Web with Update 2
 
->[WACOM.NOTE] After this tutorial was written, Visual Studio 2013 was released, and the Azure Management Portal and SDK were updated. Notes like this one have been added at points where you have to do things differently if you are using Visual Studio 2013 and the latest SDK. The notes were written in March, 2014, and the revised procedures have been tested with SDK version 2.3. The main text and screen shots of the tutorial will be updated later.
-This content, without the latest updates for Visual Studio 2013, is available as a free e-book in the 
-[TechNet E-Book Gallery](http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs).
-
-<h2><a name="whyanemaillistapp"></a><span class="short-header">Why This App</span>Why an Email List Service Application</h2>
-
-We chose an email list service for this sample application because it is the kind of application that needs to be resilient and scalable, two features that make it especially appropriate for Azure.  
-
-### Resilient 
-
-If a server fails while sending out emails to a large list, you want to be able to spin up a new server easily and quickly, and you want the application to pick up where it left off without losing or duplicating any emails. An Azure Cloud Service web or worker role instance (a virtual machine) is automatically replaced if it fails. And Azure Storage queues and tables provide a means to implement server-to-server communication that can survive a failure without losing work.
-
-### Scalable
-
-An email service also must be able to handle spikes in workload, since sometimes you are sending emails to small lists and sometimes to very large lists.  In many hosting environments, you have to purchase and maintain sufficient hardware to handle the spikes in workload, and you're paying for all that capacity 100% of the time although you might only use it 5% of the time.  With Azure, you pay only for the amount of computing power that you actually need for only as long as you need it.  To scale up for a large mailing, you just change a configuration setting to increase the number of servers you have available to process the workload, and this can be done programmatically.  For example, you could configure the application so that if the number of work items waiting in the queue exceeds a certain number, Azure automatically spins up additional instances of the worker role that processes those work items.
-
+You also need an Azure subscription. You can create a [free trial account](/en-us/pricing/free-trial/) or [activate MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits/).
 
 
 <h2><a name="frontend"></a>Front-end overview</h2>
 
-The application that you'll build is an email list service. The front-end of the application includes web pages that administrators of the service use to manage email lists.
+The application is an email list service. The front-end includes web pages that administrators of the service use to manage email lists.
+
+(The screen shots show Visual Studio 2012 template style; the content is the same for Visual Studio 2013 but the style is different.)
 
 ![Mailing List Index Page][mtas-mailing-list-index-page]
 
@@ -93,7 +81,7 @@ Clients of the service are companies that give their customers an opportunity to
 
 ![Welcome to list page][mtas-subscribe-confirmation-page]
 
-Every email sent by the service (except the subscribe confirmation) includes a hyperlink that can be used to unsubscribe. If a recipient clicks the link, a web page asks for confirmation of intent to unsubscribe. 
+Every email sent (except the subscribe confirmation) includes an unsubscribe hyperlink. If a recipient clicks the link, a web page asks for confirmation of intent to unsubscribe. 
 
 ![Confirm unsubscribe page][mtas-unsubscribe-query-page]
 
@@ -102,7 +90,7 @@ If the recipient clicks the **Confirm** button, a page is displayed confirming t
 ![Unsubscribe confirmed page][mtas-unsubscribe-confirmation-page]
 
 
-<h2><a name="backend"></a><span class="short-header">Back-end overview</span>Back-end overview</h2>
+<h2><a name="backend"></a>Back-end overview</h2>
 
 The front-end stores email lists and messages to be sent to them in Azure tables. When an administrator schedules a message to be sent, a table row containing the scheduled date and other data such as the subject line is added to the `message` table. A worker role periodically scans the `message` table looking for messages that need to be sent (we'll call this worker role A). 
 
@@ -116,31 +104,28 @@ A second worker role (worker role B) polls the queue for work items. When worker
 
 ![Email message processing][mtas-worker-roles-a-and-b]
 
-No emails are missed if worker role B goes down and has to be restarted, because a queue work item for an email isn't deleted until after the email has been sent. The back-end also implements table processing that prevents multiple emails from getting sent in case worker role A goes down and has to be restarted. In that case, multiple queue work items might be generated for a given destination email address. But for each destination email address, a row in the `message` table tracks whether the email has been sent. Depending on the timing of the restart and email processing, worker A uses this row to avoid creating a second queue work item, or worker B uses this row to avoid sending a second email.
+No emails are missed if worker role B goes down and has to be restarted, because a queue work item for an email isn't deleted until after the email has been sent. The application also prevents multiple emails from getting sent in case worker role A goes down and has to be restarted. 
 
 ![Preventing duplicate emails][mtas-message-processing]
 
-Worker role B also polls a subscription queue for work items put there by the Web API service method for new subscriptions. When it finds one, it sends the confirmation email. 
+Worker role B polls a subscription queue for work items put there by the Web API service method for new subscriptions. When it finds one, it sends the confirmation email. 
 
 ![Subscription queue message processing][mtas-subscribe-diagram]
 
 
+<h2><a name="tables"></a>Azure Tables</h2>
 
-
-
-<h2><a name="tables"></a><span class="short-header">Tables</span>Azure Tables</h2>
-
-The Azure Email Service application stores data in Azure Storage tables. Azure tables are a NoSQL data store, not a relational database like [Azure SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx). That makes them a good choice when efficiency and scalability are more important than data normalization and relational integrity. For example, in this application, one worker role creates a row every time a queue work item is created, and another one retrieves and updates a row every time an email is sent, which might become a performance bottleneck if a relational database were used. Additionally,  Azure tables are cheaper than Azure SQL.  For more information about Azure tables, see the resources that are listed at the end of [the last tutorial in this series][tut5].
+The Azure Email Service application stores data in Azure Storage tables. Azure tables are a NoSQL data store, not a relational database like [Azure SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx). Azure tables are a good choice when efficiency and scalability are more important than data normalization and relational integrity. For example, in this application, one worker role creates a row every time a queue work item is created, and another one retrieves and updates a row every time an email is sent, which might become a performance bottleneck if a relational database were used. Additionally,  Azure tables are cheaper than Azure SQL.  For more information about Azure tables, see [the last tutorial in this series][tut5].
 
 The following sections describe the contents of the Azure tables that are used by the Azure Email Service application. For a diagram that shows the tables and their relationships, see the [Azure Email Service data diagram](#datadiagram) later in this page.
 
 ### mailinglist table ###
 
-The `mailinglist` table stores information about mailing lists and the subscribers to mailing lists. (The Azure table naming convention best practice is to use all lower-case letters.) Administrators use web pages to create and edit mailing lists, and clients and subscribers use a set of web pages and a service method to subscribe and unsubscribe. 
+The `mailinglist` table stores information about mailing lists and the subscribers to mailing lists. (An Azure table naming convention best practice is to use all lower-case letters.) 
 
-In NoSQL tables, different rows can have different schemas, and this flexibility is commonly used to make one table store data that would require multiple tables in a relational database. For example, to store mailing list data in SQL Database you could use three tables: a `mailinglist` table that stores information about the list, a `subscriber` table that stores information about subscribers, and a `mailinglistsubscriber` table that associates mailing lists with subscribers and vice versa. In the NoSQL table in this application, all of those functions are rolled into one table named `mailinglist`. 
+In Azure tables, different rows can have different schemas, and this flexibility is commonly used to make one table store data that would require multiple tables in a relational database. For example, to store mailing list data in SQL Database you could use three tables: a `mailinglist` table that stores information about the list, a `subscriber` table that stores information about subscribers, and a `mailinglistsubscriber` table that associates mailing lists with subscribers and vice versa. In the NoSQL table in this application, all of those functions are rolled into one table named `mailinglist`. 
 
-In an Azure table, every row has a *partition key* and a *row key* that uniquely identifies the row. The partition key divides the table up logically into partitions. Within a partition, the row key uniquely identifies a row. There are no secondary indexes; therefore to make sure that the application will be scalable, it is important to design your tables so that you can always specify partition key and row key values in the Where clause of queries.
+In an Azure table, every row has a *partition key* and a *row key* that uniquely identifies the row. The partition key divides the table up logically into partitions. Within a partition, the row key uniquely identifies a row. There are no secondary indexes; therefore to make sure that the application will be scalable, it is important to design your tables so that you can always query by partition key and row key.
 
 The partition key for the `mailinglist` table is the name of the mailing list. 
 
@@ -150,7 +135,7 @@ In other words, rows with row key "mailinglist" are equivalent to a `mailinglist
 
 Making one table serve multiple purposes in this way facilitates better performance. In a relational database three tables would have to be read, and three sets of rows would have to be sorted and matched up against each other, which takes time. Here just one table is read and its rows are automatically returned in partition key and row key order.
 
-The following grid shows row properties for the rows that contain mailing list information (row key = "MailingList").
+The following grid shows row properties for the rows that contain mailing list information (row key = "mailinglist").
 
 <table border="1">
 
@@ -213,7 +198,7 @@ The following grid shows row properties for the rows that contain subscriber inf
 <td>String</td>
 <td>Generated when the email address is added to a list. Used in subscribe and unsubscribe links so that it's difficult to subscribe or unsubscribe someone else's email address. 
 <br/><br/>
-Some queries for the Subscribe and Unsubscribe web pages specify only the PartitionKey and this property. Querying a partition without using the RowKey limits the scalability of the application, because queries will take longer as mailing list sizes increase. An option for improving scalability is to add lookup rows that have the SubscriberGUID in the RowKey property. For example, for each email address one row could have "email:student1@domain.com" in the RowKey and another row for the same subscriber could have "guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a" in the RowKey. This is simple to implement because atomic batch transactions on rows within a partition are easy to code. We hope to implement this in the next release of the sample application. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx">Real World: Designing a Scalable Partitioning Strategy for Azure Table Storage</a>
+Some queries for the Subscribe and Unsubscribe web pages specify only the PartitionKey and this property. Querying a partition without using the RowKey limits the scalability of the application, because queries will take longer as mailing list sizes increase. An option for improving scalability is to add lookup rows that have the SubscriberGUID in the RowKey property. For example, for each email address one row could have "email:student1@domain.com" in the RowKey and another row for the same subscriber could have "guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a" in the RowKey. This is simple to implement because atomic batch transactions on rows within a partition are easy to code. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx">Real World: Designing a Scalable Partitioning Strategy for Azure Table Storage</a>
 </td>
 </tr>
 
@@ -701,12 +686,12 @@ The schema of rows in the `messagearchive` table is identical to that of the `me
 
 
 
-<h2><a name="queues"></a><span class="short-header">Queues</span>Azure Queues</h2>
+<h2><a name="queues"></a>Azure Queues</h2>
 
 Azure queues facilitate communication between tiers of this multi-tier application, and between worker roles in the back-end tier. 
 Queues are used to communicate between worker role A and worker role B in order to make the application scalable. Worker role A could create a row in the Message table for each email, and worker role B could scan the table for rows representing emails that haven't been sent, but you wouldn't be able to add additional instances of worker role B in order to divide up the work. The problem with using table rows to coordinate the work between worker role A and worker role B is that you have no way of ensuring that only one worker role instance will pick up any given table row for processing. Queues give you that assurance. When a worker role instance pulls a work item off a queue, the queue service makes sure that no other worker role instance can pull the same work item. This exclusive lease feature of Azure queues facilitates sharing a workload among multiple instances of a worker role.
 
-Azure also provides the Service Bus queue service. For more information about Azure Storage queues and Service Bus queues, see the resources that are listed at the end of [the last tutorial in this series][tut5].
+Azure also provides the Service Bus queue service. For more information about Azure Storage queues and Service Bus queues, see [the last tutorial in this series][tut5].
 
 The Azure Email Service application uses two queues, named `AzureMailQueue` and `AzureMailSubscribeQueue`.
 
@@ -741,23 +726,22 @@ The following diagram shows the tables and queues and their relationships.
 
 
 
-<h2><a name="blobs"></a><span class="short-header">Blobs</span>Azure Blobs</h2>
+<h2><a name="blobs"></a>Azure Blobs</h2>
 
-Blobs are "binary large objects." The Azure Blob service provides a means for uploading and storing files in the cloud. For more information about Azure blobs, see the resources that are listed at the end of [the last tutorial in this series][tut5].
+Blobs are "binary large objects." The Azure Blob service provides a means for uploading and storing files in the cloud. For more information about Azure blobs, see [the last tutorial in this series][tut5].
 
 Azure Mail Service administrators put the body of an email in HTML form in an *.htm* file and in plain text in a *.txt* file. When they schedule an email, they upload these files in the **Create Message** web page, and the ASP.NET MVC controller for the page stores the uploaded file in an Azure blob.
 
-Blobs are stored in blob containers, much like files are stored in folders. The Azure Mail Service application uses a single blob container, named **azuremailblobcontainer**.  The name of the blobs in the container is derived by concatenating the MessageRef value with the file extension, for example: 
-634852858215726983.htm and 634852858215726983.txt.
+Blobs are stored in blob containers, much like files are stored in folders. The Azure Mail Service application uses a single blob container, named **azuremailblobcontainer**.  The name of the blobs in the container is derived by concatenating the MessageRef value with the file extension, for example: 634852858215726983.htm and 634852858215726983.txt.
 
 Since both HTML and plain text messages are essentially strings, we could have designed the application to store the email message body in string properties in the `Message` table instead of in blobs. However, there is a 64K limit on the size of a property in a table row, so using a blob avoids that limitation on email body size. (64K is the maximum total size of the property; after allowing for encoding overhead, the maximum string size you can store in a property is actually closer to 48k.)
 
 
 
 
-<h2><a name="wawsvswacs"></a><span class="short-header">Cloud Service vs. Web Site</span>Azure Cloud Service versus Azure Web Site</h2>
+<h2><a name="wawsvswacs"></a>Azure Cloud Service versus Azure Web Site</h2>
 
-When you download the Azure Email Service, it is configured so that the front-end and back-end all run in a single Azure Cloud Service.
+The Azure Email Service is configured so that the front-end and back-end all run in an Azure Cloud Service.
 
 ![Application architecture overview][mtas-architecture-overview]
 
@@ -765,27 +749,12 @@ An alternative architecture is to run the front-end in an Azure Web Site.
 
 ![Alternative application architecture][mtas-alternative-architecture]
 
-Keeping all components in a cloud service simplifies configuration and deployment. If you create the application with the ASP.NET MVC front end in an Azure Web Site, you will have two deployments, one to the Azure Web Site and one to the Azure Cloud Service. In addition, Azure Cloud Service web roles provide the following features that are unavailable in Azure Web Sites:
-
-- Support for custom and wildcard certificates.
-- Full control over how IIS is configured. Many IIS features cannot be enabled on Azure Web sites. With Azure web roles, you can define a startup command that runs the [AppCmd](http://www.iis.net/learn/get-started/getting-started-with-iis/getting-started-with-appcmdexe "appCmd")  program to modify IIS settings that cannot be configured in your *Web.config* file. For more information, see [How to Configure IIS Components in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433059.aspx)  and  [How to Block Specific IP Addresses from Accessing a Web Role
-](http://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx).
-- Support for automatically scaling your web application by using the [Autoscaling Application Block][autoscalingappblock].
-- The ability to run elevated startup scripts to install applications, modify registry settings, install performance counters, etc.
-- Network isolation for use with [Azure Connect](http://msdn.microsoft.com/en-us/library/windowsazure/gg433122.aspx) and [Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
-- Remote desktop access for debugging and advanced diagnostics.
-- Rolling upgrades with [Virtual IP Swap](http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx "VIP swap"). This feature swaps the content of your staging and production deployments. 
-
-The alternative architecture might offer some cost benefits, because an Azure Web Site might be less expensive for similar capacity compared to a web role running in a Cloud Service. Later tutorials in the series explain implementation details that differ between the two architectures.
-
-For more information about how to choose between Azure Web Sites and Azure Cloud Services, see [Azure Execution Models](http://www.windowsazure.com/en-us/manage/windows/fundamentals/compute/).
+Another alternative is to run the front-end in an Azure web site and use the WebJobs feature to run the back-end in the same servers that run the front-end. For more information, see [Azure Web Sites, Cloud Services and Virtual Machines comparison](/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
 
 
+<h2><a name="cost"></a>Cost</h2>
 
-
-<h2><a name="cost"></a><span class="short-header">Cost</span>Cost</h2>
-
-This section provides a brief overview of costs for running the sample application in Azure, given rates in effect when the tutorial was published in December of 2012. Before making any business decisions based on costs, be sure to check current rates on the following web pages:
+This section provides a brief overview of costs for running the sample application in Azure, given rates in effect when the tutorial was originally published in December of 2012. Before making any business decisions based on costs, be sure to check current rates on the following web pages:
 
 * [Azure Pricing Calculator](http://www.windowsazure.com/en-us/pricing/calculator/)
 * [SendGrid Azure](http://sendgrid.com/windowsazure.html)
@@ -856,31 +825,22 @@ The following table shows the costs for the default architecture for the Azure E
 
 As you can see, role instances are a major component of the overall cost. Role instances incur a cost even if they are stopped; you must delete a role instance to not incur any charges. One cost saving approach would be to move all the code from worker role A and worker role B into one worker role. For these tutorials we deliberately chose to implement two worker instances in order to simplify scale out. The work that worker role B does is coordinated by the Azure Queue service, which means that you can scale out worker role B simply by increasing the number of role instances. (Worker role B is the limiting factor for high load conditions.) The work performed by worker role A is not coordinated by queues, therefore you cannot run multiple instances of worker role A. If the two worker roles were combined and you wanted to enable scale out, you would need to implement a mechanism for ensuring that worker role A tasks run in only one instance. (One such mechanism is provided by [CloudFx](http://nuget.org/packages/Microsoft.Experience.CloudFx "CloudFX"). See the [WorkerRole.cs sample](http://code.msdn.microsoft.com/windowsazure/CloudFx-Samples-60c3a852/sourcecode?fileId=57087&pathId=528472169).)
 
-It is also possible to move all of the code from the two worker roles into the web role so that everything runs in the web role. However, performing background tasks in ASP.NET is not supported or considered robust, and this architecture would complicate scalability. For more information see [The Dangers of Implementing Recurring Background Tasks In ASP.NET](http://haacked.com/archive/2011/10/16/the-dangers-of-implementing-recurring-background-tasks-in-asp-net.aspx). See also [How to Combine a Worker and Web Role in Azure](http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2010/12/how-to-combine-worker-and-web-role-in.html) and [Combining Multiple Azure Worker Roles into an Azure Web Role](http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2012/02/combining-multiple-azure-worker-roles.html).
+It is also possible to move all of the code from the two worker roles into the web role so that everything runs in the web role. However, performing background tasks in ASP.NET is not supported or considered robust, and this architecture would complicate scalability. For more information see [The Dangers of Implementing Recurring Background Tasks In ASP.NET](http://haacked.com/archive/2011/10/16/the-dangers-of-implementing-recurring-background-tasks-in-asp-net.aspx). See also [How to Combine a Worker and Web Role in Azure](http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2010/12/how-to-combine-worker-and-web-role-in.html) and [Combining Multiple Azure Worker Roles into an Azure Web Role](http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2012/02/combining-multiple-azure-worker-roles.html). If you wanted to go in this direction, a better solution would be to [run in an Azure web site and use the WebJobs feature for back-end tasks](http://go.microsoft.com/fwlink/?LinkId=390226).
 
 
-Another architecture alternative that would reduce cost is to use the [Autoscaling Application Block][autoscalingappblock] to automatically deploy worker roles only during scheduled periods, and delete them when work is completed. For more information on autoscaling, see the links at the end of [the last tutorial in this series][tut5].
+Another architecture alternative that would reduce cost is to use the [Autoscaling Application Block][autoscalingappblock] to automatically deploy worker roles only during scheduled periods, and delete them when work is completed. For more information on autoscaling, see [the last tutorial in this series][tut5].
 
 Azure in the future might provide a notification mechanism for scheduled reboots, which would allow you to only spin up an extra web role instance for the reboot time window. You wouldn't qualify for the 99.95 SLA, but you could reduce your costs by almost half and ensure your web application remains available during the reboot interval.
 
 
-<h2><a name="auth"></a><span class="short-header">Authentication and Authorization</span>Authentication and Authorization</h2>
+<h2><a name="auth"></a>Authentication and authorization</h2>
 
-In a production application you would implement an authentication and authorization mechanism like the ASP.NET membership system for the ASP.NET MVC web front-end, including the ASP.NET Web API service method. There are also other options, such as using a shared secret, for securing the Web API service method. Authentication and authorization functionality has been omitted from the sample application to keep it simple to set up and deploy. (The second tutorial in the series shows how to implement IP restrictions so that unauthorized persons can't use the application when you deploy it to the cloud.) 
-
-For more information about how to implement authentication and authorization in an ASP.NET MVC web project, see the following resources:
-
-* [Authentication and Authorization in ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization/authentication-and-authorization-in-aspnet-web-api)
-* [Music Store Part 7: Membership and Authorization](http://www.asp.net/mvc/tutorials/mvc-music-store/mvc-music-store-part-7)
-
-**Note**: We planned to include a mechanism for securing the Web API service method by using a shared secret, but that was not completed in time for the initial release. Therefore the third tutorial does not show how to build the Web API controller for the subscription process. We hope to include instructions for implementing a secure subscription process in the next version of this tutorial. Until then, you can test the application by using the administrator web pages to subscribe email addresses to lists.
+In a production application you would implement an authentication and authorization mechanism like [ASP.NET Identity](http://asp.net/identity) for the ASP.NET MVC web front-end, including the ASP.NET Web API service method. There are also other options, such as using a shared secret, for securing the Web API service method. Authentication and authorization functionality has been omitted from the sample application to keep it simple to set up and deploy. 
 
 
+<h2><a name="nextsteps"></a>Next steps</h2>
 
-
-<h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
-
-In the [next tutorial][tut2], you'll download the sample project, configure your development environment, configure the project for your environment, and test the project locally and in the cloud.  In the following tutorials you'll see how to build the project from scratch.
+In the [next tutorial][tut2], you'll download the sample project, configure your development environment, configure the project for your environment, and test the project locally and in the cloud.  In the tutorials 3 through 5 you'll see how to build the project from scratch.
 
 For links to additional resources for working with Azure Storage tables, queues, and blobs, see [the last tutorial in this series][tut5nextsteps].
 

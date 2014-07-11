@@ -1,4 +1,4 @@
-<properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based web site on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based web site on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="" editor="" />
 
 
 
@@ -27,7 +27,7 @@ A screenshot of the completed application is below:
 
 ## Creating and configuring an Azure virtual machine to host Django
 
-1. Follow the instructions given [here][portal-vm] to create an Azure virtual machine of the *Ubuntu Server 12.04* distribution.
+1. Follow the instructions given [here][portal-vm] to create an Azure virtual machine of the *Ubuntu Server 14.04* distribution.
 
   **Note:** you *only* need to create the virtual machine. Stop at the section titled *How to log on to the virtual machine after you create it*.
 
@@ -66,14 +66,15 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
     
 1.  Enter the following commands to create a new Django project:
 
-    ![The result of the django-admin command](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-dir.png)
+		$ cd /var/www
+		$ sudo django-admin.py startproject helloworld
 
     The **django-admin.py** script generates a basic structure for Django-based web sites:
-    -   **manage.py** helps you to start hosting and stop hosting your Django-based web site
-    -   **helloworld\settings.py** contains Django settings for your application.
-    -   **helloworld\urls.py** contains the mapping code between each url and its view.
+    -   **helloworld/manage.py** helps you to start hosting and stop hosting your Django-based web site
+    -   **helloworld/helloworld/settings.py** contains Django settings for your application.
+    -   **helloworld/helloworld/urls.py** contains the mapping code between each url and its view.
 
-1.  Create a new file named **views.py** in the *helloworld* subdirectory of *django\helloworld*, as a sibling of **urls.py**. This will contain the view that renders the "hello world" page. Start your editor and enter the following:
+1.  Create a new file named **views.py** in the **/var/www/helloworld/helloworld** directory (as a sibling of **urls.py**). This will contain the view that renders the "hello world" page. Start your editor and enter the following:
 		
 		from django.http import HttpResponse
 		def hello(request):
@@ -89,23 +90,23 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 		)
 
 
-## Deploying and running your Django web site
+## Setting up Apache
 
-1.  Edit the apache configuration file **/etc/apache2/httpd.conf** and add the following, replacing *username* with the user name that you specified during the creation of the VM:
+1.  Create an Apache virtual host configuration file **/etc/apache2/sites-available/helloworld.conf**. Set the contents to the following, and make sure to replace *yourVmUrl* with the actual URL of the machine you are using (for example *pyubuntu.cloudapp.net*).
 
-		WSGIScriptAlias / /home/*username*/django/helloworld/helloworld/wsgi.py
-		WSGIPythonPath /home/*username*/django/helloworld
+		<VirtualHost *:80>
+		ServerName yourVmUrl
+		</VirtualHost>
+		WSGIScriptAlias / /var/www/helloworld/helloworld/wsgi.py
+		WSGIPythonPath /var/www/helloworld
 
-		<Directory /home/*username*/django/helloworld/helloworld>
-		<Files wsgi.py>
-		Order deny,allow
-		Allow from all
-		</Files>
-		</Directory>
+1.  Enable the site with the following command:
 
-1.  Restart apache with the following command:
+        $ sudo a2ensite helloworld
 
-        $ sudo apachectl restart
+1.  Restart Apache with the following command:
+
+        $ sudo service apache2 reload
 
 1.  Finally, load the web page in your browser:
 

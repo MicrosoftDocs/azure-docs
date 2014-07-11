@@ -1,14 +1,21 @@
 <properties linkid="manage-windows-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Windows Server" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
 
+#How to Capture a Windows Virtual Machine to Use as a Template#
 
+This article shows you how to capture a Windows virtual machine so you can use it as template to create other virtual machines. This virtual machine template includes the OS disk and any data disks attached the virtual machine. It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines that use the template.
 
+After you capture the virtual machine, it's available under **My Images** when you create a virtual machine. The image file is stored as a VHD in your storage account. For more information about images, see [Manage Disks and Images] [].
 
-#How to Capture an Image of a Virtual Machine Running Windows Server#
+##Before You Begin##
 
-You can use images from the Image Gallery to easily create virtual machines, or you can capture and use your own images to create customized virtual machines. An image is a virtual hard disk (.vhd) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have the specific settings that a configured virtual machine has, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template.
+These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks. If you haven't done this yet, see these instructions:
 
+- [How to Create a Custom Virtual Machine] []
+- [How to Attach a Data Disk to a Virtual Machine] []
 
-1. Connect to the virtual machine by using the steps listed in [How to Log on to a Virtual Machine Running Windows Server] [].
+##Capture the Virtual Machine##
+
+1. Connect to the virtual machine by clicking **Connect** on the command bar. For details, see [How to Log on to a Virtual Machine Running Windows Server] [].
 
 2.	Open a Command Prompt window as an administrator.
 
@@ -16,36 +23,45 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 3.	Change the directory to `%windir%\system32\sysprep`, and then run sysprep.exe.
 
 
-4. 	The **System Preparation Tool** dialog box appears.
+4. 	The **System Preparation Tool** dialog box appears. Do the following:
 
 
-	In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked. For more information about using Sysprep, see [How to Use Sysprep: An Introduction][].
+	- In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked. For more information about using Sysprep, see [How to Use Sysprep: An Introduction][].
 
-5.	In **Shutdown Options**, select **Shutdown**.
+	- In **Shutdown Options**, select **Shutdown**.
 
-6.	Click **OK**.
+	- Click **OK**.
 
-7.	Sysprep shuts down the virtual machine, which changes the status of the machine in the [Management Portal](http://manage.windowsazure.com) to **Stopped**.
+	![Run Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
+
+7.	Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the [Management Portal](http://manage.windowsazure.com) to **Stopped**.
 
 
 8.	Click **Virtual Machines**, and then select the virtual machine you want to capture.
 
 9.	On the command bar, click **Capture**.
 
-	The **Capture an Image from a Virtual Machine** dialog box appears.
+	![Capture virtual machine](./media/virtual-machines-capture-image-windows-server/CaptureVM.png)
+
+	The **Capture the Virtual Machine** dialog box appears.
 
 10.	In **Image Name**, type a name for the new image.
 
 11.	Before you add a Windows Server image to your set of custom images, it must be generalized by running Sysprep as instructed in the previous steps. Click **I have run Sysprep on the virtual machine** to indicate that you have done this.
 
-12.	Click the check mark to capture the image. When you capture an image of a virtual machine, the machine is deleted.
+12.	Click the check mark to capture the image. When you capture an image of a generalized virtual machine, the virtual machine is deleted.
 
 	The new image is now available under **Images**.
 
-	When you create a virtual machine by using the **From Gallery** method, you can use the image that you captured by clicking **My Images** on the **Choose an Image** page.
+	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
+
+##Next Steps##
+The image is ready to be used as a template to create virtual machines. To do this, you'll create a custom virtual machine by using the **From Gallery** method and select the image you just created. For instructions, see [How to Create a Custom Virtual Machine] [].
 
 	
-
+[Manage Disks and Images]:http://go.microsoft.com/fwlink/p/?LinkId=397536
+[How to Create a Custom Virtual Machine]: ../virtual-machines-create-custom/
+[How to Attach a Data Disk to a Virtual Machine]: ../storage-windows-attach-disk/
 [How to Log on to a Virtual Machine Running Windows Server]:http://www.windowsazure.com/en-us/manage/windows/how-to-guides/log-on-a-windows-vm/
 [How to Use Sysprep: An Introduction]:http://technet.microsoft.com/en-us/library/bb457073.aspx
 [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png

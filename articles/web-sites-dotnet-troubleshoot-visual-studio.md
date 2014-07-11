@@ -29,7 +29,7 @@ You'll learn:
 5. [View failed request logs](#failedrequestlogs)
 5. [Next steps](#nextsteps)
 
-<h2><a name="prerequisites"></a><span class="short-header">Prerequisites</span></h2>
+<h2><a name="prerequisites"></a>Prerequisites</h2>
 
 This tutorial works with the development environment, web project, and Azure Web Site that you set up in [Getting started with Azure and ASP.NET][GetStarted]. The code samples shown in this tutorial are for a C# MVC web application, but the troubleshooting procedures are the same for Visual Basic and Web Forms applications.
 
@@ -146,7 +146,7 @@ This section shows how to debug remotely using the project you create in [Gettin
 
 	The browser automatically opens to your home page running in Azure. You might have to wait 20 seconds or so while Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on a web site. Subsequent times within the next 48 hours when you start debugging again there won't be a delay.
 
-6. For Visual Studio 2012 with Update 4:
+6. For Visual Studio 2012 with Update 4:<a id="vs2012"></a>
 
 	* In the Azure Management Portal, go to the **Configure** tab for your web site, and then scroll down to the **Site Diagnostics** section.
 
@@ -222,7 +222,7 @@ An ASP.NET application that runs in an Azure Web Site can create the following k
   
 Logging affects site performance, so Azure gives you the ability to enable or disable each type of log as needed. For application logs, you can specify that only logs above a certain severity level should be written. When you create a new web site, by default all logging is disabled.
 
-Logs are written to files in a *LogFiles* folder in the file system of your web site. Web server logs and application logs can also be written to an Azure Storage account. You can retain a greater volume of logs in a storage account than is possible in the file system. You're limited to a maximum of 100 megabytes of logs when you use the file system. (File system logs are only for short-term retention. Azure deletes old log files to make room for new ones after the limit is reached.)  
+Logs are written to files in a *LogFiles* folder in the file system of your web site and are accessible via FTP. Web server logs and application logs can also be written to an Azure Storage account. You can retain a greater volume of logs in a storage account than is possible in the file system. You're limited to a maximum of 100 megabytes of logs when you use the file system. (File system logs are only for short-term retention. Azure deletes old log files to make room for new ones after the limit is reached.)  
 
 <h2><a name="apptracelogs"></a><span class="short-header">Application logs</span>Create and view application trace logs</h2>
 
@@ -614,6 +614,8 @@ For more information about troubleshooting Azure Web Sites (WAWS), see the follo
   Covers much of the same information provided by this tutorial but focuses on how to get diagnostic logs without using Visual Studio. 
 * [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)<br/>
   The [configure diagnostics and download logs](/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics) section has valuable information not included in the troubleshooting documents.
+* [Investigating Memory Leaks in Azure Web Sites with Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Microsoft ALM blog post about Visual Studio features for analyzing managed memory issues.
+* [Windows Azure Websites online tools you should know about](/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Blog post by Amit Apple.
 
 For help with a specific troubleshooting question, start a thread in one of the following forums:
 
@@ -624,6 +626,12 @@ For help with a specific troubleshooting question, start a thread in one of the 
 ### Debugging in Visual Studio 
 
 For more information about how to use debug mode in Visual Studio, see the [Debugging in Visual Studio](http://msdn.microsoft.com/en-us/library/vstudio/sc65sadd.aspx) MSDN topic and [Debugging Tips with Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+
+For more information about remote debugging for Azure Web Sites, see the following resources:
+
+* [Introduction to Remote Debugging on Azure Web Sites](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
+* [Introduction to Remote Debugging Azure Web Sites part 2 – Inside Remote debugging](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Introduction to Remote Debugging on Azure Web Sites part 3 – Multi-Instance environment and GIT](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 
 If your web site uses an Azure Web API or Mobile Services back-end and you need to debug that, see [Debugging .NET Backend in Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
 

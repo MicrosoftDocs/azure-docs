@@ -1,4 +1,4 @@
-<properties  pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties  pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="" editor=""  />
 
 
 # Schedule recurring jobs in Mobile Services 
@@ -56,6 +56,12 @@ Next, you need to create a new table in which to store tweets.
 1. In the Solution Explorer in Visual Studio, right-click the DataObjects folder, expand **Add**, click **Class**,   type `Updates` for **Name**, then click **Add**.
 
 	This creates a new project file for the Updates class.
+
+2. Right-click **References**, click **Add Reference...**, select **Framework** under **Assemblies**, check **System.ComponentModel.DataAnnotations**, then click **OK**.
+
+	![][7]
+
+	This adds a new assembly reference.
 
 2. In this new class, add the following **using** statements:
  
@@ -212,9 +218,15 @@ Schedule jobs can be tested locally before being published to Azure and register
 
 	This starts the mobile service project and displays a new browser window with the welcome page.
 
-2. Copy the mobile service URL from the open browser window, append the `/tables/samplejob` path to the URL, then execute a new POST request to this URL using a HTTP utility, like Fiddler.
+2. Click **try it out**, then click **POST jobs/{jobName}**.
 
-	The **ExecuteAsync* *method is started on the local computer.
+	![][8]
+ 
+4. Click **try this out**, type `Sample` as the **{jobName}** parameter value, then click **Send**.
+
+	![][9]
+
+	This sends a new POST request to the Sample job endpoint. In the local service, the **ExecuteAsync** method is started. You can set a break point in this method to debug the code.
 
 3. In Server Explorer, expand **Data Connections**, **MSTableConnectionString**, and **tables**; right-click **Updates** and click **Show Table Data**.
 
@@ -276,6 +288,9 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [4]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/create-new-job.png
 [5]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/sample-job-run-once.png
 [6]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/manage-sql-azure-database.png
+[7]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
+[8]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-start-page.png
+[9]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-try-this-out.png
 
 <!-- URLs. -->
 [Azure Management Portal]: https://manage.windowsazure.com/

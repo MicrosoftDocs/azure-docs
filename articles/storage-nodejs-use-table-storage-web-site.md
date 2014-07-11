@@ -22,15 +22,9 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 ![A web page displaying an empty tasklist][node-table-finished]
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>This tutorial makes reference to the <strong>tasklist</strong> folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as <strong>~/node/tasklist</strong> or <strong>c:\node\tasklist</strong></p>
-</div>
+> [WACOM.NOTE] This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as <strong>cmd.exe</strong> (Windows) or <strong>Bash</strong> (Unix Shell). On OS X systems you can access the command-line through the Terminal application.</p>
-</div>
+> [WACOM.NOTE] Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
 
 ##Prerequisites
 
@@ -80,10 +74,7 @@ In this section you will create a new Node application and use npm to add module
 
 		npm install express-generator -g
 
-    <div class="dev-callout">
-	<strong>Note</strong>
-	<p>When using the '-g' parameter on some operating systems, you may receive an error of <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong> and a request to try running the account as an administrator. If this occurs, use the <strong>sudo</strong> command to run npm at a higher privilege level.</p>
-	</div>
+    > [WACOM.NOTE] When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the **sudo** command to run npm at a higher privilege level.
 
     The output of this command should appear similar to the following:
 
@@ -91,10 +82,7 @@ In this section you will create a new Node application and use npm to add module
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the <strong>express</strong> command to generate web site scaffolding without having to type in additional path information.</p>
-	</div>
+	> [WACOM.NOTE] The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate web site scaffolding without having to type in additional path information.**
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
@@ -127,19 +115,6 @@ In this section you will create a new Node application and use npm to add module
 		     $ DEBUG=my-application ./bin/www
 
 	After this command completes, you should have several new directories and files in the **tasklist** directory.
-
-3. Copy the **tasklist/bin/www** file to a file named **server.js** in the **tasklist** folder. Azure Web Sites expects the entry point for a Node.js application to be either **server.js** or **app.js**. Since **app.js** already exists, but is not the entry point, we must use **server.js**.
-
-4. Modify the **server.js** file to remove one of the '.' characters from the following line.
-
-		var app = require('../app');
-
-	The modified line should appear as follows.
-
-		var app = require('./app');
-
-	This is required as the **server.js** (formerly **bin/www**,) is now in the same folder as the required **app.js** file.
-
 
 ###Install additional modules
 
@@ -197,7 +172,7 @@ The **package.json** file is one of the files created by the **express** command
 
 2. Next, enter the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the **package.json** file:
 
-		npm install azure node-uuid async nconf --save
+		npm install azure-storage node-uuid async nconf --save
 
 	The output of this command should appear similar to the following:
 
@@ -208,25 +183,15 @@ The **package.json** file is one of the files created by the **express** command
 		├── async@0.2.9
 		└── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.8)
 
-		azure@0.9.3 node_modules\azure
-		├── azure-mgmt-subscription@0.9.2
-		├── azure-gallery@2.0.0-pre.1
-		├── node-uuid@1.2.0
-		├── mpns@2.0.1
+		azure-storage@0.1.0 node_modules\azure-storage
+		├── extend@1.2.1
+		├── xmlbuilder@0.4.3
 		├── mime@1.2.11
-		├── azure-mgmt-storage@0.9.2
-		├── azure-mgmt-vnet@0.9.2
-		├── azure-mgmt-resource@2.0.0-pre.1
 		├── underscore@1.4.4
-		├── azure-mgmt-sql@0.9.2
-		├── azure-mgmt@0.9.2
-		├── azure-mgmt-sb@0.9.2
-		├── azure-mgmt-website@0.9.2
-		├── azure-mgmt-compute@0.9.2
-		├── wns@0.5.3
-		├── request@2.27.0 (json-stringify-safe@5.0.0, aws-sign@0.3.0, forever-agent@0.5.2, tunnel-agent@0.3.0, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, node-uuid@1.4.1, form-data@0.1.2, hawk@1.0.0, http-signature@0.10.0)
-		└── azure-common@0.9.2 (dateformat@1.0.2-1.2.3, duplexer@0.1.1, xmlbuilder@0.4.3, envconf@0.0.4, through@2.3.4,
-		 validator@3.1.0, tunnel@0.0.3, xml2js@0.2.7)
+		├── validator@3.1.0
+		├── node-uuid@1.4.1
+		├── xml2js@0.2.7 (sax@0.5.2)
+		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
 ##Using the Table service in a node application
 
@@ -240,8 +205,9 @@ In this section you will extend the basic application created by the **express**
 
 3. At the beginning of the **task.js** file, add the following code to reference required libraries:
 
-        var azure = require('azure');
+        var azure = require('azure-storage');
   		var uuid = require('node-uuid');
+		var entityGen = azure.TableUtilities.entityGenerator;
 
 4. Next, you will add code to define and export the Task object. This object is responsible for connecting to the table.
 
@@ -263,21 +229,28 @@ In this section you will extend the basic application created by the **express**
 		Task.prototype = {
 		  find: function(query, callback) {
 		    self = this;
-		    self.storageClient.queryEntities(query, function entitiesQueried(error, entities) {
+		    self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
 		      if(error) {
 		        callback(error);
 		      } else {
-		        callback(null, entities);
+		        callback(null, result.entries);
 		      }
 		    });
 		  },
 
 		  addItem: function(item, callback) {
 		    self = this;
-		    item.RowKey = uuid();
-		    item.PartitionKey = self.partitionKey;
-		    item.completed = false;
-		    self.storageClient.insertEntity(self.tableName, item, function entityInserted(error) {
+		    // use entityGenerator to set types
+			// NOTE: RowKey must be a string type, even though
+            // it contains a GUID in this example.
+		    var itemDescriptor = {
+		      PartitionKey: entityGen.String(self.partitionKey),
+		      RowKey: entityGen.String(uuid()),
+		      name: entityGen.String(item.name),
+		      category: entityGen.String(item.category),
+		      completed: entityGen.Boolean(false)
+		    };
+		    self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
 		      if(error){  
 		        callback(error);
 		      }
@@ -285,13 +258,13 @@ In this section you will extend the basic application created by the **express**
 		    });
 		  },
 
-		  updateItem: function(item, callback) {
+		  updateItem: function(rKey, callback) {
 		    self = this;
-		    self.storageClient.queryEntity(self.tableName, self.partitionKey, item, function entityQueried(error, entity) {
+		    self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
 		      if(error) {
 		        callback(error);
 		      }
-		      entity.completed = true;
+		      entity.completed._ = true;
 		      self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
 		        if(error) {
 		          callback(error);
@@ -308,9 +281,9 @@ In this section you will extend the basic application created by the **express**
 
 1. In the **tasklist/routes** directory, create a new file named **tasklist.js** and open it in a text editor.
 
-2. Add the folowing code to **tasklist.js**. This loads the azure and async modules, which are used by **tasklist.js**. This also defines the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:
+2. Add the following code to **tasklist.js**. This loads the azure and async modules, which are used by **tasklist.js**. This also defines the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:
 
-		var azure = require('azure');
+		var azure = require('azure-storage');
 		var async = require('async');
 
 		module.exports = TaskList;
@@ -324,9 +297,7 @@ In this section you will extend the basic application created by the **express**
 		TaskList.prototype = {
 		  showTasks: function(req, res) {
 		    self = this;
-		    var query = azure.TableQuery
-		      .select()
-		      .from(self.task.tableName)
+		    var query = azure.TableQuery()
 		      .where('completed eq ?', false);
 		    self.task.find(query, function itemsFound(error, items) {
 		      res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -373,7 +344,7 @@ In this section you will extend the basic application created by the **express**
 
 2. At the beginning of the file, add the following to load the azure module, set the table name, partitionKey, and set the storage credentials used by this example:
 
-		var azure = require('azure');
+		var azure = require('azure-storage');
 		var nconf = require('nconf');
 		nconf.env()
 		     .file({ file: 'config.json'});
@@ -382,15 +353,12 @@ In this section you will extend the basic application created by the **express**
 		var accountName = nconf.get("STORAGE_NAME")
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.</p>
-	</div>
+	> [WACOM.NOTE] nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.
 
 3. In the app.js file, scroll down to where you see the following line:
 
-		app.get('/', routes.index);
-		app.get('/users', user.list);
+		app.use('/', routes);
+		app.use('/users', users);
 
 	Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
@@ -416,7 +384,7 @@ In this section you will extend the basic application created by the **express**
 		block content
 		  h1= title
 		  br
-
+		
 		  form(action="/completetask", method="post")
 		    table.table.table-striped.table-bordered
 		      tr
@@ -424,16 +392,20 @@ In this section you will extend the basic application created by the **express**
 		        td Category
 		        td Date
 		        td Complete
-		      each task in tasks
+		      if tasks != []
 		        tr
-		          td #{task.name}
-		          td #{task.category}
-		          - var day   = task.Timestamp.getDate();
-		          - var month = task.Timestamp.getMonth() + 1;
-		          - var year  = task.Timestamp.getFullYear();
-		          td #{month + "/" + day + "/" + year}
-		          td
-		            input(type="checkbox", name="#{task.RowKey}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
+		          td 
+		      else
+		        each task in tasks
+		          tr
+		            td #{task.name._}
+		            td #{task.category._}
+		            - var day   = task.Timestamp._.getDate();
+		            - var month = task.Timestamp._.getMonth() + 1;
+		            - var year  = task.Timestamp._.getFullYear();
+		            td #{month + "/" + day + "/" + year}
+		            td
+		              input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
 		    button.btn(type="submit") Update tasks
 		  hr
 		  form.well(action="/addtask", method="post")
@@ -495,7 +467,7 @@ To test the application on your local machine, perform the following steps:
 
 2. Use the following command to launch the application locally:
 
-        node server.js
+        npm start
 
 3. Open a web browser and navigate to http://127.0.0.1:3000. This should display a web page similar to the following:
 
@@ -515,19 +487,13 @@ To test the application on your local machine, perform the following steps:
 
 The steps in this section use the Azure command-line tools to create a new Azure Web Site, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see <a href="http://content-ppe.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Web Site</a>.</p>
-</div>
+> [WACOM.NOTE] These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site].
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>If this is the first Azure Web Site you have created, you must use the Azure portal to deploy this application.</p>
-</div>
+> [WACOM.NOTE] If this is the first Azure Web Site you have created, you must use the Azure portal to deploy this application.
 
-###Enable the Azure Web Site feature
+###Create an Azure subscription
 
-If you do not already have an Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Azure Web Site feature.
+If you do not already have an Azure subscription, you can sign up [for free]. After signing up, follow these steps to continue this tutorial.
 
 [WACOM.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
 
@@ -537,15 +503,9 @@ To install the command-line tools, use the following command:
 	
 	npm install azure-cli -g
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>If you have already installed the **Azure SDK for Node.js** from the <a href="/en-us/develop/nodejs/">Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Azure command-line tool for Mac and Linux</a>.</p>
-</div>
+> [WACOM.NOTE] For more information, see [Install and configure the Azure Cross-Platform Command-Line Interface](/en-us/documentation/articles/xplat-cli/);
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.</p>
-</div>
+> [WACOM.NOTE] While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
 
 ###Import publishing settings
 
@@ -591,15 +551,9 @@ Before using the command-line tools with Azure, you must first download a file c
 	
 	The `--git` parameter will create a Git repository on Azure for this web site. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Azure. Finally, it will create a **web.config** file, which contains settings used by Azure to host node applications.
 	
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.</p>
-	</div>
+	> [WACOM.NOTE] If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
 	
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.</p>
-	</div>
+	> [WACOM.NOTE] If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
 	
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Web site created at** contains the URL for the web site.
 	
@@ -616,10 +570,7 @@ Before using the command-line tools with Azure, you must first download a file c
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If this is the first Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Web Site</a>.</p>
-	</div>
+	> [WACOM.NOTE] If this is the first Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see [Create and deploy a Node.js application to an Azure Web Site].
 
 ###Publish the application
 
@@ -685,8 +636,8 @@ While the steps in this article describe using the Table Service to store inform
 ##Additional resources
 
 [Azure command-line tool for Mac and Linux]    
-[Create and deploy a Node.js application to Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publishing to Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
+[Create and deploy a Node.js application to Azure Web Sites]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Publishing to Azure Web Sites with Git]: /en-us/documentation/articles/web-sites-publish-source-control/
 [Azure Developer Center]: /en-us/develop/nodejs/
 
 
@@ -696,11 +647,11 @@ While the steps in this article describe using the Table Service to store inform
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 
-[Node.js Web Application with MongoDB]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(Mac)/
-[Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[Create and deploy a Node.js application to an Azure Web Site]: ./web-site-with-mongodb-Mac
-[Publishing to Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
-[azure]: https://github.com/WindowsAzure/azure-sdk-for-node
+[Node.js Web Application with MongoDB]: /en-us/documentation/articles/web-sites-nodejs-store-data-mongodb/
+[Azure command-line tool for Mac and Linux]: /en-us/documentation/articles/xplat-cli/
+
+[Publishing to Azure Web Sites with Git]: /en-us/documentation/articles/web-sites-publish-source-control/
+[azure]: https://github.com/Azure/azure-sdk-for-node
 
 
 [Azure Portal]: http://windowsazure.com
@@ -718,3 +669,5 @@ While the steps in this article describe using the Table Service to store inform
 [web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
+
+[Create and deploy a Node.js application to an Azure Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/

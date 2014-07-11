@@ -208,6 +208,15 @@ The following are errors or problems commonly encountered when using Git to publ
 
 ****
 
+**Symptom**: Unable to access '[siteURL]': Failed to connect to [scmAddress]
+
+**Cause**: This error can occur if the web site is not up and running.
+
+**Resolution**: Start the web site in the Azure portal. Git deployment will not work unless the web site is running. 
+
+
+****
+
 **Symptom**: Couldn't resolve host 'hostname'
 
 **Cause**: This error can occur if the address information entered when creating the 'azure' remote was incorrect.

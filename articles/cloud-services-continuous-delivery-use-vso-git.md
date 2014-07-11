@@ -28,21 +28,12 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 <h2> <a name="step1"></a><span class="short-header">Step 1: Sign up for Visual Studio Online and create a Git repository.</span>Step 1: Sign up for Visual Studio Online and create a Git repository</h2>
 
 
-1. If you don’t yet have a Visual Studio Online account, follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=397665).
+1. If you don’t yet have a Visual Studio Online account, follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=397665). When you create your team project, choose Git as your source control system. Follow the instructions to connect Visual Studio to your team project.
 
-2. Create an account URL for your new project, using this format: https://&lt;accountname&gt;.visualstudio.com.<br/>
-![][37]
- 
-3. Now you can create your first project. Enter the project name and description. Choose Git as your source control system. Then choose the process template your organization uses, and choose the **Create Project** button. For more information about process templates, see [Work with team project artifacts, choose a process template](http://go.microsoft.com/fwlink/?LinkId=324035).<br/>
-![][1]
-
-4. Choose the **Open in Visual Studio to connect** button to automatically launch Visual Studio connected to your team project. If you see any security dialog boxes, choose **Allow**.<br/>
-![][2]
-
-5. In Team Explorer, choose the **Clone this repository** link. 
+2. In Team Explorer, choose the **Clone this repository** link. 
 ![][3]
 
-6. Specify the location of the local copy, and choose the **Clone** button.
+3. Specify the location of the local copy, and choose the **Clone** button.
  
 <h2><a name="step2"> </a><span class="short-header">Create a project and commit it to the repository.</span>Step 2: Create a project and commit it to the repository</h2>
 
@@ -131,14 +122,10 @@ The following table shows the available properties in the Deployment section:
 <tr><td>Allow Upgrade</td><td>Allows a the deployment to update an existing deployment instead of creating a new one. Preserves the IP address.</td></tr>
 ><tr><td>Do Not Delete</td><td>If true, do not overwrite an existing unrelated deployment (upgrade is allowed).</td></tr>
 <tr><td>Path to Deployment Settings</td><td>The path to your .pubxml file for a web site, relative to the root folder of the repo. Ignored for cloud services.</td></tr>
-<tr><td>Cloud Service Name</td><td>The name of the service you are connected to</td></tr>
-><tr><td>Sharepoint Deployment Environment</td><td>The same as the service name</td></tr>
+<tr><td>Sharepoint Deployment Environment</td><td>The same as the service name</td></tr>
 <tr><td>Windows Azure Deployment Environment</td><td>The web site or cloud service name</td></tr>
 </table>
 <br/>
-For cloud services, if the [storage account](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account) property is left blank, Azure searches for one. If there is a storage
-account with the same name as the cloud service, it is used. Otherwise, it uses another storage account,
-or if there is no storage account, it creates one. Even if your service doesn't use storage, a storage account is required for a cloud service to store diagnostics data. The storage account provides a place in Azure for files and other data.
 
 11. By this time, your build should be completed successfully.<br/>
 ![][28]

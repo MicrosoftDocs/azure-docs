@@ -4,7 +4,7 @@
 
 # Simple recommendation engine using Apache Mahout
 
-Apache Mahout™ is a machine learning library built for use in scalable machine learning applications. Recommender engines are one of the most popular types of machine learning applications in use today and have many obvious marketing applications.
+Apache Mahout™ is a machine learning library built for use in scalable machine learning applications. Recommender engines such as Mahout are one of the most popular types of machine learning applications in use today and have many obvious marketing applications.
 
 Apache Mahout provides a built-in implementation for Item-based Collaborative Filtering. This approach is widely used to conduct recommendation data mining. Item-based collaborative filtering was developed by Amazon.com. The idea here is that data on user preferences that exhibit correlations between item preferences can be use to infer the tastes of future users from a similar group.
 

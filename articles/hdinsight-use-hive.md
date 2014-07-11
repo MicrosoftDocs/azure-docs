@@ -1,16 +1,16 @@
-<properties linkid="manage-services-hdinsight-howto-hive" urlDisplayName="Use Hive with HDInsight" pageTitle="Use Hive with HDInsight | Azure" metaKeywords="" description="Learn how to use Hive with HDInsight. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data and report basic statistics." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hive with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-howto-hive" urlDisplayName="Use Hadoop Hive in HDInsight" pageTitle="Use Hadoop Hive in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive with HDInsight. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data and report basic statistics." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Hive in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
 
 
-# Use Hive with HDInsight #
+# Use Hive with Hadoop in HDInsight
 
 [Apache Hive][apache-hive] provides a means of running MapReduce job through an SQL-like scripting language, called *HiveQL*, which can be applied towards summarization, querying, and analysis of large volumes of data. In this article, you will use HiveQL to query the data in an Apache log4j log file and report basic statistics. 
 
 **Prerequisites:**
 
-- You must have provisioned an **HDInsight cluster**. For a walkthrough on how to do this with the Azure portal, see [Get started with HDInsight][hdinsight-getting-started]. For instructions on the various other ways in which such clusters can be created, see [Provision HDInsight Clusters][hdinsight-provision]. 
+- You must have provisioned an **HDInsight cluster**. For a walkthrough on how to do this with the Azure portal, see [Get started with HDInsight][hdinsight-get-started]. For instructions on the various other ways in which such clusters can be created, see [Provision HDInsight Clusters][hdinsight-provision]. 
 
 - You must have installed **Azure PowerShell** on your workstation. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
@@ -218,36 +218,38 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 
 While Hive makes it easy to query data using a SQL-like query language, other components available with HDInsight provide complementary functionality such as data movement and transformation. To learn more, see the following articles:
 
-* [Get started with Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
-* [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]
-* [Use Oozie with HDInsight][hdinsight-oozie]
+* [Get started with Azure HDInsight](../hdinsight-get-started/)
+* [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-data]
+* [Use Oozie with HDInsight][hdinsight-use-oozie]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Upload data to HDInsight][hdinsight-upload-data]
-* [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
+* [Using Pig with HDInsight](../hdinsight-use-pig/)
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
+
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
-[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
-[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
-[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+
+[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 
 
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 
 
-[hdinsight-oozie]: /en-us/documentation/articles/hdinsight-use-oozie/
-[hdinsight-analyze-flight-delay-data]: /en-us/documentation/articles/hdinsight-analyze-flight-delay-data/
+[hdinsight-use-oozie]: ../hdinsight-use-oozie/
+[hdinsight-analyze-flight-data]: ../hdinsight-analyze-flight-delay-data/
 
 
-[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store
+[hdinsight-storage]: ../hdinsight-use-blob-storage
 
-[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
-[hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
-[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
-[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+[hdinsight-provision]: ../hdinsight-provision-clusters/
+[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
+[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-get-started]: ../hdinsight-get-started/
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: ../install-configure-powershell/
 [powershell-here-strings]: http://technet.microsoft.com/en-us/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png 

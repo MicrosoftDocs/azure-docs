@@ -200,7 +200,7 @@ The app is now complete and can store a set of categories in the device local st
 
 	+ **Console app:** start the console app.
 
-	+ **Mobile Services:** click the **Scheduler** tab, click the job, then click **Run once**.
+	+ **Java/PHP:** run your app/script.
 
 	Notifications for the selected categories appear as toast notifications.
 

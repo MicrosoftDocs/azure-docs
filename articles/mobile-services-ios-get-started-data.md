@@ -4,9 +4,21 @@
 
 
 # Get started with data in Mobile Services
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>  
+<div class="dev-center-tutorial-selector sublanding">    
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS" class="current">iOS</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
 </div>	
+
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title=".NET backend">.NET backend</a> | 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-android/"  title="JavaScript backend" class="current">JavaScript backend</a>
+</div>
 
 This topic shows you how to use Azure Mobile Services to leverage data in an iOS app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
 
@@ -32,7 +44,7 @@ This tutorial is built on the [GetStartedWithData app][GitHub], which is an iOS 
 
 1. Download the GetStartedWithData [sample app][GitHub]. 
 
-2. In Xcode, open the downloaded project and examine the QSTodoService.m file.
+2. In Xcode, open the downloaded project and examine the TodoService.m file.
 
    	Notice that there are eight **// TODO** comments that specify the steps you must take to make this app work with your mobile service.
 
@@ -96,7 +108,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
     After this comment, add the following line of code:
 
-        self.client = [MSClient clientWithApplicationURLString:@"APPURL" applicationKey:@"APPKEY"];
+        self.client = [MSClient clientWithApplicationURLString:@"APPURL" withApplicationKey:@"APPKEY"];
 
     This creates an instance of the Mobile Services client.
 
@@ -108,7 +120,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
     After this comment, add the following line of code:
 
-        self.table = [self.client tableWithName:@"TodoItem"];
+        self.table = [self.client getTable:@"TodoItem"];
 
     This creates the TodoItem table instance.
 
@@ -129,13 +141,13 @@ Now that your mobile service is ready, you can update the app to store items in 
    	Replace that comment and the subsequent **completion** block invocation with the following code:
 
         // Query the TodoItem table and update the items property with the results from the service
-        [self.table readWithPredicate:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error) 
-        {
-           self.items = [results mutableCopy];
+        [self.table readWhere:predicate completion:^(NSArray *items, NSInteger totalCount, NSError *error)
+		{
+		   self.items = [items mutableCopy];
            completion();
         }]; 
 
-12. Locate the **addItem** method, and replace the body of the method with the following code:
+12. Locate the **addItem** method, and add the following code to the body of the method:
 
         // Insert the item into the TodoItem table and add to the items array on completion
         [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
@@ -148,7 +160,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
     This code sends an insert request to the mobile service.
 
-13. Locate the **completeItem** method, and replace the body of the method with the following code:
+13. Locate the **completeItem** method, and add the following code to the body of the method:
 
         // Update the item in the TodoItem table and remove from the items array on completion
         [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {

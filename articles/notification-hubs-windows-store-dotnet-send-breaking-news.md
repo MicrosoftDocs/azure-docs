@@ -3,6 +3,7 @@
 # Use Notification Hubs to send breaking news
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a>
+		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
 This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to a Windows Store app. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
@@ -177,7 +178,7 @@ The app is now complete and can store a set of categories in the device local st
 
 	+ **Console app:** start the console app.
 
-	+ **Mobile Services:** click the **Scheduler** tab, click the job, then click **Run once**.
+	+ **Java/PHP:** run your app/script.
 
 	Notifications for the selected categories appear as toast notifications.
 

@@ -2,8 +2,9 @@
 
 Azure Blob storage is a service for storing large amounts of
 unstructured data that can be accessed from anywhere in the world via
-HTTP or HTTPS. A single blob can be hundreds of gigabytes in size, and a
-single storage account can contain up to 200 TB of blob, queue, and table data. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
+HTTP or HTTPS. A single blob can be hundreds of gigabytes in size. 
+
+An Azure storage account can contain large amounts of blob, queue, and table data. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
 
 Common uses of Blob storage include:
 
@@ -49,5 +50,5 @@ The Blob service contains the following components:
     `http://sally.blob.core.windows.net/movies/MOV1.AVI`
 
 
-  [Understanding Block Blobs and Page Blobs]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
 [Blob1]: ./media/howto-blob-storage/blob1.jpg
+

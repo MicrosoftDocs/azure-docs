@@ -37,7 +37,7 @@ This guide shows you how to perform common scenarios using the iOS client for Az
 
 ##<a name="Setup"></a>Setup and Prerequisites
 
-This guide assumes that you have created a mobile service with a table.  For more information see [Create a table]. The examples in this topic use a table named `ToDoItem`, which has the following columns:
+This guide assumes that you have created a mobile service with a table.  For more information see [Create a table], or reuse the `ToDoItem` table created in [Get started with Mobile Services] tutorial. The examples in this topic use a table named `ToDoItem`, which has the following columns:
 
 + `id`
 + `text`
@@ -45,7 +45,7 @@ This guide assumes that you have created a mobile service with a table.  For mor
 + `duration`
 
 
-If you are creating your iOS application for the first time, make sure to add the `WindowsAzureMobileServices.framework` in your application's **Link Binary With Libraries** setting.
+If you are creating your iOS application for the first time, make sure to add the `WindowsAzureMobileServices.framework` in your application's [**Link Binary With Libraries**](https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html) setting. During this step, click on "Add Other…", navigate to the location of the downloaded Windows Azure Mobile Services SDK, and select that location.
 
 In addition, you must add the following reference in the appropriate files or in your application's .pch file.
 
@@ -61,8 +61,7 @@ In the code above, replace `MobileServiceUrl` and `AppKey` with the mobile servi
 
 You can also create your client from an **NSURL** object that is the URL of the service, as follows:
 
-	MSClient *client = [MSClient clientWithApplicationURL:(NSURL *)url
-								 applicationKey:(NSString *)string];
+	MSClient *client = [MSClient clientWithApplicationURL:[NSURL URLWithString:@"MobileServiceUrl"] applicationKey:@"AppKey"];		
 
 <h2><a name="table-reference"></a><span class="short-header">Create table reference</span>How to: Create a table reference</h2>
 
@@ -105,13 +104,23 @@ The following predicate returns only the incomplete items in our ToDoItem table:
 
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 	[table readWithPredicate:predicate completion:^(NSArray *items, NSInteger totalCount, NSError *error) {
-		//loop through our results
+		if(error) {
+			NSLog(@"ERROR %@", error);
+		} else {
+			for(NSDictionary *item in items) {
+				NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
+			}
+		}
 	}];
 	
 A single record can be retrieved by using its Id.
 
 	[table readWithId:[@"37BBF396-11F0-4B39-85C8-B319C729AF6D"] completion:^(NSDictionary *item, NSError *error) {
-		//your code here
+		if(error) {
+			NSLog(@"ERROR %@", error);
+		} else {
+				NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
+		}
 	}];
 
 Note that in this case the callback parameters are slightly different.  Instead of getting an array of results and an optional count, you instead just get the one record back.
@@ -120,14 +129,15 @@ Note that in this case the callback parameters are slightly different.  Instead 
 
 Use the **MSQuery** object when you need a query that is more complex than just filtering rows, such as changing the sort order on your results or limiting the number of data records you get back. The following two examples show how to create an MSQuery object instance:
 
-+	`MSQuery *query = [table query];`	
-+	`MSQuery *query = [table queryWithPredicate:(NSPredicate *)predicate];`
-
+    MSQuery *query = [table query];	
+    
+    MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
+    
 The MSQuery object enables you to control the following query behaviors:
 
 * Specify the order results are returned.
 * Limit which fields are returned.
-* Limit how manu records are returned.
+* Limit how many records are returned.
 * Specify whether to include the total count in the response.
 * Specify custom query string parameters in the request.
 
@@ -142,9 +152,9 @@ The following functions are used to specify the fields used for sorting:
 	
 This query sorts the results first by duration and then by whether the task is complete:
 
-	[query orderByAscending(@"duration")];
-	[query orderByAscending(@"complete")];
-	[query readWithCompletion:(NSArray *items, NSInteger totalCount, NSError *error) {
+	[query orderByAscending:@"duration"];
+	[query orderByAscending:@"complete"];
+	[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
 		//code to parse results here
 	}];	
 
@@ -156,20 +166,22 @@ Mobile Services limits the amount of records that are returned in a single respo
 +	`NSInteger fetchLimit`
 +	`NSInteger fetchOffset`
 
+
 In the following example, a simple function requests 20 records from the server and then appends them to the local collection of previously loaded records:
 
 	- (bool) loadResults() {
-		MSQuery *query = [self.table query];
+		MSQuery *query = [table query];
 
 		query.includeTotalCount = YES;
 		query.fetchLimit = 20;
 		query.fetchOffset = self.loadedItems.count;
-		[query readWithCompletion:(NSArray *items, NSInteger totalCount, NSError *error) {
+
+		[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
 			if(!error) {
-				//add the items to our local copy
+				// Add the items to our local copy
 				[self.loadedItems addObjectsFromArray:items];		
 
-				//set a flag to keep track if there are any additional records we need to load
+				// Set a flag to keep track if there are any additional records we need to load
 				self.moreResults = (self.loadedItems.count < totalCount);
 			}
 		}];
@@ -259,7 +271,7 @@ Update an existing object by modifying an item returned from a previous query an
 
 When making updates, you only need to supply the field being updated, along with the row ID, as in the following example:
 
-	[table update:@{@"id" : @"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete": @Yes} completion:^(NSDictionary *item, NSError *error) {
+	[table update:@{@"id" : @"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete": @YES} completion:^(NSDictionary *item, NSError *error) {
 		//handle errors or any additional logic as needed
 	}];
 	
@@ -272,7 +284,7 @@ To delete an item from the table, simply pass the item to the delete method, as 
 
 You can also just delete a record using its id directly, as in the following example:
 
-	[table deleteWithId:[@"37BBF396-11F0-4B39-85C8-B319C729AF6D"] completion:^(id itemId, NSError *error) {
+	[table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
 		//handle errors or any additional logic as needed
 	}];	
 
@@ -418,7 +430,11 @@ When using a cached token, a user will not have to login again until the token e
 
 When a call is made to the mobile service, the completion block contains an `NSError *error` parameter. When an error occurs, this parameter is returned a non-null value. In your code, you should check this parameter and handle the error as needed.
 
-When an error has occurred, you can get more information by including the MSError.h file in the code. This file defines the following constants you can use to access additional data from `[error userInfo]`:
+When an error has occurred, you can get more information by including the MSError.h file in the code:
+
+    #import <WindowsAzureMobileServices/MSError.h>
+
+This file defines the following constants you can use to access additional data from `[error userInfo]`:
 
 + **MSErrorResponseKey**: the HTTP response data associated with the error
 * **MSErrorRequestKey**: the HTTP request data associated with the error

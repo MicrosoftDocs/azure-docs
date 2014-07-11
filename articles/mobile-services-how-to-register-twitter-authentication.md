@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-how-to-guides-register-for-twitter-authentication" urlDisplayName="Register for Twitter Authentication" pageTitle="Register for Twitter authentication - Mobile Services" metaKeywords="Azure registering application, Azure Twitter authentication, application authenticate, authenticate mobile services, Mobile Services Twitter" description="Learn how to use Twitter authentication with your Azure Mobile Services application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Twitter login with Mobile Services" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-how-to-guides-register-for-twitter-authentication" urlDisplayName="Register for Twitter Authentication" pageTitle="Register for Twitter authentication - Mobile Services" metaKeywords="Azure registering application, Azure Twitter authentication, application authenticate, authenticate mobile services, Mobile Services Twitter" description="Learn how to use Twitter authentication with your Azure Mobile Services application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Twitter login with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 #Register your apps for Twitter login with Mobile Services
 
@@ -12,12 +12,11 @@ This topic shows you how to register your apps to be able to use Twitter to auth
 
    	![][1]
 
-2. Type the **Name**, **Description**, and **Web Site** values for your app, and type the URL of the mobile service in **Callback URL**.
+2. Type the **Name**, **Description**, and **Web Site** values for your app, then type the URL of your mobile service appended with the path _/login/twitter_ in **Callback URL**.
+
+	>[WACOM.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-twitter_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-twitter</code>.
 
    	![][2]
-
-    
-	>[WACOM.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the  URL of your mobile service appended with the path _signin-google_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-twitter</code>. <br />The <strong>Web Site</strong> value is required but is not used.
 
 3.  At the bottom the page, read and accept the terms, type the correct CAPTCHA words, and then click **Create your Twitter application**. 
 

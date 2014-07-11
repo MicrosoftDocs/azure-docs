@@ -3,11 +3,7 @@
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started" title="iOS">iOS</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started" title="Android" class="current">Android</a>
+  <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started" title="Android" class="current">Android</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
@@ -29,7 +25,7 @@ The downloaded quickstart project contains the Mobile Services SDK for Android. 
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## Download the mobile service to your local computer
 

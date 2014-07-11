@@ -45,15 +45,19 @@
 
 	This enables Microsoft Account authentication for your app.
 
-10. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
+11. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-selection.png)
 
-11. Click the **Push** tab, enter the **Client secret** and **Package SID** values obtained from WNS in Step 4, and then click **Save**.
+12. Click the **Push** tab, enter the **Client Secret** and **Package SID** values obtained from WNS in Step 4, and then click **Save**.
 
    	![](./media/mobile-services-register-windows-store-app/mobile-push-tab.png)
+
+13. Click the **Identity** tab. Notice the **Client Secret** and **Package SID** values are already set from the previous step. Enter the **Client ID** you previously made note of, and then click **Save**.
+
+   	![](./media/mobile-services-register-windows-store-app/mobile-services-identity-tab.png)
  
-You are now ready to use a Microsoft Account for authentication in your app by providing the client ID and client secret values to Mobile Services in the **Identity** tab.  
+You are now ready to use a Microsoft Account for authentication in your app.  
 
 <!-- Anchors. -->
 

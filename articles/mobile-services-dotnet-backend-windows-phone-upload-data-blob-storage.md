@@ -26,7 +26,7 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 
 ##<a name="install-storage-client"></a>Install the Storage client for Windows Store apps
 

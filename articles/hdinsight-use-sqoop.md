@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-use-sqoop" urlDisplayName="Use Sqoop with HDInsight Samples" pageTitle="Use Sqoop with HDInsight | Azure" metaKeywords="" description="Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an HDInsight cluster and an Azure SQL database." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Use Sqoop with HDInsight" authors="jgao" />
+<properties linkid="manage-services-hdinsight-use-sqoop" urlDisplayName="Use Hadoo Sqoop in HDInsight" pageTitle="Use Hadoop Sqoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an Hadoop cluster and an Azure SQL database." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Use Hadoop Sqoop in HDInsight" authors="jgao" />
 
-# Use Sqoop with HDInsight
+# Use Sqoop with Hadoop in HDInsight
  
 Learn how to use Azure PowerShell and HDInsight .NET SDK from a workstation to run Sqoop import and export between an HDInsight cluster and an Azure SQL database.
 
@@ -596,8 +596,8 @@ In this section, you will import the log4j logs (that you exported to SQL Databa
 
 Now you have learned how to use Sqoop. To learn more, see:
 
-- [Use Oozie with HDInsight][hdinsight-oozie]: use Sqoop action in Oozie workflow.
-- [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]: Use Hive to analyze flight delay data, and then use Sqoop to export data to SQL database.
+- [Use Oozie with HDInsight][hdinsight-use-oozie]: use Sqoop action in Oozie workflow.
+- [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-data]: Use Hive to analyze flight delay data, and then use Sqoop to export data to SQL database.
 - [Upload data to HDInsight][hdinsight-upload-data]: find other methods for uploading data to HDInsight/Azure Blob storage.
 
 
@@ -609,8 +609,8 @@ Now you have learned how to use Sqoop. To learn more, see:
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-analyze-flight-delay-data]: ../hdinsight-analyze-flight-delay-data/
-[hdinsight-oozie]: ../hdinsight-use-oozie/
+[hdinsight-analyze-flight-data]: ../hdinsight-analyze-flight-delay-data/
+[hdinsight-use-oozie]: ../hdinsight-use-oozie/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 

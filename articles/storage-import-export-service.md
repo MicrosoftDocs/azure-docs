@@ -1,9 +1,9 @@
 <properties linkid="manage-services-import-export" urlDisplayName="Azure Import/Export Service" pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 
-# Use the Azure Import/Export Service to Transfer Data to Blob Storage
+# Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage
 
-You can use the Azure Import/Export service to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. You can also use the Import/Export service to transfer large quantities of data resident in Blob storage to your on-premises installations in a timely and cost-effective manner.
+You can use the Microsoft Azure Import/Export service to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. You can also use the Import/Export service to transfer large quantities of data resident in Blob storage to your on-premises installations in a timely and cost-effective manner.
 
 To transfer a large set of file data into Blob storage, you can send one or more hard drives containing that data to an Azure data center, where your data will be uploaded to your storage account. Similarly, to export data from Blob storage, you can send empty hard drives to an Azure data center, where the Blob data from your storage account will be copied to your hard drives and then returned to you. Before you send in a drive that contains data, you'll encrypt the data on the drive; when the Import/Export service exports your data to send to you, the data will also be encrypted before shipping.
 
@@ -23,7 +23,7 @@ To begin the process of importing to or exporting from Blob storage, you first c
 
 When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center. For an import job, you'll be shipping hard drives containing file data. For an export job, you'll be shipping empty hard drives.
 
-To prepare your drive to ship for an import job, you'll run the **WAImportExport** tool, which facilitates copying your data to the drive, encrypting the data on the drive with BitLocker, and generating the drive journal files, which are discussed below.
+To prepare your drive to ship for an import job, you'll run the **Microsoft Azure Import/Export Tool** tool, which facilitates copying your data to the drive, encrypting the data on the drive with BitLocker, and generating the drive journal files, which are discussed below.
 
 <div class="dev-callout">
 <strong>Note</strong>
@@ -34,11 +34,11 @@ When you create an import job or an export job, you'll also need the *drive ID*,
 
 <h3>Requirements and Scope</h3>
 
-1.	**Subscription and storage accounts:** You must have an existing Azure subscription and one or more storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one storage account. In other words, a job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/).
-2.	**Hard drives:** Only 3.5 inch SATA II hard drives are supported for use with the Import/Export service. Hard drives above 4TB are not supported with the preview release. For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS. You can attach a SATA II disk externally to most computers using a SATA II USB Adapter.
+1.	**Subscription and storage accounts:** You must have an existing Azure subscription and one or more storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one storage account. In other words, a job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](../storage-create-storage-account/).
+2.	**Hard drives:** Only 3.5 inch SATA II/III hard drives are supported for use with the Import/Export service. Hard drives larger than 4TB are not supported. For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS. You can attach a SATA II/III disk externally to most computers using a SATA II/III USB Adapter.
 3.	**BitLocker encryption:** All data stored on hard drives must be encrypted using BitLocker with encryption keys protected with numerical passwords.
 4.	**Blob storage targets:** Data may be uploaded to or downloaded from block blobs and page blobs. 
-5.	**Number of jobs:** A customer may have up to 20 jobs active per subscription.
+5.	**Number of jobs:** A customer may have up to 20 jobs active per storage account.
 6.	**Maximum size of a job:** The size of a job is determined by the capacity of the hard drives used and the maximum amount of data that can be stored in a storage account. Each job may contain no more than 10 hard drives.
 
 ## Create an Import Job in the Management Portal##
@@ -47,15 +47,15 @@ Create an import job to notify the Import/Export service that you'll be shipping
 
 <h3>Prepare Your Drives</h3>
 
-Before you create an import job, prepare your drives with the [WAImportExport tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409). For more details about using the WAImportExport tool, see [WAImportExport Tool Reference](http://go.microsoft.com/fwlink/?LinkId=329032).
+Before you create an import job, prepare your drives with the Microsoft Azure Import/Export Tool. For more details about using the Microsoft Azure Import/Export Tool, see the [Microsoft Azure Import/Export Tool Reference](http://go.microsoft.com/fwlink/?LinkId=329032). You can download the [Microsoft Azure Import/Export Tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) as a standalone package.
   
 To prepare your drives, follow these three steps: 
 
 1.	Determine the data to be imported, and the number of drives you'll need.
 2.	Identify the destination blobs for your data in the Azure Blob service.
-3.	Use the WAImportExport tool to copy your data to one or more hard drives.
+3.	Use the Microsoft Azure Import/Export Tool to copy your data to one or more hard drives.
 
-The WAImportExport tool generates a *drive journal* file for each drive as it is prepared. The drive journal file is stored on your local computer, not on the drive itself. You'll upload the journal file when you create the import job. A drive journal file includes the drive ID and the BitLocker key, as well as other information about the drive.  
+The Microsoft Azure Import/Export Tool generates a *drive journal* file for each drive as it is prepared. The drive journal file is stored on your local computer, not on the drive itself. You'll upload the journal file when you create the import job. A drive journal file includes the drive ID and the BitLocker key, as well as other information about the drive.  
 
 <h3>Create the Import Job</h3>
 
@@ -71,11 +71,17 @@ The WAImportExport tool generates a *drive journal* file for each drive as it is
 
 5.	In Step 4, enter a descriptive name for the import job. Note that the name you enter may contain only 	lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces. 	You'll use the name you choose to track your jobs while they are in progress and once they are completed.
 
-	The data center region will indicate the data center to which you must ship your package. See the FAQ below for more information.
+	Next, select your data center region from the list. The data center region will indicate the data center and address to which you must ship your package. See the FAQ below for more information.
 
-	If you already have your FedEx tracking number, select <strong>I have my tracking number and want to enter it now</strong>, and navigate to the next step. If you do not have a tracking number yet, choose <strong>I will provide my shipping information for this import job once I have shipped my package</strong>, then complete the import process.
+6. 	In Step 5, select your return carrier from the list, and enter your carrier account number. Microsoft will use this account to ship your drives back to you once your import job is complete.
 
-6. 	If you already have your tracking number, then in Step 5, enter the tracking number and confirm it. 
+	If you have your tracking number, then select your delivery carrier from the list, and enter your tracking number. 
+
+	If you do not have a tracking number yet, choose **I will provide my shipping information for this import job once I have shipped my package**, then complete the import process.
+
+7. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the Management Portal, select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2.
+
+	If the job is in the Creating, Shipping or Transferring state, you can also update your carrier account number in Step 2 of the wizard. Once the job is in the Packaging state, you cannot update your carrier account number for that job. 
 
 ## Create an Export Job in the Management Portal##
 
@@ -144,9 +150,15 @@ Create an export job to notify the Import/Export service that you'll be shipping
 
 	The data center region will indicate the data center to which you must ship your package. See the FAQ below for more information.
 
-	If you already have your FedEx tracking number, select <strong>I have my tracking number and want to enter it now</strong>, and navigate to the next step. If you do not have a tracking number yet, choose <strong>I will provide my shipping information for this export job once I have shipped my package</strong>, then complete the import process.
+5. 	In Step 5, select your return carrier from the list, and enter your carrier account number. Microsoft will use this account to ship your drives back to you once your export job is complete.
 
-5. In Step 5, enter your tracking number, then confirm it. 
+	If you have your tracking number, then select your delivery carrier from the list, and enter your tracking number. 
+
+	If you do not have a tracking number yet, choose <strong>I will provide my shipping information for this export job once I have shipped my package</strong>, then complete the export process.
+
+6. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the Management Portal, select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2.
+
+	If the job is in the Creating, Shipping or Transferring state, you can also update your carrier account number in Step 2 of the wizard. Once the job is in the Packaging state, you cannot update your carrier account number for that job. 
 
 
 ## Track Job Status in the Management Portal##
@@ -204,14 +216,16 @@ For export jobs, you can view and copy the BitLocker keys generated by the servi
  
 **What interface types are supported?**
 
-- The Import/Export service supports 3.5-inch SATA II hard drive disks (HDDs). You can use the following converters to transfer data in the devices in USB to SATA prior to shipping:
+- The Import/Export service supports 3.5-inch SATA II/III internal hard drive disks (HDDs). You can use the following converters to transfer data in the devices in USB to SATA prior to shipping:
 	- Anker 68UPSATAA-02BU
 	- Anker 68UPSHHDS-BU
 	- Startech SATADOCK22UE 
 
+> [WACOM.NOTE] If you have a converter which is not listed above, you can try running the Microsoft Azure Import/Export Tool using your converter to prepare the drive and see if it works before purchasing a supported converter.
+
 **If I want to import or export more than 10 drives, what should I do?**
 
-- One import or export job can reference only 10 drives in a single job during the preview release for the Import/Export service. If you want to ship more than 10 drives, you can create multiple jobs.
+- One import or export job can reference only 10 drives in a single job for the Import/Export service. If you want to ship more than 10 drives, you can create multiple jobs.
 
 **What happens if I accidentally send an HDD which does not conform to the supported requirements?**
 
@@ -229,15 +243,23 @@ For export jobs, you can view and copy the BitLocker keys generated by the servi
 
 **How long can I view the status of completed jobs in the Management Portal?**
 
-- You can view status for completed jobs for up to 90 days. All completed jobs will be archived after 90 days.  If you need to retrieve your completed job status after 90 days, you can contact customer support.
+- You can view status for completed jobs for up to 90 days. All completed jobs will be deleted after 90 days.
+
+**Is Bitlocker encryption a mandatory requirement?**
+
+- Yes. All drives must be encrypted with a BitLocker key.
+
+**Do you format the drives before returning them?**
+
+- No. All drives must be BitLocker-prepared.
 
 <h3>Shipping</h3>
 
 **What courier services are supported?**
 
-- 	Only Federal Express (FedEx) is supported during the preview release.
-- 	Package(s) for an import job can be shipped either with FedEx Express or FedEx Ground.
-- 	All packages will be returned via FedEx Ground.
+- For regions in the US and Europe, only [Federal Express](http://www.fedex.com/us/oadr/) (FedEx) is supported. All packages will be returned via FedEx Ground or FedEx International Economy.
+
+- For regions in Asia, only [DHL](http://www.dhl-welcome.com/Tutorial/) is supported. All packages will be returned via DHL Express Worldwide.
 
 	<div class="dev-callout">
 	<strong>Important</strong>
@@ -246,11 +268,13 @@ For export jobs, you can view and copy the BitLocker keys generated by the servi
 
 **Is there any cost associated with return shipping?**
 
-- Return shipping is free during the preview release.
+- Microsoft will use the carrier account number you provide at the time of job creation to ship drives to your return address from the data center. Please make sure to provide a carrier account number for the data center region’s supported carrier. You can create a [FedEx](http://www.fedex.com/us/oadr/) (for US and Europe) or [DHL](http://www.dhl-welcome.com/Tutorial/) (Asia) carrier account if you do not have one.
+
+- The return shipping fee is charged to your carrier account, and depends on the carrier.
 
 **Where can I ship my data from and to?**
 
-- The Import/Export service can only accept shipments that <strong>originate</strong> from U.S. locations, and can return packages only to U.S. addresses. The service supports importing data to and exporting data from storage accounts in the following regions:
+- The Import/Export service supports importing data to and exporting data from storage accounts in the following regions:
 	- East US 
 	- West US 
 	- North Central US 
@@ -260,30 +284,23 @@ For export jobs, you can view and copy the BitLocker keys generated by the servi
 	- East Asia
 	- Southeast Asia
 
-- If your storage account resides in a U.S. data center, you may need to ship your drives to a data center in a different region, as not all data centers currently support the Import/Export service. You may incur egress charges if your job is processed in a region different from where your storage account resides.
-
-- If your storage account resides in a European or Asian data center, you must ship your drive to one of the supported regions in the U.S., and the shipment must originate from within the U.S. The Import/Export service will then copy the data to or from your storage account in Europe or Asia.  
-	- For an import job there is no ingress charge for the copy operation.
-	- For an export job, there will be data transfers fees for copying data between Azure data centers. For example, if your storage account resides in West Europe and you ship your drive to the East US data center, you will incur egress charges for moving the data from West Europe to East US in order to export it.
+- You will be provided a shipping address in the region where your storage account resides. For example, if you live in the US, and your storage account is in the West Europe data center, you will be provided with a shipping address in Europe to send the drives.
 
 	<div class="dev-callout">
 	<strong>Important</strong>
-	<p>Azure data centers cannot receive drives shipped from locations outside the U.S. and will refuse delivery of those packages.</p>
+	<p>Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.</p>
 	</div>
+
+- In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](http://azure.microsoft.com/en-us/support/legal/services-terms/). 
 
 **Can I purchase drives for import/export jobs from Microsoft?**
 
 - 	No. You will need to ship your own drives for both import and export jobs.
 
-<h3>Security</h3>
+**What should I include in my package?**
 
-**Is Bitlocker encryption a mandatory requirement?**
+- Please ship only your hard drives. Do not include items like power supply cables or USB cables.
 
-- Yes. All drives must be encrypted with a BitLocker key.
-
-**Do you format the drives before returning them?**
-
-- No. All drives must be BitLocker-prepared.
 
 
 [import-job-03]: ./media/storage-import-export-service/import-job-03.png

@@ -645,9 +645,62 @@ These first two tasks are done using the [Azure Management Portal](https://manag
 
 ### <a name="caching"></a>How to: Cache authentication tokens
 
-This section shows how to cache an authentication token. Do this to prevent users from having to authenticate again if app is "hibernated" while the token is still vaid.
+This section shows how to cache an authentication token. Do this to prevent users from having to authenticate again if app is "hibernated" while the token is still valid.
 
-To do this you must store the User ID and authentication token locally on the device. The next time the app starts, you check the cache, and if these values are present, you can skip the login procedure and rehydrate the client with this data. However this data is sensitive, and it should be stored encrypted for safety in case the phone gets stolen.
+Caching authentication tokens requires you to store the User ID and authentication token locally on the device. The next time the app starts, you check the cache, and if these values are present, you can skip the log in procedure and re-hydrate the client with this data. However this data is sensitive, and it should be stored encrypted for safety in case the phone gets stolen. 
+
+The following code snippet demonstrates obtaining a token for a Microsoft Account log in. The token is cached and reloaded if the cache is found. 
+
+	private void authenticate() {
+		if (LoadCache())
+		{
+			createTable();
+		}
+		else
+		{
+		    // Login using the provider.
+		    mClient.login(MobileServiceAuthenticationProvider.MicrosoftAccount,
+		            new UserAuthenticationCallback() {
+		                @Override
+		                public void onCompleted(MobileServiceUser user,
+		                        Exception exception, ServiceFilterResponse response) {
+		                    if (exception == null) {
+		                        createTable();
+		                        cacheUser(mClient.getCurrentUser());
+		                    } else {
+		                        createAndShowDialog("You must log in. Login Required", "Error");
+		                    }
+		                }
+		            });
+		}
+	}	
+
+
+	private boolean LoadCache()
+	{
+		SharedPreferences prefs = getSharedPreferences("temp", Context.MODE_PRIVATE);
+		String tmp1 = prefs.getString("tmp1", "undefined"); 
+		if (tmp1 == "undefined")
+			return false;
+		String tmp2 = prefs.getString("tmp2", "undefined"); 
+		if (tmp2 == "undefined")
+			return false;
+		MobileServiceUser user = new MobileServiceUser(tmp1);
+		user.setAuthenticationToken(tmp2);
+		mClient.setCurrentUser(user);		
+		return true;
+	}
+
+
+	private void cacheUser(MobileServiceUser user)
+	{
+		SharedPreferences prefs = getSharedPreferences("temp", Context.MODE_PRIVATE);
+		Editor editor = prefs.edit();
+		editor.putString("tmp1", user.getUserId());
+		editor.putString("tmp2", user.getAuthenticationToken());
+		editor.commit();
+	}
+
 
 So what happens if your token expires? In this case, when you try to use it to connect, you will get a *401 unauthorized* response. The user must then log in to obtain new tokens. You can avoid having to write code to handle this in every place in your app that calls Mobile Servides by using filters, which allow you to intercept calls to and responses from Mobile Services. The filter code will then test the response for a 401, trigger the login process if needed, and then resume the request that generated the 401.
 

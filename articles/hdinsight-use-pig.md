@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-howto-pig" urlDisplayName="Use Pig with HDInsight" pageTitle="Use Pig with HDInsight | Azure" metaKeywords="" description="Learn how to use Pig with HDInsight. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Pig with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-howto-pig" urlDisplayName="Use Hadoop Pig in HDInsight" pageTitle="Use Hadoop Pig in HDInsight | Azure" metaKeywords="" description="Learn how to use Pig with HDInsight. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Pig in HDInsight" authors="jgao" solutions="big data" manager="paulettm" editor="cgronlun" />
 
 
 
-# Use Pig with HDInsight #
+# Use Pig with Hadoop in HDInsight
 
 Learn how to run [Apache Pig][apachepig-home] jobs on HDInsight to analyze an Apache log4j log file.
 
@@ -57,7 +57,7 @@ For more information on Pig Latin, see [Pig Latin Reference Manual 1][piglatin-m
 
 Note the following requirements before you begin this article:
 
-* An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
+* An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
 
 	<table border = "1">
 	<tr><th>Cluster property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
@@ -209,7 +209,7 @@ In this session, you will review some Pig Latin statements, and the results afte
 
 ##<a id="powershell"></a>Submit Pig jobs using PowerShell
 
-This section provides instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Azure. For details, see [Get started with Azure HDInsight][hdinsight-getting-started] and [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
+This section provides instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Azure. For details, see [Get started with Azure HDInsight][hdinsight-get-started] and [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
 
 
 **To run Pig Latin using PowerShell**
@@ -395,10 +395,10 @@ The following is a Pig job submission sample using HDInsight .NET SDK.  For inst
 While Pig allows you to perform data analysis, other languages included with HDInsight may be of interest to you also. Hive provides a SQL-like query language that allows you to easily query against data stored in HDInsight, while MapReduce jobs written in Java allow you to perform complex data analysis. For more information, see the following:
 
 
-* [Get started with Azure HDInsight][hdinsight-getting-started]
+* [Get started with Azure HDInsight][hdinsight-get-started]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
-* [Use Hive with HDInsight][hdinsight-using-hive]
+* [Use Hive with HDInsight][hdinsight-use-hive]
 
 
 
@@ -407,17 +407,18 @@ While Pig allows you to perform data analysis, other languages included with HDI
 [apachepig-home]: http://pig.apache.org/
 
 
-[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
-[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
-[hdinsight-admin-powershell]: /en-use/manage/services/hdinsight/administer-hdinsight-using-powershell/
+[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 
-[hdinsight-using-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
+[hdinsight-use-hive]: ../hdinsight-use-hive/
 
-[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
+[hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/#mapreduce-sdk
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: ../install-configure-powershell/
+
 [powershell-start]: http://technet.microsoft.com/en-us/library/hh847889.aspx
 
 [image-hdi-log4j-sample]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png

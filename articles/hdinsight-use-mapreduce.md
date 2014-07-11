@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-howto-mapreduce" urlDisplayName="MapReduce with HDInsight " pageTitle="Use MapReduce with HDInsight | Azure" metaKeywords="" description="Learn how to use HDInsight to execute a simple Hadoop MapReduce job." metaCanonical="" services="hdinsight" documentationCenter="" title="Use MapReduce with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-howto-mapreduce" urlDisplayName="MapReduce with Hadoop in HDInsight" pageTitle="Use Hadoop MapReduce in HDInsight | Azure" metaKeywords="" description="Learn how to use HDInsight to execute a simple Hadoop MapReduce job." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop MapReduce in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
-# Use MapReduce with HDInsight#
+# Use Hadoop MapReduce in HDInsight
 
 Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. In this tutorial, you will use Azure PowerShell from your workstation to submit a MapReduce program that counts word occurrences in a text to an HDInsight cluster. The word counting program is written in Java and the program comes with the HDInsight cluster.
 
@@ -11,7 +11,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 
 Before you begin this tutorial, you must have the following:
 
-- An HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+- An HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters][hdinsight-provision].
 
 - A workstation with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
 
@@ -39,7 +39,7 @@ The output of the MapReduce job is a set of key-value pairs. The key is a string
 
 Running a MapReduce job requires the following elements:
 
-* A MapReduce program. In this tutorial, you will use the word counting sample that comes with HDInsight clusters so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. The file name is *hadoop-mapreduce-examples.jar* on version 3.0 HDInsight clusters. For instructions on writing your own MapReduce job, see [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce].
+* A MapReduce program. In this tutorial, you will use the word counting sample that comes with HDInsight clusters so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. The file name is *hadoop-mapreduce-examples.jar* on version 3.0 HDInsight clusters. For instructions on writing your own MapReduce job, see [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce-jobs].
 * An input file. You will use */example/data/gutenberg/davinci.txt* as the input file. For information on upload files, see [Upload Data to HDInsight][hdinsight-upload-data].
 * An output file folder. You will use */example/data/WordCountOutput* as the output file folder. The system will create the folder if it doesn't exist. The MapReduce job will fail if the folder exists.  If you want to run the MapReduce job for the second time, make sure to delete the output folder or specify another output folder.
 
@@ -207,24 +207,24 @@ The following is the source code for the word counting Java MapReduce program:
 ##<a id="nextsteps"></a>Next steps
 While MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. Other languages such as Pig and Hive provide an easier way to work with data stored in HDInsight. To learn more, see the following articles:
 
-* [Get Started with Azure HDInsight][hdinsight-getting-started]
-* [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce]
+* [Get Started with Azure HDInsight][hdinsight-get-started]
+* [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce-jobs]
 * [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
-* [Use Hive with HDInsight][hdinsight-hive]
-* [Use Pig with HDInsight][hdinsight-pig] 
+* [Use Hive with HDInsight][hdinsight-use-hive]
+* [Use Pig with HDInsight][hdinsight-use-pig] 
 * [Run the HDInsight Samples][hdinsight-samples]
 
 
-[hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
+[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-develop-mapreduce-jobs]: ../hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-pig]: ../hdinsight-use-pig/
+[hdinsight-samples]: ../hdinsight-run-samples/
+[hdinsight-provision]: ../hdinsight-provision-clusters/
 
-[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
-[hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
-[hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
-[hdinsight-hive]: /en-us/documentation/articles/hdinsight-use-hive/
-[hdinsight-pig]: /en-us/documentation/articles/hdinsight-use-pig/
-[hdinsight-samples]: /en-us/documentation/articles/hdinsight-run-samples/
-
-[powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
+[powershell-install-configure]: ../install-and-configure-powershell/
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-get-started/HDI.WordCountDiagram.gif
 

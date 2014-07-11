@@ -20,7 +20,7 @@ By default, all requests to mobile service resources are restricted to clients t
 
 	>[WACOM.NOTE]Apply the AuthorizeLevel attribute to individual methods to set specific authorization levels on the methods exposed by the controller.
 
-5. Expand the App_Start folder, open the WebApiConfig.cs project file, then add the following code to the **Register** method:
+5. If you wish to debug authentication locally, expand the App_Start folder, open the WebApiConfig.cs project file, then add the following code to the **Register** method:
 
 		config.SetIsHosted(true);
 	

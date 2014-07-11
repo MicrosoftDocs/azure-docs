@@ -10,12 +10,6 @@ You will learn:
 - How to connect to the virtual machine using SSH or PuTTY.
 - How to install MongoDB on the virtual machine.
 
-## Sign up for the Virtual Machines preview feature
-
-You will need to sign up for the Azure Virtual Machines preview feature in order to create a virtual machine. You can also sign up for a free trial account if you do not have an Azure account.
-
-[WACOM.INCLUDE [antares-iaas-signup-iaas](../includes/antares-iaas-signup-iaas.md)]
-
 ## Create a virtual machine running CentOS Linux
 
 [WACOM.INCLUDE [create-and-configure-centos-vm-in-portal](../includes/create-and-configure-centos-vm-in-portal.md)]

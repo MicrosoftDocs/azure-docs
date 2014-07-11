@@ -1,7 +1,7 @@
-<properties linkid="hdinsight-use-oozie-with-hdinsight" urlDisplayName="Use Oozie with HDInsight" pageTitle="Use Oozie with HDInsight | Azure" metaKeywords="" description="Use Oozie with HDInsight, a big data solution. Learn how to define an Oozie workflow, and submit an Oozie job." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Oozie with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="hdinsight-use-hadoop-oozie-in-hdinsight" urlDisplayName="Use Hadoop Oozie in HDInsight" pageTitle="Use Hadoop Oozie in HDInsight | Azure" metaKeywords="" description="Use Hadoop Oozie in HDInsight, a big data solution. Learn how to define an Oozie workflow, and submit an Oozie job." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadop Oozie in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
-# Use Oozie with HDInsight
+# Use Oozie with Hadoop in HDInsight
 
 Learn how to define a workflow, and how to run the workflow on HDInsight. To learn Oozie coordinator, see [Use time-based Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time].
 
@@ -42,9 +42,9 @@ The workflow you will implement contains two actions:
 		[TRACE] 816
 		[WARN]  4
 
-	For more information on Hive, see [Use Hive with HDInsight][hdinsight-hive].
+	For more information on Hive, see [Use Hive with HDInsight][hdinsight-use-hive].
 	
-2.  A Sqoop action exports the HiveQL action output to a table on Azure SQL database. For more information on Sqoop, see [Use Sqoop with HDInsight][hdinsight-sqoop].
+2.  A Sqoop action exports the HiveQL action output to a table on Azure SQL database. For more information on Sqoop, see [Use Sqoop with HDInsight][hdinsight-use-sqoop].
 
 > [WACOM.NOTE] For supported Oozie versions on HDInsight clusters, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions].
 
@@ -445,7 +445,7 @@ the Invoke-RestMethod PowerShell cmdlet to invoke Oozie web services. The Oozie 
 		
 		   <property>
 		       <name>user.name</name>
-		       <value>admin</value>
+		       <value>$clusterUsername</value>
 		   </property>
 		
 		   <property>
@@ -560,52 +560,46 @@ In this tutorial, you have learned how to define an Oozie workflow, and how to r
 
 - [Use time-based Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]
 - [Get started with HDInsight][hdinsight-get-started]
-- [Get started with the HDInsight Emulator][hdinsight-emulator]
+- [Get started with the HDInsight Emulator][hdinsight-get-started-emulator]
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Upload data to HDInsight][hdinsight-upload-data]
-- [Use Sqoop with HDInsight][hdinsight-sqoop]
-- [Use Hive with HDInsight][hdinsight-hive]
-- [Use Pig with HDInsight][hdinsight-pig]
-- [Develop C# Hadoop streaming jobs for HDInsight][hdinsight-develop-streaming]
+- [Use Sqoop with HDInsight][hdinsight-use-sqoop]
+- [Use Hive with HDInsight][hdinsight-use-hive]
+- [Use Pig with HDInsight][hdinsight-use-pig]
+- [Develop C# Hadoop streaming jobs for HDInsight][hdinsight-develop-streaming-jobs]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 
+[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 
 
 
 [hdinsight-oozie-coordinator-time]: ../hdinsight-use-oozie-coordinator-time/
-[hdinsight-versions]:  /en-us/documentation/articles/hdinsight-component-versioning/
-[hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
-[hdinsight-get-started]: /en-us/documentation/articles/hdinsight-get-started/
-[hdinsight-admin-portal]: /en-us/documentation/articles/hdinsight-administer-use-management-portal/
+[hdinsight-versions]:  ../hdinsight-component-versioning/
+[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
 
 
-[hdinsight-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-provision]: /en-us/documentation/articles/hdinsight-provision-clusters/
+[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
+[hdinsight-provision]: ../hdinsight-provision-clusters/
+[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
+[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-pig]: ../hdinsight-use-pig/
+[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator/
 
-[hdinsight-admin-powershell]: /en-us/documentation/articles/hdinsight-administer-use-powershell/
-
-[hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
-
-[hdinsight-mapreduce]: /en-us/documentation/articles/hdinsight-use-mapreduce/
-[hdinsight-hive]: /en-us/documentation/articles/hdinsight-use-hive/
-
-[hdinsight-pig]: /en-us/documentation/articles/hdinsight-use-pig/
-
-[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
-[hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
-
-[hdinsight-emulator]: /en-us/documentation/articles/hdinsight-get-started-emulator/
-
-[hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
-[hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-develop-streaming-jobs]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 
 [sqldatabase-create-configue]: ../sql-database-create-configure/
 [sqldatabase-get-started]: ../sql-database-get-started/
 
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+[azure-create-storageaccount]: ../storage-create-storage-account/ 
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
@@ -613,7 +607,7 @@ In this tutorial, you have learned how to define an Oozie workflow, and how to r
 
 [powershell-download]: http://azure.microsoft.com/en-us/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
-[powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
+[powershell-install-configure]: ../install-and-configure-powershell/
 [powershell-start]: http://technet.microsoft.com/en-us/library/hh847889.aspx
 [powershell-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx
 

@@ -1,8 +1,4 @@
-<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous deliver PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
-
-
-
-
+<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
 
 # Continuous Delivery for Cloud Services in Azure
 
@@ -76,7 +72,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     If Visual Studio is not installed on the build server, open a
     command prompt and make sure that MSBuild.exe is accessible on the
     path. MSBuild is installed with the .NET Framework in the path   
-    %WINDIR%\\Microsoft.NET\\Framework\\*&lt;Version\&gt;*. For example, to
+    %WINDIR%\\Microsoft.NET\\Framework\\*Version*. For example, to
     add MSBuild.exe to the PATH environment variable when you have .NET
     Framework 4 installed, type the following command at the command
     prompt:
@@ -105,12 +101,12 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
 
 4.  Locate the output. By default, this command creates a directory in
     relation to the root folder for the project, such as
-    *&lt;ProjectDir&gt;*\\bin\\*&lt;Configuration&gt;*\\app.publish\\. When you
+    *ProjectDir*\\bin\\*Configuration*\\app.publish\\. When you
     build an Azure project, you generate two files, the package
     file itself and the accompanying configuration file:
 
     -   Project.cspkg
-    -   ServiceConfiguration.*&lt;TargetProfile&gt;*.cscfg
+    -   ServiceConfiguration.*TargetProfile*.cscfg
 
     By default, each Azure project includes one
     service configuration file (.cscfg file) for local (debugging)
@@ -128,7 +124,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
 6.  Specify the location for the output. Set the path by using the
-    /p:PublishDir=*&lt;Directory\&gt;*\\ option, including the trailing
+    /p:PublishDir=*Directory*\\ option, including the trailing
     backslash separator, as in the following example:
 
         MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
@@ -773,6 +769,10 @@ $deploymentUrl = $deployment.Url
 Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl."
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
 </pre>
+
+## Next steps
+
+To enable remote debugging when using continuous delivery, see [these instructions](http://go.microsoft.com/fwlink/p/?LinkID=402354). 
 
   [Continuous Delivery to Azure by Using Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
   [Step 1: Configure the Build Server]: #step1

@@ -1,4 +1,4 @@
-<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="" editor="" />
 
 
 
@@ -6,18 +6,16 @@
 
 #Selecting User Names for Linux on Azure#
 
-When you create a virtual machine instance for Linux images on Azure you have the ability to select the user name to provision.
+When you create a Linux virtual machine instance on Azure you have the ability to select the username to provision (the default username is *azureuser*). In most cases this new user will not exist on the base image and will be created during the provisioning process.  In some cases if the user already exists on the base VM image, then the Azure Linux agent will simply configure the password (and/or SSH key) for that user based on the provisioning configuration information passed when creating the VM.
 
-Linux defines a set of user names that you can't use. It is very important that you **avoid using these names**. If you do use one of these user names, you won't be able to provision the image.
+**However**, Linux defines a set of user names that should not be used when creating new users. The provisioning process will **fail** if you attempt to provision a Linux VM using an existing system user, which is defined as a user with UID 0-99. A typical example is the `root` user, which has UID 0.
 
-In addition, the Service Management API will return an error that states: Failed to create user *xxxxxx*. This will also be true if you use a user name that already exists in the image as a result of a previous capture operation that did not deprovision the user name already created in the image. 
+ - See also: [Linux Standard Base - User ID Ranges](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-Following are the user names that you can't use. 
+The following lists contain user names that you should avoid using when provisioning a Linux virtual machine.  To be safe it is recommended that you **do not use these usernames** when provisioning a Linux VM or the provisioning process may fail.
 
 
-
-OpenSUSE
--------------------
+## openSUSE
 - abrt
 - adm
 - audio
@@ -73,8 +71,8 @@ OpenSUSE
 - video
 - wheel
 
-SLES
-------------------
+
+## SLES
 - audio
 - bin
 - cdrom
@@ -120,8 +118,7 @@ SLES
 - xok
 
  
-CentOS
--------------------
+## CentOS
 - abrt
 - adm
 - audio
@@ -177,8 +174,8 @@ CentOS
 - video
 - wheel
 
-UBUNTU
--------------------
+
+## Ubuntu
 - adm
 - admin
 - audio
@@ -232,3 +229,4 @@ UBUNTU
 - voice
 - whoopsie
 - www-data
+

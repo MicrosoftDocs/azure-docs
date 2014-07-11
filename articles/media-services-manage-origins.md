@@ -1,4 +1,5 @@
-<properties linkid="scripting-center-index" urlDisplayName="index" pageTitle="Scripting Center Index" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Manage Origins in a Media Services Account" authors="juliako" solutions="" manager="" editor="" />
+<properties linkid="scripting-center-index" urlDisplayName="index" pageTitle="How to Manage Origins in a Media Services Account" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Manage Origins in a Media Services Account" authors="juliako"  solutions="" writer="juliako" manager="" editor=""  />
+
 
 
 
@@ -27,7 +28,8 @@ The CONFIGURE tab enables you to do the following configurations:
 
 2. Specify IP addresses that would be allowed to connect to the published streaming endpoint. If no IP addresses specified, any IP address would be able to connect.
 
-3. Specify configuration for G20 authentication requests from Akami servers.
+3. Specify configuration for Akamai signature header authentication.
+
 
 
 	![Configure origin][configure-origin]

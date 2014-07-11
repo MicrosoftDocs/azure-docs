@@ -14,7 +14,7 @@
 
 You have three options for replicating your storage account:
 
-- 	**Geo-redundant replication.** Geo-redundant replication is enabled for your storage account by default. With geo-redundant replication, your data is replicated to a secondary geographic location to enable failover to that location in case of a major disaster in the primary location. The secondary location is in the same region, but is hundreds of miles from the primary location. 
+- 	**Geo-redundant replication.** Geo-redundant replication is enabled for your storage account by default. With geo-redundant replication, your data is replicated to a secondary geographic location to enable failover to that location in case of a major disaster in the primary location.
 
 - **Read access geo-redundant replication.** Read access geo-redundant replication replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant replication allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
 
@@ -22,9 +22,7 @@ You have three options for replicating your storage account:
 	
 	Be aware that if you specify locally redundant replication for your storage account, and you later decide to enable geo-redundant replication, you will incur a one-time data cost to replicate your existing data to the secondary location. 
 
-- **Read access geo-redundant replication (preview only).** Read access geo-redundant replication replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant replication allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
-
-For pricing information for storage account replication, see [Storage Pricing Details](http://www.windowsazure.com/en-us/pricing/details/storage/).
+For pricing information for storage account replication, see [Storage Pricing Details](http://azure.microsoft.com/en-us/pricing/details/storage/).
 
 ### To specify replication settings for a storage account ###
 
@@ -62,7 +60,7 @@ You should change the access keys to your storage account periodically to help k
 
 <div class="dev-callout"> 
     <b>Warning</b> 
-    <p>Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account.
+    <p>Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
     </p> 
     </div>
 

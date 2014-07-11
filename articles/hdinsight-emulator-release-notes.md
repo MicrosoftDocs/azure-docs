@@ -1,4 +1,4 @@
-<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
+<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
 
 
 
@@ -66,9 +66,9 @@
  
 * Connect to multiple clusters, including the local installation as well as those running remotely using Azure HDInsight Service. 
  
-* For more information on HDInsight Service, see http://www.windowsazure.com/en-us/manage/services/hdinsight.
+* For more information on HDInsight Service, see [http://azure.microsoft.com/en-us/documentation/services/hdinsight/](http://azure.microsoft.com/en-us/documentation/services/hdinsight/).
 
-* Configure ASV on local cluster
+* Configure WASB on local cluster
 
 * See detailed instructions below.
 
@@ -254,8 +254,8 @@ Port numbers
 
 ##<a name="nextsteps"></a> Next steps
 
-- [Get started with the HDInsight Emulator][hdinsight-emulator]
+- [Get started with the HDInsight Emulator][hdinsight-get-started-emulator]
 
 
-[hdinsight-emulator]: /en-us/documentation/articles/hdinsight-get-started-emulator/
+[hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator/
 

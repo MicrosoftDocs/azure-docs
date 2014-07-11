@@ -2,7 +2,7 @@
 
 #How to Access Azure SQL Database from PHP 
 
-This guide will show you the basics of using Azure SQL Database from PHP. The samples are written in PHP. The scenarios covered include **creating a SQL Database** and **connecting to a SQL Database**. This guide covers creating a SQL Database from the [Management Portal][preview-portal]. For information about performing these tasks from the production portal, see [Getting Started with PHP and SQL Database][prod-portal-instructions]. For more information, see the [Next Steps](#NextSteps) section.
+This guide will show you the basics of using Azure SQL Database from PHP. The samples are written in PHP. The scenarios covered include **creating a SQL Database** and **connecting to a SQL Database**. This guide covers creating a SQL Database from the [Management Portal][management-portal]. For information about performing these tasks from the production portal, see [Getting Started with PHP and SQL Database][prod-portal-instructions]. For more information, see the [Next Steps](#NextSteps) section.
 
 ##What is Azure SQL Database
 
@@ -36,7 +36,7 @@ Alternatively, you can set up your environment manually:
 
 Follow these steps to create an Azure SQL Database:
 
-1. Login to the [Management Portal][preview-portal].
+1. Login to the [Management Portal][management-portal].
 2. Click **New** on the bottom left of the portal.
 
 	![Create New Azure Web Site][new-website]
@@ -115,7 +115,7 @@ A sample that shows how to use SQL Database with PHP on Azure is available at <h
 [driver-docs]: http://msdn.microsoft.com/en-us/library/dd638075(SQL.10).aspx
 [access-php-odbc]: http://social.technet.microsoft.com/wiki/contents/articles/accessing-sql-azure-from-php.aspx
 [install-sql-express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
-[preview-portal]: https://manage.windowsazure.com
+[management-portal]: https://manage.windowsazure.com
 [prod-portal-instructions]: http://blogs.msdn.com/b/brian_swan/archive/2010/02/12/getting-started-with-php-and-sql-azure.aspx
 [new-website]: ./media/sql-database-php-how-to-use-sql-database/plus-new.png
 [custom-create]: ./media/sql-database-php-how-to-use-sql-database/create_custom_sql_db-2.png

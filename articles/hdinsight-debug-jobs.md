@@ -1,15 +1,15 @@
-<properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Errors" pageTitle="Debug HDInsight: Error messages | Azure" metaKeywords="dinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Debug Hadoop in HDInsight: Error messages | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
 
-# Debug HDInsight: Error messages
+# Debug Hadoop in HDInsight: Error messages
 
 ##Introduction
-The error messages itemized in this topic are provided to help the users of Azure HDInsight understand possible error conditions that they can encounter when administering the service using Azure PowerShell and to advise them on the steps which can be taken to recover from the error. 
+The error messages itemized in this topic are provided to help the users of Hadoop in Azure HDInsight understand possible error conditions that they can encounter when administering the service using Azure PowerShell and to advise them on the steps which can be taken to recover from the error. 
 
-Some of these error mssages could also be seen in the Azure portal when used manage HDinsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. If the constraints on paramters are violated, for example, the message pops-up in on the right side of the box where the value was entered. Here is a case where too many data nodes have been requested. The remedy is to reduce the number to an allowed value that is 22 or less.
+Some of these error messages could also be seen in the Azure portal when it is used to manage HDInsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. If the constraints on parameters are violated, for example, the message pops-up in on the right side of the box where the value was entered. Here is a case where too many data nodes have been requested. The remedy is to reduce the number to an allowed value that is 22 or less.
 
 ![HDI.Debugging.ErrorMessages.Portal][image-hdi-debugging-error-messages-portal]
 
-The errors a user can encounter in Azure PowerShell or in the Azure Portal are listed alphabetically by name in the [HDInsight Errors](#hdinsight-error-messages) section where they are linked to an entry in the [Discription and Mitigation of Errors](#discription-mitigation-errors) section that provide the following infomation for the error:
+The errors a user can encounter in Azure PowerShell or in the Azure Portal are listed alphabetically by name in the [HDInsight Errors](#hdinsight-error-messages) section where they are linked to an entry in the [Discription and Mitigation of Errors](#discription-mitigation-errors) section that provide the following information for the error:
  	
 - **Description**: the error message users see	
 - **Mitigation**: what steps can be taken to recover from the error. 
@@ -73,7 +73,7 @@ The errors a user can encounter in Azure PowerShell or in the Azure Portal are l
 
 <h3><a id="AzureRegionNotSupported"></a>AzureRegionNotSupported</h3>
 - **Description**: Could not create cluster in region *nameOfYourRegion*. Use a valid HDInsight region and retry request.   
-- **Mitigation**: Customer should create the cluster region that currently supports them: North Europe, East US, or West US.  
+- **Mitigation**: Customer should create the cluster region that currently supports them: Southeast Asia, West Europe, North Europe, East US, or West US.  
 
 <h3><a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound</h3>
 - **Description**: The server could not find the requested cluster record.  
@@ -90,7 +90,7 @@ The errors a user can encounter in Azure PowerShell or in the Azure Portal are l
 
 <h3><a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid</h3>
 - **Description**: Cluster password is invalid. Password must be at least 10 characters long and must contain at least one number, uppercase letter, lowercase letter and special character with no spaces and should not contain the username as part of it.  
-- **Mitigation**: Provie a valid cluster password and retry the operation. 
+- **Mitigation**: Provide a valid cluster password and retry the operation. 
 
 <h3><a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid</h3>
 - **Description**: Cluster username is invalid. Please ensure username doesn't contain special characters or spaces.  
@@ -210,7 +210,7 @@ The errors a user can encounter in Azure PowerShell or in the Azure Portal are l
 
 <h3><a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable</h3>
 - **Description**: Region capability not available for region *yourRegionName* and Subscription ID *yourSubscriptionId*.  
-- **Mitigation**: Specify a region that supports HDInsight clusters. The publicly supported regions are: East US, West US, North Europe 
+- **Mitigation**: Specify a region that supports HDInsight clusters. The publicly supported regions are: Southeast Asia, West Europe, North Europe, East US, or West US. 
 
 <h3><a id="StorageAccountNotColocated"></a>StorageAccountNotColocated</h3>
 - **Description**: Storage account *yourStorageAccountName* is in region *currentRegionName*. It should be same as the cluster region *yourClusterRegionName*.  

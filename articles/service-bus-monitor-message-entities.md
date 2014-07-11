@@ -1,4 +1,4 @@
-<properties linkid="service-bus-monitor-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Monitor Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to monitor your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Monitor Service Bus Messaging Entities" authors="" solutions="" />
+<properties linkid="service-bus-monitor-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Monitor Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to monitor your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Monitor Service Bus Messaging Entities" authors="sethm" solutions="" />
 
 
 # How to Monitor Service Bus Messaging Entities
@@ -9,7 +9,7 @@ This topic describes how to manage and monitor your Service Bus entities using t
 
 To monitor a Service Bus queue, do the following:
 
-1. Log on to the [Azure (Preview) Management Portal](http://manage.windowsazure.com).
+1. Log on to the [Azure Management Portal](http://manage.windowsazure.com).
 2. Click the **Service Bus** icon on the left navigation bar to get the list of service namespaces. 
 3. Click the namespace that contains the queue you want to monitor. 
 4. In the pivot bar at the top of the page, click **Queues**.
@@ -33,7 +33,7 @@ For any queue, you can see charts of:
 
 To monitor a Service Bus topic, do the following:
 
-1. Log on to the [Azure (Preview) Management Portal](http://manage.windowsazure.com).
+1. Log on to the [Azure Management Portal](http://manage.windowsazure.com).
 2. Click the **Service Bus** icon on the left navigation bar to get the list of service namespaces. 
 3. Click the namespace that contains the topic you want to monitor. 
 4. In the pivot bar at the top of the page, click **Topics**.

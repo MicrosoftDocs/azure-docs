@@ -154,7 +154,7 @@ After creating the Azure Virtual Machine, perform the following steps to install
 
 		sudo apt-get update -y
 		sudo apt-get upgrade -y
-		sudo apt-get install ruby1.9.1 ruby1.9.l-dev build-essential libsqlite3-dev nodejs -y
+		sudo apt-get install ruby1.9.1 ruby1.9.1-dev build-essential libsqlite3-dev nodejs -y
 
 	After the installation completes, use the following command to verify that Ruby has been successfully installed:
 

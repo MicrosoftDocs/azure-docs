@@ -1,4 +1,4 @@
-<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="" videoId="" scriptId="" />
+<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" />
 
 # How to Use the Blob Storage Service from Python
 This guide will show you how to perform common scenarios using the
@@ -58,17 +58,17 @@ container, but only you can modify or delete them.
 
 ## <a name="upload-blob"> </a>How to: Upload a Blob into a Container
 
-To upload a file to a blob, use the **put_blob** method
-to create the blob, using a file stream as the contents of the blob.
-First, create a file called **task1.txt** (arbitrary content is fine)
-and store it in the same directory as your Python file.
+To upload data to a blob, use the **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** or **put\_block\_blob\_from\_text** methods. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
-	myblob = open(r'task1.txt', 'r').read()
-	blob_service.put_blob('mycontainer', 'myblob', myblob, x_ms_blob_type='BlockBlob')
+**put\_block\_blob\_from\_path** uploads the contents of a file from the specified path, **put\_block\_blob\_from\_file** uploads the contents from an already opened file/stream. **put\_block\_blob\_from\_bytes** uploads an array of bytes, **put\_block\_blob\_from\_text** uploads the specified text value using the specified encoding (defaults to UTF-8).
+
+The following example uploads the contents of the **task1.txt** file into the **myblob** blob.
+
+	blob_service.put_block_blob_from_path('mycontainer', 'myblob', 'task1.txt')
 
 ## <a name="list-blob"> </a>How to: List the Blobs in a Container
 
-To list the blobs in a container, use the **list_blobs** method with a
+To list the blobs in a container, use the **list\_blobs** method with a
 **for** loop to display the name of each blob in the container. The
 following code outputs the **name** and **url** of each blob in a container to the
 console.
@@ -80,69 +80,17 @@ console.
 
 ## <a name="download-blobs"> </a>How to: Download Blobs
 
-To download blobs, use the **get_blob** method to transfer the
-blob contents to a stream object that you can then persist to a local
-file.
+To download data from a blob, use **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** or **get\_blob\_to\_text**. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
-	blob = blob_service.get_blob('mycontainer', 'myblob')
-	with open(r'out-task1.txt', 'w') as f:
-		f.write(blob)
+The following example demonstrates using **get\_blob\_to\_path** to download the contents of the **myblob** blob and store it to the **out-task1.txt** file:
+
+	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-task1.txt')
 
 ## <a name="delete-blobs"> </a>How to: Delete a Blob
 
 Finally, to delete a blob, call **delete_blob**.
 
 	blob_service.delete_blob('mycontainer', 'myblob') 
-
-## <a name="large-blobs"> </a>How to: Upload and Download Large Blobs
-
-The maximum size for a block blob is 200 GB.  For blobs smaller than 64 MB, the blob can be uploaded or downloaded using a single call to **put\_blob** or **get\_blob**, as shown previously.  For blobs larger than 64 MB, the blob needs to be uploaded or downloaded in blocks of 4 MB or smaller.
-
-The following code shows examples of functions to upload or download block blobs of any size.
-
-    import base64
-
-    chunk_size = 4 * 1024 * 1024
-
-    def upload(blob_service, container_name, blob_name, file_path):
-        blob_service.create_container(container_name, None, None, False)
-        blob_service.put_blob(container_name, blob_name, '', 'BlockBlob')
-
-        block_ids = []
-        index = 0
-        with open(file_path, 'rb') as f:
-            while True:
-                data = f.read(chunk_size)
-                if data:
-                    length = len(data)
-                    block_id = base64.b64encode(str(index))
-                    blob_service.put_block(container_name, blob_name, data, block_id)
-                    block_ids.append(block_id)
-                    index += 1
-                else:
-                    break
-
-        blob_service.put_block_list(container_name, blob_name, block_ids)
-
-    def download(blob_service, container_name, blob_name, file_path):
-        props = blob_service.get_blob_properties(container_name, blob_name)
-        blob_size = int(props['content-length'])
-
-        index = 0
-        with open(file_path, 'wb') as f:
-            while index < blob_size:
-                chunk_range = 'bytes={}-{}'.format(index, index + chunk_size - 1)
-                data = blob_service.get_blob(container_name, blob_name, x_ms_range=chunk_range)
-                length = len(data)
-                index += length
-                if length > 0:
-                    f.write(data)
-                    if length < chunk_size:
-                        break
-                else:
-                    break
-
-If you need blobs larger than 200 GB, you can use a page blob instead of a block blob.  The maximum size of a page blob is 1 TB, with pages that align to 512-byte page boundaries.  Use **put\_blob** to create a page blob, **put\_page** to write to it, and **get\_blob** to read from it.
 
 ## <a name="next-steps"> </a>Next Steps
 

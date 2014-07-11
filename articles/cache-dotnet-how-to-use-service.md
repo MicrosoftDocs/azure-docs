@@ -1,11 +1,11 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Azure Cache Service (Preview)" authors="" solutions="" manager="" editor="" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="" editor="" />
 
 
 
-# How to Use Azure Cache Service (Preview)
+# How to Use Azure Managed Cache Service
 
 This guide shows you how to get started using 
-**Azure Cache Service (Preview)**. The samples are written in C\# code and
+**Azure Managed Cache Service**. The samples are written in C\# code and
 use the .NET API. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, **adding and removing
 objects from the cache, storing ASP.NET session state in the cache**,
 and **enabling ASP.NET page output caching using the cache**. For more
@@ -13,8 +13,8 @@ information on using Azure Cache, refer to the [Next Steps][] section.
 
 ## Table of Contents
 
--   [What is Azure Cache?][]
--	[Getting Started with Cache Service (Preview)]
+-   [What is Azure Managed Cache Service?][]
+-	[Getting Started with Managed Cache Service]
 	-	[Create the cache][]
 	-	[Configure the cache][]
 	-	[Configure the cache clients][]
@@ -27,11 +27,11 @@ information on using Azure Cache, refer to the [Next Steps][] section.
 -   [Next Steps][]
 
 <a name="what-is"></a>
-## What is Azure Cache?
+## What is Azure Managed Cache Service?
 
-Azure Cache Service (Preview) is a distributed, in-memory, scalable solution that enables you to build highly scalable and responsive applications by providing super-fast access to data.
+Azure Managed Cache Service is a distributed, in-memory, scalable solution that enables you to build highly scalable and responsive applications by providing super-fast access to data.
 
-Azure Cache Service (Preview) includes the following
+Azure Managed Cache Service includes the following
 features:
 
 -   Pre-built ASP.NET providers for session state and page output
@@ -42,9 +42,9 @@ features:
 -   Consistent development model across both Azure and Windows
     Server AppFabric.
 
-Cache Service (Preview) gives you access to a secure, dedicated cache that is managed by Microsoft. A cache created using the Cache Service (Preview) is accessible from applications within Azure running on Azure Web Sites, Web & Worker Roles and Virtual Machines.
+Managed Cache Service gives you access to a secure, dedicated cache that is managed by Microsoft. A cache created using the Managed Cache Service is accessible from applications within Azure running on Azure Web Sites, Web & Worker Roles and Virtual Machines.
 
-Cache Service (Preview) is available in three tiers:
+Managed Cache Service is available in three tiers:
 
 -	Basic - Cache in sizes from 128MB to 1GB
 -	Standard - Cache in sizes from 1GB to 10GB
@@ -52,12 +52,12 @@ Cache Service (Preview) is available in three tiers:
 
 Each tier differs in terms of features and pricing. The features are covered later in this guide, and for more information on pricing, see [Cache Pricing Details][].
 
-This guide provides an overview of getting started with Cache Service (Preview). For more detailed information on these features that are beyond the scope of this getting started guide, see [Overview of Azure Cache Service (Preview)][].
+This guide provides an overview of getting started with Managed Cache Service. For more detailed information on these features that are beyond the scope of this getting started guide, see [Overview of Azure Managed Cache Service][].
 
 <a name="getting-started-cache-service"></a>
-## Getting Started with Cache Service (Preview)
+## Getting Started with Cache Service
 
-Getting started with Cache Service (Preview) is easy. To get started, you provision and configure a cache. Next, you configure the cache clients so they can access the cache. Once the cache clients are configured, you can begin working with them.
+Getting started with Managed Cache Service is easy. To get started, you provision and configure a cache. Next, you configure the cache clients so they can access the cache. Once the cache clients are configured, you can begin working with them.
 
 -	[Create the cache][]
 -	[Configure the cache][]
@@ -66,35 +66,68 @@ Getting started with Cache Service (Preview) is easy. To get started, you provis
 <a name="create-cache"></a>
 ## Create a cache
 
-To create a cache, first sign in to the [Management Portal][].
+Cache instances in Managed Cache Service are created using PowerShell cmdlets. 
 
->If this is your first time working with Cache Service (Preview) then you need to request access to the Cache Service preview program. To sign up for the preview program, click **New**, **Data Services**, **Cache Preview**, **Preview Program**. Follow the prompts to request access to the Cache Service preview program, and when access is granted, proceed to the next steps.
+>Once a Managed Cache Service instance is created using the PowerShell cmdlets it can be viewed and configured in the [Azure Management Portal][].
 
-Click **New**, **Data Services**, **Cache Preview**, **Quick Create**.
+To create a Managed Cache Service instance, open an Azure PowerShell command window.
 
-![NewCacheMenu][NewCacheMenu]
+>For instructions on installing and using Azure PowerShell, see [How to install and configure Azure PowerShell][].
 
-![QuickCreate][QuickCreate]
+Invoke the [Add-AzureAccount][] cmdlet, and enter the email address and password associated with your account. A subscription is chosen by default and is displayed after you invoke the [Add-AzureAccount][] cmdlet. To change the subscription, invoke the [Select-AzureSubscription][] cmdlet.
 
-In **Endpoint**, enter a subdomain name to use for the cache endpoint. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
+>If you have configured Azure PowerShell with a certificate for your account then you can skip this step. For more information about connecting Azure PowerShell with your Azure account, see [How to install and configure Azure PowerShell][].
 
-In **Region**, select a region for the cache. For the best performance, create the cache in the same region as the cache client application.
+A subscription is chosen by default and is displayed. To change the subscription, invoke the [Select-AzureSubscription][] cmdlet.
 
-In **Subscription**, select the Azure subscription that you want to use for the cache.
+Invoke the [New-AzureManagedCache][] cmdlet and specify the name, region, cache offering, and size for the cache.
 
->If your account has only one subscription, it will be automatically selected and the Subscription drop-down will not be displayed.
+For **Name**, enter a subdomain name to use for the cache endpoint. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
 
-**Cache Offering** and **Cache Memory** work together to determine the size of the cache. Cache Service (Preview) is available in the three following tiers.
+For **Location**, specify a region for the cache. For the best performance, create the cache in the same region as the cache client application.
+
+**Sku** and **Memory** work together to determine the size of the cache. Managed Cache Service is available in the three following tiers.
 
 -	Basic - Cache in sizes from 128MB to 1GB in 128MB increments, with one default named cache
 -	Standard - Cache in sizes from 1GB to 10GB in 1GB increments, with support for notifications and up to ten named caches
-
 -	Premium - Cache in sizes from 5GB to 150GB in 5GB increments, with support for notifications, high availability, and up to ten named caches
 
+Choose the **Sku** and **Memory** that meets the needs of your application. Note that some cache features, such as notifications and high availability, are only available with certain cache offerings. For more information on choosing the cache offering and size that's best for your application, see [Cache offerings][].
 
-Choose the **Cache Offering** and **Cache Memory** that meets the needs of your application. Note that some cache features, such as notifications and high availability, are only available with certain cache offerings. For more information on choosing the cache offering and size that's best for your application, see [Cache offerings][] and [Capacity planning][].
+ In the following example, a Basic 128MB cache is created with name contosocache, in the South Central US geographic region.
 
-Once the new cache options are configured, click **Create a New Cache**. It can take a few minutes for the cache to be created. To check the status, you can monitor the notifications at the bottom of the portal. After the cache has been created, your new cache has a Running status and is ready for use with default settings. To customize the configuration of your cache, see the following [Configure the cache][] section.
+	New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+
+>For a complete list of parameters and values that can be used when creating a cache, see the [New-AzureManagedCache][] cmdlet documentation.
+
+Once the PowerShell cmdlet is invoked, it can take a few minutes for the cache to be created. After the cache has been created, your new cache has a `Running` status and is ready for use with default settings, and can be viewed and configured in the [Azure Management Portal][]. To customize the configuration of your cache, see the following [Configure the cache][] section.
+
+You can monitor the creation progress in the Azure PowerShell window. Once the cache is ready for use, the [New-AzureManagedCache][] cmdlet will display the cache information, as shown in the following example.
+
+	PS C:\> Add-AzureAccount
+	VERBOSE: Account "user@domain.com" has been added.
+	VERBOSE: Subscription "MySubscription" is selected as the default subscription.
+	VERBOSE: To view all the subscriptions, please use Get-AzureSubscription.
+	VERBOSE: To switch to a different subscription, please use Select-AzureSubscription.
+	PS C:\> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+	VERBOSE: Intializing parameters...
+	VERBOSE: Creating prerequisites...
+	VERBOSE: Verify cache service name...
+	VERBOSE: Creating cache service...
+	VERBOSE: Waiting for cache service to be in ready state...
+
+
+	Name     : contosocache
+	Location : South Central US
+	State    : Active
+	Sku      : Basic
+	Memory   : 128MB
+
+
+
+	PS C:\>
+
+
 
 
 <a name="enable-caching"></a>
@@ -146,15 +179,13 @@ Once the cache is configured, you can configure the cache clients to allow acces
 <a name="NuGet"></a>
 ## Configure the cache clients
 
-A cache created using the Cache Service (Preview) is accessible from Azure applications running on Azure Web Sites, Web & Worker Roles and Virtual Machines. A NuGet package is provided that simplifies the configuration of cache client applications. 
+A cache created using the Managed Cache Service is accessible from Azure applications running on Azure Web Sites, Web & Worker Roles and Virtual Machines. A NuGet package is provided that simplifies the configuration of cache client applications. 
 
 To configure a client application using the Cache NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
 ![NuGetPackageMenu][NuGetPackageMenu]
 
-Select **Azure Caching**, click **Install**, and then click I Accept.
-
->If **Azure Caching** does not appear in the list type **WindowsAzure.Caching** into the **Search Online** text box and select it from the results.
+Type **WindowsAzure.Caching** into the **Search Online** text box, and select **Windows Azure Cache** from the results. Click **Install**, and then click **I Accept**.
 
 ![NuGetPackage][NuGetPackage]
 
@@ -354,7 +385,7 @@ The Session State Provider for Azure Cache is an
 out-of-process storage mechanism for ASP.NET applications. This provider
 enables you to store your session state in an Azure cache rather
 than in-memory or in a SQL Server database. To use the caching session
-state provider, first configure your cache, and then configure your ASP.NET application for Cache using the Cache NuGet package as described in [Getting Started with Cache Service (Preview)][]. When the Cache NuGet package is installed, it adds a commented out section in web.config that contains the required configuration for your ASP.NET application to use the Session State Provider for Azure Cache.
+state provider, first configure your cache, and then configure your ASP.NET application for Cache using the Cache NuGet package as described in [Getting Started with Managed Cache Service][]. When the Cache NuGet package is installed, it adds a commented out section in web.config that contains the required configuration for your ASP.NET application to use the Session State Provider for Azure Cache.
 
     <!--Uncomment this section to use Azure Caching for session state caching
     <system.web>
@@ -373,7 +404,7 @@ state provider, first configure your cache, and then configure your ASP.NET appl
 
 To enable the Session State Provider for Azure Cache, uncomment the specified section. The default cache is specified in the provided snippet. To use a different cache, specify the desired cache in the **cacheName** attribute.
 
-For more information about using the Cache service session state
+For more information about using the Managed Cache service session state
 provider, see [Session State Provider for Azure Cache][].
 
 <a name="store-page"></a>
@@ -382,7 +413,7 @@ provider, see [Session State Provider for Azure Cache][].
 The Output Cache Provider for Azure Cache is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP
 responses (page output caching). The provider plugs into the new output
 cache provider extensibility point that was introduced in ASP.NET 4. To
-use the output cache provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Cache NuGet package, as described in [Getting Started with Cache Service (Preview)][]. When the Caching NuGet package is installed, it adds the following commented out section in web.config that contains the required configuration for your ASP.NET application to use the Output Cache Provider for Azure Caching.
+use the output cache provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Cache NuGet package, as described in [Getting Started with Managed Cache Service][]. When the Caching NuGet package is installed, it adds the following commented out section in web.config that contains the required configuration for your ASP.NET application to use the Output Cache Provider for Azure Caching.
 
     <!--Uncomment this section to use Azure Caching for output caching
     <caching>
@@ -412,21 +443,21 @@ For more information about using the Output Cache Provider for Azure Cache, see 
 <a name="next-steps"></a>
 ## Next Steps
 
-Now that you've learned the basics of Cache Service (Preview),
+Now that you've learned the basics of Managed Cache Service,
 follow these links to learn how to do more complex caching tasks.
 
--   See the MSDN Reference: [Cache Service (Preview)][]
--	Learn how to migrate to Cache Service (Preview): [Migrate to Cache Service (Preview)][]
--   Check out the samples: [Cache Service (Preview) Samples][]
+-   See the MSDN Reference: [Managed Cache Service][]
+-	Learn how to migrate to Managed Cache Service: [Migrate to Managed Cache Service][]
+-   Check out the samples: [Managed Cache Service Samples][]
 
 <!-- INTRA-TOPIC LINKS -->
 [Next Steps]: #next-steps
-[What is Azure Cache?]: #what-is
+[What is Azure Managed Cache Service?]: #what-is
 [Create an Azure Cache]: #create-cache
 [Which type of caching is right for me?]: #choosing-cache
 [Prepare Your Visual Studio Project to Use Azure Caching]: #prepare-vs
 [Configure Your Application to Use Caching]: #configure-app
-[Getting Started with Cache Service (Preview)]: #getting-started-cache-service
+[Getting Started with Managed Cache Service]: #getting-started-cache-service
 [Create the cache]: #create-cache
 [Configure the cache]: #enable-caching
 [Configure the cache clients]: #NuGet
@@ -455,7 +486,7 @@ follow these links to learn how to do more complex caching tasks.
   
    
 <!-- LINKS -->
-[Azure Management Portal]: http://windows.azure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
 [Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/en-us/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
@@ -468,8 +499,8 @@ follow these links to learn how to do more complex caching tasks.
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
 [How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/en-us/library/zd1ysf1y.aspx
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
-[Overview of Azure Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=320830
-[Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Overview of Azure Managed Cache Service]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Managed Cache Service]: http://go.microsoft.com/fwlink/?LinkId=320830
 [OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Troubleshooting and Diagnostics]: http://go.microsoft.com/fwlink/?LinkId=320839
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
@@ -480,6 +511,10 @@ follow these links to learn how to do more complex caching tasks.
 [Expiration and Eviction]: http://go.microsoft.com/fwlink/?LinkId=317278
 [High Availability]: http://go.microsoft.com/fwlink/?LinkId=317329
 [Notifications]: http://go.microsoft.com/fwlink/?LinkId=317276
-[Migrate to Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=317347
-[Cache Service (Preview) Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
-
+[Migrate to Managed Cache Service]: http://go.microsoft.com/fwlink/?LinkId=317347
+[Managed Cache Service Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
+[New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
+[Azure Managed Cache Cmdlets]: http://go.microsoft.com/fwlink/?LinkID=398555
+[How to install and configure Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
+[Add-AzureAccount]: http://msdn.microsoft.com/en-us/library/dn495128.aspx
+[Select-AzureSubscription]: http://msdn.microsoft.com/en-us/library/dn495203.aspx

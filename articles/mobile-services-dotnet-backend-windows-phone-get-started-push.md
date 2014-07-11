@@ -3,7 +3,11 @@
 
 # Get started with push notifications Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a></div>
+<div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title="Android">Android</a>
+<!-- <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
+</div>
+
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push" title=".NET backend" class="current">.NET backend</a> | 	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/"  title="JavaScript backend">JavaScript backend</a></div>
 
 This topic shows you how to use Azure Mobile Services with a .NET backend to send push notifications to a Windows Phone Silverlight 8 app. In this tutorial you enable push notifications using Windows Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
@@ -14,22 +18,25 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 1. [Update the app to register for notifications](#update-app)
 3. [Update the server to send push notifications](#update-server)
+4. [Enable push notifications for local testing](#local-testing)
 3. [Insert data to receive push notifications](#test)
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service.
 
->[WACOM.NOTE]To send push notifications to a Windows Phone Store app, follow the [Windows Store app](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) version of this tutorial.
+>[WACOM.NOTE]This tutorial targets Windows Phone 8.1 "Silverlight" apps. If you are instead building a Windows Phone 8.1 Store app, see the [Windows Store app](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) version of this tutorial. For information on Windows Phone Silverlight apps and how they compare with Windows Phone Store apps, see [Windows Phone Silverlight 8.1 apps]. 
 
 ##<a id="update-app"></a> Update the app to register for notifications
 
 Before your app can receive push notifications, you must register a notification channel.
 
-1. In Visual Studio, open the file App.xaml.cs and add the following `using` statements:
+1. In Visual Studio, open the file App.xaml.cs and add the following `using` statement:
 
         using Microsoft.Phone.Notification;
 
 2. Add the following `AcquirePushChannel` method to `App` class: 
-	
+
+        public static HttpNotificationChannel CurrentChannel { get; private set; }	
+        
         private void AcquirePushChannel()
         {
             CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
@@ -97,58 +104,84 @@ Before your app can receive push notifications, you must register a notification
 
 ##<a id="update-server"></a> Update the server to send push notifications
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
+1. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile service project. Open TodoItemController.cs and update the `PostTodoItem` method definition with the following code:  
 
-<ol start="2">
-<li><p>Log on to the <a href=" https://manage.windowsazure.com/" target="_blank">Windows Azure Management Portal</a>, click <strong>Mobile Services</strong>, and then click your app.</p></li>
+        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
+        {
+            TodoItem current = await InsertAsync(item);
+            MpnsPushMessage message = new MpnsPushMessage();
+            message.XmlPayload = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                "<wp:Notification xmlns:wp=\"WPNotification\">" +
+                   "<wp:Toast>" +
+                        "<wp:Text1>" + item.Text + "</wp:Text1>" +
+                   "</wp:Toast> " +
+                "</wp:Notification>";
 
-<li><p>Click the <strong>Push</strong> tab, check <strong>Enable unauthenticated push notifications</strong>, then click <strong>Save</strong>.</p>
+            try
+            {
+                var result = await Services.Push.SendAsync(message);
+                Services.Log.Info(result.State.ToString());
+            }
+            catch (System.Exception ex)
+            {
+                Services.Log.Error(ex.Message, null, "Push.SendAsync Error");
+            }
+            return CreatedAtRoute("Tables", new { id = current.Id }, current);
+        }
 
-</li>
-</ol>
+    This code will send a push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
 
-   ![][4]
+2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
->[WACOM.NOTE]This tutorial uses MPNS in unauthenticated mode. In this mode, MPNS limits the number of notifications that can be sent to a device channel. To remove this restriction, you must generate and upload a certificate by clicking <strong>Upload</strong> and selecting the certificate. For more information on generating the certificate, see <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx">Setting up an authenticated web service to send push notifications for Windows Phone</a>.
+3. Click the **Push** tab, check **Enable unauthenticated push notifications**, then click **Save**.
+
+   	![][4]
+
+	>[WACOM.NOTE]This tutorial uses MPNS in unauthenticated mode. In this mode, MPNS limits the number of notifications that can be sent to a device channel. To remove this restriction, you must generate and upload a certificate by clicking <strong>Upload</strong> and selecting the certificate. For more information on generating the certificate, see <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx">Setting up an authenticated web service to send push notifications for Windows Phone</a>.
 
 This enables the mobile service to connect to MPNS in unauthenticated mode to send push notifications.
+
+##<a id="local-testing"></a> Enable push notifications for local testing
+
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
+
 
 ##<a id="test"></a> Test push notifications in your app
 
 1. In Visual Studio, press the F5 key to run the app.
 
-5. In the app, enter the text "hello push" in the textbox, and then click **Save**.
+    >[WACOM.NOTE] You may encounter a 401 Unauthorized RegistrationAuthorizationException when testing on the Windows Phone emulator. This can occur during the `RegisterNativeAsync()` call because of the way the Windows Phone emulator syncs it's clock with the host PC. It can result in a security token that will be rejected. To resolve this simply manually set the clock in the emulator before testing.
+
+5. In the app, enter the text "hello push" in the textbox, click **Save**, then immediately click the start button or back button to leave the app.
 
    	![][2]
 
-  	This sends an insert request to the mobile service to store the added item. Notice that the application receives a toast notification that says **hello push**.
+  	This sends an insert request to the mobile service to store the added item. Notice that the device receives a toast notification that says **hello push**.
 
-## <a name="next-steps"> </a>Next steps
+	![][5]
 
-This tutorial demonstrated the basics of enabling a Windows Store app to work with data in Mobile Services. Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
+	>[WACOM.NOTE]You will not receive the notification when you are still in the app. To receive a toast notification while the app is active, you must handle the [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived.aspx) event.
 
-+ [Get started with Notification Hubs]
-  <br/>Learn how to leverage Notification Hubs in your Windows Store app.
+## <a name="next-steps">Next steps</a>
 
-+ [Send notifications to subscribers]
+This tutorial demonstrated the basics of enabling a Windows Phone app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
+
+<!--+ [Send push notifications to authenticated users]
+	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
+
++ [Send broadcast notifications to subscribers]
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
-
-+ [Send notifications to users]
-	<br/>Learn how to send push notifications from a Mobile Service to specific users on any device.
-
-+ [Send cross-platform notifications to users]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
-
-Consider finding out more about the following Mobile Services topics:
+-->
+Consider finding out more about the following Mobile Services and Notification Hubs topics:
 
 * [Get started with data]
-  <br/>Learn more about storing and querying data using .Net runtime mobile services.
+  <br/>Learn more about storing and querying data using mobile services.
 
 * [Get started with authentication]
-  <br/>Learn how to authenticate users of your app with differnet account types using .Net runtime mobile services.
+  <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
-* [Mobile Services server script reference]
-  <br/>Learn more about registering and using server scripts.
+* [What are Notification Hubs?]
+  <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
 
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.
@@ -162,20 +195,23 @@ Consider finding out more about the following Mobile Services topics:
 [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
 [3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
 [4]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png
+[5]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
 [Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push
 
-[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
-[What are Notification Hubs?]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
-[Send notifications to subscribers]: /en-us/manage/services/notification-hubs/breaking-news-dotnet/
-[Send notifications to users]: /en-us/manage/services/notification-hubs/notify-users/
-[Send cross-platform notifications to users]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
-[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users/
+
+[What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
+[Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-windows-phone-send-breaking-news/
+[Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-windows-phone-send-localized-breaking-news/
+
+
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
+[Windows Phone Silverlight 8.1 apps]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/dn642082(v=vs.105).aspx
+[Azure Management Portal]: https://manage.windowsazure.com/

@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-sample-csharp-streaming" urlDisplayName="HDInsight Samples" pageTitle="The HDInsight C# streaming wordcount sample | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The HDInsight C# streaming wordcount sample" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-sample-csharp-streaming" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The C# streaming wordcount Hadoop sample in HDInsight | Azure" metaKeywords="hadoop, hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The C# streaming wordcount Hadoop sample in HDInsight" authors="bradsev" />
 
-# The HDInsight C# streaming wordcount sample
+# The C# streaming wordcount Hadoop sample in HDInsight
  
-Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial shows how to write MapReduce progams in C# that uses the Hadoop streaming interface and how to run the programs on Azure HDInsight using Azure  PowerShell. 
+Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial shows how to write MapReduce progams in C# that uses the Hadoop streaming interface and how to run the programs on Azure HDInsight using Azure PowerShell cmdlets. 
 
 In the example, both the mapper and the reducer are executables that read the input from [stdin][stdin-stdout-stderr] (line by line) and emit the output to [stdout][stdin-stdout-stderr]. The program counts all of the words in the text.
 
@@ -20,9 +20,9 @@ For more information on the Hadoop streaming interface, see [Hadoop Streaming][h
 
 **Prerequisites**:	
 
-- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://azure.microsoft.com/en-us/pricing/free-trial/) page.
 
-- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](../hdinsight-provision-clusters/)
 
 - You must have installed Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
@@ -66,8 +66,7 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 		$subscriptionName = "<SubscriptionName>"   
 		$storageAccountName = "<StorageAccountName>" 
-		$containerName = "<ContainerName>
-      "
+		$containerName = "<ContainerName>"
 
 		# Select the current subscription
 		Select-AzureSubscription $subscriptionName
@@ -158,29 +157,32 @@ In this tutorial, you saw how to deploy a MapReduce job on HDInsight using Hadoo
 
 For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Azure HDInsight with Azure PowerShell, see the following topics:
 
-* [Get started with Azure HDInsight][getting-started]
-* [Sample: Pi Estimator][pi-estimator]
-* [Sample: Wordcount][wordcount]
-* [Sample: 10GB GraySort][10gb-graysort]
-* [Use Pig with HDInsight][pig]
-* [Use Hive with HDInsight][hive]
+* [Get started with Azure HDInsight][hdinsight-get-started]
+* [Sample: Pi Estimator][hdinsight-sample-pi-estimator]
+* [Sample: Wordcount][hdinsight-sample-wordcount]
+* [Sample: 10GB GraySort][hdinsight-sample-10gb-graysort]
+* [Use Pig with HDInsight][hdinsight-use-pig]
+* [Use Hive with HDInsight][hdinsight-use-hive]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
-
-
-[getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hadoop-streaming]: http://wiki.apache.org/hadoop/HadoopStreaming
 [streamreader]: http://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/en-us/library/system.console.writeline
 [stdin-stdout-stderr]: http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx
-[pi-estimator]: /en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/
-[wordcount]: /en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/
-[10gb-graysort]: /en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/
 
+[Powershell-install-configure]: ../install-configure-powershell/
 
-[hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
-[pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
+[hdinsight-get-started]: ../hdinsight-get-started/
+
+[hdinsight-samples]: ../hdinsight-run-samples/
+[hdinsight-sample-10gb-graysort]: ../hdinsight-sample-10gb-graysort/
+[hdinsight-sample-csharp-streaming]: ../hdinsight-sample-csharp-streaming/
+[hdinsight-sample-pi-estimator]: ../hdinsight-sample-pi-estimator/
+[hdinsight-sample-wordcount]: ../hdinsight-sample-wordcount/
+
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-pig]: ../hdinsight-use-pig/
+
 

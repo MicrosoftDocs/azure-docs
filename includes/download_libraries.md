@@ -9,10 +9,52 @@ The Azure Libraries for Java are distributed under the [Apache License, Version 
 If your project is already set up to use Maven for build, add the following dependency to your pom.xml file.
 
 	<dependency>
-    	<groupId>com.microsoft.windowsazure</groupId>
-    	<artifactId>microsoft-windowsazure-api</artifactId>
-    	<version>n.n.n</version>
+	    <groupId>com.microsoft.windowsazure</groupId>
+	    <artifactId>microsoft-azure-api-management</artifactId>
+	    <version>n.n.n</version>
 	</dependency>
+	<dependency>
+	    <groupId>com.microsoft.windowsazure</groupId>
+	    <artifactId>microsoft-azure-api-management-compute</artifactId>
+	    <version>n.n.n</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.microsoft.windowsazure</groupId>
+	    <artifactId>microsoft-azure-api-management-network</artifactId>
+	    <version>n.n.n</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.microsoft.windowsazure</groupId>
+	    <artifactId>microsoft-azure-api-management-sql</artifactId>
+	    <version>n.n.n</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.microsoft.windowsazure</groupId>
+	    <artifactId>microsoft-azure-api-management-storage</artifactId>
+	    <version>n.n.n</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.microsoft.windowsazure</groupId>
+	    <artifactId>microsoft-azure-api-management-websites</artifactId>
+	    <version>n.n.n</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.microsoft.windowsazure</groupId>
+	    <artifactId>microsoft-azure-api-media</artifactId>
+	    <version>n.n.n</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.microsoft.windowsazure</groupId>
+	    <artifactId>microsoft-azure-api-servicebus</artifactId>
+	    <version>n.n.n</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.microsoft.windowsazure</groupId>
+	    <artifactId>microsoft-azure-api-serviceruntime</artifactId>
+	    <version>n.n.n</version>
+	</dependency>
+	
+
 
 Within the `<version>` element, replace *n.n.n* with a valid version number, which can be obtained from the [Azure Libraries Repository on Maven](http://go.microsoft.com/fwlink/?LinkID=286274).
 
