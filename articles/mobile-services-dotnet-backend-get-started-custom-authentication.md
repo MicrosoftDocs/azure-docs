@@ -5,6 +5,8 @@
 
 This topic shows you how to authenticate users in the Azure Mobile Services .NET backend by issuing your own Mobile Services authentication token. In this tutorial, you add authentication to the quickstart project using a custom username and password for your app.
 
+>[WACOM.NOTE] This tutorial demonstrates an advanced method of authenticating your Mobile Services with custom credentials. Many apps will be best suited to instead use the built-in social identity providers, allowing users to log in via Facebook, Twitter, Google, Microsoft Account, and Azure Active Directory. If this is your first experience with authentication in Mobile Services, please see the [Get Started with Users] tutorial.
+
 This tutorial walks you through these basic steps to enable authentication in your app:
 
 1. [Set up the accounts table]
@@ -15,9 +17,6 @@ This tutorial walks you through these basic steps to enable authentication in yo
 6. [Test the login flow using the test client]
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
-
->[WACOM.NOTE] This tutorial demonstrates an advanced method of authenticating your Mobile Services with custom credentials. Many apps will be best suited to instead use the built-in social identity providers, allowing users to log in via Facebook, Twitter, Google, Microsoft Account, and Azure Active Directory. If this is your first experience with authentication in Mobile Services, please see the [Get Started with Users] tutorial.
-
 
 >[WACOM.NOTE] The purpose of this tutorial is to show you how to issue an authentication token for Mobile Services. This is not to be taken as security guidance. In developing your app, you need to be aware of the security implications of password storage, and you need to have a strategy for managing brute-force attacks.
 
