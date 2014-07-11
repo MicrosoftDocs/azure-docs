@@ -61,7 +61,7 @@ For this tutorial we will use the database that was created with your mobile ser
             }
         }
 
-    You will note that these two classes have a *relationship*: every Order is associated with a single Customer and a Customer can be associated with multiple orders. Having relationships is common in existing data models.
+    You will note that these two classes have a *relationship*: every Order is associated with a single Customer and a Customer can be associated with multiple Orders. Having relationships is common in existing data models.
 
 4. Create an **ExistingContext.cs** file inside the **Models** folder and implement it as so:
 
@@ -109,6 +109,7 @@ The data model you would like to use with your mobile service may be arbitrarily
         using Microsoft.WindowsAzure.Mobile.Service;
         using Newtonsoft.Json;
         using System.ComponentModel.DataAnnotations;
+        using System.ComponentModel.DataAnnotations.Schema;
 
         namespace ShoppingService.DataObjects
         {
@@ -120,7 +121,7 @@ The data model you would like to use with your mobile service may be arbitrarily
 
                 public bool Completed { get; set; }
 
-                [JsonIgnore]
+                [NotMapped]
                 public int CustomerId { get; set; }
 
                 [Required]
@@ -151,6 +152,7 @@ The data model you would like to use with your mobile service may be arbitrarily
 
         [Index]
         [TableColumn(TableColumnType.Id)]
+        [MaxLength(36)]
         public string Id { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
@@ -161,7 +163,7 @@ The data model you would like to use with your mobile service may be arbitrarily
         [Timestamp]
         public byte[] Version { get; set; }
 
-4. To ensure correct handling of the newly added properties, we need to make a change to **ExistingContext.cs**. At the top of the file, add the following:
+4. The system properties just added have some built-in behaviors (for example automatic update of created/updated at) that happen transparently with database operations. To enable these behaviors, we need to make a change to **ExistingContext.cs**. At the top of the file, add the following:
     
         using System.Data.Entity.ModelConfiguration.Conventions;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
@@ -256,7 +258,7 @@ We now have the model types **Customer** and **Order** and the DTOs **MobileCust
 
         });
 
-AutoMapper will now map the objects to one another. All properties with corresponding names will be matched, so there's no need for extra logic here. 
+AutoMapper will now map the objects to one another. All properties with corresponding names will be matched, and custom mappings can be configured as shown above, where we map the **MobileCustomerName** property to the **Name** property of the **Customer** relationship property.
 
 <a name="DomainManager"></a>
 ## Implementing domain-specific logic
@@ -573,30 +575,30 @@ We are now ready to create controllers to expose our DTOs to our clients.
 
 Please note that both controller implementations make exclusive use of the DTOs **MobileCustomer** and **MobileOrder** and are agnostic of the underlying model. These DTOs are readily serialized to JSON and can be used to exchange data with the  Mobile Services client SDK on all platforms. For example, if building a Windows Store app, the corresponding client-side type would look as shown below. The type would be analogous on other client platforms. 
 
-        using Microsoft.WindowsAzure.MobileServices;
-        using System;
+    using Microsoft.WindowsAzure.MobileServices;
+    using System;
 
-        namespace ShoppingClient
+    namespace ShoppingClient
+    {
+        public class MobileCustomer
         {
-            public class MobileCustomer
-            {
-                public string Id { get; set; }
+            public string Id { get; set; }
 
-                public string Name { get; set; }
+            public string Name { get; set; }
 
-                [CreatedAt]
-                public DateTimeOffset? CreatedAt { get; set; }
+            [CreatedAt]
+            public DateTimeOffset? CreatedAt { get; set; }
 
-                [UpdatedAt]
-                public DateTimeOffset? UpdatedAt { get; set; }
+            [UpdatedAt]
+            public DateTimeOffset? UpdatedAt { get; set; }
 
-                public bool Deleted { get; set; }
-                
-                [Version]
-                public string Version { get; set; }
-
-            }
+            public bool Deleted { get; set; }
+            
+            [Version]
+            public string Version { get; set; }
 
         }
+
+    }
 
 As a next step, you can now build out the client app to access the service. 
