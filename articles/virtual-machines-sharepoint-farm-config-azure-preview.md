@@ -1,5 +1,6 @@
 <properties title="SharePoint Farm Configuration Details" pageTitle="SharePoint Farm Configuration Details" description="Describes how to configure a SharePoint farm in the Azure Preview Portal" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" />
 
+
 #SharePoint Farm Configuration Details#
 
 SharePoint Farm is a feature of the Microsoft Azure Preview Portal that automatically creates a pre-configured SharePoint Server 2013 farm for you. There are two farm configurations:
@@ -9,7 +10,7 @@ SharePoint Farm is a feature of the Microsoft Azure Preview Portal that automati
 
 The following sections provide configuration details for each farm.
 
-For additional information, see [SharePoint Farm](http://go.microsoft.com/fwlink/?LinkId=403153).
+For additional information, see [SharePoint Farm](../virtual-machines-sharepoint-farm-azure-preview/).
 
 ##Basic SharePoint farm##
 

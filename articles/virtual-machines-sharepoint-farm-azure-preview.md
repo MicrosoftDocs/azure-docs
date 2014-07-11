@@ -16,7 +16,7 @@ The high-availability SharePoint farm consists of nine virtual machines in the f
 
 You can use this farm configuration to test higher client loads, high-availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm. You can also use this configuration for SharePoint app development in a highly available environment.
  
-For the configuration details of both of these farms, see [SharePoint Farm Configurations](http://go.microsoft.com/fwlink/?LinkId=404046).
+For the configuration details of both of these farms, see [SharePoint Farm Configurations](../virtual-machines-sharepoint-farm-config-azure-preview/).
 
 These farms have a pre-configured endpoint to allow authenticated web traffic (TCP port 80) to the SharePoint web server through an Internet-connected client computer.
 
