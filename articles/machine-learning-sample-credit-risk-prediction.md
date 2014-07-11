@@ -6,11 +6,13 @@ The purpose of this experiment is to predict credit risk based on information gi
 
 For a detailed walkthrough of how to create and use a simplified version of this experiment, see **Developing a Predictive Solution with Azure ML**.
 
+<!-- Removed until the Training and Scoring parts are fixed
 This example is divided into 3 sample experiments:
 
 - Development Experiment – for experimenting with different models
 - Training Experiment – to train the one chosen model
 - Scoring Experiment – to set up a web service using the trained model
+-->
 
 ##Dataset Description
 
@@ -73,6 +75,7 @@ The final results of the experiment, obtained by right-clicking the **Results da
 
 where the first column is the name of the machine learning algorithm used to generate a model, the second column indicates the type of the training set, and the third column is a cost-sensitive accuracy. In this experiment, the SVM model, working with the replicated training dataset, provides the best accuracy.
 
+<!-- Removed until the Training and Scoring parts are fixed
 ##Training Experiment
 
 The sample training experiment is a simplified version of the larger experiment using just the chosen SVM training model. 
@@ -92,7 +95,7 @@ After setting up the service input and output we need to rerun the experiment an
 When the service is ready to go live, go to the **CONFIGURATION** tab on the **WEB SERVICES** page and click **READY FOR PRODUCTION?**. A request will be sent to the IT administrator for Machine Learning who can promote the service to the production environment.
 
 ![Web service ready for production][screen4] 
-
+-->
 
 [screen1]:./media/machine-learning-sample-credit-risk-prediction/screen1.jpg
 [screen2]:./media/machine-learning-sample-credit-risk-prediction/screen2.jpg
