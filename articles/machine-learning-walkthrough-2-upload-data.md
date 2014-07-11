@@ -1,22 +1,24 @@
 <properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-This is the second step of the walkthrough, [Developing a Predictive Solution with Azure ML]:
+This is the second step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
-[Developing a Predictive Solution with Azure ML]: machine-learning-develop-predictive-solution/
+[develop]: ../machine-learning-develop-predictive-solution/
 
-1.	[Create an ML workspace]
+
+1.	[Create an ML workspace][create-workspace]
 2.	**Upload existing data**
-3.	[Create a new experiment]
-4.	[Train and evaluate the models]
-5.	[Publish the web service]
-6.	[Access the web service]
+3.	[Create a new experiment][create-new]
+4.	[Train and evaluate the models][train-models]
+5.	[Publish the web service][publish]
+6.	[Access the web service][access-ws]
 
-[Create an ML workspace]: ..\machine-learning-1-create-ml-workspace/
-[Upload existing data]: ..\machine-learning-2-upload-data/
-[Create a new experiment]: ..\machine-learning-3-create-new-experiment/
-[Train and evaluate the models]: ..\machine-learning-4-train-and-evaluate-models/
-[Publish the web service]: ..\machine-learning-5-publish-web-service/
-[Access the web service]: ..\machine-learning-6-access-web-service/
+
+[create-workspace]: ../machine-learning-1-create-ml-workspace/
+[upload-data]: ../machine-learning-2-upload-data/
+[create-new]: ../machine-learning-3-create-new-experiment/
+[train-models]: ../machine-learning-4-train-and-evaluate-models/
+[publish]: ../machine-learning-5-publish-web-service/
+[access-ws]: ../machine-learning-6-access-web-service/
 
 ----------
 
