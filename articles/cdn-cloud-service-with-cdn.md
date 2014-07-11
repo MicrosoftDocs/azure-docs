@@ -2,7 +2,7 @@
 
 <a name="intro"></a>
 # Integrate a cloud application with Azure CDN #
-***By [Cephas Lin](https://twitter.com/Cephas_MSFT) Updated 14 July 2014.***
+***By [Cephas Lin](https://twitter.com/Cephas_MSFT) Updated 18 July 2014.***
 
 Azure CDN can be integrated with a cloud service, serving any content from the cloud service's CDN directory. This approach gives you the following advantages:
 
@@ -30,8 +30,17 @@ You will deploy a cloud service Web role using the default ASP.NET MVC template,
 
 This tutorial has the following prerequisites:
 
--	An active [Microsoft Azure account](http://azure.microsoft.com/en-us/account/). You can sign up for a trial account
+-	An active [Microsoft Azure account](http://azure.microsoft.com/en-us/account/)
 -	Visual Studio 2013 with [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+
+<div class="wa-note">
+  <span class="wa-icon-bulb"></span>
+  <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
+  <ul>
+    <li>You can <a href="http://acom-int.azurewebsites.net/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Sites.</li>
+    <li>You can <a href="http://acom-int.azurewebsites.net/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
+  <ul>
+</div>
 
 <a name="deploy"></a>
 ## Deploy a cloud application with an integrated CDN endpoint ##
@@ -93,7 +102,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-12-disablequeryb.png)
 
-	>[WACOM.TIP] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
+	>[WACOM.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
 
 3. Ping your CDN endpoint to make sure that it's propagated to the CDN nodes. You may need to wait up to an hour before it will respond to pings.
 
