@@ -12,13 +12,12 @@ This is the fifth step of the walkthrough, [Developing a Predictive Solution wit
 5.	**Publish the web service**
 6.	[Access the web service][access-ws]
 
-
-[create-workspace]: ../machine-learning-1-create-ml-workspace/
-[upload-data]: ../machine-learning-2-upload-data/
-[create-new]: ../machine-learning-3-create-new-experiment/
-[train-models]: ../machine-learning-4-train-and-evaluate-models/
-[publish]: ../machine-learning-5-publish-web-service/
-[access-ws]: ../machine-learning-6-access-web-service/
+[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
+[upload-data]: ../machine-learning-walkthrough-2-upload-data/
+[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
+[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
+[publish]: ../machine-learning-walkthrough-5-publish-web-service/
+[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
 
 ----------
 

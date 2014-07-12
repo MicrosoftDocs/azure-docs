@@ -12,20 +12,19 @@ This is the second step of the walkthrough, [Developing a Predictive Solution wi
 5.	[Publish the web service][publish]
 6.	[Access the web service][access-ws]
 
-
-[create-workspace]: ../machine-learning-1-create-ml-workspace/
-[upload-data]: ../machine-learning-2-upload-data/
-[create-new]: ../machine-learning-3-create-new-experiment/
-[train-models]: ../machine-learning-4-train-and-evaluate-models/
-[publish]: ../machine-learning-5-publish-web-service/
-[access-ws]: ../machine-learning-6-access-web-service/
+[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
+[upload-data]: ../machine-learning-walkthrough-2-upload-data/
+[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
+[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
+[publish]: ../machine-learning-walkthrough-5-publish-web-service/
+[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
 
 ----------
 
 #Step 2: Upload existing data into an Azure Machine Learning experiment  
 
 To develop a predictive model for credit risk, we’ll use the “UCI Statlog (German Credit Data) Data Set” from the UCI Machine Learning repository. You can find it here:  
-[http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)](http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data))  
+<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 We’ll use the file named **german.data**. Download this file to your local hard drive.  
 

@@ -185,16 +185,14 @@ The following example illustrates a pooling bundle:
 	
 For more information about pooling layers, see these articles:  
 
--	http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf (Section 3.4)
--	http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf 
--	http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf  
+-	[http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Section 3.4)
+-	[http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
+-	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
 ####Response normalization bundles
 **Response normalization** is a local normalization scheme that was first introduced by Geoffrey Hinton et al in a paper titled ImageNet Classiﬁcation with Deep Convolutional Neural Networks (see section 3.3). Response normalization is used to aid generalization in neural nets. When one neuron is firing at a very high activation level, a local response normalization layer suppresses the activation level of the surrounding neurons. This is done by using three parameters ***α***, ***β*** and ***k***, and a convolutional structure (or neighborhood shape). Every neuron in the destination layer ***y*** corresponds to a neuron ***x*** in the source layer. The activation level of ***y*** is given by the following formula, where ***f*** is the activation level of a neuron, and ***Nx*** is the kernel, or the set containing the neurons in the neighborhood of ***x*** as defined by the convolutional structure:  
 
-<div style="text-align:center" markdown="1">
 ![][1]  
-</div>
 
 Response normalization bundles support all the convolutional attributes except for **Sharing**, **MapCount** and **Weights**.  
  
@@ -374,4 +372,4 @@ The definition of the following network, designed to recognize numbers, illustra
 -	The total number of nodes can be calculated by using the declared dimensionality of the layer, [50, 5, 5] as follows: **MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[1] = 10 * 5 * 5 * 5 
 -	Since **Sharing**[d] is false only for d == 0, the number of kernels is **MapCount** * **NodeCount**[0] = 10 * 5 = 50. 
 
-[1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_med.PNG
+[1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_med.PNG
