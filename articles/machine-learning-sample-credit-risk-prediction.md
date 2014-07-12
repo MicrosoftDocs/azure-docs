@@ -16,7 +16,9 @@ This example is divided into 3 sample experiments:
 
 ##Dataset Description
 
-The experiment uses the UCI Statlog (German Credit Card) dataset which can be found here: [http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)](http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)). We are using the german.data file from this website.
+The experiment uses the UCI Statlog (German Credit Card) dataset which can be found here: 
+<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>. 
+We are using the german.data file from this website.
 
 The dataset classifies people, described by a set of attributes, as low or high credit risks. Each example represents a person. There are 20 features, both numerical and categorical, and a binary label (the credit risk value). High credit risk entries have label = 2, low credit risk entries have label = 1. The cost of misclassifying a low risk example as high is 1, whereas the cost of misclassifying a high risk example as low is 5.
 

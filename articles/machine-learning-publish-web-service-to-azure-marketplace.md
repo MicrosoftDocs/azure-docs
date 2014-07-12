@@ -59,10 +59,10 @@ The following are the steps in publishing an Azure ML web service to Azure Marke
 
 4. For Authentication, choose **Header** as the **Authentication Scheme**.
 
-	- Enter “Authorization” for **Header Name**.
+	- Enter "Authorization" for **Header Name**.
 	- For **Header Value**:
 		- On the **Dashboard** page for your web service in ML Studio, copy the **API Key**.
-		- In the **Header Value** field, enter “Bearer” (without the quotes), then space, then paste the API Key.
+		- In the **Header Value** field, enter "Bearer" (without the quotes), then space, then paste the API Key.
 	- Check the **This Service is OData** checkbox.
 
 	<br />
