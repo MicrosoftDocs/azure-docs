@@ -57,7 +57,8 @@ To recover your mobile service after an outage:
 		info:    Recovery complete
 		info:    mobile recover command OK
 
-    <div class="dev-callout"><b>Note</b>
+
+	<div class="dev-callout"><b>Note</b>
 	<p>It may take a few minutes after the command completes until you can see the changes in the portal.</p>
     </div>
 

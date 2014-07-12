@@ -11,6 +11,7 @@ This tutorial walks you through these basic steps to enable authentication in yo
 1. [Register your app for authentication and configure Mobile Services]
 2. [Restrict table permissions to authenticated users]
 3. [Add authentication to the app]
+4. [Storing authentication tokens in your app]
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
@@ -37,6 +38,10 @@ Next, you will update the app to authenticate users before requesting resources 
 
 [WACOM.INCLUDE [mobile-services-ios-authenticate-app](../includes/mobile-services-ios-authenticate-app.md)]
 
+##<a name="store-authentication"></a>Storing authentication tokens in your app
+
+[WACOM.INCLUDE [mobile-services-ios-authenticate-app-with-token](../includes/mobile-services-ios-authenticate-app-with-token.md)]
+
 ## <a name="next-steps"></a>Next steps
 
 In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
@@ -46,6 +51,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Restrict table permissions to authenticated users]: #permissions
 [Add authentication to the app]: #add-authentication
 [Next Steps]:#next-steps
+[Storing authentication tokens in your app]:#store-authentication
 
 <!-- Images. -->
 
