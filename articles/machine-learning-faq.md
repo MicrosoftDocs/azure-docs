@@ -68,7 +68,7 @@ ML Studio supports R today, you can bring in your existing R codes in ML Studio 
  
 12.**What R packages are available in ML studio?**
 
-ML studio supports 300+ R packages today, and this list is constantly growing. Visit help to learn how to get list of [supported R packages](http://go.microsoft.com/fwlink/?LinkId=404233) . If the package you want is not listed in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
+ML studio supports 350+ R packages today, and this list is constantly growing. Visit help to learn how to get list of [supported R packages](http://go.microsoft.com/fwlink/?LinkId=404233) . If the package you want is not listed in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 ### ML API SERVICE
 
