@@ -152,7 +152,7 @@ queue named 'myqueue' using **sendQueueMessage**:
         body: 'Test message',
         customProperties: {
             testproperty: 'TestValue'
-        };
+        }};
     serviceBusService.sendQueueMessage('myqueue', message, function(error){
         if(!error){
             // message sent

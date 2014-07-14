@@ -32,7 +32,7 @@ The following illustration shows the completed application:
 ### Tutorial segments
 
 * [Set up the development environment](#set-up-the-development-environment)
-* [Create an ASP.NET web application in Visual Studio](#create-an-asp.net-web-application)
+* [Create an ASP.NET web application in Visual Studio](#create-an-aspnet-web-application)
 * [Deploy the application to Azure](#deploy-the-application-to-azure)
 * [Make a change and redeploy](#make-a-change-and-redeploy)
 * [Monitor and manage the site in the management portal](#monitor-and-manage-the-site-in-the-management-portal)
