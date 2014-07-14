@@ -1,1 +1,0 @@
-<properties title="Get data into ML Studio" pageTitle="Get data into ML Studio" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

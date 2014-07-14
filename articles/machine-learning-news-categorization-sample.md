@@ -1,1 +1,0 @@
-<properties title="News Categorization sample" pageTitle="News Categorization sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
