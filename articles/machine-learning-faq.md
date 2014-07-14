@@ -34,7 +34,7 @@ Charges are aggregated per workspace for your subscription. Within each workspac
 +	API Service Prediction Hours – this meter includes compute charges accrued by Web services running in production. 
 +	API Service Predictions (in 1000s) – this meter includes charges accrued per call to your production web service.
 
-Visit the Pricing page for pricing details, <http://azure.microsoft.com/en-us/pricing/details/machinelearning>.
+Visit the Pricing page for pricing details, <http://azure.microsoft.com/en-us/pricing/details/machine-learning/>.
 
 6.**Does Azure Machine Learning have a Free Trial?**
 
@@ -109,4 +109,4 @@ We will be adding new material to Machine Learning Center on an ongoing basis. Y
 
 Azure ML is supported as a part of the Azure support offering.  To get technical support on Azure ML, select ‘Machine Learning’ as service and you will be provided a category of topics to file your support ticket. To learn more about Azure Support offering visit <http://azure.microsoft.com/en-us/support/options/>
 
-Azure Machine Learning also has a community forum on MSDN, where you can ask Azure ML related questions. The forum is monitored by the Azure ML team. Visit [Azure Forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning/).
+Azure Machine Learning also has a community forum on MSDN, where you can ask Azure ML related questions. The forum is monitored by the Azure ML team. Visit [Azure Forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning).
