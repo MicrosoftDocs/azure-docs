@@ -9,7 +9,7 @@
  
 This topic shows you how to use Azure Mobile Services to send push notifications to an iOS app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE] This topic shows how to enable push notifications by using the legacy support provided by Mobile Services. Azure Notification Hubs integrates with Mobile Services to enable you to send template-based and cross-platform push notifications to millions of devices. By default, push notifications using Notification Hubs is not enabled.
+>[WACOM.NOTE]This tutorial demonstrates Mobile Services integration with Notification Hubs, which is currently how you send push notifications from a newly created mobile service. If you are using an older mobile service that has not yet been upgraded to use Notification Hubs, we recommend that you do so as part of this tutorial. If you choose not to upgrade now, you should follow [this version](/en-us/documentation/articles/mobile-services-ios-get-started-push/) of the tutorial. 
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -25,7 +25,7 @@ This tutorial requires the following:
 
 + [Mobile Services iOS SDK]
 + [XCode 4.5][Install Xcode] 
-+ An iOS 5.0 (or later version) capable device
++ An iOS 6.0 (or later version) capable device
 + iOS Developer Program membership
 
    > [WACOM.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
@@ -46,13 +46,16 @@ After you have registered your app with APNS and configured your project, you mu
 
   Make a note of the file name and location of the exported certificate.
 
-    > [WACOM.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
+
+>[WACOM.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
 
 2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
    	![][18]
 
 3. Click the **Push** tab and click **Upload**.
+
+	>[WACOM.NOTE]When you are completing this tutorial using an older mobile service, you might see a link at the bottom of the **Push** tab that says **Enable Enhanced Push**. Click this now to upgrade your mobile service to integrate with Notification Hubs. This change cannot be reverted. For details on how to enable enhanced push notifications in a production mobile service, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">this guidance</a>.
 
    	![][19]
 
@@ -68,13 +71,7 @@ Both your mobile service is now configured to work with APNS.
 
 ## Add push notifications to your app
 
-1. In Xcode, open the QSAppDelegate.h file and add the following property below the ***window** property:
-
-        @property (strong, nonatomic) NSString *deviceToken;
-
-    > [WACOM.NOTE] When dynamic schema is enabled on your mobile service, a new 'deviceToken' column is automatically added to the **TodoItem** table when a new item that contains this property is inserted.
-
-2. In QSAppDelegate.m, replace the following handler method inside the implementation: 
+1. In QSAppDelegate.m, replace the following handler method inside the implementation: 
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
         (NSDictionary *)launchOptions
@@ -85,29 +82,24 @@ Both your mobile service is now configured to work with APNS.
             return YES;
         }
 
-3. In QSAppDelegate.m, add the following handler method inside the implementation: 
+2. In QSAppDelegate.m, add the following handler method inside the implementation: 
 
-        // We are registered, so now store the device token (as a string) on the AppDelegate instance
-        // taking care to remove the angle brackets first.
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
-            NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
-            self.deviceToken = [[deviceToken description] stringByTrimmingCharactersInSet:angleBrackets];
+			client.push.registerNative(deviceToken, @”uniqueTag”);
         }
 
-4. In QSAppDelegate.m, add the following handler method inside the implementation: 
+3. In QSAppDelegate.m, add the following handler method inside the implementation: 
 
-        // Handle any failure to register. In this case we set the deviceToken to an empty
-        // string to prevent the insert from failing.
+        // Handle any failure to register. 
         - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
         (NSError *)error {
             NSLog(@"Failed to register for remote notifications: %@", error);
-            self.deviceToken = @"";
         }
 
-5. In QSAppDelegate.m, add the following handler method inside the implementation:  
+4. In QSAppDelegate.m, add the following handler method inside the implementation:  
 
-        // Because toast alerts don't work when the app is running, the app handles them.
+        // Because alerts don't work when the app is running, the app handles them.
         // This uses the userInfo in the payload to display a UIAlertView.
         - (void)application:(UIApplication *)application didReceiveRemoteNotification:
         (NSDictionary *)userInfo {
@@ -135,7 +127,7 @@ Both your mobile service is now configured to work with APNS.
             @"text" : itemText.text,
             @"complete" : @(NO),
             // add the device token property to our todo item payload
-            @"deviceToken" : delegate.deviceToken
+            @"deviceToken" : [[NSString alloc] initWithData:delegate.deviceToken encoding:NSUTF8StringEncoding]
         };
 
    This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
@@ -161,10 +153,10 @@ Your app is now updated to support push notifications.
         function insert(item, user, request) {
             request.execute();
             // Set timeout to delay the notification, to provide time for the 
-            // app to be closed on the device to demonstrate toast notifications
+            // app to be closed on the device to demonstrate push notifications
             setTimeout(function() {
-                push.apns.send(item.deviceToken, {
-                    alert: "Toast: " + item.text,
+                push.apns.send(null, {
+                    alert: "Alert: " + item.text,
                     payload: {
                         inAppMessage: "Hey, a new item arrived: '" + item.text + "'"
                     }
@@ -175,7 +167,7 @@ Your app is now updated to support push notifications.
    	This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. 
 
 
-   	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a toast notification.
+   	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.
 
 ## Test push notifications in your app
 
@@ -193,7 +185,7 @@ Your app is now updated to support push notifications.
 
   	![][25]
 
-4. Repeat step 2 and immediately close the app, then verify that the following toast is shown.
+4. Repeat step 2 and immediately close the app, then verify that the following push is shown.
 
   	![][26]
 
@@ -201,7 +193,33 @@ You have successfully completed this tutorial.
 
 ## Next steps
 
-In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
+This tutorial demonstrated the basics of enabling an iOS app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorials:
+
++ [Send push notifications to authenticated users]
+	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
+
++ [Send broadcast notifications to subscribers]
+	<br/>Learn how users can register and receive push notifications for categories they're interested in.
+<!---
++ [Send template-based notifications to subscribers]
+	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
+-->
+Learn more about Mobile Services and Notification Hubs in the following topics:
+
+* [Get started with data]
+  <br/>Learn more about storing and querying data using mobile services.
+
+* [Get started with authentication]
+  <br/>Learn how to authenticate users of your app with different account types using mobile services.
+
+* [What are Notification Hubs?]
+  <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
+
+* [Mobile Services Objective-C how-to conceptual reference]
+  <br/>Learn more about how to use Mobile Services with Objective-C and iOS.
+
+* [Mobile Services server script reference]
+  <br/>Learn more about how to implement business logic in your mobile service. 
 
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
@@ -250,17 +268,23 @@ In this simple example a user receives a push notification with the data that wa
 [116]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-16.png
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
-<!-- URLs. -->
+<!-- URLs.   -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started
+[Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-ios-get-started-users
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+
+[Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
+
+[What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
+[Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-ios-send-breaking-news/
+[Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
+
+[Mobile Services Objective-C how-to conceptual reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library

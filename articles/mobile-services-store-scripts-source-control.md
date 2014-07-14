@@ -85,7 +85,7 @@ Now that you have created your local repository, you can make changes to server 
 
 		function insert(item, user, request) {
 		    request.execute();
-		    console.log(item);
+		    console.log(JSON.stringify(item, null, 4));
 		}
 	
 	This code simply writes the inserted item to the log. If this file already contains code, simply add some valid JavaScript code to this file, such as a call to `console.log()`, then save your changes. 
@@ -139,7 +139,7 @@ Next, you will add the [node-uuid] Node.js module to your mobile service by usin
 		    var uuid = require('node-uuid');
 		    item.uuid = uuid.v1();
 		    request.execute();
-		    console.log(item);
+		    console.log(JSON.stringify(item, null, 4));
 		}
 
 	This code adds a uuid column to the table, populating it with unique GUID identifiers.
