@@ -27,4 +27,4 @@ We’ll follow these steps:
 This walkthrough is based on a simplified version of the 
 [Credit risk prediction sample experiment][risk] included with ML Studio.
 
-[risk]: ../machine-learning-credit-risk-prediction-sample-experiment/
+[risk]: ../machine-learning-sample-credit-risk-prediction/

@@ -2,7 +2,7 @@
 
 This is the fourth step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
-[develop]: ../machine-learning-develop-predictive-solution/
+[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
 
 1.	[Create an ML workspace][create-workspace]
 2.	[Upload existing data][upload-data]
