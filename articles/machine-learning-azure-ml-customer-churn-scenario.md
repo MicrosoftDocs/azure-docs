@@ -1,8 +1,9 @@
-<properties title="Azure ML customer churn scenario" pageTitle="Operationalizing a customer churn scenario using Microsoft Azure Machine Learning"description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure"description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="" solutions="" documentationCenter="" authors="barga" videoId="" scriptId="" />
 
 
-#Introduction
-This paper presents a reference implementation of a customer churn analysis project built using Microsoft Azure Cloud ML Studio, and discusses associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models built using Azure Cloud ML, and assess directions for further development.  
+#Analyzing Customer Churn using Microsoft Azure Machine Learning
+
+This paper presents a reference implementation of a customer churn analysis project built using Azure Machine Learning Studio, and discusses associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models built using Azure Machine Learning, and assess directions for further development.  
 
 ##The Problem of Customer Churn
 Businesses in the consumer market and in all enterprise sectors have to deal with churn. Sometimes churn is excessive and influences policy decisions. The traditional solution is to predict high propensity churners and address their needs via a concierge service, marketing campaigns, or by applying special dispensations. These approaches may vary from industry to industry and even from a particular consumer cluster to another within one industry (e.g. telecommunications). The common factor is that businesses need to minimize these special customer retention efforts. Thus, a natural methodology would be to score every customer with the probability of churn and address the top N ones. The top customers might be the most profitable ones; in more sophisticated scenarios, a profit function is employed during the selection of candidates for special dispensation. However, these considerations are only a part of the holistic strategy for dealing with churn. Businesses also have to take into account risk (and associated risk tolerance), the level and cost of the intervention, and plausible customer segmentation.  
@@ -198,13 +199,13 @@ This feedback will help us improve the quality of white papers we release.
 *Figure 12 Snapshot of a presentation on churn prototype*
   
 
-[1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn1.png
-[2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn2.png
-[3]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn3.png
-[4]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn4.png
-[5]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn5.png
-[6]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn6.png
-[7]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn7.png
-[8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn8.png
-[9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn9.png
-[10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn10.png
+[1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
+[2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-2.png
+[3]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-3.png
+[4]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-4.png
+[5]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-5.png
+[6]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-6.png
+[7]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-7.png
+[8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
+[9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
+[10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png

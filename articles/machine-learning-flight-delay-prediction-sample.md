@@ -1,1 +1,0 @@
-<properties title="Flight delay prediction sample" pageTitle="Flight delay prediction sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

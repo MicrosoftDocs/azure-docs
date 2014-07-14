@@ -1,1 +1,0 @@
-<properties title="Prediction of levels of cell activity sample" pageTitle="Prediction of levels of cell activity sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

@@ -1,1 +1,0 @@
-<properties title="Clustering of celebrity photos sample" pageTitle="Clustering of celebrity photos sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

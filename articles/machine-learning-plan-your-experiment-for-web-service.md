@@ -1,1 +1,0 @@
-<properties title="Plan your experiment for a web service" pageTitle="Plan your experiment for a web service" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
