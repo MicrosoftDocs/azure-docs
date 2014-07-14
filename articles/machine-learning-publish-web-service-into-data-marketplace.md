@@ -1,1 +1,0 @@
-<properties title="Publish a web service into the Data Marketplace" pageTitle="Publish a web service into the Data Marketplace" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

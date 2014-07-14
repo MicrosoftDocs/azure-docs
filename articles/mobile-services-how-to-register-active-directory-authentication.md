@@ -32,7 +32,9 @@ This topic shows you how to register your apps to be able to use Azure Active Di
 
     ![][5]
 
-8. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your mobile service. Also enter a unique resource identifier in the **App ID URI** box. The application will use the URI to submit single sign-on requests to the Azure Active Directory. Then click to continue.
+8. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your mobile service. Also enter a unique resource identifier in the **App ID URI** box. Then click to continue.
+
+	>[WACOM.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-aad_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-aad</code>.  
 
     ![][6]
 

@@ -151,7 +151,7 @@ A blob can be either block, or page based. Block blobs allow you to more efficie
 
 To upload data to a block blob, use the following:
 
-* **createBlockBlobFromFile** - creates a new block blob and uploads the contents of a file.
+* **createBlockBlobFromLocalFile** - creates a new block blob and uploads the contents of a file.
 
 * **createBlockBlobFromStream** - creates a new block blob and uploads the contents of a stream.
 
@@ -161,7 +161,7 @@ To upload data to a block blob, use the following:
 
 The following example uploads the contents of the **test.txt** file into **myblob**.
 
-	blobSvc.createBlockBlobFromFile('mycontainer', 'myblob', 'test.txt', function(error, result, response){
+	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', function(error, result, response){
 	  if(!error){
 	    // file uploaded
 	  }
@@ -252,7 +252,7 @@ ETags should be used if you need to allow multiple clients or instances to write
 
 ETag conditions can be set using the optional `options.accessConditions` parameter. The following example will only upload the **test.txt** file if the blob already exists and has the ETag value contained by `etagToMatch`.
 
-	blobSvc.createBlockBlobFromFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { 'if-match': etagToMatch} }, function(error, result, response){
+	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { 'if-match': etagToMatch} }, function(error, result, response){
       if(!error){
 	    // file uploaded
 	  }

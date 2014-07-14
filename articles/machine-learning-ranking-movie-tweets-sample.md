@@ -1,1 +1,0 @@
-<properties title="Ranking movie tweets sample" pageTitle="Ranking movie tweets sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

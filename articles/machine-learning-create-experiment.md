@@ -1,7 +1,7 @@
-<properties title="Creating and Iterating a Machine Learning Experiment" pageTitle="Creating and Iterating a Machine Learning Experiment" description="How to create and iterate on an experiment in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Create your first experiment in Azure Machine Learning Studio" pageTitle="Create your first experiment in Machine Learning Studio | Azure" description="How to create and iterate on an experiment in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-#Creating and Iterating a Machine Learning Experiment 
-
+#Create your first experiment in Azure Machine Learning Studio 
+ 
 A predictive analytics experiment, at its core, consists of components to *create a model*, *train the model*, and *score and test the model*. You can combine these to create an experiment that takes data, trains a model against it, and applies the model to new data. You can also add modules to pre-process data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
 
 Microsoft Azure Cloud Machine Learning Studio is designed to help you develop and iterate on a predictive analytics experiment.
@@ -11,13 +11,19 @@ Microsoft Azure Cloud Machine Learning Studio is designed to help you develop an
 The five basic steps you follow to build an experiment in ML Studio allow you to create, train, and score your model:  
 
 - Create a Model 
-	- [Step 1: Get data](#1getdata)
-	- [Step 2: Pre-process data](#2processdata)
-	- [Step 3: Define, extract, and enrich features](#3definefeatures)
+	- [Step 1: Get data]
+	- [Step 2: Pre-process data]
+	- [Step 3: Define, extract, and enrich features]
 - Train the Model 
-	- [Step 4: Choose and apply a learning algorithm](#4applyalgorithm)
+	- [Step 4: Choose and apply a learning algorithm]
 - Score and Test the Model 
-	- [Step 5: Predict over new data](#5predictnewdata) 
+	- [Step 5: Predict over new data] 
+
+[Step 1: Get data]: #step-1-get-data
+[Step 2: Pre-process data]: #step-2-pre-process-data
+[Step 3: Define, extract, and enrich features]: #step-3-define-extract-and-enrich-features
+[Step 4: Choose and apply a learning algorithm]: #step-4-choose-and-apply-a-learning-algorithm
+[Step 5: Predict over new data]: #step-5-predict-over-new-data 
 
 There are two types of predictive analytics you may want to perform with your data: 
 
@@ -28,7 +34,7 @@ In this example, we'll walk through a regression task using automobile price and
 
 > [WACOM.NOTE] In addition to classification and regression, it is also possible to perform recommendation and clustering tasks. Because the workflows for these are somewhat different, they are not covered here. 
 
-###Step 1: Get data    {#1getdata}
+### Step 1: Get data
 
 There are a number of sample datasets included with ML Studio, and you can import data from many different sources. For this example, we will use the included sample dataset that represents automobile price data.
 
@@ -44,11 +50,11 @@ In the dataset, the variables appear as columns and the instances of automobile 
 
 Close the visualization window by clicking the "x" in the upper-right corner.
 
-###Step 2: Pre-process data    {#2processdata}
+### Step 2: Pre-process data
 
 A dataset usually requires some pre-processing before it can be analyzed. Notice the missing values present in the columns of various rows (for this particular set each missing value is denoted by "?"). To analyze the data, these have to be cleaned. Notice also that the "normalized losses" column has a very large proportion of missing values, so we will exclude that column from the model altogether. 
 
-1. Select and drag the **Convert To Dataset** module to the experiment canvas, connect it to the dataset. In the module properties pane on the right, select "ReplaceVlaues" for the **Action** parameter, "Missing" for the **Replace** parameter, and enter "?" for **New value**. This will convert the data to a Data Table, the internal binary format for ML Studio, and represent missing string values with "?".  
+1. Select and drag the **Convert To Dataset** module to the experiment canvas and connect it to the dataset. In the module properties pane on the right, select "ReplaceVlaues" for the **Action** parameter, "Missing" for the **Replace** parameter, and enter "?" for **New value**. This will convert the data to a Data Table, the internal binary format for ML Studio, and represent missing string values with "?".  
 
 2. Select and drag the **Project Columns** module to the experiment canvas and connect it to the output from the **Convert To Dataset** module.  
 
@@ -68,7 +74,7 @@ To view the cleaned dataset, right-click the output port of the **Missing Values
 
 > [WACOM.NOTE] Cleaning the missing values from input data is a prerequisite for using most of the modules. 
 
-###Step 3: Define, extract and enrich features    {#3definefeatures}
+### Step 3: Define, extract and enrich features
 
 Certain variables are better for predicting the target than others. Finding a good set of feature variables requires experimentation and knowledge about the problem at hand. Also, some features have a strong correlation with other features, for example *city-mpg* versus *highway-mpg*, so they will not add much new information to the model and can be removed. 
 
@@ -100,7 +106,7 @@ This will produce the dataset that will be used in the learning algorithm in the
 
 To view the dataset so far after the experiment finishes running, right-click the output port of the last **Metadata Editor** and select **Visualize**.
 
-###Step 4: Choose and apply a learning algorithm    {#4applyalgorithm}
+### Step 4: Choose and apply a learning algorithm
 
 Constructing a predictive model consists of training, validation, and testing. Here we will use the **Cross Validate Model** module for training and validation, and in the next section we'll walk through testing. 
 
@@ -140,7 +146,7 @@ Once cross-validation is complete, the next step is to train the model.
 
 The result is a trained regression model that can be used to score new samples (make predictions). 
 
-###Step 5: Predict over new data    {#5predictnewdata} 
+### Step 5: Predict over new data 
 
 1. To use the trained model, drag the **Score Model** module to the experiment canvas and connect the **Trained model** input port of the **Score Model** module to the **Trained model** output port of the **Train Model** module, and the **Dataset** input port of the **Score Model** module to the test data output port (**Results dataset1**) of the **Split** module.  
 
@@ -149,3 +155,4 @@ The result is a trained regression model that can be used to score new samples (
 	> [WACOM.NOTE] The input dataset of **Score Model** must have the same columns as the dataset used to train the model. Additional columns may be present, but they will be ignored. Also, any categorical columns must have the same levels.  
 
 3. Finally, to test the quality of the results, drag the **Evaluate Model** module to the experiment canvas, and connect it to the output from the **Score Model** module. Run the experiment and view the output from the **Evaluate Model** module to see different metrics that describe the quality of the model.  
+
