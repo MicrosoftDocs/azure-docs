@@ -2,7 +2,12 @@
 
 # Send push notifications to authenticated users
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users" title="Windows Phone" >Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users" title="iOS" class="current">iOS</a><!--<a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users" title="Android">Android</a>--></div>
+<div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users" title="Windows Store C#">Windows Store C#</a>
+<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users" title="Windows Store JavaScript">Windows Store JavaScript</a>
+<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users" title="Windows Phone" >Windows Phone</a>
+<a href="/en-us/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users" title="iOS" class="current">iOS</a>
+<a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users" title="Android">Android</a></div>
 
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
 
@@ -49,70 +54,14 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 
 <p>This insert script uses the user ID tag to send a push notification (with the text of the inserted item) to all Windows Phone (MPNS) app registrations created by the logged-in user.</p></li></ol>
 
+
 ##<a name="update-app"></a>Update the app to log in before registration
 
-
-Next, you need to change the way that push notifications are registered to make sure that the user is authenticated before registration is attempted. 
-
-1. In **QSAppDelegate.m**, remove the implementation of **didFinishLaunchingWithOptions**:
-
-		
-		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
-		(NSDictionary *)launchOptions
-		{
-		    // Register for remote notifications
-		    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-		    UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-		    return YES;
-		}
-
-2. Open the project file **QSTodoListViewController.m** and in the **viewDidLoad** method, add the code removed above to the add:
-
-	
-		- (void)viewDidAppear:(BOOL)animated
-		{
-		    MSClient *client = self.todoService.client;
-		
-		    if (client.currentUser != nil) {
-		        return;
-		    }
-		
-		    [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
-		        [self refresh];
-		    }];
-		
-		    // Register for remote notifications
-		    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-		    UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-		    return YES;
-		}
-
-
-
+[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../includes/mobile-services-ios-push-notifications-app-users-login.md)] 
 
 ##<a name="test"></a>Test the app
 
-1. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications
-
-  	![][23]
-
-    > [WACOM.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
-
-2. Log in using the selected identity provider and verify that authentication succeeds.
-
-3. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
-
-  	![][24]
-
-4. Verify that a notification is received, then click **OK** to dismiss the notification.
-
-  	![][25]
-
-5. Repeat step 2 and immediately close the app, then verify that the following push is shown.
-
-  	![][26]
-
-You have successfully completed this tutorial.
+[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)] 
 
 
 

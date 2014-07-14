@@ -35,7 +35,7 @@ Some descriptions are adapted from the documentation provided by the source (typ
 <p><strong>Usage:</strong> Classify people using demographics to predict whether a person earns over 50K a year.</p>
 </td>
 <td>
-<p>Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository [<a href=“http//archive.ics.uci.edu/ml“>http//archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science</p>
+<p>Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science</p>
 </td>
 </tr>
 
@@ -50,7 +50,7 @@ Some descriptions are adapted from the documentation provided by the source (typ
 </td>
 <td>
 <p>
-Schlimmer, J.C. (1987). UCI Machine Learning Repository [<a href=“http//archive.ics.uci.edu/ml“>http//archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
+Schlimmer, J.C. (1987). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
 </p>
 </td>
 </tr>
@@ -68,12 +68,12 @@ Schlimmer, J.C. (1987). UCI Machine Learning Repository [<a href=“http//archiv
 <list class="bullet">
 <listItem>
 <p>
-Yeh, I.C., (2008). UCI Machine Learning Repository [<a href=“http//archive.ics.uci.edu/ml“>http//archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
+Yeh, I.C., (2008). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
 </p>
 </listItem>
 <listItem>
 <p>
-Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, [<a href=“http://dx.doi.org/10.1016/j.eswa.2008.07.018“>http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>]
+Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, [<a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>]
 </p>
 </listItem>
 </list>
@@ -90,7 +90,7 @@ Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM m
 </td>
 <td>
 <p>
-Wohlberg, W.H., Street, W.N., &amp; Mangasarian, O.L. (1995). UCI Machine Learning Repository [<a href=“http//archive.ics.uci.edu/ml“>http//archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
+Wohlberg, W.H., Street, W.N., &amp; Mangasarian, O.L. (1995). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
 </p>
 </td>
 </tr>
@@ -105,7 +105,7 @@ Wohlberg, W.H., Street, W.N., &amp; Mangasarian, O.L. (1995). UCI Machine Learni
 </td>
 <td>
 <p>
-Xifara, A. &amp; Tsanas, A. (2012). UCI Machine Learning Repository  [<a href=“http//archive.ics.uci.edu/ml“>http//archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
+Xifara, A. &amp; Tsanas, A. (2012). UCI Machine Learning Repository  [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
 </p>
 </td>
 </tr>
@@ -120,7 +120,7 @@ Xifara, A. &amp; Tsanas, A. (2012). UCI Machine Learning Repository  [<a href=�
 </td>
 <td>
 <p>
-From US Dept. of Transportation [<a href=“http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time“>http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time</a>]
+From US Dept. of Transportation [<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time</a>]
 </p>
 </td>
 </tr>
@@ -137,7 +137,7 @@ From US Dept. of Transportation [<a href=“http://www.transtats.bts.gov/DL_Sele
 <list class="bullet">
 <listItem>
 <p>
-Cortez, P., &amp; Morais, A. (2008). UCI Machine Learning Repository [<a href=“http//archive.ics.uci.edu/ml“>http//archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
+Cortez, P., &amp; Morais, A. (2008). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
 </p>
 </listItem>
 <listItem>
@@ -147,7 +147,7 @@ A Data Mining Approach to Predict Forest Fires using Meteorological Data.
 In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, 
 Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, 
 December, Guimar&#227;es, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Available at:
-[<a href=“http://www.dsi.uminho.pt/~pcortez/fires.pdf“>http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>]
+[<a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>]
 </p>
 </listItem>
 </list>
@@ -168,7 +168,7 @@ One class is linearly separable from the other two; but the latter are not linea
 </td>
 <td>
 <p>
-Fisher, R.A. (1988). UCI Machine Learning Repository  [<a href=“http//archive.ics.uci.edu/ml“>http//archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
+Fisher, R.A. (1988). UCI Machine Learning Repository  [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
 </p>
 </td>
 </tr>
@@ -184,7 +184,7 @@ Fisher, R.A. (1988). UCI Machine Learning Repository  [<a href=“http//archive.
 </td>
 <td>
 <p>
-StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository [<a href=“http//archive.ics.uci.edu/ml“>http//archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
+StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
 </p>
 </td>
 </tr>
@@ -199,7 +199,7 @@ StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository [<a
 </td>
 <td>
 <p>
-Sigillito, V. (1990). UCI Machine Learning Repository  [<a href=“http//archive.ics.uci.edu/ml“>http//archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
+Sigillito, V. (1990). UCI Machine Learning Repository  [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
 </p>
 </td>
 </tr>
@@ -215,7 +215,7 @@ Sigillito, V. (1990). UCI Machine Learning Repository  [<a href=“http//archive
 <td>
 <p>
 Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository 
-[<a href=“http://archive.ics.uci.edu/ml“>http://archive.ics.uci.edu/ml</a>].
+[<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>].
 Irvine, CA: University of California, School of Information and Computer Science.
 </p>
 </td>
@@ -232,7 +232,7 @@ Irvine, CA: University of California, School of Information and Computer Science
 <td>
 <p>
 Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository 
-[<a href=“http://archive.ics.uci.edu/ml“>http://archive.ics.uci.edu/ml</a>].
+[<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>].
 Irvine, CA: University of California, School of Information and Computer Science.
 </p>
 </td>
@@ -249,7 +249,7 @@ Irvine, CA: University of California, School of Information and Computer Science
 <td>
 <p>
 Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository 
-[<a href=“http://archive.ics.uci.edu/ml“>http://archive.ics.uci.edu/ml</a>].
+[<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>].
 Irvine, CA: University of California, School of Information and Computer Science.
 </p>
 </td>
@@ -266,7 +266,7 @@ Irvine, CA: University of California, School of Information and Computer Science
 </td>
 <td>
 <p>
-Sterling, D. &amp; Buntine, W., (NA). UCI Machine Learning Repository  [<a href=“http//archive.ics.uci.edu/ml“>http//archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
+Sterling, D. &amp; Buntine, W., (NA). UCI Machine Learning Repository  [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
 </p>
 <p>A useful guide to steel grades:</p>
 <p>[<a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf>]
@@ -288,7 +288,7 @@ Sterling, D. &amp; Buntine, W., (NA). UCI Machine Learning Repository  [<a href=
 </td>
 <td>
 <p>
-Bock, R.K. (1995). UCI Machine Learning Repository [<a href=“http//archive.ics.uci.edu/ml“>http//archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
+Bock, R.K. (1995). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
 </p>
 </td>
 </tr>

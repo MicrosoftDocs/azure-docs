@@ -24,5 +24,7 @@ Multiclass classification  |    0.85  |                                         
  
 Based on these results we chose ordinal regression model and build a web service based on it.
  
+<!-- Removed until this part is fixed
 ##API
 We have built a web service that takes a plain text review and predicts its rating.
+-->

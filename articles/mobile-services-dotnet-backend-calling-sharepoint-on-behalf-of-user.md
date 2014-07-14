@@ -25,7 +25,7 @@ By default, the token you receive from AAD has limited permissions. In order to 
 
     ![][0]
 
-2. In the **Configure** tab, scroll the page down to the permissions to other applications section. Select **Office 365 SharePoint Online** and grant the **Edit or delete users’ files** delegated permission. Then click **Save**.
+2. In the **Configure** tab, scroll the page down to the permissions to other applications section. Select **Office 365 SharePoint Online** and grant the **Edit or delete users' files** delegated permission. Then click **Save**.
 
     ![][1]
 

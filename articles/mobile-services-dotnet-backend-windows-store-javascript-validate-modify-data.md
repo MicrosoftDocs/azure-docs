@@ -30,7 +30,7 @@ This tutorial walks you through these basic steps:
 4. [Add a timestamp field for CompleteDate]
 5. [Update the client to display the CompleteDate]
 
-This tutorial builds on the steps and the sample app from the previous tutorial, [Getting Started] or [Get started with data]. Before you begin this tutorial, you must first complete the [Getting Started] or [Get started with data] tutorial.  
+This tutorial builds on the steps and the sample app from the previous tutorial, [Getting Started] or [Get started with data](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/). Before you begin this tutorial, you must first complete the [Getting Started] or [Get started with data](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/) tutorial.  
 
 ## <a name="string-length-validation"></a>Add validation code to the Mobile Service
 
@@ -176,7 +176,6 @@ Server scripts are also used when authorizing users and for sending push notific
 [Service-side authorization of users]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js

@@ -1,7 +1,7 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-nokia-x" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="kirillg" editor="" />
 # Get started with Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/notification-hubs-nokia-x-get-started/" title="Nokia X" class="current">Nokia X</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/notification-hubs-nokia-x-get-started/" title="Nokia X" class="current">Nokia X</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
 This topic shows you how to use **Azure Notification Hubs** to send push notifications to an Android application on **Nokia X**. In this tutorial, you will create a blank Android app that receives push notifications using Nokia Notification Service. When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
 
@@ -83,7 +83,7 @@ This tutorial requires the following:
 	![][13]
 
 4.	Add the Nokia Notification Service's JAR file to your project. This Nokia Notifications helper library **push.jar** provides an API similar to the GCM helper library. 
-Navigate to Project Properties -> Java Build Path -> Libraries -> Add External JARs and add the **push.jar** available in **<android-sdk-path>\extras\nokia\nokia_x_services\libs\nna\push.jar**. The Javadoc for the library is located in **<android-sdk-path>\extras\nokia\nokia_x_services\javadocs\nna**.
+Navigate to Project Properties -> Java Build Path -> Libraries -> Add External JARs and add the **push.jar** available in **\extras\nokia\nokia_x_services\libs\nna\push.jar**. The Javadoc for the library is located in **\extras\nokia\nokia_x_services\javadocs\nna** where Eclipse IDE is installed.
 
 5. Make sure to also copy this push.jar library to the \libs directory of your project in the Package explorer. 
 
@@ -203,6 +203,11 @@ Navigate to Project Properties -> Java Build Path -> Libraries -> Add External J
 		     */
 		    public PushIntentService() {
 		    }
+
+		    @Override
+		    protected String[] getSenderIds(Context context) {
+		        return new String[] { ConfigurationSettings.SenderId };
+		    }   
 		    
 		    @Override
 		    protected void onRegistered(Context context, String registrationId) {
@@ -307,7 +312,7 @@ You can send notifications using Notification Hubs from any back-end that uses o
 		private static async void SendNotificationAsync()
 		{
 			NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<DefaultFullSharedAccessSignatureSASConnectionString>", "<hub name>");
-			hub.SendNokiaXNativeNotificationAsync("{\"data\" : {\"payload\":\"" + "Hello from Azure" + "\"}}");
+			await hub.SendNokiaXNativeNotificationAsync("{\"data\" : {\"payload\":\"" + "Hello from Azure" + "\"}}");
 		}
 
 5. Then add the following lines in your Main method:
@@ -321,7 +326,7 @@ To test this app with an actual phone, just connect it to your computer with a U
 
 To test this app with the emulator:
 
-1. On the Eclipse top toolbar, click Run and then select your app. To test this app with the emulator:
+1. On the Eclipse top toolbar, click Run and then select your app. 
 
 2. This loads your app, either onto the attached phone, or else it starts the emulator, and loads and runs the app.
 

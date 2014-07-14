@@ -3,7 +3,7 @@
 #Azure Notification Hubs Notify Users
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/documentation/articles/notification-hubs-/" title="Windows Universal" class="current">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+    	<a href="/en-us/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal" class="current">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
 		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
@@ -12,8 +12,7 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 This tutorial is also the prerequisite to the **Secure Push** tutorial. After you have completed the steps in this **Notify Users** tutorial, you can proceed to the **Secure Push** tutorial, which shows how to modify the **Notify Users** code to send a push notification securely. 
 
 > [AZURE.NOTE] This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Windows Store)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
-
-> [AZURE.NOTE] In this tutorial you will create a Windows Phone 8.1 app. The same code can be used for Windows Store and Windows Universal apps. All of these apps have to use Windows (not Windows Phone) credentials.
+Also note that in this tutorial you will create a Windows Phone 8.1 app. The same code can be used for Windows Store and Windows Universal apps. All of these apps have to use Windows (not Windows Phone) credentials.
 
 ## Create and Configure the Notification Hub
 
@@ -89,7 +88,7 @@ The next step is to create the Windows Phone application. To add this project to
     	</Grid>
 
 
-13. In Solution Explorer, right-click the **NotifyUserWindowsPhone (Windows Phone 8.1)** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class. This component implements the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [link to SMDN registering from back-end]. Note that it uses an authorization token stored in local storage when you click the **Log in and register** button.
+13. In Solution Explorer, right-click the **NotifyUserWindowsPhone (Windows Phone 8.1)** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class. This component implements the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](http://msdn.microsoft.com/en-us/library/dn743807.aspx). Note that it uses an authorization token stored in local storage when you click the **Log in and register** button.
 
 14. Add the following code inside the `RegisterClient` class definition. Be sure to replace `{backend endpoint}` with the your backend endpoint obtained in the previous section:
 

@@ -1,6 +1,6 @@
 <properties title="Application Insights SDK" pageTitle="Application Insights SDK" description="Log user activities and diagnostic events." metaKeywords="analytics monitoring application insights" authors="awills"  />
  
-# H1 (Application Insights SDK) 
+# Application Insights SDK
 
 ### Coming soon
 
@@ -10,16 +10,20 @@ But although you can write the code, there aren't any reports to show the data. 
 
 However, one thing you can do right now is to [capture and search diagnostic event logs generated with Trace, NLog or Log4Net][diagnostics]. 
 
+#### Configuration file
 
+By editing ApplicationInsights.config, you can configure how your application is monitored. We're working on the details.
 
-<!--Anchors-->
+## Application Insights
+
+* [Set up monitoring in a new project](../appinsights-01-start/)
+* [Add monitoring to an existing project](../appinsights-02-existing/)
+* [Set up availability and responsiveness tests](../appinsights-10Avail/)
+* [Search diagnostic logs](../appinsights-24diagnostics/)
+* [Application Insights SDK](../appinsights-90SDK/)
 
 
 <!--Link references-->
-[Web tests]: ../appinsights-10Avail/
 [diagnostics]: ../appinsights-24diagnostics/
-[monitor]: ../appinsights-04monitor/
-[start new]: ../appinsights-01new/
-[existing]: ../appinsights-02-existing/
 
 
