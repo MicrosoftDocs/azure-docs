@@ -5,18 +5,14 @@
 
 # Customize Hadoop clusters in HDInsight
 
-Learn how to configure Hadoop clusters in HDInsight to get beyond the default configuration settings by using either Azure PowerShell or the HDInsight .NET SDK. A standard HDInsight configuration includes cluster name, number of data nodes, HDInsight version, region, Hadoop user name/password, Hive/Oozie metastore and one ore more storage accounts. 
+Learn how to configure Hadoop clusters in HDInsight to get beyond the default configuration settings by using either Azure PowerShell or the HDInsight .NET SDK. A standard HDInsight configuration includes cluster name, number of data nodes, HDInsight version, region, Hadoop user name/password, Hive/Oozie metastore and one ore more storage accounts. For information on using the default configuration settings, see [Provision Hadoop clusters in HDInsight][hdinsight-provision].
 
+After a cluster is provisioned, you can make changes to the configuration files on the cluster via a RDP session. However, the configurations will be lost when nodes reimages that Azure platform periodically performs for maintenance or error recovery reasons. For more information on re-imaging, see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). This article covers the solution on for preserving the changes throughout the lifetime of the cluster at the provision time.  
 
-
-
-
-
-##In this tutorial
+##In this article
 
 * [Understand Hadoop configuration on HDInsight](#config)
 * [Customize Hadoop cluster during provision](#provision)
-* [Customize Hadoop cluster after provision](#post-provision)
 * [Next steps](#nextsteps)
 
 
@@ -33,12 +29,14 @@ The following chart illustrates the provision options and capabilities:
 |Additional libraries||![HDI.Check.Mark][img-hdi-checkmark]|![HDI.Check.Mark][img-hdi-checkmark]||Shared libraries to the following Hadoop componnents: <br/> <ul><li>Hive</li><li>Oozie</li></ul>|
 
 
+Use the Add-AzureHDInsightConfigValues cmdlet. For example:
 
-Make changes direction to the configuration files can't be retained during the life time of the cluster.
-change certain hadoop configurations from default values and would like to preserve the changes throughout the lifetime of the cluster
-
+	
+	$configvalues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHiveConfiguration'
+	$configvalues.Configuration = @{ “hive.exec.compress.output”=”true” }
 
 ##<a id="provision"></a>Customize Hadoop cluster during provision
+
 
 
 
@@ -60,3 +58,5 @@ In this article, you have learned how to customize HDInsight cluster. To learn m
 
 
 [img-hdi-checkmark]: ./hdinsight-customize-clusters/hdi.checkmark.png
+
+[hdinsight-provision]: ../hdinsight-provision-clusters/#powershell

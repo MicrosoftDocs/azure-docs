@@ -293,7 +293,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 ###  Deploy the project to Azure
 
-3.	In **Solution Explorer**, right-click the **AzureEmailService** cloud project and select **Publish**.
+3.	In **Solution Explorer**, right-click the **ContosoAdsCloudService** cloud project and select **Publish**.
 
 	![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)	
 
@@ -328,7 +328,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 ## Create the application from scratch 
 
 If you haven't already downloaded 
-[the completed application](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), do that now. Instead of creating new files and copying and pasting code into them, you'll copy files from the downloaded project into the new project.
+[the completed application](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), do that now. You'll copy files from the downloaded project into the new project.
 
 Creating the Contoso Ads application involves the following steps:
 
@@ -338,7 +338,7 @@ Creating the Contoso Ads application involves the following steps:
 * Configure connection strings
 * Add code files
 
-After the solution is created, you'll review the code and settings that are unique to cloud service projects and Azure blobs and queues.
+After the solution is created, you'll review the code that is unique to cloud service projects and Azure blobs and queues.
  
 ### Create a cloud service Visual Studio solution
 
@@ -404,7 +404,7 @@ After the solution is created, you'll review the code and settings that are uniq
 
 In this section you configure Azure Storage and SQL connection strings for testing locally. The deployment instructions earlier in the tutorial explain how to set up the connection strings for when the app runs in the cloud.
 
-3. In the ContosoAdsWeb project, open the application Web.config file, and insert the following `connectionStrings` element after the `configSections` element and before the `system.diagnostics element`:
+3. In the ContosoAdsWeb project, open the application Web.config file, and insert the following `connectionStrings` element after the `configSections` element:
 
 		<connectionStrings>
 		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
@@ -442,7 +442,7 @@ In this section you copy code files from the downloaded solution into the new so
 
 To add files to a project or a folder, right-click the project or folder and click **Add** - **Existing Item**. Select the files you want and click **Add**. If asked whether you want to replace existing files, click **Yes**.
 
-3. In the ContosoAdsCommon project, delete the *Class1.cs* file and add in its place the *Add.cs* and *ContosoAdscontext.cs* files from the downloaded project.
+3. In the ContosoAdsCommon project, delete the *Class1.cs* file and add in its place the *Ad.cs* and *ContosoAdscontext.cs* files from the downloaded project.
 
 3. In the ContosoAdsWeb project, add the following files from the downloaded project.
 	- *Global.asax.cs*  
