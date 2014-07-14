@@ -2,6 +2,8 @@
 
 Creating a virtual machine that is running the Linux operating system is easy when you use the Image Gallery in the Azure Management Portal. This guide assumes that you have no prior experience using Azure. You can create a virtual machine running the Linux operating system in the cloud that you can access and customize.
 
+> [WACOM.NOTE] You don't need any experience with Azure VMs to finish this tutorial. However, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
+
 You will learn:
 
 - [About virtual machines in Azure] []

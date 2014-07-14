@@ -27,10 +27,8 @@ Microsoft Azure Redis Cache, currently in preview, is based on the popular open 
 
 Microsoft Azure Redis Cache is available in two tiers:
 
--	**Basic** – Single node. Multiple sizes.
--	**Standard** – Two-node Master/Slave. Multiple Sizes.
-
->During the preview period, Azure Redis Cache will be available in the 250 MB and 1 GB sizes. For a limited time the cache will be offered free, with a limit of two caches per subscription.
+-	**Basic** – Single node. Multiple sizes up to 26 GB.
+-	**Standard** – Two-node Master/Slave. Multiple sizes up to 26 GB.
 
 Each tier differs in terms of features and pricing. The features are covered later in this guide, and for more information on pricing, see [Cache Pricing Details][].
 
@@ -60,8 +58,8 @@ In **Dns name**, enter a subdomain name to use for the cache endpoint. The endpo
 
 Use **Pricing Tier** to select the desired cache size and features. Redis Cache is available in the following two tiers.
 
--	**Basic** - Single node, available in either 250 MB or 1 GB.
--	**Standard** - Two node master/slave, 99.9% SLA (Post Preview), in either 250 MB or 1 GB.
+-	**Basic** - Single node, multiple sizes up to 26 GB.
+-	**Standard** - Two node master/slave, 99.9% SLA (Post Preview), multiple sizes up to 26 GB.
 
 For **Subscription**, select the Azure subscription that you want to use for the cache.
 
@@ -96,7 +94,9 @@ To configure a client application in Visual Studio using the StackExchange.Redis
 
 ![Manage NuGet packages][NuGetMenu]
 
-Type **StackExchange.Redis** into the **Search Online** text box, select it from the results, and click **Install**.
+Type **StackExchange.Redis** or **StackExchange.Redis.StrongName** into the **Search Online** text box, select the desired version from the results, and click **Install**.
+
+>If you prefer to use a strong-named version of the **StackExchange.Redis** client library, choose **StackExchange.Redis.StrongName**; otherwise choose **StackExchange.Redis**.
 
 ![StackExchange.Redis NuGet package][StackExchangeNuget]
 

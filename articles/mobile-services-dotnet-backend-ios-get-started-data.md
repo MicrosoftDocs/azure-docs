@@ -69,7 +69,7 @@ This tutorial is built on the [GetStartedWithData app][GitHub], which is an iOS 
 
 <h2><a name="download-the-service-locally"></a><span class="short-header">Download the service</span>Download the service to your local computer</h2>
 
-[WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
+[WACOM.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
 
 <h2><a name="test-the-service"></a><span class="short-header">Test the service</span>Test the mobile service</h2>
 
