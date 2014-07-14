@@ -446,10 +446,10 @@ To add files to a project or a folder, right-click the project or folder and cli
 
 3. In the ContosoAdsWeb project, add the following files from the downloaded project.
 	- *Global.asax.cs*  
-	- <em>_Layout.cshtml</em> file in the *Views\Shared* folder
-	- *Index.cshtml* in the *Views\Home* folder
-	- *AdController.cs* in the *Controllers* folder
-	- Five *.cshtml* files in the *Views\Ad* folder (create the folder first)
+	- In the *Views\Shared* folder: <em>_Layout.cshtml</em>.
+	- In the *Views\Home* folder: *Index.cshtml*.
+	- In the *Controllers* folder: *AdController.cs*.
+	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.
 
 3. In the ContosoAdsWorker project, add *WorkerRole.cs* from the downloaded project.
 
