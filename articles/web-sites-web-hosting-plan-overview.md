@@ -14,6 +14,8 @@ Here are some useful tips regarding web hosting plans and features:
 - Sites in the same subscription, location, and resource group can all share a web hosting plan. 
 - Features like auto scale work by targeting a web hosting plan.  If you want to autoscale individual sites then you should dedicate a web hosting plan to that site.
 
+[Learn more about managing web hosting plans](http://go.microsoft.com/fwlink/?LinkID=394411).
+
 ## Web Hosting Plans and Capacity ##
 
 Web hosting plans in the Free and Shared tier provide sites with a shared infrastructure, meaning that your sites share resources with other customers' sites.  

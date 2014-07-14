@@ -1,1 +1,0 @@
-<properties title="Get data from the SQL Azure" pageTitle="Get data from the SQL Azure" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

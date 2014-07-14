@@ -1,1 +1,0 @@
-<properties title="Prediction of the number of bike rentals sample" pageTitle="Prediction of the number of bike rentals sample" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

@@ -1,1 +1,0 @@
-<properties title="Get data from Hive Query" pageTitle="Get data from Hive Query" description="Required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />

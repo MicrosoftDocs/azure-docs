@@ -1,14 +1,14 @@
-<properties title="DocumentDB Indexing" pageTitle="DocumentDB Indexing | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="DocumentDB Indexing" pageTitle="DocumentDB Indexing | Azure" description="required" metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, indexing" services="documentdb" solutions="" documentationCenter="" authors="bradsev" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 #Introduction
-DocumentDB supports querying over JSON documents without requiring users to specify any schema or index definitions. To deliver this capability, DocumentDB maintains an index (inverted) tree for lookup of documents that match any given field or path in the collection.  
+DocumentDB supports querying over JSON documents without requiring users to specify a schema or index definitions. To deliver this capability, DocumentDB maintains an index (inverted) tree for the lookup of documents that match any given field or path in the collection.  
 
-DocumentDB indexing is built with careful consideration of storage cost efficiency, support for multi-tenancy, write performance and fast, consistent queries. Unlike traditional B+ tree based indexes, DocumentDB employs log structured techniques that allow the index to be kept up to date in the face of heavy writes.  
+DocumentDB indexing is built with careful consideration of storage cost efficiency, support for multi-tenancy, write performance and fast, consistent queries. Unlike traditional B+ tree-based indexes, DocumentDB employs log-structured techniques that allow the index to be kept up to date in the face of heavy writes.  
 
-The default indexing configuration for the service is ideal for a wide range of applications. Developers have the capability to fine-tune indexing behaviors such as index consistency, index type, precision and per-path/field selection, and per-document selection in order to best suit their application needs.  
+The default indexing configuration for the DocumentDB service is ideal for a wide range of applications. This enables developers to fine-tune indexing behaviors such as index consistency, index type, precision and per-path/field selection, and per-document selection in order to best suit their application needs.  
 
 #Indexing API 
-DocumentDB supports different index policy options that can be configured by developers to control index behavior, and make tradeoffs between query performance, index update performance and storage costs.  
+DocumentDB supports different index policy options that can be configured by developers to control index behavior, and make trade-offs between query performance, index update performance and storage costs.  
 
 -	Collections can be configured with an automatic (default) or “opt-in” indexing mode for each document
 -	Collections can be configured with a specific index consistency. Consistent indexing is kept up to date (matching the account’s data consistency level). Lazy Indexing is like lazy initialization in programming - the index is updated only when the collection is idle, and offers only eventual consistency guarantees. Refer to the consistency levels documentation for more information.
@@ -173,7 +173,7 @@ Each included path has the value of the path, the type (hash or range are curren
 
 There are two types of indexes currently supported – hash and range.  String types support only hash. Numbers support both hash and range. Hash indexes are best suited for workloads with point lookups like the previous example “SELECT * FROM docs WHERE a = 3”. Range lookups are best suited for range queries like “SELECT * FROM docs WHERE a > 3”.  
 
-Index precision allows developers to fine tune the tradeoff between performance and storage. DocumentDB implements an inverted index containing of a hash  
+Index precision allows developers to fine tune the trade-off between performance and storage. DocumentDB implements an inverted index containing of a hash  
 
 ![][7]
  
