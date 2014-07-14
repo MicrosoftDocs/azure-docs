@@ -50,5 +50,5 @@ The Blob service contains the following components:
     `http://sally.blob.core.windows.net/movies/MOV1.AVI`
 
 
-  [Understanding Block Blobs and Page Blobs]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
 [Blob1]: ./media/howto-blob-storage/blob1.jpg
+
