@@ -18,7 +18,13 @@ By default, all requests to mobile service resources are restricted to clients t
 
 	This will ensure that all operations against the **TodoItem** table require an authenticated user. 
 
-	>[WACOM.NOTE]Apply the AuthorizeLevel attribute to individual methods to set specific authorization levels on the methods exposed by the controller, or apply it to the controller itself to set the same authorization level across all methods. 
+	>[WACOM.NOTE]Apply the AuthorizeLevel attribute to individual methods to set specific authorization levels on the methods exposed by the controller.
 
-5. Republish your service project.
+5. If you wish to debug authentication locally, expand the App_Start folder, open the WebApiConfig.cs project file, then add the following code to the **Register** method:
+
+		config.SetIsHosted(true);
+	
+	This tells the local mobile service project to run as if it is being hosted in Azure, including honoring the AuthorizeLevel settings. Without this setting, all HTTP requests to *localhost* are permitted without authentication despite the AuthorizeLevel setting.  
+
+6. Republish your service project.
 
