@@ -4,11 +4,11 @@
  
 ###GENERAL
 
-1. **What is Microsoft Azure Machine Learning?**
+1.**What is Microsoft Azure Machine Learning?**
  
 Microsoft Azure Machine Learning is fully managed service to create, test, operationalize and manage predictive analytics solutions in the cloud. With just a browser, you can now sign up to Azure Machine Learning, upload data and immediately start machine learning experiments. Visual composition, large pallet of modules and a library of starting templates makes common machine learning tasks simple and quick. Turning a model into web service is easy – with a few clicks, a Predictive model build in ML Studio can be turned into a public REST API that encapsulates custom data transformation logic and sophisticated machine learning models.
  
-2. **What is Azure Machine Learning Studio?**
+2.**What is Azure Machine Learning Studio?**
 
 Azure ML Studio is a workbench environment accessible via a web browser. ML Studio hosts a pallet of modules with a visual composition interface that enables you to build an end-to-end data science workflow in the form of an experiment. There are modules for data ingestion, transformation, feature selection to build, score and evaluate a predictive models. Some of the most advanced algorithms that power machine learning in Bing and Xbox are built into ML Studio.  Scalable open source machine learning packages like Vowpal Wabbit are also included. ML Studio supports R. You can bring your existing R codes and incorporate it in your experiments. ML Studio enables you to combine these algorithms with your R code to build predictive models. ML Studio makes it easy to collaborate by enabling you to invite your team to your workspaces, where they can view and modify your experiments.
 
