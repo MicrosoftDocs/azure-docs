@@ -97,10 +97,10 @@ Next, you will update the app to authenticate users before requesting resources 
 
     This creates a member variable for storing the current Live Connect session and a method to handle the authentication process. This code forces a logout, when possible, to make sure that the user is prompted for credentials each time the application runs. This makes it easier to test the application with different Microsoft Accounts to ensure that the authentication is working correctly. This mechanism will only work if the logged in user does not have a connected Microsoft account. 
 
-	>[WACOM.NOTE]You should not request either Live Connection authentiction tokens or Mobile Services authorization tokens every time that your app runs. Not only is this inefficient, you can run into usage-relates issues should many customers try to start your app at the same time. A better approach is to cache both sets of tokens and try to first use the cached Mobile Services token before calling **LoginWithMicrosoftAccountAsync**. For an example of how to cache this token, see [Get started with authentication](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens)
+	>[WACOM.NOTE]You should not request either Live Connection authentiction tokens or Mobile Services authorization tokens every time that your app runs. Not only is this inefficient, you can run into usage-relates issues should many customers try to start your app at the same time. A better approach is to cache the tokens and first try to use the cached Mobile Services token before calling **LoginWithMicrosoftAccountAsync**. For an example of how to cache this token, see [Get started with authentication](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens)
 	
 
-7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when setting up the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
+7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when configuring the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
 
     <div class="dev-callout"><b>Note</b>
 	<p>In a Windows Store app, an instance of the <strong>LiveAuthClient</strong> class is created by passing the redirect domain URI value to the class constructor. In a <a href="/en-us/develop/mobile/tutorials/single-sign-on-wp8/">Windows Phone 8 app</a>, the same class is instantiated by passing the client ID.</p>
@@ -110,7 +110,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            await Authenticate();
+            await AuthenticateAsync();
             RefreshTodoItems();
         }
 		
