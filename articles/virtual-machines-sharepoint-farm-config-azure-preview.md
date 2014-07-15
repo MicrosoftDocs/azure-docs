@@ -1,4 +1,4 @@
-<properties title="SharePoint Server Farm Configuration Details" pageTitle="SharePoint Server Farm Configuration Details" description="Describes how to configure a SharePoint farm in the Azure Preview Portal" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" />
+<properties title="SharePoint Server Farm Configuration Details" pageTitle="SharePoint Server Farm Configuration Details" description="Describes the default configuration of SharePoint farms" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" />
 
 
 #SharePoint Server Farm Configuration Details#
@@ -10,7 +10,7 @@ SharePoint Server Farm is a feature of the Microsoft Azure Preview Portal that a
 
 The following sections provide configuration details for each farm.
 
-For additional information, see [SharePoint Farm](../virtual-machines-sharepoint-farm-azure-preview/).
+For additional information, see [SharePoint Server Farm](../virtual-machines-sharepoint-farm-azure-preview/).
 
 ##Basic SharePoint farm##
 
@@ -25,7 +25,7 @@ Here are the configuration details:
 -	Storage account: Specified during the initial configuration.
 -	Virtual network 	
 	-   Type: Cloud-only	
-    -	DNS server:	10.20.2.4 (the IP address of DC)    
+    -	Address space: 192.168.16.0/26    
 
 - Virtual machines
 	-	HostNamePrefix-DC (AD DS domain controller)
@@ -49,7 +49,7 @@ Here are the configuration details:
 
 - SharePoint server
 	-	Host name prefix: Specified during the initial configuration.
-	-	Size: A3 (default)
+	-	Size: A2 (default)
 	-	SharePoint farm account name: Specified during the initial configuration.
 	-	SharePoint farm account password: Specified during the initial configuration.
 	-	SharePoint farm passphrase: Specified during the initial configuration.
@@ -68,7 +68,7 @@ Here are the configuration details:
 -	Storage account: Specified during the initial configuration.
 -	Virtual network	
 	-	Type: Cloud-only
-	-	DNS server: 10.20.2.4 (the IP address of DC1)	
+	-	Address space: 192.168.16.0/26	
 
 -	Virtual machines
 	-	HostNamePrefix-DC1 (AD DS domain controller)
@@ -98,7 +98,7 @@ Here are the configuration details:
 
 -	SharePoint servers
 	-	Host name prefix: Specified during the initial configuration.
-	-	Size: A3 (default)
+	-	Size: A2 (default)
 	-	SharePoint farm account name: Specified during the initial configuration.
 	-	SharePoint farm account password: Specified during the initial configuration.		
 	-	SharePoint farm passphrase: Specified during the initial configuration.
