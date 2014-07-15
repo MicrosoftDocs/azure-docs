@@ -82,7 +82,7 @@ The tutorial requires completion of the [Get started with Mobile Services] or [G
 
 1. Republish your mobile service backend project.
 
-2. Run your client application. Note that you will not see any items previously stored in your SQL database.
+2. Run your client application. Note that you will not see any items which were previously stored in the SQL database from the quickstart tutorial.
 
 3. Create a new item. The app should behave as before, except now your data will be going to your non-relational store.
 
