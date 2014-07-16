@@ -19,40 +19,32 @@ For this project, we will use the chat example from the [Socket.IO
 GitHub repository]. Perform the following steps to download the example
 and add it to the project you previously created.
 
-1.  Create a local copy of the repository by using the **Clone** button. You may also use the **ZIP** button to download the project.
+1.  Download a [ZIP or GZ archived release][release] of the Socket.IO project (version 1.0.6 was used for this document)
 
     ![A browser window viewing https://github.com/LearnBoost/socket.io/tree/master/examples/chat, with the ZIP download icon highlighted][chat-example-view]
 
-3.  Navigate the directory structure of the local repository until you arrive at the **examples\\chat**
-    directory. Copy the contents of this directory to a seperate directory such as
+3.  Extract the archive and copy the **examples\\chat**
+    directory to a new location. For example, 
     **\\node\\chat**.
 
 ## <a id="Modify"></a>Modify App.js and Install Modules
 
 Before deploying the application to Azure, we must
-make some minor modifications. Perform the following steps to the
-app.js file:
+make some minor modifications.
 
-1.  Open the app.js file in Notepad or other text editor.
+1.  Rename the **index.js** file to **app.js**. This allows Azure to detect that this is a Node.js application.
 
-2.  Find the **Module dependencies** section at the beginning of app.js and change the line containing **sio = require('..//..//lib//socket.io')** to **sio = require('socket.io')** as shown below:
+1.  Open the **app.js** file in Notepad or other text editor.
 
-		var express = require('express')
-  		, stylus = require('stylus')
-  		, nib = require('nib')
-		//, sio = require('..//..//lib//socket.io'); //Original
-  		, sio = require('socket.io');                //Updated
+2.  Find the **Module dependencies** section at the beginning of app.js and change the line containing `var io = require('../..')(server);` to `var io = require('socket.io')(server);` as shown below:
 
+		var express = require('express');
+		var app = express();
+		var server = require('http').createServer(app);
+		// var io = require('../..')(server);
+		var io = require('socket.io')(server);
+		var port = process.env.PORT || 3000;
 
-3.  To ensure the application listens on the correct port, open
-    app.js in Notepad or your favorite editor, and then change the
-    following line by replacing **3000** with **process.env.PORT** as shown below:
-
-        //app.listen(3000, function () {            //Original
-		app.listen(process.env.PORT, function () {  //Updated
-		  var addr = app.address();
-		  console.log('   app listening on http://' + addr.address + ':' + addr.port);
-		});
 
 After saving the changes to app.js, use the following steps to
 install required modules::
@@ -72,7 +64,9 @@ install required modules::
     relative path, Socket.IO was not referenced in the package.json
     file, so we must install it by issuing the following command:
 
-        npm install socket.io -save
+        npm install socket.io@1.0.6 -save
+
+	> [WACOM.NOTE] While newer versions of Socket.IO may work with the steps in this article, it was tested with version 1.0.6.
 
 ## <a id="Publish"></a>Create an Azure Web Site
 
@@ -120,6 +114,51 @@ Your application is now running on Azure, and can relay chat
 messages between different clients using Socket.IO.
 
 > [WACOM.NOTE] For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Azure SDK for Node.js GitHub repository</a>.
+
+##Scale out
+
+Socket.IO applications can be scaled out by using an __adapter__ to distribute messages and events between multiple application instances. While there are several adapters available, the [socket.io-redis](https://github.com/automattic/socket.io-redis) adapter can be easily used with the Azure Redis Cache feature.
+
+> [WACOM.NOTE] An additional requirement for scaling out a Socket.IO solution is support for sticky sessions. Sticky sessions are enabled by default for Azure Web Sites through Azure Request Routing. For more information, see [Instance Affinity in Azure Web Sites](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+
+###Create a Redis cache
+
+Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409) to create a new cache.
+
+> [WACOM.NOTE] Save the __Host name__ and __Primary key__ for your cache, as these will be needed in the next steps.
+
+###Add the redis and socket.io-redis modules
+
+1. From a command-line, change to the __\\node\\chat__ directory and use the following command.
+
+		npm install socket.io-redis@0.1.3 redis@0.11.0 --save
+
+	> [WACOM.NOTE] The versions specified in this command are the versions used when testing this article.
+
+2. Modify the __app.js__ file to add the following lines immediately after `var io = require('socket.io')(server);`
+		var client = require('redis').createClient(6380,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
+		var redis = require('socket.io-redis');
+		io.adapter(redis({pubClient: client, subClient: client}));
+
+	Replace __redishostname__ and __rediskey__ with the host name and key for your Redis cache.
+
+	> [WACOM.NOTE] While the __socket.io-redis__ adapter can communicate directly to Redis, the current version (as of 7/14/2014) does not support the authentication required by Azure Redis cache. So the initial connection is created using the __redis__ module, then the client is passed to the __socket.io-redis__ adapter.
+
+3. Save the modified __app.js__
+
+###Commit changes and redeploy
+
+From the command-line in the __\\node\\chat__ directory, use the following commands to commit changes and redeploy the application.
+
+	git add .
+	git commit -m "implementing scale out"
+	git push azure master
+
+Once the changes have been pushed to the server, you can scale your site across multiple instances by using the following command.
+
+	azure site scale instances --instances #
+
+Where __#__ is the number of instances to create. 
 
 ##<a id="tshooting"></a>Troubleshooting
 
@@ -224,7 +263,8 @@ In this tutorial you learned how to create a chat application hosted in an Azure
 
 [socketio]: http://socket.io/
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
-[Socket.IO GitHub repository]: https://github.com/LearnBoost/socket.io/tree/0.9.14
+[Socket.IO GitHub repository]: https://github.com/Automattic/socket.io
+[release]: https://github.com/Automattic/socket.io/releases
 [cloudservice]: /en-us/develop/nodejs/tutorials/app-using-socketio/
 
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
