@@ -81,14 +81,15 @@ Azure File storage is currently in preview. To request access to the preview, na
 
 To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/) for the install point and installation instructions.
 
+> [WACOM.NOTE] The PowerShell cmdlets for the File service are available only in the latest Azure PowerShell module, version 0.8.5 and later. It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
+
 Open an Azure PowerShell window by clicking **Start** and typing **Windows Azure PowerShell**. The Azure PowerShell window loads the Azure Powershell module for you.
 
 ###Create a new file share
 
-Now, import the PowerShell module, and create the storage account context. The context encapsulates the account name and account key. Replace `account-name` and `account-key` with your account name and key in the following example:
+Now, create the storage account context. The context encapsulates the account name and account key. Replace `account-name` and `account-key` with your account name and key in the following example:
 
-    # import the Azure Storage module and create a context for account and key
-    import-module .\AzureStorageFile.psd1
+    # create a context for account and key
     $ctx=New-AzureStorageContext account-name account-key
     
 Next, create the new share, named `sampleshare` in this example:
