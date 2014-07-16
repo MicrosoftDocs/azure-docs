@@ -1,3 +1,5 @@
+<properties title="Create a Virtual Machine Running Windows Server" pageTitle="How to create a Virtual Machine Running Windows Server" description="Describes how to create a Windows virtual machine, add a data disk, and log on remotely" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
+
 # Create a Virtual Machine Running Windows Server #
 
 This tutorial shows you how easy it is to create an Azure virtual machine running Windows Server, using the Image Gallery in the Windows Azure Management Portal. The Image Gallery offers a variety of images, including Windows operating systems, Linux-based operating systems, and application images. 
