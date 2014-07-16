@@ -259,7 +259,7 @@ Follow the steps above to setup this controller action:
 	
 	            if (Debugger.IsAttached) // Preserve the debug experience
 	            {
-	                return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+	                return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;", data.Item1, data.Item2));
 	            }
 	            else // Get content from Azure CDN
 	            {
@@ -270,7 +270,7 @@ Follow the steps above to setup this controller action:
 	        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 	        public ActionResult Generate(string top, string bottom)
 	        {
-	            string imageFilePath = HostingEnvironment.MapPath("~/Content/chuck.bmp");
+	            string imageFilePath = HostingEnvironment.MapPath(&quot;~/Content/chuck.bmp&quot;);
 	            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
 	
 	            using (Graphics graphics = Graphics.FromImage(bitmap))
@@ -288,7 +288,7 @@ Follow the steps above to setup this controller action:
 	
 	            MemoryStream ms = new MemoryStream();
 	            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-	            return File(ms.ToArray(), "image/png");
+	            return File(ms.ToArray(), &quot;image/png&quot;);
 	        }
 	
 	        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
@@ -347,7 +347,7 @@ public ActionResult Show(string id)
 
     if (Debugger.IsAttached) // Preserve the debug experience
     {
-        return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+        return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
     }
     else // Get content from Azure CDN
     {
