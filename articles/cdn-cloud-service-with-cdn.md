@@ -237,16 +237,17 @@ Follow the steps above to setup this controller action:
 	        }
 	
 	        [HttpPost, ActionName(&quot;Index&quot;)]
-	        public ActionResult Index_Post(string top, string bottom)
+        	public ActionResult Index_Post(string top, string bottom)
 	        {
 	            var identifier = Guid.NewGuid().ToString();
 	            if (!Memes.ContainsKey(identifier))
 	            {
-	                Memes.Add(identifier, new Tuple<string, string>(top, bottom));
+	                Memes.Add(identifier, new Tuple&lt;string, string&gt;(top, bottom));
 	            }
 	
-	            return Content("<a href=\"" + Url.Action("Show", new {id = identifier}) + "\">here's your meme</a>");
+	            return Content(&quot;&lt;a href=\&quot;&quot; + Url.Action(&quot;Show&quot;, new {id = identifier}) + &quot;\&quot;&gt;here&#39;s your meme&lt;/a&gt;&quot;);
 	        }
+
 
 	        [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
 	        public ActionResult Show(string id)
@@ -259,7 +260,7 @@ Follow the steps above to setup this controller action:
 	
 	            if (Debugger.IsAttached) // Preserve the debug experience
 	            {
-	                return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;", data.Item1, data.Item2));
+	                return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
 	            }
 	            else // Get content from Azure CDN
 	            {
