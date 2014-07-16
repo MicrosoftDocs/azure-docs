@@ -69,13 +69,13 @@ This section shows you how to log on to the VM so you can manage its settings an
 	
 5. Click **Connect** to proceed with the connection process.
 
-	![Continue with connecting](./media/virtual-machines-log-on-win-server/connectpublisher.png)
+	![Continue with connecting](./media/virtual-machines-log-on-windows-server/connectpublisher.png)
 
 6. Type the user name and password of the administrative account on the virtual machine, and then click **OK**.
 	
 7. Click **Yes** to verify the identity of the virtual machine.
 
-	![Verify the identity of the machine](./media/virtual-machines-log-on-win-server/connectverify.png)
+	![Verify the identity of the machine](./media/virtual-machines-log-on-windows-server/connectverify.png)
 
 	You can now work with the virtual machine just as you would with any other server.
 
