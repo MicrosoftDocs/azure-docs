@@ -67,7 +67,7 @@ A count of requests that threw uncaught exceptions.
 
 ![](./media/appinsights/appinsights-47usage.png)
 
-Usage data comes partly from from the server and partly from the [scripts in the web pages][existing].
+Usage data comes partly from the server and partly from the [scripts in the web pages][existing].
 
 ### Sessions per browser
 
