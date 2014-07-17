@@ -193,7 +193,7 @@ Next, add the following code to the `Main()` method, after the code shown above 
     CloudFileShare share = fileClient.GetShareReference("sampleshare");
 
 	//Ensure that the share exists.
-    if (share.ExistsAsync().Result)
+    if (share.Exists())
     {
 		//Get a reference to the root directory for the share.
         CloudFileDirectory rootDir = share.GetRootDirectoryReference();
@@ -202,13 +202,13 @@ Next, add the following code to the `Main()` method, after the code shown above 
         CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("sampledir");
 
 		//Ensure that the directory exists.
-        if (sampleDir.ExistsAsync().Result)
+        if (sampleDir.Exists())
         {
 			//Get a reference to the file we created previously.
             CloudFile file = sampleDir.GetFileReference("samplefile.txt");
 
 			//Ensure that the file exists.
-            if (file.ExistsAsync().Result)
+            if (file.Exists())
             {
 				//Write the contents of the file to the console window.
                 Console.WriteLine(file.DownloadTextAsync().Result);
