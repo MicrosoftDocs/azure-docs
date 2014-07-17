@@ -37,8 +37,8 @@ This tutorial has the following prerequisites:
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
   <ul>
-    <li>You can <a href="http://acom-int.azurewebsites.net/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Sites.</li>
-    <li>You can <a href="http://acom-int.azurewebsites.net/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
+    <li>You can <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Sites.</li>
+    <li>You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
   <ul>
 </div>
 
@@ -207,9 +207,9 @@ When you integrate a cloud service Web role with Azure CDN, it is relatively eas
 
 Suppose in your cloud application you want to generate memes based on a Chuck Norris image like this:
 
-	![](media/cdn-cloud-service-with-cdn/cdn-5-memegenerator.PNG)
+![](media/cdn-cloud-service-with-cdn/cdn-5-memegenerator.PNG)
 
-You have a simple Index action that allows the customers to specify the superlatives in the image, then generates the meme once they post to the action. Since it's Chuck Norris, you would expect this page to become wildly popular globally. This is a good example of serving semi-dynamic content with Azure CDN. 
+You have a simple `Index` action that allows the customers to specify the superlatives in the image, then generates the meme once they post to the action. Since it's Chuck Norris, you would expect this page to become wildly popular globally. This is a good example of serving semi-dynamic content with Azure CDN. 
 
 Follow the steps above to setup this controller action:
 
@@ -359,15 +359,15 @@ public ActionResult Show(string id)
 
 If your local debugger is attached, then you will get the regular debug experience with a local redirect. If it's running in the cloud service, then it will redirect to:
 
-	http://<cdnName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 Which corresponds to the following origin URL at your CDN endpoint:
 
-	http://cephalinservice.cloudapp.net/cdn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<youCloudServiceName>.cloudapp.net/cdn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 After URL rewrite rule previously applied, the actual file that gets cached to your CDN endpoint is:
 
-	http://cephalinservice.cloudapp.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<youCloudServiceName>.cloudapp.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 You can then use the `OutputCacheAttribute` attribute on the `Generate` method to specify how the action result should be cached, which Azure CDN will honor. The code below specify a cache expiration of 1 hour (3,600 seconds).
 
@@ -570,7 +570,7 @@ The [Bundle](http://msdn.microsoft.com/en-us/library/system.web.optimization.bun
 	This new extension method uses the same idea to inject script in the HTML to check the DOM for the a matching class name, rule name, and rule value defined in the CSS bundle, and falls back to the origin Web server if it fails to find the match.
 
 4. Publish the cloud application again and access the home page. 
-5. View the HTML code for the page. You should find in injected scripts:    
+5. View the HTML code for the page. You should find injected scripts similar to the following:    
 	<pre class="prettyprint">...
 	
 		&lt;link href=&quot;http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
@@ -615,3 +615,6 @@ The [Bundle](http://msdn.microsoft.com/en-us/library/system.web.optimization.bun
 
 # More Information #
 [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
+[Serve Content from Azure CDN in Your Web Application](http://azure.microsoft.com/en-us/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
+[ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
+[Using CDN for Azure](http://azure.microsoft.com/en-us/documentation/articles/cdn-how-to-use/)
