@@ -85,7 +85,7 @@ In Web.config, merge these snippets into the `<configsections>` and `<log4net>` 
 
 Insert event logging calls using your chosen logging framework. For example if you use Log4Net, you might have calls like
 
-    log.Warn("Slow response – database01");
+    log.Warn("Slow response - database01");
 
 Logged events will be sent to Application Insights both in development and in operation.
 
@@ -137,7 +137,7 @@ Here are the search expressions you can use:
                         </p>
                       </td>
                       <td>
-                        <p>Find all events in the date range whose fields include the term “slow”</p>
+                        <p>Find all events in the date range whose fields include the term "slow"</p>
                       </td>
                     </tr>
                     <tr>
@@ -147,7 +147,7 @@ Here are the search expressions you can use:
                         </p>
                       </td>
                       <td>
-                        <p>Matches database01, databaseAB, …</p>
+                        <p>Matches database01, databaseAB, ...</p>
                         <p>? is not allowed at the start of a search term.</p>
                       </td>
                     </tr>
@@ -169,7 +169,7 @@ Here are the search expressions you can use:
                         </p>
                       </td>
                       <td>
-                        <p>Find events that contain both terms. Use capital “AND”, not “and”.</p>
+                        <p>Find events that contain both terms. Use capital "AND", not "and".</p>
                       </td>
                     </tr>
                     <tr>
@@ -182,7 +182,7 @@ Here are the search expressions you can use:
                         </p>
                       </td>
                       <td>
-                        <p>Find events that contain either term. Use “OR”, not “or”.</p>
+                        <p>Find events that contain either term. Use "OR", not "or".</p>
                         <p>Short form.</p>
                       </td>
                     </tr>
@@ -237,9 +237,12 @@ Here are the search expressions you can use:
 * [Troubleshooting][trouble]
 * [Application Insights SDK](../appinsights-90SDK/)
 
+
+<!--Link references-->
 [setup]: ../appinsights-01-start/
 [existing]: ../appinsights-02-existing/
 [web tests]: ../appinsights-10Avail/
 [trouble]: ../appinsights-09qna/
+
 
 
