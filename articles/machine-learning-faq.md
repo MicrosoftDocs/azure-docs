@@ -50,7 +50,7 @@ The **Reader** module can read data from Azure Table, Azure Blob, SQL Database (
 
 8.**How large can my data set be?**
 
-Azure ML Studio supports training dataset of up to 10GB.  There is no limit on the dataset size for Web Services.  Sampling larger datasets via Hive or SQL queries before ingestion is also supported. If you are working with data larger than10GB, you can you can create multiple datasets and use the ‘Partition and Sample’, ‘Split’ or ‘Join’ modules to recombine these datasets in ML studio to create training sets for building predictive models. Visit module help in ML Studio to learn more about these modules.
+Azure ML Studio supports training dataset of up to 10GB.  There is no limit on the dataset size for Web Services.  Sampling larger datasets via Hive or SQL queries before ingestion is also supported. If you are working with data larger than 10GB, you can you can create multiple datasets and use the 'Partition and Sample', 'Split' or 'Join' modules to recombine these datasets in ML studio to create training sets for building predictive models. Visit module help in ML Studio to learn more about these modules.
 
 For datasets larger than a couple GB, the recommended approach is to upload data to Azure storage or SQL Database (Azure) or use HDInsight, rather than directly uploading from local file.
 
@@ -58,7 +58,7 @@ For datasets larger than a couple GB, the recommended approach is to upload data
 
 ML Studio provides state of the art ML algorithms such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks and Decision Jungles developed at Microsoft Research. Scalable open source machine learning packages like Vowpal Wabbit are also included. ML Studio supports machine learning algorithms for multi-class and binary Classification, Regression and Clustering. The complete list of machine learning algorithms is available in ML Studio help.
 
-10.**The Machine learning algorithm, data source, data format, data transformation operation I am looking for isn’t in Azure ML Studio, what are my options?**
+10.**The Machine learning algorithm, data source, data format, data transformation operation I am looking for isn't in Azure ML Studio, what are my options?**
 
 You can visit the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231) to see features requests that we are tracking. Add your vote to this request if a capability you are looking for has already been requested. If the capability you are looking for does not exist, create a new request. You can view the status of your request in this forum too. We track this list closely and update the status of feature availability frequently.
 
@@ -107,6 +107,6 @@ We will be adding new material to Machine Learning Center on an ongoing basis. Y
 
 18.**How do I get support for Azure ML?**
 
-Azure ML is supported as a part of the Azure support offering.  To get technical support on Azure ML, select ‘Machine Learning’ as service and you will be provided a category of topics to file your support ticket. To learn more about Azure Support offering visit <http://azure.microsoft.com/en-us/support/options/>
+Azure ML is supported as a part of the Azure support offering.  To get technical support on Azure ML, select 'Machine Learning' as service and you will be provided a category of topics to file your support ticket. To learn more about Azure Support offering visit <http://azure.microsoft.com/en-us/support/options/>
 
 Azure Machine Learning also has a community forum on MSDN, where you can ask Azure ML related questions. The forum is monitored by the Azure ML team. Visit [Azure Forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning).
