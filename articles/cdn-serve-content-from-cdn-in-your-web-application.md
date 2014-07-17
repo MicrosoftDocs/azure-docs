@@ -15,7 +15,7 @@ This tutorial shows you how to take advantage of Azure CDN to improve the reach 
 In this tutorial, you will learn how to do the following:
 
 -	[Serve static content from an Azure CDN endpoint](#deploy)
--	[Automating uploading content in your ASP.NET application to your CDN endpoint](#upload)
+-	[Automating content upload from your ASP.NET application to your CDN endpoint](#upload)
 -	[Configure the CDN cache to reflect the desired content update](#update)
 -	[Serve fresh content immediately using query strings](#query)
 
@@ -25,7 +25,17 @@ This tutorial has the following prerequisites:
 
 -	An active [Microsoft Azure account](http://azure.microsoft.com/en-us/account/). You can sign up for a trial account
 -	Visual Studio 2013 with [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
--	A simple ASP.NET MVC application to test CDN URLs. [Automating uploading content in your ASP.NET application to your CDN endpoint](#upload) uses an ASP.NET MVC application as an example.  
+-	A simple ASP.NET MVC application to test CDN URLs. [Automating content upload from your ASP.NET application to your CDN endpoint](#upload) uses an ASP.NET MVC application as an example. 
+-	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (used by [Automating content upload from your ASP.NET application to your CDN endpoint](#upload))
+
+<div class="wa-note">
+  <span class="wa-icon-bulb"></span>
+  <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
+  <ul>
+    <li>You can <a href="http://acom-int.azurewebsites.net/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Sites.</li>
+    <li>You can <a href="http://acom-int.azurewebsites.net/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
+  <ul>
+</div>
 
 <a name="static"></a>
 ## Serve static content from an Azure CDN endpoint ##
@@ -127,98 +137,40 @@ Let's get to it. Follow the steps below to start using the Azure CDN:
 In this section, you have learned how to create a CDN endpoint, upload content to it, and link to CDN contentfrom any Web page.
 
 <a name="upload"></a>
-## Automating uploading content in your ASP.NET application to your CDN endpoint ##
+## Automating content upload from your ASP.NET application to your CDN endpoint ##
 
-What if you want to easily upload all of the static content in your ASP.NET Web application to your CDN endpoint? With a little bit of coding, bulk-uploading content from an ASP.NET Web application project to Azure CDN is quite straightforward. [Maarten Balliauw](https://twitter.com/maartenballiauw) has provided an excellent way to do it with ASP.NET MVC in his video [Reducing latency on the web with the Windows Azure CDN](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN), which I will simply reproduce here. 
+If you want to easily upload all of the static content in your ASP.NET Web application to your CDN endpoint, or if your deploy your Web application using continuous delivery (for an example, see [Continuous Delivery for Cloud Services in Azure](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-continuous-delivery/)), you can use Azure PowerShell to automate the synchronization of the latest content files to Azure blobs every time you deploy your Web application. For example, you can run the script at [Upload Content Files from ASP.NET Application to Azure Blobs](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) upload all the content files in an ASP.NET application. To use this script:
 
-	>[WACOM.NOTE]These steps use the storage account and CDN that you already created in the previous tutorial.
+4. From the **Start** menu, run **Windows Azure PowerShell**.
+5. In the Azure PowerShell window, run `Get-AzurePublishSettingsFile` to download a publish settings file for your Azure account.
+6. Once you have downloaded your publish settings file, run the following: 
 
-1. Copy this action method to your Home controller (*Controllers\HomeController.cs*):  
-	<pre class="prettyprint">
-    public ActionResult Synchronize()
-    {
-		// Connect to your storage account
-        var account = CloudStorageAccount.Parse(&quot;DefaultEndpointsProtocol=https;AccountName=<mark>&lt;storageAccountName&gt;</mark>;AccountKey=<mark>&lt;accountKey&gt;</mark>&quot;);
-        var client = account.CreateCloudBlobClient();
+		Import-AzurePublishSettingsFile "<DownloadedFilePath>"
 
-		// Open/create the storage container and set the permissions to Public for all blobs in the container
-        var container = client.GetContainerReference(&quot;<mark>&lt;containerName&gt;</mark>&quot;);
-        container.CreateIfNotExists();
-        container.SetPermissions(
-            new BlobContainerPermissions
-            {
-                PublicAccess = BlobContainerPublicAccessType.Blob
-            });
+	>[WACOM.NOTE] Once you import your publish settings file, it will be the default Azure account used for all Azure PowerShell sessions. This means that the above steps only need to be done once.
+	
+1. Download the script from the [download page]((http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a)). Save it into your ASP.NET application's project folder.
+2. Right-click the downloaded script and click **Properties**.
+3. Click **Unblock**.
+4. Open a PowerShell window and run the following:
 
-		// Discover all files in your \Content and \Scripts folders
-        var approot = HostingEnvironment.MapPath(&quot;~/&quot;);
-        var files = new List&lt;string&gt;();
-        files.AddRange(Directory.EnumerateFiles(
-            HostingEnvironment.MapPath(&quot;~/Content&quot;), &quot;*&quot;, SearchOption.AllDirectories));
-        files.AddRange(Directory.EnumerateFiles(
-            HostingEnvironment.MapPath(&quot;~/Scripts&quot;), &quot;*&quot;, SearchOption.AllDirectories));
+		cd <ProjectFolder>
+		.\UploadContentToAzureBlobs.ps1 -StorageAccount "<StorageAccountName>" -StorageContainer "<ContainerName>"
 
-		// Upload each discovered file to an Azure blob
-        foreach (var file in files)
-        {
-			// Make sure that the content type is set properly for each file.
-			// If you have additional content types, add it to the switch statement
-			// (Such as &quot;image/jpeg&quot;).
-            var contentType = &quot;application/octet-stream&quot;;  // Default content type
-            switch (Path.GetExtension(file))
-            {
-                case &quot;.png&quot;:
-                    contentType = &quot;image/png&quot;;
-                    break;
-                case &quot;.css&quot;:
-                    contentType = &quot;text/css&quot;;
-                    break;
-                case &quot;.js&quot;:
-                    contentType = &quot;text/javascript&quot;;
-                    break;
-            }
+This script uploads all files from your *\Content* and *\Scripts* folders to the specified storage account and container. It has the following advantages:
 
-			// Upload the file to a blob
-            var blob = container.GetBlockBlobReference(file.Replace(approot, &quot;&quot;));
-            blob.Properties.ContentType = contentType;
-            blob.UploadFromFile(file, FileMode.OpenOrCreate);
-            blob.SetProperties();
-        }
+-	Automatically replicate the file structure of your Visual Studio project
+-	Automatically create blob containers as needed
+-	Reuse the same Azure storage account and CDN endpoint for multiple Web applications, each in a separate blob container
+-	Easily update the Azure CDN with new content. For more information on updating content, see [Configure the CDN cache to reflect the desired content update](#update).
 
-		// Indicate that the upload has been successful
-        return Content(&quot;Content is synchronized with the blob container.&quot;);
-    }
-	</pre>
+For the `-StorageContainer` parameter, it makes sense to use the name of your Web application, or the Visual Studio project name. Whereas I used the generic "cdn" as the container name previously, using the name of your Web application allows related content to be organized into the same easily identifiable container.
 
-	This code uploads all files from your *\Content* and *\Scripts* folders to the specified storage account and container. This code has the following advantage:
+Once the content has finished uploading, you can link to anything in your *\Content* and *\Scripts* folder in your HTML code, such as in your .cshtml files, using `http://<cdnName>.vo.msecnd.net/<containerName>`. Here is an example of something I can use in a Razor view: 
 
-	-	Automatically replicate the file structure of your Visual Studio project
-	-	Automatically create blob containers as needed
-	-	Reuse the same Azure storage account and CDN endpoint for multiple Web applications, each in a separate blob container
-	-	Easily update the Azure CDN with new content. For more information on updating content, see [Configure the CDN cache to reflect the desired content update](#update).
+	<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
 
-2. You'll need to include the following namespaces in *Controllers\HomeController.cs* in order for the code to resolve properly:
-
-		using Microsoft.WindowsAzure.Storage;
-		using Microsoft.WindowsAzure.Storage.Blob;
-		using System.Collections.Generic;
-		using System.IO;
-		using System.Web.Hosting;
-
-3. You also need to specify the following parameters in the code:
-
-	-   **&lt;storageAccountName>**  The name of your storage account.
-	- 	**&lt;accountKey>**  Your account key. You can find the primary or secondary access key by selecting your storage account in the **Storage** tab and click **Manage Access Keys**.
-
-		![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-mvc-1-accountkey.PNG)
-
-	- 	**&lt;ContainerName>**  The name of the blob container. Whereas I used the generic "cdn" as the container name previously, it makes more sense to use the name of your Web app so that all the content for that Web app is organized into the same easily identifiable container.
-
-4. Debug your MVC application by typing `F5`, then navigate to your action method, like `http://localhost:####/Home/Synchronize`.
-
-	Once the content has finished uploading, you should see the message "Content is synchronized with the blob container." You can now link to anything in your *\Content* and *\Scripts* folder in your .cshtml files, using `http://<cdnName>.vo.msecnd.net/<containerName>`. Here is an example of something I can use in a Razor view: 
-
-		<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
+For an example of integrating PowerShell scripts into your continuous delivery configuration, see [Continuous Delivery for Cloud Services in Azure](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-continuous-delivery/). 
 
 <a name="update"></a>
 ## Configure the CDN cache to reflect the desired content update ##
@@ -231,18 +183,25 @@ The good news is that you can customize cache expiration. Similar to most browse
 
 ![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-updates-1.PNG)
 
-You can also do this programmatically to set all blobs' Cache-Control headers. In [Maarten Balliauw](https://twitter.com/maartenballiauw)'s code above, just add the following code before the `blob.UploadFromFile` method is executed.
+You can also do this in your PowerShell script to set all blobs' Cache-Control headers. For the script in [Automating content upload from your ASP.NET application to your CDN endpoint](#upload), find the following code snippet:
 
-	blob.Properties.CacheControl = "public, max-age=3600";
+    Set-AzureStorageBlobContent `
+        -Container $StorageContainer `
+        -Context $context `
+        -File $file.FullName `
+        -Blob $blobFileName `
+        -Properties @{ContentType=$contentType} `
+        -Force
 
-The complete blob upload code snippet then looks like the following:
+and modify it as follows:  
 
-	// Upload the file to a blob
-    var blob = container.GetBlockBlobReference(file.Replace(approot, ""));
-    blob.Properties.ContentType = contentType;
-	blob.Properties.CacheControl = "public, max-age=3600";
-    blob.UploadFromFile(file, FileMode.OpenOrCreate);
-    blob.SetProperties();
+    Set-AzureStorageBlobContent `
+        -Container $StorageContainer `
+        -Context $context `
+        -File $file.FullName `
+        -Blob $blobFileName `
+        -Properties @{ContentType=$contentType, "CacheControl="public, max-age=3600"} `
+        -Force
 
 You may still need to wait for the full 7-day cached content on your Azure CDN to expire before it pulls the new content, with the new Cache-Control header. This illustrates the fact that custom caching values do not help if you want your content update to go live immediately, such as JavaScript or CSS updates. However, you can work around this issue by versioning your content through query strings. For more information, see [Serve fresh content immediately using query strings](#query).
 
