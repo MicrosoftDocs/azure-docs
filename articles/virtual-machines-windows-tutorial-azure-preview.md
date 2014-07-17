@@ -4,7 +4,7 @@
 
 # Create a Virtual Machine Running Windows Server in the Azure Preview Portal#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="en-us/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal">Azure Portal</a><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal" class="current">Azure Preview Portal</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal">Azure Portal</a><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal" class="current">Azure Preview Portal</a></div>
 
 This tutorial shows you how easy it is to create an Azure virtual machine (VM) running Windows Server, using the VM Gallery in the Azure Preview Portal. The Gallery offers a variety of images, including Windows operating systems, Linux-based operating systems, and application images. 
 
