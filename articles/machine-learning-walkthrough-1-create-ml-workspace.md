@@ -36,7 +36,7 @@ To use ML Studio, you need to have an ML workspace. This workspace contains the 
 
 After your ML workspace is created, you will see it listed on the **machine learning** page.  
 
->**Tip** – You can share the experiments you’re working on by inviting others to your workspace. You can do this in ML Studio on the **SETTINGS** page. You just need the Microsoft Live ID for each user.
+>**Tip** - You can share the experiments you're working on by inviting others to your workspace. You can do this in ML Studio on the **SETTINGS** page. You just need the Microsoft Live ID for each user.
 
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
