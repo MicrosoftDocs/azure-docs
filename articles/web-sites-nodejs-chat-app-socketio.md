@@ -9,9 +9,6 @@ Socket.IO provides real-time communication between your node.js server and clien
 
 > [WACOM.NOTE] The procedures in this task apply to Azure Web Sites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/">Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service</a>.
 
-A screenshot of the completed application is below:
-
-![A browser displaying the chat application][completed-app]
 
 ## <a id="Download"></a>Download the Chat Example
 
@@ -21,7 +18,6 @@ and add it to the project you previously created.
 
 1.  Download a [ZIP or GZ archived release][release] of the Socket.IO project (version 1.0.6 was used for this document)
 
-    ![A browser window viewing https://github.com/LearnBoost/socket.io/tree/master/examples/chat, with the ZIP download icon highlighted][chat-example-view]
 
 3.  Extract the archive and copy the **examples\\chat**
     directory to a new location. For example, 
@@ -57,7 +53,19 @@ install required modules::
     the command completes, you should see output similar to the
     following:
 
-    ![The output of the npm install command][npm-output]
+	    express@3.4.8 node_modules\express
+		├── methods@0.1.0
+		├── merge-descriptors@0.0.1
+		├── debug@0.8.1
+		├── cookie-signature@1.0.1
+		├── range-parser@0.0.4
+		├── fresh@0.2.0
+		├── buffer-crc32@0.2.1
+		├── cookie@0.1.0
+		├── mkdirp@0.3.5
+		├── commander@1.3.2 (keypress@0.1.0)
+		├── send@0.1.4 (mime@1.2.11)
+		└── connect@2.12.0 (uid2@0.0.3, pause@0.0.1, qs@0.6.6, bytes@0.2.1, raw-body@1.1.2, batch@0.5.0, negotiator@0.3.0, multiparty@2.2.0)
 
 2.  Since this example was originally a part of the Socket.IO GitHub
     repository, and directly referenced the Socket.IO library by
@@ -136,13 +144,21 @@ Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.c
 	> [WACOM.NOTE] The versions specified in this command are the versions used when testing this article.
 
 2. Modify the __app.js__ file to add the following lines immediately after `var io = require('socket.io')(server);`
-		var client = require('redis').createClient(6380,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
+
+		var pub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
+		var sub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
+		
 		var redis = require('socket.io-redis');
-		io.adapter(redis({pubClient: client, subClient: client}));
+		io.adapter(redis({pubClient: pub, subClient: sub}));
+
 
 	Replace __redishostname__ and __rediskey__ with the host name and key for your Redis cache.
 
+	This will create a publish and subscribe client to the Redis cache created previously. The clients are then used with the adapter to configure Socket.IO to use the Redis cache for passing messages and events between instances of your application
+
 	> [WACOM.NOTE] While the __socket.io-redis__ adapter can communicate directly to Redis, the current version (as of 7/14/2014) does not support the authentication required by Azure Redis cache. So the initial connection is created using the __redis__ module, then the client is passed to the __socket.io-redis__ adapter.
+	> 
+	> While Azure Redis Cache supports secure connections using port 6380, the modules used in this example do not support secure connections as of 7/14/2014. The above code uses the default, unsecure port of 6380.
 
 3. Save the modified __app.js__
 
@@ -159,6 +175,8 @@ Once the changes have been pushed to the server, you can scale your site across 
 	azure site scale instances --instances #
 
 Where __#__ is the number of instances to create. 
+
+You can connect to your web site from multiple browsers or computers to verify that messages are correctly sent to all clients.
 
 ##<a id="tshooting"></a>Troubleshooting
 
