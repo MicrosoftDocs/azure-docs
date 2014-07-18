@@ -6,7 +6,7 @@
 
 1.**What is Microsoft Azure Machine Learning?**
  
-Microsoft Azure Machine Learning is fully managed service to create, test, operationalize and manage predictive analytics solutions in the cloud. With just a browser, you can now sign up to Azure Machine Learning, upload data and immediately start machine learning experiments. Visual composition, large pallet of modules and a library of starting templates makes common machine learning tasks simple and quick. Turning a model into web service is easy – with a few clicks, a Predictive model build in ML Studio can be turned into a public REST API that encapsulates custom data transformation logic and sophisticated machine learning models.
+Microsoft Azure Machine Learning is fully managed service to create, test, operationalize and manage predictive analytics solutions in the cloud. With just a browser, you can now sign up to Azure Machine Learning, upload data and immediately start machine learning experiments. Visual composition, large pallet of modules and a library of starting templates makes common machine learning tasks simple and quick. Turning a model into web service is easy - with a few clicks, a Predictive model build in ML Studio can be turned into a public REST API that encapsulates custom data transformation logic and sophisticated machine learning models.
  
 2.**What is Azure Machine Learning Studio?**
 
@@ -30,9 +30,9 @@ The Azure ML Studio service   is billed by compute hour for active experimentati
  
 Charges are aggregated per workspace for your subscription. Within each workspace you will see charges for the three items
 
-+	Studio Experiment Hours – this meter aggregates all compute charges accrued by running experiments in ML Studio and running predictions in the staging environment. 
-+	API Service Prediction Hours – this meter includes compute charges accrued by Web services running in production. 
-+	API Service Predictions (in 1000s) – this meter includes charges accrued per call to your production web service.
++	Studio Experiment Hours - this meter aggregates all compute charges accrued by running experiments in ML Studio and running predictions in the staging environment. 
++	API Service Prediction Hours - this meter includes compute charges accrued by Web services running in production. 
++	API Service Predictions (in 1000s) - this meter includes charges accrued per call to your production web service.
 
 Visit the Pricing page for pricing details, <http://azure.microsoft.com/en-us/pricing/details/machine-learning/>.
 
@@ -78,7 +78,7 @@ The Request-Response Service (RRS) is a low-latency, high scale Web Service used
 
 Batch Execution Service is useful in a scenario where a large number of data points need to be scored, in a batch fashion, or much of your data is already in file format in an Azure storage or a Hadoop cluster. The web service can transform data it reads before it sends it to the model, so you can just point your end of week transaction data to a Batch service which will transform and provide the results.
 
-Request Response Service is useful in a scenario where predictive analytics are needed in near –real time to power a live dashboard or guide user action or content served via a mobile or web application.
+Request Response Service is useful in a scenario where predictive analytics are needed in near-real time to power a live dashboard or guide user action or content served via a mobile or web application.
 
 14.**How do I update the model for the deployed service production?**
 
