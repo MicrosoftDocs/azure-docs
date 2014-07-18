@@ -327,7 +327,7 @@ The following example demonstrates how to define a slightly more complex neural 
 	  from MetaData all;
 	}  
 
-This sample illustrates several features of the neural networks scripting language:  
+This sample illustrates several features of the neural networks specification language:  
 
 -	The structure has two input layers, Pixels and MetaData.
 -	The Pixels layer is a source layer for two connection bundles, with destination layers ByRow and ByCol.
