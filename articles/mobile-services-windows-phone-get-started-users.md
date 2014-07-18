@@ -20,6 +20,8 @@ This tutorial walks you through these basic steps to enable authentication in yo
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
+>[WACOM.NOTE]This tutorial demonstrates the authentication flow managed by Mobile Services using a variety of identity providers. This method is easy to configure and supports multiple providers. To instead use Live Connect with client-managed authentication and provide a single sign-on experience in your Windows Phone app, see the topic [Single sign-on for Windows Phone apps by using Live Connect]. By using client-managed authentication, your app has access to additional user data maintained by the identity provider. You can get the same user data in your mobile service by by calling the **user.getIdentities()** function in server scripts. For more information, see [this post](http://go.microsoft.com/fwlink/p/?LinkId=506605).
+
 <h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
 
 
@@ -70,3 +72,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
 [Authorize users with scripts]: /en-us/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts
 [Azure Management Portal]: https://manage.windowsazure.com/
+[Single sign-on for Windows Phone apps by using Live Connect]: /en-us/documentation/articles/mobile-services-windows-phone-single-sign-on

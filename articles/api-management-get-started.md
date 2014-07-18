@@ -53,7 +53,7 @@ APIs are created and configured from the API Management console, which is access
 
 ![New API Management console][api-management-management-console]
 
-To create the **My Echo API**, click **APIs** from the **API Management** menu on the left, and then click **add API**.
+To create the **My Echo API**, click **APIs** from the **API Management** menu on the left, and then click **Add API**.
 
 ![Create API][api-management-create-api]
 
@@ -134,10 +134,10 @@ Click **Products** from the **API Management** menu on the left to view and conf
 
 By default, each API Management instance comes with two sample products:
 
--	**Limited**
+-	**Starter**
 -	**Unlimited**
 
-In this tutorial we will use the **Limited** product. Click **Configure** for the **Limited** to view the settings, including the APIs that are associated with that product.
+In this tutorial we will use the **Starter** product. Click **Starter** to view the settings, including the APIs that are associated with that product.
 
 ![Add API][api-management-add-api-to-product]
 
@@ -151,17 +151,19 @@ Check the box for **My Echo API**, and click **Save**.
 
 Now that **My Echo API** is associated with a product, developers can subscribe to it and begin using the API.
 
->This tutorial step used the Limited product, which comes pre-configured and ready for use. For a step-by-step guide on creating and publishing a new product, see [How create and publish a product][].
+>This tutorial step uses the Starter product, which comes pre-configured and ready for use. For a step-by-step guide on creating and publishing a new product, see [How create and publish a product][].
 
 ## <a name="subscribe"> </a>Subscribe to the product that contains the API
 
-In order to make calls to an API, developers must first be subscribed to a product that gives them access to it. Developers can subscribe to products in the Developer portal, or administrators can subscribe developers to products in the Management console. You are an administrator by default since you created the API Management instance in the previous steps in the tutorial, so you will subscribe your account to the “Limited” product.
+In order to make calls to an API, developers must first be subscribed to a product that gives them access to it. Developers can subscribe to products in the Developer portal, or administrators can subscribe developers to products in the Management console. You are an administrator by default since you created the API Management instance in the previous steps in the tutorial, so you will subscribe an account to the **Starter** product.
 
 Click **Developers** from the **API Management** menu on the left to view and configure the developers in this service instance.
 
 ![Developers][api-management-developers]
 
-Click **Details** to the right of the **Admin** user to configure the settings for the user, including subscriptions.
+Click the name of the developer to configure the settings for the user, including subscriptions.
+
+>In this example, we are subscribing a developer named Clayton Gragg. If you do not have any developer accounts created, you can subscribe the administrator account. For information on creating developer accounts, see [How to manage developer accounts in Azure API Management][].
 
 ![Add subscription][api-management-add-subscription]
 
@@ -169,7 +171,7 @@ Click **Add Subscription**.
 
 ![Add subscription][api-management-add-subscription-window]
 
-Check the box for **Limited** and click **Subscribe**.
+Check the box for **Starter** and click **Subscribe**.
 
 ![Subscription added][api-management-subscription-added]
 
@@ -246,6 +248,8 @@ The **Analytics** section has the following four tabs.
 [View analytics]: #view-analytics
 [Next steps]: #next-steps
 
+
+[How to manage developer accounts in Azure API Management]: ../api-management-howto-create-or-invite-developers/
 [Configure API settings]: ../api-management-howto-create-apis/#configure-api-settings
 [Configure Notifications]: ../api-management-howto-configure-notifications
 [Responses]: ../api-management-howto-add-operations/#responses
