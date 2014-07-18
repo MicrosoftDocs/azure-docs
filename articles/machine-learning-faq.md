@@ -50,7 +50,7 @@ The **Reader** module can read data from Azure Table, Azure Blob, SQL Database (
 
 8.**How large can my data set be?**
 
-Azure ML Studio supports training dataset of up to 10GB.  There is no limit on the dataset size for Web Services.  Sampling larger datasets via Hive or SQL queries before ingestion is also supported. If you are working with data larger than10GB, you can you can create multiple datasets and use the ‘Partition and Sample’, ‘Split’ or ‘Join’ modules to recombine these datasets in ML studio to create training sets for building predictive models. Visit module help in ML Studio to learn more about these modules.
+Azure ML Studio supports training dataset of up to 10GB.  There is no limit on the dataset size for Web Services.  Sampling larger datasets via Hive or SQL queries before ingestion is also supported. If you are working with data larger than 10GB, you can create multiple datasets and use the ‘Partition and Sample’, ‘Split’ or ‘Join’ modules to recombine these datasets in ML studio to create training sets for building predictive models. Visit module help in ML Studio to learn more about these modules.
 
 For datasets larger than a couple GB, the recommended approach is to upload data to Azure storage or SQL Database (Azure) or use HDInsight, rather than directly uploading from local file.
 
