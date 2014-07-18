@@ -41,12 +41,11 @@ You can deploy a project as a WebJob by itself, or link it to a web project so t
 
 ## Prerequisites
 
-WebJobs deployment features are available in Visual Studio 2012 and Visual Studio 2013 when you install Azure SDK version 2.4 or later:
+WebJobs deployment features are available in Visual Studio 2013 when you install Azure SDK version 2.4 or later:
 
 * [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
-* [Azure SDK for Visual Studio 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409).
 
-For Visual Studio 2013, the WebJobs deployment features are also included in [Update 3](http://www.visualstudio.com/downloads/download-visual-studio-vs). 
+The WebJobs deployment features are also included in [Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409). 
 
 ## <a id="convert"></a>Enable WebJobs deployment for an existing Console Application project
 
@@ -136,6 +135,7 @@ For a scheduled WebJob (not for continuous WebJobs), Visual Studio creates an [A
 > 
 >* Command-line deployment using MSBuild does not set up scheduling for scheduled WebJobs. This features only works when you deploy by using Visual Studio.
 >* If you configure a **Recurring Job** and set recurrence frequency to a number of minutes, the Azure Scheduler service is not free. Other frequencies (hours, days, and so forth) are free.
+>* If you deploy a WebJob and later change the run mode from continuous to non-continuous or vice versa, Visual Studio creates a new WebJob in Azure when you redeploy. If you change other scheduling settings but leave run mode the same or switch between Scheduled and On Demand, Visual Studio updates the existing job rather than create a new one.
 
 ## <a id="publishsettings"></a>webjob-publish-settings.json
 
@@ -156,7 +156,6 @@ You can edit this file directly, and Visual Studio provides IntelliSense. The fi
 
 >[WACOM.NOTE]
 >
->* If you change the settings for a WebJob that you have already deployed, and then you redeploy the project, Visual Studio creates new scheduler jobs for the new settings but does not delete the old scheduler job. You can delete the old one manually in the management portal.
 >* If you configure a **Recurring Job** and set recurrence frequency to a number of minutes, the Azure Scheduler service is not free. Other frequencies (hours, days, and so forth) are free.
 
 ## <a id="webjobslist"></a>webjobs-list.json
