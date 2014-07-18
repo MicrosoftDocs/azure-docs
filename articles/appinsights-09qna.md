@@ -91,7 +91,7 @@ Visual Studio Update 3 comes with a pre-installed version of the new Application
 
 Great things are on the way.
 
-But just at present, the main missing features are: support for device apps such as Windows Phone and Windows Store; and reports for custom telemetry like `logEvent()` and `logPageView()`.
+But just at present, the main missing features are: support for device apps such as Windows Phone and Windows Store; and reports for custom telemetry like `trackEvent()` and `trackPageView()`.
 
 ## <a name="q13"></a>How do I get back to all the features I had in the Visual Studio Online version of Application Insights?
 
@@ -106,7 +106,6 @@ But just at present, the main missing features are: support for device apps such
  + ApplicationInsights.config. 
  + ai.js
 
-+ Inserts a line in the project file.
 
 + Installs these NuGet packages:
 
@@ -131,8 +130,11 @@ But just at present, the main missing features are: support for device apps such
  - packages.config
 
 ## <a name="q15"></a>How do I find my results in Application Insights?
-- In Visual Studio, right-click your web application project and choose **Open Azure Preview Portal**.
-- Or in a web browser you can open your account in Microsoft Azure Preview, and open Browse > Application Insights.
+1. Open Microsoft Azure:
+ - In Visual Studio, right-click your web application project and choose **Open Azure Preview Portal**.
+ - Or in a web browser you can open your account in Microsoft Azure Preview.
+
+2. Choose Browse, Application Insights, then select your project.
 
 
 
@@ -148,6 +150,7 @@ But just at present, the main missing features are: support for device apps such
 <!--Link references-->
 [start new]: ../appinsights-01-start/
 [start existing]: ../appinsights-02-existing/
+[older]: http://go.microsoft.com/fwlink/?linkid=402440
 
 
 

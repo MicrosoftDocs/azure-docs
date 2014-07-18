@@ -2,7 +2,7 @@
 
 <a name="intro"></a>
 # Integrate a cloud application with Azure CDN #
-***By [Cephas Lin](https://twitter.com/Cephas_MSFT) Updated 14 July 2014.***
+***By [Cephas Lin](https://twitter.com/Cephas_MSFT) Updated 18 July 2014.***
 
 Azure CDN can be integrated with a cloud service, serving any content from the cloud service's CDN directory. This approach gives you the following advantages:
 
@@ -30,8 +30,17 @@ You will deploy a cloud service Web role using the default ASP.NET MVC template,
 
 This tutorial has the following prerequisites:
 
--	An active [Microsoft Azure account](http://azure.microsoft.com/en-us/account/). You can sign up for a trial account
+-	An active [Microsoft Azure account](http://azure.microsoft.com/en-us/account/)
 -	Visual Studio 2013 with [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+
+<div class="wa-note">
+  <span class="wa-icon-bulb"></span>
+  <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
+  <ul>
+    <li>You can <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Sites.</li>
+    <li>You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
+  <ul>
+</div>
 
 <a name="deploy"></a>
 ## Deploy a cloud application with an integrated CDN endpoint ##
@@ -83,7 +92,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	>[WACOM.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
 
-	Note that the CDN endpoitn is tied to the path **cdn/** of your cloud service. You can either create a **cdn** folder in your **WebRole1** project, or you can use URL rewrite to strip all incoming links of this path. In this tutorial, you will take the latter route.
+	Note that the CDN endpoint is tied to the path **cdn/** of your cloud service. You can either create a **cdn** folder in your **WebRole1** project, or you can use URL rewrite to strip all incoming links of this path. In this tutorial, you will take the latter route.
 
 3. Back in the Azure portal, in the **CDN** tab, click the name of the CDN endpoint you just created.
 
@@ -93,7 +102,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-12-disablequeryb.png)
 
-	>[WACOM.TIP] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
+	>[WACOM.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
 
 3. Ping your CDN endpoint to make sure that it's propagated to the CDN nodes. You may need to wait up to an hour before it will respond to pings.
 
@@ -141,16 +150,25 @@ You can similarly access any publicly accessible URL at **http://*&lt;serviceNam
 -	Any controller/action 
 -	If the query string is enabled at your CDN endpoint, any URL with query strings
 
-In fact, using the above setup, you can host the entire cloud application from **http://*&lt;cdnName>*.vo.msecnd.net/**. If I navigate to **http://az632148.vo.msecnd.net/**, I get the action result from Home/Index.
+In fact, with the above configuration, you can host the entire cloud application from **http://*&lt;cdnName>*.vo.msecnd.net/**. If I navigate to **http://az632148.vo.msecnd.net/**, I get the action result from Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
 This does not mean, however, that it's always a good idea (or generally a good idea) to serve an entire cloud application through Azure CDN. Some of the caveats are:
 
+-	This approach requires your entire site to be public, because Azure CDN cannot serve any private content.
 -	If the CDN endpoint goes offline for any reason, whether scheduled maintenance or user error, your entire cloud application goes offline unless the customers can be redirected to the origin URL **http://*&lt;serviceName>*.cloudapp.net/**. 
 -	Even with the custom Cache-Control settings (see [Configure caching options for static files in your cloud application](#caching)), a CDN endpoint does not improve the performance of highly-dynamic content. If you tried to load the home page from your CDN endpoint as shown above, notice that it took at least 5 seconds to load the default home page the first time, which is a fairly simple page. Imagine what would happen to the client experience if this page contains dynamic content that must update every minute. Serving dynamic content from a CDN endpoint requires short cache expiration, which translates to frequent cache misses at the CDN endpoint. This hurts the performance or your cloud application and defeats the purpose of a CDN.
 
 The alternative is to determine which content to serve from Azure CDN on a case-by-case basis in your cloud application. To that end, you have already seen how to access individual content files from the CDN endpoint. I will show you how to serve a specific controller action through the CDN endpoint in [Serve content from controller actions through Azure CDN](#controller).
+
+You can specify a more restrictive URL rewrite rule to limit the content accessible through your CDN endpoint. For example, to limit URL rewrite to the *\Scripts* folder, change the above rewrite rule as follows:   
+<pre class="prettyprint">
+&lt;rule name=&quot;RewriteIncomingCdnRequest&quot; stopProcessing=&quot;true&quot;&gt;
+  &lt;match url=&quot;^cdn/<mark>Scripts/</mark>(.*)$&quot;/&gt;
+  &lt;action type=&quot;Rewrite&quot; url=&quot;<mark>Scripts/</mark>{R:1}&quot;/&gt;
+&lt;/rule&gt;
+</pre>
 
 <a name="caching"></a>
 ## Configure caching options for static files in your cloud application ##
@@ -189,17 +207,20 @@ When you integrate a cloud service Web role with Azure CDN, it is relatively eas
 
 Suppose in your cloud application you want to generate memes based on a Chuck Norris image like this:
 
-	![](media/cdn-cloud-service-with-cdn/cdn-5-memegenerator.PNG)
+![](media/cdn-cloud-service-with-cdn/cdn-5-memegenerator.PNG)
 
-You have a simple Index action that allows the customers to specify the superlatives in the image, then generates the meme once they post to the action. Since it's Chuck Norris, you would expect this page to become wildly popular globally. This is a good example of serving semi-dynamic content with Azure CDN. 
+You have a simple `Index` action that allows the customers to specify the superlatives in the image, then generates the meme once they post to the action. Since it's Chuck Norris, you would expect this page to become wildly popular globally. This is a good example of serving semi-dynamic content with Azure CDN. 
 
 Follow the steps above to setup this controller action:
 
 1. In the *\Controllers* folder, create a new .cs file called *MemeGeneratorController.cs* and replace the content with the following code. Be sure to replace the highlighted portion with your CDN name.  
 	<pre class="prettyprint">
+	using System;
+	using System.Collections.Generic;
 	using System.Diagnostics;
 	using System.Drawing;
 	using System.IO;
+	using System.Net;
 	using System.Web.Hosting;
 	using System.Web.Mvc;
 	using System.Web.UI;
@@ -208,58 +229,85 @@ Follow the steps above to setup this controller action:
 	{
 	    public class MemeGeneratorController : Controller
 	    {
-	        //
-	        // GET: /MemeGenerator/
+	        static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
+
 	        public ActionResult Index()
 	        {
 	            return View();
 	        }
 	
 	        [HttpPost, ActionName(&quot;Index&quot;)]
-	        public ActionResult Index_Post(string top, string bottom)
+        	public ActionResult Index_Post(string top, string bottom)
 	        {
+	            var identifier = Guid.NewGuid().ToString();
+	            if (!Memes.ContainsKey(identifier))
+	            {
+	                Memes.Add(identifier, new Tuple&lt;string, string&gt;(top, bottom));
+	            }
+	
+	            return Content(&quot;&lt;a href=\&quot;&quot; + Url.Action(&quot;Show&quot;, new {id = identifier}) + &quot;\&quot;&gt;here&#39;s your meme&lt;/a&gt;&quot;);
+	        }
+
+
+	        [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
+	        public ActionResult Show(string id)
+	        {
+	            Tuple<string, string> data = null;
+	            if (!Memes.TryGetValue(id, out data))
+	            {
+	                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+	            }
+	
 	            if (Debugger.IsAttached) // Preserve the debug experience
 	            {
-	                return Redirect(string.Format(&quot;/MemeGenerator/Show?top={0}&amp;bottom={1}&quot;, top, bottom));
+	                return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
 	            }
 	            else // Get content from Azure CDN
 	            {
-	                return Redirect(string.Format(&quot;http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Show?top={0}&amp;bottom={1}&quot;, top, bottom));
+	                return Redirect(string.Format(&quot;http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
 	            }
 	        }
-	
-	        [OutputCache(VaryByParam = &quot;*&quot;, Duration = 3600, Location = OutputCacheLocation.Downstream)]
-	        public ActionResult Show(string top, string bottom)
+
+	        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
+	        public ActionResult Generate(string top, string bottom)
 	        {
 	            string imageFilePath = HostingEnvironment.MapPath(&quot;~/Content/chuck.bmp&quot;);
 	            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
 	
-	            using (Graphics graphics = Graphics.FromImage(bitmap)) 
+	            using (Graphics graphics = Graphics.FromImage(bitmap))
 	            {
-	                using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant()))
+	                SizeF size = new SizeF();
+	                using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
 	                {
-	                    graphics.DrawString(top.ToUpperInvariant(), arialFont, Brushes.White, new PointF(0, 0));
+	                    graphics.DrawString(top.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), 10f));
 	                }
-	                using (Font arialFont = FindBestFitFont(bitmap, graphics, bottom.ToUpperInvariant()))
+	                using (Font arialFont = FindBestFitFont(bitmap, graphics, bottom.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
 	                {
-	                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(0, 0));
+	                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
 	                }
 	            }
 	
 	            MemoryStream ms = new MemoryStream();
-	
 	            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-	
-	            return new FileStreamResult(ms, &quot;image/png&quot;);
+	            return File(ms.ToArray(), &quot;image/png&quot;);
 	        }
 	
-	        private Font FindBestFitFont(Bitmap bitmap, Graphics graphics, string p)
+	        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
 	        {
-	            Font f = new Font(FontFamily.GenericSansSerif, 20);
+	            // Compute actual size, shrink if needed
+	            while (true)
+	            {
+	                size = g.MeasureString(text, font);
 	
-	            // Find best fit
+	                // It fits, back out
+	                if (size.Height < i.Height &&
+	                     size.Width < i.Width) { return font; }
 	
-	            return f;
+	                // Try a smaller font (90% of old size)
+	                Font oldFont = font;
+	                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
+	                oldFont.Dispose();
+	            }
 	        }
 		}
 	}
@@ -287,35 +335,41 @@ Follow the steps above to setup this controller action:
 
 5. Publish the cloud application again and navigate to **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** in your browser. 
 
-When you submit the form values to `/MemeGenerator/Index`, you reach the following controller action:  
+When you submit the form values to `/MemeGenerator/Index`, the `Index_Post` action method returns a link to the `Show` action method with the respective input identifier. When you click the link, you reach the following code:  
 <pre class="prettyprint">
-[HttpPost, ActionName(&quot;Index&quot;)]
-public ActionResult Index_Post(string top, string bottom)
+[OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
+public ActionResult Show(string id)
 {
+    Tuple<string, string> data = null;
+    if (!Memes.TryGetValue(id, out data))
+    {
+        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+    }
+
     if (Debugger.IsAttached) // Preserve the debug experience
     {
-        return Redirect(string.Format(&quot;/MemeGenerator/Show?top={0}&amp;bottom={1}&quot;, top, bottom));
+        return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
     }
     else // Get content from Azure CDN
     {
-        return Redirect(string.Format(&quot;http://&lt;cdnName&gt;.vo.msecnd.net/MemeGenerator/Show?top={0}&amp;bottom={1}&quot;, top, bottom));
+        return Redirect(string.Format(&quot;http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
     }
 }
 </pre>
 
 If your local debugger is attached, then you will get the regular debug experience with a local redirect. If it's running in the cloud service, then it will redirect to:
 
-	http://<cdnName>.vo.msecnd.net/MemeGenerator/Show?top=<formInput>&bottom=<formInput>
+	http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 Which corresponds to the following origin URL at your CDN endpoint:
 
-	http://cephalinservice.cloudapp.net/cdn/MemeGenerator/Show?top=<formInput>&bottom=<formInput>
+	http://<youCloudServiceName>.cloudapp.net/cdn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 After URL rewrite rule previously applied, the actual file that gets cached to your CDN endpoint is:
 
-	http://cephalinservice.cloudapp.net/MemeGenerator/Show?top=<formInput>&bottom=<formInput>
+	http://<youCloudServiceName>.cloudapp.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
-You can then use the `OutputCacheAttribute` attribute to specify how the action result should be cached, which Azure CDN will honor. The code below specify a cache expiration of 1 hour (3,600 seconds).
+You can then use the `OutputCacheAttribute` attribute on the `Generate` method to specify how the action result should be cached, which Azure CDN will honor. The code below specify a cache expiration of 1 hour (3,600 seconds).
 
     [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 
@@ -516,7 +570,7 @@ The [Bundle](http://msdn.microsoft.com/en-us/library/system.web.optimization.bun
 	This new extension method uses the same idea to inject script in the HTML to check the DOM for the a matching class name, rule name, and rule value defined in the CSS bundle, and falls back to the origin Web server if it fails to find the match.
 
 4. Publish the cloud application again and access the home page. 
-5. View the HTML code for the page. You should find in injected scripts:    
+5. View the HTML code for the page. You should find injected scripts similar to the following:    
 	<pre class="prettyprint">...
 	
 		&lt;link href=&quot;http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
@@ -561,3 +615,6 @@ The [Bundle](http://msdn.microsoft.com/en-us/library/system.web.optimization.bun
 
 # More Information #
 [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
+[Serve Content from Azure CDN in Your Web Application](http://azure.microsoft.com/en-us/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
+[ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
+[Using CDN for Azure](http://azure.microsoft.com/en-us/documentation/articles/cdn-how-to-use/)
