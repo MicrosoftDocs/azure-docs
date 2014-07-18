@@ -121,7 +121,7 @@ An Azure cloud service is the environment the application will run in.
 
 1. In your browser, open the [Azure Management Portal](http://manage.windowsazure.com).
 
-2. In Visual Studio, click **New** - **Compute** - **Cloud Service** - **Quick Create**.
+2. Click **New** - **Compute** - **Cloud Service** - **Quick Create**.
 
 4. In the URL input box, enter a URL prefix. 
 
