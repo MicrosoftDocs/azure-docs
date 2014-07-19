@@ -2,7 +2,15 @@
 
 # Access SharePoint on behalf of the user
 
-This topic shows you how to access the SharePoint APIs on behalf of the currently logged-in user. In this tutorial, you will update the app from the Authenticate your app with Active Directory Authentication Library Single Sign-On tutorial to create a Word document in SharePoint Online when a new TodoItem is added.
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
+<p>This topic shows you how to access the SharePoint APIs on behalf of the currently logged-in user.</p>
+<p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial. In the video, Mat Velloso walks you through updating a Windows Store app to interact with SharePoint Online.</p>
+</div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">12:51</span></div>
+</div>
+
+In this tutorial, you will update the app from the Authenticate your app with Active Directory Authentication Library Single Sign-On tutorial to create a Word document in SharePoint Online when a new TodoItem is added.
 
 This tutorial walks you through these basic steps to enable on-behalf-of access to SharePoint:
 
