@@ -19,10 +19,7 @@ If you prefer to skip the introductory text and get started working with the cod
 - [Prerequisites](#prerequisites)
 - [What You'll Learn](#learn)
 - [The WebJobs SDK](#webjobssdk)
-	- Typical Scenarios
-	- Code samples
 - [Contoso Ads application architecture](#contosoads)
-	- Alternative architecture
 - [Set up the development environment](#setupdevenv)
 - [Create an Azure Storage account](#storage)
 - [Configure the application to use your storage account](#configurestorage)
@@ -129,7 +126,7 @@ When a user uploads an image, the frontend running in a web role stores the imag
 
 ![Contoso Ads architecture](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
-## Alternative architecture
+### Alternative architecture
 
 WebJobs run in the context of a website and are not scalable independent of the website. For example, if you have one Standard website instance, you can only have 1 instance of your background process running, and it is using some of the server resources that otherwise would be available to serve web content. 
 
@@ -189,7 +186,7 @@ In a real-world application, you typically create separate accounts for applicat
  
 	The file contains a SQL connection string and an Azure storage connection string for working with blobs and queues. 
 
-	<pre>&lt;connectionStrings&gt;
+	<pre class="prettyprint">&lt;connectionStrings&gt;
 	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
 	  &lt;add name="AzureJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
 	&lt;/connectionStrings&gt;</pre>
@@ -213,14 +210,14 @@ In a real-world application, you typically create separate accounts for applicat
 4. Open the *App.config* file in the ContosoAdsWebJob project.
 
 	This file has two storage connection strings, one for application data and one for logging. For this tutorial you'll use the same account for both. The connection strings have the same placeholders that you saw earlier.
-  	<pre>&lt;configuration&gt;
-  &lt;connectionStrings&gt;
-    &lt;add name="AzureJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-    &lt;add name="AzureJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-    &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-  &lt;/connectionStrings&gt;
-    &lt;startup&gt; 
-        &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
+  	<pre class="prettyprint">&lt;configuration&gt;
+    &lt;connectionStrings&gt;
+        &lt;add name="AzureJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="AzureJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
+    &lt;/connectionStrings&gt;
+        &lt;startup&gt; 
+            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
     &lt;/startup&gt;
 &lt;/configuration&gt;</pre>
 
@@ -769,7 +766,7 @@ The Cloud Service version of this sample application has only one queue and one 
 * Convert the image to a thumbnail, and save the thumbnail in a new blob.
 * Update the database record by adding the thumbnail blob URL. 
 
-When you use the WebJobs SDK, you're trading away some flexibility and control to get the benefit of not having to write as much code. One consequence is that you can't do it all using one queue and still take full advantage of WebJobs SDK functionality. 
+When you use the WebJobs SDK, you're trading away some flexibility and control to get the benefit of not having to write as much code. One consequence is that you can't do all of these tasks using one queue and still take full advantage of WebJobs SDK functionality. 
 
 The WebJobs SDK provides attributes that let you bind method parameters to input and output blobs, but to use them you need to provide blob names, and the queue message only has the database record ID. You can get the blob names from the database, but only in the body of the method, whereas you need them accessible to the blob-binding attributes.
 
