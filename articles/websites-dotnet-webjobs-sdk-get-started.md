@@ -522,7 +522,9 @@ To add files to a project or a folder, right-click the project or folder and cli
 
 You can now build, run, and deploy the application as instructed earlier in the tutorial.
 
-The following sections explain the code related to working with the WebJobs SDK and Azure Storage blobs and queues. This tutorial does not explain how to create MVC controllers and views using scaffolding, how to write Entity Framework code that works with SQL Server databases, or the basics of asynchronous programming in ASP.NET 4.5 For information on these topics, see the following resources:
+The following sections explain the code related to working with the WebJobs SDK and Azure Storage blobs and queues. For the code specific to the WebJobs SDK, see the [Program.cs section](#programcs).
+
+This tutorial does not explain how to create MVC controllers and views using scaffolding, how to write Entity Framework code that works with SQL Server databases, or the basics of asynchronous programming in ASP.NET 4.5 For information on these topics, see the following resources:
 
 * [Get started with MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [Get started with EF 6 and MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
@@ -752,7 +754,7 @@ The `BlobInformation` class is used to store information about an image blob in 
 		}
 
 
-### ContosoAdsWebJob - Program.cs - Why this program uses two queues instead of one
+### <a id="programcs"></a>ContosoAdsWebJob - Program.cs - Why this program uses two queues instead of one
 
 The program that runs as a WebJob and uses the WebJobs SDK contains two functions that are triggered by queue messages from two different queues:
 
