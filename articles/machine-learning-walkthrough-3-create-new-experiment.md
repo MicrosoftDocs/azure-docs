@@ -37,11 +37,11 @@ Column headings are not essential, but they will make it easier to work with the
 
 We can add column headings using the **Metadata Editor** module.  
 
-1.	In the module palette, type “metadata” in the **Search** box. You’ll see **Metadata Editor** in the module list.
+1.	In the module palette, type "metadata" in the **Search** box. You'll see **Metadata Editor** in the module list.
 2.	Click and drag the **Metadata Editor** module onto the canvas and drop it below the dataset.
 3.	Connect the dataset to the **Metadata Editor**: click the output port of the dataset, drag to the input port of **Metadata Editor**, then release the mouse button. The dataset and module will remain connected even if you move either around on the canvas.
 4.	In the **Properties** pane to the right of the canvas, click **Launch column selector**.
-5.	Verify that “All columns” is selected in the dropdown, and click **OK**. This directs the **Metadata Editor** to operate on all columns of data.
+5.	Verify that "All columns" is selected in the dropdown, and click **OK**. This directs the **Metadata Editor** to operate on all columns of data.
 6.	For the **New column name** parameter, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following:  
 
 	Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
@@ -60,12 +60,12 @@ The experiment should now look something like this:
 The next step of the experiment is to generate separate datasets that will be used for training and testing our model. To do this, we use the **Split** module.  
 
 1.	Find the **Split** module, drag it onto the canvas, and connect it to the last **Metadata Editor** module.
-2.	By default, the split ratio is 0.5 and the **Randomized split** parameter is set. This means that a random half of the data will be output through one port of the **Split** module, and half out the other. You can adjust these, as well as the **Random seed** parameter, to change the split between training and scoring data. For this example we’ll leave them as-is.
+2.	By default, the split ratio is 0.5 and the **Randomized split** parameter is set. This means that a random half of the data will be output through one port of the **Split** module, and half out the other. You can adjust these, as well as the **Random seed** parameter, to change the split between training and scoring data. For this example we'll leave them as-is.
 	>Tip - The split ratio essentially determines how much of the data is output through the left output port. For instance, if you set the ratio to 0.7, then 70% of the data is output through the left port and 30% through the right port.  
 	
-We can use the outputs of the **Split** module however we like, but let’s choose to use the left output as training data and the right output as scoring data.  
+We can use the outputs of the **Split** module however we like, but let's choose to use the left output as training data and the right output as scoring data.  
 
-As mentioned on the UCI website, the cost of misclassifying a high credit risk as low is 5 times larger than the cost of misclassifying a low credit risk as high. To account for this we’ll generate a new dataset that reflects this cost function. In the new dataset each high example is replicated 5 times, while each low example is not replicated.   
+As mentioned on the UCI website, the cost of misclassifying a high credit risk as low is 5 times larger than the cost of misclassifying a low credit risk as high. To account for this we'll generate a new dataset that reflects this cost function. In the new dataset each high example is replicated 5 times, while each low example is not replicated.   
 
 We can do this replication using R code:  
 
