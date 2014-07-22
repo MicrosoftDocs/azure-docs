@@ -31,77 +31,96 @@ Also, note that Windows Phone 8.1 requires Windows (not Windows Phone) credentia
 
 ## Modify the iOS project
 
-Now that you modified your app back-end to send just the *id* of a notification, you have to change your Android app to handle that notification and call back your back-end to retrieve the secure message to be displayed.
-To achieve this goal, you have to make sure that your Android app knows how to authenticate itself with your back-end when it receives the push notifications.
+Now that you modified your app back-end to send just the *id* of a notification, you have to change your iOS app to handle that notification and call back your back-end to retrieve the secure message to be displayed.
 
-We will now modify the *login* flow in order to save the authentication header value in the shared preferences of your app. Analogous mechanisms can be used to store any authentication token (e.g. OAuth tokens) that the app will have to use without requiring user credentials.
+To achieve this goal, we have to write the logic to retrieve the secure content from the app back-end.
 
-18. In your Android app project, add the following constants at the top of the **MainActivity** class:
+1. In your **AppDelegate.m** add an implementation section at the top with the following declaration:
 
-		public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
-		public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
+		@interface AppDelegate ()
+		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
+		@end
 
-19. Still in the **MainActivity** class, update the `getAuthorizationHeader()` method to contain the following code:
+2. Then add in the implementation section the following code, substituting the placeholder `{back-end endpoint}` with the endpoint for your back-end obtained previously:
 
-		private String getAuthorizationHeader() throws UnsupportedEncodingException {
-			EditText username = (EditText) findViewById(R.id.usernameText);
-    		EditText password = (EditText) findViewById(R.id.passwordText);
-    		String basicAuthHeader = username.getText().toString()+":"+password.getText().toString();
-    		basicAuthHeader = Base64.encodeToString(basicAuthHeader.getBytes("UTF-8"), Base64.NO_WRAP);
-    	
-    		SharedPreferences sp = getSharedPreferences(NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
-    		sp.edit().putString(AUTHORIZATION_HEADER_PROPERTY, basicAuthHeader).commit();
-    	
-    		return basicAuthHeader;
+		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
+
+		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
+		{
+		    // check if authenticated
+		    ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
+		    NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
+		    if (!authenticationHeader) return;
+		    
+		    
+		    NSURLSession* session = [NSURLSession
+		                             sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
+		                             delegate:nil
+		                             delegateQueue:nil];
+		    
+		    
+		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%d", GetNotificationEndpoint, payloadId]];
+		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
+		    [request setHTTPMethod:@"GET"];    
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", authenticationHeader];
+		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
+		    
+		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+		        if (!error && httpResponse.statusCode == 200)
+		        {
+		            NSLog(@"Received secure payload: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+		            
+		            NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
+		            
+		            completion([json objectForKey:@"Payload"], nil);
+		        }
+		        else
+		        {
+		            NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
+		            if (error)
+		                completion(nil, error);
+		            else {
+		                completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
+		            }
+		        }
+		    }];
+		    [dataTask resume];
 		}
 
-20. Add the following `import` statements at the top of the **MainActivity** file:
+	This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
+	
+3. Now we have to handle the incoming notification and use the method above to retrieve the content to display. First, we have to enable your iOS app to run in the background when receiving a push notification. In **XCode**, select your app project on the left panel, then click your main app target in the **Targets** section from the central pane.
 
-		import android.content.SharedPreferences;
+4. Then click your **Capabilities** tab at the top of your central pane, and check the **Remote Notifications** checkbox.
 
-Now we will change the handler that is called when the notification is received.
+	![][IOS1]
 
-21. In the **MyHandler** class change the `OnReceive()` method to contain:
 
-		public void onReceive(Context context, Bundle bundle) {
-	    	ctx = context;   
-	    	String secureMessageId = bundle.getString("secureId");
-	    	retrieveNotification(secureMessageId);
+5. In **AppDelegate.m** add the following method to handle push notifications:
+
+		-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+		{
+		    NSLog(@"%@", userInfo);
+		    
+		    [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
+		        if (!error) {
+		            // show local notification
+		            UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+		            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+		            localNotification.alertBody = payload;
+		            localNotification.timeZone = [NSTimeZone defaultTimeZone];
+		            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+		            
+		            completionHandler(UIBackgroundFetchResultNewData);
+		        } else {
+		            completionHandler(UIBackgroundFetchResultFailed);
+		        }
+		    }];
+		    
 		}
 
-22. Then add the `retrieveNotification()` method:
-
-		private void retrieveNotification(final String secureMessageId) {
-			SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
-    		final String authorizationHeader = sp.getString(MainActivity.AUTHORIZATION_HEADER_PROPERTY, null);
-		
-			new AsyncTask<Object, Object, Object>() {
-				@Override
-				protected Object doInBackground(Object... params) {
-					try {
-						HttpUriRequest request = new HttpGet("http://testbackends.azurewebsites.net/api/notifications/"+secureMessageId);
-						request.addHeader("Authorization", "Basic "+authorizationHeader);
-						HttpResponse response = new DefaultHttpClient().execute(request);
-						if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
-							Log.e("MainActivity", "Error retrieving secure notification" + response.getStatusLine().getStatusCode());
-							throw new RuntimeException("Error retrieving secure notification");
-						}
-						String secureNotificationJSON = EntityUtils.toString(response.getEntity());
-						JSONObject secureNotification = new JSONObject(secureNotificationJSON);
-						sendNotification(secureNotification.getString("Payload"));
-					} catch (Exception e) {
-						Log.e("MainActivity", "Failed to retrieve secure notification - " + e.getMessage());
-						return e;
-					}
-					return null;
-				}
-			}.execute(null, null, null);
-		}
-		
-
-This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences and displays it as a normal notification. The notification looks to the app user exactly like any other push notification.
-
-Note that it is preferable to handle the cases of missing authentication header property or rejection by the back-end. The specific handling of these cases depend mostly on your target user experience. One option is to display a notification with a generic prompt for the user to authenticate to retrieve the actual notification.
+	Note that it is preferable to handle the cases of missing authentication header property or rejection by the back-end. The specific handling of these cases depend mostly on your target user experience. One option is to display a notification with a generic prompt for the user to authenticate to retrieve the actual notification.
 
 ## Run the Application
 
@@ -113,4 +132,6 @@ To run the application, do the following:
 
 3. In the iOS app UI, enter a username and password. These can be any string, but they must be the same value.
 
-4. In the iOS app UI, click **Log in**. Then click **Send push**.
+4. In the iOS app UI, click **Log in**. Then click **Send push**. You should see the secure notification being displayed in your notification center.
+
+[IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
