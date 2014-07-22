@@ -17,7 +17,10 @@ The monitored web application can be hosted on-premise or in a virtual machine, 
 
 ## <a name="add"></a>1. Add a logging adapter
 
-1. If you haven't done this already, add Application Insights to your [existing] or [new][setup] web service project in Visual Studio.
+1. If you haven't done this already, add Application Insights to your [existing] or [new][setup] web service project in Visual Studio. 
+
+    If you add Application Insights after you add logging to your project, you'll find that the logging adapter has already been set up and configured - just [redeploy your project](#deploy) and [view your data](#view).
+
 2. In Solution Explorer, in the context menu of your project, choose **Manage NuGet Packages**.
 3. Select Online > All, select **Include Prerelease** and search for "Microsoft.ApplicationInsights"
 
