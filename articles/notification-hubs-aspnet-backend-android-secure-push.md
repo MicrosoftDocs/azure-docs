@@ -36,12 +36,12 @@ To achieve this goal, you have to make sure that your Android app knows how to a
 
 We will now modify the *login* flow in order to save the authentication header value in the shared preferences of your app. Analogous mechanisms can be used to store any authentication token (e.g. OAuth tokens) that the app will have to use without requiring user credentials.
 
-18. In your Android app project, add the following constants at the top of the **MainActivity** class:
+1. In your Android app project, add the following constants at the top of the **MainActivity** class:
 
 		public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
 		public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
 
-19. Still in the **MainActivity** class, update the `getAuthorizationHeader()` method to contain the following code:
+2. Still in the **MainActivity** class, update the `getAuthorizationHeader()` method to contain the following code:
 
 		private String getAuthorizationHeader() throws UnsupportedEncodingException {
 			EditText username = (EditText) findViewById(R.id.usernameText);
@@ -55,13 +55,13 @@ We will now modify the *login* flow in order to save the authentication header v
     		return basicAuthHeader;
 		}
 
-20. Add the following `import` statements at the top of the **MainActivity** file:
+3. Add the following `import` statements at the top of the **MainActivity** file:
 
 		import android.content.SharedPreferences;
 
 Now we will change the handler that is called when the notification is received.
 
-21. In the **MyHandler** class change the `OnReceive()` method to contain:
+4. In the **MyHandler** class change the `OnReceive()` method to contain:
 
 		public void onReceive(Context context, Bundle bundle) {
 	    	ctx = context;   
@@ -69,7 +69,7 @@ Now we will change the handler that is called when the notification is received.
 	    	retrieveNotification(secureMessageId);
 		}
 
-22. Then add the `retrieveNotification()` method:
+5. Then add the `retrieveNotification()` method, replacing the placeholder `{back-end endpoint}` with the back-end endpoint obtained while deploying your back-end:
 
 		private void retrieveNotification(final String secureMessageId) {
 			SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
@@ -79,7 +79,7 @@ Now we will change the handler that is called when the notification is received.
 				@Override
 				protected Object doInBackground(Object... params) {
 					try {
-						HttpUriRequest request = new HttpGet("http://testbackends.azurewebsites.net/api/notifications/"+secureMessageId);
+						HttpUriRequest request = new HttpGet("{back-end endpoint}/api/notifications/"+secureMessageId);
 						request.addHeader("Authorization", "Basic "+authorizationHeader);
 						HttpResponse response = new DefaultHttpClient().execute(request);
 						if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {

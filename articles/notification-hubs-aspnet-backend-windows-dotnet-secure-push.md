@@ -31,11 +31,11 @@ Also, note that Windows Phone 8.1 requires Windows (not Windows Phone) credentia
 
 ## Modify the Windows Phone Project
 
-18. In the **NotifyUserWindowsPhone** project, add the following code to App.xaml.cs to register the push background task. Add the following line of code at the end of the `OnLaunched()` method:
+1. In the **NotifyUserWindowsPhone** project, add the following code to App.xaml.cs to register the push background task. Add the following line of code at the end of the `OnLaunched()` method:
 
 		RegisterBackgroundTask();
 
-19. Still in App.xaml.cs, add the following code immediately after the `OnLaunched()` method:
+2. Still in App.xaml.cs, add the following code immediately after the `OnLaunched()` method:
 
 		private async void RegisterBackgroundTask()
         {
@@ -51,12 +51,12 @@ Also, note that Windows Phone 8.1 requires Windows (not Windows Phone) credentia
             }
         }
 
-20. Add the following `using` statements at the top of the App.xaml.cs file:
+3. Add the following `using` statements at the top of the App.xaml.cs file:
 
 		using Windows.Networking.PushNotifications;
 		using Windows.ApplicationModel.Background;
 
-21. From the **File** menu in Visual Studio, click **Save All**.
+4. From the **File** menu in Visual Studio, click **Save All**.
 		
 ## Create the Push Background Component
 
@@ -70,7 +70,7 @@ The next step is to create the push background component.
 
 3. In Solution Explorer, right-click the **PushBackgroundComponent (Windows Phone 8.1)** project, then click **Add**, then click **Class**. Name the new class **PushBackgroundTask.cs**. Click **Add** to generate the class.
 
-4. Replace the entire contents of the **PushBackgroundComponent** namespace definition with the following code. Be sure to replace `[yourPortNum]` with the number of your localhost port:
+4. Replace the entire contents of the **PushBackgroundComponent** namespace definition with the following code, substituting the placeholder `{back-end endpoint}` with the back-end endpoint obtained while deploying your back-end:
 
 		public sealed class Notification
     		{
@@ -81,7 +81,7 @@ The next step is to create the push background component.
     
 		    public sealed class PushBackgroundTask : IBackgroundTask
     		{
-        		private string GET_URL = "http://localhost:[yourPortNum]/api/notifications/";
+        		private string GET_URL = "{back-end endpoint}/api/notifications/";
 		
         		async void IBackgroundTask.Run(IBackgroundTaskInstance taskInstance)
 		        {
