@@ -42,7 +42,9 @@ Get the code snippet for the client pages.
 
 ![Get code from Quick Start](./media/appinsights/appinsights-06webcode.png)
 
-In Visual Studio, put the code in each web page that you want to monitor, immediately before the closing &lt;/head&gt; tag. In an ASP.NET app, a way to do that is to insert it in the Views/Shared/_Layout page.
+In Visual Studio, put the code in each web page that you want to monitor, immediately before the closing &lt;/head&gt; tag. 
+
+In an ASP.NET app, a way to include the code on every page is to insert it in the master page. Depending on the type of project, that might be Views/Shared/_Layout, _SiteLayout, Site.master, or site.mobile.master.
 
 Notice that the snippet contains the id of this application resource, so if you have several applications, you can't reuse the same snippet.
 
