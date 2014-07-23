@@ -255,7 +255,7 @@ The first step is to create an ASP.NET WebAPI project. This is the backend that 
 
 	![][B16]
 
-26. Make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial.
+26. Make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
 
 	![][B18]
 
