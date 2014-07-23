@@ -105,7 +105,8 @@ The detailed steps for creating a new image are:
 	Alternatively, you can set or add the following DWORD value in the registry: 
 
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
-9.	SYSPREP the image. At an elevated command prompt, run the following command: 
+9.	If you are building your image inside an **Azure Virtual Machine** then you will need to delete or rename the **\Windows\Panther\Unattend.xml** file as this will block the upload script used later from working.
+10.	SYSPREP the image. At an elevated command prompt, run the following command: 
 
 	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
 	
