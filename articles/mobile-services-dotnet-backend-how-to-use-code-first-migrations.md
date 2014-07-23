@@ -8,6 +8,9 @@ This topic shows how to use Code First Migrations to make data model changes to 
 
 >[WACOM.NOTE]When developing and testing your mobile service project against live Azure services, you should always use a mobile service instance that is dedicated for testing. You should never develop or test against a mobile service that is currently in production or being used by client apps. 
 
+## Data model initializers
+
+
 ## <a name="migrations"></a>Enable Code First Migrations
 
 Code First Migrations uses a snapshot method to generate code that, when executed, makes schema changes to the database. With Migrations, you can make incremental changes to your data model and maintain existing data in the database. 

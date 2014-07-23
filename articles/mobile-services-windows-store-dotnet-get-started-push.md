@@ -1,4 +1,4 @@
-<properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Store app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 
 # Get started with push notifications in Mobile Services
@@ -8,7 +8,7 @@
 
 This topic shows how Visual Studio 2013 lets you use Azure Mobile Services to send push notifications to your Windows Store app. In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project, right from Visual Studio. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE]Mobile Services now integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and scale. This integrated functionality is currently in preview. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/).
+>[WACOM.NOTE]Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. This topic supports existing mobile services that have not yet been upgraded to use Notification Hubs integration.  When you create a new mobile service, this integrated functionality is automatically enabled. You should upgrade your service to use Notification Hubs when possible. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/).
 
 This tutorial walks you through these basic steps to enable push notifications:
 
