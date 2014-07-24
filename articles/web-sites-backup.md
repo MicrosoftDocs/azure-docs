@@ -33,7 +33,7 @@ This information is backed up to the Azure storage account that you specify.
 <a name="requirements"></a>
 ##Requirements and Restrictions
 
-* The Backup and Restore feature requires requires the site to be in a Standard tier. For more information about scaling your web site use a Standard tier, see [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/). 
+* The Backup and Restore feature requires the site to be in a Standard tier. For more information about scaling your web site use a Standard tier, see [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/). 
 
 * The Backup and Restore feature requires an Azure storage account that must belong to the same subscription as the web site that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage** button (grid icon) in the left pane of the Azure portal, and then choosing **New** in the command bar at the bottom. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
 
