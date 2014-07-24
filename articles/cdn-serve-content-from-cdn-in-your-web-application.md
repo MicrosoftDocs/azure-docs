@@ -1,13 +1,14 @@
 <properties linkid="cdn-serve-content-from-cdn-in-your-web-application" urlDisplayName="Use Content from a CDN in Your Web Application" pageTitle="Use Content from a CDN in Your Web Application" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN" description="A tutorial that teaches you how to use content from a CDN to improve the performance of your Web application." metaCanonical="" services="cdn" documentationCenter=".NET" title="Use Content from a CDN in Your Web Application" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
 
 # Serve Content from Azure CDN in Your Web Application #
-***By [Cephas Lin](https://twitter.com/Cephas_MSFT) Updated 18 July 2014.***
+***Updated 23 July 2014*** 
 
 This tutorial shows you how to take advantage of Azure CDN to improve the reach and performance of your Web application. Azure CDN can help improve the performance of your Web application when:
 
 - You have many links to static or semi-static content on your pages
 - Your application is accessed by clients globally
 - You want to offload traffic from your Web server
+- You want to reduce the number of concurrent client connections to your Web server (there is a great discussion on this at [Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)) 
 - You want to increase the perceived load/refresh time of your pages
 
 ## What you will learn ##
@@ -147,9 +148,9 @@ If you want to easily upload all of the static content in your ASP.NET Web appli
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
 
-		>[WACOM.NOTE] Once you import your publish settings file, it will be the default Azure account used for all Azure PowerShell sessions. This means that the above steps only need to be done once.
+	>[WACOM.NOTE] Once you import your publish settings file, it will be the default Azure account used for all Azure PowerShell sessions. This means that the above steps only need to be done once.
 	
-1. Download the script from the [download page]((http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a)). Save it into your ASP.NET application's project folder.
+1. Download the script from the [download page]((http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a). Save it into your ASP.NET application's project folder.
 2. Right-click the downloaded script and click **Properties**.
 3. Click **Unblock**.
 4. Open a PowerShell window and run the following:
@@ -203,7 +204,7 @@ and modify it as follows:
         -Properties @{ContentType=$contentType, CacheControl="public, max-age=3600"} `
         -Force
 
-You may still need to wait for the full 7-day cached content on your Azure CDN to expire before it pulls the new content, with the new Cache-Control header. This illustrates the fact that custom caching values do not help if you want your content update to go live immediately, such as JavaScript or CSS updates. However, you can work around this issue by versioning your content through query strings. For more information, see [Serve fresh content immediately using query strings](#query).
+You may still need to wait for the full 7-day cached content on your Azure CDN to expire before it pulls the new content, with the new Cache-Control header. This illustrates the fact that custom caching values do not help if you want your content update to go live immediately, such as JavaScript or CSS updates. However, you can work around this issue by renamiving the files or versioning them through query strings. For more information, see [Serve fresh content immediately using query strings](#query).
 
 There is, of course, a time and place for caching. For example, you may have content that does not require the frequent update, such as the upcoming World Cup games that can be refreshed every 3 hours, but gets enough global traffic that you want to offload it from your own Web server. That can be a good candidate to use the Azure CDN caching.
 
@@ -251,6 +252,6 @@ Currently, the only place you find adequate integration between ASP.NET bundling
 For more information on integrating Azure CDN with Azure Cloud Services, see [Integrate a cloud application with Azure CDN](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-create-deploy/).    
 
 # More Information #
-[Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-[Integrate a cloud application with Azure CDN](http://azure.microsoft.com/en-us/Documentation/Articles/cdn-cloud-service-with-cdn/)
-[Using CDN for Azure](http://azure.microsoft.com/en-us/documentation/articles/cdn-how-to-use/)
+- [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
+- [Integrate a cloud application with Azure CDN](http://azure.microsoft.com/en-us/Documentation/Articles/cdn-cloud-service-with-cdn/)
+- [Using CDN for Azure](http://azure.microsoft.com/en-us/documentation/articles/cdn-how-to-use/)
