@@ -2,7 +2,7 @@ After you have registered your app with APNS and configured your project, you mu
 
 1. In Keychain Access, right-click the new certificate, click **Export**, name your file QuickstartPusher, select the **.p12** format, then click **Save**.
 
-   	![](./media/mmobile-services-apns-configure-push/mobile-services-ios-push-step18.png)
+   	![](./media/mobile-services-apns-configure-push/mobile-services-ios-push-step18.png)
 
   Make a note of the file name and location of the exported certificate.
 
