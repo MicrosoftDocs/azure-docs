@@ -119,7 +119,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [10]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/mobile-data-browse.png
 
 <!-- URLs. -->
-[Todolist application]: https://zumo.blob.core.windows.net/quickstart/appcelerator.zip
+[Todolist application]: http://go.microsoft.com/fwlink/?LinkId=506859
 [Titanium]: http://www.appcelerator.com/titanium
 [Get started with authentication]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push

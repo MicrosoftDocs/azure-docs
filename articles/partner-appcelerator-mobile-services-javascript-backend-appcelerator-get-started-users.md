@@ -45,12 +45,9 @@ Next, you will update the app to authenticate users before requesting resources 
 
 1.	Open the project file index.js and in the table event Lister method, look for `case 2:`
 
-    You can add this authentication to your mobile app in two different ways:
+    In your app, you can either prompt the user with available identity providers or automatically provide any one of the identity providers.
 
-        a.	Prompt user with available identity providers
-        b.	Automatically provide any one of the identity providers.
-
-2.	To provide all available identity providers, use following code:
+2.	To provide all available identity providers, use the following code:
 
         var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
         var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
@@ -58,32 +55,31 @@ Next, you will update the app to authenticate users before requesting resources 
         azureMobileServices.setAppName(appName);
         var authenticationClients = ['Google', 'Facebook', 'Twitter', 'Microsoft Account', 'Active Directory', 'Cancel'];
         var dialog = Ti.UI.createOptionDialog({
-        options : authenticationClients,
-        title : 'Select a client'
+            options : authenticationClients,
+            title : 'Select a client'
         });
         dialog.addEventListener('click', function(evt) {
-        if (evt.index == 0 || evt.index == 1 || evt.index == 2 || evt.index == 3 || evt.index == 4) {
-        var str = authenticationClients[evt.index];
-        str = str.replace(/ /g, '');
-        var authorizeClient = str.toLowerCase();
-        if (authorizeClient == 'activedirectory')
-        authorizeClient = 'aad';    azureMobileServices.authorizeClient(authorizeClient, function(result) {
-        if (result == 'true') {
-        Alloy.createController('TableData');
-        }
-        });
-        } else {
-        dialog.hide();
-        }
+            if (evt.index == 0 || evt.index == 1 || evt.index == 2 || evt.index == 3 || evt.index == 4) {
+                var str = authenticationClients[evt.index];
+                str = str.replace(/ /g, '');
+                var authorizeClient = str.toLowerCase();
+                if (authorizeClient == 'activedirectory') authorizeClient = 'aad';
+                azureMobileServices.authorizeClient(authorizeClient, function(result) {
+                    if (result == 'true') {
+                        Alloy.createController('TableData');
+                    }
+                });
+            } else {
+                dialog.hide();
+            }
         });
         dialog.show();
 
-3.	To provide particular identity provider use following code:
+3.	To provide particular identity provider, use the following code:
 
         var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
         var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
-        var authorizeClient = "Google"; //Replace &quot;Google&quot; with identity provider.
-        authorizeClient = authorizeClient.replace(/ /g, ''); //It will remove any spaces between words. For example Microsoft account
+        var authorizeClient = "Google"; //Replace "Google" with identity provider.
         authorizeClient = authorizeClient.toLowerCase();
         azureMobileServices.authorizeClient(authorizeClient, function(result) {
             if (result == 'true') {
