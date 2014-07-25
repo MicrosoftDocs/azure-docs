@@ -110,11 +110,11 @@ Your notification hub is now configured to work with WNS, and you have the conne
 
 	This displays the Manage NuGet Packages dialog box.
 
-2. Search for `WindowsAzure.Messaging.Managed` and click **Install** to install the package. 
+2. Search for `WindowsAzure.Messaging.Managed` and click **Install**, select all projects in the solution, and accept the terms of use. 
 
 	![][20]
 
-	Make sure to select all projects and accept the terms of use. This downloads, installs, and adds a reference in all projects to the Azure Messaging library for Windows using the <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet package</a>. 
+	This downloads, installs, and adds a reference in all projects to the Azure Messaging library for Windows using the <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet package</a>. 
 
 3. Open the App.xaml.cs project file and add the following `using` statements:
 
@@ -216,7 +216,7 @@ You can send notifications using Notification Hubs from any back-end using the <
 
    	![][14]
 
-	You will receive a toast notification on all registered devices.
+	You will receive a toast notification on all registered devices. Clicking or taping on the toast banner loads the app.
 
 You can find all the supported payloads in the [toast catalog], [tile catalog], and [badge overview] topics on MSDN.
 
