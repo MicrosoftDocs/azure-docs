@@ -7,16 +7,14 @@
 	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
 	<a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
 	<a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a>
+<!--    <a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
 	<a href="/en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator" class="current">Appcelerator</a>
 </div>
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to both iOS & Android apps developed through Appcelerator Titanium Studio. In this tutorial you add push notifications using the Apple Push Notification service (APNS) & Google Cloud Messaging to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE] This tutorial demonstrates a simplified way of sending push notifications by attaching a push notification device token to the inserted record. Be sure to follow along with the next tutorial to get a better idea of how to incorporate push notifications into your real-world apps.
-
-This tutorial walks you through these basic steps to enable push notifications:
+>[WACOM.NOTE] Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. This topic supports existing mobile services that have not yet been upgraded to use Notification Hubs integration. When you create a new mobile service, this integrated functionality is automatically enabled. You should upgrade your service to use Notification Hubs when possible. **We will work to get a tutorial available for Notification Hubs push with Appcelerator soon.**
 
 1.	[Generate the certificate signing request]
 2.	[Register your app and enable push notifications]
