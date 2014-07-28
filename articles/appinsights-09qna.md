@@ -41,6 +41,7 @@ This can happen if communication with the Application Insights portal failed, or
 
 + You have to close and open any blade where you are waiting for data. In the current version, the content of a blade doesn't refresh automatically.
 + In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
++ In your web server's firewall, you might have to open port 443 for outgoing traffic. 
 
 ## <a name="q04"></a>I see no data under Usage Analytics
 
