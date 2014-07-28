@@ -2,7 +2,14 @@
 
  
 # Get started with push notifications in Mobile Services
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS" class="current">iOS</a><a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a></div>
+<div class="dev-center-tutorial-selector sublanding">
+    <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
+    <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
+    <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+    <a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS" class="current">iOS</a>
+    <a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
+	<a href="/en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
+</div>
 
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-ios-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
 
@@ -35,33 +42,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## Configure Mobile Services to send push requests
 
-After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.
-
-1. In Keychain Access, right-click the new certificate, click **Export**, name your file QuickstartPusher, select the **.p12** format, then click **Save**.
-
-   	![][28]
-
-  Make a note of the file name and location of the exported certificate.
-
->[WACOM.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
-
-2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
-
-   	![][18]
-
-3. Click the **Push** tab and click **Upload**.
-
-   	![][19]
-
-	This displays the Upload Certificate dialog.
-
-4. Click **File**, select the exported certificate QuickstartPusher.p12 file, enter the **Password**, make sure that the correct **Mode** is selected, click the check icon, then click **Save**.
-
-   	![][20] 
-
-    > [WACOM.NOTE] This tutorial uses developement certificates.
-
-Both your mobile service is now configured to work with APNS.
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## Add push notifications to your app
 

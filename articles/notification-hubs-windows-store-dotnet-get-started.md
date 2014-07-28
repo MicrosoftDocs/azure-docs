@@ -122,7 +122,7 @@ Your notification hub is now configured to work with WNS, and you have the conne
         using Microsoft.WindowsAzure.Messaging;
 		using Windows.UI.Popups;
 
-	In an universal project, this file is located in the `<project_name>.Shared` folder.
+	In a universal project, this file is located in the `<project_name>.Shared` folder.
 
 4. Also in App.xaml.cs, add the following **InitNotificationsAsync** method definition to the **App** class:
 	
