@@ -36,7 +36,7 @@ The previous example showed a standard sign-in, which requires the client to con
                     // Create a user from the stored credentials.
                     user = new MobileServiceUser(credential.UserName);
                     credential.RetrievePassword();
-                    user.MobileServiceAuthenticationToken = credential.Password + "aa";
+                    user.MobileServiceAuthenticationToken = credential.Password;
                     
                     // Set the user from the stored credentials.
                     App.MobileService.CurrentUser = user;
