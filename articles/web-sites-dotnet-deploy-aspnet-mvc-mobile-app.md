@@ -3,7 +3,7 @@
 
 # Deploy an ASP.NET MVC 5 Mobile Web Application on Azure Web Sites
 
-***By [Cephas Lin](https://twitter.com/Cephas_MSFT) and [Rick Anderson](https://twitter.com/RickAndMSFT) Updated 21 May 2014.***
+***Updated 21 May 2014***
 
 This tutorial will teach you the basics of how to build an ASP.NET MVC 5
 Web application that is mobile-friendly and deploy it into Windows Azure. For this tutorial, you need 

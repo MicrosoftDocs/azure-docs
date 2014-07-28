@@ -10,13 +10,15 @@
 
 - **affinity group**   An *affinity group* is a geographic grouping of your cloud service deployments and storage accounts within Azure. An affinity group can improve service performance by locating computer workloads in the same data center or near the target user audience. Also, no billing charges are incurred for egress.
 
-- **storage account endpoints**   The *endpoints* for a storage account represent the highest level of the namespace for accessing blobs, tables, or queues. The default endpoints for a storage account have the following formats: 
+- **storage account endpoints**   The *endpoints* for a storage account represent the highest level of the namespace for accessing blobs, tables, queues, or files. The default endpoints for a storage account have the following formats: 
 
     - Blob service: http://*mystorageaccount*.blob.core.windows.net
 
     - Table service: http://*mystorageaccount*.table.core.windows.net
 
     - Queue service: http://*mystorageaccount*.queue.core.windows.net
+
+	- File service: http://*mystorageaccount*.file.core.windows.net
 
 - **storage account URLs**   The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
