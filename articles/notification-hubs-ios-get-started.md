@@ -12,9 +12,9 @@ This tutorial walks you through these basic steps to enable push notifications:
 1. [Generate the certificate signing request] 
 2. [Register your app and enable push notifications]
 3. [Create a provisioning profile for the app]
-4. [Configure your Notification Hub]
-5. [Connecting your app to the Notification Hub]
-6. [Send notifications from your back-end]
+4. [Configure your notification hub]
+5. [Connecting your app to the notification hub]
+6. [Send notifications from your backend]
 
 This tutorial demonstrates the simple broadcast scenario using notification hubs. Be sure to follow along with the next tutorial to learn how to use notification hubs to address specific users and groups of devices. This tutorial requires the following prerequisites:
 
@@ -33,7 +33,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 [WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
-<h2><a name="configure-hub"></a><span class="short-header">Configure your Notification Hub</span>Configure your Notification Hub</h2>
+##<a name="configure-hub"></a>Configure your notification hub
 
 1. Log on to the [Azure Management Portal], and click **+NEW** at the bottom of the screen.
 
@@ -63,7 +63,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 Your notification hub is now configured to work with APNs, and you have the connection strings to register your app and send notifications.
 
-<h2><a name="connecting-app"></a><span class="short-header">Connecting your app</span>Connecting your app to the Notification Hub</h2>
+##<a name="connecting-app"></a>Connecting your app to the notification hub
 
 1. In XCode, create a new iOS project and select the **Single View Application** template.
 
@@ -111,27 +111,31 @@ Your notification hub is now configured to work with APNs, and you have the conn
 	
 8. Run the app on your device.
 
-<h2><a name="send"></a><span class="short-header">Send notification</span>Send notification from your back-end</h2>
+##<a name="send"></a>Send notification from your backend
 
-You can send notifications using Notification Hubs from any back-end using our <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we will send notifications with a .NET console app, and with a Mobile Service using a node script.
+You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/) | [JavaScript backend](/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)).  For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP** ([Java](/en-us/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/en-us/documentation/articles/notification-hubs-php-backend-how-to/)).
 
-To send notifications using a .NET app:
+1. In Visual Studio, from the **File** menu select **New** and then **Project...**, then under **Visual C#** click **Windows** and **Console Application** and click **OK**.  
 
-1. Create a new Visual C# console application: 
+   	![][20]
 
-	![][213]
+	This creates a new console application project.
 
-2. Add a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then **Library Package Manager**, then **Package Manager Console**. Then, in the console window type:
+2. From the **Tools** menu, click **Library Package Manager** and then **Package Manager Console**.
+
+	This displays the Package Manager Console.
+
+6. In the console window, execute the following command:
 
         Install-Package WindowsAzure.ServiceBus
+    
+	This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. 
 
-	and press Enter.
-
-2. Open the file Program.cs and add the following using statement:
+5. Open the file Program.cs and add the following `using` statement:
 
         using Microsoft.ServiceBus.Notifications;
 
-3. In your `Program` class add the following method. Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab (for example, **mynotificationhub2** in the previous example):
+6. In the **Program** class, add the following method:
 
         private static async void SendNotificationAsync()
         {
@@ -140,50 +144,20 @@ To send notifications using a .NET app:
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 
-4. Then add the following line in your `Main` method:
+	Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub." 
+
+	>[WACOM.NOTE]Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
+
+5. Then add the following lines in the **Main** method:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-5. Press the F5 key to run the app. You should receive an alert on your device. If you are using Wi-fi, make sure your connection is working.
+5. Press the F5 key to run the console application. 
+ 
+	You should receive an alert on your device. If you are using Wi-fi, make sure your connection is working.
 
 You can find all the possible payloads in the Apple [Local and Push Notification Programming Guide].
-
-To send a notification using a Mobile Service, follow [Get started with Mobile Services], then:
-
-1. Log on to the [Azure Management Portal], and select your Mobile Service.
-
-2. Select the tab **Scheduler** on the top.
-
-   	![][215]
-
-3. Create a new scheduled job, insert a name, and select **On demand**.
-
-   	![][216]
-
-4. When the job is created, click the job name. Then click the tab **Script** in the top bar.
-
-5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. Click **Save**.
-
-		var azure = require('azure');
-		var notificationHubService = azure.createNotificationHubService('<Hubname>', '<SAS Full access >');
-		notificationHubService.apns.send(
-	    	null,
-    		{"aps":
-        		{
-          		"alert": "Hello from Mobile Services!"
-        		}
-    		},
-    		function (error)
-    		{
-	        	if (!error) {
-    	        	console.warn("Notification successful");
-        		}
-    		}
-		);
-
-
-6. Click **Run Once** on the bottom bar. You should receive an alert on your device.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -193,9 +167,9 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
 [Create a provisioning profile for the app]: #profile
-[Configure your Notification Hub]: #configure-hub
-[Connecting your app to the Notification Hub]: #connecting-app
-[Send notifications from your back-end]: #send
+[Configure your notification hub]: #configure-hub
+[Connecting your app to the notification hub]: #connecting-app
+[Send notifications from your backend]: #send
 [Next Steps]:#next-steps
 
 <!-- Images. -->
