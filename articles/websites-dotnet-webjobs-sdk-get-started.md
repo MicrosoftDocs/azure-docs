@@ -96,7 +96,7 @@ The code for handling typical tasks that work with Azure Storage is simple. In a
 
 The `JobHost` object is a container for a set of background functions. The `JobHost` object monitors the functions, watches for events that trigger them, and executes the functions when trigger events occur. You call a `JobHost` method to indicate whether you want the container process to run on the current thread or a background thread. In the example, the `RunAndBlock` method runs the process continuously on the current thread.
 
-Because the `ProcessQueueMessage` method in this example has a `QueueInput` attribute, the trigger for that function is the reception of a new queue message. The `JobHost` object watches for new queue messages on the specified queue ("webjobsqueue" in this sample) and when one is found, it calls `ProcessQueueMessage`. The `QueueTrigger` attribute also notifies the framework to bind the `inputText` parameter to the value of the queue message: 
+Because the `ProcessQueueMessage` method in this example has a `QueueTrigger` attribute, the trigger for that function is the reception of a new queue message. The `JobHost` object watches for new queue messages on the specified queue ("webjobsqueue" in this sample) and when one is found, it calls `ProcessQueueMessage`. The `QueueTrigger` attribute also notifies the framework to bind the `inputText` parameter to the value of the queue message: 
 
 <pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger(&quot;webjobsqueue&quot;)]] <mark>string inputText</mark>, 
     [Blob("containername/blobname")]TextWriter writer)</pre>
@@ -112,7 +112,7 @@ The function then uses these parameters to write the value of the queue message 
 
 As you can see, the trigger and binder features of the WebJobs SDK greatly simplify the code you have to write to work with Azure Storage objects. The low-level code required to handle queue and blob processing -- creating queues that don't exist yet, opening the queue, reading queue messages, deleting queue messages when processing is completed, creating blob containers that don't exist yet, writing to blobs, etc. -- is done for you by the WebJobs SDK framework.
 
-The WebJobs SDK provides many other ways to work with  Azure Storage. For example, the parameter you decorate with the `QueueInput` attribute can be a byte array or a custom type, and it is automatically deserialized from JSON. And you can use a `BlobInput` attribute to trigger a process whenever a new blob is created in your Azure Storage account. (Note that while `QueueInput` finds new queue messages within a few seconds, `BlobInput` can take up to 20 minutes to detect a new blob. `BlobInput` scans for blobs whenever the `JobHost` starts and then periodically checks the Azure Storage logs to detect new blobs.)
+The WebJobs SDK provides many other ways to work with  Azure Storage. For example, if the parameter you decorate with the `QueueTrigger` attribute is a byte array or a custom type, it is automatically deserialized from JSON. And you can use a `BlobTrigger` attribute to trigger a process whenever a new blob is created in your Azure Storage account. (Note that while `QueueTrigger` finds new queue messages within a few seconds, `BlobTrigger` can take up to 20 minutes to detect a new blob. `BlobTrigger` scans for blobs whenever the `JobHost` starts and then periodically checks the Azure Storage logs to detect new blobs.)
 
 ## <a id="contosoads"></a>Contoso Ads application architecture
 
@@ -128,9 +128,9 @@ When a user uploads an image, the frontend running in a web role stores the imag
 
 ### Alternative architecture
 
-WebJobs run in the context of a website and are not scalable independent of the website. For example, if you have one Standard website instance, you can only have 1 instance of your background process running, and it is using some of the server resources that otherwise would be available to serve web content. 
+WebJobs run in the context of a website and are not scalable independent of the website. For example, if you have one Standard website instance, you can only have 1 instance of your background process running, and it is using some of the server resources (CPU, memory, etc.) that otherwise would be available to serve web content. 
 
-If traffic varies consistently by time of day or day of week, you could schedule your WebJobs to run at low-traffic times. If the load is still too high for that solution, you can consider alternative environments for your backend process, such as the following:
+If traffic varies by time of day or day of week, and if the processing you need to do can wait, you could schedule your WebJobs to run at low-traffic times. If the load is still too high for that solution, you can consider alternative environments for your backend process, such as the following:
 
 * Run the program as a WebJob in a separate website dedicated for that purpose.
 * Run the program in an Azure Cloud Service worker role. If you choose this option, you could run the frontend in either a Cloud Service web role or a Website.
@@ -155,7 +155,7 @@ In a real-world application, you typically create separate accounts for applicat
 
 5. Set the **Region** drop-down list to the region closest to you.
 
-	This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production site you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The website (which you'll create later) should be as close as possible to the browsers accessing your site in order to minimize [latency](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
+	This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production site you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The website (which you'll create later) should be as close as possible to the browsers accessing your site in order to minimize latency.
 
 6. Set the **Replication** drop-down list to **Locally redundant**. 
 
@@ -193,7 +193,7 @@ In a real-world application, you typically create separate accounts for applicat
 
 	The SQL connection string points to a [SQL Server Express LocalDB](http://msdn.microsoft.com/en-us/library/hh510202.aspx) database.
  
-	The storage connection string has placeholders where you'll insert your storage account name and accesss key in the following steps.
+	The storage connection string has placeholders where you'll insert your storage account name and access key in the following steps.
 
 	The storage connection string is named AzureJobsStorage because that is the name the WebJobs SDK uses by default. The same name is used here so you only have to set one connection string value in the Azure environment.
  
@@ -253,7 +253,7 @@ In a real-world application, you typically create separate accounts for applicat
 
 	![Console application window showing that queue messages have been processed](./media/websites-dotnet-webjobs-sdk-get-started/backendlogs.png)
 
-3. After you see the logging messages in the console application winodw, refresh the Index page to see the thumbnail.
+3. After you see the logging messages in the console application window, refresh the Index page to see the thumbnail.
 
 	![Index page](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
 
@@ -809,7 +809,7 @@ When the WebJob starts, the `Main` method calls `Initialize` to instantiate the 
 
 This method runs when a blobnamerequest queue message is received, and it creates a new thumbnailrequest queue message that includes the blob name of the image to be converted.
 
-* The `QueueTrigger` attribute directs the WebJobs SDK to call this method when a new message is received on the blobnamerequest queue.
+* The `QueueTrigger` attribute directs the WebJobs SDK to call this method when a new message is received on the blobnamerequest queue. When the method completes, the queue message is deleted. If the method fails before completing, the queue message is not deleted; after a 10-minute lease expires, the message is released to be picked up again and processed. 
 
 * The `Queue` attribute directs the WebJobs SDK to create a new queue message and use the output `thumbnailRequest` parameter for the message content. The WebJobs SDK automatically serializes the `BlobInformation` object.
 
