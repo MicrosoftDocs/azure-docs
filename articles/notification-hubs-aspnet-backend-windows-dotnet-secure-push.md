@@ -2,6 +2,11 @@
 
 #Azure Notification Hubs Secure Push
 
+<div class="dev-center-tutorial-selector sublanding"> 
+    	<a href="/en-us/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal" class="current">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
+		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
+</div>
+
 Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. 
 
 Due to regulatory or security constraints, sometimes an application might want to include something in the notification that cannot be transmitted through the standard push notification infrastructure. This tutorial describes how to achieve the same experience by sending sensitive information through a secure, authenticated connection between the client device and the app backend.
@@ -22,85 +27,15 @@ This Secure Push tutorial shows how to send a push notification securely. The tu
 > [AZURE.NOTE] This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Windows Store)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
 Also, note that Windows Phone 8.1 requires Windows (not Windows Phone) credentials, and that background tasks do not work on Windows Phone 8.0 or Silverlight 8.1. For Windows Store applications, you can receive notifications via a background task only if the app is lock-screen enabled (click the checkbox in the Appmanifest).
 
-## WebAPI Project
-
-1. In Visual Studio, open the **AppBackend** project that you created in the **Notify Users** tutorial.
-2. In Notifications.cs, replace the whole **Notifications** class with the following code. Be sure to replace the placeholders with your connection string (with full access) for your notification hub, and the hub name. You can obtain these values from the [Azure Management Portal](http://manage.windowsazure.com). This module now represents the different secure notifications that will be sent. In a complete implementation, the notifications will be stored in a database; for simplicity, in this case we store them in memory.
-
-		public class Notification
-	    {
-	        public int Id { get; set; }
-	        public string Payload { get; set; }
-	        public bool Read { get; set; }
-	    }
-    
-    
-	    public class Notifications
-	    {
-	        public static Notifications Instance = new Notifications();
-	        
-	        private List<Notification> notifications = new List<Notification>();
-	
-	        public NotificationHubClient Hub { get; set; }
-	
-	        private Notifications() {
-	            Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", 	"{hub name}");
-	        }
-
-	        public Notification CreateNotification(string payload)
-	        {
-	            var notification = new Notification() {
-                Id = notifications.Count,
-                Payload = payload,
-                Read = false
-            	};
-
-            	notifications.Add(notification);
-
-            	return notification;
-	        }
-
-	        public Notification ReadNotification(int id)
-	        {
-	            return notifications.ElementAt(id);
-	        }
-	    }
-
-20. In NotificationsController.cs, replace the code inside the **NotificationsController** class definition with the following code. This component implements a way for the device to retrieve the notification securely, and also provides a way (for the purposes of this tutorial) to trigger a secure push to your devices. Note that when sending the notification to the notification hub, we only send a raw notification with the ID of the notification (and no actual message):
-
-		public NotificationsController()
-        {
-            Notifications.Instance.CreateNotification("This is a secure notification!");
-        }
-
-        // GET api/notifications/id
-        public Notification Get(int id)
-        {
-            return Notifications.Instance.ReadNotification(id);
-        }
-
-        public async Task<HttpResponseMessage> Post()
-        {
-            var secureNotificationInTheBackend = Notifications.Instance.CreateNotification("Secure confirmation.");
-            var rawNotificationToBeSent = new Microsoft.ServiceBus.Notifications.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
-                new Dictionary<string, string> {
-                    {"X-WNS-Type", "wns/raw"}
-            });
-            var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
-            await Notifications.Instance.Hub.SendNotificationAsync(rawNotificationToBeSent, usernameTag);
-
-            return Request.CreateResponse(HttpStatusCode.OK);
-        }
-
-22. Note that the `Post` method now does not send a toast notification. It sends a raw notification that contains only the notification ID, and not any sensitive content.
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modify the Windows Phone Project
 
-18. In the **NotifyUserWindowsPhone** project, add the following code to App.xaml.cs to register the push background task. Add the following line of code at the end of the `OnLaunched()` method:
+1. In the **NotifyUserWindowsPhone** project, add the following code to App.xaml.cs to register the push background task. Add the following line of code at the end of the `OnLaunched()` method:
 
 		RegisterBackgroundTask();
 
-19. Still in App.xaml.cs, add the following code immediately after the `OnLaunched()` method:
+2. Still in App.xaml.cs, add the following code immediately after the `OnLaunched()` method:
 
 		private async void RegisterBackgroundTask()
         {
@@ -116,12 +51,12 @@ Also, note that Windows Phone 8.1 requires Windows (not Windows Phone) credentia
             }
         }
 
-20. Add the following `using` statements at the top of the App.xaml.cs file:
+3. Add the following `using` statements at the top of the App.xaml.cs file:
 
 		using Windows.Networking.PushNotifications;
 		using Windows.ApplicationModel.Background;
 
-21. From the **File** menu in Visual Studio, click **Save All**.
+4. From the **File** menu in Visual Studio, click **Save All**.
 		
 ## Create the Push Background Component
 
@@ -135,7 +70,7 @@ The next step is to create the push background component.
 
 3. In Solution Explorer, right-click the **PushBackgroundComponent (Windows Phone 8.1)** project, then click **Add**, then click **Class**. Name the new class **PushBackgroundTask.cs**. Click **Add** to generate the class.
 
-4. Replace the entire contents of the **PushBackgroundComponent** namespace definition with the following code. Be sure to replace `[yourPortNum]` with the number of your localhost port:
+4. Replace the entire contents of the **PushBackgroundComponent** namespace definition with the following code, substituting the placeholder `{back-end endpoint}` with the back-end endpoint obtained while deploying your back-end:
 
 		public sealed class Notification
     		{
@@ -146,7 +81,7 @@ The next step is to create the push background component.
     
 		    public sealed class PushBackgroundTask : IBackgroundTask
     		{
-        		private string GET_URL = "http://localhost:[yourPortNum]/api/notifications/";
+        		private string GET_URL = "{back-end endpoint}/api/notifications/";
 		
         		async void IBackgroundTask.Run(IBackgroundTaskInstance taskInstance)
 		        {
