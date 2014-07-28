@@ -118,7 +118,7 @@ You can send notifications using Notification Hubs from any back-end using the <
 
 1. Right-click the solution, select **Add** and **New Project...**, then under **Visual C#** click **Windows** and **Console Application** and click **OK**. 
 
-   	![][13]
+   	![][6]
 
 	This adds a new Visual C# console application to the solution. You can also do this in a separate solution. 
 
@@ -177,7 +177,7 @@ In this simple example you broadcast notifications to all your Windows Phone 8 d
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-
+[6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
 [7]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
 [8]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal2.png
 [9]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal.png
