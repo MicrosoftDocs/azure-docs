@@ -8,7 +8,7 @@ You have many options for deploying your own content to an Azure Web site. This 
 	* Visual Studio Online (VSO)
 	* Repository web sites using Git
 	* Repository web sites using Mercurial
-    * Dropbox
+	* Dropbox
 * [Deploying from an IDE](#ide)
 	* Visual Studio
 	* WebMatrix
@@ -49,7 +49,7 @@ For more information, see the following resources:
 
 * [Publishing from Source Control to Azure Web Sites](/en-us/documentation/articles/web-sites-publish-source-control/). How to use Git to publish directly from your local computer to an Azure Web Site (in Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.
 * [Deploying to Web Sites with GitHub using Kudu](/en-us/documentation/videos/deploying-to-azure-from-github/). Video by Scott Hanselman and David Ebbo that shows how to deploy a web site directly from GitHub to an Azure Web Site.
-* [Azure Forum for Git, Mercurial, and DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
+* [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
 ###<a name="mercurial"></a>Repository web sites using Mercurial
 
@@ -58,15 +58,15 @@ If you use [Mercurial](http://mercurial.selenic.com/) as your source control sys
 For information about how to deploy using Mercurial, see the following resources:
 
 * [Publishing from Source Control to Azure Web Sites](/en-us/documentation/articles/web-sites-publish-source-control/). Although this tutorial shows how to publish a Git repository, the process for Mercurial repositories hosted in CodePlex or BitBucket is similar.
-* [Azure Forum for Git, Mercurial, and DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
+* [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
-###<a name="dropbox"></a>DropBox
+###<a name="dropbox"></a>Dropbox
 
-[DropBox](https://www.dropbox.com/) is not a source control system, but if you store your source code in DropBox you can automate deployment from your DropBox account.
+[Dropbox](https://www.dropbox.com/) is not a source control system, but if you store your source code in Dropbox you can automate deployment from your Dropbox account.
 
-* [Deploy To Windows Azure Using Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). How to use the Azure Management Portal to set up DropBox deployment.
-* [DropBox and Azure Web Sites](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). This video walks through the process of connecting a DropBox folder to an Azure Web Site, and shows how quickly you can get a web site up and running or maintain it using simple drag-and-drop deployment.
-* [Azure Forum for Git, Mercurial, and DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
+* [Deploy To Windows Azure Using Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). How to use the Azure Management Portal to set up Dropbox deployment.
+* [Dropbox and Azure Web Sites](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). This video walks through the process of connecting a Dropbox folder to an Azure Web Site, and shows how quickly you can get a web site up and running or maintain it using simple drag-and-drop deployment.
+* [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
 
 
@@ -144,7 +144,7 @@ For more information, see the following resources:
 
 * [Publishing from Source Control to Azure Web Sites](/en-us/documentation/articles/web-sites-publish-source-control/). How to use Git to publish directly from your local computer to an Azure Web Site (in Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.
 * [Publishing to Azure Web Sites from any git/hg repo](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html). Blog by David Ebbo that explains the "External Repository" feature in Azure Web Sites.
-* [Azure Forum for Git, Mercurial, and DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
+* [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 * [Deploying TWO websites to Azure from one Git Repository](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Blog post by Scott Hanselman.
 
 
