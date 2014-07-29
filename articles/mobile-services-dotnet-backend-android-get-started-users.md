@@ -48,11 +48,6 @@ Next, you will update the app to authenticate users before requesting resources 
 
 [WACOM.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
-<!--
-##<a name="store-authentication"></a>Storing authentication tokens in your app
-
-[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)]
--->
 
 ##<a name="next-steps"></a>Next steps
 
