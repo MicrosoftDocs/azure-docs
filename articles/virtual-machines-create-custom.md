@@ -4,7 +4,7 @@
 
 A *custom* virtual machine refers to a virtual machine you create using the **From Gallery** option because it gives you more configuration choices than the **Quick Create** option. These  include:
 
-- More choices for the image to use to create the virtual machine (VM)
+- More image choices for creating the virtual machine (VM)
 - Connecting the VM to a virtual network
 - Installing the VM Agent and extensions, such as for antimalware 
 - Adding the VM to an existing cloud service 
