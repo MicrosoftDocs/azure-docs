@@ -1,29 +1,36 @@
-<properties title="Application Insights SDK" pageTitle="Application Insights SDK" description="Log user activities and diagnostic events." metaKeywords="analytics monitoring application insights" authors="awills"  />
+<properties title="Track usage with custom events and metrics" pageTitle="Track usage with custom events and metrics" description="Log user activities." metaKeywords="analytics monitoring application insights" authors="awills"  />
  
-# Application Insights SDK
+# Track usage with custom events and metrics
 
 ### Coming soon
 
-The Application Insights SDK lets you insert lines of code into your application to monitor user activities and log diagnostic data.
+The Application Insights SDK lets you insert lines of code into your application to monitor user activities, so that you can tune your app to their needs.
 
-But although you can write the code, there aren't any reports to show the data. Application Insights is currently being ported from Visual Studio Online to Microsoft Azure. The reports are still on their way over.... 
+We're currently still porting this feature over to the new Application Insights portal in Microsoft Azure. (If you want, you can [see how it works in the old portal](http://msdn.microsoft.com/library/dn481100.aspx).)
 
-However, one thing you can do right now is to [capture and search diagnostic event logs generated with Trace, NLog or Log4Net][diagnostics]. 
+However, one thing you can do right now is to [capture and search diagnostic event logs generated with Trace, NLog or Log4Net][diagnostic]. 
 
-#### Configuration file
 
-By editing ApplicationInsights.config, you can configure how your application is monitored. We're working on the details.
 
 ## Application Insights
 
-* [Set up monitoring in a new project](../appinsights-01-start/)
-* [Add monitoring to an existing project](../appinsights-02-existing/)
-* [Set up availability and responsiveness tests](../appinsights-10Avail/)
-* [Search diagnostic logs](../appinsights-24diagnostics/)
-* [Application Insights SDK](../appinsights-90SDK/)
+* [Application Insights][root]
+* [Add Application Insights to your project][start]
+* [Monitor a live web server now][redfield]
+* [Explore metrics in Application Insights][explore]
+* [Diagnostic log search][diagnostic]
+* [Availability tracking with web tests][availability]
+* [Usage tracking with events and metrics][usage]
+* [Q & A and troubleshooting][qna]
 
 
 <!--Link references-->
-[diagnostics]: ../appinsights-24diagnostics/
 
-
+[root]: ../appinsights-basics/
+[start]: ../appinsights-web-get-started/
+[redfield]: ../appinsights-get-started-monitor-live-website-now/
+[explore]: ../appinsights-explore-metrics/
+[diagnostic]: ../appinsights-search-diagnostic-logs/ 
+[availability]: ../appinsights-web-monitor-availability/
+[usage]: ../appinsights-web-track-usage/
+[qna]: ../appinsights-troubleshoot-faq/

@@ -1,6 +1,6 @@
 <properties title="Monitor your app's health and usage with Application Insights" pageTitle="Monitor your app's health and usage with Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
  
-# Monitor your application's health and usage with Application Insights
+#Get started with Application Insights
 
 *Application Insights is in preview.*
 
@@ -17,6 +17,7 @@ You'll need [Visual Studio Update 3](http://go.microsoft.com/fwlink/?LinkId=3978
 + [Deploy your application](#deploy)
 + [Next steps](#next)
 
+*Alternatively, if you want to monitor an existing web service without redeploying it or using Visual Studio, you can [install an agent on the server][redfield].*
 
 ## <a name="add"></a>1. Add Application Insights
 
@@ -57,7 +58,7 @@ Look for data in the  Application health and Usage analytics tiles. For example:
 
 ![Click through to more data](./media/appinsights/appinsights-05-usageTiles.png)
 
-Click any tile to see more detail. [Learn more about the tiles and reports.][monitor]
+Click any tile to see more detail. [Learn more about the tiles and reports.][explore]
 
 > [WACOM.NOTE] Many of the tiles show limited detail in this preview version. 
 
@@ -68,22 +69,36 @@ Deploy your application and watch the data accumulate.
 
 ## <a name="next"></a>Next steps
 
-[Learn more about the tiles and reports][monitor]
+[Learn more about the tiles and reports][explore]
 
-[Web tests]
+[Web tests][availability]
 
-[Capture and search diagnostic logs][diagnostics]
+[Capture and search diagnostic logs][diagnostic]
 
-[Troubleshooting][trouble]
+[Troubleshooting][qna]
+
+## Learn more
+
+* [Application Insights][root]
+* [Add Application Insights to your project][start]
+* [Monitor a live web server now][redfield]
+* [Explore metrics in Application Insights][explore]
+* [Diagnostic log search][diagnostic]
+* [Availability tracking with web tests][availability]
+* [Usage tracking with events and metrics][usage]
+* [Q & A and troubleshooting][qna]
 
 
 <!--Link references-->
-[Web tests]: ../appinsights-10Avail/
-[monitor]: ../appinsights-04monitor/
-[existing]: ../appinsights-02-existing/
-[diagnostics]: ../appinsights-24diagnostics/
-[trouble]: ../appinsights-09qna/
 
+[root]: ../appinsights-basics/
+[start]: ../appinsights-web-get-started/
+[redfield]: ../appinsights-get-started-monitor-live-website-now/
+[explore]: ../appinsights-explore-metrics/
+[diagnostic]: ../appinsights-search-diagnostic-logs/ 
+[availability]: ../appinsights-web-monitor-availability/
+[usage]: ../appinsights-web-track-usage/
+[qna]: ../appinsights-troubleshoot-faq/
 
 
 
