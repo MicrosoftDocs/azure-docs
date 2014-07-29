@@ -9,7 +9,7 @@ Puppet is a client-server system. Puppet Master and the Puppet Enterprise Agent 
 - Puppet Master is available as a pre-configured image, installed on an Ubuntu server. You also can install Puppet Enterprise on an existing server, but using the image is the simplest way to get started. You'll need information about the server to set up the agent. 
 - Puppet Enterprise Agent is available as a virtual machine extension that you can install when you create a virtual machine, or install on an existing virtual machine.
 
-For instructions, download the "Getting Started Guide" available from  the [Microsoft Windows and Azure](http://puppetlabs.com/solutions/microsoft) page.  
+For instructions, download the "Getting Started Guide" available from the [Microsoft Windows and Azure](http://puppetlabs.com/solutions/microsoft) page.  
 
 
 ##Additional Resources

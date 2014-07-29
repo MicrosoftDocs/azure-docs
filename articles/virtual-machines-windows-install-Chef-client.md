@@ -4,7 +4,7 @@
 
 <p>Chef provides an automation system for building, deploying, and managing your infrastructure. Resources are managed using recipes, which are reusable definitions that provide instructions for tasks such as configuring a web server.   
 
-Chef is a client-server system. To find out your options for a Chef server, see [Choose your installation](http://www.getchef.com/chef/choose-your-version/). You'll need information about the Chef server to set up the client. To install Chef client on an Azure virtual machine, you have the following choices:
+Chef is a client-server system. To find out your options for using a Chef server, see [Choose your installation](http://www.getchef.com/chef/choose-your-version/). You'll need information about the Chef server to set up the client. To install Chef client on an Azure virtual machine, you have the following choices:
 
 - Use the Management Portal to install the Chef client when you create a virtual machine running Windows Server 2012 or Windows Server 2012 R2. For instructions, see [Microsoft Azure Portal](http://docs.opscode.com/azure_portal.html).
 - Use Windows PowerShell to install the Chef client on an existing virtual machine. A sample [script](https://gist.github.com/kaustubh-d/cea1aa75baebd3615609) is available on Github.
