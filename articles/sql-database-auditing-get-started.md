@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--<properties title="Get Started with Azure SQL Database Auditing" pageTitle="Get Started with Azure SQL Database Auditing" description="Step by step instructions for setting up and using the auditing features of Azure SQL Database, Microsoft's relational database-as-a-service in the cloud." metaKeywords="cloud, SQL, auditing" services="SQL Database" solutions="Data and Analytics" documentationCenter="" authors="Jeff Gollnick, Ronit Reger" videoId="" scriptId="" />-->
 
 #Get Started with Azure SQL Database Auditing
@@ -72,3 +73,9 @@ The template has fictional sample data in it, and you can set up Power Query to 
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+=======
+<properties title="Get started with SQL database auditing" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId=""  />
+ 
+# Get started with SQL database auditing 
+
+>>>>>>> 411e1759a3555385f460cb977a1b3fee7db266e5
