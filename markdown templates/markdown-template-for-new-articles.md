@@ -99,9 +99,9 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 [Next steps]: #next-steps
 
 <!--Image references-->
-[5]: ./media/0-markdown-template-for-new-articles/octocats.png
-[6]: ./media/0-markdown-template-for-new-articles/pretty49.png
-[7]: ./media/0-markdown-template-for-new-articles/channel-9.png
+[5]: ./media/markdown-template-for-new-articles/octocats.png
+[6]: ./media/markdown-template-for-new-articles/pretty49.png
+[7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
 <!--Link references-->
