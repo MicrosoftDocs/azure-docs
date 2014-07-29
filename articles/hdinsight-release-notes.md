@@ -3,6 +3,23 @@
 
 #Microsoft HDInsight release notes
 
+## Notes for 7/28/2014 release ##
+
+* **HDInsight Available in New Regions**: With this release, we have expanded HDInsight geographical presence to three new regions. HDInsight customers can now create clusters in these regions. 
+	* East Asia, 
+	* North Central US and 
+	* South Central US. 
+* Hortonworks Data Platform (HDP) changes in this release: 
+
+<table border="1">
+<tr><th>HDP</th><th>Changes</th></tr>
+<tr><td>HDP 1.3 / HDI 2.1</td><td>No changes</td></tr>
+<tr><td>HDP 2.0 / HDI 3.0</td><td>No changes</td></tr>
+<tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
+
+
+</table><br>
+
 ## Notes for 6/24/2014 release ##
 
 This release contains several new enhancements to HDInsight service: 
