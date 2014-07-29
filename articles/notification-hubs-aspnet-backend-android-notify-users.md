@@ -117,20 +117,20 @@ The next step is to create the Android application.
 			}
 			
 			public void register(String handle, Set<String> tags) throws ClientProtocolException, IOException, JSONException {
-				String registrationId = retrieveRegistrationIdOrRequestNewOne();
-		
+				String registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
+
 				JSONObject deviceInfo = new JSONObject();
 				deviceInfo.put("Platform", "gcm");
 				deviceInfo.put("Handle", handle);
 				deviceInfo.put("Tags", new JSONArray(tags));
-		
+
 				int statusCode = upsertRegistration(registrationId, deviceInfo);
 				
 				if (statusCode == HttpStatus.SC_OK) {
 					return;
 				} else if (statusCode == HttpStatus.SC_GONE){
 					settings.edit().remove(REGID_SETTING_NAME).commit();
-					registrationId = retrieveRegistrationIdOrRequestNewOne();
+					registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
 					statusCode = upsertRegistration(registrationId, deviceInfo);
 					if (statusCode != HttpStatus.SC_OK) {
 						Log.e("RegisterClient", "Error upserting registration: " + statusCode);
@@ -141,7 +141,7 @@ The next step is to create the Android application.
 					throw new RuntimeException("Error upserting registration");
 				}
 			}
-		
+
 			private int upsertRegistration(String registrationId, JSONObject deviceInfo)
 					throws UnsupportedEncodingException, IOException,
 					ClientProtocolException {
@@ -153,12 +153,12 @@ The next step is to create the Android application.
 				int statusCode = response.getStatusLine().getStatusCode();
 				return statusCode;
 			}
-		
-			private String retrieveRegistrationIdOrRequestNewOne() throws ClientProtocolException, IOException {
+
+			private String retrieveRegistrationIdOrRequestNewOne(String handle) throws ClientProtocolException, IOException {
 				if (settings.contains(REGID_SETTING_NAME))
 					return settings.getString(REGID_SETTING_NAME, null);
 				
-				HttpUriRequest request = new HttpPost(BACKEND_ENDPOINT);
+				HttpUriRequest request = new HttpPost(BACKEND_ENDPOINT+"?handle="+handle);
 				request.addHeader("Authorization", "Basic "+authorizationHeader);
 				HttpResponse response = httpClient.execute(request);
 				if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {

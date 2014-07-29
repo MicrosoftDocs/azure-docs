@@ -237,7 +237,7 @@ The **Analytics** section has the following four tabs.
 
 -	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
 
-[Azure Free Trial]: http://www.windowsazure.com/en-us/pricing/free-trial/
+[Azure Free Trial]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
 [Create an API Management instance]: #create-service-instance
 [Create an API]: #create-api
