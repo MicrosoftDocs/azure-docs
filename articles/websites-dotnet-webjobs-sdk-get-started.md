@@ -14,18 +14,21 @@ You can [download the Visual Studio project][download] from the MSDN Code Galler
 
 ## Table of Contents
 
-If you prefer to skip the introductory text and get started working with the code, make sure that you have the [Prerequisites](#prerequisites) and then go directly to [Set up the development environment](#setupdevenv).
+The tutorial includes the following sections:
 
 - [Prerequisites](#prerequisites)
-- [What You'll Learn](#learn)
-- [The WebJobs SDK](#webjobssdk)
-- [Contoso Ads application architecture](#contosoads)
+- Introduction
+	- [What You'll Learn](#learn)
+	- [The WebJobs SDK](#webjobssdk)
+	- [Contoso Ads application architecture](#contosoads)
 - [Set up the development environment](#setupdevenv)
-- [Create an Azure Storage account](#storage)
-- [Configure the application to use your storage account](#configurestorage)
-- [Run the application locally](#runlocal)
-- [Deploy the application to Azure](#deploy)
+- Build, run, and deploy the application
+	- [Create an Azure Storage account](#storage)
+	- [Configure the application to use your storage account](#configurestorage)
+	- [Run the application locally](#runlocal)
+	- [Deploy the application to Azure](#deploy)
 - [Create the application from scratch](#create)
+- [Review the application code](#code)
 - [Troubleshoot](#troubleshoot)
 - [Next Steps](#next-steps)
 
@@ -44,7 +47,7 @@ If you don't have one of these, Visual Studio 2013 Express for web will be insta
 
 ## <a id="learn"></a>What you'll learn
 
-The tutorial begins with an introduction to the WebJobs SDK, and then it shows how to do the following tasks:
+The tutorial shows how to do the following tasks:
 
 * Enable your machine for Azure development by installing the Azure SDK.
 * Create a Console Application project that automatically deploys as an Azure WebJob when you deploy the associated web project.
@@ -53,16 +56,16 @@ The tutorial begins with an introduction to the WebJobs SDK, and then it shows h
 * Upload files and store them in the Azure Blob service.
 * Use the Azure WebJobs SDK to work with Azure Storage queues and blobs.
 
-## <a id="webjobssdk"></a>The WebJobs SDK 
+## <a id="webjobssdk"></a>Introduction to the WebJobs SDK 
 
 [WebJobs](/en-us/documentation/articles/web-sites-create-web-jobs/) is a feature of Azure Websites that enables you to run a program or script in the same context as your website. You don't have to use the WebJobs SDK in order to run a program as a WebJob. The purpose of the WebJobs SDK is to simplify the task of writing code that works with Azure Storage queues, blobs, and tables, and Service Bus queues.
  
 The WebJobs SDK includes the following components:
 
-* NuGet packages. NuGet packages that you add to a Visual Studio project provide a framework that your code uses to work with the Azure Storage service or Service Bus queues.
-* Dashboard. Part of the WebJobs SDK is included in Azure Websites and provides rich monitoring and diagnostics for the programs that you write by using the NuGet packages. You don't have to write code to use these monitoring and diagnostics features.
+* **NuGet packages**. NuGet packages that you add to a Visual Studio project provide a framework that your code uses to work with the Azure Storage service or Service Bus queues.
+* **Dashboard**. Part of the WebJobs SDK is included in Azure Websites and provides rich monitoring and diagnostics for the programs that you write by using the NuGet packages. You don't have to write code to use these monitoring and diagnostics features.
 
-You can run a program that uses the WebJobs SDK NuGet packages anywhere; it does not have to run as an Azure WebJob. However, the Dashboard is only available as a site extension for a Azure Website. For example, you can run a program that uses the WebJobs SDK locally on the development computer or in an Azure Cloud Service worker role. You could then get monitoring information by configuring the WebJobs SDK dashboard of an Azure Website to use the same storage account that your WebJobs SDK program uses.
+You can run a program that uses the WebJobs SDK NuGet packages anywhere; it does not have to run as an Azure WebJob. However, the Dashboard is only available as a site extension for an Azure Website. For example, you can run a program that uses the WebJobs SDK locally on the development computer or in an Azure Cloud Service worker role. You could then get monitoring information by configuring the WebJobs SDK dashboard of an Azure Website to use the same storage account that your WebJobs SDK program uses.
 
 As this tutorial is being written, the WebJobs SDK is a beta release. It is not supported for production use.
 
@@ -110,32 +113,32 @@ The function then uses these parameters to write the value of the queue message 
 
 		writer.WriteLine(inputText);
 
-As you can see, the trigger and binder features of the WebJobs SDK greatly simplify the code you have to write to work with Azure Storage objects. The low-level code required to handle queue and blob processing -- creating queues that don't exist yet, opening the queue, reading queue messages, deleting queue messages when processing is completed, creating blob containers that don't exist yet, writing to blobs, etc. -- is done for you by the WebJobs SDK framework.
+As you can see, the trigger and binder features of the WebJobs SDK greatly simplify the code you have to write to work with Azure Storage objects. The low-level code required to handle queue and blob processing is done for you by the WebJobs SDK framework -- the framework creates queues that don't exist yet, opens the queue, reads queue messages, deletes queue messages when processing is completed, creates blob containers that don't exist yet, writes to blobs, and so on.
 
-The WebJobs SDK provides many other ways to work with  Azure Storage. For example, if the parameter you decorate with the `QueueTrigger` attribute is a byte array or a custom type, it is automatically deserialized from JSON. And you can use a `BlobTrigger` attribute to trigger a process whenever a new blob is created in your Azure Storage account. (Note that while `QueueTrigger` finds new queue messages within a few seconds, `BlobTrigger` can take up to 20 minutes to detect a new blob. `BlobTrigger` scans for blobs whenever the `JobHost` starts and then periodically checks the Azure Storage logs to detect new blobs.)
+The WebJobs SDK provides many ways to work with  Azure Storage. For example, if the parameter you decorate with the `QueueTrigger` attribute is a byte array or a custom type, it is automatically deserialized from JSON. And you can use a `BlobTrigger` attribute to trigger a process whenever a new blob is created in your Azure Storage account. (Note that while `QueueTrigger` finds new queue messages within a few seconds, `BlobTrigger` can take up to 20 minutes to detect a new blob. `BlobTrigger` scans for blobs whenever the `JobHost` starts and then periodically checks the Azure Storage logs to detect new blobs.)
 
 ## <a id="contosoads"></a>Contoso Ads application architecture
 
-The sample application uses the [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process. 
+The sample application uses the [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a backend process. 
 
 The app stores ads in a SQL database, using Entity Framework Code First to create the tables and access the data. For each ad the database stores two URLs, one for the full-size image and one for the thumbnail.
 
 ![Ad table](./media/websites-dotnet-webjobs-sdk-get-started/adtable.png)
 
-When a user uploads an image, the frontend running in a web role stores the image in an [Azure blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and it stores the ad information in the database with a URL that points to the blob. At the same time, it writes a message to an Azure queue. A back-end process running as an Azure WebJob uses the WebJobs SDK to poll the queue for new messages. When a new message appears, the WebJob creates a thumbnail for that image and updates the thumbnail URL database field for that ad. Here's a diagram that shows how the parts of the application interact:
+When a user uploads an image, the frontend website stores the image in an [Azure blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and it stores the ad information in the database with a URL that points to the blob. At the same time, it writes a message to an Azure queue. A backend process running as an Azure WebJob uses the WebJobs SDK to poll the queue for new messages. When a new message appears, the WebJob creates a thumbnail for that image and updates the thumbnail URL database field for that ad. Here's a diagram that shows how the parts of the application interact:
 
 ![Contoso Ads architecture](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
 ### Alternative architecture
 
-WebJobs run in the context of a website and are not scalable independent of the website. For example, if you have one Standard website instance, you can only have 1 instance of your background process running, and it is using some of the server resources (CPU, memory, etc.) that otherwise would be available to serve web content. 
+WebJobs run in the context of a website and are not scalable separately. For example, if you have one Standard website instance, you can only have 1 instance of your background process running, and it is using some of the server resources (CPU, memory, etc.) that otherwise would be available to serve web content. 
 
-If traffic varies by time of day or day of week, and if the processing you need to do can wait, you could schedule your WebJobs to run at low-traffic times. If the load is still too high for that solution, you can consider alternative environments for your backend process, such as the following:
+If traffic varies by time of day or day of week, and if the backend processing you need to do can wait, you could schedule your WebJobs to run at low-traffic times. If the load is still too high for that solution, you can consider alternative environments for your backend program, such as the following:
 
-* Run the program as a WebJob in a separate website dedicated for that purpose.
+* Run the program as a WebJob in a separate website dedicated for that purpose. You can then scale your backend website independently from your frontend website.
 * Run the program in an Azure Cloud Service worker role. If you choose this option, you could run the frontend in either a Cloud Service web role or a Website.
 
-This tutorial shows how to run the front-end in a website and the backend as a WebJob in the same website. For information about how to choose the best environment for your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
+This tutorial shows how to run the frontend in a website and the backend as a WebJob in the same website. For information about how to choose the best environment for your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
 
 [WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
@@ -223,19 +226,19 @@ In a real-world application, you typically create separate accounts for applicat
 
 	By default, the WebJobs SDK looks for connection strings named AzureJobsStorage and AzureJobsDashboard. As an alternative, you can store the connection string however you want and pass it in explicitly to the `JobHost` object.
 
-1. Replace all occurrences of *[accountname]* and *[accesskey]* with the values for your storage account, as you did for the web project.
+1. Replace all occurrences of *[accountname]* and *[accesskey]* with the values for your storage account, as you did for the web project. (Or you can copy the completed connection string from the *Web.config* file into both *App.config* file connection strings.)
 
 5. Save your changes.
 
 ## <a id="run"></a>Run the application locally
 
-1. To start the web frontend of the application, press CTRL+F5. (You've set the web project as the startup project.)
+1. To start the web frontend of the application, press CTRL+F5. 
 
-	The default browser opens to the home page.
+	The default browser opens to the home page. (The web project runs because you've made it the startup project.)
 
 	![Contoso Ads home page](./media/websites-dotnet-webjobs-sdk-get-started/home.png)
 
-2. To start the WebJob back-end of the application, right-click the ContosoAdsWebJob project in **Solution Explorer**, and then click **Debug** > **Start new instance**.
+2. To start the WebJob backend of the application, right-click the ContosoAdsWebJob project in **Solution Explorer**, and then click **Debug** > **Start new instance**.
 
 	A console application window opens and starts to slowly display a string of periods to show that it is running.
 
@@ -249,9 +252,9 @@ In a real-world application, you typically create separate accounts for applicat
 
 	The app goes to the Index page, but it doesn't show a thumbnail for the new ad because that processing hasn't happened yet.
 
-	Meanwhile, logging messages in the console application window show that two queue messages have been processed: one to calculate the blob name and one to generate the thumbnail.   
+	Meanwhile, logging messages in the console application window show that a queue message was received and has been processed.   
 
-	![Console application window showing that queue messages have been processed](./media/websites-dotnet-webjobs-sdk-get-started/backendlogs.png)
+	![Console application window showing that a queue message has been processed](./media/websites-dotnet-webjobs-sdk-get-started/backendlogs.png)
 
 3. After you see the logging messages in the console application window, refresh the Index page to see the thumbnail.
 
@@ -276,7 +279,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 1. Close the browser and the console application window.
 
-3.	In **Solution Explorer**, right-click the ContosoAdsWeb project, and then click **Publish**.
+3. In **Solution Explorer**, right-click the ContosoAdsWeb project, and then click **Publish**.
 
 3. In the **Profile** step of the **Publish Web** wizard, click **Microsoft Azure Websites**.
 
@@ -354,7 +357,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 	Azure automatically created this connection string when you created the site with an associated database, so it already has the right connection string value. You're just changing the name to what your code is looking for.
 
-9. Add two new connection strings, named AzureJobsStorage and AzureJobsDashboard. Set type to Custom and set the connection string value to the same value that you used earlier for the *Web.config* and *App.config* files (don't include the quotation marks).
+9. Add two new connection strings, named AzureJobsStorage and AzureJobsDashboard. Set type to Custom, and set the connection string value to the same value that you used earlier for the *Web.config* and *App.config* files. (Make sure you include the entire connection string, not just the access key, and don't include the quotation marks.)
 
 	These connection strings are used by the WebJobs SDK, one for application data and one for logging. As you saw earlier, the one for application data is also used by the web frontend code.
 	
@@ -503,7 +506,8 @@ To add files to a project or a folder, right-click the project or folder and cli
 3. In the ContosoAdsCommon project, delete the *Class1.cs* file and add in its place the following files from the downloaded project.
 
 	- *Ad.cs*
-	- *ContosoAdscontext.cs*<br/><br/>
+	- *ContosoAdscontext.cs*
+	- *BlobInformation.cs*<br/><br/>
 
 3. In the ContosoAdsWeb project, add the following files from the downloaded project.
 
@@ -518,9 +522,10 @@ To add files to a project or a folder, right-click the project or folder and cli
 
 	- *App.config*
 	- *Program.cs*
-	- *BlobInformation.cs*
 
 You can now build, run, and deploy the application as instructed earlier in the tutorial.
+
+## <a id="code"></a>Review the application code
 
 The following sections explain the code related to working with the WebJobs SDK and Azure Storage blobs and queues. For the code specific to the WebJobs SDK, see the [Program.cs section](#programcs).
 
@@ -590,6 +595,32 @@ The ContosoAdsContext class specifies that the Ad class is used in a DbSet colle
 		}
  
 The class has two constructors. The first of them is used by the web project, and specifies the name of a connection string that is stored in the Web.config file or the Azure runtime environment. The second constructor enables you to pass in the actual connection string. That is needed by the WebJob project, since it doesn't have a Web.config file. You saw earlier where this connection string was stored, and you'll see later how the code retrieves the connection string when it instantiates the DbContext class.
+
+### ContosoAdsWebJob - BlobInformation.cs
+
+The `BlobInformation` class is used to store information about an image blob in a queue message.
+
+		public class BlobInformation
+		{
+		    public Uri BlobUri { get; set; }
+		    
+		    public string BlobName
+		    {
+		        get
+		        {
+		            return BlobUri.Segments[BlobUri.Segments.Length - 1];
+		        }
+		    }
+		    public string BlobNameWithoutExtension
+		    {
+		        get
+		        {
+		            return Path.GetFileNameWithoutExtension(BlobName);
+		        }
+		    }
+		    public int AdId { get; set; }
+		}
+
 
 ### ContosoAdsWeb - Global.asax.cs
 
@@ -679,9 +710,9 @@ The code that does the upload is in the `UploadAndSaveBlobAsync` method. It crea
 
 After the HttpPost `Create` method uploads a blob and updates the database, it creates a queue message to inform the back-end process that an image is ready for conversion to a thumbnail.
 
-		string queueMessageString = ad.AdId.ToString();
-		var queueMessage = new CloudQueueMessage(queueMessageString);
-		await queue.AddMessageAsync(queueMessage);
+		BlobInformation blobInfo = new BlobInformation() { AdId = ad.AdId, BlobUri = new Uri(ad.ImageURL) };
+		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
+		await thumbnailRequestQueue.AddMessageAsync(queueMessage);
 
 The code for the HttpPost `Edit` method is similar except that if the user selects a new image file any blobs that already exist for this ad must be deleted.
  
@@ -728,67 +759,7 @@ An `<input>` element tells the browser to provide a file selection dialog.
 
 		<input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 
-### ContosoAdsWebJob - BlobInformation.cs
-
-The `BlobInformation` class is used to store information about an image blob in a queue message.
-
-		public class BlobInformation
-		{
-		    public Uri BlobUri { get; set; }
-		    
-		    public string BlobName
-		    {
-		        get
-		        {
-		            return BlobUri.Segments[BlobUri.Segments.Length - 1];
-		        }
-		    }
-		    public string BlobNameWithoutExtension
-		    {
-		        get
-		        {
-		            return Path.GetFileNameWithoutExtension(BlobName);
-		        }
-		    }
-		    public int AdId { get; set; }
-		}
-
-
-### <a id="programcs"></a>ContosoAdsWebJob - Program.cs - Why this program uses two queues instead of one
-
-The program that runs as a WebJob and uses the WebJobs SDK contains two functions that are triggered by queue messages from two different queues:
-
-* `ResolveBlobName`, triggered by messages from the blobnamerequest queue.
-* `GenerateThumbnail`, triggered by messages from the thumbnailrequest queue.
-
-The Cloud Service version of this sample application has only one queue and one `ProcessQueueMessage` method that performs the following image processing tasks:
-
-* Get the database record ID from the queue.
-* Read the database to get the URL of the blob.
-* Convert the image to a thumbnail, and save the thumbnail in a new blob.
-* Update the database record by adding the thumbnail blob URL. 
-
-When you use the WebJobs SDK, you're trading away some flexibility and control to get the benefit of not having to write as much code. One consequence is that you can't do all of these tasks using one queue and still take full advantage of WebJobs SDK functionality. 
-
-The WebJobs SDK provides attributes that let you bind method parameters to input and output blobs, but to use them you need to provide blob names, and the queue message only has the database record ID. You can get the blob names from the database, but only in the body of the method, whereas you need them accessible to the blob-binding attributes.
-
-You have two options in a scenario like this:
-
-* Use the WebJobs SDK only to do queue handling. The SDK will call the method when a queue message is received, delete the queue message when the method is done, handle anomalies like poison messages, etc. But you manually write code to do all of the work of getting blob references, creating blob containers, reading blobs, writing blobs, and so forth.
-
-* Add a second queue and second triggered method. Now all the first method has to do is get the blob name. This method then puts both the database id and the blob name into a new queue message and writes it to a second queue. The second method, triggered by the second queue, has access to the blob name in the queue message and can use the blob-binding attributes to take advantage of WebJobs SDK blob-handling functionality.
-
-This sample application chose the second approach. The sequence of events is as follows:
-
-* Web application writes new message with record ID to blobnamerequest queue.
-* `ResolveBlobName` method gets queue message, looks up blob name, writes new message with record ID and blob name to thumbnailrequest queue.
-* `ThumbnailRequest` method gets queue message, converts to thumbnail, stores thumbnail blob, stores thumbnail URL in database.  
-
-If you compare the amount of code in the `ResolveBlobName` and `GenerateThumbnails` methods in this sample application with the worker role code in the [Cloud Service version of the application](/en-us/documentation/articles/cloud-services-dotnet-get-started/), you can see how much work the WebJobs SDK is doing for you. The advantage is greater than it appears, because the Cloud Service sample application code doesn't do all of the things (such as poison message handling) that you would do in a production application, and which the WebJobs SDK does for you.
-
->[WACOM.NOTE] If your website runs on multiple VMs, this program will run on each machine, and each machine will wait for triggers and attempt to run functions. In some scenarios this can lead to some functions processing the same data twice, so functions should be idempotent (written so that calling them repeatedly with the same input data doesn't produce duplicate results). 
-
-### <a id="initializecode"></a>ContosoAdsWebJob - Program.cs - Main and Initialize methods
+### <a id="programcs"></a>ContosoAdsWebJob - Program.cs - Main and Initialize methods
 
 When the WebJob starts, the `Main` method calls `Initialize` to instantiate the Entity Framework database context. Then it calls the  WebJobs SDK `JobHost.RunAndBlock` method to begin single-threaded execution of triggered functions on the current thread.
 
@@ -805,51 +776,22 @@ When the WebJob starts, the `Main` method calls `Initialize` to instantiate the 
 		    db = new ContosoAdsContext();
 		}
 
-### <a id="resolveblobname"></a>ContosoAdsWebJob - Program.cs - ResolveBlobName method
+### <a id="generatethumbnail"></a>ContosoAdsWebJob - Program.cs - GenerateThumbnail method
 
-This method runs when a blobnamerequest queue message is received, and it creates a new thumbnailrequest queue message that includes the blob name of the image to be converted.
-
-* The `QueueTrigger` attribute directs the WebJobs SDK to call this method when a new message is received on the blobnamerequest queue. When the method completes, the queue message is deleted. If the method fails before completing, the queue message is not deleted; after a 10-minute lease expires, the message is released to be picked up again and processed. 
-
-* The `Queue` attribute directs the WebJobs SDK to create a new queue message and use the output `thumbnailRequest` parameter for the message content. The WebJobs SDK automatically serializes the `BlobInformation` object.
-
-		public static void ResolveBlobName(
-		    [QueueTrigger("blobnamerequest")] string adId,
-		    [Queue("thumbnailrequest")] out BlobInformation thumbnailRequest)
-		{
-		    var id = int.Parse(adId);
-		    Ad ad = db.Ads.Find(id);
-		    if (ad == null)
-		    {
-		        throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", adId.ToString()));
-		    }
-		
-		    thumbnailRequest = new BlobInformation() { AdId = id, BlobUri = new Uri(ad.ImageURL) };
-		}
-
-The code in the method gets the record key from the incoming queue message, looks up the ad information, and creates a thumbnail request composed of the record key and image URL.
-
-### ContosoAdsWebJob - Program.cs - GenerateThumbnail method
-
-This method runs when a thumbnailrequest queue message is received, and it creates a thumbnail and puts the thumbnail URL in the database.
- 
-* The `QueueTrigger` attribute directs the WebJobs SDK to call this method when a new message is received on the `thumbnailrequest` queue.
-
-* The two `Blob` attributes provide objects that are bound to blobs: one to the existing image blob and one to a new thumbnail blob that the method will create. Notice that the blob names for the `Blob` attributes come from deserialized properties of the `BlobInformation` object received in the queue message.
+This method runs when a queue message is received. It creates a thumbnail and puts the thumbnail URL in the database.
 
 		public static void GenerateThumbnail(
-		[QueueTrigger("thumbnailrequest")] BlobInformation requestInfo,
-		[Blob("images/{BlobName}")] CloudBlockBlob inputBlob,
-		[Blob("images/{BlobNameWithoutExtension}thumbnail.jpg")] CloudBlockBlob outputBlob)
+		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
+		[Blob("images/{BlobName}")] Stream input,
+		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 		{
-		    using (Stream input = inputBlob.OpenRead())
 		    using (Stream output = outputBlob.OpenWrite())
 		    {
 		        ConvertImageToThumbnailJPG(input, output);
 		        outputBlob.Properties.ContentType = "image/jpeg";
 		    }
 		
-		    var id = requestInfo.AdId;
+		    var id = blobInfo.AdId;
 		    Ad ad = db.Ads.Find(id);
 		    if (ad == null)
 		    {
@@ -859,21 +801,44 @@ This method runs when a thumbnailrequest queue message is received, and it creat
 		    db.SaveChanges();
 		}
 
-The code opens the input and output blobs and calls a method to do the thumbnail conversion. When conversion is complete, the code adds the new thumbnail URL to the ad record in the database.
+* The `QueueTrigger` attribute directs the WebJobs SDK to call this method when a new message is received on the thumbnailrequest queue.
 
->[WACOM.NOTE] The code in the `ConvertImageToThumbnailJPG` method uses classes in the System.Drawing namespace for simplicity. However, the classes in this namespace were designed for use with Windows Forms. They are not supported for use in a Windows or ASP.NET service.
+		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
+
+	The `BlobInformation` object in the queue message is automatically deserialized into the `blobInfo` parameter. When the method completes, the queue message is deleted. If the method fails before completing, the queue message is not deleted; after a 10-minute lease expires, the message is released to be picked up again and processed. In the current beta release this sequence could be repeated indefinitely if a message can't be processed.  The next release will handle poison messages: after 5 unsuccessful attempts to process a message, it will be moved to a queue named {queuename}-poison.  The number of attempts will be configurable. 
+
+* The two `Blob` attributes provide objects that are bound to blobs: one to the existing image blob and one to a new thumbnail blob that the method will create. 
+
+		[Blob("images/{BlobName}")] Stream input,
+		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
+
+	Blob names come from properties of the `BlobInformation` object received in the queue message (`BlobName` and `BlobNameWithoutExtension`). To get the full functionality of the Storage Client Library you can use the `CloudBlockBlob` class to work with blobs. If you want to reuse code that was written to work with `Stream` objects, you can use the `Stream` class. 
+
+>[WACOM.NOTE] 
+>* If your website runs on multiple VMs, this program will run on each machine, and each machine will wait for triggers and attempt to run functions. In some scenarios this can lead to some functions processing the same data twice, so functions should be idempotent (written so that calling them repeatedly with the same input data doesn't produce duplicate results).
+>* For information about how to implement graceful shutdown, see [the WebJobs SDK 0.3.0 beta announcement](http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/).   
+>* The code in the `ConvertImageToThumbnailJPG` method (not shown) uses classes in the `System.Drawing` namespace for simplicity. However, the classes in this namespace were designed for use with Windows Forms. They are not supported for use in a Windows or ASP.NET service.
+
+### WebJobs versus Cloud Service Worker Role
+
+If you compare the amount of code in the `GenerateThumbnails` method in this sample application with the worker role code in the [Cloud Service version of the application](/en-us/documentation/articles/cloud-services-dotnet-get-started/), you can see how much work the WebJobs SDK is doing for you. The advantage is greater than it appears, because the Cloud Service sample application code doesn't do all of the things (such as poison message handling) that you would do in a production application, and which the WebJobs SDK does for you.
+
+The Cloud Service version of this sample application has a `ProcessQueueMessage` method that performs the following tasks:
+
+* Get the database record ID from the queue message.
+* Read the database to get the URL of the blob.
+* Convert the image to a thumbnail, and save the thumbnail in a new blob.
+* Update the database record by adding the thumbnail blob URL. 
+
+In the Cloud Service version of the application, the record ID is the only information in the queue message, and the background process gets the image URL from the database. In the WebJobs SDK version of the application, the queue message includes the image URL so that it can be provided to the `Blob` attributes. If the queue message didn't have the blob URL, you would have to write code in the method to get the blob URL, and then you'd have to write code to bind objects to the input and output blobs instead of letting the WebJos SDK do that work for you.
 
 ## Next steps
 
-The Contoso Ads application has intentionally been kept simple for a getting-started tutorial. For example, it doesn't implement [dependency injection](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) or the [repository and unit of work patterns](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), it doesn't [use an interface for logging](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), it doesn't use [EF Code First Migrations](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) to manage data model changes or [EF Connection Resiliency](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) to manage transient network errors, and so forth.
+In this tutorial you've seen a simple multi-tier application that uses the WebJobs SDK for backend processing. The application has intentionally been kept simple for a getting-started tutorial. For example, it doesn't implement [dependency injection](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) or the [repository and unit of work patterns](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), it doesn't [use an interface for logging](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), it doesn't use [EF Code First Migrations](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) to manage data model changes or [EF Connection Resiliency](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) to manage transient network errors, and so forth.
 
 For additional samples that show how to use the WebJobs SDK in other scenarios, see the [AzureWebJobs](http://aspnet.codeplex.com/SourceControl/latest#Samples/AzureWebJobs/ReadMe.txt) folder in the ASP.NET CodePlex project.
 
-WebJobs run as part of a website, so you can troubleshoot by running in debug remotely as you can for websites.  For more information, see [Troubleshooting Azure Web Sites in Visual Studio](/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/).
-
-For general information about developing for the cloud, see [Building Real-World Cloud Apps with Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
-
-For a video introduction to Azure Storage best practices and patterns, see [Microsoft Azure Storage – What's New, Best Practices and Patterns](http://channel9.msdn.com/Events/Build/2014/3-628).
+WebJobs run as part of a website, so you can troubleshoot by running in debug mode remotely as you can for websites.  For more information, see [Troubleshooting Azure Web Sites in Visual Studio](/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/). You have to attach to the WebJob process; see the Visual Studio 2012 instructions in the tutorial for information about how to attach to a process.
 
 For more information, see the following resources:
 
@@ -881,3 +846,4 @@ For more information, see the following resources:
 * [Azure Storage](/en-us/documentation/services/storage/)
 * [How to use Blob Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)
 * [How to use Queue Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-queues/)
+* [Microsoft Azure Storage – What's New, Best Practices and Patterns (Channel 9 Video)](http://channel9.msdn.com/Events/Build/2014/3-628)
