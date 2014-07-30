@@ -1,6 +1,7 @@
 <!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
 
-<!--Properties section (above): this is required in all topics. Please fill it out!-->
+<!--Properties section: this section is required in all topics. Please fill it out!-->
+<properties title="required" pageTitle="required" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # H1 (Article Title) 
@@ -98,9 +99,9 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 [Next steps]: #next-steps
 
 <!--Image references-->
-[5]: ./media/0-markdown-template-for-new-articles/octocats.png
-[6]: ./media/0-markdown-template-for-new-articles/pretty49.png
-[7]: ./media/0-markdown-template-for-new-articles/channel-9.png
+[5]: ./media/markdown-template-for-new-articles/octocats.png
+[6]: ./media/markdown-template-for-new-articles/pretty49.png
+[7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
 <!--Link references-->

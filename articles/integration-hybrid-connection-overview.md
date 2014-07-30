@@ -5,9 +5,9 @@
 # Hybrid Connections Overview
 This topic introduces Hybrid Connections, lists the supported configurations, and lists the required TCP Ports. Specifically:
 
-- [What is a Hybrid Connection](HCOverview)
+- [What is a Hybrid Connection](#HCOverview)
 - [Supported Configurations](#KnownIssues)
-- [Security](HCSecurity)
+- [Security](#HCSecurity)
 
 ##<a name="HCOverview"></a>What is a Hybrid Connection
 
