@@ -1,13 +1,10 @@
-<<<<<<< HEAD
 <!--<properties title="Get Started with Azure SQL Database Auditing" pageTitle="Get Started with Azure SQL Database Auditing" description="Step by step instructions for setting up and using the auditing features of Azure SQL Database, Microsoft's relational database-as-a-service in the cloud." metaKeywords="cloud, SQL, auditing" services="SQL Database" solutions="Data and Analytics" documentationCenter="" authors="Jeff Gollnick, Ronit Reger" videoId="" scriptId="" />-->
 
-#Get Started with Azure SQL Database Auditing
+# Get Started with Azure SQL Database Auditing
 
-<p> Azure SQL Database Auditing tracks database events and writes audited events to an audit log in your Azure Storage account. Auditing is available in preview for Basic, Standard, and Premium service tiers. 
+<p> Azure SQL Database Auditing tracks database events and writes audited events to an audit log in your Azure Storage account. Auditing is available in preview for Basic, Standard, and Premium service tiers. When you set up auditing, Azure provides a connection string that your client applications must use for events to be logged. After you set up auditing, modify client applications to use this string.
 
-Use auditing to help maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. 
-
-Auditing tools enable and facilitate adherence to compliance standards but do not guarantee compliance. For more information about Azure programs that support standards compliance, see the <a href="http://azure.microsoft.com/en-us/support/trust-center/compliance/" target="_blank">Azure Trust Center</a>.
+Use auditing to help maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. Auditing tools enable and facilitate adherence to compliance standards but do not guarantee compliance. For more information about Azure programs that support standards compliance, see the <a href="http://azure.microsoft.com/en-us/support/trust-center/compliance/" target="_blank">Azure Trust Center</a>.
 
 ##Azure SQL Database Auditing basics
 
@@ -27,13 +24,7 @@ You can audit the following activities and events:
 
 You also choose the storage account where audit logs will be saved.
 
-###Security-enabled connection string
-When you set up auditing, Azure provides you with a security-enabled connection string for the database. Only client applications that use this connection string will have their activity and events logged, so you will need to update existing client applications to use the new string format.
-
-Traditional connection string format: <*server name*>.database.windows.net
-
-Security-enabled connection string: <*server name*>.**secure**.database.windows.net
-
+**Important!** During setup, Azure provides you with a security-enabled connection string for the database. Only client applications that use this connection string will have their activity and events logged, so you will need to update existing client applications with this connection string and 
 
 ## Set up auditing for your database
 
@@ -58,24 +49,15 @@ The template has fictional sample data in it, and you can set up Power Query to 
 [Subheading 1]: #subheading-1
 [Subheading 2]: #subheading-2
 [Subheading 3]: #subheading-3
-
+[Next steps]: #next-steps
 
 <!--Image references-->
-[1]: ./media/sql-database-auditing-get-started-auditingpreview.png
-[2]: ./media/sql-database-auditing-get-started-storageaccount.png
-[3]: ./media/sql-database-auditing-get-started-eventtype.png
-[4]: ./media/sql-database-auditing-get-started-saveconfigasdefault.png
-[5]: ./media/sql-database-auditing-get-started-connectionstring.png
-[6]: ./media/sql-database-auditing-get-started-dashboard.png
+[5]: ./media/0-markdown-template-for-new-articles/octocats.png
+[6]: ./media/0-markdown-template-for-new-articles/pretty49.png
+[7]: ./media/0-markdown-template-for-new-articles/channel-9.png
 
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
-=======
-<properties title="Get started with SQL database auditing" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId=""  />
- 
-# Get started with SQL database auditing 
-
->>>>>>> 411e1759a3555385f460cb977a1b3fee7db266e5
