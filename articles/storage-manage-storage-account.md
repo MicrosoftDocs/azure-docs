@@ -10,19 +10,9 @@
 * [How to: View, copy, and regenerate storage access keys](#regeneratestoragekeys)
 * [How to: Delete a storage account](#deletestorageaccount)
 
-<h2><a id="georeplication"></a>How to: Manage storage account replication</h2>
+<h2><a id="georeplication"></a>How to: Replicate your storage account data for durability and high availability</h2>
 
-You have three options for replicating your storage account:
-
-- 	**Geo-redundant replication.** Geo-redundant replication is enabled for your storage account by default. With geo-redundant replication, your data is replicated to a secondary geographic location to enable failover to that location in case of a major disaster in the primary location.
-
-- **Read access geo-redundant replication.** Read access geo-redundant replication replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant replication allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
-
-- 	**Locally redundant replication**. With locally redundant replication, your storage account data is replicated three times within the same data center. Locally redundant replication is offered at discounted rates. 
-	
-	Be aware that if you specify locally redundant replication for your storage account, and you later decide to enable geo-redundant replication, you will incur a one-time data cost to replicate your existing data to the secondary location. 
-
-For pricing information for storage account replication, see [Storage Pricing Details](http://azure.microsoft.com/en-us/pricing/details/storage/).
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ### To specify replication settings for a storage account ###
 
