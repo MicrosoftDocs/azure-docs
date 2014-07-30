@@ -21,11 +21,13 @@ You set up auditing in the Azure Preview Portal, but it makes no difference whet
 
 You can audit the following activities and events:
 
-- **Access to schema data**
+- **Access to data**
 - **Schema changes (DDL)**
 - **Data changes (DML)**
 - **Accounts, roles, and permissions (DCL)**
 - **Security exceptions**
+
+For further detail about the the activities and events logged, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>. 
 
 You also choose the storage account where audit logs will be saved.
 
@@ -39,53 +41,58 @@ Security-enabled connection string: <*server name*>.**secure**.database.windows.
 
 ## Set up auditing for your database
 
-1. <a href="http://go.microsoft.com/fwlink/?LinkId=404163" target="_blank">Sign up for the Auditing preview.</a>.
+1. <a href="http://go.microsoft.com/fwlink/?LinkId=404163" target="_blank">Sign up for the Auditing preview</a>.
 2. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com.
 3. Click the database you want to audit, and then click **Auditing Preview** to enable the auditing preview and launch the auditing configuration blade.
 
-![][1]
+	![][1]
 
 4. In the auditing configuration blade, select the Azure storage account where logs will be saved. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
 
-![][2]
+	![][2]
 
 4. Under **Auditing Options**, click **All** to log all events, or choose individual event types.
 
-![][3]
+	![][3]
 
-5. Check **Save this Configuration as Default** if you want these settings to apply to all new databases created on the server. You can override the settings later for each database by following these same steps.
+5. Check **Save this Configuration as Default** if you want these settings to apply to all future databases on the server, and any that don't already have auditing set up. You can override the settings later for each database by following these same steps.
 
-![][4]
+	![][4]
 
 6. Click **Show database connection strings** and then copy or make a note of the appropriate security enabled connection string for your application. Use this string for any client applications whose activity you want to audit.
 
-![][5]
+	![][5]
 
 7. Click **Enable**.
 
 
 ## Analyze audit logs and reports
 
-Audit logs are aggregated in a single Azure Store Table named AuditLogs in the Azure storage account you chose during setup. You can view log files using a tool such as <a href="http://azurestorageexplorer.codeplex.com/Azure Storage Explorer" target="_blank">Azure Storage Explorer</a>.
+Audit logs are aggregated in a single Azure Store Table named **AuditLogs** in the Azure storage account you chose during setup. You can view log files using a tool such as <a href="http://azurestorageexplorer.codeplex.com/Azure Storage Explorer" target="_blank">Azure Storage Explorer</a>.
 
 A preconfigured dashboard report template is available as a <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">downloadable Excel spreadsheet</a> to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can download <a href="http://www.microsoft.com/en-us/download/details.aspx?id=39379">here</a>. 
 
-The template has fictional sample data in it, and you can set up Power Query to import your audit log directly from your Azure storage account. For more details, open the Excel file and click the **How To** worksheet tab.
+The template has fictional sample data in it, and you can set up Power Query to import your audit log directly from your Azure storage account. 
+
+For more detailed instructions on working with the report template, read the <a href="http://go.microsoft.com/fwlink/?LinkId=506731">How To (doc download)</a>.
+
+![][6]
 
 
 <!--Anchors-->
-[Subheading 1]: #subheading-1
-[Subheading 2]: #subheading-2
-[Subheading 3]: #subheading-3
+[Azure SQL Database Auditing basics]: #subheading-1
+[Set up auditing for your database]: #subheading-2
+[Analyze audit logs and reports]: #subheading-3
 
 
 <!--Image references-->
-[1]: ./media/sql-database-auditing-get-started-auditingpreview.png
-[2]: ./media/sql-database-auditing-get-started-storageaccount.png
-[3]: ./media/sql-database-auditing-get-started-eventtype.png
-[4]: ./media/sql-database-auditing-get-started-saveconfigasdefault.png
-[5]: ./media/sql-database-auditing-get-started-connectionstring.png
-[6]: ./media/sql-database-auditing-get-started-dashboard.png
+[1]: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
+[2]: ./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png
+[3]: ./media/sql-database-auditing-get-started/sql-database-auditing-eventtype.png
+[4]: ./media/sql-database-auditing-get-started/sql-database-get-started-saveconfigasdefault.png
+[5]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
+[6]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png
+
 
 
 <!--Link references-->
