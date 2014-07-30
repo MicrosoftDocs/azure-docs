@@ -17,12 +17,12 @@ You can [download the Visual Studio project][download] from the MSDN Code Galler
 The tutorial includes the following sections:
 
 - [Prerequisites](#prerequisites)
-- Introduction
+- [Introduction](#learn)
 	- [What You'll Learn](#learn)
 	- [The WebJobs SDK](#webjobssdk)
 	- [Contoso Ads application architecture](#contosoads)
 - [Set up the development environment](#setupdevenv)
-- Build, run, and deploy the application
+- [Build, run, and deploy the application](#storage)
 	- [Create an Azure Storage account](#storage)
 	- [Configure the application to use your storage account](#configurestorage)
 	- [Run the application locally](#runlocal)
@@ -398,7 +398,7 @@ In this section you'll do the following tasks:
 * Create a Visual Studio solution with a web project.
 * Add a class library project for the data access layer that is shared between frontend and backend.
 * Add a Console Application project for the backend, with WebJobs deployment enabled.
-* Update and add NuGet packages.
+* Add NuGet packages.
 * Set project references.
 * Copy application code and configuration files from the downloaded application that you worked with in the previous section of the tutorial.
 * Review the parts of the code that work with Azure blobs and queues and the WebJobs SDK.
@@ -455,35 +455,38 @@ In this section you'll do the following tasks:
 	 
 	For more information about these changes, see [How to Deploy WebJobs by using Visual Studio](/en-us/documentation/articles/websites-dotnet-deploy-webjobs/).
 
-### Update and add NuGet packages
+### Add NuGet packages
 
-The storage client library (SCL) is updated more frequently online than it is in Visual Studio new-project templates, so the version in a newly created projected might not be current. 
+First, install the WebJobs SDK in the WebJob project.
 
 11. Open the **Manage NuGet Packages** dialog for the solution.
 
-12. In the left pane, select **Updates**.
+12. In the left pane, select **Online**.
    
-13. Look for the *Azure Storage* package, and if it's in the list, click **Update**.
+17. Change **Stable Only** to **Include Prerelease**.
 
-	![Update SCL](./media/websites-dotnet-webjobs-sdk-get-started/updstg.png)	
+19. Find the *Microsoft.Azure.Jobs* NuGet package, and install it in the ContosoAdsWebJob project.
 
-The frontend writes queue messages and reads and writes blobs, so you also need to install the SCL in the web project.
+	![Install SCL](./media/websites-dotnet-webjobs-sdk-get-started/updstg.png)	
+
+	![Install SCL only in web and WebJob projects](./media/websites-dotnet-webjobs-sdk-get-started/updstg2.png)	
+
+	This also installs dependent packages, including another WebJobs SDK package, *Microsoft.Jobs.Core*. (You use the other WebJobs SDK package separately only when you create your user functions in a separate DLL; for this tutorial you are writing all of your code in Console Application.)You'll need the Azure Storage Client Library (SCL) to work with queues and blobs in the web project and the WebJob project. 
+
+The Azure Storage Client Library (SCL) NuGet package is installed automatically in the WebJob project as a dependency of the WebJobs SDK. But you also need to use it to work with blobs and queues in the web project.
 
 12. In the left pane, select **Installed packages**.
    
-13. Find the *Azure Storage* package, click **Manage**, and then add the package to the ContosoAdsWeb project.
+13. Find the *Azure Storage* package, and then click **Manage**.
+
+13. In the **Select Projects** box, select the **ContosoAdsWeb** check box, and then click **OK**. 
 
 All three projects use the Entity Framework to work with data in SQL Database.
 
-14. In the left pane, select **Online**.
-
+12. In the left pane, select **Online**.
+   
 16. Find the *EntityFramework* NuGet package, and install it in all three projects.
 
-Finally, install the WebJobs SDK in the WebJob project.
-
-17. Change **Stable Only** to **Include Prerelease**, find the *Microsoft.Azure.Jobs* NuGet package, and install it in the ContosoAdsWebJob project.
-
-	This also installs dependent packages, including another WebJobs SDK package, *Microsoft.Jobs.Core*. (You use the other WebJobs SDK package separately only when you create your user functions in a separate DLL; for this tutorial you are writing all of your code in Console Application.)
 
 ### Set project references
 
@@ -495,11 +498,13 @@ Both web and WebJob projects will work with the SQL database, so both need a ref
 
 The WebJob project needs references for working with images and for accessing connection strings.
 
-11. In the ContosoAdsWebJob project, set a reference to `System.Drawing` and `System.Configuation`.
+11. In the ContosoAdsWebJob project, set a reference to `System.Drawing` and `System.Configuration`.
 
 ### Add code and configuration files
 
 In this section you copy files from the downloaded solution into the new solution. The following sections will show and explain key parts of the code.
+
+(This tutorial does not explain how to [create MVC controllers and views using scaffolding](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started), how to [write Entity Framework code that works with SQL Server databases](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc), or [the basics of asynchronous programming in ASP.NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).) 
 
 To add files to a project or a folder, right-click the project or folder and click **Add** > **Existing Item**. Select the files you want and click **Add**. If asked whether you want to replace existing files, click **Yes**.
 
@@ -513,14 +518,14 @@ To add files to a project or a folder, right-click the project or folder and cli
 
 	- *Web.config*
 	- *Global.asax.cs*  
+	- In the *Controllers* folder: *AdController.cs* 
 	- In the *Views\Shared* folder: <em>_Layout.cshtml</em> file. 
 	- In the *Views\Home* folder: *Index.cshtml*. 
-	- In the *Controllers* folder: *AdController.cs*/ 
 	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.<br/><br/>
 
 3. In the ContosoAdsWebJob project, add the following files from the downloaded project.
 
-	- *App.config*
+	- *App.config* (change the file type filter to **All Files**)
 	- *Program.cs*
 
 You can now build, run, and deploy the application as instructed earlier in the tutorial.
@@ -528,12 +533,6 @@ You can now build, run, and deploy the application as instructed earlier in the 
 ## <a id="code"></a>Review the application code
 
 The following sections explain the code related to working with the WebJobs SDK and Azure Storage blobs and queues. For the code specific to the WebJobs SDK, see the [Program.cs section](#programcs).
-
-This tutorial does not explain how to create MVC controllers and views using scaffolding, how to write Entity Framework code that works with SQL Server databases, or the basics of asynchronous programming in ASP.NET 4.5 For information on these topics, see the following resources:
-
-* [Get started with MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-* [Get started with EF 6 and MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
-* [Introduction to asynchronous programming in .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -596,7 +595,7 @@ The ContosoAdsContext class specifies that the Ad class is used in a DbSet colle
  
 The class has two constructors. The first of them is used by the web project, and specifies the name of a connection string that is stored in the Web.config file or the Azure runtime environment. The second constructor enables you to pass in the actual connection string. That is needed by the WebJob project, since it doesn't have a Web.config file. You saw earlier where this connection string was stored, and you'll see later how the code retrieves the connection string when it instantiates the DbContext class.
 
-### ContosoAdsWebJob - BlobInformation.cs
+### ContosoAdsCommon - BlobInformation.cs
 
 The `BlobInformation` class is used to store information about an image blob in a queue message.
 
@@ -778,7 +777,7 @@ When the WebJob starts, the `Main` method calls `Initialize` to instantiate the 
 
 ### <a id="generatethumbnail"></a>ContosoAdsWebJob - Program.cs - GenerateThumbnail method
 
-This method runs when a queue message is received. It creates a thumbnail and puts the thumbnail URL in the database.
+The WebJobs SDK calls this method when a queue message is received. The method creates a thumbnail and puts the thumbnail URL in the database.
 
 		public static void GenerateThumbnail(
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
@@ -805,9 +804,9 @@ This method runs when a queue message is received. It creates a thumbnail and pu
 
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
 
-	The `BlobInformation` object in the queue message is automatically deserialized into the `blobInfo` parameter. When the method completes, the queue message is deleted. If the method fails before completing, the queue message is not deleted; after a 10-minute lease expires, the message is released to be picked up again and processed. In the current beta release this sequence could be repeated indefinitely if a message can't be processed.  The next release will handle poison messages: after 5 unsuccessful attempts to process a message, it will be moved to a queue named {queuename}-poison.  The number of attempts will be configurable. 
+	The `BlobInformation` object in the queue message is automatically deserialized into the `blobInfo` parameter. When the method completes, the queue message is deleted. If the method fails before completing, the queue message is not deleted; after a 10-minute lease expires, the message is released to be picked up again and processed. In the current beta release of the WebJobs SDK this sequence could be repeated indefinitely if a message always causes an exception.  The next release will handle poison messages: after 5 unsuccessful attempts to process a message, the message is moved to a queue named {queuename}-poison.  The maximum number of attempts will be configurable. 
 
-* The two `Blob` attributes provide objects that are bound to blobs: one to the existing image blob and one to a new thumbnail blob that the method will create. 
+* The two `Blob` attributes provide objects that are bound to blobs: one to the existing image blob and one to a new thumbnail blob that the method creates. 
 
 		[Blob("images/{BlobName}")] Stream input,
 		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
