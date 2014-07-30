@@ -26,6 +26,8 @@ To provide a storage for the virtual machine, attach a data disk and then initia
 
 [WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
+For instructions on initalizing the disk, see "How to: Initialize a new data disk in Windows Server" in [How to Attach a Data Disk to a Windows Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/storage-windows-attach-disk/).
+
 ## Install and run MongoDB on the virtual machine 
 
 [WACOM.INCLUDE [install-and-run-mongo-on-win2k8-vm](../includes/install-and-run-mongo-on-win2k8-vm.md)]
