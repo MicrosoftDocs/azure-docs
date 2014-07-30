@@ -2,7 +2,7 @@
  
 # Monitor your web app's availability and responsiveness
 
-If your web app is unavailable to your users, you'll want to know about it. After you've deployed your web app, set up web tests to monitor its availability and responsiveness. Application Insights will send web requests at regular intervals from points around the world, and can alert you if your application responds slowly or not at all.
+After you've deployed your web application, you can set up web tests to monitor its availability and responsiveness. Application Insights will send web requests at regular intervals from points around the world, and can alert you if your application responds slowly or not at all.
 
 You can set up web tests for any HTTP endpoint that is accessible from the public internet.
 
@@ -17,7 +17,7 @@ You can set up web tests for any HTTP endpoint that is accessible from the publi
 
 ## <a name="create"></a>1. Create a new application?
 
-Skip this step if you're already [monitoring usage and health][setup] for this web app, and you want to see the availability data in the same place.
+Skip this step if you're already [monitoring usage and health][start] for this web app, and you want to see the availability data in the same place.
 
 But if you want to keep these results separate, login to Microsoft Azure preview and create a new application in Application Insights. 
 
@@ -84,21 +84,29 @@ You might want to disable web tests while you are performing maintenance on your
 
 ## <a name="next"></a>Next steps
 
-[Search diagnostic logs][diagnostics]
+[Search diagnostic logs][diagnostic]
 
-[Troubleshooting][trouble]
+[Troubleshooting][qna]
 
-### Application Insights
+## <a name="next"></a>Learn more
 
-* [Set up monitoring in a new project](../appinsights-01-start/)
-* [Add monitoring to an existing project](../appinsights-02-existing/)
-* [Set up availability and responsiveness tests](../appinsights-10Avail/)
-* [Search diagnostic logs](../appinsights-24diagnostics/)
-* [Application Insights SDK](../appinsights-90SDK/)
+* [Application Insights][root]
+* [Add Application Insights to your project][start]
+* [Monitor a live web server now][redfield]
+* [Explore metrics in Application Insights][explore]
+* [Diagnostic log search][diagnostic]
+* [Availability tracking with web tests][availability]
+* [Usage tracking with events and metrics][usage]
+* [Q & A and troubleshooting][qna]
 
 
 <!--Link references-->
-[setup]: ../appinsights-01-start/
-[setup existing]: ../appinsights-02-existing/
-[diagnostics]: ../appinsights-24diagnostics/
-[trouble]: ../appinsights-09qna/
+
+[root]: ../appinsights-basics/
+[start]: ../appinsights-web-get-started/
+[redfield]: ../appinsights-get-started-monitor-live-website-now/
+[explore]: ../appinsights-explore-metrics/
+[diagnostic]: ../appinsights-search-diagnostic-logs/ 
+[availability]: ../appinsights-web-monitor-availability/
+[usage]: ../appinsights-web-track-usage/
+[qna]: ../appinsights-troubleshoot-faq/

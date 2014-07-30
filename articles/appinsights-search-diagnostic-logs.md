@@ -17,7 +17,7 @@ The monitored web application can be hosted on-premise or in a virtual machine, 
 
 ## <a name="add"></a>1. Add a logging adapter
 
-1. If you haven't done this already, add Application Insights to your [existing] or [new][setup] web service project in Visual Studio. 
+1. If you haven't done this already, [add Application Insights to your web service project][start] in Visual Studio. 
 
     If you add Application Insights after you add logging to your project, you'll find that the logging adapter has already been set up and configured - just [redeploy your project](#deploy) and [view your data](#view).
 
@@ -234,18 +234,31 @@ Here are the search expressions you can use:
 </table>
 
 ## <a name="add"></a>Next steps
-* [Set up monitoring in a new project][setup]
-* [Add monitoring to an existing project][existing]
-* [Set up availability and responsiveness tests][web tests]
-* [Troubleshooting][trouble]
-* [Application Insights SDK](../appinsights-90SDK/)
+
+* [Add Application Insights to a project][start]
+* [Set up availability and responsiveness tests][availability]
+* [Troubleshooting][qna]
+
+
+## Learn more
+
+* [Application Insights][root]
+* [Add Application Insights to your project][start]
+* [Monitor a live web server now][redfield]
+* [Explore metrics in Application Insights][explore]
+* [Diagnostic log search][diagnostic]
+* [Availability tracking with web tests][availability]
+* [Usage tracking with events and metrics][usage]
+* [Q & A and troubleshooting][qna]
 
 
 <!--Link references-->
-[setup]: ../appinsights-01-start/
-[existing]: ../appinsights-02-existing/
-[web tests]: ../appinsights-10Avail/
-[trouble]: ../appinsights-09qna/
 
-
-
+[root]: ../appinsights-basics/
+[start]: ../appinsights-web-get-started/
+[redfield]: ../appinsights-get-started-monitor-live-website-now/
+[explore]: ../appinsights-explore-metrics/
+[diagnostic]: ../appinsights-search-diagnostic-logs/ 
+[availability]: ../appinsights-web-monitor-availability/
+[usage]: ../appinsights-web-track-usage/
+[qna]: ../appinsights-troubleshoot-faq/

@@ -33,7 +33,7 @@
 This can happen if communication with the Application Insights portal failed, or if there is some problem with your account.
 
 + Check that you provided login credentials for the right Azure account. The Microsoft Azure credentials, which you see in the New Project dialog, can be different from the Visual Studio Online credentials that you see at the top right of Visual Studio.
-+ Wait a while and then [add Application Insights to your existing project][start existing].
++ Wait a while and then [add Application Insights to your existing project][start].
 + Go to your Microsoft Azure account settings and check for restrictions. See if you can manually add an Application Insights application.
 
 
@@ -45,14 +45,14 @@ This can happen if communication with the Application Insights portal failed, or
 
 ## <a name="q04"></a>I see no data under Usage Analytics
 
-+ The data comes from scripts in the web pages. If you added Application Insights to an existing web project, [you have to add the scripts by hand][start existing].
++ The data comes from scripts in the web pages. If you added Application Insights to an existing web project, [you have to add the scripts by hand][start].
 
 
 ## <a name="q05"></a>I'm looking at the Microsoft Azure Preview start board. How do I find my data in Application Insights?
 
 Either:
 
-* Choose Browse, Application Insights, your project name. If you don't have any projects there, you need to [add Application Insights to your web project in Visual Studio][start existing].
+* Choose Browse, Application Insights, your project name. If you don't have any projects there, you need to [add Application Insights to your web project in Visual Studio][start].
 
 * In Visual Studio Solution Explorer, right-click your web project and choose Open Application Insights Portal.
 
@@ -73,9 +73,6 @@ Yes, you can monitor health and usage if your server can send data to the public
 
 But if you want to run web tests for your service, it must be accessible from the public internet.
 
-## <a name="q09"></a>How do I get data for Windows Phone or Windows Store?
-
-We don't support that yet in the Microsoft Azure version. Coming soon. Meanwhile, you could try the [older version in Visual Studio Online][older].
 
 ## <a name="q10"></a>How can I see the events and page views that I logged in my code?
 
@@ -98,7 +95,7 @@ But just at present, the main missing features are: support for device apps such
 
 1. Go into Visual Studio's Extension Manager. 
 2. Uninstall Application Insights Tools.
-3. Run [the installer for the older version of the tools](http://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) and read its [get-started guide](http://www.visualstudio.com/get-started/get-usage-data-vs).
+3. Run [the installer for the older version of the tools](http://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) and read its [get-started guide][older].
 
 ## <a name="q14"></a>What does Application Insights modify in my project?
 
@@ -122,7 +119,7 @@ But just at present, the main missing features are: support for device apps such
 
  - Microsoft.ApplicationInsights.Platform
 
-+ (New projects only - if you [add Application Insights to an existing project][start existing], you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into:
++ (New projects only - if you [add Application Insights to an existing project][start], you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into:
 
  - the master page Views/Shared/_Layout.cshtml
 
@@ -139,19 +136,27 @@ But just at present, the main missing features are: support for device apps such
 
 
 
-## <a name="next"></a>Next steps
+## <a name="next"></a>Learn more
 
-* [Add Application Insights to a new project][start new]
-* [Add Application Insights to an existing project][start existing]
-* [Set up availability and responsiveness tests](../appinsights-10Avail/)
-* [Search diagnostic logs](../appinsights-24diagnostics/)
-* [Application Insights SDK](../appinsights-90SDK/)
+* [Application Insights][root]
+* [Add Application Insights to your project][start]
+* [Monitor a live web server now][redfield]
+* [Explore metrics in Application Insights][explore]
+* [Diagnostic log search][diagnostic]
+* [Availability tracking with web tests][availability]
+* [Usage tracking with events and metrics][usage]
+* [Q & A and troubleshooting][qna]
 
 
 <!--Link references-->
-[start new]: ../appinsights-01-start/
-[start existing]: ../appinsights-02-existing/
-[older]: http://go.microsoft.com/fwlink/?linkid=402440
 
-
+[root]: ../appinsights-basics/
+[start]: ../appinsights-web-get-started/
+[redfield]: ../appinsights-get-started-monitor-live-website-now/
+[explore]: ../appinsights-explore-metrics/
+[diagnostic]: ../appinsights-search-diagnostic-logs/ 
+[availability]: ../appinsights-web-monitor-availability/
+[usage]: ../appinsights-web-track-usage/
+[qna]: ../appinsights-troubleshoot-faq/
+[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
 
