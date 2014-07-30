@@ -87,7 +87,7 @@ Every Linux virtual machine is provisioned with SSH in a particular port that ma
 
 3.	Your screen should look like the following:
 
-	![linuxwelcomegit](./media/linux-use-ssh-key/linuxwelcomegit.png)
+	![linuxwelcomegit](./media/virtual-machines-linux-use-ssh-key/linuxwelcomegit.png)
 
 4.	Answer the questions that are asked.
 5.	It would have created two files: `myPrivateKey.key` and `myCert.pem`.
@@ -103,12 +103,12 @@ Every Linux virtual machine is provisioned with SSH in a particular port that ma
 4.	Find your private key, which we named `myPrivateKey.key`. You will need to change the file filter to show **All Files (\*.*)**
 5.	Click **Open**. You will receive a prompt which should look like this:
 
-	![linuxgoodforeignkey](./media/linux-use-ssh-key/linuxgoodforeignkey.png)
+	![linuxgoodforeignkey](./media/virtual-machines-linux-use-ssh-key/linuxgoodforeignkey.png)
 
 6.	Click **OK**.
 7.	Click **Save Private Key**, which is highlighted in the screenshot below:
 
-	![linuxputtyprivatekey](./media/linux-use-ssh-key/linuxputtygenprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtygenprivatekey.png)
 
 8.	Save the file as a PPK.
 
@@ -118,10 +118,10 @@ Every Linux virtual machine is provisioned with SSH in a particular port that ma
 2.	Run putty.exe
 3.	Fill in the host name using the IP from the Management Portal.
 
-	![linuxputtyconfig](./media/linux-use-ssh-key/linuxputtyconfig.png)
+	![linuxputtyconfig](./media/virtual-machines-linux-use-ssh-key/linuxputtyconfig.png)
 
 4.	Before selecting **Open**, click the Connection > SSH > Auth tab to choose your key. See the screenshot below for the field to fill in.
 
-	![linuxputtyprivatekey](./media/linux-use-ssh-key/linuxputtyprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
 
 5.	Click **Open** to connect to your virtual machine.
