@@ -1,4 +1,4 @@
-<properties title="Q & A about Application Insights" pageTitle="Q & A about Application Insights" description="Tips and troubleshooting" metaKeywords="analytics monitoring" authors="awills"  />
+<properties title="Troubleshooting and Q & A about Application Insights" pageTitle="Troubleshooting and Q & A about Application Insights" description="Tips and troubleshooting" metaKeywords="analytics monitoring" authors="awills"  />
  
 # Troubleshooting and Q&A - Application Insights on Microsoft Azure Preview
 
@@ -150,13 +150,15 @@ But just at present, the main missing features are: support for device apps such
 
 <!--Link references-->
 
-[root]: ../appinsights-basics/
-[start]: ../appinsights-web-get-started/
-[redfield]: ../appinsights-get-started-monitor-live-website-now/
-[explore]: ../appinsights-explore-metrics/
-[diagnostic]: ../appinsights-search-diagnostic-logs/ 
-[availability]: ../appinsights-web-monitor-availability/
-[usage]: ../appinsights-web-track-usage/
-[qna]: ../appinsights-troubleshoot-faq/
+
+[root]: ../app-insights-get-started/
+[start]: ../app-insights-monitor-application-health-usage/
+[redfield]: ../app-insights-monitor-performance-live-website-now/
+[explore]: ../app-insights-explore-metrics/
+[diagnostic]: ../app-insights-search-diagnostic-logs/ 
+[availability]: ../app-insights-monitor-web-app-availability/
+[usage]: ../app-insights-track-usage-custom-events-metrics/
+[qna]: ../app-insights-troubleshoot-faq/
+
 [older]: http://www.visualstudio.com/get-started/get-usage-data-vs
 

@@ -2,7 +2,7 @@
  
 <!-- Required end of Sprint 69 - AUX48 -->
 
-# Diagnose performance issues on a live website
+# Monitor performance on a live website now
 
 *Application Insights is in preview.*
 
@@ -103,12 +103,11 @@ You'll see data under Application Health.
 
 <!--Link references-->
 
-[root]: ../appinsights-basics/
-[start]: ../appinsights-web-get-started/
-[redfield]: ../appinsights-get-started-monitor-live-website-now/
-[explore]: ../appinsights-explore-metrics/
-[diagnostic]: ../appinsights-search-diagnostic-logs/ 
-[availability]: ../appinsights-web-monitor-availability/
-[usage]: ../appinsights-web-track-usage/
-[qna]: ../appinsights-troubleshoot-faq/
-
+[root]: ../app-insights-get-started/
+[start]: ../app-insights-monitor-application-health-usage/
+[redfield]: ../app-insights-monitor-performance-live-website-now/
+[explore]: ../app-insights-explore-metrics/
+[diagnostic]: ../app-insights-search-diagnostic-logs/ 
+[availability]: ../app-insights-monitor-web-app-availability/
+[usage]: ../app-insights-track-usage-custom-events-metrics/
+[qna]: ../app-insights-troubleshoot-faq/
