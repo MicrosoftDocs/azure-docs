@@ -46,11 +46,11 @@ To configure your connection string in the Azure service configuration:
 	
 ### Configuring your connection string using .NET configuration
 
-If you are writing an application that is not an Azure cloud service, (see previous section), it is recommended you use the .NET configuration system (e.g. `web.config` or `app.config`). This includes Azure Web Sites or Azure Virtual Machines, as well as applications designed to run outside of Azure. You store the connection string using the `<appSettings>` element as follows. Replace `my-account-name` with the name of your storage account, and `my-account-key` with your account access key:
+If you are writing an application that is not an Azure cloud service, (see previous section), it is recommended you use the .NET configuration system (e.g. `web.config` or `app.config`). This includes Azure Web Sites or Azure Virtual Machines, as well as applications designed to run outside of Azure. You store the connection string using the `<appSettings>` element as follows. Replace `account-name` with the name of your storage account, and `account-key` with your account access key:
 
 	<configuration>
   		<appSettings>
-    		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<my-account-name>;AccountKey=<my-account-key>" />
+    		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
   		</appSettings>
 	</configuration>
 
@@ -58,7 +58,7 @@ For example, the configuration setting in your config file may be similar to:
 
 	<configuration>
     	<appSettings>
-      		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYS0gln9fT7bvY+rwu2iWAEyzSNITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI82L50Iau1+9hPjB==" />
+      		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln9fT7bvY+rxu2iWAEyzPNITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
     	</appSettings>
 	</configuration>
 
