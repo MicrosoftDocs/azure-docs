@@ -24,20 +24,20 @@ We have created an easy way for you to create a management certificate for Azure
 
 This web site will ask you to login using your portal credentials and then generate a management certificate  for you that is packaged along with your subscriptionID  on a publishsettings file that you will be asked to download. 
 
-![linuxcredentials](./media/linux-create-management-cert/linuxcredentials.png)
+![linuxcredentials](./media/virtual-machines-linux-create-management-cert/linuxcredentials.png)
 
 Make sure you save this file in safe place as you will not be able to recover it and will need to generate a new management certificate. (There is a limit for the total number of certificates that you can use in the system. See the appropriate section on this web site to confirm this.) You can then use this certificate in multiple ways:
 
 ###In Visual Studio###
 
-![VSpublish](./media/linux-create-management-cert/VSpublish.png)
+![VSpublish](./media/virtual-machines-linux-create-management-cert/VSpublish.png)
 
 
 ###In the Linux Azure Command Line###
 
 You can import the certificate so that you can use it by running the Azure account import command:
 
-![cmdlinepublish](./media/linux-create-management-cert/cmdlinepublish.png)
+![cmdlinepublish](./media/virtual-machines-linux-create-management-cert/cmdlinepublish.png)
 
 With any other partner or software where you need the tool you will need to extract the management certificate from within the file itself and Base 64 decode it. Some partners such as ScaleXtreme and SUSE Studio will consume the file directly in their current form. 
 
@@ -82,7 +82,7 @@ Generating a new certificates is not enough since all 10 certificates are valid 
 
 <h2><a id="management"></a>Install a management certificate using the Azure Management Portal</h2>
 
-You can create a management certificate in a variety of ways.  For more information about creating certificates, see [Create a Management Certificate for Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).  After you create the certificate, add it to your subscription in Azure. 
+You can create a management certificate in a variety of ways.  For more information about creating certificates, see [Create a Management Certificate for Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx).  After you create the certificate, add it to your subscription in Azure. 
 
 1. Sign in to the Azure Management Portal.
 
