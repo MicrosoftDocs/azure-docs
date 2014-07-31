@@ -22,7 +22,9 @@ This tutorial walks you through these basic steps to enable authentication in yo
 1. [Register your app for authentication and configure Mobile Services]
 2. [Restrict table permissions to authenticated users]
 3. [Add authentication to the app]
-<!--4. [Storing authentication tokens in your app]-->
+4. [Store authentication tokens on the client]
+5. [Refresh expired tokens]
+
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
@@ -48,11 +50,15 @@ Next, you will update the app to authenticate users before requesting resources 
 
 [WACOM.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
-<!--
-##<a name="store-authentication"></a>Storing authentication tokens in your app
+## <a name="cache-tokens"></a>Cache authentication tokens on the client
 
-[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)]
--->
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)] 
+
+## <a name="refresh-tokens"></a>Refresh the token cache
+
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
+
+
 
 ##<a name="next-steps"></a>Next steps
 
@@ -63,8 +69,9 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Register your app for authentication and configure Mobile Services]: #register
 [Restrict table permissions to authenticated users]: #permissions
 [Add authentication to the app]: #add-authentication
+[Store authentication tokens on the client]: #tokens
+[Refresh expired tokens]: #refresh-tokens
 [Next Steps]:#next-steps
-[Storing authentication tokens in your app]:#store-authentication
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started/

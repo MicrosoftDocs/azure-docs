@@ -22,7 +22,8 @@ This tutorial walks you through these basic steps to enable authentication in yo
 1. [Register your app for authentication and configure Mobile Services]
 2. [Restrict table permissions to authenticated users]
 3. [Add authentication to the app]
-4. [Cache authentication tokens on the client]
+4. [Store authentication tokens on the client]
+5. [Refresh expired tokens]
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
@@ -50,67 +51,11 @@ Next, you will update the app to authenticate users before requesting resources 
 
 ## <a name="cache-tokens"></a>Cache authentication tokens on the client
 
-The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the mobile service every time that the app starts. Not only is this method inefficient, you can run into usage-relates issues should many customers try to start you app at the same time. A better approach is to cache the authorization token returned by Mobile Services and try to use this first before using a provider-based sign-in. 
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)] 
 
-1. In Eclipse, open the ToDoActivity.java file and add the following import statements:
+## <a name="refresh-tokens"></a>Refresh the token cache
 
-        import android.content.Context;
-        import android.content.SharedPreferences;
-        import android.content.SharedPreferences.Editor;
-
-2. In the ToDoActivity.java file, replace the `authenticate` method with the following method which uses a token cache.
-
-        private void authenticate() {
-            if (loadTokenCache())
-            {
-                createTable();
-            }
-            else
-            {
-                // Login using the provider.
-                mClient.login(MobileServiceAuthenticationProvider.MicrosoftAccount,
-	                new UserAuthenticationCallback() {
-	                    @Override
-	                    public void onCompleted(MobileServiceUser user,
-	                            Exception exception, ServiceFilterResponse response) {
-	                        if (exception == null) {
-	                            cacheUserToken(mClient.getCurrentUser());
-	                            createTable();
-	                        } else {
-	                            createAndShowDialog("You must log in. Login Required", "Error");
-	                        }
-	                    }
-	                });
-            }
-        }   
-
-
-3.  In the ToDoActivity.java file, add definitions for the `loadTokenCache` and `cacheUserToken` methods just beneath the `authenticate` method:
-
-	    private boolean loadTokenCache()
-    	{
-    	    SharedPreferences prefs = getSharedPreferences("temp", Context.MODE_PRIVATE);
-    	    String tmp1 = prefs.getString("tmp1", "undefined"); 
-    	    if (tmp1 == "undefined")
-    	        return false;
-    	    String tmp2 = prefs.getString("tmp2", "undefined"); 
-    	    if (tmp2 == "undefined")
-    	        return false;
-    	    MobileServiceUser user = new MobileServiceUser(tmp1);
-    	    user.setAuthenticationToken(tmp2);
-    	    mClient.setCurrentUser(user);       
-    	    return true;
-    	}
-
-
-	    private void cacheUserToken(MobileServiceUser user)
-	    {
-    	    SharedPreferences prefs = getSharedPreferences("temp", Context.MODE_PRIVATE);
-    	    Editor editor = prefs.edit();
-    	    editor.putString("tmp1", user.getUserId());
-    	    editor.putString("tmp2", user.getAuthenticationToken());
-    	    editor.commit();
-    	}	
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
 
 
 
@@ -122,7 +67,8 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Register your app for authentication and configure Mobile Services]: #register
 [Restrict table permissions to authenticated users]: #permissions
 [Add authentication to the app]: #add-authentication
-[Cache authentication tokens on the client]: #cache-tokens
+[Store authentication tokens on the client]: #tokens
+[Refresh expired tokens]: #refresh-tokens
 [Next Steps]:#next-steps
 
 <!-- Images. -->
