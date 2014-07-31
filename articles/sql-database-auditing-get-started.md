@@ -11,7 +11,7 @@ Auditing tools enable and facilitate adherence to compliance standards but don't
 + [Set up auditing for your database]
 + [Analyze audit logs and reports]
 
-## Azure SQL Database Auditing basics
+##Azure SQL Database Auditing basics
 
 You set up auditing in the Azure Preview Portal, but it makes no difference whether you created the database using the Azure Portal or the Azure Preview Portal. SQL Database auditing enables you to:
 
@@ -31,15 +31,15 @@ For further detail about the the activities and events logged, see the <a href="
 
 You also choose the storage account where audit logs will be saved.
 
-### Security-enabled connection string
+###Security-enabled connection string
 When you set up auditing, Azure provides you with a security-enabled connection string for the database. Only client applications that use this connection string will have their activity and events logged, so you need to update existing client applications to use the new string format.
 
 Traditional connection string format: <*server name*>.database.windows.net
 
-Security-enabled connection string: <*server name*>.**secure**.database.windows.net
+Security-enabled connection string: <*server name*>.database.**secure**.windows.net
 
 
-## Set up auditing for your database
+##Set up auditing for your database
 
 1. <a href="http://go.microsoft.com/fwlink/?LinkId=404163" target="_blank">Sign up for the Auditing preview</a>.
 2. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com.
@@ -63,12 +63,12 @@ Security-enabled connection string: <*server name*>.**secure**.database.windows.
 
 	![][5]
 
-7. Click **Enable**.
+7. Click **OK**.
 
 
-## Analyze audit logs and reports
+##Analyze audit logs and reports
 
-Audit logs are aggregated in a single Azure Store Table named **AuditLogs** in the Azure storage account you chose during setup. You can view log files using a tool such as <a href="http://azurestorageexplorer.codeplex.com/Azure Storage Explorer" target="_blank">Azure Storage Explorer</a>.
+Audit logs are aggregated in a single Azure Store Table named **AuditLogs** in the Azure storage account you chose during setup. You can view log files using a tool such as <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Explorer</a>.
 
 A preconfigured dashboard report template is available as a <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">downloadable Excel spreadsheet</a> to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can download <a href="http://www.microsoft.com/en-us/download/details.aspx?id=39379">here</a>. 
 
