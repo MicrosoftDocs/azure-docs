@@ -1,10 +1,10 @@
 
-For more information about disks in Azure virtual machines, see [Manage Disks and Images](http://go.microsoft.com/fwlink/p/?LinkId=403697).
+For more information about disks in Azure virtual machines, see [About Virtual Machine Disks in Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
 
 ##<a id="attachempty"></a>How to: Attach an empty disk
 Attaching an empty disk is the simpler way to add a data disk, because Azure creates the .vhd file for you and stores it in the storage account.
 
-1. Click **Virtual Machines**, and then select the virtual machine to which you want to attach the data disk.
+1. Click **Virtual Machines**, and then select the appropriate virtual machine.
 
 2. On the command bar, click **Attach**, and then select **Attach Empty Disk**.
 
@@ -39,11 +39,9 @@ Attaching an empty disk is the simpler way to add a data disk, because Azure cre
 
 Attaching an existing disk requires that you have a .vhd available in a storage account. Use the [Add-AzureVhd](http://go.microsoft.com/FWLink/p/?LinkID=391684) cmdlet to upload the .vhd file to the storage account. After you've created and uploaded the .vhd file, you can attach it to a virtual machine. 
 
-1. If you haven't already done so, sign in to the [Azure Management Portal](http://manage.windowsazure.com).
+1. Click **Virtual Machines**, and then select the appropriate virtual machine.
 
-2. Click **Virtual Machines**, and then select the virtual machine to which you want to attach the disk.
-
-3. On the command bar, click **Attach**, and then select **Attach Disk**.
+2. On the command bar, click **Attach**, and then select **Attach Disk**.
 
 
 	![Attach data disk](./media/howto-attach-disk-window-linux/AttachExistingDiskWindows.png)

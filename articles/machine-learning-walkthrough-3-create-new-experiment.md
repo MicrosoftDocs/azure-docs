@@ -61,6 +61,7 @@ The next step of the experiment is to generate separate datasets that will be us
 
 1.	Find the **Split** module, drag it onto the canvas, and connect it to the last **Metadata Editor** module.
 2.	By default, the split ratio is 0.5 and the **Randomized split** parameter is set. This means that a random half of the data will be output through one port of the **Split** module, and half out the other. You can adjust these, as well as the **Random seed** parameter, to change the split between training and scoring data. For this example we'll leave them as-is.
+
 	>Tip - The split ratio essentially determines how much of the data is output through the left output port. For instance, if you set the ratio to 0.7, then 70% of the data is output through the left port and 30% through the right port.  
 	
 We can use the outputs of the **Split** module however we like, but let's choose to use the left output as training data and the right output as scoring data.  
@@ -86,10 +87,14 @@ We need to do this same replication operation for each output of the **Split** m
 3.	Connect this **Execute R Script** module to the right output port of the **Split** module.  
 
 >Tip - The copy of the Execute R Script module contains the same script as the original module. When you copy and paste a module on the canvas the copy retains all the properties of the original.  
->
+
 Our experiment now looks something like this:
  
 ![Adding Split module and R scripts][3]
+
+----------
+
+**Next: [Train and evaluate the models][train-models]**
 
 [1]: ./media/machine-learning-walkthrough-3-create-new-experiment/create1.png
 [2]: ./media/machine-learning-walkthrough-3-create-new-experiment/create2.png

@@ -14,7 +14,6 @@ This article provides instructions on using a custom domain name purchased from 
 In this article:
 
 -   [Understanding DNS records](#understanding-records)
--   [Configure your web sites for basic, shared or standard mode](#bkmk_configsharedmode)
 -   [Add a DNS record for your custom domain](#bkmk_configurecname)
 -   [Enable the domain on your web site](#enabledomain)
 
@@ -23,46 +22,46 @@ In this article:
 [WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 
-<h2><a name="bkmk_configsharedmode"></a>Configure your web sites for basic, shared or standard mode</h2>
-
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
-
 <h2><a name="bkmk_configurecname"></a>Add a DNS record for your custom domain</h2>
 
 To associate your custom domain with an Azure Web Site, you must add a new entry in the DNS table for your custom domain by using tools provided by GoDaddy. Use the following steps to locate the DNS tools for GoDaddy.com
 
-1. Log on to your account with GoDaddy.com, and select **My Account** and then **Manage your domains**. Finally, select the domain name that you wish to use with your Azure Web Site.
+1. Log on to your account with GoDaddy.com, and select **My Account** and then **Manage my domains**. Finally, select the drop-down menu for the domain name that you wish to use with your Azure Web Site and select **Manage DNS**.
 
 	![custom domain page for GoDaddy](./media/web-sites-custom-domain-name/godaddy-customdomain.png)
 
-2. From the **Domain details** page, select the **DNS Zone File** tab. This is the section used for adding and modifying DNS records for your domain name. Select the **Edit** button to display the **Zone File Editor**.
+2. From the **Domain details** page, scroll to the **DNS Zone File** tab. This is the section used for adding and modifying DNS records for your domain name. 
 
 	![DNS Zone File tab](./media/web-sites-custom-domain-name/godaddy-zonetab.png)
 
-4. The **Zone File Editor** is broken out into sections for each record type, starting with A records (listed as **A (Host)** as the very first section, followed by CNAME records (listed as **CNAME (Alias)**.) To add a new entry, use the **Quick Add** button below the corresponding section. To edit an existing entry, select that entry and modify the existing information.
+	Select **Add Record** to add an existing record.
 
-	> [WACOM.NOTE] Before adding entries to the zone file, note that GoDaddy has already created DNS records for popular sub-domains (called **Host** in editor,) such as **email**, **files**, **mail**, and others. If the name you wish to use already exists, modify the existing record instead of creating a new one.
+	To **edit** an existing record, select the pen & paper icon beside the record.
 
-	* When adding a CNAME record, you must set the **Host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points to** field to the **.azurewebsites.net** domain name of your Azure Web Site. For example, **contoso.azurwebsites.net**.
+	> [WACOM.NOTE] Before adding new records, note that GoDaddy has already created DNS records for popular sub-domains (called **Host** in editor,) such as **email**, **files**, **mail**, and others. If the name you wish to use already exists, modify the existing record instead of creating a new one.
 
-		![zone file editor](./media/web-sites-custom-domain-name/godaddy-quickaddcname.png)
+4. When adding a record, you must first select the record type.
+
+	![select record type](./media/web-sites-custom-domain-name/godaddy-selectrecordtype.png)
+
+	Next, you must provide the **Host** (the custom domain or sub-domain) and what it **Points to**.
+
+	![add zone record](./media/web-sites-custom-domain-name/godaddy-addzonerecord.png)
+
+	* When adding an **A (host) record** - you must set the **Host** field to either **@** (this represents root domain name, such as **contoso.com**,) * (a wildcard for matching multiple sub-domains,) or the sub-domain you wish to use (for example, **www**.) You must set the **Points to** field to the IP address of your Azure Web Site.
 	
-		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
+		> [WACOM.NOTE] When using A (host) records, you must also add a CNAME record with the following configuration:
 		> 
-		> * A **Host** value of **www** that **Points to** a value of **&lt;yourwebsitename&gt;.azurewebsites.net**.
-		> 
-		> OR
-		> 
-		> * A **Host** value of **awverify.www** that **Points to** a value of **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
+		> * A **Host** value of **awverify** that **Points to** a value of **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 
 		> This CNAME record is used by Azure to validate that you own the domain described by the A record
 
-	* When adding an A record, you must set the **Host** field to either **@** (this represents root domain name, such as **contoso.com**,) * (a wildcard for matching multiple sub-domains,) or the sub-domain you wish to use (for example, **www**.) You must set the **Points to** field to the IP address of your Azure Web Site.
+	* When adding a **CNAME (alias) record** - you must set the **Host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points to** field to the **.azurewebsites.net** domain name of your Azure Web Site. For example, **contoso.azurwebsites.net**.
 
-		![zone file editor for a record](./media/web-sites-custom-domain-name/godaddy-quickaddarecord.png)
 
-5. When you have finished adding or modifying records, click **Save Zone File** to save changes.
+5. When you have finished adding or modifying records, click **Finish** to save changes.
 
 <h2><a name="enabledomain"></a>Enable the domain name on your web site</h2>
 
 [WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
+
