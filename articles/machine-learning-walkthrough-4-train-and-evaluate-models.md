@@ -32,7 +32,9 @@ First, let's set up the boosted decision tree model:
 1.	Find the T**wo-Class Boosted Decision Tree** module in the module palette and drag it onto the canvas.
 2.	Find the **Train Model** module, drag it onto the canvas, and then connect the output of the boosted decision tree module to the left input port ("Untrained model") of the **Train Model** module.
 3.	Connect the output of the left **Execute R Script** module to the right input port ("Dataset") of the **Train Model** module.
+
 	>Tip - We don't need two of the inputs and one of the outputs of the **Execute R Script** module for this experiment, so we'll just leave them unattached. This is not uncommon for some modules.
+
 4.	Select the **Train Model** module. In the **Properties** pane, click **Launch column selector**, select "Column indices" in the first dropdown, and enter "21" in the text field (you can also select "Column name" and enter "Credit risk"). This identifies column 21, the credit risk value, as the column for the model to predict.  
 
 This portion of the experiment now looks something like this:  
@@ -95,11 +97,14 @@ Click "Scored dataset" or "Scored dataset to compare" to highlight the associate
 By examining these values you can decide which model is closest to giving you the results you're looking for. You can go back and iterate on your experiment by changing values in the different models.  
 
 >Tip - Each time you run the experiment a record of that iteration is kept in the Run History. You can view these iterations, and return to any of them, by clicking **VIEW RUN HISTORY** below the canvas. You can also click **Prior Run** in the **Properties** pane to return to the iteration immediately preceding the one you have open.  
->
+
 You can also make a copy of any iteration of your experiment by clicking **SAVE AS** below the canvas. This makes a duplicate of the experiment, creating a new Run History to track your iterations of this version. The new copy is displayed in the **EXPERIMENTS** list alongside the original. This can be helpful if you want to start a new branch of experiment iterations.  
->
+
 As an additional help to track the changes you make to module parameters, you can add comments to any module on the experiment canvas. Just double-click the module or right-click and select **Edit Comment**. These comments are saved with the experiment iterations and can help you annotate your work.
 
+----------
+
+**Next: [Publish the web service][publish]**
 
 [1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png

@@ -63,6 +63,8 @@ Once the data has been converted to CSV format, we need to upload it into CloudM
  
 This uploads the data into a Dataset module that we can use in an experiment.
 
+----------
 
+**Next: [Create a new experiment][create-new]**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
