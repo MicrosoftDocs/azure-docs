@@ -26,11 +26,14 @@ However, one thing you can do right now is to [capture and search diagnostic eve
 
 <!--Link references-->
 
-[root]: ../appinsights-basics/
-[start]: ../appinsights-web-get-started/
-[redfield]: ../appinsights-get-started-monitor-live-website-now/
-[explore]: ../appinsights-explore-metrics/
-[diagnostic]: ../appinsights-search-diagnostic-logs/ 
-[availability]: ../appinsights-web-monitor-availability/
-[usage]: ../appinsights-web-track-usage/
-[qna]: ../appinsights-troubleshoot-faq/
+
+
+[root]: ../app-insights-get-started/
+[start]: ../app-insights-monitor-application-health-performance/
+[redfield]: ../app-insights-monitor-performance-live-website-now/
+[explore]: ../app-insights-explore-metrics/
+[diagnostic]: ../app-insights-search-diagnostic-logs/ 
+[availability]: ../app-insights-monitor-web-app-availability/
+[usage]: ../app-insights-track-usage-custom-events-metrics/
+[qna]: ../app-insights-troubleshoot-faq/
+
