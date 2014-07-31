@@ -17,16 +17,11 @@ You can [download the Visual Studio project][download] from the MSDN Code Galler
 The tutorial includes the following sections:
 
 - [Prerequisites](#prerequisites)
-- [Introduction](#learn)
-	- [What You'll Learn](#learn)
-	- [The WebJobs SDK](#webjobssdk)
-	- [Contoso Ads application architecture](#contosoads)
+- [What You'll Learn](#learn)
+- [The WebJobs SDK](#webjobssdk)
+- [Application architecture](#contosoads)
 - [Set up the development environment](#setupdevenv)
 - [Build, run, and deploy the application](#storage)
-	- [Create an Azure Storage account](#storage)
-	- [Configure the application to use your storage account](#configurestorage)
-	- [Run the application locally](#runlocal)
-	- [Deploy the application to Azure](#deploy)
 - [Create the application from scratch](#create)
 - [Review the application code](#code)
 - [Troubleshoot](#troubleshoot)
@@ -117,7 +112,7 @@ As you can see, the trigger and binder features of the WebJobs SDK greatly simpl
 
 The WebJobs SDK provides many ways to work with  Azure Storage. For example, if the parameter you decorate with the `QueueTrigger` attribute is a byte array or a custom type, it is automatically deserialized from JSON. And you can use a `BlobTrigger` attribute to trigger a process whenever a new blob is created in your Azure Storage account. (Note that while `QueueTrigger` finds new queue messages within a few seconds, `BlobTrigger` can take up to 20 minutes to detect a new blob. `BlobTrigger` scans for blobs whenever the `JobHost` starts and then periodically checks the Azure Storage logs to detect new blobs.)
 
-## <a id="contosoads"></a>Contoso Ads application architecture
+## <a id="contosoads"></a>Application architecture
 
 The sample application uses the [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a backend process. 
 
@@ -297,9 +292,9 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 	The complete URL will consist of what you enter here plus .azurewebsites.net (as shown next to the **Site name** text box). For example, if the site name is ContosoAds, the URL will be ContosoAds.azurewebsites.net.
 
-9. In the **Region** drop-down list choose the region closest to you.
+9. In the **Region** drop-down list choose the same region you chose for your storage account.
 
-	This setting specifies which Azure datacenter your web site will run in. Choose the same region you chose for your storage account.
+	This setting specifies which Azure datacenter your website will run in. Keeping the website and storage account in the same datacenter minimizes latency and data egress charges.
 
 9. In the **Database server** drop-down list choose **Create new server**.
 
@@ -319,15 +314,19 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 	![Connection step](./media/websites-dotnet-webjobs-sdk-get-started/connstep.png)	
 
-3. In the **Settings** step, click Next.
+3. In the **Settings** step, clear the **Use this connection string at runtime** check box, and then click **Next**.
 
 	![Settings step](./media/websites-dotnet-webjobs-sdk-get-started/settingsstep.png)	
+	
+	You don't need to use the publish dialog to set the SQL connection string because you'll set that value in the Azure environment later.
 
 	You can ignore the warnings on this page. 
 
 	* Normally the storage account you use when running in Azure would be different from the one you use when running locally, but for this tutorial you're using the same one in both environments. So the AzureJobsStorage connection string does not need to be transformed. Even if you did want to use a different storage account in the cloud, you wouldn't need to transform the connection string because the app will use an Azure environment setting when it runs in Azure. You'll see this later in the tutorial.
 
 	* For this tutorial you aren't going to be making changes to the data model used for the ContosoAdsContext database, so there is no need to use Entity Framework Code First Migrations for deployment. Code First will automatically create a new database the first time the app tries to access SQL data.
+
+	For this tutorial, the default values of the options under **File Publish Options** are fine. 
 
 4. In the **Preview** step, click **Start Preview**.
 
@@ -343,7 +342,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 	Visual Studio deploys the application and opens the home page URL in the browser. 
 
-	The browser opens to an error page because you haven't configured the connection strings in Azure yet. (The storage connection strings are OK because they aren't changing but the app is trying to access the LocalDB database, and that doesn't work in Azure.)
+	You won't be able to use the site until you set connection strings in the Azure environment in the next section. You'll see either an error page or the home page depending on site and database creation options you chose earlier. 
 
 ### Configure the website to use your Azure SQL database and storage account.
 
@@ -365,7 +364,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 	![Connection strings in management portal](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)	
  
-9. Refresh the browser window that is showing the error page.
+9. Refresh the browser window that has the site URL in its address bar.
 
 	The home page appears. You can now test the app by creating, viewing, and editing ads, as you did when you ran the application locally.
 
@@ -378,7 +377,6 @@ It's a security best practice to [avoid putting sensitive information such as co
 3. click the URL in the Logs column for your WebJob.
 
 	![WebJobs tab](./media/websites-dotnet-webjobs-sdk-get-started/wjtab.png)	
-
 	A new browser tab opens to the WebJobs SDK dashboard. The dashboard shows that the WebJob is running and shows a list of functions in your code that the WebJobs SDK triggered.
 
 4. Click one of the functions to see details about its execution 
