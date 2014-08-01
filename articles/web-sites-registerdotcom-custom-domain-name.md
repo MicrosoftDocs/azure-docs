@@ -7,7 +7,7 @@
 
 [WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-This article provides instructions on using a custom domain name purchased from [Register.com](https://register.com) with Azure Web Sites.
+This article provides instructions on using a custom domain name purchased from [Register.com](https://www.register.com) with Azure Web Sites.
 
 [WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 

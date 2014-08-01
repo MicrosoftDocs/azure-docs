@@ -1,14 +1,11 @@
-<properties title="Monitor usage and performance of a web project with Application Insights" pageTitle="Monitor usage and performance of a web project with Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
+<properties title="Explore your metrics" pageTitle="Explore your metrics" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
  
-# Monitor your web application 
+# Explore your metrics 
 
-If you haven't yet [set up your web project for Application Insights][existing], do that now.
+If you haven't yet [set up your web project for Application Insights][start], do that now.
 
 Here are the reports you can expect to see on your application's blade in Application Insights. To get to the page from Visual Studio, right-click your web project and choose Open Application Insights. To get to it from the Microsoft Azure Preview start board, choose Browse, Application Insights, and then select your project.
 
-In this preview version, you can't edit the layout or configuration of the tiles.
-
-**Close and re-open the blade periodically to refresh the data, in this version.**
 
 + [Application Health](#health) 
 + [Usage Analytics](#usage)
@@ -37,11 +34,11 @@ The number of requests received in a specified period. Compare this with the res
 
 ![](./media/appinsights/appinsights-43webtests.png)
 
-[Web tests] show the results of web requests sent to your server at regular intervals from Application Insights servers around the world.
+[Web tests][availability] show the results of web requests sent to your server at regular intervals from Application Insights servers around the world.
 
 Check to see if the results vary along with the request count.
 
-[How to set up web tests][Web tests].
+[How to set up web tests][availability].
 
 ### Slowest requests
 
@@ -53,7 +50,7 @@ Shows which requests might need performance tuning.
 
 ![](./media/appinsights/appinsights-45diagnostic.png)
 
-If you've [set up diagnostic logging][diagnostics], click through to see the latest events.
+If you've [set up diagnostic logging][diagnostic], click through to see the latest events.
 
 ### Failed requests
 
@@ -61,13 +58,12 @@ If you've [set up diagnostic logging][diagnostics], click through to see the lat
 
 A count of requests that threw uncaught exceptions.
 
-(Coming soon - click through to get the exception reports.)
 
 ## <a name="usage"></a>Usage Analytics
 
 ![](./media/appinsights/appinsights-47usage.png)
 
-Usage data comes partly from the server and partly from the [scripts in the web pages][existing].
+Usage data comes partly from the server and partly from the [scripts in the web pages][start].
 
 ### Sessions per browser
 
@@ -81,20 +77,38 @@ Shows total counts in the last 24 hours.
 
 Click through to see graphs of page views over the past week.
 
+### Rearrange the tiles
+
+![Choose settings, customize](./media/appinsights/appinsights-21-customizeblade.png)
 
 ## <a name="next"></a>Next steps
 
-[Set up web tests][Web tests]
+[Set up web tests][availability]
 
-[Capture and search diagnostic logs][diagnostics]
+[Capture and search diagnostic logs][diagnostic]
 
-[Troubleshooting][trouble]
+[Troubleshooting][qna]
+
+
+## Learn more
+
+* [Application Insights][root]
+* [Add Application Insights to your project][start]
+* [Monitor a live web server now][redfield]
+* [Explore metrics in Application Insights][explore]
+* [Diagnostic log search][diagnostic]
+* [Availability tracking with web tests][availability]
+* [Usage tracking with events and metrics][usage]
+* [Q & A and troubleshooting][qna]
+
 
 <!--Link references-->
-[Web tests]: ../appinsights-10Avail/
-[diagnostics]: ../appinsights-24diagnostics/
-[monitor]: ../appinsights-04monitor/
-[start new]: ../appinsights-01-start/
-[existing]: ../appinsights-02-existing/
-[trouble]: ../appinsights-09qna/
 
+[root]: ../app-insights-get-started/
+[start]: ../app-insights-monitor-application-health-usage/
+[redfield]: ../app-insights-monitor-performance-live-website-now/
+[explore]: ../app-insights-explore-metrics/
+[diagnostic]: ../app-insights-search-diagnostic-logs/ 
+[availability]: ../app-insights-monitor-web-app-availability/
+[usage]: ../app-insights-track-usage-custom-events-metrics/
+[qna]: ../app-insights-troubleshoot-faq/
