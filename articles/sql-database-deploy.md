@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="Lori Clark" solutions="" manager="" editor="" />
 
 
 

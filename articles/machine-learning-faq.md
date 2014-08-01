@@ -26,7 +26,7 @@ To get started with Azure Machine Learning visit the [get started page](http://g
 
 **5. How does Machine Learning billing work?**
 
-The Azure ML Studio service   is billed by compute hour for active experimentation and billing is prorated for partial hours. The Azure ML API service is billed per 1,000 prediction API calls and by compute hour when a prediction is being actively executed. Billing is prorated for prediction quantities less than 1,000 and partial compute hours.
+The Azure ML Studio service is billed by compute hour for active experimentation and billing is prorated for partial hours. The Azure ML API service is billed per 1,000 prediction API calls and by compute hour when a prediction is being actively executed. Billing is prorated for prediction quantities less than 1,000 and partial compute hours.
  
 Charges are aggregated per workspace for your subscription. Within each workspace you will see charges for the three items
 
@@ -50,7 +50,7 @@ The **Reader** module can read data from Azure Table, Azure Blob, SQL Database (
 
 **8. How large can my data set be?**
 
-Azure ML Studio supports training dataset of up to 10GB.  There is no limit on the dataset size for Web Services.  Sampling larger datasets via Hive or SQL queries before ingestion is also supported. If you are working with data larger than 10GB, you can create multiple datasets and use the ‘Partition and Sample’, ‘Split’ or ‘Join’ modules to recombine these datasets in ML studio to create training sets for building predictive models. Visit module help in ML Studio to learn more about these modules.
+ML Studio supports training datasets of up to 10GB.  There is no limit on the dataset size for Web Services.  Sampling larger datasets via Hive or SQL queries before ingestion is also supported. If you are working with data larger than 10GB, you can create multiple datasets and use the 'Partition and Sample', 'Split' or 'Join' modules to recombine these datasets in ML Studio to create training sets for building predictive models. Visit module help in ML Studio to learn more about these modules.
 
 For datasets larger than a couple GB, the recommended approach is to upload data to Azure storage or SQL Database (Azure) or use HDInsight, rather than directly uploading from local file.
 
@@ -64,11 +64,11 @@ You can visit the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=4
 
 **11. Can I bring my existing code into ML Studio?**
 
-ML Studio supports R today, you can bring in your existing R codes in ML Studio and run it in the same experiment with Azure ML provided learners and publish this as a web service via Azure ML. Azure ML is the fastest way to turn analytic assets in R into enterprise grade production web services. View Azure ML studio module help to learn how to bring your R codes and visualization into ML Studio.
+ML Studio supports R today, you can bring in your existing R codes in ML Studio and run it in the same experiment with Azure ML provided learners and publish this as a web service via Azure ML. Azure ML is the fastest way to turn analytic assets in R into enterprise grade production web services. See the ML Studio help topic **Extensibility with R** to learn how to bring your R codes and visualization into ML Studio.
  
-**12. What R packages are available in ML studio?**
+**12. What R packages are available in ML Studio?**
 
-ML studio supports 350+ R packages today, and this list is constantly growing. Visit help to learn how to get list of [supported R packages](http://go.microsoft.com/fwlink/?LinkId=404233) . If the package you want is not listed in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
+ML Studio supports 350+ R packages today, and this list is constantly growing. See the ML Studio help topic **Extensibility with R** to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 ### ML API SERVICE
 
@@ -82,7 +82,7 @@ Request Response Service is useful in a scenario where predictive analytics are 
 
 **14. How do I update the model for the deployed service production?**
 
-Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model. Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, the same update will become available for you apply to the production web service as well.  Visit ML Studio help for details on how to update a deployed web service.
+Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model. Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, the same update will become available for you apply to the production web service as well. See the ML Studio help topic **Updating the Web Service** for details on how to update a deployed web service.
  
 ###SECURITY AND AVAILABILITY
 
@@ -101,7 +101,7 @@ Once a predictive model has been put into production, you can monitor from the A
 
 [Azure Machine Learning Center](http://azure.microsoft.com/en-us/documentation/services/machine-learning/) hosts video tutorials as well as how-to guides.  Theses step-by-step how-to guides provide an introduction to the services and walk through the data science life cycle of importing data, cleaning data, building predictive models and deploying them in production with Azure ML.
 
-The video tutorials provide a visual tour of Azure ML Studio and ML API service. The videos tutorials demonstrate the breadth of the service, most commonly used data ingress, cleaning and processing modules; building a predictive model and deploying the predictive models. The video tutorials will also cover tasks like workspace provisioning and deploying the staged models to production.
+The video tutorials provide a visual tour of ML Studio and ML API service. The videos tutorials demonstrate the breadth of the service, most commonly used data ingress, cleaning and processing modules; building a predictive model and deploying the predictive models. The video tutorials will also cover tasks like workspace provisioning and deploying the staged models to production.
 
 We will be adding new material to Machine Learning Center on an ongoing basis. You can submit request for additional learning material on Machine Learning Center at [user feedback forum](https://windowsazure.uservoice.com/forums/257792-machine-learning).
 
