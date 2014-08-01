@@ -69,19 +69,19 @@ For more information about authentication and subscription management in Azure, 
 
 5. Staring from 0.8.6, if you have an organizational account, you can type the following command to bypass the pop up window. This will pop up the standard Windows PowerShell credential window for you to enter your organizational account user name and password.
 
-    $cred = Get-Credential
-    Add-AzureAccount -Credential $cred
+        $cred = Get-Credential
+        Add-AzureAccount -Credential $cred
 
 6. If you are using this in an automation script and want to avoid any pop up window, use the following snippet
 
-    $userName = "<your organizational account user name>"
-    $securePassword = ConvertTo-SecureString -String "<your organizational account password>" -AsPlainText -Force
-    $cred = New-Object System.Management.Automation.PSCredential($userName, $securePassword)
-    Add-AzureAccount -Credential $cred 
+        $userName = "<your organizational account user name>"
+        $securePassword = ConvertTo-SecureString -String "<your organizational account password>" -AsPlainText -Force
+        $cred = New-Object System.Management.Automation.PSCredential($userName, $securePassword)
+        Add-AzureAccount -Credential $cred 
 
 	> [WACOM.NOTE] This non-interactive login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 	> 
-	> 1. Login to the [Azure Management Portal][portal], and click on **Active Directory**.
+	> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
 	> 
 	> 2. If no directory exists, select **Create your directory** and provide the requested information.
 	> 
@@ -93,7 +93,7 @@ For more information about authentication and subscription management in Azure, 
 	> 
 	> 5. Finally, log out of the Azure portal and then log back in using the new organizational account. If this is the first time logging in with this account, you will be prompted to change the password.
 	>
-	>For more information on organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization][signuporg].
+	>For more information on organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization](http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/).
 
 <h3>Use the certificate method</h3>
 

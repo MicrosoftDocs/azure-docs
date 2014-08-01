@@ -4,9 +4,9 @@ When you create a web site, Azure provides a friendly subdomain on the azurewebs
 
 Optionally, you can use Azure Traffic Manager to load balance incoming traffic to your web site. For more information on how Traffic Manager works with Web Sites, see [Controlling Azure Web Sites Traffic with Azure Traffic Manager][trafficmanager].
 
-> [WACOM.NOTE] The procedures in this task apply to Azure Web Sites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
+> [WACOM.NOTE] The procedures in this task apply to Azure Web Sites; for Cloud Services, see <a href="/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
 
-> [WACOM.NOTE] The steps in this task require you to configure your web sites for Shared or Standard mode, which may change how much you are billed for your subscription. See <a href="http://www.windowsazure.com/en-us/pricing/details/web-sites/">Web Sites Pricing Details</a> for more information.
+> [WACOM.NOTE] The steps in this task require you to configure your web sites for Shared or Standard mode, which may change how much you are billed for your subscription. See <a href="/en-us/pricing/details/web-sites/">Web Sites Pricing Details</a> for more information.
 
 In this article:
 
@@ -106,11 +106,11 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 
 	* Login to the [Azure Management Portal][portal], select your web site, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
 
-	* Install and configure [Azure Powershell](http://www.windowsazure.com/en-us/manage/install-and-configure-windows-powershell/), and then use the following command:
+	* Install and configure [Azure Powershell](/en-us/manage/install-and-configure-windows-powershell/), and then use the following command:
 
 			get-azurewebsite yoursitename | select hostnames
 
-	* Install and configure the [Azure Cross-Platform Command Line Interface](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/), and then use the following command:
+	* Install and configure the [Azure Cross-Platform Command Line Interface](/en-us/manage/install-and-configure-cli/), and then use the following command:
 
 			azure site domain list yoursitename
 
@@ -151,7 +151,7 @@ After the CNAME record for domain name has propagated, you must associate it wit
 
 **To add a domain name using the command-line tools**
 
-Install and configure the [Azure Cross-Platform Command-Line Interface](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/), and then use the following command:
+Install and configure the [Azure Cross-Platform Command-Line Interface](/en-us/manage/install-and-configure-cli/), and then use the following command:
 
 	azure site domain add customdomain yoursitename
 
@@ -247,7 +247,7 @@ After the **awverify** CNAME record for domain name has propagated, you can then
 
 **To add a domain name using the command-line tools**
 
-Install and configure the [Azure Cross-Platform Command-Line Interface](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/), and then use the following command:
+Install and configure the [Azure Cross-Platform Command-Line Interface](/en-us/manage/install-and-configure-cli/), and then use the following command:
 
 	azure site domain add customdomain yoursitename
 
@@ -281,9 +281,9 @@ Once configuration has completed, the custom domain name will be listed in the *
 
 ## Next steps
 
--   [How to manage web sites](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-manage-websites/)
+-   [How to manage web sites](/en-us/manage/services/web-sites/how-to-manage-websites/)
 
--   [Configure an SSL certificate for Web Sites](http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/)
+-   [Configure an SSL certificate for Web Sites](/en-us/develop/net/common-tasks/enable-ssl-web-site/)
 
 
 <!-- Bookmarks -->
@@ -296,7 +296,7 @@ Once configuration has completed, the custom domain name will be listed in the *
 
 <!-- Links -->
 
-[PricingDetails]: https://www.windowsazure.com/en-us/pricing/details/
+[PricingDetails]: /en-us/pricing/details/
 [portal]: http://manage.windowsazure.com
 [digweb]: http://www.digwebinterface.com/
 [cloudservicedns]: ../custom-dns/

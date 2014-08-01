@@ -12,7 +12,7 @@ The Azure Management Portal provides two ways for you to create and deploy a clo
 
 This topic explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure Management Portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using **Custom Create**. 
 
-**Note**   If you plan to publish your cloud service from Windows Team Foundation Services (TFS), use Quick Create, and then set up TFS publishing from **Quick Start** or the dashboard. For more information, see [Continuous Delivery to Azure by Using Team Foundation Service Preview][TFSTutorialForCloudService], or see help for the **Quick Start** page.
+**Note**   If you plan to publish your cloud service from Windows Team Foundation Services (TFS), use Quick Create, and then set up TFS publishing from **Quick Start** or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Online][TFSTutorialForCloudService], or see help for the **Quick Start** page.
 
 ##Table of Contents##
 
@@ -60,13 +60,13 @@ Three cloud service features require special configurations before you export a 
 
 <h2><a id="quick"></a>How to: Create a cloud service using Quick Create</h2>
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **New**, click **Cloud Service**, and then click **Quick Create**.
+1. In the [Management Portal](http://manage.windowsazure.com/), click **New**, **Compute**, **Cloud Service**, and then **Quick Create**.
 
 	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
 2. In **URL**, enter a subdomain name to use in the public URL for accessing your cloud service in production deployments. The URL format for production deployments is: http://*myURL*.cloudapp.net.
 
-3. In **Region/Affinity Group**, select the geographic region or affinity group to deploy the cloud service to. Select an affinity group if you want to deploy your cloud service to the same location as other Azure services within a region.
+3. In **Region or Affinity Group**, select the geographic region or affinity group to deploy the cloud service to. Select an affinity group if you want to deploy your cloud service to the same location as other Azure services within a region.
 
 	> [WACOM.NOTE]
 	> To create an affinity group, open the **Networks** area of the Management Portal, click **Affinity Groups**, and then click either **Create a new affinity group** or **Create**. You can use affinity groups that you created in the earlier Azure Management Portal. And you can create and manage affinity groups using the Azure Service Management API. For more information, see [Operations on Affinity Groups](http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx).
@@ -93,12 +93,12 @@ Three cloud service features require special configurations before you export a 
 
 	![CloudServices_CertificatesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CertificatesPage.png)
 
-3. Click either **Add new certificate** or **Upload**.
- **Add a Certificate** opens.
+3. Click **Upload a Certificate**.
+ **Upload Certificate** opens.
 
 	![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
 
-4. In **Certificate file**, use **Browse** to select the certificate (.pfx file) to use.
+4. In **Certificate file**, use **Browse** to select the certificate (.pfx or .cer file) to use.
 
 5. In **Password**, enter the private key for the certificate.
 
@@ -112,28 +112,27 @@ Three cloud service features require special configurations before you export a 
 
 <h2><a id="deploy"></a>How to: Deploy a cloud service</h2>
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
-
-2. Click **Quick Start** (the icon to the left of **Dashboard**) to open the **Quick Start** page, shown below. (You can also deploy your cloud service by using **Upload** on the dashboard.)
-
-	![CloudServices_QuickStartPage](./media/cloud-services-how-to-create-deploy/CloudServices_QuickStartPage.png)
-
-3. If you haven't installed the Azure SDK, click **Install Azure SD**K to open the [Azure Downloads page](http://www.windowsazure.com/en-us/develop/downloads/), and then download the SDK for the language in which you prefer to develop your code.
+1. If you haven't installed the Azure SDK, click **Install Azure SDK** to open the [Azure Downloads page](http://www.windowsazure.com/en-us/develop/downloads/), and then download the SDK for the language in which you prefer to develop your code.
 
 	On the downloads page, you can also install client libraries and source code for developing web apps in Node.js, Java, PHP, and other languages, which you can deploy as scalable Azure cloud services.
 
 	> [WACOM.NOTE]
 	> For cloud services created earlier (known earlier as *hosted services*), you'll need to make sure the guest operating systems on the virtual machines (role instances) are compatible with the Azure SDK version you install.  For more information, see the [Azure SDK release notes](http://msdn.microsoft.com/en-us/library/windowsazure/hh552718.aspx).
+	 
 
-4. Click either **New Production Deployment** or **New Staging Deployment**. 
+2. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard, then click **Dashboard**.
+
+3. Click **Production** or **Staging**. 
 
 	If you'd like to test your cloud service in Azure before deploying it to production, you can deploy to staging. In the staging environment, the cloud service's globally unique identifier (GUID) identifies the cloud service in URLs (*GUID*.cloudapp.net). In the production environment, the friendlier DNS prefix that you assign is used (for example, *myservice*.cloudapp.net). When you're ready to promote your staged cloud service to production, use **Swap** to redirect client requests to that deployment.
 
-	When you select a deployment environment, **Upload a Package** opens.
+	![CloudServices_QuickStartPage](./media/cloud-services-how-to-create-deploy/CloudServices_QuickStartPage.png)
+
+4. Click **Upload** on the dashboard to deploy your cloud service. 
 
 	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
  
-5. In **Deployment name**, enter a name for the new deployment - for example, MyCloudServicev1.
+5. In **Deployment Label**, enter a name for the new deployment - for example, MyCloudServicev1.
 
 6. In **Package**, use **Browse** to select the service package file (.cspkg) to use.
 

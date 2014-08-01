@@ -23,9 +23,9 @@ This is the third step of the walkthrough, [Developing a Predictive Solution wit
 
 #Step 3: Create a new Azure Machine Learning experiment
 
-We need to create a new experiment in CloudML Studio that uses the dataset we uploaded.  
+We need to create a new experiment in ML Studio that uses the dataset we uploaded.  
 
-1.	In CloudML Studio, click **+NEW** at the bottom of the window.
+1.	In ML Studio, click **+NEW** at the bottom of the window.
 2.	Select **EXPERIMENT**.
 3.	In the module palette to the left of the experiment canvas, expand **Saved Datasets**.
 4.	Find the dataset you created and drag it onto the canvas. You can also find the dataset by entering the name in the **Search** box above the palette.  

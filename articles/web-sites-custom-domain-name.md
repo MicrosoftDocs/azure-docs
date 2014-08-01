@@ -42,13 +42,13 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 
 	* CNAME records will always map to the Azure Web Sites domain - **contoso.azurewebsites.net**. So you will be mapping *from* a domain such as **www** *to* your **&lt;yourwebsitename&gt;.azurewebsites.net** address.
 	
-		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
-		> 
-		> * Maps *from* **www** *to* your **&lt;yourwebsitename&gt;.azurewebsites.net**.
+		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record that maps *from* **awverify** *to* **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
+		>  
+		> * To map the root domain, or create a wildcard mapping for sub-domains immediately off the root, map *from* **awverify** *to* **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 
 		> OR
 		> 
-		> * Maps *from* **awverify.www** *to* **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
+		> * To map a specific sub-domain, map *from* **awverify.&lt;subdomainname>** *to* **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**. For example, the verification CNAME record for the **mail.contoso.com** sub-domain would map from **awverify.mail** to **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 
 		> This CNAME record is used by Azure to validate that you own the domain described by the A record.
 

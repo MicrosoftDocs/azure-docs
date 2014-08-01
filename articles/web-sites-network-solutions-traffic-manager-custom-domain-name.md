@@ -7,7 +7,7 @@
 
 [WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-This article provides instructions on using a custom domain name purchased from [Network Solutions](https://networksolutions.com) with Azure Web Sites.
+This article provides instructions on using a custom domain name purchased from [Network Solutions](https://www.networksolutions.com) with Azure Web Sites.
 
 [WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
