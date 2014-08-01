@@ -57,13 +57,13 @@ You will need to extract from that file the base 64 encoded content between the 
 	  </PublishProfile>
 	</PublishData>
 	
-You will need to copy that into a file and then decode it using a base 64 decoder in Linux you can use:
+You will need to copy that into a file (e.g.: encodedCert.txt) and then decode it using a base64 decoder:
 
-	Base64 -d [encodedfile] > [decodedfile].pfx
+	base64 -d [encodedCert.txt] > [decodedCert.pfx]
 
-This will provide you a pfx file that you can either convert to other formats using openssl  to extract the private key if needed:
+This will provide you a pfx file that you can either convert to other formats using openssl to extract the private key if needed:
 
- 	openssl.exe pkcs12 -in publicAndprivate.pfx -nocerts -out privateKey.pem 
+ 	openssl pkcs12 -in [decodedCert.pfx] -out [cert.pem] -nodes
 
 In Windows you can decode and extract the PFX file using powershell or a free windows base 64 decoder such as [http://www.fourmilab.ch/webtools/base64/base64.zip]()  by running the command 
 
