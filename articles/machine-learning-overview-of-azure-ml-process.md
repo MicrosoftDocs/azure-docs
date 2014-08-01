@@ -38,7 +38,7 @@ The Request-Response Service (RRS) is a low-latency, high scale Web Service used
 -	Service Interface: The RRS Web Service interface is defined as part of experiment setup using input/output ports in the Azure ML Studio experiment.
 -	Development stages: As part of the Azure ML workflow, the RRS service gets generated in the Staging environment first – and can be tested there. Once it is considered to be complete and ready for production, it is deployed to the production environment. 
 -	Deployed in Azure: The result of deploying RRS is an Azure Web Service end-point.
--	Interface parameters: The request to an RRS service is the data needed to be scored using the defined experiment in the Studio. The response is the result of the model’s prediction. 
+-	Interface parameters: The request to an RRS service is the data needed to be scored using the defined experiment in the Studio. The response is the result of the model's prediction. 
 -	Response Values: RRS accepts a single row of input parameters and generates a single row as output. The output row can contain multiple columns.   
 
 ## Batch Execution Service (BES) ##
@@ -142,7 +142,7 @@ The RRS Web Service is a REST end point and can be called from client applicatio
 Figure 11: Sample code for calling RRS  
 
 ## Non-scoring Experiments ##
-In addition to building Scoring Web Services, experiments can be created to perform other tasks such as data extraction and transformation. In this case, the Web service would not perform machine learning operations. It uses Azure ML Studio’s data manipulation capabilities to read from various data sources, convert data types, or filter and apply data and math manipulations.   
+In addition to building Scoring Web Services, experiments can be created to perform other tasks such as data extraction and transformation. In this case, the Web service would not perform machine learning operations. It uses Azure ML Studio's data manipulation capabilities to read from various data sources, convert data types, or filter and apply data and math manipulations.   
 
 ### Publishing a Non-scoring Web Service ###
 The steps for publishing a non-scoring Web Service are similar to that of the Scoring service described above. The main difference is that the Output Port is not defined on Score Model.
