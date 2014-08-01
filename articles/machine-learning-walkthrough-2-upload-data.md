@@ -37,7 +37,7 @@ We'll use this data to train a predictive analytics model. When we're done, our 
 Here's one interesting twist. The description of the dataset explains that misclassifying a person as a low credit risk when they are actually a high credit risk is 5 times more costly to the financial institution than misclassifying a low credit risk as high. One simple way to take this into account in our experiment is by duplicating (5 times) those entries that represent someone with a high credit risk. Then, if the model misclassifies a high credit risk as low, it will do that misclassification 5 times, once for each duplicate. This will increase the cost of this error in the training results.  
 
 ##Convert the dataset format
-The original dataset uses a blank-separated format. CloudML Studio works better with a comma-separated (CSV) file, so we'll convert the dataset by replacing spaces with commas.  
+The original dataset uses a blank-separated format. ML Studio works better with a comma-separated (CSV) file, so we'll convert the dataset by replacing spaces with commas.  
 
 We can do this using the following PowerShell command:   
 
@@ -48,9 +48,9 @@ We can also do this using the Unix sed command:
 	sed 's/ /,/g' german.data > german.csv  
 
 ##Upload the dataset to ML Studio
-Once the data has been converted to CSV format, we need to upload it into CloudML Studio.  
+Once the data has been converted to CSV format, we need to upload it into ML Studio.  
 
-1.	In CloudML Studio, click **+NEW** at the bottom of the window
+1.	In ML Studio, click **+NEW** at the bottom of the window
 2.	Select **DATASET**
 3.	Select **FROM LOCAL FILE**
 4.	In the **Upload a new dataset dialog**, click **Browse** and find the **german.csv** file you created

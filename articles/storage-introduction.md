@@ -105,13 +105,7 @@ Finally, you can specify that a container and its blobs, or a specific blob, are
 
 ## Replication for Durability and High Availability ##
 
-Data in your storage account is replicated to ensure durability that is also highly available, meeting the [Azure Storage SLA ](/en-us/support/legal/sla/) even in the face of transient hardware failures. Azure Storage is deployed in 15 regions around the world and also includes support for replicating data between regions. You have three options for replicating the data in your storage account:
-
-- *Locally redundant storage (LRS)* is replicated three times within a single data center. When you write data to a blob, queue, or table, the write operation is performed synchronously across all three replicas. LRS protects your data from normal hardware failures.
-- *Geo-redundant storage (GRS)* is replicated three times within a single region, and is also replicated asynchronously to a second region hundreds of miles away from the primary region. GRS keeps an equivalent of 6 copies (replicas) of your data (3 in each region). GRS enable Microsoft to failover to a second region if we can't restore the first region due to a major outage or disaster.  GRS is recommended over locally redundant storage.
-- *Read-access geo-redundant storage (RA-GRS)* provides all of the benefits of geo-redundant storage noted above, and also allows read access to data at the secondary region in the event that the primary region becomes unavailable. Read-access geo-redundant storage is recommended for maximum availability in addition to durability.  
-
-The price differences between LRS, GRS and RA-GRS can be found on the [Storage Pricing Details](/en-us/pricing/details/storage/) page.
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ## Pricing ##
 

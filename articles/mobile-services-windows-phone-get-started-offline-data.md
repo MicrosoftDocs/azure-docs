@@ -1,10 +1,11 @@
-<properties linkid="develop-mobile-tutorials-get-started-offline-data-wp8" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use offline data in your Windows Phone application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="wesmc" />
+<properties linkid="develop-mobile-tutorials-get-started-offline-data-wp8" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" />
 
-# Get started with Offline Data in Mobile Services
+# Get started with offline data sync in Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows Store C#">Windows Store C#</a>
 <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/en-us/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS">iOS</a>
 <a href="/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
 <a href="/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
 </div>
@@ -19,7 +20,7 @@ In this tutorial, you will update the app from the [Get started with Mobile Serv
 This tutorial walks you through these basic steps:
 
 1. [Update the app to support offline features]
-2. [Test the app in an offline Scenario] 
+2. [Test the app in an offline scenario] 
 3. [Update the app to reconnect your mobile service]
 4. [Test the app connected to the Mobile Service]
 
@@ -28,8 +29,8 @@ This tutorial requires the following:
 * Visual Studio 2012
 * [Windows Phone 8 SDK]
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
-* Windows Azure Mobile Services SDK NuGet package version 1.3.0-alpha2 or later
-* Windows Azure Mobile Services SQLite Store NuGet package 1.0.0-alpha or later
+* [Azure Mobile Services SDK version 1.3.0-alpha4 (or later)][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0-alpha4 (or later)][SQLite store nuget]
 * [SQLite for Windows Phone 8]
 
 >[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
@@ -245,6 +246,8 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 
     There are also overloads of **PullAsync()** that allow a query to be specified. Note that in the preview release of offline support for Mobile Services, **PullAsync** will read all rows in the corresponding table (or query)--it does not attempt to read only rows newer than the last sync, for instance. If the rows already exist in the local sync table, they will remain unchanged.
 
+* To download a project with offline support enabled, see [Getting Started Offline Sample for Windows Phone].
+
 
 ## Next steps
 
@@ -280,3 +283,5 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
 
+[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha4
+[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha4
