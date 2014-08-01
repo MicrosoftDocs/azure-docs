@@ -25,4 +25,8 @@ To install the Azure SDK 2.4 for .NET, follow these steps:
 	* packages/Microsoft.Data.OData.5.6.0/lib/net40/Microsoft.Data.OData.dll
 	* packages/Microsoft.Data.Edm.5.6.0/lib/net40/Microsoft.Data.Edm.dll
 
-2. Remote debugging in Azure does not work in Visual Studio "14" CTP2.
+2. Remote debugging for Azure Web Sites and Mobile Services does not work in Visual Studio "14" CTP2.
+
+## Release Notes
+
+Read the [release notes](http://go.microsoft.com/fwlink/?LinkId=507517) for Azure SDK 2.4.
