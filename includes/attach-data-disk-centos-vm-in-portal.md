@@ -1,4 +1,4 @@
-1. In the [Azure (Preview) Management Portal][AzurePreviewPortal], click **Virtual Machines** and then select the virtual machine you just created (**testlinuxvm**).
+1. In the Azure [Management Portal](http://manage.windowsazure.com), click **Virtual Machines** and then select the virtual machine you just created (**testlinuxvm**).
 
 2. On the command bar click **Attach** and then click **Attach Empty Disk**.
 
@@ -9,22 +9,18 @@
 
 	![Attach Empty Disk][Image2]
 
-	**Note:** All disks are created from a VHD file in Azure storage. You can provide a name for the VHD file that is added to storage, but Azure generates the name of the disk automatically.
+	**Note:** All disks are created from a .vhd file in Azure storage. You can provide a name for the .vhd file that is added to storage, but Azure generates the name of the disk automatically.
 
 4. Click the check mark to attach the data disk to the virtual machine.
 
-5. Click the name of the virtual machine to display the dashboard; this lets you verify that the data disk was successfully attached to the virtual machine.
+5. Click the name of the virtual machine to display the dashboard so you can verify that the data disk was successfully attached to the virtual machine. The disk that you attached is listed in the **Disks** table.
 
-	The number of disks is now 2 for the virtual machine. The disk that you attached is listed in the **Disks** table.
-
-	![Attach Empty Disk][Image3]
-
-	After you attach the data disk to the virtual machine, the disk is offline and not initialized. You have to log on to the virtual machine and initialize the disk before you can use it to store data.
+	When you attach a data disk, it's not ready for use until you log in to complete the setup.
 
 ##Connect to the Virtual Machine Using SSH or PuTTY and Complete Setup
-The data disk that you just attached to the virtual machine is offline and not initialized after you add it. You must log on to the machine and initialize the disk to use it for storing data.
+Log on to the virtual machine to complete setup of the disk so you can use it to store data.
 
-1. After the virtual machine is provisioned connect using SSH or PuTTY and login as **newuser** (as described in the steps above).	
+1. After the virtual machine is provisioned, connect using SSH or PuTTY and login as **newuser** (as described in the steps above).	
 
 
 2. In the SSH or PuTTY window type the following command and then enter the account password:
@@ -64,9 +60,6 @@ The data disk that you just attached to the virtual machine is offline and not i
 8. Format the new disk using the **mkfs** command:
 
 	`$ sudo mkfs -t ext4 /dev/sdc1`
-
-	![Create file system](./media/howto-attach-disk-window-linux/DiskFileSystem.png)
-
 
 9. Next you must have a directory available to mount the new file system. As an example, type the following command to make a new directory for mounting the drive, and then enter the account password:
 
@@ -114,7 +107,6 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 
 [Image2]: ./media/attach-data-disk-centos-vm-in-portal/AttachDataDiskLinuxVM2.png
-[Image3]: ./media/attach-data-disk-centos-vm-in-portal/AttachDataDiskLinuxVM3.png
 [Image4]: ./media/attach-data-disk-centos-vm-in-portal/GrepScsiMessages.png
 [Image5]: ./media/attach-data-disk-centos-vm-in-portal/fdisk1.png
 [Image6]: ./media/attach-data-disk-centos-vm-in-portal/fdisk2.png
