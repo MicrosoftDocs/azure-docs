@@ -1,32 +1,40 @@
-<properties linkid="manage-windows-common-task-mongodb-vm" urlDisplayName="Install MongoDB" pageTitle="Install MongoDB on a Windows Server virtual machine" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" description="Learn how to create an Azure virtual machine with Windows Server 2008 R2, and then use Remote Desktop to install MongoDB." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MongoDB on a virtual machine running Windows Server in Azure" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
+<properties linkid="manage-windows-common-task-mongodb-vm" urlDisplayName="Install MongoDB" pageTitle="Install MongoDB on a Windows Server virtual machine" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" description="Learn how to install MongoDB on an Azure VM running Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MongoDB on a virtual machine running Windows Server in Azure" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
 
 
 
 
-#Install MongoDB on a virtual machine running Windows Server in Azure
+#Install MongoDB on a virtual machine running Windows Server
 
 [MongoDB][MongoDB] is a popular open source, high performance NoSQL database.  Using the [Azure Management Portal][AzureManagementPortal], you can create a virtual machine running Windows Server from the Image Gallery.  You can then install and configure a MongoDB database on the virtual machine.
 
-In this tutorial, you will learn:
+This article covers how to:
 
-- How to use the Management Portal to create a Windows Server virtual machine from the gallery.
-- How to connect to the virtual machine using Remote Desktop.
-- How to install MongoDB on the virtual machine.
+- Use the Management Portal to create a Windows Server virtual machine from the gallery
+- Connect to the virtual machine using Remote Desktop
+- Attach a data disk to the virtual machine
+- Install MongoDB on the virtual machine
 
-## Create a virtual machine running Windows Server 2008 R2
+## Create a virtual machine running Windows Server
 
-[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal](../includes/create-and-configure-windows-server-2008-vm-in-portal.md)]
+Following are general instructions; you can modify them by creating an endpoint to allow MongoDB to be accessed remotely. (You also can create it later, described after instructions for installing MongoDB.) On the last page of the wizard, add an endpoint and configure it like this:
+
+- Name it **Mongo**
+- Use **TCP** as the protocol
+- Set both the public and private ports to **27017**.
+ 
+[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## Attach a data disk
+To provide a storage for the virtual machine, attach a data disk and then initialize it so that Windows can use it. You can attach either an existing disk if you already have data you want to use, or attach an empty disk.
 
-[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal](../includes/attach-data-disk-windows-server-2008-vm-in-portal.md)]
+[WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
 ## Install and run MongoDB on the virtual machine 
 
 [WACOM.INCLUDE [install-and-run-mongo-on-win2k8-vm](../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
 ##Summary
-In this tutorial you learned how to create a Windows Server virtual machine and remotely connect to it.  You also learned how to install and configure MongoDB on the Windows virtual machine. For more information on MongoDB, see the [MongoDB Documentation][MongoDocs].
+In this tutorial you learned how to create a Windows Server virtual machine, remotely connect to it, and attach a data disk.  You also learned how to install and configure MongoDB on the Windows virtual machine. For more information on MongoDB, see the [MongoDB Documentation][MongoDocs].
 
 [MongoDocs]: http://www.mongodb.org/display/DOCS/Home
 [MongoDB]: http://www.mongodb.org/

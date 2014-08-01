@@ -1,6 +1,6 @@
 After the records for your domain name have propagated, you must associate them with your web site. Use the following steps to enable the domain names using your web browser.
 
-> [WACOM.NOTE] It can take some time for CNAME records created in the previous steps to propagate through the DNS system. You cannot add the domain name of to your Azure Web Site until the CNAME has propagated. If you are using an A record, you cannot add the A record domain name to the your Azure Web Site until the **awverify.www** or **www** CNAME records created in the previous step have propagated.
+> [WACOM.NOTE] It can take some time for CNAME records created in the previous steps to propagate through the DNS system. You cannot add the domain name of to your Azure Web Site until the CNAME has propagated. If you are using an A record, you cannot add the A record domain name to your Azure Web Site until the **awverify** CNAME record created in the previous step has propagated.
 > 
 > You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
 
