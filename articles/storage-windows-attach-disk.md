@@ -4,10 +4,10 @@
 
 You can attach both empty disks and disks that contain data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use. 
 
-> [WACOM.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has one disk for the operating system and a temporary disk mapped to the D drive. **Do not use the D drive to store data.** As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
+> [WACOM.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has a disk for the operating system mapped to the C drive and a temporary disk mapped to the D drive. **Do not use the D drive to store data.** As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
 
-- [How to: Attach an existing disk](#attachexisting)
 - [How to: Attach an empty disk](#attachempty)
+- [How to: Attach an existing disk](#attachexisting)
 - [How to: Initialize a new data disk in Windows Server](#initializeinWS)
 
 
@@ -27,17 +27,14 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 
 
-3. Right-click **Disk 2**, and then click **Initialize Disk**.
+3. Right-click **Disk 2**, click **Initialize Disk**, and then click **OK**.
 
 
 
 	![Initialize the disk](./media/storage-windows-attach-disk/InitializeDisk.png)
 
-4. Click **OK** to start the initialization process.
 
-
-
-5. Right-click the space allocation area for Disk 2, click **New Simple Volume**, and then finish the wizard with the default values.
+4. Right-click the space allocation area for Disk 2, click **New Simple Volume**, and then finish the wizard with the default values.
  
 
 	![Initialize the volume](./media/storage-windows-attach-disk/InitializeDiskVolume.png)
