@@ -21,18 +21,17 @@ Offline sync has several potential uses:
 
 This tutorial will show how to update the app from [Get started with Mobile Services] or [Get Started with Data] tutorial to support the offline features of Azure Mobile Services. Then you will add data in a disconnected offline scenario, sync those items to the online database, and then log in to the Azure Management Portal to view changes to data made when running the app.
 
->[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in an iOS app. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].
+>[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+
 
 ## Get the sample app
 
->[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
-
 **A full tutorial is coming soon. In the meantime, see the sample [iOS Offline ToDo list] and [companion blog post](http://aka.ms/iosoffline).**
 
-## Next steps
+<!-- ## Next steps
 
 * [How to use the Mobile Services client library for iOS]
-  
+   -->
 
 <!-- URLs. -->
 
