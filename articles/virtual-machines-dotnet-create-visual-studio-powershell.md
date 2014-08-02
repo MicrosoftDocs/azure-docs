@@ -1,5 +1,7 @@
 <properties linkid="dotnet-visualstudio-create-virtual-machine" urlDisplayName="Create a virtual machine for a web site" pageTitle="Creating a virtual machine for a web project using Visual Studio" metaKeywords="Visual Studio, ASP.NET, web project, virtual machine" description="Create a virtual machine for a web site" metaCanonical="" services="" documentationCenter="" title="Creating a virtual machine for a web site with Visual Studio" authors="ghogen" solutions="" manager="" editor="" />
 
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
+
 # Creating a virtual machine for a web site with Visual Studio
 
 When you create a web project for an Azure web site, you can provision a virtual machine in Azure. You can then configure the virtual machine with additional software, or use the virtual machine for diagnostic or debugging purposes.

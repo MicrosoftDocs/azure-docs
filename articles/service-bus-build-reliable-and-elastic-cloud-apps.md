@@ -1,5 +1,7 @@
 <properties pageTitle="Build Reliable and Elastic Cloud Apps with Messaging" metaKeywords="Service Bus, Cloud, elastic" description="Learn how to build reliable and elastic cloud applications with messaging in Microsoft Azure." services="service-bus" title="Build Reliable and Elastic Cloud Apps with Messaging" authors="sethm" solutions="" manager="dwrede" editor="dwrede" />
 
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+
 # Build reliable and elastic cloud apps with messaging 
  
 Dynamic demand is a reality for today's applications.  From seasonal and variable demand to unexpected social media trends modern applications must deal gracefully with spikes in load that can be both uncertain or expected.  The Platform as a Service (PaaS) nature of Azure Service Bus allows you to create applications that scale easily and recover from spikes or momentary outages of components.  
