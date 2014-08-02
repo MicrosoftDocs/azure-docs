@@ -10,7 +10,7 @@ Here's a diagram that shows how the parts of the application interact:
 
 ![Email message processing][mtas-worker-roles-a-and-b]
 
-This is a 5-part tutorial series. If you want a quicker, simpler introduction to cloud services, queues, and blobs, see [Get Started with Azure Cloud Services and ASP.NET](/en-us/documentation/articles/cloud-services-dotnet-get-started/).
+This is a 5-part tutorial series. If you want a quicker, simpler introduction to cloud services, queues, and blobs, see [Get Started with Azure Cloud Services and ASP.NET](/en-us/documentation/articles/cloud-services-dotnet-get-started/). As an alternative you can run a multi-tier application in Websites and WebJobs; for more information, see [Get Started with the Azure WebJobs SDK](/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/).
 
 In this tutorial series you'll learn:
 
@@ -751,7 +751,7 @@ An alternative architecture is to run the front-end in an Azure Web Site.
 
 ![Alternative application architecture][mtas-alternative-architecture]
 
-Another alternative is to run the front-end in an Azure web site and use the WebJobs feature to run the back-end in the same servers that run the front-end. For more information, see [Azure Web Sites, Cloud Services and Virtual Machines comparison](/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
+Another alternative is to run the front-end in an Azure web site and use the WebJobs feature to run the back-end in the same servers that run the front-end. For more information, see [Get Started with the Azure WebJobs SDK](/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/).
 
 
 <h2><a name="cost"></a>Cost</h2>
