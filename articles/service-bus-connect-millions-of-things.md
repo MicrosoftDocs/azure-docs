@@ -1,5 +1,7 @@
 <properties pageTitle="Connect Millions of Things to the Cloud" metaKeywords="Service Bus, internet of things" description="Learn how to connect millions of things to the cloud using Microsoft Azure." services="service-bus" documentationCenter=".NET" title="Connect Millions of Things to the Cloud" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+
 # Connect millions of "things" to the cloud
  
 Smart and connected "things" increasingly proliferate in modern technology ecosystems.  Sensors in cars, homes, infrastructure, and appliances are producing new opportunities to provide improved product quality, expanded services, and new customer engagement models.  Azure Service Bus can help you connect this emerging Internet of "things".

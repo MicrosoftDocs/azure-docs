@@ -1,5 +1,7 @@
 <properties pageTitle="How to create APIs, operations, and products in Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and products in API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to create APIs, operations, and products in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+
 # How to create APIs, operations, and products in Azure API Management
 
 In Azure API Management, APIs and their operations are added to products, where they can be used by the developers building applications that use the APIs. The guides in this section show how to create an API, add operations to it, and then associate the API with a product and publish it for developers to use.

@@ -1,5 +1,7 @@
 <properties title="How to Configure PHP in Azure Web Sites" pageTitle="How to Configure PHP in Azure Web Sites" metaKeywords="Azure, Azure Web Sites, configuration, PHP" description="Learn how to configure the default PHP installation or add a custom PHP installation in Azure Web Sites." services="Web Sites" documentationCenter="PHP" authors="" />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
 #How to configure PHP in Azure Web Sites
 
 This guide will show you how to configure the built-in PHP runtime in Azure Web Sites, provide a custom PHP runtime, and enable extensions in Azure Web Sites. To use Azure Web Sites, sign up for the [free trial]. To get the most from this guide, you should first create a PHP site in Azure Web Sites (see the [PHP Developer Center Tutorials]). For general information on configuring sites in Azure Web Sites, see [How to Configure Web Sites].
