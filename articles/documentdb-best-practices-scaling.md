@@ -1,5 +1,7 @@
 <properties title="Scaling with Microsoft Azure DocumentDB" pageTitle="Scaling with Microsoft Azure DocumentDB | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
+<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
 
 #Scaling with Microsoft Azure DocumentDB
 

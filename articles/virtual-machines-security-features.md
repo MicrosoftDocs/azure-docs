@@ -1,5 +1,7 @@
 <properties title="Security offerings for Azure Virtual Machines" pageTitle="Security offerings for Azure Virtual Machines" description="Quick overview of key security features for Azure VMs and links to details" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+
 #Security offerings for Azure Virtual Machines
 
 <p>The security tasks and configuration for Azure virtual machines are, for the most part, the same as for any other virtual machine or physical computer. These include such basics as using strong passwords, not using well-known user names, and establishing a policy and schedule for updating the operating system and applications. Additionally, we recommend the following practices and provide features that you can use to implement them: 

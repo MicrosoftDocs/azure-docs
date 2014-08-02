@@ -1,5 +1,7 @@
 <properties title="How to Create a DocumentDB Account" pageTitle="How to Create a DocumentDB Account | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
+<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
 #How to Create a DocumentDB Account
 To use DocumentDB, you must create a DocumentDB account in an available geographic region.  This topic describes how to create a DocumentDB account in the Azure management preview portal.  
 
