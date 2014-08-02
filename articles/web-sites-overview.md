@@ -1,5 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="What are Web Sites" metaKeywords="Azure Web Sites, Azure deployment, Azure configuration changes, Azure deployment update, Azure .NET deployment, Azure .NET deployment" description="Learn how to configure Web Sites in Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Web sites" title="What are Web Sites" authors="timamm" />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
+
 
 
 #What are Web Sites?

@@ -1,5 +1,7 @@
 <properties pageTitle="Enable Hybrid Applications Spanning Cloud and Premises" metaKeywords="Service Bus, Cloud, Hybrid" description="Learn how to build hybrid applications that span across the cloud and on premises." services="service-bus" documentationCenter=".NET" title="Enable Hybrid Applications Spanning Cloud and Premises" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+
 # Enable Hybrid Applications Spanning Cloud and Premises
 
 Hybrid cloud/on-premises applications are a reality of modern IT environments.  Service Bus helps you leverage existing on-premises assets and create reliable and secure solutions to augment and expand your current infrastructure.

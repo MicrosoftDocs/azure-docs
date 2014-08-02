@@ -1,5 +1,7 @@
 <properties title="Create an Umbraco web site from the gallery in Microsoft Azure" pageTitle="Create an Umbraco web site from the gallery in Microsoft Azure" description="required" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
+
 #Create an Umbraco web site from the gallery in Microsoft Azure#
 
 Umbraco CMS is a fully-featured open source content management system that can be used to create a variety of applications from small to complex. The Azure Web Sites Application gallery provides a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. The gallery allows you to create an Umbraco CMS site in just a few minutes by either applying the starter kits or by integrating your own design. 

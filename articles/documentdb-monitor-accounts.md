@@ -1,5 +1,7 @@
 <properties title="How to Monitor a DocumentDB Account" pageTitle="How to Monitor a DocumentDB Account | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
+<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
 #How to Monitor a DocumentDB Account  
 
 You can monitor your DocumentDB accounts in the [Azure Preview Management Portal](https://portal.azure.com/). For each DocumentDB account, both performance metrics (e.g. requests, server errors) and usage metrics (e.g. storage consumption) are available.

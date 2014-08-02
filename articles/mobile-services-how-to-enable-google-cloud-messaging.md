@@ -1,5 +1,7 @@
 <properties pageTitle="How to enable Google Cloud Messaging" metaKeywords="" description="Follow this tutorial to create a new service using Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to create a new mobile service" authors="glenga" solutions="" manager="" editor="" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+
 # How to enable Google Cloud Messaging
 
 This topic shows you how to enable your Android app for push notifications by using Google Cloud Messaging (GCM). The API key obtained is used to register the Android app for push notifications in the [Azure Management Portal][Management Portal]. For the complete end-to-end tutorial that includes updates to your app, see [Get started with push notifications]. 
