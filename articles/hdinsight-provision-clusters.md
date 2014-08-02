@@ -231,6 +231,8 @@ You can also provision cluster and configure it to connect to more than one Azur
 
 **To provision an HDInsight cluster using configuration**
 
+> [WACOM.NOTE] The PowerShell cmdlets are the only recommended way to change configruation variables in an HDInsight cluster.  Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of clsuter patching.  Configuration values set via PowerShell will be preserved if the cluster is patched. 
+
 - Run the following commands from a Windows PowerShell window:
 
 		$subscriptionName = "<SubscriptionName>"
