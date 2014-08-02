@@ -1,5 +1,7 @@
 <properties linkid="develop-java-tutorials-web-site-custom_upload" urlDisplayName="Upload custom Java web site" pageTitle="Upload a custom Java web site to Azure" metaKeywords="" description="This tutorial shows you how to upload a custom Java web site to Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java web site to Azure" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+
 # Upload a custom Java web site to Azure
 
 This topic explains how to upload a custom Java  web site to Azure. Included is information that applies to any Java web site, and also some examples for specific applications.

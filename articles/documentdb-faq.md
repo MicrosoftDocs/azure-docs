@@ -1,5 +1,7 @@
 <properties title="DocumentDB fundamentals" pageTitle="DocumentDB fundamentals | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
 
+<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
 #Microsoft Azure DocumentDB fundamentals
 ##What is Microsoft Azure DocumentDB? 
 Microsoft Azure DocumentDB is a highly-scalable NoSQL document database-as-a-service that offers rich query over schema-free data, helps deliver configurable and reliable performance, and enables rapid development -- all through a managed platform backed by the power and reach of Microsoft Azure. DocumentDB is the right solution for web and mobile applications when predictable throughput, low latency, and a schema-free data model are key.  DocumentDB delivers schema flexibility and rich indexing via a native JSON data model, and includes multi-document transactional support with integrated JavaScript.  

@@ -1,5 +1,7 @@
 <properties title="How to create a PHP web site in Azure Web Sites" pageTitle="How to create a PHP web site in Azure Web Sites" metaKeywords="PHP Azure Web Sites" description="Learn how to create a PHP web site in Azure Web Sites" documentationCenter="PHP" services="Web Sites" editor="mollybos" manager="bjsmith" authors="" />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
 #How to create a PHP web site in Azure Web Sites
 
 This article will show you how to create a PHP web site in [Azure Web Sites][waws] by using the [Azure Management Portal], the [Azure Command Line Tools for Mac and Linux][xplat-tools], or the [Azure PowerShell cmdlets][powershell-cmdlets].

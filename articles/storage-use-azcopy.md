@@ -1,5 +1,7 @@
 <properties linkid="storage-use-azcopy" urlDisplayName="AZCopy" pageTitle="How to use AZCopy with Microsoft Azure Storage" metaKeywords="Get started Azure AZCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AZCopy" description="Learn how to use the AZCopy utility to upload, download, and copy blob and file content." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AZCopy with Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+
 # Getting Started with the AZCopy Command-Line Utility
 
 AzCopy is a command-line utility designed for high-performance uploading, downloading, and copying data to and from Microsoft Azure Blob and File storage. This guide provides an overview for using AZCopy.

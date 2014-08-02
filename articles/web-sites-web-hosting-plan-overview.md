@@ -1,5 +1,7 @@
 <properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" services="web-sites" authors="adamab" />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
+
 # What is a Web Hosting Plan? #
 
 Web hosting plans represent a set of features and capacity that you can share across your web sites.  Web hosting plans support a few pricing tiers (e.g. Free, Shared, Basic, and Standard) where each tier has its own capabilities.  Sites in the same subscription, resource group, and geographic location can share a web hosting plan.

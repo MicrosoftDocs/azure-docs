@@ -1,6 +1,8 @@
 <properties linkid="dotnet-visual-studio-2014" urlDisplayName="Visual Studio 14 CTP2" pageTitle="Installing the Azure SDK 2.4 for Visual Studio 14 CTP2" metaKeywords="Visual Studio, Azure SDK" description="Install Azure SDK 2.4 and Visual Studio 14 CTP2" metaCanonical="" services="" documentationCenter="" title="Installing Azure SDK 2.4 for Visual Studio 14 CTP2" authors="ghogen" solutions="" manager="" editor="" />
 
-## Installing the Azure SDK 2.4 for Visual Studio "14" CTP2
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
+
+## Installing the Azure SDK 2.3 for Visual Studio "14" CTP
 
 To install the Azure SDK 2.4 for .NET with Visual Studio "14" CTP2, follow these steps. This procedure installs SDKs, basic tools, and extended tools for Azure development with Visual Studio "14" CTP2 and is not intended to be used with any other version of Visual Studio.
 
