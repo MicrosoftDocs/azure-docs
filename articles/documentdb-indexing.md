@@ -1,5 +1,7 @@
 <properties title="DocumentDB Indexing" pageTitle="DocumentDB Indexing | Azure" description="required" metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, indexing" services="documentdb" solutions="" documentationCenter="" authors="bradsev" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
+<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
+
 #Introduction
 DocumentDB supports querying over JSON documents without requiring users to specify a schema or index definitions. To deliver this capability, DocumentDB maintains an index (inverted) tree for the lookup of documents that match any given field or path in the collection.  
 

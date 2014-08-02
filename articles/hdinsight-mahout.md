@@ -1,5 +1,7 @@
 <properties title="How to use Mahout with HDNishgt" pageTitle="How to use Mahout with Microsoft Azure HDInsight" description="Learn how to use Mahout to run jobs with HDInsight" metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" />
 
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+
 #How to use Apache Mahout with HDInsight
 
 Learn how to use [Apache Mahout](http://mahout.apache.org) with Microsoft Azure HDInsight (Hadoop).

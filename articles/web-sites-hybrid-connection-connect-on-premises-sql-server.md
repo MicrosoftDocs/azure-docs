@@ -1,5 +1,7 @@
 <properties linkid="web-sites-hybrid-connection-getting-started" title="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure web site" pageTitle="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure web site" description="Create a a web site on Microsoft Azure and connect it to an on-premises SQL Server database" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
+
 #Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections
 
 ##Introduction##
