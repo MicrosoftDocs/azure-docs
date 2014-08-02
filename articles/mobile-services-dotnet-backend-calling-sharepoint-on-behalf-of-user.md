@@ -1,5 +1,7 @@
 <properties linkid="mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user" urlDisplayName="Access SharePoint on behalf of the user" pageTitle="Access SharePoint on behalf of the user | Mobile Dev Center" metaKeywords="" description="Learn how to make calls to SharePoint on behalf of the user" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
+
 # Access SharePoint on behalf of the user
 
 <div class="dev-onpage-video-clear clearfix">
@@ -101,7 +103,7 @@ In order to access SharePoint, you need a special access token with SharePoint a
             authority = settings["SP_Authority"];
         }
 
-3. Now create a method to add the file to the user’s document library:
+3. Now create a method to add the file to the userï¿½s document library:
 
         public async Task<bool> UploadDocument(string docName, byte[] document)
         {
