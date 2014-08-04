@@ -5,8 +5,6 @@
 
 
 
-
-
 <h1>How to make a phone call using Twilio in a web role on Azure</h1>
 
 This guide demonstrates how to use Twilio to make a call from a web page hosted in Azure. The resulting application prompts the user for phone call values, as shown in the following screenshot.
@@ -165,9 +163,8 @@ This code was provided to show you basic functionality using Twilio in an ASP.NE
 * Read the Twilio security guidelines at [https://www.twilio.com/docs/security][twilio_docs_security].
 * Learn more about Twilio at [https://www.twilio.com/docs][twilio_docs].
 
-<h2><a id="seealso"></a>See also</h2>
-* [How to use Twilio for voice and SMS capabilities in a web role][howto_twilio_voice_sms_dotnet]
-
+##<a name="seealso"></a>See also
+* [How to use Twilio for voice and SMS capabilities from Azure](../twilio-dotnet-how-to-use-for-voice-sms/)
 
 [twilio_pricing]: http://www.twilio.com/pricing
 [try_twilio]: http://www.twilio.com/try-twilio
