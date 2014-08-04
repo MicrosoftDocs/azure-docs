@@ -1,5 +1,7 @@
 <properties linkid="manage-services-hdinsight-customize HDInsight Hadoop clusters" urlDisplayName="Get Started" pageTitle="Customize Hadoop clusters in HDInsight | Azure" metaKeywords="" description="Customize Hadoop clusters in HDInsight" metaCanonical="" services="hdinsight" documentationCenter="" title="Customize Hadoop clusters in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
+
 
 
 

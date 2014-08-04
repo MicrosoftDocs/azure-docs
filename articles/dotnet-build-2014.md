@@ -1,5 +1,7 @@
 <properties pageTitle="Azure Spring 2014 release highlights - .NET Dev Center" metaKeywords="azure .net sdk 2.3" description="Learn about the new tools and features available for Azure .NET developers." documentationCenter=".NET" title="Azure Spring 2014 release highlights" authors="mollybos" solutions="" manager="carolz" editor="mollybos" />
 
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mollybos" />
+
 # Azure Spring 2014 release highlights
 
 This article summarizes the new tools, features, and themes presented for Azure .NET developers at the Build 2014 conference and available in the Azure SDK for .NET 2.3, Visual Studio 2013 Update 2, and other spring releases. 

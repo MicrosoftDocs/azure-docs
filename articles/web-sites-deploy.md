@@ -1,5 +1,7 @@
 <properties linkid="manage-services-how-to-deploy-websites" pageTitle="How to deploy an Azure Web Site" metaKeywords="Azure deploy publish web site" description="Learn what methods are available for deploying content to an Azure Web Site." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Web Site" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra" />
+
 #How to Deploy an Azure Web Site
 
 You have many options for deploying your own content to an Azure Web site. This topic provides a brief overview of each option and links to more information.
@@ -85,6 +87,7 @@ WebMatrix is quick to install and easy to learn, but Visual Studio offers many m
 For information about how to deploy to Azure Web Sites from Visual Studio, see the following resources:
 
 * [Get started with Azure and ASP.NET](/en-us/develop/net/tutorials/get-started/). How to create and deploy a simple ASP.NET MVC web project by using Visual Studio and Web Deploy.
+* [How to Deploy Azure WebJobs to Azure Websites](/en-us/documentation/articles/websites-dotnet-deploy-webjobs/). How to configure Console Application projects so that they deploy as WebJobs.  
 * [Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Web Site](/en-us/develop/net/tutorials/web-site-with-sql-database/). How to create and deploy an ASP.NET MVC web project with a SQL database, by using Visual Studio, Web Deploy, and Entity Framework Code First Migrations.
 * [Web Deployment Overview for Visual Studio and ASP.NET](http://msdn.microsoft.com/en-us/library/dd394698.aspx). A basic introduction to web deployment using Visual Studio. Dated but includes information that is still relevant, including an overview of options for deploying a database along with the web application and a list of additional deployment tasks you might have to do or manually configure Visual Studio to do for you. This topic is about deployment in general, not just about deployment to Azure Web Sites.
 * [ASP.NET Web Deployment using Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). A 12-part tutorial series that covers a more complete range of deployment tasks than the others in this list. 
