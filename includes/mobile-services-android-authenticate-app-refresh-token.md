@@ -1,7 +1,7 @@
 
-Our token cache should work in a simple case but, what happens when the token expires or is revoked? We need to be able to detect an expired tokens. The token could expire when the app is not running. This would mean the token cache is invalid. The token could also expire while the app is actually running during a call the app makes directly or a call made by the Mobile Services library. The result will be an HTTP status code 401 "Unauthorized". So we need a way to detect this and refresh the token. To do this we use a **ServiceFilter**.
+Our token cache should work in a simple case but, what happens when the token expires or is revoked? We need to be able to detect an expired tokens. The token could expire when the app is not running. This would mean the token cache is invalid. The token could also expire while the app is actually running during a call the app makes directly or a call made by the Mobile Services library. The result will be an HTTP status code 401 "Unauthorized". So we need a way to detect this and refresh the token. To do this we use a [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html) from the [Android client library](http://dl.windowsazure.com/androiddocs/).
 
-In this section you will define a ServiceFilter that will detect a HTTP status code 401 response and trigger a refresh of the token and the token cache. Additionally, this ServiceFilter will block other out bound requests during authentication so that those requests can use the refreshed token.
+In this section you will define a ServiceFilter that will detect a HTTP status code 401 response and trigger a refresh of the token and the token cache. Additionally, this ServiceFilter will block other outbound requests during authentication so that those requests can use the refreshed token.
 
 
 
@@ -20,7 +20,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 
     These will be used to help synchronize the authentication of the user. We only want to authenticate once. Any calls during an authentication should wait and use the new token from the authentication in progress.
 
-2. In the ToDoActivity.java file, add the following method to the ToDoActivity class that will be used to block out bound calls on other threads while authentication is in progress.
+2. In the ToDoActivity.java file, add the following method to the ToDoActivity class that will be used to block outbound calls on other threads while authentication is in progress.
 
 	    /**
     	 * Detects if authentication is in progress and waits for it to complete. 
@@ -51,7 +51,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     	}
     	
 
-3. In the ToDoActivity.java file, add the following method to the ToDoActivity class. This method will actually trigger the wait and then update the token on out bound requests when authentication is complete. 
+3. In the ToDoActivity.java file, add the following method to the ToDoActivity class. This method will actually trigger the wait and then update the token on outbound requests when authentication is complete. 
 
     	
     	/**
@@ -151,9 +151,9 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     		private class AuthenticationRetryFilterCallback implements ServiceFilterResponseCallback
     		{
     			// Data members used to retry the request during the response.
-    			ServiceFilterRequest mRequest = null;
-    			NextServiceFilterCallback mNextServiceFilterCallback = null;
-    			ServiceFilterResponseCallback mResponseCallback = null;
+    			ServiceFilterRequest mRequest;
+    			NextServiceFilterCallback mNextServiceFilterCallback;
+    			ServiceFilterResponseCallback mResponseCallback;
     
     			public AuthenticationRetryFilterCallback(ServiceFilterRequest request, 
     					NextServiceFilterCallback nextServiceFilterCallback, 
@@ -169,7 +169,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     				
     				// Filter out the 401 responses to update the token cache and 
     				// retry the request
-    				if (response.getStatus().getStatusCode() == 401)
+    				if ((response != null) && (response.getStatus().getStatusCode() == 401))
     				{ 
     					// Two simultaneous requests from independent threads could get HTTP status 401. 
     					// Protecting against that right here so multiple authentication requests are
@@ -210,7 +210,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     		
     		@Override
     		public void handleRequest(final ServiceFilterRequest request, 
-				final NextServiceFilterCallback     nextServiceFilterCallback,
+				final NextServiceFilterCallback nextServiceFilterCallback,
 				ServiceFilterResponseCallback responseCallback) {
     			
 	    		// In this example, if authentication is already in progress we block the request
