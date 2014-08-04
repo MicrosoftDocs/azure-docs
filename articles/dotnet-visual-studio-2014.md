@@ -2,7 +2,7 @@
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
-## Installing the Azure SDK 2.3 for Visual Studio "14" CTP
+## Installing the Azure SDK 2.4 for Visual Studio "14" CTP
 
 To install the Azure SDK 2.4 for .NET with Visual Studio "14" CTP2, follow these steps. This procedure installs SDKs, basic tools, and extended tools for Azure development with Visual Studio "14" CTP2 and is not intended to be used with any other version of Visual Studio.
 
@@ -12,7 +12,7 @@ To install the Azure SDK 2.4 for .NET, follow these steps:
 
 1.       Install [Visual Studio "14" CTP2](http://go.microsoft.com/fwlink/p/?LinkId=400776).
 
-2.       <p>Install each component of the Azure SDK using the links in the following list, in this order. Choose the x86 or x64 version of each of the following components.</p>
+2.       Install each component of the Azure SDK using the links in the following list, in this order. Choose the x86 or x64 version of each of the following components.
 
        <ul>
         <li>Azure authoring tools: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400892">WindowsAzureAuthoringTools-x86.msi</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400893">WindowsAzureAuthoringTools-x64.msi</a>.</li>
