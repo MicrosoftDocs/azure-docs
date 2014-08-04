@@ -19,7 +19,7 @@ You can use these datasets in your experiments as you explore various types of a
 The following table provides additional information about the datasets that might be useful to you while exploring the machine learning features of ML Studio. For each dataset, the table lists:
  
 - The name and source of each dataset.
-- A description of the dataset’s possible uses, and citations to machine learning research that used the dataset.
+- A description of the dataset's possible uses, and citations to machine learning research that used the dataset.
 - A summary of the important columns included in the dataset, and other useful attributes.
 
 Some descriptions are adapted from the documentation provided by the source (typically the [UC Irvine Machine Learning Repository](http://archive.ics.uci.edu/ml/ "UC Irvine Machine Learning Repository")), while other descriptions are based on additional investigation or reflect changes made in these samples.
