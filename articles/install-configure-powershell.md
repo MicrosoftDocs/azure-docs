@@ -48,12 +48,12 @@ The method you use to open either console depends on the version of Windows you'
 
 Use of Azure requires a subscription. If you don't have a subscription, see [Get Started with Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
-The cmdlets need your subscription so they can manage your services. There are two ways to provide your subscription information to Windows PowerShell. You can use a management certificate that contains the information or you can sign in to Azure using your Microsoft account or an organizational ID. When you sign in, Azure Active Directory (Azure AD) authenticates the credentials and returns an access token that lets Azure PowerShell manage your account. 
+The cmdlets need your subscription so they can manage your services. There are two ways to provide your subscription information to Windows PowerShell. You can use a management certificate that contains the information or you can sign in to Azure using your Microsoft account or an organizational account. When you sign in, Azure Active Directory (Azure AD) authenticates the credentials and returns an access token that lets Azure PowerShell manage your account. 
 
 To help you choose the authentication method that's appropriate for your needs, consider the following:
 
-- The Azure AD method can make it easier to manage access to a subscription, but may disrupt automation. The credentials are available to Azure PowerShell for 12 hours. After they expire, you'll need to log in again.  
-- When you use the certificate method, the subscription information is available as long as the subscription and the certificate are valid. This method makes it easier to use automation for long-running tasks. After you download and import the information, you don't need to provide it again. However, this method makes it harder to manage access to a shared subscription, such as when more than one person is authorized to access the account.    
+- Azure AD is the recommended authentication method since it makes it easier to manage access to a subscription. With the update in version 0.8.6, it enables automation scenario with Azure AD authentication as well if Organizational account is used. It works with Azure Resource Manager API as well.
+- When you use the certificate method, the subscription information is available as long as the subscription and the certificate are valid. However, this method makes it harder to manage access to a shared subscription, such as when more than one person is authorized to access the account. Also, Azure Resource Manager API doesn't accept certificate authentication.
 
 For more information about authentication and subscription management in Azure, see [Manage Accounts, Subscriptions, and Administrative Roles](http://go.microsoft.com/fwlink/?LinkId=324796).
 
@@ -68,6 +68,34 @@ For more information about authentication and subscription management in Azure, 
 3. In the window, type the email address and password associated with your account.
 
 4. Azure authenticates and saves the credential information, and then closes the window.
+
+5. Staring from 0.8.6, if you have an organizational account, you can type the following command to bypass the pop up window. This will pop up the standard Windows PowerShell credential window for you to enter your organizational account user name and password.
+
+        $cred = Get-Credential
+        Add-AzureAccount -Credential $cred
+
+6. If you are using this in an automation script and want to avoid any pop up window, use the following snippet
+
+        $userName = "<your organizational account user name>"
+        $securePassword = ConvertTo-SecureString -String "<your organizational account password>" -AsPlainText -Force
+        $cred = New-Object System.Management.Automation.PSCredential($userName, $securePassword)
+        Add-AzureAccount -Credential $cred 
+
+	> [WACOM.NOTE] This non-interactive login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+	> 
+	> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
+	> 
+	> 2. If no directory exists, select **Create your directory** and provide the requested information.
+	> 
+	> 3. Select your directory and add a new user. This new user is an organizational account.
+	> 
+	>     During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
+	> 
+	> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the organizational account to manage your Azure subscription.
+	> 
+	> 5. Finally, log out of the Azure portal and then log back in using the new organizational account. If this is the first time logging in with this account, you will be prompted to change the password.
+	>
+	>For more information on organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization](http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/).
 
 <h3>Use the certificate method</h3>
 
@@ -106,11 +134,11 @@ the .publishsettings file. This information is required when you run the
 **Import-AzurePublishSettingsFile** cmdlet to import the settings. The default
 location and file name format is:
 
-	C:\\Users\&lt;UserProfile&gt;\\Download\\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
+	`C:\\Users\&lt;UserProfile&gt;\\Download\\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings`
 
 5. Type a command similar to the following, substituting your Windows account name and the path and file name for the placeholders:
 
-    Import-AzurePublishSettingsFile C:\Users\&lt;UserProfile&gt;\Downloads\&lt;SubscriptionName&gt;-credentials.publishsettings
+    `Import-AzurePublishSettingsFile C:\Users\&lt;UserProfile&gt;\Downloads\&lt;SubscriptionName&gt;-credentials.publishsettings`
 
 > [WACOM.NOTE] If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this
 process to download a new .publishsettings file, and then import those
