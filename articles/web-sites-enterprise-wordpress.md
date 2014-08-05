@@ -24,6 +24,8 @@ A basic WordPress installation has only two requirements.
 
 <!--[an Azure Website and MySQL Database hosted in a single Azure region][basic-diagram]-->
 
+###Basic deployment
+
 <img style="float: left; padding-right: 10px" src="./media/web-sites-enterprise-wordpress/basic-diagram.png" alt="an Azure Website and MySQL Database hosted in a single Azure region][basic-diagram"/>
 
 Using just the basic requirements, you could create a basic solution within an Azure region.
@@ -32,7 +34,7 @@ While this would allow you to scale out your application by creating multiple in
 
 <br style="clear: both"/>
 
---------------------------------
+###Multi-region deployment
 
 <!--[an Azure Website, hosted in multiple regions, using CDBR High Availability router to route to MySQL across regions][multi-region-diagram]-->
 
@@ -47,7 +49,7 @@ Replication and routing to multiple MySQL Databases can be done using ClearDB's 
 
 <br style="clear: both"/>
 
------------------------------------
+###High performance multi-region deployment
 
 If you need even greater performance, you could add Azure [Managed cache][managedcache] to store frequently used items, or Azure Blob storage for uploads and file storage. 
 
