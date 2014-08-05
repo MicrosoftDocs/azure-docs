@@ -364,12 +364,9 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 	![Connection strings in management portal](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
-10. Click the **WebJobs** tab.
+10. Click the **Dashboard** tab, and then click **Restart**.
 
-11. Select your WebJob, and then click **Start**.
-
-	The WebJob automatically starts when you publish, but it stops when you make a configuration change, so you have to restart it.  
- 
+	The WebJob automatically starts when you publish, but it stops when you make a configuration change. To restart it you can either restart the site or restart the WebJob. It's generally recommended to restart the site after a configuration change. 
 9. Refresh the browser window that has the site URL in its address bar.
 
 	The home page appears.
