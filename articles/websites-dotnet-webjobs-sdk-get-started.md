@@ -843,4 +843,4 @@ For more information, see the following resources:
 * [Azure Storage](/en-us/documentation/services/storage/)
 * [How to use Blob Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)
 * [How to use Queue Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-queues/)
-* [Microsoft Azure Storage – What's New, Best Practices and Patterns (Channel 9 Video)](http://channel9.msdn.com/Events/Build/2014/3-628)
+* [Microsoft Azure Storage - What's New, Best Practices and Patterns (Channel 9 Video)](http://channel9.msdn.com/Events/Build/2014/3-628)
