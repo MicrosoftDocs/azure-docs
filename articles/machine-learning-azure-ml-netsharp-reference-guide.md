@@ -17,7 +17,7 @@ Net#© is a language developed by Microsoft that is used to define neural networ
 ###Neural Network Basics
 A neural network structure consists of ***nodes*** organized in ***layers***, and weighted ***connections*** (or ***edges***) between nodes. The connections are directional, each connection having a ***source*** node and a ***destination*** node.  
 
-Each ***trainable layer*** (namely, either a hidden or output layer) has one or more ***connection bundles***. A connection bundle consists of a source layer and a specification of the connections from that source layer. All the connections in a given bundle share the same ***source layer*** and the same ***destination layer***. In Net#, a connection bundle is considered as belonging to the bundle’s destination layer.  
+Each ***trainable layer*** (namely, either a hidden or output layer) has one or more ***connection bundles***. A connection bundle consists of a source layer and a specification of the connections from that source layer. All the connections in a given bundle share the same ***source layer*** and the same ***destination layer***. In Net#, a connection bundle is considered as belonging to the bundle's destination layer.  
  
 Net# supports various kinds of connection bundles, which lets you customize the way that inputs are mapped to hidden layers and mapped to the outputs.   
 
@@ -112,7 +112,7 @@ For example, the following declaration uses the **softmax** function:
 	output Result [100] softmax from Hidden all;  
 
 ###Connection Declaration
-Immediately after defining the trainable layer, you must declare connections among the layers you have defined. The connection bundle declaration starts with the keyword **from**, followed by the name of the bundle’s source layer and the kind of connection bundle to create.   
+Immediately after defining the trainable layer, you must declare connections among the layers you have defined. The connection bundle declaration starts with the keyword **from**, followed by the name of the bundle's source layer and the kind of connection bundle to create.   
 
 Currently, five kinds of connection bundles are supported:  
 
@@ -335,7 +335,7 @@ This sample illustrates several features of the neural networks specification la
 -	The Pixels layer is a source layer for two connection bundles, with destination layers ByRow and ByCol.
 -	The layers Gather and Result are destination layers in multiple connection bundles.
 -	The output layer, Result, is a destination layer in two connection bundles; one with the second level hidden layer (Gather) as a destination layer, and the other with the input layer MetaData as a destination layer.
--	The hidden layers, ByRow and ByCol, specify filtered connectivity using predicate expressions. More precisely, the node in ByRow at [x, y] is connected to those nodes in Pixels having first index coordinate equal to the node’s first coordinate, x. Similarly, the node in ByCol at [x, y] is connected to those nodes in Pixels having second index coordinate within one of the node’s second coordinate, y.  
+-	The hidden layers, ByRow and ByCol, specify filtered connectivity using predicate expressions. More precisely, the node in ByRow at [x, y] is connected to those nodes in Pixels having first index coordinate equal to the node's first coordinate, x. Similarly, the node in ByCol at [x, y] is connected to those nodes in Pixels having second index coordinate within one of the node's second coordinate, y.  
 
 ###Define a Convolutional Network for Multi-Class Classification: Digit Recognition Example
 The definition of the following network, designed to recognize numbers, illustrates some advanced techniques for customizing a neural network.  
