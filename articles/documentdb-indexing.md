@@ -1,22 +1,24 @@
-<properties title="DocumentDB Indexing" pageTitle="DocumentDB Indexing | Azure" description="required" metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, indexing" services="documentdb" solutions="" documentationCenter="" authors="bradsev" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="DocumentDB Indexing" pageTitle="DocumentDB Indexing | Azure" description="How indexing enables query without schema in DocumentDB." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, indexing" services="documentdb" solutions="" documentationCenter="" authors="bradsev" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
-#Introduction
+#DocumentDB Indexing
+
+##Introduction
 DocumentDB supports querying over JSON documents without requiring users to specify a schema or index definitions. To deliver this capability, DocumentDB maintains an index (inverted) tree for the lookup of documents that match any given field or path in the collection.  
 
 DocumentDB indexing is built with careful consideration of storage cost efficiency, support for multi-tenancy, write performance and fast, consistent queries. Unlike traditional B+ tree-based indexes, DocumentDB employs log-structured techniques that allow the index to be kept up to date in the face of heavy writes.  
 
 The default indexing configuration for the DocumentDB service is ideal for a wide range of applications. This enables developers to fine-tune indexing behaviors such as index consistency, index type, precision and per-path/field selection, and per-document selection in order to best suit their application needs.  
 
-#Indexing API 
+##Indexing API 
 DocumentDB supports different index policy options that can be configured by developers to control index behavior, and make trade-offs between query performance, index update performance and storage costs.  
 
 -	Collections can be configured with an automatic (default) or “opt-in” indexing mode for each document
 -	Collections can be configured with a specific index consistency. Consistent indexing is kept up to date (matching the account’s data consistency level). Lazy Indexing is like lazy initialization in programming - the index is updated only when the collection is idle, and offers only eventual consistency guarantees. Refer to the consistency levels documentation for more information.
 -	Each field or nested path can be configured as a hash index (best for equality queries), range index (best for range queries) or explicitly excluded from indexing for storage or performance gains. Developers can also specify the precision of the index hash entry in bytes to trade off storage and query performance.  
  
-#Creating a Collection with Indexing Directives
+##Creating a Collection with Indexing Directives
 Refer to the indexing directive specification for more information. For example, the indexing policy can be specified in the REST call to POST collections as shown below.  
 
     POST https://.../colls HTTP/1.1
@@ -38,7 +40,7 @@ Indexing policy can be configured using any of the supported SDKs, for example, 
     await client.CreateDocumentCollectionAsync(database.SelfLink, collection);
 
 
-#Getting Index Policy and Usage Collections
+##Getting Index Policy and Usage Collections
 A GET call against collections returns the index policy as well as the data storage used in bytes and index storage used in bytes. For example, here’s a sample response using the index API.  
 
     HTTP/1.1 200 Ok
@@ -69,7 +71,7 @@ This can be accessed equivalently using the SDKs:
     var collection = await client.ReadDocumentCollectionAsync(consistentCollection.SelfLink);
     Console.WriteLine("Current data usage is {0}MB, index usage is {1}MB", collection.CurrentDataSizeInMB, collection.CurrentIndexSizeInMB);
 
-#Indexing Mode
+##Indexing Mode
 DocumentDB supports four developer tunable consistency levels – strong, bounded staleness, session and eventual consistency. Queries offer the same guarantees as the consistency levels. By default, the results of a query are guaranteed to match the consistency level which is requested by the client. DocumentDB’s index is log-structured, and designed to always keep up to date and consistent with data regardless of volume. When documents are inserted or updated, they are immediately available in query results.  
 
 For applications where query behavior can be eventually consistent, optionally the indexing policy can be configured to use Lazy Indexing. In this case, the index is updated in an eventually consistent manner whenever the collection is quiescent (operating under maximum capacity).  To summarize, here is the table of query consistency behavior with the different database account configurations.  
@@ -94,7 +96,7 @@ Consistent indexing is the default; here’s an example of how to configure a co
     
     // Queries that need most recent data must wait for index to catch up
 
-#Selective Indexing by Document
+##Selective Indexing by Document
 Individual documents can be excluded from indexing. This can be used for staging documents or bulk inserts or to archive old documents without maintaining an index over them. For example, this sample excludes a document using RequestOptions.
 
     var collection = new DocumentCollection { Name = "AutomaticCollection" };
@@ -112,7 +114,7 @@ Alternatively, collections can specify an opt-in model where documents are index
     
     await client.CreateDocumentAsync(collection.SelfLink, doc, new RequestOptions { IndexingDirective.Include });
 
-#Selective Indexing by Property or Nested Paths
+##Selective Indexing by Property or Nested Paths
 DocumentDB also supports “opt-in” indexing by path or property. Developers can specify the path in the documents that must be indexed, and optionally include additional details like the type of the index, and the precision.
 
 var collection = new DocumentCollection { Name = "SelectiveIndexCollection" };
@@ -135,7 +137,7 @@ Specific paths can be excluded from indexing using Excluded paths. The overhead 
 
 >When two overlapping ranges are specified, the rules corresponding to the smaller range are applied to the intersection between them. For example, if user has two properties, screen_name and location, and /user/ is included but /user/screen_name/ is excluded – then “user.location” can be used in queries, but “user.screen_name” cannot.  
 
-#Advanced – Index Types and Precision
+##Advanced – Index Types and Precision
 DocumentDB supports two types of indexes – hash and range indexes.  
  
 A **hash index** generates values uniformly across the specified byte range, so the probability of two different values returning the same hash is minimal. This makes it best suited for equality queries.  A hash index can be between 3 to 8 bytes in size.  
@@ -146,7 +148,7 @@ A **range index** maps ranges of values to the same hash, and is best suited for
 
 Use the index storage in bytes value returned from GET collection to tune the index precision values for collections to match data and query patterns.  
 
-#Specifying Indexing Directives 
+##Specifying Indexing Directives 
 
 Indexing directives have to be specified in POST of collection in the payload (body) of the API call. The data is in JSON and includes sections for the indexing mode, automatic behavior, and configurations for individual paths (properties).  
 

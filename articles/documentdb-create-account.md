@@ -1,4 +1,4 @@
-<properties title="How to Create a DocumentDB Account" pageTitle="How to Create a DocumentDB Account | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="How to Create a DocumentDB Account" pageTitle="How to Create a DocumentDB Account | Azure" description="required"  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 

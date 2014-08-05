@@ -1,4 +1,4 @@
-<properties title="Scaling with Microsoft Azure DocumentDB" pageTitle="Scaling with Microsoft Azure DocumentDB | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Scaling with Microsoft Azure DocumentDB" pageTitle="Scaling with Microsoft Azure DocumentDB | Azure" description="How to scale a DocumentDB database elastically with lifecycle demands." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, scaling" services="documentdb"  solutions="" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 

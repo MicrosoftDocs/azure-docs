@@ -1,7 +1,5 @@
 <properties linkid="manage-services-documentdb-scripting" title="Scripting with DocumentDB" pageTitle="Scripting with DocumentDB | Azure" metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON" description="How to script stored procedures, triggers, and UDFs in DocumentDB." services="documentdb"  solutions="" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
-
 # Scripting with DocumentDB #
 
 ## Introduction  ##

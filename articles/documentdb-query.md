@@ -1,8 +1,10 @@
-<properties title="Querying using DocumentDB" pageTitle="Querying using DocumentDB Account | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties linkid="manage-services-documentdb-query" title="Querying using DocumentDB" pageTitle="Querying using DocumentDB Account | Azure" description="How to query a DocumentDB database." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, query" services="documentdb"  solutions="" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
-#Motivation
+#Querying with Azure DocumentDB
+
+##Motivation
 	
 DocumentDB’s SQL query language supports a subset of ANSI SQL grammar and adds document oriented support in the form of nested data structures, arrays and object construction. Queries are served efficiently through DocumentDB’s indexes, whichare automatically kept up to date for all properties in documents without the overhead of index management. Developers can also harness the full power of JavaScript inside queries through user-defined functions (UDFs).  
 
