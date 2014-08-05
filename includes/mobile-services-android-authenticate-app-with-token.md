@@ -28,7 +28,7 @@ The previous example showed a standard sign-in, which requires the client to con
 	        editor.commit();
     	}	
   
-    This method stores the user id and token in a perference file that is marked private. This will protect access to the cache so that other apps on the device can not access the token. However, if someone gains access to the device, it is possible that they may gain access to the token cache through other means.
+    This method stores the user id and token in a perference file that is marked private. This will protect access to the cache so that other apps on the device do not have access to the token. However, if someone gains access to the device, it is possible that they may gain access to the token cache through other means. You can further protect the token with encryption if token access to your data is considered highly sensitive and someone may gain access to the device.
 
 
 4. In the ToDoActivity.java file, add the the following definition for the `cacheUserToken` method.
