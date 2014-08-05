@@ -1,5 +1,7 @@
 <properties pageTitle="Get started with authentication (Android) | Mobile Dev Center" metaKeywords="authentication, Facebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="mahender" solutions="" manager="" editor="" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
+
 # Get started with authentication in Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
@@ -57,8 +59,6 @@ Next, you will update the app to authenticate users before requesting resources 
 ## <a name="refresh-tokens"></a>Refresh the token cache
 
 [WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
-
-
 
 ##<a name="next-steps"></a>Next steps
 

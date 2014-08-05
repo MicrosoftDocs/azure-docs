@@ -1,5 +1,7 @@
 <properties linkid="manage-windows-tutorial-virtual-machine-gallery" urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Windows Server in Azure" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
 
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+
 
 
 # Create a Virtual Machine Running Windows Server #
@@ -23,7 +25,7 @@ If you'd like to know more, see [Virtual Machines](http://go.microsoft.com/fwlin
 
 This section shows you how to use the **From Gallery** option in the Management Portal to create the virtual machine. This option provides more configuration choices than the **Quick Create** option. For example, if you want to join a virtual machine to a virtual network, you'll need to use the **From Gallery** option.
 
-> [WACOM.NOTE] You can also try the richer, customizable [Azure Preview Portal](https://portal.azure.com) to create a virtual machine, automate the deployment of multi-machine application templates, use enhanced VM monitoring and diagnostics features, and more. The available VM configuration options in the two Portals overlap substantially but are not identical.  
+> [WACOM.NOTE] You can also try the richer, customizable [Azure Preview Portal](https://portal.azure.com) to create a virtual machine, automate the deployment of multi-machine application templates, use enhanced VM monitoring and diagnostics features, and more. The available VM configuration options in the two Portals overlap substantially but aren't identical.  
 
 [WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -85,7 +87,7 @@ This section shows you how to attach an empty data disk to the virtual machine. 
 
 	![Create the volume](./media/virtual-machines-windows-tutorial/initializediskvolume.png)
 
-13. Complete the wizard using the default values provided. Once the wizard is finished, a new volume will be listed in the **Volumes** section. 
+13. Complete the wizard using the default values provided. When the wizard is done, a new volume is listed in the **Volumes** section. 
 
 	![Create the volume](./media/virtual-machines-windows-tutorial/newvolumecreated.png)
 
@@ -93,7 +95,7 @@ This section shows you how to attach an empty data disk to the virtual machine. 
 	
 ##Next Steps 
 
-To learn more about configuring Windows virtual machines on Azure, see the following articles:
+To learn more about configuring Windows virtual machines on Azure, see these articles:
 
 [How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/)
 

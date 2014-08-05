@@ -1,5 +1,7 @@
 <properties title="Learn how to configure an Azure web site to use a custom domain name" pageTitle="Configure a custom domain name for an Azure web site" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr, jroth" />
+
 #Configuring a custom domain name for an Azure Web Site
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/web-sites-custom-domain-name" title="Custom Domain" class="current">Custom Domain</a><a href="/en-us/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/en-us/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/en-us/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/en-us/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/en-us/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/en-us/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/en-us/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
@@ -42,13 +44,13 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 
 	* CNAME records will always map to the Azure Web Sites domain - **contoso.azurewebsites.net**. So you will be mapping *from* a domain such as **www** *to* your **&lt;yourwebsitename&gt;.azurewebsites.net** address.
 	
-		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
-		> 
-		> * Maps *from* **www** *to* your **&lt;yourwebsitename&gt;.azurewebsites.net**.
+		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record that maps *from* **awverify** *to* **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
+		>  
+		> * To map the root domain, or create a wildcard mapping for sub-domains immediately off the root, map *from* **awverify** *to* **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 
 		> OR
 		> 
-		> * Maps *from* **awverify.www** *to* **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
+		> * To map a specific sub-domain, map *from* **awverify.&lt;subdomainname>** *to* **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**. For example, the verification CNAME record for the **mail.contoso.com** sub-domain would map from **awverify.mail** to **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 
 		> This CNAME record is used by Azure to validate that you own the domain described by the A record.
 

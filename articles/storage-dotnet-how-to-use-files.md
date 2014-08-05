@@ -1,5 +1,7 @@
 <properties linkid="dev-net-how-to-file-storage" urlDisplayName="File Service" pageTitle="How to use Azure File storage | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+
 # How to use Azure File storage
 
 In this getting started guide, we demonstrate the basics of using Microsoft Azure File storage. First we use PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory. Then we show how to mount the file share from an Azure virtual machine, just as you would any SMB share.
@@ -85,13 +87,15 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 
 Open an Azure PowerShell window by clicking **Start** and typing **Windows Azure PowerShell**. The Azure PowerShell window loads the Azure Powershell module for you.
 
-###Create a new file share
+###Create a context for your storage account and key
 
 Now, create the storage account context. The context encapsulates the account name and account key. Replace `account-name` and `account-key` with your account name and key in the following example:
 
     # create a context for account and key
     $ctx=New-AzureStorageContext account-name account-key
     
+###Create a new file share
+
 Next, create the new share, named `sampleshare` in this example:
 
     # create a new share
@@ -126,13 +130,25 @@ To demonstrate how to mount an Azure file share, we'll now create an Azure virtu
 
 1. First, create a new Azure virtual machine by following the instructions in [Create a Virtual Machine Running Windows Server](/en-us/documentation/articles/virtual-machines-windows-tutorial/).
 2. Next, remote into the virtual machine by following the instructions in [How to Log on to a Virtual Machine Running Windows Server](/en-us/documentation/articles/virtual-machines-log-on-windows-server/).
+3. Open a PowerShell window on the virtual machine. 
 
-Once you have a remote connection to the virtual machine, you can open a command prompt and execute the `net use` command to mount the file share:
+###Persist your storage account credentials for the virtual machine
 
-1. Open a PowerShell window on the virtual machine.
-2. Execute the `net use` command, using the following syntax. Replace `<storage-account>` with the name of your storage account, `<share-name>` with the name of your File storage share, and `<account-key>` with your storage account key:
+Before mounting to the file share, first persist your storage account credentials on the virtual machine. This step allows Windows to automatically reconnect to the file share when the virtual machine reboots. To persist your account credentials, execute the `cmdkey` command from within the PowerShell window on the virtual machine. Replace `<storage-account>` with the name of your storage account, and `<account-key>` with your storage account key:
 
-	    net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
+	cmdkey /add:<storage-account>.file.core.windows.net /user:<storage-account> /pass:<account-key>
+
+Windows will now reconnect to your file share when the virtual machine reboots. You can verify that the share has been reconnected by executing the `net use` command from within a PowerShell window.
+
+###Mount the file share using the persisted credentials
+
+Once you have a remote connection to the virtual machine, you can execute the `net use` command to mount the file share, using the following syntax. Replace `<storage-account>` with the name of your storage account, and `<share-name>` with the name of your File storage share.
+
+	net use z: \\<storage-account>.file.core.windows.net\<share-name>
+
+> [WACOM.NOTE] Since you persisted your storage account credentials in the previous step, you do not need to provide them with the `net use` command. If you have not already persisted your credentials, then include them as a parameter passed to the `net use` command. Replace `<storage-account>` with the name of your storage account, `<share-name>` with the name of your File storage share, and `<account-key>` with your storage account key:
+	   
+	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
 You can now work with the File storage share from within the virtual machine as you would with any other drive. You can issue standard file commands from the command prompt, or view the mounted share and its contents from File Explorer. You can also run code within the virtual machine that accesses the file share using standard Windows file I/O APIs, such as those provided by the [System.IO namespaces](http://msdn.microsoft.com/en-us/library/gg145019(v=vs.110).aspx) in the .NET Framework. 
 
@@ -193,7 +209,7 @@ Next, add the following code to the `Main()` method, after the code shown above 
     CloudFileShare share = fileClient.GetShareReference("sampleshare");
 
 	//Ensure that the share exists.
-    if (share.ExistsAsync().Result)
+    if (share.Exists())
     {
 		//Get a reference to the root directory for the share.
         CloudFileDirectory rootDir = share.GetRootDirectoryReference();
@@ -202,13 +218,13 @@ Next, add the following code to the `Main()` method, after the code shown above 
         CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("sampledir");
 
 		//Ensure that the directory exists.
-        if (sampleDir.ExistsAsync().Result)
+        if (sampleDir.Exists())
         {
 			//Get a reference to the file we created previously.
             CloudFile file = sampleDir.GetFileReference("samplefile.txt");
 
 			//Ensure that the file exists.
-            if (file.ExistsAsync().Result)
+            if (file.Exists())
             {
 				//Write the contents of the file to the console window.
                 Console.WriteLine(file.DownloadTextAsync().Result);
@@ -230,7 +246,13 @@ for more detailed information.
     <li><a href="http://msdn.microsoft.com/en-us/library/azure/dn167006.aspx">File Service REST API reference</a></li>
   </ul>
 </li>
-<li>View more feature guides to learn about additional options for storing data in Azure.
+<li>View the Azure Storage Team's blog posts relating to the File service:
+  <ul>
+    <li><a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx">Introducing Microsoft Azure File Service</a>
+    </li>
+    <li><a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx">Persisting connections to Microsoft Azure Files</a></li>
+  </ul>
+</li><li>View more feature guides to learn about additional options for storing data in Azure.
   <ul>
     <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>
     <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>

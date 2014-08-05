@@ -1,5 +1,7 @@
 <properties linkid="manage-linux-howto-attach-a-disk" urlDisplayName="Attach a disk" pageTitle="Attach a disk to a virtual machine running Linux in Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." metaCanonical="http://www.windowsazure.com/en-us/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
 
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+
 #How to Attach a Data Disk to a Linux Virtual Machine
 
 You can attach both empty disks and disks that contain data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use. 
@@ -7,8 +9,8 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 > [WACOM.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has an operating system disk and a temporary disk. **Do not use the temporary disk to store data.** As the name implies, it provides temporary storage only. It offers no redunandancy or backup because it doesn't reside in Azure storage. 
 > The temporary disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). On the other hand, on Linux the data disk might be named by the kernel as `/dev/sdc`. If that's the case, you'll need to partition, format and mount that resource. Please see the [Azure Linux Agent User Guide](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/) for more information.
 
-- [How to: Attach an existing disk](#attachexisting)
 - [How to: Attach an empty disk](#attachempty)
+- [How to: Attach an existing disk](#attachexisting)
 - [How to: Initialize a new data disk in Linux](#initializeinlinux)
 
 [WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
@@ -64,7 +66,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 	![Write the disk changes](./media/virtual-machines-linux-how-to-attach-disk/DiskWrite.png)
 
-8. You must create the file system on the new partition. As an example, type the following command to create the file system, and then enter the account password:
+8. Make the file system on the new partition. As an example, type the following command and then enter the account password:
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
@@ -73,7 +75,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 	>[WACOM.NOTE] Note that SUSE Linux Enterprise 11 systems only support read-only access for ext4 file systems.  For these systems it is recommended to format the new file system as ext3 rather than ext4.
 
 
-9. Next you must have a directory available to mount the new file system. As an example, type the following command to make a new directory for mounting the drive, and then enter the account password:
+9. Make a directory to mount the new file system. As an example, type the following command  and then enter the account password:
 
 		# sudo mkdir /datadrive
 
@@ -117,7 +119,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 		# sudo umount /datadrive
 		# sudo mount /datadrive
 
-	If the `mount` command above produces an error then check the /etc/fstab file for correct syntax. If additional data drives or partitions are created you will need to enter them into /etc/fstab separately as well.
+	If the `mount` command produces an error, check the /etc/fstab file for correct syntax. If additional data drives or partitions are created you will need to enter them into /etc/fstab separately as well.
 
 
 	>[WACOM.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk fails to mount at boot time. Please consult your distribution's documentation for more information on these parameters.

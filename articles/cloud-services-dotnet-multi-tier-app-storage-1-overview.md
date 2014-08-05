@@ -1,5 +1,7 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
+
 # Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, and Azure Storage Tables, Queues, and Blobs - 1 of 5
 
 This tutorial series shows how to create and deploy a multi-tier ASP.NET MVC web application that runs in an Azure cloud service and uses Azure Storage tables, queues, and blobs. You can download [the completed application](http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) from the MSDN Code Gallery or an [e-book](http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs) of an earlier version from the TechNet E-Book Gallery.
@@ -8,7 +10,7 @@ Here's a diagram that shows how the parts of the application interact:
 
 ![Email message processing][mtas-worker-roles-a-and-b]
 
-This is a 5-part tutorial series. If you want a quicker, simpler introduction to cloud services, queues, and blobs, see [Get Started with Azure Cloud Services and ASP.NET](/en-us/documentation/articles/cloud-services-dotnet-get-started/).
+This is a 5-part tutorial series. If you want a quicker, simpler introduction to cloud services, queues, and blobs, see [Get Started with Azure Cloud Services and ASP.NET](/en-us/documentation/articles/cloud-services-dotnet-get-started/). As an alternative you can run a multi-tier application in Websites and WebJobs; for more information, see [Get Started with the Azure WebJobs SDK](/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/).
 
 In this tutorial series you'll learn:
 
@@ -749,7 +751,7 @@ An alternative architecture is to run the front-end in an Azure Web Site.
 
 ![Alternative application architecture][mtas-alternative-architecture]
 
-Another alternative is to run the front-end in an Azure web site and use the WebJobs feature to run the back-end in the same servers that run the front-end. For more information, see [Azure Web Sites, Cloud Services and Virtual Machines comparison](/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
+Another alternative is to run the front-end in an Azure web site and use the WebJobs feature to run the back-end in the same servers that run the front-end. For more information, see [Get Started with the Azure WebJobs SDK](/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/).
 
 
 <h2><a name="cost"></a>Cost</h2>

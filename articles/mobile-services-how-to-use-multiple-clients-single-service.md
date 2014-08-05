@@ -1,4 +1,6 @@
-<properties linkid="" urlDisplayName="" pageTitle="How to use multiple clients with a single mobile service backend | Azure Mobile" metaKeywords="mobile services single backend" description="Learn how to use a single mobile service back-end from multiple client apps that target different mobile platforms, including Windows Store and Windows Phone." metaCanonical="" services="" documentationCenter="Mobile" title="Considerations for supporting multiple clients from a single mobile service" authors="krisragh" solutions="" manager="" editor="mollybos" />
+<properties linkid="develop-mobile-how-to-guides-multiple-clients-single-service" urlDisplayName="" pageTitle="How to use multiple clients with a single mobile service backend | Azure Mobile" metaKeywords="mobile services single backend" description="Learn how to use a single mobile service back-end from multiple client apps that target different mobile platforms, including Windows Store and Windows Phone." metaCanonical="" services="" documentationCenter="Mobile" title="Considerations for supporting multiple clients from a single mobile service" authors="krisragh" solutions="" manager="" editor="mollybos" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Considerations for supporting multiple clients from a single mobile service
  

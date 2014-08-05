@@ -1,9 +1,11 @@
 <properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile web site - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure web site using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Web Sites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin,riande" />
+
 
 # Deploy an ASP.NET MVC 5 Mobile Web Application on Azure Web Sites
 
-***By [Cephas Lin](https://twitter.com/Cephas_MSFT) and [Rick Anderson](https://twitter.com/RickAndMSFT) Updated 21 May 2014.***
+***Updated 21 May 2014***
 
 This tutorial will teach you the basics of how to build an ASP.NET MVC 5
 Web application that is mobile-friendly and deploy it into Windows Azure. For this tutorial, you need 

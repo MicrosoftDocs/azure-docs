@@ -1,5 +1,7 @@
 <properties linkid="develop-net-tutorials-get-started-vs2013" pageTitle="Get started with Azure Web Sites for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Web Site. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Web Sites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="tdykstra" />
+
 
 # Get started with Azure Web Sites and ASP.NET
 
@@ -20,7 +22,14 @@ The following illustration shows the completed application:
 
 ![Web site home page](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
-[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
+<div class="wa-note">
+  <span class="wa-icon-bulb"></span>
+  <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
+  <ul>
+    <li>You can <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Sites.</li>
+    <li>You can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
+  <ul>
+</div>
  
 ### Tutorial segments
 

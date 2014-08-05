@@ -1,5 +1,7 @@
 <properties pageTitle="Azure API Management Policy Reference" metaKeywords="" description="Learn about the policies available to configure API Management." metaCanonical="" services="" documentationCenter="API Management" title="Azure API Management Policy Reference" authors="sdanie" solutions="" manager="" editor="" />
 
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+
 # Azure API Management Policy Reference
 
 This topic provides a reference for the following API Management (Preview) policies. For information on adding and configuring policies, see [Policies in API Management][].
