@@ -14,8 +14,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
   
 2. In the ToDoActivity.java file, add the following members to the ToDoActivity class. 
 
-    	public static ToDoActivity mMainActivity;
-        public boolean bAuthenticating = false;
+    	public boolean bAuthenticating = false;
 	    public final Object mAuthenticationLock = new Object();
 
     These will be used to help synchronize the authentication of the user. We only want to authenticate once. Any calls during an authentication should wait and use the new token from the authentication in progress.
@@ -183,7 +182,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     							@Override
     							public void run() {
     								// Force a token refresh during authentication.
-    								ToDoActivity.mMainActivity.authenticate(true);
+    								authenticate(true);
     							}
     						});
     
@@ -228,13 +227,14 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 			}
 		}
 
+    This service filter will check each response for HTTP status code 401 "Unauthorized". If a 401 is encountered, a new login request to obtain a new token will be setup on the UI thread. Other calls will be blocked until the login is completed. Once the new token is obtained, the request that triggered the 401 will be retried with the new token and any blocked calls will be retried with the new token. 
+
 6. In the ToDoActivity.java file, update `onCreate` method as follows:
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
 		    super.onCreate(savedInstanceState);
 		    
-		    mMainActivity = this;
 		    setContentView(R.layout.activity_to_do);
 		    mProgressBar = (ProgressBar) findViewById(R.id.loadingProgressBar);
         
