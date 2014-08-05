@@ -186,7 +186,7 @@ For more information, see the tutorial [Getting Started with Microsoft Azure Web
 
 <a name="AlternateDeployments"></a>
 ###Alternative Methods of Deployment###
-Visual Studio 2013 includes features that automate deployment of Console Application projects as WebJobs. For more information, see [How to Deploy Azure WebJobs to Azure Websites](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-webjobs).
+Visual Studio 2013 includes features that automate deployment of Console Application projects as WebJobs. For more information, see [How to Deploy Azure WebJobs to Azure Websites](http://azure.microsoft.com/en-us/documentation/articles/websites-dotnet-deploy-webjobs).
 
 You can also use FTP, Git, or Web Deploy to deploy WebJobs. For more information, see [Git deploying a .NET console app to Azure using WebJobs][AmitConsole] and [How to deploy Windows Azure WebJobs][AmitDeploy].
 

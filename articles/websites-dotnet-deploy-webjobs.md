@@ -14,7 +14,6 @@ This topic explains how to use Visual Studio to deploy a Console Application pro
 - [The webjob-publish-settings.json file](#publishsettings)
 - [The webjobs-list.json file](#webjobslist)
 - [Deploy a WebJobs project](#deploy)
-- [WebJobs in the Azure Scheduler](#scheduler)
 - [Next Steps](#next-steps)
 
 ## <a id="overview"></a>Overview
