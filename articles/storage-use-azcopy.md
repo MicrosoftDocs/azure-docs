@@ -15,6 +15,7 @@ AzCopy is a command-line utility designed for high-performance uploading, downlo
 - [Limit concurrent writes while copying data](#limit-writes)
 - [Copy Azure blobs with AzCopy](#copy-blobs)
 - [Copy files in an Azure file share with AzCopy](#copy-files)
+- [Next steps](#next-steps)
 
 ##<a id="install"></a> Download and install AzCopy
 
@@ -649,7 +650,7 @@ Note that any empty folders will not be copied.
 | V2.1    | Provides more than 20 options to support blob upload, download, and copy operations in an efficient way.		|
 
 
-## Next steps
+####<a id="next-steps"></a> Next steps
 
 For more information about Azure Storage and AzCopy, see the following resources.
 
