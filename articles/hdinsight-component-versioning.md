@@ -1,5 +1,7 @@
 <properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
 
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
+
 
 #What's new in the Hadoop cluster versions provided by HDInsight?
 
@@ -66,14 +68,14 @@ Azure HDInsight now supports Hadoop 2.4 with HDInsight cluster version 3.1 (usin
 The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform (HDP) versions that they use, and their release dates. When known, their support expiration and deprecation dates will also be provided. Please note  the following:
 
 * Highly available clusters with two head nodes are deployed by default for HDInsight 2.1, 3.0, and 3.1 clusters. They are not available for HDInsight 1.6 clusters.
-* Once the support has expired for a particular version, it may not be available through the Azure management portal. The following table indicates which versions are available on the Azure management portal. Cluster versions will continue to be available through the PowerShell `New-AzureHDInsightCluster –Version` command and the .NET SDK until its deprecation date. 
+* Once the support has expired for a particular version, it may not be available through the Azure management portal. The following table indicates which versions are available on the Azure management portal. Cluster versions will continue to be available using the `Version` parameter in the PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/en-us/library/dn593744.aspx) command  and the .NET SDK until its deprecation date. 
 
 <table border="1">
 <tr><th>HDInsight Version</th><th>HDP Version</a><th>High Availability</th></th><th>Release Date</th><th>Available on Azure Management Portal</th><th>Support Expiration Date</th><th>Deprecation Date</th></tr>
 <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Yes</td><td></td><td>Yes</td><td></td><td></td></tr>
 <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Yes</td><td>02/11/2014</td><td>Yes</td><td>09/17/2014</td><td>06/30/2015</td></tr>
-<tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Yes</td><td>10/28/2013</td><td>Yes</td><td>05/12/2014</td><td>05/31/2015</td></tr>
-<tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>10/28/2013</td><td>Yes</td><td>04/26/2014</td><td>05/31/2015</td></tr>
+<tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Yes</td><td>10/28/2013</td><td>No</td><td>05/12/2014</td><td>05/31/2015</td></tr>
+<tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>10/28/2013</td><td>No</td><td>04/26/2014</td><td>05/31/2015</td></tr>
 </table><br>
 **Deployment of non-default clusters**	
 

@@ -1,7 +1,27 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
+
 
 #Microsoft HDInsight release notes
+
+## Notes for 7/28/2014 release ##
+
+* **HDInsight Available in New Regions**: With this release, we have expanded HDInsight geographical presence to three new regions. HDInsight customers can now create clusters in these regions. 
+	* East Asia, 
+	* North Central US and 
+	* South Central US. 
+* With this release, HDInsight v1.6 (HDP1.1, Hadoop 1.0.3) and HDInsight v2.1 (HDP1.3, Hadoop 1.2) are being removed from the Azure Management Portal. You may continue to create Hadoop clusters for these versions using HDInsight PowerShell cmdlets ([New-AzureHDInsightCluster](http://msdn.microsoft.com/en-us/library/dn593744.aspx)) or by using the [HDInsight SDK](http://msdn.microsoft.com/en-us/library/azure/dn469975.aspx). Please refer to the [HDInsight component versioning](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) page for more information.
+* Hortonworks Data Platform (HDP) changes in this release: 
+
+<table border="1">
+<tr><th>HDP</th><th>Changes</th></tr>
+<tr><td>HDP 1.3 / HDI 2.1</td><td>No changes</td></tr>
+<tr><td>HDP 2.0 / HDI 3.0</td><td>No changes</td></tr>
+<tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
+
+
+</table><br>
 
 ## Notes for 6/24/2014 release ##
 
@@ -73,6 +93,104 @@ Only the "wasb://" syntax is supported in HDInsight 3.0  and 3.1 clusters. The o
 <tr><td>yarn.nodemanager.webapp.address</td><td>0.0.0.0:30060</td></tr>
 <tr><td>templeton.port</td><td>30111</td></tr>
 </table><br>
+
+###Dependencies 
+
+The following dependencies were add in HDInsight 3.x (HDP2.x):
+
+* guice-servlet
+* optiq-core
+* javax.inject
+* activation
+* jsr305
+* geronimo-jaspic_1.0_spec
+* jul-to-slf4j
+* java-xmlbuilder
+* ant
+* commons-compiler
+* jdo-api
+* commons-math3
+* paranamer
+* jaxb-impl
+* stringtemplate
+* eigenbase-xom
+* jersey-servlet
+* commons-exec
+* jaxb-api
+* jetty-all-server
+* janino
+* xercesImpl
+* optiq-avatica
+* jta
+* eigenbase-properties
+* groovy-all
+* hamcrest-core
+* mail
+* linq4j
+* jpam
+* jersey-client
+* aopalliance
+* geronimo-annotation_1.0_spec
+* ant-launcher
+* jersey-guice
+* xml-apis
+* stax-api
+* asm-commons
+* asm-tree
+* wadl
+* geronimo-jta_1.1_spec
+* guice
+* leveldbjni-all
+* velocity
+* jettison
+* snappy-java
+* jetty-all
+* commons-dbcp
+
+The following dependencies no longer exist in HDInsight 3.x (HDP2.x):
+
+* jdeb
+* kfs
+* sqlline
+* ivy
+* aspectjrt
+* json
+* core
+* jdo2-api
+* avro-mapred
+* datanucleus-enhancer
+* jsp
+* commons-logging-api
+* commons-math
+* JavaEWAH
+* aspectjtools
+* javolution
+* hdfsproxy
+* hbase
+* snappy
+
+###Version changes 
+
+The following version changes were made between HDInsight 2.x (HDP1.x) and HDInsight 3.x (HDP2.x):
+
+* metrics-core: ['2.1.2'] -> ['3.0.0']
+* derbynet: ['10.4.2.0'] -> ['10.10.1.1']
+* datanucleus: ['rdbms-3.0.8'] -> ['rdbms-3.2.9']
+* jasper-compiler: ['5.5.12'] -> ['5.5.23']
+* log4j: ['1.2.15', '1.2.16'] -> ['1.2.16', '1.2.17']
+* derbyclient: ['10.4.2.0'] -> ['10.10.1.1']
+* httpcore: ['4.2.4'] -> ['4.2.5']
+* hsqldb: ['1.8.0.10'] -> ['2.0.0']
+* jets3t: ['0.6.1'] -> ['0.9.0']
+* protobuf-java: ['2.4.1'] -> ['2.5.0']
+* derby: ['10.4.2.0'] -> ['10.10.1.1']
+* jasper: ['runtime-5.5.12'] -> ['runtime-5.5.23']
+* commons-daemon: ['1.0.1'] -> ['1.0.13']
+* datanucleus-core: ['3.0.9'] -> ['3.2.10']
+* datanucleus-api-jdo: ['3.0.7'] -> ['3.2.6']
+* zookeeper: ['3.4.5.1.3.9.0-01320'] -> ['3.4.5.2.1.3.0-1948']
+* bonecp: ['0.7.1.RELEASE'] -> ['0.8.0.RELEASE']
+
 
 ###Drivers
 The SQL Server JDBC Driver is used internally by HDInsight and is not used for external operations. If you wish to connect to HDInsight using ODBC, please use the Microsoft Hive ODBC driver. For more information on using Hive ODBC, [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC].

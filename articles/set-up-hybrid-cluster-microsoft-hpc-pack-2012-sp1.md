@@ -1,4 +1,6 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster" metaCanonical="" services="" documentationCenter="" title="Set up a Hybrid Cluster with Microsoft HPC Pack" authors="danlep" solutions="" manager="dongill" editor="mattshel" />
+<properties linkid="itpro-windows-howto-howto-setup-hybrid-cluster-hpcpack" urlDisplayName="" pageTitle="" metaKeywords="" description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster" metaCanonical="" services="" documentationCenter="" title="Set up a Hybrid Cluster with Microsoft HPC Pack" authors="danlep" solutions="" manager="dongill" editor="mattshel" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="danlep" />
 
 
 #Set up a Hybrid Compute Cluster with Microsoft HPC Pack
@@ -26,7 +28,7 @@ This tutorial walks you through these basic steps:
 
 <h2 id="BKMK_Prereq">Prerequisites</h2>
 
->[WACOM.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/en-us/pricing/free-trial/" target="_blank">Azure Free Trial</a>.
+>[WACOM.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/).
 
 In addition, you need the following for this tutorial.
 
@@ -110,7 +112,7 @@ You will see **Default HPC Azure Management** in the list of management certific
 
 <h3>Create an Azure cloud service</h3> 
 
->[WACOM.NOTE]For best performance, create the cloud service and the storage account in the same geographic region or affinity group (if configured).
+>[WACOM.NOTE]For best performance, create the cloud service and the storage account in the same geographic region.
 
 1. In the Management Portal, on the command bar, click **New**.
 
@@ -242,7 +244,7 @@ When you want to use the cluster resources in Azure, use HPC Cluster Manager to 
 	HPC Cluster Manager indicates that the nodes are in the **Online** state.
 
 <h2 id="BKMK_RunCommand">Run a command across the cluster</h2>	
-You can use the HPC Pack **clusrun** command to run a command or application on one or more cluster nodes. As a simple example, use **clusrun** get the IP configuration of the Azure nodes.
+You can use the HPC Pack **clusrun** command to run a command or application on one or more cluster nodes. As a simple example, use **clusrun** to get the IP configuration of the Azure nodes.
 
 1. On the head node, open a command prompt.
 

@@ -1,12 +1,23 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-users-android" urlDisplayName="Get Started with Authentication" pageTitle="Get started with authentication (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
+
 
 
 
 
 # Get started with authentication in Mobile Services
 <div class="dev-center-tutorial-selector sublanding">   
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a>
+    <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+    <a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a>
+    <a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a>
+    <a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android" class="current">Android</a>
+    <a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a>
+    <a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+	<a href="/en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users" title="Appcelerator">Appcelerator</a>
+</div>
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -46,69 +57,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
 <h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
-1. In the Package Explorer in Eclipse, open the ToDoActivity.java file and add the following import statements.
-
-		import com.microsoft.windowsazure.mobileservices.MobileServiceUser;
-		import com.microsoft.windowsazure.mobileservices.MobileServiceAuthenticationProvider;
-		import com.microsoft.windowsazure.mobileservices.UserAuthenticationCallback;
-
-2. Add the following method to the **ToDoActivity** class: 
-	
-		private void authenticate() {
-		
-			// Login using the Google provider.
-			mClient.login(MobileServiceAuthenticationProvider.Google,
-					new UserAuthenticationCallback() {
-	
-						@Override
-						public void onCompleted(MobileServiceUser user,
-								Exception exception, ServiceFilterResponse response) {
-	
-							if (exception == null) {
-								createAndShowDialog(String.format(
-												"You are now logged in - %1$2s",
-												user.getUserId()), "Success");
-								createTable();
-							} else {
-								createAndShowDialog("You must log in. Login Required", "Error");
-							}
-						}
-					});
-		}
-
-    This creates a new method to handle the authentication process. The user is authenticated by using a Google login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
-
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Google, change the value passed to the <strong>login</strong> method above to one of the following: <em>MicrosoftAccount</em>, <em>Facebook</em>, <em>Twitter</em>, or <em>windowsazureactivedirectory</em>.</p>
-    </div>
-
-3. In the **onCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
-
-		authenticate();
-
-	This call starts the authentication process.
-
-4. Move the remaining code after `authenticate();` in the **onCreate** method to a new **createTable** method, which looks like this:
-
-		private void createTable() {
-	
-			// Get the Mobile Service Table instance to use
-			mToDoTable = mClient.getTable(ToDoItem.class);
-	
-			mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
-	
-			// Create an adapter to bind the items with the view
-			mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
-			ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
-			listViewToDo.setAdapter(mAdapter);
-	
-			// Load the items from the Mobile Service
-			refreshItemsFromTable();
-		}
-
-9. From the **Run** menu, then click **Run** to start the app and sign in with your chosen identity provider. 
-
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+[WACOM.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
 ## <a name="cache-tokens"></a>Cache authentication tokens on the client
 

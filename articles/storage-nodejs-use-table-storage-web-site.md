@@ -1,5 +1,7 @@
 <properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure web site." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
 
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+
 
 
 
@@ -30,7 +32,7 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 Before following the instructions in this article, you should ensure that you have the following installed:
 
-* [node] version 0.6.14 or higher
+* [node] version 0.10.24 or higher
 
 * [Git]
 
@@ -72,13 +74,13 @@ In this section you will create a new Node application and use npm to add module
 
 2. Enter the following to install the express command.
 
-		npm install express-generator -g
+		npm install express-generator@4.2.0 -g
 
     > [WACOM.NOTE] When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the **sudo** command to run npm at a higher privilege level.
 
     The output of this command should appear similar to the following:
 
-		express-generator@4.0.0 C:\Users\username\AppData\Roaming\npm\node_modules\express-generator
+		express-generator@4.2.0 C:\Users\username\AppData\Roaming\npm\node_modules\express-generator
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
@@ -128,44 +130,47 @@ The **package.json** file is one of the files created by the **express** command
 
 		debug@0.7.4 node_modules\debug
 		
+		static-favicon@1.0.2 node_modules\static-favicon
+		
+		morgan@1.0.1 node_modules\morgan
+		└── bytes@0.3.0
+		
 		cookie-parser@1.0.1 node_modules\cookie-parser
 		├── cookie-signature@1.0.3
 		└── cookie@0.1.0
 		
-		morgan@1.0.0 node_modules\morgan
-		└── bytes@0.2.1
-		
 		body-parser@1.0.2 node_modules\body-parser
 		├── qs@0.6.6
-		├── raw-body@1.1.4 (bytes@0.3.0)
+		├── raw-body@1.1.7 (string_decoder@0.10.25-1, bytes@1.0.0)
 		└── type-is@1.1.0 (mime@1.2.11)
 		
-		express@4.0.0 node_modules\express
-		├── methods@0.1.0
+		express@4.2.0 node_modules\express
 		├── parseurl@1.0.1
 		├── merge-descriptors@0.0.2
 		├── utils-merge@1.0.0
+		├── cookie@0.1.2
 		├── escape-html@1.0.1
 		├── cookie-signature@1.0.3
+		├── debug@0.8.1
 		├── fresh@0.2.2
-		├── range-parser@1.0.0
-		├── buffer-crc32@0.2.1
 		├── qs@0.6.6
-		├── cookie@0.1.0
+		├── range-parser@1.0.0
+		├── methods@1.0.0
+		├── buffer-crc32@0.2.1
+		├── serve-static@1.1.0
 		├── path-to-regexp@0.1.2
-		├── send@0.2.0 (mime@1.2.11)
-		├── type-is@1.0.0 (mime@1.2.11)
-		├── accepts@1.0.0 (negotiator@0.3.0, mime@1.2.11)
-		└── serve-static@1.0.1 (send@0.1.4)
+		├── send@0.3.0 (debug@0.8.0, mime@1.2.11)
+		├── type-is@1.1.0 (mime@1.2.11)
+		└── accepts@1.0.1 (negotiator@0.4.7, mime@1.2.11)
 		
 		jade@1.3.1 node_modules\jade
-		├── character-parser@1.2.0
 		├── commander@2.1.0
+		├── character-parser@1.2.0
 		├── mkdirp@0.3.5
 		├── monocle@1.1.51 (readdirp@0.2.5)
-		├── constantinople@2.0.0 (uglify-js@2.4.13)
-		├── with@3.0.0 (uglify-js@2.4.13)
-		└── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
+		├── constantinople@2.0.1 (uglify-js@2.4.15)
+		├── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
+		└── with@3.0.0 (uglify-js@2.4.15)
 
 
 	This installs all of the default modules that Express needs.
@@ -176,22 +181,23 @@ The **package.json** file is one of the files created by the **express** command
 
 	The output of this command should appear similar to the following:
 
+		async@0.9.0 node_modules\async
+
 		node-uuid@1.4.1 node_modules\node-uuid
-
+		
 		nconf@0.6.9 node_modules\nconf
-		├── ini@1.1.0
+		├── ini@1.2.1
 		├── async@0.2.9
-		└── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.8)
-
-		azure-storage@0.1.0 node_modules\azure-storage
+		└── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.10)
+		
+		azure-storage@0.3.0 node_modules\azure-storage
 		├── extend@1.2.1
 		├── xmlbuilder@0.4.3
 		├── mime@1.2.11
-		├── underscore@1.4.4
 		├── validator@3.1.0
-		├── node-uuid@1.4.1
+		├── underscore@1.4.4
 		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+		└── request@2.27.0 (forever-agent@0.5.2, aws-sign@0.3.0, json-stringify-safe@5.0.0, tunnel-agent@0.3.0, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, form-data@0.1.4, hawk@1.0.0, http-signature@0.10.0)
 
 ##Using the Table service in a node application
 
@@ -229,7 +235,7 @@ In this section you will extend the basic application created by the **express**
 		Task.prototype = {
 		  find: function(query, callback) {
 		    self = this;
-		    self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+		    self.storageClient.queryEntities(this.tableName, query, null, function entitiesQueried(error, result) {
 		      if(error) {
 		        callback(error);
 		      } else {
@@ -297,7 +303,7 @@ In this section you will extend the basic application created by the **express**
 		TaskList.prototype = {
 		  showTasks: function(req, res) {
 		    self = this;
-		    var query = azure.TableQuery()
+		    var query = new azure.TableQuery()
 		      .where('completed eq ?', false);
 		    self.task.find(query, function itemsFound(error, items) {
 		      res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -348,9 +354,9 @@ In this section you will extend the basic application created by the **express**
 		var nconf = require('nconf');
 		nconf.env()
 		     .file({ file: 'config.json'});
-		var tableName = nconf.get("TABLE_NAME")
-		var partitionKey = nconf.get("PARTITION_KEY")
-		var accountName = nconf.get("STORAGE_NAME")
+		var tableName = nconf.get("TABLE_NAME");
+		var partitionKey = nconf.get("PARTITION_KEY");
+		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
 	> [WACOM.NOTE] nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.
@@ -392,7 +398,7 @@ In this section you will extend the basic application created by the **express**
 		        td Category
 		        td Date
 		        td Complete
-		      if tasks != []
+		      if (typeof tasks === "undefined")
 		        tr
 		          td 
 		      else

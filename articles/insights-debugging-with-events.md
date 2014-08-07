@@ -1,5 +1,7 @@
 <properties title="How to debug with events" pageTitle="How to debug with events" description="Learn how to see events in Azure." authors="hanikn"  />
 
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanikn" />
+
 # Monitor the events impacting your Azure websites or resource groups 
 
 1.	Sign in to the [Azure Portal Preview](https://portal.azure.com/). 

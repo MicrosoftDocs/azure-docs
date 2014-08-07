@@ -1,5 +1,7 @@
 <properties title="Azure Machine Learning Sample: Prediction of the number of bike rentals" pageTitle="Machine Learning Sample: Prediction of bike rentals | Azure" description="A sample Azure Machine Learning experiment to develop a regression model that predicts the number of bike rentals hourly." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+
 #Azure Machine Learning sample: Prediction of the number of bike rentals
 
 ## Problem Description ##
@@ -17,7 +19,7 @@ We used 2011 data as a training set and 2012 data as a test set. We compared 4 s
 1. number of bikes that were rented in each of the previous 12 days at the same hour
 1. number of bikes that were rented in each of the previous 12 weeks at the same hour and the same day
 
-Features B capture very recent demand for the bikes. Features C capture demand for bikes at particular hour. Features D capture demand for bikes at particular and particular day of the week.
+Features B capture very recent demand for the bikes. Features C capture demand for bikes at particular hour. Features D capture demand for bikes at particular hour and particular day of the week.
 
 Since the label (number of rentals) is real-valued we have regression setting. Also, since the number of features is relatively small (less than 100) and they are not sparse, the decision boundary is probably nonlinear. Based on this, we decided to use boosted decision tree regression algorithm.
 
