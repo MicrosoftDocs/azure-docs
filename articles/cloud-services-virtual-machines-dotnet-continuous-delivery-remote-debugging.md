@@ -76,4 +76,4 @@ In this topic:
     $vm | Update-AzureVM 
 	</pre>
     
-6. Import the certificate (.pfx) to the machine that has Visual Studio with Azure 2.4 OneSDK installed.
+6. Import the certificate (.pfx) to the machine that has Visual Studio with Azure SDK for .NET 2.4 installed.
