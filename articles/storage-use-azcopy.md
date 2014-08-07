@@ -650,7 +650,7 @@ Note that any empty folders will not be copied.
 | V2.1    | Provides more than 20 options to support blob upload, download, and copy operations in an efficient way.		|
 
 
-####<a id="next-steps"></a> Next steps
+##<a id="next-steps"></a> Next steps
 
 For more information about Azure Storage and AzCopy, see the following resources.
 
