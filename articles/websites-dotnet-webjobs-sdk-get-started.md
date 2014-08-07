@@ -184,14 +184,14 @@ In a real-world application, you typically create separate accounts for applicat
  
 	The file contains a SQL connection string and an Azure storage connection string for working with blobs and queues. 
 
+	The SQL connection string points to a [SQL Server Express LocalDB](http://msdn.microsoft.com/en-us/library/hh510202.aspx) database.
+ 
+	The storage connection string has placeholders where you'll insert your storage account name and access key in the following steps.
+
 	<pre class="prettyprint">&lt;connectionStrings&gt;
 	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
 	  &lt;add name="AzureJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
 	&lt;/connectionStrings&gt;</pre>
-
-	The SQL connection string points to a [SQL Server Express LocalDB](http://msdn.microsoft.com/en-us/library/hh510202.aspx) database.
- 
-	The storage connection string has placeholders where you'll insert your storage account name and access key in the following steps.
 
 	The storage connection string is named AzureJobsStorage because that is the name the WebJobs SDK uses by default. The same name is used here so you only have to set one connection string value in the Azure environment.
  
@@ -284,7 +284,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
  
 	![Click Sign In](./media/websites-dotnet-webjobs-sdk-get-started/signin.png)	
 
-5. Click New.
+5. After you're signed in, click New.
 
 	![Click New](./media/websites-dotnet-webjobs-sdk-get-started/clicknew.png)
 
@@ -362,11 +362,23 @@ It's a security best practice to [avoid putting sensitive information such as co
 	
 9. Click **Save**.
 
-	![Connection strings in management portal](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)	
- 
+	![Connection strings in management portal](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
+
+10. Click the **Dashboard** tab, and then click **Restart**.
+
+	The WebJob automatically starts when you publish, but it stops when you make a configuration change. To restart it you can either restart the site or restart the WebJob. It's generally recommended to restart the site after a configuration change. 
 9. Refresh the browser window that has the site URL in its address bar.
 
-	The home page appears. You can now test the app by creating, viewing, and editing ads, as you did when you ran the application locally.
+	The home page appears.
+
+10. Create an ad, as you did when you ran the application locally.
+
+	The Index page shows without a thumbnail at first.
+
+11.	Refresh the page after a few seconds, and the thumbnail appears.
+
+	If the thumbnail doesn't appear, the WebJob may not have started automatically. In that case, go to the WebJobs tab in the 
+ 
 
 ### View the WebJobs SDK dashboard
 
@@ -483,6 +495,8 @@ All three projects use the Entity Framework to work with data in SQL Database.
 
 12. In the left pane, select **Online**.
    
+17. Change **Include Prerelease** to **Stable Only**.
+
 16. Find the *EntityFramework* NuGet package, and install it in all three projects.
 
 
@@ -500,9 +514,7 @@ The WebJob project needs references for working with images and for accessing co
 
 ### Add code and configuration files
 
-In this section you copy files from the downloaded solution into the new solution. The following sections will show and explain key parts of the code.
-
-(This tutorial does not explain how to [create MVC controllers and views using scaffolding](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started), how to [write Entity Framework code that works with SQL Server databases](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc), or [the basics of asynchronous programming in ASP.NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).) 
+This tutorial does not show how to [create MVC controllers and views using scaffolding](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started), how to [write Entity Framework code that works with SQL Server databases](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc), or [the basics of asynchronous programming in ASP.NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async). So all that remains to do is copy code and configuration files from the downloaded solution into the new solution. After you do that, the following sections will show and explain key parts of the code.
 
 To add files to a project or a folder, right-click the project or folder and click **Add** > **Existing Item**. Select the files you want and click **Add**. If asked whether you want to replace existing files, click **Yes**.
 
@@ -526,7 +538,7 @@ To add files to a project or a folder, right-click the project or folder and cli
 	- *App.config* (change the file type filter to **All Files**)
 	- *Program.cs*
 
-You can now build, run, and deploy the application as instructed earlier in the tutorial.
+You can now build, run, and deploy the application as instructed earlier in the tutorial. Before you do that, however, stop the WebJob that is still running in the first website you deployed to. Otherwise that WebJob will process queue messages created locally or by the app running in a new website, since all are using the same storage account.
 
 ## <a id="code"></a>Review the application code
 
@@ -843,4 +855,4 @@ For more information, see the following resources:
 * [Azure Storage](/en-us/documentation/services/storage/)
 * [How to use Blob Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)
 * [How to use Queue Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-queues/)
-* [Microsoft Azure Storage – What's New, Best Practices and Patterns (Channel 9 Video)](http://channel9.msdn.com/Events/Build/2014/3-628)
+* [Microsoft Azure Storage - What's New, Best Practices and Patterns (Channel 9 Video)](http://channel9.msdn.com/Events/Build/2014/3-628)
