@@ -18,7 +18,7 @@ AzCopy is a command-line utility designed for high-performance uploading, downlo
 
 ##<a id="install"></a> Download and install AzCopy
 
-1. Download the [latest version of AzCopy](aka.ms/azcopymsi).
+1. Download the [latest version of AzCopy](http://aka.ms/downloadazcopy).
 2. Run the installation. By default, the AzCopy installation creates a folder named `AzCopy` under `%ProgramFiles(x86)%\Microsoft SDKs\Azure\` (on a machine running 64-bit Windows) or `%ProgramFiles%\Microsoft SDKs\Azure\` (on a machine running 32-bit Windows). However, you can change the installation path from the setup wizard.
 3. If desired, you can add the AzCopy installation location to your system path.
 
