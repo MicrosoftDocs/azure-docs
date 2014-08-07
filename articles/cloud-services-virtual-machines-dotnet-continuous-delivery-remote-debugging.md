@@ -18,10 +18,10 @@ In this topic:
 3. Create a certificate as outlined in [Create a Service Certificate for Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx). Keep the .pfx and RDP certificate thumbprint and upload the certificate to the target cloud service.
 4. Use the following options in the MSBuild command line to build and package with remote debug enabled. (Update the paths for your system and project files.)
 
-	/TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath=”C:\Remote Debugger\x64\\”;RemoteDebuggerConnectorCertificateThumbprint="56D7D1B25B472268E332F7FC0C87286458BFB6B2";RemoteDebuggerConnectorVersion="2.3" "C:\Users\yourusername\Documents\visual studio 2013\Projects\WindowsAzure1\WindowsAzure1.sln"
+	/TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="C:\Remote Debugger\x64\\";RemoteDebuggerConnectorCertificateThumbprint="56D7D1B25B472268E332F7FC0C87286458BFB6B2";RemoteDebuggerConnectorVersion="2.4" "C:\Users\yourusername\Documents\visual studio 2013\Projects\WindowsAzure1\WindowsAzure1.sln"
 
 5. Publish to the target cloud service by using the package and .cscfg file generated in the previous step.
-6. Import the certificate (.pfx file) to the machine that has Visual Studio with Azure SDK 2.3 installed.
+6. Import the certificate (.pfx file) to the machine that has Visual Studio with Azure SDK 2.4 installed.
 
 <h2> <a name="virtualmachine"></a>Enabling remote debugging for virtual machines</h2>
 
@@ -76,4 +76,4 @@ In this topic:
     $vm | Update-AzureVM 
 	</pre>
     
-6. Import the certificate (.pfx) to the machine that has Visual Studio with Azure 2.3 OneSDK installed.
+6. Import the certificate (.pfx) to the machine that has Visual Studio with Azure 2.4 OneSDK installed.
