@@ -1,10 +1,10 @@
 Data in your storage account is replicated to ensure durability that is also highly available, meeting the [Azure Storage SLA ](/en-us/support/legal/sla/) even in the face of transient hardware failures. Azure Storage is deployed in 15 regions around the world and also includes support for replicating data between regions. You have several options for replicating the data in your storage account:
 
-- *Locally redundant storage (LRS)* maintains three copies of your data.  LRS is replicated three times within a single facility in a single region. LRS protects your data from normal hardware failures, but not from the failure of a single facility.
+- *Locally redundant storage (LRS)* maintains three copies of your data. LRS is replicated three times within a single facility in a single region. LRS protects your data from normal hardware failures, but not from the failure of a single facility.
 
-	Locally redundant storage is offered at a discount. For highest level of durability, we recommend users use geo-redundant storage.  
+	LRS is offered at a discount. For maximum durability, we recommend that you use geo-redundant storage, described below.
 
-- *Zone-redundant storage (ZRS)* maintains three copies of your data.  ZRS is replicated three times across two to three facilities, either within a single region or across two regions, providing higher durability than LRS.  The focus of ZRS is to keep the data durable within a single region.
+- *Zone-redundant storage (ZRS)* maintains three copies of your data. ZRS is replicated three times across two to three facilities, either within a single region or across two regions, providing higher durability than LRS. The goal of ZRS is to ensure that your data is durable within a single region.
  
 	ZRS provides a higher level of durability than LRS; however, for maximum durability, we recommend that you use geo-redundant storage, described below.
 
