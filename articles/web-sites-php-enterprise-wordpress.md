@@ -22,32 +22,24 @@ A basic WordPress installation has only two requirements.
     
 * **PHP 5.2.4 or greater** - Azure Websites currently provide [PHP versions 5.3, 5.4, and 5.5][phpwebsite].
 
-<!--[an Azure Website and MySQL Database hosted in a single Azure region][basic-diagram]-->
-
 ###Basic deployment
-
-<img style="float: left; padding-right: 10px" src="./media/web-sites-enterprise-wordpress/basic-diagram.png" alt="an Azure Website and MySQL Database hosted in a single Azure region][basic-diagram"/>
 
 Using just the basic requirements, you could create a basic solution within an Azure region.
 
+![an Azure Website and MySQL Database hosted in a single Azure region][basic-diagram]
+
 While this would allow you to scale out your application by creating multiple instances of the Website, everything is hosted within the data centers in a specific geographic region. Visitors from outside this region may see slow response times when using the site, and if the data centers in this region go down, so does your application.
 
-<br style="clear: both"/>
 
 ###Multi-region deployment
 
-<!--[an Azure Website, hosted in multiple regions, using CDBR High Availability router to route to MySQL across regions][multi-region-diagram]-->
-
-<img style="float: left; padding-right: 10px" src="./media/web-sites-enterprise-wordpress/multi-region-diagram.png" alt="an Azure Website, hosted in multiple regions, using CDBR High Availability router to route to MySQL across regions"/>
-
 Using Azure [Traffic Manager][trafficmanager], it's possible to scale your WordPress site across multiple geographic regions while providing only one URL for visitors. All visitors come in through Traffic Manager and are then routed to a region based on the load balancing configuration.
+
+![an Azure Website, hosted in multiple regions, using CDBR High Availability router to route to MySQL across regions][multi-region-diagram]
 
 Within each region, the WordPress site would still be scaled across multiple Website instances, but this scaling is region specific; high traffic regions can be scaled differently than low traffic ones.
 
 Replication and routing to multiple MySQL Databases can be done using ClearDB's [CDBR High Availability Router][cleardbscale] (shown left,) or [MySQL Cluster CGE][cge]. 
-
-
-<br style="clear: both"/>
 
 ###High performance multi-region deployment
 
@@ -232,6 +224,7 @@ To do this... | Use this...
 
 [performance-diagram]: ./media/web-sites-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-enterprise-wordpress/basic-diagram.png
+[multi-region-diagram]: ./media/web-sites-enterprise-wordpress/multi-region-diagram.png
 [wordpress]: http://www.microsoft.com/web/wordpress
 [officeblog]: http://blogs.office.com/
 [bingblog]: http://blogs.bing.com/
