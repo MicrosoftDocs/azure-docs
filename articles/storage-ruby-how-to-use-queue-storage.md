@@ -66,8 +66,8 @@ The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT**
 for information required to connect to your Azure storage account. If these environment variables are not set, 
 you must specify the account information before using **Azure::QueueService** with the following code:
 
-	Azure.config.account_name = "<your azure storage account>"
-	Azure.config.access_key = "<your Azure storage access key>"
+	Azure.config.storage_account_name = "<your azure storage account>"
+	Azure.config.storage_access_key = "<your Azure storage access key>"
 
 To obtain these values:
 
