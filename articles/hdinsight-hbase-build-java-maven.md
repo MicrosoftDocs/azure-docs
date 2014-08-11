@@ -114,11 +114,6 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		 */
 		-->
 		<configuration>
-		  <property>
-		    <name>hbase.rootdir</name>
-		    <value>/hbase</value>
-		  </property>
-		  <property>
 		    <name>hbase.cluster.distributed</name>
 		    <value>true</value>
 		  </property>
@@ -127,33 +122,11 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		    <value>zookeepernode0:2181 zookeepernode1:2181 zookeepernode2:2181</value>
 		  </property>
 		
-		  <property>
-		    <name>hbase.log.dir</name>
-		    <value>C:\apps\dist\hbase-0.98.0.2.1.3.2-0002-hadoop2\logs</value>
-		  </property>
-		
-		  <property>
-		    <name>hbase.master.distributed.log.splitting</name>
-		    <value>true</value>
-		  </property>
-		
-		  <property>
-		    <name>hfile.index.block.max.size</name>
-		    <value>131072</value>
-		  </property>
-		
-		  <property>
-		    <name>io.storefile.bloom.block.size</name>
-		    <value>131072</value>
-		  </property>
-		
-		  <property>
-		    <name>dfs.support.append</name>
-		    <value>false</value>
-		  </property>
 		</configuration>
 
 	This file will be used to load the HBase configuration for an HDInsight cluster.
+
+	> [WACOM.NOTE] This is a very minimal hbase-site.xml file, containing the bare minimum settings for the HDInsight cluster. For a full version of the hbase-site.xml configuration file used by HDInsight, [remote desktop into the HDInsight cluster](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-management-portal/#rdp), and the hbase-site.xml file is located in the C:\apps\dist\hbase-&lt;version number>-hadoop2\conf directory. The version number portion of the file path will change as HBase is updated on the cluster.
 
 3. Save the __hbase-site.xml__ file.
 
