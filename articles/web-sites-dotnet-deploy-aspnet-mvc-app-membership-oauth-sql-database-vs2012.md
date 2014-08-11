@@ -7,7 +7,7 @@
 
 # Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site
 
-***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 15 October 2013.***
+***Updated 15 October 2013.***
 
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/web-site-with-sql-database/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
