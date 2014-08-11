@@ -1,4 +1,4 @@
-<properties title="Create your first search solution using Azure Search" pageTitle="Create your first search solution using Azure Search" description="Create your first search solution using Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Create your first search solution using Azure Search" pageTitle="Create your first search solution using Azure Search" description="Create your first search solution using Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="heidist" videoId="" scriptId="" />
 
 # Create your first search solution using Azure Search
 
