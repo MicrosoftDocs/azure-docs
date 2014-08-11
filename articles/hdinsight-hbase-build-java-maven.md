@@ -18,7 +18,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 1. From the command-line on your development environment, change directories to the location you wish to create the project. For example, `cd code\hdinsight`
 
-2. Use the __mvn__ command to generate the scaffolding for the project.
+2. Use the __mvn__ command, which is installed with Maven, to generate the scaffolding for the project.
 
 		mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
