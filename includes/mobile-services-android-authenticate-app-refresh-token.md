@@ -171,10 +171,10 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     				if ((response != null) && (response.getStatus().getStatusCode() == 401))
     				{ 
     					// Two simultaneous requests from independent threads could get HTTP 
-                        // status 401. Protecting against that right here so multiple 
-                        // authentication requests are not setup to run on the UI thread.
+    					// status 401. Protecting against that right here so multiple 
+    					// authentication requests are not setup to run on the UI thread.
     					// We only want to authenticate once. Other requests should just wait 
-                        // and retry with the new token.
+    					// and retry with the new token.
     					if (mAtomicAuthenticatingFlag.compareAndSet(false, true))							
     					{
     						// Authenticate on UI thread
@@ -252,7 +252,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 		        	
 		    } catch (MalformedURLException e) {
 			    createAndShowDialog(new Exception("Error creating the Mobile Service. " +
-                     "Verify the URL"), "Error");
+			        "Verify the URL"), "Error");
 		    }
 	    }
 
