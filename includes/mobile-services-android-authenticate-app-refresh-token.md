@@ -186,12 +186,12 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     							}
     						});
     					}
-
-  						// Wait for authentication to complete then 
-                        // update the token in the request.
+    					
+    					// Wait for authentication to complete then 
+    					// update the token in the request.
     					waitAndUpdateRequestToken(this.mRequest);
-                        mAtomicAuthenticatingFlag.set(false);    					
-    
+    					mAtomicAuthenticatingFlag.set(false);    					
+    					    
     					// Retry recursively with a new token as long as we get a 401.
     					mNextServiceFilterCallback.onNext(this.mRequest, this);
     				}
