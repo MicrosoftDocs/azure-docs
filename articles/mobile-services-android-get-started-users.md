@@ -19,6 +19,9 @@
 	<a href="/en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users" title="Appcelerator">Appcelerator</a>
 </div>
 
+<div class="dev-center-tutorial-subselector">
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-android-get-started-users/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
+
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
@@ -78,7 +81,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Register your app for authentication and configure Mobile Services]: #register
 [Restrict table permissions to authenticated users]: #permissions
 [Add authentication to the app]: #add-authentication
-[Store authentication tokens on the client]: #tokens
+[Store authentication tokens on the client]: #cache-tokens
 [Refresh expired tokens]: #refresh-tokens
 [Next Steps]:#next-steps
 
