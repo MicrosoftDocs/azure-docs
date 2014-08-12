@@ -15,6 +15,8 @@ scalable cloud applications in Azure. They allow the separation and independent
 management and scale-out of front-end and back-end components of your application.  Cloud Services 
 provide a robust dedicated virtual machine for hosting each role reliably.
 
+For more information on Cloud Services, and how they compare to Azure Web Sites and Virtual machines, see [Azure Web Sites, Cloud Services and Virtual Machines comparison](http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
+
 <p />
 
 <div class="dev-callout"><strong>Looking to build a simple web site?</strong>
