@@ -170,11 +170,11 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     				// retry the request
     				if ((response != null) && (response.getStatus().getStatusCode() == 401))
     				{ 
-    					// Two simultaneous requests from independent threads could get HTTP status 401. 
-    					// Protecting against that right here so multiple authentication requests are
-    					// not setup to run on the UI thread.
-    					// We only want to authenticate once. Other requests should just wait and retry 
-    					// with the new token.
+    					// Two simultaneous requests from independent threads could get HTTP 
+    					// status 401. Protecting against that right here so multiple 
+    					// authentication requests are not setup to run on the UI thread.
+    					// We only want to authenticate once. Other requests should just wait 
+    					// and retry with the new token.
     					if (mAtomicAuthenticatingFlag.compareAndSet(false, true))							
     					{
     						// Authenticate on UI thread
@@ -185,24 +185,20 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     								authenticate(true);
     							}
     						});
-    
-    						// Wait for authentication to complete then update the token in the request. 
-    						waitAndUpdateRequestToken(this.mRequest);
-    						mAtomicAuthenticatingFlag.set(false);
     					}
-    					else
-    					{
-    						// Just wait for authentication to complete if its already in progress.
-    						// Then update the token in the request. 
-    						waitAndUpdateRequestToken(this.mRequest);
-    					}
-    
+    					
+    					// Wait for authentication to complete then 
+    					// update the token in the request.
+    					waitAndUpdateRequestToken(this.mRequest);
+    					mAtomicAuthenticatingFlag.set(false);    					
+    					    
     					// Retry recursively with a new token as long as we get a 401.
     					mNextServiceFilterCallback.onNext(this.mRequest, this);
     				}
     				
     				// Responses that do not have 401 status codes just pass through.
-    				else if (this.mResponseCallback != null)  mResponseCallback.onResponse(response, exception);
+    				else if (this.mResponseCallback != null)  
+                      mResponseCallback.onResponse(response, exception);
     			}
     		}
     		
@@ -220,7 +216,8 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 	    
 	    		// Wrap the request in a callback object that will facilitate retries.
 	    		AuthenticationRetryFilterCallback retryCallbackObject = 
-                    new AuthenticationRetryFilterCallback(request, nextServiceFilterCallback, responseCallback); 
+                    new AuthenticationRetryFilterCallback(request, nextServiceFilterCallback,
+                          responseCallback); 
 				
 				// Send the request down the filter chain.
 				nextServiceFilterCallback.onNext(request, retryCallbackObject);			
@@ -246,14 +243,16 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 		    	// Mobile Service URL and key
 		    	mClient = new MobileServiceClient(
 		    			"https://<YOUR MOBILE SERVICE>.azure-mobile.net/",
-		    			"<YOUR MOBILE SERVICE KEY>",
-		    			this).withFilter(new ProgressFilter()).withFilter(new RefreshTokenCacheFilter());
+		    			"<YOUR MOBILE SERVICE KEY>", this)
+                           .withFilter(new ProgressFilter())
+                           .withFilter(new RefreshTokenCacheFilter());
             
 		    	// Authenticate passing false to load the current token cache if available.
 		    	authenticate(false);
 		        	
 		    } catch (MalformedURLException e) {
-			    createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
+			    createAndShowDialog(new Exception("Error creating the Mobile Service. " +
+			        "Verify the URL"), "Error");
 		    }
 	    }
 
