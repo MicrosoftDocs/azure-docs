@@ -1,4 +1,4 @@
-<properties title="Getting Started with a DocumentDB Account" pageTitle="Getting Started with a DocumentDB Account | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Getting Started with a DocumentDB Account" pageTitle="Getting Started with a DocumentDB Account | Azure" description="How to get started with a DocumentDB Account" metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   solutions="" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
