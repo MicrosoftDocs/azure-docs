@@ -2,22 +2,19 @@
 
 # Considerations for supporting multiple clients from a single mobile service
  
-One of the major benefits of using Azure Mobile Services to support mobile app development is the ability to use a single backend service that supports an app on multiple client platforms. Mobile Services provides native client libraries for all major device platforms. 
-
-Mobile Services makes it easy to develop apps on multiple client platforms using a single backend service and cross-platform developer tools. This topic discusses the following considerations for getting your app running on multiple client platforms while using a single mobile service backend:
+One of the major benefits of using Azure Mobile Services in your mobile app development is the ability to use a single backend service that supports your app on multiple client platforms. Mobile Services provides native client libraries for all major device platforms, which makes it easier to develop apps on multiple client platforms using a single backend service and by using cross-platform developer tools. This topic discusses the following considerations for getting your app running on multiple client platforms while using a single mobile service backend:
 
 + [Cross-platform push notifications](#push)
 + [Cross-platform app development](#xplat-app-dev)
 + [Sharing code in Visual Studio projects](#shared-vs)
 
-
 For more general information about Mobile Services, see the [Mobile Services developer center](/en-us/documentation/services/mobile-services/).
 
 ##<a id="push"></a>Cross-platform push notifications
 
-Mobile Services uses Azure Notification Hubs for sending push notifications from your mobile service to your client apps on all major device platforms. Notification Hubs provide a consistent and unified infrastructure for creating and managing device registrations and for sending push notifications to devices running on all major device platforms. For more information, see [Azure Notification Hubs].
+Mobile Services uses Azure Notification Hubs for sending push notifications to your client apps on all major device platforms. Notification Hubs provide a consistent and unified infrastructure for creating and managing device registrations and for sending cross-platform push notifications. For more information, see [Azure Notification Hubs].
 
-Platform-specific client registrations are created by calling the register function provided by the Mobile Services client for a specific platform. Notifications can then be sent from the mobile service by calling platform-specific APIs for the following platforms:
+Client registrations are created by using the register function in the platform-specific Mobile Services client library. Notifications can then be sent from the mobile service by calling platform-specific APIs for the following platforms:
 
 + Apple Push Notification Service (APNS) for iOS apps
 + Google Cloud Messaging (GCM) service for Android apps
@@ -26,15 +23,15 @@ Platform-specific client registrations are created by calling the register funct
 
 >[WACOM.NOTE]Notification Hubs does not currently support using WNS to send push notifications to Windows Phone Silverlight 8.1 apps. You must use MPNS to send notifications to Silverlight and Windows Phone 8.0 and 7.0 apps.
 
-Notification Hubs also supports platform-specific template registrations, which enables you to use a single API call to send a notification to your app running on any registered platform. For more information, see [Send cross-platform notifications to users].
+Notification Hubs also supports platform-specific template registrations. By using template registrations, you can use a single API call to send a notification to your app running on any registered platform. For more information, see [Send cross-platform notifications to users].
 
->[WACOM.NOTE]An error occurs when a message is sent to a native device platform for which no device registrations exists. This error does not occur when sending template notifications.
+>[WACOM.NOTE]An error occurs when trying to send a message to a native device platform for which no device registrations exists. This error does not occur when sending template notifications.
 
-Tables in the following sections link to the client-specific tutorials that show you how to implement push notifications for both mobile service backends.  
+Tables in the following sections link to the client-specific tutorials that show you how to implement push notifications from both .NET and JavaScript backend mobile services.  
 
 ###.NET backend
 
-In a .NET backend, you send notifications by calling the [SendAsync] method on the [PushClient](http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) object obtained from the [ApiServices.Push](http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) property. The push notification sent (native or template) depends on the specific [IPushMessage](http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx)-derived object that is passed to the [SendAsync] method, as shown in the following table: 
+In a .NET backend mobile service, you send notifications by calling the [SendAsync] method on the [PushClient](http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) object obtained from the [ApiServices.Push](http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) property. The push notification sent (native or template) depends on the specific [IPushMessage](http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx)-derived object that is passed to the [SendAsync] method, as shown in the following table: 
 
 |Platform |[APNS](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push)|[GCM](/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push) |[WNS](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) |[MPNS](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)|
 |-----|-----|----|----|-----|
@@ -69,7 +66,7 @@ When you use template client registrations rather than native client registratio
  
 ###JavaScript backend
 
-In a JavaScript backend, you send notifications by calling the **send** method on the platform-specific object obtained from the global [push object], as shown in the following table: 
+In a JavaScript backend mobile service, you send notifications by calling the **send** method on the platform-specific object obtained from the global [push object], as shown in the following table: 
 
 |Platform |[APNS](/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push)|[GCM](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push) |[WNS](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) |[MPNS](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)|
 |-----|-----|----|----|-----|
@@ -123,9 +120,9 @@ When you use template client registrations rather than native client registratio
                 }); 
 
 ##<a id="xplat-app-dev"></a>Cross-platform app development
-Developing native mobile device apps for all of the major mobile device platforms requires you (or your organization) to have expertise in at least Objective-C, Java, and C# or JavaScript programming languages. Because of the expense of developing across these disparate platforms, some developers elect to have customers run their using a fully browser-based web experience. However, these web-based apps only receive limited access to the native resources that provide the rich experience that users have come to expect on a mobile device. 
+Developing native mobile device apps for all of the major mobile device platforms requires you (or your organization) to have expertise in at least Objective-C, Java, and C# or JavaScript programming languages. Because of the expense of developing across these disparate platforms, some developers choose a fully web browser-based experience for their apps. However, such web-based experiences cannot access most of the native resources that provide the rich experience that users have come to expect on their mobile devices.  
 
-Cross-platform tools have been developed to provide a richer native experience on a mobile device, while still sharing a single code base. Mobile Services makes it easy to create and manage a backend service for cross-platform app development platforms by providing quickstart tutorials for the following development platforms: 
+Cross-platform tools are available that provide a richer native experience on a mobile device, while still sharing a single code base, usually JavaScript. Mobile Services makes it easy to create and manage a backend service for cross-platform app development platforms by providing quickstart tutorials for the following development platforms: 
 
 + **Appcelerator**<br/>Appcelerator lets you use JavaScript to develop a single app that is compiled to run  as native on all mobile device platforms. This provides a rich user experience in UI, access to all native device resources, and native app performance. For more information, see the [Appcelerator tutorial][Appcelerator].
  
@@ -133,16 +130,16 @@ Cross-platform tools have been developed to provide a richer native experience o
 
 + **Sencha Touch**<br/>Sencha Touch provides a set of controls, optimized for touch screens, that provide a like-native experience on a wide variety of mobile devices from a single HTML and JavaScript code base. Sencha Touch can be used along with PhoneGap or Cordova libraries to provide users access to native device resources. For more information, see the [Sencha Touch quickstart tutorial][Sencha].
 
-+ **Xamarin**<br/>Xamarin lets you create fully native apps for both iOS and Android devices, UI to device resources. Xamarin apps are coded in C# instead of Objective-C and Java. This enables .NET developers to publish apps to iOS and Android and share code from Windows projects. Xamarin provides a fully native user experience, from . For more information, see [Xamarin development](#xamarin) below.
++ **Xamarin**<br/>Xamarin lets you create fully native apps for both iOS and Android devices, UI to device resources. Xamarin apps are coded in C# instead of Objective-C and Java. This enables .NET developers to publish apps to iOS and Android and share code from Windows projects. Xamarin provides a fully native user experience on both iOS and Android devices from C# code. This enables you to reuse some of your Mobile Services code from Windows apps on iOS and Android devices. For more information, see [Xamarin development](#xamarin) below.
 
 
 ##<a id="shared-vs"></a>Sharing and reusing code in Visual Studio projects
 
-Mobile Services includes a .NET client library, which is a .NET Framework Portable Class Library (PCL) that supports development on all Windows platforms. For more information, see [How to use a .NET client with Mobile Services]. This makes it easy to reuse the same data access code in multiple C# projects. 
+Mobile Services includes a .NET client library, which is a .NET Framework Portable Class Library (PCL) that supports development on all Windows platforms. For more information, see [How to use a .NET client with Mobile Services]. This makes it easy to reuse the same Mobile Services code, such as for data access or authentication, in multiple C# projects.
 
-One general approach for sharing and reusing your C# code between projects is to implement the Model-View-View Model (MVVM) pattern and share assemblies across multiple platforms. You can implement the model and view model classes in a Portable Class Library project in Visual Studio 2012, and then create views that are customized for different platforms. The model code, common across platforms, may (as an example) retrieve the data from a source such as your mobile service in a platform-agnostic manner. The MSDN Library provides an <a href="http://msdn.microsoft.com/en-us/library/gg597391(v=vs.110)">overview and example</a>, discussion of <a href="http://msdn.microsoft.com/en-us/library/gg597392(v=vs.110)">API differences</a>, an example of <a href="http://msdn.microsoft.com/en-us/library/hh563947(v=vs.110)">using portable class libraries to implement the MVVM pattern</a>, additional <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj714086(v=vs.105).aspx">prescriptive guidance</a>, and information about <a href="http://msdn.microsoft.com/en-us/library/hh871422(v=vs.110)">managing resources</a> in portable class library projects.
+One general approach for sharing and reusing your C# code between projects is to implement the Model-View-View Model (MVVM) pattern and share assemblies across multiple platforms. You can implement the model and view model classes in a Portable Class Library project in Visual Studio, and then create views that are customized for different platforms. The model code, common across platforms, may (as an example) retrieve the data from a source such as your mobile service in a platform-agnostic manner. The MSDN Library provides an <a href="http://msdn.microsoft.com/en-us/library/gg597391(v=vs.110)">overview and example</a>, discussion of <a href="http://msdn.microsoft.com/en-us/library/gg597392(v=vs.110)">API differences</a>, an example of <a href="http://msdn.microsoft.com/en-us/library/hh563947(v=vs.110)">using portable class libraries to implement the MVVM pattern</a>, additional <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj714086(v=vs.105).aspx">prescriptive guidance</a>, and information about <a href="http://msdn.microsoft.com/en-us/library/hh871422(v=vs.110)">managing resources</a> in portable class library projects.
 
-In addition to this general guidance, Visual Studio also provides facilities for reusing your mobile services code across multiple client app projects, which are discussed in the following sections.
+In addition to this general guidance, Visual Studio also provides specific facilities for reusing your mobile services code across multiple client app projects, which are discussed in the following sections.
 
 ### Universal Windows apps
 
