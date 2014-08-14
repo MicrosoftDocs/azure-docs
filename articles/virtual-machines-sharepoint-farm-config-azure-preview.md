@@ -23,7 +23,7 @@ The basic SharePoint farm consists of three virtual machines in the following co
 Here are the configuration details:
 
 -	Azure Subscription: Specified during the initial configuration.
--	Azure Domain Names (also known as cloud services): Separate Domain Name automatically created for each virtual machine automatically.
+-	Azure Domain Names (also known as cloud services): Separate Domain Names are automatically created for each virtual machine.
 -	Storage account: Specified during the initial configuration.
 -	Virtual network 	
 	-   Type: Cloud-only	
@@ -66,7 +66,7 @@ The high-availability SharePoint farm consists of nine virtual machines in the f
 Here are the configuration details:
 
 -	Azure Subscription: Specified during the initial configuration.
--	Azure Domain Names (also known as cloud services): Separate Domain Name automatically created for each virtual machine.
+-	Azure Domain Names (also known as cloud services): Separate Domain Names are automatically created for each virtual machine.
 -	Storage account: Specified during the initial configuration.
 -	Virtual network	
 	-	Type: Cloud-only
