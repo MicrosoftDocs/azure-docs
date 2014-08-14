@@ -159,10 +159,10 @@ Stopping or starting the service does not turn off billing. You must delete the 
 
 
 <!--Image references-->
-[8]: ./media/search-manage/AzureSearch-Manage-1-URL.png
-[9]: ./media/search-manage/AzureSearch-Manage-2-Keys.png
-[10]: ./media/search-manage/AzureSearch-Manage-3-ScaleUp.png
-[11]: ./media/search-manage/AzureSearch-Manage-4-StartStop.png
+[8]: ./media/search-manage/AzureSearch-Manage-1-URL.PNG
+[9]: ./media/search-manage/AzureSearch-Manage-2-Keys.PNG
+[10]: ./media/search-manage/AzureSearch-Manage-3-ScaleUp.PNG
+[11]: ./media/search-manage/AzureSearch-Manage-4-StartStop.PNG
 
 
 <!--Link references-->
