@@ -102,7 +102,11 @@ The same logs are also available in the **Azure Management Portal** on the **Log
 
 When you publish your mobile service to Azure, it gets loaded by the Mobile Services hosting environment, which ensures seamless upgrades and patches to the HTTP pipeline hosting your controller code. This includes all assemblies referenced by the [.NET backend NuGet packages](http://www.nuget.org/packages?q=%22mobile+services+.net+backend%22): the team constantly updates the service to use the latest versions of those assemblies. 
 
-It is sometimes possible to introduce versioning conflicts by referencing *different major versions* of required assemblies (different *minor* versions are allowed). Frequently this happens when NuGet prompts you to upgrade to the latest version of one of the packages used by the Mobile Services .NET backend. When you publish the updated service to Azure, you will see a warning page indicating the conflict.
+It is sometimes possible to introduce versioning conflicts by referencing *different major versions* of required assemblies (different *minor* versions are allowed). Frequently this happens when NuGet prompts you to upgrade to the atest version of one of the packages used by the Mobile Services .NET backend. 
+
+    > [WACOM.NOTE] Mobile Services is currently compatible only with ASP.NET 5.1; ASP.NET 5.2 is not presently supported. Upgrading your ASP.NET NuGet packages to 5.2.* may result in an error after deployment.
+
+If you do upgrade any such packages, when you publish the updated service to Azure, you will see a warning page indicating the conflict:
 
 ![Help page indicating assembly loading conflict][HelpConflict]
 
