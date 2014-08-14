@@ -2,12 +2,12 @@
 
 # Configure Search in the Azure Preview Portal
 
-<p> Microsoft Azure Search (Public Preview) is available in the new Preview Portal. As an administrator, you can add Search services to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
+<p> Microsoft Azure Search (Public Preview) is available in the new Preview Portal. As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
 
 <!--Table of contents -->
 
 + [Start with the free service] 
-+ [Upgrade to dedicated resources]
++ [Upgrade to standard search]
 + [Test service operations]
 + [Explore Search service configuration pages] 
 + [Try these tutorials next]
@@ -15,9 +15,9 @@
 
 ## Start with the free service
 
-Subscribers automatically get free access to a shared, multitenant Search service that you can use for development or small search projects. Sign up for the free version by following these steps.
+Subscribers automatically get free access to a shared, multitenant Search service that you can use for learning purposes, proof-of-concept testing, or small development search projects. Sign up for the free version using these steps.
 
-1. Sign in to https://portal.azure.com using your existing subscription. Notice that this URL takes you to the Preview Portal. 
+1. Sign in to [Azure Preview Portal](https://portal.azure.com) using your existing subscription. Notice that this URL takes you to the Preview Portal. 
 
 2. Click **New** at the bottom of the page.
  
@@ -73,20 +73,22 @@ In a few minutes, the service is created. You can return to the configuration se
  
    **USAGE** shows the document count, available resources, and storage limits.
 
-Continue on “Test for service availability” for instructions on how to connect to the service using these values.
+Continue on [Test service operations] for instructions on how to connect to the service using these values.
 
 
-## Upgrade to dedicated resources
+## Upgrade to standard search
 
-Dedicated resources will give you more scale and better performance, but not additional features. Both the shared and dedicated Search service offer the same features.
+Standard search gets you dedicated resources in an Azure data center that can be used only by you. Search workloads require both storage and service replicas. When you sign up for standard search, you can optimize service configuration to use more of whatever resource is the most important to your scenario.
 
-To use dedicated search, create a new Search service, choosing the Standard pricing tier. Notice that upgrade is not an in-place upgrade of the free version. Switching to dedicated storage, with its potential for scale, requires a new service. You will need to reload the indexes and documents used by your search application.
+Having dedicated resources will give you more scale and better performance, but not additional features. Both shared and standard search offer the same features.
 
-Setting up dedicated machines can take a while (15 minutes or longer) depending on how many replicas and partitions you use. 
+To use standard search, create a new Search service, choosing the Standard pricing tier. Notice that upgrade is not an in-place upgrade of the free version. Switching to standard, with its potential for scale, requires a new service. You will need to reload the indexes and documents used by your search application.
+
+Setting up dedicated resources can take a while (15 minutes or longer) depending on how many replicas and partitions you use. 
 
 **Step 1 - Create a new service with Pricing Tier set to Standard**
 
-1. Sign in to https://portal.azure.com using your existing subscription. 
+1. Sign in to [Azure Preview Portal](https://portal.azure.com) using your existing subscription. 
 
 2. Click **New** at the bottom of the page.
 
@@ -102,38 +104,45 @@ Setting up dedicated machines can take a while (15 minutes or longer) depending 
 
 8. Type a lower-case service name to use in the service URL, avoiding dashes, spaces, and staying under the 15 character string limit.
 
-9. Click the arrow in **Pricing Tier** to select a pricing option. Choose **Standard** and then click **SELECT** at the bottom of the page.
+9. Click the arrow in **Pricing Tier** to select a pricing option. Choose **STANDARD** and then click **SELECT** at the bottom of the page.
 
-  	![][14]
+ ![][14]
 
 **Step 2 - Adjust search units based on scale requirements**
 
-Dedicated search services start with a single search unit, but can be re-scaled at higher resource levels.
+Standard search starts with one replica and partition each, but can be easily re-scaled at higher resource levels.
 
 1.	Once the service is created, return to the service dashboard, click the **Scale** tile.
 
-2.	Use the sliders to add replicas, partitions, or both. The total search units required to support any particular resource configuration is shown on the page. You can check “Pricing Details” to get the per-unit billing information.
+2.	Use the sliders to add replicas, partitions, or both. 
 
-  	![][15]
+Using additional resources costs more. Replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information.
+
+ ![][15]
 
   
 ## Test service operations
 
-Confirming that your service is operational and accessible from a client application is the final step in configuring Search. This procedure uses Fiddler, available as a free download from Telerik, to issue HTTP requests and view responses. By using Fiddler, you can test the API immediately, without having to write any code. 
+Confirming that your service is operational and accessible from a client application is the final step in configuring Search. This procedure uses Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests and view responses. By using Fiddler, you can test the API immediately, without having to write any code. 
 
-The following procedure works for both multitenant and dedicated search. In the steps below, you’ll create an index, upload documents, query the index, and then query the system for service information.
+The following procedure works for both shared and standard search. In the steps below, you’ll create an index, upload documents, query the index, and then query the system for service information.
 
 <h3>Create an index</h3>
 
-1. Start Fiddler. On the File menu, turn off Capture Traffic to hide extraneous HTTP activity that is unrelated to the current task. On the Composer tab, you’ll formulate a request that looks like this: 
+1. Start Fiddler. On the File menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task. On the Composer tab, you’ll formulate a request that looks like this: 
 
   	![][16]
 
 2. Select **PUT**.
 
-3. Enter a URL that includes HTTPS, your <service URL>, followed by “/indexes/hotels?api-version=2014-07-31-preview”. The full URL should be similar to the following example:
+3. Enter a URL that specifies the service URL (which you can find on the Properties page), request attributes and the api-version. A few pointers to keep in mind:
+   + Use HTTPS as the prefix
+   + Request attribute is “/indexes/hotels". This tells Search to create an index named 'hotels'.
+   + Api-version is lower-case, specified as ?api-version=2014-07-31-preview”.
 
-        https://my-app.search.windows.net/indexes/hotels?api-version=2014-07-31-Preview
+    The full URL should look similar to the following example:
+
+         https://my-app.search.windows.net/indexes/hotels?api-version=2014-07-31-Preview
 
 4.	Specify the request header, replacing the host and api-key (lower-case) with values that are valid for your service.
 
@@ -164,7 +173,7 @@ The following procedure works for both multitenant and dedicated search. In the 
 6.	Click **Execute**.
 
 In a few seconds, you should see an HTTP 204 response in the session list, indicating the index was created successfully. 
-If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 404, double-check your syntax.
+If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 404, double-check your syntax. HTTP 400 means there is a problem with the api-key (either an invalid key or a syntax problem on the api-key entry)
 
 <h3>Load documents</h3>
 
@@ -172,9 +181,9 @@ On the Composer tab, your request to post documents will look like the following
 
    ![][17]
 
-1. Select POST.
+1. Select **POST**.
 
-2.	Enter a URL that starts with HTTPS, followed by your <service URL>, followed by “/indexes/<indexname>/docs/index?api-version=2014-07-31-preview”. The full URL should be similar to the following example:
+2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by “/indexes/<'indexname'>/docs/index?api-version=2014-07-31-preview”. The full URL should look similar to the following example:
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2014-07-31-Preview
 
@@ -254,17 +263,17 @@ In a few seconds, you should see an HTTP 200 response in the session list. This 
 
 <h3>Query the index</h3>
 
-Now that an index and documents are loaded, you can issue queries against them.  On the composer tab, a GET command that queries your service will look similar to the following:
+Now that an index and documents are loaded, you can issue queries against them.  On the Composer tab, a GET command that queries your service will look similar to the following:
 
    ![][18]
 
 1.	Select **GET**.
 
-2.	Enter a URL that starts with HTTPS, followed by your <service URL>, followed by “/indexes/<indexname>/docs?”, followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
+2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by “/indexes/<indexname>/docs?”, followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2014-07-31-Preview
 
-This query searches on the term “motel” and retrieves facet categories for ratings.
+    This query searches on the term “motel” and retrieves facet categories for ratings.
 
 3.	Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
 
@@ -277,21 +286,25 @@ The response code should be 200, and the response output should look similar to 
  
    ![][19]
 
-4.	The following two queries are from the Search API documentation. These queries include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string: 
+The following example query is from the [Search API documentation](http://go.microsoft.com/fwlink/p/?LinkID=509922). These queries include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string: 
 
-+ Before: GET /indexes/MyIndex/docs?search=*&$orderby=lastRenovationDate desc&api-version=2014-07-31-Preview
-+ After:  GET /indexes/MyIndex/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2014-07-31-Preview
+**Before spaces are replaced:**
 
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2014-07-31-Preview
+
+**After spaces are replaced with +:**
+
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2014-07-31-Preview
 
 <h3>Query the system</h3>
 
-You can also query the system to get document counts and storage usage. On the Composer tab, your request will look like the following, and the response will return a count for the number of documents and space used.
+You can also query the system to get document counts and storage consumption. On the Composer tab, your request will look like the following, and the response will return a count for the number of documents and space used.
 
    ![][20]
 
 1.	Select **GET**.
 
-2.	Enter a URL that includes your <service URL>, followed by “/indexes/hotels/stats?api-version=2014-07-31-preview”:
+2.	Enter a URL that includes your service URL, followed by “/indexes/hotels/stats?api-version=2014-07-31-preview”:
 
         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2014-07-31-preview 
 
@@ -304,7 +317,7 @@ You can also query the system to get document counts and storage usage. On the C
 
 4.	Leave the request body empty.
 
-5.	Click Execute. You should see an HTTP 200 status code in the session list. Select the entry posted for your command.
+5.	Click **Execute**. You should see an HTTP 200 status code in the session list. Select the entry posted for your command.
 
 6.	Click the Inspectors tab | Headers, and select the JSON format. You should see the document count and storage size (in KB).
 
@@ -312,9 +325,9 @@ You can also query the system to get document counts and storage usage. On the C
 
 ## Explore Search service configuration pages
 
-If you’re taking over a service created by someone else, follow these steps to locate the service configuration pages.
+If you’re inheriting a service created by someone else or need some help with page navigation, follow these steps to locate the service dashboard.
 
-1.	Sign in to https://portal.azure.com using your existing subscription. 
+1.	Sign in to [Azure Preview Portal](https://portal.azure.com) using your existing subscription. 
 2.	Click **Browse** | **Everything**.
 
  	![][22]
@@ -323,23 +336,26 @@ If you’re taking over a service created by someone else, follow these steps to
 
 4.	Click a service to open its dashboard. Notice that **Start**, **Stop**, and **Delete** commands are at the top. The service dashboard includes tiles for viewing Properties, Keys, and a Quick Start with links to information and instructions. Scroll down to view usage.
 
-5.	Click **PROPERTIES**. Notice that the Properties page opens to the right. The service URL is at the top of the page. To get api-keys used to authenticate to the service, click KEYS.
+5.	Click **PROPERTIES**. Notice that the Properties page opens to the right. The service URL is at the top of the page. To get api-keys used to authenticate to the service, click **KEYS**.
 
  	![][23]
 
 <!--Next steps and links -->
-## Try these tutorials next
+## Try it out
 
-Ready for the next step? The following links take you to tutorials that show you how to build a search applications that use Azure Search.
+Ready for the next step? The following links take you to additional material that shows you how to build and manage search applications that use Azure Search.
 
-LINK TO: create your first azure search solution
+[Create your first azure search solution](http://go.microsoft.com/fwlink/p/?LinkID=509918) 
 
-LINK TO: create a geospatial search solution
+[Manage your search solution in Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkID=509793) 
 
+[Azure Search on MSDN](http://go.microsoft.com/fwlink/p/?LinkID=509920)
+
+[Search REST API on MSDN](http://go.microsoft.com/fwlink/p/?LinkID=509922)
 
 <!--Anchors-->
 [Start with the free service]: #subheading-1
-[Upgrade to dedicated resources]: #subheading-2
+[Upgrade to standard search]: #subheading-2
 [Test service operations]: #subheading-3
 [Explore Search service configuration pages]: #subheading-4
 [Try these tutorials next]: #next-steps
@@ -366,6 +382,6 @@ LINK TO: create a geospatial search solution
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[Manage your search solution in Microsoft Azure]: ../search-manage/
+[Azure Search development workflow]: ../search-workflow/
+[Create your first azure search solution]: ../search-create-first-solution/
