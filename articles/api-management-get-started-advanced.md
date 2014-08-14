@@ -18,5 +18,5 @@ The tutorials in this section provide guidance an advanced API Management config
 
 [How to create and configure advanced product settings in Azure API Management]: ../api-management-howto-product-with-rules
 
-[How to delegate user registration and product subscription]: ../api-management-howto-setup-delegation.md
+[How to delegate user registration and product subscription]: ../api-management-howto-setup-delegation
 

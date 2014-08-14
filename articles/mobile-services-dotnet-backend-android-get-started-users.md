@@ -69,7 +69,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Register your app for authentication and configure Mobile Services]: #register
 [Restrict table permissions to authenticated users]: #permissions
 [Add authentication to the app]: #add-authentication
-[Store authentication tokens on the client]: #tokens
+[Store authentication tokens on the client]: #cache-tokens
 [Refresh expired tokens]: #refresh-tokens
 [Next Steps]:#next-steps
 
