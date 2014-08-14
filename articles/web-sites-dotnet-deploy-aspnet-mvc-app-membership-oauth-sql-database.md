@@ -6,7 +6,7 @@
 
 # Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Web Site
 
-***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 2 April 2014.***
+***Updated 2 April 2014.***
 
 This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to Azure.
 

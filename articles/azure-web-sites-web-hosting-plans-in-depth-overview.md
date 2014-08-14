@@ -109,46 +109,20 @@ A site can also be created into a specific Web Hosting Plan using the existing A
 ![Select a hosting plan in the existing portal](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview10.png)
 </br>
 </br>
-**Question**: How can I move a Site to a different Web Hosting Plan?
+**Question**: How can I move a site to a different web hosting plan?
 </br>
-**Answer**: Moving a site to a different Web Hosting Plan is not currently supported using the Azure Portal Preview or the Full Azure Portal. However, using the [Azure PowerShell tools](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/), you can move sites between different web hosting plans. To do this, install the Azure PowerShell tools, open a power shell prompt. Then, switch to the new **Azure Resource Manager** mode using the *Switch-AzureMode AzureResourceManager* Cmdlet and authenticate using the *Add-AzureAccount* Cmdlet.
+**Answer**: You can move a site to a different web hosting plan using the Azure Preview Portal. Websites can be moved between web hosting plans in the same geographical region that belong to the same resource group.
 </br>
-For this example assume a Resource Group named **powershell** with 2 Web Hosting Plans (**whp1** & **whp2**) and 2 Websites (**pstest** & **pstest2**) have already been created. To get the content of a Resource group you can use the *Get-AzureResourceGroup* Cmdlet:
-</br>
-</br>
-![Get the content of a Resource group](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview11.png)
+To move a site to another plan, navigate to the website blade of the site you want to move.  Then click **Web Hosting Plan**:
 </br>
 </br>
-To get the detailed configuration for each of these items you can use the *Get-AzureResource* Cmdlet. In the two screenshots below, the command is being used to show the details for the **pstest** and **pstest2** websites:
+![Choose a new or existing web hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview22.png)
 </br>
 </br>
-![Get the detailed configuration for website pstest](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview12.png)
-</br>
-</br>
-![ Get the detailed configuration for website pstest2](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview13.png)
-</br>
-</br>
-As you can see from the output of the Cmdlet, both of the sites are currently associated with the **whp1** web hosting plan. You will also notice the **ServerFarm** property also points to **whp1**, and that is because **ServerFarm** is a legacy concept being replaced by the Web Hosting Plan concept.
-</br>
-Next, we are going to move the **pstest2** website to the **whp2** web hosting plan using the *Set-AzureResource* Cmdlet. The *Set-AzureResource* Cmdlet takes a Hash Table as the input for the **PropertyObject** parameter. This way any resource configuration can be changed by defining it in a hash table and passing the object to this Cmdlet.
-</br>
-For this example we will define a variable named **$whp** containing a hash table comprised of the **name** and **value** pair for the Web Hosting Plan property and the value we want to set it to be:
-</br>
-</br>
-![Create a hash table for a hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview14.png)
-</br>
-</br>
-Next, we use the defined Hash Table **$whp** to set the Web Hosting Plan property of the site:
-</br>
-</br>
-![Use a Hash Table to set the Web Hosting Plan property of the site](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview15.png)
-</br>
-</br>
-For more information on using the Powershell Cmdlets visit [this article](http://msdn.microsoft.com/library/azure/jj156055.aspx).
+This will open the Web Hosting Plan blade. At this point, you can either pick an existing web hosting plan, or create a new one. Plans in a different geographical location or resource group are grayed out and cannot be selected.
 </br>
 Note that each web hosting plan has its own pricing tier. When you move a site from a **Free** tier web hosting plan to a **Standard** web hosting plan, your web site will be able to leverage all the features and resources of the Standard tier. 
 </br>
-
 </br>
 **Question**: How can I Scale a Web Hosting Plan?
 </br>
