@@ -15,10 +15,12 @@ AzCopy is a command-line utility designed for high-performance uploading, downlo
 - [Limit concurrent writes while copying data](#limit-writes)
 - [Copy Azure blobs with AzCopy](#copy-blobs)
 - [Copy files in an Azure file share with AzCopy](#copy-files)
+- [AzCopy versions](#versions)
+- [Next steps](#next-steps)
 
 ##<a id="install"></a> Download and install AzCopy
 
-1. Download the [latest version of AzCopy](http://az635501.vo.msecnd.net/azcopy-2-5-0/MicrosoftAzureStorageTools.msi).
+1. Download the [latest version of AzCopy](http://aka.ms/downloadazcopy).
 2. Run the installation. By default, the AzCopy installation creates a folder named `AzCopy` under `%ProgramFiles(x86)%\Microsoft SDKs\Azure\` (on a machine running 64-bit Windows) or `%ProgramFiles%\Microsoft SDKs\Azure\` (on a machine running 32-bit Windows). However, you can change the installation path from the setup wizard.
 3. If desired, you can add the AzCopy installation location to your system path.
 
@@ -635,7 +637,7 @@ Note that any empty folders will not be copied.
 
 
 
-## AzCopy Versions
+##<a id="versions"></a> AzCopy versions
 
 | Version | What's New                                                                                      				|
 |---------|-----------------------------------------------------------------------------------------------------------------|
@@ -649,7 +651,7 @@ Note that any empty folders will not be copied.
 | V2.1    | Provides more than 20 options to support blob upload, download, and copy operations in an efficient way.		|
 
 
-## Next steps
+##<a id="next-steps"></a> Next steps
 
 For more information about Azure Storage and AzCopy, see the following resources.
 
@@ -662,9 +664,9 @@ For more information about Azure Storage and AzCopy, see the following resources
 ### Azure Storage blog posts:
 
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-- [AzCopy 2.5 - Optimized for Large-Scale Copy Scenarios](http://go.microsoft.com/fwlink/?LinkId=507682)
-- [AzCopy – Support for read-access geo-redundant storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-- [AzCopy – Transfer data with re-startable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-- [AzCopy – Using cross-account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-- [AzCopy – Uploading/downloading files for Windows Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+- [AzCopy 2.5: Optimized for Large-Scale Copy Scenarios](http://go.microsoft.com/fwlink/?LinkId=507682)
+- [AzCopy: Support for read-access geo-redundant storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+- [AzCopy: Transfer data with re-startable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+- [AzCopy: Using cross-account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+- [AzCopy: Uploading/downloading files for Windows Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
