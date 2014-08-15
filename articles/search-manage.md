@@ -2,6 +2,9 @@
 
 # Manage your Search service on Microsoft Azure
 
+
+[WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
+
 Search service provides a cloud-based infrastructure and an HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, storage, and a query command syntax. 
 
 This article explains how to administer a Search service in Microsoft Azure.
@@ -10,13 +13,13 @@ The new [Azure Preview Portal](https://portal.azure.com) is required for adminis
 
 <!--TOC-->
 
-+ [Add search service to your subscription] 
-+ [Administrative tasks]
-+ [Service URL]
-+ [Manage the api-keys]
-+ [Monitor resource usage]
-+ [Scale up or down]
-+ [Start or Stop the Service]
++ [Add search service to your subscription][] 
++ [Administrative tasks][]
++ [Service URL][]
++ [Manage the api-keys][]
++ [Monitor resource usage][]
++ [Scale up or down][]
++ [Start or Stop the Service][]
 
 ## Add search service to your subscription
 
@@ -28,10 +31,10 @@ Standard search is billable because you are signing up for dedicated resources a
 
 To plan for capacity and understand the billing impact, we recommend these links:
 
-+	[Limits and constraints](http://go.microsoft.com/fwlink/p/?LinkdID=509921)
++	[Limits and constraints](http://msdn.microsoft.com/en-us/library/dn798934.aspx)
 +	[Pricing Details](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-When you are ready to sign up, see [Configure Search in the Azure Preview Portal](http://go.microsoft.com/fwlink/p/?LinkdID=509777).
+When you are ready to sign up, see [Configure Search in the Azure Preview Portal](../search-configure/).
 
 
 ## Administrative tasks 
@@ -91,10 +94,10 @@ In this public preview, resource monitoring is limited to the information shown 
 
 On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application.
 
-Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. See [Limits and constraints](http://go.microsoft.com/fwlink/p/?LinkdID=509921) for details. 
+Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. See [Limits and constraints](http://msdn.microsoft.com/en-us/library/dn798934.aspx) for details. 
 
-+	[Get index statistics](http://go.microsoft.com/fwlink/p/?LinkdID=509990)
-+	[Count documents in an index](http://go.microsoft.com/fwlink/p/?LinkdID=509989)
++	[Get Index Statistics](http://msdn.microsoft.com/en-us/library/dn798942.aspx)
++	[Count Documents](http://msdn.microsoft.com/en-us/library/dn798924.aspx)
 
 > [WACOM.NOTE] Caching behaviors can temporarily overstate a limit. For example, when using the shared service, you might see a document count over the hard limit of 10,000 documents. The overstatement is temporary and will be detected on the next limit enforcement check. 
 
@@ -134,7 +137,7 @@ In contrast with removing replicas, which requires no extra effort on your part,
 
 There is no detection method that tells you which index shards are stored on specific partitions. Each partition provides approximately 25 GB in storage, so you will need to reduce storage to a size that can be accommodated by the number of partitions you have. If you want to revert to one partition, all 12 shards will need to fit.
 
-To help with future planning, you might want to check storage (using [Get index statistics](http://go.microsoft.com/fwlink/p/?LinkdID=509990)) to see how much you actually used. 
+To help with future planning, you might want to check storage (using [Get Index Statistics](http://msdn.microsoft.com/en-us/library/dn798942.aspx)) to see how much you actually used. 
 
 
 <!---->
