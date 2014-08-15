@@ -2,100 +2,104 @@
 
 # Create your first search solution using Azure Search
 
-<p> Intro paragraph: Lorem ipsum dolor amet, consectetur adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
+[WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
+
+This exercise demonstrates a .NET solution that creates and populates an index on Azure Search. Sample files for this tutorial are posted at [https://azuresearchsamples.codeplex.com/](https://azuresearchsamples.codeplex.com/).
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
-+ [Subheading 1] 
-+ [Subheading 2]
-+ [Subheading 3]
-+ [Next steps]
++ [Tools, services and sample files] 
++ [End Result]
++ [Steps]
++ [Next up]
 
 
+## Tools, services, and samples
 
-## Subheading 1
+To complete this tutorial, you will need to download a few items and configure some services:
 
-Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque. <a href="http://msdn.microsoft.com/library/azure" target="_blank">Link text for link outside of azure.microsoft.com</a>. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris.
-
-> [WACOM.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
-
-1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio. 
-
-2. Aenean tellus lectus, faucibus in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
++	Visual Studio 2013 Express for the Web
++	Azure subscription with Azure Search Preview
++	Sample files from codeplex
 
 
-3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl. 
+## End result
+
+When you're finished, you will have index and documents on Azure Search that you can use as the basis for additional exploration. The index is called MusicStoreIndex, and it is populated with documents for albums across three music genres.
+
+When you run this program, message output appears in a console window.
 
 
-Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic]
+## Steps
 
-## Subheading 2
+1.	Sign in to the Azure Preview Portal. If you don’t have an Azure subscription, you can sign up for the trial version.
+2.	Configure the free Search service, a limited version available at no additional cost to all subscribers.
+3.	Download Visual Studio 2013 Express for the Web (or use an existing edition of Visual Studio 2013 if you have one). 
+4.	Download the sample files. 
+5.	Modify them to work with your environment and run the program. 
 
-Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.   
+Sample files consist of a JSON schema, data files, and program code that calls Azure Service. 
 
-1. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus. 
+You’ll need to edit the configuration file to point to your service, with your api-key. When you run this program, the index and documents are created on your Azure Search service. At the end of this tutorial, you will have sample data loaded on Azure Search. 
 
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
-        (NSDictionary *)launchOptions
-        {
-            // Register for remote notifications
-            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-            return YES;
-        }   	 
+Let’s get started.
 
-2. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia. 
+<h3>Sign in to the Azure Preview Portal</h3>
 
-   	    // Because toast alerts don't work when the app is running, the app handles them.
-        // This uses the userInfo in the payload to display a UIAlertView.
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification:
-        (NSDictionary *)userInfo {
-            NSLog(@"%@", userInfo);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-            [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
-            @"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
+Azure Search is available only in the [Azure Preview Portal](https://portal.azure.com). Start here to get your service provisioned.
 
+<h3>Configure the free Search service</h3>
 
-    > [WACOM.NOTE] Duis sed diam non <i>nisl molestie</i> pharetra eget a est. [Link 2 to another azure.microsoft.com documentation topic]
+We recommend using the free service for this tutorial. This is a limited version of Search that is available at no additional cost to all subscribers. 
 
+[Configure Search on Azure Preview Portal](../search-configure/) contains more steps than you’ll actually need. You can stop as soon as the free service is created. You will need the service URL and an api-key to continue with this tutorial.
 
-Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus suscipit tellus dignissim ultrices.
+<h3>Download Visual Studio 2013 Express for the Web</h3>
 
-## Subheading 3
- 
-1. Maecenas sed condimentum nisi. Suspendisse potenti. 
+If you already have an existing edition of Visual Studio 2013, you can use that instead. 
 
-  + Fusce
-  + Malesuada
-  + Sem
+Go to the [Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=40747) to get Visual Studio 2013 Express for the Web.
 
-2. Nullam in massa eu tellus tempus hendrerit.
+<h3>Download sample files</h3>
 
-3. Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
+Get the sample files from codeplex at [https://azuresearchsamples.codeplex.com/](https://azuresearchsamples.codeplex.com/). The package consists of a Visual Studio solution built in Visual Studio 2013 Express for the Web. 
 
- 
+<h3>Modify and run Intro.Net</h3>
+
+**Intro.NET** consists of JSON schema, data files, configuration files, and program code. You’ll need to edit the configuration file to point to your service, with your api-key. 
+
+This is a console application. When you run this program, the index and documents are created on your Azure Search service. Status is reported in the console window in Visual Studio.
+
+1.	Open Intro.net.sln.
+2.	Open app.config
+3.	Replace the following settings with values that are valid for your service. You can get these values from the service dashboard in the Azure Preview Portal.
+4.	
+           <add key="primaryKey" value="TODO: Paste your API key here" />
+           <add key="serviceUrl" value="TODO: Paste your service URL here" />
+4.	Save your changes.
+5.	Run the solution.
+6.	
+You should see a console window that reports out a series of status messages
+ “Index created” is the final message. Once you see that, you can go on to the next step.
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps
+## Next up
 
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
+Check back with us on the Azure Search documentation page for upcoming tutorials and videos that showcase Azure Search functionality and programming techniques. We don’t promise something new every day, but when we have new material, you can find it here first. 
+
+Thanks for completing this tutorial. Questions or comments? Find us on MSDN Azure forums.
+
 
 <!--Anchors-->
-[Subheading 1]: #subheading-1
-[Subheading 2]: #subheading-2
-[Subheading 3]: #subheading-3
-[Next steps]: #next-steps
+[Tools, services and sample files]: #subheading-1
+[End Result]: #subheading-2
+[Steps]: #subheading-3
+[Next up]: #next-steps
 
 <!--Image references-->
-[5]: ./media/0-markdown-template-for-new-articles/octocats.png
-[6]: ./media/0-markdown-template-for-new-articles/pretty49.png
-[7]: ./media/0-markdown-template-for-new-articles/channel-9.png
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[Manage your search solution in Microsoft Azure]: ../search-manage/
+[Azure Search development workflow]: ../search-workflow/
+[Configure Search in Azure Preview Portal]: ../search-configure
