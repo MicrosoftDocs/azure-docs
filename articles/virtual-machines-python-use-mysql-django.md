@@ -201,20 +201,20 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 		    return HttpResponse("<html><body>Hello <em>" + world + "</em></body></html>")
 
 
-## Deploying and running your Django web site
+## Deploying and running your Django website
 
 Note: The following shows how to run Django in a test environment. To run it in production, follow the "Setting up IIS with FastCGI" section in the "Django Hello World tutorial". Using the Windows Firewall Client to open port 80 to Internet traffic on the Windows Server 2K8 R2 virtual machine is not necessary with FastCGI.
 
 
 
-1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django web site publically:
+1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django website publically:
 
 		PS C:\django\helloworld> $ipPort = 
 		PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
 		PS C:\django\helloworld> $ipPort += ":80"
 		PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 
-    The **runserver** parameter instructs Django to run our *helloworld* web site on TCP port *80*. The results of this command should be similar to:
+    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *80*. The results of this command should be similar to:
 
 		PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 		Validating models...
@@ -230,7 +230,7 @@ Note: The following shows how to run Django in a test environment. To run it in 
 
   Refresh the web browser a few times and you should see the message change from *"Hello **&lt;country abc&gt;**"* to *"Hello **&lt;some other country&gt;**"*.
 
-1.  To stop Django from hosting the web site, simply switch to the PowerShell window and press **CTRL-C**.
+1.  To stop Django from hosting the website, simply switch to the PowerShell window and press **CTRL-C**.
 
 
 ## Shutting down your Azure virtual machine

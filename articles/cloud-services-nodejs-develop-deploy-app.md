@@ -15,12 +15,12 @@ scalable cloud applications in Azure. They allow the separation and independent
 management and scale-out of front-end and back-end components of your application.  Cloud Services 
 provide a robust dedicated virtual machine for hosting each role reliably.
 
-For more information on Cloud Services, and how they compare to Azure Web Sites and Virtual machines, see [Azure Web Sites, Cloud Services and Virtual Machines comparison](http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
+For more information on Cloud Services, and how they compare to Azure Websites and Virtual machines, see [Azure Websites, Cloud Services and Virtual Machines comparison](http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
 
 <p />
 
-<div class="dev-callout"><strong>Looking to build a simple web site?</strong>
-<p>If your scenario involves just a simple web site front-end, consider <a href="/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/">using a lightweight Azure Web Site.</a> You can easily upgrade to a Cloud Service as your web site grows and your requirements change.</p>
+<div class="dev-callout"><strong>Looking to build a simple website?</strong>
+<p>If your scenario involves just a simple website front-end, consider <a href="/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/">using a lightweight Azure Website.</a> You can easily upgrade to a Cloud Service as your website grows and your requirements change.</p>
 </div>
 <br />
 
@@ -94,7 +94,7 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 	PS C:\\node\\helloworld> cd WebRole1
         PS C:\node\helloworld\WebRole1> notepad server.js
 
-	The **server.js** file was created by the **Add-AzureNodeWebRole** cmdlet, and contains the following starter code. This code is similar to the "Hello World" sample on the [nodejs.org][] web site, except:
+	The **server.js** file was created by the **Add-AzureNodeWebRole** cmdlet, and contains the following starter code. This code is similar to the "Hello World" sample on the [nodejs.org][] website, except:
 
    	-   The port has been changed to allow the application to find the 
         correct port assigned to it by the cloud environment.

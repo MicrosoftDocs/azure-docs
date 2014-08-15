@@ -29,7 +29,7 @@ For complete details about Spring 2014 tools releases, check out the [Azure SDK 
 
 ##<a id="webdeploy"></a>Web development and publishing
 
-The Azure SDK 2.3 and Visual Studio 2013 Update 2 RC include several updates that streamline web development and publishing with Azure. You can now create an Azure web site or virtual machine when you create a new web app. When you are ready to publish your web site you can use the updated web publish dialog or PowerShell scripts that are added to your solution to deploy your site directly to an Azure web site or virtual machine. Check out the following resources for more details and tutorials that describe how to leverage the new features:
+The Azure SDK 2.3 and Visual Studio 2013 Update 2 RC include several updates that streamline web development and publishing with Azure. You can now create an Azure website or virtual machine when you create a new web app. When you are ready to publish your website you can use the updated web publish dialog or PowerShell scripts that are added to your solution to deploy your site directly to an Azure website or virtual machine. Check out the following resources for more details and tutorials that describe how to leverage the new features:
 
 - [Get started with Azure and ASP.NET](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/) 
 - [Getting Started with Azure Tools for Visual Studio](http://msdn.microsoft.com/en-us/library/azure/ff687127.aspx)
@@ -46,7 +46,7 @@ Emulator Express is the new lighter-weight local emulator for Cloud Services. Le
 
 - [Using Emulator Express to run and debug Cloud Services](http://msdn.microsoft.com/en-us/library/windowsazure/dn339018.aspx)
 
-With the Azure SDK 2.3 installed you can now remotely view and edit your web site files directly from Server Explorer, as well as view your sites log files. When you save an edited file, it is saved back to your site without the need to Publish. For details, see:
+With the Azure SDK 2.3 installed you can now remotely view and edit your website files directly from Server Explorer, as well as view your sites log files. When you save an edited file, it is saved back to your site without the need to Publish. For details, see:
 
 - [Troubleshooting Azure Web Sites in Visual Studio](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio)
 
@@ -66,7 +66,7 @@ We also have a several improvements to help you manage other Azure services more
 
 ## <a id="automation"></a>Automate with PowerShell and APIs
 
-Install Azure Powershell to leverage new cmdlets for Web Sites, WebJobs, and more. Write further custom automation using the Service Management API for .NET. For details, see:
+Install Azure Powershell to leverage new cmdlets for Websites, WebJobs, and more. Write further custom automation using the Service Management API for .NET. For details, see:
 
 - [How to install and configure Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/)
 - [Azure PowerShell documentation](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx)

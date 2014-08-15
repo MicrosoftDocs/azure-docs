@@ -6,7 +6,7 @@
 
 [WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
-The Windows Azure Management Portal lets you create a Team Project on Visual Studio Online and configure  your web application for continuous deployment to a web site.
+The Windows Azure Management Portal lets you create a Team Project on Visual Studio Online and configure  your web application for continuous deployment to a website.
 
 ##Table of Contents##
 

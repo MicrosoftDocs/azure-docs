@@ -116,7 +116,7 @@ At this point you've created your very first Django application.  Now you can ru
 
 ![Django Hello World in a Browser and the Test Server](./media/python-django-app-tools-visual-studio/ptvs-dj-DjangoHelloWorldTestServer.png)
 
-This will start your Python interpreter running Django's **manage.py** to run the test server.  Once the test server is successfully launched it will also launch a web browser to view the web site.  Because you launched with F5 this is launched under the debugger so we can also set breakpoints either in any of the Python code such as the view code or in the template files themselves:
+This will start your Python interpreter running Django's **manage.py** to run the test server.  Once the test server is successfully launched it will also launch a web browser to view the website.  Because you launched with F5 this is launched under the debugger so we can also set breakpoints either in any of the Python code such as the view code or in the template files themselves:
 
 ![Debugger stopped at a template breakpoint](./media/python-django-app-tools-visual-studio/ptvs-dj-TemplateBreakpoint.png)
 
@@ -162,7 +162,7 @@ You'll now need to wait for the application be setup and deployed.
 
 ![Package Deployment](./media/python-django-app-tools-visual-studio/ptvs-dj-publish4.png)
 
-Once it's all setup you can click on the link below DNS Name to view your web site running in the cloud:
+Once it's all setup you can click on the link below DNS Name to view your website running in the cloud:
 
 
 ![Your Django app in the cloud](./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png)

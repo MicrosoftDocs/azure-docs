@@ -60,8 +60,8 @@ Azure provides many features that allow you to address the key problems encounte
 
 **Isolation** 
 
-- Segment Web site Tenants by Host Headers with or without SSL communication
-- Segment Web site Tenants by Query Parameters
+- Segment Website Tenants by Host Headers with or without SSL communication
+- Segment Website Tenants by Query Parameters
 - Web Services in Worker Roles
 	- Worker Roles. that typically process data on the backend of an application.
 	- Web Roles that typically act as the frontend for applications.
