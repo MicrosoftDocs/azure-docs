@@ -65,7 +65,7 @@ You don't have to install the Azure .NET SDK to use these features; they are als
 
 ###<a id="emulator"></a>Microsoft Azure Emulator
 
-The [Azure Emulator](http://msdn.microsoft.com/en-us/library/dn339018.aspx) simulates the Cloud Service environment so that you can test cloud service projects locally.
+The [Azure Emulator](http://msdn.microsoft.com/en-us/library/dn339018.aspx) simulates the Cloud Service environment so that you can test Cloud Service projects locally.
 
 ###<a id="stgemulator"></a>Microsoft Azure Storage Emulator
 
@@ -79,12 +79,12 @@ The [Azure Storage Emulator](http://msdn.microsoft.com/en-us/library/hh403989.as
 
 **Azure Libraries for .NET** includes the following:
 
-* NuGet packages for Azure Storage, Service Bus, and Caching that are stored on your computer so that Visual Studio can create new cloud service projects while offline.
+* NuGet packages for Azure Storage, Service Bus, and Caching that are stored on your computer so that Visual Studio can create new Cloud Service projects while offline.
 * A Visual Studio plug-in that enables [In-Role Cache](http://msdn.microsoft.com/en-us/library/dn386103.aspx) projects to run locally in Visual Studio. 
 
 ###<a id="ls"></a>LightSwitch Azure Publishing add-on for Visual Studio
 
-The [LightSwitch publishing wizard](http://msdn.microsoft.com/en-us/library/jj131261.aspx) enables you to publish LightSwitch projects to Azure Websites.
+The [LightSwitch publishing wizard](http://msdn.microsoft.com/en-us/library/jj131261.aspx) enables you to publish LightSwitch projects to Azure Websites. The wizard is included in Visual Studio Updates as well as the Azure SDK. Installing the Azure SDK ensures that you have the latest version of the wizard. 
 
 ##<a id="notincluded"></a>What isn't included in the SDK
 
@@ -98,15 +98,14 @@ There are a few things that you need for Azure development that aren't included 
 
 	The Azure .NET SDK copies to your computer the NuGet packages for some Azure client libraries, such as Storage, Service Bus, and Caching. These client libraries are automatically included in new Cloud Service projects, so the local NuGet packages enable Visual Studio to create Cloud Service projects while you're not connected to the Internet.
 
-	Client libraries included in the Azure .NET SDK may be out of date. New versions of the SDK are generally released every couple of months, while client libraries are typically updated more frequently than that. Therefore the client library NuGet packages available online at NuGet.org are generally more current than what you get with the Azure .NET SDK. After creating a project that includes client libraries by default, it's generally a good practice to update the NuGet packages.
+	Client libraries are generally updated more frequently than new Azure SDK versions are released, so the client libraries at NuGet.org are generally more current than what you get with the SDK. After creating a project that includes client libraries by default, it's a good practice to update the NuGet packages.
 
-	Only [Azure Cloud Service](../cloud-services-dotnet-get-started/) and [Azure Mobile Service](../mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/) project templates automatically include some client libraries. If you need a client library in another project type, such as [ASP.NET Web Application](../web-sites-dotnet-get-started/) or [Microsoft Azure WebJob](../websites-dotnet-deploy-webjobs/), install the NuGet packages you need from [NuGet.org](http://www.nuget.org/packages?q=windowsazureofficial). You can also find the source code for many client libraries at [GitHub.com/Azure](https://github.com/azure/).
+	Only [Azure Cloud Service](../cloud-services-dotnet-get-started/) and [Azure Mobile Service](../mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/) project templates automatically include some client libraries. If you need a client library in another project type, such as [ASP.NET Web Application](../web-sites-dotnet-get-started/) or [Microsoft Azure WebJob](../websites-dotnet-deploy-webjobs/), install the NuGet packages you need from [NuGet.org](http://www.nuget.org/packages?q=windowsazureofficial). You can also find the source code for many client libraries at [GitHub.com/Azure](https://github.com/azure/) and links to reference documentation at [Azure .NET Reference](/en-us/develop/net/reference/).
 
 ##<a id="faq"></a>Frequently Asked Questions
 
 - [Many Azure features are already in Visual Studio. Do I need to install the Azure SDK?](#azinvs)
-- [I only want a client library. Do I need to install the Azure SDK?](#clientlib1)
-- [Is installing the Azure SDK all I need to do to get a client library?](#clientlib2)
+- [I want a client library. Do I need to install the Azure SDK to get it?](#clientlib)
 
 ###<a id="azinvs"></a>Many Azure features are already in Visual Studio. Do I need to install the Azure SDK?
 
@@ -116,20 +115,15 @@ In general it's a good practice to install the SDK if you want to develop for Az
 * You are developing only for Azure Websites or Mobile Services, not for Cloud services or Virtual Machines.
 * Your application doesn't use Storage, or it uses Storage but you don't need the Storage Emulator or the AzCopy tool.
 
-###<a id="clientlib1"></a>What's the best way to get an Azure client library?
+###<a id="clientlib1"></a>I want a client library. Do I need to install the Azure SDK to get it?
 
-Install the NuGet package for the client library you want from [NuGet.org](http://www.nuget.org/packages?q=windowsazureofficial). You can also find the source code for many client libraries at [GitHub.com/Azure](https://github.com/azure/). For more information, see [What isn't included in the SDK](#notincluded) earlier in this document.
+The SDK installs client libraries only to facilitate offline Cloud Service project creation. Current client libraries are available in NuGet packages at [NuGet.org](http://www.nuget.org/packages?q=windowsazureofficial). For more information, see [What isn't included in the SDK](#notincluded) earlier in this document.
 
-###<a id="clientlib2"></a>Is installing the Azure SDK all I need to do to get a client library?
+##<a id="resources"></a>Resources
 
-Visual Studio includes some client libraries by default in new Cloud Service projects. But those may be out of date, and for other project types you have to install the appropriate NuGet packages manually. For more information, see [What isn't included in the SDK](#notincluded) earlier in this document.
+To download the Azure SDK or a client library, see the [Azure Downloads page](/en-us/downloads/).
 
+For Azure SDK and client library source code, see [GitHub.com/Azure](https://github.com/azure/).
 
-
-
-
-
-
-
-
+For Azure client library reference documentation. see [Azure .NET Reference](/en-us/develop/net/reference/). 
 
