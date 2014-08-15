@@ -2,15 +2,17 @@
 
 # Configure Search in the Azure Preview Portal
 
-<p> Microsoft Azure Search (Public Preview) is available in the new Preview Portal. As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
+[WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
+
+Microsoft Azure Search (Public Preview) is available in the new Preview Portal. As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
 
 <!--Table of contents -->
 
-+ [Start with the free service] 
-+ [Upgrade to standard search]
-+ [Test service operations]
-+ [Explore Search service configuration pages] 
-+ [Try these tutorials next]
++ [Start with the free service][] 
++ [Upgrade to standard search][]
++ [Test service operations][]
++ [Explore Search service configuration pages][] 
++ [Try it out][]
 
 
 ## Start with the free service
@@ -73,7 +75,7 @@ In a few minutes, the service is created. You can return to the configuration se
  
    **USAGE** shows the document count, available resources, and storage limits.
 
-Continue on [Test service operations] for instructions on how to connect to the service using these values.
+Continue on to [Test service operations][] for instructions on how to connect to the service using these values.
 
 
 ## Upgrade to standard search
@@ -286,7 +288,7 @@ The response code should be 200, and the response output should look similar to 
  
    ![][19]
 
-The following example query is from the [Search API documentation](http://go.microsoft.com/fwlink/p/?LinkID=509922). These queries include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string: 
+The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/en-us/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler: 
 
 **Before spaces are replaced:**
 
@@ -345,20 +347,20 @@ If you’re inheriting a service created by someone else or need some help with 
 
 Ready for the next step? The following links take you to additional material that shows you how to build and manage search applications that use Azure Search.
 
-[Create your first azure search solution](http://go.microsoft.com/fwlink/p/?LinkID=509918) 
+[Create your first azure search solution](../search-create-first-solution/) 
 
-[Manage your search solution in Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkID=509793) 
+[Manage your search solution in Microsoft Azure](../search-manage/) 
 
-[Azure Search on MSDN](http://go.microsoft.com/fwlink/p/?LinkID=509920)
+[Azure Search Technical Overview](http://msdn.microsoft.com/en-us/library/dn798933.aspx)
 
-[Search REST API on MSDN](http://go.microsoft.com/fwlink/p/?LinkID=509922)
+[Azure Search REST API](http://msdn.microsoft.com/en-us/library/dn798935.aspx)
 
 <!--Anchors-->
 [Start with the free service]: #subheading-1
 [Upgrade to standard search]: #subheading-2
 [Test service operations]: #subheading-3
 [Explore Search service configuration pages]: #subheading-4
-[Try these tutorials next]: #next-steps
+[Try it out]: #next-steps
 
 <!--Image references-->
 [6]: ./media/search-configure/AzureSearch_Configure1_1_New.PNG
@@ -385,3 +387,4 @@ Ready for the next step? The following links take you to additional material tha
 [Manage your search solution in Microsoft Azure]: ../search-manage/
 [Azure Search development workflow]: ../search-workflow/
 [Create your first azure search solution]: ../search-create-first-solution/
+

@@ -2,22 +2,24 @@
 
 # Azure Search: development workflow
 
+[WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
+
 This article provides a roadmap and a few best practices for creating and maintaining the search service and its indexes. 
 
 We assume that you have already provisioned the service. If you haven’t done that yet, see [Configure search in the Azure Preview Portal]() to get started.
 
-+ [Step 1: Create the index] 
-+ [Step 2: Add documents]
-+ [Step 3: Query an index]
-+ [Step 4: Update or delete indexes and documents]
-+ [Choosing a document store]
++ [Step 1: Create the index][] 
++ [Step 2: Add documents][]
++ [Step 3: Query an index][]
++ [Step 4: Update or delete indexes and documents][]
++ [Choosing a document store][]
 
 
 ## Step 1: Create the index
 
 Queries (at least non-system queries) target a search index that contains search data and attributes. In this step, you define the index schema in JSON format and execute an HTTPS PUT request to have this index created. 
 
-Indexes are typically created in your local development environment. There are no built-in tools or editors for index definition. For more information about creating the index, see [Create an Index (Azure Search API)](http://go.microsoft.com/fwlink/p/?LinkID=509994) on MSDN.
+Indexes are typically created in your local development environment. There are no built-in tools or editors for index definition. For more information about creating the index, see [Create Index (Azure Search API)](http://msdn.microsoft.com/en-us/library/dn798941.aspx)) on MSDN.
 
 ## Step 2: Add documents
 
@@ -36,8 +38,8 @@ Under heavy load, it’s not uncommon to have some upload failures. Should this 
 
 Once documents have been indexed, you can execute search queries. You can query one index at a time. You can use Odata or a simple query syntax:
 
-+	[OData expression syntax for Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=509996)
-+	[Simple query syntax in Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=509997)
++	[OData expression syntax for Azure Search](http://msdn.microsoft.com/en-us/library/dn798921.aspx)
++	[Simple query syntax in Azure Search](http://msdn.microsoft.com/en-us/library/dn798920.aspx)
 
 ## Step 4: Update or delete indexes and documents
 
