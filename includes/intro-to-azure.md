@@ -54,8 +54,8 @@ Azure has a web interface called the Management Portal that allows administrator
 One of the most basic things a cloud platform does is execute applications. Azure provides these options: 
 
 1.	Virtual Machines gives you control over your own virtual machine, including the operating system. 
-2.	Web Sites offers a range of applications, frameworks, and templates for you to build large, scalable web applications and presence web sites quickly, and then efficiently manage development, test, and operations.
-3.	Cloud Services is a platform-as-a-service (PaaS) option tuned to create highly scalable and fault resistant applications, but with more flexibility than Web Sites. 
+2.	Websites offers a range of applications, frameworks, and templates for you to build large, scalable web applications and presence websites quickly, and then efficiently manage development, test, and operations.
+3.	Cloud Services is a platform-as-a-service (PaaS) option tuned to create highly scalable and fault resistant applications, but with more flexibility than Websites. 
 
 Each of the Azure execution models has its own role to play. 
 
@@ -89,16 +89,16 @@ This quite general approach to cloud computing can be used to address many diffe
 ![Azure Websites](./media/intro-to-azure/AzureWebsitesIntroNew.png)   
  **Azure Websites runs a website application in the cloud without having to manage the underlying web server.**
 
-One of the most common things that people do in the cloud is run web sites and web applications. Azure Virtual Machines allows this, but it still leaves you with the responsibility of administering one or more VMs and the underlying operating systems. Cloud services web roles can do this, but deploying and maintaining them still takes administrative work.  What if you just want a web site where somebody else takes care of the administrative work for you?
+One of the most common things that people do in the cloud is run websites and web applications. Azure Virtual Machines allows this, but it still leaves you with the responsibility of administering one or more VMs and the underlying operating systems. Cloud services web roles can do this, but deploying and maintaining them still takes administrative work.  What if you just want a website where somebody else takes care of the administrative work for you?
 
-This is exactly what Azure Websites provides. This compute model offers a managed web environment using the Azure Management portal as well as APIs. You can move an existing web site application into Azure Websites unchanged, or you can create a new one directly in the cloud. Once a web site is running, you can add or remove instances dynamically, relying on Azure Websites to load balance requests across them. Azure Websites offers both a shared option, where your web site runs in a virtual machine with other sites, and a standard option that allows a site to run in its own VM. The standard option also lets you increase the size (computing power) of your instances if needed.
+This is exactly what Azure Websites provides. This compute model offers a managed web environment using the Azure Management portal as well as APIs. You can move an existing website application into Azure Websites unchanged, or you can create a new one directly in the cloud. Once a website is running, you can add or remove instances dynamically, relying on Azure Websites to load balance requests across them. Azure Websites offers both a shared option, where your website runs in a virtual machine with other sites, and a standard option that allows a site to run in its own VM. The standard option also lets you increase the size (computing power) of your instances if needed.
 
-For development, Websites supports .NET, PHP, Node.js, and Python along with SQL Database and MySQL (from ClearDB, a Microsoft partner) for relational storage. It also provides built-in support for several popular applications, including WordPress, Joomla, and Drupal. The goal is to provide a low-cost, scalable, and broadly useful platform for creating web sites and web applications in the public cloud.
+For development, Websites supports .NET, PHP, Node.js, and Python along with SQL Database and MySQL (from ClearDB, a Microsoft partner) for relational storage. It also provides built-in support for several popular applications, including WordPress, Joomla, and Drupal. The goal is to provide a low-cost, scalable, and broadly useful platform for creating websites and web applications in the public cloud.
 
 
 **WebSite Scenarios**
 
-Websites is intended to be useful for corporations, developers, and web design agencies. For corporations, it's an easy-to-manage, scalable, highly secure, and highly available solution for running presence web sites. When you need to set up a Web Site, it’s best to start with Azure Websites and proceed to Cloud Services once you need a feature that’s not available in Web Sites. See the end of the "Compute" section for more links that can help you to choose between the options. 
+Websites is intended to be useful for corporations, developers, and web design agencies. For corporations, it's an easy-to-manage, scalable, highly secure, and highly available solution for running presence websites. When you need to set up a Website, it’s best to start with Azure Websites and proceed to Cloud Services once you need a feature that’s not available in Websites. See the end of the "Compute" section for more links that can help you to choose between the options. 
 
 ###Cloud Services###
 ![Azure Cloud Service](./media/intro-to-azure/CloudServicesIntroNew.png)   
