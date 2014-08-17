@@ -8,9 +8,9 @@
 
 This tutorial will show you how to leverage Azure Mobile Services in your Appcelerator-built applications.
 
-In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses JavaScript for server-side business logic.
+In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you create uses JavaScript for server-side business logic.
 
-Completing this tutorial requires Appcelerator Titanium.
+Completing this tutorial requires [Appcelerator Titanium].
 
 If building for iOS, you will also need Xcode 5.1 and iOS 7.1 SDK or later versions. 
 
@@ -28,7 +28,7 @@ If building for Android, you will also need Android 4.3 or greater SDK.
 
 3. Download a new Appcelerator [Todolist application] and unzip the project.
 
-4. If you haven&#39;t already done so, download and install Appcelerator [Titanium] Studio and SDK v3.2.1 or greater. You also need Xcode (v 5.0 +) &/or Android SDK (v 4.3+) to run the project.
+4. If you haven&#39;t already done so, download and install [Appcelerator Titanium Studio][Appcelerator Titanium] and SDK v3.2.1 or greater. You also need Xcode (v 5.0 +) &/or Android SDK (v 4.3+) to run the project.
 
 5. Back in the Mobile Services portal, under **Dashboard**, select **Manage Keys** and copy out the **Application Key**.
 
@@ -111,7 +111,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [10]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/mobile-data-browse.png
 
 <!-- URLs. -->
-[Todolist application]: http://go.microsoft.com/fwlink/?LinkId=506859
-[Titanium]: http://www.appcelerator.com/titanium
+[Todolist application]: http://go.microsoft.com/fwlink/p/?LinkId=506859
+[Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
 [Get started with authentication]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
