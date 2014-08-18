@@ -1,10 +1,10 @@
-<properties title="How to Configure PHP in Azure Web Sites" pageTitle="How to Configure PHP in Azure Web Sites" metaKeywords="Azure, Azure Web Sites, configuration, PHP" description="Learn how to configure the default PHP installation or add a custom PHP installation in Azure Web Sites." services="Web Sites" documentationCenter="PHP" authors="" />
+<properties title="How to Configure PHP in Azure Websites" pageTitle="How to Configure PHP in Azure Websites" metaKeywords="Azure, Azure Web Sites, configuration, PHP" description="Learn how to configure the default PHP installation or add a custom PHP installation in Azure Websites." services="Web Sites" documentationCenter="PHP" authors="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
-#How to configure PHP in Azure Web Sites
+#How to configure PHP in Azure Websites
 
-This guide will show you how to configure the built-in PHP runtime in Azure Web Sites, provide a custom PHP runtime, and enable extensions in Azure Web Sites. To use Azure Web Sites, sign up for the [free trial]. To get the most from this guide, you should first create a PHP site in Azure Web Sites (see the [PHP Developer Center Tutorials]). For general information on configuring sites in Azure Web Sites, see [How to Configure Web Sites].
+This guide will show you how to configure the built-in PHP runtime in Azure Websites, provide a custom PHP runtime, and enable extensions in Azure Websites. To use Azure Websites, sign up for the [free trial]. To get the most from this guide, you should first create a PHP site in Azure Websites (see the [PHP Developer Center Tutorials]). For general information on configuring sites in Azure Websites, see [How to Configure Web Sites].
 
 ##Table of Contents
 
@@ -14,15 +14,15 @@ This guide will show you how to configure the built-in PHP runtime in Azure Web 
 * [How to: Use a custom PHP runtime](#UseCustomPHP)
 * [Next steps](#NextSteps)
 
-<h2><a name="WhatIs"></a>What is Azure Web Sites?</h2>
-Azure Web Sites allows you to build highly scalable web sites on Azure. You can quickly and easily deploy sites to a highly scalable cloud environment that allows you to start small and scale as traffic grows. Azure Web Sites uses the languages and open source apps of your choice and supports deployment with Git, FTP, and TFS. You can easily integrate other services like MySQL, SQL Database, Caching, CDN, and Storage.
+<h2><a name="WhatIs"></a>What is Azure Websites?</h2>
+Azure Websites allows you to build highly scalable websites on Azure. You can quickly and easily deploy sites to a highly scalable cloud environment that allows you to start small and scale as traffic grows. Azure Websites uses the languages and open source apps of your choice and supports deployment with Git, FTP, and TFS. You can easily integrate other services like MySQL, SQL Database, Caching, CDN, and Storage.
 
 <h2><a name="ChangeBuiltInPHP"></a>How to: Change the built-in PHP configuration</h2>
-By default, PHP 5.4 is installed and immediately available for use when you create an Azure Web Site. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
+By default, PHP 5.4 is installed and immediately available for use when you create an Azure Website. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
 
 PHP 5.5 is also available, but not enabled by default. To enable it, follow these steps:
 
-1. Browse to your web site's dashboard in the Azure Portal, click on **Configure**.
+1. Browse to your website's dashboard in the Azure Portal, click on **Configure**.
 
 	![Configure tab on Web Sites dashboard][configure]
 
@@ -44,7 +44,7 @@ For either of the built-in PHP runtimes, you can change any of the configuration
 		upload_max_filesize=10M
 
 1. Deploy your application.
-1. Restart your web site. (Restarting is necessary because the frequency with which PHP reads `.user.ini` files is governed by the `user_ini.cache_ttl` setting, which is a system level setting and is 300 seconds (5 minutes) by default. Restarting the site forces PHP to read the new settings in the `.user.ini` file.)
+1. Restart your website. (Restarting is necessary because the frequency with which PHP reads `.user.ini` files is governed by the `user_ini.cache_ttl` setting, which is a system level setting and is 300 seconds (5 minutes) by default. Restarting the site forces PHP to read the new settings in the `.user.ini` file.)
 
 As an alternative to using a `.user.ini` file, you can use the [ini_set()] function in scripts to set configuration options that are not system-level directives.
 
@@ -67,10 +67,10 @@ As noted in the previous section, the best way to see the default PHP version, i
 	![Save configuration settings][save-button]
 
 <h2><a name="UseCustomPHP"></a>How to: Use a custom PHP runtime</h2>
-Instead of the default PHP runtime, Azure Web Sites can use a PHP runtime that you provide to execute PHP scripts. The runtime that you provide can be configured by a `php.ini` file that you also provide. To use a custom PHP runtime in Azure Web Sites, follow the steps below.
+Instead of the default PHP runtime, Azure Websites can use a PHP runtime that you provide to execute PHP scripts. The runtime that you provide can be configured by a `php.ini` file that you also provide. To use a custom PHP runtime in Azure Websites, follow the steps below.
 
 1. Obtain a non-thread-safe, VC9 compatible version of PHP for Windows. Recent releases of PHP for Windows can be found here: [http://windows.php.net/download/]. Older releases can be found in the archive here: [http://windows.php.net/downloads/releases/archives/].
-1. Modify the `php.ini` file for your runtime. Note that any configuration settings that are system-level-only directives will be ignored by Azure Web Sites. (For information about system-level-only directives, see [List of php.ini directives]).
+1. Modify the `php.ini` file for your runtime. Note that any configuration settings that are system-level-only directives will be ignored by Azure Websites. (For information about system-level-only directives, see [List of php.ini directives]).
 1. Optionally, add extensions to your PHP runtime and enable them in the `php.ini` file.
 1. Add `bin` directory to your root directory, and put the directory that contains your PHP runtime in it (for example, `bin\php`).
 1. Deploy your application.
@@ -87,7 +87,7 @@ Instead of the default PHP runtime, Azure Web Sites can use a PHP runtime that y
 	![Save configuration settings][save-button]
 
 <h2><a name="NextSteps"></a>Next steps</h2>
-Now that you've learned how to configure PHP in Azure Web Sites, follow the links below to learn how to do more.
+Now that you've learned how to configure PHP in Azure Websites, follow the links below to learn how to do more.
 
 - [Configure, monitor, and scale your web sites in Azure]
 - [Download the Azure SDK for PHP]

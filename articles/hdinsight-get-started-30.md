@@ -67,7 +67,9 @@ To simplify this tutorial, only the default blob container and the default stora
 
 3. Enter **URL**, **LOCATION** and **REPLICATION**, and then click **CREATE STORAGE ACCOUNT**. Affinity groups are not supported. You will see the new storage account in the storage list.
 
+
 	>[WA.COM NOTE]  An HDInsight cluster and the associated Azure storage account must be in the same datacenter. So, make sure you create your storage account in the locations supported for the cluster, which are:  **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, **West US**, **North Central US**, **South Central US**.
+
  
 4. Wait until the **STATUS** of the new storage account is changed to **Online**.
 5. Select the new storage account from the list and click **MANAGE ACCESS KEYS** from the bottom of the page.
@@ -126,7 +128,9 @@ In this section you provision a HDInsight cluster version 3.0, which is based on
 			<td>Specify the SQL database user password.</td></tr>
 	</table>
 
-    >[WA.COM NOTE] The Azure SQL database must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.   
+
+	>[WA.COM NOTE] The Azure SQL database must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.   
+
 
     Click the right arrow.
 
@@ -185,7 +189,7 @@ Now that you have an HDInsight cluster provisioned, the next step is to run a Hi
 
 	There are several tabs on the top.  The default tab is **Hive Editor**, while the other tabs are **Job History** and **File Browser**.  Using the dashboard, you can submit Hive queries, check Hadoop job logs, and browse WASB files.
 
-    > [WACOM.NOTE] Note that the URL of the Web page is *&lt;ClusterName&gt;.azurehdinsight.net*. So, instead of opening the dashboard from the Management portal, you can also open the dashboard from a Web browser using the URL.
+	> [WACOM.NOTE] Note that the URL of the Web page is *&lt;ClusterName&gt;.azurehdinsight.net*. So, instead of opening the dashboard from the Management portal, you can also open the dashboard from a Web browser using the URL.
 
 6. On the **Hive Editor** tab, for **Query Name**, enter **HTC20**.  The query name is the job title.
 
@@ -209,7 +213,7 @@ Now that you have an HDInsight cluster provisioned, the next step is to run a Hi
 
     The page also shows the **Job Output** and the **Job Log**. You also have the option to download the output file (\_stdout) and the log file \(_stderr).
 
-    > [WA.COM NOTE] The **Job Session** table on the **Hive Editor** tab lists completed or running jobs as long as you stay on that tab. The table does not list any jobs if you navigate away from the page. The **Job History** tab maintains a list of all jobs, completed or running. 
+	> [WA.COM NOTE] The **Job Session** table on the **Hive Editor** tab lists completed or running jobs as long as you stay on that tab. The table does not list any jobs if you navigate away from the page. The **Job History** tab maintains a list of all jobs, completed or running. 
 
 **To browse to the output file**
 

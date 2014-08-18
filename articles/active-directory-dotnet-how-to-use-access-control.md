@@ -369,6 +369,7 @@ You can also add rules to your namespace that determine which claims are sent to
 To further explore ACS functionality and to experiment with more scenarios, see [Access Control Service 2.0].
 
 
+
   [What is ACS?]: #what-is
   [Concepts]: #concepts
   [Prerequisites]: #pre
