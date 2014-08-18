@@ -8,11 +8,11 @@ Microsoft Azure Search (Public Preview) is available in the new Preview Portal. 
 
 <!--Table of contents -->
 
-+ [Start with the free service][] 
-+ [Upgrade to standard search][]
-+ [Test service operations][]
-+ [Explore Search service configuration pages][] 
-+ [Try it out][]
++ [Start with the free service](#sub-1)
++ [Upgrade to standard search](#sub-2)
++ [Test service operations](#sub-3)
++ [Explore Search service configuration pages](#sub-4)
++ [Try it out](#next-steps)
 
 
 ## Start with the free service
@@ -51,11 +51,11 @@ Subscribers automatically get free access to a shared, multitenant Search servic
 
   	![][12]
 
-10. Click the arrow in **Resource Group** to pick an existing group or create a new one. Resource groups are containers for services and resources used for a common purpose. For example, if you’re building a custom search application based on Azure Search, Azure Web sites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
+10. Click the arrow in **Resource Group** to pick an existing group or create a new one. Resource groups are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Web sites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
 
 11. Click the arrow in **Subscription** if you have multiple subscriptions and you want to use a different subscription for this search service.
 
-12. Click the arrow in **Location** to choose a data center region. In this preview, only West US is available. Later, when other regions are online, choose one region for the service you are creating. Distributing resources across multiple data centers will not be a supported configuration.
+12. Click the arrow in **Location** to choose a data center region. In this preview, you can choose from West US, East US, North Europe, and Southeast Asia. Later, when other regions are online, choose one region for the service you are creating. Distributing resources across multiple data centers will not be a supported configuration for public preview.
 
 13. Click **CREATE** to provision the service. Notice that **CREATE** is enabled only after you fill in all required values. 
 
@@ -65,7 +65,7 @@ In a few minutes, the service is created. You can return to the configuration se
 
   	![][13]
 
-15.	On the service dashboard, you'll see tiles for **PROPERTIES** and **KEYS**, and usage information that shows resource usage at at glance. 
+15.	On the service dashboard, you'll see tiles for **PROPERTIES** and **KEYS**, and usage information that shows resource usage at a glance. 
 
   	![][23]
 
@@ -75,7 +75,7 @@ In a few minutes, the service is created. You can return to the configuration se
  
    **USAGE** shows the document count, available resources, and storage limits.
 
-Continue on to [Test service operations][] for instructions on how to connect to the service using these values.
+Continue on to [Test service operations](#sub-3) for instructions on how to connect to the service using these values.
 
 
 ## Upgrade to standard search
@@ -86,7 +86,7 @@ Having dedicated resources will give you more scale and better performance, but 
 
 To use standard search, create a new Search service, choosing the Standard pricing tier. Notice that upgrade is not an in-place upgrade of the free version. Switching to standard, with its potential for scale, requires a new service. You will need to reload the indexes and documents used by your search application.
 
-Setting up dedicated resources can take a while (15 minutes or longer) depending on how many replicas and partitions you use. 
+Setting up dedicated resources can take a while (15 minutes or longer). 
 
 **Step 1 - Create a new service with Pricing Tier set to Standard**
 
@@ -118,7 +118,7 @@ Standard search starts with one replica and partition each, but can be easily re
 
 2.	Use the sliders to add replicas, partitions, or both. 
 
-Using additional resources costs more. Replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information.
+Additional replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information.
 
  ![][15]
 
@@ -131,7 +131,7 @@ The following procedure works for both shared and standard search. In the steps 
 
 <h3>Create an index</h3>
 
-1. Start Fiddler. On the File menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task. On the Composer tab, you’ll formulate a request that looks like this: 
+1. Start Fiddler. On the File menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task. On the Composer tab, you'll formulate a request that looks like this: 
 
   	![][16]
 
@@ -139,8 +139,8 @@ The following procedure works for both shared and standard search. In the steps 
 
 3. Enter a URL that specifies the service URL (which you can find on the Properties page), request attributes and the api-version. A few pointers to keep in mind:
    + Use HTTPS as the prefix
-   + Request attribute is “/indexes/hotels". This tells Search to create an index named 'hotels'.
-   + Api-version is lower-case, specified as ?api-version=2014-07-31-preview”.
+   + Request attribute is "/indexes/hotels". This tells Search to create an index named 'hotels'.
+   + Api-version is lower-case, specified as "?api-version=2014-07-31-preview". API versions are important because Azure Search deploys updates regularly. On rare occasions, a service update may require a breaking change to the API. Using API versions, you can continue to use your existing version and upgrade to the newer on when it is convenient.
 
     The full URL should look similar to the following example:
 
@@ -175,7 +175,8 @@ The following procedure works for both shared and standard search. In the steps 
 6.	Click **Execute**.
 
 In a few seconds, you should see an HTTP 204 response in the session list, indicating the index was created successfully. 
-If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 404, double-check your syntax. HTTP 400 means there is a problem with the api-key (either an invalid key or a syntax problem on the api-key entry)
+
+If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 404, double-check your syntax. An HTTP 400 means there is a problem with the api-key (either an invalid key or a syntax problem on the api-key entry)
 
 <h3>Load documents</h3>
 
@@ -185,7 +186,7 @@ On the Composer tab, your request to post documents will look like the following
 
 1. Select **POST**.
 
-2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by “/indexes/<'indexname'>/docs/index?api-version=2014-07-31-preview”. The full URL should look similar to the following example:
+2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs/index?api-version=2014-07-31-preview". The full URL should look similar to the following example:
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2014-07-31-Preview
 
@@ -271,7 +272,7 @@ Now that an index and documents are loaded, you can issue queries against them. 
 
 1.	Select **GET**.
 
-2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by “/indexes/<indexname>/docs?”, followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
+2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<indexname>/docs?", followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2014-07-31-Preview
 
@@ -306,7 +307,7 @@ You can also query the system to get document counts and storage consumption. On
 
 1.	Select **GET**.
 
-2.	Enter a URL that includes your service URL, followed by “/indexes/hotels/stats?api-version=2014-07-31-preview”:
+2.	Enter a URL that includes your service URL, followed by "/indexes/hotels/stats?api-version=2014-07-31-preview":
 
         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2014-07-31-preview 
 
@@ -327,7 +328,7 @@ You can also query the system to get document counts and storage consumption. On
 
 ## Explore Search service configuration pages
 
-If you’re inheriting a service created by someone else or need some help with page navigation, follow these steps to locate the service dashboard.
+If you are inheriting a service created by someone else or need help with page navigation, follow these steps to locate the service dashboard.
 
 1.	Sign in to [Azure Preview Portal](https://portal.azure.com) using your existing subscription. 
 2.	Click **Browse** | **Everything**.
@@ -356,10 +357,10 @@ Ready for the next step? The following links take you to additional material tha
 [Azure Search REST API](http://msdn.microsoft.com/en-us/library/dn798935.aspx)
 
 <!--Anchors-->
-[Start with the free service]: #subheading-1
-[Upgrade to standard search]: #subheading-2
-[Test service operations]: #subheading-3
-[Explore Search service configuration pages]: #subheading-4
+[Start with the free service]: #sub-1
+[Upgrade to standard search]: #sub-2
+[Test service operations]: #sub-3
+[Explore Search service configuration pages]: #sub-4
 [Try it out]: #next-steps
 
 <!--Image references-->
