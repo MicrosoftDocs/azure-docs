@@ -4,20 +4,20 @@
 
 There are two levels of load balancing available for Azure infrastructure services:
 
-- **DNS Level**:  Load balancing for traffic to different cloud services located in different data centers, to different Azure web sites located in different data centers, or to external endpoints. This is done with Traffic Manager and the Round Robin load balancing method.
+- **DNS Level**:  Load balancing for traffic to different cloud services located in different data centers, to different Azure websites located in different data centers, or to external endpoints. This is done with Traffic Manager and the Round Robin load balancing method.
 - **Network Level**:  Load balancing of incoming Internet traffic to different virtual machines of a cloud service, or load balancing of traffic between virtual machines in a cloud service or virtual network. This is done with the Azure load balancer.
 
-##Traffic Manager load balancing for cloud services and web sites##
+##Traffic Manager load balancing for cloud services and websites##
 
-Azure Traffic Manager allows you to control the distribution of user traffic to cloud services, web sites, and external endpoints. Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources. Your cloud services or web sites can be running in different datacenters across the world. 
+Azure Traffic Manager allows you to control the distribution of user traffic to cloud services, websites, and external endpoints. Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources. Your cloud services or websites can be running in different datacenters across the world. 
 
 You must use either REST or Windows PowerShell to configure external endpoints. For more information, see [About Traffic Manager Load Balancing Methods](http://msdn.microsoft.com/en-us/library/azure/dn339010.aspx).
 
 Azure Traffic Manager uses three load-balancing methods to distribute traffic:
 
-- **Failover**:  Use this method when you want to use a primary cloud service or web site for all traffic, but provide backups in case the primary becomes unavailable.
-- **Performance**:  Use this method when you have cloud services or web sites in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.
-- **Round Robin:**  Use this method when you want to distribute load across a set of cloud services in the same datacenter or across cloud services or web sites in different datacenters.
+- **Failover**:  Use this method when you want to use a primary cloud service or website for all traffic, but provide backups in case the primary becomes unavailable.
+- **Performance**:  Use this method when you have cloud services or websites in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.
+- **Round Robin:**  Use this method when you want to distribute load across a set of cloud services in the same datacenter or across cloud services or websites in different datacenters.
 
 The following figure shows an example of the Round Robin load balancing method for distributing traffic between different cloud services.
 

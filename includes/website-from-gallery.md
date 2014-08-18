@@ -16,7 +16,7 @@ You'll build a WordPress blog that uses a default template. The following illust
 </div>
 <br />
 
-## Create a web site in the portal
+## Create a website in the portal
 
 1. Login to the [Azure Management Portal](http://manage.windowsazure.com).
 
@@ -24,7 +24,7 @@ You'll build a WordPress blog that uses a default template. The following illust
 	
 	![Create New][5]
 
-3. Click the **Web Site** icon, and click **From Gallery**.
+3. Click the **Website** icon, and click **From Gallery**.
 	
 	![Create From Gallery][6]
 
@@ -46,11 +46,11 @@ You'll build a WordPress blog that uses a default template. The following illust
 	
 	![create database][9]
 
-After you click **Complete** Azure will initiate build and deploy operations. While the web site is being built and deployed the status of these operations is displayed at the bottom of the Web Sites page. After all operations are performed,  A final status message when the site has been successfully deployed.
+After you click **Complete** Azure will initiate build and deploy operations. While the website is being built and deployed the status of these operations is displayed at the bottom of the Websites page. After all operations are performed,  A final status message when the site has been successfully deployed.
 
 ## Launch and manage your WordPress site
 
-1. Click on your new site from the **Web Sites** page to open the dashboard for the site.
+1. Click on your new site from the **Websites** page to open the dashboard for the site.
 
 	![launch dashboard][10]
 
@@ -58,11 +58,11 @@ After you click **Complete** Azure will initiate build and deploy operations. Wh
 
 	![site URL][11] 
 
-3. Enter appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web site's login page.
+3. Enter appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the website's login page.
 
 	![login to WordPress][12]
 
-4. Login to the new WordPress web site by entering the username and password that you specified on the **Welcome** page.
+4. Login to the new WordPress website by entering the username and password that you specified on the **Welcome** page.
 
 5. You'll have a new WordPress site that looks similar to the site below.  
 

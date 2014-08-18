@@ -54,7 +54,7 @@ To view the streaming logs from within the portal click the **STREAMING LOGS** p
 
 ## Console ##
 
-The Azure Preview Portal provides console access to your web site environment. You can explore your web site's file system and run powershell/cmd scripts.  You are bound by the same permissions set as your running web site code when executing console commands. You won't be able to access protected directories or run scripts that require elevated permissions.  
+The Azure Preview Portal provides console access to your website environment. You can explore your website's file system and run powershell/cmd scripts.  You are bound by the same permissions set as your running website code when executing console commands. You won't be able to access protected directories or run scripts that require elevated permissions.  
 
 To get to the console, browse to a website as described in the section above.  Click on the **Console** part and the console will open.
 
