@@ -8,11 +8,11 @@ This article provides a roadmap and a few best practices for creating and mainta
 
 We assume that you have already provisioned the service. If you haven’t done that yet, see [Configure search in the Azure Preview Portal]() to get started.
 
-+ [Step 1: Create the index][] 
-+ [Step 2: Add documents][]
-+ [Step 3: Query an index][]
-+ [Step 4: Update or delete indexes and documents][]
-+ [Choosing a document store][]
++ [Step 1: Create the index](#sub-1)
++ [Step 2: Add documents](#sub-2)
++ [Step 3: Query an index](#sub-3)
++ [Step 4: Update or delete indexes and documents](#sub-4)
++ [Choosing a document store](#sub-5)
 
 
 ## Step 1: Create the index
@@ -29,7 +29,7 @@ We recommend adding documents in batches to improve throughput. You can batch up
 
 There is an overall status code for the POST or PUT request.  Status codes are either HTTP 200 (Success) or HTTP 207. In addition to the status code for the HTTP request, Azure Search maintains a status property for each document. Given a batch upload, you need a way to get per-document status that indicates whether the insert succeeded or failed for each document. The status property provides that information. It will be set to false if the document failed to load.
 
-Under heavy load, it’s not uncommon to have some upload failures. Should this occur, the overall status code is 207, indicating a partial success, and the documents that failed indexing will have the 'status' property set to false.
+Under heavy load, it's not uncommon to have some upload failures. Should this occur, the overall status code is 207, indicating a partial success, and the documents that failed indexing will have the 'status' property set to false.
 
 > [WACOM.NOTE] When the service receives documents, they are queued up for indexing and may not be immediately included in search results. When not under a heavy load, documents are typically indexed within a few seconds.
 
@@ -55,17 +55,17 @@ When designing your search application, one of the more important decisions invo
 
 +	Indexing can take longer if it has to compete for system resources engaged in continuous query operations.
 
-The  design pattern that is most typical for Azure Search is to use an external data store for documents, and store the index with the Search service. If your data changes rapidly, an important requirement is execute incremental changes as quickly as possible, which often means storing the document separately in a cache.
+The design pattern that is most typical for Azure Search is to use an external data store for documents, and store the index with the Search service. If your data changes rapidly, an important requirement is execute incremental changes as quickly as possible, which often means storing documents separately in a cache.
 
-As a counterpoint, if your application workloads consist of more reads than writes, using a search service as the data store can be a viable solution. If you consider this approach, we strongly recommend using alternative storage, such as Azure BLOB storage, for images or static data. A storage-only service will be naturally more cost effective than one that both stores and processes requests.
+As a counterpoint, if your application workloads consist of more reads than writes, using a search service as the data store can be a viable solution. If you consider this approach, we strongly recommend using alternative storage, such as Azure BLOB storage, for images or video files. A storage-only service will be naturally more cost effective than one that both stores and processes requests.
 
 
 <!--Anchors-->
-[Step 1: Create the index]: #subheading-1
-[Step 2: Add documents]: #subheading-2
-[Step 3: Query an index]: #subheading-3
-[Step 4: Update or delete indexes and documents]: #subheading-4
-[Choosing a document store]: #subheading-5
+[Step 1: Create the index]: #sub-1
+[Step 2: Add documents]: #sub-2
+[Step 3: Query an index]: #sub-3
+[Step 4: Update or delete indexes and documents]: #sub-4
+[Choosing a document store]: #sub-5
 
 
 <!--Image references-->
