@@ -4,6 +4,10 @@
 
 #Azure Machine Learning Sample: Ranking movie tweets based on their predicted popularity
 
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Sample Experiment - Ranking of Movie Tweets According to their Future Popularity - Development
+
 ##Problem description
 
 Tweet popularity analysis is a hot problem in today's information technology realm. We are solving an example challenge, posted on [ACM RecSys conference](http://recsys.acm.org/), in this experiment. 
