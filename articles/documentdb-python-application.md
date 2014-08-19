@@ -1,7 +1,7 @@
-<properties title="Build a web application with Python & Flask (MVC) using DocumentDB" pageTitle="Build a web application with Python & Flask (MVC) using DocumentDB | Azure" description="This walkthrough shows you how to use DocumentDB to store and access data from an Python web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="big-data" documentationCenter=""  authors="hanwo" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Build a web application with Python & Flask (MVC) using DocumentDB" pageTitle="Build a web application with Python & Flask (MVC) using DocumentDB | Azure" description="This walkthrough shows you how to use DocumentDB to store and access data from an Python web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="big-data" documentationCenter=""  authors="hawong" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 
-<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanwo" />
+<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hawong" />
 
 <a name="_Toc395888515"></a><a name="_Toc395809324">Build a web application with Python & Flask (MVC) using DocumentDB</a>
 ===========================================================================================================================================
@@ -37,7 +37,7 @@ You will learn:
 By following this walkthrough, you will build a simple voting
 application that allows you to vote for a poll.
 
-![Alt text](../media/documentdb-python-application/image1.png)
+![Alt text](./media/documentdb-python-application/image1.png)
 
 <a name="_Toc395888520"></a><a name="_Toc395809329">Prerequisites</a>
 
@@ -63,28 +63,28 @@ To provision a DocumentDB database account in Azure, open the Azure
 Management Portal and either Click the Azure Gallery tile on the
 homepage or click “+” in the lower left hand corner of the screen.
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image2.png)
+![Alt text](./media/documentdb-python-application/image2.png)
 
 
 This will open the Azure Gallery, where you can select from the many
 available Azure services. In the Gallery, select “Data, storage and
 backup” from the list of categories.
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image3.png)
+![Alt text](./media/documentdb-python-application/image3.png)
 
 From here, select the option for Azure DocumentDB
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image4.png)
+![Alt text](./media/documentdb-python-application/image4.png)
 
 Then select “Create” from the bottom of the screen
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image5.png)
+![Alt text](./media/documentdb-python-application/image5.png)
 
 This will open up the “New DocumentDB” blade where you can specify the
 name, region, scale, resource group and other settings for your new
 account.
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image6.png)
+![Alt text](./media/documentdb-python-application/image6.png)
 
 Once you’re done supplying the values for your account, Click “Create”
 and the provisioning process will begin creating your database account.
@@ -93,14 +93,14 @@ appear in the notifications area of the portal and the tile on your
 start screen (if you selected to create one) will change to show the
 completed action.
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image7.png)
+![Alt text](./media/documentdb-python-application/image7.png)
 
 Once provisioning is complete, clicking the DocumentDB tile from the
 start screen will bring up the main blade for this newly created
 DocumentDB account.
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image8.png)
-![Alt text](/articles/media/documentdb-python-sampleapplication/image9.png)
+![Alt text](./media/documentdb-python-application/image8.png)
+![Alt text](./media/documentdb-python-application/image9.png)
 
 
 
@@ -122,7 +122,7 @@ environment for your project.
 For those new to Flask, it is a web framework that helps us build web
 applications in Python faster. [Click here to access Flask tutorials][].
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image10.png)
+![Alt text](./media/documentdb-python-application/image10.png)
 
 <a name="_Toc395888520"></a><a name="_Toc395809329">Add flask packages to your project</a>
 ==================================
@@ -145,7 +145,7 @@ important)**:
     flask-babel==0.8
     flup
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image11.png)
+![Alt text](./media/documentdb-python-application/image11.png)
 
 **Note:** In rare cases, you may see a failure in the output window. If
 this happens, check if the error is related to cleanup. Sometimes the
@@ -163,7 +163,7 @@ continue.
 site with clicking **F5** This will launch the flask development server
 and start your web browser. You should see the following page:
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image12.png)
+![Alt text](./media/documentdb-python-application/image12.png)
 
 <a name="_Toc395888523"></a><a name="_Toc395809332">Adding DocumentDB to your project</a>
 =========================================================================================
@@ -174,14 +174,14 @@ pip.
 Expand the Python Environments node in Solution Explorer, right click on
 your environment and select “Install Python Package…”
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image13.png)
+![Alt text](./media/documentdb-python-application/image13.png)
 
 Type in “pydocumentdb” which is the name of the PyPi package. You can
 optionally provide a known version if you want to control which version
 you would like to install, leaving version out will ensure that latest
 stable version is installed.
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image14.png)
+![Alt text](./media/documentdb-python-application/image14.png)
 
 This will download and install the pydocumentdb package in to your
 environment, once complete you should see pydocumentdb listed as a
@@ -416,7 +416,7 @@ takes care of the connection between the views and the config.py file.
 After following the above mentioned steps, this is how your solution
 explorer should look like
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image15.png)
+![Alt text](./media/documentdb-python-application/image15.png)
 
 <a name="_Toc395888534"></a><a name="_Toc395809343"></a><a name="_Toc395637774">Run your application locally</a>
 ============================
@@ -424,16 +424,16 @@ explorer should look like
 Hit F5 or the run button in visual studio and you should see the
 following on your screen.
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image16.png)
+![Alt text](./media/documentdb-python-application/image16.png)
 
 Click on vote and select your option
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image17.png)
+![Alt text](./media/documentdb-python-application/image17.png)
 
 For every vote you cast it will increment the appropriate counter. When
 you vote the next time you will be able to see the results.
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image18.png)
+![Alt text](./media/documentdb-python-application/image18.png)
 
 </h1>
 <a name="_Toc395888534"></a><a name="_Toc395809343"></a><a name="_Toc395637774">Deploy application to Azure Websites</a>
@@ -444,13 +444,13 @@ DocumentDB we’re going to deploy this to Azure Websites. Right Click on
 the Project in Solution Explorer (make sure you’re not still running it
 locally) and select Publish.
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image19.png)
+![Alt text](./media/documentdb-python-application/image19.png)
 
 
 Configure your Azure Website by providing your credentials and creating
 a new website/reusing an old website.
 
-![Alt text](/articles/media/documentdb-python-sampleapplication/image20.png)
+![Alt text](./media/documentdb-python-application/image20.png)
 
 
 In a few seconds, Visual Studio will finish publishing your web
