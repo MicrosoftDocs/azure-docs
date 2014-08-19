@@ -4,6 +4,10 @@
 
 #Azure Machine Learning sample: Network intrusion detection
 
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Sample Experiment - Network Intrusion Detection - Development
+
 ## Problem description ##
 
 The demo uses various network features to detect which network activities are part of an intrusion/attack. This binary classification problem is not too difficult as the features are quite predictive of a class and the classes are fairly balanced.  As several features are part of the label, it is important to remove any parts of the label prior to training a classifier. 
