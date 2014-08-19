@@ -4,9 +4,14 @@
 
 #Azure Machine Learning Sample: Credit risk prediction 
 
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Sample Experiment - German Credit - Development
+
+*For a detailed walkthrough of how to create and use a simplified version of this experiment, see [Develop a predictive solution with Azure Machine Learning](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).*
+
 The purpose of this experiment is to predict credit risk based on information given on a credit application. The prediction is a binary value: low risk or high risk. 
 
-For a detailed walkthrough of how to create and use a simplified version of this experiment, see **Developing a Predictive Solution with Azure ML**.
 
 <!-- Removed until the Training and Scoring parts are fixed
 This example is divided into 3 sample experiments:

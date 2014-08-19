@@ -4,6 +4,10 @@
 
 #Azure Machine Learning sample: Finding similar companies
 
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Sample Experiment - S & P 500 Company Clustering - Development
+
 ## Problem Description ##
 Cluster companies from S&P 500 index based on Wikipedia articles of each company. This model could be used, for example, to label up-and-coming companies based on how similar they are to existing S&P 500 companies.
 
