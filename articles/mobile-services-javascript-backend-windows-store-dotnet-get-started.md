@@ -10,6 +10,10 @@ This tutorial shows you how to add a cloud-based backend service to a universal 
 
 In this tutorial, you will create both a new mobile service and a simple *To do list* app that stores app data in the new mobile service. The mobile service that you will create uses JavaScript for server-side business logic. To create a mobile service that lets you write your server-side business logic in the supported .NET languages using Visual Studio, see the .NET backend version of this topic.
 
+>[WACOM.NOTE]This topic shows you how to create a new mobile service project and universal Windows app by using the Azure Management Portal. By using Visual Studio 2013, you can also add a new mobile service project to an existing Visual Studio solution. For more information, see [Quickstart: Add a mobile service (JavaScript backend)](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn263180.aspx).
+
+>To add a mobile service to an Windows Phone 8.0 or Windows Phone Store 8.1 app project, see [Get started with data for Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data).
+
 [WACOM.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
 To complete this tutorial, you need the following:
