@@ -7,6 +7,12 @@
 
 ## Notes for 8/21/2014 release ##
 
+* We are adding the following new WebHCat configuration (HIVE-7155) that sets the default memory limit for a Templeton controller job to 1GB (the previous default value was 512MB):
+	
+	* templeton.mapper.memory.mb (=1024)
+	* This change addresses the following error which certain Hive queries had run into due to lower memory limits: “Container is running beyond physical memory limits”.
+	* To revert back to old defaults, you can set this configuration value to 512 through PowerShell SDK at cluster creation time.
+
 * The host name of zookeeper role was changed to zookeeper. This affects name resolution within the cluster, but doesn't affect external REST APIs. If you have components that use zookeepernode host name you will need to update them to use new name instead. The new names for the three zookeeper nodes are: 
 	* zookeeper0 
 	* zookeeper1 
