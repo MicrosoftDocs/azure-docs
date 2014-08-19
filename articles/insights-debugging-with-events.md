@@ -1,8 +1,6 @@
 <properties title="How to debug with events" pageTitle="How to debug with events" description="Learn how to see events in Azure." authors="hanikn"  />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanikn" />
-
-# Monitor the events impacting your Azure websites or resource groups 
+# Monitor the events impacting your Azure resources or resource groups 
 
 1.	Sign in to the [Azure Portal Preview](https://portal.azure.com/). 
 
@@ -10,7 +8,7 @@
 
    ![Browse Hub](./media/insights-debugging-with-events/Insights_Browse.png)
 	
-3. Then choose either **Resource groups** or **Websites** (depending on which events you are interested in). For illustration purposes, the screenshots in this document include the Event for resource groups.
+3. Then choose any resource (depending on which events you are interested in). For illustration purposes, the screenshots in this document include the Event for resource groups.
 
 4.	On the **Resource groups** blade, click on the name of the resource group. This will navigate you to the resource group blade.
 
