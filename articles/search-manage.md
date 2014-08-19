@@ -9,7 +9,7 @@ Azure Search is a cloud-based service and HTTP-based API that can be used in cus
 
 This article explains how to administer a Search service in Microsoft Azure.
 
-As noted, the new Preview Portal is required for administrative tasks. Azure Search is not available on earlier versions of the portal. A management API will be available soon to allow for scripting of common management tasks.  
+As noted, the new Preview portal is required for administrative tasks. Azure Search is not available on earlier versions of the portal. A management API will be available soon to allow for scripting of common management tasks.  
 
 <!--TOC-->
 
@@ -21,9 +21,9 @@ As noted, the new Preview Portal is required for administrative tasks. Azure Sea
 + [Scale up or down](#sub-6)
 + [Start or Stop the Service](#sub-7)
 
-## Add search service to your subscription
+<h2 id="sub-1">Add search service to your subscription</h2>
 
-As the administrator, you can add Search to your existing Azure subscription using the new [Azure Preview Portal](https://portal.azure.com). Only administrators can add features to a subscription. When setting up your service, there are two pricing tiers to choose from.
+As the administrator, you can add Search to your existing Azure subscription using the new [Azure Preview portal](https://portal.azure.com). Only administrators can add features to a subscription. When setting up your service, there are two pricing tiers to choose from.
 
 At no charge to existing subscribers, you can use a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects. The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed. There are no performance guarantees with the shared service, so if you’re building a production search application, consider standard search instead.
 
@@ -34,10 +34,10 @@ To plan for capacity and understand the billing impact, we recommend these links
 +	[Limits and constraints](http://msdn.microsoft.com/en-us/library/dn798934.aspx)
 +	[Pricing Details](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-When you are ready to sign up, see [Configure Search in the Azure Preview Portal](../search-configure/).
+When you are ready to sign up, see [Configure Search in the Azure Preview portal](../search-configure/).
 
 
-## Administrative tasks 
+<h2 id="sub-2">Administrative tasks</h2>
 
 Although some services can have co-administrators, an Azure Search service has one administrator per subscription. You need to be an administrator to perform the tasks outlined in this section.
 Besides adding Search to the subscription, an administrator is responsible for these additional tasks:
@@ -48,7 +48,7 @@ Besides adding Search to the subscription, an administrator is responsible for t
 +	Scale up or down (applies to standard search only)
 +	Start or stop the service
 
-## Service URL
+<h2 id="sub-3">Service URL</h2>
 
 The service URL is defined as a fixed property when you create the service; it cannot be changed later. 
 
@@ -56,7 +56,7 @@ Developers who are building search applications will need to know the service UR
 
 To get the service URL from the service dashboard:
 
-1.	Sign in to the [Azure Preview Portal](https://portal.azure.com).
+1.	Sign in to the [Azure Preview portal](https://portal.azure.com).
 2.	Click **Browse** | **Everything** | **Search services**.
 3.	Click the name of your search service to open the dashboard.
 4.	Click **PROPERTIES** to slide open a property page. The service URL is at the top of the page. You can pin this page for fast access later.
@@ -69,7 +69,7 @@ The api-version is not displayed in the portal pages, so that is not information
 
 
 <!---->
-## Manage the api-keys
+<h2 id="sub-4">Manage the api-keys</h2>
 
 Developers who are building search applications will need to have an api-key in order to access Search. Every HTTP request to your search service will need an api-key that was generated specifically for your service. This api-key is the sole mechanism for authenticating to your search service URL.
 
@@ -88,7 +88,7 @@ To get or regenerate api-keys, open the service dashboard. Click **KEYS** to sli
 
 
 <!---->
-## Monitor resource usage
+<h2 id="sub-5">Monitor resource usage</h2>
 
 In this public preview, resource monitoring is limited to the information shown in the service dashboard and a few metrics that you can obtain by querying the service.
 
@@ -103,7 +103,7 @@ Using the Search Service API, you can get a count on documents and indexes. Ther
 
 
 <!---->
-## Scale up or down
+<h2 id="sub-6">Scale up or down</h2>
 
 Every search service starts with a minimum of one replica and one partition. If you signed up for dedicated resources using the Standard pricing tier, you can click the **SCALE** tile in the service dashboard to readjust the number of partitions and replicas used by your service.
 
@@ -141,7 +141,7 @@ To help with future planning, you might want to check storage (using [Get Index 
 
 
 <!---->
-## Start or Stop the Service
+<h2 id="sub-7">Start or Stop the Service</h2>
 
 You can start, stop, or even delete the service using commands in the service dashboard.
 

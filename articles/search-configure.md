@@ -1,10 +1,10 @@
 <properties title="Configure Search in the Azure Preview Portal" pageTitle="Configure Search in the Azure Preview Portal" description="Configure Search in the Azure Preview Portal" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" videoId="" scriptId="" />
 
-# Configure Search in the Azure Preview Portal
+# Configure Search in the Azure Preview portal
 
 [WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
-Microsoft Azure Search (Public Preview) is available in the new Preview Portal. As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
+Microsoft Azure Search (Public Preview) is available in the new Preview portal. As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
 
 <!--Table of contents -->
 
@@ -14,8 +14,7 @@ Microsoft Azure Search (Public Preview) is available in the new Preview Portal. 
 + [Explore Search service configuration pages](#sub-4)
 + [Try it out](#next-steps)
 
-
-## Start with the free service
+<h2 id="sub-1">Start with the free service</h2>
 
 Subscribers automatically get free access to a shared, multitenant Search service that you can use for learning purposes, proof-of-concept testing, or small development search projects. Sign up for the free version using these steps.
 
@@ -78,7 +77,7 @@ In a few minutes, the service is created. You can return to the configuration se
 Continue on to [Test service operations](#sub-3) for instructions on how to connect to the service using these values.
 
 
-## Upgrade to standard search
+<h2 id="sub-2">Upgrade to standard search</h2>
 
 Standard search gets you dedicated resources in an Azure data center that can be used only by you. Search workloads require both storage and service replicas. When you sign up for standard search, you can optimize service configuration to use more of whatever resource is the most important to your scenario.
 
@@ -90,7 +89,7 @@ Setting up dedicated resources can take a while (15 minutes or longer).
 
 **Step 1 - Create a new service with Pricing Tier set to Standard**
 
-1. Sign in to [Azure Preview Portal](https://portal.azure.com) using your existing subscription. 
+1. Sign in to [Azure Preview portal](https://portal.azure.com) using your existing subscription. 
 
 2. Click **New** at the bottom of the page.
 
@@ -123,7 +122,7 @@ Additional replicas and partitions are billed in search units. The total search 
  ![][15]
 
   
-## Test service operations
+<h2 id="sub-3">Test service operations</h2>
 
 Confirming that your service is operational and accessible from a client application is the final step in configuring Search. This procedure uses Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests and view responses. By using Fiddler, you can test the API immediately, without having to write any code. 
 
@@ -326,11 +325,11 @@ You can also query the system to get document counts and storage consumption. On
 
  	![][21]
 
-## Explore Search service configuration pages
+<h2 id="sub-4">Explore Search service configuration pages</h2>
 
 If you are inheriting a service created by someone else or need help with page navigation, follow these steps to locate the service dashboard.
 
-1.	Sign in to [Azure Preview Portal](https://portal.azure.com) using your existing subscription. 
+1.	Sign in to [Azure Preview portal](https://portal.azure.com) using your existing subscription. 
 2.	Click **Browse** | **Everything**.
 
  	![][22]
@@ -344,7 +343,7 @@ If you are inheriting a service created by someone else or need help with page n
  	![][23]
 
 <!--Next steps and links -->
-## Try it out
+<h2 id="next-steps">Try it out</h2>
 
 Ready for the next step? The following links take you to additional material that shows you how to build and manage search applications that use Azure Search.
 
