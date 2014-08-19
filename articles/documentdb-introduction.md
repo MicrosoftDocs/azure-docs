@@ -75,4 +75,4 @@ To get started with Azure DocumentDB, explore these resources:
 -	[Create a database account](/documentation/articles/documentdb-create-database-account/)
 -	[Get started with DocumentDB](/documentation/articles/documentdb-get-started/)
 
-[1]: ./media/documentdb-introduction/intro1.png
+[1]: ./media/documentdb-introduction/intro.png
