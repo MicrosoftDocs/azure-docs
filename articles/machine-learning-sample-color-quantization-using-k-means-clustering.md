@@ -4,6 +4,10 @@
 
 #Azure Machine Learning Sample: Color quantization using K-Means clustering
 
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Sample Experiment - Color Based Image Compression using K-Means Clustering - Development
+
 ##Problem description
 
 [Color quantization](http://en.wikipedia.org/wiki/Color_quantization "Color quantization") is the process of reducing the number of distinct colors in an image hence, compressing it. Normally, the intent is to preserve the color appearance of the image as much as possible, while reducing the number of colors, whether for memory limitations or compression. 
