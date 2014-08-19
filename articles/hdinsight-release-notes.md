@@ -13,6 +13,12 @@
 	* This change addresses the following error which certain Hive queries had run into due to lower memory limits: “Container is running beyond physical memory limits”.
 	* To revert back to old defaults, you can set this configuration value to 512 through PowerShell SDK at cluster creation time.
 
+* The host name of zookeeper role was changed to zookeeper. This affects name resolution within the cluster, but doesn't affect external REST APIs. If you have components that use zookeepernode host name you will need to update them to use new name instead. The new names for the three zookeeper nodes are: 
+	* zookeeper0 
+	* zookeeper1 
+	* zookeeper2 
+* HBase version support matrix is updated. Only version HDInsight 3.1 (HBase version 0.98) is supported for production HBase workloads. Version 3.0 that was available for preview will not be supported moving forward. During transition period customers can still create clusters of 3.0 version. 
+
 ## Notes for 7/28/2014 release ##
 
 * **HDInsight Available in New Regions**: With this release, we have expanded HDInsight geographical presence to three new regions. HDInsight customers can now create clusters in these regions. 

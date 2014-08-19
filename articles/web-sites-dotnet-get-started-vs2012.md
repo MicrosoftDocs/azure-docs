@@ -1,16 +1,16 @@
-<properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Get started with Azure Web Sites and ASP.NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Get started with Azure Websites and ASP.NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra" />
 
 
 
-# Get started with Azure Web Sites and ASP.NET
+# Get started with Azure Websites and ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
 
 <div class="dev-callout"><strong>Note</strong><p>A <a href="/en-us/develop/net/tutorials/get-started/">newer version of this tutorial</a> is available. You can still follow this version if you want to use Visual Studio 2012, but it does not show all of the latest Azure SDK features.</p></div>
 
-This tutorial shows how to deploy an ASP.NET web application to an Azure Web Site by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express. If you prefer, you can follow the tutorial steps by using Visual Studio 2010 or Visual Web Developer Express 2010.
+This tutorial shows how to deploy an ASP.NET web application to an Azure Website by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express. If you prefer, you can follow the tutorial steps by using Visual Studio 2010 or Visual Web Developer Express 2010.
 
 You can open an Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Azure entirely for free.
 
@@ -19,7 +19,7 @@ This tutorial assumes that you have no prior experience using Azure. On completi
 You'll learn:
 
 * How to enable your machine for Azure development by installing the Azure SDK.
-* How to create a Visual Studio ASP.NET MVC 4 project and publish it to an Azure Web Site.
+* How to create a Visual Studio ASP.NET MVC 4 project and publish it to an Azure Website.
 
 The following illustration shows the completed application:
 
@@ -37,11 +37,11 @@ The following illustration shows the completed application:
 
 [WACOM.INCLUDE [install-sdk-2012-only](../includes/install-sdk-2012-only.md)]
 
-<h2><a name="setupwindowsazure"></a><span class="short-header">Create site</span>Create a web site</h2>
+<h2><a name="setupwindowsazure"></a><span class="short-header">Create site</span>Create a website</h2>
 
-The next step is to create the Azure web site.
+The next step is to create the Azure website.
 
-1. In the [Azure Management Portal][PreviewPortal], click **Web Sites**, and then click **New**.
+1. In the [Azure Management Portal][PreviewPortal], click **Websites**, and then click **New**.
 
 ![New web site][WebSiteNew]
 
@@ -49,22 +49,22 @@ The next step is to create the Azure web site.
 	
 	![Quick create][ClickQuickCreate]
 
-3. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows **example1**, but if someone has already taken that string for a URL, you need to enter a different value.
+3. In the **Create Website** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows **example1**, but if someone has already taken that string for a URL, you need to enter a different value.
 
 4. In the **Region** drop-down list, choose the region that is closest to you.
-This setting specifies which data center your web site will run in. 
+This setting specifies which data center your website will run in. 
 
-5. Click the **Create Web Site** arrow.
+5. Click the **Create Website** arrow.
 
 	![Create a new web site](./media/web-sites-dotnet-get-started-vs2012/CreateWebsite.png)
 
-	The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon.
+	The Management Portal returns to the Websites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Websites** icon.
 	
 	![Web Sites page of Management Portal, web site created][WebSiteStatusRunning]
 
 <h2><a name="createmvc4app"></a><span class="short-header">Create the app</span>Create an ASP.NET MVC 4 application</h2>
 
-You have created an Azure Web Site, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Azure.
+You have created an Azure Website, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Azure.
 
 ### Create the project
 
@@ -108,9 +108,9 @@ The **Publish Web** wizard opens.
 
 The **Import Publish Profile** dialog box appears.
 
-3. If you have not previously added your Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from an Azure web site** will include your web site.
+3. If you have not previously added your Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from an Azure website** will include your website.
     
-	- In the **Import Publish Profile** dialog box, click **Import from an Azure web site**, and then click **Add Azure subscription**. 
+	- In the **Import Publish Profile** dialog box, click **Import from an Azure website**, and then click **Add Azure subscription**. 
     
 	![add Azure subscription](./media/web-sites-dotnet-get-started-vs2012/rzAddWAsub.png)
     
@@ -133,7 +133,7 @@ The **Import Publish Profile** dialog box appears.
 	> [WACOM.NOTE]
 	> The .publishsettings file contains your  credentials (unencoded) that are used to administer your Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then  delete it once the import has completed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your Azure services.
 
-4. In the **Import Publish Profile** dialog box, select **Import from an Azure web site**, select your web site from the drop-down list, and then click **OK**.
+4. In the **Import Publish Profile** dialog box, select **Import from an Azure website**, select your website from the drop-down list, and then click **OK**.
 
 	![Import Publish Profile][ImportPublishProfile]
 
@@ -164,36 +164,36 @@ Click **Next**.
 
 	![Output window reporting successful deployment][PublishOutput]
 
-11. Upon successful deployment, the default browser automatically opens to the URL of the deployed web site.
+11. Upon successful deployment, the default browser automatically opens to the URL of the deployed website.
 The application you created is now running in the cloud.
 
 	![Web site running in Azure][DeployedWebSite]
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
-In this tutorial, you've seen how to deploy a simple web application to an Azure Web Site. Other resources are available to show you how to manage, scale, and troubleshoot the site, how to add database, authentication, and authorization functionality, and  how to decide if your application should run in an Azure Cloud Service instead of an Azure Web Site.
+In this tutorial, you've seen how to deploy a simple web application to an Azure Website. Other resources are available to show you how to manage, scale, and troubleshoot the site, how to add database, authentication, and authorization functionality, and  how to decide if your application should run in an Azure Cloud Service instead of an Azure Website.
 
-<h3>How to manage a web site</h3>
+<h3>How to manage a website</h3>
 When you're done with the site, you can delete it, and at times you might want to take it offline temporarily or change site settings. You can do some of these functions right from **Server Explorer** in Visual Studio.
 
 ![Azure Web Sites in Server Explorer](./media/web-sites-dotnet-get-started-vs2012/ServerExplorerWSSettings.png)
 
 ![Web Site Configuration in Visual Studio](./media/web-sites-dotnet-get-started-vs2012/WSConfigurationInVS.png)
 
-To delete your web site, you can use the Azure Management Portal. The following screen shot shows **Stop**, **Restart**, and **Delete** buttons in the **Dashboard** tab of the management portal.
+To delete your website, you can use the Azure Management Portal. The following screen shot shows **Stop**, **Restart**, and **Delete** buttons in the **Dashboard** tab of the management portal.
 
 ![Management Portal Dashboard Tab](./media/web-sites-dotnet-get-started-vs2012/MPStopStartDelete.png)
 
 You can change site settings on the **Configure** tab. For more information, see [How to Manage Web Sites](/en-us/manage/services/web-sites/how-to-manage-websites/).
 
-<h3>How to scale a web site</h3>
+<h3>How to scale a website</h3>
 When your site is public and it starts to get more traffic, response times might slow down. To remedy that, you can easily add server resources in the **Scale** tab of the management portal.
 
 ![Management Portal Scale Tab](./media/web-sites-dotnet-get-started-vs2012/MPScale.png)
 
-For more information, see [How to Scale a Web Site](/en-us/manage/services/web-sites/how-to-scale-websites/). (Adding server resources to scale a web site is not free.)
+For more information, see [How to Scale a Web Site](/en-us/manage/services/web-sites/how-to-scale-websites/). (Adding server resources to scale a website is not free.)
 
-<h3>How to troubleshoot a web site</h3>
+<h3>How to troubleshoot a website</h3>
 You might want to look at trace or log output for help with troubleshooting. Visual Studio provides built-in tooling to make it easy to view Azure logs as they are generated in real time.
 
 ![Logs in Visual Studio](./media/web-sites-dotnet-get-started-vs2012/LogsInVS.png)
@@ -201,10 +201,10 @@ You might want to look at trace or log output for help with troubleshooting. Vis
 For more information, see [Troubleshooting Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 <h3>How to add database and authorization functionality</h3>
-Most production web sites use a database and restrict some site functions to certain authorized users. For a tutorial that shows how to get started with database access, authentication, and authorization, see [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site][WebWithSQL].
+Most production websites use a database and restrict some site functions to certain authorized users. For a tutorial that shows how to get started with database access, authentication, and authorization, see [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site][WebWithSQL].
 
 <h3>How to decide if your application should run in a Cloud Service</h3>
-In some scenarios you might want to run your application in an Azure Cloud Service instead of an Azure Web Site. For more information, see [Azure Execution Models](/en-us/develop/net/fundamentals/compute/) and [Azure Web Sites, Cloud Services and Virtual Machines comparison](http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/). For a tutorial series that shows how to create a multi-tier ASP.NET web application and deploy it to a Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+In some scenarios you might want to run your application in an Azure Cloud Service instead of an Azure Website. For more information, see [Azure Execution Models](/en-us/develop/net/fundamentals/compute/) and [Azure Web Sites, Cloud Services and Virtual Machines comparison](http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/). For a tutorial series that shows how to create a multi-tier ASP.NET web application and deploy it to a Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
 
 [Set Up the development environment]: #setupdevenv
 [Create a web site in Azure]: #setupwindowsazure

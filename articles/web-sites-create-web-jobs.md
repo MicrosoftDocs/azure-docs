@@ -1,10 +1,10 @@
-<properties linkid="web-sites-create-web-jobs" urlDisplayName="Use WebJobs to run background tasks in Microsoft Azure Web Sites" pageTitle="Use WebJobs to run background tasks in Microsoft Azure Web Sites" metaKeywords="Microsoft Azure Web Sites, Web Jobs, background tasks" description="Learn how to run background tasks in Microsoft Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="Use WebJobs to run background tasks in Microsoft Azure Web Sites" authors="timamm"  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
+<properties linkid="web-sites-create-web-jobs" urlDisplayName="Use WebJobs to run background tasks in Microsoft Azure Websites" pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Web Jobs, background tasks" description="Learn how to run background tasks in Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Use WebJobs to run background tasks in Microsoft Azure Websites" authors="timamm"  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
 
-#Use WebJobs to run background tasks in Microsoft Azure Web Sites#
+#Use WebJobs to run background tasks in Microsoft Azure Websites#
 
-Microsoft Azure Web Sites enables you to run programs or scripts in your web site in one of three ways: on demand, continuously, or on a schedule. There is no additional cost to use Microsoft Azure WebJobs unless you wish to enable the Always On feature described later in this article.
+Microsoft Azure Websites enables you to run programs or scripts in your website in one of three ways: on demand, continuously, or on a schedule. There is no additional cost to use Microsoft Azure WebJobs unless you wish to enable the Always On feature described later in this article.
 
 
 ## Table of Contents ##
@@ -49,7 +49,7 @@ The following file types are accepted as runnable scripts:
 	
 4. In the **How to Run** box, choose **Run on Demand**.
 	
-5. Check the check mark on the bottom right of the dialog to upload the script to your web site. The name you specified for the task appears in the list:
+5. Check the check mark on the bottom right of the dialog to upload the script to your website. The name you specified for the task appears in the list:
 	
 	![Task List][WebJobsList]
 	
@@ -69,7 +69,7 @@ The following file types are accepted as runnable scripts:
 > [WACOM.NOTE] If your website runs on more than one instance, a continuously running task will run on all of your instances. On demand and scheduled tasks run on a single instance selected for load balancing by Microsoft Azure.
 
 > [WACOM.NOTE]
-> For continuous tasks, it is recommended that you enable **Always On** on the Configure page for your web site. The Always On feature, available in Basic and Standard mode, prevents web sites from being unloaded, even if they have been idle for some time. If your web site is always loaded, your continuously running task may run more reliably. 
+> For continuous tasks, it is recommended that you enable **Always On** on the Configure page for your website. The Always On feature, available in Basic and Standard mode, prevents websites from being unloaded, even if they have been idle for some time. If your website is always loaded, your continuously running task may run more reliably. 
 
 <a name="CreateScheduled"></a>
 ##Create a Scheduled Task##
@@ -163,7 +163,7 @@ Scheduled jobs can be further configured in the Azure Scheduler portal.
 <a name="WHPNotes"></a>
 ##Notes
 	
-- As of March 2014, web sites in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the web site's portal is not open in Azure. Requests to the actual site will not reset this.
+- As of March 2014, websites in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the website's portal is not open in Azure. Requests to the actual site will not reset this.
 
 - Code for a continuous job needs to be written to run in an endless loop.
 

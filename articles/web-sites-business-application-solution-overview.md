@@ -1,12 +1,12 @@
-<properties linkid="websites-business-application" urlDisplayName="Create a Line-of-Business Application on Azure Web Sites" pageTitle="Create a Line-of-Business Application on Azure Web Sites" metaKeywords="Web Sites" description="This guide provides a technical overview of how to use Azure Web Sites to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" title="Create a Line-of-Business Application on Azure Web Sites" authors="jroth" />
+<properties linkid="websites-business-application" urlDisplayName="Create a Line-of-Business Application on Azure Websites" pageTitle="Create a Line-of-Business Application on Azure Websites" metaKeywords="Web Sites" description="This guide provides a technical overview of how to use Azure Websites to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" title="Create a Line-of-Business Application on Azure Websites" authors="jroth" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
 
 
-# Create a Line-of-Business Application on Azure Web Sites
+# Create a Line-of-Business Application on Azure Websites
 
-This guide provides a technical overview of how to use Azure Web Sites to create line-of-business applications. For the purposes of this document, these applications are assumed to be intranet applications that should be secured for internal business use. There are two distinctive characteristics of business applications. These applications require authentication, typically against a corporate directory. And they normally require some access or integration with on-premises data and services. This guide focuses on building business applications on [Azure Web Sites][websitesoverview]. However, there are situations where [Azure Cloud Services][csoverview] or [Azure Virtual Machines][vmoverview] would be a better fit for your requirements. It is important to review the differences between these options in the topic [Azure Web Sites, Cloud Services, and VMs: When to use which?][chooseservice]. 
+This guide provides a technical overview of how to use Azure Websites to create line-of-business applications. For the purposes of this document, these applications are assumed to be intranet applications that should be secured for internal business use. There are two distinctive characteristics of business applications. These applications require authentication, typically against a corporate directory. And they normally require some access or integration with on-premises data and services. This guide focuses on building business applications on [Azure Web Sites][websitesoverview]. However, there are situations where [Azure Cloud Services][csoverview] or [Azure Virtual Machines][vmoverview] would be a better fit for your requirements. It is important to review the differences between these options in the topic [Azure Web Sites, Cloud Services, and VMs: When to use which?][chooseservice]. 
 
 The following areas are addressed in this guide:
 
@@ -18,7 +18,7 @@ The following areas are addressed in this guide:
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>This guide presents some of the most common areas and tasks that are aligned with public-facing .COM site development. However, there are other capabilities of Azure Web Sites that you can use in your specific implementation. To review these capabilities, also see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/">Global Web Presence</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">Digital Marketing Campaigns</a>.</p>
+<p>This guide presents some of the most common areas and tasks that are aligned with public-facing .COM site development. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/">Global Web Presence</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">Digital Marketing Campaigns</a>.</p>
 </div>
 
 ##<a name="benefits"></a>Consider the Benefits
@@ -49,8 +49,8 @@ For a full walkthrough of these steps, see [Adding Sign-On to Your Web Applicati
 
 Once the directory is created and populated, you must create web applications that require authentication and then integrate them with the directory. These steps are covered in the following two sections.
 
-##<a name="createintranetsite"></a>Create an Azure Web Site that Supports Authentication
-In the Global Web Presence scenario, we discussed various options for creating and deploying a new web site. If you are new to Azure Web Sites, it is a good idea to [review that information][scenarioglobalweb]. An ASP.NET application in Visual Studio is a common choice for an intranet web application that uses window authentication. One of the reasons for this is the tight integration and support for this scenario provided by ASP.NET and Visual Studio.
+##<a name="createintranetsite"></a>Create an Azure Website that Supports Authentication
+In the Global Web Presence scenario, we discussed various options for creating and deploying a new website. If you are new to Azure Websites, it is a good idea to [review that information][scenarioglobalweb]. An ASP.NET application in Visual Studio is a common choice for an intranet web application that uses window authentication. One of the reasons for this is the tight integration and support for this scenario provided by ASP.NET and Visual Studio.
 
 For example, when creating an ASP.NET MVC 4 project in Visual Studio, you have the option to create an **Intranet Application** in the project creation dialog.
 
@@ -75,7 +75,7 @@ One method is to use the [Identity and Access Tool][identityandaccess] (which yo
 The final configuration change that must be made is on the **Configuration** tab of the **Identity and Access** dialog. You must select the **Enable web farm cookies** checkbox. For a detailed walkthrough of these steps, see [Adding Sign-On to Your Web Application Using Azure AD][adsso].
 
 ####<a name="registerwaadapp"></a>Registering Applications in Azure Active Directory:
-In order to fill out the **Providers** tab, you need to register your application with Azure Active Directory. On the Azure Management Portal, in the **Active Directory** section, select your directory and then go to the **Applications** tab. This provides an option to add your Azure Web Site by URL. Note that when you go through these steps, you initially set the URL to the localhost address provided for local debugging in Visual Studio. Later you change this to the actual URL of your web site when you deploy.
+In order to fill out the **Providers** tab, you need to register your application with Azure Active Directory. On the Azure Management Portal, in the **Active Directory** section, select your directory and then go to the **Applications** tab. This provides an option to add your Azure Website by URL. Note that when you go through these steps, you initially set the URL to the localhost address provided for local debugging in Visual Studio. Later you change this to the actual URL of your website when you deploy.
 
 ![BusinessApplicationsADIntegratedApps][BusinessApplicationsADIntegratedApps]
 
@@ -90,23 +90,23 @@ An alternate method to accomplish the previous steps is to use the [Microsoft AS
 
 If you are the administrator of that Active Directory domain, then select the **Provision this application in the Azure AD** checkbox. This will do the work of registering the application with Active Directory. If you are not the administrator, then uncheck that box and provide the information displayed to an administrator. That administrator can use the Management Portal to create an integrated application using the previous steps on the Identity and Access tool. For detailed steps on how to use the ASP.NET Tools for Azure Active Directory, see [Azure Authentication][azureauthtutorial].
 
-When managing your line-of-business application, you have the ability to use any of the supported source code control systems for deployment. However, because of the high level of Visual Studio integration in this scenario, it is more likely that Team Foundation Service (TFS) is your source control system of choice. If so, you should note that Azure Web Sites provides integration with TFS. In the Management Portal, go to the **Dashboard** tab of your web site. Then select **Set up deployment from source control**. Follow the instructions for using TFS. 
+When managing your line-of-business application, you have the ability to use any of the supported source code control systems for deployment. However, because of the high level of Visual Studio integration in this scenario, it is more likely that Team Foundation Service (TFS) is your source control system of choice. If so, you should note that Azure Websites provides integration with TFS. In the Management Portal, go to the **Dashboard** tab of your website. Then select **Set up deployment from source control**. Follow the instructions for using TFS. 
 
 ![BusinessApplicationsDeploy][BusinessApplicationsDeploy]
 
 ##<a name="servicebusrelay"></a>Use Service Bus to Integrate with On-Premises Resources
 Many line-of-business applications must integrate with on-premises data and services. There are multiple reasons why certain types of data cannot be moved to the Cloud. These reasons can be practical or regulatory. If you are in the planning stages of deciding what data to host in Azure and what data should remain on-premises, it is important to review the resources on the [Azure Trust Center][trustcenter]. Hybrid web applications run in Azure and access resources that must remain on-premises.
 
-When using Virtual Machines or Cloud Services, you can use a Virtual Network to connect applications in Azure with a corporate network. However, Web Sites does not support Virtual Networks, so the best way to perform this type of integration with Web Sites is through the use of the [Azure Service Bus Relay Service][sbrelay]. The Service Bus Relay service allows applications in the cloud to securely connect to WCF services running on a corporate network. Service Bus allows for this communication without opening firewall ports. 
+When using Virtual Machines or Cloud Services, you can use a Virtual Network to connect applications in Azure with a corporate network. However, Websites does not support Virtual Networks, so the best way to perform this type of integration with Websites is through the use of the [Azure Service Bus Relay Service][sbrelay]. The Service Bus Relay service allows applications in the cloud to securely connect to WCF services running on a corporate network. Service Bus allows for this communication without opening firewall ports. 
 
-In the diagram below, both the cloud application and the on-premises WCF service communicate with Service Bus through a previously created namespace. The on-premises WCF service has access to internal data and services that cannot be moved to the Cloud. The WCF service registers an endpoint in the namespace. The web site running in Azure connects to this endpoint in Service Bus as well. They only need to be able to make outgoing public HTTP requests to complete this step.
+In the diagram below, both the cloud application and the on-premises WCF service communicate with Service Bus through a previously created namespace. The on-premises WCF service has access to internal data and services that cannot be moved to the Cloud. The WCF service registers an endpoint in the namespace. The website running in Azure connects to this endpoint in Service Bus as well. They only need to be able to make outgoing public HTTP requests to complete this step.
 
 ![BusinessApplicationsServiceBusRelay][BusinessApplicationsServiceBusRelay]
 
 Service Bus then connects the cloud application to the on-premises WCF service. This provides a basic architecture for creating hybrid applications that use services and resources on both Azure and on-premises. For more information, see [How to Use the Service Bus Relay Service][sbrelayhowto] and the tutorial [Service Bus Relayed Messaging Tutorial][sbrelaytutorial]. For a sample that demonstrates this technique, see [Enterprise Pizza - Connecting Web Sites to On-premise Using Service Bus][enterprisepizza].
 
 ##<a name="monitor"></a>Monitor the Application
-Business applications benefit from the standard Web Site capabilities, such as scaling and monitoring. For a business application that experiences variable load during specific days or hours, the Autoscale (Preview) feature can assist with scaling the site out and back to efficiently use resources. Monitoring options include endpoint monitoring and quota monitoring. All of these scenarios were covered in more detail in the [Global Web Presence][scenarioglobalweb] and [Digital Marketing Campaign][scenariodigitalmarketing] scenarios.
+Business applications benefit from the standard Website capabilities, such as scaling and monitoring. For a business application that experiences variable load during specific days or hours, the Autoscale (Preview) feature can assist with scaling the site out and back to efficiently use resources. Monitoring options include endpoint monitoring and quota monitoring. All of these scenarios were covered in more detail in the [Global Web Presence][scenarioglobalweb] and [Digital Marketing Campaign][scenariodigitalmarketing] scenarios.
 
 Monitoring needs can vary between different line-of-business applications that have different levels of importance to the business. For the more mission critical applications, consider investing in a third-party monitoring solution, such as [New Relic][newrelic].
 
@@ -114,7 +114,7 @@ Line-of-business applications are typically managed by IT staff. In the event of
 
 ![BusinessApplicationsDiagnostics][BusinessApplicationsDiagnostics]
 
-Use the various application and site logs to troubleshoot problems with the web site. Note that some of the options specify **File System**, which places the log files on the file system for your site. These can be accessed through FTP, Azure PowerShell, or the Azure Command-Line tools. Other options specify **Storage**. This sends the information to the Azure storage account that you specify. For **Web Server Logging**, you also have an option of specifying a disk quota for the file system or a retention policy for the storage option. This prevents you from storing a indefinitely increasing the amount of stored logging data.
+Use the various application and site logs to troubleshoot problems with the website. Note that some of the options specify **File System**, which places the log files on the file system for your site. These can be accessed through FTP, Azure PowerShell, or the Azure Command-Line tools. Other options specify **Storage**. This sends the information to the Azure storage account that you specify. For **Web Server Logging**, you also have an option of specifying a disk quota for the file system or a retention policy for the storage option. This prevents you from storing a indefinitely increasing the amount of stored logging data.
 
 ![BusinessApplicationsDiagRetention][BusinessApplicationsDiagRetention]
 
@@ -123,7 +123,7 @@ For more information on these logging settings, see [How to: Configure diagnosti
 In addition to viewing the raw logs through FTP or storage utilities, such as Azure Storage Explorer, you can also view log information in Visual Studio. For detailed information on using these logs in troubleshooting scenarios, see [Troubleshooting Azure Web Sites in Visual Studio][troubleshootwebsites].
 
 ##<a name="summary"></a>Summary
-Azure enables you to host secure intranet applications in the Cloud. Azure Active Directory provides the ability to authenticate users, in order that only members of your organization can access the applications. The Service Bus Relay Service provides a mechanism for web applications to communicate with on-premises services and data. This hybrid application approach makes it easier to publish a business application to the Cloud without migrating all dependent data and services as well. Once deployed, business applications benefit from the standard scaling and monitoring capabilities provided by Azure Web Sites. For more information, see the following technical articles.
+Azure enables you to host secure intranet applications in the Cloud. Azure Active Directory provides the ability to authenticate users, in order that only members of your organization can access the applications. The Service Bus Relay Service provides a mechanism for web applications to communicate with on-premises services and data. This hybrid application approach makes it easier to publish a business application to the Cloud without migrating all dependent data and services as well. Once deployed, business applications benefit from the standard scaling and monitoring capabilities provided by Azure Websites. For more information, see the following technical articles.
 
 <table cellspacing="0" border="1">
 <tr>
@@ -132,11 +132,11 @@ Azure enables you to host secure intranet applications in the Cloud. Azure Activ
 </tr>
 <tr>
    <td valign="middle"><strong>Plan</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Azure Web Sites, Cloud Services, and VMs: When to use which?</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Azure Websites, Cloud Services, and VMs: When to use which?</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>Create and Deploy</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to an Azure Web Site</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/">Deploy a Secure ASP.NET MVC Application to Azure</a></td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to an Azure Website</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/">Deploy a Secure ASP.NET MVC Application to Azure</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>Authentication</strong></td>
@@ -148,7 +148,7 @@ Azure enables you to host secure intranet applications in the Cloud. Azure Activ
 </tr>
 <tr>
    <td valign="middle"><strong>Monitor</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">How to Monitor Web Sites</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">How to: Receive Alert Notifications and Manage Alert Rules in Azure</a><br/>- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics">How to: Configure diagnostics and download logs for a web site</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">Troubleshooting Azure Web Sites in Visual Studio</a></td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">How to Monitor Websites</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">How to: Receive Alert Notifications and Manage Alert Rules in Azure</a><br/>- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics">How to: Configure diagnostics and download logs for a website</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">Troubleshooting Azure Websites in Visual Studio</a></td>
 </tr>
 </table>
 

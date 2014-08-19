@@ -13,7 +13,7 @@ Got a web application that's misbehaving? Diagnose exceptions and performance is
 
 #### When should I use this method to set up Application Insights?
 
-This approach is mainly for quickly diagnosing performance issues in a live IIS web site.
+This approach is mainly for quickly diagnosing performance issues in a live IIS website.
 
 You just install an agent in the server and see performance data on Application Insights.
 

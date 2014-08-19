@@ -5,35 +5,27 @@
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding">
-  <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started" title="Android">Android</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
-	<!--<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>-->
-</div>
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-store-get-started/"  title="JavaScript backend" >JavaScript backend</a>
-</div>
+This tutorial shows you how to add a cloud-based backend service to a universal Windows app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple *To do list* app in HTML and JavaScript that stores app data in the new mobile service. The mobile service that you create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the JavaScript version of this topic.
 
-This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app in HTML and JavaSript that stores app data in the new mobile service. The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript version] of this topic.
+[WACOM.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
-A screenshot from the completed app is below:
+To complete this tutorial, you need the following:
 
-![][0]
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. A free trial version is available.
 
-Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Windows Store apps. 
-
->[WACOM.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started%2F" target="_blank">Azure Free Trial</a>.<br />This tutorial requires <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. A free trial version is available.
 
 ## Create a new mobile service
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
-## Create a new Windows Store app
+## Create a new universal Windows app
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
-In this section you will create a new Windows Store app that is connected to your mobile service.
+In this section you will create a new universal Windows app that is connected to your mobile service.
 
 1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
    
@@ -51,9 +43,6 @@ In this section you will create a new Windows Store app that is connected to you
 
   	This downloads a solution contains projects for both the mobile service and for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
-5. Under **Publish your service to the cloud**, click to download your publish profile. Save the downloaded file to your local computer, and make a note of where you save it.
-
-	<div class="dev-callout"><strong>Security note</strong> <p>After importing the publish profile, consider deleting the downloaded file as it contains information that can be used by others to access your services.</p></div>
 
 ## Test the app against the local mobile service
 
@@ -66,7 +55,7 @@ In this section you will create a new Windows Store app that is connected to you
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 <ol start="4">
-<li><p>In the Windows Store app project, open the default.js file, locate the code that creates a <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx" target="_blank">WindowsAzure.MobileServiceClient</a> instance, comment-out the code that creates this client using <em>localhost</em> and uncomment the code that creates the client using the remote mobile service URL, which looks like the following:</p>
+<li><p>In the Shared code project, open the default.js file, locate the code that creates a <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx" target="_blank">WindowsAzure.MobileServiceClient</a> instance, comment-out the code that creates this client using <em>localhost</em> and uncomment the code that creates the client using the remote mobile service URL, which looks like the following:</p>
 
         <pre><code>var client = new WindowsAzure.MobileServiceClient(
             "https://todolist.azure-mobile.net/",
@@ -81,10 +70,11 @@ In this section you will create a new Windows Store app that is connected to you
 
 <p>This sends a POST request to the new mobile service hosted in Azure.</p>
 </li>
+<li><p>(Optional) In a universal Windows solution, change the default start up project to the other app and press <strong>F5</strong> again.</p>
+
+	<p>Notice that data saved from the previous step is loaded from the mobile service after the app starts.</p></li>
 </ol>
 
-<!--This should be in the list HTML, but there is a bug-->
-![][10]
 
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
@@ -97,6 +87,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 * [Get started with push notifications]
   <br/>Learn how to send a very basic push notification to your app.
+
+For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](/en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started

@@ -37,7 +37,7 @@ The Azure SDK for PHP wraps the [Azure Service Management API][svc-mgmt-rest-api
 
 The only requirement for creating a PHP application that uses Azure Service Management is the referencing of classes in the Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or web site.
+In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ##<a id="GetClientLibraries"></a>Get the Azure Client Libraries
 
