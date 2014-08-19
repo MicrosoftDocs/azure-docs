@@ -4,15 +4,16 @@
 
 
 
-# HDInsight HBase overview
-## Introduction ## 
+# HDInsight HBase overview #
+## What is HBase? ##
 
-HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs. 
+HBase is an open source NoSQL database built on Hadoop that provides random access and strong consistency for large amounts (terabytes to petabytes) of unstructured and semi-structured data. 
+
+HDInsight HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs. 
 
 HBase and Hadoop are great starting points for big data project in Azure
 HBase enables real-time applications to work with large datasets
 
-## What is HBase? ##
 Distributed, non-relational database
 Columnar data model
 NoSQL on top of Hadoop
