@@ -5,27 +5,27 @@
 
 [WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
-Search service provides a cloud-based infrastructure and an HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, storage, and a query command syntax. 
+Azure Search is a cloud-based service and HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, storage, and a query command syntax. 
 
 This article explains how to administer a Search service in Microsoft Azure.
 
-The new [Azure Preview Portal](https://portal.azure.com) is required for administrative tasks. Azure Search is not available on earlier versions of the portal. A management API will be available soon to allow for scripting of common management tasks.  
+As noted, the new Preview Portal is required for administrative tasks. Azure Search is not available on earlier versions of the portal. A management API will be available soon to allow for scripting of common management tasks.  
 
 <!--TOC-->
 
-+ [Add search service to your subscription][] 
-+ [Administrative tasks][]
-+ [Service URL][]
-+ [Manage the api-keys][]
-+ [Monitor resource usage][]
-+ [Scale up or down][]
-+ [Start or Stop the Service][]
++ [Add search service to your subscription](#sub-1)
++ [Administrative tasks](#sub-2)
++ [Service URL](#sub-3)
++ [Manage the api-keys](#sub-4)
++ [Monitor resource usage](#sub-5)
++ [Scale up or down](#sub-6)
++ [Start or Stop the Service](#sub-7)
 
 ## Add search service to your subscription
 
 As the administrator, you can add Search to your existing Azure subscription using the new [Azure Preview Portal](https://portal.azure.com). Only administrators can add features to a subscription. When setting up your service, there are two pricing tiers to choose from.
 
-At no charge, you can use a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects. The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed. There are no performance guarantees with the shared service, so if you’re building a production search application, consider standard search instead.
+At no charge to existing subscribers, you can use a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects. The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed. There are no performance guarantees with the shared service, so if you’re building a production search application, consider standard search instead.
 
 Standard search is billable because you are signing up for dedicated resources and infrastructure used only by your subscription. Standard search is allocated in user-defined bundles of partitions (storage) and replicas (service workloads), and priced by search unit. You can scale up on partitions or replicas independently, adding more of whatever resource is needed.
 
@@ -80,7 +80,7 @@ Two types of keys are used to access your search service:
 
 An admin api-key is created with the service. There is a primary key and secondary key. You can use them equally; neither one conveys a higher or lower level of access, which is useful in the event you want to roll over keys. You can regenerate either admin key, but you cannot add to the total admin key count. There can be a maximum of two admin keys per search service.
 
-Query keys are designed for use in client applications that call Search directly. You can create multiple query keys.
+Query keys are designed for use in client applications that call Search directly. You can create up to 50 query keys.
 
 To get or regenerate api-keys, open the service dashboard. Click **KEYS** to slide open the key management page. Commands for regenerating or creating keys are at the top of the page.
 
@@ -152,13 +152,13 @@ Stopping or starting the service does not turn off billing. You must delete the 
 
 
 <!--Anchors-->
-[Add search service to your subscription]: #subheading-1
-[Administrative tasks]: #subheading-2
-[Service URL]: #subheading-3
-[Manage the api-keys]: #subheading-4
-[Monitor resource usage]: #subheading-5
-[Scale up or down]: #subheading-6
-[Start or Stop the Service]: #subheading-7
+[Add search service to your subscription]: #sub-1
+[Administrative tasks]: #sub-2
+[Service URL]: #sub-3
+[Manage the api-keys]: #sub-4
+[Monitor resource usage]: #sub-5
+[Scale up or down]: #sub-6
+[Start or Stop the Service]: #sub-7
 
 
 <!--Image references-->
