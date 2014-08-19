@@ -61,7 +61,8 @@ This mainly enables you to work with Azure Cloud Services and Virtual Machines:
 This includes the following:
 
 * The [CSPack command-line tool](http://msdn.microsoft.com/en-us/library/gg432988.aspx) for creating deployment packages.
-* Runtime binaries that cloud service projects require for communicating with their runtime environment. These binaries are not available in NuGet packages.
+* the [CSEncrypt command-line tool](http://msdn.microsoft.com/en-us/library/hh404001.aspx) for encrypting passwords that are used to access cloud service role instances through a remote desktop connection.
+* Runtime binaries that cloud service projects require for communicating with their runtime environment and for diagnostics. These binaries are not available in NuGet packages.
 
 ###<a id="emulator"></a>Microsoft Azure Emulator
 
@@ -94,7 +95,7 @@ There are a few things that you might want for Azure development that aren't inc
 
 	Azure PowerShell enables you to [automate Azure environment creation and deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
-* [Current client libraries](http://www.nuget.org/packages?q=windowsazureofficial). 
+* [Updated client libraries](http://www.nuget.org/packages?q=windowsazureofficial). 
 
 	The Azure .NET SDK copies to your computer the NuGet packages for some Azure client libraries, such as Storage, Service Bus, and Caching. These client libraries are automatically included in new cloud service projects, so the local NuGet packages enable Visual Studio to create cloud service projects while you're not connected to the Internet.
 
