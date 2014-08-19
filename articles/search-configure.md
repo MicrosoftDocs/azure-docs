@@ -19,7 +19,7 @@ Microsoft Azure Search (Public Preview) is available in the new Preview Portal. 
 
 Subscribers automatically get free access to a shared, multitenant Search service that you can use for learning purposes, proof-of-concept testing, or small development search projects. Sign up for the free version using these steps.
 
-1. Sign in to [Azure Preview Portal](https://portal.azure.com) using your existing subscription. Notice that this URL takes you to the Preview Portal. 
+1. Sign in to [Azure Preview portal](https://portal.azure.com) using your existing subscription. Notice that this URL takes you to the Preview portal. 
 
 2. Click **New** at the bottom of the page.
  
