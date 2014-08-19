@@ -1,7 +1,7 @@
 
 
 
-1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> web site, sign-in with your Google account credentials, and then click **CREATE PROJECT**.
+1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> website, sign-in with your Google account credentials, and then click **CREATE PROJECT**.
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 

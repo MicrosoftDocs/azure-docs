@@ -36,7 +36,7 @@ Multi-Factor Authentication for Office 365, powered by Azure Multi-Factor Authen
 
 <h3>Multi-Factor Authentication for Azure Administrators</h3>
 
-The same subset of Multi-Factor Authentication capabilities for Office 365 will be available at no cost to all Azure administrators. Every administrative account of Azure subscription can now get additional protection by enabling this core multi-factor authentication functionality. So an administrator that wants to access Azure portal to create a VM, a web site, manage storage, mobile services or any other Azure Service can add multi-factor authentication to his administrator account.  [Learn more](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
+The same subset of Multi-Factor Authentication capabilities for Office 365 will be available at no cost to all Azure administrators. Every administrative account of Azure subscription can now get additional protection by enabling this core multi-factor authentication functionality. So an administrator that wants to access Azure portal to create a VM, a website, manage storage, mobile services or any other Azure Service can add multi-factor authentication to his administrator account.  [Learn more](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
 
 <h3>Multi-Factor Authentication feature comparison</h3>
 

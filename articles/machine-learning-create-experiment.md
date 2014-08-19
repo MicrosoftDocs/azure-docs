@@ -61,8 +61,8 @@ A dataset usually requires some pre-processing before it can be analyzed. Notice
 2. Select and drag the **Project Columns** module to the experiment canvas and connect it to the output from the **Convert To Dataset** module.  
 
 3. Select the **Project Columns** module and click **Launch column selector** in the properties pane. 
-	- Make sure "All columns" is selected in the filter dropdown **Begin With** (this directs **Project Columns** to pass all columns through except for the ones we are about to exclude). 
-	- In the next filter row, select "Exclude" and "column names", and then enter "normalized-losses" for the column name. 
+	- Make sure "All columns" is selected in the filter dropdown under **Select columns** (this directs **Project Columns** to pass all columns through except for the ones we are about to exclude). 
+	- In the filter dropdown, select "Exclude column names" and enter "normalized-losses" for the column name. 
 	- Click the check mark button to close the column selector.
 	
 	**Project Columns** will now pass through all columns from the dataset except "normalized-losses".  
@@ -79,15 +79,15 @@ To view the cleaned dataset, right-click the output port of the **Missing Values
 
 Certain variables are better for predicting the target than others. Finding a good set of feature variables requires experimentation and knowledge about the problem at hand. Also, some features have a strong correlation with other features, for example *city-mpg* versus *highway-mpg*, so they will not add much new information to the model and can be removed. 
 
-Let's first build a model that uses a small subset of features:  
+Let’s first build a model that uses a small subset of features:  
 
 1. Select and drag another **Project Columns** module to the experiment canvas and connect it to the **Missing Values Scrubber** module. 
 
-2. As a first guess, select the following columns in the **Project Columns** module by using the column selector: *make*, *body-style*, *wheel-base*, *engine-size*, *horsepower*, *peak-rpm*, *highway-mpg*, *price*. To do this in the column selector, select "No columns" for **Begin With**, then select "Include" and "column names" in the filter row and then enter this list of column names.
+2. As a first guess, select the following columns in the **Project Columns** module by using the column selector: *make*, *body-style*, *wheel-base*, *engine-size*, *horsepower*, *peak-rpm*, *highway-mpg*, *price*. Do this by selecting "Column names" in the dropdown and then entering this list of column names.
 
-3. The dataset doesn't yet contain information about what we're trying to predict. To provide this information, drag the **Metadata Editor** module to the experiment canvas and connect it to the last **Project Columns** module. Use the **Metadata Editor** module to mark the column *price* as a *label* (in ML Studio, a *label* is a prediction target):  
+3. The dataset doesn’t yet contain information about what we’re trying to predict. To provide this information, drag the **Metadata Editor** module to the experiment canvas and connect it to the last **Project Columns** module. Use the **Metadata Editor** module to mark the column *price* as a *label* (in ML Studio, a *label* is a prediction target):  
 
-	* Click **Launch column selector**, select **Begin With** "No columns", select "Include" "column names", and enter the *price* column. Click OK.
+	* Click **Launch column selector** and select the *price* column. 
 	
 	* Under **Fields**, select "Labels". 
 
@@ -111,7 +111,7 @@ To view the dataset so far after the experiment finishes running, right-click th
 
 Constructing a predictive model consists of training, validation, and testing. Here we will use the **Cross Validate Model** module for training and validation, and in the next section we'll walk through testing. 
 
-1. Split the data into training and testing sets. Select and drag the **Split** module to the experiment canvas and connect it to the output of the last **Metadata Editor** module. Set **Fraction of rows in the first output dataset** to 0.75. This way, we'll use 75% of the data to cross-validate and train the final model, and hold back 25% for final testing.
+1. Split the data into training and testing sets. Select and drag the **Split** module to the experiment canvas and connect it to the output of the last **Metadata Editor** module. Set **Fraction of rows in the first output dataset** to 0.75. This way, we’ll use 75% of the data to cross-validate and train the final model, and hold back 25% for final testing.
 
 	> [WACOM.NOTE] By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
 
@@ -127,7 +127,7 @@ Constructing a predictive model consists of training, validation, and testing. H
 
 ####Tune Model Parameters 
 
-Next, let's attempt to tune the model parameters: 
+Next, let’s attempt to tune the model parameters: 
 
 1. Click the **Two-Class Boosted Decision Tree** module to display the learner parameters.  
 

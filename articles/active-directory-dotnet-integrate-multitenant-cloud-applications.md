@@ -329,7 +329,7 @@ This method is called from the **HomeController.cs** file to show the user list 
 
 Once you have thoroughly tested your application, you can create an application listing and publish your application listing on the Azure Marketplace. These steps are performed on the Microsoft Seller Dashboard.  
 
-<div class="dev-callout"><strong>Note</strong><p>Your app is responsible for managing any billing relationship with your customers. The Azure Marketplace only provides links to your application's web site and information about it.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>Your app is responsible for managing any billing relationship with your customers. The Azure Marketplace only provides links to your application's website and information about it.</p></div>
 
 <h3>Step 1: Creating an Application Manifest and App Listing</h3>
 

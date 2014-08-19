@@ -10,7 +10,7 @@
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
 <div class="dev-callout">Note
-<p>The procedures in this task apply to Azure Cloud Services; for Web Sites, see <a href="../web-sites-configure-ssl-certificate/">Configuring an SSL certificate for an Azure web site</a>.</p>
+<p>The procedures in this task apply to Azure Cloud Services; for Websites, see <a href="../web-sites-configure-ssl-certificate/">Configuring an SSL certificate for an Azure website</a>.</p>
 </div>
 
 This task includes the following steps:
@@ -33,7 +33,7 @@ The certificate must meet the following requirements for SSL certificates in Azu
 -   The certificate's subject name must match the domain used to access the cloud service. You cannot obtain an SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www.contoso.com**.
 -   The certificate must use a minimum of 2048-bit encryption.
 
-For test purposes, you can create and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the cloudapp.net domain as the web site URL. For example, the task below uses a self-signed certificate in which  the common name (CN) used in the certificate is **sslexample.cloudapp.net**. For details about how to create a self-signed certificate using IIS Manager, See [How to create a certificate for a role][].
+For test purposes, you can create and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the cloudapp.net domain as the website URL. For example, the task below uses a self-signed certificate in which  the common name (CN) used in the certificate is **sslexample.cloudapp.net**. For details about how to create a self-signed certificate using IIS Manager, See [How to create a certificate for a role][].
 
 Next, you must include information about the certificate in your service definition and service configuration files.
 

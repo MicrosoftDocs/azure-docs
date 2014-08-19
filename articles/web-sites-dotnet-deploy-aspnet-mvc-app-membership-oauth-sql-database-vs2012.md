@@ -5,7 +5,7 @@
 
 
 
-# Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site
+# Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Website
 
 ***Updated 15 October 2013.***
 
@@ -23,7 +23,7 @@ This tutorial assumes that you have no prior experience using Azure. On completi
 You'll learn:
 
 * How to enable your machine for Azure development by installing the Azure SDK.
-* How to create a secure ASP.NET MVC 4 project and publish it to an Azure Web Site.
+* How to create a secure ASP.NET MVC 4 project and publish it to an Azure Website.
 * How to use OAuth and the ASP.NET membership database to secure your application.
 * How to deploy a membership database to Azure.
 * How to use a SQL database to store data in Azure.
@@ -67,15 +67,15 @@ When the installation is complete, you have everything necessary to start develo
 
 <h2><a name="bkmk_setupwindowsazure"></a>Set up the Azure environment</h2>
 
-Next, set up the Azure environment by creating an Azure Web Site and a SQL database.
+Next, set up the Azure environment by creating an Azure Website and a SQL database.
 
-### Create a web site and a SQL database in Azure
+### Create a website and a SQL database in Azure
 
-Your Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
+Your Azure Website will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
 Azure SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
-1. In the [Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.
+1. In the [Azure Management Portal](https://manage.windowsazure.com), click **Websites** in the left tab, and then click  **New**.
 
 ![New button in Management Portal][rxWSnew]
 
@@ -83,17 +83,17 @@ Azure SQL Database is a cloud-based relational database service that is built on
 
 	![Create with Database link in Management Portal][rxCreateWSwithDB]
 
-The **New Web Site - Custom Create** wizard opens. 
+The **New Website - Custom Create** wizard opens. 
 
-3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows "contactmgr2", but that URL is probably taken so you will have to choose a different one.
+3. In the **New Website** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows "contactmgr2", but that URL is probably taken so you will have to choose a different one.
 
 	![Create with Database link in Management Portal][rxCreateWSwithDB_2]
 
 4. In the **Database** drop-down list, choose **Create a new SQL database**.
 
-5. In the **Region** drop-down list, choose the same region you selected for the Web site. This setting specifies which data center your VM will run in. In the **DB CONNECTION STRING NAME**, enter *connectionString1*.
+5. In the **Region** drop-down list, choose the same region you selected for the Website. This setting specifies which data center your VM will run in. In the **DB CONNECTION STRING NAME**, enter *connectionString1*.
 
-	![Create a New Web Site step of New Web Site - Create with Database wizard][rxCreateWSwithDB_2]
+	![Create a New Website step of New Website - Create with Database wizard][rxCreateWSwithDB_2]
 
 6. Click the arrow that points to the right at the bottom of the box. The wizard advances to the **Database Settings** step.
 
@@ -105,17 +105,17 @@ The **New Web Site - Custom Create** wizard opens.
 
 10. Click the check mark at the bottom of the box to indicate you're finished.
 	
-	![Database Settings step of New Web Site - Create with Database wizard][setup007]
+	![Database Settings step of New Website - Create with Database wizard][setup007]
 	
 	The following image shows using an existing SQL Server and Login.
-	![Database Settings step of New Web Site - Create with Database wizard][rxPrevDB]
+	![Database Settings step of New Website - Create with Database wizard][rxPrevDB]
 
-	The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.
+	The Management Portal returns to the Websites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Websites** icon, and the number of databases appears next to the **SQL Databases** icon.
 
 
 <h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 4 application</h2>
 
-You have created an Azure Web Site, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Azure.
+You have created an Azure Website, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Azure.
 
 ### Create the project
 
@@ -152,15 +152,15 @@ This is all you need to do for now to create the application that you'll deploy 
 
 1. In your browser, open the [Azure Management Portal](http://manage.windowsazure.com "portal").
 
-2. In the **Web Sites** tab, click the name of the site you created earlier.
+2. In the **Websites** tab, click the name of the site you created earlier.
 
-	![Contact manager application in Management Portal Web Sites tab][setup009]
+	![Contact manager application in Management Portal Websites tab][setup009]
 
 3. On the right side of the window, click **Download publish profile**.
 
 	![Quickstart tab and Download Publishing Profile button][firsdeploy001]
 
-	This step downloads a file that contains all of the settings that you need in order to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
+	This step downloads a file that contains all of the settings that you need in order to deploy an application to your Website. You'll import this file into Visual Studio so you don't have to enter this information manually.
 
 4. Save the .*publishsettings* file in a folder that you can access from Visual Studio.
 
@@ -181,7 +181,7 @@ This is all you need to do for now to create the application that you'll deploy 
 
 	The **Import Publish Profile** dialog box appears.
 
-1. If you have not previously added your Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from an Azure web site** will include your web site.
+1. If you have not previously added your Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from an Azure website** will include your website.
     
 	a.  In the **Import Publish Profile** dialog box, click **Add Azure subscription**. 
 
@@ -207,7 +207,7 @@ This is all you need to do for now to create the application that you'll deploy 
     
 	![import](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzImp.png)
 
-7. In the **Import Publish Profile** dialog box, select **Import from an Azure web site**, select your web site from the drop-down list, and then click **OK**.
+7. In the **Import Publish Profile** dialog box, select **Import from an Azure website**, select your website from the drop-down list, and then click **OK**.
 
 	![Import Publish Profile][ImportPublishProfile]
 
@@ -391,7 +391,7 @@ In addition to authentication, the tutorial will also use roles to implement aut
 
 ## Registering with an external provider ##
 
-To authenticate users with credentials from some external providers, you must register your web site with the provider and obtain a key and connection secret. Google and Yahoo don't require you to register and obtain keys.
+To authenticate users with credentials from some external providers, you must register your website with the provider and obtain a key and connection secret. Google and Yahoo don't require you to register and obtain keys.
 
 This tutorial does not show all of the steps you must perform to register with these providers. The steps are typically not difficult. To successfully register your site, follow the instructions provided on those sites. To get started with registering your site, see the developer site for:
 
@@ -532,7 +532,7 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
 
 	![cert Warn][rxNOT2]
  
-Azure Web sites include a valid security certificate, so you won't see this warning when you deploy to Azure.
+Azure Websites include a valid security certificate, so you won't see this warning when you deploy to Azure.
 <h2><a name="ppd"></a><span class="short-header">Prepare DB</span>Create a Data Deployment Script</h2>
 
 
@@ -698,11 +698,11 @@ Another way to store data in an Azure application is to use Azure storage, which
 - [OAuth 2.0 and Sign-In](http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx)
 
 
-You've seen how to deploy a web application to an Azure Web Site. To learn more about how to configure, manage, and scale Azure Web Sites, see the how-to topics on the [Common Tasks][CommonTasks] page.
+You've seen how to deploy a web application to an Azure Website. To learn more about how to configure, manage, and scale Azure Websites, see the how-to topics on the [Common Tasks][CommonTasks] page.
 
-To learn how to debug Azure Web Sites, see [Troubleshooting Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+To learn how to debug Azure Websites, see [Troubleshooting Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
-To learn how to deploy an application to an Azure Cloud Service, see [The Cloud Service version of this tutorial][NetAppWithSqlAzure] and [Developing Web Applications with Azure][DevelopingWebAppsWithWindowsAzure]. Some reasons for choosing to run an ASP.NET web application in an Azure Cloud Service rather than an Azure Web Site include the following:
+To learn how to deploy an application to an Azure Cloud Service, see [The Cloud Service version of this tutorial][NetAppWithSqlAzure] and [Developing Web Applications with Azure][DevelopingWebAppsWithWindowsAzure]. Some reasons for choosing to run an ASP.NET web application in an Azure Cloud Service rather than an Azure Website include the following:
 
 * You want administrator permissions on the web server that the application runs on.
 * You want to use Remote Desktop Connection to access the web server that the application runs on. 

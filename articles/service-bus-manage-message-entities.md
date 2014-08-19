@@ -99,7 +99,7 @@ You can use the portal to change the status of a Service Bus entity. This is app
 
 [Azure Service Bus][]
 
-[.NET Developer Center][] on the Azure web site
+[.NET Developer Center][] on the Azure website
 
 [Creating Applications that Use Service Bus Topics and Subscriptions][]
 

@@ -104,7 +104,7 @@ To sign up for New Relic directly from the Azure Store, follow these three easy 
 
 
 **Note:** If this is your first time deploying this app to Azure, you will be prompted to enter your 
-Azure credentials. For more information, see <a href="/en-us/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to an Azure Web Site</a>.
+Azure credentials. For more information, see <a href="/en-us/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to an Azure Website</a>.
 
 ![publish settings](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 
