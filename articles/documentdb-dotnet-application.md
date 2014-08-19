@@ -125,12 +125,12 @@ downloaded [here][].
 In Visual Studio, click File – New Project and select the option to
 create a new ASP.NET MVC Web Application.
 
-![Alt text](./media/documentdb-dotnet-.application/image10.png)
+![Alt text](./media/documentdb-dotnet-application/image10.png)
 
 
 Select where you would like to create the project and click Ok.
 
-![Alt text](./media/documentdb-dotnet-.application/image11.png)
+![Alt text](./media/documentdb-dotnet-application/image11.png)
 
 
 If you plan on hosting your application in Azure then select the box on
