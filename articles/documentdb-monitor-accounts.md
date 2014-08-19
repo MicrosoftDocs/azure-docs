@@ -56,42 +56,41 @@ The Azure Preview portal allows you to create side-by-side metric charts.
 	![][7]  
 
 
-3.	Finally, click **Done** on the toolbar at the top of the screen.  You may now treat this part as any other metric part, customizing the metrics and time range displayed in the part.  By doing this, you can see two different metrics chart side-by-side.  
+3.	Finally, click **Done** on the toolbar at the top of the screen. You may now treat this part as any other metric part, customizing the metrics and time range displayed in the part.  By doing this, you can see two different metrics chart side-by-side.  
 	![][8] 
 
 >Note that the chart time range and the chosen metrics are reset to the part’s default values when you leave the Azure Preview portal.  
 
 ## <a id="view"></a>  See usage metrics for a DocumentDB account
-1.	In the [Azure Preview Management Portal](https://portal.azure.com/), click **Browse**, then **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to view usage metrics.
-2.	Within the **Usage** lens you can, by default, view:
-	1.	Document storage consumed within the account
-	2.	Index storage consumed within the account
-	3.	Available storage of the account
-	4.	Attachment usage within the account  
+1.	In the [Azure Preview portal](https://portal.azure.com/), click **Browse**, then **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to see usage metrics.
+2.	Within the **Usage** lens you can, by default, see the following account information:
+	*	Document storage consumed
+	*	Index storage consumed
+	*	Available storage
+	*	Attachment usage  
 	![][9]
  
 ## <a id="setup"></a>  Set up performance metric alerts for a DocumentDB account
-1.	In the [Azure Preview Management Portal](https://portal.azure.com/), click **Browse**, then **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to setup performance metric alerts.
+1.	In the [Azure Preview portal](https://portal.azure.com/), click **Browse**, then **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to set up performance metric alerts.
 2.	Within the **Operations** lens, click the **Alert rules** part.  
-![][10]
+	![][10]
 
 3.	In the Alert rules blade, click **Add Alert**.  
-![][11]
+	![][11]
 
 4.	In the **Add an alert rule** blade, specify:
-	1.	The name of the alert rule you wish to create
-	2.	A description of the alert rule you wish to create
-	3.	The metric on which the alert rule should operate
-	4.	The condition, threshold and period under which the alert should activate
-		-	For example, Server errors count greater than 5 over the last 15 minutes
-	5.	If the service administrator and co-administrators should be emailed when the alert fires
-	6.	Additional email addresses which should receive alert notifications  
+	*	The name of the alert rule you are setting up.
+	*	A description of the new alert rule.
+	*	The metric for the alert rule.
+	*	The condition, threshold, and period that determine when the alert activates. For example, a server error count greater than 5 over the last 15 minutes.
+	*	Whether the service administrator and coadministrators are emailed when the alert fires.
+	*	Additional email addresses for alert notifications.  
 	![][12]
 
  
 ## <a id="next"></a>  Next steps
 -	Learn how to [grant access to DocumentDB resources](http://go.microsoft.com/fwlink/p/?LinkId=402366).
--	To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)
+-	To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/p/?LinkID=402319)
 
 <!--Anchors-->
 [How to view performance metrics for a DocumentDB account]: #How-to-view-performance-metrics-for-a-DocumentDB-account
