@@ -42,7 +42,7 @@ Sample files consist of a JSON schema, data files, and program code that calls A
 
 You'll need to edit the configuration file to point to your service, with your api-key. When you run this program, the index and documents are created on your Azure Search service. At the end of this tutorial, you will have sample data loaded on Azure Search. 
 
-Let’s get started.
+Let's get started.
 
 <h3>Sign in to the Azure Preview Portal</h3>
 
