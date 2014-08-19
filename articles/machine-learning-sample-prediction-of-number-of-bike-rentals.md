@@ -4,6 +4,10 @@
 
 #Azure Machine Learning sample: Prediction of the number of bike rentals
 
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Sample Experiment - Demand Forecasting of Bikes
+
 ## Problem Description ##
 Prediction of the number of bikes that will be rented at each hour today, given previous rental history, hourly measured weather, indication if today is a holiday/weekday/weekend. The predictions are different for each hour (for example
  there are lots of rentals in the morning and almost no rentals in the night). 

@@ -4,6 +4,10 @@
 
 #Azure Machine Learning sample: Time series prediction
 
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Time Series Forecasting - Development
+
 ##Problem description
  
 Demonstrate how to use time series forecasting using the R modules in AzureML.
