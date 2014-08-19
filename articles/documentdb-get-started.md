@@ -1,15 +1,15 @@
-<properties title="Getting Started with a DocumentDB Account" pageTitle="Getting Started with a DocumentDB Account | Azure" description="How to get started with a DocumentDB Account" metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   solutions="" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
+<properties title="Getting Started with a DocumentDB Account" pageTitle="Get started with a DocumentDB account | Azure" description="How to get started with a DocumentDB Account" metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   solutions="" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
-#Getting Started with a DocumentDB Account  
+#Get started with a DocumentDB account  
 
 This guide shows you how to get started using **Azure DocumentDB (Preview)**.  The samples are written in C# code and use the DocumentDB .NET SDK.  The scenarios covered include creating and configuring a DocumentDB account, creating databases, creating collections and storing JSON documents within the account.  For more information on using Azure DocumentDB, refer to the Next Steps section.  
 
 In order to use this getting started guide, you must have a DocumentDB account and the access key (either primary or secondary) of the account.  For more information, please see:  
 
--	[Create a Document DB Account](http://go.microsoft.com/fwlink/p/?LinkId=402368&clcid=0x409)
--	[Manage a DocumentDB Account](http://go.microsoft.com/fwlink/p/?LinkId=402377&clcid=0x409)  
+-	[Create a Document DB Account](http://go.microsoft.com/fwlink/p/?LinkId=402368)
+-	[Manage a DocumentDB Account](http://go.microsoft.com/fwlink/p/?LinkId=402377)  
 
 ##Table of contents
 -	[Connect to a DocumentDB Account][]
@@ -185,8 +185,8 @@ DocumentDB supports rich queries against the JSON documents stored in each colle
     }
 
 ##<a id="NextSteps"></a>Next steps
--	Learn how to [monitor a DocumentDB account](http://go.microsoft.com/fwlink/p/?LinkId=402378&clcid=0x409).
--	To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)
+-	Learn how to [monitor a DocumentDB account](http://go.microsoft.com/fwlink/p/?LinkId=402378).
+-	To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319)
 
 
 [Connect to a DocumentDB Account]: #Connect
