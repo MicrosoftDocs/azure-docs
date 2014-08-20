@@ -7,26 +7,21 @@
 # HDInsight HBase overview #
 ## What is HBase? ##
 
-HBase is an open source NoSQL database built on Hadoop that provides random access and strong consistency for large amounts (terabytes to petabytes) of unstructured and semi-structured data. 
+HBase is an Apache open source NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data. It was modeled on Google's BigTable and is a column family-oriented database. The open source code was first released by Mike Cafarella in 2007. It scales linearly to handle petabytes of data on thousands of nodes. It can rely on the data redundancy and batch processing and other features that are provided by the distributed Hadoop ecosystem.
 
-HDInsight HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs. 
+HDInsight HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs. HBase and Hadoop are good starting points for big data project in Azure, and, in particular, can enable real-time applications to work with large datasets.
 
-HBase and Hadoop are great starting points for big data project in Azure
-HBase enables real-time applications to work with large datasets
-
-Distributed, non-relational database
-Columnar data model
-NoSQL on top of Hadoop
-Large scale
-Linear scalability
-Billions of rows X millions of columns
-Many deployments with 1000+ nodes, PBs of data
-Low latency
-Real-time random read/writes
-Open Source
-Modeled after Google’s BigTable
-Started in 2006
-
+Scale-out architecture
+ Automatic sharding of tables
+ Strong consistency for reads and writes
+ Automatic failover
+Performance
+ In-memory caching on read
+ High throughput streaming writes
+APIs
+ Get/Put
+ Scan
+ Coprocessors
 
 ## Scenarios ##
 
