@@ -1,6 +1,9 @@
-<properties title="Query with DocumentDB SQL" pageTitle="required" description="required" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+<properties title="Query with DocumentDB SQL" pageTitle="Query with DocumentDB SQL | Azure" description="required" metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="Optional" />
+
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 #Query with DocumentDB SQL
+
 Azure DocumentDB supports querying of documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. Making a deep commitment on the JSON data model and JavaScript directly within the database engine, Azure DocumentDB provides the automatic indexing of JSON documents along with efficient execution of queries.  
 
 The language grammar can also be extended to support custom application logic using User Defined Functions (UDFs). UDFs can be registered with Azure DocumentDB and then be referenced as part of a DocumentDB SQL query. These UDFs are written as JavaScript functions and executed within the database. 
