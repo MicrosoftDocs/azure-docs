@@ -9,8 +9,8 @@ To use DocumentDB, you must create a DocumentDB account in an available geograph
 -	[How to: Create a DocumentDB account][]
 -	[Next steps][]
 ##<a id="Howto"></a>How to: Create a DocumentDB account
-1.	Sign in to the Azure management preview portal
-2.	Click New, DocumentDB Account.  
+1.	Sign in to the [Azure management preview portal](https://portal.azure.com/)
+2.	Click New -> DocumentDB Account.  
 	![][1]  
 
 	Alternatively, you can browse the Azure Gallery, select the “Data, storage, + backup” category, choose **DocumentDB Account** and then click **Create**.  
@@ -21,7 +21,7 @@ To use DocumentDB, you must create a DocumentDB account in an available geograph
  
 	![][3] 
 
-	In **Name**, enter a name to use in the URI for the DocumentDB account.  This value becomes the host name within the URI that is used to address the DocumentDB account.  The name entry must be a string between %/% and %/% characters, containing only %/%, and must start with %/% 
+	In Name, enter a name to use in the URI for the DocumentDB account.  This value becomes the host name within the URI that is used to address the DocumentDB account.  The name entry may contain only lowercase letters, numbers, and the '-' character and must be between 3 and 50 characters. 
 
 	*Note that documents.azure.com will be appended to the endpoint name you choose, the result of which will become your DocumentDB account endpoint.*
 
@@ -61,7 +61,7 @@ To use DocumentDB, you must create a DocumentDB account in an available geograph
 	![][8]
 
 ##<a id="NextSteps"></a>Next steps
--	Learn how to [manage your DocumentDB account](about:blank).
+
 -	To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)
 
 [How to: Create a DocumentDB account]: #Howto
