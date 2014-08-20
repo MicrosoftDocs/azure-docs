@@ -1,9 +1,9 @@
-<properties title="Build a web application with Python & Flask (MVC) using DocumentDB" pageTitle="Build a web application with Python & Flask (MVC) using DocumentDB | Azure" description="This walkthrough shows you how to use DocumentDB to store and access data from an Python web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="big-data" documentationCenter=""  authors="hawong" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="Build a web app with Python and Flask using DocumentDB | Azure" description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
 
-<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hawong" />
+<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
 
-<a name="_Toc395888515"></a><a name="_Toc395809324">Build a web application with Python & Flask (MVC) using DocumentDB</a>
+<a name="_Toc395888515"></a><a name="_Toc395809324">Build a web application with Python and Flask (MVC) using DocumentDB</a>
 ===========================================================================================================================================
 
 <a name="_Toc395809324">

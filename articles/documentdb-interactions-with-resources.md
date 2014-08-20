@@ -1,4 +1,6 @@
-<properties title="Interact with DocumentDB Resources" pageTitle="Interact with DocumentDB Resources" description="required" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="bradsev" manager="paulettm" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+<properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 #Interact with DocumentDB Resources 
 DocumentDB offers a simple and open RESTful programming model over HTTP. In its Preview release DocumentDB provides client SDKs for .NET, Python, Node.js and JavaScript – all of which are simple wrappers over the underlying REST APIs. In future releases, it will also provide C++ and Java SDKs. We encourage you to write your own SDKs for your specific programming environment and share it with the community as we have opened up our SDKs.   
