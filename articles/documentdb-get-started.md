@@ -1,12 +1,12 @@
-<properties title="Getting Started with a DocumentDB Account" pageTitle="Get started with a DocumentDB account | Azure" description="How to get started with a DocumentDB Account" metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   solutions="" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
+<properties title="Get started with a DocumentDB account" pageTitle="Get started with a DocumentDB account | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within the account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 #Get started with a DocumentDB account  
 
 This guide shows you how to get started using **Azure DocumentDB (Preview)**.  The samples are written in C# code and use the DocumentDB .NET SDK.  The scenarios covered include creating and configuring a DocumentDB account, creating databases, creating collections and storing JSON documents within the account.  For more information on using Azure DocumentDB, refer to the Next Steps section.  
 
-In order to use this getting started guide, you must have a DocumentDB account and the access key (either primary or secondary) of the account.  For more information, please see:  
+In order to use this getting started guide, you must have a DocumentDB account and the access key (either primary or secondary) of the account. For more information, see:  
 
 -	[Create a Document DB Account][documentdb-create-account]
 -	[Manage a DocumentDB Account][documentdb-manage]
