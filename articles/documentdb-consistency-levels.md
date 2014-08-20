@@ -1,11 +1,13 @@
-<properties title="Consistency Levels in DocumentDB" pageTitle="Consistency Levels in DocumentDB" description="Consistency Levels in DocumentDB" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="bradsev" " manager="paulettm" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+<properties title="Consistency levels in DocumentDB" pageTitle="Consistency levels in DocumentDB" description="DocumentDB has four consistency levels with associated performance levels to help application developers make predictable consistency-availability-latency trade-offs." metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" " manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
 
-#Consistency Levels in DocumentDB
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
+
+#Consistency levels in DocumentDB
 Developers are often faced with the challenge of choosing between the two extremes of strong and eventual consistency. The reality is that there exist multiple consistency click-stops between these two extremes. In most real world scenarios, applications benefit from making fine grained trade-offs between consistency, availability and latency. DocumentDB offers four well-defined consistency levels with associated performance levels. This allows application developers to make predictable consistency-availability-latency trade-offs.  
  
 All system resources, including database accounts, databases, collections, users and permissions are always strongly consistent for reads and queries. The consistency levels apply only to the user defined resources. For queries and read operations on user defined resources, including documents, attachments, stored procedures, triggers and UDFs, DocumentDB offers four distinct consistency levels - Strong, Bounded-Staleness, Session, and Eventual. These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availability and performance. These consistency levels are backed by predictable performance levels ensuring consistent results for your application.   
 
-##Consistency Levels
+##Consistency levels
 You can configure the Default Consistency Level on the database account which applies to all the collections (across all of the databases) under your database account. By default all reads and queries issued against the user defined resources will use the default consistency level specified on the database account. You can however, lower the consistency level of a specific read/query request by specifying [x-ms-consistency-level] request header. There are four types of consistency levels supported by DocumentDB’s replication protocol – these are briefly described below.  
 >[AZURE.NOTE] In a future release, we intend to support overriding the default consistency level on a per collection basis.  
 
