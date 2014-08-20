@@ -293,6 +293,7 @@ The following steps demonstrate how to deploy role based access control using sc
 [Test client access]: #test-client
 
 
+
 <!-- Images -->
 [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/users.png
 [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/group-membership.png

@@ -9,8 +9,7 @@
 </div>
 
 <div class="dev-center-tutorial-subselector">
-<!--    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/" title=".NET backend">.NET backend</a> |
---> 
+    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/" title=".NET backend">.NET backend</a> |
 	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/" title="JavaScript backend" class="current">JavaScript backend</a>
 </div>
 
