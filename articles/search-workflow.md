@@ -19,7 +19,7 @@ We assume that you have already provisioned the service. If you haven’t done t
 
 Queries (at least non-system queries) target a search index that contains search data and attributes. In this step, you define the index schema in JSON format and execute an HTTPS PUT request to have this index created. 
 
-Indexes are typically created in your local development environment. There are no built-in tools or editors for index definition. For more information about creating the index, see [Create Index (Azure Search API)](http://msdn.microsoft.com/en-us/library/dn798941.aspx)) on MSDN.
+Indexes are typically created in your local development environment. There are no built-in tools or editors for index definition. For more information about creating the index, see [Create Index (Azure Search API)](http://msdn.microsoft.com/en-us/library/dn798941.aspx) on MSDN.
 
 <h2 id="sub-2">Step 2: Add documents</h2>
 
@@ -54,19 +54,9 @@ Many search applications use a variety of storage for different application need
 +	Inverted indexes are generated based on these inputs: JSON schema that defines the structure of the index, and documents that contain details (for example, each SKU in a storefront application would most likely have its own document).
 +	Documents contain fields, marked up with metadata or attributes that feed into various search operations at query time. For example, all text-based fields are &searchable by default, participating in full-text search operations.
 
-But not all fields in a document will be searchable. For example, if your application is an online catalog for music or videos, you most certainly want to store those binary files in BLOB or some other storage. The binary files themselves are not searchable, so there is no need to use Azure Search storage for that purpose. You can store images, videos, audio files in other services or locations, an then include a URL pointer to the file location in a document so that the right content is returned to the application presentation layer.
+Not all fields in a document will be searchable. For example, if your application is an online catalog for music or videos, you most certainly want to store those binary files in BLOB or some other storage. The binary files themselves are not searchable, hence there is no need to use Azure Search storage for that purpose. You can store images, videos, audio files in other services or locations, and then have a field point to the location of that content. 
 
-Although there is a growing trend to use search as application data storage, we generally discourage the practice for these reasons: 
-
-+	If your application requirements include field arrays (for example, where a customer name consists of first, last, and middle names), use a different document store. Azure Search doesn’t support fields of this type. In some cases, you might be able to use the Collection field type, but a document database is typically a better choice. 
-
-+	Indexing can take longer if it has to compete for system resources engaged in continuous query operations.
-
-The design pattern that is most typical for Azure Search is to use the internal storage for indexes and documents, and external storage for application data. 
-
-If your data changes rapidly, an important requirement is execute incremental changes as quickly as possible, which often means storing documents separately in a cache.
-
-As a counterpoint, if your application workloads consist of more reads than writes, using a search service as the data store can be a viable solution. If you consider this approach, we strongly recommend using alternative storage, such as Azure BLOB storage, for images or video files. A storage-only service will naturally be more cost effective than one that both stores and processes requests.
+For more information about creating indexes or documents, see the [Azure Search Rest API](http://msdn.microsoft.com/en-us/library/dn798935.aspx).
 
 
 <!--Anchors-->

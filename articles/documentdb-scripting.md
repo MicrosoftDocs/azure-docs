@@ -4,7 +4,7 @@
 
 ## Introduction  ##
 
-DocumentDB allows developers to write application logic which can be shipped using HTTP POST and executed directly against storage partitions as **stored-procedures**, **triggers** or **user defined functions** (UDFs). Developers can write native JavaScript procedures with the language-integrated, transactional execution of JavaScript provided by DocumentDB.
+DocumentDB allows developers to write application logic which can be shipped using HTTP POST and executed directly against storage partitions as **stored-procedures**, **triggers** or **user defined functions** (UDFs). Developers can also write native JavaScript procedures with the language-integrated, transactional execution of JavaScript provided by DocumentDB.
 
 Stored procedures, triggers and UDFs in DocumentDB are modeled after the concepts supported by relational database management systems (RDBMS). All JavaScript logic is executed within an ambient ACID transaction with snapshot isolation. During the course of its execution, if the JavaScript throws an exception, then the entire transaction is aborted.  
 
@@ -299,7 +299,7 @@ Stored procedures and triggers have access to the DocumentDB server-side JavaScr
 + [Collection methods]
 + [Paging and continuation]
 
-For more details, refer to the documentation for the JavaScript API. (TBD link JS API docs - node.js only?)
+For more details, refer to the documentation for the JavaScript API. 
 
 ### Request methods  ###
 
@@ -425,7 +425,7 @@ The attachment metadata for documents can also be queried and updated within sto
 
 ### Paging and continuation ###
 
-The DocumentDB JavaScript runtime ensures that database operations are not scheduled if the time limit for the stored procedure is about to expire. Each of the methods listed above returns a Boolean indicating whether the operation was scheduled. Calling methods must check this return value and perform cleanup and/or implement logic to resume execution. Refer to the limits and defaults documentation page for details. (TBD link)
+The DocumentDB JavaScript runtime ensures that database operations are not scheduled if the time limit for the stored procedure is about to expire. Each of the methods listed above returns a Boolean indicating whether the operation was scheduled. Calling methods must check this return value and perform cleanup and/or implement logic to resume execution. Refer to the limits and defaults documentation page for details.
 
 Here is an example of a script for counting documents in a very large collection that handles timeouts and the resumption of execution through continuation tokens. 
 
