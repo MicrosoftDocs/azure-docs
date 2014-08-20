@@ -4,14 +4,15 @@
 
 # Setting up diagnostics
 
-In the Azure Portal Preview, you can now get rich monitoring and diagnostics data about your Windows virtual machines.
+In the Azure Portal Preview, you can now configure rich, frequent, monitoring and diagnostics data about your Windows virtual machines and your storage accounts.
 
+## Collecting rich data from Virtual machines
 1. In the [Azure Portal Preview](https://portal.azure.com/), click **Browse**, then **Virtual machines**. Select the virtual machine you're interested in monitoring.
-2. The **Monitoring** lens contains some default metrics, such as **CPU percentage**, **Disk read and write** and **Network in and out**. Clicking on any of these parts will show you the **Metric** blade.
+2. The **Monitoring** lens contains some default metrics, such as **CPU percentage**, **Disk read and write** and **Network in and out**. Clicking on any of these parts will show you the **Metric** blade.  
     ![Monitoring lens](./media/insights-how-to-use-diagnostics/Insights_VMMonitoringLens.png)
-3. The **Metric** blade shows you details about metrics that you select. At the top of the blade is a graph, below that a table that shows you aggregation of those metrics, such as average, minimum and maximum. Below that is a list of the alerts you've defined, filtered to the metrics that appear on the blade. 
+3. The **Metric** blade shows you details about metrics that you select. At the top of the blade is a graph, below that a table that shows you aggregation of those metrics, such as average, minimum and maximum. Below that is a list of the alerts you've defined, filtered to the metrics that appear on the blade.  
     ![Metric blade](./media/insights-how-to-use-diagnostics/Insights_VMMetricBlade.png)
-4. To enable rich diagnostics, click on the **Settings** button and you'll see the **Diagnostics** blade. Choose **ON**:
+4. To enable rich diagnostics, click on the **Settings** button and you'll see the **Diagnostics** blade. Choose **ON**:  
     ![Diagnostics blade](./media/insights-how-to-use-diagnostics/Insights_VMDiagnosticsBlade.png)
     - **Basic metrics** : Health metrics about your virtual machine such as processor and memory 
     - **Per disk metrics** : Metrics about all of the disks attached to your virtual machine
@@ -28,9 +29,19 @@ When you enable diagnostics information to a storage account, that account will 
 
 Once you click **OK** data will begin appearing in your storage account within a few minutes. You cannot enable diagnostics for virtual machines running Linux, and the Guest Agent must be installed to enable diagnostics.
 
+## Collecting rich data from storage accounts
+
+You have always been able to collect some data from storage accounts, but now in the Azure Portal Preview, you can collect data at one-minute granularity to truly understand what is happening inside your storage account. The steps to enable one-minute metrics are similar to for Virtual machines:
+
+1. Go to the **Metric** blade by clicking on any of the charts on the **Storage account** blade.
+2. Click on the **Diagnostics** button in the command bar.
+3. Select what data you want to collect from the storage account:  
+    ![Storage diagnostics](./media/insights-how-to-use-diagnostics/Insights_StorageDiagnostics.png)
+4. Click **OK**. It will take a few minutes for data to appear for the first time.
+
 ## Visualizing diagnostics data 
 
-Once you have enabled diagnostics for a virtual machine you can see the full list of metrics available by right clicking on any chart and going to **Edit query**:
+Once you have enabled diagnostics you can see the full list of metrics available by right clicking on any chart and going to **Edit query**:
 
 ![Edit query](./media/insights-how-to-use-diagnostics/Insights_VMEditQuery.png)
 
@@ -44,14 +55,14 @@ At this time there is no way to plot metrics that have multiple instances, such 
 
 ## Alerting on diagnostics data
 
-In addition to visualizing metrics you can alert on any of these metrics in the Portal Preview. First, scroll down to the **Alert rules** part on the virtual machine blade, and then click **Add alert**:
+In addition to visualizing metrics you can alert on any of these metrics in the Portal Preview. First, scroll down to the **Alert rules** part on the virtual machine or storage blade, and then click **Add alert**:
 
 ![Add alert](./media/insights-how-to-use-diagnostics/Insights_VMAlerts.png)
 
-Then you can select from any of the metrics that you have enabled for diagnostics for your virtual machine:
+Then you can select from any of the metrics that you have enabled for diagnostics:
 
 ![JIT alert](./media/insights-how-to-use-diagnostics/Insights_VMJITAlert.png)
 
 The graph will show you a preview of your alert threshold compared the metric from the previous day. After you click **Save**, within a few minutes you will be informed whenever the metric you choose exceeds the threshold. 
 
-Note that at this time in the Preview Portal you cannot alert on metrics from the Full Portal, and that metrics from the Preview Portal are not alertable in the Full Portal. As a result, alerts from one Portal are not visible in the other.
+Note that metrics which only appear in the Preview Portal are not alertable in the Full Portal. As a result, certain alert rules from the Preview Portal are not visible in the Full portal.

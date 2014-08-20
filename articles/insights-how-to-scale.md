@@ -11,13 +11,12 @@ Scale affects an entire Web Hosting Plan. When you create a Web Site you have th
 ## Scaling a Web Hosting Plan
 
 1. In the [Azure Portal Preview](https://portal.azure.com/), click **Browse**, then **Web Sites**, and then click the name of the Web Site to open the blade.
-2. The **Scale** part on **Operations** lens of the Web Site blade will tell you the status of the Web Hosting Plan: **Off** for when you are scaling manually, **Performance** for when you are scaling by one or more performance metrics, and **Schedule** for when you have enabled multiple autoscale profiles.
-
+2. The **Scale** part on **Operations** lens of the Web Site blade will tell you the status of the Web Hosting Plan: **Off** for when you are scaling manually, **Performance** for when you are scaling by one or more performance metrics, and **Schedule** for when you have enabled multiple autoscale profiles.  
     ![Scale part](./media/insights-how-to-scale/Insights_ScalePartOff.png)
-3. Clicking on the part will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions for your Web Hosting Plan.
+3. Clicking on the part will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions for your Web Hosting Plan.  
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
-4. You can manually adjust the number of virtual machines that run your Web Hosting Plan with the **Instance** slider. 
-5. If you want the number of instances to automatically adjust based on load, select **Performance** under **Autoscale Mode**. At this time you cannot select **Schedule** in the Azure Portal Preview.
+4. You can manually adjust the number of virtual machines that run your Web Hosting Plan with the **Instance** slider.
+5. If you want the number of instances to automatically adjust based on load, select **Performance** under **Autoscale Mode**. At this time you cannot select **Schedule** in the Azure Portal Preview.  
     ![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png) 
 6. Once you select Performance, there are two changes:
     - **Instance Range** now allows you to choose a maximum and minimum instance count. Autoscale will always keep you in this range, irrespective of load.

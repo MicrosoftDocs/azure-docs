@@ -10,7 +10,7 @@ Wonder how many users have visited you site?  Wonder what the average page load 
 
 ## How to set up End User Analytics
 1. Click on the part on the **Web site** blade that says **End user analytics**
-2. On the **Configuration** blade, select the entire instrumentation script and copy it.
+2. On the **Configuration** blade, select the entire instrumentation script and copy it.  
     ![Configuration](./media/insights-usage-analytics/Insights_CopyCode.png)
 3. Paste the script into each of your web pages, just before the close of the </head> tag. It's a good idea to insert the script into all your web pages. If you're using ASP.NET, you can do that by inserting the script into your application's master page.
 4. Deploy and use your web application. Usage analytic information will begin to appear after about 5-10 minutes.
@@ -23,7 +23,7 @@ The Browsers session part allows you to drill into to see the different browsers
 
 The Analytics part shows:
 - A break down of the different device types including Desktop and Mobile.
-- Your top 5 pages and graphs the page load time over the past week.  The number of sessions and views is also available
+- Your top 5 pages and graphs the page load time over the past week.  The number of sessions and views is also available  
     ![Top Pages](./media/insights-usage-analytics/Insights_TopPages.png)
 - Your slowest pages in the past week so you can improve them to meet your business goals and objectives
 
