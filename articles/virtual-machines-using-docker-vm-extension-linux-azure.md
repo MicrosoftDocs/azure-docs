@@ -71,7 +71,7 @@ You have installed the azure-cli prompt on your computer, connected it to your A
 
 With the azure-cli command prompt locate the most recent Ubuntu image in the VM gallery to use by typing
 
-	`azure vm image list | grep Ubuntu-14_04`
+`azure vm image list | grep Ubuntu-14_04`
 
 and be ready to copy the name of one of the most recent images listed. At the command prompt, type
 
@@ -85,10 +85,35 @@ where:
 
 +  *<username>* is the username of the default root user of the VM
 
-+ *<password>* is the password of the *username* account that meets the standards of complexity for Azure. 
++ *<password>* is the password of the *username* account that meets the standards of complexity for Azure 
+ 
+> [WACOM.NOTE] Currently, a password must be at least 8 characters, contain one lower case and one upper case character, a number, and a special character such as !@#$%^&+=. No, the period at the end of the preceding sentence is NOT a special character.
+
+If the command was successful, you should see something like the following, depending on the precise arguments and options you used:
+
+![](./media/virtual-machines-docker/dockercreateresults.png)
+
+> [WACOM.NOTE] As mentioned before, creating a virtual machine can take a few minutes, but after it has been provisioned the Docker daemon starts and you can connect to the Docker container host.
+
+To test the Docker VM you have created in Azure, type
+
+`docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:4243 info`
+
+where *<vm-name-you-used>* is the name of the virtual machine that you used in your call to `azure vm docker create`. Again, depending upon the specific arguments and options you specified, you should see something like the following response, which indicates that your Docker Host VM is up and running in Azure and waiting for your commands.
+
+![](./media/virtual-machines-docker/connectingtodockerhost.png)
+
+## A Note about Docker Host VM Authentication
+In addition to creating the Docker VM, the `azure vm docker create`  command also automatically creates the necessary certificates to allow your Docker client computer to connect to the host using HTTPS, and the certificates are stored on both the client and host machines, as appropriate. On subsequent runs, the existing certificates are reused and shared with the new host.
+
+By default, certificates are placed in `~/.docker`, and Docker will be configured to run on port **4243**. If you would like to use a different port or directory, then you may use one of the following `azure vm docker create` command line options to configure your Docker container host VM to use a different port or different certificates for connecting clients:
+
+`-dp, --docker-port [port]        Port to use for docker [4243]`
+
+`-dc, --docker-cert-dir [dir]     Directory containing docker certs`
+
+The Docker daemon on the host is configured to listen for, and authenticate, client connections on the specified port using the certificates generated above. The client machine must have these certificates to gain access to the Docker host. Conversely, a networked host running without these certificates will be vulnerable to anyone that can to connect to the machine.
 
 ## Virtual Machine Extensions for Linux and Windows
-mention how docker is just one of several extensions, with more coming all the time.
+The Docker VM extension for Azure is just one of several VM extension that provide special behavior, and more are in development. For a complete list, see [Azure VM Extensions](http://msdn.microsoft.com/en-us/library/azure/dn606311.aspx).
 
-## Container and Container Management Resources for Azure
-more stuff about not just docker, but container **management** on azure.
