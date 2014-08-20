@@ -33,7 +33,7 @@ To use the Docker VM extension with Azure, you must install a version of the [az
 > [WACOM.NOTE] The azure-cli (command line interface) is currently the only way to create a Docker-controlled VM on Azure to host Docker containers. The general installation document is [here](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install); the sections below offer some extra suggestions to installing smoothly on various operating systems. 
 
 ### Install the azure-cli on Linux
-On Linux, the azure-cli installation requires the [node package manager (npm)](http://en.wikipedia.org/wiki/Npm_%28software%29), which requires nodejs, so you're going to use your favorite package manager to install nodejs, depending upon your platform choice. If you have npm installed, to obtain Docker you type:
+On Linux, the azure-cli installation requires the [node package manager (npm)](http://en.wikipedia.org/wiki/Npm_%28software%29), which requires nodejs, so you're going to use your favorite package manager to install nodejs, depending upon your platform choice. If you have npm installed, to obtain the azure-cli package you type:
 
 ```
 npm install -g azure-cli
