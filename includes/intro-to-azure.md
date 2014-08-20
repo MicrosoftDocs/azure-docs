@@ -189,7 +189,7 @@ Sometimes you want to move a lot of data into Azure. That would take a long time
 - **Archived Data Recovery** – You can use Import/Export to have Microsoft transfer  large amounts of data stored in Azure Blob Storage to a storage device that you send and then have that device delivered back to a location you desire. Because this will take some time, it's not a good option for disaster recovery. It's best for archived data that you don't need quick access to.
 
 
-###Azure Files###
+###Azure File Service###
 ![Azure File Service](./media/intro-to-azure/FileServiceIntroNew.png)    
 **Figure: Azure File Services provides SMB \\\\server\share paths for applications running in the cloud.** 
 
@@ -222,24 +222,27 @@ Azure runs today in many datacenters spread across the world. When you run an ap
 ###Virtual Network###
 
 ![VirtualNetwork](./media/intro-to-azure/VirtualNetworkIntroNew.png)   
- **Figure: Virtual Networks provides a private network in the cloud so different services can talk to each other or to on-premises resources if you set up a VPN connection.** 
+ **Figure: Virtual Networks provides a private network in the cloud so different services can talk to each other, or to on-premises resources if you set up a VPN connection.a cross-premises connection. ** 
 
-You can use Azure Virtual Network to connect your own on-premises local network to a defined set of Azure VMs.
 
-One useful way to use a public cloud is to treat it as an extension of your own datacenter. Because you can create VMs on demand, then remove them (and stop paying) when they're no longer needed, you can have computing power only when you want it. And since Azure Virtual Machines lets you can create VMs running SharePoint, Active Directory, and other familiar on-premises software, this approach can work with the applications you already have.
+One useful way to use a public cloud is to treat it as an extension of your own datacenter.
+ 
+Because you can create VMs on demand, then remove them (and stop paying) when they're no longer needed, you can have computing power only when you want it. And since Azure Virtual Machines lets you create VMs running SharePoint, Active Directory, and other familiar on-premises software, this approach can work with the applications you already have.
 
-To make this really useful, though, your users ought to be able to treat these applications as if they were running in your own datacenter. This is exactly what Azure Virtual Network allows. Using a VPN gateway device, an administrator can set up a virtual private network (VPN) between your local network and a defined group of VMs running in Azure. Because you assign your own IP v4 addresses to the cloud VMs, they appear to be on your own network. Users in your organization can access the applications those VMs contain as if they were running locally
+To make this really useful, though, your users ought to be able to treat these applications as if they were running in your own datacenter. This is exactly what Azure Virtual Network allows. Using a VPN gateway device, an administrator can set up a virtual private network (VPN) between your local network and your VMs that are deployed to a virtual network in Azure. Because you assign your own IP v4 addresses to the cloud VMs, they appear to be on your own network. Users in your organization can access the applications those VMs contain as if they were running locally.
 
+For more information about planning and creating a virtual network that works for you, see [Virtual Network](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
 ###Express Route###
 
 ![ExpressRoute](./media/intro-to-azure/ExpressRouteIntroNew.png)   
  **Figure: ExpressRoute uses an Azure Virtual Network, but routes connections through faster dedicated lines instead of the public Internet.**  
 
-If you need more bandwidth or security than a an Azure Virtual Network plus a VPN can provide, you can use ExpressRoute. You’ll still need a Virtual Network set up in Azure, but the link between Azure your site (or sites) uses a hardwired connection that does not go over the public Internet.  In order to use this service, each site needs to be within a certain distance of a provider who specifically works with ExpressRoute. 
+If you need more bandwidth or security than an Azure Virtual Network site-to-site cross-premises connection can provide, you can use ExpressRoute. In some cases, ExpressRoute can also save you money. You’ll still need a virtual network in Azure, but the link between Azure and your site uses a dedicated connection that does not go over the public Internet. In order to use this service, you’ll need to have an agreement with either a network service provider, or an exchange provider. 
 
-Setting it up requires more time and money, so if you can start with a VPN, try that and then graduate to ExpressRoute if you really need to.
+Setting it up an ExpressRoute connection requires more time and planning, so you might want to start with a site-to-site VPN, then migrate to an ExpressRoute connection.
 
+For more information about ExpressRoute, see [ExpressRoute Technical Overview](http://msdn.microsoft.com/en-us/library/azure/dn606309.aspx).
 
 ###Traffic Manager###
 
@@ -316,8 +319,7 @@ Working with identity is part of most applications. Knowing who a user is lets a
 
 
 ###Active Directory###
-![Azure Active Directory](./media/intro-to-azure/AzureActiveDirectoryIntroNew.png)   
-**Figure:** 
+
 
 
 Like most directory services, Azure Active Directory stores information about users and the organizations they belong to. It lets users log in, then supplies them with tokens they can present to applications to prove their identity. It also allows synchronizing user information with Windows Server Active Directory running on premises in your local network. While the mechanisms and data formats used by Azure Active Directory aren't identical with those used in Windows Server Active Directory, the functions it performs are quite similar. 
@@ -375,7 +377,7 @@ Because Azure supports massive scale already, you can handle the traffic as your
 
 ###Notification Hubs###
 
-![NotificationHubs](./media/intro-to-azure/NotificationHubsIntroNew.png)  
+![NotificationHubs](./media/intro-to-azure/NotificationHubstIntroNew.png)  
  **Figure : Notification Hubs provides functionality commonly required by applications which interface with mobile devices.**
 
 While you can write code to do notifications in Azure Mobile Services, Notification Hubs is optimized to broadcast millions of highly personalized push notifications within minutes.  You don't have to worry about details like mobile carrier or device manufacturer. You can target individual or millions of users with a single API call. 
@@ -394,8 +396,7 @@ You can send breaking news, sporting events, and product announcement notificati
 Every enterprise needs to backup and restore data. You can use Azure to backup and restore your application whether in the cloud or on-premises. Azure offers different options to help depending on the type of backup.
 
 ###Site Recovery###
-![Site Recovery](./media/intro-to-azure/SiteRecoveryIntroNew.png)    
-**Figure: Site Recovery provides a way to replicate and restore Hyper-V images between different physical sites**
+
  
 Azure Site Recovery (formerly Hyper-V Recovery Manager) can help you protect important applications by coordinating the replication and recovery of Hyper-V images across sites. You can back up to your own secondary site, a hoster’s site, or use Azure and avoid the expense and complexity of building and managing your own secondary location. Azure encrypts data and communications and you have the option enable encryption for data at-rest too. 
 
@@ -405,8 +406,8 @@ Site Recovery works with existing technologies such as Hyper-V Replica, System C
 
 ###Azure Backup###
 ![Azure Backup](./media/intro-to-azure/AzureBackupIntroNew.png)    
-**Figure: Azure File Services provides SMB \\\\server\share paths for applications running in the cloud.** 
-Azure Backup backs up data from on-premises Windows servers into the cloud. You can manage your backups directly from the backup tools in Windows Server 2012, Windows Server 2012 Essentials, or System Center 2012 - Data Protection Manager. Alternatively, you can use a specialized backup agent. 
+**Figure: Azure Backup backs up data from on-premises Windows Servers into the cloud ** 
+Azure Backup backs up data from on-premises servers running Windows Server into the cloud. You can manage your backups directly from the backup tools in Windows Server 2012, Windows Server 2012 Essentials, or System Center 2012 - Data Protection Manager. Alternatively, you can use a specialized backup agent. 
 
 Data is safer because backups are encrypted before transmission and stored encrypted in Azure and protected by a certificate that you upload. The service uses the same redundant and highly available data protection found in Azure Storage.  You can back up files and folders on a regular schedule or immediately, running either full or incremental backups. After data is backed up to the cloud, authorized users can easily recover backups to any server. It also offers configurable data retention policies, data compression, and data transfer throttling so you can manage the cost to store and transfer data.
 
@@ -459,17 +460,14 @@ Anytime your are setting up where there are many messages that are all important
   
 
 ###BizTalk Services###
-![BizTalk Services](./media/intro-to-azure/BizTalkServIntroNew.png)   
+![BizTalk Services](./media/intro-to-azure/BizTalkServIntroNew2.png)   
  **Figure:BizTalk Services provides the ability to transform XML messages formats in the cloud.**
 
 Sometimes you need connect systems which communicate using different messaging formats. It’s common for business to have different database schemas and XML messaging formats, even when a common standard is available. Rather than write a lot of custom code, you can use BizTalk Server on-premises to integrate various systems.  Azure BizTalk Services provides the same type of service, but in the cloud. You can pay for only what you use and not worry about scale like you would have to on-premises.
  
 
-
-
-
-
-
+**BizTalk Services Scenarios TODO**
+Business-to-Business (B2B) interactions commonly require this type of translation.  For example, an company building airplanes needs to order parts from it's various parts suppliers. It will have many parts suppliers.  Those orders should be automated to go directly from the airplane builders systems into the suppliers systems.  Neither business wants to change their core systems and message formats, and it's very unlikely that those formats are the same. BizTalk Services can take messages and translate between the new formats both ways. Either the airplane supplier can do the work to translate or the various suppliers can, depending on who wants more control and the amount of translation needed.     
 
 
 <h2><a id="ComputeAssist"></a>Compute Assistance</h2>
@@ -477,10 +475,12 @@ Azure provides assistance for services that do not need to run all the time.
 
 ###Scheduler###
 
-![Azure Scheduler](./media/intro-to-azure/SchedulerIntroNew.png)   
+![Azure Scheduler](./media/intro-to-azure/SchedulerIntroNew2.png)   
 **Azure Scheduler provides a way to schedule jobs at a specific time for a specific duration.**
 
 Sometimes applications only need to run at a certain time. On Azure, you can save money with this type of app instead of letting an application just keep running 24x7 waiting for data to process. Azure Scheduler allows you to schedule when an application should run on based on in interval of time or a calendar. It’s reliable and will verify that a process runs even if there are network, machine, and data center failures. You use the Scheduler REST API to manage these actions. 
+
+When an scheduled alarm occurs, Scheduler sends HTTP or HTTPS messages to a specific endpoint or can put a message in a Storage Queue.  So you need to have your application either have an accessible endpoint or have it monitor a storage queue. Then once it gets the message, it can perform whatever action it's programmed to. 
 
 **Scheduler Scenarios**
 
@@ -501,8 +501,8 @@ Performance is always important for an application. Applications tend to access 
 
 
 ###Azure Caching###
-![Azure Caching](./media/intro-to-azure/CacheIntroNew.png)   
- **Figure: An Azure application can cache data in memory, and copies of a blob can be cached at sites around the world.**
+![Azure Caching](./media/intro-to-azure/AzureCacheIntroNew.png)   
+ **Figure: An Azure application can cache data in memory and even split it up across many worker roles**
 
 Accessing data stored in any of Azure's data management services-SQL Database, Tables, or Blobs-is quite fast. Yet accessing data stored in memory is even faster. Because of this, keeping an in-memory copy of frequently accessed data can improve application performance. You can use Azure's in-memory Caching to do this. 
 
@@ -535,7 +535,8 @@ It's common to use CDN with Media Services to deliver video worldwide. Video is 
 <h2><a id="BigStuff"></a>Big Data and Big Compute</h2>
 
 ###HDInsight (Hadoop)###
-
+![HDInsight](./media/intro-to-azure/HDInsightIntroNew.png)   
+ **Figure: HDInsight helps with the bulk processing of huge amounts of data**
 For many years, the bulk of data analysis has been done on relational data stored in a data warehouse built with a relational DBMS. This kind of business analytics is still important, and it will be for a long time to come. But what if the data you want to analyze is so big that relational databases just can't handle it? And suppose the data isn't relational? It might be server logs in a datacenter, for example, or historical event data from sensors, or something else. In cases like this, you have what's known as a big data problem. You need another approach.
 
 The dominant technology today for analyzing big data is Hadoop. An Apache open source project, this technology stores data using the Hadoop Distributed File System (HDFS), then lets developers create MapReduce jobs to analyze that data. HDFS spreads data across multiple servers, then runs chunks of the MapReduce job on each one, letting the big data be processed in parallel.
@@ -544,7 +545,7 @@ HDInsight is the name of the Azure's Apache Hadoop-based service. HDInsight lets
  
 HDinsight supports other components of the Hadoop ecosystem as well, including Hive and Pig. Microsoft has also created components that make it easier to work with data produced by HDInsight using traditional BI tools, such as the HiveODBC adapter and Data Explorer that work with Excel.
 
-###High-Performance Computing###
+###High-Performance Computing (Big Compute)###
 
 One of the most attractive ways to use a cloud platform is to run high performance computing (HPC) and other “Big Compute” applications. Examples include specialized engineering applications built to use the industry-standard Message Passing Interface (MPI) as well as so-called embarrassingly parallel applications, such financial risk models.
 
@@ -553,10 +554,6 @@ The essence of Big Compute is executing code on many machines at the same time. 
 Azure provides a range of VM instance sizes with different configurations of CPU cores, memory, disk capacity, and other characteristics to meet the requirements of different applications. The recently introduced A8 and A9 instances work well for many compute intensive workloads, and parallel MPI applications in particular, because they have high speed, multicore CPUs and large amounts of memory. In certain configurations the instances take advantage of a low-latency and high-throughput application network in the cloud that includes remote direct memory access (RDMA) technology for maximum efficiency of parallel MPI applications.
 
 Azure also offers Big Compute application developers and partners a full set of compute capabilities, services, architecture choices, and development tools. Azure supports custom Big Compute workflows involving specialized data workflows and job and task scheduling patterns that can scale to thousands of compute cores.
-
-
-
-
 
 
 
