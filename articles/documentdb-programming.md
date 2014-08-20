@@ -1,18 +1,19 @@
-<properties title="required" pageTitle="required" description="required" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="Required" videoId="Optional" scriptId="Optional" />
+<properties title="DocumentDB programming: stored procedures, triggers, and UDFs" pageTitle="DocumentDB programming: stored procedures, triggers, and UDFs" description="Programming DocumentDB" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="bradsev" " manager="paulettm" editor="cgronlun" videoId="Optional" scriptId="Optional" />
 
-#Introduction
+# DocumentDB programming: stored procedures, triggers, and UDFs
+##Introduction
 DocumentDB’s language integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers** and **user defined functions (UDFs)** natively in JavaScript. This allows developers to write application logic which can be shipped and executed directly on the database storage partitions.  
 
 This approach of “*JavaScript as a modern day T-SQL*” frees application developers from the complexities of type system mismatches and object-relational mapping technologies. It also has a number of intrinsic advantages that can be utilized to build rich applications:  
 
--	**Procedural Logic:** JavaScript as a high level programming language, provides a rich and familiar interface to express business logic. This provides the ability to perform complex sequences of operations closer to the data.
+-	**Procedural Logic:** JavaScript as a high level programming language, provides a rich and familiar interface to express business logic. You can perform complex sequences of operations closer to the data.
 
 -	**Atomic Transactions:** DocumentDB guarantees the database operations performed inside a single stored procedure or trigger to be atomic. This lets an application combine related operations in a single batch so that either all of them succeed or none do. 
 
 -	**Performance:** The fact that JSON is intrinsically mapped to the Javascript language type system and is also the basic unit of storage in DocumentDB allows for a number of optimizations like lazy materialization of JSON documents in the buffer pool and making them available on-demand to the executing code. There are more performance benefits associated with shipping business logic to the database:
 	-	Batching – Developers can group operations like inserts and submit them in bulk. The network traffic latency cost, and the store overhead to create separate transactions are reduced significantly. 
-	-	Pre-compilation – DocumentDB precompiles stored procedures, triggers and user defined functions (UDFs) to avoid JavaScript compilation cost for each invocation. So the overhead of building the byte code for the procedural logic is amortized to a minimal value.
-	-	Sequencing – Many operations need a side-effect (“trigger”) that potential involves doing one or many secondary store operations. Aside from atomicity, this is more performant when moved to the server. 
+	-	Pre-compilation – DocumentDB precompiles stored procedures, triggers and user defined functions (UDFs) to avoid JavaScript compilation cost for each invocation. The overhead of building the byte code for the procedural logic is amortized to a minimal value.
+	-	Sequencing – Many operations need a side-effect (“trigger”) that potentially involves doing one or many secondary store operations. Aside from atomicity, this is more performant when moved to the server. 
 -	**Encapsulation:** Stored procedures can be used to group business logic in one place. This has two advantages:
 	-	It adds an abstraction layer on top of the raw data, which enables data architects to evolve their applications independently from the data. This is particularly advantageous when the data is schema-less, due to the brittle assumptions that may need to be baked into the application if they have to deal with data directly.  
 	-	This abstraction lets enterprises keep their data secure by streamlining the access from the scripts.  
@@ -32,7 +33,7 @@ Let’s start with a simple stored procedure that returns a “Hello World” re
 	}
 
 
-Stored procedures are registered per collection, and can operate on any documents and attachments present in that collection. The following snippet shows how to register the helloWorld stored procedure with a collection. 
+Stored procedures are registered per collection, and can operate on any document and attachment present in that collection. The following snippet shows how to register the helloWorld stored procedure with a collection. 
 
 	// register the stored procedure
 	var createdStoredProcedure;
@@ -81,7 +82,7 @@ The next snippet shows how to use the context object to interact with DocumentDB
 
 This stored procedure takes as input documentToCreate, the body of a document to be created in the current collection. All such operations are asynchronous and depend on JavaScript function callbacks. The callback function has two parameters, one for the error object in case the operation fails, and one for the created object. Inside the callback, users can either handle the exception or throw an Error. In case a callback is not provided and there is an error, the DocumentDB runtime will throw an Error.   
 
-In the example above, the callback throws an Error if the operation failed. Otherwise it sets the id of the created document as the body of the response to the client. Here is how this stored procedure is executed with input parameters.
+In the example above, the callback throws an Error if the operation failed. Otherwise, it sets the id of the created document as the body of the response to the client. Here is how this stored procedure is executed with input parameters.
 
 	// register the stored procedure
 	client.createStoredProcedureAsync(collection._self, createDocumentStoredProc)
@@ -109,16 +110,17 @@ In the example above, the callback throws an Error if the operation failed. Othe
 	
 Note that this stored procedure can be modified to take an array of document bodies as input and create them all in the same stored procedure execution instead of multiple network requests to create each of them individually. This can be used to implement an efficient bulk importer for DocumentDB (discussed later in this tutorial).   
 
-The example described demonstrated how to use stored procedures. We will cover triggers and user defined functions (UDFs) later in the tutorial. Before first, let us look at the general characteristics of the scripting support in DocumentDB.  
+The example described demonstrated how to use stored procedures. We will cover triggers and user defined functions (UDFs) later in the tutorial. First, let us look at the general characteristics of the scripting support in DocumentDB.  
 
-#Runtime Support
-DocumentDB JavaScript server side SDK provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](documentdb-interactions-with-resources). 
-#Transactions
+##Runtime Support
+DocumentDB JavaScript server side SDK provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](documentdb-interactions-with-resources).
+ 
+##Transactions
 Transaction in a typical database can be defined as a sequence of operations performed as a single logical unit of work. Each transaction provides **ACID guarantees**. ACID is a well-known acronym that stands for four properties -  Atomicity, Consistency, Isolation and Durability.  
 
 Briefly, Atomicity guarantees that all the work done inside a transaction is treated as a single unit where either all of it is committed or none. Consistency makes sure that the data is always in a good internal state across transactions. Isolation guarantees that no two transactions interfere with each other – generally, most commercial systems provide multiple isolation levels that can be used based on the application needs. Durability ensures that any change that’s committed in the database will always be present.   
 
-In DocumentDB, JavaScript is hosted in the same memory space as the database. Hence requests made within stored procedures and triggers are execute in the same scope of a database session. This enables DocumentDB to guarantee ACID for all operations that are part of a single stored procedure/trigger. Consider the following stored procedure definition:
+In DocumentDB, JavaScript is hosted in the same memory space as the database. Hence, requests made within stored procedures and triggers execute in the same scope of a database session. This enables DocumentDB to guarantee ACID for all operations that are part of a single stored procedure/trigger. Consider the following stored procedure definition:
 
 	// JavaScript source code
 	var exchangeItemsSproc = {
@@ -184,28 +186,28 @@ In DocumentDB, JavaScript is hosted in the same memory space as the database. He
 	);
 
 
-This stored procedure uses transactions within a gaming app to trade items between two players in a single operation. The stored procedure attempts to read two documents each corresponding to the player IDs passed in as argument. If both player documents are found, then the stored procedure updates the documents by swapping their items. If any errors are encountered along the way, it throws a JavaScript exception which implicitly aborts the transaction.
+This stored procedure uses transactions within a gaming app to trade items between two players in a single operation. The stored procedure attempts to read two documents each corresponding to the player IDs passed in as an argument. If both player documents are found, then the stored procedure updates the documents by swapping their items. If any errors are encountered along the way, it throws a JavaScript exception which implicitly aborts the transaction.
 	
-##Snapshot Isolation
-DocumentDB uses snapshot isolation for the transaction under which the stored procedure or trigger runs. In snapshot isolation, snapshot refers to the fact that all queries in the transaction see the same version, or snapshot, of the database, based on the state of the database at the moment in time when the transaction begins. No locks are acquired on the underlying data rows or data pages in a snapshot transaction, which permits other transactions to execute without being blocked by a prior uncompleted transaction. Snapshot isolation uses an **optimistic concurrency** model. If a snapshot transaction attempts to commit modifications to data that has changed since the transaction began, the transaction will be aborted.
+###Snapshot Isolation
+DocumentDB uses snapshot isolation for the transaction under which the stored procedure or trigger runs. In snapshot isolation, snapshot refers to the fact that all queries in the transaction see the same version, or snapshot, of the database, based on the state of the database at the moment in time when the transaction begins. No locks are acquired on the underlying data rows or data pages in a snapshot transaction, which permits other transactions to execute without being blocked by a prior uncompleted transaction. Snapshot isolation uses an **optimistic concurrency** model. If a snapshot transaction attempts to commit modifications to data that has changed since the transaction began, the transaction aborts.
 
-##Commit and Rollback
-Transactions are deeply and natively integrated into DocumentDB’s JavaScript programming model. Insider a JavaScript function, all operations are automatically wrapped under a single transaction. If the JavaScript completes without any exception, the operations to the database are committed. In effect, the “BEGIN TRANSACTION” and “COMMIT TRANSACTION” statements in relational databases are implicit in DocumentDB.  
+###Commit and Rollback
+Transactions are deeply and natively integrated into DocumentDB’s JavaScript programming model. Inside a JavaScript function, all operations are automatically wrapped under a single transaction. If the JavaScript completes without any exception, the operations to the database are committed. In effect, the “BEGIN TRANSACTION” and “COMMIT TRANSACTION” statements in relational databases are implicit in DocumentDB.  
  
 If there is any exception that’s propagated from the script, DocumentDB’s JavaScript runtime will roll back the whole transaction. As shown in the earlier example, throwing an exception is effectively equivalent to a “ROLLBACK TRANSACTION” in DocumentDB. 
 
-##Data Consistency
+###Data Consistency
 Stored procedures and triggers are always executed on the primary replica of the DocumentDB collection. This ensures that reads from inside stored procedures offer strong consistency. Queries using user defined functions can be executed on the primary or any secondary replica, but we ensure to meet the requested consistency level by choosing the appropriate replica.
 
-#Security
+##Security
 JavaScript stored procedures and triggers are sandboxed so that the effects of one script do not leak to the other without going through the snapshot transaction isolation at the database level. The runtime environments are pooled but cleaned of the context after each run. Hence they are guaranteed to be safe of any unintended side effects from each other.
 
-#Pre-compilation
+##Pre-compilation
 Stored procedures, triggers and UDFs are implicitly precompiled to the byte code format in order to avoid compilation cost at the time of each script invocation. This ensures invocations of stored procedures are fast and have a low footprint.
 
-#Triggers and User Defined Functions
-##Pre-Triggers
-DocumentDB provides triggers that are executed or triggered by an operation on a document. For example, you can specify a pre-trigger when you are creating a document – this pre-trigger will be run before the document is created. The following is an example of how pre-triggers can be used to validate the properties of a document that is being created:
+##Triggers and User Defined Functions
+###Pre-Triggers
+DocumentDB provides triggers that are executed or triggered by an operation on a document. For example, you can specify a pre-trigger when you are creating a document – this pre-trigger will run before the document is created. The following is an example of how pre-triggers can be used to validate the properties of a document that is being created:
 
 	var validateDocumentContentsTrigger = {
 	    name: "validateDocumentContents",
@@ -259,7 +261,7 @@ And the corresponding Node.js client-side registration code for the trigger:
 
 Pre-triggers cannot have any input parameters. The request object can be used to manipulate the request message associated with the operation. Here, the pre-trigger is being run with the creation of a document, and the request message body contains the document to be created in JSON format.   
 
-When triggers are registered, users can specify the operations that it can runs with. This trigger was created with TriggerOperation.Create, which means the following is not permitted.
+When triggers are registered, users can specify the operations that it can run with. This trigger was created with TriggerOperation.Create, which means the following is not permitted.
 
 	var options = { preTriggerInclude: "validateDocumentContents" };
 	
@@ -273,7 +275,7 @@ When triggers are registered, users can specify the operations that it can runs 
 	
 	// Fails, can’t use a create trigger in a replace operation
 
-##Post-Triggers
+###Post-Triggers
 Post-triggers, like pre-triggers, are associated with an operation on a document and don’t take any input parameters. They run **after** the operation has completed, and have access to the response message that is sent to the client.   
 
 The following example shows post-triggers in action:
@@ -388,14 +390,14 @@ The UDF can subsequently be used in queries like in the following sample:
 	    console.log("Error" , error);
 	});
 
-#Bounded Execution
+##Bounded Execution
 All DocumentDB operations must complete within the server specified request timeout duration. This constraint also applies to JavaScript functions (stored procedures, triggers and user-defined functions). If an operation does not complete with that time limit, the transaction is rolled back. JavaScript functions must finish within the time limit or implement a continuation based model to batch/resume execution.  
 
 In order to simplify development of stored procedures and triggers to handle time limits, all functions under the collection object (for create, read, replace and delete of documents and attachments) return a Boolean value which represents whether that operation will complete. If this value is false, it is an indication that the time limit is about to expire and that the procedure must wrap up execution.  Operations queued prior to the first unaccepted store operation are guaranteed to complete if the stored procedure completes in time and does not queue any more requests.  
 
 JavaScript functions are also bounded on resource consumption. DocumentDB reserves throughput per collection based on the provisioned size of a database account. Throughput is expressed in terms of a normalized unit of CPU, memory and IO consumption called request units or RUs. JavaScript functions can potentially use up a large number of RUs within a short time, and might get rate-limited if the collection’s limit is reached. Resource intensive stored procedures might also be quarantined to ensure availability of primitive database operations.  
 
-#Bulk Importing Data
+##Bulk Importing Data
 Below is an example of a stored procedure that is written to bulk-import documents into a collection. Note how the stored procedure handles bounded execution by checking the Boolean return value from createDocument, and then uses the count of documents inserted in each invocation of the stored procedure to track and resume progress across batches.
 
 	function bulkImport(docs) {
@@ -448,7 +450,7 @@ Below is an example of a stored procedure that is written to bulk-import documen
 	}
 
 
-#REST API
+##REST API
 All DocumentDB operations can be performed in a RESTful manner. Stored procedures, triggers and user-defined functions can be registered under a collection by using HTTP POST. The following is an example of how to register a stored procedure:
 
 	POST https://<url>/sprocs/ HTTP/1.1
@@ -483,7 +485,7 @@ This stored procedure can then be executed by issuing a POST request against its
 	[ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
 
 
-Here, the input to the stored procedure is passed in the request body. Note that the input is passed as a JSON array of input parameters. The stored procedure takes the first input as a document that it response body. The response we receive is as follows:
+Here, the input to the stored procedure is passed in the request body. Note that the input is passed as a JSON array of input parameters. The stored procedure takes the first input as a document that is a response body. The response we receive is as follows:
 
 	HTTP/1.1 200 OK
 	 
@@ -517,7 +519,7 @@ Triggers, unlike stored procedures, cannot be executed directly. Instead they ar
 
 
 Here the pre-trigger to be run with the request is specified in the x-ms-documentdb-pre-trigger-include header. Correspondingly, any post-triggers are given in the x-ms-documentdb-post-trigger-include header. Note that both pre- and post-triggers can be specified for a given request.
-#SDK Support
+##SDK Support
 In addition to the Node.js client, DocumentDB supports .NET, JavaScript and Python SDKs. Stored procedures, triggers and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
 
 	var markAntiquesSproc = new StoredProcedure
