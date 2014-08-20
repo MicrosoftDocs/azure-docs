@@ -1,6 +1,6 @@
-<properties title="Scale with Azure DocumentDB" pageTitle="Scale with DocumentDB | Azure" description="How to scale a DocumentDB database elastically with lifecycle demands." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, scaling" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Scale with Azure DocumentDB" pageTitle="Scale with DocumentDB | Azure" description="How to scale a DocumentDB database elastically with lifecycle demands." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, scaling" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 
 #Scale with Azure DocumentDB

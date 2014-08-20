@@ -1,4 +1,6 @@
-<properties title="required" pageTitle="DocumentDB Limits for the Preview Release" description="required" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="bradsev" videoId="Optional" scriptId="Optional" />
+<properties title="DocumentDB limits for the preview release" pageTitle="DocumentDB limits for the preview release | Azure" description="Learn about the limits and quota enforcements of DocumentDB for the preview release." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" " manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 
 #DocumentDB Limits for the Preview Release
