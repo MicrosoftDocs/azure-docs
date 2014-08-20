@@ -46,11 +46,9 @@ This topic shows you how to register your apps to be able to use Azure Active Di
     ![][8]
 
 
-10. Return to your mobile service's **Identity** tab. At the bottom, paste in the **Client ID** setting for the azure active directory identity provider. 
-
-    > [WACOM.NOTE] If you are configuring an app with a .Net Backend Mobile Service that uses the <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/">Active Directory Authentication Library (ADAL) for single sign-on authentication</a>, you will see an **Allowed Tenants** list on the identity tab. In this step, you must add all tenant domains (e.g. contoso.onmicrosoft.com) that will be allowed to access the mobile service to this **Allowed Tenants** list. This setting is not relevant to JavaScript backend mobile services. 
-
-
+10. Return to your mobile service's **Identity** tab. At the bottom, paste in the **Client ID** setting for the azure active directory identity provider.
+    
+11. In the **Allowed Tenants** list, add the domain of the directory in which you registered the application (e.g. contoso.onmicrosoft.com). 
  
     Then click **Save**.
 

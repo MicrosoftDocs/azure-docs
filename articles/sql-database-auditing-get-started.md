@@ -13,7 +13,7 @@ Auditing tools enable and facilitate adherence to compliance standards but don't
 + [Set up auditing for your database]
 + [Analyze audit logs and reports]
 
-##Azure SQL Database Auditing basics
+##<a id="subheading-1">Azure SQL Database Auditing basics</a>
 
 You set up auditing in the Azure Preview Portal, but it makes no difference whether you created the database using the Azure Portal or the Azure Preview Portal. SQL Database auditing enables you to:
 
@@ -41,34 +41,36 @@ Traditional connection string format: <*server name*>.database.windows.net
 Security-enabled connection string: <*server name*>.database.**secure**.windows.net
 
 
-##Set up auditing for your database
+##<a id="subheading-2"></a>Set up auditing for your database
 
 1. <a href="http://go.microsoft.com/fwlink/?LinkId=404163" target="_blank">Sign up for the Auditing preview</a>.
-2. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com.
-3. Click the database you want to audit, and then click **Auditing Preview** to enable the auditing preview and launch the auditing configuration blade.
+2. Be sure to also <a href="https://account.windowsazure.com/PreviewFeatures?fid=premiumdb">sign up for the New Service Tiers preview</a>, and create a Basic, Standard or Premium database.
+3. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com.
+4. Click the database you want to audit, and then click **Auditing Preview** to enable the auditing preview and launch the auditing configuration blade.
 
 	![][1]
 
-4. In the auditing configuration blade, select the Azure storage account where logs will be saved. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
+5. In the auditing configuration blade, select the Azure storage account where logs will be saved. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
 
 	![][2]
 
-4. Under **Auditing Options**, click **All** to log all events, or choose individual event types.
+6. Under **Auditing Options**, click **All** to log all events, or choose individual event types.
 
 	![][3]
 
-5. Check **Save this Configuration as Default** if you want these settings to apply to all future databases on the server, and any that don't already have auditing set up. You can override the settings later for each database by following these same steps.
+7. Check **Save this Configuration as Default** if you want these settings to apply to all future databases on the server, and any that don't already have auditing set up. You can override the settings later for each database by following these same steps.
 
 	![][4]
 
-6. Click **Show database connection strings** and then copy or make a note of the appropriate security enabled connection string for your application. Use this string for any client applications whose activity you want to audit.
+8. Click **Show database connection strings** and then copy or make a note of the appropriate security enabled connection string for your application. Use this string for any client applications whose activity you want to audit.
 
 	![][5]
 
-7. Click **OK**.
+9. Click **OK**.
 
 
-##Analyze audit logs and reports
+
+##<a id="subheading-3">Analyze audit logs and reports</a>
 
 Audit logs are aggregated in a single Azure Store Table named **AuditLogs** in the Azure storage account you chose during setup. You can view log files using a tool such as <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Explorer</a>.
 
