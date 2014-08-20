@@ -30,8 +30,10 @@ To use the Docker VM extension with Azure, you must install a version of the [az
 + Use the azure-cli Docker commands to create a VM Docker host in Azure
 + Use the local Docker commands to manage your Docker containers in your Docker VM in Azure.
 
+> [WACOM.NOTE] The azure-cli (command line interface) is currently the only way to create a Docker-controlled VM on Azure to host Docker containers. The general installation document is [here](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install); the sections below offer some extra suggestions to installing smoothly on various operating systems. 
+
 ### Installing azure-cli on Linux
-On Linux, the azure-cli installation requires the [node package manager (npm)](http://en.wikipedia.org/wiki/Npm_%28software%29), which requires node, so you're going to use your favorite package manager to install nodejs, depending upon your platform choice. If you have npm installed, to obtain Docker you type:
+On Linux, the azure-cli installation requires the [node package manager (npm)](http://en.wikipedia.org/wiki/Npm_%28software%29), which requires nodejs, so you're going to use your favorite package manager to install nodejs, depending upon your platform choice. If you have npm installed, to obtain Docker you type:
 
 ```
 npm install -g azure-cli
@@ -41,11 +43,19 @@ which will install the azure-cli package globally. To confirm the installation, 
 
 > [WACOM.NOTE] If you are using an Ubuntu 14.04 LTS installation, that image has a slightly different node installation that may require some extra work. One suggestion that seems to work well is located [here](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server) in the **How To Install Using a PPA** section, which describes how to install the most recent version of nodejs directly and seems to work well on an Ubuntu 14.04 LTS distribution. 
 
+Alternatively, like most Linux components, you can clone the source, compile it, and install it locally as well. The instructions for that 
+
 ### Installing azure-cli on Mac
+On a Mac, the easiest way of installing the azure-cli is also to use npm with the same command: `npm install -g azure-cli`. However, you may also use the [Mac installer](http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409). As with 
 
 
 ### Installing azure-cli on Windows
 lskdjflskj
+
+### Configuring the azure-cli to connection to your Azure Account
+The section [How to connect to your Azure subscription](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure) explains how to download and import your .publishsettings file or associate your azure-cli command-line with an organizational id. 
+
+> [WACOM.NOTE] There are some differences in behavior when using one or the other methods of authorization, so 
 
 ### Using the azure-cli with Docker
 To use Docker you must install a version of node with npm
