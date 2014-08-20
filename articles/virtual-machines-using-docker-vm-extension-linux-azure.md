@@ -17,6 +17,8 @@ This topic follows this [MS Open Tech blog announcement](http://msopentech.com/b
 
 This approach provides important security advantages because the "guest" virtual machine does not have any access to the "host" operating system; instead, it may only use the resources of the hypervisor. The disadvantages, however, include larger processing and storage overhead as well as a relatively slower start-up time for new Virtual Machines because among other things they replicate the guest operating systems completely. 
 
+#### Docker and Linux Containers
+
 Docker and other *container* approaches have radically decreased both the start-up time consumed and processing and storage overhead required by using the process and file system isolation features of the Linux kernel to expose only kernel features to an otherwise isolated container. From inside the container, the file system and kernel features appear to the application as if it were the only application running. 
 
 In addition, Docker provides several container management features that enable you to load various container images from the community as well as build and load your own. For completely information about what Docker is and how it really works, see [What is Docker?](https://www.docker.com/whatisdocker/).
@@ -25,7 +27,7 @@ In addition, Docker provides several container management features that enable y
 To use Docker with Azure, you must install the [azure-cli](https://github.com/Azure/azure-sdk-tools-xplat). You can install the azure-cli on Windows, Mac, and Linux. 
 
 ### Installing azure-cli on Linux
-lskjdflskdj
+On linux, the azure-cli installation requires npm, so 
 
 ### Installing azure-cli on Mac
 lskjdflskdj
