@@ -1,8 +1,8 @@
-<properties title="Query with DocumentDB SQL" pageTitle="Query with DocumentDB SQL | Azure" description="required" metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="Optional" />
+<properties title="Query with DocumentDB SQL" pageTitle="Query with DocumentDB SQL | Azure" description="DocumentDB supports querying of documents using SQL-like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
-#Query with DocumentDB SQL
+# Query with DocumentDB SQL
 
 Azure DocumentDB supports querying of documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. Making a deep commitment on the JSON data model and JavaScript directly within the database engine, Azure DocumentDB provides the automatic indexing of JSON documents along with efficient execution of queries.  
 
@@ -10,7 +10,7 @@ The language grammar can also be extended to support custom application logic us
 
 For .NET developers, Azure DocumentDB also offers a LINQ query provider as part of the .NET SDK.
 
-##Getting Started
+## Get started
 To see DocumentDB SQL at work, we’ll begin with a few simple JSON documents and walk through some simple queries against it. Consider these two documents which contain some JSON data about two families.
 
 Here we have a simple JSON document for the Andersen family, the parents, children (and their pets), address and registration information. The document has strings, numbers, Booleans, arrays and nested properties. 
@@ -292,15 +292,89 @@ In addition to binary & unary operators, property references are also allowed. F
 ## Equality and Comparison operators ##
 The following table shows the result of equality comparisons in DocumentDB SQL between any two JSON types.
 
-|Op	|Undef	|Null	|Boolean	|Number	|String	|Object	|Array
-|-|-|-|-|-|-|-|-
-|Undef	|Undef	|Undef	|Undef	|Undef	|Undef	|Undef	|Undef
-|Null	|Undef	|OK	|Undef	|Undef	|Undef	|Undef	|Undef
-|Boolean	|Undef	|Undef	|OK	|Undef	|Undef	|Undef	|Undef
-|Number	|Undef	|Undef	|Undef	|OK	|Undef	|Undef	|Undef
-|String	|Undef	|Undef	|Undef	|Undef	|OK	|Undef	|Undef
-|Object	|Undef	|Undef	|Undef	|Undef	|Undef	|OK	|Undef
-|Array	|Undef	|Undef	|Undef	|Undef	|Undef	|Undef	|OK
+<table style="width: 100%">
+	<tr>
+		<td><strong>Op </strong> </td>
+		<td><strong>Undef </strong> </td>
+		<td><strong>Null </strong> </td>
+		<td><strong>Boolean </strong> </td>
+		<td><strong>Number </strong> </td>
+		<td><strong>String </strong> </td>
+		<td><strong>Object </strong> </td>
+		<td><strong>Array </strong> </td>
+	</tr>
+	<tr>
+		<td><strong>Undef </strong> </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+	</tr>
+	<tr>
+		<td><strong>Null </strong> </td>
+		<td>Undef </td>
+		<td>OK </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+	</tr>
+	<tr>
+		<td><strong>Boolean </strong> </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>OK </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+	</tr>
+	<tr>
+		<td><strong>Number </strong> </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>OK </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+	</tr>
+	<tr>
+		<td><strong>String </strong> </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>OK </td>
+		<td>Undef </td>
+		<td>Undef </td>
+	</tr>
+	<tr>
+		<td><strong>Object </strong> </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>OK </td>
+		<td>Undef </td>
+	</tr>
+	<tr>
+		<td><strong>Array </strong> </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>OK </td>
+	</tr>
+</table>
+
 
 
 For other comparison operators like >, >=, !=, < and <=   
@@ -313,23 +387,79 @@ If the result of the scalar expression in the filter is Undef, the corresponding
 ## Logical (AND, OR and NOT) operators ##
 These operate on Boolean values. The logical truth tables for these operators are as shown below.
 
-|OR	|True	|False	|Undef
-|-|-|-|
-|True	|True	|True	|True
-|False	|True	|False	|Undef
-|Undef	|True	|Undef	|Undef
+<table style="width: 100%">
+	<tr>
+		<td>OR</td>
+		<td>True </td>
+		<td>False </td>
+		<td>Undef </td>
+	</tr>
+	<tr>
+		<td>True </td>
+		<td>True </td>
+		<td>True </td>
+		<td>True </td>
+	</tr>
+	<tr>
+		<td>False </td>
+		<td>True </td>
+		<td>False </td>
+		<td>Undef </td>
+	</tr>
+	<tr>
+		<td>Undef </td>
+		<td>True </td>
+		<td>Undef </td>
+		<td>Undef </td>
+	</tr>
+</table>
 
-|AND	|True	|False	|Undef
-|-|-|-|
-|True	|True	|False	|Undef
-|False	|False	|False	|False
-|Undef	|Undef	|False	|Undef
+<table style="width: 100%">
+	<tr>
+		<td>AND </td>
+		<td>True </td>
+		<td>False </td>
+		<td>Undef </td>
+	</tr>
+	<tr>
+		<td>True </td>
+		<td>True </td>
+		<td>False </td>
+		<td>Undef </td>
+	</tr>
+	<tr>
+		<td>False </td>
+		<td>False </td>
+		<td>False </td>
+		<td>False </td>
+	</tr>
+	<tr>
+		<td>Undef </td>
+		<td>Undef </td>
+		<td>False </td>
+		<td>Undef </td>
+	</tr>
+</table>
 
-|NOT||
-|-|	
-|True	|False
-|False	|True
-|Undef	|Undef
+<table style="width: 100%">
+	<tr>
+		<td>NOT </td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>True </td>
+		<td>False </td>
+	</tr>
+	<tr>
+		<td>False </td>
+		<td>True </td>
+	</tr>
+	<tr>
+		<td>Undef </td>
+		<td>Undef </td>
+	</tr>
+</table>
+
 
 ## SELECT Clause ##
 The SELECT clause (**`SELECT <select_list>`**) is mandatory and specifies what values will be retrieved from the query, just like in ANSI-SQL. The subset that’s been filtered on top of the source documents are passed onto the projection phase, where the specified JSON values are retrieved and a new JSON object is constructed, for each input passed onto it. 
