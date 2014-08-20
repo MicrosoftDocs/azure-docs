@@ -32,7 +32,7 @@ To use the Docker VM extension with Azure, you must install a version of the [az
 
 > [WACOM.NOTE] The azure-cli (command line interface) is currently the only way to create a Docker-controlled VM on Azure to host Docker containers. The general installation document is [here](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install); the sections below offer some extra suggestions to installing smoothly on various operating systems. 
 
-### Installing azure-cli on Linux
+### Install the azure-cli on Linux
 On Linux, the azure-cli installation requires the [node package manager (npm)](http://en.wikipedia.org/wiki/Npm_%28software%29), which requires nodejs, so you're going to use your favorite package manager to install nodejs, depending upon your platform choice. If you have npm installed, to obtain Docker you type:
 
 ```
@@ -45,20 +45,27 @@ which will install the azure-cli package globally. To confirm the installation, 
 
 Alternatively, like most Linux components, you can clone the source, compile it, and install it locally as well. The instructions for that 
 
-### Installing azure-cli on Mac
-On a Mac, the easiest way of installing the azure-cli is also to use npm with the same command: `npm install -g azure-cli`. However, you may also use the [Mac installer](http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409). As with 
+### Install the azure-cli on Mac
+On a Mac, the easiest way of installing the azure-cli is also to use npm with the same command: `npm install -g azure-cli`. However, you may also use the [Mac installer](http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409). As with Linux and Windows, you can then type `azure` at the associated command prompt and confirm that the azure-cli is installed.
 
+### Install the azure-cli on Windows
+On Windows, the easiest way of installing the azure-cli is to go to [http://nodejs.org/](http://nodejs.org/) and install nodejs and then open the node command prompt and type `npm install -g azure-cli`. As with Linux and Mac, you can then type `azure` at the associated command prompt and confirm that the azure-cli is installed.
 
-### Installing azure-cli on Windows
-lskdjflskj
+### Connect the azure-cli to to your Azure Account
+Before you can use the azure-cli you must associate your Azure account credentials with the azure-cli on your platform. The section [How to connect to your Azure subscription](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure) explains how to download and import your **.publishsettings** file or associate your azure-cli command-line with an organizational id. The steps for both methods of authentication and authorization are described in the above document. 
 
-### Configuring the azure-cli to connection to your Azure Account
-The section [How to connect to your Azure subscription](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure) explains how to download and import your .publishsettings file or associate your azure-cli command-line with an organizational id. 
+> [WACOM.NOTE] There are some differences in behavior when using one or the other methods of authorization, so do be sure to read the document above to understand the different functionality. 
 
-> [WACOM.NOTE] There are some differences in behavior when using one or the other methods of authorization, so 
+### Install Docker and use the Docker VM Extension for Azure
+You now have a computer with the azure-cli installed and connected to your Azure account. Follow the [Docker installation instructions](https://docs.docker.com/installation/#installation) to install Docker locally on your computer. 
 
-### Using the azure-cli with Docker
-To use Docker you must install a version of node with npm
++ For most operating systems and distributions, this means typing `apt-get install docker.io`. Confirm that the Docker version is at 1.0 or greater.
++ For Microsoft Windows, install Docker using the [Docker Windows Setup application](https://docs.docker.com/installation/windows/). Because Docker relies on certain Linux kernel features, this setup application must install a VM and linux environment for Docker to run properly on Windows, so you may want to review the [installation details first](https://github.com/boot2docker/windows-installer/releases).
+
+You have installed the azure-cli prompt on your computer, connected it to your Azure account, and have installed Docker. To create a new Docker host VM in Azure requires the following items:
+
+1. A Linux VM image that has the [Azure Linux VM Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) installed. Currently, the only images that have this installed already are either an Ubuntu image from the image gallery or a custom Linux image that you have created with the Azure Linux VM Agent installed and configured.
+2. 
 
 ## Virtual Machine Extensions for Linux and Windows
 mention how docker is just one of several extensions, with more coming all the time.
