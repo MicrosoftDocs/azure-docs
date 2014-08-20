@@ -1,6 +1,6 @@
 <!--<properties title="Using the Docker Virtual Machines Extension for Linux on Azure" pageTitle="Using the Docker VM Extension for Linux on Azure" description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface." metaKeywords="linux, virtual machines, vm, azure, docker, linux containers,  lxc, virtualization" services="virtual-machines, compute" solutions="dev-test" documentationCenter="Infrastructure" authors="rasquill" videoId="" scriptId="" />-->
 
-# Using the Docker Virtual Machine Extension for Linux on Azure
+# How to Use the Docker Virtual Machine Extension for Linux on Azure
 [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) to create a Docker VM that hosts any number of containers for your applications on Azure.
 
 This topic follows this [MS Open Tech blog announcement](http://msopentech.com/blog/2014/08/15/getting_started_docker_on_microsoft_azure/) and describes:
@@ -60,12 +60,32 @@ Before you can use the azure-cli you must associate your Azure account credentia
 You now have a computer with the azure-cli installed and connected to your Azure account. Follow the [Docker installation instructions](https://docs.docker.com/installation/#installation) to install Docker locally on your computer. 
 
 + For most operating systems and distributions, this means typing `apt-get install docker.io`. Confirm that the Docker version is at 1.0 or greater.
+ 
 + For Microsoft Windows, install Docker using the [Docker Windows Setup application](https://docs.docker.com/installation/windows/). Because Docker relies on certain Linux kernel features, this setup application must install a VM and linux environment for Docker to run properly on Windows, so you may want to review the [installation details first](https://github.com/boot2docker/windows-installer/releases).
 
-You have installed the azure-cli prompt on your computer, connected it to your Azure account, and have installed Docker. To create a new Docker host VM in Azure requires the following items:
+You have installed the azure-cli prompt on your computer, connected it to your Azure account, and have installed Docker. To create a new Docker host VM in Azure requires a Linux VM image that has the [Azure Linux VM Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) installed. Currently, the only images that have this installed already are either
 
-1. A Linux VM image that has the [Azure Linux VM Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) installed. Currently, the only images that have this installed already are either an Ubuntu image from the image gallery or a custom Linux image that you have created with the Azure Linux VM Agent installed and configured.
-2. 
++ an Ubuntu image from the image gallery or 
+
++ a custom Linux image that you have created with the Azure Linux VM Agent installed and configured; see [Azure Linux VM Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) for more information about how to build your own custom linux VM with the Azure VM Agent.
+
+With the azure-cli command prompt locate the most recent Ubuntu image in the VM gallery to use by typing
+
+	`azure vm image list | grep Ubuntu-14_04`
+
+and be ready to copy the name of one of the most recent images listed. At the command prompt, type
+
+```
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20140729-alpha2-en-us-30GB" <username> <password>
+``` 
+
+where:
+
++ *<vm-cloudservice name>* is the name of the VM that will become the Docker container host computer in Azure
+
++  *<username>* is the username of the default root user of the VM
+
++ *<password>* is the password of the *username* account that meets the standards of complexity for Azure. 
 
 ## Virtual Machine Extensions for Linux and Windows
 mention how docker is just one of several extensions, with more coming all the time.
