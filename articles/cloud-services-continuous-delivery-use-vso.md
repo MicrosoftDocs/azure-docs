@@ -224,6 +224,8 @@ To put a quality gate on your live or staging deployments, you can run unit test
 <br/>
 ![][50]
 
+For more about unit testing in Visual Studio Online, see [Run unit tests in your build](http://go.microsoft.com/fwlink/p/?LinkId=510474).
+
 For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publishing from Source Control to Azure Websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control).
 
 [Step 1: Sign up for Visual Studio Online.]: #step1
