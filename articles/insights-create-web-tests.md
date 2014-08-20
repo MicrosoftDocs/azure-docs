@@ -27,15 +27,15 @@ You can also pause web tests during deployments or known outages so your overall
 
 Once you are done click in the **Create** button. After your web test can been created, it will execute every 5 mins from the location(s) specified, so it may take a little while for the data to show up.
 
-### What are the locations about? 
+### What are the locations about?
 We send a request to the website from those locations, in the same way that users will access the site from different parts of the world. If your site becomes unavailable in the USA but still available in Europe, you'll know that the problem is a network issue, rather than in your server.
 
 ### Using Success Criteria
-Typically you’ll want to test that the HTTP status code equals 200, which signals that the server recognized the URI and returned a page.
+Typically youll want to test that the HTTP status code equals 200, which signals that the server recognized the URI and returned a page.
 
 You cannot use wildcards in the content match string, but you can test any plain text.
 
-## Uh oh - my site is down!  
+## Uh oh - my site is down!
 If your web test doesn't pass the success criteria then it will be marked as a failed test and reduce the overall availability for your web site. Failed tests (As well as successful tests) are shown on a scatter chat on the specific web test blade.  
 
 ![Failed Test](./media/insights-create-web-tests/Insights_FailedWebTest.png)
@@ -43,5 +43,3 @@ If your web test doesn't pass the success criteria then it will be marked as a f
 Failed tests can be analyzed to determine why they failed.  Drill into a failed web test and download and open Visual Studio Web Test Result File to analyze and understand why the test failed.
 
 ![Open in VS](./media/insights-create-web-tests/Insights_OpenInVS.png)
-
-

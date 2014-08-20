@@ -1,23 +1,18 @@
 <properties title="How to use diagnostics" pageTitle="How to use diagnostics" description="Learn how to set up diagnostics for your resources in Azure." authors="stepsic"  />
 
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stepsic" />
+
 # Setting up diagnostics
 
 In the Azure Portal Preview, you can now get rich monitoring and diagnostics data about your Windows virtual machines.
 
 1. In the [Azure Portal Preview](https://portal.azure.com/), click **Browse**, then **Virtual machines**. Select the virtual machine you're interested in monitoring.
-
 2. The **Monitoring** lens contains some default metrics, such as **CPU percentage**, **Disk read and write** and **Network in and out**. Clicking on any of these parts will show you the **Metric** blade.
-
     ![Monitoring lens](./media/insights-how-to-use-diagnostics/Insights_VMMonitoringLens.png)
-
-3. The **Metric** blade shows you details about metrics that you select. At the top of the blade is a graph, below that a table that shows you aggregation of those metrics, such as average, minimum and maximum. Below that is a list of the alerts you’ve defined, filtered to the metrics that appear on the blade. 
-
+3. The **Metric** blade shows you details about metrics that you select. At the top of the blade is a graph, below that a table that shows you aggregation of those metrics, such as average, minimum and maximum. Below that is a list of the alerts you've defined, filtered to the metrics that appear on the blade. 
     ![Metric blade](./media/insights-how-to-use-diagnostics/Insights_VMMetricBlade.png)
-
 4. To enable rich diagnostics, click on the **Settings** button and you'll see the **Diagnostics** blade. Choose **ON**:
-
     ![Diagnostics blade](./media/insights-how-to-use-diagnostics/Insights_VMDiagnosticsBlade.png)
-
     - **Basic metrics** : Health metrics about your virtual machine such as processor and memory 
     - **Per disk metrics** : Metrics about all of the disks attached to your virtual machine
     - **.NET metrics** : Metrics about the .NET and ASP.NET applications running on your virtual machine
@@ -37,12 +32,12 @@ Once you click **OK** data will begin appearing in your storage account within a
 
 Once you have enabled diagnostics for a virtual machine you can see the full list of metrics available by right clicking on any chart and going to **Edit query**:
 
-   ![Edit query](./media/insights-how-to-use-diagnostics/Insights_VMEditQuery.png)
-   
+![Edit query](./media/insights-how-to-use-diagnostics/Insights_VMEditQuery.png)
+
 You can plot these metrics, and zoom in to the **Past hour**, out to the **Past week**, or even choose a **Custom** time range:
  
-   ![Custom timerange](./media/insights-how-to-use-diagnostics/Insights_VMCustomTime.png)
-   
+![Custom timerange](./media/insights-how-to-use-diagnostics/Insights_VMCustomTime.png)
+
 You will notice that these metrics are far more granular than the data that was previously available, and that there is minimal lag.
 
 At this time there is no way to plot metrics that have multiple instances, such as per-process or per-disk metrics. For more information about how to customize your monitoring charts see [How to customize monitoring](http://go.microsoft.com/fwlink/?LinkID=394523&clcid=0x409).
@@ -51,11 +46,11 @@ At this time there is no way to plot metrics that have multiple instances, such 
 
 In addition to visualizing metrics you can alert on any of these metrics in the Portal Preview. First, scroll down to the **Alert rules** part on the virtual machine blade, and then click **Add alert**:
 
-   ![Add alert](./media/insights-how-to-use-diagnostics/Insights_VMAlerts.png)
+![Add alert](./media/insights-how-to-use-diagnostics/Insights_VMAlerts.png)
 
 Then you can select from any of the metrics that you have enabled for diagnostics for your virtual machine:
 
-   ![JIT alert](./media/insights-how-to-use-diagnostics/Insights_VMJITAlert.png)
+![JIT alert](./media/insights-how-to-use-diagnostics/Insights_VMJITAlert.png)
 
 The graph will show you a preview of your alert threshold compared the metric from the previous day. After you click **Save**, within a few minutes you will be informed whenever the metric you choose exceeds the threshold. 
 

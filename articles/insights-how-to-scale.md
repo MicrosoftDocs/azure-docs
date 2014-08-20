@@ -1,5 +1,7 @@
 <properties title="How to scale a website" pageTitle="How to scale a website" description="Learn how to scale your hosting plan in Azure." authors="stepsic"  />
 
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stepsic" />
+
 # How to Scale a Web site
 
 In the Azure Portal Preview, you can manually set the instance count of your Web Hosting Plan, or, you can set parameters to have it automatically scale. Before you configure scaling for your Web Hosting Plan, you should consider that scaling is affected by instance size. Larger sizes have more cores and memory, and so they will have better performance for the same number of instances.
@@ -9,25 +11,17 @@ Scale affects an entire Web Hosting Plan. When you create a Web Site you have th
 ## Scaling a Web Hosting Plan
 
 1. In the [Azure Portal Preview](https://portal.azure.com/), click **Browse**, then **Web Sites**, and then click the name of the Web Site to open the blade.
-
 2. The **Scale** part on **Operations** lens of the Web Site blade will tell you the status of the Web Hosting Plan: **Off** for when you are scaling manually, **Performance** for when you are scaling by one or more performance metrics, and **Schedule** for when you have enabled multiple autoscale profiles.
 
     ![Scale part](./media/insights-how-to-scale/Insights_ScalePartOff.png)
-
 3. Clicking on the part will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions for your Web Hosting Plan.
-
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
-
 4. You can manually adjust the number of virtual machines that run your Web Hosting Plan with the **Instance** slider. 
-
 5. If you want the number of instances to automatically adjust based on load, select **Performance** under **Autoscale Mode**. At this time you cannot select **Schedule** in the Azure Portal Preview.
-
     ![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png) 
-
 6. Once you select Performance, there are two changes:
     - **Instance Range** now allows you to choose a maximum and minimum instance count. Autoscale will always keep you in this range, irrespective of load.
     - You can define the performance metrics in the **Target Metrics** section
-
 7. The **CPU Percentage** section allows you to set a target for the average CPU across all of the instances in your Web Hosting Plan. A scale up will happen when the average CPU exceeds the maximum you define.
 
 With auto scale enabled, you'll see **Performance** in the part on the Web site blade, and, you'll see your scale history in the chart:
@@ -48,12 +42,12 @@ In addition to CPU, you can scale based on:
 
 There are two different ways to scale by another metric. If you want to only scale by a single metric, select the chevron next to the **CPU Percentage** slider. This will open the Metric Details blade:
 
-   ![Entry point to scale metrics](./media/insights-how-to-scale/Insights_ScaleMetricChevron.png)
+![Entry point to scale metrics](./media/insights-how-to-scale/Insights_ScaleMetricChevron.png)
 
 To scale by more than one metric at a time, you can click **Add Metric** in the command bar:
 
-   ![Add metrics](./media/insights-how-to-scale/Insights_AddMetric.png)
-   
+![Add metrics](./media/insights-how-to-scale/Insights_AddMetric.png)
+
 The Metric Detail blade contains all of the controls that you need to set up your optimal scale profile. At the top, choose the new metric that you want to scale by.
 
 ### Scaling with multiple steps
@@ -67,12 +61,11 @@ For each rule you choose:
 - Scale up or down by - the size of the scale action
 - Cool down - how long this rule should wait after the previous scale action to scale again
 
-   ![Multiple scale rules](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
+![Multiple scale rules](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
 
 With multiple scale rules, you can be more agressive about scaling up (or down) as performance changes. For example, you can define two scale rules:
 
 1. Scale up by 1 instance if CPU percentage is above 60%
-
 2. Scale up by 3 instances if CPU percentage is above 85%
 
 With this additional rule, if your load exceeds 85% before a scale action, you will get two additional instances instead of one. 
