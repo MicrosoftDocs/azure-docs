@@ -2,22 +2,22 @@
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra" />
 
-# What is the Azure .NET SDK?
+# What is the Azure SDK for .NET?
 
-The Azure .NET SDK is a collection of Visual Studio tools, command-line tools, and runtime binaries that facilitate developing, testing, and deploying apps that run in Azure. This article details what you get in the SDK.
+The Azure SDK for .NET is a collection of Visual Studio tools, command-line tools, runtime binaries, and client libraries that facilitate developing, testing, and deploying apps that run in Azure. This article details what you get when you install the SDK. If you're interested in client libraries, see [What isn't included when you install the Azure SDK for .NET](#notincluded).
 
-You can download the SDK from the [Azure Downloads page](/en-us/downloads/). 
+You can download the Azure SDK for .NET from the [Azure Downloads page](/en-us/downloads/). 
 
 ## Table of contents
 
-- [What is included in the Azure .NET SDK](#included)
-- [What isn't included in the SDK](#notincluded)
+- [What is included when you install the Azure SDK for .NET](#included)
+- [What isn't included when you install the Azure SDK for .NET](#notincluded)
 - [FAQ](#faq)
 - [Resources](#resources)
 
-##<a id="included"></a>What is included in the Azure .NET SDK
+##<a id="included"></a>What is included in the Azure SDK for .NET
 
-The Azure .NET SDK installs the following products:
+The Azure SDK for .NET installs the following products:
 
 - [Visual Studio Express for Web](#vwd)
 - [Microsoft ASP.NET and Web Tools for Visual Studio](#wte)
@@ -41,10 +41,10 @@ This enables you to work with Azure Websites:
 * [Publish console application projects to Azure WebJobs](../websites-dotnet-deploy-webjobs/).
 * [Create Azure Website and SQL Database resources while creating a new web project or while publishing a web project](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 * [Create PowerShell deployment scripts while creating new Websites](http://msdn.microsoft.com/en-us/library/dn642480.aspx).
-* [Manage Azure Websites in Server Explorer](../web-sites-dotnet-troubleshoot-visual-studio/#sitemanagement).
+* [Manage and troubleshoot Azure Websites in Server Explorer](../web-sites-dotnet-troubleshoot-visual-studio/#sitemanagement).
 * [Run in debug mode remotely for Websites and WebJobs](../web-sites-dotnet-troubleshoot-visual-studio/#remotedebug). 
 
->[WACOM.NOTE] You don't have to install the Azure .NET SDK to use these features; they are also included in Visual Studio Updates. 
+>[WACOM.NOTE] You don't have to install the Azure SDK for .NET to use these features; they are also included in Visual Studio Updates. 
 
 ###<a id="tools"></a>Microsoft Azure Tools for Microsoft Visual Studio
 
@@ -72,7 +72,7 @@ The [Azure Emulator](http://msdn.microsoft.com/en-us/library/dn339018.aspx) simu
 
 ###<a id="stgemulator"></a>Microsoft Azure Storage Emulator
 
-The [Azure Storage Emulator](http://msdn.microsoft.com/en-us/library/hh403989.aspx) uses a LocalDB database to simulate Azure Storage (queues, tables, blobs), so that you can test locally. 
+The [Azure Storage Emulator](http://msdn.microsoft.com/en-us/library/hh403989.aspx) uses a SQL Server instance and the local file system to simulate Azure Storage (queues, tables, blobs), so that you can test locally. 
 
 ###<a id="stgtools"></a>Microsoft Azure Storage Tools
 
@@ -87,47 +87,66 @@ This includes the following:
 
 ###<a id="ls"></a>LightSwitch Azure Publishing add-on for Visual Studio
 
-This enables you to [publish LightSwitch projects to Azure Websites](http://msdn.microsoft.com/en-us/library/jj131261.aspx). The LightSwitch add-on is included in Visual Studio Updates as well as the Azure SDK. Installing the Azure SDK ensures that you have the latest version of the add-on. 
+This enables you to [publish LightSwitch projects to Azure Websites](http://msdn.microsoft.com/en-us/library/jj131261.aspx). The LightSwitch add-on is included in Visual Studio Updates as well as the Azure SDK for .NET. Installing the SDK ensures that you have the latest version of the add-on. 
 
-##<a id="notincluded"></a>What isn't included in the SDK
+##<a id="notincluded"></a>What isn't included in the Azure SDK for .NET
 
-There are a few things that you might want for Azure development that aren't included in the .NET SDK. The most important of these are the following:
+There are a few things that you might want for Azure development that aren't included in the SDK. The most important of these are the following:
+
+* [Client libraries](http://www.nuget.org/packages?q=windowsazureofficial). 
+
+	The Azure SDK includes client libraries, but not all of them are installed when you install the SDK. If your application needs a client library that the SDK doesn't install, you can get it from [NuGet.org](http://www.nuget.org/packages?q=windowsazureofficial). If your application uses a client library that the SDK does install, it's a good practice to update it with the current version at NuGet.org.
+
+  	**Local copies of client libraries.** The Azure SDK for .NET copies to your computer the NuGet packages for some Azure client libraries, such as Storage, Service Bus, and Caching. These client libraries are automatically included in new cloud service projects, so the local NuGet packages enable Visual Studio to create projects while you're not connected to the Internet. Client libraries are generally updated more frequently than new SDK versions are released, so the client libraries at NuGet.org are often more current than what you get with the SDK. 
+
+	**Project templates that include client libraries.** Only [Azure Cloud Service](../cloud-services-dotnet-get-started/) and [Azure Mobile Service](../mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/) project templates automatically include some client libraries. For other libraries or other templates, install the [client library NuGet packages](http://www.nuget.org/packages?q=windowsazureofficial) that you need.
+
+* [Azure Management Libraries](/en-us/updates/management-libraries-for-net-release-announcement/). 
+
+	The Management Libraries include wrappers around the Azure Service Management REST APIs. These libraries enable .NET developers to [automate the provisioning or management of Azure resources](http://www.bradygaster.com/post/getting-started-with-the-windows-azure-management-libraries).
 
 * [Azure PowerShell](../install-configure-powershell/). 
 
 	Azure PowerShell enables you to [automate Azure environment creation and deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
-* [Updated client libraries](http://www.nuget.org/packages?q=windowsazureofficial). 
-
-	After creating a project that includes client libraries by default, it's a good practice to update the NuGet packages. The following paragraphs explain why the packages should be updated and which new-project templates include client libraries. 
-
-	**Local copies of client libraries.** The .NET SDK copies to your computer the NuGet packages for some Azure client libraries, such as Storage, Service Bus, and Caching. These client libraries are automatically included in new cloud service projects, so the local NuGet packages enable Visual Studio to create cloud service projects while you're not connected to the Internet. Client libraries are generally updated more frequently than new Azure SDK versions are released, so the client libraries at NuGet.org are generally more current than what you get with the SDK. 
-
-	**Project templates that include client libraries.** Only [Azure Cloud Service](../cloud-services-dotnet-get-started/) and [Azure Mobile Service](../mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/) project templates automatically include some client libraries. 
-
-	**Using client libraries in other project types.** If you need a client library in another project type, such as [ASP.NET Web Application](../web-sites-dotnet-get-started/) or [Microsoft Azure WebJob](../websites-dotnet-deploy-webjobs/), install the NuGet packages you need from [NuGet.org](http://www.nuget.org/packages?q=windowsazureofficial). You can also find the source code for many client libraries at [GitHub.com/Azure](https://github.com/azure/) and links to reference documentation at [Azure .NET Reference](/en-us/develop/net/reference/).
-
 ##<a id="faq"></a>Frequently Asked Questions
 
-- [Many Azure features are already in Visual Studio. Do I need to install the Azure SDK?](#azinvs)
-- [I want a client library. Do I need to install the Azure SDK to get it?](#clientlib)
+- [Many Azure features are already in Visual Studio. Do I need to install the Azure SDK for .NET?](#azinvs)
+- [I want a client library. Do I need to install the Azure SDK for .NET to get it?](#clientlib)
+- [Where can I find older versions of the Azure SDK for .NET?](#olderversions)
+- [What is the lifecycle policy for versions of the Azure SDK for .NET?](#lifecycle)
+- [Which guest OS versions is the Azure SDK for .NET compatible with?](#guestos)
 
-###<a id="azinvs"></a>Many Azure features are already in Visual Studio. Do I need to install the Azure SDK?
+###<a id="azinvs"></a>Many Azure features are already in Visual Studio. Do I need to install the Azure SDK for .NET?
 
 It's a good practice to install the SDK if you want to develop for Azure using the latest tools. If you want to avoid installing the SDK, you can do so if the following conditions are true:
 
-* You have installed the latest [Visual Studio Update](http://go.microsoft.com/fwlink/?LinkId=272487).
+* You have installed the latest [Visual Studio Update](http://www.visualstudio.com/en-us/downloads/download-visual-studio-vs#DownloadFamilies_5).
 * You are developing only for Azure Websites or Mobile Services, not for Cloud services or Virtual Machines.
 * Your application doesn't use Storage, or it uses Storage but you don't need the Storage Emulator or the AzCopy tool.
 
-###<a id="clientlib1"></a>I want a client library. Do I need to install the Azure SDK to get it?
+###<a id="clientlib1"></a>I want a client library. Do I need to install the Azure SDK for .NET to get it?
 
-The SDK installs client libraries only to enable offline cloud service project creation. Current client libraries are available in NuGet packages at [NuGet.org](http://www.nuget.org/packages?q=windowsazureofficial). For more information, see [What isn't included in the SDK](#notincluded) earlier in this document.
+The SDK installs client libraries only to enable offline cloud service project creation. Current client libraries are available in NuGet packages at [NuGet.org](http://www.nuget.org/packages?q=windowsazureofficial). For more information, see [What isn't included when you install the Azure SDK for .NET](#notincluded) earlier in this document.
+
+###<a id="olderversions"></a>Where can I find older versions of the Azure SDK for .NET?
+
+For older versions see the [Azure SDK for .NET](/en-us/downloads/archive-net-downloads/) downloads page. 
+
+###<a id="lifecycle"></a>What is the lifecycle policy for versions of the Azure SDK for .NET?
+
+See [Microsoft Azure Cloud Services Support Lifecycle Policy](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq).
+
+###<a id="guestos"></a>Which guest OS versions is the Azure SDK for .NET compatible with?
+
+See [Azure Guest OS Releases and SDK Compatibility Matrix](http://msdn.microsoft.com/en-us/library/ee924680.aspx).
+
+
 
 ##<a id="resources"></a>Resources
 
-To download the Azure SDK or a client library, see the [Azure Downloads page](/en-us/downloads/).
+To download the Azure SDK for .NET or a client library, see the [Azure Downloads page](/en-us/downloads/).
 
-For Azure SDK and client library source code, see [GitHub.com/Azure](https://github.com/azure/).
+For the Azure SDK for .NET source code, including client libraries, see [GitHub.com/Azure](https://github.com/azure/).
 
 For Azure client library reference documentation, see [Azure .NET Reference](/en-us/develop/net/reference/). 
