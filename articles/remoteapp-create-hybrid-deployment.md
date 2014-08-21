@@ -23,8 +23,8 @@ This tutorial walks you through the process of creating a hybrid deployment. The
 
 You need to do the following before creating the service:
 
-- Install required updates to improve the performance of Azure RemoteApp. Download these required updates at [http://support.microsoft.com/kb/2977219](http://support.microsoft.com/kb/2977219).
-- Sign up for the preview of RemoteApp. You can do that at [http://azure.microsoft.com/en-us/services/remoteapp/](http://azure.microsoft.com/en-us/services/remoteapp/).
+- Install [required updates](http://support.microsoft.com/kb/2977219) to improve the performance of Azure RemoteApp. 
+- Sign up for the [preview of RemoteApp](http://azure.microsoft.com/en-us/services/remoteapp/). 
 - Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain.
 - Gather information about your on-premises network: IP address information and VPN device details.
 - Install the [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) module.
