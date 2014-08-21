@@ -69,7 +69,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
         {
             TodoItem current = await InsertAsync(item);
 
-            ApplePushMessage message = new ApplePushMessage("Hello from Mobile Services!", TimeSpan.FromHours(1));
+            ApplePushMessage message = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));
 
             try
             {

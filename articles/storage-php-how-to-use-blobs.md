@@ -32,7 +32,7 @@ This guide will show you how to perform common scenarios using the Azure Blob se
 
 The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or web site.
+In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 <h2><a id="GetClientLibrary"></a>Get the Azure Client Libraries</h2>
 

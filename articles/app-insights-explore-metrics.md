@@ -69,7 +69,7 @@ Usage data comes partly from the server and partly from the [scripts in the web 
 
 ### Sessions per browser
 
-A *session* is a period that starts when a user opens any page on your web site, and ends after the user has not sent any web request for a timeout period of 30 minutes. 
+A *session* is a period that starts when a user opens any page on your website, and ends after the user has not sent any web request for a timeout period of 30 minutes. 
 
 Click through to zoom into the chart.
 

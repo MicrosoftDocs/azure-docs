@@ -8,7 +8,7 @@ The objective of this tutorial is to show the integration of Azure and Google Ap
 - A valid Azure subscription
 - A test tenant in Googe Apps
 
-If you don't have a valid tenant in Google Apps yet, you can, for example, sign up for a trial account at Google Apps for Business web site.
+If you don't have a valid tenant in Google Apps yet, you can, for example, sign up for a trial account at Google Apps for Business website.
 
 The scenario outlined in this tutorial consists of the following building blocks:
 

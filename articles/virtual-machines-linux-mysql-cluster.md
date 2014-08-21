@@ -154,7 +154,7 @@ At this moment we have everything we need for a manual operation of the cluster.
 
 ### Testing the load balanced set
 
-Tests can be performed from an outside machine, by using any MySQL client, as well as applications (for example, phpMyAdmin running as an Azure Web Site) In this case we used MySQL's command line tool on another Linux box:
+Tests can be performed from an outside machine, by using any MySQL client, as well as applications (for example, phpMyAdmin running as an Azure Website) In this case we used MySQL's command line tool on another Linux box:
 
     mysql azureha –u root –h hadb.cloudapp.net –e "select * from things;"
 

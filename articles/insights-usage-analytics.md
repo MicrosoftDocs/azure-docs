@@ -2,14 +2,14 @@
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="vladj" />
 
-# Analytics for Web sites
+# Analytics for Websites
 
-Wonder how many users have visited you site?  Wonder what the average page load time is or what browsers are being used?  By inserting a few lines of script in your web pages, you can collect data about how your web site is used by your customers. 
+Wonder how many users have visited you site?  Wonder what the average page load time is or what browsers are being used?  By inserting a few lines of script in your web pages, you can collect data about how your website is used by your customers. 
 
    ![End User Analytics](./media/insights-usage-analytics/Insights_ConfiguredExperience.png)
 
 ## How to set up End User Analytics
-1. Click on the part on the **Web site** blade that says **End user analytics**
+1. Click on the part on the **Website** blade that says **End user analytics**
 2. On the **Configuration** blade, select the entire instrumentation script and copy it.
 
    ![Configuration](./media/insights-usage-analytics/Insights_CopyCode.png)

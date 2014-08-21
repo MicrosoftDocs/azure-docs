@@ -22,7 +22,7 @@ This tutorial shows how build a Windows Store app using Azure Mobile Services wi
 
 ## Overview
 
-Web API is an open-source framework that gives .NET developers a first-class way to create REST APIs. You can host a Web API solution on Azure Web Sites, on Azure Mobile Services using the .NET backend, or even self-hosted in a custom process. Mobile Services is a hosting environment that is designed especially for mobile apps. When you host your Web API service on Mobile Services, you get the following advantages in addition to data storage:
+Web API is an open-source framework that gives .NET developers a first-class way to create REST APIs. You can host a Web API solution on Azure Websites, on Azure Mobile Services using the .NET backend, or even self-hosted in a custom process. Mobile Services is a hosting environment that is designed especially for mobile apps. When you host your Web API service on Mobile Services, you get the following advantages in addition to data storage:
 
 - Built-in authentication with social providers and Azure Active Directory (AAD). 
 - Push notifications to apps using device-specific notification services.
