@@ -1,25 +1,60 @@
- <properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analyze Twitter data with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+ <properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze real-time Twitter sentiment with HBase in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 # Analyze real-time Twitter sentiment with HBase in HDInsight
 
-Learn how to refine geo-tagged Twitter data using an HBase cluster in HDInsight, and how to analyze and visualize this sentiment data on Google map.
+Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) of big data using HBase in an HDInsight (Hadoop) cluster.
 
 
-Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, you will connect to the Twitter Web service to get real-time Tweets using the Twitter streaming API, evaluate the sentiment of these tweets, and then store the sentiment score back in HBase. Finally, you use a ASP.NET web application to plot the real-time statistical results on Google map.
+Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, you will develop a console streaming service application and an ASP.NET Web application to perform the following:
 
-The web application looks like:
+![][img-app-arch]
 
-![hdinsight.hbase.twitter.sentiment.google.map][img-google-map]
+- Get geo-tagged Tweets in real-time using the Twitter streaming API.
+- Evaluate the sentiment of these Tweets.
+- Store the sentiment information in HBase using the Microsoft HBase SDK.
+- Plot the real-time statistical results on Google maps using an ASP.NET Web application. A visualization of the tweets will look something like this:
 
-**Estimated time to complete:** 45 minutes
+	![hdinsight.hbase.twitter.sentiment.google.map][img-google-map]
+	
+	You will be able to query tweets with certain keywords to get a sense of the expressed opinion in tweets is positive, negative, or neutral.
+
+A complete Visual Studio solution sample can be found at [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##In this article
 
 - [Prerequisites](#prerequisites)
 - [Create a Twitter application](#twitter)
-- [Create a Tweet sentiment streaming service](#streaming)
-- [Create a Web application](#web)
-- [Run the application](#run)
+- [Create a simple Twitter streaming service](#streaming)
+- [Create an Azure Website to visualize Twitter sentiment](#web)
 - [Next steps](#nextsteps)
 
 ##<a id="prerequisites"></a>Prerequisites
@@ -28,26 +63,29 @@ Before you begin this tutorial, you must have the following:
 - **An HBase cluster in HDInsight**. For instructions on cluster provision, see [Get started using HBase with Hadoop in HDInsight][hBase-get-started]. You will need the following data to go through the tutorial:
 
 	<table border="1">
-	<tr><th>Cluster property</th><th>Value</th><th>Description</th></tr>
-	<tr><td>HBase cluster name</td><td></td><td>This is your HDInsight HBase cluster name. For example: https://myhbase.azurehdinsight.net/</td></tr>
-	<tr><td>Cluster user name</td><td></td><td>The Hadoop user account name. The default Hadoop username is <strong>admin</strong>.</td></tr>
-	<tr><td>Cluster user pass word</td><td></td><td>The Hadoop cluster user password.</td></tr>
+	<tr><th>Cluster property</th><th>Description</th></tr>
+	<tr><td>HBase cluster name</td><td>This is your HDInsight HBase cluster name. For example: https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>Cluster user name</td><td>The Hadoop user account name. The default Hadoop username is <strong>admin</strong>.</td></tr>
+	<tr><td>Cluster user password</td><td>The Hadoop cluster user password.</td></tr>
 	</table>
 
 - **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx).
 
-##<a id="twitter"></a>Create a Twitter application
 
-In this tutorial, you will use the [Twitter streaming APIs][twitter-streaming-api]. 
-Twitter uses OAuth to provide authorized access to its API. OAuth is an authentication protocol that allows users to approve application to act on their behalf without sharing their password. More information can be found at [oauth.net](http://oauth.net/) or in the excellent [Beginner's Guide to OAuth](http://hueniverse.com/oauth/) from Hueniverse.
+
+
+
+##<a id="twitter"></a>Create a Twitter application ID and secrets
+
+The Twitter Streaming APIs use [OAuth](http://oauth.net/) to authorize requests. 
 
 The first step to use OAuth is to create a new application on the Twitter Developer site.
 
-**To create a Twitter application**
+**To create Twitter application ID and secrets:**
 
 1. Sign in to [https://apps.twitter.com/](https://apps.twitter.com/).Click the **Sign up now** link if you don't have a Twitter account.
 2. Click **Create New App**.
-3. Enter **Name**, **Description**, **Website**. You can make up a URL for the Website field. The following table shows some sample values to use:
+3. Enter **Name**, **Description**, **Website**. The Website field is not really used. It doesn't have to be a valid URL. The following table shows some sample values to use:
 
 	<table border="1">
 	<tr><th>Field</th><th>Value</th></tr>
@@ -55,6 +93,7 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 	<tr><td>Description</td><td>MyHDInsightHBaseApp</td></tr>
 	<tr><td>Website</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
 	</table>
+
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial. 
 6. Click the **API Keys** tab.
@@ -66,22 +105,40 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 
 
 
-##<a id="streaming"></a> Create a Tweet streaming service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##<a id="streaming"></a> Create a simple Twitter streaming service
 
 Create a console application to get Tweets, calculate Tweet sentiment score and send the processed Tweet words to HBase.
 
-This section contains the following procedures:
+**To create the  Visual Studio solution:**
 
-- create a Visual Studio solution
-- install Nuget packages and add SDK references
-- define a Tweeter streaming service class
-- complete the Program.cs
-- prepare the sentiment dictionary file
-- run the streaming service
-
-**To create a Visual Studio solution**
-
-1. Open **Visual Studio 2013**.
+1. Open **Visual Studio**.
 2. From the **File** menu, point to **New**, and then click **Project**.
 3. Type or select the following values:
 
@@ -93,30 +150,29 @@ This section contains the following procedures:
 
 4. Click **OK** to continue.
  
-Tweetinvi is an intuitive .NET C# SDK that provides an easy and intuitive access to the Twitter REST and STREAM API 1.1. For more information, see [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/).
 
-Protocol Buffers is the name of the binary serialization format used by Google for much of their data communications. protobuf-net is a .NET implementation of this, allowing you to serialize your .NET objects efficiently and easily. It is compatible with most of the .NET family. For more information, see [https://www.nuget.org/packages/protobuf-net/](https://www.nuget.org/packages/protobuf-net/).
 
-**To install Nuget packages and add SDK references**
+**To install Nuget packages and add SDK references:**
 
-1. From the Tools menu, click **Nuget Package Manager**, and then click **Package Manager Console**. The console panel is opened at the bottom of the page.
-2. Run the following commands:
+1. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**. The console panel will open at the bottom of the page.
+2. Use the following commands to install the [Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/) package, which is used to access the Twitter API, and the [Protobuf-net](https://www.nuget.org/packages/protobuf-net/) package, which is used to serialize and deserialize objects.
 
 		Install-Package TweetinviAPI
 		Install-Package protobuf-net 
-		Install-Package microsoft.hbase.client (The SKD is not ready until the article is written)
 
-3. From Solution Explorer, right-click **References**, and then click **Add Reference**.
+	> [WACOM.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 20th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself.
+
+3. From **Solution Explorer**, right-click **References**, and then click **Add Reference**.
 4. In the left pane, expand **Assemblies**, and then click **Framework**.
 5. In the right pane, select the checkbox in front of **System.Configuration**, and then click **OK**.
 
-> [WACOM.NOTE] The Hbase SDK is not ready yet.  As a workaround, copy Microsoft.HBase.Client.dll locally, and manually add a reference to it from Solution Explorer.)
 
-**To define a Tweeter streaming service class**
 
-1. From Solution explorer, right-click **TweetSentimentStreaming**, point to **Add**, and then click **Class**.
-2. In Name, type **HBaseWriter**, and then click **Add**.
-3. In HBaseWriter.cs, add the following using statements on the top of the file:
+**To define the Tweeter streaming service class:**
+
+1. From **Solution explorer**, right-click **TweetSentimentStreaming**, point to **Add**, and then click **Class**.
+2. In **Name**, type **HBaseWriter**, and then click **Add**.
+3. In **HBaseWriter.cs**, add the following using statements on the top of the file:
 
 		using System.IO;		
 		using System.Threading;
@@ -125,7 +181,7 @@ Protocol Buffers is the name of the binary serialization format used by Google f
 		using Tweetinvi.Core.Interfaces;
 		using org.apache.hadoop.hbase.rest.protobuf.generated;
 
-4. Inside HbaseWriter.cs, add a new class call DictionaryItem:
+4. Inside **HbaseWriter.cs**, add a new class call **DictionaryItem**:
 
 	    public class DictionaryItem
 	    {
@@ -137,9 +193,9 @@ Protocol Buffers is the name of the binary serialization format used by Google f
 	        public string Polarity { get; set; }
 	    }
 
-	This class structure is used to parse the sentiment dictionary file. The data is used to calculate sentiment score for each Tweets
+	This class structure is used to parse the sentiment dictionary file. The data is used to calculate sentiment score for each Tweet.
 
-5. Inside the HBaseWriter class, define the following constants and variables:
+5. Inside the **HBaseWriter** class, define the following constants and variables:
 
         // HDinsight HBase cluster and HBase table information
         const string CLUSTERNAME = "https://<HBaseClusterName>.azurehdinsight.net/";
@@ -166,11 +222,9 @@ Protocol Buffers is the name of the binary serialization format used by Google f
 
 6. Set the constant values, including **&lt;HBaseClusterName>**, **&lt;HadoopUserName>**, and **&lt;HaddopUserPassword>**. If you want to change the HBase table name, you must change the table name in the Web application accordingly.
 
-	You will download and move the dictionary.tsv to specific table later in the tutorial
+	You will download and move the dictionary.tsv file to a specific folder later in the tutorial.
 
-	Multithread is used here to provent blocking.
-
-7. Define the following functions inside the HBaseWriter class:
+7. Define the following functions inside the **HBaseWriter** class:
 
 		// This function connects to HBase, loads the sentiment dictionary, and starts the thread for writting.
         public HBaseWriter()
@@ -342,22 +396,22 @@ Protocol Buffers is the name of the binary serialization format used by Google f
             }
         }
 
-	The HBase functionality includes the following:
+	The code provides the following functionality:
 
 	- **Connect to Hbase [ HBaseWriter() ]**: Use the HBase SDK to create a *ClusterCredentials* object with the cluster URL and the Hadoop user credential, and then create a *HBaseClient* object using the ClusterCredentials object.
 	- **Create HBase table [ HBaseWriter() ]**: The method call is *HBaseClient.CreateTable()*.
 	- **Write to HBase table [ WriterThreadFunction() ]**: The method call is *HBaseClient.StoreCells()*.
 
-**To complete the Program.cs**
+**To complete the Program.cs:**
 
-1. From Solution Explorer, double-click **Program.cs** to open it.
+1. From **Solution Explorer**, double-click **Program.cs** to open it.
 2. At the beginning of the file, add the following using statements:
 
 		using System.Configuration;
 		using System.Diagnostics;
 		using Tweetinvi;
 
-3. Inside the Program class, define the following constants:
+3. Inside the **Program** class, define the following constants:
 
         const string TWITTERAPPACCESSTOKEN = "<TwitterApplicationAccessToken";
         const string TWITTERAPPACCESSTOKENSECRET = "TwitterApplicationAccessTokenSecret";
@@ -366,7 +420,7 @@ Protocol Buffers is the name of the binary serialization format used by Google f
 
 4. Set the constant values to match your Twitter application values.
 
-3. Modify the Main() function, so it looks like:
+3. Modify the **Main()** function, so it looks like:
 
 		static void Main(string[] args)
 		{
@@ -423,7 +477,7 @@ Protocol Buffers is the name of the binary serialization format used by Google f
             }
         }
 
-**To prepare the sentiment dictionary file**
+**To download the sentiment dictionary file:**
 
 1. Browse to [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment).
 2. Click **Download ZIP**.
@@ -431,33 +485,46 @@ Protocol Buffers is the name of the binary serialization format used by Google f
 4. Copy the file from **../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv**.
 5. Paste the file to your solution under **TweetSentimentStreaming/TweetSentimentStreaming/data/dictionary/dictionary.tsv**.
 
-**To run the streaming service**
+**To run the streaming service:**
 
 1. From Visual Studio, press **F5**. The following is the console application screenshot:
 
 	![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
 2. Keep the streaming console application running while you developing the Web application, So you have more data to use.
 
-##<a id="web"></a> Create a ASP.NET Web application
-
-In this section, you will create a ASP.NET MVC Web application to read the real-time sentiment data from HBase and plot the data on Google map.
-
-This section includes the following procedures:
-
-- create an ASP.NET Web application
-- install Nuget packages
-- add an HBaseReader model
-- add a TweetsController
-- add an JavaScript
-- modify the layout.cshtml
-- modify site.css
-- modify global.asax
-- run the Web application on debugger
 
 
-**To create a ASP.NET MVC Web application**
 
-1. Open Visual Studio 2013.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##<a id="web"></a> Create an Azure Website to visualize Twitter sentiment
+
+In this section, you will create a ASP.NET MVC Web application to read the real-time sentiment data from HBase and plot the data on Google maps.
+
+**To create a ASP.NET MVC Web application:**
+
+1. Open Visual Studio.
 2. Click **File**, click **New**, and then click **Project**.
 3. Type or enter the following:
 
@@ -466,28 +533,27 @@ This section includes the following procedures:
 	- Name: **TweetSentimentWeb**
 	- Location: **C:\Tutorials** 
 4. Click **OK**.
-5. In Select a template, click **MVC**. 
-6. In Windows Azure, click **Manage Subscriptions**.
-7. From Manage Windows Azure Subscriptions, click **Sign in**.
-8. Enter your Azure credential. Your Azure subscription information shall be shown on the Accounts tab.
+5. In **Select a template**, click **MVC**. 
+6. In **Windows Azure**, click **Manage Subscriptions**.
+7. From **Manage Windows Azure Subscriptions**, click **Sign in**.
+8. Enter your Azure credential. Your Azure subscription information will be shown on the Accounts tab.
 9. Click **Close** to close the Manage Windows Azure Subscriptions window.
-10. From New ASP.NET Project - TweetSentimentWeb, Click **OK**.
-11. From Configure Windows Azure Site Settings, select the **Region** that is closer to you. You don't need to specify a database server. Remember the Site name (TweetSentiment4265).
+10. From **New ASP.NET Project - TweetSentimentWeb**, Click **OK**.
+11. From **Configure Windows Azure Site Settings**, select the **Region** that is closer to you. You don't need to specify a database server. Remember the Site name (TweetSentiment4265).
 12. Click **OK**.
 
-**To install Nuget packages**
+**To install Nuget packages:**
 
-1. From the Tools menu, click **Nuget Package Manager**, and then click **Package Manager Console**. The console panel is opened at the bottom of the page.
-2. Run the following commands:
+1. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**. The console panel is opened at the bottom of the page.
+2. Use the following command to install the [Protobuf-net](https://www.nuget.org/packages/protobuf-net/) package, which is used to serialize and deserialize objects.
 
 		Install-Package protobuf-net 
-		Install-Package microsoft.hbase.client (The SKD is not ready until the article is written)
 
-> [WACOM.NOTE] The Hbase SDK is not ready yet.  As a workaround, copy Microsoft.HBase.Client.dll locally, and manually add a reference to it from Solution Explorer.)
+	> [WACOM.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 20th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself.
 
-**To add an HBaseReader class**
+**To add HBaseReader class:**
 
-1. From Solution Explorer, expand **TweetSentiment**.
+1. From **Solution Explorer**, expand **TweetSentiment**.
 2. Right-click **Models**, click **Add**, and then click **Class**.
 3. In Name, enter **HBaseReader.cs**, and then click **Add**.
 4. Add the following Using statements on the top of the file:
@@ -510,7 +576,7 @@ This section includes the following procedures:
 	        public int Sentiment { get; set; }
 	    }
 
-4. Inside the HBaseReader class, define the following constants and variables:
+4. Inside the **HBaseReader** class, define the following constants and variables:
 
         // For reading Tweet sentiment data from HDInsight HBase
         HBaseClient client;
@@ -523,7 +589,7 @@ This section includes the following procedures:
 
 6. Set the constant values, including **&lt;HBaseClusterName>**, **&lt;HadoopUserName>**, and **&lt;HaddopUserPassword>**. The HBase table name is "tweets_by_words". The values must match the values you sent in the streaming service, so that the Web application reads the data from the same HBase table.
 
-4. Inside the HBaseReader class, define the following functions:
+4. Inside the **HBaseReader** class, define the following functions:
 
         public HBaseReader()
         {
@@ -596,13 +662,13 @@ This section includes the following procedures:
         }
 
 
-**To add TweetsController**
+**To add TweetsController controller:**
 
-1. From Solution Explorer, expand **TweetSentimentWeb**.
+1. From **Solution Explorer**, expand **TweetSentimentWeb**.
 2. Right-click **Controllers**, click **Add**, and then click **Controller**.
 3. Click **Web API 2 Controller - Empty**, and then click **Add**.
 4. In Controller name, type **TweetsController**, and then click **Add**.
-5. From Solution Explorer, double-click TweetsController.cs to open the file.
+5. From **Solution Explorer**, double-click TweetsController.cs to open the file.
 5. Add the following using statements to the beginning of the file:
 
 		using System.Threading.Tasks;
@@ -612,29 +678,14 @@ This section includes the following procedures:
 
         HBaseReader hbase = new HBaseReader();
 
-        List<Tweet> list = new List<Tweet> {
-                new Tweet { IdStr = "1", Longtitude = -120, Latitude = 30 },
-                new Tweet { IdStr = "2", Longtitude = -110, Latitude = 40 }
-            };
-
-        public IEnumerable<Tweet> GetAllTweets()
-        {
-            return list;
-        }
-
-        public IHttpActionResult GetTweet(int id)
-        {
-            return Ok(list[0]);
-        }
-
         public async Task<IEnumerable<Tweet>> GetTweetsByQuery(string query)
         {
             return await hbase.QueryTweetsByKeywordAsync(query);
         }
 
-**To add tweetStream.js**
+**To add tweetStream.js:**
 
-1. From Solution Explorer, expand **TweetSentimentWeb**.
+1. From **Solution Explorer**, expand **TweetSentimentWeb**.
 2. Right-click **Scripts**, click **Add**, click **JavaScript File**.
 3. In Item name, enter **twitterStream.js**.
 4. Copy and paste the following code into the file:
@@ -818,19 +869,19 @@ This section includes the following procedures:
 
 	This JavaScript file contains the GUI controls.
 
-**To modify the layout.cshtml**
+**To modify the layout.cshtml:**
 
-1. From Solution Explorer, expand **TweetSentimentWeb**, expand **Views**, expand **Shared**, and then double-click _**Layout.cshtml**.
-2. Append the following code inside the <head> tag.
+1. From **Solution Explorer**, expand **TweetSentimentWeb**, expand **Views**, expand **Shared**, and then double-click _**Layout.cshtml**.
+2. Append the following code inside the **&lt;head>** tag:
 
-    <!-- Google Maps -->
-    <link href="https://google-developers.appspot.com/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
+	    <!-- Google Maps -->
+	    <link href="https://google-developers.appspot.com/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+	    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
+	
+	    <!-- Spatial Dashboard JavaScript -->
+	    <script src="~/Scripts/twitterStream.js" type="text/javascript"></script>
 
-    <!-- Spatial Dashboard JavaScript -->
-    <script src="~/Scripts/twitterStream.js" type="text/javascript"></script>
-
-3. Modify the &lt;body> tag, so the &lt;body> tag looks like the following:
+3. Modify the **&lt;body>** tag, so the &lt;body> tag looks like the following:
 
 		<body onload ="initialize()">
 		    <div class="navbar navbar-inverse navbar-fixed-top">
@@ -889,9 +940,9 @@ This section includes the following procedures:
 
 	The _layout.cshtml file defines the web page appearance.
 
-**To modify site.css**
+**To modify the site.css file:**
 
-1. From Solution Explorer, expand **TweetSentimentWeb**, expand **Content**, and then double-click **Site.css**.
+1. From **Solution Explorer**, expand **TweetSentimentWeb**, expand **Content**, and then double-click **Site.css**.
 2. Append the following code to the file.
 		
 		/* make container, and thus map, 100% width */
@@ -912,20 +963,21 @@ This section includes the following procedures:
 		  font-size: 30px;
 		}
 
-**To modify global.asax**
+**To modify the global.asax file:**
 
-1. From Solution Explorer, expand **TweetSentimentWeb**, and then double-click **Global.asax**.
+1. From **Solution Explorer**, expand **TweetSentimentWeb**, and then double-click **Global.asax**.
 2. Add the following using statement:
 
 		using System.Web.Http;
 
-2. Add the following lines inside the Application_Start() function:
+2. Add the following lines inside the **Application_Start()** function:
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
   
+	Modify the registration of the API routes to make Web API controller work inside of the MVC application.
 
-**To run the Web application on debugger**
+**To run the Web application:**
 
 1. Verify the streaming service console application is still running. So you can see the real-time changes.
 2. Press **F5** to run the web application:
@@ -940,7 +992,7 @@ Optionally, you can deploy the application to an Azure Web site.  For instructio
  
 ##<a id="nextsteps"></a>Next Steps
 
-In this tutorial we have learned how to get Tweets, analyze Tweets sentiment, save the sentiment data to HBase, and present the real-time Twitter sentiment data to Google map. To learn more, see:
+In this tutorial we have learned how to get Tweets, analyze the sentiment of Tweets, save the sentiment data to HBase, and present the real-time Twitter sentiment data to Google maps. To learn more, see:
 
 - [Get started with HDInsight][hdinsight-get-started]
 - [Analyze Twitter data with Hadoop in HDInsight][hdinsight-analyze-twitter-data]
@@ -954,7 +1006,7 @@ In this tutorial we have learned how to get Tweets, analyze Tweets sentiment, sa
 
 
 
-
+[img-app-arch]: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
 [img-twitter-app]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterApp.png
 [img-streaming-service]: ./media/hdinsight-hbase-analyze-twitter-sentiment/StreamingService.png
 [img-google-map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentGoogleMap.png

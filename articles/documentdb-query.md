@@ -1,12 +1,12 @@
-<properties linkid="manage-services-documentdb-query" title="Querying using DocumentDB" pageTitle="Querying using DocumentDB Account | Azure" description="How to query a DocumentDB database." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, query" services="documentdb"  solutions="" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Query with Azure DocumentDB" pageTitle="Query with DocumentDB | Azure" description="DocumentDB's SQL query language supports a subset of ANSI SQL grammar and adds document-oriented support. Queries are served through up-to-date indexes that don't require index management."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
-#Querying with Azure DocumentDB
+#Query with Azure DocumentDB
 
 ##Motivation
 	
-DocumentDB’s SQL query language supports a subset of ANSI SQL grammar and adds document oriented support in the form of nested data structures, arrays and object construction. Queries are served efficiently through DocumentDB’s indexes, whichare automatically kept up to date for all properties in documents without the overhead of index management. Developers can also harness the full power of JavaScript inside queries through user-defined functions (UDFs).  
+DocumentDB's SQL query language supports a subset of ANSI SQL grammar and adds document oriented support in the form of nested data structures, arrays and object construction. Queries are served efficiently through DocumentDB's indexes, which are automatically kept up to date for all properties in documents without the overhead of index management. Developers can also harness the full power of JavaScript inside queries through user-defined functions (UDFs).  
 
 
 ##Why SQL query?

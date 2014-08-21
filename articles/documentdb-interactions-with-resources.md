@@ -1,7 +1,9 @@
-<properties title="required" pageTitle="required" description="required" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="Required" videoId="Optional" scriptId="Optional" />
+<properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-#Interacting with DocumentDB Resources 
-DocumentDB offers a simple and open RESTful programming model over HTTP . In its Preview release DocumentDB provides client SDKs for .NET, Python, Node.js and JavaScript – all of which are simple wrappers over the underlying REST APIs. In future releases, it will also provide C++ and Java SDKs. We encourage you to write your own SDKs for your specific programming environment and share it with the community as we have opened up our SDKs.   
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
+
+#Interact with DocumentDB Resources 
+DocumentDB offers a simple and open RESTful programming model over HTTP. In its Preview release DocumentDB provides client SDKs for .NET, Python, Node.js and JavaScript – all of which are simple wrappers over the underlying REST APIs. In future releases, it will also provide C++ and Java SDKs. We encourage you to write your own SDKs for your specific programming environment and share it with the community as we have opened up our SDKs.   
 >[AZURE.NOTE] Additionally, it also offers a highly efficient TCP protocol which is also RESTful in its communication model and is available through the .NET client SDK.  
 
 ##Resources
@@ -43,7 +45,7 @@ Resources such as database accounts, databases, collections, users, permissions,
 DocumentDB does not mandate any proprietary extensions to the JSON standard or special encodings; it works with standard compliant JSON documents.  
  
 ###Addressing a resource
-All resources are URI addressable. The value of the **_self** property of a resource represents the relative URI of the resource. The format of the URI consists of the /<feed>/{_rid} path segments, like so:  
+All resources are URI addressable. The value of the **_self** property of a resource represents the relative URI of the resource. The format of the URI consists of the /<feed>/{_rid} path segments:  
 
 |Value of the _self	|Description
 |-------------------|-----------
@@ -55,8 +57,7 @@ All resources are URI addressable. The value of the **_self** property of a reso
 |/dbs/{_rid-db}/users/{_rid-user}	|User with the unique id property with the value {_rid-user}
 |/dbs/{_rid-db}/users/{_rid-user}/permissions	|feed of permissions under a database 
 |/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission}	|Permission with the unique id property with the value {_rid-permission}  
-
-and so on...  
+  
 
 A resource also has a unique user defined name exposed via the id property of the resource. The id is a user defined, up to 256 character long string which is unique within the context of a specific parent resource. For instance, the value of the id property of all documents within a given collection are unique but they are not guaranteed to be unique across collections. Similarly, the value of the id property of all permissions for a given user are unique but they are not guaranteed to be unique across all users. The _rid property is used to construct the addressable _self link of a resource.   
 
@@ -80,6 +81,7 @@ In future releases, item resources will support the PATCH verb as well.
 As illustrated in the figure below POST can only be issued against a Feed resource; PUT, DELETE can only be issued against an Item resource; GET and HEAD can be issued against either Feed or Item resources. 
 
 ![][2]  
+
 **Interaction model using the standard HTTP verbs**
 
 To get a better feel for the interaction model, let’s consider the case of creating a new resource (aka INSERT). In order to create a new resource you are required to issue a HTTP POST request with the request body containing the representation of the resource against the URI of the container feed the resource belongs to. The only required property for the request is the id of the resource.  

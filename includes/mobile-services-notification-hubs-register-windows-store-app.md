@@ -10,7 +10,7 @@
 
    	This creates a new Windows Store registration for your app.
 
-3. In Visual Studio, open the project that you created when you completed the tutorial [Get started with Mobile Services].
+3. In Visual Studio, open the project that you created when you completed the tutorial **Get started with Mobile Services**.
 
 4. In solution explorer, right-click the project, click **Store**, and then click **Associate App with the Store...**. 
 
@@ -26,15 +26,17 @@
 
    	This adds the required Windows Store registration information to the application manifest.    
 
-7. Back in the Windows Dev Center page for your new app, click **Services**. 
+7. (Optional) Repeat steps 4-6 to also register the Windows Phone Store project of a universal Windows app.
+
+8. Back in the Windows Dev Center page for your new app, click **Services**. 
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-edit-app.png) 
 
-8. In the Services page, click **Live Services site** under **Azure Mobile Services**.
+9. In the Services page, click **Live Services site** under **Azure Mobile Services**.
 
 	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
-9. Click **Authenticating your service** and make a note of the values of **Client secret** and **Package security identifier (SID)**. 
+10. Click **Authenticating your service** and make a note of the values of **Client secret** and **Package security identifier (SID)**. 
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
@@ -42,11 +44,11 @@
 	<p>The client secret and package SID are important security credentials. Do not share these secrets with anyone or distribute them with your app.</p>
     </div> 
 
-10. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
+11. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
-11. Click the **Push** tab and enter the **Client secret** and **Package SID** values obtained from WNS, then click **Save**.
+12. Click the **Push** tab and enter the **Client secret** and **Package SID** values obtained from WNS, then click **Save**.
 
 	>[WACOM.NOTE]When you are completing this tutorial using an older mobile service, you might see a link at the bottom of the **Push** tab that says **Enable Enhanced Push**. Click this now to upgrade your mobile service to integrate with Notification Hubs. This change cannot be reverted. For details on how to enable enhanced push notifications in a production mobile service, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">this guidance</a>. 
 
