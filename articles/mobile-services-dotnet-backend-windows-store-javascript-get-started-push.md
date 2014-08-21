@@ -25,7 +25,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ##<a id="register"></a> Register your app with WNS and configure Mobile Services
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-notification-hubs-register-windows-store-app](../includes/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app.md)]
+[WACOM.INCLUDE [mobile-services-notification-hubs-register-windows-store-app](../includes/mobile-services-notification-hubs-register-windows-store-app.md)]
 
 Both your mobile service and your app are now configured to work with WNS and Notification Hubs. Next, you will update your Windows Store app to register for notifications.
 

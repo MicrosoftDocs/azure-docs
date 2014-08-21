@@ -1,7 +1,7 @@
-<properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="Build a web application with ASP.NET MVC using DocumentDB | Azure" description="This walkthrough shows you how to use DocumentDB service to store and access data from an ASP.NET MVC web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="big-data" documentationCenter=""  authors="hawong" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="Build a web application with ASP.NET MVC using DocumentDB | Azure" description="Learn how to use DocumentDB to build a To Do List web application. You'll store and access data from an ASP.NET MVC web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
 
-<tags ms.service="documentdb" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hawong" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="hawong" />
 
 <a name="_Toc395809351">Build a web application with ASP.NET MVC using DocumentDB</a>
 =======================================================================================================
@@ -125,12 +125,12 @@ downloaded [here][].
 In Visual Studio, click File – New Project and select the option to
 create a new ASP.NET MVC Web Application.
 
-![Alt text](./media/documentdb-dotnet-.application/image10.png)
+![Alt text](./media/documentdb-dotnet-application/image10.png)
 
 
 Select where you would like to create the project and click Ok.
 
-![Alt text](./media/documentdb-dotnet-.application/image11.png)
+![Alt text](./media/documentdb-dotnet-application/image11.png)
 
 
 If you plan on hosting your application in Azure then select the box on

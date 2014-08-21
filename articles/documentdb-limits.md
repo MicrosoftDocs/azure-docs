@@ -1,8 +1,10 @@
-<properties title="required" pageTitle="required" description="required" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="Required" videoId="Optional" scriptId="Optional" />
+<properties title="DocumentDB limits for the preview release" pageTitle="DocumentDB limits for the preview release | Azure" description="Learn about the limits and quota enforcements of DocumentDB for the preview release." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" " manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 
 #DocumentDB Limits for the Preview Release
-The following table describes the limits and quota enforcements of DocumentDB during the Preview release. In most cases the limits are enforced either with an intent to get your feedback or based on the current capacity constraints. If you have business need to relax the limits, please call us and we will do our best to accommodate within the constraints of the public offer.    
+The following table describes the limits and quota enforcements of DocumentDB during the Preview release. In most cases the limits are enforced either with an intent to get your feedback or based on the current capacity constraints. If you have a business need to relax the limits, please call us and we will do our best to accommodate within the constraints of the public offer.    
 
 |Entity	|Quota (Standard Offer for the Preview release)|
 |-------|--------|
