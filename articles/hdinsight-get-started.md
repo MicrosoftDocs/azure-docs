@@ -240,6 +240,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [apache-hive]: http://go.microsoft.com/fwlink/?LinkId=510085
 [apache-mapreduce]: http://go.microsoft.com/fwlink/?LinkId=510086
 [apache-hdfs]: http://go.microsoft.com/fwlink/?LinkId=510087
+[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
 
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409

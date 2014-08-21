@@ -4,13 +4,15 @@
 
 #Provision Hadoop clusters in HDInsight using custom options
 
-In this article you learn about the different ways to custom-provision an Hadoop cluster on Azure HDInsight - using the Azure Management Portal, PowerShell, command line tools, or HDInsight .NET SDK. 
+In this article you learn about the different ways to custom-provision an Hadoop cluster on Azure HDInsight - using the Azure Management Portal, PowerShell, command line tools, or HDInsight .NET SDK. This article talks about provisioning Hadoop clusters. For instructions on how to provision an HBase cluster, see [Provision HBase cluster in HDInsight][hdinsight-hbase-custom-provision]. See <a href="http://go.microsoft.com/fwlink/?LinkId=510237">What's the difference between Hadoop and HBase?</a> to understand why you might choose one over the other.
 
-Before we begin, have you ever wondered why we mention clusters, every time we talk about Hadoop or BigData? That's because Hadoop enables distributed processing of large data, spread across different nodes of a cluster. The cluster has a master/slave architecture with a master (also called head node or name node) and any number of slaves (also called data node). For more information, see [Apache Hadoop][apache-hadoop].
+## What is an HDInsight cluster?
 
-An HDInsight cluster abstracts the Hadoop implementation details so that you don't need to worry about how to communicate with different nodes of a cluster. When you provision an HDInsight cluster, you provision Azure compute resources that contain Hadoop and related applications. This article provides instructions on the different ways to provision a cluster. If you are looking at a quick-start approach to provision a cluster, see [Get Started with Azure HDInsight][hdinsight-get-started]. 
+Have you ever wondered why we mention clusters, every time we talk about Hadoop or BigData? That's because Hadoop enables distributed processing of large data, spread across different nodes of a cluster. The cluster has a master/slave architecture with a master (also called head node or name node) and any number of slaves (also called data node). For more information, see [Apache Hadoop][apache-hadoop].
 
->[WACOM.NOTE] This article talks about provisioning Hadoop clusters. For instructions on how to provision an HBase cluster, see [Provision HBase cluster in HDInsight][hdinsight-hbase-custom-provision]. See <a href="http://go.microsoft.com/fwlink/?LinkId=510237">What's the difference between Hadoop and HBase?</a> to understand why you might choose one over the other. 
+An HDInsight cluster abstracts the Hadoop implementation details so that you don't need to worry about how to communicate with different nodes of a cluster. When you provision an HDInsight cluster, you provision Azure compute resources that contain Hadoop and related applications. For more information, see [Introduction to Hadoop in HDInsight][hadoop-hdinsight-intro].
+
+This article provides instructions on the different ways to provision a cluster. If you are looking at a quick-start approach to provision a cluster, see [Get Started with Azure HDInsight][hdinsight-get-started]. 
 
 **Prerequisites:**
 
@@ -51,9 +53,9 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 				<li>The field must be a string between 3 to 63 characters.</li>
 				</ul></td></tr>
 		<tr><td>Cluster Type</td>
-			<td>For cluster type, select **Hadoop**.</td></tr>
+			<td>For cluster type, select <strong>Hadoop</strong>.</td></tr>
 		<tr><td>HDInsight version</td>
-			<td>Choose the version. For Hadoop, the default is 3.1 running Hadoop 2.4</td></tr>
+			<td>Choose the version. For Hadoop, the default is HDInsight version 3.1, which uses Hadoop 2.4.</td></tr>
 		</table>
 
 	Enter or select the values as shown in the table and then click the right arrow.
@@ -430,9 +432,9 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 
 1. Create a self-signed certificate that is used to authenticate the requests. You can use IIS or [makecert][makecert-info] to create the certificate.
  
-2. Right-click the certificate, click **Install Certificate**, and install the certificate to the computer's personal store. Edit the certificate properties to assign it a friendly name.
+2. Browse to the location of the certificate, right-click the certificate, click **Install Certificate**, and install the certificate to the computer's personal store. Edit the certificate properties to assign it a friendly name.
 
-3. Import the certificate into the Azure Management Portal. From the portal, click **Settings** towards the bottom of the page, and then click **Management Certificates**. From the bottom of the page, click Upload and follow the instructions to upload the .cer file you created in the previous step.
+3. Import the certificate into the Azure Management Portal. From the portal, click **Settings** on the bottom-left of the page, and then click **Management Certificates**. From the bottom of the page, click **Upload** and follow the instructions to upload the .cer file you created in the previous step.
 
 	![HDI.ClusterCreate.UploadCert][image-hdiclustercreate-uploadcert]
 
@@ -548,7 +550,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-
+[hadoop-hdinsight-intro]: ../hdinsight-introduction/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
 
