@@ -89,9 +89,9 @@ This includes the following:
 
 This enables you to [publish LightSwitch projects to Azure Websites](http://msdn.microsoft.com/en-us/library/jj131261.aspx). The LightSwitch add-on is included in Visual Studio Updates as well as the Azure SDK for .NET. Installing the SDK ensures that you have the latest version of the add-on. 
 
-##<a id="notincluded"></a>What's not included in the Azure SDK for .NET
+##<a id="notincluded"></a>What's not included when you install the Azure SDK for .NET
 
-There are a few things that you might want for Azure development that aren't included in the SDK. The most important of these are the following:
+There are a few things that you might want for Azure development that aren't included when you install the SDK. The most important of these are the following:
 
 * [Client libraries](http://go.microsoft.com/fwlink/?LinkId=510472). 
 
@@ -105,12 +105,16 @@ There are a few things that you might want for Azure development that aren't inc
 
 	Azure PowerShell enables you to [automate Azure environment creation and deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
+* [Azure Mobile Service project templates](../mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/).
+
+	Mobile Service templates are available only in Visual Studio 2013 Update 2 and later. They are not available in Visual Studio 2012 or earlier versions, and not in Visual Studio 2013 Update 1 or earlier, even if you install the Azure SDK for .NET.
+
 ##<a id="faq"></a>Frequently Asked Questions
 
 - [Many Azure features are already in Visual Studio. Do I need to install the Azure SDK for .NET?](#azinvs)
 - [I want a client library. Do I have to install the Azure SDK for .NET to get it?](#clientlib)
 - [Where can I find older versions of the Azure SDK for .NET?](#olderversions)
-- [What is the lifecycle policy for versions of the Azure SDK for .NET?](#lifecycle)
+- [What's the lifecycle policy for versions of the Azure SDK for .NET?](#lifecycle)
 - [Which guest OS versions is the Azure SDK for .NET compatible with?](#guestos)
 
 ###<a id="azinvs"></a>Many Azure features are already in Visual Studio. Do I need to install the Azure SDK for .NET?
@@ -121,7 +125,7 @@ It's a good practice to install the SDK if you want to develop for Azure using t
 * You're developing only for Azure Websites or Mobile Services, not for Cloud services or Virtual Machines.
 * Your application doesn't use Storage, or it uses Storage but you don't need the Storage Emulator or the AzCopy tool.
 
-###<a id="clientlib1"></a>I want a client library. Do I have to install the Azure SDK for .NET to get it?
+###<a id="clientlib"></a>I want a client library. Do I have to install the Azure SDK for .NET to get it?
 
 The SDK installs client libraries only so you can create cloud service projects even if you're not connected to the Internet. Current client libraries are available in NuGet packages at [NuGet.org](http://go.microsoft.com/fwlink/?LinkId=510472). For more information, see [What's not included when you install the Azure SDK for .NET](#notincluded) earlier in this document.
 
@@ -129,7 +133,7 @@ The SDK installs client libraries only so you can create cloud service projects 
 
 For older versions see the [Azure SDK for .NET](/en-us/downloads/archive-net-downloads/) downloads page. 
 
-###<a id="lifecycle"></a>What is the lifecycle policy for versions of the Azure SDK for .NET?
+###<a id="lifecycle"></a>What's the lifecycle policy for versions of the Azure SDK for .NET?
 
 See [Microsoft Azure Cloud Services Support Lifecycle Policy](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq).
 
