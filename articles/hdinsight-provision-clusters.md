@@ -585,4 +585,4 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [image-cli-clusterlisting]: ./media/hdinsight-provision-clusters/HDI.CLIListClusters.png "List and show clusters"
 
 [image-hdi-ps-provision]: ./media/hdinsight-provision-clusters/HDI.ps.provision.png
-[image-hdiclustercreate-uploadcert]: ./media/hdinsight-get-started/HDI.clustercreate.uploadcert.png
+[image-hdiclustercreate-uploadcert]: ./media/hdinsight-get-started/HDI.ClusterCreate.UploadCert.png
