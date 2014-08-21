@@ -15,7 +15,7 @@
 ###What is Microsoft Azure DocumentDB? 
 Microsoft Azure DocumentDB is a highly-scalable NoSQL document database-as-a-service that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development--all through a managed platform backed by the power and reach of Microsoft Azure. DocumentDB is the right solution for web and mobile applications when predictable throughput, low latency, and a schema-free data model are key. DocumentDB delivers schema flexibility and rich indexing via a native JSON data model, and includes multi-document transactional support with integrated JavaScript.  
   
-For instructions on deploying and using this service, see the [DocumentDB documentation page](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
+For instructions on deploying and using this service, see the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319).
 
 ###What kind of database is DocumentDB?
 DocumentDB is a NoSQL document oriented database that stores data in JSON format.  DocumentDB supports nested, self-contained-data structures that can be queried through a rich DocumentDB SQL query grammar. DocumentDB provides high performance transactional processing of server side JavaScript through stored procedures, triggers and user defined functions. The database also supports developer tunable consistency levels with associated performance levels.
@@ -37,7 +37,7 @@ Each Azure DocumentDB account supports a maximum number of capacity units which 
 
 
 ###How much does Microsoft Azure DocumentDB cost?
-Please refer to the [DocumentDB pricing details](http://go.microsoft.com/fwlink/?LinkID=402317&clcid=0x409) article for details.
+Please refer to the [DocumentDB pricing details](http://go.microsoft.com/fwlink/p/?LinkID=402317) article for details.
 
 ## <a id="setup"></a> Set up Microsoft Azure DocumentDB
 
@@ -48,7 +48,7 @@ Microsoft Azure DocumentDB (Preview) is available in the new Azure Preview porta
 A master key is a security token to access all resources for an account. Individuals with the key have read and write access to the all resources in the database account. Use caution when distributing master keys. 
 
 ###How do I create a database?
-You can create databases using one of the DocumentDB SDKs or through the REST APIs.  See the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409) page for information on how to develop applications. 
+You can create databases using one of the DocumentDB SDKs or through the REST APIs.  See the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319) page for information on how to develop applications. 
 
 ###What is a collection?
 A collection is a container of JSON documents and associated JavaScript application logic. Queries and transactions are scoped to collections. You can store a set of heterogeneous JSON documents within a single collection, all which are automatically indexed.   
@@ -57,16 +57,16 @@ A collection is a container of JSON documents and associated JavaScript applicat
 Each purchased capacity unit comes with an allocation of database storage and provisioned throughput. Quotas are also in place for each resource managed by the service. Please refer to the DocumentDB Service Limits for more information.  
 
 ###How do I set up users and permissions?
-You can create users and permissions using one of the DocumentDB SDKs or through the REST APIs. For details, see the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)  for information on how to develop applications.   .  
+You can create users and permissions using one of the DocumentDB SDKs or through the REST APIs. For details, see the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319)  for information on how to develop applications.   .  
 
 
 ## <a id="develop"></a>Develop against Microsoft Azure DocumentDB
 
 ###How to do I start developing against DocumentDB?
-At preview, SDKs are available for .NET, Python, Node.js and JavaScript.  Develops can also leverage the RESTful HTTP APIs to interact with DocumentDB resources from a variety of platforms and languages. For details on how to use these SDKs, see the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
+At preview, SDKs are available for .NET, Python, Node.js and JavaScript.  Develops can also leverage the RESTful HTTP APIs to interact with DocumentDB resources from a variety of platforms and languages. For details on how to use these SDKs, see the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319).
 
 ###Does DocumentDB support SQL?
-DocumentDB's SQL query language which provides rich hierarchical and relational operators and extensibility via JavaScript based user defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes – this fact is exploited both by the DocumentDB's automatic indexing techniques as well as, the SQL query dialect of DocumentDB.  For details on how to use our SQL grammar, see [Query using DocumentDB SQL][query]–SQL section.
+DocumentDB's SQL query language which provides rich hierarchical and relational operators and extensibility via JavaScript based user defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes – this fact is exploited both by the DocumentDB's automatic indexing techniques as well as, the SQL query dialect of DocumentDB.  For details on how to use our SQL grammar, please see the [Query using DocumentDB SQL][query] article.
 
 ###What are the data types supported by DocumentDB?
 The primitive data types supported in DocumentDB are the same as JSON. JSON has a simple type system that consists of Strings, Numbers (IEEE754 double precision), Booleans – true and false and Nulls.  More complex data types like DateTime, Guid, Int64, and Geometry can be represented both in JSON and DocumentDB through the creation of nested objects using the { } operator and arrays using the [ ] operator. 
@@ -78,7 +78,7 @@ DocumentDB supports optimistic concurrency control (OCC) through HTTP entity tag
 DocumentDB supports language-integrated transactions via JavaScript stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation scoped to the collection. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back.
 
 ###How can I bulk insert documents into DocumentDB? 
-DocumentDB's support for stored procedures provides an efficient means to batch inserts. By developing a simple JavaScript stored procedure that accepts and inserts documents, you can perform bulk inserts. This has the added benefit that the bulk insert will be performed as a transaction, leaving the collection in a consistent state. For details on the programming model, see the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
+DocumentDB's support for stored procedures provides an efficient means to batch inserts. By developing a simple JavaScript stored procedure that accepts and inserts documents, you can perform bulk inserts. This has the added benefit that the bulk insert will be performed as a transaction, leaving the collection in a consistent state. For details on the programming model, see the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319).
 
 ###Does DocumentDB support resource link caching?
 Yes, because DocumentDB is a RESTful service, resource links are immutable and can be cached. DocumentDB clients can specify an "If-None-Match" header for reads against any resource like document or collection and update their local copies only when the server version has change. 
