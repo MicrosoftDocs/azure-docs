@@ -119,3 +119,8 @@ The Docker daemon on the host is configured to listen for, and authenticate, cli
 ## Virtual Machine Extensions for Linux and Windows
 The Docker VM extension for Azure is just one of several VM extension that provide special behavior, and more are in development. For a complete list, see [Azure VM Extensions](http://msdn.microsoft.com/en-us/library/azure/dn606311.aspx).
 
+<!--Anchors-->
+[Docker and Linux Containers]: #Docker-and-Linux-Containers
+[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Container and Container Management Resources for Azure]: #Container-and-Container-Management-Resources-for-Azure
