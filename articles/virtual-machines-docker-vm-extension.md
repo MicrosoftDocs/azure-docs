@@ -26,9 +26,13 @@ In addition, Docker provides several container management features that enable y
 Like most technologies, there substantial upsides and some disadvantages. Because containers do share access to the host computer's kernel, if malicious code is able to gain root it may also be able to gain access not only to the host computer but also the other containers. To secure your container system more strongly, [Docker recommends](https://docs.docker.com/articles/security/) using addition group-policy or [role-based security](http://en.wikipedia.org/wiki/Role-based_access_control) as well, such as [SELinux](http://selinuxproject.org/page/Main_Page) or [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), for example, as well as reducing as much as possible the kernel capabilities that the containers are granted. In addition, there are many other documents on the Internet that describe approaches to security using containers like Docker.
 
 ## How to use the Docker VM Extension with Azure
-To use the Docker VM extension with Azure, you must install a version of the [azure-cli](https://github.com/Azure/azure-sdk-tools-xplat) higher than 0.8.6 (as of this writing the current version is 0.8.7). You can install the azure-cli on Windows, Mac, and Linux. The complete process to use Docker on Azure is simple:
+To use the Docker VM extension with Azure, you must install a version of the [azure-cli](https://github.com/Azure/azure-sdk-tools-xplat) higher than 0.8.6 (as of this writing the current version is 0.8.7). You can install the azure-cli on both Mac and Linux. 
 
-+ Install the azure-cli command line tools and its dependencies on the computer from which you want to control Azure
+> [WACOM.NOTE] You can also install the azure-cli on Microsoft Windows. However, because Docker was built with Linux kernel dependencies, to use Windows as a Docker client requires that you host a full Linux distribution as a virtual machine inside Hyper-V or another hypervisor. Once you have done that, you can use the azure-cli and the Docker commands in this document and those of Docker. Docker itself has a setup program, [Boot2Docker](https://docs.docker.com/installation/windows/), which you can also use to automate this same setup.
+
+The complete process to use Docker on Azure is simple:
+
++ Install the azure-cli command line tools and its dependencies on the computer from which you want to control Azure (on Windows, this will be a Linux distribution running as a virtual machine)
 + Use the azure-cli Docker commands to create a VM Docker host in Azure
 + Use the local Docker commands to manage your Docker containers in your Docker VM in Azure.
 
@@ -45,13 +49,10 @@ which will install the azure-cli package globally. To confirm the installation, 
 
 > [WACOM.NOTE] If you are using an Ubuntu 14.04 LTS installation, that image has a slightly different node installation that may require some extra work. One suggestion that seems to work well is located [here](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server) in the **How To Install Using a PPA** section, which describes how to install the most recent version of nodejs directly and seems to work well on an Ubuntu 14.04 LTS distribution. 
 
-Alternatively, like most Linux components, you can clone the source, compile it, and install it locally as well. The instructions for that 
+Alternatively, like most Linux components, you can clone the source, compile it, and install it locally as well. The instructions for that are located at [https://github.com/Azure/azure-sdk-tools-xplat](https://github.com/Azure/azure-sdk-tools-xplat).
 
 ### Install the azure-cli on Mac
 On a Mac, the easiest way of installing the azure-cli is also to use npm with the same command: `npm install -g azure-cli`. However, you may also use the [Mac installer](http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409). As with Linux and Windows, you can then type `azure` at the associated command prompt and confirm that the azure-cli is installed.
-
-### Install the azure-cli on Windows
-On Windows, the easiest way of installing the azure-cli is to go to [http://nodejs.org/](http://nodejs.org/) and install nodejs and then open the node command prompt and type `npm install -g azure-cli`. As with Linux and Mac, you can then type `azure` at the associated command prompt and confirm that the azure-cli is installed.
 
 ### Connect the azure-cli to to your Azure Account
 Before you can use the azure-cli you must associate your Azure account credentials with the azure-cli on your platform. The section [How to connect to your Azure subscription](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure) explains how to download and import your **.publishsettings** file or associate your azure-cli command-line with an organizational id. The steps for both methods of authentication and authorization are described in the above document. 
@@ -59,11 +60,7 @@ Before you can use the azure-cli you must associate your Azure account credentia
 > [WACOM.NOTE] There are some differences in behavior when using one or the other methods of authorization, so do be sure to read the document above to understand the different functionality. 
 
 ### Install Docker and use the Docker VM Extension for Azure
-You now have a computer with the azure-cli installed and connected to your Azure account. Follow the [Docker installation instructions](https://docs.docker.com/installation/#installation) to install Docker locally on your computer. 
-
-+ For most operating systems and distributions, this means typing `apt-get install docker.io`. Confirm that the Docker version is at 1.0 or greater.
- 
-+ For Microsoft Windows, install Docker using the [Docker Windows Setup application](https://docs.docker.com/installation/windows/). Because Docker relies on certain Linux kernel features, this setup application must install a VM and linux environment for Docker to run properly on Windows, so you may want to review the [installation details first](https://github.com/boot2docker/windows-installer/releases).
+You now have a computer (or a virtual machine on that computer) with the azure-cli installed and connected to your Azure account. Follow the [Docker installation instructions](https://docs.docker.com/installation/#installation) to install Docker locally on your computer. For most operating systems and distributions, this means typing `apt-get install docker.io`. Confirm that the Docker version is at 1.0 or greater.
 
 You have installed the azure-cli prompt on your computer, connected it to your Azure account, and have installed Docker. To create a new Docker host VM in Azure requires a Linux VM image that has the [Azure Linux VM Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) installed. Currently, the only images that have this installed already are either
 
@@ -89,7 +86,7 @@ where:
 
 + *<password>* is the password of the *username* account that meets the standards of complexity for Azure 
  
-> [WACOM.NOTE] Currently, a password must be at least 8 characters, contain one lower case and one upper case character, a number, and a special character such as !@#$%^&+=. No, the period at the end of the preceding sentence is NOT a special character.
+> [WACOM.NOTE] Currently, a password must be at least 8 characters, contain one lower case and one upper case character, a number, and a special character such as !@#$%^&+=. No, the period at the end of the preceding sentence is NOT a special character. 
 
 If the command was successful, you should see something like the following, depending on the precise arguments and options you used:
 
@@ -106,19 +103,26 @@ where *<vm-name-you-used>* is the name of the virtual machine that you used in y
 ![](./media/virtual-machines-docker/connectingtodockerhost.png)
 
 ## A Note about Docker Host VM Authentication
-In addition to creating the Docker VM, the `azure vm docker create`  command also automatically creates the necessary certificates to allow your Docker client computer to connect to the host using HTTPS, and the certificates are stored on both the client and host machines, as appropriate. On subsequent runs, the existing certificates are reused and shared with the new host.
+In addition to creating the Docker VM, the `azure vm docker create` command also automatically creates the necessary certificates to allow your Docker client computer to connect to the Azure container host using HTTPS, and the certificates are stored on both the client and host machines, as appropriate. On subsequent runs, the existing certificates are reused and shared with the new host.
 
 By default, certificates are placed in `~/.docker`, and Docker will be configured to run on port **4243**. If you would like to use a different port or directory, then you may use one of the following `azure vm docker create` command line options to configure your Docker container host VM to use a different port or different certificates for connecting clients:
 
 ```
--dp, --docker-port [port]        Port to use for docker [4243]
--dc, --docker-cert-dir [dir]     Directory containing docker certs
+-dp, --docker-port [port]              Port to use for docker [4243]
+-dc, --docker-cert-dir [dir]           Directory containing docker certs [.docker/]
 ```
 
-The Docker daemon on the host is configured to listen for, and authenticate, client connections on the specified port using the certificates generated above. The client machine must have these certificates to gain access to the Docker host. Conversely, a networked host running without these certificates will be vulnerable to anyone that can to connect to the machine.
+The Docker daemon on the host is configured to listen for and authenticate client connections on the specified port using the certificates generated by the `azure vm docker create` command. The client machine must have these certificates to gain access to the Docker host. 
+
+> [WACOM.NOTE] Conversely, a networked host running without these certificates will be vulnerable to anyone that can to connect to the machine. Before you modify the default configuration, ensure that you understand the risks to your computers and applications.
+
+## Next Steps
+You are now ready to issue Docker commands in the [Docker user guide](https://docs.docker.com/userguide/) against your Docker host VM on Azure. 
 
 ## Virtual Machine Extensions for Linux and Windows
-The Docker VM extension for Azure is just one of several VM extension that provide special behavior, and more are in development. For a complete list, see [Azure VM Extensions](http://msdn.microsoft.com/en-us/library/azure/dn606311.aspx).
+The Docker VM extension for Azure is just one of several VM extension that provide special behavior, and more are in development. For example, several of the [Linux VM Agent extension](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) features allow you to modify and manage the image, including security features, kernel and networking features, and so on. The VMAccess extension for Windows images lets you reset or modify Remote Desktop Access settings and reset the administrator password. 
+
+For a complete list, see [Azure VM Extensions](http://msdn.microsoft.com/en-us/library/azure/dn606311.aspx).
 
 <!--Anchors-->
 [Docker and Linux Containers]: #Docker-and-Linux-Containers
