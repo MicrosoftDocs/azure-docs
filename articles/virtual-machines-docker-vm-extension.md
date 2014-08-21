@@ -21,7 +21,7 @@ The hypervisor approach provides important security advantages because the "gues
 
 Docker and other *container* approaches have radically decreased both the start-up time consumed and processing and storage overhead required by using the process and file system isolation features of the Linux kernel to expose only kernel features to an otherwise isolated container. From inside the container, the file system and kernel features appear to the application as if it were the only application running. 
 
-In addition, Docker provides several container management features that enable you to load various container images from the community as well as build and load your own, which is For completely information about what Docker is and how it really works, see [What is Docker?](https://www.docker.com/whatisdocker/).
+In addition, Docker provides several container management features that enable you to load various container images from the community as well as build and load your own very, very rapidly. For completely information about what Docker is and how it really works, see [What is Docker?](https://www.docker.com/whatisdocker/).
 
 Like most technologies, there substantial upsides and some disadvantages. Because containers do share access to the host computer's kernel, if malicious code is able to gain root it may also be able to gain access not only to the host computer but also the other containers. To secure your container system more strongly, [Docker recommends](https://docs.docker.com/articles/security/) using addition group-policy or [role-based security](http://en.wikipedia.org/wiki/Role-based_access_control) as well, such as [SELinux](http://selinuxproject.org/page/Main_Page) or [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), for example, as well as reducing as much as possible the kernel capabilities that the containers are granted. In addition, there are many other documents on the Internet that describe approaches to security using containers like Docker.
 
@@ -110,9 +110,8 @@ In addition to creating the Docker VM, the `azure vm docker create`  command als
 
 By default, certificates are placed in `~/.docker`, and Docker will be configured to run on port **4243**. If you would like to use a different port or directory, then you may use one of the following `azure vm docker create` command line options to configure your Docker container host VM to use a different port or different certificates for connecting clients:
 
-`-dp, --docker-port [port]        Port to use for docker [4243]`
-
-`-dc, --docker-cert-dir [dir]     Directory containing docker certs`
+```-dp, --docker-port [port]        Port to use for docker [4243]`
+```-dc, --docker-cert-dir [dir]     Directory containing docker certs`
 
 The Docker daemon on the host is configured to listen for, and authenticate, client connections on the specified port using the certificates generated above. The client machine must have these certificates to gain access to the Docker host. Conversely, a networked host running without these certificates will be vulnerable to anyone that can to connect to the machine.
 
