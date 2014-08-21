@@ -9,7 +9,7 @@
 
 Azure BizTalk Services offers the following editions: Free, Developer, Basic, Standard, and Premium:
 
-**Free (Preview)**: Includes the ability to create and manage Hybrid Connections. A Hybrid Connection is an easy way to connect an Azure Web Site to an on-premise system, like SQL Server. 
+**Free (Preview)**: Includes the ability to create and manage Hybrid Connections. A Hybrid Connection is an easy way to connect an Azure Website to an on-premise system, like SQL Server. 
 
 **Developer**: Includes Hybrid Connections, EAI & EDI message processing with an easy-to-use trading partner management portal, and support for common EDI schemas and rich EDI processing over X12 and AS2. Can create common EAI scenarios connecting services in the cloud with any HTTP/S, REST, FTP, WCF and SFTP protocols to read and write messages.  Utilize connectivity to on-premises LOB systems with ready-to-use SAP, Oracle eBusiness, Oracle DB, Siebel, and SQL Server adapters. All in a developer centric environment with Visual Studio tools for easy development and deployment. Limited to development and test purposes only with no Service Level Agreement (SLA).
 
@@ -198,7 +198,7 @@ BizTalk Server on Azure Virtual Machines provides an Infrastructure-as-a-Service
 If you are looking at building new integration solutions that minimize your infrastructure management effort, use BizTalk Services. If you are looking to quickly migrate your existing BizTalk solutions or looking for an on-demand environment to develop and test BizTalk Server applications, use BizTalk Server on an Azure Virtual Machine.
 
 #### What is the difference between BizTalk Adapter Service and Hybrid Connections?
-The BizTalk Adapter Service is used by an Azure BizTalk Service. The BizTalk Adapter Service uses the BizTalk Adapter Pack to connect to an on-premise Line of Business (LOB) system. A Hybrid Connection provides an easy and convenient way to connect Azure applications, like Web Sites and Mobile Services, to an on-premises resource. 
+The BizTalk Adapter Service is used by an Azure BizTalk Service. The BizTalk Adapter Service uses the BizTalk Adapter Pack to connect to an on-premise Line of Business (LOB) system. A Hybrid Connection provides an easy and convenient way to connect Azure applications, like Websites and Mobile Services, to an on-premises resource. 
 
 #### When I create an agreement in BizTalk Services, why does the number of bridges go up by two instead of just one? 
 

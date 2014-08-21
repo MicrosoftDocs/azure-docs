@@ -75,7 +75,7 @@ Your mobile service is now configured to work with GCM and Notification Hubs.
 
             Dictionary<string, string> data = new Dictionary<string, string>()
             {
-                { "message", "Hello from Mobile Services"}
+                { "message", item.Text}
             };
             GooglePushMessage message = new GooglePushMessage(data, TimeSpan.FromHours(1));
 

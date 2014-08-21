@@ -33,7 +33,7 @@ The only requirement for creating a PHP application that accesses the Azure Blob
 > [WACOM.NOTE]
 > Your PHP installation must also have the <a href="http://php.net/openssl">OpenSSL extension</a> installed and enabled.
 
-In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or web site.
+In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ##<a id="GetClientLibrary"></a>Get the Azure Client Libraries
 

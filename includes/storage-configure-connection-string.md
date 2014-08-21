@@ -46,7 +46,7 @@ To configure your connection string in the Azure service configuration:
 	
 ### Configuring your connection string using .NET configuration
 
-If you are writing an application that is not an Azure cloud service, (see previous section), it is recommended you use the .NET configuration system (e.g. `web.config` or `app.config`). This includes Azure Web Sites or Azure Virtual Machines, as well as applications designed to run outside of Azure. You store the connection string using the `<appSettings>` element as follows. Replace `account-name` with the name of your storage account, and `account-key` with your account access key:
+If you are writing an application that is not an Azure cloud service, (see previous section), it is recommended you use the .NET configuration system (e.g. `web.config` or `app.config`). This includes Azure Websites or Azure Virtual Machines, as well as applications designed to run outside of Azure. You store the connection string using the `<appSettings>` element as follows. Replace `account-name` with the name of your storage account, and `account-key` with your account access key:
 
 	<configuration>
   		<appSettings>

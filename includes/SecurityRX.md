@@ -12,7 +12,7 @@ can best protect your cloud applications.
 An application's security is a function of its surface. The more surface
 that the application exposes the greater the security concerns. For
 example, an application that runs as an unattended batch process exposes
-less, from a security perspective, than a publically available web site.
+less, from a security perspective, than a publically available website.
 
 When you move to the cloud you gain a certain peace of mind about
 infrastructure and networking since these are managed in data centers
@@ -755,10 +755,10 @@ Guidelines](http://msdn.microsoft.com/en-us/library/gg185962.aspx) and [Certific
     validness. When the certificate expires you will start receiving
     exceptions.
 
-##Shared Hosting Using Azure Web Sites
+##Shared Hosting Using Azure Websites
 
 All scenarios and solutions outlined in this topic are valid when the
-application is hosted on Azure Web Sites.
+application is hosted on Azure Websites.
 
 ##Azure Virtual Machines
 

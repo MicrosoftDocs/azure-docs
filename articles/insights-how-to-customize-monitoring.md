@@ -6,13 +6,13 @@
 
 In the Azure Portal Preview, you can now view your monitoring data in more ways than you could before, including customizing the time range and choosing more metrics.
 
-1. In the [Azure Portal Preview](https://portal.azure.com/), click **Browse**, then **Web Sites**, and then click the name of a Web Site to open the blade.
+1. In the [Azure Portal Preview](https://portal.azure.com/), click **Browse**, then **Websites**, and then click the name of a Website to open the blade.
 
 2. On then **Monitoring** lens you can Requests, Errors, [Web tests](http://go.microsoft.com/fwlink/?LinkID=394528&clcid=0x409), and [Analytics](http://go.microsoft.com/fwlink/?LinkID=394529&clcid=0x409). Clicking on the **Requests and errors today** part will show you the **Metric** blade.
 
    ![Monitoring lens](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 
-3. The **Metric** blade shows you details about metrics that you select. At the top of the blade is a graph, below that a table that shows you aggregation of those metrics, such as average, minimum and maximum. Below that is a list of the alerts you’ve defined, filtered to the metrics that appear on the blade. This way, if you have a lot of alerts, you’ll only see the relevant ones here. You can still see all of the alerts for your web site by clicking on the **Alert rules** part on the **Web site** blade.
+3. The **Metric** blade shows you details about metrics that you select. At the top of the blade is a graph, below that a table that shows you aggregation of those metrics, such as average, minimum and maximum. Below that is a list of the alerts you’ve defined, filtered to the metrics that appear on the blade. This way, if you have a lot of alerts, you’ll only see the relevant ones here. You can still see all of the alerts for your website by clicking on the **Alert rules** part on the **Website** blade.
 
    ![Metric blade](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 
@@ -32,15 +32,15 @@ In the Azure Portal Preview, you can now view your monitoring data in more ways 
 
 8. Below the time range, you chan choose any number of metrics to show on the chart. You can see some new Metrics: **Memory working set** and **Average memory working set**.
 
-9. When you click Save your changes will persist until you leave the Web site blade. When you come back later, you'll see the original metric and time range again.
+9. When you click Save your changes will persist until you leave the Website blade. When you come back later, you'll see the original metric and time range again.
 
 ## Web hosting plan monitoring
 
-Also new in the Azure Portal Preview is the ability to monitor performance metrics about the instances that your web sites run on. To access these metrics, click on the Web Hosting Plan icon in the Summary lens.
+Also new in the Azure Portal Preview is the ability to monitor performance metrics about the instances that your websites run on. To access these metrics, click on the Web Hosting Plan icon in the Summary lens.
 
    ![Web hosting plan](./media/insights-how-to-customize-monitoring/Insights_WHPSelect.png)
    
-There you can see a chart in the **Monitoring** lens that behaves just like the chart in the Web site blade, except you can see the new metrics:
+There you can see a chart in the **Monitoring** lens that behaves just like the chart in the Website blade, except you can see the new metrics:
 - CPU Percentage
 - Memory Percentage
 - HTTP Queue Depth

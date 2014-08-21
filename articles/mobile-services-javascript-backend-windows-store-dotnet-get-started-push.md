@@ -23,11 +23,13 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. When a mobile service has not been connected, the Add Push Notification wizard creates this connection for you. 
 
+>[WACOM.NOTE]This topic supports Windows Phone Store 8.1 apps. To add push notifications to a Windows Phone 8 or Windows Phone Silverlight 8.1 app, see this version of [Get started with push notifications in Mobile Services](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push).
+
 ##<a id="register"></a> Register your app with WNS and configure Mobile Services
 
 [WACOM.INCLUDE [mobile-services-notification-hubs-register-windows-store-app](../includes/mobile-services-notification-hubs-register-windows-store-app.md)]
 
-Both your mobile service and your app are now configured to work with WNS and Notification Hubs. Next, you will update your Windows Store app to register for notifications.
+Both your mobile service and your app are now configured to work with WNS and Notification Hubs. Next, you will update your universal Windows Store app to register for notifications.
 
 ##<a id="update-app"></a> Update the app to register for notifications
 

@@ -1,4 +1,4 @@
-<properties linkid="develop-dotnet-website-with-webmatrix" urlDisplayName="Website with WebMatrix" pageTitle=".NET web site with WebMatrix - Azure tutorials" metaKeywords="WebMatrix Azure, WebMatrix Azure, Azure web site WebMatrix, Azure website WebMatrix, Web Matrix Azure, WebMatrix Azure" description="Learn how to develop and deploy an Azure web site with WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a web site with Microsoft WebMatrix" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-dotnet-website-with-webmatrix" urlDisplayName="Website with WebMatrix" pageTitle=".NET website with WebMatrix - Azure tutorials" metaKeywords="WebMatrix Azure, WebMatrix Azure, Azure web site WebMatrix, Azure website WebMatrix, Web Matrix Azure, WebMatrix Azure" description="Learn how to develop and deploy an Azure website with WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="" solutions="" manager="" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
@@ -6,14 +6,14 @@
 
 
 
-#Develop and deploy a web site with Microsoft WebMatrix
-This guide describes how to use Microsoft WebMatrix to create and deploy a web site to Azure.  You will use a sample application from a WebMatrix site template.
+#Develop and deploy a website with Microsoft WebMatrix
+This guide describes how to use Microsoft WebMatrix to create and deploy a website to Azure.  You will use a sample application from a WebMatrix site template.
 
 You will learn:
 
 * How to sign into Azure from within WebMatrix
 * How to create a site using a built in template with WebMatrix 
-* How to deploy the customized web site directly from WebMatrix to Azure.
+* How to deploy the customized website directly from WebMatrix to Azure.
 
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
@@ -40,15 +40,15 @@ You will learn:
 
 	![Create Site from Template][sitefromtemplatedetails]
 
-3. If you are signed into Azure, you now have the option to create an Azure Web Site for your local site.  Choose a unique name, and select the data cetner where you would like your site to be created: 
+3. If you are signed into Azure, you now have the option to create an Azure Website for your local site.  Choose a unique name, and select the data cetner where you would like your site to be created: 
 
 	![Create site on Azure][sitefromtemplateazure]
 
-	After WebMatrix finishes building the web site, the WebMatrix IDE is displayed:
+	After WebMatrix finishes building the website, the WebMatrix IDE is displayed:
 
 	![WebMatrix IDE][howtowebmatrixide] 
 
-## Test the web site
+## Test the website
 
 The bakery sample includes a simulated order form that sends an email message with the item ordered to a Windows Live Hotmail account that you provide.
 
@@ -86,25 +86,25 @@ The bakery sample includes a simulated order form that sends an email message wi
 6. Check your email and make sure you got the order confirmation. If you have difficulties sending email, see [Issues with Sending Email][sendmailissues] in the ASP.NET Web Pages (Razor) Troubleshooting Guide.
  
 
-## Deploy the customized web site from WebMatrix to Azure
+## Deploy the customized website from WebMatrix to Azure
 
-1. In WebMatrix, click  **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the web site.
+1. In WebMatrix, click  **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the website.
 
 	![WebMatrix Publish Preview][howtopublishpreview]
 
-2. Click to select the checkbox next to bakery.sdf and then click **Continue**.  When publishing is completed the URL for the updated web site on Azure is displayed at the bottom of the WebMatrix IDE.  
+2. Click to select the checkbox next to bakery.sdf and then click **Continue**.  When publishing is completed the URL for the updated website on Azure is displayed at the bottom of the WebMatrix IDE.  
 
 	![Publishing Complete][publishcomplete]
 
-3. Click on the link to open the web site in your browser:
+3. Click on the link to open the website in your browser:
 
 	![Bakery Sample Site][bakerysample]
 
-	The URL for the web site can also be found in the Azure portal by clicking **Web Sites** to display all web sites for your subscription. The URL for each web site is displayed in the URL column on the web sites page.
+	The URL for the website can also be found in the Azure portal by clicking **Websites** to display all websites for your subscription. The URL for each website is displayed in the URL column on the websites page.
 
-## Modify the web site and republish it to the Azure web site
+## Modify the website and republish it to the Azure website
 
-You can use WebMatrix to modify the site and republish it to your Azure web site. In the following procedure you will add a check box to indicate that the order is a gift.
+You can use WebMatrix to modify the site and republish it to your Azure website. In the following procedure you will add a check box to indicate that the order is a gift.
 
 1. Open the *Order.cshtml* page.
 
@@ -141,11 +141,11 @@ You can use WebMatrix to modify the site and republish it to your Azure web site
 
 7. On the **Publish Preview** dialog box, make sure both the Order.cshtml is checked, and click continue.
 
-8. Click on the link to open the web site in your browser and test the update on your Azure web site.
+8. Click on the link to open the website in your browser and test the update on your Azure website.
 
 # Next Steps
 
-You've seen how to create and deploy a web site from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
+You've seen how to create and deploy a website from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
 
 * [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 

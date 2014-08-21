@@ -2,17 +2,17 @@
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stepsic" />
 
-# How to Scale a Web site
+# How to Scale a Website
 
 In the Azure Portal Preview, you can manually set the instance count of your Web Hosting Plan, or, you can set parameters to have it automatically scale. Before you configure scaling for your Web Hosting Plan, you should consider that scaling is affected by instance size. Larger sizes have more cores and memory, and so they will have better performance for the same number of instances.
 
-Scale affects an entire Web Hosting Plan. When you create a Web Site you have the option to create a new Web Hosting Plan or an existing Web Hosting Plan. Once you have a Web Hosting Plan, all of the sites will share the same instances, so they all scale together.
+Scale affects an entire Web Hosting Plan. When you create a Website you have the option to create a new Web Hosting Plan or an existing Web Hosting Plan. Once you have a Web Hosting Plan, all of the sites will share the same instances, so they all scale together.
 
 ## Scaling a Web Hosting Plan
 
-1. In the [Azure Portal Preview](https://portal.azure.com/), click **Browse**, then **Web Sites**, and then click the name of the Web Site to open the blade.
+1. In the [Azure Portal Preview](https://portal.azure.com/), click **Browse**, then **Websites**, and then click the name of the Website to open the blade.
 
-2. The **Scale** part on **Operations** lens of the Web Site blade will tell you the status of the Web Hosting Plan: **Off** for when you are scaling manually, **Performance** for when you are scaling by one or more performance metrics, and **Schedule** for when you have enabled multiple autoscale profiles.
+2. The **Scale** part on **Operations** lens of the Website blade will tell you the status of the Web Hosting Plan: **Off** for when you are scaling manually, **Performance** for when you are scaling by one or more performance metrics, and **Schedule** for when you have enabled multiple autoscale profiles.
 
     ![Scale part](./media/insights-how-to-scale/Insights_ScalePartOff.png)
 
@@ -32,7 +32,7 @@ Scale affects an entire Web Hosting Plan. When you create a Web Site you have th
 
 7. The **CPU Percentage** section allows you to set a target for the average CPU across all of the instances in your Web Hosting Plan. A scale up will happen when the average CPU exceeds the maximum you define.
 
-With auto scale enabled, you'll see **Performance** in the part on the Web site blade, and, you'll see your scale history in the chart:
+With auto scale enabled, you'll see **Performance** in the part on the Website blade, and, you'll see your scale history in the chart:
 
 ![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScalePartBladeOn.png) 
 

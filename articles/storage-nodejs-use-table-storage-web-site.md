@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure web site." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
@@ -16,7 +16,7 @@ You will learn:
 
 * How to work with the Azure Table service
 
-* How to use the Azure command-line tool for Mac and Linux to create an Azure Web Site
+* How to use the Azure command-line tool for Mac and Linux to create an Azure Website
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in the Table service.
  
@@ -84,7 +84,7 @@ In this section you will create a new Node application and use npm to add module
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [WACOM.NOTE] The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate web site scaffolding without having to type in additional path information.**
+	> [WACOM.NOTE] The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate website scaffolding without having to type in additional path information.**
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
@@ -120,7 +120,7 @@ In this section you will create a new Node application and use npm to add module
 
 ###Install additional modules
 
-The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to an Azure Web Site, this file will be used to determine which modules need to be installed on Azure to support your application.
+The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to an Azure Website, this file will be used to determine which modules need to be installed on Azure to support your application.
 
 1. From the command-line, change directories to the **tasklist** folder and enter the following to install the modules described in the **package.json** file:
 
@@ -426,7 +426,7 @@ In this section you will extend the basic application created by the **express**
 
 ###Modify the global layout
 
-The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking web site.
+The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website.
 
 1. Download and extract the files for [Twitter Bootstrap](http://getbootstrap.com/). Copy the **bootstrap.min.css** file from the **bootstrap\\dist\\css** folder to the **public\\stylesheets** directory of your tasklist application.
 
@@ -491,11 +491,11 @@ To test the application on your local machine, perform the following steps:
 
 ##Deploy your application to Azure
 
-The steps in this section use the Azure command-line tools to create a new Azure Web Site, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
+The steps in this section use the Azure command-line tools to create a new Azure Website, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
 > [WACOM.NOTE] These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site].
 
-> [WACOM.NOTE] If this is the first Azure Web Site you have created, you must use the Azure portal to deploy this application.
+> [WACOM.NOTE] If this is the first Azure Website you have created, you must use the Azure portal to deploy this application.
 
 ###Create an Azure subscription
 
@@ -545,23 +545,23 @@ Before using the command-line tools with Azure, you must first download a file c
 
 4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Azure subscription.
 
-###Create an Azure Web Site
+###Create an Azure Website
 
 1. From the command-line, change directories to the **tasklist** directory.
 
-2. Use the following command to create a new Azure Web Site
+2. Use the following command to create a new Azure Website
 
 		azure site create --git
 		
-	You will be prompted for the web site name and the datacenter that it will be located in. Provide a unique name and select the datacenter geographically close to your location.
+	You will be prompted for the website name and the datacenter that it will be located in. Provide a unique name and select the datacenter geographically close to your location.
 	
-	The `--git` parameter will create a Git repository on Azure for this web site. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Azure. Finally, it will create a **web.config** file, which contains settings used by Azure to host node applications.
+	The `--git` parameter will create a Git repository on Azure for this website. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Azure. Finally, it will create a **web.config** file, which contains settings used by Azure to host node applications.
 	
 	> [WACOM.NOTE] If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
 	
 	> [WACOM.NOTE] If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
 	
-	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Web site created at** contains the URL for the web site.
+	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the website.
 	
 		info:   Executing command site create
 		help:   Need a site name
@@ -576,7 +576,7 @@ Before using the command-line tools with Azure, you must first download a file c
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	> [WACOM.NOTE] If this is the first Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see [Create and deploy a Node.js application to an Azure Web Site].
+	> [WACOM.NOTE] If this is the first Azure Website for your subscription, you will be instructed to use the portal to create the website. For more information, see [Create and deploy a Node.js application to an Azure Website].
 
 ###Publish the application
 
@@ -587,7 +587,7 @@ Before using the command-line tools with Azure, you must first download a file c
 		git add .
 		git commit -m "adding files"
 
-3. When pushing the latest Git repository changes to the Azure Web Site, you must specify that the target branch is **master** as this is used for the web site content.
+3. When pushing the latest Git repository changes to the Azure Website, you must specify that the target branch is **master** as this is used for the website content.
 
 		git push azure master
 	
@@ -596,15 +596,15 @@ Before using the command-line tools with Azure, you must first download a file c
 		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
  		 * [new branch]      master -> master
 
-4. Once the push operation has completed, browse to the web site URL returned previously by the `azure create site` command to view your application.
+4. Once the push operation has completed, browse to the website URL returned previously by the `azure create site` command to view your application.
 
 ###Switch to an environment variable
 
-Earlier we implemented code that looks for a environment variables or loads the value from the **config.json** file. In the following steps you will create key/value pairs in your web site configuration that the application real access through an environment variable.
+Earlier we implemented code that looks for a environment variables or loads the value from the **config.json** file. In the following steps you will create key/value pairs in your website configuration that the application real access through an environment variable.
 
-1. From the Management Portal, click **Web Sites** and then select your web site.
+1. From the Management Portal, click **Websites** and then select your website.
 
-	![Open web site dashboard][go-to-dashboard]
+	![Open website dashboard][go-to-dashboard]
 
 2. Click **CONFIGURE** and then find the **app settings** section of the page. 
 
@@ -633,7 +633,7 @@ Earlier we implemented code that looks for a environment variables or loads the 
 
 		git push azure master
 
-Once the changes have been deployed to Azure, your web application should continue to work as it is now reading the connection string from the **app settings** entry. To verify this, change the value for the **STORAGE_KEY** entry in **app settings** to an invalid value. Once you have saved this value, the web site should fail due to the invalid storage access key setting.
+Once the changes have been deployed to Azure, your web application should continue to work as it is now reading the connection string from the **app settings** entry. To verify this, change the value for the **STORAGE_KEY** entry in **app settings** to an invalid value. Once you have saved this value, the website should fail due to the invalid storage access key setting.
 
 ##Next steps
 

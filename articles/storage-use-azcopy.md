@@ -311,7 +311,7 @@ If your storage account has read-access geo-redundant storage enabled, then you 
 
 **Copy a blob to the primary account from the secondary:**
 
-	AzCopy https://myaccount-secondary.blob.core.windows.net/mynewcontainer https://myaccount.blob.core.windows.net/mynewcontainer /sourcekey:key /destkey:key abc.txt
+	AzCopy https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 https://myaccount2.blob.core.windows.net/mynewcontainer2 /sourcekey:key1 /destkey:key2 abc.txt
 
 **Download a blob in the secondary to a file in the file system:**
 

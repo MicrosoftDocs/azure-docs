@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure web sites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="" editor="" />
+<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
@@ -7,7 +7,7 @@
 
 # Continuous delivery to Azure using Visual Studio Online
 
-  You can configure your Visual Studio Online team projects to automatically build and deploy to Azure web sites or cloud services.  (For information on how to set up a continuous build and deploy system using an *on-premises* Team Foundation Server, see [Continuous Delivery for Cloud Services in Azure](../cloud-services-dotnet-continuous-delivery).)
+  You can configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services.  (For information on how to set up a continuous build and deploy system using an *on-premises* Team Foundation Server, see [Continuous Delivery for Cloud Services in Azure](../cloud-services-dotnet-continuous-delivery).)
 
 This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed. If you don't already have Visual Studio 2013, download it by choosing the **Get started for free** link at [www.visualstudio.com](http://www.visualstudio.com). Install the Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
@@ -32,10 +32,10 @@ Follow the instructions [here](http://go.microsoft.com/fwlink/p/?LinkId=239540) 
 <h2><a name="step2"> </a><span class="short-header">Check in a project to source control.</span>Step 2: Check in a project to source control</h2>
 
 1. In Visual Studio, open the solution you want to deploy, or create a new one.
-You can deploy a web site or a cloud service (Azure Application) by following the steps in this walkthrough.
+You can deploy a website or a cloud service (Azure Application) by following the steps in this walkthrough.
 If you want to create a new solution, create a new Azure Cloud Service project,
 or a new ASP.NET MVC project. Make sure that the project targets .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role, and choose Internet application for the web role. When prompted, choose **Internet Application**.
-If you want to create a web site, choose the ASP.NET Web Application project template, and then choose MVC. See [Get started with Azure and ASP.NET](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+If you want to create a website, choose the ASP.NET Web Application project template, and then choose MVC. See [Get started with Azure and ASP.NET](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
 
 2. Open the context menu for the solution, and select **Add Solution to Source Control**.<br/>
 ![][5]
@@ -55,7 +55,7 @@ Note the options to include or exclude specific changes when you check in. If de
 
 <h2> <a name="step3"> </a><span class="short-header">Connect the project to Azure</span>Step 3: Connect the project to Azure</h2>
 
-1. Now that you have a VSO team project with some source code in it, you are ready to connect your team project to Azure.  In the [Azure Portal](http://manage.windowsazure.com), select your cloud service or web site, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Web Site** and then **Quick Create**. Choose the **Set up publishing with Visual Studio Online** link.<br/>
+1. Now that you have a VSO team project with some source code in it, you are ready to connect your team project to Azure.  In the [Azure Portal](http://manage.windowsazure.com), select your cloud service or website, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Website** and then **Quick Create**. Choose the **Set up publishing with Visual Studio Online** link.<br/>
 ![][10]
 
 2. In the wizard, type the name of your Visual Studio Online account in the textbox and click the **Authorize Now** link. You might be asked to sign in.<br/>
@@ -108,7 +108,7 @@ The Team Explorer shows that a build has been triggered for your check-in.<br/>
 In the **Trigger** tab, you will see that the build definition is set to build on every check-in by default.<br/>
 ![][26]
 <br/>
-In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or web site. If you are working with web sites, the properties you see will be different from those shown here.<br/>
+In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or website. If you are working with websites, the properties you see will be different from those shown here.<br/>
 ![][27]
 <br/>
 Specify values for the properties if you want different values than the defaults. The properties for Azure publishing are in the Deployment section.
@@ -118,9 +118,9 @@ The following table shows the available properties in the Deployment section:
 ><tr><td>Allow Untrusted Certificates</td><td>If false, SSL certificates must be signed by a root authority.</td></tr>
 <tr><td>Allow Upgrade</td><td>Allows a the deployment to update an existing deployment instead of creating a new one. Preserves the IP address.</td></tr>
 ><tr><td>Do Not Delete</td><td>If true, do not overwrite an existing unrelated deployment (upgrade is allowed).</td></tr>
-<tr><td>Path to Deployment Settings</td><td>The path to your .pubxml file for a web site, relative to the root folder of the repo. Ignored for cloud services.</td></tr>
+<tr><td>Path to Deployment Settings</td><td>The path to your .pubxml file for a website, relative to the root folder of the repo. Ignored for cloud services.</td></tr>
 <tr><td>Sharepoint Deployment Environment</td><td>The same as the service name</td></tr>
-<tr><td>Windows Azure Deployment Environment</td><td>The web site or cloud service name</td></tr>
+<tr><td>Windows Azure Deployment Environment</td><td>The website or cloud service name</td></tr>
 </table>
 <br/>
 
@@ -136,7 +136,7 @@ If you are using multiple service configurations (.cscfg files), you can specify
 13. In the [Azure Portal](http://manage.windowsazure.com), you can view the associated deployment on the Deployments tab when the staging environment is selected.<br/>
 ![][30]
 
-14.	Browse to your site's URL. For a web site, just click the Browse button on the command bar. For a cloud service, choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the Staging environment for a cloud service. Deployments from continuous integration for cloud services are published to the Staging environment by default. You can change this by setting the Alternate Cloud Service Environment property to Production. This screenshot shows where the site URL is on the cloud service's dashboard page: <br/>
+14.	Browse to your site's URL. For a website, just click the Browse button on the command bar. For a cloud service, choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the Staging environment for a cloud service. Deployments from continuous integration for cloud services are published to the Staging environment by default. You can change this by setting the Alternate Cloud Service Environment property to Production. This screenshot shows where the site URL is on the cloud service's dashboard page: <br/>
 ![][31]
 <br/>
 A new browser tab will open to reveal your running site.<br/>
@@ -152,10 +152,10 @@ This step applies to cloud services and is optional. In the management portal, s
 
 <h2> <a name="step6"> </a><span class="short-header">Change the Production deployment</span>Step 6: Change the Production deployment</h2>
 
-This step applies only to cloud services, not web sites. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button in the management portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.<br/>
+This step applies only to cloud services, not websites. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button in the management portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.<br/>
 ![][35]
 
-For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publishing from Source Control to Azure Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control).
+For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publishing from Source Control to Azure Websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control).
 
 [Step 1: Sign up for Visual Studio Online.]: #step1
 [Step 2: Check in a project to source control.]: #step2

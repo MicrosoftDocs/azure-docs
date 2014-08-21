@@ -4,12 +4,10 @@
 
 # Connect millions of "things" to the cloud
  
-Smart and connected "things" increasingly proliferate in modern technology ecosystems.  Sensors in cars, homes, infrastructure, and appliances are producing new opportunities to provide improved product quality, expanded services, and new customer engagement models.  Azure Service Bus can help you connect this emerging Internet of "things".
+Smart and connected "things" increasingly proliferate in modern technology ecosystems. Sensors in cars, homes, infrastructure, and appliances produce new opportunities to provide improved product quality, expanded services, and new customer engagement models. Azure Service Bus can help you connect this emerging "Internet of things."
 
-[Connect Millions of Things to the Cloud](http://go.microsoft.com/fwlink/?LinkID=40396)
- 
 ## Explore
-- [Event Hubs](http://msdn.microsoft.com/en-us/library/azure/dn687575.aspx)
+- [Event Hubs](http://msdn.microsoft.com/en-us/library/dn789973.aspx)
 - [Sharding Pattern](http://msdn.microsoft.com/en-us/library/dn589797.aspx)
 - [Service Bus and AMQP 1.0](http://msdn.microsoft.com/en-us/library/azure/jj841071.aspx)
 - [Introduction to Service Bus](http://azure.microsoft.com/en-us/documentation/services/service-bus/)

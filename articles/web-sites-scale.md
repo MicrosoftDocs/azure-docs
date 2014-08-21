@@ -29,7 +29,7 @@ In this article:
 
 1. In your browser, open the [Management Portal][portal].
 	
-2. In the **Web Sites** tab, select your website.
+2. In the **Websites** tab, select your website.
 	
 	![Selecting a website][SelectWebsite]
 	

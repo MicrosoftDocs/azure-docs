@@ -118,10 +118,10 @@ using the Windows PowerShell to run all command line actions.
         easy_install pyzmq
 
 1.  Download and install [NumPy][numpy] using the
-    `.exe` binary installer available on their web site.  As of this writing, the latest version is **numpy-1.7.1-win32-superpack-python2.7.exe**.
+    `.exe` binary installer available on their website.  As of this writing, the latest version is **numpy-1.7.1-win32-superpack-python2.7.exe**.
 
 1.  Download and install [Matplotlib][matplotlib] using the
-    `.exe` binary installer available on their web site.  As of this writing, the latest version is **matplotlib-1.2.1.win32-py2.7.exe**.
+    `.exe` binary installer available on their website.  As of this writing, the latest version is **matplotlib-1.2.1.win32-py2.7.exe**.
 
 1.  Download and install OpenSSL. You can find Windows versions of OpenSSL at [http://slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html).
 
@@ -280,7 +280,7 @@ explanatory videos with computation for educational purposes:
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-006.png)
 
-or embed external web sites that remain live and usable, inside of a notebook
+or embed external websites that remain live and usable, inside of a notebook
 file:
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-007.png)

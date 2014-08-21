@@ -35,7 +35,7 @@ This guide will show you how to perform common scenarios using the Azure Table s
 
 The only requirement for creating a PHP application that accesses the Azure Table service is the referencing of classes in the Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use Table service features which can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or web site.
+In this guide, you will use Table service features which can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ##<a id="GetClientLibrary"></a>Get the Azure Client Libraries
 

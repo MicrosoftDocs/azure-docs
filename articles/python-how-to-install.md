@@ -23,7 +23,7 @@ The Azure SDK for Python includes components that allow you to develop, deploy, 
 
 The core scenarios for this release are:
 
-* **Windows**: Cloud Service, Web Site -- for example a Django site using Web Roles
+* **Windows**: Cloud Service, Website -- for example a Django site using Web Roles
 * **Mac/Linux**: IaaS -- Run what you like in a VM; Consume Azure Services through Python
 
 ## Which Python and which version to use
