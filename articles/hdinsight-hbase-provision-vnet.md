@@ -1,13 +1,19 @@
-<properties linkid="manage-services-hdinsight-hbase-provision-on-vnet" urlDisplayName="Provision HBase clusters on Azure Virtual Network" pageTitle="Provision HBase clusters on Azure Virtual Network | Azure" metaKeywords="" description="Learn how to create HDInsight clusters on Azure Virtual Network." metaCanonical="" services="HDInsight" documentationCenter="" title="Provision HBase clusters on Azure Virtual Network" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-hbase-provision-on-vnet" urlDisplayName="Provision HBase clusters on Azure Virtual Network" pageTitle="Provision HBase clusters on Azure Virtual Network | Azure" metaKeywords="" description="Learn how to create HDInsight clusters on Azure Virtual Network." metaCanonical="" services="hdinsight" documentationCenter="" title="Provision HBase clusters on Azure Virtual Network" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
 
 # Provision HBase clusters on Azure Virtual Network
 
-Learn how to create HDInsight clusters on Azure Virtual Network. Currently, only HBase clusters can be provisioned into Azure Virtual Networks. 
+Learn how to create HDInsight clusters on Azure Virtual Network. 
+
 
 With the virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly. The benefits include:
 
-- Improve performance by not having your traffic go over multiple gateway and load-balancer. Direct connectivity of the web application to the nodes of the HBase cluster which enables communication using HBase Java RPC APIs.
+- Direct connectivity of the web application to the nodes of the HBase cluster which enables communication using HBase Java RPC APIs.
+- Improve performance by not having your traffic go over multiple gateway and load-balancer. 
 - process sensitive information in a more secure manner without exposing a public endpoint
+
+> [WAXOM.NOTE]Currently, only HBase clusters can be provisioned into Azure Virtual Networks. Hadoop clusters are not supported.
 
 
 ##In this article
@@ -165,7 +171,7 @@ To test the new HBase cluster, you can use the procedures found in [Get started 
 
 
 
-1.	Provision an IaaS virtual machine into the same Azure virtual network and the same subnet. The last part is required so both the virtual machine and the HBase cluster use the same internal DNS server to resolve host names. To do so, you must choose the From Gallery option, and select the virtual network instead of a data center. For the instructions, see [Create a Virtual Machine Running Windows Server][vm-create]. A standard Windows Server 2012 image with a small VM size is sufficient.
+1.	Provision an IaaS virtual machine into the same Azure virtual network and the same subnet. So both the virtual machine and the HBase cluster use the same internal DNS server to resolve host names. To do so, you must choose the From Gallery option, and select the virtual network instead of a data center. For the instructions, see [Create a Virtual Machine Running Windows Server][vm-create]. A standard Windows Server 2012 image with a small VM size is sufficient.
 	
 2.	Get the connection-specific DNS suffix of the HBase cluster. To do that RDP into the HBase cluster (you will be connected to the headnode) and run **ipconfig** from a command prompt. For instructions on enabling RDP and connect to the cluster using RDP, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal].
 
@@ -228,5 +234,5 @@ In this tutorial we have learned how to provision an HBase cluster. To learn mor
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
-[img-dns-surffix]: ../media/hdinsight-hbase-provision-vnet/DNSSuffix.png
-[img-primary-dns-suffix]: ../media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
+[img-dns-surffix]: ./media/hdinsight-hbase-provision-vnet/DNSSuffix.png
+[img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
