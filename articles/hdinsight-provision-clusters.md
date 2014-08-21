@@ -14,11 +14,38 @@ Before you begin this article, you must have the following:
 
 ##In this article
 
+* [HDInsight configuration options](#configuration)
 * [Using Azure Management Portal](#portal)
 * [Using Azure PowerShell](#powershell)
 * [Using Cross-platform Command Line](#cli)
 * [Using HDInsight .NET SDK](#sdk)
 * [Next steps](#nextsteps)
+
+##<a id="configuration"></a>Configuration options
+
+###Additional storage
+
+During configuration, you must specify an Azure Blob Storage account, and a default container. This is used as the default storage location by the cluster. Optionally, you can specify additional blobs that will also be associated with your cluster.
+
+For more information on using secondary blob stores, see [Using Azure Blob Storage with HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-blob-storage/).
+
+###Metastore
+
+The Metastore contains information about Hive tables, partitions, schemas, columns, etc. This information is used by Hive to locate where data is stored on HDFS (or WASB for HDInsight.) By default, Hive uses an embedded database to store this information.
+
+When provisioning an HDInsight cluster, you can specify a SQL Database that will contain the Metastore for Hive. This allows the metadata information to be preserved when you delete a cluster, as it is stored externally in SQL Database.
+
+###Virtual Networking
+
+[Azure Virtual Network](http://azure.microsoft.com/en-us/documentation/services/virtual-network/) allows you to create a secure, persistent, network containing the resources you need for your solution. A virtual network allows you to:
+
+* Connect cloud resources together in a secure, private network (cloud-only)
+
+* Connect your cloud resources to your local datacenter (site-to-site)
+
+* Connect your cloud resources to a specific machine in your data center (point-to-site)
+
+For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
 ##<a id="portal"></a> Using Azure Management Portal
 
