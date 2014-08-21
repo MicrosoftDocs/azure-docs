@@ -160,7 +160,7 @@ The **Get-AzureWebsite** cmdlet presents information about Azure websites for th
 ###New-AzureWebsite
 You can create a site slot for any website in Standard mode by using the **New-AzureWebsite** cmdlet and specifying the names of both the site and slot. Also indicate the same region as the site for deployment slot creation, as in the following example. 
 
-`New-AzureWebsite siteslotstest –Slot staging –Location “West US”`
+`New-AzureWebsite siteslotstest -Slot staging -Location "West US"`
 
 ----------
 
