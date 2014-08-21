@@ -110,8 +110,10 @@ In addition to creating the Docker VM, the `azure vm docker create`  command als
 
 By default, certificates are placed in `~/.docker`, and Docker will be configured to run on port **4243**. If you would like to use a different port or directory, then you may use one of the following `azure vm docker create` command line options to configure your Docker container host VM to use a different port or different certificates for connecting clients:
 
-```-dp, --docker-port [port]        Port to use for docker [4243]`
-```-dc, --docker-cert-dir [dir]     Directory containing docker certs`
+```
+-dp, --docker-port [port]        Port to use for docker [4243]
+-dc, --docker-cert-dir [dir]     Directory containing docker certs
+```
 
 The Docker daemon on the host is configured to listen for, and authenticate, client connections on the specified port using the certificates generated above. The client machine must have these certificates to gain access to the Docker host. Conversely, a networked host running without these certificates will be vulnerable to anyone that can to connect to the machine.
 
