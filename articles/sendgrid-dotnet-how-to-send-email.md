@@ -199,7 +199,7 @@ You can also add attachments from the data's **Stream**. It can be done by calli
 
     using (var attachmentFileStream = new FileStream(@"C:\file.txt", FileMode.Open))
     {
-        message.AddAttachment(attachmentFileStream, "My Cool File.txt");
+        myMessage.AddAttachment(attachmentFileStream, "My Cool File.txt");
     }
 
 <h2><a name="usefilters"></a><span  class="short-header">How to: Use filters to enable footers, tracking, and analytics</span></h2>
