@@ -132,11 +132,11 @@ The provisioning process begins by creating a new Service Principal for the appl
 		Connect-MsolService
 5. Now you will create a new Service Principal for the application. Type the following command and press Enter:
 
-		New-MsolServicePrincipal -ServicePrincipalNames @("javaSample/localhost") -DisplayName "Federation Sample Web Site" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
+		New-MsolServicePrincipal -ServicePrincipalNames @("javaSample/localhost") -DisplayName "Federation Sample Website" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
 This step will output information similar to the following:
 
 		The following symmetric key was created as one was not supplied qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=
-		DisplayName           : Federation Sample Java Web Site
+		DisplayName           : Federation Sample Java Website
 		ServicePrincipalNames : {javaSample/localhost}
 		ObjectId              : 59cab09a-3f5d-4e86-999c-2e69f682d90d
 		AppPrincipalId        : 7829c758-2bef-43df-a685-717089474505

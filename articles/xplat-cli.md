@@ -6,7 +6,7 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
-The Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Azure Platform. The xplat-cli provides much of the same functionality found in the Azure Management Portal, such as the ability to manage web sites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform.
+The Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Azure Platform. The xplat-cli provides much of the same functionality found in the Azure Management Portal, such as the ability to manage websites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform.
 
 The xplat-cli is written in JavaScript, and requires Node.js. It is implemented using the Azure SDK for Node.js, and released under an Apache 2.0 license. The project repository is located at [https://github.com/WindowsAzure/azure-sdk-tools-xplat](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
@@ -232,7 +232,7 @@ When in doubt about the parameters needed by a command, refer to help using `--h
 
 ###Setting the configuration mode
 
-The xplat-cli allows you to perform management operations on individual _resources_, which are user-managed entities such as a database server, database, or web site. This is the default mode of operation for the xplat-cli, and is referred to as **Azure Service Management**. However, when you have a complex solution that consists of multiple resources, it is useful to be able to manage the entire solution as a single unit.
+The xplat-cli allows you to perform management operations on individual _resources_, which are user-managed entities such as a database server, database, or website. This is the default mode of operation for the xplat-cli, and is referred to as **Azure Service Management**. However, when you have a complex solution that consists of multiple resources, it is useful to be able to manage the entire solution as a single unit.
 
 To support managing a group of resources as a single logical unit, or _resource group_, we have introduced a preview of the **Resource Manager** as a new way of managing Azure resources. 
 
@@ -254,49 +254,49 @@ For more information on working with the Resource Manager using the xplat-cli, s
 
 ###Working with services in Azure service management mode
 
-The xplat-cli allows you to easily manage Azure services. In this example, you will learn how to use the xplat-cli to manage an Azure Web Site.
+The xplat-cli allows you to easily manage Azure services. In this example, you will learn how to use the xplat-cli to manage an Azure Website.
 
-1. Use the following command to create a new Azure Web Site. Replace **mywebsite** with a unique name.
+1. Use the following command to create a new Azure Website. Replace **mywebsite** with a unique name.
 
 		azure site create mywebsite
 
-	You will be prompted to specify the region that the web site will be created in. Select a region that is geographically near you. After this command completes, the web site will be available at http://mywebsite.azurewebsites.net (replace **mywebsite** with the name you specified.)
+	You will be prompted to specify the region that the website will be created in. Select a region that is geographically near you. After this command completes, the website will be available at http://mywebsite.azurewebsites.net (replace **mywebsite** with the name you specified.)
 
-	> [WACOM.NOTE] If you use Git for project source control, you can specify the `--git` parameter to create a Git repository on Azure for this web site. This will also initialize a Git repository in the directory from which the command was ran if one does not already exist. It will also create a Git remote named __azure__, which can be used to push deployments to the Azure Web Site using the `git push azure master` command.
+	> [WACOM.NOTE] If you use Git for project source control, you can specify the `--git` parameter to create a Git repository on Azure for this website. This will also initialize a Git repository in the directory from which the command was ran if one does not already exist. It will also create a Git remote named __azure__, which can be used to push deployments to the Azure Website using the `git push azure master` command.
 
 	> [WACOM.NOTE] If you receive an error that 'site' is not an azure command, the xplat-cli is most likely in resource group mode. To change back to resource mode, use the `azure config mode asm` command.
 
-2. Use the following command to list web sites for your subscription:
+2. Use the following command to list websites for your subscription:
 
 		azure site list
 
 	The list should contain the site created in the previous step.
 
-2. Use the following command to stop the web site. Replace **mywebsite** with the site name.
+2. Use the following command to stop the website. Replace **mywebsite** with the site name.
 
 		azure site stop mywebsite
 
 	After the command completes, you can refresh the browser to verify that the site has been stopped.
 
-3. Use the following command to start the web site. Replace **mywebsite** with the site name.
+3. Use the following command to start the website. Replace **mywebsite** with the site name.
 
 		azure site start mywebsite
 
 	After the command completes, you can refresh the browser to verify that the site has been started.
 
-4. Use the following command to delete the web site. Replace **mywebsite** with the site name.
+4. Use the following command to delete the website. Replace **mywebsite** with the site name.
 
 		azure site delete mywebsite
 
-	After the command completes, use the `azure site list` command to verify that the web site no longer exists.
+	After the command completes, use the `azure site list` command to verify that the website no longer exists.
 
 <h2><a id="script"></a>How to script the Azure Cross-Platform Command-Line Interface</h2>
 
-While you can use the xplat-cli to manually issue commands, you can also create complex automation workflows by leveraging the capabilities of your command-line interpreter and other command-line utilities available on your system. For example, the following command will stop all running Azure Web Sites:
+While you can use the xplat-cli to manually issue commands, you can also create complex automation workflows by leveraging the capabilities of your command-line interpreter and other command-line utilities available on your system. For example, the following command will stop all running Azure Websites:
 
 	azure site list | grep 'Running' | awk '{system("azure site stop "$2)}'
 
-This example pipes a list of web sites to the `grep` command, which inspects each line for the string 'Running'. Any lines that match are then piped to the `awk` command, which calls `azure site stop` and uses the second column passed to it (the running site name) as the site name to stop.
+This example pipes a list of websites to the `grep` command, which inspects each line for the string 'Running'. Any lines that match are then piped to the `awk` command, which calls `azure site stop` and uses the second column passed to it (the running site name) as the site name to stop.
 
 While this demonstrates how you can chain commands together, you can also create more elaborate scripts using the scripting features provided by your command-line interpreter. Different command-line interpreters have different scripting features and syntax. Bash is probably the most widely used command-line interpreter for UNIX-based systems, including Linux and OS X.
 
@@ -360,7 +360,7 @@ Note that the `verbose:` information appears to be JSON formatted data. You can 
 
 	azure site list --json | jsawk -n 'out(this.Name)' | xargs -L 1 azure site delete -q 
 
-The command above retrieves a list of web sites as JSON, then uses jsawk to retrieve the site names, and finally uses xargs to run a site delete command for each site, passing the site name as a parameter.
+The command above retrieves a list of websites as JSON, then uses jsawk to retrieve the site names, and finally uses xargs to run a site delete command for each site, passing the site name as a parameter.
 
 >[WACOM.NOTE] The `--json` parameter blocks the generation of status or data information (strings prefixed by `info:` and `data:`). For example, if the `--json` parameter is used with the `azure site create`, no output is returned as this command does not return any data other than `info:`.
 
@@ -372,7 +372,7 @@ While the xplat-cli does log error information to STDERR, additional information
 
 ###Exit status
 
-Some of the xplat-cli commands do not return a non-zero exit status if required parameters are missing. Instead, they will prompt for user input. For example, when using the `azure site create` command to create a new web site, if no site name or `--location` parameter are specified you will be prompted to supply these values.
+Some of the xplat-cli commands do not return a non-zero exit status if required parameters are missing. Instead, they will prompt for user input. For example, when using the `azure site create` command to create a new website, if no site name or `--location` parameter are specified you will be prompted to supply these values.
 
 If you are writing a script that relies on the exit status, please verify that the xplat-cli commands you are using do not prompt for user input.
 

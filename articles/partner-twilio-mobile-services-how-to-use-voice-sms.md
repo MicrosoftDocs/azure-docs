@@ -149,7 +149,7 @@ The following code shows how to send an SMS message using the **sendSms**  funct
     };
 
 
-<h2><a id="howto_provide_twiml_responses"></a>How to: Provide TwiML responses from your own web site</h2>
+<h2><a id="howto_provide_twiml_responses"></a>How to: Provide TwiML responses from your own website</h2>
 
 When your application initiates a call to the Twilio API - for example, via the client.InitiateOutboundCall method - Twilio sends your request to a URL that is expected to return a TwiML response. The example in How to: Make an outgoing call uses the Twilio-provided URL http://twimlets.com/message to return the response.
 

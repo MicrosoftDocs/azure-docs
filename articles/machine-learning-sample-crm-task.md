@@ -4,6 +4,10 @@
 
 #Azure Machine Learning sample: CRM task
 
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Sample Experiments - CRM - Development
+
 ## Problem Description ##
 Prediction of customer churn (switch provider), upsell (buy upgrades or add-ons) and propensity to buy a new product (appetency) 
 ## Data ##

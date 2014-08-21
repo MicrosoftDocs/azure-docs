@@ -65,11 +65,11 @@ The provisioning process begins by creating a new Service Principal for the appl
 		Connect-MsolService
 5. Now you will create a new Service Principal for the application. Type the following command and press Enter:
 
-		New-MsolServicePrincipal -ServicePrincipalNames @("OrgIdFederationSample/localhost") -DisplayName "Federation Sample Web Site" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
+		New-MsolServicePrincipal -ServicePrincipalNames @("OrgIdFederationSample/localhost") -DisplayName "Federation Sample Website" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
 This step will output information similar to the following:
 
 		The following symmetric key was created as one was not supplied qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=
-		DisplayName           : Federation Sample Web Site
+		DisplayName           : Federation Sample Website
 		ServicePrincipalNames : {OrgIdFederationSample/localhost}
 		ObjectId              : 59cab09a-3f5d-4e86-999c-2e69f682d90d
 		AppPrincipalId        : 7829c758-2bef-43df-a685-717089474505
@@ -124,7 +124,7 @@ This step shows you how to add support for federated login using Windows Identit
 
 8. Next you will configure Internet Information Services (IIS) to support SSL for your development environment. To open the IIS Manager, you can type *inetmgr* at the **Run** prompt. 
 
-9. In IIS Manager, expand the **Sites** folder in the left menu, then click on **Default Web Site Home**. From the **Actions** menu on the right, click **Bindings...**.
+9. In IIS Manager, expand the **Sites** folder in the left menu, then click on **Default Website Home**. From the **Actions** menu on the right, click **Bindings...**.
 
 10. On the **Site Bindings** dialog, click **Add**. On the **Add Site Binding** dialog, change the **Type** dropdown to ***https***, then under **SSL certificate**, select **IIS Express Development Certificate**. Click **OK**.
 

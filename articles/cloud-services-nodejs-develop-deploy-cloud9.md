@@ -32,7 +32,7 @@ are demonstrated using Google Chrome on a Mac.
 
 ## Signup
 
-To use Cloud9, you first need to visit their web site and [register for a
+To use Cloud9, you first need to visit their website and [register for a
 subscription][Cloud9 IDE]. You can sign in with either an existing
 GitHub or BitBucket account, or create a Cloud9 account. A free
 subscription offering is available, as well as a paid offering which

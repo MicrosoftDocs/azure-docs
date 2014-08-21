@@ -1,29 +1,35 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
-
-
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="nitinme" />
 
 
-# Get started using Hadoop 2.2 in HDInsight
+# Get started using Hadoop 2.4 in HDInsight
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="../hdinsight-get-started" title="Get started using Hadoop 2.2 in HDInsight" class="current">Hadoop 2.2</a>
-<a href="../hdinsight-get-started-31" title="Get started using Hadoop 2.4 in HDInsight">Hadoop 2.4</a>
-<a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a>
+<a href="../hdinsight-get-started" title="Get started using Hadoop 2.4 in HDInsight" class="current">Hadoop 2.4</a>
+<a href="../hdinsight-get-started-30" title="Get started using Hadoop 2.2 in HDInsight">Hadoop 2.2</a>
+<!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a-->
 </div>
 
-HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the cloud. The MapReduce software framework is available in a simpler, more scalable, and more cost-efficient Azure environment. HDInsight also provides a cost-efficient approach to the managing and storing of data using Azure Blob storage. 
+HDInsight makes Apache Hadoop, a MapReduce software framework, available in a simpler, more scalable, and more cost-efficient Azure environment. HDInsight also provides a cost-efficient approach to the managing and storing of data using Azure Blob storage.
 
-In this tutorial, you will provision an Hadoop cluster in HDInsight using the Azure Management Portal, submit an Hive job to query against a sample Hive table using the cluster dashboard, and then import the Hive job output data into Excel for examination.
+> [WACOM.NOTE] If you are new to Hadoop and Big Data, you might want to read more about the terms [Apache Hadoop][apache-hadoop], [MapReduce][apache-mapreduce], [HDFS][apache-hdfs], and  [Hive][apache-hive].
 
-> [WACOM.NOTE] This tutorial covers using Hadoop 2.2 clusters on HDInsight. For other supported version, click the selector on the top of the page. For version information, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions]
+In conjunction with the general availability of Azure HDInsight, Microsoft also provides HDInsight Emulator for Azure, formerly known as *Microsoft HDInsight Developer Preview*. The Emulator targets developer scenarios and only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].   
 
-The live demo of this article:
+## What does this tutorial achieve? ##
 
-<center><a href="https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS" target = "_blank">![HDI.getstarted.video][img-hdi-getstarted-video]</a></center>
+Assume you have a large unstructured data set and you want to run queries on it to extract some meaningful information. That's exactly what we are going to do in this tutorial. Here's how we achieve this:
 
-In conjunction with the general availability of Azure HDInsight, Microsoft has also released HDInsight Emulator for Azure, formerly known as *Microsoft HDInsight Developer Preview*. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
+   ![HDI.GetStartedFlow][image-hdi-getstarted-flow]
+
+You can also watch a demo video of this tutorial:
+
+<center><iframe width="560" height="315" src="http://www.youtube.com/embed/v=Y4aNjnoeaHA?list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS" frameborder="0" allowfullscreen></iframe></center>
+
+<!--center><a href="https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS" target = "_blank">![HDI.getstarted.video][img-hdi-getstarted-video]</a></center-->
+
+
 
 **Prerequisites:**
 
@@ -37,27 +43,21 @@ Before you begin this tutorial, you must have the following:
 
 ##In this tutorial
 
+* [Create an Azure storage account](#storage)
 * [Provision an HDInsight cluster](#provision)
-* [Run an Hive job](#sample)
+* [Run a Hive job](#sample)
 * [Connect to Microsoft business intelligence tools](#powerquery)
 * [Next steps](#nextsteps)
 
-	
-##<a name="provision"></a>Provision an HDInsight cluster
+##<a name="storage"></a>Create an Azure Storage account
 
 HDInsight uses Azure Blob Storage for storing data. It is called *WASB* or *Azure Storage - Blob*. WASB is Microsoft's implementation of HDFS on Azure Blob storage. For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage].
 
-When provision an HDInsight cluster, an Azure Storage account and a specific Blob storage container from that account is designated as the default file system, just like in HDFS. The storage account must be located in the same data center as the HDInsight compute resources. Currently, you can only provision HDInsight clusters in the following data centers:
+When you provision an HDInsight cluster, you specify an Azure Storage account. A specific Blob storage container from that account is designated as the default file system, just like in HDFS. The HDInsight cluster is by default provisioned in the same data center as the storage account you specify.
 
-- Southeast Asia
-- North Europe
-- West Europe
-- East US
-- West US
+In addition to this storage account, you can add additional storage accounts when you custom-configure an HDInsight cluster. This additional storage account can either be from the same Azure subscription or different Azure subscriptions. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. 
 
-In addition to this storage account, you can add additional storage accounts from either the same Azure subscription or different Azure subscriptions. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. 
-
-To simply this tutorial, only the default blob container and the default storage account are used, and all of the files are stored in the default file system container, located at */tutorials/getstarted/*. In practice, the data files are usually stored in a designated storage account.
+To simplify this tutorial, only the default blob container and the default storage account are used. In practice, the data files are usually stored in a designated storage account.
 
 **To create an Azure Storage account**
 
@@ -66,44 +66,31 @@ To simply this tutorial, only the default blob container and the default storage
 
 	![HDI.StorageAccount.QuickCreate][image-hdi-storageaccount-quickcreate]
 
-3. Enter **URL**, **LOCATION** and **REPLICATION**, and then click **CREATE STORAGE ACCOUNT**. Affinity groups are not supported. You will see the new storage account in the storage list. 
+3. Enter **URL**, **LOCATION** and **REPLICATION**, and then click **CREATE STORAGE ACCOUNT**. Affinity groups are not supported. You will see the new storage account in the storage list.
+
+	>[WA.COM NOTE]  The quick-create option to provision an HDInsight cluster, like the one we use in this tutorial, does not ask for a location while provisioning the cluster. Instead, it by default co-locates the cluster in the same data center as the storage account. So, make sure you create your storage account in the locations supported for the cluster, which are:  **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, **West US**, **North Central US**, **South Central US**.
+
 4. Wait until the **STATUS** of the new storage account is changed to **Online**.
-5. Click the new storage account from the list to select it.
-6. Click **MANAGE ACCESS KEYS** from the bottom of the page.
-7. Make a note of the **STORAGE ACCOUNT NAME** and the **PRIMARY ACCESS KEY** (or the **SECONDARY ACCESS KEY**.  Either of the keys works).  You will need them later in the tutorial.
+5. Select the new storage account from the list and click **MANAGE ACCESS KEYS** from the bottom of the page.
+7. Make a note of the **STORAGE ACCOUNT NAME** and the **PRIMARY ACCESS KEY** (or the **SECONDARY ACCESS KEY**. Either of the keys work).  You will need them later in the tutorial.
 
 
 For more information, see
 [How to Create a Storage Account][azure-create-storageaccount] and [Use Azure Blob Storage with HDInsight][hdinsight-storage].
+	
+##<a name="provision"></a>Provision an HDInsight cluster
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+In this section you provision a HDInsight cluster version 3.1, which is based on Hadoop version 2.4. If you want to provision an HDInsight cluster with Hadoop version 2.2, click on the specific version tab at the beginning of this article. You can also create Hadoop clusters for other versions using HDInsight PowerShell cmdlets or by using the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) page. 
 
 **To provision an HDInsight cluster** 
 
 1. Sign in to the [Azure Management Portal][azure-management-portal]. 
 
-2. Click **HDInsight** on the left to list the status of the clusters in your account. In the following screenshot, there is no existing HDInsight cluster.
+2. Click **HDInsight** on the left to list the status of the clusters in your account. In the following screenshot, there are no existing HDInsight clusters.
 
 	![HDI.ClusterStatus][image-hdi-clusterstatus]
 
-3. Click **NEW** on the lower left side, click **Data Services**, click **HDInsight**, and then click **Quick Create**.
+3. Click **NEW** on the lower left side, click **Data Services**, click **HDInsight**, and then click **Hadoop**.
 
 	![HDI.QuickCreateCluster][image-hdi-quickcreatecluster]
 
@@ -112,59 +99,44 @@ For more information, see
 	<table border="1">
 	<tr><th>Name</th><th>Value</th></tr>
 	<tr><td>Cluster Name</td><td>Name of the cluster</td></tr>
-	<tr><td>Cluster Size</td><td>Number of data nodes you want to deploy. The default value is 4. But 8, 16 and 32 data node clusters are also available on the dropdown menu. Any number of data nodes may be specified when using the <strong>Custom Create</strong> option. Pricing details on the billing rates for various cluster sizes are available. Click the <strong>?</strong> symbol just above the dropdown box and follow the link on the pop up.</td></tr>
-	<tr><td>Password</td><td>The password for the account <i>admin</i>. The cluster user name is specified to be "admin" by default when using the Quick Create option. Please note, this is NOT the Windows Administrator account for the VM. The account name can be changed by using the <strong>Custom Create</strong> wizard. The password field must be at least 10 characters and must contain an uppercase letter, a lowercase letter, a number, and a special character.</td></tr>
+	<tr><td>Cluster Size</td><td>Number of data nodes you want to deploy. The default value is 4. But the option to use 1 or 2 data nodes is also available from the drop-down. Any number of data nodes may be specified when using the <strong>Custom Create</strong> option. Pricing details on the billing rates for various cluster sizes are available. Click the <strong>?</strong> symbol just above the dropdown box and follow the link on the pop up.</td></tr>
+	<tr><td>Password</td><td>The password for the <i>admin</i> account. The cluster user name "admin" is specified when you are not using the Custom Create option. Note that this is NOT the Windows Administrator account for the VMs on which the clusters are provisioned. The account name can be changed by using the <strong>Custom Create</strong> wizard.</td></tr>
 	<tr><td>Storage Account</td><td>Select the storage account you created from the dropdown box. <br/>
 
 	Once a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
-	The HDInsight cluster location will be the same as the storage account.
+	The HDInsight cluster is co-located in the same datacenter as the storage account.
 	</td></tr>
 	</table>
 
 	Keep a copy of the cluster name.  You will need it later in the tutorial.
 
-	>[WACOM.NOTE] The quick create method creates a HDInsight version 2.1 cluster. To create version 1.6 or 3.0 clusters, use the custom create method from the management portal, or use Azure PowerShell.
+	
+5. Click **Create HDInsight Cluster**. When the provisioning completes, the  status column shows **Running**.
 
-5. Click **Create HDInsight Cluster** on the lower right. When the provision process completes, the  status column will show **Running**.
-
-For information on using the **CUSTOM CREATE** option, see [Provision HDInsight Clusters][hdinsight-provision].
-
+	>[WACOM.NOTE] The procedure above creates cluster with HDInsight cluster version 3.1. To create other cluster versions, use the custom create method from the management portal, or use Azure PowerShell. For information on what's different between each cluster version, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions] For information on using the **CUSTOM CREATE** option, see [Provision HDInsight clusters using custom options][hdinsight-provision].
 
 
+##<a name="sample"></a>Run a Hive job
 
+Now that you have an HDInsight cluster provisioned, the next step is to run a Hive job to query a sample Hive table, *hivesampletable*, which comes with HDInsight clusters. The table contains data on mobile device manufacturer, platforms, and models. We query this table to retrieve data for mobile devices by a specific manufacturer.
 
-
-
-
-
-
-
-
-
-##<a name="sample"></a>Run an Hive job
-
-Now you have an HDInsight cluster provisioned. The next step is to run an Hive job to query a sample Hive table that comes with HDInsight clusters.  The table name is *hivesampletable*.
-
-**To open cluster dashboard**
+**To run a Hive job from cluster dashboard**
 
 1. Sign in to the [Azure Management Portal][azure-management-portal]. 
-2. Click **HDINSIGHT** from the left pane. You shall see a list of clusters created including the one you just created in the last section.
-3. Click the cluster name where you want to run the Hive job.
-4. Click **MANAGE CLUSTER** from the bottom of the page to open cluster dashboard. It opens a Web page on a different browser tab.   
-5. Enter the Hadoop User account username and password.  The default username is **admin**, the password is what you entered during the provision process.  The dashboard looks like :
+2. Click **HDINSIGHT** from the left pane. You shall see a list of clusters created, including the one you just created in the last section.
+3. Click the cluster name where you want to run the Hive job and then click **MANAGE CLUSTER** from the bottom of the page. 
+4. It opens a Web page on a different browser tab. Enter the Hadoop user account and password.  The default user name is **admin**; the password is what you entered while provisioning the cluster.  The dashboard looks like :
 
 	![hdi.dashboard][img-hdi-dashboard]
 
-	There are several tabs on the top.  The default tab is *Hive Editor*, other tabs include Jobs and Files.  Using the dashboard, you can submit Hive queryes, check Hadoop job logs, and browse WASB files. 
+	There are several tabs on the top.  The default tab is **Hive Editor**, while the other tabs are **Job History** and **File Browser**.  Using the dashboard, you can submit Hive queries, check Hadoop job logs, and browse WASB files.
 
-> [wacom.note] Notice is the URL is *&lt;ClusterName&gt;.azurehdinsight.net*. Instead of opening the dashboard from the Management portal, you can also open the dashboard from a Web browser using the URL.
+	> [WACOM.NOTE] Note that the URL of the Web page is *&lt;ClusterName&gt;.azurehdinsight.net*. So, instead of opening the dashboard from the Management portal, you can also open the dashboard from a Web browser using the URL.
 
-**To run an Hive query**
+6. On the **Hive Editor** tab, for **Query Name**, enter **HTC20**.  The query name is the job title.
 
-1. From HDInsight cluster dashboard, click **Hive Editor** from the top.
-2. In **Query Name**, enter **HTC20**.  The query name is job title.
-3. In the query pane, enter the following query: 
+7. In the query pane, enter the following query: 
 
 		SELECT * FROM hivesampletable
 			WHERE devicemake LIKE "HTC%"
@@ -173,33 +145,40 @@ Now you have an HDInsight cluster provisioned. The next step is to run an Hive j
 	![hdi.dashboard.query.select][img-hdi-dashboard-query-select]
 
 4. Click **Submit**. It takes a few moments to get the results back. The screen refreshes every 30 seconds. You can also click **Refresh** to refresh the screen.
- 
-	Once completed, the screen looks like:
+
+    Once completed, the screen looks like:
 
 	![hdi.dashboard.query.select.result][img-hdi-dashboard-query-select-result]
 
-	Make a note of **Job Start Time (UTC)**. You will need it later.
+5. Click the query name on the screen to see the output. Make a note of **Job Start Time (UTC)**. You will need it later. 
 
-	Scroll down a little more, you will see **Job Log**. Job Output is stdout, Job Log is stderr.
+    ![hdi.dashboard.query.select.result.output][img-hdi-dashboard-query-select-result-output]
 
-5. If you want to reopen the log file again in the future, you can click **Jobs** from the top of the screen, and then click the job title (query name). For example **HTC20** in this case.
+    The page also shows the **Job Output** and the **Job Log**. You also have the option to download the output file (\_stdout) and the log file \(_stderr).
 
-**To browse the output file**
 
-1. From the cluster dashboard, click **Files** from the top.
-2. Click **Templeton-Job-Status**.
-3. Click the GUID number which has the last Modified time a little after the Job Start Time you wrote down earlier. Make a note of this GUID.  You will need it in the next section.
-4. The **stdout** file has the data you need in the next section. You can click **stdout** to download a copy of the data file if you want.
-	
+	> [WA.COM NOTE] The **Job Session** table on the **Hive Editor** tab lists completed or running jobs as long as you stay on that tab. The table does not list any jobs if you navigate away from the page. The **Job History** tab maintains a list of all jobs, completed or running.
+ 
+
+**To browse to the output file**
+
+1. From the cluster dashboard, click **File Browser** at the top. 
+2. Click your storage account name, click your container name (which is the same as your cluster name), and then click **user**.
+3. Click admin and then click the GUID number which has the last modified time a little after the job start time you noted earlier. Make a note of this GUID. You will need it in the next section.
+
+
+     ![hdi.dashboard.query.browse.output][img-hdi-dashboard-query-browse-output]
+
+
 ##<a name="powerquery"></a>Connect to Microsoft business intelligence tools 
 
-The Power Query add-in for Excel can be used to export output from HDInsight into Excel where Microsoft Business Intelligence (BI) tools can be used to further process or display the results. 
+You can use the Power Query add-in for Microsoft Excel to import the job output from HDInsight into Excel, where Microsoft Business Intelligence (BI) tools can be used to further analysis of results. 
 
 You must have Excel 2010 or 2013 installed to complete this part of the tutorial. 
 
 **To download Microsoft Power Query for Excel**
 
-- Download Microsoft Power Query for Excel from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=39379) and install it.
+- Download Microsoft Power Query for Microsoft Excel from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=39379) and install it.
 
 **To import HDInsight data**
 
@@ -212,11 +191,11 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 4. Enter the **Account Key** for the Azure Blob Storage Account, and then click **Save**. 
 5. In the Navigator pane on the right, double-click the Blob storage container name. By default the container name is the same name as the cluster name. 
 
-6. Locate **stdout** in the **Name** column (the path is *.../Templeton-Job-Status/<GUID>*), and then click **Binary** on the left of **stdout**.  The <GUID> must match the one you wrote down in the last section.
+6. Locate **stdout** in the **Name** column. Verify the GUID in the corresponding Folder Path column matches the GUID you noted down earlier. Click **Binary** on the left of **stdout**.
 
 	![HDI.GettingStarted.PowerQuery.ImportData2][image-hdi-gettingstarted-powerquery-importdata2]
 
-9. Click **Apply & Close** in the upper left corner. The query then imports the Hive job output into Excel.
+9. Click **Close & Load** in the upper left corner to import the Hive job output into Excel.
 
 
 ##<a name="nextsteps"></a>Next steps
@@ -254,7 +233,10 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 
-[apache-hadoop]: http://hadoop.apache.org/
+[apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
+[apache-hive]: http://go.microsoft.com/fwlink/?LinkId=510085
+[apache-mapreduce]: http://go.microsoft.com/fwlink/?LinkId=510086
+[apache-hdfs]: http://go.microsoft.com/fwlink/?LinkId=510087
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [powershell-install-configure]: ../install-configure-powershell/
@@ -264,6 +246,8 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [img-hdi-dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
 [img-hdi-dashboard-query-select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
 [img-hdi-dashboard-query-select-result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png
+[img-hdi-dashboard-query-select-result-output]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.output.png
+[img-hdi-dashboard-query-browse-output]: ./media/hdinsight-get-started/HDI.dashboard.query.browse.output.png
 
 [img-hdi-getstarted-video]: ./media/hdinsight-get-started/HDI.GetStarted.Video.png
 
@@ -271,6 +255,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [image-hdi-storageaccount-quickcreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
 [image-hdi-clusterstatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
 [image-hdi-quickcreatecluster]: ./media/hdinsight-get-started/HDI.QuickCreateCluster.png
+[image-hdi-getstarted-flow]: ./media/hdinsight-get-started/HDI.GetStartedFlow.png
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png

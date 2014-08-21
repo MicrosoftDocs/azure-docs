@@ -122,7 +122,7 @@ Mobile Services provides access to the full set of core Node.js modules, which y
 
 Next, you will add the [node-uuid] Node.js module to your mobile service by using source control and the Node.js package manager (NPM). This module is then used to generate a new GUID value for the **uuid** property on inserted items. 
 
-1. If you haven't already done so, install Node.js on your local computer by following the steps at the <a href="http://nodejs.org/" target="_blank">Node.js web site</a>. 
+1. If you haven't already done so, install Node.js on your local computer by following the steps at the <a href="http://nodejs.org/" target="_blank">Node.js website</a>. 
 
 2. Navigate to the `.\service` folder of your local Git repository, then from the command prompt run the following command:
 

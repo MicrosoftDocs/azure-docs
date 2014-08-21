@@ -7,7 +7,7 @@
 
 
 
-# Enabling Diagnostics in Azure
+# Enabling Diagnostics in Azure Cloud Services
 
 Azure Diagnostics enables you to collect diagnostic data from a worker role or web role running in Azure. You can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.
 

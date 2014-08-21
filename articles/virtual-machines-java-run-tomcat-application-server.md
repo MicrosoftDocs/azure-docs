@@ -113,7 +113,7 @@ To see Tomcat running from external machines, you'll need to create an endpoint 
 
  ![New inbound rule name][NewRuleName]
 
-At this point, your Tomcat web site should now be viewable from an external browser, using a URL of the form **http://*your\_DNS\_name*.cloudapp.net**, where ***your\_DNS\_name*** is the DNS name you specified when you created the virtual machine.
+At this point, your Tomcat website should now be viewable from an external browser, using a URL of the form **http://*your\_DNS\_name*.cloudapp.net**, where ***your\_DNS\_name*** is the DNS name you specified when you created the virtual machine.
 
 ## Application lifecycle considerations
 * You could create your own application web archive (WAR) and add it to the **webapps** folder. For example, create a basic Java Service Page (JSP) dynamic web project and export it as a WAR file, copy the WAR to the Apache Tomcat **webapps** folder on the virtual machine, then run it in a browser.

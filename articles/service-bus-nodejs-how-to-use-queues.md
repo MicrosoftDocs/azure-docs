@@ -79,7 +79,7 @@ The azure module will read the environment variables AZURE\_SERVICEBUS\_NAMESPAC
 
 For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage].
 
-For an example of setting the environment variables in the management portal for an Azure Web Site, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]
 
 ## <a name="create-queue"> </a>How to Create a Queue
 

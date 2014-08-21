@@ -1,4 +1,4 @@
-<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="larryf" solutions="" manager="" editor="" />
+<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on MongoLab - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="larryf" solutions="" manager="" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryf" />
 
@@ -144,7 +144,7 @@ In this section you will set up your development environment and lay the code fo
 		├── transformers@2.0.1 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
 		└── monocle@0.1.48 (readdirp@0.2.5)
 
-	The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to an Azure Web Site, this file will be used to determine which modules need to be installed on Azure to support your application.
+	The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to an Azure Website, this file will be used to determine which modules need to be installed on Azure to support your application.
 
 5. Next, enter the following command to install the Mongoose module locally as well as to save an entry for it to the **package.json** file:
 
@@ -307,9 +307,9 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 
 <h2><a name="deploy"></a>Deploy the app</h2>
 
-Now that the application has been developed, it's time to create an Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web site with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
+Now that the application has been developed, it's time to create an Azure Website to host it, configure that website, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your website with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
 
-The steps in this section use the Azure command-line tools to create a new Azure Web Site, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
+The steps in this section use the Azure command-line tools to create a new Azure Website, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
 ### Install the Azure command-line tool for Mac and Linux
 
@@ -350,23 +350,23 @@ Before using the command-line tools with Azure, you must first download a file c
 
 4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Azure subscription.
 
-### Create a new web site and push your code
+### Create a new website and push your code
 
-Creating a web site in Azure is very easy. If this is your first Azure web site, you must use the portal. If you already have at least one, then skip to step 7.
+Creating a website in Azure is very easy. If this is your first Azure website, you must use the portal. If you already have at least one, then skip to step 7.
 
 1. In the Azure portal, click **New**.    
 ![New][button-new]
-1. Select **Compute > Web Site > Quick Create**. 
+1. Select **Compute > Website > Quick Create**. 
 ![CreateSite][screen-mongolab-newwebsite]
 1. Enter a URL prefix. Choose a name you prefer, but keep in mind this must be unique ('mymongoapp' will likely not be available).
-1. Click **Create Web Site**.
-1. When the web site creation completes, click the web site name in the web site list. The web site dashboard displays.  
+1. Click **Create Website**.
+1. When the website creation completes, click the website name in the website list. The website dashboard displays.  
 ![WebSiteDashboard][screen-mongolab-websitedashboard]
-1. Click **Set up Git publishing** under **quick glance**, and enter your desired git user name and password. You will use this password when pushing to your web site (in step 9).  
-1. If you created your web site using the steps above, the following command will complete the process. However, if you already have more than one Azure web site, you can skip the above steps and create a new web site using this same command. From your **tasklist** project directory: 
+1. Click **Set up Git publishing** under **quick glance**, and enter your desired git user name and password. You will use this password when pushing to your website (in step 9).  
+1. If you created your website using the steps above, the following command will complete the process. However, if you already have more than one Azure website, you can skip the above steps and create a new website using this same command. From your **tasklist** project directory: 
 
 		azure site create myuniquesitename --git  
-	Replace 'myuniquesitename' with the unique site name for your web site. If the web site is created as part of this command, you will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your MongoLab database.
+	Replace 'myuniquesitename' with the unique site name for your website. If the website is created as part of this command, you will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your MongoLab database.
 	
 	The `--git` parameter will create:
 	A. a local git repository in the **tasklist** folder, if none exists.
@@ -374,7 +374,7 @@ Creating a web site in Azure is very easy. If this is your first Azure web site,
 	A. an [iisnode.yml] file, which contains settings used by Azure to host node applications.
 	A. a .gitignore file to prevent the node-modules folder from being published to .git.  
 	  
-	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created web site at** contains the URL for the web site.
+	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the website.
 
 		info:   Executing command site create
 		info:   Using location southcentraluswebspace
@@ -395,7 +395,7 @@ Creating a web site in Azure is very easy. If this is your first Azure web site,
 1. Push your code:
 
 		git push azure master  
-	When pushing the latest Git repository changes to the Azure Web Site, you must specify that the target branch is **master** as this is used for the web site content. If prompted for a password, enter the password you created when you set up git publishing for your webs site above.
+	When pushing the latest Git repository changes to the Azure Website, you must specify that the target branch is **master** as this is used for the website content. If prompted for a password, enter the password you created when you set up git publishing for your webs site above.
 	
 	You will see output similar to the following. As the deployment takes place Azure will download all npm modules. 
 
@@ -424,13 +424,13 @@ Remember process.env.CUSTOMCONNSTR\_MONGOLAB\_URI in the code? We want to popula
 
 [WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
 
-#### Add the connection string to the web site's environment variables
+#### Add the connection string to the website's environment variables
 
 [WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
 ## Success!
 
-Run `azure site browse` from your project directory to automatically open a browser, or open a browser and manually navigate to your web site URL (myuniquesite.azurewebsites.net):
+Run `azure site browse` from your project directory to automatically open a browser, or open a browser and manually navigate to your website URL (myuniquesite.azurewebsites.net):
 
 ![A webpage displaying an empty tasklist][node-mongo-finished]
 

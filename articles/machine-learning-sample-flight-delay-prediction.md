@@ -4,6 +4,10 @@
 
 #Azure Machine Learning sample: Flight delay prediction
 
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Sample Experiment - Flight Delay Prediction - Development
+
 ## Problem Description  ##
 
 Predict whether scheduled passenger flight is delayed by more than 15 minutes on arrival using historical on-time performance and weather data. 

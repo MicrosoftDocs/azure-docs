@@ -1,3 +1,3 @@
-Setting a custom domain name on a web site is only available for the Shared, Basic and Standard modes for Azure Web Sites. Before switching a web site from the Free web site mode to the Shared, Basic or Standard mode, you must first remove spending caps in place for your Web Site subscription. 
+Setting a custom domain name on a website is only available for the Shared, Basic and Standard modes for Azure Websites. Before switching a website from the Free website mode to the Shared, Basic or Standard mode, you must first remove spending caps in place for your Website subscription. 
 
-For more information on the Web Site modes modes, including how to change the mode of your site, see [How to scale web sites](/en-us/documentation/articles/web-sites-scale/).
+For more information on the Website modes modes, including how to change the mode of your site, see [How to scale web sites](/en-us/documentation/articles/web-sites-scale/).
