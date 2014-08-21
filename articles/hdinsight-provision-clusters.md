@@ -164,7 +164,7 @@ HDInsight uses an Azure Blob Storage container as the default file system. An Az
 		# List the keys for a storage account
 		Get-AzureStorageKey "<StorageAccountName>"
 	
-**To create Azure storage container**
+**To create Azure Blob storage container**
 
 - Run the following commands from an Azure PowerShell console window:
 
@@ -296,13 +296,12 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 1.	Browse to **http://azure.microsoft.com/en-us/downloads/**.
 2.	Scroll down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
 
-Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publish settings once.
+**To download and import publish settings**
 
+Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publish settings once.
 
 > [WACOM.NOTE] The publish settings file contains sensitive information. Microsoft recommends that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.
 
-
-**To download and import publish settings**
 
 1.	Open a **Command Prompt**.
 2.	Run the following command to download the publish settings file.
