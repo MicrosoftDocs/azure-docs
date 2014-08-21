@@ -14,7 +14,7 @@
 </div>
 
 
-Like the other identity providers offered with Mobile Services, the Azure Active Directory (AAD) provider also supports a rich [Graph API] which can be used for programmatic access to the directory. In this tutorial you update the ToDoList app to personalize the authenticated user’s app experience based on additional user information you retrieve from the directory using the [Graph API].
+Like the other identity providers offered with Mobile Services, the Azure Active Directory (AAD) provider also supports a rich [Graph Client Library] which can be used for programmatic access to the directory. In this tutorial you update the ToDoList app to personalize the authenticated user’s app experience based on additional user information you retrieve from the directory using the [Graph Client Library].
 
 >[WACOM.NOTE] The intent of this tutorial is to extend your knowledge of authentication with the Azure Active Directory. It is expected that you have completed the [Get Started with Authentication] tutorial using the Azure Active Directory authentication provider. This tutorial continues to update the TodoItem application used in the [Get Started with Authentication] tutorial. 
 
@@ -48,12 +48,12 @@ During the [Get Started with Authentication] tutorial, you created a registratio
 
 ## <a name="create-api"></a>Create a GetUserInfo custom API
 
-In this section, you will create the GetUserInfo custom API that will use the [Graph REST API] to retrieve additional information about the user from the AAD.
+In this section, you will create the GetUserInfo custom API that will use the [Graph Client Library] to retrieve additional information about the user from the AAD.
 
 If you've never used custom APIs with Mobile Services, refer to the [Custom API Tutorial] before completing this section.
 
 1. In Visual Studio, right click mobile service .NET backend project and click **Manage NuGet Packages**.
-2. In the NuGet Package Manager dialog enter **ADAL** in the search criteria to find and install the **Active Directory Authentication Library** for your mobile service.
+2. In the NuGet Package Manager dialog, enter **ADAL** in the search criteria to find and install the **Active Directory Authentication Library** for your mobile service.
 3. In the NuGet Package Manager, also install the **Microsoft Azure Active Directory Graph Client Library** for your mobile service.
 
 4. In Visual Studio, right click the **Controllers** folder for the mobile service project and click **Add** to add a new **Microsoft Azure Mobile Services Custom Controller** named `GetUserInfoController`. The client will call this API to get user information from the Active Directory.
@@ -148,68 +148,20 @@ If you've never used custom APIs with Mobile Services, refer to the [Custom API 
         }
 
 9. Save your changes and build the the service to verify no syntax errors.
-10. Publish the mobile service project to your Windows Azure account. 
+10. Publish the mobile service project to your Azure account. 
 
 
 ## <a name="update-app"></a>Update the app to use GetUserInfo
 
-1. In Visual Studio, open MainPage.xaml.cs and add the following `using` statement to the top of the file.
- 
-        using System.Net.Http;
+In this section you will update the `AuthenticateAsync` method you implemented in the [Get Started with Authentication] tutorial to call the custom API and return additional information about the user from the AAD. 
 
-2. In MainPage.xaml.cs, add the following class definition to the namespace to help serialize the user information.
-
-        public class UserDetails
-        {
-            public String displayName { get; set; }
-            public String streetAddress { get; set; }
-            public String city { get; set; }
-            public String state { get; set; }
-            public String postalCode { get; set; }
-        }
-
-
-3. In MainPage.xaml.cs, update the `AuthenticateAsync` method you implemented in the [Get Started with Authentication] tutorial to call the custom API to return additional information about the user from the AAD. 
-
-        private async System.Threading.Tasks.Task AuthenticateAsync()
-        {
-            while (user == null)
-            {
-                string message;
-                try
-                {
-                    user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory);
-                    UserDetails userDetails = await App.MobileService.InvokeApiAsync<UserDetails>("getuserinfo", 
-                        HttpMethod.Get, null);
-                    message = string.Format("{0}, you are now logged in.\n\nYour address is...\n\n{1}\n{2}, {3} {4}", 
-                        userDetails.displayName, userDetails.streetAddress, userDetails.city, userDetails.state, 
-                        userDetails.postalCode);
-                }
-                catch (InvalidOperationException)
-                {
-                    message = "You must log in. Login Required";
-                }
-                
-                var dialog = new MessageDialog(message);
-                dialog.Commands.Add(new UICommand("OK"));
-                await dialog.ShowAsync();
-            }
-        }
-
-
-4. Save your changes and build the the service to verify no syntax errors.  
+[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
+  
 
 
 ## <a name="test-app"></a>Test the app
 
-1. Launch the app and authenticate with a user account that has the detailed information in the directory. 
-
-    ![][2]
-
-2. The custom API executes returning the user's directory information in a custom greeting. In this example the user needs to have, *streetAddress*, *city*, *state* and *postalCode* to display the user's address.
-
-    ![][3]
+[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
 
 
@@ -229,8 +181,6 @@ In the next tutorial, [Role based access control with the AAD in Mobile Services
 [Next Steps]:#next-steps
 
 <!-- Images -->
-[2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/bob-login.png
-[3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/custom-greeting.png
 
 
 <!-- URLs. -->
@@ -240,7 +190,6 @@ In the next tutorial, [Role based access control with the AAD in Mobile Services
 [Custom API Tutorial]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
 [Store Server Scripts]: /en-us/documentation/articles/mobile-services-store-scripts-source-control/
 [Register to use an Azure Active Directory Login]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[Graph REST API]: http://msdn.microsoft.com/en-us/library/azure/hh974478.aspx
+[Graph Client Library]: http://go.microsoft.com/fwlink/?LinkId=510536
 [Get User]: http://msdn.microsoft.com/en-us/library/azure/dn151678.aspx
 [Role based access control with the AAD in Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/

@@ -139,66 +139,19 @@ If you've never used custom APIs with Mobile Services, you should consider revie
 
 ## <a name="update-app"></a>Update the app to use GetUserInfo
 
-1. In Visual Studio, open MainPage.xaml.cs and add the following `using` statement to the top of the file.
+
+In this section you will update the `AuthenticateAsync` method you implemented in the [Get Started with Authentication] tutorial to call the custom API and return additional information about the user from the AAD. 
+
+[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
+
+
  
-        using System.Net.Http;
-
-2. In MainPage.xaml.cs, add the following class definition to the namespace to help serialize the user information.
-
-        public class UserDetails
-        {
-            public String displayName { get; set; }
-            public String streetAddress { get; set; }
-            public String city { get; set; }
-            public String state { get; set; }
-            public String postalCode { get; set; }
-        }
-
-
-3. In MainPage.xaml.cs, update the `AuthenticateAsync` method you implemented in the [Get Started with Authentication] tutorial to call the custom API to return additional information about the user from the AAD. 
-
-        private async System.Threading.Tasks.Task AuthenticateAsync()
-        {
-            while (user == null)
-            {
-                string message;
-                try
-                {
-                    user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory);
-                    
-                    UserDetails userDetails = await App.MobileService
-                        .InvokeApiAsync<UserDetails>("getuserinfo",HttpMethod.Get, null);
-                    
-                    message = string.Format("{0}, you are now logged in.\n\n" +
-                        "Your address is...\n\n{1}\n{2}, {3} {4}", 
-                        userDetails.displayName, userDetails.streetAddress, userDetails.city, 
-                        userDetails.state, userDetails.postalCode);
-                }
-                catch (InvalidOperationException)
-                {
-                    message = "You must log in. Login Required";
-                }
-                
-                var dialog = new MessageDialog(message);
-                dialog.Commands.Add(new UICommand("OK"));
-                await dialog.ShowAsync();
-            }
-        }
-
-
-4. Save your changes and build the app to verify the changes.  
 
 
 ## <a name="test-app"></a>Test the app
 
-1. Launch the app and authenticate with a user account that has the detailed information in the directory. 
+[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
-    ![][2]
-
-2. The custom API executes returning the user's directory information in a custom greeting. In this example the user needs to have, *streetAddress*, *city*, *state* and *postalCode* to display the user's address.
-
-    ![][3]
 
 
 
@@ -216,9 +169,6 @@ In the next tutorial, [Role based access control with the AAD in Mobile Services
 
 <!-- Images -->
 [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
-[1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/client-id-and-key.png
-[2]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/bob-login.png
-[3]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/custom-greeting.png
 
 
 <!-- URLs. -->
