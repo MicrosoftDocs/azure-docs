@@ -375,7 +375,7 @@ below to your repository class;
         {
             get
             {
-                if (string.IsNullOrEmpty(databaseName))
+                if (string.IsNullOrEmpty(databaseId))
                 {
                     databaseId = ConfigurationManager.GetSetting("database");
                 }
@@ -441,7 +441,7 @@ below to your repository class;
             }
             else
             {
-		Database database = new Database { Id = DatabaseName };	
+		Database database = new Database { Id = DatabaseId };	
                 database = await Client.CreateDatabaseAsync(database);
             }
         }
