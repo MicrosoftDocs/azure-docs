@@ -54,7 +54,7 @@ Using the .NET SDK, a DocumentDB database can be created via the CreateDatabaseA
 	 Database database = await client.CreateDatabaseAsync(
  		new Database
  		{
- 		Id = "<database name>"
+ 		Id = "FamilyRegistry"
  		});
 
 
@@ -69,9 +69,7 @@ Using the .NET SDK, a DocumentDB collection can be created via the CreateDocumen
 		Id = "FamilyCollection"
 		};
 
-		documentCollection = await client.CreateDocumentCollectionAsync(
-database.SelfLink,
-documentCollection); 
+		documentCollection = await client.CreateDocumentCollectionAsync(database.SelfLink,documentCollection); 
 
     
 ##<a id="CreateDoc"></a>Create documents	
@@ -136,7 +134,7 @@ Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentA
         };
 
         await client.CreateDocumentAsync(colSelfLink, WakefieldFamily);
-}   
+	}   
  
 
 ##<a id="Query"></a>Query DocumentDB Resources
