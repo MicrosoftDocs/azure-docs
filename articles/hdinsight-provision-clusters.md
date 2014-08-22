@@ -22,7 +22,7 @@ Before you begin this article, you must have the following:
 
 ##In this article
 
-* [HDInsight configuration options](#configuration)
+* [Configuration options](#configuration)
 * [Using Azure Management Portal](#portal)
 * [Using Azure PowerShell](#powershell)
 * [Using Cross-platform Command Line](#cli)
@@ -55,6 +55,12 @@ When provisioning an HDInsight cluster, you can specify a SQL Database that will
 
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
+> [WACOM.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](http://msdn.microsoft.com/en-us/library/azure/jj156206.aspx).
+
+When using Azure Virtual Network, you should consider locating other resources used by the cluster, such as Azure Blob Storage or SQL Database, on the same network.
+
+[WACOM.NOTE] It is highly recommended to designate a single subnet for one cluster. 
+
 ##<a id="portal"></a> Using Azure Management Portal
 
 HDInsight clusters use an Azure Blob Storage container as the default file system. An Azure storage account located on the same data center is required before you can create a HDInsight cluster. For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating an Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
@@ -69,7 +75,6 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 3. On the **Cluster Details** page, type or choose the following values:
 
 	![HDI.CustomCreateCluster][image-hdi-customcreatecluster]
-
 
     <table border='1'>
 		<tr><th>Property</th><th>Value</th></tr>
@@ -92,7 +97,7 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 	<table border="1">
 	<tr><th>Name</th><th>Value</th></tr>
 	<tr><td>Data nodes</td><td>Number of data nodes you want to deploy. For testing purposes, create a single node cluster. <br />The cluster size limit varies for Azure subscriptions. Contact Azure billing support to increase the limit.</td></tr>
-	<tr><td>Region/Virtual network</td><td>Choose the same region as the storage account you created in the last procedure. HDInsight requires the storage account located in the same region. Later in the configuration, you can only choose a storage account that is in the same region as you specified here. The available regions are: <strong>East Asia</strong>, <strong>Southeast Asia</strong>, <strong>North Europe</strong>, <strong>West Europe</strong>, <strong>East US</strong>, <strong>West US</strong>, <strong>North Central US</strong>, <strong>South Central US</strong></td></tr>
+	<tr><td>Region/Virtual network</td><td>Choose the same region as the storage account you created in the last procedure. HDInsight requires the storage account located in the same region. Later in the configuration, you can only choose a storage account that is in the same region as you specified here.<br/>The available regions are: <strong>East Asia</strong>, <strong>Southeast Asia</strong>, <strong>North Europe</strong>, <strong>West Europe</strong>, <strong>East US</strong>, <strong>West US</strong>, <strong>North Central US</strong>, <strong>South Central US</strong><br/>If you have created an Azure Virtual Network, you can select the network that the HDInsight cluster will be configured to use.</td></tr>
 	</table>
 
 5. On the **Configure Cluster User** page, provide the following values:
@@ -115,9 +120,7 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 			<td>Specify the SQL database user password.</td></tr>
 	</table>
 
-
 	>[WACOM.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.   
-
 
     Click the right arrow.
 
@@ -173,6 +176,7 @@ The following procedures are needed to provision an HDInsight cluster using Powe
 - Create a HDInsight cluster
 
 HDInsight uses an Azure Blob Storage container as the default file system. An Azure storage account and storage container are required before you can create an HDInsight cluster. The storage account must be located in the same data center as the HDInsight Cluster.
+
 
 
 **To create an Azure storage account**
@@ -237,7 +241,7 @@ Once you have the storage account and the blob container prepared, you are ready
 
 **To provision an HDInsight cluster using custom configuration options**
 
-While provisioning a cluster, you can use the other configuration options such as connecting to more than one Azure Blob storage or using an Azure SQL database for Hive and Oozie metastores. This allows you to separate lifetime of your data and metadata from the lifetime of the cluster.
+While provisioning a cluster, you can use the other configuration options such as connecting to more than one Azure Blob storage, using a Virtual Network, or using an Azure SQL database for Hive and Oozie metastores. This allows you to separate lifetime of your data and metadata from the lifetime of the cluster.
 
 - Run the following commands from a Windows PowerShell window:
 
@@ -256,6 +260,10 @@ While provisioning a cluster, you can use the other configuration options such a
 		$oozieSQLDatabaseServerName = "<SQLDatabaseServerNameForOozieMetastore>"
 		$oozieSQLDatabaseName = "<SQLDatabaseDatabaseNameForOozieMetastore>"
 		
+		# Get the virtual network ID and subnet name
+		$vnetID = "<AzureVirtualNetworkID>"
+		$subNetName = "<AzureVirtualNetworkSubNetName>" 
+
 		# Get the storage account keys
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
@@ -267,16 +275,16 @@ While provisioning a cluster, you can use the other configuration options such a
 		# Create a Blob storage container
 		$dest1Context = New-AzureStorageContext -StorageAccountName $storageAccountName_Default -StorageAccountKey $storageAccountKey_Default  
 		New-AzureStorageContainer -Name $containerName_Default -Context $dest1Context
-		
+
 		# Create a new HDInsight cluster
 		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes |
 		    Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default |
 		    Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Add1.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Add1 |
 		    Add-AzureHDInsightMetastore -SqlAzureServerName "$hiveSQLDatabaseServerName.database.windows.net" -DatabaseName $hiveSQLDatabaseName -Credential $hiveCreds -MetastoreType HiveMetastore |
 		    Add-AzureHDInsightMetastore -SqlAzureServerName "$oozieSQLDatabaseServerName.database.windows.net" -DatabaseName $oozieSQLDatabaseName -Credential $oozieCreds -MetastoreType OozieMetastore |
-		        New-AzureHDInsightCluster -Name $clusterName -Location $location
+		        New-AzureHDInsightCluster -Name $clusterName -Location $location -VirtualNetworkId $vnetID -SubnetName $subNetName
 
-	>[WACOM.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.
+	>[WACOM.NOTE] The Azure SQL Database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.
 
 **To list HDInsight clusters**
 
@@ -286,6 +294,8 @@ While provisioning a cluster, you can use the other configuration options such a
 
 
 ##<a id="cli"></a> Using Cross-platform command line
+
+> [WACOM.NOTE] As of 8/29/2014, the Cross-Platform Command-line Interface cannot be used to associate a cluster with an Azure Virtual Network.
 
 Another option for provisioning an HDInsight cluster is the Cross-platform Command-line Interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/Azure/azure-sdk-tools-xplat">https://github.com/Azure/azure-sdk-tools-xplat</a>. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux][azure-command-line-tool]. This article only covers using the command-line interface from Windows.
 
