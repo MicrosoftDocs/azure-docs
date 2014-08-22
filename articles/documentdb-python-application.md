@@ -291,7 +291,7 @@ any of the existing code in views.py. Simply append this to the end.
 ### <a name="_Toc395809338">Registering the vote and modifying the document</a>
 
             replaced_document = doc
-            if str(form.remember_me.data) == 'True':
+            if form.remember_me.data:
                 print 'choice 1'             
                 setvar = doc['Web Site']
                 finalvar = setvar.split();
@@ -301,7 +301,7 @@ any of the existing code in views.py. Simply append this to the end.
                 replaced_document = client.ReplaceDocument(doc['_self'],
                                                        doc)
                 print replaced_document
-            elif str(form.remember_me1.data) == 'True':
+            elif form.remember_me1.data:
                 print 'choice 2'             
                 setvar = doc['Cloud Service']
                 finalvar = setvar.split();

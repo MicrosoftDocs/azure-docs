@@ -19,7 +19,7 @@ As a customer of DocumentDB, you start by provisioning a DocumentDB **database a
 |Resource 	|Description
 |-----------|-----------
 |Database Account	|A database account is associated with one or more capacity units representing provisioned document storage and throughput, a set of databases and blob storage. You can create one or more database accounts using your Azure subscription.
-|Database	|A database is a logical container of document storage partitioned across collections. It is also a container users.
+|Database	|A database is a logical container of document storage partitioned across collections. It is also a users container.
 |User	|The logical namespace for scoping/partitioning permissions. 
 |Permission	|An authorization token associated with a user for authorized access to a specific resource.
 |Collection	|A collection is a container of JSON documents and associated JavaScript application logic.

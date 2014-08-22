@@ -134,7 +134,7 @@ Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentA
         };
 
         await client.CreateDocumentAsync(colSelfLink, WakefieldFamily);
-	}   
+}   
  
 
 ##<a id="Query"></a>Query DocumentDB Resources
