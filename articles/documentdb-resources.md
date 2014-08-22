@@ -2,7 +2,7 @@
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
-#Interact with DocumentDB resources
+#DocumentDB Resource Model and Concepts
 
 DocumentDB offers a simple and open RESTful programming model over HTTP. The entities that DocumentDB manages are referred to as **resources** that are uniquely identified by their logical URI. Developers can interact with the resources using standard HTTP verbs, request/response headers and status codes. As the following diagram illustrates, DocumentDB’s **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI.  
 
@@ -163,7 +163,7 @@ You can create and manage DocumentDB database account(s) via the Azure portal at
 </table>
 
 
-Note that in addition to provisioning, configuring and managing your database account from the Azure portal, you can also programmatically create and manage DocumentDB database accounts via [Azure DocumentDB REST APIs](http://msdn.microsoft.com/en-us/library/azure/dn781481.aspx) as well as client SDKs.  
+Note that in addition to provisioning, configuring and managing your database account from the Azure portal, you can also programmatically create and manage DocumentDB database accounts via [Azure DocumentDB REST APIs](http://go.microsoft.com/fwlink/p/?LinkID=402413) as well as client SDKs.  
 
  
 #Databases
@@ -175,7 +175,7 @@ A database can contain virtually unlimited document storage partitioned by colle
 
 A DocumentDB database is also a container of users. A user, in-turn, is a logical namespace for a set of permissions that provides fine-grained authorization/access to collections, documents and attachments.  
  
-As with other resources in the DocumentDB resource model, databases can be created, replaced, deleted, read or enumerated easily using either [Azure DocumentDB REST APIs](http://msdn.microsoft.com/en-us/library/azure/dn781481.aspx) or any of the client SDKs. DocumentDB guarantees strong consistency for reading or querying the metadata of a database resource. Deleting a database automatically ensures that you cannot access any of the collections or users contained within it. Even though DocumentDB reclaims the storage and throughput provisioned as part of the deleted database in the background, both the provisioned storage and throughput for the deleted database are available immediately for use.   
+As with other resources in the DocumentDB resource model, databases can be created, replaced, deleted, read or enumerated easily using either [Azure DocumentDB REST APIs](http://go.microsoft.com/fwlink/p/?LinkID=402413) or any of the client SDKs. DocumentDB guarantees strong consistency for reading or querying the metadata of a database resource. Deleting a database automatically ensures that you cannot access any of the collections or users contained within it. Even though DocumentDB reclaims the storage and throughput provisioned as part of the deleted database in the background, both the provisioned storage and throughput for the deleted database are available immediately for use.   
  
 
 #Collections
@@ -203,7 +203,7 @@ The documents within a collection can have arbitrary schemas and you can query d
 2.	A subset of relational operations including composition, filter, projections, aggregates and self joins. 
 3.	Pure JavaScript based UDFs which compose with (1) and (2)  
 
-The DocumentDB query model attempts to strike a balance between functionality, efficiency, and simplicity. DocumentDB’s database engine natively compiles and executes the SQL query statements. You can query a collection using the [Azure DocumentDB REST APIs](http://msdn.microsoft.com/en-us/library/azure/dn781481.aspx) or any of the client SDKs. The .NET SDK comes with a LINQ provider. In a future release, native underscore mappings will be provided which can be used from both the client side JavaScript SDKs as well as with the server side stored procedures and triggers.   
+The DocumentDB query model attempts to strike a balance between functionality, efficiency, and simplicity. DocumentDB’s database engine natively compiles and executes the SQL query statements. You can query a collection using the [Azure DocumentDB REST APIs](http://go.microsoft.com/fwlink/p/?LinkID=402413) or any of the client SDKs. The .NET SDK comes with a LINQ provider. In a future release, native underscore mappings will be provided which can be used from both the client side JavaScript SDKs as well as with the server side stored procedures and triggers.   
 
 
 ##Multi-document transactions
@@ -266,7 +266,7 @@ Notice that because database natively understands JSON and JavaScript, there is 
 
 Stored procedures and triggers interact with a collection and the documents in a collection through a well-defined object model which exposes the current collection context.  
 
-Collections in DocumentDB can be created, deleted, read or enumerated easily using either the [Azure DocumentDB REST APIs](http://msdn.microsoft.com/en-us/library/azure/dn781481.aspx) or any of the client SDKs. DocumentDB always provides strong consistency for reading or querying the metadata of a collection. Deleting a collection automatically ensures that you cannot access any of the documents, attachments, stored procedures, triggers, and UDFs contained within it. Even though the DocumentDB reclaims the storage and the throughput provisioned as part of the deleted collection in the background, both the provisioned storage and throughput for the deleted collection are available instantly again for you to use.   
+Collections in DocumentDB can be created, deleted, read or enumerated easily using either the [Azure DocumentDB REST APIs](http://go.microsoft.com/fwlink/p/?LinkID=402413) or any of the client SDKs. DocumentDB always provides strong consistency for reading or querying the metadata of a collection. Deleting a collection automatically ensures that you cannot access any of the documents, attachments, stored procedures, triggers, and UDFs contained within it. Even though the DocumentDB reclaims the storage and the throughput provisioned as part of the deleted collection in the background, both the provisioned storage and throughput for the deleted collection are available instantly again for you to use.   
 
  
 #Stored Procedures, Triggers and UDFs

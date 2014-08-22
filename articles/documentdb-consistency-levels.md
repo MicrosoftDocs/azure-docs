@@ -8,7 +8,7 @@ Developers are often faced with the challenge of choosing between the two extrem
 All system resources, including database accounts, databases, collections, users and permissions are always strongly consistent for reads and queries. The consistency levels apply only to the user defined resources. For queries and read operations on user defined resources, including documents, attachments, stored procedures, triggers and UDFs, DocumentDB offers four distinct consistency levels - Strong, Bounded-Staleness, Session, and Eventual. These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availability and performance. These consistency levels are backed by predictable performance levels ensuring consistent results for your application.   
 
 ##Consistency levels
-You can configure the Default Consistency Level on the database account which applies to all the collections (across all of the databases) under your database account. By default all reads and queries issued against the user defined resources will use the default consistency level specified on the database account. You can however, lower the consistency level of a specific read/query request by specifying [x-ms-consistency-level] request header. There are four types of consistency levels supported by DocumentDB’s replication protocol – these are briefly described below. 
+You can configure the Default Consistency Level on the database account which applies to all the collections (across all of the databases) under your database account. By default all reads and queries issued against the user defined resources will use the default consistency level specified on the database account. You can however, lower the consistency level of a specific read/query request by specifying [x-ms-consistency-level] request header. There are four types of consistency levels supported by DocumentDB's replication protocol - these are briefly described below. 
 
 >[AZURE.NOTE] In a future release, we intend to support overriding the default consistency level on a per collection basis.  
 
@@ -47,5 +47,5 @@ As with read requests, you can lower the consistency level of a specific query r
 [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.   
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--	Werner Vogels. Eventual Consistent – Revisited.    
+-	Werner Vogels. Eventual Consistent - Revisited.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
