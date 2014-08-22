@@ -3,14 +3,16 @@
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 #Interact with DocumentDB Resources 
-DocumentDB offers a simple and open RESTful programming model over HTTP. In its Preview release DocumentDB provides client SDKs for .NET, Python, Node.js and JavaScript – all of which are simple wrappers over the underlying REST APIs. In future releases, it will also provide C++ and Java SDKs. We encourage you to write your own SDKs for your specific programming environment and share it with the community as we have opened up our SDKs.   
+DocumentDB offers a simple and open RESTful programming model over HTTP. In its Preview release DocumentDB provides client SDKs for .NET, Python, Node.js and JavaScript – all of which are simple wrappers over the underlying REST APIs. In future releases, it will also provide C++ and Java SDKs. We encourage you to write your own SDKs for your specific programming environment and share it with the community as we have opened up our SDKs. 
+
 >[AZURE.NOTE] Additionally, it also offers a highly efficient TCP protocol which is also RESTful in its communication model and is available through the .NET client SDK.  
 
 ##Resources
 The entities that DocumentDB manages are referred to as the **resources**, which are uniquely identified by their logical URI. Developers can interact with the resources using standard HTTP verbs, request/response headers and status codes. As the following diagram illustrates, DocumentDB’s **resource model** consists of a sets of resources under a database account, each addressable via a logical and stable URI. A set of resources is referred to as a **feed** in this document.  
 
 ![][1]  
-**Hierarchical resource model under a database account **  
+
+##Hierarchical resource model under a database account ##
 
 As a customer of DocumentDB, you start by provisioning a DocumentDB **database account** using your Azure subscription. A database account consists of a set of **databases**, each containing multiple **collections**, each of which in-turn contain **stored procedures, triggers, UDFs, documents** and related **attachments**. A database also has associated **users** each with a set of **permissions** to access various other collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
 
@@ -32,13 +34,47 @@ Resources such as database accounts, databases, collections, users, permissions,
 
 >[AZURE.NOTE] Note that all system generated properties in a resource are prefixed with an underscore (_) in their JSON representation.  
 
-|Property 	|User settable or system generated?	|Purpose
-|-----------|-----------------------------------------|
-|_rid	|System generated	|System generated, unique and hierarchical identifier of the resource
-|_etag	|System generated	|etag of the resource required for optimistic concurrency control
-|_ts	|System generated	|Last updated timestamp of the resource
-|_self	|System generated	|Unique addressable URI of the resource 
-|id	|User settable	|User defined unique name of the resource    
+
+<table width="500"> 
+<tbody>
+<tr>
+<td valign="top" ><p><b>Property </b></p></td>
+<td valign="top" ><p><b>User settable or system generated?</b></p></td>
+<td valign="top" ><p><b>Purpose</b></p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>_rid</p></td>
+<td valign="top" ><p>System generated</p></td>
+<td valign="top" ><p>System generated, unique and hierarchical identifier of the resource</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>_etag</p></td>
+<td valign="top" ><p>System generated</p></td>
+<td valign="top" ><p>etag of the resource required for optimistic concurrency control</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>_ts</p></td>
+<td valign="top" ><p>System generated</p></td>
+<td valign="top" ><p>Last updated timestamp of the resource</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>_self</p></td>
+<td valign="top" ><p>System generated</p></td>
+<td valign="top" ><p>Unique addressable URI of the resource </p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>id</p></td>
+<td valign="top" ><p>User settable</p></td>
+<td valign="top" ><p>User defined unique name of the resource </p></td>
+</tr>
+
+</tbody>
+</table>
 
 
 ###Wire representation of resources
@@ -207,10 +243,83 @@ DocumentDB exposes a logical addressing model wherein each resource has a logica
 2.	**Direct Connectivity Mode:** The clients directly manage the routing table in their process space and periodically refresh it. Client can directly connect with the replicas and bypass the edge machines.   
 
 
-|Connectivity Mode|	Protocol|	Details|	DocumentDB SDKs
-|-----------------|---------|----------|
-|Gateway	|HTTPS	|Applications directly connect with the edge nodes using logical URIs. This incurs an extra network hop.	|REST APIs .NET, JavaScript, Node.js, Python
-|Direct Connectivity	|HTTPS and TCP	|The applications can directly access the routing table and perform the client side routing to directly connect with replicas.	|.NET
+
+<table width="300">
+    <tbody>
+        <tr>
+            <td width="120" valign="top">
+                <p>
+                    <strong>Connectivity Mode</strong>
+                </p>
+            </td>
+            <td width="66" valign="top">
+                <p>
+                    <strong>Protocol</strong>
+                </p>
+            </td>
+            <td width="264" valign="top">
+                <p>
+                    <strong>Details</strong>
+                </p>
+            </td>
+            <td width="150" valign="top">
+                <p>
+                    <strong>DocumentDB SDKs</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="120" valign="top">
+                <p>
+                    Gateway
+                </p>
+            </td>
+            <td width="66" valign="top">
+                <p>
+                    HTTPS
+                </p>
+            </td>
+            <td width="264" valign="top">
+                <p>
+                    Applications directly connect with the edge nodes using logical URIs. This incurs an extra network hop.
+                </p>
+            </td>
+            <td width="150" valign="top">
+                <p>
+                    REST APIs
+                </p>
+                <p>
+                    .NET, JavaScript, Node.js, Python
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="120" valign="top">
+                <p>
+                    Direct Connectivity
+                </p>
+            </td>
+            <td width="66" valign="top">
+                <p>
+                    HTTPS and
+                </p>
+                <p>
+                    TCP
+                </p>
+            </td>
+            <td width="264" valign="top">
+                <p>
+                    The applications can directly access the routing table and perform the client side routing to directly connect with replicas.
+                </p>
+            </td>
+            <td width="150" valign="top">
+                <p>
+                    .NET
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ##References
 -	REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)

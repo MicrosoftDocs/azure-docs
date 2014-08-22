@@ -21,7 +21,7 @@ In order to use this getting started guide, you must have a DocumentDB account a
 ##<a id="Connect"></a>Connect to a DocumentDB Account
 There are various SDKs and APIs available to programmatically work with DocumentDB.  The samples below are shown in C# code and use the DocumentDB .NET SDK.  
 
-We’ll start by creating a DocumentClient in order to establish a connection to our DocumentDB account.   We’ll need the following references in our C# application:  
+We'll start by creating a DocumentClient in order to establish a connection to our DocumentDB account.   We'll need the following references in our C# application:  
 
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
@@ -33,7 +33,7 @@ The DocumentDB account endpoint and keys can be obtained from the Azure manageme
 
 ![][1]
  
->Note that the DocumentDB access keys available from the Keys blade grant administrative access to your DocumentDB account and of the resources in it.  DocumentDB also supports the use of resource keys that allow clients to read, write and delete resources in the DocumentDB account according to the permissions you’ve granted, without the need for an account key.    
+>Note that the DocumentDB access keys available from the Keys blade grant administrative access to your DocumentDB account and of the resources in it.  DocumentDB also supports the use of resource keys that allow clients to read, write and delete resources in the DocumentDB account according to the permissions you've granted, without the need for an account key.    
 
 Create the client using code like the following example.  
 
@@ -75,7 +75,7 @@ documentCollection);
 
     
 ##<a id="CreateDoc"></a>Create documents	
-Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentAsync method of a DocumentClient.  The collection created in the previous step has a number of properties, one of which is the DocumentsLink property.  With that information, we can now insert 1 or more documents.  For the purposes of this example, we’ll assume that we have a Family class that describes the attributes of a family such as name, gender and age.  
+Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentAsync method of a DocumentClient.  The collection created in the previous step has a number of properties, one of which is the DocumentsLink property.  With that information, we can now insert 1 or more documents.  For the purposes of this example, we'll assume that we have a Family class that describes the attributes of a family such as name, gender and age.  
 
 	private static async Task CreateDocuments(string 	colSelfLink)
 	{
@@ -140,7 +140,7 @@ Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentA
  
 
 ##<a id="Query"></a>Query DocumentDB Resources
-DocumentDB supports rich queries against the JSON documents stored in each collection.  The sample code below shows various queries – using both DocumentDB SQL syntax as well as LINQ – that we can run against the documents we inserted in the previous step.  
+DocumentDB supports rich queries against the JSON documents stored in each collection.  The sample code below shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step.  
 
 	//
 	//Querying the documents using DocumentDB SQL for the Andersen family
@@ -188,7 +188,7 @@ DocumentDB supports rich queries against the JSON documents stored in each colle
 
 ##<a id="NextSteps"></a>Next steps
 -	Learn how to [monitor a DocumentDB account](http://go.microsoft.com/fwlink/p/?LinkId=402378).
--	For details on the programming model, see the Development section on the [DocumentDB documentation page][doc-landing-page]
+-	For details on the programming model, see the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319 )
 
 
 [Connect to a DocumentDB Account]: #Connect
@@ -198,7 +198,7 @@ DocumentDB supports rich queries against the JSON documents stored in each colle
 [Query DocumentDB Resources]: #Query
 [Next steps]: #NextSteps
 [doc-landing-page]: ../documentation/services/documentdb/
-[documentdb-create-account] ../documentdb-create-account/
+[documentdb-create-account]: ../documentdb-create-account/
 [documentdb-manage] ../documentdb-manage/
 
 [1]: ./media/documentdb-get-started/gs1.png
