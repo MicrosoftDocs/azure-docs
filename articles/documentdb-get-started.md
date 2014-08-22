@@ -199,6 +199,6 @@ DocumentDB supports rich queries against the JSON documents stored in each colle
 [Next steps]: #NextSteps
 [doc-landing-page]: ../documentation/services/documentdb/
 [documentdb-create-account]: ../documentdb-create-account/
-[documentdb-manage] ../documentdb-manage/
+[documentdb-manage]: ../documentdb-manage/
 
 [1]: ./media/documentdb-get-started/gs1.png
