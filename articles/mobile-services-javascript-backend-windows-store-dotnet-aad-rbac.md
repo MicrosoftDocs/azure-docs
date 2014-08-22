@@ -47,7 +47,7 @@ This tutorial requires the following:
 
 During the [Get Started with Authentication] tutorial, you created a registration for the integrated application when you completed the [Register to use an Azure Active Directory Login] step. In this section you generate a key to be used when reading directory information with that integrated application's client ID. 
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key-rbac](../includes/mobile-services-generate-aad-app-registration-access-key-rbac.md)]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 
@@ -60,7 +60,9 @@ In this section you will use Git to deploy a shared script file named *rbac.js* 
 If you are not familiar with deploying scripts to your mobile service with Git, please review the [Store Server Scripts] tutorial before completing this section.
 
 1. Create a new script file named *rbac.js* in the *./service/shared/* directory of the local repository for your mobile service.
-2. Add the following script to the top of the file that defines the `getAADToken` function.
+2. Add the following script to the top of the file that defines the `getAADToken` function. Given the *tenant_domain*, integrated application *client id*, and application *key*, this function provides a Graph access token used for reading directory information.
+
+    >[WACOM.NOTE] You should cache the token instead of creating a new one with each access check. Then refresh the cache when attempts to use the token result in a 401 Authentication_ExpiredToken response as noted in the [Graph API Error Reference]. This isn't demonstrated in the code below for simplicity sake but, it will alleviate extra network traffic against your Active Directory. 
 
         var appSettings = require('mobileservice-config').appSettings;
         var tenant_domain = appSettings.AAD_TENANT_DOMAIN;
@@ -86,9 +88,33 @@ If you are not familiar with deploying scripts to your mobile service with Git, 
                 });
         }
 
-    Given the *tenant_domain*, integrated application *client id*, and application *key*, this function provides a Graph access token used for reading directory information.
 
-3. Add the following code to *rbac.js* to define the `isMemberOf` function that calls the [IsMemberOf] endpoint of the Graph REST API.
+3. Add the following code to *rbac.js* to define the `getGroupId` function. This function uses the access token to get the group id based on the group name used in a filter.
+ 
+    >[WACOM.NOTE] This code looks up the Active Directory group by name. In many cases it may be a better practice to store the group id as a mobile service app setting and just use that group id. This is because the group name may change but, the id stays the same. However, with a group name change there is usually at least a change in the scope of the role that may also require an update to the mobile service code.   
+
+        function getGroupId(groupname, accessToken, callback) {
+            var req = require("request");
+            var options = {
+                url: "https://graph.windows.net/" + tenant_domain + "/groups" + 
+                      "?$filter=displayName%20eq%20'" + groupname + "'" + 
+	              "&api-version=2013-04-05" ,
+                method: 'GET',
+                headers: {
+                    "Authorization": "Bearer " + accessToken,
+                    "Content-Type": "application/json",
+                }
+            };
+            req(options, function (err, resp, body) {
+                if (err || resp.statusCode !== 200) callback(err, null);
+                else callback(null, JSON.parse(body).value[0].objectId);
+            });
+        }
+
+
+4. Add the following code to *rbac.js* to define the `isMemberOf` function that calls the [IsMemberOf] endpoint of the Graph REST API.
+
+    This function is a thin wrapper around the [IsMemberOf] endpoint of the Graph REST API. It uses the Graph access token to check if the user's directory object id has membership in the group based on the group id.
 
         function isMemberOf(access_token, userObjectId, groupObjectId, callback) {
             var req = require("request");
@@ -102,7 +128,7 @@ If you are not familiar with deploying scripts to your mobile service with Git, 
                 body: JSON.stringify({
                 "groupId": groupObjectId,
                 "memberId": userObjectId
-            })
+                })
             };
             req(options, function (err, resp, body) {
                 if (err || resp.statusCode !== 200) callback(err, null);
@@ -110,19 +136,24 @@ If you are not familiar with deploying scripts to your mobile service with Git, 
             });
         };
 
-    This function is a thin wrapper around the [IsMemberOf] endpoint of the Graph REST API. It uses the Graph access token to check if the user's directory object ID is part of the group based on the group ID.
+    
 
-7. Add the exported `checkGroupMembership` function.  **ToDo: The token should be cached in this snippet, no need to retrieve it each time**.
+7. Add the following exported `checkGroupMembership` function to *rbac.js* .  
 
-        exports.checkGroupMembership = function (user, groupID, callback) {
+    This function wraps the use of the other script functions and is exported from the shared script to be called by other scripts to perform the actual access checks. Given the mobile service user object, and the group id, the script will retrieve the Azure Active Directory object id for the user's identity and verify membership to the group.
+
+        exports.checkGroupMembership = function (user, groupName, callback) {
             user.getIdentities({
                 success: function (identities) {
                     var objectId = identities.aad.oid;
                     getAADToken(function (err, access_token) {
                         if (err) callback(err);
-                        else isMemberOf(access_token, objectId, groupID, function (err, isInGroup) {
-                            if (err) errorHandler(err);
-                            else callback(null, isInGroup);
+		        else getGroupId(groupName, access_token, function (err, groupId) { 
+                            if (err) callback(err);
+                            else isMemberOf(access_token, objectId, groupId, function (err, isInGroup) {
+       	                        if (err) errorHandler(err);
+               	                else callback(null, isInGroup);
+                            });
                         });
                     });
                 },
@@ -130,7 +161,7 @@ If you are not familiar with deploying scripts to your mobile service with Git, 
             });
         }
 
-    This function wraps the use of the other script functions and is exported from the shared script to be called by other scripts to perform the actual access checks. Given the mobile service user object, and the group id, the script will retrieve the Azure Active Directory object id for the user's identity and verify membership to the group.
+8. Save your changes to *rbac.js*.
 
 ## <a name="add-access-checking"></a>Add role based access checking to the database operations
 
@@ -252,4 +283,5 @@ The following steps demonstrate how to deploy role based access control using sc
 [Store Server Scripts]: /en-us/documentation/articles/mobile-services-store-scripts-source-control/
 [Register to use an Azure Active Directory Login]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
+[Graph API Error Reference]: http://msdn.microsoft.com/en-us/library/azure/hh974480.aspx
 [IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx

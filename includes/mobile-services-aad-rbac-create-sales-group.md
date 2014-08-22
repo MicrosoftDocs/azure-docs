@@ -28,7 +28,7 @@ In this section you add two new users to your directory along with the new Sales
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/group-membership.png)
 
-3. On the Sales group page, click **Configure**, then copy the **Object ID** for the sales group. Note this value for use in a later section.
+3. On the Sales group page, click **Configure**, then notice the **Object ID** for the sales group. This tutorial actually looks up the group's object id using the Graph APIs. So you won't need the id. However, in some cases its better not to use the group name because it may change where the id stays the same. If you want to store the group id as an app setting on the mobile service, or hard code it into your code, this is where you find it.
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png)
 
