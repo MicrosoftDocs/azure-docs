@@ -19,7 +19,7 @@ As a customer of DocumentDB, you start by provisioning a DocumentDB **database a
 |Resource 	|Description
 |-----------|-----------
 |Database Account	|A database account is associated with one or more capacity units representing provisioned document storage and throughput, a set of databases and blob storage. You can create one or more database accounts using your Azure subscription.
-|Database	|A database is a logical container of document storage partitioned across collections. It is also a container users.
+|Database	|A database is a logical container of document storage partitioned across collections. It is also a users container.
 |User	|The logical namespace for scoping/partitioning permissions. 
 |Permission	|An authorization token associated with a user for authorized access to a specific resource.
 |Collection	|A collection is a container of JSON documents and associated JavaScript application logic.
@@ -326,14 +326,11 @@ DocumentDB exposes a logical addressing model wherein each resource has a logica
 -	JSON specification  [http://-www.ietf.org/rfc/rfc4627.txt](http://-www.ietf.org/rfc/rfc4627.txt)
 -	HTTP specification [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
 -	Entity Tags [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
--	DocumentDB SQL Query Tutorial
--	DocumentDB SQL Query Language Specification
--	JavaScript based Stored Procedures and Triggers with DocumentDB: A Tutorial
--	JavaScript Stored Procedures, triggers and UDFs in DocumentDB: API Reference
--	Managing and Programming Media and Attachments with DocumentDB
--	Authorization of resources with DocumentDB
--	DocumentDB REST API Reference
--	DocumentDB Client SDKs Reference
+-	[Query DocumentDB](/documentation/articles/documentdb-sql-query/)
+-	[DocumentDB SQL Reference](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+-	[DocumentDB Programming: Stored procedures, triggers, and UDFs](/documentation/articles/documentdb-programming/)
+-	[DocumentDB Reference Documentation](http://go.microsoft.com/fwlink/p/?LinkID=402384)
+
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
 [2]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png

@@ -413,7 +413,7 @@ below to your repository class;
                 return client;
             }
         }
-	
+
         private static async Task ReadOrCreateCollection(string databaseLink)
         {
             var collections = Client.CreateDocumentCollectionQuery(databaseLink)
@@ -504,7 +504,7 @@ case just render the associated Create.cshtml view created earlier.
 
     public ActionResult Create()
     { 
-	return View(); 
+  		  return View(); 
     }
 
 We now need some more code in this controller which will accept the
@@ -536,7 +536,7 @@ following method to your DocumentDBRepository class.
 This method simply takes any object passed to it and persists it in
 DocumentDB.
 
-This concludes the code required to add new items to our database.
+ This concludes the code required to add new items to our database.
 
 
 ### <a name="_Toc395637772">Editing Items</a>
@@ -585,23 +585,23 @@ through to DocumentDB to be persisted in the database.
 
 Add the following to the DocumentDBRepository class;
 
-    	public static async Task<Item> GetDocument(string id)
-    	{
+    public static async Task<Item> GetDocument(string id)
+    {
 	    return await Task<Item>.Run(() =>
 	        Client.CreateDocumentQuery<Item>(Collection.DocumentsLink)
 	    		.Where(d => d.ID == id)
 	    		.AsEnumerable()
 			.FirstOrDefault());
-    	}
+    }
     
-	public static async Task<Document> UpdateDocument(Item item)
-        {
+    public static async Task<Document> UpdateDocument(Item item)
+    {
             var doc = Client.CreateDocumentQuery<Document>(Collection.DocumentsLink)
                         .Where(d => d.Id == item.ID)
                         .AsEnumerable().FirstOrDefault();
 		
-            return await Client.ReplaceDocumentAsync(doc.SelfLink, item);
-        }
+        return await Client.ReplaceDocumentAsync(doc.SelfLink, item);
+    }
 
 
 The first of these two methods fetches an Item from DocumentDB which is
