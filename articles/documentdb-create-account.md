@@ -28,7 +28,7 @@ To use DocumentDB, you must create a DocumentDB account in an available geograph
 
 	The **Pricing Tier** lens is locked, as the DocumentDB preview supports a single standard pricing tier.
 
-	*For more information, see the [DocumentDB pricing details](http://go.microsoft.com/fwlink/p/?LinkID=402317)*
+	*For more information, see the [DocumentDB pricing details](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409)*
 
 	The **Optional configuration** lens is used to specify the initial capacity allocated to your DocumentDB account.  DocumentDB leverages capacity units to allow you to scale your DocumentDB account, where each capacity unit includes reserved database storage and throughput.  By default, 1 capacity unit is provisioned.  You can adjust the number of capacity units available to your DocumentDB account at any time via the [Azure management preview portal](https://portal.azure.com/).
 
@@ -63,7 +63,7 @@ To use DocumentDB, you must create a DocumentDB account in an available geograph
 
 ##<a id="NextSteps"></a>Next steps
 
--	To learn more about DocumentDB, see the [Azure DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402319) documentation . 
+-	To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/p/?LinkID=402319)
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
