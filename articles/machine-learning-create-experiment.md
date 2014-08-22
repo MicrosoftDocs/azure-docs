@@ -169,7 +169,7 @@ The final experiment should look like this:
 
 Now that you have your experiment set up, you can iterate to try to improve the model. For instance, you can change the features you use in your prediction. Or you can modify the properties of the **Linear Regression** algorithm or try a different algorithm altogether. You can even add multiple algorithms to your experiment at one time and compare them (two at a time) by using the **Evaluate Model** module. 
 
->**Tip** - Use the **SAVE AS** button below the experiment canvas to preserve copies of different iterations of your experiment.
+>**Tip** - Use the **SAVE AS** button below the experiment canvas to make a copy of any iteration of your experiment. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** below the canvas. See the ML Studio help topic **Viewing Run History** for more details.
 
 When you're satisfied with your model, you can publish it as a web service to be used to predict automobile prices using new data. See the ML Studio help topic **Publishing Experiments** for more details.
 
