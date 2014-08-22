@@ -180,7 +180,7 @@ The following steps demonstrate how to deploy role based access control using sc
         
             var RBAC = require('../shared/rbac.js');
         
-            RBAC.checkGroupMembership(user, RBAC.SalesGroup, function(err, isInGroup) {
+            RBAC.checkGroupMembership(user, "sales", function(err, isInGroup) {
                 if (err) request.respond(err);
                 else if (!isInGroup) request.respond(statusCodes.UNAUTHORIZED, null);
                 else {
@@ -195,7 +195,7 @@ The following steps demonstrate how to deploy role based access control using sc
         
             var RBAC = require('../shared/rbac.js');
         
-            RBAC.checkGroupMembership(user, RBAC.SalesGroup, function(err, isInGroup) {
+            RBAC.checkGroupMembership(user, "sales", function(err, isInGroup) {
                 if (err) request.respond(err);
                 else if (!isInGroup) request.respond(statusCodes.UNAUTHORIZED, null);
                 else {
@@ -210,7 +210,7 @@ The following steps demonstrate how to deploy role based access control using sc
         
             var RBAC = require('../shared/rbac.js');
         
-            RBAC.checkGroupMembership(user, RBAC.SalesGroup, function(err, isInGroup) {
+            RBAC.checkGroupMembership(user, "sales", function(err, isInGroup) {
                 if (err) request.respond(err);
                 else if (!isInGroup) request.respond(statusCodes.UNAUTHORIZED, null);
                 else {
@@ -225,7 +225,7 @@ The following steps demonstrate how to deploy role based access control using sc
         
             var RBAC = require('../shared/rbac.js');
         
-            RBAC.checkGroupMembership(user, RBAC.SalesGroup, function(err, isInGroup) {
+            RBAC.checkGroupMembership(user, "sales", function(err, isInGroup) {
                 if (err) request.respond(err);
                 else if (!isInGroup) request.respond(statusCodes.UNAUTHORIZED, null);
                 else {
