@@ -517,7 +517,7 @@ Go ahead and add the next block of code which tells ASP.NET MVC what to
 do with a form POST for this controller.
 
     [HttpPost]  
-    public async Task\<ActionResult\> Create(Item item)  
+    public async Task<ActionResult> Create(Item item)  
     {
 	if (ModelState.IsValid)  
 	{  
@@ -531,7 +531,7 @@ The Items Controller will now pass the Item, from the form, to the
 CreateDocument method of our pseudo repository class, so add the
 following method to your DocumentDBRepository class.
 
-    public static async Task\<Document\> CreateDocument(dynamic item)
+    public static async Task<Document> CreateDocument(dynamic item)
     {
         return await Client.CreateDocumentAsync(Collection.SelfLink, item); 
     }
@@ -551,7 +551,7 @@ DocumentDBRepository class again.
 
 Add the following to the ItemController class;
 
-    public async Task\<ActionResult\> Edit(string id)    
+    public async Task<ActionResult> Edit(string id)    
     {  
        	if (id == null)  
 	{
@@ -565,7 +565,7 @@ Add the following to the ItemController class;
     	return View(item);
     } 
     [HttpPost] 
-    public async Task\<ActionResult\> Edit(Item item)  
+    public async Task<ActionResult> Edit(Item item)  
     {
     	if (ModelState.IsValid)
         {
