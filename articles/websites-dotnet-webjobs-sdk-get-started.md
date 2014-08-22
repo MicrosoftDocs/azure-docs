@@ -732,20 +732,26 @@ The code for the HttpPost `Edit` method is similar except that if the user selec
 		    ad.ImageURL = imageBlob.Uri.ToString();
 		}
 
-Here is the DeleteAdBlobsAsync method:
+Here is the code that deletes blobs when you delete an ad:
 
 		private async Task DeleteAdBlobsAsync(Ad ad)
 		{
 		    if (!string.IsNullOrWhiteSpace(ad.ImageURL))
 		    {
-		        CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(ad.ImageURL);
-		        await blobToDelete.DeleteAsync();
+		        Uri blobUri = new Uri(ad.ImageURL);
+		        await DeleteAdBlobAsync(blobUri);
 		    }
 		    if (!string.IsNullOrWhiteSpace(ad.ThumbnailURL))
 		    {
-		        CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(ad.ThumbnailURL);
-		        await blobToDelete.DeleteAsync();
+		        Uri blobUri = new Uri(ad.ThumbnailURL);
+		        await DeleteAdBlobAsync(blobUri);
 		    }
+		}
+		private static async Task DeleteAdBlobAsync(Uri blobUri)
+		{
+		    string blobName = blobUri.Segments[blobUri.Segments.Length - 1];
+		    CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(blobName);
+		    await blobToDelete.DeleteAsync();
 		}
  
 ### ContosoAdsWeb - Views\Ad\Index.cshtml and Details.cshtml
