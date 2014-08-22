@@ -51,8 +51,7 @@ A database account consists of a set of databases, each containing multiple coll
 ##Developing Against Azure DocumentDB
 Azure DocumentDB exposes resources via a REST API that can be called by any language capable of making HTTP/HTTPS requests. Additionally, Azure DocumentDB offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure DocumentDB by handling details such as address caching, exception management, automatic retries and so forth. Libraries are currently available for the following languages and platforms, with others on the way:  
 
-[.NET](http://go.microsoft.com/fwlink/?LinkID=402989)  
-
+- [.NET](http://go.microsoft.com/fwlink/?LinkID=402989)
 -	[Node.js](http://go.microsoft.com/fwlink/?LinkID=402991)
 -	[JavaScript](http://go.microsoft.com/fwlink/?LinkID=402990)
 -	[Python](http://go.microsoft.com/fwlink/?LinkID=402992)
@@ -75,7 +74,7 @@ JavaScript execution within DocumentDB is modeled after the concepts supported b
 To get started with Azure DocumentDB, explore these resources:
 
 -	[Understand DocumentDB concepts](/documentation/articles/documentdb-concepts/)
--	[Interact with DocumentDB](/documentation/articles/documentdb-interact/)
+-	[Interact with DocumentDB](/documentation/articles/documentdb-interactions-with-resources/)
 -	[Create a database account](/documentation/articles/documentdb-create-database-account/)
 -	[Get started with DocumentDB](/documentation/articles/documentdb-get-started/)
 
