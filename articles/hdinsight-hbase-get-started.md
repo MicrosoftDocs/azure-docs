@@ -40,6 +40,8 @@ Before you begin this tutorial, you must have the following:
 
 This section describes how to provision an HBase cluster using PowerShell and  how to enable and use RDP to access the cluster.
 
+[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+
 **To provision an HDInsight cluster with PowerShell** 
 
 1. Open the Windows PowerShell window on the windows machine.
