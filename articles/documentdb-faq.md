@@ -21,7 +21,7 @@ For instructions on deploying and using this service, see the [DocumentDB docume
 DocumentDB is a NoSQL document oriented database that stores data in JSON format.  DocumentDB supports nested, self-contained-data structures that can be queried through a rich DocumentDB SQL query grammar. DocumentDB provides high performance transactional processing of server side JavaScript through stored procedures, triggers and user defined functions. The database also supports developer tunable consistency levels with associated performance levels.
  
 ###Do DocumentDB databases have tables like an RDBMS?
-No, DocumentDB  stores data in collections of JSON documents.  For more information on DocumentDB’s resources, please refer to DocumentDB Resource Model and Concepts article. 
+No, DocumentDB  stores data in collections of JSON documents.  For more information on DocumentDB's resources, please refer to DocumentDB Resource Model and Concepts article. 
 
 ###Do DocumentDB databases support schema-free data?
 Yes, DocumentDB allows applications to store arbitrary JSON documents without schema definition or hints. Data is immediately available for query through the DocumentDB SQL query interface.   
@@ -63,10 +63,10 @@ You can create users and permissions using one of the DocumentDB SDKs or through
 ## <a id="develop"></a>Develop against Microsoft Azure DocumentDB
 
 ###How to do I start developing against DocumentDB?
-At preview, SDKs are available for .NET, Python, Node.js and JavaScript.  Develops can also leverage the RESTful HTTP APIs to interact with DocumentDB resources from a variety of platforms and languages. For details on how to use these SDKs, see the Development section on the [Tutorials and Guides page][doc-landing-page].
+At preview, SDKs are available for .NET, Python, Node.js and JavaScript.  Developers can also leverage the RESTful HTTP APIs to interact with DocumentDB resources from a variety of platforms and languages. For details on how to use these SDKs, see the Development section on the [Tutorials and Guides page][doc-landing-page].
 
 ###Does DocumentDB support SQL?
-DocumentDB’s SQL query language which provides rich hierarchical and relational operators and extensibility via JavaScript based user defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes – this fact is exploited both by the DocumentDB’s automatic indexing techniques as well as, the SQL query dialect of DocumentDB.  For details on how to use our SQL grammar, see [Query using DocumentDB SQL][query]–SQL section.
+DocumentDB's SQL query language which provides rich hierarchical and relational operators and extensibility via JavaScript based user defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes – this fact is exploited both by the DocumentDB's automatic indexing techniques as well as, the SQL query dialect of DocumentDB.  For details on how to use our SQL grammar, see [Query using DocumentDB SQL][query]–SQL section.
 
 ###What are the data types supported by DocumentDB?
 The primitive data types supported in DocumentDB are the same as JSON. JSON has a simple type system that consists of Strings, Numbers (IEEE754 double precision), Booleans – true and false and Nulls.  More complex data types like DateTime, Guid, Int64, and Geometry can be represented both in JSON and DocumentDB through the creation of nested objects using the { } operator and arrays using the [ ] operator. 
@@ -78,7 +78,7 @@ DocumentDB supports optimistic concurrency control (OCC) through HTTP entity tag
 DocumentDB supports language-integrated transactions via JavaScript stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation scoped to the collection. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back.
 
 ###How can I bulk insert documents into DocumentDB? 
-DocumentDB’s support for stored procedures provides an efficient means to batch inserts. By developing a simple JavaScript stored procedure that accepts and inserts documents, you can perform bulk inserts. This has the added benefit that the bulk insert will be performed as a transaction, leaving the collection in a consistent state. For details on the programming model, see the Development section on the [DocumentDB documentation page][doc-landing-page].
+DocumentDB's support for stored procedures provides an efficient means to batch inserts. By developing a simple JavaScript stored procedure that accepts and inserts documents, you can perform bulk inserts. This has the added benefit that the bulk insert will be performed as a transaction, leaving the collection in a consistent state. For details on the programming model, see the Development section on the [DocumentDB documentation page][doc-landing-page].
 
 ###Does DocumentDB support resource link caching?
 Yes, because DocumentDB is a RESTful service, resource links are immutable and can be cached. DocumentDB clients can specify an “If-None-Match” header for reads against any resource like document or collection and update their local copies only when the server version has change. 
