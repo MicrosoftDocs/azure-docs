@@ -176,10 +176,11 @@ your environment and select “Install Python Package…”
 
 ![Alt text](./media/documentdb-python-application/image13.png)
 
-Type in “pydocumentdb” which is the name of the PyPi package. You can
+Type in "--pre pydocumentdb" which is the name of the PyPi package. You can
 optionally provide a known version if you want to control which version
 you would like to install, leaving version out will ensure that latest
-stable version is installed.
+stable version is installed. Please make note that you will have to enter the
+whole name "--pre pydocumentdb".
 
 ![Alt text](./media/documentdb-python-application/image14.png)
 
