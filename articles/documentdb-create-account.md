@@ -62,7 +62,7 @@ To use DocumentDB, you must create a DocumentDB account in an available geograph
 
 ##<a id="NextSteps"></a>Next steps
 
--	To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)
+-	To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/p/?LinkID=402319)
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
