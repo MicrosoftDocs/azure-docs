@@ -48,7 +48,7 @@ that you have the following installed:
 Visual Studio 2013 (or [Visual Studio Express][] which is the free
 version)
 
-Python for Visual Studio Beta tools from [here][]
+Python Tools for Visual Studio from [here][]
 
 Azure SDK for Visual Studio 2013, version 2.4 or higher available from
 [here][1]
