@@ -2,17 +2,19 @@
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
-# Query with DocumentDB SQL
+#Query DocumentDB
+Azure DocumentDB supports querying of documents using a familiar SQL (Structured Query Language) over hierarchical JSON documents. DocumentDB is truly schema-free; by virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes. 
+While designing the query language for DocumentDB we had two goals in mind:
 
-Azure DocumentDB supports querying of documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. Making a deep commitment on the JSON data model and JavaScript directly within the database engine, Azure DocumentDB provides the automatic indexing of JSON documents along with efficient execution of queries.  
+-	Embrace SQL – Instead of inventing a new query language, we wanted to embrace the SQL language. After all, SQL is one of the most familiar and popular query languages. Azure DocumentDB’s SQL language provides a formal programming model for rich queries over JSON documents.
+-	Extend SQL – As a JSON document database capable of executing JavaScript directly in the database engine, we wanted use JavaScript’s programming model as the foundation for our SQL query language. Azure DocumentDB’s SQL query language is rooted in the JavaScript’s type system, expression evaluation and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, invocation of user defined functions (UDFs) written entirely in JavaScript among other features. 
 
-The language grammar can also be extended to support custom application logic using User Defined Functions (UDFs). UDFs can be registered with Azure DocumentDB and then be referenced as part of a DocumentDB SQL query. These UDFs are written as JavaScript functions and executed within the database. 
+We believe that these capabilities are key to reducing the friction between the application and the database and are crucial for developer productivity.
 
-For .NET developers, Azure DocumentDB also offers a LINQ query provider as part of the .NET SDK.
+In this tutorial, we introduce the DocumentDB query language capabilities and grammar through examples. We also look at how one can query DocumentDB using the REST API and SDKs (including LINQ).
 
-## Get started
-To see DocumentDB SQL at work, we’ll begin with a few simple JSON documents and walk through some simple queries against it. Consider these two documents which contain some JSON data about two families.
-
+#Getting Started
+To see DocumentDB SQL at work, we’ll begin with a few simple JSON documents and walk through some simple queries against it. Consider these two JSON documents about two families. Note that with DocumentDB, we do not need to create any schemas or secondary indices explicitly. We simply need to insert the JSON documents to a DocumentDB collection and subsequently query. 
 Here we have a simple JSON document for the Andersen family, the parents, children (and their pets), address and registration information. The document has strings, numbers, Booleans, arrays and nested properties. 
 
 **Document**  
@@ -67,7 +69,7 @@ Here’s a second document with one subtle difference – givenName and familyNa
 
 
 
-Now let’s try a few queries against this data to understand some of the key aspects of DocumentDB SQL. For example, the following query will return the documents where the name field matches “AndersenFamily”. Since it’s a SELECT *, the output of the query is the complete JSON document:
+Now let’s try a few queries against this data to understand some of the key aspects of DocumentDB SQL. For example, the following query will return the documents where the id field matches “AndersenFamily”. Since it’s a SELECT *, the output of the query is the complete JSON document:
 
 **Query**
 
@@ -132,12 +134,33 @@ The next query returns all the given names of children in the family whose id ma
 
 We would like to draw attention to a few noteworthy aspects of the DocumentDB query language through the examples we’ve seen so far:  
  
--	Since DocumentDB SQL works on JSON documents, it deals with tree shaped entities instead of rows and columns. Therefore, the language lets one refer to nodes of the tree at any arbitrary depth, like Node1.Node2.Node3…..Nodem, similar to relational SQL referring to two part reference of `<table>.<column>`.   
+-	Since DocumentDB SQL works on JSON values, it deals with tree shaped entities instead of rows and columns. Therefore, the language lets one refer to nodes of the tree at any arbitrary depth, like Node1.Node2.Node3…..Nodem, similar to relational SQL referring to two part reference of `<table>.<column>`.   
 -	The language works with schema-less data. Therefore, the type system needs to be bound dynamically. The same expression could yield different types on different documents. The result of a query is a valid JSON value, but is not guaranteed to be of a fixed schema.  
 -	DocumentDB only supports strict JSON documents. This means the type system and expressions are restricted to deal only with JSON types. Please refer to http://www.json.org/ for more details.  
--	The relations in data entities are captured by containment. This aspect demands emphasis on self or intra-document joins.
+-	A DocumentDB collection is a schema-free container of JSON documents. The relations in data entities within and across documents in a collection are implicitly captured by containment and not by PK-FK relations. This is an important aspect worth pointing out in light of the intra-document joins discussed later in this paper.
 
-## Basics of DocumentDB Query ##
+#DocumentDB Indexing
+
+Before we get into the DocumentDB SQL language, it is worth exploring DocumentDB’s indexing design. 
+
+The purpose of database indexes is to serve queries in their various forms and shapes with minimum resource consumption (like CPU, I/O) while providing good throughput and low latencies. Often, the choice of the right index(s) for querying a database requires much planning and experimentation. This approach poses a challenge for schema-less databases where the data doesn’t conform to a strict schema and evolves rapidly. 
+
+Therefore, when we designed DocumentDB’s indexing subsystem, we set the following goals:
+
+-	Indexing documents without requiring schema: The indexing subsystem does not require any schema information or make any a-priori assumptions about schema of the documents. 
+
+-	Support for efficient, rich hierarchical and relational queries: The index supports DocumentDB Query language efficiently, including support for hierarchical and relational projections.
+
+-	Support for consistent queries in face of sustained volume of writes: For high write throughput workloads with consistent queries, the index is updated incrementally, efficiently and online in the face of sustained volume of writes. The consistent index update is crucial to serve the queries with the consistency level that the user has configured the document service with.
+
+-	Support for multi-tenancy: Given the reservation based model for resource governance across tenants, index updates are performed within the budget of system resources (CPU, memory, IOPS) allocated per replica. 
+
+-	Storage efficient: For cost effectiveness, the on-disk storage overhead of the index is bounded and predictable. This is crucial because DocumentDB allows the developer to make cost based tradeoffs between index overhead vis-à-vis the query performance.  
+
+For more information, refer to the DocumentDB Indexing documentation. Let’s now get into the details of the DocumentDB SQL language.
+
+
+#Basics of DocumentDB Query
 Every query consists of a **SELECT** clause and optional **FROM** and **WHERE** clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated. Then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list.
     
     SELECT <select_list> 
@@ -145,7 +168,7 @@ Every query consists of a **SELECT** clause and optional **FROM** and **WHERE** 
     [WHERE <filter_condition>]    
 
 
-## FROM Clause ##
+#FROM Clause
 The **`FROM <from_specification>`** clause is optional unless the source is filtered/projected later in the query. The purpose of this clause is to specify the data source upon which the query must operate. Commonly the whole collection is the source, but one can specify a subset of the collection instead. 
 
 A query like “SELECT * FROM Families” indicates that the entire Families collection is the source over which to enumerate. A special identifier “ROOT” can be used to represent the collection instead of using the collection name. 
@@ -157,7 +180,8 @@ The binding rules that are enforced per query are the following:
 -	Note that once aliased, the original source cannot be bound. For example, “SELECT Familes.id FROM Families f” is syntactically invalid since the identifier “Families” cannot be resolved anymore.
 
 -	All properties that need to be referenced must be **fully qualified**. In the absence of strict schema adherence, this is enforced to avoid any ambiguous bindings. Therefore, “SELECT id FROM Families f” is syntactically invalid since the property “id” is not bound.
-## Sub-documents ##
+	
+##Sub-documents
 The source can also be reduced to a smaller subset. For instance, if one is interested in enumerating only a sub-tree in each document, the sub-root could then become the source, like in the following example.
 
 **Query**
@@ -196,7 +220,7 @@ The source can also be reduced to a smaller subset. For instance, if one is inte
 	  ]
 	]
 
-While the above example used an array as the source, an object could also be used as the source as shown in the following example. Any valid JSON value (not undefined) that can be found in the source will be considered for inclusion in the result of the query. If some families don’t have an address.state value, they will be excluded in the query result.
+While the above example used an array as the source, an object could also be used as the source as shown in the following example. Any valid JSON value (not Undefined) that can be found in the source will be considered for inclusion in the result of the query. If some families don’t have an address.state value, they will be excluded in the query result.
 
 **Query**
 
@@ -211,7 +235,7 @@ While the above example used an array as the source, an object could also be use
 	]
 
 
-## WHERE Clause ##
+#WHERE Clause
 The WHERE clause (**`WHERE <filter_condition>`**) is optional. It specifies the condition(s) that the JSON documents provided by the source must satisfy in order to be included as part of the result. Any JSON document must evaluate the specified conditions to “true” to be considered for the result. The WHERE clause is used by the index layer in order to determine the absolute smallest subset of source documents that can be part of the result. To learn more about how indexing works, please refer to the DocumentDB indexing documentation.  
 
 The following query requests documents that contain a name property and that the property’s value is “AndersenFamily”. Any other document that does not have a name property, or where the value does not match “AndersenFamily” is excluded. 
@@ -287,181 +311,473 @@ The unary operators **+,-, ~ and NOT** are also supported, and can be used insid
 
 
 
-In addition to binary & unary operators, property references are also allowed. For example, “SELECT * FROM Families f WHERE f.isRegistered” would return the JSON documents containing the property “isRegistered” and the property’s value is equal to the JSON “true” value. Any other values (false, null, undefined, <number>, <string>, <object>, <array> etc.) will lead to the source document being excluded from the result. 
+In addition to binary & unary operators, property references are also allowed. For example, “SELECT * FROM Families f WHERE f.isRegistered” would return the JSON documents containing the property “isRegistered” and the property’s value is equal to the JSON “true” value. Any other values (false, null, Undefined, <number>, <string>, <object>, <array> etc.) will lead to the source document being excluded from the result. 
 
-## Equality and Comparison operators ##
+##Equality and Comparison operators
 The following table shows the result of equality comparisons in DocumentDB SQL between any two JSON types.
-
-<table style="width: 100%">
-	<tr>
-		<td><strong>Op </strong> </td>
-		<td><strong>Undef </strong> </td>
-		<td><strong>Null </strong> </td>
-		<td><strong>Boolean </strong> </td>
-		<td><strong>Number </strong> </td>
-		<td><strong>String </strong> </td>
-		<td><strong>Object </strong> </td>
-		<td><strong>Array </strong> </td>
-	</tr>
-	<tr>
-		<td><strong>Undef </strong> </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-	</tr>
-	<tr>
-		<td><strong>Null </strong> </td>
-		<td>Undef </td>
-		<td>OK </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-	</tr>
-	<tr>
-		<td><strong>Boolean </strong> </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>OK </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-	</tr>
-	<tr>
-		<td><strong>Number </strong> </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>OK </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-	</tr>
-	<tr>
-		<td><strong>String </strong> </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>OK </td>
-		<td>Undef </td>
-		<td>Undef </td>
-	</tr>
-	<tr>
-		<td><strong>Object </strong> </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>OK </td>
-		<td>Undef </td>
-	</tr>
-	<tr>
-		<td><strong>Array </strong> </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>OK </td>
-	</tr>
+<table style = "width:300px">
+   <tbody>
+      <tr>
+         <td valign="top">
+            <strong>Op</strong>
+         </td>
+         <td valign="top">
+            <strong>Undefined</strong>
+         </td>
+         <td valign="top">
+            <strong>Null</strong>
+         </td>
+         <td valign="top">
+            <strong>Boolean</strong>
+         </td>
+         <td valign="top">
+            <strong>Number</strong>
+         </td>
+         <td valign="top">
+            <strong>String</strong>
+         </td>
+         <td valign="top">
+            <strong>Object</strong>
+         </td>
+         <td valign="top">
+            <strong>Array</strong>
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Undefined<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Null<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Boolean<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Number<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>String<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Object<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Array<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+      </tr>
+   </tbody>
 </table>
-
-
 
 For other comparison operators like >, >=, !=, < and <=   
 
--	Comparison across types results in Undef.
--	Comparison between two objects or two arrays results in Undef.   
+-	Comparison across types results in Undefined.
+-	Comparison between two objects or two arrays results in Undefined.   
 
-If the result of the scalar expression in the filter is Undef, the corresponding document would not be included in the result, since Undef doesn’t logically equate to “true”.
+If the result of the scalar expression in the filter is Undefined, the corresponding document would not be included in the result, since Undefined doesn’t logically equate to “true”.
 
-## Logical (AND, OR and NOT) operators ##
+##Logical (AND, OR and NOT) operators
 These operate on Boolean values. The logical truth tables for these operators are as shown below.
 
-<table style="width: 100%">
-	<tr>
-		<td>OR</td>
-		<td>True </td>
-		<td>False </td>
-		<td>Undef </td>
-	</tr>
-	<tr>
-		<td>True </td>
-		<td>True </td>
-		<td>True </td>
-		<td>True </td>
-	</tr>
-	<tr>
-		<td>False </td>
-		<td>True </td>
-		<td>False </td>
-		<td>Undef </td>
-	</tr>
-	<tr>
-		<td>Undef </td>
-		<td>True </td>
-		<td>Undef </td>
-		<td>Undef </td>
-	</tr>
+<table style = "width:300px">
+    <tbody>
+        <tr>
+            <td width="55" valign="top">
+                <p>
+                    <strong>OR</strong>
+                </p>
+            </td>
+            <td width="45" valign="top">
+                <p>
+                    <strong>True</strong>
+                </p>
+            </td>
+            <td width="68" valign="top">
+                <p>
+                    <strong>False</strong>
+                </p>
+            </td>
+            <td width="87" valign="top">
+                <p>
+                    <strong>Undefined</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="55" valign="top">
+                <p>
+                    <strong>True</strong>
+                </p>
+            </td>
+            <td width="45" valign="top">
+                <p>
+                    True
+                </p>
+            </td>
+            <td width="68" valign="top">
+                <p>
+                    True
+                </p>
+            </td>
+            <td width="87" valign="top">
+                <p>
+                    True
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="55" valign="top">
+                <p>
+                    <strong>False</strong>
+                </p>
+            </td>
+            <td width="45" valign="top">
+                <p>
+                    True
+                </p>
+            </td>
+            <td width="68" valign="top">
+                <p>
+                    False
+                </p>
+            </td>
+            <td width="87" valign="top">
+                <p>
+                    Undefined
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="55" valign="top">
+                <p>
+                    <strong>Undefined</strong>
+                </p>
+            </td>
+            <td width="45" valign="top">
+                <p>
+                    True
+                </p>
+            </td>
+            <td width="68" valign="top">
+                <p>
+                    Undefined
+                </p>
+            </td>
+            <td width="87" valign="top">
+                <p>
+                    Undefined
+                </p>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
-<table style="width: 100%">
-	<tr>
-		<td>AND </td>
-		<td>True </td>
-		<td>False </td>
-		<td>Undef </td>
-	</tr>
-	<tr>
-		<td>True </td>
-		<td>True </td>
-		<td>False </td>
-		<td>Undef </td>
-	</tr>
-	<tr>
-		<td>False </td>
-		<td>False </td>
-		<td>False </td>
-		<td>False </td>
-	</tr>
-	<tr>
-		<td>Undef </td>
-		<td>Undef </td>
-		<td>False </td>
-		<td>Undef </td>
-	</tr>
+<table style = "width:300px">
+    <tbody>
+        <tr>
+            <td width="55" valign="top">
+                <p>
+                    <strong>AND</strong>
+                </p>
+            </td>
+            <td width="54" valign="top">
+                <p>
+                    <strong>True</strong>
+                </p>
+            </td>
+            <td width="58" valign="top">
+                <p>
+                    <strong>False</strong>
+                </p>
+            </td>
+            <td width="107" valign="top">
+                <p>
+                    <strong>Undefined</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="55" valign="top">
+                <p>
+                    <strong>True</strong>
+                </p>
+            </td>
+            <td width="54" valign="top">
+                <p>
+                    True
+                </p>
+            </td>
+            <td width="58" valign="top">
+                <p>
+                    False
+                </p>
+            </td>
+            <td width="107" valign="top">
+                <p>
+                    Undefined
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="55" valign="top">
+                <p>
+                    <strong>False</strong>
+                </p>
+            </td>
+            <td width="54" valign="top">
+                <p>
+                    False
+                </p>
+            </td>
+            <td width="58" valign="top">
+                <p>
+                    False
+                </p>
+            </td>
+            <td width="107" valign="top">
+                <p>
+                    False
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="55" valign="top">
+                <p>
+                    <strong>Undefined</strong>
+                </p>
+            </td>
+            <td width="54" valign="top">
+                <p>
+                    Undefined
+                </p>
+            </td>
+            <td width="58" valign="top">
+                <p>
+                    False
+                </p>
+            </td>
+            <td width="107" valign="top">
+                <p>
+                    Undefined
+                </p>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
-<table style="width: 100%">
-	<tr>
-		<td>NOT </td>
-		<td>&nbsp;</td>
-	</tr>
-	<tr>
-		<td>True </td>
-		<td>False </td>
-	</tr>
-	<tr>
-		<td>False </td>
-		<td>True </td>
-	</tr>
-	<tr>
-		<td>Undef </td>
-		<td>Undef </td>
-	</tr>
+<table style = "width:300px">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>NOT</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong></strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>True</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    False
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>False</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    True
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Undefined</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Undefined
+                </p>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
-
-## SELECT Clause ##
+#SELECT Clause
 The SELECT clause (**`SELECT <select_list>`**) is mandatory and specifies what values will be retrieved from the query, just like in ANSI-SQL. The subset that’s been filtered on top of the source documents are passed onto the projection phase, where the specified JSON values are retrieved and a new JSON object is constructed, for each input passed onto it. 
 
 The example below shows a typical SELECT query: 
@@ -483,7 +799,7 @@ The example below shows a typical SELECT query:
 	}]
 
 
-## Nested Properties ##
+##Nested Properties
 In the following example, we are projecting two nested properties f.address.state and f.address.city:
 
 **Query**
@@ -541,7 +857,7 @@ Let’s look at the role of $1 here. The SELECT clause needs to create a JSON ob
 	}]
 
 
-## Aliasing ##
+##Aliasing
 Now let’s extend the example above with explicit aliasing of values. “AS” is the keyword used for aliasing. Note that it’s optional as shown while projecting the second value as NameInfo. 
 
 In case a query has two properties with the same name, aliasing must be used to rename one or both of the properties so that they are disambiguated in the projected result.
@@ -566,8 +882,8 @@ In case a query has two properties with the same name, aliasing must be used to 
 	  }
 	}]
 
- 
-## Scalar Expressions ##
+
+##Scalar Expressions
 In addition to property references, the SELECT clause also supports scalar expressions like constants, arithmetic expressions, logical expressions etc. For example, here’s a simple “Hello World” query.
 
 **Query**
@@ -613,7 +929,7 @@ In the following example, the result of the scalar expression is a Boolean.
 	]
 
 
-## Object and Array Creation ##
+##Object and Array Creation
 Another key feature of DocumentDB SQL is array/object creation. In the previous example, note that we created a new JSON object. Similarly, one can also construct arrays as shown below.
 
 **Query**
@@ -638,8 +954,8 @@ Another key feature of DocumentDB SQL is array/object creation. In the previous 
 	  }
 	]
 
-## VALUE keyword ##
-The VALUE keyword provides an easy way to unwrap and project just the value part of the JSON object. For example, the query shown below returns the scalar “Hello World” without the JSON object wrapper.
+##VALUE keyword
+The VALUE keyword provides a way to return JSON value. For example, the query shown below returns the scalar “Hello World” instead of {$1: "Hello World"}.
 
 **Query**
 
@@ -689,7 +1005,7 @@ The following example extends this to show the unwrap functionality for primitiv
 	]
 
 
-## Operator ##
+##* Operator
 We support the special operator (*) to project the document as-is. When used, it must be the only projected field. While a query like “SELECT * FROM Families f” is valid, “SELECT VALUE * FROM Families f “ and  “SELECT *, f.id FROM Families f “ are not.
 
 **Query**
@@ -717,11 +1033,9 @@ We support the special operator (*) to project the document as-is. When used, it
 	    "isRegistered": true
 	}]
 
-# Advanced Concepts #
-## Iteration ##
-JSON arrays presented an interesting challenge for DocumentDB to incorporate into SQL, since arrays are not a native concept in the relational scheme. Most of the operations involving JSON arrays need support similar to that of LINQ’s SelectMany. In other words, there needs to be query support that can apply filters and project on top of an iterator that goes through each element. We added a new construct via the **IN** keyword in DocumentDB SQL to provide this support. 
-
-The FROM source provides support for iteration. Let’s start with the following example:
+#Advanced Concepts
+##Iteration
+We added a new construct via the **IN** keyword in DocumentDB SQL to provide support for iterating over JSON arrays. The FROM source provides support for iteration. Let’s start with the following example:
 
 **Query**
 
@@ -799,8 +1113,8 @@ This can be further used to filter on each individual entry of the array like in
 	  "givenName": "Lisa"
 	}]
 
-## Joins ##
-In a relational database, the need to join across tables is very important. It’s the logical corollary to designing normalized schemas. Contrary to this, in our schema-less database, de-normalization is the norm. Despite the lesser need to join across different document, many uses cases exist to join within a given document. This is the logical equivalent of a “self-join”.
+##Joins
+In a relational database, the need to join across tables is very important. It’s the logical corollary to designing normalized schemas. Contrary to this, DocumentDB deals with denormalized data model of schema-free documents. This is the logical equivalent of a “self-join”.
 
 The syntax that is supported in the language is <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>. Overall, this would return a set of **N**-tuples (tuple with **N** values). Each tuple will have values produced by iterating all collection aliases over their respective sets. In other words, this is a full cross product of the sets participating in the join.
 
@@ -935,21 +1249,11 @@ In the next example, there is an additional filter on “pet”. This excludes a
 	FROM Families f 
 	JOIN c IN f.children 
 	JOIN p IN c.pets
-	 WHERE p.givenName = "Shadow"
+	WHERE p.givenName = "Shadow"
 
 **Results**
 
 	[
-	  {
-	    "familyName": "AndersenFamily", 
-	    "childFirstName": "Henriette Thaulow", 
-	    "petName": "Fluffy"
-	  }, 
-	  {
-	    "familyName": "WakefieldFamily", 
-	    "childGivenName": "Jesse", 
-	    "petName": "Goofy"
-	  }, 
 	  {
 	   "familyName": "WakefieldFamily", 
 	   "childGivenName": "Jesse", 
@@ -958,13 +1262,13 @@ In the next example, there is an additional filter on “pet”. This excludes a
 	]
 
 
-## JavaScript Integration #
+#JavaScript Integration
 DocumentDB provides a programming model for executing JavaScript based application logic directly on the collections in terms of stored procedures and triggers. This allows for both:
 
--	An efficient implementation of concurrency control on the JSON object graphs directly in the database engine
+-	Ability to do high performance transactional CRUD and query against documents in a collection by virtue of the deep integration of JavaScript runtime directly within the database engine. 
 -	A natural modeling of control flow, variable scoping, assignment and integration of exception handling primitives with database transactions. For more details about DocumentDB support for JavaScript integration, please refer to the JavaScript server side programmability documentation.
 
-## User Defined Functions (UDFs) ##
+##User Defined Functions (UDFs)
 Along with the above specified types, DocumentDB SQL provides support for User Defined Functions (UDF). In particular, scalar UDFs are supported where the developers can pass in zero or many arguments and return a single argument result back. Each of these arguments are checked for being legal JSON values.  
 
 The DocumentDB SQL grammar is extended to support custom application logic using these User Defined Functions. UDFs can be registered with Azure DocumentDB and then be referenced as part of a SQL query. In fact, the UDFs are exquisitely designed to be invoked by queries. As a corollary to this choice, UDFs do not have access to the context object which the other JavaScript types (Stored Procedures, Triggers) have. Since queries execute as read-only, they can run either on primary or on secondary replicas. Therefore, UDFs are designed to run on secondary replicas unlike other JavaScript types.
@@ -990,7 +1294,7 @@ We can now use this UDF in a query in a projection.
 
 **Query**
 
-	SELECTRT(c. SQgrade)
+	SELECT SQRT(c.grade)
 	FROM c IN Families.children
 
 **Results**
@@ -1065,11 +1369,11 @@ Below is an example that exercises the UDF.
 
 As the above examples show cases, UDFs integrates the power of JavaScript language with the DocumentDB SQL to provide rich programmable interface to do complex procedural, conditional logic with the help of inbuilt JavaScript runtime capabilities.
 
-DocumentDB SQL provides the arguments to the UDFs for each document in the source at the current stage (WHERE clause ‘or’ SELECT clause) of processing the UDF. The result is incorporated in the overall execution pipeline seamlessly. If the properties referred to by the UDF parameters are not available in the JSON value, the parameter is considered as undefined and hence the UDF invocation is entirely skipped. Similarly if the result of the UDF is undefined, it’s not included in the result. 
+DocumentDB SQL provides the arguments to the UDFs for each document in the source at the current stage (WHERE clause ‘or’ SELECT clause) of processing the UDF. The result is incorporated in the overall execution pipeline seamlessly. If the properties referred to by the UDF parameters are not available in the JSON value, the parameter is considered as Undefined and hence the UDF invocation is entirely skipped. Similarly if the result of the UDF is Undefined, it’s not included in the result. 
 
 In summary, UDFs are great tools to do complex business logic as part of the query.
 
-## Operator Evaluation ##
+##Operator Evaluation
 DocumentDB, by the virtue of being a JSON database, draws parallels with JavaScript operators and its evaluation semantics. While DocumentDB tries to preserve JavaScript semantics in terms of JSON support, the operation evaluation deviates in some instances.
 
 In DocumentDB SQL query language, unlike in traditional SQL, the types of values are often not known until the values are actually retrieved from database. In order to efficiently execute   queries, most of the operators have strict type requirements. 
@@ -1078,7 +1382,7 @@ DocumentDB SQL doesn’t perform implicit conversions unlike JavaScript. For ins
 other possibly infinite variations like “021”, “21.0”, “0021”, “00021” etc. will not be matched. 
 This is in contrast to the JavaScript where the string values are implicitly casted to number (based on operator, ex: ==). This choice is crucial for efficient Index matching in DocumentDB SQL. 
 
-## LINQ to DocumentDB SQL #
+#LINQ to DocumentDB SQL
 LINQ is a .NET programming model which expresses computation as queries on streams of objects. DocumentDB provides a client side library to interface with LINQ by facilitating a conversion between JSON and .NET objects and a mapping from a subset of LINQ queries to DocumentDB queries. 
 
 The picture below shows the architecture of supporting LINQ queries using DocumentDB.  Using the DocumentDB client, developers can create an **IQueryable** object which would direct the query to the DocumentDB query provider which then translates the LINQ query into a DocumentDB query. The query is then passed to the DocumentDB server to retrieve a set of results in JSON format. The returned results are deserialized into a stream of .NET objects at the client side.
@@ -1087,7 +1391,7 @@ The picture below shows the architecture of supporting LINQ queries using Docume
  
 
 
-## .NET and JSON Mapping ##
+##.NET and JSON Mapping
 The mapping between .NET objects and JSON documents is natural - each data member field is mapped to a JSON object, where the field name is mapped to the “key” part of the object and the “value” part is recursively mapped to the value part of the object. Consider the example below.  The Family object created is mapped to the JSON document as shown below. Vice versa, the JSON document is mapped back to a .NET object.
 
 **C# Class**
@@ -1169,7 +1473,7 @@ The mapping between .NET objects and JSON documents is natural - each data membe
 
 
 
-## LINQ to SQL Translation ##
+##LINQ to SQL Translation
 The DocumentDB query provider performs a best effort mapping from a LINQ query into a DocumentDB SQL query. In the following description, we assume the reader’s basic familiarity of LINQ.
 
 First, for the type system, we support all JSON primitive types – numeric types, bool, string and null. Only these JSON types are supported. The following scalar expressions are supported.
@@ -1199,10 +1503,10 @@ First, for the type system, we support all JSON primitive types – numeric type
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
-## Query Operators ##
+##Query Operators
 Here are some examples that illustrate how some of the standard LINQ query operators are translated down to DocumentDB queries.
 
-### Select Operator ###
+###Select Operator
 The syntax is input.Select(x => f(x)), where f is a scalar expression.
 
 **LINQ Lambda Expression**
@@ -1245,7 +1549,7 @@ The syntax is input.Select(x => f(x)), where f is a scalar expression.
 
 
 
-### SelectMany Operator ###
+###SelectMany Operator
 The syntax is input.SelectMany(x => f(x)), where f is a scalar expression which returns a collection type.
 
 **LINQ Lambda Expression**
@@ -1259,7 +1563,7 @@ The syntax is input.SelectMany(x => f(x)), where f is a scalar expression which 
 
 
 
-### Where Operator ###
+###Where Operator
 The syntax is input.Where(x => f(x)), where f is a scalar expression which returns a Boolean value.
 
 **LINQ Lambda Expression**
@@ -1271,6 +1575,7 @@ The syntax is input.Where(x => f(x)), where f is a scalar expression which retur
 	SELECT *
 	FROM Families f
 	WHERE f.parents[0].familyName = "Smith" 
+
 
 
 **LINQ Lambda Expression**
@@ -1287,10 +1592,10 @@ The syntax is input.Where(x => f(x)), where f is a scalar expression which retur
 	AND f.children[0].grade < 3
 
 
-## Composite Queries ##
+##Composite Queries
 The above operators can be composed to form more powerful queries. Since DocumentDB supports nested collections, such composition can either be concatenated or nested.
 
-### Concatenation ###
+###Concatenation 
 
 The syntax is input(.|.SelectMany())(.Select()|.Where())*. A concatenated query can start with an optional SelectMany query followed by multiple Select or Where operators.
 
@@ -1347,7 +1652,7 @@ The syntax is input(.|.SelectMany())(.Select()|.Where())*. A concatenated query 
 
 
 
-### Nesting ###
+###Nesting
 
 The syntax is input.SelectMany(x=>x.Q()) where Q is a Select, SelectMany, or Where operator.
 
@@ -1378,6 +1683,7 @@ In a nested query, the inner query is applied to each element of the outer colle
 	WHERE c.familyName = "Jeff"
 
 
+
 **LINQ Lambda Expression**
             
 	input.SelectMany(family => family.children.Where(
@@ -1391,11 +1697,11 @@ In a nested query, the inner query is applied to each element of the outer colle
 	WHERE c.familyName = f.parents[0].familyName
 
 
-## Executing Queries #
+#Executing Queries
 Azure DocumentDB exposes resources via REST API that can be called by any language capable of making HTTP/HTTPS requests. Additionally, Azure DocumentDB offers programming libraries for several popular languages like .NET, Node.js, JavaScript and Python. The REST API and the various libraries all support querying through SQL. The .NET SDK supports LINQ querying in addition to SQL.
 
 The following examples show how to create a query and submit it against a DocumentDB database account.
-### REST API ###
+##REST API
 DocumentDB offers an open RESTful programming model over HTTP. Database accounts can be provisioned using an Azure subscription. DocumentDB’s resource model consists of a sets of resources under a database account, each addressable via a logical and stable URI. A set of resources is referred to as a feed in this document. A database account consists of a set of databases, each containing multiple collections, each of which in-turn contain documents, UDFs and other resource types.
 
 The basic interaction model with these resources is through the HTTP verbs GET, PUT, POST and DELETE with their standard interpretation. The POST verb is used for creation of a new resource, for executing a stored procedure or for issuing a DocumentDB query. Queries are always read only operations with no side-effects.
@@ -1516,12 +1822,12 @@ The second example shows a more complex query that returns multiple results from
 If a query’s results cannot fit within a single page of results, then the REST API returns a continuation token through the x-ms-continuation-token response header. Clients can paginate results by including the header in subsequent results. The number of results per page can also be controlled through the x-ms-max-item-count number header.
 
 To manage the data consistency policy for queries, use the x-ms-consistency-level header like all REST API requests. For session consistency, it is required to also echo the latest x-ms-session-token Cookie header in the query request. Note that the queried collection’s indexing policy can also influence the consistency of query results. With the default indexing policy settings, for collections the index is always current with the document contents and query results will match the consistency chosen for data. If the indexing policy is relaxed to Lazy, then queries can return stale results. For more information, refer to the documentation on consistency policies.
-### C# (.NET) SDK
+##C# (.NET) SDK
 The .NET SDK supports both LINQ and SQL querying. The following example shows how to perform the simple filter query introduced earlier in this document.
 
 
 	foreach (var family in client.CreateDocumentQuery(collectionLink, 
-	    "SELECT * FROM Families f WHERE f.is = \"AndersenFamily\""))
+	    "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
 	{
 	    Console.WriteLine("\tRead {0} from SQL", family);
 	}
@@ -1531,19 +1837,18 @@ The .NET SDK supports both LINQ and SQL querying. The following example shows ho
 	    where f.Id == "AndersenFamily"
 	    select f))
 	{
-	    Console.WriteLine("\tRead {0} from LINQ lambdas", family);
+	    Console.WriteLine("\tRead {0} from LINQ query", family);
 	}
 	
 	foreach (var family in client.CreateDocumentQuery(collectionLink)
 	    .Where(f => f.Id == "AndersenFamily")
 	    .Select(f => f))
 	{
-	    Console.WriteLine("\tRead {0} from LINQ query", family);
+	    Console.WriteLine("\tRead {0} from LINQ lambda", family);
 	}
 
 
 This sample compares two properties for equality within each document and uses anonymous projections. 
-
 
 
 	foreach (var family in client.CreateDocumentQuery(collectionLink,
@@ -1559,7 +1864,7 @@ This sample compares two properties for equality within each document and uses a
 	    where f.address.city == f.address.state
 	    select new { Name = f.Id, City = f.address.city }))
 	{
-	    Console.WriteLine("\tRead {0} from LINQ lambdas", family);
+	    Console.WriteLine("\tRead {0} from LINQ query", family);
 	}
 	
 	foreach (var family in
@@ -1567,7 +1872,7 @@ This sample compares two properties for equality within each document and uses a
 	    .Where(f => f.address.city == f.address.state)
 	    .Select(f => new { Name = f.Id, City = f.address.city }))
 	{
-	    Console.WriteLine("\tRead {0} from LINQ query", family);
+	    Console.WriteLine("\tRead {0} from LINQ lambda", family);
 	}
 
 
@@ -1584,16 +1889,6 @@ The next sample shows joins, expressed through LINQ SelectMany.
 	    Console.WriteLine("\tRead {0} from SQL", pet);
 	}
 	
-	foreach (var pet in (
-	    from f in client.CreateDocumentQuery<Family>(collectionLink)
-	    from c in f.children
-	    from p in c.pets
-	    where p.givenName == "Shadow"
-	    select p))
-	{
-	    Console.WriteLine("\tRead {0} from LINQ query", pet);
-	}
-	
 	// Equivalent in Lambda expressions
 	foreach (var pet in
 	    client.CreateDocumentQuery<Family>(collectionLink)
@@ -1601,7 +1896,7 @@ The next sample shows joins, expressed through LINQ SelectMany.
 	    .SelectMany(c => c.pets)
 	    .Where(p => p.givenName == "Shadow"))
 	{
-	    Console.WriteLine("\tRead {0} from LINQ lambdas", pet);
+	    Console.WriteLine("\tRead {0} from LINQ lambda", pet);
 	}
 
 
@@ -1610,7 +1905,7 @@ The .NET client automatically iterates through all the pages of query results in
 
 Developers can also explicitly control paging by creating an IDocumentQueryable using the IQueryable object, then by reading the ResponseContinuationToken values and passing them back as RequestContinuationToken in FeedOptions. Refer the .NET samples project for more samples on queries. 
 
-## JavaScript Server-side API ##
+##JavaScript Server-side API 
 DocumentDB provides a programming model for executing JavaScript based application logic directly on the collections using stored procedures and triggers. The JavaScript logic registered at a collection level can then issue database operations on the operations on the documents of the given collection. These operations are wrapped in ambient ACID transactions.
 
 The following example show how to use the queryDocuments in the JavaScript server API make queries from inside stored procedures and triggers.
@@ -1647,23 +1942,19 @@ The following example show how to use the queryDocuments in the JavaScript serve
 	}
 
 
-# References #
-1.	Introduction to DocumentDB
-2.	DocumentDB SQL Language specification
-3.	DocumentDB REST API reference
-4.	DocumentDB SQL Samples Project
-5.	Indexing documentation reference 
-6.	ANSI SQL 2011 - [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-7.	JSON [http://json.org/](http://json.org/)
-8.	Javascript Specification [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-9.	LINQ [http://msdn.microsoft.com/en-us/library/bb308959.aspx](http://msdn.microsoft.com/en-us/library/bb308959.aspx) 
-10.	Query evaluation techniques for large databases [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-11.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
-12.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
-13.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
-14.	G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
-15.	Apache. Pig. [http://incubator.apache.org/pig/, 2008](http://incubator.apache.org/pig/, 2008). 
-16.	Apache. Hive. [https://cwiki.apache.org/confluence/display/Hive/Home](https://cwiki.apache.org/confluence/display/Hive/Home)
+#References
+1.	[Introduction to Azure DocumentDB] [introduction]
+2.	[DocumentDB SQL Language specification] (http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3.	ANSI SQL 2011 - [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+4.	JSON [http://json.org/](http://json.org/)
+5.	Javascript Specification [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+6.	LINQ [http://msdn.microsoft.com/en-us/library/bb308959.aspx](http://msdn.microsoft.com/en-us/library/bb308959.aspx) 
+7.	Query evaluation techniques for large databases [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+8.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
+9.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
+10.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
+11.     G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
+[introduction]: ../documentdb-introduction
