@@ -41,7 +41,7 @@ that you have the following installed:
 Visual Studio 2013 with update 3 (or [Visual Studio Express][] which is
 the free version)
 
-[Visual Studio Tools for Node.js][]
+[Node.js Tools for Visual Studio][]
 
 Note : While we are using Visual Studio to build, debug, and deploy our Node.js
 project in this tutorial you can use whichever IDE or editor you prefer
@@ -531,13 +531,11 @@ running in Azure!
 Congratulations! You have just built your first Node.js Express Web
 Application using Azure DocumentDB and published it to Azure Websites.
 
-<a name="TutorialDownloadLink">The source code for the complete
-reference application </a> can be downloaded [here][].
-
-  [here]: http://go.microsoft.com/fwlink/?LinkID=509839&clcid=0x409
+The source code for the complete reference application can be downloaded [here][].
 
 </h1>
   [node]: http://nodejs.org/
   [Git]: http://git-scm.com/
   [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
-  [Visual Studio Tools for Node.js]: https://nodejstools.codeplex.com/
+  [Node.js Tools for Visual Studio]: https://nodejstools.codeplex.com/
+  [here]: http://go.microsoft.com/fwlink/?LinkID=509839&clcid=0x409

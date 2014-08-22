@@ -56,7 +56,7 @@ Azure SDK for .NET version 2.3 or higher, available through
 All the screenshots in this document have been taken using
 Visual Studio 2013 with Update 3 applied and Azure SDK for .NET version
 2.4. If your system is configured with different versions it is likely
-that your screens and options won’t match entirely, but if you meet the
+that your screens and options won't match entirely, but if you meet the
 above prerequisites this solution should work.
 
 
@@ -92,7 +92,7 @@ account.
 
 ![Alt text](./media/documentdb-dotnet-application/image6.png)
 
-Once you’re done supplying the values for your account, Click "Create"
+Once you're done supplying the values for your account, Click "Create"
 and the provisioning process will begin creating your database account.
 Once the provisioning process is complete you should see a notification
 appear in the notifications area of the portal and the tile on your
@@ -114,10 +114,9 @@ Using the "Keys" button, access your endpoint URL and the Primary Key,
 copy these to your clipboard and keep them handy as we will use these
 values in the web application we will use these values in the web application we will create next.
 
-</p>
 We will now walk through how to create a new ASP.NET MVC application
 from the ground-up. For your reference the complete solution can be
-downloaded [here][].
+downloaded [here].
 
 <a name="_Toc395637762">Create a new ASP.NET MVC application</a>
 ================================================================
@@ -134,7 +133,7 @@ Select where you would like to create the project and click Ok.
 
 
 If you plan on hosting your application in Azure then select the box on
-the lower right to "Host in the cloud". We’ve selected to host in the
+the lower right to "Host in the cloud". We've selected to host in the
 cloud, and run the application hosted in an Azure Website. Selecting
 this option will pre-provision an Azure Website for you and make life a
 lot easier when it comes times to deploy the final working application.
@@ -147,8 +146,8 @@ Website. Proceed to supply all these Azure values and continue.
 Once Visual Studio has finished creating the boilerplate MVC application
 you have an empty ASP.NET application that you can run locally.
 
-We’ll skip running locally because I’m sure we’ve all seen the ASP.NET
-"Hello World" application. Let’s go straight to adding DocumentDB to
+We'll skip running locally because I'm sure we've all seen the ASP.NET
+"Hello World" application. Let's go straight to adding DocumentDB to
 this project and building our application.
 
 <a name="_Toc395637763">Setting up the ASP.NET MVC application</a>
@@ -158,7 +157,7 @@ this project and building our application.
 
 ### <a name="_Toc395637764">Add a Model</a>
 
-Let’s begin by creating the **M** in MVC, the model. In Solution
+Let's begin by creating the **M** in MVC, the model. In Solution
 Explorer, right-click the *Models* folder and then click **Add**, then
 **Class**
 
@@ -183,11 +182,11 @@ All data in DocumentDB is passed over the wire, and stored, as JSON. To
 control the way your objects are serialized/deserialized by JSON.NET you
 can use the JsonProperty attribute like above which ensures that our
 property names follow the JSON convention of lowercase property names.
-You don’t **have** to do this.
+You don't **have** to do this.
 
 ### <a name="_Toc395637765">Add a Controller</a>
 
-That takes care of the M, now let’s create the **C** in MVC, a
+That takes care of the M, now let's create the **C** in MVC, a
 controller class.
  In **Solution Explorer**, right-click the *Controllers* folder and then
 click **Add**, then **Controller**.
@@ -211,13 +210,13 @@ Explorer should look like similar to below.
 
 ### <a name="_Toc395637766">Add Views</a>
 
-And finally, let’s create the **V** in MVC, a view.
+And finally, let's create the **V** in MVC, a view.
 
 
 #### Add Item Index View
 
 Expand the ***Views***  folder in Solution Explorer and location the
-(empty) Item folder which Visual Studio would’ve created for you when
+(empty) Item folder which Visual Studio would've created for you when
 you added the *ItemController* earlier. Right click on ***Item***
 and choose to Add a new View.
 
@@ -262,7 +261,7 @@ will return to these Views later.
 =============================================================
 
 That takes care of most of the ASP.NET MVC plumbing that we need for
-this solution. Now let’s get to the real purpose of this tutorial,
+this solution. Now let's get to the real purpose of this tutorial,
 adding Azure DoucmentDB to our web application.
 
 </h1>
@@ -291,7 +290,7 @@ with two new references added;
 ### <a name="_Toc395637770">Listing Incomplete Items</a>
 
 Open the **ItemController** and remove all the code within the class
-(but leave the class) that Visual Studio added. We’ll rebuild it piece
+(but leave the class) that Visual Studio added. We'll rebuild it piece
 by piece using DoucmentDB.
 
 Add the following code snippet within the now empty ItemController
@@ -305,10 +304,10 @@ class;
 
 This uses a "pseudo repository" class for DocumentDB, which is actually
 just a Helper class that contains all the DocumentDB specific code. For
-the purposes of this walkthrough we aren’t going to implement a full
+the purposes of this walkthrough we aren't going to implement a full
 data access layer with dependency injection using a repository pattern,
 as you might do if you were building a real world application. For the
-purposes of this walkthrough we’re just going to put all the data access
+purposes of this walkthrough we're just going to put all the data access
 logic in to one project to keep things simple.
 
 Add a new Class to your project and call it **DocumentDBRepository.**
@@ -320,7 +319,7 @@ And replace the code in the class file with the following;
 	    {
 	    	return await Task<List<Item>>.Run( () => 
 	    		Client.CreateDocumentQuery<Item>(Collection.DocumentsLink)
-		    		.Where(d => d.Completed == false)
+		    		.Where(d => !d.Completed)
 		    		.AsEnumerable()
 		    		.ToList<Item>());
 	    }
@@ -371,31 +370,31 @@ below to your repository class;
         }
 
          
-        private static string databaseName;
-        private static String DatabaseName
+        private static string databaseId;
+        private static String DatabaseId
         {
             get
             {
-                if (string.IsNullOrEmpty(_databaseName))
+                if (string.IsNullOrEmpty(databaseId))
                 {
-                    databaseName = CloudConfigurationManager.GetSetting("databaseName");
+                    databaseId = ConfigurationManager.GetSetting("database");
                 }
 
-                return databaseName;
+                return databaseId;
             }
         }
 	  
-        private static string collectionName;
-        private static String CollectionName
+        private static string collectionId;
+        private static String CollectionId
         {
             get
             {
-                if (string.IsNullOrEmpty(collectionName))
+                if (string.IsNullOrEmpty(collectionId))
                 {
-                    collectionName = ConfigurationManager.GetSetting("collectionName");
+                    collectionId = ConfigurationManager.GetSetting("collection");
                 }
 
-                return collectionName;
+                return collectionId;
             }
         }
 
@@ -407,7 +406,7 @@ below to your repository class;
                 if (client == null)
                 {
 	      		String endpoint = ConfigurationManager.GetSetting("endpoint")
-	            	string authKey = CloudConfigurationManager.GetSetting("authKey");
+	            	string authKey = ConfigurationManager.GetSetting("authKey");
 	        	Uri endpointUri = new Uri(endpoint);
 	            	client = new DocumentClient(endpointUri, authKey);
                 }
@@ -415,11 +414,10 @@ below to your repository class;
             }
         }
 
-         
         private static async Task ReadOrCreateCollection(string databaseLink)
         {
             var collections = Client.CreateDocumentCollectionQuery(databaseLink)
-                              .Where(col => col.Name == CollectionName).ToArray();
+                              .Where(col => col.Id == CollectionId).ToArray();
 
             if (collections.Any())
             {
@@ -428,26 +426,25 @@ below to your repository class;
             else
             {
                 collection = await Client.CreateDocumentCollectionAsync(databaseLink, 
-                    new DocumentCollection { Name = CollectionName });
+                    new DocumentCollection { Id = CollectionId });
             }
         }
 	 
         private static async Task ReadOrCreateDatabase()
         {
             var databases = Client.CreateDatabaseQuery()
-                            .Where(db => db.Name == DatabaseName).ToArray();
+                            .Where(db => db.Id == DatabaseId).ToArray();
 
             if (databases.Any())
             {
-                _database = databases.First();
+                database = databases.First();
             }
             else
             {
-		Database database = new Database { Name = DatabaseName };	
+		Database database = new Database { Id = DatabaseId };	
                 database = await Client.CreateDatabaseAsync(database);
             }
         }
-
 </h1>
 
 #### 
@@ -478,7 +475,7 @@ At this point your solution should be able to build without any errors.
 
 If you ran the application now, you would go to the Home Controller and
 the Index view of that controller. This is the default behavior for the
-MVC template project we chose at the start but we don’t want that! Let’s
+MVC template project we chose at the start but we don't want that! Let's
 change the routing on this MVC application to alter this behavior.
 
 Open ***RouteConfig.cs*** under the App\_Start folder, locate the line
@@ -494,11 +491,11 @@ If you run this project now, you should now see something that looks this;
 
 ### <a name="_Toc395637771">Adding Items</a>
 
-Let’s now put some items in to our database so we have something more
+Let's now put some items in to our database so we have something more
 than an empty grid to look at.
 
 We have already got a View for Create, and a Button on the Index View
-which will take the user to the create view. Let’s add some code to the
+which will take the user to the create view. Let's add some code to the
 Controller and Repository to persist the record in DocumentDB.
 
 Open the ***ItemController.cs*** and add the following code snippet
@@ -538,6 +535,7 @@ following method to your DocumentDBRepository class.
 
 This method simply takes any object passed to it and persists it in
 DocumentDB.
+
  This concludes the code required to add new items to our database.
 
 
@@ -596,11 +594,12 @@ Add the following to the DocumentDBRepository class;
 			.FirstOrDefault());
     }
     
-     
     public static async Task<Document> UpdateDocument(Item item)
     {
-    	string docLink = Collection.SelfLink + "docs/" + item.ID;
-   	Document doc = await Client.ReadDocumentAsync(docLink);     
+            var doc = Client.CreateDocumentQuery<Document>(Collection.DocumentsLink)
+                        .Where(d => d.Id == item.ID)
+                        .AsEnumerable().FirstOrDefault();
+		
         return await Client.ReplaceDocumentAsync(doc.SelfLink, item);
     }
 
@@ -612,7 +611,7 @@ The second of the two methods we just added replaces the document in
 DocumentDB with the version of the Document passed in from the
 ItemController.
 
-That’s it, that is everything we need to run our application, List
+That's it, that is everything we need to run our application, List
 incomplete items, Add new items, and lastly Edit items.
 
 </h3>
@@ -659,12 +658,12 @@ item will no longer appear of the list.
 ### 
 
 Now that you have the complete application working correctly against
-DocumentDB we’re going to deploy this to Azure Websites.
+DocumentDB we're going to deploy this to Azure Websites.
 
 If you selected "Host in the cloud" when we created the empty ASP.NET
 MVC project then Visual Studio makes this really easy and does most of
 the work for us. To Publish this application to all you need to do, is
-Right Click on the Project in Solution Explorer (make sure you’re not
+Right Click on the Project in Solution Explorer (make sure you're not
 still running it locally) and select Publish
 
 ![Alt text](./media/documentdb-dotnet-application/image28.png)
@@ -688,11 +687,10 @@ running in Azure!
 
 ### 
 
-Congratulations! You have just built your first ASP.NET MVC Application using Azure DocumentDB and published it to Azure Websites.
-The source code for the complete reference application can be downloaded here.
+Congratulations! You have just built your first ASP.NET MVC Application using Azure DocumentDB and published it to Azure Websites. The source code for the complete reference application can be downloaded here.
 
 
-  [here]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/Tutorial%20-%20Building%20an%20ASP.NET%20MVC%20Web%20Application%20using%20Azure%20DocumentDB.docx#TutorialDownloadLink
+  [here] (http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409)
 
   [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
   [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
