@@ -7,7 +7,7 @@
 - [(Windows Store JavaScript | Javascript)](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started/)
 - [(Xamarin iOS | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/)
 - [(Xamarin iOS | Javascript)](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started/)
-- [(Xamarin Android | .NET)](/en-us/documentation/articles/test-mobile-services-dotnet-backend-xamarin-android-get-started/)
+- [(Xamarin Android | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started/)
 - [(Xamarin Android | Javascript)](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started/)
 - [(Android | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started/)
 - [(Android | Javascript)](/en-us/documentation/articles/mobile-services-android-get-started/)
