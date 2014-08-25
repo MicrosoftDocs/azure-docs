@@ -92,9 +92,9 @@ account.
 
 ![Alt text](./media/documentdb-dotnet-application/image6.png)
 
-Once you're done supplying the values for your account, Click "Create"
-and the provisioning process will begin creating your database account.
-Once the provisioning process is complete you should see a notification
+
+Once you're done supplying the values for your account, click "Create" and the provisioning process will begin creating your database account.
+When the provisioning process is complete, you should see a notification
 appear in the notifications area of the portal and the tile on your
 start screen (if you selected to create one) will change to show the
 completed action.
@@ -133,7 +133,11 @@ Select where you would like to create the project and click Ok.
 
 
 If you plan on hosting your application in Azure then select the box on
+<<<<<<< HEAD
 the lower right to "Host in the cloud". We've selected to host in the
+=======
+the lower right to “Host in the cloud”. We've selected to host in the
+>>>>>>> 25a11b4599ae1bdc85a5f4f50a32dcb7774762d4
 cloud, and run the application hosted in an Azure Website. Selecting
 this option will pre-provision an Azure Website for you and make life a
 lot easier when it comes times to deploy the final working application.
@@ -147,7 +151,11 @@ Once Visual Studio has finished creating the boilerplate MVC application
 you have an empty ASP.NET application that you can run locally.
 
 We'll skip running locally because I'm sure we've all seen the ASP.NET
+<<<<<<< HEAD
 "Hello World" application. Let's go straight to adding DocumentDB to
+=======
+“Hello World” application. Let's go straight to adding DocumentDB to
+>>>>>>> 25a11b4599ae1bdc85a5f4f50a32dcb7774762d4
 this project and building our application.
 
 <a name="_Toc395637763">Setting up the ASP.NET MVC application</a>
@@ -262,7 +270,11 @@ will return to these Views later.
 
 That takes care of most of the ASP.NET MVC plumbing that we need for
 this solution. Now let's get to the real purpose of this tutorial,
+<<<<<<< HEAD
 adding Azure DocumentDB to our web application.
+=======
+adding Azure DoucmentDB to our web application.
+>>>>>>> 25a11b4599ae1bdc85a5f4f50a32dcb7774762d4
 
 </h1>
 <a name="_Toc395637768">Installing the DocumentDB NuGet package</a>
@@ -291,7 +303,11 @@ with two new references added;
 
 Open the **ItemController** and remove all the code within the class
 (but leave the class) that Visual Studio added. We'll rebuild it piece
+<<<<<<< HEAD
 by piece using DocumentDB.
+=======
+by piece using DoucmentDB.
+>>>>>>> 25a11b4599ae1bdc85a5f4f50a32dcb7774762d4
 
 Add the following code snippet within the now empty ItemController
 class;
