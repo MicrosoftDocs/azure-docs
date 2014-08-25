@@ -1,22 +1,22 @@
-<properties title="Build a Node.js web application using DocumentDB" pageTitle="Build a Node.js web application using DocumentDB | Azure" description="Learn how to use Azure DocumentDB to store and access data from a Node.js application hosted on Azure." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" scriptId="" />
+<properties title="Build a Node.js web application using DocumentDB" pageTitle="Build a Node.js web application using DocumentDB | Azure" description="Learn how to use Azure DocumentDB to store and access data from a Node.js application hosted on Azure." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw" />
 
 <a name="_Toc395783175">Build a Node.js web application using DocumentDB</a>
 =================================================================================================
 
 <a name="_Toc395783175">
 
-This tutorial shows you how to use DocumentDB service provided by Azure
-to store and access data from a [node][] application hosted on Azure.
+This tutorial shows you how to use the Azure DocumentDB service to store and access data 
+from a Node.js Express application hosted on Azure Websites.
+
 This tutorial assumes that you have some prior experience using Node.js.
 
 You will learn:
 
 · How to use the Node.js Tools for Visual Studio
 
-· How to work with Azure DocumentDB service using the node-documentdb
-module
+· How to work with Azure DocumentDB service using the documentdb npm module
 
 · How to deploy the web application to Azure Websites
 
@@ -34,30 +34,27 @@ DocumentDB.
 Before following the instructions in this article, you should ensure
 that you have the following installed:
 
-[Node][node].js version v0.10.29 or higher
+[Node.js][] version v0.10.29 or higher
 
 [Git][]
 
-Visual Studio 2013 with update 3 (or [Visual Studio Express][] which is
-the free version)
+[Visual Studio 2013][] with update 3
 
 [Node.js Tools for Visual Studio][]
 
-Note : While we are using Visual Studio to build, debug, and deploy our Node.js
-project in this tutorial you can use whichever IDE or editor you prefer
+**Note :** While we are using Visual Studio to build, debug, and deploy our Node.js
+project in this tutorial you can use whichever editor you prefer
 and run Node.js directly on whichever platform you choose in the way you
-would normally run Node.js projects and then use the Azure CLI tools to
+would normally run a Node.js project. You can then use the [Azure CLI][] tools to
 deploy your application to Azure Websites
 
 <a name="_Toc395637761">Create a DocumentDB database account</a>
 ================================================================
 
-To provision a DocumentDB database account in Azure, open the Azure
-Management Portal and either Click the Azure Gallery tile on the
-homepage or click “+” in the lower left hand corner of the screen.
+To provision a DocumentDB database account in Azure, open the [Azure Management Portal][] 
+and either Click the Azure Gallery tile on the homepage or click “+” in the lower left hand corner of the screen.
 
 ![Alt text](./media/documentdb-nodejs-application/image2.png)
-
 
 This will open the Azure Gallery, where you can select from the many
 available Azure services. In the Gallery, select “Data, storage and
@@ -68,7 +65,6 @@ backup” from the list of categories.
 From here, select the option for Azure DocumentDB
 
 ![Alt text](./media/documentdb-nodejs-application/image4.png)
-
 
 Then select “Create” from the bottom of the screen
 
@@ -89,14 +85,12 @@ completed action.
 
 ![Alt text](./media/documentdb-nodejs-application/image7.png)
 
-
 Once provisioning is complete, clicking the DocumentDB tile from the
 start screen will bring up the main blade for this newly created
 DocumentDB account.
 
 ![Alt text](./media/documentdb-nodejs-application/image8.png) 
 ![Alt text](./media/documentdb-nodejs-application/image9.png)
-
 
 Using the “Keys” button, access your endpoint URL and the Primary Key,
 copy these to your clipboard and keep them handy as we will use these
@@ -143,7 +137,6 @@ Packages”
 
 ![Alt text](./media/documentdb-nodejs-application/image14.png)
 
-
 In the “Install New npm Packages” dialog, type **nconf** to search for
 the module. This module will be used by the application to read the
 database configuration values from a configuration file.
@@ -155,8 +148,8 @@ Finally, install the Azure DocumentDB module in the same way by search
 for **documentdb**. This is the module where all the DocumentDB magic
 happens.
 
-Once you have installed these two additional modules, and their
-dependencies, they should show up in Solution Explorer under the **npm**
+Once you have installed these two additional modules, and dependencies, 
+they should show up in Solution Explorer under the **npm**
 modules.
 
 ![Alt text](./media/documentdb-nodejs-application/image16.png)
@@ -175,9 +168,9 @@ additional modules.
 
 <h1><a name="_Toc395783180">Using the DocumentDB service in a node application</a></h1>
 
-<p>That takes care of all the initial setup and configuration, now let’s get down to why we’re here, and that’s to write some code using Azure DocumentDB. <br />
-<br />
-To start, edit <b>app.js</b> located in the root of the Express application we just created. <br />
+<p>That takes care of all the initial setup and configuration, now let’s get down to why we’re here, and that’s to write some code using Azure DocumentDB.
+
+To start, edit <b>app.js</b> located in the root of the Express application we just created.
 Locate the following lines in the file;</p>
 
     app.get('/', routes.index);
@@ -197,11 +190,11 @@ Locate the following lines in the file;</p>
 <p>Add the following at the top of the file;</p>
 
     // import the modules we will use
-    var DocumentDBClient = require('documentdb').DocumentClient
-      , nconf = require('nconf');
+    var DocumentDBClient = require('documentdb').DocumentClient;
+    var nconf = require('nconf');
     
     // tell nconf which config file to use
-    nconf.env()
+    nconf.env();
     nconf.file({ file: 'config.json' });
 
 
@@ -214,12 +207,11 @@ Locate the following lines in the file;</p>
 <p>Open this new <b>config.json</b> file and enter in the following values as appropriate for your DocumentDB endpoint. Be sure to set HOST and MASTER_KEY values correctly.</p>
 
     {
-	    "HOST"  	: "<insert your DocDB endpoint here>",
-	    "AUTH_KEY"  	: "<insert either primary or secondary key here>",
-	    "DATABASE"	: "ToDoList",
-	    "COLLECTION"   	: "Items"
+	    "HOST"  	 : "<insert your DocDB endpoint here>",
+	    "AUTH_KEY"	 : "<insert either primary or secondary key here>",
+	    "DATABASE"	 : "ToDoList",
+	    "COLLECTION" : "Items"
     }
-
 
 <p>Now, switching back to <b>index.js</b>, add the following lines after the last lines to actually go read the configuration file and store the values in page level variables.</p>
       
@@ -228,74 +220,70 @@ Locate the following lines in the file;</p>
     var databaseId = nconf.get("DATABASE");
     var collectionId = nconf.get("COLLECTION");
     
-
-
 <p>Now that this is done, continue adding the following code to <b>index.js</b></p>
 
     // create some global variables which we will use later to hold instances of the DocumentDBClient, Database and Collection
-    var client;
-    	exports.index = function (req, res) {
-    		// create an instance of the DocumentDB client
-    		client = new DocumentDBClient(host, { masterKey: authKey });
+
+	// create an instance of the DocumentDB client
+    var client = new DocumentDBClient(host, { masterKey: authKey });
     
-    		// before we can query for Items in the document store, we need to ensure we 
-    		// have a database with a collection then use the collection to read the documents
-    		readOrCreateDatabase(function (database) {
-   				 readOrCreateCollection(database, function (collection) {
-    
-   					 listItems(collection, function (items) {
-   						 res.render('index', { title: 'My ToDo List', tasks: items });
-    				});
-    
-   			 });
-    	});
-    };
+    exports.index = function (req, res) {   	
+    	// before we can query for Items in the document store, we need to ensure we 
+    	// have a database with a collection then use the collection to read the documents
+    	readOrCreateDatabase(function (database) {
+   			readOrCreateCollection(database, function (collection) {
+    			listItems(collection, function (items) {
+   					res.render('index', { title: 'My ToDo List', tasks: items });
+				});    
+			});
+		});
+	};
+	
 	exports.createOrUpdateItem = function (req, res) {
-    //first have to set the database & collection context so that we have the self links   
-    readOrCreateDatabase(function (database) {
-        readOrCreateCollection(database, function (collection) {
-            
-            //if we find an item on the form, we'll create it in the database
-            var item = req.body.item;
-            if (item) {
-                createItem(collection, item, function () {
+    	//first have to set the database & collection context so that we have the self links   
+    	readOrCreateDatabase(function (database) {
+        	readOrCreateCollection(database, function (collection) {
+			            
+				//if we find an item on the form, we'll create it in the database
+            	var item = req.body.item;
+            	if (item) {
+                	createItem(collection, item, function () {
                     res.redirect('/');
                 });
-
-            //else let's look for items marked as completed, 
-            //and update that item in the database
-            } else {
-                var completed = req.body.completed;
-                
-                //check if completed is actually an Array, if not make it one. 
-                //this happens when you select only one item            
-                if (!completed.forEach)
-                    completed = [completed];
-                
-                //use a recursive function to loop through items in 
-                //array calling updateItem each time through                                    
-                function updater(i) {
-                    if (i < completed.length) {
-                        updateItem(collection, completed[i], function () {
-                            updater(i + 1);
-                        });
-                    } else {
-                        res.redirect('/');
-                    }
-                }
-                
-                //kick off the recursion
-                updater(0);
-            }
-
-        });
-   	 });
+				
+            	//else let's look for items marked as completed, 
+            	//and update that item in the database
+            	} else {
+                	var completed = req.body.completed;
+                	
+	                //check if completed is actually an Array, if not make it one. 
+                	//this happens when you select only one item            
+                	if (!completed.forEach)
+                    	completed = [completed];
+                	
+                	//use a recursive function to loop through items in 
+                	//array calling updateItem each time through                                    
+                	function updater(i) {
+                    	if (i < completed.length) {
+							updateItem(collection, completed[i], function () {
+                            	updater(i + 1);
+                        	});
+                    	} else {
+                        	res.redirect('/');
+                    	}
+                	}
+                	
+                	//kick off the recursion
+                	updater(0);
+            	}
+			});
+		});
 	}
 
 
 <p>These are the two functions that we told the application to use earlier in the <b>app.js</b> when we defined the routes. When a GET hits the index view, the <b>exports.index</b> function will be run and similarly when a POST is received by the index view the <b>exports.createOfUpdateItem</b> function will be run.</p>
 
-<p>These two functions do all the work of the application that we’re building however they call out to other functions, purely to make the code more readable and easier to follow. Continue adding the following code to the <b>index.js</b> file. This contains all the methods used by the two functions above and contain all the calls to DocumentDB. We will walkthrough each function in high-level detail later.</p>
+<p>These two functions do all the work of the application that we’re building however they call out to other functions, purely to make the code more readable and easier to follow. Continue adding the following code to the <b>index.js</b> file. This contains all the methods used by the two functions above and contain all the calls to DocumentDB. We will walk through each function in high-level detail later.</p>
 
     // update item
 	var updateItem = function (collection, itemId, callback) {
@@ -373,7 +361,7 @@ Locate the following lines in the file;</p>
 	        if (err) {
 	            // some error occured, rethrow up
 	            throw (err);
-	        }
+	        }			
 	        if (!err && results.length === 0) {
 	            // no error occured, but there were no results returned 
 	            //indicating no collection exists in the provided database matching the query
@@ -457,14 +445,11 @@ Locate the following lines in the file;</p>
 This extends layout, and provides content for the “block content”
 placeholder we saw in the layout.jade file earlier.
 
-In this layout we created two HTML forms.
+In this layout we created two HTML forms. The first form contains a table 
+for our data and a button that allows us to update items.The second form contains 
+some input fields and a button that allows us to create a new item.
 
-\
- The first form contains a table for our data and a button that allows
-us to update items.\
- The second form contains some input fields and a button that allows us
-to create a new item.\
- When either of these buttons are clicked the **createOrUpdateItem**
+When either of these buttons are clicked the **createOrUpdateItem**
 (i.e. a form POST is done) the function we created in the **index.js**
 file will be called. If this page is just loaded directly (i.e. a GET is
 performed) then the **index** function is run.
@@ -534,8 +519,10 @@ Application using Azure DocumentDB and published it to Azure Websites.
 The source code for the complete reference application can be downloaded [here][].
 
 </h1>
-  [node]: http://nodejs.org/
+  [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio 2013]: http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx
   [Node.js Tools for Visual Studio]: https://nodejstools.codeplex.com/
   [here]: http://go.microsoft.com/fwlink/?LinkID=509839&clcid=0x409
+  [Azure CLI]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/
+  [Azure Management Portal]: http://portal.azure.com
