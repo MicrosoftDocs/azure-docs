@@ -48,7 +48,7 @@ that you have the following installed:
 Visual Studio 2013 (or [Visual Studio Express][] which is the free
 version)
 
-Python for Visual Studio Beta tools from [here][]
+Python Tools for Visual Studio from [here][]
 
 Azure SDK for Visual Studio 2013, version 2.4 or higher available from
 [here][1]
@@ -176,10 +176,11 @@ your environment and select “Install Python Package…”
 
 ![Alt text](./media/documentdb-python-application/image13.png)
 
-Type in “pydocumentdb” which is the name of the PyPi package. You can
+Type in "--pre pydocumentdb" which is the name of the PyPi package. You can
 optionally provide a known version if you want to control which version
 you would like to install, leaving version out will ensure that latest
-stable version is installed.
+stable version is installed. Please make note that you will have to enter the
+whole name "--pre pydocumentdb".
 
 ![Alt text](./media/documentdb-python-application/image14.png)
 

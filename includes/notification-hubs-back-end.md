@@ -1,6 +1,6 @@
 
 This section shows how to send notifications from a .NET console app and any other.
-If you are using Mobile Services please refer to the [Get Started with Push]() tutorials. If you want to use Java or PHP refer to [How to use Notification Hubs from Java/PHP](/en-us/documentation/articles/notification-hubs-java-backend-how-to/). You can send notifications from any backend using the [Notification Hubs REST interface].
+If you are using Mobile Services please refer to the [Get Started with Push](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/) tutorials. If you want to use Java or PHP refer to [How to use Notification Hubs from Java/PHP](/en-us/documentation/articles/notification-hubs-java-backend-how-to/). You can send notifications from any backend using the [Notification Hubs REST interface].
 
 The following code sends notifications to Windows Store, Windows Phone, iOS, and Android devices. 
 

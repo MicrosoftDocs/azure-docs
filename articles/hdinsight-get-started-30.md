@@ -3,8 +3,6 @@
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 
-
-
 # Get started using Hadoop 2.2 in HDInsight
 
 <div class="dev-center-tutorial-selector sublanding">
@@ -17,7 +15,9 @@ HDInsight makes Apache Hadoop, a MapReduce software framework, available in a si
 
 > [WACOM.NOTE] If you are new to Hadoop and Big Data, you might want to read more about the terms [Apache Hadoop][apache-hadoop], [MapReduce][apache-mapreduce], [HDFS][apache-hdfs], and  [Hive][apache-hive].
 
-In conjunction with the general availability of Azure HDInsight, Microsoft also provides HDInsight Emulator for Azure, formerly known as *Microsoft HDInsight Developer Preview*. The Emulator targets developer scenarios and only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].   
+In conjunction with the general availability of Azure HDInsight, Microsoft also provides HDInsight Emulator for Azure, formerly known as *Microsoft HDInsight Developer Preview*. The Emulator targets developer scenarios and only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
+
+> [WACOM.NOTE] For instructions on how to provision an HBase cluster, see [Provision HBase cluster in HDInsight][hdinsight-hbase-custom-provision]. See <a href="http://go.microsoft.com/fwlink/?LinkId=510237">What's the difference between Hadoop and HBase?</a> to understand why you might choose one over the other.  
 
 ## What does this tutorial achieve? ##
 
@@ -68,7 +68,7 @@ To simplify this tutorial, only the default blob container and the default stora
 3. Enter **URL**, **LOCATION** and **REPLICATION**, and then click **CREATE STORAGE ACCOUNT**. Affinity groups are not supported. You will see the new storage account in the storage list.
 
 
-	>[WA.COM NOTE]  An HDInsight cluster and the associated Azure storage account must be in the same datacenter. So, make sure you create your storage account in the locations supported for the cluster, which are:  **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, **West US**, **North Central US**, **South Central US**.
+	>[WACOM.NOTE]  An HDInsight cluster and the associated Azure storage account must be in the same datacenter. So, make sure you create your storage account in the locations supported for the cluster, which are:  **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, **West US**, **North Central US**, **South Central US**.
 
  
 4. Wait until the **STATUS** of the new storage account is changed to **Online**.
@@ -81,7 +81,7 @@ For more information, see
 	
 ##<a name="provision"></a>Provision an HDInsight cluster
 
-In this section you provision a HDInsight cluster version 3.0, which is based on Hadoop version 2.2. If you want to provision an HDInsight cluster with Hadoop version 2.4, click on the specific version tab at the beginning of this article. You can also create Hadoop clusters for other versions using HDInsight PowerShell cmdlets or by using the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) page.
+When you provision an HDInsight cluster, you provision Azure compute resources that contain Hadoop and related applications. In this section you provision a HDInsight cluster version 3.0, which is based on Hadoop version 2.2. If you want to provision an HDInsight cluster with Hadoop version 2.4, click on the specific version tab at the beginning of this article. You can also create Hadoop clusters for other versions using HDInsight PowerShell cmdlets or by using the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) page.
 
 **To provision an HDInsight cluster** 
 
@@ -129,7 +129,7 @@ In this section you provision a HDInsight cluster version 3.0, which is based on
 	</table>
 
 
-	>[WA.COM NOTE] The Azure SQL database must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.   
+	>[WACOM.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.   
 
 
     Click the right arrow.
@@ -156,16 +156,15 @@ In this section you provision a HDInsight cluster version 3.0, which is based on
 		<tr><td>Account Key</td>
 			<td>If you chose the <strong>Use Storage From Another Subscription</strong> option, specify the account key for that storage account.</td></tr>	
 		<tr><td>Default container</td>
-			<td><p>Specifies the default container on the storage account that is used as the default file system for the HDInsight cluster. If you chose <strong>Use Existing Storage</strong> for the <strong>Storage Account</strong> field, the container is created by default with a the same name as the cluster name. If a container with the name fo the cluster already exists, a sequence number will be appended to the container name. For example, mycontainer1, mycontainer2, and so on.</p>
-            <p>If you chose to create a new storage or use storage from another Azure subscription, you must specify the default container name</p>
+			<td><p>Specifies the default container on the storage account that is used as the default file system for the HDInsight cluster. If you chose <strong>Use Existing Storage</strong> for the <strong>Storage Account</strong> field, and there are no existing containers in that account, the container is created by default with a the same name as the cluster name. If a container with the name of the cluster already exists, a sequence number will be appended to the container name. For example, mycontainer1, mycontainer2, and so on. However, if the existing storage account has a container with a name different from the cluster name you specified, you can use that container as well.</p>
         </td></tr>
 		<tr><td>Additional Storage Accounts</td>
 			<td>HDInsight supports multiple storage accounts. There is no limit on the additional storage account that can be used by a cluster. However, if you create a cluster using the Management Portal, you have a limit of seven due to the UI constraints. Each additional storage account you specify adds an extra Storage Account page to the wizard where you can specify the account information. For example, in the screenshot above, one additional storage account is selected, and hence page 5 is added to the dialog.</td></tr>		
 	</table>
 
-	Click the right arrow.
+	If you opted for additional storage accounts, click the right arrow. If not, click the check mark to start provisioning the cluster. When the provisioning completes, the  status column shows **Running**. 
 
-7. On the **Storage Account** page, enter the account information for the additional storage account:
+7. On the **Storage Account** page, enter the account information for the additional storage account if you opted for it:
 
 	![HDI.CustomCreateCluster.AddOnStorage][image-hdi-customcreatecluster-addonstorage]
 
@@ -213,7 +212,7 @@ Now that you have an HDInsight cluster provisioned, the next step is to run a Hi
 
     The page also shows the **Job Output** and the **Job Log**. You also have the option to download the output file (\_stdout) and the log file \(_stderr).
 
-	> [WA.COM NOTE] The **Job Session** table on the **Hive Editor** tab lists completed or running jobs as long as you stay on that tab. The table does not list any jobs if you navigate away from the page. The **Job History** tab maintains a list of all jobs, completed or running. 
+	> [WACOM.NOTE] The **Job Session** table on the **Hive Editor** tab lists completed or running jobs as long as you stay on that tab. The table does not list any jobs if you navigate away from the page. The **Job History** tab maintains a list of all jobs, completed or running. 
 
 **To browse to the output file**
 
@@ -292,6 +291,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [apache-hive]: http://go.microsoft.com/fwlink/?LinkId=510085
 [apache-mapreduce]: http://go.microsoft.com/fwlink/?LinkId=510086
 [apache-hdfs]: http://go.microsoft.com/fwlink/?LinkId=510087
+[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [powershell-install-configure]: ../install-configure-powershell/
