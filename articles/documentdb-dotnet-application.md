@@ -13,10 +13,10 @@
 
 To highlight how customers can efficiently leverage Azure DocumentDB to
 store and query JSON documents, this document provides an end-to-end
-walk-through of building a ToDo List web application using Azure Document
+walkthrough of building a ToDo List web application using Azure Document
 DB.
 
-This walk-through shows you how to use DocumentDB service provided by
+This walkthrough shows you how to use DocumentDB service provided by
 Azure to store and access data from an ASP.NET MVC web application
 hosted on Azure and presumes that you have some prior experience using
 ASP.NET MVC and Azure Websites.
@@ -31,7 +31,7 @@ You will learn:
 
 4\. Deploying the Web Application to Azure Websites
 
-By following this walk-through, you will build a simple web-based
+By following this walkthrough, you will build a simple web-based
 task-management application that allows creating, retrieving and
 completing of tasks. The tasks will be stored as JSON documents in Azure
 DocumentDB.
@@ -304,10 +304,10 @@ class;
 
 This uses a "pseudo repository" class for DocumentDB, which is actually
 just a Helper class that contains all the DocumentDB specific code. For
-the purposes of this walk-through we aren't going to implement a full
+the purposes of this walkthrough we aren't going to implement a full
 data access layer with dependency injection using a repository pattern,
 as you might do if you were building a real world application. For the
-purposes of this walk-through we're just going to put all the data access
+purposes of this walkthrough we're just going to put all the data access
 logic in to one project to keep things simple.
 
 Add a new Class to your project and call it **DocumentDBRepository.**
