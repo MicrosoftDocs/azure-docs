@@ -2,7 +2,7 @@
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
-#Interact with DocumentDB resources
+#DocumentDB Resource Model and Concepts
 
 DocumentDB offers a simple and open RESTful programming model over HTTP. The entities that DocumentDB manages are referred to as **resources** that are uniquely identified by their logical URI. Developers can interact with the resources using standard HTTP verbs, request/response headers and status codes. As the following diagram illustrates, DocumentDB’s **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI.  
 
@@ -13,19 +13,88 @@ DocumentDB offers a simple and open RESTful programming model over HTTP. The ent
 
 As a customer of DocumentDB, you start by provisioning a DocumentDB **database account** using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in-turn contain **stored procedures, triggers, UDFs, documents** and related **attachments**. A database also has associated **users** each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
 
-|Resource 	|Description
-|-|-
-|Database Account	|A database account is associated with one or more capacity units representing provisioned document storage and throughput, a set of databases and blob storage. You can create one or more database accounts using your Azure subscription. Each database account has a unique DNS name.  
-|Database	|A database is a logical container of document storage partitioned across collections. It is also a container for users.
-|User	|The logical namespace for scoping permissions. 
-|Permission	|An authorization token associated with a user for authorized access to a specific resource.
-|Collection	|A collection is a container of JSON documents and associated JavaScript application logic. Queries and transactions are scoped to collections.
-|Stored Procedure	|Application logic written in JavaScript which is registered with a collection and transactionally executed within the database engine.
-|Trigger |Application logic written in JavaScript modeling side effects associated with an insert, replace or delete operations.
-|UDF	|A side effect-free, application logic written in JavaScript. UDFs enable you to model a custom query operator and thereby extend the core DocumentDB query language.
-|Document	|User defined (arbitrary) JSON content. By default, no schema needs to be defined or secondary indices need to be provided for all the documents added to a collection.
-|Attachment	|Attachment are special documents containing references and associated metadata to an external blob/media. The developer can choose to have the blob managed by DocumentDB or store it with an external blob service provider such as OneDrive, Azure Storage, Dropbox etc. 
-
+<table width = "400">
+    <tbody>
+        <tr>
+            <td width="84" valign="top">
+                <p>
+                    <strong>Resource </strong>
+                </p>
+            </td>
+            <td width="540" valign="top">
+                <p>
+                    <strong>Description</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="84" valign="top">
+                <p>
+                    <strong>Database</strong>
+                </p>
+                <p>
+                    <strong>Account</strong>
+                </p>
+            </td>
+            <td width="540" valign="top">
+                <p>
+                    A database account is associated with one or more capacity units representing provisioned document storage and throughput, a set of
+                    databases and blob storage. You can create one or more database accounts using your Azure subscription. Each database account has a unique
+                    DNS name.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="84" valign="top">
+                <p>
+                    <strong>Database</strong>
+                </p>
+            </td>
+            <td width="540" valign="top">
+                <p>
+                    A database is a logical container of document storage partitioned across collections. It is also a container for users.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="84" valign="top">
+                <p>
+                    <strong>User</strong>
+                </p>
+            </td>
+            <td width="540" valign="top">
+                <p>
+                    The logical namespace for scoping permissions.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="84" valign="top">
+                <p>
+                    <strong>Permission</strong>
+                </p>
+            </td>
+            <td width="540" valign="top">
+                <p>
+                    An authorization token associated with a user for authorized access to a specific resource.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="84" valign="top">
+                <p>
+                    <strong>Collection</strong>
+                </p>
+            </td>
+            <td width="540" valign="top">
+                <p>
+                    A collection is a container of JSON documents and associated JavaScript application logic. Queries and transactions are scoped to
+                    collections.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
 ##System vs. User defined Resources
 Resources such as database accounts, databases, collections, users, permissions, stored procedures, triggers, and UDFs - all have a fixed schema and are called system resources. In contrast, resources such as documents and attachments have no restrictions on the schema and are examples of user defined resources. In DocumentDB, both system and user defined resources are represented and managed as standard-compliant JSON.  
 
@@ -36,19 +105,65 @@ You can provision one or more DocumentDB database accounts using your Azure subs
 
 You can create and manage DocumentDB database account(s) via the Azure portal at [http://portal.azure.com/](http://portal.azure.com/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. As part of provisioning and managing a database account you can configure and read the following properties:  
 
-|Property Name	|Description
-|-|-
-|Consistency Policy	|Set this property to configure the default consistency level for all the collections under your database account. You can override the consistency level on a per request basis using [x-ms-consistency-level] request header. In future, we may support overriding the consistency level on a per collection basis. <br/> <br/> Note that this property only applies to the *user defined resources*. All system defined resources are configured to support reads/queries with strong consistency.
-|Primary Master Key and Secondary Master Key	|These are the primary and secondary master keys which provide administrative access to all of the resources under the database account.
-|MaxMediaStorageUsageInMB (READ)	|Maximum amount of media storage available for the database account
-|CurrentMediaStorageUsageInMB (READ)	|Current usage of media storage for the database account
-|CapacityUnitsProvisioned	|The total number of capacity units provisioned under the database account
-|CapacityUnitsConsumed (READ)	|The total number of capacity units currently consumed under the database account
-|ProvisionedDocumentStorageInMB (READ)	|The total amount of document storage (in MB) provisioned across all capacity units under the database account
-|ReservedDocumentStorageInMB (READ)	|The total amount of document storage (in MB) reserved across all capacity units under the database account. The document storage is said to be reserved when a collection contains documents. 
-|ConsumedDocumentStorageInMB (READ)	|The total amount of document storage (in MB) actually consumed across all capacity units under the database account. This is the size of your actual documents and index combined across various collections under a database account.
+<table border="1" cellspacing="0" cellpadding="0" > 
+<tbody>
+<tr>
+<td valign="top" ><p><b>Property Name</b></p></td>
+<td valign="top" ><p><b>Description</b></p></td>
+</tr>
 
-Note that in addition to provisioning, configuring and managing your database account from the Azure portal, you can also programmatically create and manage DocumentDB database accounts via [Azure DocumentDB REST APIs](http://msdn.microsoft.com/en-us/library/azure/dn781481.aspx) as well as client SDKs.  
+<tr>
+<td valign="top" ><p>Consistency Policy</p></td>
+<td valign="top" ><p>Set this property to configure the default consistency level for all the collections under your database account. You can override the consistency level on a per request basis using [x-ms-consistency-level] request header. In future, we may support overriding the consistency level on a per collection basis. </p>
+
+<p>Note that this property only applies to the <i>user defined resources</i>. All system defined resources are configured to support reads/queries with strong consistency.</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>Primary Master Key and Secondary Master Key</p></td>
+<td valign="top" ><p>These are the primary and secondary master keys which provide administrative access to all of the resources under the database account.</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>MaxMediaStorageUsageInMB (READ)</p></td>
+<td valign="top" ><p>Maximum amount of media storage available for the database account</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>CurrentMediaStorageUsageInMB (READ)</p></td>
+<td valign="top" ><p>Current usage of media storage for the database account</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>CapacityUnitsProvisioned</p></td>
+<td valign="top" ><p>The total number of capacity units provisioned under the database account</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>CapacityUnitsConsumed (READ)</p></td>
+<td valign="top" ><p>The total number of capacity units currently consumed under the database account</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>ProvisionedDocumentStorageInMB (READ)</p></td>
+<td valign="top" ><p>The total amount of document storage (in MB) provisioned across all capacity units under the database account</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>ReservedDocumentStorageInMB (READ)</p></td>
+<td valign="top" ><p>The total amount of document storage (in MB) reserved across all capacity units under the database account. The document storage is said to be reserved when a collection contains documents. </p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>ConsumedDocumentStorageInMB (READ)</p></td>
+<td valign="top" ><p>The total amount of document storage (in MB) actually consumed across all capacity units under the database account. This is the size of your actual documents and index combined across various collections under a database account.</p></td>
+</tr>
+
+</tbody>
+</table>
+
+
+Note that in addition to provisioning, configuring and managing your database account from the Azure portal, you can also programmatically create and manage DocumentDB database accounts via [Azure DocumentDB REST APIs](http://go.microsoft.com/fwlink/p/?LinkID=402413) as well as client SDKs.  
 
  
 #Databases
@@ -60,7 +175,7 @@ A database can contain virtually unlimited document storage partitioned by colle
 
 A DocumentDB database is also a container of users. A user, in-turn, is a logical namespace for a set of permissions that provides fine-grained authorization/access to collections, documents and attachments.  
  
-As with other resources in the DocumentDB resource model, databases can be created, replaced, deleted, read or enumerated easily using either [Azure DocumentDB REST APIs](http://msdn.microsoft.com/en-us/library/azure/dn781481.aspx) or any of the client SDKs. DocumentDB guarantees strong consistency for reading or querying the metadata of a database resource. Deleting a database automatically ensures that you cannot access any of the collections or users contained within it. Even though DocumentDB reclaims the storage and throughput provisioned as part of the deleted database in the background, both the provisioned storage and throughput for the deleted database are available immediately for use.   
+As with other resources in the DocumentDB resource model, databases can be created, replaced, deleted, read or enumerated easily using either [Azure DocumentDB REST APIs](http://go.microsoft.com/fwlink/p/?LinkID=402413) or any of the client SDKs. DocumentDB guarantees strong consistency for reading or querying the metadata of a database resource. Deleting a database automatically ensures that you cannot access any of the collections or users contained within it. Even though DocumentDB reclaims the storage and throughput provisioned as part of the deleted database in the background, both the provisioned storage and throughput for the deleted database are available immediately for use.   
  
 
 #Collections
@@ -88,7 +203,7 @@ The documents within a collection can have arbitrary schemas and you can query d
 2.	A subset of relational operations including composition, filter, projections, aggregates and self joins. 
 3.	Pure JavaScript based UDFs which compose with (1) and (2)  
 
-The DocumentDB query model attempts to strike a balance between functionality, efficiency, and simplicity. DocumentDB’s database engine natively compiles and executes the SQL query statements. You can query a collection using the [Azure DocumentDB REST APIs](http://msdn.microsoft.com/en-us/library/azure/dn781481.aspx) or any of the client SDKs. The .NET SDK comes with a LINQ provider. In a future release, native underscore mappings will be provided which can be used from both the client side JavaScript SDKs as well as with the server side stored procedures and triggers.   
+The DocumentDB query model attempts to strike a balance between functionality, efficiency, and simplicity. DocumentDB’s database engine natively compiles and executes the SQL query statements. You can query a collection using the [Azure DocumentDB REST APIs](http://go.microsoft.com/fwlink/p/?LinkID=402413) or any of the client SDKs. The .NET SDK comes with a LINQ provider. In a future release, native underscore mappings will be provided which can be used from both the client side JavaScript SDKs as well as with the server side stored procedures and triggers.   
 
 
 ##Multi-document transactions
@@ -151,7 +266,7 @@ Notice that because database natively understands JSON and JavaScript, there is 
 
 Stored procedures and triggers interact with a collection and the documents in a collection through a well-defined object model which exposes the current collection context.  
 
-Collections in DocumentDB can be created, deleted, read or enumerated easily using either the [Azure DocumentDB REST APIs](http://msdn.microsoft.com/en-us/library/azure/dn781481.aspx) or any of the client SDKs. DocumentDB always provides strong consistency for reading or querying the metadata of a collection. Deleting a collection automatically ensures that you cannot access any of the documents, attachments, stored procedures, triggers, and UDFs contained within it. Even though the DocumentDB reclaims the storage and the throughput provisioned as part of the deleted collection in the background, both the provisioned storage and throughput for the deleted collection are available instantly again for you to use.   
+Collections in DocumentDB can be created, deleted, read or enumerated easily using either the [Azure DocumentDB REST APIs](http://go.microsoft.com/fwlink/p/?LinkID=402413) or any of the client SDKs. DocumentDB always provides strong consistency for reading or querying the metadata of a collection. Deleting a collection automatically ensures that you cannot access any of the documents, attachments, stored procedures, triggers, and UDFs contained within it. Even though the DocumentDB reclaims the storage and the throughput provisioned as part of the deleted collection in the background, both the provisioned storage and throughput for the deleted collection are available instantly again for you to use.   
 
  
 #Stored Procedures, Triggers and UDFs
