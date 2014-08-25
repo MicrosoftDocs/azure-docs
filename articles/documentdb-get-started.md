@@ -69,7 +69,7 @@ Using the .NET SDK, a DocumentDB collection can be created via the CreateDocumen
 			Id = "FamilyCollection"
 		};
 	
-	documentCollection = await client.CreateDocumentCollectionAsync(database.SelfLink,documentCollection); 
+		documentCollection = await client.CreateDocumentCollectionAsync(database.SelfLink,documentCollection); 
 
     
 ##<a id="CreateDoc"></a>Create documents	
