@@ -16,13 +16,12 @@ There are a lot of services in Azure and it's growing all the time so it's easy 
 
 **Give feedback**
 
-This article should give you and effective overview of Azure. If it does not, tell us in the comments section at the bottom of the page. Give some detail on what you expected to see and how to improve. Your feedback is important. 
+This article should give you an effective overview of Azure. If it does not, tell us in the comments section at the bottom of the page. Give some detail on what you expected to see and how to improve it. Your feedback is important. 
    
 
 ## Table of Contents
 
-Basic Services
-
+**Basic Services**
 -   [The Components of Azure](#components)
 -   [Management Portal](#portal)
 -   [Compute](#compute)
@@ -30,8 +29,7 @@ Basic Services
 -   [Networking](#networking)
 -   [Developer Services](#DevService)
 
-Additional Services
-
+**Additional Services**
 -   [Identity and Access](#identity)
 -   [Mobile](#mobile)
 -   [Backup](#backup)
@@ -41,14 +39,15 @@ Additional Services
 -   [Big Compute and Data](#BigStuff)
 -   [Media](#media)
 -   [Commerce](#commerce)
--   [Getting Started](#start)
+
+[Getting Started](#start)
 
 
 <h2><a id="components"></a>The Components of Azure</h2>
 
 Azure groups services into categories in the Management Portal and on various visual aids like the [What Is Windows Azure Infographic](http://azure.microsoft.com/en-us/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"). The Management Portal is what you use to manage most (but not all) services in Azure. This paper will use a **different organization** to talk about services based on similar function, and to call out important sub-services that are part of larger ones.  
 
-![Azure components](./media/intro-to-azure/AzureComponentsIntroNew800.png)   
+![Azure components](./media/intro-to-azure/AzureComponentsIntroNew780.png)   
  **Figure 1: Azure provides Internet-accessible application services running in Azure datacenters.**
 
 <h2><a id="portal"></a>Management Portal</h2>
@@ -76,7 +75,7 @@ You can use these technologies separately or combine them as needed to create th
 
 The ability to create a virtual machine on demand, whether from a standard image or from one you supply, can be very useful. This approach, commonly known as Infrastructure as a Service (IaaS), is what Azure Virtual Machines provides. Figure 2 shows a combination of how an Virtual Machine (VM) runs and how to create one from a VHD.  
 
-To create a VM, you specify which VHD to use and the VM's size.  You then pay for the time that the VM is running. You pay by the minute and only while it's running, though there is a minimal storage charge for keeping the VHD available. Azure offers a gallery of stock VHDs (called “images”) that contain a bootable operating system to start from. These include Microsoft and partner options, such as Windows Server and Linux, SQL Server, Oracle and many more. You're free to create VHDs and images, and then upload them yourself. You can even upload VHDs that contain only data and then access them from your running VMs. 
+To create a VM, you specify which VHD to use and the VM's size.  You then pay for the time that the VM is running. You pay by the minute and only while it's running, though there is a minimal storage charge for keeping the VHD available. Azure offers a gallery of stock VHDs (called "images") that contain a bootable operating system to start from. These include Microsoft and partner options, such as Windows Server and Linux, SQL Server, Oracle and many more. You're free to create VHDs and images, and then upload them yourself. You can even upload VHDs that contain only data and then access them from your running VMs. 
 
 Wherever the VHD comes from, you can persistently store any changes made while a VM is running. The next time you create a VM from that VHD, things pick up where you left off. The VHDs that back the Virtual Machines are stored in Azure Storage blobs, which we talk about later.  That means you get redundancy to ensure your VMs won’t disappear due to hardware and disk failures. It's also possible to copy the changed VHD out of Azure, then run it locally. 
  
@@ -95,13 +94,13 @@ This quite general approach to cloud computing can be used to address many diffe
 ###Websites###
 
 ![Azure Websites](./media/intro-to-azure/AzureWebsitesIntroNew.png)   
- **Azure Websites runs a website application in the cloud without having to manage the underlying web server.**
+ **Figure 3: Azure Websites runs a website application in the cloud without having to manage the underlying web server.**
 
 One of the most common things that people do in the cloud is run websites and web applications. Azure Virtual Machines allows this, but it still leaves you with the responsibility of administering one or more VMs and the underlying operating systems. Cloud services web roles can do this, but deploying and maintaining them still takes administrative work.  What if you just want a website where somebody else takes care of the administrative work for you?
 
 This is exactly what Azure Websites provides. This compute model offers a managed web environment using the Azure Management portal as well as APIs. You can move an existing website application into Azure Websites unchanged, or you can create a new one directly in the cloud. Once a website is running, you can add or remove instances dynamically, relying on Azure Websites to load balance requests across them. Azure Websites offers both a shared option, where your website runs in a virtual machine with other sites, and a standard option that allows a site to run in its own VM. The standard option also lets you increase the size (computing power) of your instances if needed.
 
-For development, Websites supports .NET, PHP, Node.js, and Python along with SQL Database and MySQL (from ClearDB, a Microsoft partner) for relational storage. It also provides built-in support for several popular applications, including WordPress, Joomla, and Drupal. The goal is to provide a low-cost, scalable, and broadly useful platform for creating websites and web applications in the public cloud.
+For development, Websites supports .NET, PHP, Node.js, Java and Python along with SQL Database and MySQL (from ClearDB, a Microsoft partner) for relational storage. It also provides built-in support for several popular applications, including WordPress, Joomla, and Drupal. The goal is to provide a low-cost, scalable, and broadly useful platform for creating websites and web applications in the public cloud.
 
 
 **WebSite Scenarios**
@@ -110,7 +109,7 @@ Websites is intended to be useful for corporations, developers, and web design a
 
 ###Cloud Services###
 ![Azure Cloud Service](./media/intro-to-azure/CloudServicesIntroNew.png)   
-**Azure Cloud Services provides a place to run highly scalable custom code on a Platform as a Service (PaaS) environment**
+**Figure 4: Azure Cloud Services provides a place to run highly scalable custom code on a Platform as a Service (PaaS) environment**
 
 Suppose you want to build a cloud application that can support lots of simultaneous users, doesn't require much administration, and never goes down. You might be an established software vendor, for example, that's decided to embrace Software as a Service (SaaS) by building a version of one of your applications in the cloud. Or you might be a start-up creating a consumer application that you expect will grow fast. If you're building on Azure, which execution model should you use?
 
@@ -193,9 +192,9 @@ Sometimes you want to move a lot of data into Azure. That would take a long time
 
 **Scenarios for Import / Export**
 
-- **Large Data Migration** – Anytime you have large amounts of data (Terabytes) that you want to upload to Azure, the Import/Export service is often much faster and perhaps cheaper than transferring it over the internet. Once the data is in blobs, you can process it into other forms such as Table storage or an SQL Database.
+- **Large Data Migration** - Anytime you have large amounts of data (Terabytes) that you want to upload to Azure, the Import/Export service is often much faster and perhaps cheaper than transferring it over the internet. Once the data is in blobs, you can process it into other forms such as Table storage or an SQL Database.
  
-- **Archived Data Recovery** – You can use Import/Export to have Microsoft transfer  large amounts of data stored in Azure Blob Storage to a storage device that you send and then have that device delivered back to a location you desire. Because this will take some time, it's not a good option for disaster recovery. It's best for archived data that you don't need quick access to.
+- **Archived Data Recovery** - You can use Import/Export to have Microsoft transfer  large amounts of data stored in Azure Blob Storage to a storage device that you send and then have that device delivered back to a location you desire. Because this will take some time, it's not a good option for disaster recovery. It's best for archived data that you don't need quick access to.
 
 
 ###Azure File Service###
@@ -270,12 +269,12 @@ The owner of an application defines rules that specify how requests from users s
 <h2><a id="DevService"></a>Developer Services</h2>
 Azure offers a number of tools to help developers and IT Professional create and maintain applications in the cloud.  
 
-###Azure SDK and Azure Tools for Visual Studio###
-Back in 2008, the very first pre-release version of Azure supported only .NET development. Today, however, you can create Azure applications in pretty much any language. Microsoft currently provides language-specific SDKs for .NET, Java, PHP, Node.js, Ruby, and Python. There's also a general Azure SDK that provides basic support for any language, such as C++. 
+###Azure SDK###
+Back in 2008, the very first pre-release version of Azure supported only .NET development. Today, however, you can create Azure applications in pretty much any language. Microsoft currently provides language-specific SDKs for .NET, Java, PHP, Node.js, Ruby, and Python. There's also a general Azure SDK that provides basic support for any language, such as C++.  
 
-These SDKs help you build, deploy, and manage Azure applications. They're available either from www.windowsazure.com or GitHub, and they can be used with Visual Studio and Eclipse. Azure also offers command line tools that developers can use with any editor or development environment, including tools for deploying applications to Azure from Linux and Macintosh systems. 
+These SDKs help you build, deploy, and manage Azure applications. They're available either from [www.microsoftazure.com](http://azure.microsoft.com/en-us/downloads/)  or GitHub, and they can be used with Visual Studio and Eclipse. Azure also offers command line tools that developers can use with any editor or development environment, including tools for deploying applications to Azure from Linux and Macintosh systems. 
 
-Along with helping you build Azure applications, these SDKs also provide client libraries that help you create software running outside the cloud that uses Azure services. For example, you might build an application running at a hoster that relies on Azure blobs, or create a tool that deploys Azure applications through the Azure management interface. 
+Along with helping you build Azure applications, these SDKs also provide client libraries that help you create software that uses Azure services. For example, you might build an application that reads and writes Azure blobs, or create a tool that deploys Azure applications through the Azure management interface. 
 
 ###Visual Studio Online###
 
@@ -332,7 +331,7 @@ Working with identity is part of most applications. Knowing who a user is lets a
 
 Like most directory services, Azure Active Directory stores information about users and the organizations they belong to. It lets users log in, then supplies them with tokens they can present to applications to prove their identity. It also allows synchronizing user information with Windows Server Active Directory running on premises in your local network. While the mechanisms and data formats used by Azure Active Directory aren't identical with those used in Windows Server Active Directory, the functions it performs are quite similar. 
  
-It's important to understand that Azure Active Directory is designed primarily for use by cloud applications. It can be used by applications running on Azure, for example, or on other cloud platforms. It's also used by Microsoft's own cloud applications, such as those in Office 365. If you want to extend your datacenter into the cloud using Azure Virtual Machines and Azure Virtual Network, however, Azure Active Directory isn't the right choice. Instead, you'll want to run Windows Server Active Directory in Virtual Machines. 
+It's important to understand that Azure Active Directory is designed primarily for use by cloud applications. It can be used by applications running on Azure, for example, or on other cloud platforms. It's also used by Microsoft's own cloud applications, such as those in Office 365. If you want to extend your datacenter into the cloud using Azure Virtual Machines and Azure Virtual Network, however, Azure Active Directory isn't the right choice. Instead, you'll want to run Windows Server Active Directory in Virtual Machnes. 
 
 To let applications access the information it contains, Azure Active Directory provides a RESTful API called Azure Active Directory Graph. This API lets applications running on any platform access directory objects and the relationships among them.  For example, an authorized application might use this API to learn about a user, the groups he belongs to, and other information. Applications can also see relationships between users-their social graph-letting them work more intelligently with the connections among people.
 
@@ -343,7 +342,7 @@ Directory services are a core underpinning of on-premises computing. It shouldn'
 ###Multi-Factor Authentication###
 ![Azure Multi-Factor Authentication](./media/intro-to-azure/MFAIntroNew.png)   
 **Figure:** 
-Security is always important. Multi-factor authentication (MFA) helps insure that only users themselves access their accounts. MFA (also known as two-factor authentication or “2FA”) requires users provide two of these three methods of identity verification for user sign-ins and transactions.
+Security is always important. Multi-factor authentication (MFA) helps insure that only users themselves access their accounts. MFA (also known as two-factor authentication or "2FA") requires users provide two of these three methods of identity verification for user sign-ins and transactions.
 
 - Something you know (typically a password)
 - Something you have (a trusted device that is not easily duplicated, like a phone)
@@ -430,10 +429,10 @@ If you already using Windows Server or System Center, Azure backup is a natural 
 No matter what it's doing, code frequently needs to interact with other code.  In some situations, all that's needed is basic queued messaging. In other cases, more complex interactions are required. Azure provides a few different ways to solve these problems. Figure 5 illustrates the choices. 
 
 ###Queues###
-
+![Azure Service Bus Relay](./media/intro-to-azure/QueuesIntroNew.png)
 Queuing is a simple idea: One application places a message in a queue, and that message is eventually read by another application. If your application needs just this straightforward service, Azure Queues might be the best choice. 
 
-Because of the way the Azure grew over time, Azure Storage Queues and Service Bus Queues provide similar queuing services. The reasons why you would want to use one over the other are covered in the fairly technical paper [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Azure Queues and Service Bus Queues - Compared and Contrasted").  In most scenarios, either will work. 
+Because of the way the Azure grew over time, Azure Storage Queues and Service Bus Queues provide similar queuing services. The reasons why you would want to use one over the other are covered in the fairly technical paper [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Azure Queues and Service Bus Queues - Compared and Contrasted").  In many scenarios, either will work. 
 
 **Queue Scenarios**
 
@@ -497,7 +496,7 @@ When an scheduled alarm occurs, Scheduler sends HTTP or HTTPS messages to a spec
 - Tasks that run at night. 
 - Web applications tasks like daily pruning of logs, performing backups, and other maintenance tasks. An administrator may choose to backup her database at 1AM every day for the next 9 months, for example.
 
-The Scheduler API allows you to create, update, delete, view, and manage “job collections” and scheduled “jobs” programmatically.
+The Scheduler API allows you to create, update, delete, view, and manage job collections and scheduled jobs programmatically.
 
 
 
@@ -555,7 +554,7 @@ HDinsight supports other components of the Hadoop ecosystem as well, including H
 
 ###High-Performance Computing (Big Compute)###
 
-One of the most attractive ways to use a cloud platform is to run high performance computing (HPC) and other “Big Compute” applications. Examples include specialized engineering applications built to use the industry-standard Message Passing Interface (MPI) as well as so-called embarrassingly parallel applications, such financial risk models.
+One of the most attractive ways to use a cloud platform is to run high performance computing (HPC) and other "Big Compute" applications. Examples include specialized engineering applications built to use the industry-standard Message Passing Interface (MPI) as well as so-called embarrassingly parallel applications, such financial risk models.
 
 The essence of Big Compute is executing code on many machines at the same time. On Azure, this means running many virtual machines simultaneously, all working in parallel to solve some problem. Doing this requires some way to resources and to schedule applications, i.e., to distribute their work across these instances. Microsoft’s free HPC Pack and other compute cluster solutions can perform well in Azure, taking advantage of Azure compute and infrastructure services to add capacity on-demand to an on-premises compute cluster or run Big Compute applications entirely in the cloud.
 
