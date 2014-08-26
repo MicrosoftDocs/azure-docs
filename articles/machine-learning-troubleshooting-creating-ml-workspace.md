@@ -12,7 +12,7 @@ When you create a new Azure ML Workspace, the ID you enter in the field WORKSPAC
 
 Azure ML is currently in public preview in the South Central US region. If your subscription does not include South Central US, you may see the error “You have no subscriptions in the allowed regions. Allowed regions: South Central US.” 
 
-To resolve this, select “Contact Microsoft Support” (shown below) from your Azure Portal and choose **Billing** as the **SUPPORT TYPE** to get this region added to your subscription. Azure ML will add multiple regions over time.
+To resolve this, select “Contact Microsoft Support” (shown below) from your Azure Portal and choose **Billing** as the **SUPPORT TYPE** to request that this region be added to your subscription. Azure ML will add multiple regions over time.
 
 ![Contact Microsoft support][screen1]
 
