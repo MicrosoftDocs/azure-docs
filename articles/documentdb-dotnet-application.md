@@ -398,8 +398,8 @@ below to your repository class;
             {
                 if (client == null)
                 {
-					String endpoint = ConfigurationManager.GetSetting("endpoint")
-					string authKey = ConfigurationManager.GetSetting("authKey");
+					String endpoint = ConfigurationManager.AppSettings["endpoint"];
+					string authKey = ConfigurationManager.AppSettings["authKey"];
 					Uri endpointUri = new Uri(endpoint);
 					client = new DocumentClient(endpointUri, authKey);
                 }
