@@ -50,7 +50,7 @@ Subscribers automatically get free access to a shared, multitenant Search servic
 
   	![][12]
 
-10. Click the arrow in **Resource Group** to pick an existing group or create a new one. Resource groups are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Web sites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
+10. Click the arrow in **Resource Group** to pick an existing group or create a new one. Resource groups are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
 
 11. Click the arrow in **Subscription** if you have multiple subscriptions and you want to use a different subscription for this search service.
 
