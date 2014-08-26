@@ -156,15 +156,15 @@ Messages are received from a subscription using the
 **receive\_subscription\_message** method on the **ServiceBusService**
 object:
 
-	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages')
+	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 	print(msg.body)
 
-Messages are deleted from the subscription as they
-are read; however, you can read (peek) and lock the message without
-deleting it from the subscription by setting the
-optional parameter **peek\_lock** to **True**.
+Messages are deleted from the subscription as they are read when the parameter
+**peek\_lock** is set to **False**. You can read (peek) and lock the
+message without deleting it from the queue by setting the parameter
+**peek\_lock** to **True**.
 
-The default behavior of reading and deleting the message as part of the
+The behavior of reading and deleting the message as part of the
 receive operation is the simplest model, and works best for scenarios in
 which an application can tolerate not processing a message in the event
 of a failure. To understand this, consider a scenario in which the
@@ -173,7 +173,7 @@ it. Because Service Bus will have marked the message as being consumed,
 then when the application restarts and begins consuming messages again,
 it will have missed the message that was consumed prior to the crash.
 
-	
+
 If the **peek\_lock** parameter is set to **True**, the receive becomes
 a two stage operation, which makes it possible to support applications
 that cannot tolerate missing messages. When Service Bus receives a
@@ -181,16 +181,17 @@ request, it finds the next message to be consumed, locks it to prevent
 other consumers receiving it, and then returns it to the application.
 After the application finishes processing the message (or stores it
 reliably for future processing), it completes the second stage of the
-receive process by calling **delete** method on the **Message** object. The **delete** method will
-mark the message as being consumed and remove it from the subscription.
+receive process by calling **delete** method on the **Message** object.
+The **delete** method will mark the message as being consumed and remove
+it from the subscription.
 
 	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
 	print(msg.body)
-	
-	msg.delete()
-	
 
-##<a name="How_to_Handle_Application_Crashes_and_Unreadable_Messages"></a>How to Handle Application Crashes and Unreadable Messages
+	msg.delete()
+
+
+  ##<a name="How_to_Handle_Application_Crashes_and_Unreadable_Messages"></a>How to Handle Application Crashes and Unreadable Messages
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
