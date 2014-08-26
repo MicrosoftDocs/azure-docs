@@ -2,13 +2,9 @@
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
-
-
-
-
 # Use Hive with Hadoop in HDInsight
 
-[Apache Hive][apache-hive] provides a means of running MapReduce job through an SQL-like scripting language, called *HiveQL*, which can be applied towards summarization, querying, and analysis of large volumes of data. In this article, you will use HiveQL to query the data in an Apache log4j log file and report basic statistics. 
+[Apache Hive][apache-hive] provides a means of running MapReduce job through an SQL-like scripting language, called *HiveQL*. Hive is a data warehouse system for Hadoop, which enables data summarization, querying, and analysis of large volumes of data. In this article, you use HiveQL to query the data in an Apache log file and report basic statistics. 
 
 **Prerequisites:**
 
@@ -23,54 +19,30 @@
 ##In this article
 
 * [The Hive usage case](#usage)
-* [Upload data files to Azure Blob storage](#uploaddata)
+* [Identify a data file to run queries against](#uploaddata)
 * [Run Hive queries using PowerShell](#runhivequeries)
 * [Next steps](#nextsteps)
 
 ##<a id="usage"></a>The Hive usage case
 
+Hive projects some kind of structure on a largely unstructured data set (which is all Hadoop is about), and then lets you query that data using HiveQL. Hive provides a layer of abstraction over the Java-based MapReduce framework, enabling users to query data without knowledge of Java or MapReduce. HiveQL provides a simple SQL-like wrapper that allows queries to be written in HiveQL that are then compiled to MapReduce for you by HDInsight and run on the cluster. Other benefits of Hive are: 
+
+- Hive allows programmers who are familiar with the MapReduce framework to plug in custom mappers and reducers to perform more sophisticated analysis that may not be supported by the built-in capabilities of the HiveQL language.
+- Hive is best suited for the batch processing of large amounts of immutable data (such as web logs). It is not appropriate for transaction applications that need very fast response times, such as database management systems.
+- Hive is optimized for scalability (more machines can be added dynamically to the Hadoop cluster), extensibility (within the MapReduce framework and with other programming interfaces), and fault-tolerance. Latency is not a key design consideration.   
 
 
+##<a id="uploaddata"></a>Identify a data file to run queries against
 
-Databases are appropriate when managing smaller sets of data for which low latency queries are possible. However, when it comes to big data sets that contain terabytes of data, traditional SQL databases are often not an ideal solution. Database administrators have habitually scaling up to deal with these larger data sets, buying bigger hardware as database load increased and performance degraded.  
+HDInsight uses Azure Blob storage container as the default file system for Hadoop clusters. For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-storage]. 
 
-Hive solves the problems associated with big data by allowing users to scale out when querying large data sets. Hive queries data in parallel across multiple nodes using MapReduce, distributing the database across on an increasing number of hosts as load increases.
-
-Hive and HiveQL also offer an alternative to writing MapReduce jobs in Java when querying data. It provides a simple SQL-like wrapper that allows queries to be written in HiveQL that are then compiled to MapReduce for you by HDInsight and run on the cluster.
- 
-Hive also allows programmers who are familiar with the MapReduce framework to plug in custom mappers and reducers to perform more sophisticated analysis that may not be supported by the built-in capabilities of the HiveQL language.  
-
-Hive is best suited for the batch processing of large amounts of immutable data (such as web logs). It is not appropriate for transaction applications that need very fast response times, such as database management systems. Hive is optimized for scalability (more machines can be added dynamically to the Hadoop cluster), extensibility (within the MapReduce framework and with other programming interfaces), and fault-tolerance. Latency is not a key design consideration.   
-
-Generally, applications save errors, exceptions and other coded issues in a log file, so administrators can use the data in the log files to review problems that may arise and to generate metrics that are relevant to errors or other issues like performance. These log files usually get quite large in size and contain a wealth of data that must be processed and mined for intelligence on the application. 
-
-Log files are therefore a paradigmatic example of big data. HDInsight provides a Hive data warehouse system that facilitates easy data summarization, ad-hoc queries, and the analysis of these big datasets stored in Hadoop compatible file systems such as Azure Blob Storage.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##<a id="uploaddata"></a>Upload data files to the Blob storage
-
-HDInsight uses Azure Blob storage container as the default file system.  For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-storage]. 
-
-In this article, you use a log4j sample file distributed with the HDInsight cluster that is stored in *\example\data\sample.log*. Each log inside the file consists of a line of fields that contains a `[LOG LEVEL]` field to show the type and the severity. For example:
+In this article, you use a sample log file (*log4j*) that is distributed with the HDInsight cluster. The file is stored at *\example\data\sample.log*. Each log inside the file consists of a line of fields that contains a `[LOG LEVEL]` field to show the type and the severity. For example:
 
 	2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937 
 
+In the example above, the log level is ERROR.
 
-To access files, use the following syntax: 
+You can access the files by using the following syntax from within your application: 
 
 	wasb://<containerName>@<AzureStorageName>.blob.core.windows.net
 
@@ -78,41 +50,21 @@ For example:
 
 	wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log
 
-replace *mycontainer* with the container name, and *mystorage* with the Blob storage account name. 
+Replace *mycontainer* with the Azure Blob container name, and *mystorage* with the Azure storage account name. 
 
 Because the file is stored in the default file system, you can also access the file using the following:
 
 	wasb:///example/data/sample.log
 	/example/data/sample.log
 
-To generate your own log4j files, use the [Apache Log4j][apache-log4j] logging utility. For information on uploading data to Azure Blob Storage, see [Upload Data to HDInsight][hdinsight-upload-data].
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+If you wish to upload your own data files to the Blob storage, follow the instructions at [Upload Data to HDInsight][hdinsight-upload-data]. You can also generate your own log4j files using the [Apache Log4j][apache-log4j] logging utility.
 
 ##<a id="runhivequeries"></a> Run Hive queries using PowerShell
-In the last section, you uploaded a log4j file called sample.log to the default file system container.  In this section, you will run HiveQL to create a hive table, load data to the hive table, and then query the data to find out how many error logs there were.
+In the last section, you identified a log4j file called sample.log.  In this section, you will run HiveQL to create a hive table, load data to the hive table, and then query the data to find out how many error logs there were.
 
-This article provides the instructions for using Azure PowerShell cmdlets to run a Hive query. Before you go through this section, you must first setup the local environment, and configure the connection to Azure as explained in the **Prerequisites** section at the beginning of this topic.
+This article provides the instructions for using Azure PowerShell cmdlets to run a Hive query. Before you proceed with this section, you must first setup the local environment, and configure the connection to Azure as explained in the **Prerequisites** section at the beginning of this topic.
 
-Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob** cmdlet or the **Invoke-Hive** cmdlet
+Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob** cmdlet or the **Invoke-Hive** cmdlet.
 
 **To run the Hive queries using Start-AzureHDInsightJob**
 
@@ -242,6 +194,7 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
 [hdinsight-analyze-flight-data]: ../hdinsight-analyze-flight-delay-data/
+
 
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage
