@@ -48,7 +48,7 @@ that you have the following installed:
 Visual Studio 2013 (or [Visual Studio Express][] which is the free
 version)
 
-Python for Visual Studio Beta tools from [here][]
+Python Tools for Visual Studio from [here][]
 
 Azure SDK for Visual Studio 2013, version 2.4 or higher available from
 [here][1]
@@ -176,10 +176,11 @@ your environment and select “Install Python Package…”
 
 ![Alt text](./media/documentdb-python-application/image13.png)
 
-Type in “pydocumentdb” which is the name of the PyPi package. You can
+Type in "--pre pydocumentdb" which is the name of the PyPi package. You can
 optionally provide a known version if you want to control which version
 you would like to install, leaving version out will ensure that latest
-stable version is installed.
+stable version is installed. Please make note that you will have to enter the
+whole name "--pre pydocumentdb".
 
 ![Alt text](./media/documentdb-python-application/image14.png)
 
@@ -290,7 +291,7 @@ any of the existing code in views.py. Simply append this to the end.
 ### <a name="_Toc395809338">Registering the vote and modifying the document</a>
 
             replaced_document = doc
-            if str(form.remember_me.data) == 'True':
+            if form.remember_me.data:
                 print 'choice 1'             
                 setvar = doc['Web Site']
                 finalvar = setvar.split();
@@ -300,7 +301,7 @@ any of the existing code in views.py. Simply append this to the end.
                 replaced_document = client.ReplaceDocument(doc['_self'],
                                                        doc)
                 print replaced_document
-            elif str(form.remember_me1.data) == 'True':
+            elif form.remember_me1.data:
                 print 'choice 2'             
                 setvar = doc['Cloud Service']
                 finalvar = setvar.split();

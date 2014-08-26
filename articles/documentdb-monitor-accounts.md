@@ -26,7 +26,7 @@ You can monitor your DocumentDB accounts in the [Azure Preview portal](https://p
 
 
 3.	Clicking on the **Total Requests or Average Requests per Second** part opens a detailed **Metric** blade.
-4.	The Metric blade shows you details about the metrics you have selected.  At the top of the blade is a graph and below that a table which shows aggregation values of the selected metrics such as average, minimum and maximum.  The metric blade also shows the list of alerts which have been defined, filtered to the metrics that appear on the current metric blade (this way, if you have a number of alerts, you’ll only see the relevant ones presented here).   
+4.	The Metric blade shows you details about the metrics you have selected.  At the top of the blade is a graph and below that a table which shows aggregation values of the selected metrics such as average, minimum and maximum.  The metric blade also shows the list of alerts which have been defined, filtered to the metrics that appear on the current metric blade (this way, if you have a number of alerts, you'll only see the relevant ones presented here).   
 
 	![](http://i.imgur.com/6rBNPBL.png)
 
@@ -52,14 +52,15 @@ The Azure Preview portal allows you to create side-by-side metric charts.
 1.	First, right-click on the chart from which you want to start and select **Customize**. 
 	![](http://i.imgur.com/vLXWftF.png)
 
-2.	Click **Clone** on the **… **menu to copy the part. 
+2.	Click **Clone** on the menu to copy the part. 
+
 	![][7]  
 
 
 3.	Finally, click **Done** on the toolbar at the top of the screen.  You may now treat this part as any other metric part, customizing the metrics and time range displayed in the part.  By doing this, you can see two different metrics chart side-by-side at the same time.   
 	![][8] 
 
->Note that the chart time range and the chosen metrics are reset to the part’s default values when you leave the Azure Preview portal.  
+>Note that the chart time range and the chosen metrics are reset to the part's default values when you leave the Azure Preview portal.  
 
 ## <a id="view"></a>  How to: View usage metrics for a DocumentDB account
 1.	In the [Azure Preview portal](https://portal.azure.com/), click **Browse**, then **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to see usage metrics.
@@ -91,7 +92,6 @@ The Azure Preview portal allows you to create side-by-side metric charts.
 
  
 ## <a id="next"></a>  Next steps
--	Learn how to [grant access to DocumentDB resources](http://go.microsoft.com/fwlink/p/?LinkId=402366).
 -	To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/p/?LinkID=402319)
 
 <!--Anchors-->
