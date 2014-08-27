@@ -1,3 +1,8 @@
+
+
+The instructions below apply to updating a Windows Store client app but, you can test this on any of the other platforms supported by Azure Mobile Services. 
+
+
 1. In Visual Studio, open MainPage.xaml.cs and add the following `using` statement to the top of the file.
  
         using System.Net.Http;
