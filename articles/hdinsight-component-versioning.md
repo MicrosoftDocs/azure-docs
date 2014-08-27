@@ -10,13 +10,13 @@ HDInsight supports multiple Hadoop cluster versions that can be deployed at any 
 
 
 <table border="1">
-<tr><th>Component</th><th>Version 3.1 (Default)</th><th>Version 3.0</th><th>Version 2.1</th><th>Version 1.6</th></tr>
+<tr><th>Component</th><th>HDInsight Version 3.1 (Default)</th><th>HDInsight Version 3.0</th><th>HDIinsight Version 2.1</th><th>HDInsight Version 1.6</th></tr>
 <tr><td>Hortonworks Data Platform (HDP)</td><td>2.1</td><td>2.0</td><td>1.3</td><td>1.1</td></tr>
 <tr><td>Apache Hadoop & YARN</td><td>2.4.0</td><td>2.2.0</td><td>1.2.0</td><td>1.0.3</td></tr>
 <tr><td>Tez</td><td>0.4.0</td><td></td><td></td><td></td></tr>
 <tr><td>Apache Pig</td><td>0.12.1</td><td>0.12.0</td><td>0.11.0</td><td>0.9.3</td></tr>
 <tr><td>Apache Hive & HCatalog</td><td>0.13.0</td><td>0.12.0</td><td>0.11.0</td><td>0.9.0</td></tr>
-<tr><td>HBase (Preview)</td><td></td><td>0.96.0</td><td></td><td></td></tr>
+<tr><td>HBase </td><td>0.98.0</td><td></td><td></td><td></td></tr>
 <tr><td>Apache Sqoop</td><td>1.4.4</td><td>1.4.4</td><td>1.4.3</td><td>1.4.2</td></tr>
 <tr><td>Apache Oozie</td><td>4.0.0</td><td>4.0.0</td><td>3.3.2</td><td>3.2.0</td></tr>
 <tr><td>Apache HCatalog</td><td>Merged with Hive</td><td>Merged with Hive</td><td>Merged with Hive</td><td>0.4.1</td></tr>
@@ -45,7 +45,7 @@ If you use the **Quick Create** option, you will get the version 3.1 of HDInsigh
 ##Feature highlights
 Azure HDInsight now supports Hadoop 2.4 with HDInsight cluster version 3.1 (using Hortonworks Data Platform 2.1) by default. It takes full advantage of the platform to provide a range of significant benefits to customers. These include, most notably:
 
-- **HBase (Preview)**: HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs.
+- **HBase**: HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs.
 
 - **Cluster Dashboard**: A new web application that is deployed to your HDInsight cluster.  Use it to run Hive Queries, check job logs, and browse Azure Blob storage. The URL used to access the web application is <*ClusterName*>.azurehdinsight.net.
 

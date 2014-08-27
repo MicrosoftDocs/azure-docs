@@ -15,7 +15,7 @@ You can also pause web tests during deployments or known outages so your overall
 ## How to set up a web test
 
 1. To configure a web test, first ensure your website is either **Basic** or **Standard**.
-2. Then, choose the **Web Test** part on the **Web site** blade:
+2. Then, choose the **Web Test** part on the **Website** blade:
 
    ![Configure Web Tests](./media/insights-create-web-tests/Insights_ConfigurePart.png)
 
@@ -46,7 +46,7 @@ Typically you’ll want to test that the HTTP status code equals 200, which sign
 You cannot use wildcards in the content match string, but you can test any plain text.
 
 ## Uh oh - my site is down!  
-If your web test doesn't pass the success criteria then it will be marked as a failed test and reduce the overall availability for your web site. Failed tests (As well as successful tests) are shown on a scatter chat on the specific web test blade.  
+If your web test doesn't pass the success criteria then it will be marked as a failed test and reduce the overall availability for your website. Failed tests (As well as successful tests) are shown on a scatter chat on the specific web test blade.  
 
    ![Failed Test](./media/insights-create-web-tests/Insights_FailedWebTest.png)
 

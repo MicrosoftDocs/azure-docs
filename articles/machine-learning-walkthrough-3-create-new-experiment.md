@@ -33,7 +33,7 @@ We need to create a new experiment in ML Studio that uses the dataset we uploade
 4.	Find the dataset you created and drag it onto the canvas. You can also find the dataset by entering the name in the **Search** box above the palette.  
 
 ##Prepare the data
-You can view the first 100 rows of the data, and some statistical information for the whole dataset, by right-clicking the output port of the dataset and selecting **Visualize**. Notice that ML Studio has already identified the data type for each column. It has also given generic headings to the columns since the data file did not come with column headings.  
+You can view the first 100 rows of the data and some statistical information for the whole dataset by right-clicking the output port of the dataset and selecting **Visualize**. Notice that ML Studio has already identified the data type for each column. It has also given generic headings to the columns because the data file did not come with column headings.  
 
 Column headings are not essential, but they will make it easier to work with the data in the model. Also, when we eventually publish this model in a web service, the headings will help identify the columns to the user of the service.  
 
@@ -43,7 +43,7 @@ We can add column headings using the **Metadata Editor** module.
 2.	Click and drag the **Metadata Editor** module onto the canvas and drop it below the dataset.
 3.	Connect the dataset to the **Metadata Editor**: click the output port of the dataset, drag to the input port of **Metadata Editor**, then release the mouse button. The dataset and module will remain connected even if you move either around on the canvas.
 4.	In the **Properties** pane to the right of the canvas, click **Launch column selector**.
-5.	Verify that "All columns" is selected in the dropdown, and click **OK**. This directs the **Metadata Editor** to operate on all columns of data.
+5.	Verify that "All columns" is selected in the **Begins With** field, remove any rows, and click **OK**. This directs the **Metadata Editor** to operate on all columns of data.
 6.	For the **New column name** parameter, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following:  
 
 	Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
@@ -52,7 +52,7 @@ The Properties pane will look like this:
 
 ![Properties for Metadata Editor][1] 
 
->Tip - If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas), right-click the output port of the **Metadata Editor** module and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
+>Tip - If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas), right-click the output port of the **Metadata Editor** module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
 
 The experiment should now look something like this:  
 
@@ -67,7 +67,7 @@ The next step of the experiment is to generate separate datasets that will be us
 	
 We can use the outputs of the **Split** module however we like, but let's choose to use the left output as training data and the right output as scoring data.  
 
-As mentioned on the UCI website, the cost of misclassifying a high credit risk as low is 5 times larger than the cost of misclassifying a low credit risk as high. To account for this we'll generate a new dataset that reflects this cost function. In the new dataset each high example is replicated 5 times, while each low example is not replicated.   
+As mentioned on the UCI website, the cost of misclassifying a high credit risk as low is 5 times larger than the cost of misclassifying a low credit risk as high. To account for this, we'll generate a new dataset that reflects this cost function. In the new dataset, each high example is replicated 5 times, while each low example is not replicated.   
 
 We can do this replication using R code:  
 
@@ -87,7 +87,7 @@ We need to do this same replication operation for each output of the **Split** m
 2.	Right-click the experiment canvas and select **Paste**.
 3.	Connect this **Execute R Script** module to the right output port of the **Split** module.  
 
->Tip - The copy of the Execute R Script module contains the same script as the original module. When you copy and paste a module on the canvas the copy retains all the properties of the original.  
+>Tip - The copy of the Execute R Script module contains the same script as the original module. When you copy and paste a module on the canvas, the copy retains all the properties of the original.  
 >
 Our experiment now looks something like this:
  

@@ -14,16 +14,11 @@ To install the Azure SDK 2.4 for .NET, follow these steps:
 
 2. Install each component of the Azure SDK using the links in the following list, in this order. Choose the x86 or x64 version of each of the following components.
 
-       
-	* Azure authoring tools: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400892">WindowsAzureAuthoringTools-x86.msi</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400893">WindowsAzureAuthoringTools-x64.msi</a>.
-
-	* Azure compute emulator: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400894">WindowsAzureEmulator-x86.exe</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400895">WindowsAzureEmulator-x64.exe</a>.
-
-	* The Azure client libraries: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400896">WindowsAzureLibsForNet-x86.msi</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400897">WindowsAzureLibsForNet-x64.msi</a>.
-    
-	* The storage emulator: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400904">WindowsAzureStorageEmulator.msi</a>.                            If you receive a warning regarding local SQL databases, install SQL Server LocalDB 11.0 from <a href="http://go.microsoft.com/fwlink/p/?LinkId=400778">this location</a> for x86 or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400779">this location</a> for x64.
-	
-	*  Azure Tools for Visual Studio: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400903">WindowsAzureTools.vs140.exe</a>.
+       <ul>
+        <li>Azure authoring tools: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400892">WindowsAzureAuthoringTools-x86.msi</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400893">WindowsAzureAuthoringTools-x64.msi</a>.</li>
+       <li>Azure compute emulator: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400894">WindowsAzureEmulator-x86.exe</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400895">WindowsAzureEmulator-x64.exe</a>.</li>
+       <li>The Azure client libraries: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400896">WindowsAzureLibsForNet-x86.msi</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400897">WindowsAzureLibsForNet-x64.msi</a>.</li>
+       <li>The storage emulator: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400904">WindowsAzureStorageEmulator.msi</a>.                            If you receive a warning regarding local SQL databases, install SQL Server LocalDB 11.0 from <a href="http://go.microsoft.com/fwlink/p/?LinkId=400778">this location</a> for x86 or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400779">this location</a> for x64.</li><li> Azure Tools for Visual Studio: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400903">WindowsAzureTools.vs140.exe</a>.</li></ul>
 
 ## Known Issues
 
@@ -32,7 +27,7 @@ To install the Azure SDK 2.4 for .NET, follow these steps:
 	* packages/Microsoft.Data.OData.5.6.0/lib/net40/Microsoft.Data.OData.dll
 	* packages/Microsoft.Data.Edm.5.6.0/lib/net40/Microsoft.Data.Edm.dll
 
-2. Remote debugging for Azure Web Sites and Mobile Services does not work in Visual Studio "14" CTP2.
+2. Remote debugging for Azure Websites and Mobile Services does not work in Visual Studio "14" CTP2.
 
 ## Release Notes
 
