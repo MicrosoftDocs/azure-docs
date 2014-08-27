@@ -49,11 +49,10 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 
 4. Run the following command to create a MapReduce definition:	
 
-		$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "pi" -Arguments "16", "10000000" 
+		$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "pi" -Arguments "16", "10000000" 
 
-	> [WACOM.NOTE] *hadoop-examples.jar* comes with version 2.1 HDInsight clusters. The file has been renamed to *hadoop-mapreduce.jar* on version 3.0 HDInsight clusters.
 	
-	The first argument indicates how many maps to create (default is 16). The second argument indicates how many samples are generated per map (10 million by default). So this program uses 10*10 million = 160 million random points to make its estimate of Pi. 
+	The first argument indicates how many maps to create (default is 16). The second argument indicates how many samples are generated per map (10 million by default). So this program uses 10*10 million = 160 million random points to make its estimate of Pi. The third agrument indicates the location and name of the jar file used to run the sample on HDInsight 3.0 and 3.1 clusters. (See below for the contents of this file.)
 
 5. Run the following commands to submit the MapReduce job and wait for the job to complete:
 
@@ -418,7 +417,7 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 
 In this tutorial, you saw how to run a MapReduce job on HDInsight and how to use Monte Carlo methods that require and generate large data sets that can be managed by this service.
 
-Here is the complete script used to run this sample on a default HDInsight 2.1 cluster. (Only the name of the .jar file needs to be changed to run the sample on an HDInsight 3.0 cluster: hadoop-examples.jar becomes hadoop-mapreduce-examples.jar.)
+Here is the complete script used to run this sample on a default HDInsight 3.1 cluster or on a 3.0 cluster. 
 
 	### Provide the Windows Azure subscription name and the HDInsight cluster name. 
 	$subscriptionName = "<SubscriptionName>" 
@@ -428,7 +427,7 @@ Here is the complete script used to run this sample on a default HDInsight 2.1 c
 	Select-AzureSubscription $subscriptionName 
 
 	### Create a MapReduce job definition. 
-	$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -ClassName "pi" –Arguments “32”, “1000000000” -JarFile "wasb:///example/jars/hadoop-examples.jar"
+	$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -ClassName "pi" –Arguments “32”, “1000000000” -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar"
 
 	### Run the MapReduce job. 
 	$piJob = $piEstimatorJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName
