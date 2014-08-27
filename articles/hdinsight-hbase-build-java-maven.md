@@ -116,6 +116,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		 */
 		-->
 		<configuration>
+		  <property>
 		    <name>hbase.cluster.distributed</name>
 		    <value>true</value>
 		  </property>
