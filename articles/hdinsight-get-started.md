@@ -3,13 +3,13 @@
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="nitinme" />
 
 
-# Get started using Hadoop 2.4 in HDInsight
+# Get started with Hadoop in HDInsight
 
-<div class="dev-center-tutorial-selector sublanding">
+<!--div class="dev-center-tutorial-selector sublanding">
 <a href="../hdinsight-get-started" title="Get started using Hadoop 2.4 in HDInsight" class="current">Hadoop 2.4</a>
 <a href="../hdinsight-get-started-30" title="Get started using Hadoop 2.2 in HDInsight">Hadoop 2.2</a>
-<!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a-->
-</div>
+<!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a>
+</div-->
 
 HDInsight makes Apache Hadoop, a MapReduce software framework, available in a simpler, more scalable, and more cost-efficient Azure environment. HDInsight also provides a cost-efficient approach to the managing and storing of data using Azure Blob storage.
 
@@ -82,7 +82,8 @@ For more information, see
 	
 ##<a name="provision"></a>Provision an HDInsight cluster
 
-When you provision an HDInsight cluster, you provision Azure compute resources that contain Hadoop and related applications. In this section you provision a HDInsight cluster version 3.1, which is based on Hadoop version 2.4. If you want to provision an HDInsight cluster with Hadoop version 2.2, click on the specific version tab at the beginning of this article. You can also create Hadoop clusters for other versions using HDInsight PowerShell cmdlets or by using the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) page. 
+When you provision an HDInsight cluster, you provision Azure compute resources that contains Hadoop and related applications. In this section you provision a HDInsight cluster version 3.1, which is based on Hadoop version 2.4. You can also create Hadoop clusters for other versions using the Azure portal, HDInsight PowerShell cmdlets, or the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) page.
+
 
 **To provision an HDInsight cluster** 
 
@@ -101,8 +102,8 @@ When you provision an HDInsight cluster, you provision Azure compute resources t
 	<table border="1">
 	<tr><th>Name</th><th>Value</th></tr>
 	<tr><td>Cluster Name</td><td>Name of the cluster</td></tr>
-	<tr><td>Cluster Size</td><td>Number of data nodes you want to deploy. The default value is 4. But the option to use 1 or 2 data nodes is also available from the drop-down. Any number of data nodes may be specified when using the <strong>Custom Create</strong> option. Pricing details on the billing rates for various cluster sizes are available. Click the <strong>?</strong> symbol just above the dropdown box and follow the link on the pop up.</td></tr>
-	<tr><td>Password</td><td>The password for the <i>admin</i> account. The cluster user name "admin" is specified when you are not using the Custom Create option. Note that this is NOT the Windows Administrator account for the VMs on which the clusters are provisioned. The account name can be changed by using the <strong>Custom Create</strong> wizard.</td></tr>
+	<tr><td>Cluster Size</td><td>Number of data nodes you want to deploy. The default value is 4. But the option to use 1 or 2 data nodes is also available from the drop-down. Any number of cluster nodes can be specified by using the <strong>Custom Create</strong> option. Pricing details on the billing rates for various cluster sizes are available. Click the <strong>?</strong> symbol just above the dropdown box and follow the link on the pop up.</td></tr>
+	<tr><td>Password</td><td>The password for the <i>admin</i> account. The cluster user name "admin" is specified when you are not using the <strong>Custom Create</strong> option. Note that this is NOT the Windows Administrator account for the VMs on which the clusters are provisioned. The account name can be changed by using the <strong>Custom Create</strong> wizard.</td></tr>
 	<tr><td>Storage Account</td><td>Select the storage account you created from the dropdown box. <br/>
 
 	Once a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
@@ -166,7 +167,7 @@ Now that you have an HDInsight cluster provisioned, the next step is to run a Hi
 
 1. From the cluster dashboard, click **File Browser** at the top. 
 2. Click your storage account name, click your container name (which is the same as your cluster name), and then click **user**.
-3. Click admin and then click the GUID number which has the last modified time a little after the job start time you noted earlier. Make a note of this GUID. You will need it in the next section.
+3. Click **admin** and then click the GUID which has the last modified time a little after the job start time you noted earlier. Make a note of this GUID. You will need it in the next section.
 
 
      ![hdi.dashboard.query.browse.output][img-hdi-dashboard-query-browse-output]
@@ -193,7 +194,7 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 4. Enter the **Account Key** for the Azure Blob Storage Account, and then click **Save**. 
 5. In the Navigator pane on the right, double-click the Blob storage container name. By default the container name is the same name as the cluster name. 
 
-6. Locate **stdout** in the **Name** column. Verify the GUID in the corresponding Folder Path column matches the GUID you noted down earlier. Click **Binary** on the left of **stdout**.
+6. Locate **stdout** in the **Name** column. Verify the GUID in the corresponding **Folder Path** column matches the GUID you noted down earlier. A match suggests that the output data corresponds to the job you submitted. Click **Binary** on the left of **stdout**.
 
 	![HDI.GettingStarted.PowerQuery.ImportData2][image-hdi-gettingstarted-powerquery-importdata2]
 
