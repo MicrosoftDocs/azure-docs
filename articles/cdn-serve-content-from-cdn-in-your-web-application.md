@@ -251,9 +251,10 @@ Currently, the only place you find adequate integration between ASP.NET bundling
 
 		@Html.Raw(Styles.Render("~/Content/css").ToString().Insert(0, "http://<yourCDNName>.vo.msecnd.net"))
 
-For more information on integrating Azure CDN with Azure Cloud Services, see [Integrate a cloud application with Azure CDN](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-create-deploy/).    
+For more information on integrating Azure CDN with Azure Cloud Services, see [Integrate a cloud service with Azure CDN](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-create-deploy/).    
 
 # More Information #
 - [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Integrate a cloud application with Azure CDN](http://azure.microsoft.com/en-us/Documentation/Articles/cdn-cloud-service-with-cdn/)
+- [Integrate a cloud service with Azure CDN](http://azure.microsoft.com/en-us/Documentation/Articles/cdn-cloud-service-with-cdn/)
+- [How to Map Content Delivery Network (CDN) Content to a Custom Domain](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Using CDN for Azure](http://azure.microsoft.com/en-us/documentation/articles/cdn-how-to-use/)
