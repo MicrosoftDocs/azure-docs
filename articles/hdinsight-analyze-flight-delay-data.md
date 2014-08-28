@@ -111,7 +111,7 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 
 		$subscriptionName = "<AzureSubscriptionName>"
 		$storageAccountName = "<AzureStorageAccountName>"
-		$ContainerName = "<BlobStorageContainerName>"
+		$containerName = "<BlobStorageContainerName>"
 		
 		$localFolder = "C:\Tutorials\FlightDelays\Data"
 		$destFolder = "tutorials/flightdelays/data"
@@ -143,11 +143,11 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 		
 		    Write-Host "Copying $fileName to $blobName" -BackgroundColor Green
 		
-		    Set-AzureStorageBlobContent -File $fileName -Container $dataContainerName -Blob $blobName -Context $destContext
+		    Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -Context $destContext
 		}
 		
 		# List the uploaded files on HDinsight
-		Get-AzureStorageBlob -Container $dataContainerName  -Context $destContext -Prefix $destFolder
+		Get-AzureStorageBlob -Container $containerName  -Context $destContext -Prefix $destFolder
 
 
 
@@ -465,7 +465,7 @@ There is a known Hive path issue. The instructions for fixing the issue can be f
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 		
-		Get-AzureStorageBlobContent -Container $ContainerName -Blob $outputBlobName -Context $storageContext 
+		Get-AzureStorageBlobContent -Container $containerName -Blob $outputBlobName -Context $storageContext 
 		
 		cat ".\$outputBlobName" | findstr /B "Ch"
 
