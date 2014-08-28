@@ -116,14 +116,18 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		 */
 		-->
 		<configuration>
+		  <property>
 		    <name>hbase.cluster.distributed</name>
 		    <value>true</value>
 		  </property>
 		  <property>
 		    <name>hbase.zookeeper.quorum</name>
-		    <value>zookeepernode0:2181 zookeepernode1:2181 zookeepernode2:2181</value>
+		    <value>zookeeper0,zookeeper1,zookeeper2</value>
 		  </property>
-		
+		  <property>
+		    <name>hbase.zookeeper.property.clientPort</name>
+		    <value>2181</value>
+		  </property>
 		</configuration>
 
 	This file will be used to load the HBase configuration for an HDInsight cluster.
