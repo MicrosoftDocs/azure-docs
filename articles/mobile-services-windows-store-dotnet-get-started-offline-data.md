@@ -123,9 +123,9 @@ This section uses SQLite as the local store for the offline features.
               Description="Use the Pull and Push buttons to synchronize the local store with the server" />
         </StackPanel>
         <Button Grid.Row="1" Grid.Column="0" Margin="5,5,0,0" Name="ButtonPush"
-            Click="ButtonPush_Click" Width="80" Height="34">⬆ Push</Button>
+            Click="ButtonPush_Click" Width="80" Height="34">Push</Button>
         <Button Grid.Row="1" Grid.Column="1" Margin="5,5,0,0"  Name="ButtonPull" 
-            Click="ButtonPull_Click" Width="80" Height="34">⬇ Pull</Button>
+            Click="ButtonPull_Click" Width="80" Height="34">Pull</Button>
         <ListView Name="ListItems" SelectionMode="None" Margin="0,10,0,0" Grid.ColumnSpan="2" Grid.Row="2">
         
 

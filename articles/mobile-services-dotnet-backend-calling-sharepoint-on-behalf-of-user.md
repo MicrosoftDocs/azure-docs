@@ -103,7 +103,7 @@ In order to access SharePoint, you need a special access token with SharePoint a
             authority = settings["SP_Authority"];
         }
 
-3. Now create a method to add the file to the user�s document library:
+3. Now create a method to add the file to the user's document library:
 
         public async Task<bool> UploadDocument(string docName, byte[] document)
         {
