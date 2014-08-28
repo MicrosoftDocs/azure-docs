@@ -9,7 +9,6 @@ You can capture and search diagnostic data from System.Diagnostics.Trace, NLog, 
 The monitored web application can be hosted on-premise or in a virtual machine, or it can be a Microsoft Azure website.
 
 1. [Add a logging adapter](#add)
-+ [Configure diagnostics collection](#configure)
 + [Insert log statements, build and deploy](#deploy)
 + [View log data](#view)
 + [Search the data](#search)
@@ -28,73 +27,27 @@ The monitored web application can be hosted on-premise or in a virtual machine, 
 
     ![Get the prerelease version of the appropriate adapter](./media/appinsights/appinsights-36nuget.png)
 
+    The NuGet package modifies web.config or app.config, in addition to installing the necessary assemblies.
 
 4. Select the prerelease version of the appropriate package - one of:
   + Microsoft.ApplicationInsights.TraceListener
   + Microsoft.ApplicationInsights.NLogTarget
   + Microsoft.ApplicationInsights.Log4NetAppender
 
-## <a name="configure"></a>2. Configure diagnostics collection
 
-### For System.Diagnostics.Trace
+## <a name="deploy"></a>2. Insert log statements, build and deploy
 
-In Web.config, insert the following code into the `<configuration>` section:
+Insert event logging calls using your chosen logging framework. For example if you use Trace, you might have calls like:
 
-    <system.diagnostics>
-     <trace autoflush="true" indentsize="0">
-      <listeners>
-       <add name="myAppInsightsListener"  
-          type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, 
-         Microsoft.ApplicationInsights.TraceListener" />
-      </listeners>
-     </trace>
-    </system.diagnostics> 
+    System.Diagnostics.Trace.TraceWarning("Slow response - database01");
 
-### For NLog
-
-In Nlog.config, merge the following snippets into the `<extensions>`, `<targets>` and `<rules>` sections. Create those sections if necessary.
-
-    <extensions> 
-     <add  assembly="Microsoft.ApplicationInsights.NLogTarget" /> 
-    </extensions> 
-    
-    <targets>
-     <target xsi:type="ApplicationInsightsTarget" name="aiTarget"/>
-    </targets>
-    
-    <rules>
-     <logger name="*" minlevel="Trace" writeTo="aiTarget"/>
-    </rules>
-    
-### For Log4Net
-
-In Web.config, merge these snippets into the `<configsections>` and `<log4net>` sections:
-
-    <configSections>
-      <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" />
-    </configSections>
-    
-    <log4net>
-     <root>
-      <level value="ALL" /> <appender-ref ref="aiAppender" />
-     </root>
-     <appender name="aiAppender" type="Microsoft.ApplicationInsights.Log4NetAppender.ApplicationInsightsAppender, Microsoft.ApplicationInsights.Log4NetAppender">
-      <layout type="log4net.Layout.PatternLayout">
-       <conversionPattern value="%date [%thread] %-5level %logger - %message%newline" />
-      </layout>
-     </appender>
-    </log4net>
-
-
-## <a name="deploy"></a>3. Insert log statements, build and deploy
-
-Insert event logging calls using your chosen logging framework. For example if you use Log4Net, you might have calls like
+Or if you prefer to use log4net:
 
     log.Warn("Slow response - database01");
 
 Logged events will be sent to Application Insights both in development and in operation.
 
-## <a name="view"></a>4. View log data
+## <a name="view"></a>3. View log data
 
 In Application Insights, open diagnostic search.
 
@@ -109,7 +62,7 @@ The available fields depend on the logging framework and the parameters you used
 You can use plain strings (without wildcards) to filter the field data within an item.
 
 
-## <a name="search"></a>5. Search the data
+## <a name="search"></a>4. Search the data
 
 Set a time range and search for terms. Searches over a shorter range are faster. 
 
