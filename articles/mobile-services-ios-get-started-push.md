@@ -35,7 +35,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 This tutorial requires the following:
 
 + [Mobile Services iOS SDK]
-+ [XCode 4.5][Install Xcode] 
++ [Xcode 4.5][Install Xcode] 
 + An iOS 5.0 (or later version) capable device
 + iOS Developer Program membership
 
