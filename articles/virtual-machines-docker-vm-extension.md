@@ -17,15 +17,22 @@ This topic follows this [MS Open Tech blog announcement](http://msopentech.com/b
 
 Docker and Linux containers are not [Hypervisors](http://en.wikipedia.org/wiki/Hypervisor) such as Windows Hyper-V and [KVM](http://www.linux-kvm.org/page/Main_Page) on Linux (there are many other examples). Hypervisors virtualize the underlying operating system to enable complete operating systems to run inside the hypervisor as if they were an application. 
 
-The hypervisor approach provides important security advantages because the "guest" virtual machine does not have any access to the "host" operating system; instead, it may only use the resources of the hypervisor. The disadvantages, however, include larger processing and storage overhead as well as a relatively slower start-up time for new virtual machines because -- among other things -- they replicate the guest operating systems completely. 
+Docker and other *container* approaches have radically decreased both the start-up time consumed and processing and storage overhead required by using the process and file system isolation features of the Linux kernel to expose only kernel features to an otherwise isolated container.
 
-#### Docker and Linux Containers
+The following table describes at a very high level the kind of feature differences that exist between hypervisors and Linux containers. Note that some features maybe more or less desirable depending upon your own application needs.
 
-Docker and other *container* approaches have radically decreased both the start-up time consumed and processing and storage overhead required by using the process and file system isolation features of the Linux kernel to expose only kernel features to an otherwise isolated container. From inside the container, the file system and kernel features appear to the application as if it were the only application running. 
+|   Feature      | Hypervisors | Containers  |
+| :------------- |-------------| ----------- |
+| Process Isolation | More or less complete | If root is obtained, container host could be compromised |
+| Memory on disk required | Complete OS plus apps | App requirements only |
+| Time taken to start up | Substantially Longer: Boot of OS plus app loading | Substantially shorter: Only apps need to start because kernel is already running  |
+| Container Automation | Varies widely depending on OS and apps | [Docker image gallery](https://registry.hub.docker.com/); others 
 
-In addition, Docker provides several container management features that enable you to load various container images from the community as well as build and load your own very, very rapidly. For completely information about what Docker is and how it really works, see [What is Docker?](https://www.docker.com/whatisdocker/).
+For more information about what Docker is and how it really works, see [What is Docker?](https://www.docker.com/whatisdocker/).
 
-Like most technologies, there substantial upsides and some disadvantages. Because containers do share access to the host computer's kernel, if malicious code is able to gain root it may also be able to gain access not only to the host computer but also the other containers. To secure your container system more strongly, [Docker recommends](https://docs.docker.com/articles/security/) using addition group-policy or [role-based security](http://en.wikipedia.org/wiki/Role-based_access_control) as well, such as [SELinux](http://selinuxproject.org/page/Main_Page) or [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), for example, as well as reducing as much as possible the kernel capabilities that the containers are granted. In addition, there are many other documents on the Internet that describe approaches to security using containers like Docker.
+#### Docker and Linux Container Security Best Practices
+
+Because containers do share access to the host computer's kernel, if malicious code is able to gain root it may also be able to gain access not only to the host computer but also the other containers. To secure your container system more strongly than the default configuration, [Docker recommends](https://docs.docker.com/articles/security/) using addition group-policy or [role-based security](http://en.wikipedia.org/wiki/Role-based_access_control) as well, such as [SELinux](http://selinuxproject.org/page/Main_Page) or [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), for example, as well as reducing as much as possible the kernel capabilities that the containers are granted. In addition, there are many other documents on the Internet that describe approaches to security using containers like Docker.
 
 ## How to use the Docker VM Extension with Azure
 To use the Docker VM extension with Azure, you must install a version of the [azure-cli](https://github.com/Azure/azure-sdk-tools-xplat) higher than 0.8.6 (as of this writing the current version is 0.8.7). You can install the azure-cli on both Mac and Linux. 
