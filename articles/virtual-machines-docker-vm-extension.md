@@ -37,7 +37,7 @@ Because containers do share access to the host computer's kernel, if malicious c
 ## How to use the Docker VM Extension with Azure
 To use the Docker VM extension with Azure, you must install a version of the [Azure Cross-Platform Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat) (called the **xplat-cli** in this topic) higher than 0.8.6 (as of this writing the current version is 0.8.7). You can install the xplat-cli on Mac, Linux, and Windows. 
 
-> [WACOM.NOTE] Although you can install the xplat-cli on Microsoft Windows, Docker was built with kernel dependencies specific to Linux. Therefore, to use Windows as a Docker client you must host a full Linux distribution as a virtual machine inside Hyper-V or another hypervisor. Once you have done that, you can use the xplat-cli and the Docker commands in this document and those of Docker. Docker itself has a setup program, [Boot2Docker](https://docs.docker.com/installation/windows/), which you can also use to automate this same setup.
+> [WACOM.NOTE] Although you can install the xplat-cli on Microsoft Windows, Docker was built with kernel dependencies specific to Linux. Therefore, to use Windows as a Docker client you must host a full Linux distribution as a virtual machine inside Hyper-V or another hypervisor. Once you have done that, you can use the xplat-cli and the Docker commands in this document and those of Docker. Docker itself has a setup program for Windows, [Boot2Docker](https://docs.docker.com/installation/windows/), which you can also use to automate this same setup.
 
 The complete process to use Docker on Azure is simple:
 
@@ -68,7 +68,7 @@ To use Docker with an Azure Virtual Machine, the Linux image used for the VM mus
 
 ### Using the Azure Image Gallery
 
-From a Bash or Terminal session, use the following azure-cli command to locate the most recent Ubuntu image in the VM gallery to use by typing
+From a Bash or Terminal session, use the following xplat-cli command to locate the most recent Ubuntu image in the VM gallery to use by typing
 
 `azure vm image list | grep Ubuntu-14_04`
 
@@ -86,7 +86,7 @@ where:
 
 + *<password>* is the password of the *username* account that meets the standards of complexity for Azure 
  
-> [WACOM.NOTE] Currently, a password must be at least 8 characters, contain one lower case and one upper case character, a number, and a special character such as !@#$%^&+=. No, the period at the end of the preceding sentence is NOT a special character. 
+> [WACOM.NOTE] Currently, a password must be at least 8 characters, contain one lower case and one upper case character, a number, and a special character such as one of the following characters: `!@#$%^&+=`. No, the period at the end of the preceding sentence is NOT a special character. 
 
 If the command was successful, you should see something like the following, depending on the precise arguments and options you used:
 
@@ -102,7 +102,7 @@ where *<vm-name-you-used>* is the name of the virtual machine that you used in y
 
 ![](./media/virtual-machines-docker/connectingtodockerhost.png)
 
-## Docker Host VM Authentication
+### Docker Host VM Authentication
 In addition to creating the Docker VM, the `azure vm docker create` command also automatically creates the necessary certificates to allow your Docker client computer to connect to the Azure container host using HTTPS, and the certificates are stored on both the client and host machines, as appropriate. On subsequent runs, the existing certificates are reused and shared with the new host.
 
 By default, certificates are placed in `~/.docker`, and Docker will be configured to run on port **4243**. If you would like to use a different port or directory, then you may use one of the following `azure vm docker create` command line options to configure your Docker container host VM to use a different port or different certificates for connecting clients:
