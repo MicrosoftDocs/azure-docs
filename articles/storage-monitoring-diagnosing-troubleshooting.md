@@ -1,6 +1,8 @@
 <properties title="Monitoring, Diagnosing and Troubleshooting Microsoft Azure Storage" pageTitle="Monitoring, Diagnosing and Troubleshooting Microsoft Azure Storage" description="A guide to monitoring, diagnosing, and troubleshooting solutions that use Azure Storage services" metaKeywords="Azure storage  monitoring  diagnosing  logging  troubleshooting  performance  storage client library  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure" services="storage" solutions="" documentationCenter="" authors="dominicb" videoId="" scriptId="" />
 
-# Monitoring, Diagnosing and Troubleshooting Microsoft Azure Storage 
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="v-dobett" />
+
+# Monitoring, diagnosing and troubleshooting Microsoft Azure storage 
 
 Diagnosing and troubleshooting issues in a distributed application hosted in a cloud environment can be more complex than in traditional environments. Applications can be deployed in a PaaS or IaaS infrastructure, on premises, on a mobile device, or in some combination of these. Typically, your application’s network traffic may traverse public and private networks and your application may use multiple storage technologies such as Microsoft Azure Storage Tables, Blobs, Queues, or Files in addition to other data stores such as relational and document databases.
 
@@ -36,7 +38,7 @@ To manage such applications successfully you should monitor them proactively and
 	+ [The client is receiving HTTP 403 (Forbidden) messages]
 	+ [The client is receiving HTTP 404 (Not found) messages]
 	+ [The client is receiving HTTP 409 (Conflict) messages]
-	+ [Metrics show low PercentSuccess or Analytics log entries have operations with transaction status of ClientOtherErrors]
+	+ [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors
 	+ [Capacity metrics show an unexpected increase in storage capacity usage]
 	+ [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 	+ [Your issue arises from using the storage emulator for development or test]
@@ -81,7 +83,7 @@ If you are familiar with Windows performance monitoring, you can think of Storag
 
 You can choose which hourly metrics you want to display in the Azure portal and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold (for more information, see the page <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">How to: Receive Alert Notifications and Manage Alert Rules in Azure</a>). The storage service collects metrics using a best effort, but may not record every storage operation.
 
-Figure 2 below shows the Monitor page in the portal where you can view metrics such as availability, total requests, and average latency numbers for a storage account. A notification rule has also been set up to alert an administrator if availability drops below a certain level. From viewing this data, one possible area for investigation is the table service success percentage being below 100% (for more information, see the section "[Metrics show low PercentSuccess or Analytics log entries have operations with transaction status of ClientOtherErrors]").
+Figure 2 below shows the Monitor page in the portal where you can view metrics such as availability, total requests, and average latency numbers for a storage account. A notification rule has also been set up to alert an administrator if availability drops below a certain level. From viewing this data, one possible area for investigation is the table service success percentage being below 100% (for more information, see the section "[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]").
 
 ![][2]
 
@@ -310,7 +312,7 @@ Is your client application receiving an HTTP 4XX (such as 404) response from a s
 
 ----------
 
-[Metrics show low PercentSuccess or Analytics log entries have operations with transaction status of ClientOtherErrors]
+[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 
 ----------
 
@@ -996,7 +998,7 @@ The code in the client application deletes and then immediately recreates a blob
 
 The client application should use unique container names whenever it creates new containers if the delete/recreate pattern is common.
 
-### <a name="metrics-show-low-percent-success"></a>Metrics show low PercentSuccess or Analytics log entries have operations with transaction status of ClientOtherErrors
+### <a name="metrics-show-low-percent-success"></a>Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors
 
 The **PercentSuccess** metric captures the percent of operations that were successful based on their HTTP Status Code. Operations with status codes of 2XX count as successful, whereas operations with status codes in 3XX, 4XX and 5XX ranges are counted as unsuccessful and lower the **PercentSucess** metric value. In the server-side storage log files, these operations are recorded with a transaction status of **ClientOtherErrors**. 
 
@@ -1222,7 +1224,7 @@ At the time of writing Application Insights is in preview. You can find more inf
 [Network failure]: #network-failure
 [The client is receiving HTTP 409 (Conflict) messages]: #the-client-is-receiving-409-messages
 
-[Metrics show low PercentSuccess or Analytics log entries have operations with transaction status of ClientOtherErrors]: #metrics-show-low-percent-success
+[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]: #metrics-show-low-percent-success
 [Capacity metrics show an unexpected increase in storage capacity usage]: #capacity-metrics-show-an-unexpected-increase
 [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]: #you-are-experiencing-unexpected-reboots
 [Your issue arises from using the storage emulator for development or test]: #your-issue-arises-from-using-the-storage-emulator
