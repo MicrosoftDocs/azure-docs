@@ -199,6 +199,8 @@ If required, you can also import the output of your queries into Microsoft Excel
 		
 This can submitted on a per query basis by placing this at the beginning of your query.  One can also set this to be on by default on a cluster by setting the configuration value at cluster creation time.  You can find more details in  [Provisioning HDInsight Clusters][hdinsight-provision].
 
+The [Hive on Tez design documents][hive-on-tez-wiki] contain a number of details on the implementation choices and tuning configurations.
+
 	
 ##<a id="nextsteps"></a>Next steps
 
@@ -223,6 +225,7 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-connect-excel-power-query/
 
 
