@@ -382,7 +382,7 @@ If you are writing a script that relies on the exit status, please verify that t
 
 * If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
 
-* For more information on Azure, see [http://www.windowsazure.com/](http://www.windowsazure.com).
+* For more information on Azure, see [http://azure.microsoft.com/](http://azure.microsoft.com).
 
 
 
