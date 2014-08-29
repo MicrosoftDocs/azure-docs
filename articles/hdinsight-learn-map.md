@@ -7,7 +7,7 @@
 HDInsight provides ability to work with "big data" on Azure by enabling you to provision Hadoop and HBase clusters on the cloud. This page provides links to all the resources that you need to start learning about HDInsight. Use the flow suggested in the illustration for the most effective learning path. 
 
 
-<center><img src = "./media/hdinsight-learn-map/HDI.contentflow.png" title = "" usemap="#testmap">
+<center><img src = "./media/hdinsight-learn-map/HDI.ContentFlow.png" title = "" usemap="#testmap">
 	<map name="testmap">
 		<area shape="rect" alt="" title="" coords="665,79,804,110" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-introduction/" target="_blank" />
         <area shape="rect" alt="" title="" coords="665,121,802,150" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-overview/" target="_blank" />
