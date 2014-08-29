@@ -1,5 +1,3 @@
-<properties linkid="manage-services-hdinsight-howto-hive" urlDisplayName="Use Hadoop Hive in HDInsight" pageTitle="Use Hadoop Hive in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive with HDInsight. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data and report basic statistics." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Hive in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
-
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Use Hive with Hadoop in HDInsight
@@ -195,11 +193,11 @@ If required, you can also import the output of your queries into Microsoft Excel
 
 ##<a id="usetez"</a>Using Tez For Improved Performance
 
-[Apache Tez](http://tez.apache.org/) is a framework that allows for data intensive applications like Hive to execute much more efficiently at scale. In the latest release of HDInsight, Hive now supports running on Tez.  This is currently off by default and must be enabled.  In order to take advantage of Tez, the following value must be set for a Hive query:
+[Apache Tez][apache-tez] is a framework that allows for data intensive applications like Hive to execute much more efficiently at scale. In the latest release of HDInsight, Hive now supports running on Tez.  This is currently off by default and must be enabled.  In order to take advantage of Tez, the following value must be set for a Hive query:
 
 		set hive.execution.engine=tez;
 		
-This can submitted on a per query basis by placing this at the beginning of your query.  One can also set this to be on by default on a cluster by setting the configuration value at cluster creation time.  You can find more details in  [Provisioning HDInsight Clusters][hdinsight-provision-clusters].
+This can submitted on a per query basis by placing this at the beginning of your query.  One can also set this to be on by default on a cluster by setting the configuration value at cluster creation time.  You can find more details in  [Provisioning HDInsight Clusters][hdinsight-provision].
 
 	
 ##<a id="nextsteps"></a>Next steps
@@ -222,7 +220,7 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 [azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 
-
+[apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [import-to-excel]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-connect-excel-power-query/
