@@ -21,6 +21,7 @@
 * [The Hive usage case](#usage)
 * [Upload data for Hive tables](#uploaddata)
 * [Run Hive queries using PowerShell](#runhivequeries)
+* [Use Tez for improved performance](#usetez)
 * [Next steps](#nextsteps)
 
 ##<a id="usage"></a>The Hive usage case
@@ -191,6 +192,17 @@ If required, you can also import the output of your queries into Microsoft Excel
 	For more information about Here-Strings, see [Using Windows PowerShell Here-Strings][powershell-here-strings].
 
 If required, you can also import the output of your queries into Microsoft Excel for further analysis. For instructions, see [Connect Excel to Hadoop with Power Query][import-to-excel].
+
+##<a id="usetez"</a>Using Tez For Improved Performance
+
+[Apache Tez][apache-tez] is a framework that allows for data intensive applications like Hive to execute much more efficiently at scale. In the latest release of HDInsight, Hive now supports running on Tez.  This is currently off by default and must be enabled.  In future cluster versions, this will be set to be on by default. In order to take advantage of Tez, the following value must be set for a Hive query:
+
+		set hive.execution.engine=tez;
+		
+This can submitted on a per query basis by placing this at the beginning of your query.  One can also set this to be on by default on a cluster by setting the configuration value at cluster creation time.  You can find more details in  [Provisioning HDInsight Clusters][hdinsight-provision].
+
+The [Hive on Tez design documents][hive-on-tez-wiki] contain a number of details on the implementation choices and tuning configurations.
+
 	
 ##<a id="nextsteps"></a>Next steps
 
@@ -212,9 +224,10 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 [azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 
-
+[apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-connect-excel-power-query/
 
 

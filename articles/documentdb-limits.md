@@ -27,7 +27,8 @@ The following table describes the limits and quota enforcements of DocumentDB du
 |Maximum Length of the Id property    |255 characters
 |Default number of items per page     |100
 |Maximum items per page        |1000
-|Maximum request size of document, attachment, stored procedure, trigger and UDF        |16KB
+|Maximum request size of document and attachment       |16KB
+|Maximum request size of stored procedure, trigger and UDF        |128KB
 |Maximum response size |1MB
 |Maximum number of unique paths per collection       |100
 |String |All strings must conform to the UTF-8 encoding. Since UTF-8 is a variable width encoding, string sizes are determined using the UTF-8 bytes.

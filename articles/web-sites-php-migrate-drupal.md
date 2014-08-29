@@ -40,7 +40,7 @@ Now your Drupal database is live in Azure Websites. Before you deploy your Drupa
 
 ##<a name="modify-settingsphp"></a><span class="short-header">Modify database connection info in settings.php</span>3. Modify database connection info in settings.php
 
-Here, you again need your new database connection information. Open the **/drupal/sites/default/setting.php** file in a text editor, and replace the values of ‘database’, ‘username’, ‘password’, and ‘host’ in the **$databases** array with the correct values for your new database. When you are finished, you should have something similar to this:
+Here, you again need your new database connection information. Open the **/drupal/sites/default/setting.php** file in a text editor, and replace the values of 'database', 'username', 'password', and 'host' in the **$databases** array with the correct values for your new database. When you are finished, you should have something similar to this:
 
     $databases = array (
        'default' => 
