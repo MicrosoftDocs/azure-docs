@@ -5,9 +5,12 @@
 
 # Get started with data in Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
+<div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a></div>
 
 This topic shows you how to use Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
+
+>[WACOM.NOTE]This topic shows you how to use Visual Studio 2013 to add Azure Mobile Services to a Windows Store project. You can add the same JavaScript backend mobile service to a universal Windows app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data) of this tutorial.
 
 This tutorial walks you through these basic steps:
 
@@ -28,8 +31,6 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 1. Download the JavaScript version of the GetStartedWithData sample app from the [Developer Code Samples site]. 
 
-   	![][10]
-
 2. In Visual Studio 2012 Express for Windows 8, open the downloaded project, expand the **js** folder and examine the default.js file.
 
    	Notice that added **TodoItem** objects are stored in an in-memory **List** object.
@@ -42,7 +43,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
    	Notice that the saved text is displayed in the second column under **Query and update data**.
 
-<h2><a name="create-service"></a><span class="short-header">Create the mobile service</span>Create a new mobile service from Visual Studio</h2>
+##<a name="create-service"></a>Create a new mobile service from Visual Studio
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
@@ -57,54 +58,17 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 </li>
 </ol>
 
-<h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service and update the app</h2>
+##<a name="add-table"></a>Add a new table for data storage
 
 [WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
-6. In the default.js script file, comment the line that defines the existing items collection, then uncomment or add the following line of code and replace `<yourClient>;` with the variable added to the service.js file when you connected your project to the mobile service:
+>[WACOM.NOTE]New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see [Dynamic schema](http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx).
 
-		var todoTable = <yourClient>.getTable('TodoItem');
+#<a name="update-app"></a>Update the app to use the mobile service
 
-   	This code creates a proxy object (**todoTable**) for the new database table. 
+[WACOM.INCLUDE [mobile-services-windows-javascript-update-data-app](../includes/mobile-services-windows-javascript-update-data-app.md)]
 
-7. Replace the **InsertTodoItem** function with the following code:
-
-		var insertTodoItem = function (todoItem) {
-		    // Inserts a new row into the database. When the operation completes
-		    // and Mobile Services has assigned an id, the item is added to the binding list.
-		    todoTable.insert(todoItem).done(function (item) {
-		        todoItems.push(item);
-		    });
-		};
-
-	This code inserts a new item into the table.
-
-	<div class="dev-callout"><strong>Note</strong><p>New tables are created with only an Id column. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx">Dynamic schema</a>.</p></div>
-
-8. Replace the **RefreshTodoItems** function with the following code:
-
-		var refreshTodoItems = function () {
-		    // This code refreshes the entries in the list by querying the table. 
-		    todoTable.read().done(function (results) {
-		        todoItems = new WinJS.Binding.List(results);
-		        listItems.winControl.itemDataSource = todoItems.dataSource;
-		    });
-		};
-
-   	This sets the binding to the collection of items in the todoTable, which contains all of the **TodoItem** objects returned from the mobile service. 
-
-9. Replace the **UpdateCheckedTodoItem** function with the following code:
-        
-        var updateCheckedTodoItem = function (todoItem) {
-            // This code takes a freshly completed TodoItem and updates the database. 
-            todoTable.update(todoItem);
-        };
-
-   	This sends an item update to the mobile service.
-
-Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
-
-<h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against your new mobile service</h2>
+##<a name="test-app"></a>Test the app against your new mobile service
 
 1. In Visual Studio, press the F5 key to run the app.
 
@@ -175,27 +139,20 @@ Once you have completed the data series, try one of these other tutorials:
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-quickstart-startup.png
 
-
-
-
-
-
-
-
 [9]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-todoitem-data-browse.png
 [10]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-data-sample-download-js-vs12.png
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-js
-[Get started with Mobile Services]: ./mobile-services-get-started.md
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
-[C# and XAML]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+[Validate and modify data with scripts]: /en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
+[Refine queries with paging]: /en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started/
+[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library/
