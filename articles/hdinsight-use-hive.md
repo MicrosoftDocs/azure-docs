@@ -193,7 +193,7 @@ If required, you can also import the output of your queries into Microsoft Excel
 
 ##<a id="usetez"</a>Using Tez For Improved Performance
 
-[Apache Tez][apache-tez] is a framework that allows for data intensive applications like Hive to execute much more efficiently at scale. In the latest release of HDInsight, Hive now supports running on Tez.  This is currently off by default and must be enabled.  In order to take advantage of Tez, the following value must be set for a Hive query:
+[Apache Tez][apache-tez] is a framework that allows for data intensive applications like Hive to execute much more efficiently at scale. In the latest release of HDInsight, Hive now supports running on Tez.  This is currently off by default and must be enabled.  In future cluster versions, this will be set to be on by default. In order to take advantage of Tez, the following value must be set for a Hive query:
 
 		set hive.execution.engine=tez;
 		
