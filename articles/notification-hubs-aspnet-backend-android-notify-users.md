@@ -26,7 +26,7 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 
         }
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers-conti.md)]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers-conti](../includes/notification-hubs-aspnet-backend-notifyusers-conti.md)]
 
 ## Create the Android Project
 

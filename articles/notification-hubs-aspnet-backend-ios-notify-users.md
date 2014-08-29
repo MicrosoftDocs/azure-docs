@@ -31,7 +31,7 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 
         }
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers-conti.md)]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers-conti](../includes/notification-hubs-aspnet-backend-notifyusers-conti.md)]
 
 
 ## Modify your iOS app

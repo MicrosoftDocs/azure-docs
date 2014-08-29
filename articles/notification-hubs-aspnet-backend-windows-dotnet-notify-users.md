@@ -33,7 +33,7 @@ Before you begin this tutorial, you must reserve an application name, then creat
 
         }
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers-conti.md)]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers-conti](../includes/notification-hubs-aspnet-backend-notifyusers-conti.md)]
 
 ## Create the Windows Phone Project
 
