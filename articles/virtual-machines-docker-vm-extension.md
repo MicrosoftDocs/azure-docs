@@ -35,25 +35,25 @@ For more information about what Docker is and how it really works, see [What is 
 Because containers do share access to the host computer's kernel, if malicious code is able to gain root it may also be able to gain access not only to the host computer but also the other containers. To secure your container system more strongly than the default configuration, [Docker recommends](https://docs.docker.com/articles/security/) using addition group-policy or [role-based security](http://en.wikipedia.org/wiki/Role-based_access_control) as well, such as [SELinux](http://selinuxproject.org/page/Main_Page) or [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), for example, as well as reducing as much as possible the kernel capabilities that the containers are granted. In addition, there are many other documents on the Internet that describe approaches to security using containers like Docker.
 
 ## How to use the Docker VM Extension with Azure
-To use the Docker VM extension with Azure, you must install a version of the [Azure Cross-Platform Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat) (azure-cli, sometimes referred to as the xplat-cli) higher than 0.8.6 (as of this writing the current version is 0.8.7). You can install the azure-cli on Mac, Linux, and Windows. 
+To use the Docker VM extension with Azure, you must install a version of the [Azure Cross-Platform Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat) (called the **xplat-cli** in this topic) higher than 0.8.6 (as of this writing the current version is 0.8.7). You can install the xplat-cli on Mac, Linux, and Windows. 
 
-> [WACOM.NOTE] Although you can install the azure-cli on Microsoft Windows, Docker was built with kernel dependencies specific to Linux. Therefore, to use Windows as a Docker client you must host a full Linux distribution as a virtual machine inside Hyper-V or another hypervisor. Once you have done that, you can use the azure-cli and the Docker commands in this document and those of Docker. Docker itself has a setup program, [Boot2Docker](https://docs.docker.com/installation/windows/), which you can also use to automate this same setup.
+> [WACOM.NOTE] Although you can install the xplat-cli on Microsoft Windows, Docker was built with kernel dependencies specific to Linux. Therefore, to use Windows as a Docker client you must host a full Linux distribution as a virtual machine inside Hyper-V or another hypervisor. Once you have done that, you can use the xplat-cli and the Docker commands in this document and those of Docker. Docker itself has a setup program, [Boot2Docker](https://docs.docker.com/installation/windows/), which you can also use to automate this same setup.
 
 The complete process to use Docker on Azure is simple:
 
-+ Install the azure-cli command line tools and its dependencies on the computer from which you want to control Azure (on Windows, this will be a Linux distribution running as a virtual machine)
-+ Use the azure-cli Docker commands to create a VM Docker host in Azure
++ Install the xplat-cli command line tools and its dependencies on the computer from which you want to control Azure (on Windows, this will be a Linux distribution running as a virtual machine)
++ Use the xplat-cli Docker commands to create a VM Docker host in Azure
 + Use the local Docker commands to manage your Docker containers in your Docker VM in Azure.
 
-> [WACOM.NOTE] The azure-cli (command line interface) is currently the only way to create a Docker-controlled VM on Azure to host Docker containers. The general installation document is [here](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install); the sections below offer some extra suggestions to installing smoothly on various operating systems. 
+> [WACOM.NOTE] The xplat-cli (command line interface) is currently the only way to create a Docker-controlled VM on Azure to host Docker containers. 
 
-### Install the Cross-Platform Command-Line Interface (azure-cli)
-To install and configure the Cross-Platform Command-Line Interface (azure-cli), see [How to install the Azure Cross-Platform Command-Line Interface](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install). To confirm the installation, type `azure` at the command prompt and after a short moment you should see the azure-cli ASCII art, which lists the basic commands available to you. If the installation worked correctly, you should be able to type `azure help vm` and see that one of the listed commands is "docker".
+### Install the Cross-Platform Command-Line Interface (xplat-cli)
+To install and configure the Cross-Platform Command-Line Interface, see [How to install the Azure Cross-Platform Command-Line Interface](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install). To confirm the installation, type `azure` at the command prompt and after a short moment you should see the xplat-cli ASCII art, which lists the basic commands available to you. If the installation worked correctly, you should be able to type `azure help vm` and see that one of the listed commands is "docker".
 
 > [WACOM.NOTE] If you are using an Ubuntu 14.04 LTS installation, that image has a slightly different node installation that may require some extra work. One suggestion that seems to work well is located [here](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server) in the **How To Install Using a PPA** section, which describes how to install the most recent version of nodejs directly and seems to work well on an Ubuntu 14.04 LTS distribution. 
 
-### Connect the azure-cli to to your Azure Account
-Before you can use the azure-cli you must associate your Azure account credentials with the azure-cli on your platform. The section [How to connect to your Azure subscription](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure) explains how to either download and import your **.publishsettings** file or associate your azure-cli command-line with an organizational id. 
+### Connect the xplat-cli to to your Azure Account
+Before you can use the xplat-cli you must associate your Azure account credentials with the xplat-cli on your platform. The section [How to connect to your Azure subscription](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure) explains how to either download and import your **.publishsettings** file or associate your xplat-cli command-line with an organizational id. 
 
 > [WACOM.NOTE] There are some differences in behavior when using one or the other methods of authentication, so do be sure to read the document above to understand the different functionality. 
 
@@ -72,10 +72,10 @@ From a Bash or Terminal session, use the following azure-cli command to locate t
 
 `azure vm image list | grep Ubuntu-14_04`
 
-and select one of the image names, such as `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20140729-alpha2-en-us-30GB`, and use the following command to create a new VM using that image. 
+and select one of the image names, such as `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-en-us-30GB`, and use the following command to create a new VM using that image. 
 
 ```
-azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20140729-alpha2-en-us-30GB" <username> <password>
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-en-us-30GB" <username> <password>
 ``` 
 
 where:
