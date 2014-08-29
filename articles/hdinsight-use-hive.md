@@ -21,6 +21,7 @@
 * [The Hive usage case](#usage)
 * [Upload data for Hive tables](#uploaddata)
 * [Run Hive queries using PowerShell](#runhivequeries)
+* [Use Tez for improved performance](#usetez)
 * [Next steps](#nextsteps)
 
 ##<a id="usage"></a>The Hive usage case
@@ -191,6 +192,15 @@ If required, you can also import the output of your queries into Microsoft Excel
 	For more information about Here-Strings, see [Using Windows PowerShell Here-Strings][powershell-here-strings].
 
 If required, you can also import the output of your queries into Microsoft Excel for further analysis. For instructions, see [Connect Excel to Hadoop with Power Query][import-to-excel].
+
+##<a id="usetez"</a>Using Tez For Improved Performance
+
+[Apache Tez](http://tez.apache.org/) is a framework that allows for data intensive applications like Hive to execute much more efficiently at scale. In the latest release of HDInsight, Hive now supports running on Tez.  This is currently off by default and must be enabled.  In order to take advantage of Tez, the following value must be set for a Hive query:
+
+		set hive.execution.engine=tez;
+		
+This can submitted on a per query basis by placing this at the beginning of your query.  One can also set this to be on by default on a cluster by setting the configuration value at cluster creation time.  You can find more details in  [Provisioning HDInsight Clusters][hdinsight-provision-clusters].
+
 	
 ##<a id="nextsteps"></a>Next steps
 
