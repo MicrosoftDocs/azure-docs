@@ -77,7 +77,7 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 		
 		@end
 
-7. Add the following code in the RegisterClient.m implementation section, and substitute the *{backend endpoint}* placeholder with the Destination URL you used to deploy your app backend in the previous section.
+6. Add the following code in the RegisterClient.m implementation section, and substitute the *{backend endpoint}* placeholder with the Destination URL you used to deploy your app backend in the previous section.
 		
 		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";
 		NSString *const BackEndEndpoint = @"{backend endpoint}/api/register";
@@ -210,12 +210,12 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 	
 	Note that this class requires its property **authorizationHeader** to be set in order to work properly. This property is set by the **ViewController** class after the log in.
 	
-8. In ViewController.h, add the following declaration for the device token:
+7. In ViewController.h, add the following declaration for the device token:
 
 		@property (strong, nonatomic) NSData* deviceToken;
 	
 
-9. In ViewController.m, make the ViewController class a UITextFieldDelegate, and add property to reference a RegisterClient instance. Then add a private method declaration. Your interface section should look like this:
+8. In ViewController.m, make the ViewController class a UITextFieldDelegate, and add property to reference a RegisterClient instance. Then add a private method declaration. Your interface section should look like this:
 
 		@interface ViewController () <UITextFieldDelegate>
 
@@ -235,7 +235,7 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 
 > [AZURE.NOTE] The following snippet is not a secure authentication scheme, you should substitute the implementation of the **createAndSetAuthenticationHeaderWithUsername:AndPassword:** with your specific authentication mechanism that generates an authentication token to be consumed by the register client class, e.g. OAuth, Active Directory.
 
-10. Then in the implementation section of ViewController.m add the following code:
+9. Then in the implementation section of ViewController.m add the following code:
 
 		-(void) setDeviceToken: (NSData*) deviceToken
 		{

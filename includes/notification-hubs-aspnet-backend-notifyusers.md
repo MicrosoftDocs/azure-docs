@@ -23,7 +23,7 @@ We will first create an ASP.NET WebAPI project. This is the backend that is used
 
 5. In Solution Explorer, right-click the **AppBackend** project and then click **Manage NuGet Packages**.
 
-6. On the left-hand side, click **Online**, and search for **servicebus* in the **Search** box.
+6. On the left-hand side, click **Online**, and search for **servicebus** in the **Search** box.
 
 7. In the results list, click **Windows Azure Service Bus**, and then click **Install**. Complete the installation, then close the NuGet package manager window.
 
