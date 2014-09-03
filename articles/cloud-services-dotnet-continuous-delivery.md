@@ -54,7 +54,7 @@ documentation.
     for Visual Studio 2013). You
     should copy it to the same directory on the build server.
 5.  Install the [Azure Tools for Visual Studio][].
-    Look for WindowsAzureTools.VS120.exe to build Visual Studio 2012 projects, and WindowsAzureTools.VS120.exe to build Visual Studio 2013 projects.
+    Look for WindowsAzureTools.VS110.exe to build Visual Studio 2012 projects, and WindowsAzureTools.VS120.exe to build Visual Studio 2013 projects.
 
 <h2><a name="step2"> </a><span class="short-header">Build a Package Using MSBuild</span>Step 2: Build a Package using MSBuild Commands</h2>
 
