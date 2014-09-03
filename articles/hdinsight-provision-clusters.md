@@ -47,19 +47,24 @@ When provisioning an HDInsight cluster, you can specify a SQL Database that will
 
 [Azure Virtual Network](http://azure.microsoft.com/en-us/documentation/services/virtual-network/) allows you to create a secure, persistent, network containing the resources you need for your solution. A virtual network allows you to:
 
-* Connect cloud resources together in a secure, private network (cloud-only)
+* Connect cloud resources together in a private network (cloud-only)
 
-* Connect your cloud resources to your local datacenter (site-to-site)
+	![diagram of cloud-only configuration](.\media\hdinsight-provision-clusters\cloud-only.png)
 
-* Connect your cloud resources to a specific machine in your data center (point-to-site)
+* Connect your cloud resources to your local datacenter network (site-to-site) using a Virtual Private Network (VPN)
+
+	![diagram of site-to-site configuration](.\media\hdinsight-provision-clusters\site-to-site.png)
+
+* Connect to your cloud resources over a Virtual Private Network (VPN) from a specific machine in your datacenter (point-to-site). This is useful when developing or debugging a job on an HDInsight cluster.
+
+	![diagram of point-to-site configuration](.\media\hdinsight-provision-clusters\point-to-site.png)
 
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
 > [WACOM.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](http://msdn.microsoft.com/en-us/library/azure/jj156206.aspx).
 
-When using Azure Virtual Network, you should consider locating other resources used by the cluster, such as Azure Blob Storage or SQL Database, on the same network.
 
-[WACOM.NOTE] It is highly recommended to designate a single subnet for one cluster. 
+> [WACOM.NOTE] It is highly recommended to designate a single subnet for one cluster. 
 
 ##<a id="portal"></a> Using Azure Management Portal
 
