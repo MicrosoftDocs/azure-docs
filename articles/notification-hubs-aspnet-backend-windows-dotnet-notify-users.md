@@ -22,19 +22,6 @@ Before you begin this tutorial, you must reserve an application name, then creat
 
 [WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-        public async Task<HttpResponseMessage> Post()
-        {
-            var user = HttpContext.Current.User.Identity.Name;
-            var userTag = "username:"+user;
-            var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello, " + user + "</text></binding></visual></toast>";
-            await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
-
-            return Request.CreateResponse(HttpStatusCode.OK);
-
-        }
-
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers-conti](../includes/notification-hubs-aspnet-backend-notifyusers-conti.md)]
-
 ## Create the Windows Phone Project
 
 The next step is to create the Windows Phone application. To add this project to the current solution, do the following:

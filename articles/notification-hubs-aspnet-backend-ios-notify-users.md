@@ -20,20 +20,6 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 
 [WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-		public async Task<HttpResponseMessage> Post()
-        {
-            var user = HttpContext.Current.User.Identity.Name;
-            var userTag = "username:"+user;
-            var alert = "{\"aps\":{\"alert\":\"Hello\"}}";
-			await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
-
-			return Request.CreateResponse(HttpStatusCode.OK);
-
-        }
-
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers-conti](../includes/notification-hubs-aspnet-backend-notifyusers-conti.md)]
-
-
 ## Modify your iOS app
 
 1. Open the Single Page view app you created following sections 1 through 5 in [Getting Started with Notification Hubs (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/).

@@ -15,19 +15,6 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 
 [WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-		public async Task<HttpResponseMessage> Post()
-        {
-            var user = HttpContext.Current.User.Identity.Name;
-            var userTag = "username:"+user;
-            var notif = "{ \"data\" : {\"msg\":\"Hello\"}}";
-			await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
-
-			return Request.CreateResponse(HttpStatusCode.OK);
-
-        }
-
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers-conti](../includes/notification-hubs-aspnet-backend-notifyusers-conti.md)]
-
 ## Create the Android Project
 
 The next step is to create the Android application.

@@ -17,7 +17,7 @@ We will first create an ASP.NET WebAPI project. This is the backend that is used
 
 	![][2]
 
-4. In the **Configure Azure Site** dialog, choose a subscription, region, and database to use for this project. Then click **OK** to create the project. 
+4. In the **Configure Azure Site** dialog, choose a subscription, region, and database to use for this project. Then click **OK** to create the project.
 
 	![][5]
 
@@ -50,16 +50,9 @@ We will first create an ASP.NET WebAPI project. This is the backend that is used
             }
         }
 
-11. Update the following placeholder with your hub namespace connection string (with full access) in your `Web.config` file.
+11. We will then create a new class **AuthenticationTestHandler.cs**. In Solution Explorer, right-click the **AppBackend** project, click **Add**, then click **Class**. Name the new class **AuthenticationTestHandler.cs**, and click **Add** to generate the class. This class is used to authenticate users using *Basic Authentication*. Note that your app can use any authentication scheme.
 
-        <appSettings>
-            ...
-            <add key="Microsoft.ServiceBus.ConnectionString" value="{conn string with full access}"/>
-        </appSettings>
-
-12. We will then create a new class **AuthenticationTestHandler.cs**. In Solution Explorer, right-click the **AppBackend** project, click **Add**, then click **Class**. Name the new class **AuthenticationTestHandler.cs**, and click **Add** to generate the class. This class is used to authenticate users using *Basic Authentication*. Note that your app can use any authentication scheme.
-
-13. In AuthenticationTestHandler.cs, add the following `using` statements:
+12. In AuthenticationTestHandler.cs, add the following `using` statements:
 
         using System.Net.Http;
         using System.Threading.Tasks;
@@ -68,7 +61,7 @@ We will first create an ASP.NET WebAPI project. This is the backend that is used
         using System.Security.Principal;
         using System.Net;
 
-14. In AuthenticationTestHandler.cs, replacing the `AuthenticationTestHandler` class definition with the following:
+13. In AuthenticationTestHandler.cs, replacing the `AuthenticationTestHandler` class definition with the following:
 
 		public class AuthenticationTestHandler : DelegatingHandler
 	    {
@@ -119,17 +112,17 @@ We will first create an ASP.NET WebAPI project. This is the backend that is used
 
 	> [AZURE.NOTE] **Security Note**: The `AuthenticationTestHandler` class does not provide true authentication. It is used only to mimic basic authentication and is not secure. You must implement a secure authentication mechanism in your production applications and services.				
 
-15. Add the following code at the end of the `Register` method in the **App_Start/WebApiConfig.cs** class:
+14. Add the following code at the end of the `Register` method in the **App_Start/WebApiConfig.cs** class:
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-16. Next we create a new controller **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
+15. Next we create a new controller **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
 
 	![][7]
 
 	![][8]
 
-17. In RegiterController.cs, add the following `using` statements:
+16. In RegiterController.cs, add the following `using` statements:
 
         using Microsoft.ServiceBus.Notifications;
         using AppBackend.Models;
@@ -137,7 +130,7 @@ We will first create an ASP.NET WebAPI project. This is the backend that is used
         using Microsoft.ServiceBus.Messaging;
         using System.Web;
 
-18. Add the following code inside the `RegisterController` class definition. Note that in this code, we add the user tag for the user that has been authenticated by the handler. You can also add optional checks to verify that the user has rights to register for the requested tags.
+17. Add the following code inside the `RegisterController` class definition. Note that in this code, we add the user tag for the user that has been authenticated by the handler. You can also add optional checks to verify that the user has rights to register for the requested tags.
 
 		private NotificationHubClient hub;
 
@@ -242,15 +235,55 @@ We will first create an ASP.NET WebAPI project. This is the backend that is used
             }
         }
 
-19. Create a new controller **NotificationsController**, following how we created **RegisterController**. This component exposes a way for the device to retrieve the notification securely, and provides a way for a user to trigger a secure push to devices. Note that when sending the notification to the Notification Hub, we send a raw notification with only the ID of the notification (no actual message).
+18. Create a new controller **NotificationsController**, following how we created **RegisterController**. This component exposes a way for the device to retrieve the notification securely, and provides a way for a user to trigger a secure push to devices. Note that when sending the notification to the Notification Hub, we send a raw notification with only the ID of the notification (no actual message).
 
-20. In NotificationsController.cs, add the following `using` statements:
+19. In NotificationsController.cs, add the following `using` statements:
 
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
 
-21. Add the following code inside the **NotificationsController** class definition:
+20. Add the following code inside the **NotificationsController** class definition and make sure to comment out the snippets for platforms you are not working with.
+
+    public async Task<HttpResponseMessage> Post()
+        {
+            var user = HttpContext.Current.User.Identity.Name;
+            var userTag = "username:"+user;
+
+
+            // windows
+            var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello, " + user + "</text></binding></visual></toast>";
+            await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+
+
+            // apns
+            var alert = "{\"aps\":{\"alert\":\"Hello\"}}";
+            await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
+
+
+            // gcm
+            var notif = "{ \"data\" : {\"msg\":\"Hello\"}}";
+            await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
+
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+21. Press **F5** to run the application and to ensure the accuracy of your work so far. The app should launch a web browser and display the ASP.NET home page. 
+
+22. Now we will deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
+
+23. Select Azure Website as your publish target.
+
+    ![][B15]
+
+24. Log in with your Azure account and select an existing or new Website.
+
+    ![][B16]
+
+25. Make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
+
+    ![][B18]
 
 
 [1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
@@ -262,3 +295,6 @@ We will first create an ASP.NET WebAPI project. This is the backend that is used
 [7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
 [8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
 [14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
+[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
+[B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
+[B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
