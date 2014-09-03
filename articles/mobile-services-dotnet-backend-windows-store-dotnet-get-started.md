@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started" pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C#, VB, or JavaScript. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties linkid="mobile-services-dotnet-backend-windows-store-dotnet-get-started" pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C#, VB, or JavaScript. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/18/2014" ms.author="glenga" />
 
@@ -11,9 +11,9 @@ This tutorial shows you how to add a cloud-based backend service to a universal 
 
 In this tutorial, you will create both a new mobile service and a simple *To do list* app that stores app data in the new mobile service. The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the JavaScript backend version of this topic.
 
->[WACOM.NOTE]This topic shows you how to create a new mobile service project and universal Windows app by using the Azure Management Portal. By using Visual Studio 2013 Update 2, you can also add a new mobile service project to an existing Visual Studio solution. For more information, see [Quickstart: Add a mobile service (.NET backend)](http://msdn.microsoft.com/en-us/library/windows/apps/dn629482.aspx).
+>[WACOM.NOTE]This topic shows you how to create a new mobile service project and universal Windows app by using the Azure Management Portal. By using Visual Studio 2013 Update 3, you can also add a new mobile service project to an existing Visual Studio solution. For more information, see [Quickstart: Add a mobile service (.NET backend)](http://msdn.microsoft.com/en-us/library/windows/apps/dn629482.aspx).
 
->To add a mobile service to an Windows Phone 8.0 or Windows Phone Store 8.1 app project, see [Get started with data for Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data).
+>To add a mobile service to an Windows Phone 8.0 or Windows Phone Silverlight 8.1 app project, see [Get started with data for Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data).
 
 [WACOM.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -68,16 +68,13 @@ In this section you will create a new universal Windows app that is connected to
             "XXXX-APPLICATION-KEY-XXXXX");</code></pre>
 
 	<p>The client will now access the mobile service published to Azure.</p></li>
-
-<li><p>Press the <strong>F5</strong> key to rebuild the project and start the app.</p></li>
-
-<li><p>In the app, type meaningful text, such as <em>Complete the tutorial</em>, in <strong>Insert a TodoItem</strong>, and then click <strong>Save</strong>.</p>
-
-<p>This sends a POST request to the new mobile service hosted in Azure.</p>
-</li><li><p>(Optional) In a universal Windows solution, change the default start up project to the other app and press <strong>F5</strong> again.</p>
-
-	<p>Notice that data saved from the previous step is loaded from the mobile service after the app starts.</p></li>
 </ol>
+
+## Test the app against the mobile service hosted in Azure
+
+Now that the mobile service is published and the client is connected to the remote mobile service hosted in Azure, we can run the app using Azure for item storage.
+
+[WACOM.INCLUDE [mobile-services-windows-universal-dotnet-test-app](../includes/mobile-services-windows-universal-dotnet-test-app.md)]
 
 
 ## Next Steps
