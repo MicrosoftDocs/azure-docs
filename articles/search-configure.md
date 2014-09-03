@@ -145,7 +145,7 @@ The following procedure works for both shared and standard search. In the steps 
 
          https://my-app.search.windows.net/indexes/hotels?api-version=2014-07-31-Preview
 
-4.	Specify the request header, replacing the host and api-key (lower-case) with values that are valid for your service.
+4.	Specify the request header, replacing the host and api-key with values that are valid for your service.
 
         User-Agent: Fiddler
         host: my-app.search.windows.net
@@ -175,7 +175,7 @@ The following procedure works for both shared and standard search. In the steps 
 
 In a few seconds, you should see an HTTP 204 response in the session list, indicating the index was created successfully. 
 
-If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 404, double-check your syntax. An HTTP 400 means there is a problem with the api-key (either an invalid key or a syntax problem with how the api-key is specified).
+If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the api-key (either an invalid key or a syntax problem with how the api-key is specified).
 
 <h3>Load documents</h3>
 
