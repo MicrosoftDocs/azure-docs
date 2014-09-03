@@ -74,7 +74,7 @@ In this section you will create a new universal Windows app that is connected to
 
 Now that the mobile service is published and the client is connected to the remote mobile service hosted in Azure, we can run the app using Azure for item storage.
 
-[WACOM.INCLUDE [mobile-services-windows-universal-dotnet-test-app](../includes/mobile-services-windows-universal-dotnet-test-app.md)]
+[WACOM.INCLUDE [mobile-services-windows-universal-test-app](../includes/mobile-services-windows-universal-test-app.md)]
 
 
 ## Next Steps
