@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-hbase-overview" urlDisplayName="HDInsight HBase overview" pageTitle="An overview of HBase in HDInsight | Azure" metaKeywords="" description="An introduction to HBase in HDInsight, use-cases and a comparison with other database solutions ." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight HBase overview" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-hbase-overview" urlDisplayName="HDInsight HBase overview" pageTitle="An overview of HBase in HDInsight | Azure" metaKeywords="" description="An introduction to HBase in HDInsight, use-cases and a comparison with other database solutions ." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight HBase overview" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev" />
 
 
 
@@ -22,29 +22,20 @@ Data can be managed in HBase using the `create` `get`, `put`, and `scan` command
 ## Scenarios: What are the use cases for HBase? ##
 The canonical use case for which BigTable, and by extension, HBase was created was web search. Search engines build indexes that map terms to the web pages that contain them. But there are many other use cases that HBase is suitable for, several of which are itemized in this section.
 
-### Use case #1: Message and content management systems
-HBase is a key-value store and is suitable for managing message systems. Facebook and Twitter use HBase for their messaging system and it is ideal for storing and managing internet communications. WebTable uses HBase to search for and manage tables extracted from web pages.
+### Use case #1: Key-value store
+HBase can be used as a key-value store and is suitable for managing message systems. Facebook uses HBase for their messaging system and it is ideal for storing and managing internet communications. WebTable uses HBase to search for and manage tables extracted from web pages.
 
 ### Use case #2: Sensor data
 Hase is useful for capturing data that is collected incrementally from various sources. This includes social analytics, time series, keeping interactive dashboards up to date with trends and counters, and managing audit log systems. Examples include Bloomberg trader terminal
 and the Open Time Series Database (OpenTSDB) which stores and provides access to metrics collected on the health of server systems.
 
-![](http://i.imgur.com/zzbAw8P.jpg)
 
 ### Use case #3: Real-time query
-Phoenix is a SQL query engine for Apache HBase. It is accessed as a JDBC driver and enables querying and managing HBase tables using SQL. 
+[Phoenix](http://phoenix.apache.org/) is a SQL query engine for Apache HBase. It is accessed as a JDBC driver and enables querying and managing HBase tables using SQL. 
 
 ### Use case #4: HBase as a platform
-Applications can run on top of HBase using it as a datastore. Examples include Phoenix, OpenTSDB, Kiji, Continuity, Titan, and Splice Machine. Applications can also integrate with HBase. Examples include Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia, and Drill.
+Applications can run on top of HBase using it as a datastore. Examples include Phoenix, OpenTSDB, Kiji, and Titan. Applications can also integrate with HBase. Examples include Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia, and Drill.
 
-## What Azure storage solution should I use? ##
-When deciding what the best Azure storage solution for your application, the feature set, scale, and cost are factors that should be considered. The following table compares these for Azure storage solutions.
-
-![](http://i.imgur.com/5blGZs0.jpg)
-
-Additional criteria for selecting the best storage solution are compared in the following table.
-![](http://i.imgur.com/6GUV6Ob.jpg)
-![](http://i.imgur.com/1WT9BSf.jpg)
 
 ##<a name="next-steps"></a>Next steps
 

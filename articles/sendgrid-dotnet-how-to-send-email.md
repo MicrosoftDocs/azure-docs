@@ -8,6 +8,8 @@
 
 # How to Send Email Using SendGrid with Azure
 
+Last Update: August 21, 2014
+
 This guide demonstrates how to perform common programming tasks with the
 SendGrid email service on Azure. The samples are written in C\#
 and use the .NET API. The scenarios covered include **constructing
@@ -199,7 +201,7 @@ You can also add attachments from the data's **Stream**. It can be done by calli
 
     using (var attachmentFileStream = new FileStream(@"C:\file.txt", FileMode.Open))
     {
-        message.AddAttachment(attachmentFileStream, "My Cool File.txt");
+        myMessage.AddAttachment(attachmentFileStream, "My Cool File.txt");
     }
 
 <h2><a name="usefilters"></a><span  class="short-header">How to: Use filters to enable footers, tracking, and analytics</span></h2>

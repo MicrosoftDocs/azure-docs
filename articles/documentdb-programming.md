@@ -1,6 +1,8 @@
-<properties title="DocumentDB programming: stored procedures, triggers, and UDFs" pageTitle="DocumentDB programming: stored procedures, triggers, and UDFs" description="Programming DocumentDB" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="bradsev" " manager="paulettm" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+<properties title="DocumentDB programming: Stored procedures, triggers, and UDFs" pageTitle="DocumentDB programming: Stored procedures, triggers, and UDFs | Azure" description="Find out how for Document DB you can write stored procedures, triggers, and user defined functions (UDFs) natively in JavaScript." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"  services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" scriptId="" />
 
-# DocumentDB programming: stored procedures, triggers, and UDFs
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
+
+# DocumentDB programming: Stored procedures, triggers, and UDFs
 ##Introduction
 DocumentDB’s language integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers** and **user defined functions (UDFs)** natively in JavaScript. This allows developers to write application logic which can be shipped and executed directly on the database storage partitions.  
 
@@ -188,10 +190,8 @@ In DocumentDB, JavaScript is hosted in the same memory space as the database. He
 
 This stored procedure uses transactions within a gaming app to trade items between two players in a single operation. The stored procedure attempts to read two documents each corresponding to the player IDs passed in as an argument. If both player documents are found, then the stored procedure updates the documents by swapping their items. If any errors are encountered along the way, it throws a JavaScript exception which implicitly aborts the transaction.
 	
-###Snapshot Isolation
-DocumentDB uses snapshot isolation for the transaction under which the stored procedure or trigger runs. In snapshot isolation, snapshot refers to the fact that all queries in the transaction see the same version, or snapshot, of the database, based on the state of the database at the moment in time when the transaction begins. No locks are acquired on the underlying data rows or data pages in a snapshot transaction, which permits other transactions to execute without being blocked by a prior uncompleted transaction. Snapshot isolation uses an **optimistic concurrency** model. If a snapshot transaction attempts to commit modifications to data that has changed since the transaction began, the transaction aborts.
 
-###Commit and Rollback
+##Commit and Rollback
 Transactions are deeply and natively integrated into DocumentDB’s JavaScript programming model. Inside a JavaScript function, all operations are automatically wrapped under a single transaction. If the JavaScript completes without any exception, the operations to the database are committed. In effect, the “BEGIN TRANSACTION” and “COMMIT TRANSACTION” statements in relational databases are implicit in DocumentDB.  
  
 If there is any exception that’s propagated from the script, DocumentDB’s JavaScript runtime will roll back the whole transaction. As shown in the earlier example, throwing an exception is effectively equivalent to a “ROLLBACK TRANSACTION” in DocumentDB. 
@@ -595,10 +595,16 @@ And the following example shows how to create a user defined function (UDF) and 
 Client SDKs Reference
 
 References
+
 1.	JSON [http://www.json.org/](http://www.json.org/) 
+
 2.	JavaScript ECMA-262 [http://www.ecma-international.org/publications/standards/Ecma-262.htm ](http://www.ecma-international.org/publications/standards/Ecma-262.htm )
+
+
 3.	JavaScript – JSON type system [http://www.json.org/js.html](http://www.json.org/js.html) 
-4.	Snapshot Isolation in SQL Server - [http://msdn.microsoft.com/en-us/library/tcbchxcb(v=vs.110).aspx](http://msdn.microsoft.com/en-us/library/tcbchxcb(v=vs.110).aspx) 
-5.	Secure and Portable Database Extensibility- [http://dl.acm.org/citation.cfm?id=276339](http://dl.acm.org/citation.cfm?id=276339) 
-6.	Service Oriented Database Architecture - [http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
-7.	Hosting the .NET Runtime in Microsoft SQL server - [http://dl.acm.org/citation.cfm?id=1007669](http://dl.acm.org/citation.cfm?id=1007669) 
+
+4.	Secure and Portable Database Extensibility- [http://dl.acm.org/citation.cfm?id=276339](http://dl.acm.org/citation.cfm?id=276339) 
+
+5.	Service Oriented Database Architecture - [http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+
+6.	Hosting the .NET Runtime in Microsoft SQL server - [http://dl.acm.org/citation.cfm?id=1007669](http://dl.acm.org/citation.cfm?id=1007669) 

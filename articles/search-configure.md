@@ -50,7 +50,7 @@ Subscribers automatically get free access to a shared, multitenant Search servic
 
   	![][12]
 
-10. Click the arrow in **Resource Group** to pick an existing group or create a new one. Resource groups are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Web sites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
+10. Click the arrow in **Resource Group** to pick an existing group or create a new one. Resource groups are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
 
 11. Click the arrow in **Subscription** if you have multiple subscriptions and you want to use a different subscription for this search service.
 
@@ -58,7 +58,7 @@ Subscribers automatically get free access to a shared, multitenant Search servic
 
 13. Click **CREATE** to provision the service. Notice that **CREATE** is enabled only after you fill in all required values. 
 
-In a few minutes, the service is created. You can return to the configuration settings to get the URL or api-keys. Connections to your Search service requires that you have both the URL and an api-key to authenticate the call. Here’s how to quickly find these values:
+In a few minutes, the service is created. You can return to the configuration settings to get the URL or api-keys. Connections to your Search service requires that you have both the URL and an api-key to authenticate the call. Here's how to quickly find these values:
 
 14. Go to **Browse** | **Everything** | **Data, storage, cache, + backup** | **See All** | **Search Services**, Click your search service to open the service dashboard. 
 
@@ -79,7 +79,7 @@ Continue on to [Test service operations](#sub-3) for instructions on how to conn
 
 <h2 id="sub-2">Upgrade to standard search</h2>
 
-Standard search gets you dedicated resources in an Azure data center that can be used only by you. Search workloads require both storage and service replicas. When you sign up for standard search, you can optimize service configuration to use more of whatever resource is the most important to your scenario.
+Standard search gets you dedicated resources in an Azure data center that can be used only by you. Search workloads require both storage and service replicas. When you sign up for standard search, you can optimize service configuration to use more of whichever resource is the most important to your scenario.
 
 Having dedicated resources will give you more scale and better performance, but not additional features. Both shared and standard search offer the same features.
 
@@ -126,7 +126,7 @@ Additional replicas and partitions are billed in search units. The total search 
 
 Confirming that your service is operational and accessible from a client application is the final step in configuring Search. This procedure uses Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests and view responses. By using Fiddler, you can test the API immediately, without having to write any code. 
 
-The following procedure works for both shared and standard search. In the steps below, you’ll create an index, upload documents, query the index, and then query the system for service information.
+The following procedure works for both shared and standard search. In the steps below, you'll create an index, upload documents, query the index, and then query the system for service information.
 
 <h3>Create an index</h3>
 
@@ -139,13 +139,13 @@ The following procedure works for both shared and standard search. In the steps 
 3. Enter a URL that specifies the service URL (which you can find on the Properties page), request attributes and the api-version. A few pointers to keep in mind:
    + Use HTTPS as the prefix
    + Request attribute is "/indexes/hotels". This tells Search to create an index named 'hotels'.
-   + Api-version is lower-case, specified as "?api-version=2014-07-31-preview". API versions are important because Azure Search deploys updates regularly. On rare occasions, a service update may require a breaking change to the API. Using API versions, you can continue to use your existing version and upgrade to the newer on when it is convenient.
+   + Api-version is lower-case, specified as "?api-version=2014-07-31-preview". API versions are important because Azure Search deploys updates regularly. On rare occasions, a service update may introduce a breaking change to the API. Using API versions, you can continue to use your existing version and upgrade to the newer one when it is convenient.
 
     The full URL should look similar to the following example:
 
          https://my-app.search.windows.net/indexes/hotels?api-version=2014-07-31-Preview
 
-4.	Specify the request header, replacing the host and api-key (lower-case) with values that are valid for your service.
+4.	Specify the request header, replacing the host and api-key with values that are valid for your service.
 
         User-Agent: Fiddler
         host: my-app.search.windows.net
@@ -175,7 +175,7 @@ The following procedure works for both shared and standard search. In the steps 
 
 In a few seconds, you should see an HTTP 204 response in the session list, indicating the index was created successfully. 
 
-If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 404, double-check your syntax. An HTTP 400 means there is a problem with the api-key (either an invalid key or a syntax problem on the api-key entry)
+If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the api-key (either an invalid key or a syntax problem with how the api-key is specified).
 
 <h3>Load documents</h3>
 
@@ -271,7 +271,7 @@ Now that an index and documents are loaded, you can issue queries against them. 
 
 1.	Select **GET**.
 
-2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<indexname>/docs?", followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
+2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs?", followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2014-07-31-Preview
 
@@ -300,15 +300,15 @@ The following example query is from the [Search Index operation (Azure Search AP
 
 <h3>Query the system</h3>
 
-You can also query the system to get document counts and storage consumption. On the Composer tab, your request will look like the following, and the response will return a count for the number of documents and space used.
+You can also query the system to get document counts and storage consumption. On the Composer tab, your request will look similar to the following, and the response will return a count for the number of documents and space used.
 
    ![][20]
 
 1.	Select **GET**.
 
-2.	Enter a URL that includes your service URL, followed by "/indexes/hotels/stats?api-version=2014-07-31-preview":
+2.	Enter a URL that includes your service URL, followed by "/indexes/hotels/stats?api-version=2014-07-31-Preview":
 
-        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2014-07-31-preview 
+        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2014-07-31-Preview 
 
 3.	Specify the request header, replacing the host and api-key with values that are valid for your service.
 
@@ -327,7 +327,7 @@ You can also query the system to get document counts and storage consumption. On
 
 <h2 id="sub-4">Explore Search service configuration pages</h2>
 
-If you are inheriting a service created by someone else or need help with page navigation, follow these steps to locate the service dashboard.
+If you need a refresher on where to find the configuration pages, follow these steps to locate the service dashboard.
 
 1.	Sign in to [Azure Preview portal](https://portal.azure.com) using your existing subscription. 
 2.	Click **Browse** | **Everything**.

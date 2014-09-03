@@ -1,5 +1,7 @@
 <properties title="Build an HBase application using Maven" pageTitle="Build an HBase application using Maven" description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" metaKeywords="Maven hbase hadoop, hbase hadoop, maven java hbase, maven java hbase hadoop, maven java hadoop, hbase hdinsight, hbase java hdinsight, maven hdinsight, maven java hdinsight, hadoop database, hdinsight database" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" />
 
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="larryfr" />
+
 ##Use Maven to build Java applications that use HBase with HDInsight (Hadoop)
 
 Learn how to create and build an [Apache HBase](http://hbase.apache.org/) application in Java using Apache Maven. Then use the application with Azure HDInsight (Hadoop.)
@@ -114,14 +116,18 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		 */
 		-->
 		<configuration>
+		  <property>
 		    <name>hbase.cluster.distributed</name>
 		    <value>true</value>
 		  </property>
 		  <property>
 		    <name>hbase.zookeeper.quorum</name>
-		    <value>zookeepernode0:2181 zookeepernode1:2181 zookeepernode2:2181</value>
+		    <value>zookeeper0,zookeeper1,zookeeper2</value>
 		  </property>
-		
+		  <property>
+		    <name>hbase.zookeeper.property.clientPort</name>
+		    <value>2181</value>
+		  </property>
 		</configuration>
 
 	This file will be used to load the HBase configuration for an HDInsight cluster.

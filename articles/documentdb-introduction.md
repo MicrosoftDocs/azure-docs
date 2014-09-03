@@ -1,4 +1,6 @@
-<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Introduction to Microsoft Azure DocumentDB" description="required" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="bradsev" " manager="paulettm" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Introduction to Microsoft Azure DocumentDB | Azure" description="Learn about Azure DocumentDB and its value to cloud and mobile applications. Also, learn about how it manages data, and how you can use it in application development." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" " manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 #Introduction to Microsoft Azure DocumentDB
 
@@ -49,10 +51,9 @@ A database account consists of a set of databases, each containing multiple coll
 ##Developing Against Azure DocumentDB
 Azure DocumentDB exposes resources via a REST API that can be called by any language capable of making HTTP/HTTPS requests. Additionally, Azure DocumentDB offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure DocumentDB by handling details such as address caching, exception management, automatic retries and so forth. Libraries are currently available for the following languages and platforms, with others on the way:  
 
-[.NET](http://go.microsoft.com/fwlink/?LinkID=402989)  
-
--	[Node.js](http://go.microsoft.com/fwlink/?LinkID=402991)
--	[JavaScript](http://go.microsoft.com/fwlink/?LinkID=402990)
+- [.NET](http://go.microsoft.com/fwlink/?LinkID=402989)  
+-	[Node.js](http://go.microsoft.com/fwlink/?LinkID=402990)
+-	[JavaScript](http://go.microsoft.com/fwlink/?LinkID=402991)
 -	[Python](http://go.microsoft.com/fwlink/?LinkID=402992)
 
 Beyond basic Create, Read, Update and Delete operations, Azure DocumentDB provides a rich SQL query interface for retrieving JSON documents and server side support for transactional execution of JavaScript application logic. The query and script execution interfaces are available through all platform libraries as well as the REST APIs. 
@@ -72,9 +73,9 @@ JavaScript execution within DocumentDB is modeled after the concepts supported b
 ##Next Steps
 To get started with Azure DocumentDB, explore these resources:
 
--	[Understand DocumentDB concepts](/documentation/articles/documentdb-concepts/)
--	[Interact with DocumentDB](/documentation/articles/documentdb-interact/)
--	[Create a database account](/documentation/articles/documentdb-create-database-account/)
+-	[Understand DocumentDB concepts](/documentation/articles/documentdb-resources/)
+-	[Interact with DocumentDB](/documentation/articles/documentdb-interactions-with-resources/)
+-	[Create a database account](/documentation/articles/documentdb-create-account/)
 -	[Get started with DocumentDB](/documentation/articles/documentdb-get-started/)
 
 [1]: ./media/documentdb-introduction/intro.png

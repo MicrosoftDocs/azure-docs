@@ -25,7 +25,7 @@ As noted, the new Preview portal is required for administrative tasks. Azure Sea
 
 As the administrator, you can add Search to your existing Azure subscription using the new [Azure Preview portal](https://portal.azure.com). Only administrators can add features to a subscription. When setting up your service, there are two pricing tiers to choose from.
 
-At no charge to existing subscribers, you can use a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects. The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed. There are no performance guarantees with the shared service, so if you’re building a production search application, consider standard search instead.
+At no charge to existing subscribers, you can use a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects. The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed. There are no performance guarantees with the shared service, so if you're building a production search application, consider standard search instead.
 
 Standard search is billable because you are signing up for dedicated resources and infrastructure used only by your subscription. Standard search is allocated in user-defined bundles of partitions (storage) and replicas (service workloads), and priced by search unit. You can scale up on partitions or replicas independently, adding more of whatever resource is needed.
 
@@ -42,8 +42,8 @@ When you are ready to sign up, see [Configure Search in the Azure Preview portal
 Although some services can have co-administrators, an Azure Search service has one administrator per subscription. You need to be an administrator to perform the tasks outlined in this section.
 Besides adding Search to the subscription, an administrator is responsible for these additional tasks:
 
-+	Service URL (defined during service provisioning).
-+	Manage the api-keys and view service properties.
++	Distribution of the service URL (defined during service provisioning).
++	Management and distribution of the api-keys.
 +	Monitor resource usage
 +	Scale up or down (applies to standard search only)
 +	Start or stop the service
@@ -63,7 +63,7 @@ To get the service URL from the service dashboard:
 
     ![][8]
 
-Developers might also ask you about the api-version. A coding requirement of Azure Search API is to always specify the api-version in the request. This requirement exists so that developers can continue using a previous version, and then update to a later version when the timing is right.
+Developers might also ask you about the api-version. A coding requirement of Azure Search API is to always specify the api-version in the request. This requirement exists so that developers can continue using a previous version, and then move up to a later version when the timing is right.
 
 The api-version is not displayed in the portal pages, so that is not information that you can provide. For information about current and previous API versions, see the [Azure Search REST API](http://go.microsoft.com/fwlink/p/?LinkdID=509922).
 
@@ -115,13 +115,13 @@ When you add either resource, the service uses them automatically. No further ac
 
 Increasing queries per second (QPS) or achieving high availability is done by adding replicas. Each replica has one copy of an index, so adding one more replica translates to one more index that can be used to service query requests. Currently, the rule of thumb is that you need at least 3 replicas for high availability. 
 
-A search service that has more replicas can load balance query requests over a larger number of indexes. Given a level of query volume, query throughput is going to be faster when there are more copies of the index available to service the request. If query throughput was slowing down, you can expect a positive impact on performance once the additional replicas are online.
+A search service having more replicas can load balance query requests over a larger number of indexes. Given a level of query volume, query throughput is going to be faster when there are more copies of the index available to service the request. If you are experiencing query latency, you can expect a positive impact on performance once the additional replicas are online.
 
 Although query throughput goes up as you add replicas, it does not precisely double or triple as you add replicas to your service. All search applications are subject to external factors that can impinge on query performance. Complex queries and network latency are two factors that contribute to variations in query response times.
 
 <h3>Add partitions</h3>
 
-Most service applications have a built-in need for more replicas rather than partitions as most applications that utilize search can fit easily into a single partition that can support up to 15 million documents. 
+Most service applications have a built-in need for more replicas rather than partitions, as most applications that utilize search can fit easily into a single partition that can support up to 15 million documents. 
 
 For those cases where an increased document count is required, you can add partitions. Notice that partitions are added in multiples of 12 (specifically, 1, 2, 3, 4, 6, or 12). This is an artifact of sharding; an index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).
 
@@ -129,7 +129,7 @@ For those cases where an increased document count is required, you can add parti
 
 After periods of high query volumes, you will most likely remove replicas once search query loads have normalized (for example, after holiday sales are over).
 
-To do this, you just move the replica slider back to a lower number. There is no extra steps required on your part. Lowering the replica count relinquishes virtual machines in the data center. Your query and data ingestion operations will now run on fewer VMs than before. The minimum limit is one replica.
+To do this, you just move the replica slider back to a lower number. There are no further steps required on your part. Lowering the replica count relinquishes virtual machines in the data center. Your query and data ingestion operations will now run on fewer VMs than before. The minimum limit is one replica.
 
 <h3>Remove partitions</h3>
 

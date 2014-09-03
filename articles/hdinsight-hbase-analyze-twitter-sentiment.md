@@ -1,25 +1,62 @@
- <properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analyze Twitter data with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+ <properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze real-time Twitter sentiment with HBase in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
 
 # Analyze real-time Twitter sentiment with HBase in HDInsight
 
-Learn how to refine geo-tagged Twitter data using an HBase cluster in HDInsight, and how to analyze and visualize this sentiment data on Google map.
+Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) of big data using HBase in an HDInsight (Hadoop) cluster.
 
 
-Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, you will connect to the Twitter Web service to get real-time Tweets using the Twitter streaming API, evaluate the sentiment of these tweets, and then store the sentiment score back in HBase. Finally, you use a ASP.NET web application to plot the real-time statistical results on Google map.
+Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, you will develop a console streaming service application and an ASP.NET Web application to perform the following:
 
-The web application looks like:
+![][img-app-arch]
 
-![hdinsight.hbase.twitter.sentiment.google.map][img-google-map]
+- Get geo-tagged Tweets in real-time using the Twitter streaming API.
+- Evaluate the sentiment of these Tweets.
+- Store the sentiment information in HBase using the Microsoft HBase SDK.
+- Plot the real-time statistical results on Bing maps using an ASP.NET Web application. A visualization of the tweets will look something like this:
 
-**Estimated time to complete:** 45 minutes
+	![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
+	
+	You will be able to query tweets with certain keywords to get a sense of the expressed opinion in tweets is positive, negative, or neutral.
+
+A complete Visual Studio solution sample can be found at [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##In this article
 
 - [Prerequisites](#prerequisites)
 - [Create a Twitter application](#twitter)
-- [Create a Tweet sentiment streaming service](#streaming)
-- [Create a Web application](#web)
-- [Run the application](#run)
+- [Create a simple Twitter streaming service](#streaming)
+- [Create an Azure Website to visualize Twitter sentiment](#web)
 - [Next steps](#nextsteps)
 
 ##<a id="prerequisites"></a>Prerequisites
@@ -28,26 +65,29 @@ Before you begin this tutorial, you must have the following:
 - **An HBase cluster in HDInsight**. For instructions on cluster provision, see [Get started using HBase with Hadoop in HDInsight][hBase-get-started]. You will need the following data to go through the tutorial:
 
 	<table border="1">
-	<tr><th>Cluster property</th><th>Value</th><th>Description</th></tr>
-	<tr><td>HBase cluster name</td><td></td><td>This is your HDInsight HBase cluster name. For example: https://myhbase.azurehdinsight.net/</td></tr>
-	<tr><td>Cluster user name</td><td></td><td>The Hadoop user account name. The default Hadoop username is <strong>admin</strong>.</td></tr>
-	<tr><td>Cluster user pass word</td><td></td><td>The Hadoop cluster user password.</td></tr>
+	<tr><th>Cluster property</th><th>Description</th></tr>
+	<tr><td>HBase cluster name</td><td>This is your HDInsight HBase cluster name. For example: https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>Cluster user name</td><td>The Hadoop user account name. The default Hadoop username is <strong>admin</strong>.</td></tr>
+	<tr><td>Cluster user password</td><td>The Hadoop cluster user password.</td></tr>
 	</table>
 
 - **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx).
 
-##<a id="twitter"></a>Create a Twitter application
 
-In this tutorial, you will use the [Twitter streaming APIs][twitter-streaming-api]. 
-Twitter uses OAuth to provide authorized access to its API. OAuth is an authentication protocol that allows users to approve application to act on their behalf without sharing their password. More information can be found at [oauth.net](http://oauth.net/) or in the excellent [Beginner's Guide to OAuth](http://hueniverse.com/oauth/) from Hueniverse.
+
+
+
+##<a id="twitter"></a>Create a Twitter application ID and secrets
+
+The Twitter Streaming APIs use [OAuth](http://oauth.net/) to authorize requests. 
 
 The first step to use OAuth is to create a new application on the Twitter Developer site.
 
-**To create a Twitter application**
+**To create Twitter application ID and secrets:**
 
 1. Sign in to [https://apps.twitter.com/](https://apps.twitter.com/).Click the **Sign up now** link if you don't have a Twitter account.
 2. Click **Create New App**.
-3. Enter **Name**, **Description**, **Website**. You can make up a URL for the Website field. The following table shows some sample values to use:
+3. Enter **Name**, **Description**, **Website**. The Website field is not really used. It doesn't have to be a valid URL. The following table shows some sample values to use:
 
 	<table border="1">
 	<tr><th>Field</th><th>Value</th></tr>
@@ -55,6 +95,7 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 	<tr><td>Description</td><td>MyHDInsightHBaseApp</td></tr>
 	<tr><td>Website</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
 	</table>
+
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial. 
 6. Click the **API Keys** tab.
@@ -66,22 +107,40 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 
 
 
-##<a id="streaming"></a> Create a Tweet streaming service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##<a id="streaming"></a> Create a simple Twitter streaming service
 
 Create a console application to get Tweets, calculate Tweet sentiment score and send the processed Tweet words to HBase.
 
-This section contains the following procedures:
+**To create the  Visual Studio solution:**
 
-- create a Visual Studio solution
-- install Nuget packages and add SDK references
-- define a Tweeter streaming service class
-- complete the Program.cs
-- prepare the sentiment dictionary file
-- run the streaming service
-
-**To create a Visual Studio solution**
-
-1. Open **Visual Studio 2013**.
+1. Open **Visual Studio**.
 2. From the **File** menu, point to **New**, and then click **Project**.
 3. Type or select the following values:
 
@@ -93,30 +152,29 @@ This section contains the following procedures:
 
 4. Click **OK** to continue.
  
-Tweetinvi is an intuitive .NET C# SDK that provides an easy and intuitive access to the Twitter REST and STREAM API 1.1. For more information, see [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/).
 
-Protocol Buffers is the name of the binary serialization format used by Google for much of their data communications. protobuf-net is a .NET implementation of this, allowing you to serialize your .NET objects efficiently and easily. It is compatible with most of the .NET family. For more information, see [https://www.nuget.org/packages/protobuf-net/](https://www.nuget.org/packages/protobuf-net/).
 
-**To install Nuget packages and add SDK references**
+**To install Nuget packages and add SDK references:**
 
-1. From the Tools menu, click **Nuget Package Manager**, and then click **Package Manager Console**. The console panel is opened at the bottom of the page.
-2. Run the following commands:
+1. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**. The console panel will open at the bottom of the page.
+2. Use the following commands to install the [Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/) package, which is used to access the Twitter API, and the [Protobuf-net](https://www.nuget.org/packages/protobuf-net/) package, which is used to serialize and deserialize objects.
 
 		Install-Package TweetinviAPI
 		Install-Package protobuf-net 
-		Install-Package microsoft.hbase.client (The SKD is not ready until the article is written)
 
-3. From Solution Explorer, right-click **References**, and then click **Add Reference**.
+	> [WACOM.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 26th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself. For instructions, see [Get started using HBase with Hadoop in HDInsight][hdinsight-hbase-get-started].
+
+3. From **Solution Explorer**, right-click **References**, and then click **Add Reference**.
 4. In the left pane, expand **Assemblies**, and then click **Framework**.
 5. In the right pane, select the checkbox in front of **System.Configuration**, and then click **OK**.
 
-> [WACOM.NOTE] The Hbase SDK is not ready yet.  As a workaround, copy Microsoft.HBase.Client.dll locally, and manually add a reference to it from Solution Explorer.)
 
-**To define a Tweeter streaming service class**
 
-1. From Solution explorer, right-click **TweetSentimentStreaming**, point to **Add**, and then click **Class**.
-2. In Name, type **HBaseWriter**, and then click **Add**.
-3. In HBaseWriter.cs, add the following using statements on the top of the file:
+**To define the Tweeter streaming service class:**
+
+1. From **Solution explorer**, right-click **TweetSentimentStreaming**, point to **Add**, and then click **Class**.
+2. In **Name**, type **HBaseWriter**, and then click **Add**.
+3. In **HBaseWriter.cs**, add the following using statements on the top of the file:
 
 		using System.IO;		
 		using System.Threading;
@@ -125,7 +183,7 @@ Protocol Buffers is the name of the binary serialization format used by Google f
 		using Tweetinvi.Core.Interfaces;
 		using org.apache.hadoop.hbase.rest.protobuf.generated;
 
-4. Inside HbaseWriter.cs, add a new class call DictionaryItem:
+4. Inside **HbaseWriter.cs**, add a new class call **DictionaryItem**:
 
 	    public class DictionaryItem
 	    {
@@ -137,9 +195,9 @@ Protocol Buffers is the name of the binary serialization format used by Google f
 	        public string Polarity { get; set; }
 	    }
 
-	This class structure is used to parse the sentiment dictionary file. The data is used to calculate sentiment score for each Tweets
+	This class structure is used to parse the sentiment dictionary file. The data is used to calculate sentiment score for each Tweet.
 
-5. Inside the HBaseWriter class, define the following constants and variables:
+5. Inside the **HBaseWriter** class, define the following constants and variables:
 
         // HDinsight HBase cluster and HBase table information
         const string CLUSTERNAME = "https://<HBaseClusterName>.azurehdinsight.net/";
@@ -166,11 +224,9 @@ Protocol Buffers is the name of the binary serialization format used by Google f
 
 6. Set the constant values, including **&lt;HBaseClusterName>**, **&lt;HadoopUserName>**, and **&lt;HaddopUserPassword>**. If you want to change the HBase table name, you must change the table name in the Web application accordingly.
 
-	You will download and move the dictionary.tsv to specific table later in the tutorial
+	You will download and move the dictionary.tsv file to a specific folder later in the tutorial.
 
-	Multithread is used here to provent blocking.
-
-7. Define the following functions inside the HBaseWriter class:
+7. Define the following functions inside the **HBaseWriter** class:
 
 		// This function connects to HBase, loads the sentiment dictionary, and starts the thread for writting.
         public HBaseWriter()
@@ -342,22 +398,22 @@ Protocol Buffers is the name of the binary serialization format used by Google f
             }
         }
 
-	The HBase functionality includes the following:
+	The code provides the following functionality:
 
 	- **Connect to Hbase [ HBaseWriter() ]**: Use the HBase SDK to create a *ClusterCredentials* object with the cluster URL and the Hadoop user credential, and then create a *HBaseClient* object using the ClusterCredentials object.
 	- **Create HBase table [ HBaseWriter() ]**: The method call is *HBaseClient.CreateTable()*.
 	- **Write to HBase table [ WriterThreadFunction() ]**: The method call is *HBaseClient.StoreCells()*.
 
-**To complete the Program.cs**
+**To complete the Program.cs:**
 
-1. From Solution Explorer, double-click **Program.cs** to open it.
+1. From **Solution Explorer**, double-click **Program.cs** to open it.
 2. At the beginning of the file, add the following using statements:
 
 		using System.Configuration;
 		using System.Diagnostics;
 		using Tweetinvi;
 
-3. Inside the Program class, define the following constants:
+3. Inside the **Program** class, define the following constants:
 
         const string TWITTERAPPACCESSTOKEN = "<TwitterApplicationAccessToken";
         const string TWITTERAPPACCESSTOKENSECRET = "TwitterApplicationAccessTokenSecret";
@@ -366,7 +422,7 @@ Protocol Buffers is the name of the binary serialization format used by Google f
 
 4. Set the constant values to match your Twitter application values.
 
-3. Modify the Main() function, so it looks like:
+3. Modify the **Main()** function, so it looks like:
 
 		static void Main(string[] args)
 		{
@@ -423,7 +479,7 @@ Protocol Buffers is the name of the binary serialization format used by Google f
             }
         }
 
-**To prepare the sentiment dictionary file**
+**To download the sentiment dictionary file:**
 
 1. Browse to [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment).
 2. Click **Download ZIP**.
@@ -431,33 +487,46 @@ Protocol Buffers is the name of the binary serialization format used by Google f
 4. Copy the file from **../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv**.
 5. Paste the file to your solution under **TweetSentimentStreaming/TweetSentimentStreaming/data/dictionary/dictionary.tsv**.
 
-**To run the streaming service**
+**To run the streaming service:**
 
 1. From Visual Studio, press **F5**. The following is the console application screenshot:
 
 	![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
 2. Keep the streaming console application running while you developing the Web application, So you have more data to use.
 
-##<a id="web"></a> Create a ASP.NET Web application
-
-In this section, you will create a ASP.NET MVC Web application to read the real-time sentiment data from HBase and plot the data on Google map.
-
-This section includes the following procedures:
-
-- create an ASP.NET Web application
-- install Nuget packages
-- add an HBaseReader model
-- add a TweetsController
-- add an JavaScript
-- modify the layout.cshtml
-- modify site.css
-- modify global.asax
-- run the Web application on debugger
 
 
-**To create a ASP.NET MVC Web application**
 
-1. Open Visual Studio 2013.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##<a id="web"></a> Create an Azure Website to visualize Twitter sentiment
+
+In this section, you will create a ASP.NET MVC Web application to read the real-time sentiment data from HBase and plot the data on Bing maps.
+
+**To create a ASP.NET MVC Web application:**
+
+1. Open Visual Studio.
 2. Click **File**, click **New**, and then click **Project**.
 3. Type or enter the following:
 
@@ -466,272 +535,541 @@ This section includes the following procedures:
 	- Name: **TweetSentimentWeb**
 	- Location: **C:\Tutorials** 
 4. Click **OK**.
-5. In Select a template, click **MVC**. 
-6. In Windows Azure, click **Manage Subscriptions**.
-7. From Manage Windows Azure Subscriptions, click **Sign in**.
-8. Enter your Azure credential. Your Azure subscription information shall be shown on the Accounts tab.
+5. In **Select a template**, click **MVC**. 
+6. In **Windows Azure**, click **Manage Subscriptions**.
+7. From **Manage Windows Azure Subscriptions**, click **Sign in**.
+8. Enter your Azure credential. Your Azure subscription information will be shown on the Accounts tab.
 9. Click **Close** to close the Manage Windows Azure Subscriptions window.
-10. From New ASP.NET Project - TweetSentimentWeb, Click **OK**.
-11. From Configure Windows Azure Site Settings, select the **Region** that is closer to you. You don't need to specify a database server. Remember the Site name (TweetSentiment4265).
+10. From **New ASP.NET Project - TweetSentimentWeb**, Click **OK**.
+11. From **Configure Windows Azure Site Settings**, select the **Region** that is closer to you. You don't need to specify a database server. 
 12. Click **OK**.
 
-**To install Nuget packages**
+**To install Nuget packages:**
 
-1. From the Tools menu, click **Nuget Package Manager**, and then click **Package Manager Console**. The console panel is opened at the bottom of the page.
-2. Run the following commands:
+1. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**. The console panel is opened at the bottom of the page.
+2. Use the following command to install the [Protobuf-net](https://www.nuget.org/packages/protobuf-net/) package, which is used to serialize and deserialize objects.
 
 		Install-Package protobuf-net 
-		Install-Package microsoft.hbase.client (The SKD is not ready until the article is written)
 
-> [WACOM.NOTE] The Hbase SDK is not ready yet.  As a workaround, copy Microsoft.HBase.Client.dll locally, and manually add a reference to it from Solution Explorer.)
+	> [WACOM.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 20th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself. For instructions, see [Get started using HBase with Hadoop in HDInsight][hdinsight-hbase-get-started].
 
-**To add an HBaseReader class**
+**To add HBaseReader class:**
 
-1. From Solution Explorer, expand **TweetSentiment**.
+1. From **Solution Explorer**, expand **TweetSentiment**.
 2. Right-click **Models**, click **Add**, and then click **Class**.
 3. In Name, enter **HBaseReader.cs**, and then click **Add**.
-4. Add the following Using statements on the top of the file:
+4. Replace the code with the following:
 
+		using System;
+		using System.Collections.Generic;
+		using System.Linq;
+		using System.Web;
+		
 		using System.Configuration;
 		using System.Threading.Tasks;
 		using System.Text;
 		using Microsoft.HBase.Client;
 		using org.apache.hadoop.hbase.rest.protobuf.generated;
+		
+		namespace TweetSentimentWeb.Models
+		{
+		    public class HBaseReader
+		    {
+		        // For reading Tweet sentiment data from HDInsight HBase
+		        HBaseClient client;
+		
+		        // HDinsight HBase cluster and HBase table information
+		        const string CLUSTERNAME = "<HBaseClusterName>";
+		        const string HADOOPUSERNAME = "<HBaseClusterHadoopUserName>"
+		        const string HADOOPUSERPASSWORD = "<HBaseCluserUserPassword>";
+		        const string HBASETABLENAME = "tweets_by_words";
+		
+		        // The constructor
+		        public HBaseReader()
+		        {
+		            ClusterCredentials creds = new ClusterCredentials(
+		                            new Uri(CLUSTERNAME),
+		                            HADOOPUSERNAME,
+		                            HADOOPUSERPASSWORD);
+		            client = new HBaseClient(creds);
+		        }
+		
+		        // Query Tweets sentiment data from the HBase table asynchronously 
+		        public async Task<IEnumerable<Tweet>> QueryTweetsByKeywordAsync(string keyword)
+		        {
+		            List<Tweet> list = new List<Tweet>();
+		
+		            // Demonstrate Filtering the data from the past 6 hours the row key
+		            string timeIndex = (ulong.MaxValue -
+		                (ulong)DateTime.UtcNow.Subtract(new TimeSpan(6, 0, 0)).ToBinary()).ToString().PadLeft(20);
+		            string startRow = keyword + "_" + timeIndex;
+		            string endRow = keyword + "|";
+		            Scanner scanSettings = new Scanner
+		            {
+		                batch = 100000,
+		                startRow = Encoding.UTF8.GetBytes(startRow),
+		                endRow = Encoding.UTF8.GetBytes(endRow)
+		            };
+		
+		            // Make async scan call
+		            ScannerInformation scannerInfo =
+		                await client.CreateScannerAsync(HBASETABLENAME, scanSettings);
+		
+		            CellSet next;
+		
+		            while ((next = await client.ScannerGetNextAsync(scannerInfo)) != null)
+		            {
+		                foreach (CellSet.Row row in next.rows)
+		                {
+		                    // find the cell with string pattern "d:coor" 
+		                    var coordinates =
+		                        row.values.Find(c => Encoding.UTF8.GetString(c.column) == "d:coor");
+		
+		                    if (coordinates != null)
+		                    {
+		                        string[] lonlat = Encoding.UTF8.GetString(coordinates.data).Split(',');
+		
+		                        var sentimentField =
+		                            row.values.Find(c => Encoding.UTF8.GetString(c.column) == "d:sentiment");
+		                        Int32 sentiment = 0;
+		                        if (sentimentField != null)
+		                        {
+		                            sentiment = Convert.ToInt32(Encoding.UTF8.GetString(sentimentField.data));
+		                        }
+		
+		                        list.Add(new Tweet
+		                        {
+		                            Longtitude = Convert.ToDouble(lonlat[0]),
+		                            Latitude = Convert.ToDouble(lonlat[1]),
+		                            Sentiment = sentiment
+		                        });
+		                    }
+		
+		                    if (coordinates != null)
+		                    {
+		                        string[] lonlat = Encoding.UTF8.GetString(coordinates.data).Split(',');
+		                    }
+		                }
+		            }
+		
+		            return list;
+		        }
+		    }
+		
+		    public class Tweet
+		    {
+		        public string IdStr { get; set; }
+		        public string Text { get; set; }
+		        public string Lang { get; set; }
+		        public double Longtitude { get; set; }
+		        public double Latitude { get; set; }
+		        public int Sentiment { get; set; }
+		    }
+		}
 
-4. Add a Tweet class to the file:
+4. Inside the **HBaseReader** class, change the constant values:
 
-	    public class Tweet
-	    {
-	        public string IdStr { get; set; }
-	        public string Text { get; set; }
-	        public string Lang { get; set; }
-	        public double Longtitude { get; set; }
-	        public double Latitude { get; set; }
-	        public int Sentiment { get; set; }
-	    }
+	- **CLUSTERNAME**: The HBase cluster name. For example, *https://<HBaseClusterName>.azurehdinsight.net/*. 
+    - **HADOOPUSERNAME**: The HBase cluster Hadoop user username. The default name is *admin*.
+    - **HADOOPUSERPASSWORD**: The HBase cluster Hadoop user password.
+    - **HBASETABLENAME** = "tweets_by_words";
 
-4. Inside the HBaseReader class, define the following constants and variables:
-
-        // For reading Tweet sentiment data from HDInsight HBase
-        HBaseClient client;
-
-        // HDinsight HBase cluster and HBase table information
-        const string CLUSTERNAME = "https://<HBaseClusterName>.azurehdinsight.net/";
-        const string HADOOPUSERNAME = "<HadoopUserName>"; //the default name is "admin"
-        const string HADOOPUSERPASSWORD = "<HaddopUserPassword>";
-        const string HBASETABLENAME = "tweets_by_words";
-
-6. Set the constant values, including **&lt;HBaseClusterName>**, **&lt;HadoopUserName>**, and **&lt;HaddopUserPassword>**. The HBase table name is "tweets_by_words". The values must match the values you sent in the streaming service, so that the Web application reads the data from the same HBase table.
-
-4. Inside the HBaseReader class, define the following functions:
-
-        public HBaseReader()
-        {
-            ClusterCredentials creds = new ClusterCredentials(
-                            new Uri(CLUSTERNAME),
-                            HADOOPUSERNAME,
-                            HADOOPUSERPASSWORD);
-            client = new HBaseClient(creds);
-        }
-
-        public async Task<IEnumerable<Tweet>> QueryTweetsByKeywordAsync(string keyword)
-        {
-            // verify the HBase table
-            var list = new List<Tweet>();
-            Boolean exists = await CheckTable();
-
-            if (!exists)
-            {
-                return list;
-            }
-
-            // Scan the HBase table with the keywords
-            string startRow = keyword + "_";
-            string endRow = keyword + "|";
-            var scanSettings = new Scanner { 
-                batch = 100000, 
-                startRow = Encoding.UTF8.GetBytes(startRow), 
-                endRow = Encoding.UTF8.GetBytes(endRow) };
-            ScannerInformation scannerInfo = await client.CreateScannerAsync(HBASETABLENAME, scanSettings);
-
-            CellSet next;
-            while ((next = await client.ScannerGetNextAsync(scannerInfo)) != null)
-            {
-                // Parse the rows retrieved from HBase 
-                foreach (CellSet.Row row in next.rows)
-                {
-                    var coordinates = row.values.Find(c => Encoding.UTF8.GetString(c.column) == "d:coor");
-                    if (coordinates != null)
-                    {
-                        var lonlat = Encoding.UTF8.GetString(coordinates.data).Split(',');
-
-                        var sentimentField = row.values.Find(c => Encoding.UTF8.GetString(c.column) == "d:sentiment");
-                        var sentiment = 0;
-                        if (sentimentField != null)
-                        {
-                            sentiment = Convert.ToInt32(Encoding.UTF8.GetString(sentimentField.data));
-                        }
-
-                        list.Add(new Tweet
-                        {
-                            Longtitude = Convert.ToDouble(lonlat[0]),
-                            Latitude = Convert.ToDouble(lonlat[1]),
-                            Sentiment = sentiment
-                        });
-                    }
-
-                    if (coordinates != null)
-                    {
-                        var lonlat = Encoding.UTF8.GetString(coordinates.data).Split(',');
-                    }
-                }
-            }
-
-            return list;
-        }
-
-        internal async Task<bool> CheckTable()
-        {
-            return (await client.ListTablesAsync()).name.Contains(HBASETABLENAME);
-        }
+	The HBase table name is "tweets_by_words". The values must match the values you sent in the streaming service, so that the Web application reads the data from the same HBase table.
 
 
-**To add TweetsController**
 
-1. From Solution Explorer, expand **TweetSentimentWeb**.
+
+**To add TweetsController controller:**
+
+1. From **Solution Explorer**, expand **TweetSentimentWeb**.
 2. Right-click **Controllers**, click **Add**, and then click **Controller**.
 3. Click **Web API 2 Controller - Empty**, and then click **Add**.
 4. In Controller name, type **TweetsController**, and then click **Add**.
-5. From Solution Explorer, double-click TweetsController.cs to open the file.
-5. Add the following using statements to the beginning of the file:
+5. From **Solution Explorer**, double-click TweetsController.cs to open the file.
+5. Modify the file, so it looks like the following::
 
+		using System;
+		using System.Collections.Generic;
+		using System.Linq;
+		using System.Net;
+		using System.Net.Http;
+		using System.Web.Http;
+		
 		using System.Threading.Tasks;
 		using TweetSentimentWeb.Models;
+		
+		namespace TweetSentimentWeb.Controllers
+		{
+		    public class TweetsController : ApiController
+		    {
+		        HBaseReader hbase = new HBaseReader();
+		
+		        public async Task<IEnumerable<Tweet>> GetTweetsByQuery(string query)
+		        {
+		            return await hbase.QueryTweetsByKeywordAsync(query);
+		        }
+		    }
+		}
 
-5. Copy and paste the following code into the TweetsController class:
+**To add heatmap.js**
 
-        HBaseReader hbase = new HBaseReader();
+1. From **Solution Explorer**, expand **TweetSentimentWeb**.
+2. Right-click **Scripts**, click **Add**, click **JavaScript File**.
+3. In Item name, enter **heatmap.js**.
+4. Copy and paste the following code into the file. The code was written by Alastair Aitchison. For more information, see [http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/).
 
-        List<Tweet> list = new List<Tweet> {
-                new Tweet { IdStr = "1", Longtitude = -120, Latitude = 30 },
-                new Tweet { IdStr = "2", Longtitude = -110, Latitude = 40 }
-            };
+		/*******************************************************************************
+		* Author: Alastair Aitchison
+		* Website: http://alastaira.wordpress.com
+		* Date: 15th April 2011
+		* 
+		* Description: 
+		* This JavaScript file provides an algorithm that can be used to add a heatmap
+		* overlay on a Bing Maps v7 control. The intensity and temperature palette
+		* of the heatmap are designed to be easily customisable.
+		*
+		* Requirements:
+		* The heatmap layer itself is created dynamically on the client-side using
+		* the HTML5 <canvas> element, and therefore requires a browser that supports
+		* this element. It has been tested on IE9, Firefox 3.6/4 and 
+		* Chrome 10 browsers. If you can confirm whether it works on other browsers or
+		* not, I'd love to hear from you!
+		
+		* Usage:
+		* The HeatMapLayer constructor requires:
+		* - A reference to a map object
+		* - An array or Microsoft.Maps.Location items
+		* - Optional parameters to customise the appearance of the layer
+		*  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
+		*
+		*/
+		
+		var HeatMapLayer = function (map, locations, options) {
+		
+		    /* Private Properties */
+		    var _map = map,
+		      _canvas,
+		      _temperaturemap,
+		      _locations = [],
+		      _viewchangestarthandler,
+		      _viewchangeendhandler;
+		
+		    // Set default options
+		    var _options = {
+		        // Opacity at the centre of each heat point
+		        intensity: 0.5,
+		
+		        // Affected radius of each heat point
+		        radius: 1000,
+		
+		        // Whether the radius is an absolute pixel value or meters
+		        unit: 'meters',
+		
+		        // Colour temperature gradient of the map
+		        colourgradient: {
+		            "0.00": 'rgba(255,0,255,20)',  // Magenta
+		            "0.25": 'rgba(0,0,255,40)',    // Blue
+		            "0.50": 'rgba(0,255,0,80)',    // Green
+		            "0.75": 'rgba(255,255,0,120)', // Yellow
+		            "1.00": 'rgba(255,0,0,150)'    // Red
+		        },
+		
+		        // Callback function to be fired after heatmap layer has been redrawn 
+		        callback: null
+		    };
+		
+		    /* Private Methods */
+		    function _init() {
+		        var _mapDiv = _map.getRootElement();
+		
+		        if (_mapDiv.childNodes.length >= 3 && _mapDiv.childNodes[2].childNodes.length >= 2) {
+		            // Create the canvas element
+		            _canvas = document.createElement('canvas');
+		            _canvas.style.position = 'relative';
+		
+		            var container = document.createElement('div');
+		            container.style.position = 'absolute';
+		            container.style.left = '0px';
+		            container.style.top = '0px';
+		            container.appendChild(_canvas);
+		
+		            _mapDiv.childNodes[2].childNodes[1].appendChild(container);
+		
+		            // Override defaults with any options passed in the constructor
+		            _setOptions(options);
+		
+		            // Load array of location data
+		            _setPoints(locations);
+		
+		            // Create a colour gradient from the suppied colourstops
+		            _temperaturemap = _createColourGradient(_options.colourgradient);
+		
+		            // Wire up the event handler to redraw heatmap canvas
+		            _viewchangestarthandler = Microsoft.Maps.Events.addHandler(_map, 'viewchangestart', _clearHeatMap);
+		            _viewchangeendhandler = Microsoft.Maps.Events.addHandler(_map, 'viewchangeend', _createHeatMap);
+		
+		            _createHeatMap();
+		
+		            delete _init;
+		        } else {
+		            setTimeout(_init, 100);
+		        }
+		    }
+		
+		    // Resets the heat map
+		    function _clearHeatMap() {
+		        var ctx = _canvas.getContext("2d");
+		        ctx.clearRect(0, 0, _canvas.width, _canvas.height);
+		    }
+		
+		    // Creates a colour gradient from supplied colour stops on initialisation
+		    function _createColourGradient(colourstops) {
+		        var ctx = document.createElement('canvas').getContext('2d');
+		        var grd = ctx.createLinearGradient(0, 0, 256, 0);
+		        for (var c in colourstops) {
+		            grd.addColorStop(c, colourstops[c]);
+		        }
+		        ctx.fillStyle = grd;
+		        ctx.fillRect(0, 0, 256, 1);
+		        return ctx.getImageData(0, 0, 256, 1).data;
+		    }
+		
+		    // Applies a colour gradient to the intensity map
+		    function _colouriseHeatMap() {
+		        var ctx = _canvas.getContext("2d");
+		        var dat = ctx.getImageData(0, 0, _canvas.width, _canvas.height);
+		        var pix = dat.data; // pix is a CanvasPixelArray containing height x width x 4 bytes of data (RGBA)
+		        for (var p = 0, len = pix.length; p < len;) {
+		            var a = pix[p + 3] * 4; // get the alpha of this pixel
+		            if (a != 0) { // If there is any data to plot
+		                pix[p] = _temperaturemap[a]; // set the red value of the gradient that corresponds to this alpha
+		                pix[p + 1] = _temperaturemap[a + 1]; //set the green value based on alpha
+		                pix[p + 2] = _temperaturemap[a + 2]; //set the blue value based on alpha
+		            }
+		            p += 4; // Move on to the next pixel
+		        }
+		        ctx.putImageData(dat, 0, 0);
+		    }
+		
+		    // Sets any options passed in
+		    function _setOptions(options) {
+		        for (attrname in options) {
+		            _options[attrname] = options[attrname];
+		        }
+		    }
+		
+		    // Sets the heatmap points from an array of Microsoft.Maps.Locations  
+		    function _setPoints(locations) {
+		        _locations = locations;
+		    }
+		
+		    // Main method to draw the heatmap
+		    function _createHeatMap() {
+		        // Ensure the canvas matches the current dimensions of the map
+		        // This also has the effect of resetting the canvas
+		        _canvas.height = _map.getHeight();
+		        _canvas.width = _map.getWidth();
+		
+		        _canvas.style.top = -_canvas.height / 2 + 'px';
+		        _canvas.style.left = -_canvas.width / 2 + 'px';
+		
+		        // Calculate the pixel radius of each heatpoint at the current map zoom
+		        if (_options.unit == "pixels") {
+		            radiusInPixel = _options.radius;
+		        } else {
+		            radiusInPixel = _options.radius / _map.getMetersPerPixel();
+		        }
+		
+		        var ctx = _canvas.getContext("2d");
+		
+		        // Convert lat/long to pixel location
+		        var pixlocs = _map.tryLocationToPixel(_locations, Microsoft.Maps.PixelReference.control);
+		        var shadow = 'rgba(0, 0, 0, ' + _options.intensity + ')';
+		        var mapWidth = 256 * Math.pow(2, _map.getZoom());
+		
+		        // Create the Intensity Map by looping through each location
+		        for (var i = 0, len = pixlocs.length; i < len; i++) {
+		            var x = pixlocs[i].x;
+		            var y = pixlocs[i].y;
+		
+		            if (x < 0) {
+		                x += mapWidth * Math.ceil(Math.abs(x / mapWidth));
+		            }
+		
+		            // Create radial gradient centred on this point
+		            var grd = ctx.createRadialGradient(x, y, 0, x, y, radiusInPixel);
+		            grd.addColorStop(0.0, shadow);
+		            grd.addColorStop(1.0, 'transparent');
+		
+		            // Draw the heatpoint onto the canvas
+		            ctx.fillStyle = grd;
+		            ctx.fillRect(x - radiusInPixel, y - radiusInPixel, 2 * radiusInPixel, 2 * radiusInPixel);
+		        }
+		
+		        // Apply the specified colour gradient to the intensity map
+		        _colouriseHeatMap();
+		
+		        // Call the callback function, if specified
+		        if (_options.callback) {
+		            _options.callback();
+		        }
+		    }
+		
+		    /* Public Methods */
+		
+		    this.Show = function () {
+		        if (_canvas) {
+		            _canvas.style.display = '';
+		        }
+		    };
+		
+		    this.Hide = function () {
+		        if (_canvas) {
+		            _canvas.style.display = 'none';
+		        }
+		    };
+		
+		    // Sets options for intensity, radius, colourgradient etc.
+		    this.SetOptions = function (options) {
+		        _setOptions(options);
+		    }
+		
+		    // Sets an array of Microsoft.Maps.Locations from which the heatmap is created
+		    this.SetPoints = function (locations) {
+		        // Reset the existing heatmap layer
+		        _clearHeatMap();
+		        // Pass in the new set of locations
+		        _setPoints(locations);
+		        // Recreate the layer
+		        _createHeatMap();
+		    }
+		
+		    // Removes the heatmap layer from the DOM
+		    this.Remove = function () {
+		        _canvas.parentNode.parentNode.removeChild(_canvas.parentNode);
+		
+		        if (_viewchangestarthandler) { Microsoft.Maps.Events.removeHandler(_viewchangestarthandler); }
+		        if (_viewchangeendhandler) { Microsoft.Maps.Events.removeHandler(_viewchangeendhandler); }
+		
+		        _locations = null;
+		        _temperaturemap = null;
+		        _canvas = null;
+		        _options = null;
+		        _viewchangestarthandler = null;
+		        _viewchangeendhandler = null;
+		    }
+		
+		    // Call the initialisation routine
+		    _init();
+		};
+		
+		// Call the Module Loaded method
+		Microsoft.Maps.moduleLoaded('HeatMapModule');
 
-        public IEnumerable<Tweet> GetAllTweets()
-        {
-            return list;
-        }
 
-        public IHttpActionResult GetTweet(int id)
-        {
-            return Ok(list[0]);
-        }
+**To add tweetStream.js:**
 
-        public async Task<IEnumerable<Tweet>> GetTweetsByQuery(string query)
-        {
-            return await hbase.QueryTweetsByKeywordAsync(query);
-        }
-
-**To add tweetStream.js**
-
-1. From Solution Explorer, expand **TweetSentimentWeb**.
+1. From **Solution Explorer**, expand **TweetSentimentWeb**.
 2. Right-click **Scripts**, click **Add**, click **JavaScript File**.
 3. In Item name, enter **twitterStream.js**.
 4. Copy and paste the following code into the file:
 
-		var liveTweetsPos = new google.maps.MVCArray();
-		var liveTweets = new google.maps.MVCArray();
-		var liveTweetsNeg = new google.maps.MVCArray();
+		var liveTweetsPos = [];
+		var liveTweets = [];
+		var liveTweetsNeg = [];
 		var map;
 		var heatmap;
 		var heatmapNeg;
 		var heatmapPos;
 		
 		function initialize() {
+		    // Initialize the map
+		    var options = {
+		        credentials: "AvFJTZPZv8l3gF8VC3Y7BPBd0r7LKo8dqKG02EAlqg9WAi0M7la6zSIT-HwkMQbx",
+		        center: new Microsoft.Maps.Location(23.0, 8.0),
+		        mapTypeId: Microsoft.Maps.MapTypeId.ordnanceSurvey,
+		        labelOverlay: Microsoft.Maps.LabelOverlay.hidden,
+		        zoom: 2.5
+		    };
+		    var map = new Microsoft.Maps.Map(document.getElementById('map_canvas'), options);
 		
-		    //Setup Google Map
-		    var myLatlng = new google.maps.LatLng(17.7850, -12.4183);
-		    var light_grey_style = [
-		        {"featureType": "landscape", "stylers":[{ "saturation": -100 },{ "lightness": 65 }, { "visibility": "on" }]},
-		        { "featureType": "poi", "stylers": [{ "saturation": -100 }, { "lightness": 51 }, { "visibility": "simplified" }] },
-		        { "featureType": "road.highway", "stylers": [{ "saturation": -100 }, { "visibility": "simplified" }] },
-		        { "featureType": "road.arterial", "stylers": [{ "saturation": -100 }, { "lightness": 30 }, { "visibility": "on" }] },
-		        { "featureType": "road.local", "stylers": [{ "saturation": -100 }, { "lightness": 40 }, { "visibility": "on" }] },
-		        { "featureType": "transit", "stylers": [{ "saturation": -100 }, { "visibility": "simplified" }] },
-		        { "featureType": "administrative.province", "stylers": [{ "visibility": "off" }] },
-		        { "featureType": "water", "elementType": "labels", "stylers": [{ "visibility": "on" }, { "lightness": -25 }, { "saturation": -100 }] },
-		        { "featureType": "water", "elementType": "geometry", "stylers": [{ "hue": "#ffff00" }, { "lightness": -25 }, { "saturation": -97 }] }];
-		    var myOptions = {
-		        zoom: 3,
-		        center: myLatlng,
-		        mapTypeId: google.maps.MapTypeId.ROADMAP,
-		        mapTypeControl: true,
-		        mapTypeControlOptions: {
-		            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-		            position: google.maps.ControlPosition.LEFT_BOTTOM
-		        },
-		        styles: light_grey_style
+		    // Heatmap options for positive, neutral and negative layers
+		
+		    var heatmapOptions = {
+		        // Opacity at the centre of each heat point
+		        intensity: 0.5,
+		
+		        // Affected radius of each heat point
+		        radius: 15,
+		
+		        // Whether the radius is an absolute pixel value or meters
+		        unit: 'pixels'
 		    };
 		
-		    var mapElement = document.getElementById("map_canvas");
+		    var heatmapPosOptions = {
+		        // Opacity at the centre of each heat point
+		        intensity: 0.5,
 		
-		    map = new google.maps.Map(mapElement, myOptions);
+		        // Affected radius of each heat point
+		        radius: 15,
 		
-		    //Setup heat map and link to Twitter array we will append data to
-		    heatmap = new google.maps.visualization.HeatmapLayer({
-		        data: liveTweets,
-		        radius: 25
+		        // Whether the radius is an absolute pixel value or meters
+		        unit: 'pixels',
+		
+		        colourgradient: {
+		            0.0: 'rgba(0, 255, 255, 0)',
+		            0.1: 'rgba(0, 255, 255, 1)',
+		            0.2: 'rgba(0, 255, 191, 1)',
+		            0.3: 'rgba(0, 255, 127, 1)',
+		            0.4: 'rgba(0, 255, 63, 1)',
+		            0.5: 'rgba(0, 127, 0, 1)',
+		            0.7: 'rgba(0, 159, 0, 1)',
+		            0.8: 'rgba(0, 191, 0, 1)',
+		            0.9: 'rgba(0, 223, 0, 1)',
+		            1.0: 'rgba(0, 255, 0, 1)'
+		        }
+		    };
+		
+		    var heatmapNegOptions = {
+		        // Opacity at the centre of each heat point
+		        intensity: 0.5,
+		
+		        // Affected radius of each heat point
+		        radius: 15,
+		
+		        // Whether the radius is an absolute pixel value or meters
+		        unit: 'pixels',
+		
+		        colourgradient: {
+		            0.0: 'rgba(0, 255, 255, 0)',
+		            0.1: 'rgba(0, 255, 255, 1)',
+		            0.2: 'rgba(0, 191, 255, 1)',
+		            0.3: 'rgba(0, 127, 255, 1)',
+		            0.4: 'rgba(0, 63, 255, 1)',
+		            0.5: 'rgba(0, 0, 127, 1)',
+		            0.7: 'rgba(0, 0, 159, 1)',
+		            0.8: 'rgba(0, 0, 191, 1)',
+		            0.9: 'rgba(0, 0, 223, 1)',
+		            1.0: 'rgba(0, 0, 255, 1)'
+		        }
+		    };
+		
+		    // Register and load the Client Side HeatMap Module
+		    Microsoft.Maps.registerModule("HeatMapModule", "scripts/heatmap.js");
+		    Microsoft.Maps.loadModule("HeatMapModule", {
+		        callback: function () {
+		            // Create heatmap layers for positive, neutral and negative tweets
+		            heatmapPos = new HeatMapLayer(map, liveTweetsPos, heatmapPosOptions);
+		            heatmap = new HeatMapLayer(map, liveTweets, heatmapOptions);
+		            heatmapNeg = new HeatMapLayer(map, liveTweetsNeg, heatmapNegOptions);
+		        }
 		    });
 		
-		    heatmapNeg = new google.maps.visualization.HeatmapLayer({
-		        data: liveTweetsNeg,
-		        radius: 25
-		    });
-		
-		    heatmapPos = new google.maps.visualization.HeatmapLayer({
-		        data: liveTweetsPos,
-		        radius: 25
-		    });
-		
-		    heatmap.setMap(map);
-		
-		    var gradientNeg = [
-		        'rgba(0, 255, 255, 0)',
-		        'rgba(0, 255, 255, 1)',
-		        'rgba(0, 191, 255, 1)',
-		        'rgba(0, 127, 255, 1)',
-		        'rgba(0, 63, 255, 1)',
-		        'rgba(0, 0, 255, 1)',
-		        'rgba(0, 0, 223, 1)',
-		        'rgba(0, 0, 191, 1)',
-		        'rgba(0, 0, 159, 1)',
-		        'rgba(0, 0, 127, 1)',
-		        'rgba(63, 0, 91, 1)',
-		        'rgba(127, 0, 63, 1)',
-		        'rgba(191, 0, 31, 1)',
-		        'rgba(255, 0, 0, 1)'
-		    ]
-		    var gradientPos = [
-		      'rgba(0, 255, 255, 0)',
-		      'rgba(0, 255, 255, 1)',
-		      'rgba(0, 255, 191, 1)',
-		      'rgba(0, 255, 127, 1)',
-		      'rgba(0, 255, 63, 1)',
-		      'rgba(0, 127, 0, 1)',
-		      'rgba(0, 159, 0, 1)',
-		      'rgba(0, 191, 0, 1)'
-		    ]
-		
-		    heatmapNeg.set('gradient', gradientNeg);
-		
-		    //Add tweet to the heat map array.
-		    var tweetLocation = new google.maps.LatLng(40, -120);
-		    liveTweets.push(tweetLocation);
-		
-		    //Add tweet to the heat map array.
-		    var tweetLocationNeg = new google.maps.LatLng(40, -120);
-		    liveTweetsNeg.push(tweetLocationNeg);
-		
+		    $("#searchbox").val("xbox");
+		    $("#searchBtn").click(onsearch);
+		    $("#positiveBtn").click(onPositiveBtn);
+		    $("#negativeBtn").click(onNegativeBtn);
+		    $("#neutralBtn").click(onNeutralBtn);
 		    $("#neutralBtn").button("toggle");
 		}
 		
@@ -740,9 +1078,9 @@ This section includes the following procedures:
 		    var query = $('#searchbox').val();
 		    $.getJSON(uri + query)
 		        .done(function (data) {
-		            liveTweetsPos.clear();
-		            liveTweets.clear();
-		            liveTweetsNeg.clear();
+		            liveTweetsPos = [];
+		            liveTweets = [];
+		            liveTweetsNeg = [];
 		
 		            // On success, 'data' contains a list of tweets.
 		            $.each(data, function (key, item) {
@@ -760,8 +1098,8 @@ This section includes the following procedures:
 		}
 		
 		function addTweet(item) {
-		    //Add tweet to the heat map array.
-		    var tweetLocation = new google.maps.LatLng(item.Latitude, item.Longtitude);
+		    //Add tweet to the heat map arrays.
+		    var tweetLocation = new Microsoft.Maps.Location(item.Latitude, item.Longtitude);
 		    if (item.Sentiment > 0) {
 		        liveTweetsPos.push(tweetLocation);
 		    } else if (item.Sentiment < 0) {
@@ -779,11 +1117,12 @@ This section includes the following procedures:
 		        $("#negativeBtn").button("toggle");
 		    }
 		
-		    heatmapPos.setMap(map);
-		    heatmapNeg.setMap(null);
-		    heatmap.setMap(null);
+		    heatmapPos.SetPoints(liveTweetsPos);
+		    heatmapPos.Show();
+		    heatmapNeg.Hide();
+		    heatmap.Hide();
 		
-		    $('#statustext').text('Tweets: ' + liveTweetsPos.length);
+		    $('#statustext').text('Tweets: ' + liveTweetsPos.length + "   " + getPosNegRatio());
 		}
 		
 		function onNeutralBtn() {
@@ -794,11 +1133,12 @@ This section includes the following procedures:
 		        $("#negativeBtn").button("toggle");
 		    }
 		
-		    heatmap.setMap(map);
-		    heatmapNeg.setMap(null);
-		    heatmapPos.setMap(null);
+		    heatmap.SetPoints(liveTweets);
+		    heatmap.Show();
+		    heatmapNeg.Hide();
+		    heatmapPos.Hide();
 		
-		    $('#statustext').text('Tweets: ' + liveTweets.length);
+		    $('#statustext').text('Tweets: ' + liveTweets.length + "   " + getPosNegRatio());
 		}
 		
 		function onNegativeBtn() {
@@ -809,30 +1149,45 @@ This section includes the following procedures:
 		        $("#neutralBtn").button("toggle");
 		    }
 		
-		    heatmapNeg.setMap(map);
-		    heatmap.setMap(null);
-		    heatmapPos.setMap(null);
+		    heatmapNeg.SetPoints(liveTweetsNeg);
+		    heatmapNeg.Show();
+		    heatmap.Hide();;
+		    heatmapPos.Hide();;
 		
-		    $('#statustext').text('Tweets: ' + liveTweetsNeg.length);
+		    $('#statustext').text('Tweets: ' + liveTweetsNeg.length + "\t" + getPosNegRatio());
+		}
+		
+		function getPosNegRatio() {
+		    if (liveTweetsNeg.length == 0) {
+		        return "";
+		    }
+		    else {
+		        var ratio = liveTweetsPos.length / liveTweetsNeg.length;
+		        var str = parseFloat(Math.round(ratio * 10) / 10).toFixed(1);
+		        return "Positive/Negative Ratio: " + str;
+		    }
 		}
 
-	This JavaScript file contains the GUI controls.
 
-**To modify the layout.cshtml**
+**To modify the layout.cshtml:**
 
-1. From Solution Explorer, expand **TweetSentimentWeb**, expand **Views**, expand **Shared**, and then double-click _**Layout.cshtml**.
-2. Append the following code inside the <head> tag.
+1. From **Solution Explorer**, expand **TweetSentimentWeb**, expand **Views**, expand **Shared**, and then double-click _**Layout.cshtml**.
+2. Replace the content with the following:
 
-    <!-- Google Maps -->
-    <link href="https://google-developers.appspot.com/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
-
-    <!-- Spatial Dashboard JavaScript -->
-    <script src="~/Scripts/twitterStream.js" type="text/javascript"></script>
-
-3. Modify the &lt;body> tag, so the &lt;body> tag looks like the following:
-
-		<body onload ="initialize()">
+		<!DOCTYPE html>
+		<html>
+		<head>
+		    <meta charset="utf-8" />
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>@ViewBag.Title</title>
+		    @Styles.Render("~/Content/css")
+		    @Scripts.Render("~/bundles/modernizr")
+		    <!-- Bing Maps -->
+		    <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&mkt=en-gb"></script>
+		    <!-- Spatial Dashboard JavaScript -->
+		    <script src="~/Scripts/twitterStream.js" type="text/javascript"></script>
+		</head>
+		<body onload="initialize()">
 		    <div class="navbar navbar-inverse navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
@@ -842,56 +1197,59 @@ This section includes the following procedures:
 		                    <span class="icon-bar"></span>
 		                </button>
 		            </div>
-		
 		            <div class="navbar-collapse collapse">
 		                <div class="row">
 		                    <ul class="nav navbar-nav col-lg-5">
 		                        <li class="col-lg-12">
 		                            <div class="navbar-form">
 		                                <input id="searchbox" type="search" class="form-control">
-		                                <button type="button" class="btn btn-primary" onclick="onsearch();">Go</button>
+		                                <button type="button" id="searchBtn" class="btn btn-primary">Go</button>
 		                            </div>
 		                        </li>
 		                    </ul>
-		                    <ul class="nav navbar-nav col-lg-4">
+		                    <ul class="nav navbar-nav col-lg-7">
 		                        <li>
 		                            <div class="navbar-form">
 		                                <div class="btn-group" data-toggle="buttons-radio">
-		                                    <button type="button" id="positiveBtn" class="btn btn-primary" onclick="onPositiveBtn();">Positive</button>
-		                                    <button type="button" id="neutralBtn" class="btn btn-primary" onclick="onNeutralBtn();">Neutral</button>
-		                                    <button type="button" id="negativeBtn" class="btn btn-primary" onclick="onNegativeBtn();">Negative</button>
+		                                    <button type="button" id="positiveBtn" class="btn btn-primary">Positive</button>
+		                                    <button type="button" id="neutralBtn" class="btn btn-primary">Neutral</button>
+		                                    <button type="button" id="negativeBtn" class="btn btn-primary">Negative</button>
 		                                </div>
 		                            </div>
 		                        </li>
-		                        @*<li class="divider-vertical"></li>
-		                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-		            <li>@Html.ActionLink("About", "About", "Home")</li>
-		            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
 		                        <li><span id="statustext" class="navbar-text"></span></li>
 		                    </ul>
 		                </div>
 		            </div>
 		        </div>
 		    </div>
-		    @*"container body-content"*@
 		    <div class="map_container">
 		        @RenderBody()
-		        <hr />
-		        <footer>
-		            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-		        </footer>
 		    </div>
-		
 		    @Scripts.Render("~/bundles/jquery")
 		    @Scripts.Render("~/bundles/bootstrap")
 		    @RenderSection("scripts", required: false)
 		</body>
+		</html>
 
-	The _layout.cshtml file defines the web page appearance.
 
-**To modify site.css**
 
-1. From Solution Explorer, expand **TweetSentimentWeb**, expand **Content**, and then double-click **Site.css**.
+**To modify the Index.cshtml**
+
+1. From **Solution Explorer**, expand **TweetSentimentWeb**, expand **Views**, expand **Home**, and then double-click **Index.cshtml**.
+2. Replace the content with the following:
+
+		@{
+		    ViewBag.Title = "Tweet Sentiment";
+		}
+		
+		<div class="map_container">
+		    <div id="map_canvas"/>
+		</div>
+
+**To modify the site.css file:**
+
+1. From **Solution Explorer**, expand **TweetSentimentWeb**, expand **Content**, and then double-click **Site.css**.
 2. Append the following code to the file.
 		
 		/* make container, and thus map, 100% width */
@@ -912,25 +1270,26 @@ This section includes the following procedures:
 		  font-size: 30px;
 		}
 
-**To modify global.asax**
+**To modify the global.asax file:**
 
-1. From Solution Explorer, expand **TweetSentimentWeb**, and then double-click **Global.asax**.
+1. From **Solution Explorer**, expand **TweetSentimentWeb**, and then double-click **Global.asax**.
 2. Add the following using statement:
 
 		using System.Web.Http;
 
-2. Add the following lines inside the Application_Start() function:
+2. Add the following lines inside the **Application_Start()** function:
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
   
+	Modify the registration of the API routes to make Web API controller work inside of the MVC application.
 
-**To run the Web application on debugger**
+**To run the Web application:**
 
 1. Verify the streaming service console application is still running. So you can see the real-time changes.
 2. Press **F5** to run the web application:
 
-	![hdinsight.hbase.twitter.sentiment.google.map][img-google-map]
+	![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 2. In the text box, enter a keyword, and then click **Go**.  Depending on the data collected in the HBase table, some keywords might not be found. Try some common keywords, such as "love", "xbox", "playstation" and so on. 
 3. Toggle among **Positive**, **Neutral**, and **Negative** to compare sentiment on the subject.
 4. Let the streaming service running for another hour, and then search the same keyword, and compare the results.
@@ -940,7 +1299,7 @@ Optionally, you can deploy the application to an Azure Web site.  For instructio
  
 ##<a id="nextsteps"></a>Next Steps
 
-In this tutorial we have learned how to get Tweets, analyze Tweets sentiment, save the sentiment data to HBase, and present the real-time Twitter sentiment data to Google map. To learn more, see:
+In this tutorial we have learned how to get Tweets, analyze the sentiment of Tweets, save the sentiment data to HBase, and present the real-time Twitter sentiment data to Bing maps. To learn more, see:
 
 - [Get started with HDInsight][hdinsight-get-started]
 - [Analyze Twitter data with Hadoop in HDInsight][hdinsight-analyze-twitter-data]
@@ -954,17 +1313,17 @@ In this tutorial we have learned how to get Tweets, analyze Tweets sentiment, sa
 
 
 
-
+[img-app-arch]: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
 [img-twitter-app]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterApp.png
 [img-streaming-service]: ./media/hdinsight-hbase-analyze-twitter-sentiment/StreamingService.png
-[img-google-map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentGoogleMap.png
+[img-bing-map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
 
 
 
 [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 [hdinsight-analyze-twitter-data]: ../hdinsight-analyze-twitter-data/
-
+[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started/
 
 
 
