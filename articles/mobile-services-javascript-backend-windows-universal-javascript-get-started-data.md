@@ -34,8 +34,8 @@ To complete this tutorial, you need the following:
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
-<ol start="7">
-<li><p>In Solution Explorer, expand the **services**, **mobile services**, **&lt;your_service&gt;** folders, open the service.js script file, and notice the new global variable, which looks like the following example:</p> 
+<ol start="8">
+<li><p>In Solution Explorer, navigate to the <strong>services\mobileService\scripts</strong> subfolder, open the service.js script file, and notice the new global variable, which looks like the following example:</p> 
 
 		<pre><code>var todolistClient = new WindowsAzure.MobileServiceClient(
                 "https://todolist.azure-mobile.net/",
@@ -43,6 +43,11 @@ To complete this tutorial, you need the following:
 
 	<p>This code provides access to your new mobile service in your app by using a global variable. The client is created by supplying the URI and the application key of the new mobile service. Because a reference to this script was was added to the default.html file, this variable is available to all script files that are also referenced from this page.</p>
 </li>
+<li><p>Open the default.html project file, locate the reference to the new service.js script file, and make sure that the referenced path is like the following:</p>
+<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
+<p>There is currently a bug in Visual Studio that generates an incorrect folder name in the path.</p></li>
+<li><p>Right-click the Windows Phone app project, click <strong>Add</strong>, click <strong>Connected Service...</strong>, select the mobile service that you just created, and then click <strong>OK</strong>. </p>
+<p>The same new code file is added to the Windows Phone Store app project. Make sure to also fix the reference path added to the default.html file.</p></li>
 </ol>
 
 ##<a name="add-table"></a>Add a new table to the mobile service
