@@ -11,7 +11,7 @@
 
 <h2>Overview</h2>
 
-<p>This sample demonstrates a search application for the Adventure Works bicycle company. After following these instructions, you’ll have online product catalog with a rich search experience that includes faceted navigation, sort options, and type-ahead query suggestions.
+<p>This sample demonstrates a search application for the Adventure Works bicycle company. After completing this tutorial, you’ll have an online product catalog with a rich search experience that includes faceted navigation, multiple sort options for your search results, and type-ahead query suggestions.
 
    ![][7]
 
@@ -23,42 +23,48 @@ The demo gets you started with Azure Search by walking you through these exercis
 	+	Search and display results from an Azure Search index
 	+	Show type-ahead suggestions in a Search box while entering a search term
 	+	Filter search results using faceting
-	+	Lookup details of a specific itemThis tutorial has the following sections.
 
 
 <h2 id="sub-1">Prerequisites</h2>
 
 +	Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed. You can get Visual Studio 2013 Express from the web from the [Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=40747).
 +	An Azure Search service. You'll need the Search service name, plus the admin key. See [Configure Search on Azure Preview portal](../search-configure/) for details.
-+	[Adventure Works Azure Search Demo project on CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). In this solution, there are two main projects:
-	+	**CatalogIndex** creates an Azure Search index and loads data from a SQL Server database included with the project.
-	+	**AdventureWorksWeb** is an MVC4-based application that queries the Azure Search index.
++	[Adventure Works Azure Search Demo project on CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). On the Source tab, click **Download** to get a zip file of the solution. 
 
-This demonstration assumes that you have a working knowledge of ASP.NET MVC. 
+    ![][12]
+
+
+This solution contains two projects:
+
++	**CatalogIndex** creates an Azure Search index and loads data from a SQL Server database included with the project.
++	**AdventureWorksWeb** is an MVC4-based application that queries the Azure Search index. This tutorial assumes that you have a working knowledge of ASP.NET MVC.
 
 [WACOM.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
 
 
 <h2 id="sub-2">Create an Azure Search index</h2>
 
-In this step, you will create a new Azure Search index called "catalog" based on data in an AdventureWorks SQL Server database.
+In this step, you will use **CatalogIndex** to create a new Azure Search index called "catalog" based on data in an AdventureWorks SQL Server database.
 
 1.	In Visual Studio, open up the Azure Search Demo solution named **AdventureWorksCatalog.sln**.  
-2.	Right-click **CatalogIndexer** in Solution Explorer and select **Set as startup project**.  When you launch the solution, this application runs, rather than the **AdventureWorksWeb** project.
+2.	Right-click **CatalogIndexer** in Solution Explorer and select **Set as startup project** so that this application runs, rather than the **AdventureWorksWeb** project, when you press F5.
 3.	Open **App.config** in this project and update the values for "SearchServiceName" and "SearchServiceApiKey" to those of your Azure Search service. For Search service name, if your service is "mysearch.search.windows.net", you would enter "mysearch".
-4.	Optionally, App.config includes an entry for "SourceSqlConnectionString" that assumes SQL Server 2014 Express LocalDB. If you’re using a different edition of SQL Server, update the server name accordingly. For example, if you have a local default instance, you can use (local) or localhost.
+4.	Optionally, App.config includes an entry for "SourceSqlConnectionString" that assumes SQL Server 2014 Express LocalDB (Server=(LocalDB)\v11.0). If you’re using a different edition of SQL Server, update the server name accordingly. For example, if you have a local default instance, you can use (local) or localhost.
 5.	Save **App.config**.
 6.	Press **F5** to launch the project.
 
 A command prompt should open with the following text: "Creating index..."
 
-Then after a few moments, it should complete with the text: "Complete.  Press <enter> to continue:"
+After a few moments, it should complete with the text: "Complete.  Press <enter> to continue:"
 
    ![][8]
 
 Press **Enter** to close the application. At this point, you have successfully created the Azure Search index. 
 
-> [WACOM.NOTE] If you get errors that include "Access denied", you might be running into UAC conflicts. For the purposes of this demo, work around these errors by using **Run as Administrator** to start Visual Studio.
+> [WACOM.NOTE] If you get errors that include "invalid value for key 'attachdbfilename'" or some other database attachment error, you might be running into UAC conflicts. For the purposes of this demo, work around these errors by doing the following: 
+> Copy the solution to a new or existing folder (such as Temp) that provides access to authenticated users. 
+> Use **Run as Administrator** to start Visual Studio. 
+> Open the solution, build it, and then press F5 to create the index.
 
 To verify index creation and document upload, go to your Search service dashboard in the [Azure Preview portal](https://portal.azure.com). In Usage, the index count should be up by one, and you should have 294 documents, one for each product in the database.
 
@@ -104,7 +110,9 @@ In this step, you’ll build and run the search application in a web browser.
 
     ![][10]
 
-6.	Leave the search box empty, and click **Search** to return all products. Notice the list of facets along on the left side. Try clicking one of the facets. Search is re-executed, but this time it adds the facet you chose to filter the results. You may want to add a breakpoint to the first line in the **HomeController.cs** `Search` function to step through (F11) each line.
+6.	Leave the search box empty, and click **Search** to return all 294 products.
+
+7.	Notice the list of facets along on the left side. Try clicking one of the facets. Search is re-executed, but this time it adds the facet you chose to filter the results. You may want to add a breakpoint to the first line in the **HomeController.cs** `Search` function to step through (F11) each line.
 
 7.	Enter a search term, such as "mountain bikes". As you type, notice the drop-down list of suggested queries.
 
@@ -177,3 +185,4 @@ You can also review the [Azure Search REST API](http://msdn.microsoft.com/en-us/
 [9]: ./media/search-create-first-solution/AzureSearch_Create1_DashboardIndexes.PNG
 [10]: ./media/search-create-first-solution/AzureSearch_Create1_WebAppEmpty.PNG
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
+[12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
