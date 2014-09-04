@@ -1,8 +1,8 @@
-<properties title="Monitoring, Diagnosing and Troubleshooting Microsoft Azure Storage" pageTitle="Monitoring, Diagnosing and Troubleshooting Microsoft Azure Storage" description="A guide to monitoring, diagnosing, and troubleshooting solutions that use Azure Storage services" metaKeywords="Azure storage  monitoring  diagnosing  logging  troubleshooting  performance  storage client library  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure" services="storage" solutions="" documentationCenter="" authors="dominicb" videoId="" scriptId="" />
+<properties title="Monitor, diagnose, and troubleshoot Microsoft Azure Storage" pageTitle="Monitor, diagnose, and troubleshoot Storage | Azure" description="Use features such as storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues." metaKeywords="Azure storage  monitoring  diagnosing  logging  troubleshooting  performance  storage client library  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure" services="storage" solutions="" documentationCenter="" authors="v-dobett" videoId="" scriptId="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="v-dobett" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="v-dobett" />
 
-# Monitoring, diagnosing and troubleshooting Microsoft Azure storage 
+# Monitor, diagnose, and troubleshoot Microsoft Azure Storage 
 
 Diagnosing and troubleshooting issues in a distributed application hosted in a cloud environment can be more complex than in traditional environments. Applications can be deployed in a PaaS or IaaS infrastructure, on premises, on a mobile device, or in some combination of these. Typically, your application’s network traffic may traverse public and private networks and your application may use multiple storage technologies such as Microsoft Azure Storage Tables, Blobs, Queues, or Files in addition to other data stores such as relational and document databases.
 
@@ -1009,7 +1009,7 @@ It is important to note that these operations have completed successfully and th
 
 You can find a list of common REST API error codes that the storage services return on the page <a href="http://msdn.microsoft.com/en-us/library/azure/dd179357.aspx" target="_blank">Common REST API Error Codes</a>. 
 
-### <a name="<a name="apacity-metrics-show-an-unexpected-increase"></a>"></a>Capacity metrics show an unexpected increase in storage capacity usage
+### <a name="capacity-metrics-show-an-unexpected-increase"></a>Capacity metrics show an unexpected increase in storage capacity usage
 
 If you see sudden, unexpected changes in capacity usage in your storage account, you can investigate the reasons by first looking at your availability metrics; for example, an increase in the number of failed delete requests might lead to an increase in the amount of blob storage you are using as application specific cleanup operations you might have expected to be freeing up space may not be working as expected (for example, because the SAS tokens used for freeing up space have expired). 
 
