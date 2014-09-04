@@ -13,6 +13,7 @@ You can set up web tests for any HTTP endpoint that is accessible from the publi
 + [Set up a web test](#setup)
 + [See monitor reports](#monitor)
 + [Edit or disable a test](#edit)
++ [Video: Monitoring availability](#video)
 + [Next steps](#next)
 
 
@@ -83,6 +84,9 @@ Open an individual test to edit or disable it.
 ![Edit or disable a web test](./media/appinsights/appinsights-19-availEdit.png)
 
 You might want to disable web tests while you are performing maintenance on your service.
+
+## <a name="video"></a>Monitoring availability
+[WACOM.VIDEO monitoring-availability-with-application-insights]
 
 ## <a name="next"></a>Next steps
 
