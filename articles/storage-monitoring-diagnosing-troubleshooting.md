@@ -1009,7 +1009,7 @@ It is important to note that these operations have completed successfully and th
 
 You can find a list of common REST API error codes that the storage services return on the page <a href="http://msdn.microsoft.com/en-us/library/azure/dd179357.aspx" target="_blank">Common REST API Error Codes</a>. 
 
-### <a name="<a name="apacity-metrics-show-an-unexpected-increase"></a>"></a>Capacity metrics show an unexpected increase in storage capacity usage
+### <a name="capacity-metrics-show-an-unexpected-increase"></a>Capacity metrics show an unexpected increase in storage capacity usage
 
 If you see sudden, unexpected changes in capacity usage in your storage account, you can investigate the reasons by first looking at your availability metrics; for example, an increase in the number of failed delete requests might lead to an increase in the amount of blob storage you are using as application specific cleanup operations you might have expected to be freeing up space may not be working as expected (for example, because the SAS tokens used for freeing up space have expired). 
 
