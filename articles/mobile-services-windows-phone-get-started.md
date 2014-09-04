@@ -84,6 +84,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
 
+* [Get started with offline data sync]
+  <br/>Learn how to use offline data sync to make your app responsive and robust.
+
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
@@ -114,6 +117,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- URLs. -->
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
+[Get started with offline data sync]: /en-us/develop/mobile/tutorials/mobile-services-windows-phone-get-started-offline-data
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374

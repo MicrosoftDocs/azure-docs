@@ -62,6 +62,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
 
+* [Get started with offline data sync]
+  <br/>Learn how to use offline data sync to make your app responsive and robust.
+
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
@@ -82,6 +85,7 @@ For more information about universal Windows apps, see [Supporting multiple devi
 
 <!-- URLs. -->
 [Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
+[Get started with offline data sync]: /en-us/develop/mobile/tutorials/mobile-services-windows-store-dotnet-get-started-offline-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546

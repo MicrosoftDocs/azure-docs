@@ -64,13 +64,14 @@ In this section you will create a new iOS app that is connected to your mobile s
 
 This shows how to run your new client app against the mobile service running in Azure. Before you can test the iOS app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your iOS development computer. For more information, see [Configure the local web server to allow connections to a local mobile service](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
 
-<!--
-
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
 * [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
+
+* [Get started with offline data sync]
+  <br/>Learn how to use offline data sync to make your app responsive and robust.
 
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
@@ -78,7 +79,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
--->
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -101,6 +101,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- URLs. -->
 [Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
+[Get started with offline data sync]: /en-us/develop/mobile/tutorials/mobile-services-ios-get-started-offline-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
 
