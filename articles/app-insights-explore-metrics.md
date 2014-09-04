@@ -11,6 +11,7 @@ Here are the reports you can expect to see on your application's blade in Applic
 
 + [Application Health](#health) 
 + [Usage Analytics](#usage)
++ [Video: Monitoring performance](#video)
 + [Next steps](#next)
 
 
@@ -60,6 +61,9 @@ If you've [set up diagnostic logging][diagnostic], click through to see the late
 
 A count of requests that threw uncaught exceptions.
 
+### <a name="video"></a>Monitoring performance
+
+[WACOM.VIDEO monitoring-performance-with-application-insights]
 
 ## <a name="usage"></a>Usage Analytics
 
@@ -79,9 +83,14 @@ Shows total counts in the last 24 hours.
 
 Click through to see graphs of page views over the past week.
 
-### Rearrange the tiles
+### Tracking usage
+[WACOM.VIDEO tracking-usage-with-application-insights]
+
+
+## Rearrange the tiles
 
 ![Choose settings, customize](./media/appinsights/appinsights-21-customizeblade.png)
+
 
 ## <a name="next"></a>Next steps
 
