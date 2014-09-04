@@ -127,9 +127,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-android
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-android
+[Get started with data]: /en-us/documentation/articles/mobile-services-android-get-started-data/
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-android-get-started-users/
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
