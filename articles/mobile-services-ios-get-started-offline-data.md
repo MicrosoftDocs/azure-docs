@@ -16,7 +16,7 @@ This tutorial covers the offline sync feature of Mobile Services, which allows d
 
 Offline sync has several potential uses:
 
-* Improve app responsivness by caching server data locally on the device
+* Improve app responsiveness by caching server data locally on the device
 * Make apps resilient against intermittent network connectivity 
 * Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity
 * Sync data across multiple devices and detect conflicts when the same record is modified by two devices
