@@ -90,6 +90,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
+* [Troubleshoot a Mobile Services .NET backend]
+  <br/> Learn how to diagnose and fix issues that can arise with a Mobile Services .NET backend. 
+
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
 [Create a new mobile service]:#create-new-service
@@ -115,6 +118,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Management Portal]: https://manage.windowsazure.com/
 [JavaScript backend version]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started
 [Get started with data in Mobile Services using Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+[Troubleshoot a Mobile Services .NET backend]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409

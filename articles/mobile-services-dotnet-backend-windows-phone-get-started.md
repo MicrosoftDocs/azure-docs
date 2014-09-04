@@ -92,6 +92,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
+* [Troubleshoot a Mobile Services .NET backend]
+  <br/> Learn how to diagnose and fix issues that can arise with a Mobile Services .NET backend. 
+
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
 [Create a new mobile service]:#create-new-service
@@ -121,3 +124,4 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Management Portal]: https://manage.windowsazure.com/
 [JavaScript backend version]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
 [How to connect to a local web service from the Windows Phone 8 emulator]: http://go.microsoft.com/fwlink/p/?LinkId=391930
+[Troubleshoot a Mobile Services .NET backend]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/

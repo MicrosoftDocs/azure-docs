@@ -79,6 +79,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
+* [Troubleshoot a Mobile Services .NET backend]
+  <br/> Learn how to diagnose and fix issues that can arise with a Mobile Services .NET backend. 
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -104,6 +106,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with offline data sync]: /en-us/develop/mobile/tutorials/mobile-services-ios-get-started-offline-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
+[Troubleshoot a Mobile Services .NET backend]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
