@@ -245,7 +245,7 @@ We will first create an ASP.NET WebAPI project. This is the backend that is used
 
 20. Add the following code inside the **NotificationsController** class definition and make sure to comment out the snippets for platforms you are not working with.
 
-    public async Task<HttpResponseMessage> Post()
+        public async Task<HttpResponseMessage> Post()
         {
             var user = HttpContext.Current.User.Identity.Name;
             var userTag = "username:"+user;

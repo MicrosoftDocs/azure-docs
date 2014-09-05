@@ -16,7 +16,7 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 
 ## Create and Configure the Notification Hub
 
-Please follow sections 1 through 5 in [Getting Started with Notification Hubs (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/).
+Please follow sections 1 through 5 in [Getting Started with Notification Hubs (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/). For additional resources on iOS device provisioning, check out the guide at [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
 
 [WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -210,6 +210,7 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 		@property (weak, nonatomic) IBOutlet ...
 		@property (weak, nonatomic) IBOutlet ...
 
+		@property (strong, nonatomic) NSData* deviceToken;
 		@property (strong, nonatomic) RegisterClient* registerClient;
 		
 		- (IBAction)LogInAction:(id)sender;
@@ -324,7 +325,7 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 
 3. In the iOS app UI, enter a username and password. These can be any string, but they must be of the same value. Then click **Log In**.
 
-4. You should see a pop-up informing you of regitration success. Click **OK**.
+4. You should see a pop-up informing you of registration success. Click **OK**.
 
 5. Click **Send push** and hit the home button. A push notification will appear shortly.
 
