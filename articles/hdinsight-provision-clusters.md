@@ -221,6 +221,8 @@ Once you have the storage account and the blob container prepared, you are ready
 
 **To provision an HDInsight cluster**
 
+> [WACOM.NOTE] The PowerShell cmdlets are the only recommended way to change configuration variables in an HDInsight cluster.  Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of cluster patching.  Configuration values set via PowerShell will be preserved if the cluster is patched. 
+
 - Run the following commands from an Azure PowerShell console window:		
 
 		$subscriptionName = "<SubscriptionName>"		# Name of the Azure subscription.
@@ -248,7 +250,7 @@ Once you have the storage account and the blob container prepared, you are ready
 
 While provisioning a cluster, you can use the other configuration options such as connecting to more than one Azure Blob storage, using a Virtual Network, or using an Azure SQL database for Hive and Oozie metastores. This allows you to separate lifetime of your data and metadata from the lifetime of the cluster.
 
-> [WACOM.NOTE] The PowerShell cmdlets are the only recommended way to change configruation variables in an HDInsight cluster.  Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of clsuter patching.  Configuration values set via PowerShell will be preserved if the cluster is patched. 
+> [WACOM.NOTE] The PowerShell cmdlets are the only recommended way to change configuration variables in an HDInsight cluster.  Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of cluster patching.  Configuration values set via PowerShell will be preserved if the cluster is patched. 
 
 - Run the following commands from a Windows PowerShell window:
 
@@ -474,13 +476,8 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 
 **To create a self-signed certificate**
 
-1. Create a self-signed certificate that is used to authenticate the requests. You can use IIS or [makecert][makecert-info] to create the certificate.
- 
-2. Browse to the location of the certificate, right-click the certificate, click **Install Certificate**, and install the certificate to the computer's personal store. Edit the certificate properties to assign it a friendly name.
+Create a self-signed certificate, install it on your workstation, and upload it to your Azure subscription. For instructions, see [Create a self-signed certificate](http://go.microsoft.com/fwlink/?LinkId=511138). 
 
-3. Import the certificate into the Azure Management Portal. From the portal, click **Settings** on the bottom-left of the page, and then click **Management Certificates**. From the bottom of the page, click **Upload** and follow the instructions to upload the .cer file you created in the previous step.
-
-	![HDI.ClusterCreate.UploadCert][image-hdiclustercreate-uploadcert]
 
 **To create a Visual Studio console application**
 
@@ -610,7 +607,6 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 [hdi-remote]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-management-portal/#rdp
-[makecert-info]: http://msdn.microsoft.com/en-us/library/bfsktky3(v=vs.110).aspx
 
 
 [Powershell-install-configure]: ../install-configure-powershell/
@@ -631,4 +627,4 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [image-cli-clusterlisting]: ./media/hdinsight-provision-clusters/HDI.CLIListClusters.png "List and show clusters"
 
 [image-hdi-ps-provision]: ./media/hdinsight-provision-clusters/HDI.ps.provision.png
-[image-hdiclustercreate-uploadcert]: ./media/hdinsight-get-started/HDI.ClusterCreate.UploadCert.png
+

@@ -235,7 +235,7 @@ Before performing the steps in this section, you must have associated a custom d
 
 	![upload a certificate][uploadcert]
 
-4. Using the **Upload a certificate** dialog, select the .pfx certificate file created earlier using the IIS Manager or OpenSSL. Specify the password, if any, that was used to secure the .pfx file. Finally, click the **check** to upload the certificate.
+4. Using the **Upload a certificate** dialog, select the .pfx certificate file created earlier using the IIS Manager or OpenSSL. Specify the password, if any, that was used to secure the .pfx file. Finally, click the **check** to upload the certificate. Please note : The Certificates should be SSL Certificate with Extended Key Value of 1.3.6.1.5.5.7.3.1. If not the certficate upload will fail with error message “Could not upload the certificate for web site xxx”.
 
 	![upload certificate dialog][uploadcertdlg]
 

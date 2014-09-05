@@ -22,6 +22,7 @@ You'll need [Visual Studio Update 3](http://go.microsoft.com/fwlink/?LinkId=3978
 
 *Alternatively, if you want to monitor an existing web service without redeploying it or using Visual Studio, you can [install an agent on the server][redfield].*
 
+
 ## <a name="add"></a>1. Add Application Insights
 
 ### If it's a new project...
@@ -86,6 +87,9 @@ Run your application again and you'll see data in **Usage analytics**.
 
 Deploy your application and watch the data accumulate.
 
+## <a name="video"></a>Getting started with Application Insights
+
+[WACOM.VIDEO getting-started-with-application-insights]
 
 ## <a name="next"></a>Next steps
 

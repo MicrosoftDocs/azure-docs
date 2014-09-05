@@ -21,8 +21,9 @@ This tutorial walks you through the process of creating a cloud deployment. Ther
 You need to do the following before creating the service:
 
 - Sign up for the preview of RemoteApp. You can do that at [http://azure.microsoft.com/en-us/services/remoteapp/](http://azure.microsoft.com/en-us/services/remoteapp/).
-- Gather information about the users and groups that you want to grant access to. This can be either Microsoft account information or Active Directory organizational account information for users or groups.
+- Gather information about the users and groups that you want to grant access to. This can be either Microsoft account information or Active Directory work account information for users or groups.
 - This procedure assumes you are either going to use the template image that is provided as part of your subscription or that you have already uploaded the template image you want to use. If you need to upload a different template image, you can do that from the Template Images page. Just click **upload a template image** and follow the steps in the wizard. 
+- Want to provide custom apps or LOB pgorams? Create a new [custom template image](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/) and use it in your cloud deployment.
 
 ## **Step 1: Create a RemoteApp service** ##
 
@@ -35,7 +36,7 @@ You need to do the following before creating the service:
 4. Choose the subscription that you want to use to create this service.
 5. Choose the template to use for this service. 
 
-	**Tip:** Your subscription for RemoteApp comes with a template image that contains Office 2013 programs, some published (such as Word) and others ready to publish.
+	**Tip:** Your subscription for RemoteApp comes with a template image that contains Office 2013 programs, some published (such as Word) and others ready to publish. You can also create a new [custom template image](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/) and use it in your cloud deployment.
 
 
 1. Click **Create RemoteApp service**.
@@ -62,7 +63,7 @@ You can publish multiple programs to your RemoteApp service. From the RemoteApp 
 Now that you have created your RemoteApp service, you need to add the users and groups that you want to be able to use your remote resources. If you are using Active Directory, the users or groups that you provide access to need to exist in the Active Directory tenant associated with the subscription you used to create this RemoteApp service.
 
 1.	From the Quick Start page, click **Configure user access**. 
-2.	Enter the organizational account or group name (from Active Directory) or Microsoft account that you want to grant access for.
+2.	Enter the work account or group name (from Active Directory) or Microsoft account that you want to grant access for.
 
 	For users, make sure that you use the “user@domain.com” format. For groups, enter the group name.
 
@@ -71,5 +72,5 @@ Now that you have created your RemoteApp service, you need to add the users and 
 
 ## Next steps ##
 
-That's it - you have successfully created and deployed your RemoteApp cloud  deployment. The next step is to have your users download and install the Remote Desktop client. You can find the URL for the client on the RemoteApp Quick Start page. Then, have users log into Azure and access the RemoteApp programs you published.
+That's it - you have successfully created and deployed your RemoteApp cloud  deployment. The next step is to have your users download and install the Remote Desktop client. You can find the URL for the client on the RemoteApp Quick Start page. Then, have users log into the client and access the RemoteApp programs you published.
 
