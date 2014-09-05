@@ -4,9 +4,12 @@
 
 
 # Learning map for HDInsight
-HDInsight provides ability to work with "big data" on Azure by enabling you to provision Hadoop and HBase clusters on the cloud. This page provides links to all the resources that you need to start learning about HDInsight. Use the flow suggested in the illustration for the most effective learning path. 
+HDInsight provides ability to work with "big data" on Azure by enabling you to provision Hadoop and HBase clusters on the cloud. This page provides links to all the resources that you need to start learning about HDInsight. Use the flow suggested in the illustration for the most effective learning path.
 
-<center><img src = "https://mysstorage.blob.core.windows.net/picture/HDI.ContentFlow.png" title = "" usemap="#testmap">
+<center><iframe width="780" height="1407" src="https://mysstorage.blob.core.windows.net/picture/HDI.Content.Flow.svg" frameborder="0"></iframe></center>
+
+
+<!--center><img src = "https://mysstorage.blob.core.windows.net/picture/HDI.ContentFlow.png" title = "" usemap="#testmap">
 	<map name="testmap">
 		<area shape="rect" alt="" title="" coords="665,79,804,110" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-introduction/" target="_blank" />
         <area shape="rect" alt="" title="" coords="665,121,802,150" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-overview/" target="_blank" />
@@ -50,13 +53,7 @@ HDInsight provides ability to work with "big data" on Azure by enabling you to p
         <area shape="rect" alt="" title="" coords="727,800,867,845" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/" target="_blank" />
         <area shape="rect" alt="" title="" coords="727,857,867,901" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/" target="_blank" />
 	</map>
-</img></center>
-
-
-<!--center><iframe width="560" height="315" src="http://www.youtube.com/embed/v=Y4aNjnoeaHA?list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS" frameborder="0" allowfullscreen></iframe></center-->
-
-<!--center><a href="https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS" target = "_blank">![HDI.getstarted.video][img-hdi-getstarted-video]</a></center-->
-
+</img></center-->
 
 
 
