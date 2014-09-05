@@ -185,6 +185,8 @@ Once you have the storage account and the blob container prepared, you are ready
 
 **To provision an HDInsight cluster**
 
+> [WACOM.NOTE] The PowerShell cmdlets are the only recommended way to change configuration variables in an HDInsight cluster.  Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of cluster patching.  Configuration values set via PowerShell will be preserved if the cluster is patched. 
+
 - Run the following commands from an Azure PowerShell console window:		
 
 		$subscriptionName = "<SubscriptionName>"		# Name of the Azure subscription.
@@ -212,7 +214,7 @@ Once you have the storage account and the blob container prepared, you are ready
 
 While provisioning a cluster, you can use the other configuration options such as connecting to more than one Azure Blob storage or using an Azure SQL database for Hive and Oozie metastores. This allows you to separate lifetime of your data and metadata from the lifetime of the cluster.
 
-> [WACOM.NOTE] The PowerShell cmdlets are the only recommended way to change configruation variables in an HDInsight cluster.  Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of clsuter patching.  Configuration values set via PowerShell will be preserved if the cluster is patched. 
+> [WACOM.NOTE] The PowerShell cmdlets are the only recommended way to change configuration variables in an HDInsight cluster.  Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of cluster patching.  Configuration values set via PowerShell will be preserved if the cluster is patched. 
 
 - Run the following commands from a Windows PowerShell window:
 
