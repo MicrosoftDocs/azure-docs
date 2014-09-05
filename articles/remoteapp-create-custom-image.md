@@ -47,7 +47,7 @@ The detailed steps for creating a new image are:
 	1.	Launch Disk Management (diskmgmt.msc). 
 	2.	Create a dynamically expanding VHD of 40 GB or more in size. (Estimate the amount of space needed for Windows, your applications, and customizations. Windows Server with the RDSH role and Desktop Experience feature installed will require about 10 GB of space).
 		1.	Click **Action > Create VHD**.
-		2.	Specify the location, size, and VHD format. Select **Dynamically expanding**, then click **OK**.
+		2.	Specify the location, size, and VHD format. Select **Dynamically expanding**, and then click **OK**.
 
 			This will run for several seconds. When the VHD creation is complete, you should see a new disk without any drive letter and in “Not initialized" state in the Disk Management console.
 
@@ -65,8 +65,8 @@ The detailed steps for creating a new image are:
 		2. On the Connect Virtual Hard Disk page, select **Use an existing virtual hard disk**, and browse to the VHD you created in the previous step.
 		2. On the Installation Options page, select **Install an operating system from a boot CD/DVD_ROM**, and then select the location of your Windows Server 2012 R2 installation media.
 		3. Choose other options in the wizard necessary to install Windows and your applications. Finish the wizard.
-	2.  After the wizard finishes, edit the settings of the VM and make any other changes necessary to install Windows and your programs, such as the number of virtual processors, and then click **OK**.
-	4.  Connect to the VM and install Windows Server 2012 R2.
+	2.  After the wizard finishes, edit the settings of the virtual machine and make any other changes necessary to install Windows and your programs, such as the number of virtual processors, and then click **OK**.
+	4.  Connect to the virtual machine and install Windows Server 2012 R2.
 1. Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature:
 	1. Launch Server Manager.
 	2. Click **Add Roles and features** on the Welcome screen or from the **Manage** menu.
@@ -79,7 +79,7 @@ The detailed steps for creating a new image are:
 	9. On the Remote Desktop Services page, click **Next**.
 	10. Click **Remote Desktop Session Host**.
 	11. Click **Add Features**, and then click **Next**.
-	12. On the Confirm installation selections page, select **Restart the destination server automatically if required**, then click **Yes** on the restart warning.
+	12. On the Confirm installation selections page, select **Restart the destination server automatically if required**, and then click **Yes** on the restart warning.
 	13. Click **Install**. The computer will restart.
 1.	Install additional features required by your applications, such as the .NET Framework 3.5. To install the features, run the Add Roles and Features Wizard.
 7.	Install and configure the programs and applications you want to publish through RemoteApp.
@@ -94,7 +94,7 @@ The detailed steps for creating a new image are:
 	Alternatively, you can set or add the following DWORD value in the registry: 
 
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
-9.	If you are building your image inside an Azure virtual machine, rename the **\%windir%\Panther\Unattend.xml** file, as this will block the upload script used later from working. Change the name of this file to unattend.old - that way you still have the file in case you need to revert your deployment.
+9.	If you are building your image inside an Azure virtual machine, rename the **\%windir%\Panther\Unattend.xml** file, as this will block the upload script used later from working. Change the name of this file to Unattend.old so that you will still have the file in case you need to revert your deployment.
 10.	SYSPREP the image. At an elevated command prompt, run the following command: 
 
 	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**

@@ -33,14 +33,14 @@ You can also create a cloud deployment to share a custom application or set of a
 ###Hybrid deployment
 The [hybrid RemoteApp deployment](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-hybrid-deployment/) lets you provide both a custom set of applications to your users and access to the data and resources in your local network. Unlike a custom image used with the cloud deployment, the image you create for a hybrid deployment runs apps in a domain-joined environment, granting full access to your local network and data.
 
-By integrating Active Directory with Azure Active Directory (using DirSync), your users can use their corporate credentials to access apps and data. When you use a work account in AD, you can take your corporate policies into the cloud to control the apps you offer through RemoteApp.
+By integrating Active Directory with Azure Active Directory (using DirSync), your users can use their corporate credentials to access apps and data. When you use a work account in Active Directory, you can take your corporate policies into the cloud to control the apps you offer through RemoteApp.
 
 As long as you build your template image on Windows Server 2012 R2 with the RD Session Host role service, there are few limits on the apps you can publish for your users. If the apps function properly in that template image environment, your end users can access them through RemoteApp. 
 
 ###Updating your deployment
-One of the key differences between the hybrid and cloud deployments is how software updates are handled. With a cloud deployment that uses the preinstalled Office 2013 image, you do not have to worry about any updates. The service maintains itself and rolls out updates on an ongoing basis, to both apps and the OS.
+One of the key differences between the hybrid and cloud deployments is how software updates are handled. With a cloud deployment that uses the preinstalled Office 2013 image, you do not have to worry about any updates. The service maintains itself and rolls out updates on an ongoing basis, to both apps and the operating system.
 
-For hybrid deployments, as well as cloud deployments that use a custom template image, you are in charge of maintaining the image and apps. For domain-joined images, you can control updates by using tools like Windows Update, Group Policy, or System Center.
+For hybrid deployments, as well as cloud deployments that use a custom template image, you are in charge of maintaining the image and apps. For domain-joined images, you can control updates by using tools such as Windows Update, Group Policy, or System Center.
 
 After you update your custom template image, you upload the new image to the Azure cloud and then update the deployment to use the new image. (You can do this from the RemoteApp Quick Start page or the Dashboard.)
 
