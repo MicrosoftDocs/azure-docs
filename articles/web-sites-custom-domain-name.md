@@ -61,9 +61,9 @@ Skip this step if you are creating a CNAME record. To create an A record, you ne
 
 1.	In your browser, open the Azure Management Portal.
 2.	In the **Websites** tab, click the name of your site and select **Dashboard**.
-3.	Select **Manage Domains** from the bottom of the page. (If this option is disabled, make sure you are using Shared, Basic, or Standard mode. For more information see [How to scale websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).) 
+3.	Select **Manage Domains** from the bottom of the page. (If this option is disabled, make sure you are using Shared, Basic, or Standard mode. For more information, see [How to scale websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).) 
 
-	![](../media/custom-dns-web-site/dncmntask-cname-6.png)
+	![](media/web-sites-custom-domain-name/dncmntask-cname-6.png)
 
 4.	The IP address is listed toward the bottom of the dialog.
 
