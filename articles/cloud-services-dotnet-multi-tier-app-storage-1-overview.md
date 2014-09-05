@@ -1,5 +1,7 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
+
 # Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, and Azure Storage Tables, Queues, and Blobs - 1 of 5
 
 This tutorial series shows how to create and deploy a multi-tier ASP.NET MVC web application that runs in an Azure cloud service and uses Azure Storage tables, queues, and blobs. You can download [the completed application](http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) from the MSDN Code Gallery or an [e-book](http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs) of an earlier version from the TechNet E-Book Gallery.
@@ -8,7 +10,7 @@ Here's a diagram that shows how the parts of the application interact:
 
 ![Email message processing][mtas-worker-roles-a-and-b]
 
-This is a 5-part tutorial series. If you want a quicker, simpler introduction to cloud services, queues, and blobs, see [Get Started with Azure Cloud Services and ASP.NET](/en-us/documentation/articles/cloud-services-dotnet-get-started/).
+This is a 5-part tutorial series. If you want a quicker, simpler introduction to cloud services, queues, and blobs, see [Get Started with Azure Cloud Services and ASP.NET](/en-us/documentation/articles/cloud-services-dotnet-get-started/). As an alternative you can run a multi-tier application in Websites and WebJobs; for more information, see [Get Started with the Azure WebJobs SDK](/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/).
 
 In this tutorial series you'll learn:
 
@@ -43,7 +45,7 @@ There are five tutorials in the series:
 - [Azure queues](#queues)
 - [Data diagram](#datadiagram)
 - [Azure blobs](#blobs)
-- [Azure cloud service versus Azure web site](#wawsvswacs)
+- [Azure cloud service versus Azure website](#wawsvswacs)
 - [Cost](#cost)
 - [Authentication and authorization](#auth)
 - [Next steps](#nextsteps)
@@ -75,7 +77,7 @@ There is also a set of pages that administrators use to create messages to be se
 
 ![Message Create Page][mtas-message-create-page]
 
-Clients of the service are companies that give their customers an opportunity to sign up for a mailing list on the client web site. For example, an administrator sets up a list for Contoso University History Department announcements. When a student interested in History Department announcements clicks a link on the Contoso University web site, Contoso University makes a web service call to the Azure Email Service application. The service method causes an email to be sent to the customer. That email contains a hyperlink, and when the recipient clicks the link, a page welcoming the customer to the History Department Announcements list is displayed.
+Clients of the service are companies that give their customers an opportunity to sign up for a mailing list on the client website. For example, an administrator sets up a list for Contoso University History Department announcements. When a student interested in History Department announcements clicks a link on the Contoso University website, Contoso University makes a web service call to the Azure Email Service application. The service method causes an email to be sent to the customer. That email contains a hyperlink, and when the recipient clicks the link, a page welcoming the customer to the History Department Announcements list is displayed.
 
 ![Confirmation email][mtas-subscribe-email]
 
@@ -739,17 +741,17 @@ Since both HTML and plain text messages are essentially strings, we could have d
 
 
 
-<h2><a name="wawsvswacs"></a>Azure Cloud Service versus Azure Web Site</h2>
+<h2><a name="wawsvswacs"></a>Azure Cloud Service versus Azure Website</h2>
 
 The Azure Email Service is configured so that the front-end and back-end all run in an Azure Cloud Service.
 
 ![Application architecture overview][mtas-architecture-overview]
 
-An alternative architecture is to run the front-end in an Azure Web Site. 
+An alternative architecture is to run the front-end in an Azure Website. 
 
 ![Alternative application architecture][mtas-alternative-architecture]
 
-Another alternative is to run the front-end in an Azure web site and use the WebJobs feature to run the back-end in the same servers that run the front-end. For more information, see [Azure Web Sites, Cloud Services and Virtual Machines comparison](/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
+Another alternative is to run the front-end in an Azure website and use the WebJobs feature to run the back-end in the same servers that run the front-end. For more information, see [Get Started with the Azure WebJobs SDK](/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/).
 
 
 <h2><a name="cost"></a>Cost</h2>
@@ -761,7 +763,7 @@ This section provides a brief overview of costs for running the sample applicati
 
 Costs are affected by the number of web and worker role instances you decide to maintain. In order to qualify for the [Azure Cloud Service 99.95% Service Level Agreement (SLA)](https://www.windowsazure.com/en-us/support/legal/sla/ "SLA"), you must deploy two or more instances of each role. One of the reasons you must run at least two role instances is because the virtual machines that run your application are restarted approximately twice per month for operating system upgrades. (For more information on OS Updates, see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).) 
 
-The work performed by the two worker roles in this sample is not time critical and so does not need the 99.5% SLA. Therefore, running a single instance of each worker role is feasible so long as one instance can keep up with the work load. The  web role instance is time sensitive, that is, users expect the web site to not have any down time, so a production application should have at least two instances of the web role.
+The work performed by the two worker roles in this sample is not time critical and so does not need the 99.5% SLA. Therefore, running a single instance of each worker role is feasible so long as one instance can keep up with the work load. The  web role instance is time sensitive, that is, users expect the website to not have any down time, so a production application should have at least two instances of the web role.
 
 The following table shows the costs for the default architecture for the Azure Email Service sample application assuming a minimal workload. The costs shown are based on using an extra small (shared) virtual machine size. The default virtual machine size when you create a Visual Studio cloud project is small, which is about six times more expensive than the extra small size.
   

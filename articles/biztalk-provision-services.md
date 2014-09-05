@@ -1,5 +1,7 @@
 <properties linkid="provisioning-biztalk-service" urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Create BizTalk Services in management portal | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk Services: Provisioning Using Azure Management Portal" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
 
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mandia" />
+
 
 
 # Create a BizTalk Service using Azure management portal
@@ -123,22 +125,26 @@ Depending on the state of the BizTalk Service, there are some operations that ca
 
 ##<a name="PostProv"></a>Post-Provisioning Steps
 
+-  [Install the certificate on a local computer](#InstallCert)
 -  [Add a production-ready certificate](#AddCert)
 -  [Get the Access Control namespace](#ACS)
 
-####<a name="AddCert"></a>Add a production-ready certificate
+####<a name="InstallCert"></a>Install the certificate on a local computer
+As part of BizTalk Service provisioning, a self-signed certificate is created and associated with your BizTalk Service subscription. You must download this certificate and install it on computers from where you either deploy BizTalk Service applications or send messages to a BizTalk Service endpoint.
 
 1. Log in to the [Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Select **BIZTALK SERVICES** in the left navigation pane and then select your BizTalk Service.
-3. Select the **Dashboard** tab.
-4. Select **Update SSL Certificate**:
+2. Click **BIZTALK SERVICES** in the left navigation pane and then select your BizTalk Service subscription.
+3. Click the **Dashboard** tab.
+4. Click **Download SSL Certificate**.
 <br/>
 ![Modify SSL Certificate][QuickGlance]
+5. Double-click the certificate and run through the wizard to install the certificate. Make sure you install the certificate under the **Trusted Root Certificate Authorities** store. 
 
-5. Browse to your private SSL certificate (*CertificateName*.pfx) that includes your BizTalk Service name, enter the password, and select the check mark.
+####<a name="AddCert"></a>Add a production-ready certificate
+The self-signed certificate that is automatically created while provisioning BizTalk Services is intended for use in development environments only. For production scenarios, you must replace it with a production-ready certificate.
 
-When you create an Azure BizTalk Service, a self-signed certificate is automatically created for the BizTalk Service. Self-signed certificates are used in development environments only. The self-signed certificate can be downloaded or replaced with a production-ready certificate. 
-
+1. On the **Dashboard** tab, click **Update SSL Certificate**.
+2. Browse to your private SSL certificate (*CertificateName*.pfx) that includes your BizTalk Service name, enter the password, and select the check mark.
 
 ####<a name="ACS"></a>Get the Access Control namespace
 
@@ -257,7 +263,7 @@ When you create an Azure BizTalk Service, the **Hybrid Connections** tab is avai
 
 ![Hybrid Connections Tab][HybridConnectionTab]
 
-Hybrid Connections are used to connect an Azure web site or Azure mobile service to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services.  Hybrid Connections and the BizTalk Adapter Service are different. The BizTalk Adapter Service is used to connect Azure BizTalk Services to an on-premises Line of Business (LOB) system. 
+Hybrid Connections are used to connect an Azure website or Azure mobile service to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services.  Hybrid Connections and the BizTalk Adapter Service are different. The BizTalk Adapter Service is used to connect Azure BizTalk Services to an on-premises Line of Business (LOB) system. 
 
  See [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274) to learn more, including creating and managing Hybrid Connections. 
 

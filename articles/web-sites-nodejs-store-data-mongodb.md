@@ -1,15 +1,17 @@
-<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="" editor=""  />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 
 # Create a Node.js Application on Azure with MongoDB in a Virtual Machine
 
-This tutorial shows you how to use [MongoDB] hosted on an Azure Virtual Machine to store data, and access the data from a [node] application hosted in an Azure Web Site. [MongoDB] is a popular open source, high performance NoSQL database.
+This tutorial shows you how to use [MongoDB] hosted on an Azure Virtual Machine to store data, and access the data from a [node] application hosted in an Azure Website. [MongoDB] is a popular open source, high performance NoSQL database.
 
 You will learn:
 
 * How to set up a virtual machine running Ubuntu and MongoDB from the VM Depot.
 * How to access MongoDB from a node application
-* How to use the Cross-Platform Tools for Azure to create an Azure Web Site
+* How to use the Cross-Platform Tools for Azure to create an Azure Website
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in MongoDB.
 
@@ -25,7 +27,7 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 The steps in this tutorial use Node.js must have a recent version of [Node.js][node] in your development environment.
 
-Additionally, the [Git] must be available from the command-line in your development environment, as this is used to deploy the application to an Azure Web Site.
+Additionally, the [Git] must be available from the command-line in your development environment, as this is used to deploy the application to an Azure Website.
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -133,7 +135,7 @@ In this section you will create a new Node application on your development envir
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)                                                                         
  
-	> [WACOM.NOTE] The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the ___express___ command to generate web site scaffolding without having to type in additional path information.
+	> [WACOM.NOTE] The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the ___express___ command to generate website scaffolding without having to type in additional path information.
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
@@ -167,7 +169,7 @@ In this section you will create a new Node application on your development envir
 
 	After this command completes, you should have several new directories and files in the **tasklist** directory.
 
-3. Copy the **tasklist/bin/www** file to a file named **server.js** in the **tasklist** folder. Azure Web Sites expects the entry point for a Node.js application to be either **server.js** or **app.js**. Since **app.js** already exists, but is not the entry point, we must use **server.js**.
+3. Copy the **tasklist/bin/www** file to a file named **server.js** in the **tasklist** folder. Azure Websites expects the entry point for a Node.js application to be either **server.js** or **app.js**. Since **app.js** already exists, but is not the entry point, we must use **server.js**.
 
 4. Modify the **server.js** file to remove one of the '.' characters from the following line.
 
@@ -181,7 +183,7 @@ In this section you will create a new Node application on your development envir
 
 ###Install additional modules
 
-The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to an Azure Web Site, this file will be used to determine which modules need to be installed on Azure to support your application.
+The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to an Azure Website, this file will be used to determine which modules need to be installed on Azure to support your application.
 	
 1. From the **tasklist** folder, use the following to install the modules described in the **package.json** file:
 
@@ -443,21 +445,21 @@ To test the application on your local machine, perform the following steps:
 
 ##Deploy your application to Azure
 
-The steps in this section use the Azure command-line tools to create a new Azure Web Site, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
+The steps in this section use the Azure command-line tools to create a new Azure Website, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
-> [WACOM.NOTE] These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Web Site</a>.
+> [WACOM.NOTE] These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Website</a>.
 
-> [WACOM.NOTE] If this is the first Azure Web Site you have created, you must use the Azure portal to deploy this application.
+> [WACOM.NOTE] If this is the first Azure Website you have created, you must use the Azure portal to deploy this application.
 
 ###Install the Azure cross-platform command-line interface
 
 The Azure Cross-Platform Command-Line Interface (xplat-cli) allows you to perform management operations for Azure services. If you have not already installed and configured the xplat-cli on your development environment, see [Install and configure the Azure Cross-Platform Command-Line Interface][xplatcli] for instructions.
 
-###Create an Azure Web Site
+###Create an Azure Website
 
 1. From the command-line, change directories to the **tasklist** directory.
 
-2. Use the following command to create a new Azure Web Site. Replace 'myuniquesitename' with a unique site name for your web site. This value is used as part of the URL for the resulting web site.
+2. Use the following command to create a new Azure Website. Replace 'myuniquesitename' with a unique site name for your website. This value is used as part of the URL for the resulting website.
 
 		azure site create myuniquesitename --git
 		
@@ -469,7 +471,7 @@ The Azure Cross-Platform Command-Line Interface (xplat-cli) allows you to perfor
 	
 	> [WACOM.NOTE] If the '--git' parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
 	
-	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created web site at** contains the URL for the web site.
+	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the website.
 
 		info:   Executing command site create
 		info:   Using location southcentraluswebspace
@@ -482,15 +484,15 @@ The Azure Cross-Platform Command-Line Interface (xplat-cli) allows you to perfor
 		info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`
 		info:   site create command OK
 
-	> [WACOM.NOTE> If this is the first Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to Azure Web Sites</a>.
+	> [WACOM.NOTE> If this is the first Azure Website for your subscription, you will be instructed to use the portal to create the website. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to Azure Websites</a>.
 
 ###Set the MONGODB_URI environment variable
 
-The application expects the connection string for the MongoDB instance to be available in the MONGODB_URI environment variable. To set this value for the web site, use the following command:
+The application expects the connection string for the MongoDB instance to be available in the MONGODB_URI environment variable. To set this value for the website, use the following command:
 
 	azure site config add MONGODB_URI=mongodb://mymongodb.cloudapp.net/tasks
 
-This will create a new application setting for the web site, which will be used to populate the MONGODB_URI environment variable read by the web site. Replace the value of 'mymongodb.cloudapp.net' with the name of the virtual machine that MongoDB was installed on.
+This will create a new application setting for the website, which will be used to populate the MONGODB_URI environment variable read by the website. Replace the value of 'mymongodb.cloudapp.net' with the name of the virtual machine that MongoDB was installed on.
 
 ###Publish the application
 
@@ -501,7 +503,7 @@ This will create a new application setting for the web site, which will be used 
 		git add .
 		git commit -m "adding files"
 
-3. When pushing the latest Git repository changes to the Azure Web Site, you must specify that the target branch is **master** as this is used for the web site content.
+3. When pushing the latest Git repository changes to the Azure Website, you must specify that the target branch is **master** as this is used for the website content.
 
 		git push azure master
 	
@@ -523,7 +525,7 @@ This will create a new application setting for the web site, which will be used 
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
  
-4. Once the push operation has completed, browse to the web site by using the `azure site browse` command to view your application.
+4. Once the push operation has completed, browse to the website by using the `azure site browse` command to view your application.
 
 ##Next steps
 

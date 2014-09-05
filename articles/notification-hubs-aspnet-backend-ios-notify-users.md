@@ -1,5 +1,7 @@
 <properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+
 #Azure Notification Hubs Notify Users
 
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -59,8 +61,8 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 		
 		@property (strong, nonatomic) NSURLSession* session;
 		-(void) tryToRegisterWithDeviceToken:(NSData*) token tags:(NSSet*) tags retry: (BOOL) retry andCompletion: (void(^)(NSError*)) completion;
-		-(void) retrieveOrRequestRegistrationIdWithCompletion: (void(^)(NSString*, NSError*)) completion;
-		-(void) upsertRegistrationWithRegistrationId: (NSString*) registrationId deviceToken: (NSData*) token tags: (NSSet*)tags andCompletion: (void(^)(NSURLResponse*, NSError*)) completion;
+		-(void) retrieveOrRequestRegistrationIdWithDeviceToken: (NSString*) token completion: (void(^)(NSString*, NSError*)) completion;
+		-(void) upsertRegistrationWithRegistrationId: (NSString*) registrationId deviceToken: (NSString*) token tags: (NSSet*)tags andCompletion: (void(^)(NSURLResponse*, NSError*)) completion;
 		
 		@end
 
@@ -88,14 +90,17 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 		{
 		    NSSet* tagsSet = tags?tags:[[NSSet alloc] init];
 		    
-		    [self retrieveOrRequestRegistrationIdWithCompletion:^(NSString* registrationId, NSError *error) {
+		    NSString *deviceTokenString = [[token description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+		    deviceTokenString = [[deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""] uppercaseString];
+		    
+		    [self retrieveOrRequestRegistrationIdWithDeviceToken: deviceTokenString completion:^(NSString* registrationId, NSError *error) {
 		        NSLog(@"regId: %@", registrationId);
 		        if (error) {
 		            completion(error);
 		            return;
 		        }
 		        
-		        [self upsertRegistrationWithRegistrationId:registrationId deviceToken:token tags:tagsSet andCompletion:^(NSURLResponse * response, NSError *error) {
+		        [self upsertRegistrationWithRegistrationId:registrationId deviceToken:deviceTokenString tags:tagsSet andCompletion:^(NSURLResponse * response, NSError *error) {
 		            if (error) {
 		                completion(error);
 		                return;
@@ -118,10 +123,7 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 		
 		-(void) upsertRegistrationWithRegistrationId: (NSString*) registrationId deviceToken: (NSData*) token tags: (NSSet*)tags andCompletion: (void(^)(NSURLResponse*, NSError*)) completion;
 		{
-		    NSString *deviceTokenString = [[token description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-		    deviceTokenString = [deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""];
-		    
-		    NSDictionary* deviceRegistration = @{@"Platform" : @"apns", @"Handle": deviceTokenString, @"Tags": [tags allObjects]};
+		    NSDictionary* deviceRegistration = @{@"Platform" : @"apns", @"Handle": token, @"Tags": [tags allObjects]};
 		    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:deviceRegistration options:NSJSONWritingPrettyPrinted error:nil];
 		    
 		    NSLog(@"JSON registration: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
@@ -149,7 +151,7 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 		    [dataTask resume];
 		}
 		
-		-(void) retrieveOrRequestRegistrationIdWithCompletion: (void(^)(NSString*, NSError*)) completion;
+		-(void) retrieveOrRequestRegistrationIdWithDeviceToken: (NSString*) token completion: (void(^)(NSString*, NSError*)) completion;
 		{
 		    NSString* registrationId = [[NSUserDefaults standardUserDefaults] objectForKey:RegistrationIdLocalStorageKey];
 		    
@@ -160,7 +162,7 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 		    }
 		    
 		    // request new one & save
-		    NSURL* requestURL = [NSURL URLWithString:BackEndEndpoint];
+		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?handle=%@", BackEndEndpoint, token]];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"POST"];
 		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", self.authenticationHeader];

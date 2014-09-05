@@ -1,5 +1,7 @@
 <properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Publishing Azure ML Web Services to the Azure Marketplace | Azure" description="Publishing Azure ML Web Services to the Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+
 # Publishing Azure ML Web Services to the Azure Marketplace 
 
 In this document:
@@ -59,10 +61,10 @@ The following are the steps in publishing an Azure ML web service to Azure Marke
 
 4. For Authentication, choose **Header** as the **Authentication Scheme**.
 
-	- Enter “Authorization” for **Header Name**.
+	- Enter "Authorization" for **Header Name**.
 	- For **Header Value**:
 		- On the **Dashboard** page for your web service in ML Studio, copy the **API Key**.
-		- In the **Header Value** field, enter “Bearer” (without the quotes), then space, then paste the API Key.
+		- In the **Header Value** field, enter "Bearer" (without the quotes), then space, then paste the API Key.
 	- Check the **This Service is OData** checkbox.
 
 	<br />

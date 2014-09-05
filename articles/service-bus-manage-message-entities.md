@@ -1,5 +1,7 @@
 <properties linkid="service-bus-manage-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Manage Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to create and manage your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Manage Service Bus Messaging Entities" authors="sethm" solutions="" />
 
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+
 
 
 # How to Manage Service Bus Messaging Entities
@@ -97,7 +99,7 @@ You can use the portal to change the status of a Service Bus entity. This is app
 
 [Azure Service Bus][]
 
-[.NET Developer Center][] on the Azure web site
+[.NET Developer Center][] on the Azure website
 
 [Creating Applications that Use Service Bus Topics and Subscriptions][]
 

@@ -1,4 +1,6 @@
-<properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based web site on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="" editor="" />
+<properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="" editor="" />
+
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 
 
@@ -8,7 +10,7 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
 
-This tutorial describes how to host a Django-based web site on Windows 
+This tutorial describes how to host a Django-based website on Windows 
 Azure using a Linux virtual machine. This tutorial assumes you have no prior experience using Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
 
 You will learn how to:
@@ -69,8 +71,8 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 		$ cd /var/www
 		$ sudo django-admin.py startproject helloworld
 
-    The **django-admin.py** script generates a basic structure for Django-based web sites:
-    -   **helloworld/manage.py** helps you to start hosting and stop hosting your Django-based web site
+    The **django-admin.py** script generates a basic structure for Django-based websites:
+    -   **helloworld/manage.py** helps you to start hosting and stop hosting your Django-based website
     -   **helloworld/helloworld/settings.py** contains Django settings for your application.
     -   **helloworld/helloworld/urls.py** contains the mapping code between each url and its view.
 

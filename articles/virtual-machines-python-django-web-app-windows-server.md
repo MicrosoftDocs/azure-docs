@@ -1,5 +1,7 @@
 <properties linkid="develop-python-web-app-with-django" urlDisplayName="Web with Django (Windows)" pageTitle="Python web app with Django - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to host a Django-based website on Azure using a Windows Server 2008 R2 virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application" authors="huvalo" solutions="" manager="" editor="" />
 
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+
 
 
 
@@ -7,7 +9,7 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
 
-This tutorial describes how to host a Django-based web site on Windows 
+This tutorial describes how to host a Django-based website on Windows 
 Azure using a Windows Server virtual machine. This tutorial assumes you have no prior experience using Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
 
 You will learn how to:
@@ -100,9 +102,9 @@ To set up your Python and Django environments, please see the [Installation Guid
     
 	![The result of the New-AzureService command](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-cmd-new-azure-service.png)
 
- The **django-admin.py** script generates a basic structure for Django-based web sites:
+ The **django-admin.py** script generates a basic structure for Django-based websites:
     
--   **manage.py** helps you to start hosting and stop hosting your Django-based web site
+-   **manage.py** helps you to start hosting and stop hosting your Django-based website
 -   **DjangoApplication\settings.py** contains Django settings for your application.
 -   **DjangoApplication\urls.py** contains the mapping code between each url and its view.
 

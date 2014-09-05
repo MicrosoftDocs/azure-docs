@@ -1,5 +1,7 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
+
  
 # Get started with push notifications in Mobile Services
 
@@ -43,37 +45,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## Configure Mobile Services to send push requests
 
-After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.
-
-1. In Keychain Access, right-click the new certificate, click **Export**, name your file QuickstartPusher, select the **.p12** format, then click **Save**.
-
-   	![][28]
-
-  Make a note of the file name and location of the exported certificate.
-
-    > [WACOM.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
-
-2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
-
-   	![][18]
-
-3. Click the **Push** tab and click **Upload**.
-
-   	![][19]
-
-	This displays the Upload Certificate dialog.
-
-4. Click **File**, select the exported certificate QuickstartPusher.p12 file, enter the **Password**, make sure that the correct **Mode** is selected, click the check icon, then click **Save**.
-
-   	![][20] 
-
-    > [WACOM.NOTE] This tutorial uses developement certificates.
-
-Your mobile service is now configured to work with APNS.
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 <h2><a name="download-the-service"></a><span class="short-header">Download the service</span>Download the service to your local computer</h2>
 
-[WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
+[WACOM.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
 
 <h2><a name="test-the-service"></a><span class="short-header">Test the service</span>Test the mobile service</h2>
 
@@ -93,7 +69,7 @@ Your mobile service is now configured to work with APNS.
         {
             TodoItem current = await InsertAsync(item);
 
-            ApplePushMessage message = new ApplePushMessage("Hello from Mobile Services!", TimeSpan.FromHours(1));
+            ApplePushMessage message = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));
 
             try
             {

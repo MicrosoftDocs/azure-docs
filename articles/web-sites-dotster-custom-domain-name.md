@@ -1,13 +1,15 @@
-<properties title="Learn how to configure an Azure web site to use a domain name registered with Dotster" pageTitle="Configure a Dotster domain name for an Azure web site" metaKeywords="Azure, Azure Web Sites, Dotster" description="Learn how to configure an Azure web site to use a domain name registered with Dotster" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
+<properties title="Learn how to configure an Azure website to use a domain name registered with Dotster" pageTitle="Configure a Dotster domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, Dotster" description="Learn how to configure an Azure website to use a domain name registered with Dotster" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-#Configuring a custom domain name for an Azure Web Site (Dotster)
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr,jroth" />
+
+#Configuring a custom domain name for an Azure Website (Dotster)
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/web-sites-custom-domain-name" title="Custom Domain">Custom Domain</a><a href="/en-us/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/en-us/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/en-us/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/en-us/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/en-us/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster" class="current">Dotster</a><a href="/en-us/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/en-us/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name/" title="Web Sites" class="current">Web Site</a> | <a href="/en-us/documentation/articles/web-sites-dotster-traffic-manager-custom-domain-name/" title="Web Site using Traffic Manager">Web Site using Traffic Manager</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name/" title="Websites" class="current">Website</a> | <a href="/en-us/documentation/articles/web-sites-dotster-traffic-manager-custom-domain-name/" title="Website using Traffic Manager">Website using Traffic Manager</a></div>
 
 [WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-This article provides instructions on using a custom domain name purchased from [Dotster.com](https://dotster.com) with Azure Web Sites.
+This article provides instructions on using a custom domain name purchased from [Dotster.com](https://dotster.com) with Azure Websites.
 
 [WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -22,13 +24,13 @@ In this article:
 
 [WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
-<h2><a name="bkmk_configsharedmode"></a>Configure your web sites for basic, shared or standard mode</h2>
+<h2><a name="bkmk_configsharedmode"></a>Configure your websites for basic, shared or standard mode</h2>
 
 [WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a><h2>Add a DNS record for your custom domain</h2>
 
-To associate your custom domain with an Azure Web Site, you must add a new entry in the DNS table for your custom domain by using tools provided by Dotster. Use the following steps to locate the DNS tools for Dotster.com
+To associate your custom domain with an Azure Website, you must add a new entry in the DNS table for your custom domain by using tools provided by Dotster. Use the following steps to locate the DNS tools for Dotster.com
 
 1. Log on to your account with Dotster.com. On the **Domain** menu, select **DomainCentral**.
 
@@ -52,9 +54,9 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 
     ![Dotster Domain Configuration Options](.\media\web-sites-dotster-custom-domain-name\Dotster_DNS_CNAME.png)
  
-    * When adding a CNAME record, you must set the **Host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points To** field to the **.azurewebsites.net** domain name of your Azure Web Site. For example, **contoso.azurwebsites.net**.
+    * When adding a CNAME record, you must set the **Host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points To** field to the **.azurewebsites.net** domain name of your Azure Website. For example, **contoso.azurwebsites.net**.
 
-    * When adding an A record, you must set the **Host** field to either **@** (this represents root domain name, such as **contoso.com**,) or the sub-domain you wish to use (for example, **www**.) You must set the **Points To** field to the IP address of your Azure Web Site.
+    * When adding an A record, you must set the **Host** field to either **@** (this represents root domain name, such as **contoso.com**,) or the sub-domain you wish to use (for example, **www**.) You must set the **Points To** field to the IP address of your Azure Website.
 
 		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
 		> 
@@ -67,6 +69,6 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 		> This CNAME record is used by Azure to validate that you own the domain described by the A record
 
 
-<h2><a name="enabledomain"></a>Enable the domain name on your web site</h2>
+<h2><a name="enabledomain"></a>Enable the domain name on your website</h2>
 
 [WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]

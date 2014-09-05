@@ -1,24 +1,26 @@
-<properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP web site with MySQL and WebMatrix - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Web Site using WebMatrix" authors="" solutions="" manager="" editor="mollybos" />
+<properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP website with MySQL and WebMatrix - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="" solutions="" manager="" editor="mollybos" />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 
 
 
 
-#Create and deploy a PHP-MySQL Azure Web Site using WebMatrix
+#Create and deploy a PHP-MySQL Azure Website using WebMatrix
 
-This tutorial shows you how to use WebMatrix to develop and deploy a PHP-MySQL application to an Azure Web Site. WebMatrix is a free web development tool from Microsoft that includes everything you need for web site development. WebMatrix supports PHP and includes intellisense for PHP development.
+This tutorial shows you how to use WebMatrix to develop and deploy a PHP-MySQL application to an Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix supports PHP and includes intellisense for PHP development.
 
-This tutorial assumes you have [MySQL][install-mysql] installed on your computer so that you can test an application locally. However, you can complete the tutorial without having MySQL installed. Instead, you can deploy your application directly to Azure Web Sites.
+This tutorial assumes you have [MySQL][install-mysql] installed on your computer so that you can test an application locally. However, you can complete the tutorial without having MySQL installed. Instead, you can deploy your application directly to Azure Websites.
 
-Upon completing this guide, you will have a PHP-MySQL web site running in Azure.
+Upon completing this guide, you will have a PHP-MySQL website running in Azure.
  
 You will learn:
 
-* How to create an Azure Web Site and a MySQL database using the Management Portal. Because PHP is enabled in Azure Web Sites by default, nothing special is required to run your PHP code.
+* How to create an Azure Website and a MySQL database using the Management Portal. Because PHP is enabled in Azure Websites by default, nothing special is required to run your PHP code.
 * How to develop a PHP application using WebMatrix.
 * How to publish and re-publish your application to Azure using WebMatrix.
  
-By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in an Azure Web Site. A screenshot of the running application is below:
+By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in an Azure Website. A screenshot of the running application is below:
 
 ![Azure PHP Web Site][running-app]
 
@@ -42,21 +44,21 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	This step is only necessary if you want to test your application locally.
 
-<h2><a id="CreateWebsite"></a>Create an Azure Web Site and MySQL database</h2>
+<h2><a id="CreateWebsite"></a>Create an Azure Website and MySQL database</h2>
 
 1. Login to the [Management Portal][preview-portal].
 1. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Azure Web Site][NewWebSite1]
 
-1. Click **WEB SITE**, then **CUSTOM CREATE**.
+1. Click **WEBSITE**, then **CUSTOM CREATE**.
 
 	![Custom Create a new Web Site][NewWebSite2]
 
 	> [WACOM.NOTE]
-	> You cannot create a MySQL Database for a web site after creating the web site. You must create a web site and a MySQL database as described in the steps below.
+	> You cannot create a MySQL Database for a website after creating the website. You must create a website and a MySQL database as described in the steps below.
 
-1. Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your web site in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+1. Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
 	![Fill in web site details][NewWebSite3]
 
@@ -64,12 +66,12 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	![Create new MySQL database][NewWebSite4]
 
-	When the web site has been created you will see the text **Creating Web Site '[SITENAME]' succeeded**.
+	When the website has been created you will see the text **Creating Website '[SITENAME]' succeeded**.
 
 	Next, you need to get the MySQL connection information.
 
 
-6. Click the name of the web site displayed in the list of web sites to open the web site's Quick Start page.
+6. Click the name of the website displayed in the list of websites to open the website's Quick Start page.
 
 	![Open web site dashboard][NewWebSite5]
 
@@ -85,7 +87,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 You can install WebMatrix from the [Management Portal][preview-portal]. 
 
-1. After logging in, navigate to your web site's Quick Start page, and click the WebMatrix icon at the bottom of the page:
+1. After logging in, navigate to your website's Quick Start page, and click the WebMatrix icon at the bottom of the page:
 
 	![Install WebMatrix][InstallWebMatrix]
 
@@ -115,7 +117,7 @@ You can install WebMatrix from the [Management Portal][preview-portal].
 
 	In the resulting dialog, navigate to the files you downloaded earlier, select all of them, and click Open. When prompted, choose to replace the `index.php` file. 
 
-7. Next, you need to add your local MySQL database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump to [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Azure Web Sites.)
+7. Next, you need to add your local MySQL database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump to [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Azure Websites.)
 
 		// DB connection info
 		$host = "localhost";
@@ -134,7 +136,7 @@ You can install WebMatrix from the [Management Portal][preview-portal].
 
 <h2><a id="Publish"></a>Publish your application</h2>
 
-Before publishing your application to Azure Web Sites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create an Azure Web Site and MySQL Database](#CreateWebsite) section).
+Before publishing your application to Azure Websites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create an Azure Web Site and MySQL Database](#CreateWebsite) section).
 
 1. Open the `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function.
 
@@ -173,7 +175,7 @@ You can easily modify your application by editing the local copy of the site you
 
 # Next Steps
 
-You've seen how to create and deploy a web site from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
+You've seen how to create and deploy a website from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
 
 * [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 

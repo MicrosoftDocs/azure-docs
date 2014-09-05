@@ -1,9 +1,11 @@
 <properties linkid="dev-ruby-web-app-with-linux-vm-capistrano" urlDisplayName="Ruby on Rails Azure VM Capistrano" pageTitle="Deploying a Ruby on Rails Web application to an Azure Virtual Machine using Capistrano - tutorial" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm, capistrano azure vm, capistrano azure rails, unicorn azure vm, unicorn azure rails, unicorn nginx capistrano, unicorn nginx capistrano azure, nginx azure" description="Learn how to deploy a Ruby on Rails application to an Azure Virtual Machine using Capistrano, Unicorn and Nginx." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Deploy a Ruby on Rails Web application to an Azure VM using Capistrano" authors="larryfr" />
 
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+
 
 #Deploy a Ruby on Rails Web application to an Azure VM using Capistrano
 
-This tutorial describes how to deploy a Ruby on Rails web site to an Azure Virtual Machine using [Capistrano 3](https://github.com/capistrano/capistrano/). Once deployed, you will use [Nginx](http://nginx.org/) and [Unicorn](https://github.com/blog/517-unicorn) to host the web site. [PostgreSQL](https://www.postgresql.org) will store application data for the deployed application.
+This tutorial describes how to deploy a Ruby on Rails website to an Azure Virtual Machine using [Capistrano 3](https://github.com/capistrano/capistrano/). Once deployed, you will use [Nginx](http://nginx.org/) and [Unicorn](https://github.com/blog/517-unicorn) to host the website. [PostgreSQL](https://www.postgresql.org) will store application data for the deployed application.
 
 This tutorial assumes you have no prior experience using Azure, but assumes that you are familiar with Ruby, Rails, Git, and Linux. Upon completing this tutorial, you will have a Ruby on Rails-based application up and running in the cloud.
 
@@ -97,7 +99,7 @@ The following is a screenshot of the completed application:
 
 		root 'posts#index'
 
-	This will display a list of posts when users visit the web site.
+	This will display a list of posts when users visit the website.
 
 ##<a id="test"></a>Test the application
 
@@ -244,7 +246,7 @@ The HTTP endpoint added during the creation of the virtual machine will allow it
 
 	This will start the Nginx service, which will listen for incoming traffic on port 80.
 
-6. Test your application by navigating to the DNS name of your virtual machine. The web site should appear similar to the following:
+6. Test your application by navigating to the DNS name of your virtual machine. The website should appear similar to the following:
 
 	![nginx welcome page][nginx-welcome]
 

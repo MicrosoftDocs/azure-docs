@@ -1,5 +1,7 @@
 <properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
+
 
 # How to use an HTML/JavaScript client for Azure Mobile Services
 
@@ -22,6 +24,7 @@ This guide shows you how to perform common scenarios using an HTML/JavaScript cl
 	- [Return data in pages]
 	- [Select specific columns]
 	- [Look up data by ID]
+	- [Execute an OData query operation]
 - [How to: Insert data into a mobile service]
 - [How to: Modify data in a mobile service]
 - [How to: Delete data in a mobile service]
@@ -35,130 +38,133 @@ This guide shows you how to perform common scenarios using an HTML/JavaScript cl
 
 [WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
-<h2><a name="create-client"></a><span class="short-header">Create the Mobile Services Client</span>How to: Create the Mobile Services Client</h2>
+##<a name="create-client"></a>How to: Create the Mobile Services Client
 
-The following code instantiates the mobile service client object. 
+
 
 In your web editor, open the HTML file and add the following to the script references for the page:
 
-	        <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
+    <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
-In the editor, open or create a JavaScript file, and add the following code that defines the `MobileServiceClient` variable, and supply the application URL and application key from the mobile service in the `MobileServiceClient` constructor, in that order. You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key. To learn how to obtain the application URL and application key for the mobile service, consult the tutorial [Getting Started with Data in Windows Store JavaScript] or [Getting Started with Data in HTML/JavaScript].
+>[WACOM.NOTE]For a Windows Store app written in JavaScript/HTML, you just need to add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project.
 
-			var MobileServiceClient = WindowsAzure.MobileServiceClient;
-		    var client = new MobileServiceClient('AppUrl', 'AppKey');
+In the editor, open or create a JavaScript file, and add the following code that defines the `MobileServiceClient` variable, and supply the application URL and application key from the mobile service in the `MobileServiceClient` constructor, in that order. 
 
-<h2><a name="querying"></a><span class="short-header">Querying data</span>How to: Query data from a mobile service</h2>
+	var MobileServiceClient = WindowsAzure.MobileServiceClient;
+    var client = new MobileServiceClient('AppUrl', 'AppKey');
+
+You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key. To learn how to obtain the application URL and application key for the mobile service, consult the tutorial [Getting Started with Data in Windows Store JavaScript] or [Getting Started with Data in HTML/JavaScript].
+
+##<a name="querying"></a>How to: Query data from a mobile service
 
 All of the code that accesses or modifies data in the SQL Database table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the `getTable()` function on an instance of the `MobileServiceClient`.
 	
-		    var todoItemTable = client.getTable('todoitem');
-
+    var todoItemTable = client.getTable('todoitem');
 
 
 ### <a name="filtering"></a>How to: Filter returned data
 
 The following code illustrates how to filter data by including a `where` clause in a query. It returns all items from `todoItemTable` whose complete field is equal to `false`. `todoItemTable` is the reference to the mobile service table that we created previously. The where function applies a row filtering predicate to the query against the table. It accepts as its argument a JSON object or function that defines the row filter, and returns a query that can be further composed. 
 	
-			var query = todoItemTable.where({
-			    complete: false
-			}).read().done(function (results) {
-			    alert(JSON.stringify(results));
-			}, function (err) {
-			    alert("Error: " + err);
-			});
+	var query = todoItemTable.where({
+	    complete: false
+	}).read().done(function (results) {
+	    alert(JSON.stringify(results));
+	}, function (err) {
+	    alert("Error: " + err);
+	});
 
 By adding calling `where` on the Query object and passing an object as a parameter, we are  instructing Mobile Services to return only the rows whose `complete` column contains the `false` value. Also, look at the request URI below, and notice that we are modifying the query string  itself:
 
-			GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1			
+	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1			
 
 You can view the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or Fiddler.
 
 This request would normally be translated roughly into the following SQL query on the server side:
 			
-			SELECT * 
-			FROM TodoItem 			
-			WHERE ISNULL(complete, 0) = 0
+	SELECT * 
+	FROM TodoItem 			
+	WHERE ISNULL(complete, 0) = 0
 
 The object which is passed to the `where` method can have an arbitrary number of parameters, and they'll all be interpreted as AND clauses to the query. For example, the line below:
 
-			query.where({
-			   complete: false,
-			   assignee: "david",
-			   difficulty: "medium"
-			}).read().done(function (results) {
-			   alert(JSON.stringify(results));
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+	query.where({
+	   complete: false,
+	   assignee: "david",
+	   difficulty: "medium"
+	}).read().done(function (results) {
+	   alert(JSON.stringify(results));
+	}, function (err) {
+	   alert("Error: " + err);
+	});
 
 Would be roughly translated (for the same request shown before) as
 			
-			SELECT * 
-			FROM TodoItem 
-			WHERE ISNULL(complete, 0) = 0
-			      AND assignee = 'david'
-			      AND difficulty = 'medium'
+	SELECT * 
+	FROM TodoItem 
+	WHERE ISNULL(complete, 0) = 0
+	      AND assignee = 'david'
+	      AND difficulty = 'medium'
 
 The `where` statement above and the SQL query above find incomplete items assigned to "david" of "medium" difficulty.
 
 There is, however, another way to write the same query. A `.where` call on the Query object will add an `AND` expression to the `WHERE` clause, so we could have written that in three lines instead:
 
-			query.where({
-			   complete: false
-			});
-			query.where({
-			   assignee: "david"
-			});
-			query.where({
-			   difficulty: "medium"
-			});
+	query.where({
+	   complete: false
+	});
+	query.where({
+	   assignee: "david"
+	});
+	query.where({
+	   difficulty: "medium"
+	});
 
 Or using the fluent API:
 
-			query.where({
-			   complete: false
-			})
-			   .where({
-			   assignee: "david"
-			})
-			   .where({
-			   difficulty: "medium"
-			});
+	query.where({
+	   complete: false
+	})
+	   .where({
+	   assignee: "david"
+	})
+	   .where({
+	   difficulty: "medium"
+	});
 
 The two methods are equivalent and may be used interchangeably. All the `where` calls so far take an object with some parameters, and are compared for equality against the data from the database. There is, however, another overload for the query method, which takes a function instead of the object. In this function we can then write more complex expressions, using operators such as inequality and other relational operations. In these functions, the keyword `this` binds to the server object.
 
-The body of the function is translated into an OData boolean expression which is passed to a query string parameter. It is possible to pass in a function that takes no parameters, like so:
+The body of the function is translated into an Open Data Protocol (OData) boolean expression which is passed to a query string parameter. It is possible to pass in a function that takes no parameters, like so:
 
-		    query.where(function () {
-		       return this.assignee == "david" && (this.difficulty == "medium" || this.difficulty == "low");
-		    }).read().done(function (results) {
-		       alert(JSON.stringify(results));
-		    }, function (err) {
-		       alert("Error: " + err);
-		    });
+    query.where(function () {
+       return this.assignee == "david" && (this.difficulty == "medium" || this.difficulty == "low");
+    }).read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
 
 If passing in a function with parameters, any arguments after the `where` clause are bound to the function parameters in order. Any objects which come from the outside of the function scope MUST be passed as parameters - the function cannot capture any external variables. In the next two examples, the argument "david" is bound to the parameter `name` and in the first example, the argument "medium" is also bound to the parameter `level`. Also, the function must consist of a single `return` statement with a supported expression, like so:
 					
-			 query.where(function (name, level) {
-			    return this.assignee == name && this.difficulty == level;
-			 }, "david", "medium").read().done(function (results) {
-			    alert(JSON.stringify(results));
-			 }, function (err) {
-			    alert("Error: " + err);
-			 });
+	 query.where(function (name, level) {
+	    return this.assignee == name && this.difficulty == level;
+	 }, "david", "medium").read().done(function (results) {
+	    alert(JSON.stringify(results));
+	 }, function (err) {
+	    alert("Error: " + err);
+	 });
 
 So, as long as we follow the rules, we can add more complex filters to our database queries, like so:
 
-		    query.where(function (name) {
-		       return this.assignee == name &&
-		          (this.difficulty == "medium" || this.difficulty == "low");
-		    }, "david").read().done(function (results) {
-		       alert(JSON.stringify(results));
-		    }, function (err) {
-		       alert("Error: " + err);
-		    });
+    query.where(function (name) {
+       return this.assignee == name &&
+          (this.difficulty == "medium" || this.difficulty == "low");
+    }, "david").read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
 It is possible to combine `where` with `orderBy`, `take`, and `skip`. See the next section for details.
 
@@ -170,43 +176,43 @@ The following code illustrates how to sort data by including an `orderBy` or `or
 >
 You may increase the number of items to be returned by calling `take` as described in the next section. `todoItemTable` is the reference to the mobile service table that we created previously.
 
-			var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
-			   alert(JSON.stringify(results));
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+	var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
+	   alert(JSON.stringify(results));
+	}, function (err) {
+	   alert("Error: " + err);
+	});
 
-			var descendingSortedTable = todoItemTable.orderByDescending("text").read().done(function (results) {
-			   alert(JSON.stringify(results));
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+	var descendingSortedTable = todoItemTable.orderByDescending("text").read().done(function (results) {
+	   alert(JSON.stringify(results));
+	}, function (err) {
+	   alert("Error: " + err);
+	});
 
-			var descendingSortedTable = todoItemTable.orderBy("text").orderByDescending("text").read().done(function (results) {
-			   alert(JSON.stringify(results));
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+	var descendingSortedTable = todoItemTable.orderBy("text").orderByDescending("text").read().done(function (results) {
+	   alert(JSON.stringify(results));
+	}, function (err) {
+	   alert("Error: " + err);
+	});
 
 ### <a name="paging"></a>How to: Return data in pages
 
 The following code shows how to implement paging in returned data by using the `take` and `skip` clauses in the query.  The following query, when executed, returns the top three items in the table. 
 
-			var query = todoItemTable.take(3).read().done(function (results) {
-			   alert(JSON.stringify(results));
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+	var query = todoItemTable.take(3).read().done(function (results) {
+	   alert(JSON.stringify(results));
+	}, function (err) {
+	   alert("Error: " + err);
+	});
 
 Notice that the `take(3)` method was translated into the query option `$top=3` in the query URI.
 
 The following revised query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
 
-			var query = todoItemTable.skip(3).take(3).read().done(function (results) {
-			   alert(JSON.stringify(results));
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+	var query = todoItemTable.skip(3).take(3).read().done(function (results) {
+	   alert(JSON.stringify(results));
+	}, function (err) {
+	   alert("Error: " + err);
+	});
 
 Again, you can view the URI of the request sent to the mobile service. Notice that the `skip(3)` method was translated into the query option `$skip=3` in the query URI.
 
@@ -216,60 +222,71 @@ This is a simplified scenario of passing hard-coded paging values to the `take` 
 
 You can specify which set of properties to include in the results by adding a `select` clause to your query. For example, the following code returns the `id`, `complete`, and `text` properties from each row in the `todoItemTable`:
 
-			var query = todoItemTable.select("id", "complete", "text").read().done(function (results) {
-			   alert(JSON.stringify(results));
-			}, function (err) {
-			   alert("Error: " + err);
-			})
+	var query = todoItemTable.select("id", "complete", "text").read().done(function (results) {
+	   alert(JSON.stringify(results));
+	}, function (err) {
+	   alert("Error: " + err);
+	})
 	
 Here the parameters to the select function are the names of the table's columns that you want to return. 
 
 
 All the functions described so far are additive, so we can just keep calling them and we'll each time affect more of the query. One more example:
 
-
-		    query.where({
-		       complete: false
-		    })
-		       .select('id', 'assignee')
-		       .orderBy('assignee')
-		       .take(10)
-		       .read().done(function (results) {
-		       alert(JSON.stringify(results));
-		    }, function (err) {
-		       alert("Error: " + err);
+    query.where({
+       complete: false
+    })
+       .select('id', 'assignee')
+       .orderBy('assignee')
+       .take(10)
+       .read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
 
 ### <a name="lookingup"></a>How to: Look up data by ID
 
 The `lookup` function takes only the `id` value, and returns the object from the database with that ID. Database tables are created with either an integer or string `id` column. A string `id` column is the default.
 
-			todoItemTable.lookup("37BBF396-11F0-4B39-85C8-B319C729AF6D").done(function (result) {
-			   alert(JSON.stringify(result));
-			}, function (err) {
-			   alert("Error: " + err);
-			})
+	todoItemTable.lookup("37BBF396-11F0-4B39-85C8-B319C729AF6D").done(function (result) {
+	   alert(JSON.stringify(result));
+	}, function (err) {
+	   alert("Error: " + err);
+	})
 
+##<a name="odata-query"></a>Execute an OData query operation
 
+Mobile Services uses the OData query URI conventions for composing and executing REST queries.  Not all OData queries can be composed by using the built-in query functions, especially complex filter operations like searching for a substring in a property. For these kinds of complex queries, you can pass any valid OData query option string to the `read` function, as follows:
+
+	function refreshTodoItems() {
+	    todoItemTable.read("$filter=substringof('search_text',text)").then(function(items) {
+	        var itemElements = $.map(items, createUiForTodoItem);
+	        $("#todo-items").empty().append(itemElements);
+	        $("#no-items").toggle(items.length === 0);
+	    }, handleError);
+	}
+
+>[WACOM.NOTE]When you provide a raw OData query option string into the `read` function, you cannot also use the query builder methods in the same query. In this case, you must compose your whole query as an OData query string. For more information on OData system query options, see the [OData system query options reference].
 
 <h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
 
 The following code illustrates how to insert new rows into a table. The client requests that a row of data be inserted by sending a POST request to the mobile service. The request body contains the data to be inserted, as a JSON object. 
 
-			todoItemTable.insert({
-			   text: "New Item",
-			   complete: false
-			})
+	todoItemTable.insert({
+	   text: "New Item",
+	   complete: false
+	})
 
 This inserts data from the supplied JSON object into the table. You can also specify a callback function to be invoked when the insertion is complete:
 
-			todoItemTable.insert({
-			   text: "New Item",
-			   complete: false
-			}).done(function (result) {
-			   alert(JSON.stringify(result));
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+	todoItemTable.insert({
+	   text: "New Item",
+	   complete: false
+	}).done(function (result) {
+	   alert(JSON.stringify(result));
+	}, function (err) {
+	   alert("Error: " + err);
+	});
 
 
 Mobile Services supports unique custom string values for the table id. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
@@ -550,7 +567,7 @@ Filters are used for a lot more than customizing request headers. They can be us
 
 <h2><a name="hostnames"></a><span class="short-header">Use CORS</span>How to: Use cross-origin resource sharing</h2>
 
-To control which web sites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist using the Configure tab. You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications.
+To control which websites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist using the Configure tab. You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications.
 
 <h2><a name="nextsteps"></a>Next steps</h2>
 
@@ -594,6 +611,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [How to: Customize request headers]: #customizing
 [How to: Use cross-origin resource sharing]: #hostnames
 [Next steps]: #nextsteps
+[Execute an OData query operation]: #odata-query
 
 
 
@@ -626,3 +644,4 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Authenticate your app with single sign-in]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[OData system query options reference]: http://go.microsoft.com/fwlink/p/?LinkId=444502

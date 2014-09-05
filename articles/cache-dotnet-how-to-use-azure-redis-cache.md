@@ -1,5 +1,7 @@
 <properties pageTitle="How to Use Azure Redis Cache" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="" editor="" />
 
+<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+
 # How to Use Azure Redis Cache
 
 This guide shows you how to get started using 
@@ -128,7 +130,7 @@ To connect to an Azure Redis Cache and be returned an instance of a connected `C
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
 
->Warning: Never store credentials is source code. To keep this sample simple, I’m showing them in the source code. See [Windows Azure Web Sites: How Application Strings and Connection Strings Work][] for information on how to store credentials.
+>Warning: Never store credentials is source code. To keep this sample simple, I’m showing them in the source code. See [Windows Azure Websites: How Application Strings and Connection Strings Work][] for information on how to store credentials.
 
 If you don't want to use SSL, either set `ssl=false` or just pass in the endpoint and key.
 
@@ -358,4 +360,4 @@ follow these links to learn how to do more complex caching tasks.
 [Redis data types]: http://redis.io/topics/data-types
 [a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
 
-[Windows Azure Web Sites: How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+[Windows Azure Websites: How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/

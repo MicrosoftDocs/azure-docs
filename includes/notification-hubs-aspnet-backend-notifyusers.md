@@ -147,9 +147,31 @@ The first step is to create an ASP.NET WebAPI project. This is the backend that 
 
         // POST api/register
         // This creates a registration id
-        public async Task<string> Post()
+        public async Task<string> Post(string handle = null)
         {
-            return await hub.CreateRegistrationIdAsync();
+            // make sure there are no existing registrations for this push handle (used for iOS and Android)
+            string newRegistrationId = null;
+            
+            if (handle != null)
+            {
+                var registrations = await hub.GetRegistrationsByChannelAsync(handle, 100);
+
+                foreach (RegistrationDescription registration in registrations)
+                {
+                    if (newRegistrationId == null)
+                    {
+                        newRegistrationId = registration.RegistrationId;
+                    }
+                    else
+                    {
+                        await hub.DeleteRegistrationAsync(registration);
+                    }
+                }
+            }
+
+            if (newRegistrationId == null) newRegistrationId = await hub.CreateRegistrationIdAsync();
+
+            return newRegistrationId;
         }
 
         // PUT api/register/5
@@ -245,17 +267,17 @@ The first step is to create an ASP.NET WebAPI project. This is the backend that 
 
 22. Press **F5** to run the application and to ensure the accuracy of your work so far. The app should launch a web browser and display the ASP.NET home page. 
 
-23. Now we will deploy this app to an Azure Web Site in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
+23. Now we will deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
 
-24. Select Azure Web Site as your publish target.
+24. Select Azure Website as your publish target.
 
 	![][B15]
 
-25. Log in with your Azure account and select an existing or new Web Site.
+25. Log in with your Azure account and select an existing or new Website.
 
 	![][B16]
 
-26. Make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial.
+26. Make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
 
 	![][B18]
 

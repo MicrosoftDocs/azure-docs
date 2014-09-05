@@ -1,13 +1,25 @@
 <properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="Step 6: Access the Machine Learning web service | Azure" description="Step 6: Access an active Azure Machine Learning API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />  
 
-This is the last step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-develop-predictive-solution):
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
-1.	[Create an ML workspace](..\machine-learning-1-create-ml-workspace)
-2.	[Upload existing data](..\machine-learning-2-upload-data)
-3.	[Create a new experiment](..\machine-learning-3-create-new-experiment)
-4.	[Train and evaluate the models](..\machine-learning-4-train-and-evaluate-models)
-5.	[Publish the web service](..\machine-learning-5-publish-web-service)
+This is the last step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
+
+[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
+
+
+1.	[Create an ML workspace][create-workspace]
+2.	[Upload existing data][upload-data]
+3.	[Create a new experiment][create-new]
+4.	[Train and evaluate the models][train-models]
+5.	[Publish the web service][publish]
 6.	**Access the web service**
+
+[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
+[upload-data]: ../machine-learning-walkthrough-2-upload-data/
+[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
+[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
+[publish]: ../machine-learning-walkthrough-5-publish-web-service/
+[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
 
 ----------
 
@@ -15,10 +27,10 @@ This is the last step of the walkthrough, [Developing a Predictive Solution with
 
 To be useful as a web service, users need to be able to send data to the service and receive results. The web service is an Azure web service which can receive and return data in one of two ways:  
 
--	**Request/Response** – The user sends a single set of credit data to the service using an HTTP protocol, and the service responds with a single set of results.
--	**Batch Execution** – The user sends to the service the URL of an Azure BLOB which contains one or more rows of credit data. The service stores the results in another BLOB and returns the URL of that container.  
+-	**Request/Response** - The user sends a single set of credit data to the service using an HTTP protocol, and the service responds with a single set of results.
+-	**Batch Execution** - The user sends to the service the URL of an Azure BLOB which contains one or more rows of credit data. The service stores the results in another BLOB and returns the URL of that container.  
 
-On the **DASHBOARD** tab for the web service, there are two links to information that will help a developer write code to access this service. Click the **API help page** link on the **REQUEST/RESPONSE** row and a page opens that contains sample code to use the service’s request/response protocol. Similarly, the link on the **BATCH EXECUTION** row provides example code for making a batch request to the service.  
+On the **DASHBOARD** tab for the web service, there are two links to information that will help a developer write code to access this service. Click the **API help page** link on the **REQUEST/RESPONSE** row and a page opens that contains sample code to use the service's request/response protocol. Similarly, the link on the **BATCH EXECUTION** row provides example code for making a batch request to the service.  
 
 The API help page includes samples for R, C#, and Python programming languages. For example, here is the R code that you could use to access the web service we published (the actual service URL would be displayed in your sample code):  
 

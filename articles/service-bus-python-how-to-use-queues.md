@@ -1,5 +1,7 @@
 <properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="" editor="" />
 
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+
 
 
 
@@ -71,15 +73,15 @@ upper limit of 5 GB.
 Messages are received from a queue using the **receive\_queue\_message**
 method on the **ServiceBusService** object:
 
-	msg = bus_service.receive_queue_message('taskqueue')
+	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 	print(msg.body)
 
-Messages are
-deleted from the queue as they are read; however, you can read (peek)
-and lock the message without deleting it from the queue by setting the
-optional parameter **peek\_lock** to **True**.
+Messages are deleted from the queue as they are read when the parameter
+**peek\_lock** is set to **False**. You can read (peek) and lock the
+message without deleting it from the queue by setting the parameter
+**peek\_lock** to **True**.
 
-The default behavior of reading and deleting the message as part of the
+The behavior of reading and deleting the message as part of the
 receive operation is the simplest model, and works best for scenarios in
 which an application can tolerate not processing a message in the event
 of a failure. To understand this, consider a scenario in which the
@@ -96,8 +98,9 @@ request, it finds the next message to be consumed, locks it to prevent
 other consumers receiving it, and then returns it to the application.
 After the application finishes processing the message (or stores it
 reliably for future processing), it completes the second stage of the
-receive process by calling the **delete** method on the **Message** object. The **delete** method will
-mark the message as being consumed and remove it from the queue.
+receive process by calling the **delete** method on the **Message**
+object. The **delete** method will mark the message as being consumed
+and remove it from the queue.
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
 	print(msg.body)

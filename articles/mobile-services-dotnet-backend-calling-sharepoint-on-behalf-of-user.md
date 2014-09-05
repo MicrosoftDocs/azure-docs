@@ -1,8 +1,18 @@
 <properties linkid="mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user" urlDisplayName="Access SharePoint on behalf of the user" pageTitle="Access SharePoint on behalf of the user | Mobile Dev Center" metaKeywords="" description="Learn how to make calls to SharePoint on behalf of the user" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
+
 # Access SharePoint on behalf of the user
 
-This topic shows you how to access the SharePoint APIs on behalf of the currently logged-in user. In this tutorial, you will update the app from the Authenticate your app with Active Directory Authentication Library Single Sign-On tutorial to create a Word document in SharePoint Online when a new TodoItem is added.
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
+<p>This topic shows you how to access the SharePoint APIs on behalf of the currently logged-in user.</p>
+<p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial. In the video, Mat Velloso walks you through updating a Windows Store app to interact with SharePoint Online.</p>
+</div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">12:51</span></div>
+</div>
+
+In this tutorial, you will update the app from the Authenticate your app with Active Directory Authentication Library Single Sign-On tutorial to create a Word document in SharePoint Online when a new TodoItem is added.
 
 This tutorial walks you through these basic steps to enable on-behalf-of access to SharePoint:
 
@@ -93,7 +103,7 @@ In order to access SharePoint, you need a special access token with SharePoint a
             authority = settings["SP_Authority"];
         }
 
-3. Now create a method to add the file to the user’s document library:
+3. Now create a method to add the file to the user's document library:
 
         public async Task<bool> UploadDocument(string docName, byte[] document)
         {

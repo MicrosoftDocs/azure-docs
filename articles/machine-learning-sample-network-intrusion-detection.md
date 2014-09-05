@@ -1,6 +1,12 @@
 <properties title="Azure Machine Learning Sample: Network intrusion detection" pageTitle="Machine Learning Sample: Network intrusion detection | Azure" description="A sample Azure Machine Learning experiment that uses a classification model to determine which network activities are a part of network intrusion." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+
 #Azure Machine Learning sample: Network intrusion detection
+
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Sample Experiment - Network Intrusion Detection - Development
 
 ## Problem description ##
 
@@ -29,6 +35,7 @@ Now we want to compare to a boosted decision tree with feature selection. The cl
 
 ![][2]
 
+<!-- Removed until this part is fixed
 ## Operationalization ##
 
 
@@ -39,6 +46,7 @@ We wanted to see our model in action, to do this we wanted a request-response se
 1. Then we need to replicate the steps we did for pre-process, again we can just select the modules from experiment we need and copy and paste to the new experiment 
 1. The last step is to plug in the test data and run the experiment, once the run is finished we can define the input and output points for the service 
 1. Again, using one click we can publish the service end points that is deployed right away and can be tested using a friendly user interface - all within studio   
+-->
 
 [1]: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-1.png
 [2]: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-2.png

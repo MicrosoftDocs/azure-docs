@@ -1,5 +1,7 @@
 <properties linkid="dev-net-service-bus-amqp-overview" urlDisplayName="Azure Notification Hubs" pageTitle="Azure Notification Hubs" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging" description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" />
 
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+
 
 #Azure Notification Hubs
 
@@ -56,5 +58,33 @@ Notification hubs use a full multiplatform, scaled-out push notification infrast
 
 ![][1]
 
+## Next Steps
+
+You can find out more about Notification Hubs in these topics:
+
++ **[How customers are using Notification Hubs]**
+
++ **[Notification Hubs tutorials and guides]** 
+
++ **Notification Hubs Getting Started tutorials** ([iOS], [Android], [Windows Universal], [Windows Phone], [Kindle], [Xamarin.iOS], [Xamarin.Android])
+
+The relevant .NET managed API references for push notifications are located here:
+
++ [Microsoft.WindowsAzure.Messaging.NotificationHub]
++ [Microsoft.ServiceBus.Notifications] 
+
+
   [0]: ./media/notification-hubs-overview/SBPushNotifications1.gif
   [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
+  [How customers are using Notification Hubs]: http://azure.microsoft.com/en-us/services/notification-hubs
+  [Notification Hubs tutorials and guides]: http://azure.microsoft.com/en-us/documentation/services/notification-hubs
+  [iOS]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started
+  [Android]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-android-get-started
+  [Windows Universal]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started
+  [Windows Phone]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-phone-get-started
+  [Kindle]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-kindle-get-started
+  [Xamarin.iOS]: http://azure.microsoft.com/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started
+  [Xamarin.Android]: http://azure.microsoft.com/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started
+  [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.messaging.notificationhub.aspx
+  [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/en-us/library/microsoft.servicebus.notifications.aspx
+  

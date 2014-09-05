@@ -1,10 +1,12 @@
-<properties linkid="dev-net-tutorials-web-app-with-sql-azure-vs2013" urlDisplayName="Web Site with SQL Database" pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Database tutorial, Azure .NET hello world tutorial, Azure C# hello world tutorial, SQL Azure C# tutorial" description="Learn how to develop an ASP.NET MVC 5 web site with a SQL Database back-end deploy it to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter=".NET" title="Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Web Site" authors="riande"  solutions="" writer="riande" manager="wpickett" editor="mollybos"  />
+<properties linkid="dev-net-tutorials-web-app-with-sql-azure-vs2013" urlDisplayName="Website with SQL Database" pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Website" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Database tutorial, Azure .NET hello world tutorial, Azure C# hello world tutorial, SQL Azure C# tutorial" description="Learn how to develop an ASP.NET MVC 5 website with a SQL Database back-end deploy it to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter=".NET" title="Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Website" authors="riande"  solutions="" writer="riande" manager="wpickett" editor="mollybos"  />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande" />
 
 
 
-# Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Web Site
+# Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Website
 
-***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 2 April 2014.***
+***Updated 2 April 2014.***
 
 This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to Azure.
 
@@ -14,7 +16,7 @@ This tutorial assumes that you have no prior experience using Azure. On completi
 
 You'll learn:
 
-* How to create a secure ASP.NET MVC 5 project and publish it to an Azure Web Site.
+* How to create a secure ASP.NET MVC 5 project and publish it to an Azure Website.
 * How to use [OAuth](http://oauth.net/ "http://oauth.net/"), [OpenID](http://openid.net/) and the ASP.NET membership database to secure your application.
 * How to use the new membership API to add users and roles.
 * How to use a SQL database to store data in Azure.
@@ -45,31 +47,31 @@ To use the new SSL certificate for localhost, you will need to install [Visual S
 
 <h2><a name="bkmk_setupwindowsazure"></a>Set up the Azure environment</h2>
 
-Next, set up the Azure environment by creating an Azure Web Site and a SQL database.
+Next, set up the Azure environment by creating an Azure Website and a SQL database.
 
-### Create a web site and a SQL database in Azure
+### Create a website and a SQL database in Azure
 
-Your Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
+Your Azure Website will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
 Azure SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
-1. In the [Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.
+1. In the [Azure Management Portal](https://manage.windowsazure.com), click **Websites** in the left tab, and then click  **New**.
 
 	![New button in Management Portal][rxWSnew]
 
-1. Click **Web Site**, and then click **Custom Create**.
+1. Click **Website**, and then click **Custom Create**.
 
 	![Create with Database link in Management Portal][rxCreateWSwithDB] 
 
-	The **New Web Site - Custom Create** wizard opens. 
+	The **New Website - Custom Create** wizard opens. 
 
-1. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows a URL is that probably taken so you will have to choose a different one.
+1. In the **Create Website** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows a URL is that probably taken so you will have to choose a different one.
 
 	![Create with Database link in Management Portal][rr1]
 
 1. In the **Database** drop-down list, choose **Create a free SQL database**.
 
-1. In the **Region** drop-down list, choose the same region you selected for the Web site.
+1. In the **Region** drop-down list, choose the same region you selected for the Website.
 This setting specifies which data center your VM will run in. 
 1. In the **DB Connection String Name** box, leave the default value of *DefaultConnection*.
 1. Click the arrow that points to the right at the bottom of the box.
@@ -77,21 +79,21 @@ The wizard advances to the **Specify database settings** step.
 
 1. In the **Name** box, enter *ContactDB*. (see the image below). 
 1. In the **Server** box, select **New SQL Database server**. (see the image below). Alternatively, if you previously created a SQL Server database, you can select that SQL Server from the dropdown control.
-1. Set the **Region** to the same area you created the Web Site.
+1. Set the **Region** to the same area you created the Website.
 1. Enter an administrator **Login Name** and **Password**. If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you've created previously, you'll be prompted for the password to the previous SQL Server account name you created. For this tutorial, we won't check the **Advanced** box.  For a free DB, you can only set the collation.
 1. Click the check mark at the bottom right of the box to indicate you're finished.
 
-	![Database Settings step of New Web Site - Create with Database wizard][setup007]
+	![Database Settings step of New Website - Create with Database wizard][setup007]
 	
 	The following image shows using an existing SQL Server and Login.
 
-	![Database Settings step of New Web Site - Create with Database wizard][rxPrevDB]
+	![Database Settings step of New Website - Create with Database wizard][rxPrevDB]
 
-	The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.
+	The Management Portal returns to the Websites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Websites** icon, and the number of databases appears next to the **SQL Databases** icon.
 
 <h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 5 application</h2>
 
-You have created an Azure Web Site, but there is no content in it yet. Your next step is to create the Visual Studio web app that you'll publish to Azure.
+You have created an Azure Website, but there is no content in it yet. Your next step is to create the Visual Studio web app that you'll publish to Azure.
 
 ### Create the project
 
@@ -146,7 +148,7 @@ This is all you need to do for now to create the application that you'll deploy 
 	
    The **Publish Web** wizard opens.
 
-1. In the **Profile** tab of the **Publish Web** wizard, click **Azure Web Sites**.
+1. In the **Profile** tab of the **Publish Web** wizard, click **Azure Websites**.
 
    ![Import publish settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss2.PNG)
 
@@ -155,9 +157,9 @@ This is all you need to do for now to create the application that you'll deploy 
  ![sign in](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss22.PNG)
 
 
-   After logging in, the **Select Existing Web Site** dialog box appears.
+   After logging in, the **Select Existing Website** dialog box appears.
 
-1. Select the web site you created in the first part of this tutorial, and then click **OK**.
+1. Select the website you created in the first part of this tutorial, and then click **OK**.
 
  ![select web site](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss3.png)
 
@@ -466,7 +468,7 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/en-us/l
 
 ## Enable SSL for the Project ##
 
-1. Enable SSL. In Solution Explorer, click the **ContactManager** project, then click F4 to bring up the properties dialog. Change **SSL Enabled** to true. Copy the **SSL URL**. The SSL URL will be https://localhost:44300/ unless you've previously created SSL Web Sites.
+1. Enable SSL. In Solution Explorer, click the **ContactManager** project, then click F4 to bring up the properties dialog. Change **SSL Enabled** to true. Copy the **SSL URL**. The SSL URL will be https://localhost:44300/ unless you've previously created SSL Websites.
 
 	![enable SSL][rxSSL]
  
@@ -542,14 +544,14 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/en-us/l
 
 2. Log in using Google or Facebook. That will add the Google or Facebook account to the **canEdit** role.
 
-### Stop the web site to prevent other people from registering  
+### Stop the website to prevent other people from registering  
 
-1. In **Server Explorer**, navigate to **Web Sites**.
-4. Right click on each Web Site instance and select **Stop Web Site**. 
+1. In **Server Explorer**, navigate to **Websites**.
+4. Right click on each Website instance and select **Stop Website**. 
 
 	![stop web site](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr2.png) 
 
-	Alternatively, from the Azure management portal, you can select the web site, then click the **stop** icon at the bottom of the page.
+	Alternatively, from the Azure management portal, you can select the website, then click the **stop** icon at the bottom of the page.
 
 	![stop web site](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr3.png)
 
@@ -563,7 +565,7 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/en-us/l
 	   ![Publish in project context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
 	
 4. Click the **Start Preview** button. Only the files that need to be updated are deployed.
-5. Start the web site from Visual Studio or from the Portal. **You won't be able to publish while the web site is stopped**.
+5. Start the website from Visual Studio or from the Portal. **You won't be able to publish while the website is stopped**.
 
 	![start web site](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss15.png)
 

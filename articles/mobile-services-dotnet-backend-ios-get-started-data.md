@@ -1,24 +1,14 @@
-<properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (iOS) | Mobile Dev Center" metaKeywords="Azure iOS data, Azure mobile services data, " description="Learn how to get started using Mobile Services to leverage data in your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (iOS) | Mobile Dev Center" metaKeywords="Azure iOS data, Azure mobile services data, " description="Learn how to get started using Mobile Services to leverage data in your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-
-
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Get started with data in Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS" class="current">iOS</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android">Android</a>
-</div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS" class="current">iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android">Android</a></div>
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title=".NET backend" class="current">.NET backend</a> | 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios/"  title="JavaScript backend">JavaScript backend</a>
-</div>
+<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios/"  title="JavaScript backend">JavaScript backend</a></div>
 
-This topic shows you how to use Azure Mobile Services to leverage data in an iOS app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
+This topic shows you how to use a Azure Mobile Services to leverage data in an iOS app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
 
 The mobile service that you create in this tutorial supports the .NET runtime in the Mobile Service. This allows you to use .NET languages and Visual Studio for server-side business logic in the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.
 
@@ -37,15 +27,16 @@ This tutorial walks you through these basic steps:
 3. [Download the service locally]
 4. [Test the mobile service]
 5. [Publish the mobile service to Azure]
-6. [Add a data table for storage]
 7. [Update the app to use Mobile Services]
 8. [Test the app against Mobile Services]
 
-This tutorial requires the [Mobile Services iOS SDK] and [XCode 4.5][Install Xcode] and iOS 5.0 or later versions.
+This tutorial requires the following:
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Azure Free Trial</a>.</p></div> 
++ [Mobile Services iOS SDK] and [XCode 4.5][Install Xcode] and iOS 5.0 or later versions.
++ Visual Studio 2013 (you can get [Visual Studio Express for Web](http://go.microsoft.com/p/?linkid=9832232) for free). 
++ A Microsoft Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Azure Free Trial</a>. 
 
-<h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
+##<a name="download-app"></a>Download the GetStartedWithData project
  
 This tutorial is built on the [GetStartedWithData app][GitHub], which is an iOS app. The UI for this app is identical to the app generated by the Mobile Services iOS quickstart, except that added items are stored locally in memory. 
 
@@ -63,142 +54,27 @@ This tutorial is built on the [GetStartedWithData app][GitHub], which is an iOS 
 
    	Notice that the saved text is displayed in the list below.
 
-<h2><a name="create-service"></a><span class="short-header">Create mobile service</span>Create a new mobile service in the Management Portal</h2>
+##<a name="create-service"></a>Create a new mobile service in the Management Portal
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
-<h2><a name="download-the-service-locally"></a><span class="short-header">Download the service</span>Download the service to your local computer</h2>
+##<a name="download-the-service-locally"></a>Download the service to your local computer
 
-[WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
+[WACOM.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
 
-<h2><a name="test-the-service"></a><span class="short-header">Test the service</span>Test the mobile service</h2>
+##<a name="test-the-service"></a>Test the mobile service
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
-<h2><a name="publish-mobile-service"></a><span class="short-header">Publish the service</span>Publish the mobile service to Azure</h2>
+##<a name="publish-mobile-service"></a>Publish the mobile service to Azure
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-<h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service</h2>
+##<a name="update-app"></a>Update the app to use the mobile service for data access
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
+[WACOM.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
 
-<h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to use the mobile service for data access</h2>
-
-Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection. 
-
-1. If you haven't already installed the [Mobile Services iOS SDK], install it now.
-
-2. In the Project Navigator in Xcode, open both the TodoService.m and TodoService.h files located in the Quickstart folder, and add the following import statement: 
-
-        #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>  
-
-3. In the ToDoService.h file, locate the following commented line of code:
-
-        // Create an MSClient property comment in the #interface declaration for the TodoService. 
-
-   	After this comment, add the following line of code:
-
-        @property (nonatomic, strong)   MSClient *client;
-
-   	This creates a property that represents the MSClient that connects to the service
-
-4. In the file TodoService.m, locate the following commented line of code:
-
-        // Create an MSTable property for your items. 
-
-   	After this comment, add the following line of code inside the @interface declaration:
-
-        @property (nonatomic, strong)   MSTable *table;
-
-   	This creates a property representation for your mobile services table.
-
-5. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
-
-6. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
-
-   	![][8]
-
-  	You will need these values when accessing the mobile service from your app code.
-
-7. Back in Xcode, open TodoService.m and locate the following commented line of code:
-
-        // Initialize the Mobile Service client with your URL and key.
-
-    After this comment, add the following line of code:
-
-        self.client = [MSClient clientWithApplicationURLString:@"APPURL" withApplicationKey:@"APPKEY"];
-
-    This creates an instance of the Mobile Services client.
-
-8. Replace the values of **APPURL** and **APPKEY** in this code with the URL and application key from the mobile service that you acquired in step 6.
-
-9. Locate the following commented line of code:
-
-        // Create an MSTable instance to allow us to work with the TodoItem table.
-
-    After this comment, add the following line of code:
-
-        self.table = [self.client getTable:@"TodoItem"];
-
-    This creates the TodoItem table instance.
-
-10. Locate the following commented line of code:
-
- 	    // Create a predicate that finds items where complete is false comment in the refreshDataOnSuccess method. 
-
-    After this comment, add the following line of code:
-
-        NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-
-    This creates a query to return all tasks that have not yet been completed.
-
-11. Locate the following commented line of code:
-
-        // Query the TodoItem table and update the items property with the results from the service.
-
-   	Replace that comment and the subsequent **completion** block invocation with the following code:
-
-        // Query the TodoItem table and update the items property with the results from the service
-        [self.table readWhere:predicate completion:^(NSArray *items, NSInteger totalCount, NSError *error)
-		{
-		   self.items = [items mutableCopy];
-           completion();
-        }]; 
-
-12. Locate the **addItem** method, and add the following code to the body of the method:
-
-        // Insert the item into the TodoItem table and add to the items array on completion
-        [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
-            NSUInteger index = [items count];
-            [(NSMutableArray *)items insertObject:item atIndex:index];
- 
-            // Let the caller know that we finished
-            completion(index);
-        }];
-
-    This code sends an insert request to the mobile service.
-
-13. Locate the **completeItem** method, and add the following code to the body of the method:
-
-        // Update the item in the TodoItem table and remove from the items array on completion
-        [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
-    
-            // TODO
-            // Get a fresh index in case the list has changed
-            NSUInteger index = [items indexOfObjectIdenticalTo:mutable];
-    
-            [mutableItems removeObjectAtIndex:index];
-    
-            // Let the caller know that we have finished
-            completion(index);
-	    }]; 
-
-   	This code removes TodoItems after they are marked as completed. 
-
-Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
-
-<h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against your new mobile service</h2>
+##<a name="test-app"></a>Test the app against your new mobile service
 
 1. In Xcode, select an emulator to deploy to (either iPhone or iPad), press the **Run** button (or the Command+R key) to rebuild the project and start the app.
 
@@ -206,19 +82,25 @@ Now that the app has been updated to use Mobile Services for backend storage, it
 
 2. As before, type text in the textbox, and then click the **+** button..
 
-   	This sends a new item as an insert to the mobile service.
+   	This sends a new item as an insert to the mobile service. Each new todoItem is stored and updated in the SQL database you previously configured for your mobile service in the Azure Management Portal. 
 
-3. In the [Management Portal], click **Mobile Services**, and then click your mobile service.
+3. Stop and restart the app to see that the changes were persisted to the database in Azure. 
+ 
+	You can also examine the database using the Azure Management portal or Visual Studio's SQL Server Object Explorer. The next two steps use the [Azure Management portal] to view the changes in your database.
 
-4. Click the **Data** tab, then click **Browse**.
+4. In the Azure Management Portal, click manage for the database associated with your mobile service.
 
-   	![][9]
-  
-   	Notice that the **TodoItem** table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.
+    ![][17]
 
-This concludes the **Get started with data** tutorial for iOS.
+5. In the Management portal execute a query to view the changes made by the app. Your query will be similar to the following query but use your database name instead of `todolist`.
 
-## <a name="next-steps"> </a>Next steps
+        SELECT * FROM [todolist].[todoitems]
+
+    ![][18]
+
+This concludes the **Get started with data** tutorial.
+
+##<a name="next-steps"></a>Next steps
 
 This tutorial demonstrated the basics of enabling an iOS app to work with data in Mobile Services. 
 
@@ -254,7 +136,8 @@ Once you have completed the data series, try these other iOS tutorials:
 [0]: ./media/mobile-services-dotnet-backend-ios-get-started-data/mobile-quickstart-startup-ios.png
 [8]: ./media/mobile-services-dotnet-backend-ios-get-started-data/mobile-dashboard-tab.png
 [9]: ./media/mobile-services-dotnet-backend-ios-get-started-data/mobile-todoitem-data-browse.png
-
+[17]: ./media/mobile-services-dotnet-backend-ios-get-started-data/manage-sql-azure-database.png
+[18]: ./media/mobile-services-dotnet-backend-ios-get-started-data/sql-azure-query.png
 
 
 <!-- URLs. -->

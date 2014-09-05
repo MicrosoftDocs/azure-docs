@@ -1,5 +1,7 @@
 <properties linkid="develop-net-how-to-guides-blitline-image-processing-service" urlDisplayName="Blitline Image Processing Service" pageTitle="How to use Blitline for image processing - Azure feature guide " metaKeywords="" description="Learn how to use the Blitline service to process images within an Azure application." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="pennij" solutions="" manager="" editor="" />
 
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij" />
+
 
 
 
@@ -64,7 +66,7 @@ The Application ID is something you can find in your **CONNECTION INFO** or **MA
 
 The "save" parameter identifies information about where you want to put the image once we have processed it. In this trivial case, we haven't defined one. If no location is defined Blitline will store it locally (and temporarily) at a unique cloud location. You will be able to get that location from the JSON returned by Blitline when you make the Blitline. The "image" identifier is required and is returned to you when to identify this particular saved image.
 
-You can find more information about the *functions* we support here: <http://http://www.blitline.com/docs/functions>
+You can find more information about the *functions* we support here: <http://www.blitline.com/docs/functions>
 
 You can also find documentation about the job options here: <http://www.blitline.com/docs/api>
 

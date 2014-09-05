@@ -1,5 +1,7 @@
 <properties title="How To Change the Drive Letter of the Windows Temporary Disk" pageTitle="How To Change the Drive Letter of the Windows Temporary Disk" description="Describes how to remap the temporary disk on a Windows VM in Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+
 #How To Change the Drive Letter of the Windows Temporary Disk
 
 <p> You can change the drive letter of the temporary disk if you need to use the D drive for another purpose. Most likely you'd do this to support an application or service that uses the D drive as a permanent storage location. 

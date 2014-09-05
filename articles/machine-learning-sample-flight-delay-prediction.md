@@ -1,6 +1,12 @@
 <properties title="Azure Machine Learning Sample: Flight delay prediction" pageTitle="Machine Learning Sample: Flight delay prediction | Azure" description="A sample Azure Machine Learning experiment to develop a model that predicts whether a scheduled passenger flight will be delayed by more than 15 minutes." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+
 #Azure Machine Learning sample: Flight delay prediction
+
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Sample Experiment - Flight Delay Prediction - Development
 
 ## Problem Description  ##
 
@@ -8,7 +14,7 @@ Predict whether scheduled passenger flight is delayed by more than 15 minutes on
 
 ## Data ##
 
-**Passenger flight on-time performance data from TranStats data collection from U.S. Department of Transportation:**  http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time  
+**Passenger flight on-time performance data from TranStats data collection from U.S. Department of Transportation:**  [http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)  
 
 The dataset covers April-October 2013. Before uploading to AzureML Studio:  
 

@@ -1,4 +1,6 @@
-<properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Web site with SQL Database" pageTitle="Node.js web site with SQL Database - Azure tutorial" metaKeywords="" description="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Azure" metaCanonical="" services="web-sites,sql-database" documentationCenter="Node.js" title="Node.js Web Application using the Azure SQL Database" authors="larryfr" solutions="" manager="" editor="" />
+<properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Website with SQL Database" pageTitle="Node.js website with SQL Database - Azure tutorial" metaKeywords="" description="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Azure" metaCanonical="" services="web-sites,sql-database" documentationCenter="Node.js" title="Node.js Web Application using the Azure SQL Database" authors="larryfr" solutions="" manager="" editor="" />
+
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 
 
@@ -10,7 +12,7 @@ This tutorial shows you how to use SQL Database provided by Azure Data Managemen
 
 You will learn:
 
-* How to use the Azure Management Portal to create an Azure Web Site and SQL Database
+* How to use the Azure Management Portal to create an Azure Website and SQL Database
 
 * How to use npm (node package manager) to install the node modules
 
@@ -55,20 +57,20 @@ Before following the instructions in this article, you should ensure that you ha
 
 <!--div chunk="../../Shared/Chunks/create-account-and-websites-note.md" /-->
 
-##Create a web site with database
+##Create a website with database
 
-Follow these steps to create an Azure Web Site and a SQL Database:
+Follow these steps to create an Azure Website and a SQL Database:
 
 1. Login to the [Azure Management Portal][management-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Azure Website][new-website]
 
-3. Click **WEB SITE**, then **CUSTOM CREATE**.
+3. Click **WEBSITE**, then **CUSTOM CREATE**.
 
 	![Custom Create a new Website][custom-create]
 
-	Enter a value for **URL**, select **Create a New SQL Database** from the **DATABASE** dropdown,  and select the data center for your web site in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+	Enter a value for **URL**, select **Create a New SQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
 	![Fill in Website details][website-details-sqlazure]
 
@@ -80,9 +82,9 @@ Follow these steps to create an Azure Web Site and a SQL Database:
 
 	![Create new SQL Database server][create-server]
 
-	When the web site has been created you will see the text **Creation of Web Site '[SITENAME]' completed successfully**. Now, you can enable Git publishing.
+	When the website has been created you will see the text **Creation of Website '[SITENAME]' completed successfully**. Now, you can enable Git publishing.
 
-6. Click the name of the web site displayed in the list of web sites to open the web site's Quick Start dashboard.
+6. Click the name of the website displayed in the list of websites to open the website's Quick Start dashboard.
 
 	![Open website dashboard][go-to-dashboard]
 
@@ -104,7 +106,7 @@ Follow these steps to create an Azure Web Site and a SQL Database:
 
 ##Get SQL Database connection information
 
-To connect to the SQL Database instance that is running in Azure Web Sites, your will need the connection information. To get SQL Database connection information, follow these steps:
+To connect to the SQL Database instance that is running in Azure Websites, your will need the connection information. To get SQL Database connection information, follow these steps:
 
 1. From the Azure Management Portal, click **LINKED RESOURCES**, then click the database name.
 
@@ -169,7 +171,7 @@ In this section you will create a new Node application and use npm to add module
 
 	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the <strong>express</strong> command to generate web site scaffolding without having to type in additional path information.</p>
+	<p>The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the <strong>express</strong> command to generate website scaffolding without having to type in additional path information.</p>
 	</div>
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
@@ -342,7 +344,7 @@ In this section you will extend the basic application created by the **express**
 
 ###Modify the global layout
 
-The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking web site.
+The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website.
 
 1. Download and extract the files for [Twitter Bootstrap](http://getbootstrap.com/). Copy the **bootstrap.min.css** file from the **bootstrap\\css** folder to the **public\\stylesheets** directory of your tasklist application.
 
@@ -406,7 +408,7 @@ To test the application on your local machine, perform the following steps:
 
 ##Deploy your application to Azure
 
-In this section, you will use the deployment steps you received after creating the web site to publish your application to Azure.
+In this section, you will use the deployment steps you received after creating the website to publish your application to Azure.
 
 ###Publish the application
 
@@ -429,9 +431,9 @@ In this section, you will use the deployment steps you received after creating t
 
 ###Switch to an environment variable
 
-Earlier we implemented code that looks for a **SQL_CONN** environment variable for the connection string or loads the value from the **config.json** file. In the following steps you will create a key/value pair in your web site configuration that the application real access through an environment variable.
+Earlier we implemented code that looks for a **SQL_CONN** environment variable for the connection string or loads the value from the **config.json** file. In the following steps you will create a key/value pair in your website configuration that the application real access through an environment variable.
 
-1. From the Azure Management Portal, click **Web Sites** and then select your web site.
+1. From the Azure Management Portal, click **Websites** and then select your website.
 
 	![Open website dashboard][go-to-dashboard]
 
@@ -456,7 +458,7 @@ Earlier we implemented code that looks for a **SQL_CONN** environment variable f
 
 		git push azure master
 
-Once the changes have been deployed to Azure, your web application should continue to work as it is now reading the connection string from the **app settings** entry. To verify this, change the value for the **SQL_CONN** entry in **app settings** to an invalid value. Once you have saved this value, the web site should fail due to the invalid connection string.
+Once the changes have been deployed to Azure, your web application should continue to work as it is now reading the connection string from the **app settings** entry. To verify this, change the value for the **SQL_CONN** entry in **app settings** to an invalid value. Once you have saved this value, the website should fail due to the invalid connection string.
 
 ##Next steps
 

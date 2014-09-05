@@ -1,5 +1,7 @@
 <properties title="Guide to the Net# Neural Networks Specification Language for Azure ML" pageTitle="Guide to the Net# Neural Networks Specification Language for Azure ML " description="Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model in Microsoft Azure ML using Net# " metaKeywords="" services="" solutions="" documentationCenter="" authors="jeannt" videoId="" scriptId="" />
 
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeannt" />
+
 
 
 
@@ -15,7 +17,7 @@ Net#© is a language developed by Microsoft that is used to define neural networ
 ###Neural Network Basics
 A neural network structure consists of ***nodes*** organized in ***layers***, and weighted ***connections*** (or ***edges***) between nodes. The connections are directional, each connection having a ***source*** node and a ***destination*** node.  
 
-Each ***trainable layer*** (namely, either a hidden or output layer) has one or more ***connection bundles***. A connection bundle consists of a source layer and a specification of the connections from that source layer. All the connections in a given bundle share the same ***source layer*** and the same ***destination layer***. In Net#, a connection bundle is considered as belonging to the bundle’s destination layer.  
+Each ***trainable layer*** (namely, either a hidden or output layer) has one or more ***connection bundles***. A connection bundle consists of a source layer and a specification of the connections from that source layer. All the connections in a given bundle share the same ***source layer*** and the same ***destination layer***. In Net#, a connection bundle is considered as belonging to the bundle's destination layer.  
  
 Net# supports various kinds of connection bundles, which lets you customize the way that inputs are mapped to hidden layers and mapped to the outputs.   
 
@@ -80,6 +82,7 @@ The layer declaration is required, and defines the size and source of the layer,
 -	The product of the dimensions is the number of nodes in the layer. In this example, there are two dimensions [5,20], which means there are  100 nodes in the layer.
 -	The layers can be declared in any order, with one exception: if more than one input layer is defined, the order in which they are declared must match the order of features in the input data.  
 
+<!-- REMOVED THIS CONTENT UNTIL THIS FEATURE IS SUPPORTED IN THE PRODUCT
 To specify that the number of nodes in a layer be determined automatically, use the **auto** keyword. The **auto** keyword has different effects, depending on the layer:  
 
 -	In an input layer declaration, the number of nodes is the number of features in the input data.
@@ -91,6 +94,7 @@ For example, the following network definition allows the size of all layers to b
 	input Data auto;
 	hidden Hidden auto from Data all;
 	output Result auto from Hidden all;  
+-->
 
 A layer declaration for a trainable layer (namely, the hidden or output layers) can optionally include the output function (also called an activation function), which defaults to **sigmoid**. The following output functions are supported:  
 
@@ -110,7 +114,7 @@ For example, the following declaration uses the **softmax** function:
 	output Result [100] softmax from Hidden all;  
 
 ###Connection Declaration
-Immediately after defining the trainable layer, you must declare connections among the layers you have defined. The connection bundle declaration starts with the keyword **from**, followed by the name of the bundle’s source layer and the kind of connection bundle to create.   
+Immediately after defining the trainable layer, you must declare connections among the layers you have defined. The connection bundle declaration starts with the keyword **from**, followed by the name of the bundle's source layer and the kind of connection bundle to create.   
 
 Currently, five kinds of connection bundles are supported:  
 
@@ -149,8 +153,8 @@ To define the shape and locations of the kernels, use the attributes **KernelSha
 
 -	**KernelShape**: (required) Defines the dimensionality of each kernel for the convolutional bundle. The value must be a tuple of positive integers whose length equals the arity of the bundle. Each component of this tuple must be no greater than the corresponding component of the **InputShape**. 
 -	**Stride**: (optional) defines the sliding step sizes of the convolution (one step size for each dimension), i.e. the distance between the central nodes. The value must be a tuple of positive integers whose length is the arity of the bundle. Each component of this tuple must be no greater than the corresponding component of the **KernelShape**. The default value is a tuple with all components equal to one. 
--	**Padding**: (optional) Determines whether the input should be padded using a default padding scheme. The value may be either a single Boolean value or a tuple of Boolean values whose length is the arity of the bundle. A single Boolean value is extended to be a tuple of the correct length with all components equal to the specified value. If the value for a dimension is true, the source is logically padded in that dimension with zero-valued cells to support additional kernel applications, such that the central nodes of the first and last kernels in that dimension are the first and last nodes in that dimension in the source layer. Thus, the number of “dummy” nodes in each dimension is determined automatically, to fit exactly (InputShape[d] – 1) / Stride[d] + 1 kernels into the padded source layer. If the value for a dimension is false, the kernels are defined so that the number of nodes on each side that are left out is the same (up to a difference of 1). The default value of this attribute is a tuple with all components equal to false.
--	**UpperPad** and **LowerPad**: (optional) Provide control over the amount of padding to use. These attributes can be defined if and only if **Padding** is ***not*** defined. The values should be integer-valued tuples whose lengths are the arity of the bundle. When these attributes are specified, “dummy” nodes are added to the lower and upper ends of each dimension of the input layer. The number of nodes added to the lower and upper ends in dimension is determined by **LowerPad**[i] and **UpperPad**[i] respectively. To ensure that kernels correspond only to "real" nodes and not "dummy" nodes, the following conditions must be met:
+-	**Padding**: (optional) Determines whether the input should be padded using a default padding scheme. The value may be either a single Boolean value or a tuple of Boolean values whose length is the arity of the bundle. A single Boolean value is extended to be a tuple of the correct length with all components equal to the specified value. If the value for a dimension is true, the source is logically padded in that dimension with zero-valued cells to support additional kernel applications, such that the central nodes of the first and last kernels in that dimension are the first and last nodes in that dimension in the source layer. Thus, the number of "dummy" nodes in each dimension is determined automatically, to fit exactly (InputShape[d] - 1) / Stride[d] + 1 kernels into the padded source layer. If the value for a dimension is false, the kernels are defined so that the number of nodes on each side that are left out is the same (up to a difference of 1). The default value of this attribute is a tuple with all components equal to false.
+-	**UpperPad** and **LowerPad**: (optional) Provide control over the amount of padding to use. These attributes can be defined if and only if **Padding** is ***not*** defined. The values should be integer-valued tuples whose lengths are the arity of the bundle. When these attributes are specified, "dummy" nodes are added to the lower and upper ends of each dimension of the input layer. The number of nodes added to the lower and upper ends in dimension is determined by **LowerPad**[i] and **UpperPad**[i] respectively. To ensure that kernels correspond only to "real" nodes and not "dummy" nodes, the following conditions must be met:
 	-	Each component of **LowerPad** must be strictly less than KernelShape[d]/2. 
 	-	Each component of **UpperPad** must be no greater than KernelShape[d]/2. 
 	-	The default value of these attributes is a tuple with all components equal to 0. 
@@ -185,16 +189,14 @@ The following example illustrates a pooling bundle:
 	
 For more information about pooling layers, see these articles:  
 
--	http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf (Section 3.4)
--	http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf 
--	http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf  
+-	[http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Section 3.4)
+-	[http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
+-	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
 ####Response normalization bundles
 **Response normalization** is a local normalization scheme that was first introduced by Geoffrey Hinton et al in a paper titled ImageNet Classiﬁcation with Deep Convolutional Neural Networks (see section 3.3). Response normalization is used to aid generalization in neural nets. When one neuron is firing at a very high activation level, a local response normalization layer suppresses the activation level of the surrounding neurons. This is done by using three parameters ***α***, ***β*** and ***k***, and a convolutional structure (or neighborhood shape). Every neuron in the destination layer ***y*** corresponds to a neuron ***x*** in the source layer. The activation level of ***y*** is given by the following formula, where ***f*** is the activation level of a neuron, and ***Nx*** is the kernel, or the set containing the neurons in the neighborhood of ***x*** as defined by the convolutional structure:  
 
-<div style="text-align:center" markdown="1">
 ![][1]  
-</div>
 
 Response normalization bundles support all the convolutional attributes except for **Sharing**, **MapCount** and **Weights**.  
  
@@ -329,13 +331,13 @@ The following example demonstrates how to define a slightly more complex neural 
 	  from MetaData all;
 	}  
 
-This sample illustrates several features of the neural networks scripting language:  
+This sample illustrates several features of the neural networks specification language:  
 
 -	The structure has two input layers, Pixels and MetaData.
 -	The Pixels layer is a source layer for two connection bundles, with destination layers ByRow and ByCol.
 -	The layers Gather and Result are destination layers in multiple connection bundles.
 -	The output layer, Result, is a destination layer in two connection bundles; one with the second level hidden layer (Gather) as a destination layer, and the other with the input layer MetaData as a destination layer.
--	The hidden layers, ByRow and ByCol, specify filtered connectivity using predicate expressions. More precisely, the node in ByRow at [x, y] is connected to those nodes in Pixels having first index coordinate equal to the node’s first coordinate, x. Similarly, the node in ByCol at [x, y] is connected to those nodes in Pixels having second index coordinate within one of the node’s second coordinate, y.  
+-	The hidden layers, ByRow and ByCol, specify filtered connectivity using predicate expressions. More precisely, the node in ByRow at [x, y] is connected to those nodes in Pixels having first index coordinate equal to the node's first coordinate, x. Similarly, the node in ByCol at [x, y] is connected to those nodes in Pixels having second index coordinate within one of the node's second coordinate, y.  
 
 ###Define a Convolutional Network for Multi-Class Classification: Digit Recognition Example
 The definition of the following network, designed to recognize numbers, illustrates some advanced techniques for customizing a neural network.  
@@ -370,8 +372,8 @@ The definition of the following network, designed to recognize numbers, illustra
 -	You can calculate the nodes in each hidden layer as follows:
 	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5. 
 	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**[2] = (13 – 5) / 2 + 1 = 5. 
+	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
 -	The total number of nodes can be calculated by using the declared dimensionality of the layer, [50, 5, 5] as follows: **MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[1] = 10 * 5 * 5 * 5 
 -	Since **Sharing**[d] is false only for d == 0, the number of kernels is **MapCount** * **NodeCount**[0] = 10 * 5 = 50. 
 
-[1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_med.PNG
+[1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif

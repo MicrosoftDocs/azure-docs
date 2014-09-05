@@ -1,6 +1,8 @@
 <properties linkid="mobile-services-dotnet-backend-use-non-relational-data-store" urlDisplayName="Build a Service Using a Non-Relational Data Store" pageTitle="Build a Service Using a Non-Relational Data Store - Azure Mobile Services" metaKeywords="" description="Learn how to use a non-relational data store such as MongoDB or Azure Table Storage with your .NET based mobile service" metaCanonical="" services="" documentationCenter="Mobile" title="Build a Service Using a Non-Relational Data Store" authors="yavorg, mahender" solutions="" manager="" editor="mollybos" />
 
-# Build a Service Using a Non-Relational Data Store with the .NET Backend
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender" />
+
+# Build a Service Using MongoDB as a Data Store with the .NET Backend
 
 This topic shows you how to use a non-relational data store for your mobile service. In this tutorial, you will modify the Mobile Services quickstart project to use MongoDB instead of SQL as a data store.
 
@@ -82,7 +84,7 @@ The tutorial requires completion of the [Get started with Mobile Services] or [G
 
 1. Republish your mobile service backend project.
 
-2. Run your client application. Note that you will not see any items previously stored in your SQL database.
+2. Run your client application. Note that you will not see any items which were previously stored in the SQL database from the quickstart tutorial.
 
 3. Create a new item. The app should behave as before, except now your data will be going to your non-relational store.
 

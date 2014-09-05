@@ -1,4 +1,6 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="" editor="" />
+<properties linkid="manage-services-cache-net-how-to-cache-service" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="" editor="" />
+
+<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 
 
@@ -42,7 +44,7 @@ features:
 -   Consistent development model across both Azure and Windows
     Server AppFabric.
 
-Managed Cache Service gives you access to a secure, dedicated cache that is managed by Microsoft. A cache created using the Managed Cache Service is accessible from applications within Azure running on Azure Web Sites, Web & Worker Roles and Virtual Machines.
+Managed Cache Service gives you access to a secure, dedicated cache that is managed by Microsoft. A cache created using the Managed Cache Service is accessible from applications within Azure running on Azure Websites, Web & Worker Roles and Virtual Machines.
 
 Managed Cache Service is available in three tiers:
 
@@ -179,7 +181,7 @@ Once the cache is configured, you can configure the cache clients to allow acces
 <a name="NuGet"></a>
 ## Configure the cache clients
 
-A cache created using the Managed Cache Service is accessible from Azure applications running on Azure Web Sites, Web & Worker Roles and Virtual Machines. A NuGet package is provided that simplifies the configuration of cache client applications. 
+A cache created using the Managed Cache Service is accessible from Azure applications running on Azure Websites, Web & Worker Roles and Virtual Machines. A NuGet package is provided that simplifies the configuration of cache client applications. 
 
 To configure a client application using the Cache NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 

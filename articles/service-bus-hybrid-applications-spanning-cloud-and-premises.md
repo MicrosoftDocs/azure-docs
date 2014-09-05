@@ -1,8 +1,10 @@
 <properties pageTitle="Enable Hybrid Applications Spanning Cloud and Premises" metaKeywords="Service Bus, Cloud, Hybrid" description="Learn how to build hybrid applications that span across the cloud and on premises." services="service-bus" documentationCenter=".NET" title="Enable Hybrid Applications Spanning Cloud and Premises" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+
 # Enable Hybrid Applications Spanning Cloud and Premises
 
-Hybrid cloud/on-premises applications are a reality of modern IT environments.  Service Bus helps you leverage existing on-premises assets and create reliable and secure solutions to augment and expand your current infrastructure.
+Hybrid cloud/on-premises applications are a reality of modern IT environments. Service Bus helps you leverage existing on-premises assets and create reliable and secure solutions to augment and expand your current infrastructure.
 
 [Build a .NET on-premises/cloud hybrid application using Service Bus Relay](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-hybrid-app-using-service-bus-relay/)
 
@@ -19,8 +21,8 @@ Hybrid cloud/on-premises applications are a reality of modern IT environments.  
 - [How to integrate a Mobile Service with a REST Service Bus Relay Service](http://blogs.msdn.com/b/paolos/archive/2013/07/09/how-to-integrate-a-mobile-service-with-a-rest-service-bus-relay-service.aspx)
  
 ## Popular
-- [Service Bus Pricing FAQ](http://msdn.microsoft.com/library/windowsazure/Hh667438(l=en-us,v=Azure.100).aspx)
-- [Service Bus REST API Reference](http://msdn.microsoft.com/library/windowsazure/hh780717(l=en-us,v=Azure.100).aspx)
+- [Service Bus Pricing FAQ](http://msdn.microsoft.com/library/windowsazure/Hh667438.aspx)
+- [Service Bus REST API Reference](http://msdn.microsoft.com/library/windowsazure/hh780717.aspx)
 - [Sign up for a free Azure trial](http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A85619ABF)
  
 ## Related services

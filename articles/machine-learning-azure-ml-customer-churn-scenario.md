@@ -1,4 +1,6 @@
-<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure"description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="" solutions="" documentationCenter="" authors="barga" videoId="" scriptId="" />
+<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure" description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="" solutions="" documentationCenter="" authors="barga" videoId="" scriptId="" />
+
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="barga" />
 
 
 #Analyzing Customer Churn using Microsoft Azure Machine Learning
@@ -32,7 +34,7 @@ Interactions between the different models is key if we are to deliver a holistic
  
 The overall cycle of risk-decision-marketing segmentation/decomposition is still a generalized structure, which is applicable to many business problems. Churn analysis is simply a strong representative of this group of problems, because it exhibits all the traits of a complex business problem that does not allow a simplified predictive solution. The social aspects of the modern approach to churn are not particularly highlighted in the approach, but the social aspects are encapsulated in the modeling archetype, as they would be in any other model.  
 
-An interesting addition here is big data analytics. Today’s telecommunication and retail businesses collect exhaustive data on their customers, and we can easily foresee that the need for multi-model connectivity will become a common trend, given emerging trends such as the Internet of Things and ubiquitous devices, which allow business to employ smart solutions at multiple layers.  
+An interesting addition here is big data analytics. Today's telecommunication and retail businesses collect exhaustive data on their customers, and we can easily foresee that the need for multi-model connectivity will become a common trend, given emerging trends such as the Internet of Things and ubiquitous devices, which allow business to employ smart solutions at multiple layers.  
 
  
 #Implementing the Modeling Archetype in Microsoft Azure ML Studio 
@@ -199,13 +201,13 @@ This feedback will help us improve the quality of white papers we release.
 *Figure 12 Snapshot of a presentation on churn prototype*
   
 
-[1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn1.png
-[2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn2.png
-[3]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn3.png
-[4]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn4.png
-[5]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn5.png
-[6]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn6.png
-[7]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn7.png
-[8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn8.png
-[9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn9.png
-[10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn10.png
+[1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
+[2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-2.png
+[3]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-3.png
+[4]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-4.png
+[5]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-5.png
+[6]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-6.png
+[7]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-7.png
+[8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
+[9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
+[10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png

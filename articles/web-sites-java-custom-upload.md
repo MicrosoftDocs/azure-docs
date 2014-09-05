@@ -1,21 +1,23 @@
-<properties linkid="develop-java-tutorials-web-site-custom_upload" urlDisplayName="Upload custom Java web site" pageTitle="Upload a custom Java web site to Azure" metaKeywords="" description="This tutorial shows you how to upload a custom Java web site to Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java web site to Azure" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="develop-java-tutorials-web-site-custom_upload" urlDisplayName="Upload custom Java website" pageTitle="Upload a custom Java website to Azure" metaKeywords="" description="This tutorial shows you how to upload a custom Java website to Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java website to Azure" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
-# Upload a custom Java web site to Azure
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
-This topic explains how to upload a custom Java  web site to Azure. Included is information that applies to any Java web site, and also some examples for specific applications.
+# Upload a custom Java website to Azure
 
-Note that Azure provides a means for creating Java web sites using the Azure portal's configuration UI, and the Azure application gallery, as documented at [Get started with Azure web sites and Java
+This topic explains how to upload a custom Java  website to Azure. Included is information that applies to any Java website, and also some examples for specific applications.
+
+Note that Azure provides a means for creating Java websites using the Azure portal's configuration UI, and the Azure application gallery, as documented at [Get started with Azure web sites and Java
 ](../web-sites-java-get-started). This tutorial is for scenarios in which you do not want to use the Azure configuration UI or the Azure application gallery.  
 
 # Configuration guidelines
 
-The following describes the settings expected for custom Java web sites on Azure.
+The following describes the settings expected for custom Java websites on Azure.
 
 - The HTTP port used by the Java process is dynamically assigned.  The process must use the port from the environment variable `HTTP_PLATFORM_PORT`.
 - All listen ports other than the single HTTP listener should be disabled.  In Tomcat, that includes the shutdown, HTTPS, and AJP ports.
 - The container needs to be configured for IPv4 traffic only.
 - The **startup** command for the application needs to be set in the configuration.
-- Applications that require directories with write permission need to be located in the Azure web site's content directory,  which is **D:\home**.
+- Applications that require directories with write permission need to be located in the Azure website's content directory,  which is **D:\home**.
 
 You can set environment variables as required in the web.config file.
 
@@ -62,14 +64,14 @@ Examples:
 
 # Deployment
 
-Java based web sites can be deployed easily through most of the same means that are used with the Internet Information Services (IIS) based web applications.  FTP, Git and Kudu are all supported as deployment mechanisms, as is the integrated SCM capability for web sites. WebDeploy works as a protocol, however, as Java is not developed in Visual Studio, WebDeploy does not fit with Java web site deployment use cases.
+Java based websites can be deployed easily through most of the same means that are used with the Internet Information Services (IIS) based web applications.  FTP, Git and Kudu are all supported as deployment mechanisms, as is the integrated SCM capability for websites. WebDeploy works as a protocol, however, as Java is not developed in Visual Studio, WebDeploy does not fit with Java website deployment use cases.
 
 # Application configuration Examples
 
-For the following applications, a web.config file and the application configuration is provided as examples to show how to enable your Java application on Azure web sites.
+For the following applications, a web.config file and the application configuration is provided as examples to show how to enable your Java application on Azure websites.
 
 ## Tomcat
-While there are two variations on Tomcat that are supplied with Azure Web Sites, it is still quite possible to upload customer specific instances.  Below is an example of an install of Tomcat with a different JVM.
+While there are two variations on Tomcat that are supplied with Azure Websites, it is still quite possible to upload customer specific instances.  Below is an example of an install of Tomcat with a different JVM.
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<configuration>
@@ -97,7 +99,7 @@ On the Tomcat side, there are a few configuration changes that need to be made. 
 -	Comment out HTTPS and AJP connectors
 -	The IPv4 setting can also be set in the catalina.properties file where you can add     `java.net.preferIPv4Stack=true`
     
-Direct3d calls are not supported on Azure web sites. To disable those, add the following Java option should your application make such calls: `-Dsun.java2d.d3d=false`
+Direct3d calls are not supported on Azure websites. To disable those, add the following Java option should your application make such calls: `-Dsun.java2d.d3d=false`
 
 ## Jetty
 
@@ -148,7 +150,7 @@ Our test used the Hudson 3.1.2 war and the default Tomcat 7.0.50 instance but wi
 		  </system.webServer>
 		</configuration>
 
-    At this point the web site can be restarted to take the changes.   Connect to http://yoursite/hudson to start Hudson.
+    At this point the website can be restarted to take the changes.   Connect to http://yoursite/hudson to start Hudson.
 
 4. After Hudson configures itself, you should see the following screen:
 
@@ -169,7 +171,7 @@ For additional information on Hudson, see [http://hudson-ci.org](http://hudson-c
 
 ## Liferay
 
-Liferay is supported on Azure web sites. Since Liferay can require significant memory, the site needs to run on a medium or large dedicated worker, which can provide enough memory. Liferay also takes several minutes to start up. For that reason, it is recommended that you set the site to **Always On**.  
+Liferay is supported on Azure websites. Since Liferay can require significant memory, the site needs to run on a medium or large dedicated worker, which can provide enough memory. Liferay also takes several minutes to start up. For that reason, it is recommended that you set the site to **Always On**.  
 
 Using Liferay 6.1.2 Community Edition GA3 bundled with Tomcat, the following files were edited after downloading Liferay:
 

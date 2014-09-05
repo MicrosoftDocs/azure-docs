@@ -1,5 +1,7 @@
 <properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Node.js) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Node.js" description="Learn how to use Service Bus queues in Azure. Code samples written in Node.js." metaCanonical="" services="service-bus" documentationCenter="Node.js" title="How to Use Service Bus Queues" authors="larryfr" solutions="" manager="" editor="" />
 
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+
 
 
 
@@ -77,7 +79,7 @@ The azure module will read the environment variables AZURE\_SERVICEBUS\_NAMESPAC
 
 For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage].
 
-For an example of setting the environment variables in the management portal for an Azure Web Site, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]
 
 ## <a name="create-queue"> </a>How to Create a Queue
 
@@ -152,7 +154,7 @@ queue named 'myqueue' using **sendQueueMessage**:
         body: 'Test message',
         customProperties: {
             testproperty: 'TestValue'
-        };
+        }};
     serviceBusService.sendQueueMessage('myqueue', message, function(error){
         if(!error){
             // message sent
