@@ -319,15 +319,13 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 
 ## Run the Application
 
-1. Make sure **AppBackend** is deployed in Azure.
+1. In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).
 
-2. In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).
+2. In the iOS app UI, enter a username and password. These can be any string, but they must be of the same value. Then click **Log In**.
 
-3. In the iOS app UI, enter a username and password. These can be any string, but they must be of the same value. Then click **Log In**.
+3. You should see a pop-up informing you of registration success. Click **OK**.
 
-4. You should see a pop-up informing you of registration success. Click **OK**.
-
-5. Click **Send push** and hit the home button. A push notification will appear shortly.
+4. Click **Send push** and hit the home button. A push notification will appear shortly.
 
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
