@@ -127,7 +127,6 @@ To manage your Hybrid Connections, you can:
 
 - Use the Azure portal and go to your BizTalk Service. 
 - Use [REST APIs](http://msdn.microsoft.com/library/azure/dn232347.aspx).
-<!-- - Use Windows PowerShell cmdlets  **INSERT LINK**. --> 
 
 ####Copy/regenerate the Hybrid Connection Strings
 
