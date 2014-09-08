@@ -1,16 +1,18 @@
-<properties linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Staged Deployment on Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Staged Deployment, Site Slots" description="Learn how to use staged publishing on Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="timamm"  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
+<properties linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Staged Deployment on Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Staged Deployment, Site Slots" description="Learn how to use staged publishing on Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="cephalin"  solutions="" writer="cephalin" manager="paulettm" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/9/2014" ms.author="cephalin" />
 
 <a name="Overview"></a>
 #Staged Deployment on Microsoft Azure Websites#
-When you deploy your application to Azure Websites, you can deploy to a separate deployment slot instead of the default production slot. The option to deploy to multiple deployment slots is an option available in the **Standard** web hosting plan. Deploying your application to a development or staging slot enables has the following benefits:
+When you deploy your application to Azure Websites, you can deploy to a separate deployment slot instead of the default production slot, which are actually live sites with their own hostnames. This option is available in the **Standard** web hosting plan. Furthermore, you can swap the sites and site configurations between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 - You can validate website changes in a staging deployment slot before swapping it with the production slot.
 
 - After a swap, the slot with previously staged site now has the previous production site. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back. 
  
-Microsoft Azure warms up all instances of a deployment slot before swapping it with the production slot, eliminating downtime when you swap slots. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. Four deployment slots in addition to the production slot are supported for each website in the **Standard** plan. 
+- Deploying a site to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your site. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. 
+
+Four deployment slots in addition to the production slot are supported for each website in the **Standard** plan. 
 
 ## Table of Contents ##
 - [To Add a Deployment Slot to a Web Site](#Add)
