@@ -70,7 +70,7 @@ Modern applications often demand data stores with greater scalability and flexib
 
 Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name. The property name can be used for filtering and specifying selection criteria. A collection of properties and their values comprise an entity. Since Table storage is schemaless, two entities in the same table can contain different collections of properties, and those properties can be of different types. 
 
-You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires.  You can store any number of entities in a table, and a storage account may contain any number of tables, up to the 200 TB capacity limit of the storage account.
+You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires.  You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
 
 Like Blobs and Queues, developers can manage and access Table Storage using standard REST protocols, however Table Storage also supports a subset of the OData protocol, simplifying advanced querying capabilities and enabling both JSON and AtomPub (XML based) formats.
 
@@ -80,7 +80,7 @@ For today's Internet-based applications, NoSQL databases like Table storage offe
 
 In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows. 
 
-A storage account can contain any number of queues. A queue can contain any number of messages, up to the 200 TB capacity limit of the storage account. Individual messages may be up to 64 KB in size.
+A storage account can contain any number of queues. A queue can contain any number of messages, up to the capacity limit of the storage account. Individual messages may be up to 64 KB in size.
 
 ## File Storage ##
 
@@ -121,7 +121,7 @@ The [Storage Pricing Details](/en-us/pricing/details/storage/) page provides det
 
 Azure Storage exposes storage resources via a [REST API](http://msdn.microsoft.com/library/windowsazure/dd179355.aspx) that can be called by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
 
-- [.NET](http://msdn.microsoft.com/library/dn495001.aspx)
+- [.NET](http://go.microsoft.com/fwlink/?LinkID=390731)
 - [Native code](http://msdn.microsoft.com/library/dn495438.aspx)
 - [Java/Android](/en-us/develop/java/)
 - [Node.js](/en-us/develop/nodejs/)
