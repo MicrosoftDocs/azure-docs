@@ -71,12 +71,12 @@ If the file size value does not get updated after the uploading process stops, p
 
 5. In the Azure Media Encoder dialog, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
 
-After the encoding is done, your view should look similar to the screen shot below. 
+	After the encoding is done, your view should look similar to the screen shot below. 
 
 	![PortalViewUploadCompleted][portaloverview]
 
 
-If the file size value does not get updated after the encoding is done, press the **Sync Metadata** button. This synchronizes the output asset file size with the actual file size in storage and refreshes the value on the Content page.	
+	If the file size value does not get updated after the encoding is done, press the **Sync Metadata** button. This synchronizes the output asset file size with the actual file size in storage and refreshes the value on the Content page.	
 
 ## How to: Publish content
 
