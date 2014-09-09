@@ -418,7 +418,8 @@ Enabling HTTPS for a custom domain is only available for the **Standard** web ho
 
 	> [WACOM.NOTE] If you receive a "Configuring scale for website '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](http://www.windowsazure.com/en-us/support/options/).
 
-<a href="bkmk_configuressl"></a><h2>Configure SSL</h2>
+
+##<a href="bkmk_configuressl"></a>Configure SSL
 
 Before performing the steps in this section, you must have associated a custom domain name with your Azure Website. For more information, see [Configuring a custom domain name for an Azure Web Site][customdomain].
 
@@ -459,8 +460,7 @@ Before performing the steps in this section, you must have associated a custom d
 
 At this point, you should be able to visit your website using `HTTPS://` instead of `HTTP://` to verify that the certificate has been configured correctly.
 
-<a href="bkmk_enforce"></a>
-##Enforce HTTPS on your Azure website
+##<a href="bkmk_enforce"></a>Enforce HTTPS on your Azure website
 
 Azure Websites do *not* enforce HTTPS. Visitors may still access your site using HTTP, which may expose sensitive information. If you want to enforce HTTPS for your website, you can use the **URL Rewrite** module. The URL Rewrite module is included with Azure Websites, and enables you to define rules that are applied to incoming requests before the requests are handed to your application. It can be used for applications written in any programming language supported by Azure Websites. 
 
