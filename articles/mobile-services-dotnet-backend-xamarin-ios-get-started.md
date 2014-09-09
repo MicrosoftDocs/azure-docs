@@ -17,7 +17,7 @@ A screenshot from the completed app is below:
 
 Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Xamarin iOS apps. 
 
->[WACOM.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">Azure Free Trial</a>.<br />This tutorial requires <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. A free trial version is available.
+>[WACOM.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">Azure Free Trial</a>.<br />This tutorial requires <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. A free trial version is available.
 
 ## Create a new mobile service
 
@@ -81,11 +81,17 @@ The final stage of this tutorial is to build and run your new app.
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
+* [Get started with offline data sync]
+  <br/>Learn how to use offline data sync to make your app responsive and robust.
+
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
+
+* [Troubleshoot a Mobile Services .NET backend]
+  <br/> Learn how to diagnose and fix issues that can arise with a Mobile Services .NET backend. 
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -103,6 +109,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [10]: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
+[Get started with offline data sync]: /en-us/develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
@@ -111,6 +118,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Management Portal]: https://manage.windowsazure.com/
 [JavaScript backend version]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started
 [Get started with data in Mobile Services using Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+[Troubleshoot a Mobile Services .NET backend]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
