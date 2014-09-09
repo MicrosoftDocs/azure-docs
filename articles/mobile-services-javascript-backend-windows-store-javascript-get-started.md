@@ -75,7 +75,7 @@ For more information about universal Windows apps, see [Supporting multiple devi
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data
+[Get started with data]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546

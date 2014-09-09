@@ -205,7 +205,7 @@ To create a site slot for any website in Standard mode, call **azure site create
 
 To enable source control for the new slot, use the **--git** option, as in the following example.
  
-`azure site create –-git siteslotstest --slot staging`
+`azure site create --git siteslotstest --slot staging`
 
 ----------
 ###azure site swap
