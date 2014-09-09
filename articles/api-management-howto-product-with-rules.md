@@ -4,7 +4,7 @@
 
 # How create and configure advanced product settings in Azure API Management
 
-In Azure API Management (Preview), products are highly configurable to meet the requirements of API publishers. This topic demonstrates how to configure some of the advanced product settings, including rate limit and quota policies.
+In Azure API Management, products are highly configurable to meet the requirements of API publishers. This topic demonstrates how to configure some of the advanced product settings, including rate limit and quota policies.
 
 In this tutorial you will create a Free Trial product that allows up to 10 calls per minute up to a maximum of 200 calls per week, publish it, and test the rate limit policy.
 
