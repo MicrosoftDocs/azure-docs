@@ -6,7 +6,7 @@
 
 ## Introduction
 
-[Role based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-getting-started/) is a powerful feature that allows you to delegate fine-grained access to resources in Azure. This means you can feel confident granting a specific person the right to just exactly what they need. However, at times the resource model for Azure resources can be complicated and it can be difficult to understand exactly what you are granting permissions to.
+[Role based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-how-to-configure/) is a powerful feature that allows you to delegate fine-grained access to resources in Azure. This means you can feel confident granting a specific person the right to just exactly what they need. However, at times the resource model for Azure resources can be complicated and it can be difficult to understand exactly what you are granting permissions to.
 
 This document will let you know what to expect when using some of the new roles in the preview portal.  There are three pre-built roles that are included in this release:
 * Owner
@@ -60,12 +60,15 @@ Much like with websites, some features on the Virtual Machine blade require writ
 Virtual machines have these related resources:
 * Domain names
 * Virtual networks
+* Storage accounts
 * Alert rules
 
 1. These items require **write** access to the Virtual machine:  
     * Endpoints
     * IP addresses
-2. These require write access to both the Virtual machine, and the **Resource group** that it is in:  
+    * Disks
+    * Extensions
+2. These require write access to both the Virtual machine, and the **Resource group** (along with the Domain name) that it is in:  
     * Availability set
     * Load balanced set
     * Alert rules
