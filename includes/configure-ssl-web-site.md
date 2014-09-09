@@ -210,7 +210,7 @@ If you are familiar with IIS Manager, you can use it to generate a certificate t
 	<p>During the export process, be sure to select the option <strong>include all certs in the certification path</strong> and and <strong>Export all extended properties</strong>. This will include any intermediate certificates in the exported certificate.</p>
 	</div>
 
-<a href="bkmk_subjectaltname"></a><h2>Get a SubjectAltName certificate using OpenSSL</h2>
+<a href="bkmk_subjectaltname"></a><h3>Get a SubjectAltName certificate using OpenSSL</h3>
 
 OpenSSL can be used to create a certificate request that uses the SubjectAltName extension to support multiple domain names with a single certificate, however it requires a configuration file. The following steps walk through creating a configuration file, and then using it to request a certificate.
 
@@ -308,7 +308,7 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Azure Websites.
 
-<a href="bkmk_selfsigned"></a><h2>Generate a self-signed certificate</h2>
+<a href="bkmk_selfsigned"></a><h3>Generate a self-signed certificate</h3>
 
 In some cases you may wish to obtain a certificate for testing, and delay purchasing one from a trusted CA until you go into production. Self-signed certificates can fill this gap. A self-signed certificate is a certificate you create and sign as if you were a Certificate Authority. While this certificate can be used to secure a website, most browsers will return errors when visiting the site as the certificate was not signed by a trusted CA. Some browsers may even refuse to allow you to view the site.
 
@@ -316,7 +316,7 @@ In some cases you may wish to obtain a certificate for testing, and delay purcha
 - [Generate a self-signed certificate using OpenSSL](#bkmk_ssopenssl)
 
 <a href="bkmk_ssmakecert">
-###Generate a self-signed certificate using makecert
+#### Generate a self-signed certificate using makecert ####
 
 You can create a test certificate from a Windows system that has Visual Studio installed by performing the following steps:
 
@@ -340,7 +340,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
 	This stores the specified password as a secure string in $mypwd, then finds the certificate by using the DNS name specified by the **dnsname** parameter, and exports to the file specified by the **filepath** parameter. The secure string containing the password is used to secure the exported file.
 
 <a href="bkmk_ssopenssl">
-###Generate a self-signed certificate using OpenSSL
+####Generate a self-signed certificate using OpenSSL ####
 
 1. Create a new document named **serverauth.cnf**, using the following as the contents of this file:
 
@@ -527,6 +527,12 @@ Once you deploy a web.config with a rewrite rule to force HTTPS, it should take 
 
 For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation. 
 
+## More Resources ##
+- [Microsoft Azure Trust Center](/en-us/support/trust-center/security/)
+- [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
+- [Enable diagnostic logging](/en-us/documentation/articles/web-sites-enable-diagnostic-log/)
+- [Configuring Web Sites](/en-us/documentation/articles/web-sites-configure/)
+- [Azure Management Portal](https://manage.windowsazure.com)
 
 [customdomain]: /en-us/develop/net/common-tasks/custom-dns-web-site/
 [iiscsr]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx
