@@ -103,7 +103,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- URLs. -->
 [Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-ios-get-started-users/
-[Get started with offline data sync]: /en-us/develop/mobile/tutorials/mobile-services-ios-get-started-offline-data
+[Get started with offline data sync]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
