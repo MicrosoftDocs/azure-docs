@@ -45,7 +45,7 @@ Learn about this scenario in <a href="http://go.microsoft.com/fwlink/?LinkId=398
 <UL>
 <LI><b>Azure account</b>—You'll need an Azure account. If you don't have one, see <a href="http://aka.ms/try-azure">Azure free trial</a>. Get pricing information at <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Azure Site Recovery Manager Pricing Details</a>.</LI>
 <LI><b>VMM server</b>—You'll need at least one VMM server running on System Center 2012 SP1 or System Center 2012 R2.</LI>
-<LI><b>VMM clouds</b>—You'll need at least one cloud on the source VMM server you want to protect, and one on the target VMM server. If you're running one VMM server it'll need two clouds. The primary cloud you want to protect must contain the following:<UL>
+<LI><b>VMM clouds</b>—You should have at least one cloud on the source VMM server you want to protect, and one on the target VMM server. If you're running one VMM server it'll need two clouds. The primary cloud you want to protect must contain the following:<UL>
 	<LI>One or more VMM host groups</LI>
 	<LI>One or more Hyper-V host servers or clusters in each host group.</LI>
 	<li>One or more virtual machines located on the source Hyper-V server in the cloud.</li>
@@ -91,7 +91,7 @@ After verifying the prerequisites, do the following:
 
 <P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as <b>Active</b> on the main Recovery Services page.</P>
 
-<a name="upload"></a> <h2>Step 3: Configure the vault</h2>
+<a name="upload"></a> <h2>Step 2: Configure the vault</h2>
 
 
 1. In the <b>Recovery Services</b> page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
@@ -101,12 +101,12 @@ After verifying the prerequisites, do the following:
 2. In the dropdown list, select **Between two on-premises Hyper-V sites**.
 3. In **Prepare VMM Servers**, click **Generate registration key** file. The key is valid for 5 days after it's generated. Copy the file to the VMM server. You'll need it when you set up the Provider.
 
-	![Registration key](./media/hyper-v-recovery-manager-configure-vault/SR_E2E_RegisterKey.png)
+	![Registration key](./media/hyper-v-recovery-manager-configure-vault/SR_E2ERegisterKey.png)
 	
 
 
 
-<a name="download"></a> <h2>Step 4: Install the Azure Site Recovery Provider</h2>
+<a name="download"></a> <h2>Step 3: Install the Azure Site Recovery Provider</h2>
 	
 
 1. On the <b>Quick Start</b> page, in **Prepare VMM servers**, click <b>Download Microsoft Azure Site Recovery Provider for installation on VMM servers</b> to obtain the latest version of the Provider installation file.
@@ -147,11 +147,11 @@ This option isn’t relevant if you’re replicating from one on-premises site t
 
 
 
-<h2><a id="clouds"></a>Step 5: Configure cloud protection settings</h2>
+<h2><a id="clouds"></a>Step 4: Configure cloud protection settings</h2>
 
 After VMM servers are registered, you can configure cloud protection settings. You enabled the option **Synchronize cloud data with the vault** when you installed the Provider so all clouds on the VMM server will appear in the <b>Protected Items</b> tab in the vault.
 
-	![Published Cloud](./media/hyper-v-recovery-manager-configure-vault/SR_CloudsList.png)
+![Published Cloud](./media/hyper-v-recovery-manager-configure-vault/SR_CloudsList.png)
 
 1. On the Quick Start page, click **Set up protection for VMM clouds**.
 2. On the **Protected Items** tab, select the cloud that you want to configure and go to the **Configuration** tab. Note that:
@@ -177,16 +177,16 @@ After VMM servers are registered, you can configure cloud protection settings. Y
 <p>After you save the settings a job will be created and can be monitored on the <b>Jobs</b> tab. All Hyper-V host servers in the VMM source cloud will be configured for replication. Cloud settings can be modified on the <b>Configure</b> tab. If you want to modify the target location or target cloud you must remove the cloud configuration, and then reconfigure the cloud.</p>
 
 
-<h2><a id="networkmapping"></a>Step 6: Configure network mapping</h2>
+<h2><a id="networkmapping"></a>Step 5: Configure network mapping</h2>
 
 <p>This tutorial describes the simplest path to deploy Azure Site Recovery in a test environment. If you do want to configure network mapping as part of this tutorial, read <a href="http://go.microsoft.com/fwlink/?LinkId=324817">Prepare for network mapping</a> in the Planning Guide. To configure mapping follow the steps to <a href="http://go.microsoft.com/fwlink/?LinkId=402534">Configure network mapping</a> in the deployment guide.</p>
 
-<h2><a id="storagemapping"></a>Step 7: Configure storage mapping</h2>
+<h2><a id="storagemapping"></a>Step 6: Configure storage mapping</h2>
 
 <p>This tutorial describes the simplest path to deploy Azure Site Recovery in a test environment. If you do want to configure storage mapping as part of this tutorial, follow the steps to <a href="http://go.microsoft.com/fwlink/?LinkId=402535">Configure storage mapping</a> in the deployment guide.</p>
 
 
-<h2><a id="enablevirtual"></a>Step 8: Enable virtual machine protection</h2>
+<h2><a id="enablevirtual"></a>Step 7: Enable virtual machine protection</h2>
 <p>After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud.</p>
 <OL>
 <li>On the <b>Virtual Machines</b> tab in the cloud in which the virtual machine is located, click <b>Enable protection</b> and then select <b>Add virtual machines</b>. </li>
@@ -203,7 +203,7 @@ After VMM servers are registered, you can configure cloud protection settings. Y
 ![Virtual machine protection job](./media/hyper-v-recovery-manager-configure-vault/SR_VMJobs.png)
 
 
-<h2><a id="recoveryplans"></a>Step 7: Test the deployment</h2>
+<h2><a id="recoveryplans"></a>Step 8: Test the deployment</h2>
 
 To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan.  Test failover simulates your failover and recovery mechanism in an isolated network. 
 
