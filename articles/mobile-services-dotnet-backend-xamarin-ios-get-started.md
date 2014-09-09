@@ -109,7 +109,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [10]: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with offline data sync]: /en-us/develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
+[Get started with offline data sync]: /en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546

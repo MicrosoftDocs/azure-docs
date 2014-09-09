@@ -103,7 +103,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- URLs. -->
 [Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Get started with offline data sync]: /en-us/develop/mobile/tutorials/mobile-services-ios-get-started-offline-data
+[Get started with offline data sync]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
 [Troubleshoot a Mobile Services .NET backend]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/

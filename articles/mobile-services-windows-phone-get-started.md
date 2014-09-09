@@ -117,7 +117,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- URLs. -->
 [Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
-[Get started with offline data sync]: /en-us/develop/mobile/tutorials/mobile-services-windows-phone-get-started-offline-data
+[Get started with offline data sync]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-users/
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
