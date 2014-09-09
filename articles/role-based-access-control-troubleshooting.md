@@ -6,14 +6,14 @@
 
 ## Introduction
 
-Role based access control is a powerful feature that allows you to delegate fine-grained access to resources in Azure. This means you can feel confident granting a specific person the right to just exactly what they need. However, at times the resource model for Azure resources can be complicated and it can be difficult to understand exactly what you are granting permissions to.
+[Role based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-getting-started/) is a powerful feature that allows you to delegate fine-grained access to resources in Azure. This means you can feel confident granting a specific person the right to just exactly what they need. However, at times the resource model for Azure resources can be complicated and it can be difficult to understand exactly what you are granting permissions to.
 
 This document will let you know what to expect when using some of the new roles in the preview portal.  There are three pre-built roles that are included in this release:
 * Owner
 * Contributor
 * Reader
 
-Owners and contributors will have full access to the management experience, the difference being that a contributor can’t give access to other users or groups.  Things get a little more interesting with the reader role, so that’s where we’ll spend some time.
+Owners and contributors will have full access to the management experience, the difference being that a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we’ll spend some time. [See this article](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-how-to-configure/) for details on how exactly to grant access.
 
 ## Website workloads
 
@@ -40,13 +40,13 @@ Websites are complicated by the presence of a few different resources that inter
 
 ![Website resource group](./media/role-based-access-control-troubleshooting/Website-resource-model.png)
 
-As a result, if you grant someone access to just the website, much functionality on the website blade will be completley disabled. 
+As a result, if you grant someone access to just the website, much functionality on the website blade will be completely disabled. 
  
-1. These items require access to the **Web hosting plan** that corresponds to your website.
+1. These items require access to the **Web hosting plan** that corresponds to your website:  
     * Viewing the website’s pricing tier (e.g. Free, Shared, Basic, or Standard).
     * Scale configuration (i.e. # of instances, VM size, auto scale settings).
     * Quotas (e.g. Storage, bandwidth, CPU).
-2. These items require access to the whole **Resource group** that contains your website.
+2. These items require access to the whole **Resource group** that contains your website:  
     * SSL Certificates and bindings (This is because SSL certificates can be shared between sites in the same resource group and geo-location).
     * Alert rules
     * Autoscale settings
@@ -55,15 +55,19 @@ As a result, if you grant someone access to just the website, much functionality
 
 ## Virtual machine workloads
 
-### Having read-only access
+Much like with websites, some features on the Virtual Machine blade require write access to the Virtual Machine, or to other resources in the resource group.
 
-Much like with websites, some features on the Virtual Machine blade require write access to the Virtual Machine:
-
-
-### Dealing with related resources
-
-Virtual machines also have related resources, including:
+Virtual machines have these related resources:
 * Domain names
 * Virtual networks
 * Alert rules
 
+1. These items require **write** access to the Virtual machine:  
+    * Endpoints
+    * IP addresses
+2. These require write access to both the Virtual machine, and the **Resource group** that it is in:  
+    * Availability set
+    * Load balanced set
+    * Alert rules
+    
+If you can't access any of these parts, you'll need to ask your administrator for Contributor access to the Resource group.
