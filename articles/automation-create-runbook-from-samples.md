@@ -9,7 +9,7 @@ Microsoft Azure Automation provides a way for developers to automate the manual,
 
 This tutorial walks you through the steps to import a sample "Hello World" runbook into Azure Automation, execute the runbook, and then view its output.
 
->[WACOM.NOTE] For more help getting started with Automation, learn how to automate Azure operations using the PowerShell cmdlets <a href="http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx">here</a>.
+>[WACOM.NOTE] To learn how to automate Azure operations using the [Azure PowerShell cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) see <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Azure Automation: Authenticating to Azure using Azure Active Directory</a>.
 
 ## Samples and utility runbooks
 
@@ -114,9 +114,12 @@ To start using Automation, you’ll need an active Azure subscription with the M
  
 	![Runbook Summary](./media/automation/automation_13_RunbookSummary_callouts.png)
 
-## See Also
+# Managing Azure Services from a Runbook 
+The example above shows a simple runbook that does not manage Azure services. The [Azure cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) require authentication to Azure. You can follow the instructions at [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) in order to configure your Azure subscription for management through Azure Automation.
+
+# See Also
 
 - [Automation Overview](http://go.microsoft.com/fwlink/p/?LinkId=392860)
 - [Runbook Authoring Guide](http://go.microsoft.com/fwlink/p/?LinkID=301740)
 - [Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561)
-- [Automate Azure operations using Azure Automation and the PowerShell cmdlets](http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx)
+- [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
