@@ -76,7 +76,7 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 **Note**:
 
 - **The tier** of the service being restored into **must match** the tier of the backed up service being restored.
-- **Changes** made to the service configuration (e.g. APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.*
+- **Changes** made to the service configuration (e.g. APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
