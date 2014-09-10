@@ -39,9 +39,14 @@ The **ServiceBusService** object lets you work with topics. Add the following ne
 
 	from azure.servicebus import *
 
-The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'mykey' and 'myissuer' with the real namespace, key and issuer.
+The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'sharedaccesskeyname' and 'sharedaccesskey' with the real namespace, shared access signature (SAS) key name and value.
 
-	bus_service = ServiceBusService(service_namespace='mynamespace', account_key='mykey', issuer='myissuer')
+	bus_service = ServiceBusService(
+		service_namespace='mynamespace',
+		shared_access_key_name='sharedaccesskeyname',
+		shared_access_key_value='sharedaccesskey')
+
+The values for the SAS key name and value can be found in the Azure Portal connection information, or in Visual Studio Properties window when selecting the service bus namespace in Server Explorer (as shown in the previous section).
 
 	bus_service.create_topic('mytopic')
 
