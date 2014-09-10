@@ -139,7 +139,7 @@ Here is an example of how to remove Brad Adams by using the Remove-AzureRoleAssi
 <h3><a id="addremoveext"></a>Add or remove access for external user</h2>
 
 The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure portal by a directory global administrator. 
-To open the **Configure** tab in the full Azure portal, click **Active Directory**, then click the name of the directory.
+To open the **Configure** tab in the full Azure portal, click **Active Directory**, and then click the name of the directory.
 
 ![][10]
 
