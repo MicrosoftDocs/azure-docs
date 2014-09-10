@@ -4,7 +4,7 @@
 
 # How to use the API Inspector to trace calls in Azure API Management
 
-API Management (Preview) provides an API Inspector tool to help you with debugging and troubleshooting your APIs. The API Inspector can be used programatically from your applications, and can also be used directly from the developer portal. This guide provides a walk-through of using API Inspector.
+API Management provides an API Inspector tool to help you with debugging and troubleshooting your APIs. The API Inspector can be used programatically from your applications, and can also be used directly from the developer portal. This guide provides a walk-through of using API Inspector.
 
 ## In this topic
 

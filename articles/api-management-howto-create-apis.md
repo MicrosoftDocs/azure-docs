@@ -4,7 +4,7 @@
 
 # How to create APIs in Azure API Management
 
-An API in API Management (Preview) represents a set of operations that can be invoked by client applications. New APIs are created in the management console, and then the desired operations are added. Once the operations are added, the API is added to a product and can be published. Once an API is published, it can be used by subscribed to and used by developers.
+An API in API Management represents a set of operations that can be invoked by client applications. New APIs are created in the management console, and then the desired operations are added. Once the operations are added, the API is added to a product and can be published. Once an API is published, it can be used by subscribed to and used by developers.
 
 This guide shows the first step in the process: how to create and configure a new API in API Management. For more information on adding operations and publishing a product, see [How to add operations to an API][] and [How to create and publish a product][].
 
