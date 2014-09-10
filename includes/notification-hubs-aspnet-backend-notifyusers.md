@@ -29,7 +29,7 @@ Follow the steps below to create a new ASP.NET WebAPI backend to authenticate cl
 
 	![][14]
 
-8. We will now create a new class **Notifications.cs**. Go to the Solution Explorer, right-click the **Models** folder, click **Add**, then **Class**. After naming the new class **Notifications.cs**, hit **Add** to generate the class. This module represents the different secure notifications that will be sent. In a complete implementation, the notifications are stored in a database. For simplicity, this tutorial stores them in memory.
+8. We will now create a new class **Notifications.cs**. Go to the Solution Explorer, right-click the **Models** folder, click **Add**, then **Class**. After naming the new class **Notifications.cs**, click **Add** to generate the class. This module represents the different secure notifications that will be sent. In a complete implementation, the notifications are stored in a database. For simplicity, this tutorial stores them in memory.
 
 	![][6]
 
