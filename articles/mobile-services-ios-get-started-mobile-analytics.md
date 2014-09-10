@@ -8,7 +8,7 @@
 <a href="/en-us/documentation/articles/mobile-services-ios-get-started-mobile-analytics" title="iOS" class="current">iOS</a>
 </div>
 
-In this tutorial, you add mobile analtics capabilities to your app using [Capptain]. Mobile Analytics allow you to determine how users are interacting with your app and what sections are driving the most activity. To start getting these data, you will instrument your app with the Capptain SDK.
+In this tutorial, you add mobile analytics capabilities to your app using [Capptain]. Mobile Analytics allow you to determine how users are interacting with your app and what sections are driving the most activity. To start getting these data, you will instrument your app with the Capptain SDK.
 
 
 >[WACOM.NOTE] The [Mobile Services Standard tier] comes with 100K monthly active users for the Capptain Analytics feature. To enable this, please contact the Mobile Services team at mobileservices@microsoft.com
@@ -29,7 +29,7 @@ This tutorial requires the following:
 
 2. In XCode, add the Capptain SDK to your project by right clicking your project and selecting "Add files to..." Choose the CapptainSDK folder.
 
-3. Under the **Build Phases** tab, select **Link Binary With Libraries** and add the following frameworks:
+3. Select your project. Under the **Build Phases** tab, select **Link Binary With Libraries** and add the following frameworks:
     * AdSupport.framework - set the link as Optional
     * SystemConfiguration.framework
     * CoreTelephony.framework
@@ -71,6 +71,8 @@ This tutorial requires the following:
         @property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
 2. Find each child of `UITableViewController` in your project and make sure that each instead inherits from `CapptainTableViewController`.
+
+    Your app is now configured to send analytics data to Capptain.
 
 ## Next Steps
 Find out more about what Capptain can do for your app at [http://www.capptain.com](http://www.capptain.com)
