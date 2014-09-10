@@ -89,11 +89,12 @@ Role based access control is supported only for management operations of the Azu
 
 Let’s take a look at an example of how a resource owner in an organization can manage access. In this scenario, you have multiple people working on a variety of test and production projects that are built using Azure resources. You want to follow best practices for granting access. Users should have access to all resources that they need, but no additional access. You want to re-use all the investments you have made in processes and tooling to use security groups that are mastered in an on-premises Active Directory. These sections cover how you set up access to these resources:
 
-+ [Add access]
-+ [Remove access]
-+ [Add or remove access for external user]
+* [Add access](add)
+* [Remove access](remove)
+* [Add or remove access for external user](addremoveext)
 
-### Add access
+<h3><a id="add"></a>Add access</h2>
+
 Here is a summary of the access requirements and how they are set up in Azure.
 
 User/Group  | Access requirement  | role and scope for access	
@@ -125,8 +126,7 @@ Role assignments can also be managed by using the Microsoft Azure module for Win
 
 For more information about using Windows PowerShell to add and remove access, see [Configure role-based access control using Azure Module for Windows PowerShell](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/). 
 
-
-### Remove access
+<h3><a id="remove"></a>Remove access</h2>
 
 You can also remove assignments easily. Let’s say you want to remove a user named Brad Adams from the Reader role for a resource group named TestDB. Open the resource group blade, click **Reader -> Brad Adams -> Remove**.
 
@@ -136,10 +136,14 @@ Here is an example of how to remove Brad Adams by using the Remove-AzureRoleAssi
 
 	PS C:\> Remove-AzureRoleAssignment -Mail badams@dushyantgill.net -RoleDefinitionName Reader -ResourceGroupName TestDB
 
-
-### Add or remove access for external user
+<h3><a id="addremoveext"></a>Add or remove access for external user</h2>
 
 The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure portal by a directory global administrator. 
+To open the **Configure** tab in the full Azure portal, click **Active Directory**, then click the name of the directory.
+
+![][10]
+
+Then you can edit the options to control access for external users. 
 
 ![][8]
 
@@ -176,14 +180,15 @@ Here are some additional resources to help you use role based access control:
 
 
 <!--Image references-->
-[1]: ./media/role-based-access-control-how-to-configure/RBACSubAuthDir.png
-[2]: ./media/role-based-access-control-how-to-configure/RBACAssignmentScopes.png
-[3]: ./media/role-based-access-control-how-to-configure/RBACSubscriptionBlade.png
-[4]: ./media/role-based-access-control-how-to-configure/RBACAddSubReader.png
-[5]: ./media/role-based-access-control-how-to-configure/RBACAddRGContributor.png
-[6]: ./media/role-based-access-control-how-to-configure/RBACAddProdContributor.png
-[7]: ./media/role-based-access-control-how-to-configure/RBACRemoveRole.png
-[8]: ./media/role-based-access-control-how-to-configure/RBACGuestAccessControls.png
-[9]: ./media/role-based-access-control-how-to-configure/RBACInviteExtUser.png
+[1]: ./media/role-based-access-control-configure/RBACSubAuthDir.png
+[2]: ./media/role-based-access-control-configure/RBACAssignmentScopes.png
+[3]: ./media/role-based-access-control-configure/RBACSubscriptionBlade.png
+[4]: ./media/role-based-access-control-configure/RBACAddSubReader.png
+[5]: ./media/role-based-access-control-configure/RBACAddRGContributor.png
+[6]: ./media/role-based-access-control-configure/RBACAddProdContributor.png
+[7]: ./media/role-based-access-control-configure/RBACRemoveRole.png
+[8]: ./media/role-based-access-control-configure/RBACGuestAccessControls.png
+[9]: ./media/role-based-access-control-configure/RBACInviteExtUser.png
+[10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
 
