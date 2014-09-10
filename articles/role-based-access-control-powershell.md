@@ -6,7 +6,7 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/en-us/documentation/articles/xplat-cli-rbac.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
 
-Role-Based access control (RBAC) in Azure preview portal and Azure Resource Manager API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for active directory users, groups or service principals by assigning some roles to them at a particular scope.
+Role-Based access control (RBAC) in Azure preview portal and Azure Resource Manager API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 In this tutorial, you'll learn how to use Windows PowerShell to manage RBAC. It walks you through the process of creating and checking role assignments.
 
@@ -122,7 +122,7 @@ Then use `New-AzureRoleAssignment` to create a role assignment. For example:
 - This will create a role assignment at a resource level
 
     `PS C:\> $resources = Get-AzureResource
-    PS C:\> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Owner -Scope $resources.ResourceId`
+    PS C:\> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId`
 
 ## <a id="verify"></a>Verify permissions ##
 
@@ -137,10 +137,13 @@ Then when you try to run other cmdlet like `New-AzureResourceGroup`, you will ge
 
 ## <a id="next"></a>Next steps ##
 
-To learn more about managing role-based access control with Windows PowerShell and related topics:
+To learn more about managing role-based access control with Windows PowerShell, and related topics:
  
+- [Role based access control in Windows Azure](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure/)
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager module.
 - [Using Resource groups to manage your Azure resources](http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups): Learn how to create and manage resource groups in the Azure Management Portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
+- [Configure role based access control using XPLAT CLI](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-xplat-cli/)
+- [Troubleshooting role based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/)
