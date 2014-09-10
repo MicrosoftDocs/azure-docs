@@ -10,11 +10,14 @@ This tutorial gets you started with Hadoop clusters in the Microsoft HDInsight E
 
 HDInsight Emulator provides a local development environment for Azure HDInsight. If you are familiar with Hadoop, you can get started with the Emulator using HDFS. In HDInsight, the default file system is Azure Blob storage (WASB, aka Azure Storage - Blobs). So eventually, you will want to develop your jobs using WASB. 
 
-You can get started with developing against WASB by using the Azure Storage Emulator. You probably only want to use a small subset of your data (no config changes required in the HDInsight Emulator, just a different storage account name). Then, you test your jobs locally against Windows  Azure Storage - again, only using a subset of your data (requires a config change in the HDInsight Emulator). Finally, you are ready to move the compute portion of your job to HDInsight and run a job against production data.
+If you want to use WASB with HDInsight Emulator from the outset, you can start with developing against WASB. The recommended approach for this should be:
+
+- Start by using the Azure Storage Emulator. Ideally, you should use a small subset of your data stored in a different blob storage than the storage for your production data. No configuration changes are required in the HDInsight Emulator, just a different storage account name. 
+- Then, you test your jobs locally against Windows  Azure Storage, again only using a subset of your data. This requires a configuration change in the HDInsight Emulator. 
+- Finally, you are ready to move the compute portion of your job to HDInsight and run a job against production data. You do this by creating an HDInsight cluster in Azure. For a tutorial using HDInsight, see [Get started using Azure HDInsight][hdinsight-get-started]
 
 > [WACOM.NOTE] The HDInsight Emulator can use only a single node deployment. 
 
-For a tutorial using HDInsight, see [Get started using Azure HDInsight][hdinsight-get-started].
 
 **Prerequisites**	
 Before you begin this tutorial, you must have the following:
@@ -72,6 +75,8 @@ The installation should have installed three icons on your desktop. The three ic
 The installation should have also installed several local services. The following is a screenshot of the Services window:
 
 ![HDI.Emulator.Services][image-hdi-emulator-services]
+
+The services related to HDInsight Emulator are not started by default. To start the services, run **start_local_hdp_services.cmd** under <system drive>\hdp. To automatically start the services after the computer restarts, run **set-onebox-autostart.cmd**.  
 
 For known issues with installing and running HDInsight Server, see the [HDInsight Emulator Release Notes][hdinsight-emulator-release-notes]. The installation log is located at **C:\HadoopFeaturePackSetup\HadoopFeaturePackSetupTools\gettingStarted.winpkg.install.log**.
 
@@ -332,7 +337,7 @@ Pig processing uses a data flow language, called *Pig Latin*. Pig Latin abstract
 **To run the pig jobs:**
 
 1. Open Hadoop command line.
-2. Change directory to the C:\Hadoop\GettingStarted folder.
+2. Change directory to the **C:\hdp\GettingStarted** folder.
 3. Run the following command to submit a Pig job:
 
 		C:\hdp\pig-0.12.1-SNAPSHOT\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
@@ -360,8 +365,8 @@ Pig processing uses a data flow language, called *Pig Latin*. Pig Latin abstract
 	The output should be similar to the following:
 
 		(/Info.aspx,1115)
-		(/UserService,1130)
-		(/Default.aspx,3409)
+		(/UserService,1137)
+		(/Default.aspx,3360)
 		
 Note that since Pig scripts compile to MapReduce jobs, and potentially to more than one such job, you might see multiple MapReduce jobs executing in the course of processing a Pig job.
 
@@ -378,17 +383,17 @@ The samples currently contain all the required binaries, so building is not requ
 
 
 ##<a name="blobstorage"></a>Connect to Azure Blob storage
-Azure HDInsight uses Azure Blob storage as the default file system. For more information, see [Use Azure blob Storage with HDInsight][hdinsight-storage]. 
-
-It is possible to configure a local cluster in the HDInsight Emulator to use Azure Blob storage instead of local storage. The section covers:
+The HDInsight Emulator uses HDFS as the default file system. However, Azure HDInsight uses Azure Blob storage as the default file system. It is possible to configure HDInsight Emulator to use Azure Blob storage instead of local storage. The section covers:
 
 - connect to the storage emulator
 - connect to an Azure Blob storage
 - configure an Azure Blob storage as the default file system for the HDInsight Emulator
 
+For more information, see [Use Azure blob Storage with HDInsight][hdinsight-storage].
+
 ### Connect to the storage emulator
 
-The Azure Storage emulator comes with [Azure SDK for .NET][azure-sdk]. The storage emulator don't start automatically. You must manually start it.  The application name is *Azure Storage Emulator*. To start/stop the emulators, right-click the blue Azure icon in the Windows System Tray, and then click Show Storage Emulator UI.
+The Azure Storage emulator comes with [Azure SDK for .NET][azure-sdk]. The storage emulator is not started by default. On the Start screen, type **Storage Emulator**, and press **ENTER**. Once you see the blue icon in the Windows System Tray, and then click **Start Storage Emulator**.
 
 > [WACOM.NOTE] You might get the following error message when you start the storage emulator:
 
