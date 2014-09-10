@@ -38,7 +38,7 @@ To manage such applications successfully you should monitor them proactively and
 	+ [The client is receiving HTTP 403 (Forbidden) messages]
 	+ [The client is receiving HTTP 404 (Not found) messages]
 	+ [The client is receiving HTTP 409 (Conflict) messages]
-	+ [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors
+	+ [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 	+ [Capacity metrics show an unexpected increase in storage capacity usage]
 	+ [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 	+ [Your issue arises from using the storage emulator for development or test]
@@ -77,9 +77,10 @@ The section "[Troubleshooting guidance]" provides troubleshooting guidance for s
 
 The "[Appendices]" include information about using other tools such as Wireshark and Netmon for analyzing network packet data, Fiddler for analyzing HTTP/HTTPS messages, and Microsoft Message Analyzer for correlating log data.
 
+
 ## <a name="monitoring-your-storage-service"></a>Monitoring your storage service
 
-If you are familiar with Windows performance monitoring, you can think of Storage Metrics as being an Azure Storage equivalent of Windows Performance Monitor counters. In Storage Metrics you will find a comprehensive set of metrics (counters in Windows Performance Monitor terminology) such as service availability, total number of requests to service, or percentage of successful requests to service (for a full list of the available metrics, see <a href="http://msdn.microsoft.com/en-us/library/azure/hh343264.aspx" target="_blank">Storage Analytics Metrics Table Schema</a> on MSDN). You can specify whether you want the storage service to collect and aggregate metrics every hour or every minute. For more information about how to enable metrics and monitor your storage accounts, see <a href="http://go.microsoft.com/fwlink/?LinkId=510865/" target="_blank">Enabling storage metrics</a> on MSDN.
+If you are familiar with Windows performance monitoring, you can think of Storage Metrics as being an Azure Storage equivalent of Windows Performance Monitor counters. In Storage Metrics you will find a comprehensive set of metrics (counters in Windows Performance Monitor terminology) such as service availability, total number of requests to service, or percentage of successful requests to service (for a full list of the available metrics, see <a href="http://msdn.microsoft.com/en-us/library/azure/hh343264.aspx" target="_blank">Storage Analytics Metrics Table Schema</a> on MSDN). You can specify whether you want the storage service to collect and aggregate metrics every hour or every minute. For more information about how to enable metrics and monitor your storage accounts, see <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">Enabling storage metrics</a> on MSDN.
 
 You can choose which hourly metrics you want to display in the Azure portal and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold (for more information, see the page <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">How to: Receive Alert Notifications and Manage Alert Rules in Azure</a>). The storage service collects metrics using a best effort, but may not record every storage operation.
 
@@ -141,7 +142,7 @@ Typically, you will monitor for unexpected changes in any of these values as an 
 
 In the Azure portal, on the **Monitor** page for your storage account, you can add alert rules to notify you if any of the performance metrics for this service fall below or exceed a threshold that you specify.
 
-The "[Troubleshooting guidance section]" of this guide describes some common storage service issues related to performance.
+The "[Troubleshooting guidance]" section of this guide describes some common storage service issues related to performance.
 
 
 ## <a name="diagnosing-storage-issues"></a>Diagnosing storage issues
@@ -452,72 +453,36 @@ If your client application is throwing HTTP 403 (Forbidden) errors, a likely cau
 
 <table>
  <tr>
-  <td>
-  <b>Source</b> 
-  </td>
-  <td>
-  <b>Verbosity</b> 
-  </td>
-  <td>
-  <b>Verbosity</b> 
-  </td>
-  <td>
-  <b>Client request id</b> 
-  </td>
-  <td>
-  <b>Operation text</b> 
-  </td>
+    <td><b>Source</b></td>
+    <td><b>Verbosity</b></td>
+    <td><b>Verbosity</b></td>
+    <td><b>Client request id</b></td>
+    <td><b>Operation text</b></td>
  </tr>
  <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Information 
-  </td>
-  <td>
-  3 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  Starting operation with location Primary per location mode PrimaryOnly. 
-  </td>
+    <td>Microsoft.WindowsAzure.Storage</td>
+    <td>Information</td>
+    <td>3</td>
+    <td>85d077ab-…</td>
+    <td>Starting operation with location Primary per location mode PrimaryOnly.</td>
  </tr>
  <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Information 
-  </td>
-  <td>
-  3 
-  </td>
-  <td>
-  85d077ab -… 
-  </td>
-  <td>
-  Starting synchronous request to https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. 
-  </td>
+    <td>Microsoft.WindowsAzure.Storage</td>
+    <td>Information</td>
+    <td>3</td>
+    <td>85d077ab -…</td>
+    <td>Starting synchronous request to https://domemaildist.blob.core.windows.netazure<br>imblobcontainer/blobCreatedViaSAS.txt?
+	    <br>sv=2014-02-14&amp;sr=c&amp;si=mypolicy
+	    <br>&amp;sig=OFnd4Rd7z01fIvh%
+	    <br>2BmcR6zbudIH2F5Ikm%
+	    <br>2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14.</td>
  </tr>
  <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Information 
-  </td>
-  <td>
-  3 
-  </td>
-  <td>
-  85d077ab -… 
-  </td>
-  <td>
-  Waiting for response. 
-  </td>
+    <td>Microsoft.WindowsAzure.Storage</td>
+    <td>Information</td>
+    <td>3</td>
+    <td>85d077ab -…</td>
+    <td>Waiting for response.</td>
  </tr>
  <tr>
   <td>
@@ -1010,6 +975,7 @@ It is important to note that these operations have completed successfully and th
 You can find a list of common REST API error codes that the storage services return on the page <a href="http://msdn.microsoft.com/en-us/library/azure/dd179357.aspx" target="_blank">Common REST API Error Codes</a>. 
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Capacity metrics show an unexpected increase in storage capacity usage
+
 
 If you see sudden, unexpected changes in capacity usage in your storage account, you can investigate the reasons by first looking at your availability metrics; for example, an increase in the number of failed delete requests might lead to an increase in the amount of blob storage you are using as application specific cleanup operations you might have expected to be freeing up space may not be working as expected (for example, because the SAS tokens used for freeing up space have expired). 
 
