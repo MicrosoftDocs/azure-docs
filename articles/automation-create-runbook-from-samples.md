@@ -17,7 +17,7 @@ The Azure Automation team has created a number of runbook samples to help you ge
 
 The Automation team has also created utility runbooks that you can use as building blocks for larger Automation tasks.  
 
->[WACOM.NOTE] It's a best practice to write small, modular, reusable runbooks. We also strongly recommend that you create your own utility runbooks for commonly used scenarios after you’re familiar with Automation.  
+>[WACOM.NOTE] It's a best practice to write small, modular, reusable runbooks. We also strongly recommend that you create your own utility runbooks for commonly used scenarios after you're familiar with Automation.  
 
 You can view and download the Automation team’s sample and utility runbooks on [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029). 
 
