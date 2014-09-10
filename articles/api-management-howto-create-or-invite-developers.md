@@ -4,7 +4,7 @@
 
 # How to manage developer accounts in Azure API Management
 
-In API Management (preview), developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance.
+In API Management, developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance.
 
 ## In this topic
 
