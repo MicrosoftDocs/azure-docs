@@ -195,7 +195,7 @@ Replace the contents of WorkerRole.cs with the following code. The class SampleE
 	![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 
 3.	Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click on the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
-4.	Replace the contents of the WadConfig.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
+4.	Replace the contents of the WadExample.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -218,7 +218,21 @@ Replace the contents of WorkerRole.cs with the following code. The class SampleE
   			</WadCfg>
 		</PublicConfig>
 
-<h3>Step 5: Look at your telemetry data</h3>
+<h3>Step 5: Install Diagnostics on your Worker Role</h3>
+The PowerShell cmdlets for managing Diagnostics on a web or worker role are: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension, and Remove-AzureServiceDiagnosticsExtension.
+
+1.	Open Windows Azure PowerShell.
+2.	Execute the script to install Diagnostics on your worker role (replace *StorageAccountKey* with the storage account key for your wadexample storage account):
+
+		$storage_name = "wadexample"
+		$key = "<StorageAccountKey>"
+		$config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExample\WorkerRole1\WadExample.xml"
+		$service_name="wadexample"
+		$storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key 
+		Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging
+
+
+<h3>Step 6: Look at your telemetry data</h3>
 In the Visual Studio **Server Explorer** navigate to the wadexample storage account. After the cloud service has been running about 5 minutes you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click on one of the tables to view the telemetry that has been collected.
 	![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
@@ -327,7 +341,7 @@ This walk through assumes you have an Azure subscription and are using Visual St
 
 2.	Add an XML file to your **WorkerRole1** project by right-clicking on the **WorkerRole1** project and select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file “WadExample.xml”
 3.	Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click on the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
-4.	Replace the contents of the WadConfig.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
+4.	Replace the contents of the WadExample.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -355,11 +369,11 @@ This walk through assumes you have an Azure subscription and are using Visual St
 The PowerShell cmdlets for managing Diagnostics on a VM are: Set-AzureVMDiagnosticsExtension, Get-AzureVMDiagnosticsExtension, and Remove-AzureVMDiagnosticsExtension.
 
 1.	Open Windows Azure PowerShell
-2.	Execute the script to install Diagnostics on your VM (Replace *<key>* with the storage account key for your wadexample storage account):
+2.	Execute the script to install Diagnostics on your VM (Replace *StorageAccountKey* with the storage account key for your wadexamplevm storage account):
 
 		$storage_name = "wadexamplevm"
 		$key = "<StorageAccountKey>"
-		$config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExampleVM\WadExampleVM\WadConfig.xml"
+		$config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExampleVM\WadExampleVM\WadExample.xml"
 		$service_name="wadexamplevm"
 		$vm_name="WadExample"
 		$storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key 
@@ -730,29 +744,7 @@ The following table compare the features supported by Azure Diagnostics versions
 - [Debugging an Azure Application][]
 - [Configuring Azure Diagnostics][]
 
-    
-
-  [Using performance counters in Azure]: ../cloud-services-performance-testing-visual-studio-profiler/
-  [How to monitor cloud services]: ../cloud-services-how-to-monitor/
-  [DiagnosticMonitorTraceListener Class]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.diagnostics.diagnosticmonitortracelistener.aspx
-  [How to Use the Azure Diagnostics Configuration File]: http://msdn.microsoft.com/en-us/library/windowsazure/hh411551.aspx
-  [Adding Trace Failed Requests in the IIS 7.0 Configuration Reference]: http://www.iis.net/ConfigReference/system.webServer/tracing/traceFailedRequests/add
-  [Using performance counters in Azure]: /en-us/develop/net/common-tasks/performance-profiling/
-  [How to Configure Local Storage Resources]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758708.aspx
-  [Browsing Storage Resources with Server Explorer]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683677.aspx
-  [Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
-  [Azure Diagnostics Manager]: http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx
-  [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx
-  [Debugging an Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx
-  [Use the Azure Diagnostics Configuration File]: http://msdn.microsoft.com/en-us/library/windowsazure/hh411551.aspx
-  [LogLevel Enumeration]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.diagnostics.loglevel.aspx
-  [OnStart method]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
-  [Azure Diagnostics Configuration Schema]: http://msdn.microsoft.com/en-us/library/gg593185.aspx
-  [How to use the Table Storage Service]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/
-  [How to use the Azure Blob Storage Service]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/
-  [Azure Management Portal]: http://manage.windowsazure.com
-  [Remotely Change the Diagnostic Monitor Configuration]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432992.aspx
-  [Configuring Azure Diagnostics]: http://msdn.microsoft.com/en-us/library/windowsazure/dn186185.aspx  
+  
 
 [Overview]: #overview
 [How to Enable Diagnostics in a Worker Role]: #worker-role
@@ -763,8 +755,14 @@ The following table compare the features supported by Azure Diagnostics versions
 [Comparing Azure Diagnostics 1.0 and 1.2]: #comparing
 [Additional Resources]: #additional
 [EventSource Class]: http://msdn.microsoft.com/en-us/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
-   
+  
+[Configuring Azure Diagnostics]: http://msdn.microsoft.com/en-us/library/windowsazure/dn186185.aspx
+[Debugging an Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx   
+[Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx
 [Troubleshooting Best Practices for Developing Azure Applications]: http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx
 [Free Trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
 [Azure Diagnostics 1.2 Configuration Schema]: http://msdn.microsoft.com/en-us/library/azure/dn782207.aspx
+[Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/en-us/library/dn495270.aspx
+[Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/en-us/library/dn495145.aspx
+[Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/en-us/library/dn495168.aspx

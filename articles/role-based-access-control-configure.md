@@ -1,0 +1,177 @@
+<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Role Based Access Control in Azure Preview Portal" description="Describes how role based access control works and how to set it up" metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" />
+
+<tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha;Justinha@microsoft.com" />
+
+<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
+
+<!--Properties section (above): this is required in all topics. Please fill it out!-->
+
+<!--The next line, with one pound sign at the beginning, is the page title--> 
+# Role Based Access Control In Azure Preview Portal 
+
+<p> We’ve added support for Role-Based Access Control (RBAC) in the Azure Preview Portal to help organizations meet their access management requirements simply and precisely. The <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">blog post</a> will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases. 
+
+<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
+
+##Table of Contents##
+
+* [What is role based access control in Azure?](#whatisrbac) 
+* [Co-existence of RBAC with subscription co-admins](#coexist)
+* [Authorization for management versus data operations](#authmgmt)
+* [How to add and remove access](#addremoveaccess)
+* [How to provide feedback](#feedback)
+* [Next steps](#next)
+
+> [WACOM.NOTE] This article uses the Azure Preview portal. The [Preview portal](https://portal.azure.com) provides access to new features and experiences on the Azure platform, and is required when using steps and information provided in this article. If you are not currently logged in to your Azure subscription, you will be prompted to log in when you visit the [Preview portal](https://portal.azure.com). 
+
+<h2><a id="whatisrbac"></a>What is role based access control in Azure?</h2>
+                                                                   
+Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using Azure Management Portal or Azure Resource Manager APIs first need to authenticate with that Azure Active Directory.
+
+![][1] 
+
+Azure role based access control allows you to grant appropriate access to Azure AD users, groups, and services, by assigning roles to them on a subscription or resource group or individual resource level. The assigned role defines the level of access that the users, groups, or services have on the Azure resource. 
+
+### Role
+
+A role is a collection of actions that can be performed on Azure resources. A user or a service is allowed to perform an action on an Azure resource if they have been assigned a role that contains that action.
+
+#### Built-in Roles
+
+At the first preview, Azure role-based access control comes with three built-in roles that can be assigned to users, groups, and services.
+
++ **Owner**: has full control over Azure resources. Owner can perform all management operations on a resource including access management. 
++ **Contributor**: can perform all management operations expect access management. So, a contributor can’t grant access to others.
++ **Reader**: can only view resources. Reader can’t view secrets associated with a resource. 
+
+You can’t modify the definition of built-in roles. In an upcoming release of Azure RBAC, you will be able to define custom roles by composing a set of actions from a list of available ones that can be performed on Azure resources.
+
+#### Actions and non-actions
+
+The ‘actions’ property of the role definition specifies the allowed actions on Azure resources. Action strings can use wildcards. The ‘not actions’ property of the role definition specifies the actions that must be excluded from the allowed actions. 
+
+**Built-In Role**  | Actions  | Not Actions	
+------------- | -------------  | ------------
+Owner (allow all actions)  | *  | 
+Contributor (Allow all actions except writing or deleting role assignments)  | *  | Microsoft.Authorization/*/Write, Microsoft.Authorization/*/Delete
+Reader (Allow all read actions)  | */Read  | 
+
+### Role Assignment
+
+Access is granted to Azure AD users and services to an Azure resource by assigning the appropriate role to them, on that Azure resource. 
+
+#### Azure AD Security Principals
+
+Roles can be assigned to the following types of Azure AD security principals:
+
++ **Users**: roles can be assigned to organizational users that are in the Azure AD to which the Azure subscription is associated. Roles can also be assigned to external Microsoft account users (such as joe@outlook.com) by using the Invite action to assign the user to a role in the Azure Preview Portal. Assigning a role to an external Microsoft account user causes a guest account to be created in the Azure AD for it. If this guest account is disabled in the directory, the external user won’t be allowed to access any Azure subscription that they have been granted access to.
++ **Groups**: roles can be assigned to Azure AD security groups. A user is automatically granted access to a resource if the user becomes a member of a group that has access. The user also automatically loses access to the resource after getting removed from the group. Managing access via groups by assigning roles to groups and adding users to those groups is the recommended method, instead of assigning roles directly to users. Azure RBAC does not allow assigning roles to distribution lists.
+	The ability to assign roles to groups lets an organization extend its existing access control model from its on-premises directory to the cloud, so security groups that are already established in order to control access on-premises can be re-used to control access to resources in the Azure Preview Portal. For more information about different options for synchronizing users and groups from an on-premises directory, see [Directory integration](http://technet.microsoft.com/library/jj573653.aspx). Azure AD Premium also offers a [self-service group management feature](http://msdn.microsoft.com/library/azure/dn641267.aspx) where the ability to create and manage groups can be delegated to individual users from Azure AD.
++ **Service principals**: service identities are represented as service principals in the directory. They authenticate with Azure AD and securely communicate with one another. Services can be granted access to Azure resources by assigning roles via the Azure module for Windows PowerShell to the Azure AD service principal representing that service. 
+
+#### Resource scope
+
+Access to users and services needn’t be granted to the entire subscription. Roles can also be assigned on resource groups as well as on individual resources. In Azure RBAC a resource inherits role assignments from its parent resources, so if a user, group or service is granted access to only a resource group within a subscription, they will be able to only access that resource group and resources within it, and not be able to access other resources groups within the subscription.
+
+![][2]
+
+<h2><a id="coexist"></a>Co-existence of RBAC with subscription co-admins</h2>
+
+Subscription administrator and co-admins will continue to have full access to the Azure portals and management APIs. In the RBAC model, they are assigned the Owner role at the subscription level.  
+However, the new RBAC model is supported only by the Azure Preview Portal and Azure Resource Manager APIs. Users and services that are assigned RBAC roles cannot access the Azure Management Portal and the Service Management APIs. So, if you wish to grant access to a user to an Azure Resource that isn’t yet available to be managed via the Azure Preview Portal, you should add them to the Subscription Co-Admins using the full Azure Management Portal. Service Bus and Cloud Services are examples of resources that today cannot be managed by using RBAC.
+
+<h2><a id="authmgmt"></a>Authorization for management versus data operations</h2>
+
+Role based access control is supported only for management operations of the Azure resources in Azure Preview Portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. For instance, create/read/update/delete of Storage Accounts can be controlled via RBAC, but create/read/update/delete of blobs or tables within the Storage Account cannot yet be controlled via RBAC. Similarly, create/read/update/delete of a SQL DB can be controlled via RBAC but create/read/update/delete of SQL tables within the DB cannot yet be controlled via RBAC.
+
+<h2><a id="addremoveaccess"></a>How to add and remove access</h2>
+
+Let’s take a look at how an organization can manage access. They have multiple people working on a variety of test and production projects that are built using Azure resources. They want to follow best practices for granting access. Users should have access to all resources that they need, but no additional access. They want to re-use all the investments they have made in processes and tooling to use Active Directory security groups on-premises. These sections cover how they set up access control:
+
++ [Add access]
++ [Remove access]
++ [Add or remove access for external user (UI only)]
+
+### Add access
+Here is a summary of access requirements for the organization and how they are set up in Azure.
+
+User/Group  | Access requirement  | role and scope for access	
+------------- | -------------  | ------------
+All of Ellen Adams’ team  | Read all Azure resources  | Add the AD group that represents Ellen Adams’ team to Reader role for the Azure subscription
+All of Ellen Adams’ team  | Create and manage all resources in the Test resource group  | Add the AD group that represents Ellen Adams’ team to Contributor role for the Test resource group
+Tony  | Create and manage all resources in the Prod resource group  | Add Tony to Contributor role for the Prod resource group
+
+
+First, let’s add Read access for all resources of the subscription. Click **Browse -> Everything -> Subscriptions**.
+
+![][3] 
+
+Click *name of your subscription* **-> Reader -> Add** and type the name of the Active Directory group.
+
+![][4]
+
+Then add the same team to the Contributor role of the Test resource group. Click the resource group to open its property blade. Under **Roles**, click **Contributor -> Add** and type the name of the team.
+
+![][5]
+
+To add Tony to the Contributor role of the Prod resource group, click the resource group click **Contributor -> Add** and type Tony’s name. 
+
+![][6]
+
+Role assignments can also be managed by using the Microsoft Azure module for Windows PowerShell. Here is an example of adding Tony's account by using the New-AzureRoleAssignment cmdlet rather than the portal:
+
+	PS C:\> New-AzureRoleAssignment -Mail tonyw@vipswapper.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+
+For more information about using Windows PowerShell to add and remove access, see Managing Role-Based Access Control with Windows PowerShell. 
+
+
+### Remove access
+
+You can also remove assignments easily. Let’s say you want to remove a user named Brad Adams from the Reader role for a resource group named TestDB. Open the resource group blade, click **Reader -> Brad Adams -> Remove**.
+
+![][7]
+
+Here is an example of how to remove Brad Adams by using the Remove-AzureRoleAssignment cmdlet:
+
+	PS C:\> Remove-AzureRoleAssignment -Mail badams@dushyantgill.net -RoleDefinitionName Reader -ResourceGroupName TestDB
+
+
+### Add or remove access for external user (UI only)
+
+The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure portal by a directory global administrator. 
+
+![][8]
+
+Let’s step through the process to add access for an external user. We’ll add an external user to the same Reader ole for TestDB resource group so that user can help debug an error. Open the resource group blade, click **Reader -> Add -> Invite** and type the email address of the user you want to add. 
+
+![][9]
+
+The first time you add an external user, a Guest user account is created. Thereafter you can add or remove that guest account to a group, or you can  add or remove it individually from a role similarly to any other directory users.   
+
+<h2><a id="feedback"></a>How to provide feedback</h2>
+
+Please try Azure RBAC and send us [feedback](http://feedback.azure.com/forums/34192--general-feedback). 
+
+
+<h2><a id="next"></a>Next steps</h2>
+
+[Configure RBAC using XPLAT CLI](../role-based-access-control-xplt-cli/)
+
+[Configure RBAC using Azure Module for Windows PowerShell](../role-based-access-control-powershell/)
+
+
+<!--Image references-->
+[1]: ./media/role-based-access-control-how-to-configure/RBACSubAuthDir.png
+[2]: ./media/role-based-access-control-how-to-configure/RBACAssignmentScopes.png
+[3]: ./media/role-based-access-control-how-to-configure/RBACSubscriptionBlade.png
+[4]: ./media/role-based-access-control-how-to-configure/RBACAddSubReader.png
+[5]: ./media/role-based-access-control-how-to-configure/RBACAddRGContributor.png
+[6]: ./media/role-based-access-control-how-to-configure/RBACAddProdContributor.png
+[7]: ./media/role-based-access-control-how-to-configure/RBACRemoveRole.png
+[8]: ./media/role-based-access-control-how-to-configure/RBACGuestAccessControls.png
+[9]: ./media/role-based-access-control-how-to-configure/RBACInviteExtUser.png
+
+<!--Link references-->
+[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
+[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
+[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/

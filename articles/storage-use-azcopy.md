@@ -641,7 +641,8 @@ Note that any empty folders will not be copied.
 
 | Version | What's New                                                                                      				|
 |---------|-----------------------------------------------------------------------------------------------------------------|
-| **V2.5.0**  | **Current version. Optimizes performance for large-scale copy scenarios, and introduces several important usability improvements.**	
+| **V2.5.1**  | **Current version. Optimizes performance when using options /xo and /xn. Fixes bugs related to special characters in source file names and journal file corruption after user input the wrong command-line syntax.**	
+| V2.5.0  | Current version. Optimizes performance for large-scale copy scenarios, and introduces several important usability improvements.	
 | V2.4.1  | Supports specifying the destination folder in the installation wizard.                     			
 | V2.4.0  | Supports uploading and downloading files for Azure File storage.                       				                              
 | V2.3.0  | Supports read-access geo-redundant storage accounts.                                                  			|

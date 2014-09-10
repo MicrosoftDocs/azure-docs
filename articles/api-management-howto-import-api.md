@@ -4,7 +4,7 @@
 
 # How to import the definition of an API with operations in Azure API Management
 
-In API Management (Preview), new APIs can be created and the operations added manually, or the API can be imported along with the operations in one step.
+In API Management, new APIs can be created and the operations added manually, or the API can be imported along with the operations in one step.
 
 APIs and their operations can be imported using the following formats.
 
