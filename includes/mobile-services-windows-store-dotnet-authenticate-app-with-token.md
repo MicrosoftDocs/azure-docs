@@ -5,7 +5,8 @@ The previous example showed a standard sign-in, which requires the client to con
 
 1. In the MainPage.xaml.cs project file, add the following **using** statements:
 
-		using Windows.Security.Credentials;		
+		using System.Linq;		
+		using Windows.Security.Credentials;
 
 2. Replace the **AuthenticateAsync** method with the following code:
 

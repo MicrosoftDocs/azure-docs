@@ -18,7 +18,7 @@ This tutorial walks you through these steps:
 1. [Enable Google Cloud Messaging](#register)
 2. [Configure mobile service to send push requests](#configure)
 5. [Update the server to send push notifications](#update-server)
-7. [Add push notifications to your app](#update)
+7. [Add push notifications to your app](#update-app)
 8. [Enable push notifications for local testing](#local-testing)
 9. [Test the app against the published mobile service]
 

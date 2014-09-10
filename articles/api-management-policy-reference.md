@@ -4,7 +4,7 @@
 
 # Azure API Management Policy Reference
 
-This topic provides a reference for the following API Management (Preview) policies. For information on adding and configuring policies, see [Policies in API Management][].
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management][].
 
 -	[Access restriction policies][]
 	-	[Usage quota][] - Allows you to enforce a renewable or lifetime call volume and / or bandwidth quota.
