@@ -107,7 +107,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             return YES;
         }
 
-2. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you grab the Mobile Service Url and Application Key and switch them in for the placeholders:
+3. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you grab the Mobile Service Url and Application Key and switch them in for the placeholders:
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {

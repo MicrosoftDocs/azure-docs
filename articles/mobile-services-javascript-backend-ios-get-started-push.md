@@ -19,10 +19,10 @@ This tutorial walks you through these basic steps to enable push notifications:
 1. [Generate the certificate signing request] 
 2. [Register your app and enable push notifications]
 3. [Create a provisioning profile for the app]
-3. [Configure Mobile Services]
-4. [Add push notifications to the app]
-5. [Update scripts to send push notifications]
-6. [Insert data to receive notifications]
+4. [Configure Mobile Services]
+5. [Add push notifications to the app]
+6. [Update scripts to send push notifications]
+7. [Insert data to receive notifications]
 
 This tutorial requires the following:
 
@@ -60,7 +60,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             return YES;
         }
 
-2. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you grab the Mobile Service Url and Application Key and switch them in for the placeholders:
+3. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you grab the Mobile Service Url and Application Key and switch them in for the placeholders:
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
@@ -74,7 +74,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             }];
         }
 
-3. In QSAppDelegate.m, add the following handler method inside the implementation: 
+4. In QSAppDelegate.m, add the following handler method inside the implementation: 
 
         // Handle any failure to register. 
         - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
@@ -82,7 +82,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             NSLog(@"Failed to register for remote notifications: %@", error);
         }
 
-4. In QSAppDelegate.m, add the following handler method inside the implementation:  
+5. In QSAppDelegate.m, add the following handler method inside the implementation:  
 
         // Because alerts don't work when the app is running, the app handles them.
         // This uses the userInfo in the payload to display a UIAlertView.
