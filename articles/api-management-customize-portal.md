@@ -4,7 +4,7 @@
 
 # Customizing the developer portal in Azure API Management
 
-This guide shows you how to modify the look and feel of the developer portal in API Management (Preview) for consistency with your brand.
+This guide shows you how to modify the look and feel of the developer portal in API Management for consistency with your brand.
 
 ## In this topic
 

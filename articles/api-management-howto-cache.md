@@ -4,7 +4,7 @@
 
 # How to cache operation results in Azure API Management
 
-Operations in API Management (Preview) can be configured for response caching. Response caching can significantly reduce API latency, bandwidth consumption, and web service load for data that does not change frequently.
+Operations in API Management can be configured for response caching. Response caching can significantly reduce API latency, bandwidth consumption, and web service load for data that does not change frequently.
 
 In this tutorial you will review the caching settings and policies for one of the sample Echo Api operations, and call the operation in the developer portal to see the caching in operation.
 

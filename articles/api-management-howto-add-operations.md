@@ -4,7 +4,7 @@
 
 # How to add operations to an API in Azure API Management
 
-Before an API in API Management (Preview) can be used, operations must be added. This guide shows how to add and configure different types of operations to an API in API Management.
+Before an API in API Management can be used, operations must be added. This guide shows how to add and configure different types of operations to an API in API Management.
 
 ## In this topic
 
