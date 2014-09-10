@@ -25,11 +25,11 @@ This tutorial requires the following:
 
 ## <a name="initialize"></a>Initialize the Capptain SDK
 
-1. Navigate to the *Application Details* page of your app registered in Capptain. Select the SDK tab and download the package.
+1. Navigate to the **Application Details** page of your app registered in Capptain. Select the SDK tab and download the package.
 
 2. In XCode, add the Capptain SDK to your project by right clicking your project and selecting "Add files to..." Choose the CapptainSDK folder.
 
-3. Under the *Build Phases* tab, select *Link Binary With Libraries* and add the following frameworks:
+3. Under the **Build Phases** tab, select **Link Binary With Libraries** and add the following frameworks:
     * AdSupport.framework - set the link as Optional
     * SystemConfiguration.framework
     * CoreTelephony.framework
