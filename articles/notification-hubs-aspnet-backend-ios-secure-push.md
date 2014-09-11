@@ -36,13 +36,17 @@ Now that you modified your app back-end to send just the *id* of a notification,
 
 To achieve this goal, we have to write the logic to retrieve the secure content from the app back-end.
 
-1. In your **AppDelegate.m** add an implementation section at the top with the following declaration:
+1. In **AppDelegate.m**, make sure the app registers for silent notifications so it processes the notification id sent from the backend. Add the **UIRemoteNotificationTypeNewsstandContentAvailability** option in didFinishLaunchingWithOptions:
+
+		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
+
+2. In your **AppDelegate.m** add an implementation section at the top with the following declaration:
 
 		@interface AppDelegate ()
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		@end
 
-2. Then add in the implementation section the following code, substituting the placeholder `{back-end endpoint}` with the endpoint for your back-end obtained previously:
+3. Then add in the implementation section the following code, substituting the placeholder `{back-end endpoint}` with the endpoint for your back-end obtained previously:
 
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
@@ -91,14 +95,14 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 
 	This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
 	
-3. Now we have to handle the incoming notification and use the method above to retrieve the content to display. First, we have to enable your iOS app to run in the background when receiving a push notification. In **XCode**, select your app project on the left panel, then click your main app target in the **Targets** section from the central pane.
+4. Now we have to handle the incoming notification and use the method above to retrieve the content to display. First, we have to enable your iOS app to run in the background when receiving a push notification. In **XCode**, select your app project on the left panel, then click your main app target in the **Targets** section from the central pane.
 
-4. Then click your **Capabilities** tab at the top of your central pane, and check the **Remote Notifications** checkbox.
+5. Then click your **Capabilities** tab at the top of your central pane, and check the **Remote Notifications** checkbox.
 
 	![][IOS1]
 
 
-5. In **AppDelegate.m** add the following method to handle push notifications:
+6. In **AppDelegate.m** add the following method to handle push notifications:
 
 		-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 		{
@@ -127,12 +131,10 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 
 To run the application, do the following:
 
-1. Make sure **AppBackend** is deployed in Azure. If using Visual Studio, run the **AppBackend** Web API application. An ASP.NET web page is displayed.
+1. In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).
 
-2. In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).
+2. In the iOS app UI, enter a username and password. These can be any string, but they must be the same value.
 
-3. In the iOS app UI, enter a username and password. These can be any string, but they must be the same value.
-
-4. In the iOS app UI, click **Log in**. Then click **Send push**. You should see the secure notification being displayed in your notification center.
+3. In the iOS app UI, click **Log in**. Then click **Send push**. You should see the secure notification being displayed in your notification center.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

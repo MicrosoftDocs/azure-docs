@@ -9,53 +9,50 @@
 		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
-Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](http://msdn.microsoft.com/en-us/library/dn743807.aspx). This tutorial builds on the notification hub that you created in the **Get started with Notification Hubs** tutorial.
+Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](http://msdn.microsoft.com/en-us/library/dn743807.aspx).
 
-This tutorial is also the prerequisite to the **Secure Push** tutorial. After you have completed the steps in this **Notify Users** tutorial, you can proceed to the **Secure Push** tutorial, which shows how to modify the **Notify Users** code to send a push notification securely. 
-
-> [AZURE.NOTE] This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/).
+> [AZURE.NOTE] This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/). This tutorial is also the prerequisite to the [Secure Push (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/) tutorial.
 
 
 ## Create and Configure the Notification Hub
 
-Before you begin this tutorial, you must create an iOS provisioning profile and development push certificate, then create an Azure Notification Hub and connect it to that application. Please follow the steps in [Getting Started with Notification Hubs (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/); specifically sections 1 through 5.
+Please follow sections 1 through 5 in [Getting Started with Notification Hubs (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/). For additional resources on iOS device provisioning, check out the guide at [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
 
 [WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Modify your iOS app
 
-1. Follow the steps in [Getting Started with Notification Hubs (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/), sections 1 through 5, to create a Single Page view app able to receive push notifications from a notification hub.
+1. Open the Single Page view app you created following sections 1 through 5 in [Getting Started with Notification Hubs (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/).
 
-> [AZURE.NOTE] In this section we assume that you configured your project with an empty organization name. If this is not your case, you have to prepend your organization name to the all classes names in the code below.
+> [AZURE.NOTE] In this section we assume that your project is configured with an empty organization name. If not, you will need to prepend your organization name to all class names.
 
 
 2. In your Main.storyboard add the following components from the object library:
 	+ A UITextField with placeholder text **Username**
-	+ A UITextField with placeholder text **Password**, and check the **Secure Text Entry** option in the TextField property group in the right pane
-	+ A UIButton labeled **1. Log in**, and uncheck the **Enabled** option in the Accessibility property group in the right pane
-	+ A UIButton labeled **2. Send Push**, and uncheck the **Enabled** option in the Accessibility property group in the right pane
+	+ A UITextField with placeholder text **Password**, and check the **Secure** option in the Attribute Inspector, under Textfield Return Key
+	+ A UIButton labeled **1. Log in**, and uncheck the **Enabled** option in the Attributes Inspector, under Control then Content
+	+ A UIButton labeled **2. Send Push**, and uncheck the **Enabled** option
 	
 	Your storyboard should look as follows:
 	
     ![][IOS1]
     
-3. Create outlets for both the UITextFields and the UIButtons in the interface portion of your ViewController.m
+3. Create outlets for both the UITextFields and the UIButtons in the interface portion of your ViewController.h
 
 	    @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
 		@property (weak, nonatomic) IBOutlet UITextField *PasswordField;
 		@property (weak, nonatomic) IBOutlet UIButton *LogInButton;
 		@property (weak, nonatomic) IBOutlet UIButton *SendPushButton;
 
-4. Create actions for both your buttons in your ViewController.m implementation:			
-		- (IBAction)LogInAction:(id)sender { }
-		- (IBAction)SendPushAction:(id)sender { }
+		- (IBAction)LogInAction:(id)sender;
+		- (IBAction)SendPushAction:(id)sender;
 
-5. First, we will create a RegisterClient class to interface with our back-end. Create an Objective-C class called RegisterClient inheriting from NSObject. Then add the following code in the RegisterClient.h interface section:
+4. First, we will create a RegisterClient class to interface with our back-end. Create an Objective-C class called RegisterClient inheriting from NSObject. Then add the following code in the RegisterClient.h interface section:
 
 		@property (strong, nonatomic) NSString* authenticationHeader;
 		-(void) registerWithDeviceToken:(NSData*) token tags:(NSSet*) tags andCompletion: (void(^)(NSError*)) completion;
 		
-6. In the RegisterClient.m add the following interface section:
+5. In the RegisterClient.m add the following interface section:
 
 		@interface RegisterClient ()
 		
@@ -66,7 +63,7 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 		
 		@end
 
-7. Then add the following code in the implementation section, and substitute the *{backend endpoint}* placeholder with the endpoint you used to deploy your app backend in the previous section.
+6. Add the following code in the RegisterClient.m implementation section, and substitute the *{backend endpoint}* placeholder with the Destination URL you used to deploy your app backend in the previous section.
 		
 		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";
 		NSString *const BackEndEndpoint = @"{backend endpoint}/api/register";
@@ -199,27 +196,31 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 	
 	Note that this class requires its property **authorizationHeader** to be set in order to work properly. This property is set by the **ViewController** class after the log in.
 	
-8. In ViewController.h add the following property that will contain the device token:
+7. In ViewController.h, add the following declaration for the device token:
 
 		@property (strong, nonatomic) NSData* deviceToken;
 	
 
-9. In ViewController.m, make the ViewController class a UITextFieldDelegate, add a property to reference a RegisterClient instance, and add a private method declaration. Your interface section should be:
+8. In ViewController.m, make the ViewController class a UITextFieldDelegate, and add property to reference a RegisterClient instance. Then add a private method declaration. Your interface section should look like this:
 
 		@interface ViewController () <UITextFieldDelegate>
-		@property (weak, nonatomic) IBOutlet UITextField *UsernameField;
-		@property (weak, nonatomic) IBOutlet UITextField *PasswordField;
-		@property (weak, nonatomic) IBOutlet UIButton *LogInButton;
-		@property (weak, nonatomic) IBOutlet UIButton *SendPushButton;
-		
+
+		@property (weak, nonatomic) IBOutlet ...
+		@property (weak, nonatomic) IBOutlet ...
+		@property (weak, nonatomic) IBOutlet ...
+		@property (weak, nonatomic) IBOutlet ...
+
+		@property (strong, nonatomic) NSData* deviceToken;
 		@property (strong, nonatomic) RegisterClient* registerClient;
 		
+		- (IBAction)LogInAction:(id)sender;
+		- (IBAction)SendPushAction:(id)sender;
+		
+		// create the Authorization header to perform Basic authentication with your app back-end
 		-(void) createAndSetAuthenticationHeaderWithUsername: (NSString*) username AndPassword: (NSString*) password;
 		@end
 
-	The private method will be used to create the Authorization header to perform Basic authentication with your app back-end.
-
-> [AZURE.NOTE] This is not a secure authentication scheme, you should substitute the implementation of the **createAndSetAuthenticationHeaderWithUsername:AndPassword:** with your specific authentication mechanism that generates an authentication token to be consumed by the register client class, e.g. OAuth, Active Directory.
+> [AZURE.NOTE] The following snippet is not a secure authentication scheme, you should substitute the implementation of the **createAndSetAuthenticationHeaderWithUsername:AndPassword:** with your specific authentication mechanism that generates an authentication token to be consumed by the register client class, e.g. OAuth, Active Directory.
 
 9. Then in the implementation section of ViewController.m add the following code:
 
@@ -244,9 +245,9 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 		    return YES;
 		}
 		
-	Note how setting the device token enables the log in button. This is becasue as a part of the login action, the view controller will register for push notifications with the app backend. As a result, we want to avoid the user pushing the Log in button before the device token has been properly set up. In your app you might want to decouple the log in from the push registration as long as the former happens before the latter.
+	Note how setting the device token enables the log in button. This is becasue as a part of the login action, the view controller registers for push notifications with the app backend. Hence, we do not want Log In action to be accessible till the device token has been properly set up. You can decouple the log in from the push registration as long as the former happens before the latter.
 
-10. In ViewController.m add a constant for your backend endpoint and fill in the implementations of the action methods for your UIButtons. Remember to replace the placeholder with the backend endpoint you used in the previous section.
+10. In ViewController.m, add a constant for your backend endpoint and use the following snippets to implement the action methods for your UIButtons. Replace the placeholder backend endpoint with the Destination URL you used for your backend.
 
 		- (IBAction)LogInAction:(id)sender {
 		    // create authentication header and set it in register client
@@ -295,20 +296,18 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 		    [dataTask resume];
 		}
 
-10. Finally in **ViewDidLoad** add the following code to instantiate the RegisterClient instance and set the delegate for your text fields.
+11. In function **ViewDidLoad**, add the following to instantiate the RegisterClient instance and set the delegate for your text fields.
 
 		self.UsernameField.delegate = self;
 		self.PasswordField.delegate = self;
 		self.registerClient = [[RegisterClient alloc] init];
 
-11. Now in your **AppDelegate.m** remove all the content of the method **application:didRegisterForPushNotificationWithDeviceToken:** and replace it with:
+12. Now in **AppDelegate.m**, remove all the content of the method **application:didRegisterForPushNotificationWithDeviceToken:** and replace it with the following to make sure that the view controller contains the latest device token retrieved from APNs:
 
 	    ViewController* rvc = (ViewController*) self.window.rootViewController;
 	    rvc.deviceToken = deviceToken;
-	   
-	This makes sure that the view controller contains the latest device token retrieved from APNs.
 
-12. Still in **AppDelegate.m** make sure you have the following method:
+13. Finally in **AppDelegate.m**, make sure you have the following method:
 
 		- (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
 		    NSLog(@"%@", userInfo);
@@ -320,15 +319,13 @@ Before you begin this tutorial, you must create an iOS provisioning profile and 
 
 ## Run the Application
 
-To run the application, do the following:
+1. In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).
 
-1. Make sure **AppBackend** is deployed in Azure. If using Visual Studio, run the **AppBackend** Web API application. An ASP.NET web page is displayed.
+2. In the iOS app UI, enter a username and password. These can be any string, but they must be of the same value. Then click **Log In**.
 
-2. In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).
+3. You should see a pop-up informing you of registration success. Click **OK**.
 
-3. In the iOS app UI, enter a username and password. These can be any string, but they must be the same value.
-
-4. In the iOS app UI, click **Log in**. Then click **Send push**.
+4. Click **Send push** and hit the home button. A push notification will appear shortly.
 
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
