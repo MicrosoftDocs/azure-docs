@@ -1,6 +1,6 @@
 <properties title="Using the Docker Virtual Machines Extension for Linux on Azure" pageTitle="Using the Docker VM Extension for Linux on Azure" description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface." metaKeywords="linux, virtual machines, vm, azure, docker, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="virtual-machines" authors="rasquill" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="Linux" ms.workload="infrastructure-services" ms.date="08/21/2014" ms.author="ralph.squillace@microsoft.com" />
+<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="08/21/2014" ms.author="ralph.squillace@microsoft.com" />
 
 # How to Use the Docker Virtual Machine Extension for Linux on Azure
 [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) to create a Docker VM that hosts any number of containers for your applications on Azure.
@@ -12,7 +12,7 @@ This topic follows this [MS Open Tech blog announcement](http://msopentech.com/b
 + [Virtual Machine Extensions for Linux and Windows] 
 + [Container and Container Management Resources for Azure]
 
-## </a id='Docker and Linux Containers'</a>
+## </a id='Docker and Linux Containers'>Docker and Linux Containers</a>
 [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources and provides other services that enable you build or assemble applications quickly and distribute them between other Docker containers.
 
 Docker and Linux containers are not [Hypervisors](http://en.wikipedia.org/wiki/Hypervisor) such as Windows Hyper-V and [KVM](http://www.linux-kvm.org/page/Main_Page) on Linux (there are many other examples). Hypervisors virtualize the underlying operating system to enable complete operating systems to run inside the hypervisor as if they were an application. 
@@ -28,13 +28,13 @@ The following table describes at a very high level the kind of feature differenc
 | Time taken to start up | Substantially Longer: Boot of OS plus app loading | Substantially shorter: Only apps need to start because kernel is already running  |
 | Container Automation | Varies widely depending on OS and apps | [Docker image gallery](https://registry.hub.docker.com/); others 
 
-For more information about what Docker is and how it really works, see [What is Docker?](https://www.docker.com/whatisdocker/).
+For more information about what Docker is and how it really works, see [What is Docker?](https://www.docker.com/whatisdocker/)
 
 #### Docker and Linux Container Security Best Practices
 
 Because containers do share access to the host computer's kernel, if malicious code is able to gain root it may also be able to gain access not only to the host computer but also the other containers. To secure your container system more strongly than the default configuration, [Docker recommends](https://docs.docker.com/articles/security/) using addition group-policy or [role-based security](http://en.wikipedia.org/wiki/Role-based_access_control) as well, such as [SELinux](http://selinuxproject.org/page/Main_Page) or [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), for example, as well as reducing as much as possible the kernel capabilities that the containers are granted. In addition, there are many other documents on the Internet that describe approaches to security using containers like Docker.
 
-## <a id='How to use the Docker VM Extension with Azure'</a>
+## <a id='How to use the Docker VM Extension with Azure'>How to use the Docker VM Extension with Azure</a>
 To use the Docker VM extension with Azure, you must install a version of the [Azure Cross-Platform Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat) (called the **xplat-cli** in this topic) higher than 0.8.6 (as of this writing the current version is 0.8.7). You can install the xplat-cli on Mac, Linux, and Windows. 
 
 > [WACOM.NOTE] Although you can install the xplat-cli on Microsoft Windows, Docker was built with kernel dependencies specific to Linux. Therefore, to use Windows as a Docker client you must host a full Linux distribution as a virtual machine inside Hyper-V or another hypervisor. Once you have done that, you can use the xplat-cli and the Docker commands in this document and those of Docker. Docker itself has a setup program for Windows, [Boot2Docker](https://docs.docker.com/installation/windows/), which you can also use to automate this same setup.
@@ -116,10 +116,10 @@ The Docker daemon on the host is configured to listen for and authenticate clien
 
 > [WACOM.NOTE] A networked host running without these certificates will be vulnerable to anyone that can to connect to the machine. Before you modify the default configuration, ensure that you understand the risks to your computers and applications.
 
-## <a id='Next Steps'></a>
+## <a id='Next Steps'>Next Steps</a>
 You are now ready to issue Docker commands in the [Docker user guide](https://docs.docker.com/userguide/) against your Docker host VM on Azure. 
 
-## <a id='Virtual Machine Extensions for Linux and Windows'></a>
+## <a id='Virtual Machine Extensions for Linux and Windows'>Virtual Machine Extensions for Linux and Windows</a>
 The Docker VM extension for Azure is just one of several VM extension that provide special behavior, and more are in development. For example, several of the [Linux VM Agent extension](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) features allow you to modify and manage the image, including security features, kernel and networking features, and so on. The VMAccess extension for Windows images lets you reset or modify Remote Desktop Access settings and reset the administrator password. 
 
 For a complete list, see [Azure VM Extensions](http://msdn.microsoft.com/en-us/library/azure/dn606311.aspx).
