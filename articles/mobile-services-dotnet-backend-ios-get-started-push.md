@@ -92,7 +92,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## Add push notifications to your app
 
-1. In QSAppDelegate.m, replace the following handler method inside the implementation: 
+1. In QSAppDelegate.m, insert the following snippet to import the Mobile Services iOS SDK:
+
+        #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
+
+2. In QSAppDelegate.m, replace the following handler method inside the implementation: 
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
         (NSDictionary *)launchOptions
@@ -103,11 +107,19 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             return YES;
         }
 
-2. In QSAppDelegate.m, add the following handler method inside the implementation: 
+3. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you copy the Mobile Service Url and Application Key values and switch them in for the placeholders:
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
-			client.push.registerNative(deviceToken, @”uniqueTag”);
+            
+            // TODO: update @"MobileServiceUrl" and @"AppKey" placeholders
+            MSClient *client = [MSClient clientWithApplicationURLString:@"MobileServiceUrl" applicationKey:@"AppKey"]
+            
+            [client.push registerNativeWithDeviceToken:deviceToken tags:@[@"uniqueTag"] completion:^(NSError *error) {
+                if (error != nil) {
+                    NSLog(@"Error registering for notifications: %@", error);
+                }
+            }];
         }
 
 4. In QSAppDelegate.m, add the following handler method inside the implementation: 
@@ -131,29 +143,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             [alert show];
         }
 
-5. In QSTodoListViewController.m, import the QSAppDelegate.h file so that you can use the delegate to obtain the device token: 
-
-        #import "QSAppDelegate.h"
-
-6. In QSTodoListViewController.m, modify the **(IBAction)onAdd** action by locating the following line: 
-
-        NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) }; 
- 
-   Replace this with the following code:
-
-        // Get a reference to the AppDelegate to easily retrieve the deviceToken
-        QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    
-        NSDictionary *item = @{
-            @"text" : itemText.text,
-            @"complete" : @(NO),
-            // add the device token property to our todo item payload
-            @"deviceToken" : [[NSString alloc] initWithData:delegate.deviceToken encoding:NSUTF8StringEncoding]
-        };
-
-   This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
-
-   > [WACOM.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
+   > [WACOM.NOTE] You must add this code before calling the <strong>addItem</strong> method.
 
 Your app is now updated to support push notifications.
 
