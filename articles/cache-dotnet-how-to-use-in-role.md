@@ -16,6 +16,8 @@ objects from the cache, storing ASP.NET session state in the cache**,
 and **enabling ASP.NET page output caching using the cache**. For more
 information on using In-Role Cache, refer to the [Next Steps][] section.
 
+>For guidance on choosing the right Azure Cache offering for your application, see [Which Azure Cache offering is right for me?][].
+
 ## Table of Contents
 
 -   [What is In-Role Cache?][]
@@ -442,3 +444,5 @@ follow these links to learn how to do more complex caching tasks.
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/en-us/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure Management Portal]: http://windows.azure.com/
 [Azure Shared Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/gg278356.aspx
+
+[Which Azure Cache offering is right for me?]: http://msdn.microsoft.com/en-us/library/azure/dn766201.aspx
