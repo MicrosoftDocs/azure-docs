@@ -24,7 +24,7 @@ where:
 * `subscriptionId` - id of the subscription containing the API Management service you are attempting to backup
 * `resourceGroupName` - a string in the form of 'Api-Default-{service-region}' where `service-region` identifies the Azure region where the API Management service you are trying to backup is hosted, e.g. `North-Central-US`
 * `serviceName` - the name of the API Management service you are making a backup of specified at the time of its creation
-* `api-version` - replace  with `2014-04-01`
+* `api-version` - replace  with `2014-02-14`
 
 In the body of the request, specify the target Azure storage account, access key, blob container name, and backup name:
 
@@ -58,7 +58,7 @@ where:
 * `subscriptionId` - id of the subscription containing the API Management service you are restoring a backup into
 * `resourceGroupName` - a string in the form of 'Api-Default-{service-region}' where `service-region` identifies the Azure region where the API Management service you are restoring a backup into is hosted, e.g. `North-Central-US`
 * `serviceName` - the name of the API Management service being restored into specified at the time of its creation
-* `api-version` - replace  with `2014-04-01`
+* `api-version` - replace  with `2014-02-14`
 
 In the body of the request, specify the backup file location, i.e. Azure storage account, access key, blob container name, and backup name:
 
