@@ -19,10 +19,21 @@
 
 	In the above code, replace `todolistService` with the namespace of your mobile service project, which should be the mobile service name appended with `Service`. 
 
-4. Add the following code to the new controller:
+4. In CompleteAllController.cs, add the following class definition to the namespace. This class wraps the response sent to the client.
+
+        // We use this class to keep parity with other Mobile Services
+        // that use the JavaScript backend. This way the same client
+        // code can call either type of Mobile Service backend.
+        public class MarkAllResults
+        {
+            public Int32 count;
+        }
+
+
+5. Add the following code to the new controller:
 
 	    // POST api/completeall        
-        public async Task<int> Post()
+        public async Task<MarkAllResults> Post()
         {
             using (todolistContext context = new todolistContext())
             {
@@ -33,13 +44,15 @@
                 // to complete and execute the statement asynchronously.
                 var sql = @"UPDATE todolistService.TodoItems SET Complete = 1 " +
                             @"WHERE Complete = 0; SELECT @@ROWCOUNT as count";
-                var result = await database.ExecuteSqlCommandAsync(sql);
+
+                var results = new MarkAllResults();
+                results.count = await database.ExecuteSqlCommandAsync(sql);
 
                 // Log the result.
                 Services.Log.Info(string.Format("{0} items set to 'complete'.", 
-                    result.ToString()));
+                    results.count.ToString()));
                 
-                return result;
+                return results;
             }
         }
 
