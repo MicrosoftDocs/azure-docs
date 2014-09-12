@@ -31,7 +31,7 @@ There are a number of models we could choose from. To see the models available, 
 ##Train the models
 First, let's set up the boosted decision tree model:  
 
-1.	Find the T**wo-Class Boosted Decision Tree** module in the module palette and drag it onto the canvas.
+1.	Find the **Two-Class Boosted Decision Tree** module in the module palette and drag it onto the canvas.
 2.	Find the **Train Model** module, drag it onto the canvas, and then connect the output of the boosted decision tree module to the left input port ("Untrained model") of the **Train Model** module.
 3.	Connect the output of the left **Execute R Script** module to the right input port ("Dataset") of the **Train Model** module.
 
