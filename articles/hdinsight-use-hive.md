@@ -26,6 +26,8 @@
 
 ##<a id="usage"></a>The Hive usage case
 
+![HDI.HIVE.Architecture][image-hdi-hive-architecture]
+
 Hive projects some kind of structure on a largely unstructured data set (which is all Hadoop is about), and then lets you query that data using HiveQL. Hive provides a layer of abstraction over the Java-based MapReduce framework, enabling users to query data without knowledge of Java or MapReduce. HiveQL provides a simple SQL-like wrapper that allows queries to be written in HiveQL that are then compiled to MapReduce for you by HDInsight and run on the cluster. Other benefits of Hive are: 
 
 - Hive allows programmers who are familiar with the MapReduce framework to plug in custom mappers and reducers to perform more sophisticated analysis that may not be supported by the built-in capabilities of the HiveQL language.
@@ -193,7 +195,7 @@ If required, you can also import the output of your queries into Microsoft Excel
 
 If required, you can also import the output of your queries into Microsoft Excel for further analysis. For instructions, see [Connect Excel to Hadoop with Power Query][import-to-excel].
 
-##<a id="usetez"</a>Using Tez For Improved Performance
+##<a id="usetez"></a>Using Tez For Improved Performance
 
 [Apache Tez][apache-tez] is a framework that allows for data intensive applications like Hive to execute much more efficiently at scale. In the latest release of HDInsight, Hive now supports running on Tez.  This is currently off by default and must be enabled.  In future cluster versions, this will be set to be on by default. In order to take advantage of Tez, the following value must be set for a Hive query:
 
@@ -248,3 +250,4 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png 
+[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
