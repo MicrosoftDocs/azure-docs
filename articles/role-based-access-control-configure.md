@@ -7,9 +7,9 @@
 <!--Properties section (above): this is required in all topics. Please fill it out!-->
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
-# Role Based Access Control In Azure Preview Portal 
+# Role-Based Access Control In Azure Preview Portal 
 
-<p> We’ve added support for Role-Based Access Control (RBAC) in the Azure Preview Portal to help organizations meet their access management requirements simply and precisely. The <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">blog post</a> will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases. 
+<p> We’ve added support for role-based access control (RBAC) in the Azure Preview Portal to help organizations meet their access management requirements simply and precisely. The <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">blog post</a> will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases. 
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
