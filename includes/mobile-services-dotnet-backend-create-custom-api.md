@@ -24,7 +24,7 @@
         // We use this class to keep parity with other Mobile Services
         // that use the JavaScript backend. This way the same client
         // code can call either type of Mobile Service backend.
-        public class MarkAllResults
+        public class MarkAllResult
         {
             public Int32 count;
         }
@@ -33,7 +33,7 @@
 5. Add the following code to the new controller:
 
 	    // POST api/completeall        
-        public async Task<MarkAllResults> Post()
+        public async Task<MarkAllResult> Post()
         {
             using (todolistContext context = new todolistContext())
             {
@@ -45,14 +45,14 @@
                 var sql = @"UPDATE todolistService.TodoItems SET Complete = 1 " +
                             @"WHERE Complete = 0; SELECT @@ROWCOUNT as count";
 
-                var results = new MarkAllResults();
-                results.count = await database.ExecuteSqlCommandAsync(sql);
+                var result = new MarkAllResult();
+                result.count = await database.ExecuteSqlCommandAsync(sql);
 
                 // Log the result.
                 Services.Log.Info(string.Format("{0} items set to 'complete'.", 
-                    results.count.ToString()));
+                    result.count.ToString()));
                 
-                return results;
+                return result;
             }
         }
 
