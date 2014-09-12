@@ -32,7 +32,7 @@ In this section, we'll create a Visual Studio project using a sample template.  
 
 1.  In Visual Studio, select **File**, **New Project**. 
 
-1.  The project templates from the PTVS Samples VSIX are available under **Python**, **Samples**.  Select **Polls Flask Web Project** and click OK create the project.
+1.  The project templates from the PTVS Samples VSIX are available under **Python**, **Samples**.  Select **Polls Flask Web Project** and click OK to create the project.
 
   	![][1]
 
