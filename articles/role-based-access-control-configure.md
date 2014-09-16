@@ -147,13 +147,13 @@ Then you can edit the options to control access for external users.
 
 ![][8]
 
-By default, guest cannot enumerate the contents of the directory, so they do not see any users or groups in the **Member List**. They can search for a user by typing the user's full email address, and then grant access. The set of default restrictions for guests are:
+By default, guests cannot enumerate the contents of the directory, so they do not see any users or groups in the **Member List**. They can search for a user by typing the user's full email address, and then grant access. The set of default restrictions for guests are:
 
 - They cannot enumerate users and groups in the directory.
 - They can see limited details of a user if they know the user's email address.
 - They can see limited details of a group when they know the group name.
 
-The ability for a guests to see limited details of a user or group allows them to invite other people and see some details of people with whom they are collaborating.  
+The ability for guests to see limited details of a user or group allows them to invite other people and see some details of people with whom they are collaborating.  
 
 Let’s step through the process to add access for an external user. We’ll add an external user to the same Reader role for TestDB resource group so that user can help debug an error. Open the resource group blade, click **Reader -> Add -> Invite** and type the email address of the user you want to add. 
 
