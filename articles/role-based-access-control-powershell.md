@@ -79,7 +79,7 @@ This will return all the role assignments in the subscription. Two things to not
 
 You can also check existing role assignments for a particular role definition, at a particular scope to a particular user. Type:
 
-    PS C:\> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user's email> -RoleDefinitionName Owner
+    PS C:\> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user email> -RoleDefinitionName Owner
 
 This will return all the role assignments for a particular user in your AD tenant, who has a role assignment of "Owner" for resource group "group1". The role assignment can come from two places:
 

@@ -507,7 +507,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
         HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionid), cert);
         var client = HDInsightClient.Connect(creds);
 
-		// Supply th cluster information
+		// Supply the cluster information
         ClusterCreateParameters clusterInfo = new ClusterCreateParameters()
         {
             Name = clustername,
