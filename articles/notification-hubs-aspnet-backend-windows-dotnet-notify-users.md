@@ -232,13 +232,11 @@ The next step is to create the Windows Phone application. To add this project to
 
 To run the application, do the following:
 
-1. In Visual Studio, run the **AppBackend** Web API application. An ASP.NET web page is displayed.
+1. In Visual Studio, run the **NotifyUserWindowsPhone (Windows Phone 8.1)** Windows Phone app. The Windows Phone emulator runs and loads the app automatically.
 
-2. In Visual Studio, run the **NotifyUserWindowsPhone (Windows Phone 8.1)** Windows Phone app. The Windows Phone emulator runs and loads the app automatically.
+2. In the **NotifyUserWindowsPhone** app UI, enter a username and password. These can be any string, but they must be the same value.
 
-3. In the **NotifyUserWindowsPhone** app UI, enter a username and password. These can be any string, but they must be the same value.
-
-4. In the **NotifyUserWindowsPhone** app UI, click **Log in and register**. Then click **Send push**.
+3. In the **NotifyUserWindowsPhone** app UI, click **Log in and register**. Then click **Send push**.
 
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
