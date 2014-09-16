@@ -12,15 +12,15 @@ Rich notification support in Microsoft Azure enables you to access an easy-to-us
 
 In order to engage users by providing them with instant rich contents, an application looks to notifications to push beyond plain texts. These notifications allow user interactions, and pipeline seamlessly to contents such as urls, sounds, images/coupons, and much more. This tutorial decribes how to ultilize push notifications with Notification Hubs to present a desired image to users.
 
-![][IOS1]
+    ![][IOS1]
 
 At a high level:
 
-1. The app back-end:
-    - Stores rich payload (i.e. image) in back-end database/local storage
+1. The app backend:
+    - Stores rich payload (i.e. image) in backend database/local storage
     - Sends the ID of this rich notification to device
 2. The app on the device:
-    - Contacts the back-end requesting the rich payload with received ID
+    - Contacts the backend requesting the rich payload with received ID
     - Sends users notifications on device when data retrieval is complete and show payload immediately when users tap to learn more
 
 This Rich Push tutorial builds on the [Notify Users](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) tutorial.
@@ -32,62 +32,62 @@ This Rich Push tutorial builds on the [Notify Users](http://azure.microsoft.com/
 3. Click **Show All Files** in the Solution Explorer, and right-click the folder to **Include In Project**.
 4. With the image selected, change its Build Action in Properties window to **Embedded Resource**.
 
-![][IOS2]
+    ![][IOS2]
 
 5. In **Notifications.cs**, add the following using statement:
     
-    using System.Reflection;
+        using System.Reflection;
 
 6. Update the whole **Notifications** class with the following code. Be sure to replace the placeholders with your notification hub credentials and image file name.
 
-    public class Notification
-    {
-        public int Id { get; set; }
-        // initial notification message to display to users
-        public string Message { get; set; }
-        // type of rich payload (developer-defined)
-        public string RichType { get; set; }
-        public string Payload { get; set; }
-        public bool Read { get; set; }
-    }
-
-    public class Notifications
-    {
-        public static Notifications Instance = new Notifications();
-
-        private List<Notification> notifications = new List<Notification>();
-
-        public NotificationHubClient Hub { get; set; }
-
-        private Notifications() 
+        public class Notification
         {
-            // placeholders: replace with the connection string (with full access) for your notification hub and the hub name from the Azure Management Portal
-            Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}",  "{hub name}");
+            public int Id { get; set; }
+            // initial notification message to display to users
+            public string Message { get; set; }
+            // type of rich payload (developer-defined)
+            public string RichType { get; set; }
+            public string Payload { get; set; }
+            public bool Read { get; set; }
         }
 
-        public Notification CreateNotification(string message, string richType, string payload)
+        public class Notifications
         {
-            var notification = new Notification()
+            public static Notifications Instance = new Notifications();
+
+            private List<Notification> notifications = new List<Notification>();
+
+            public NotificationHubClient Hub { get; set; }
+
+            private Notifications() 
             {
-                Id = notifications.Count,
-                Message = message,
-                RichType = richType,
-                Payload = payload,
-                Read = false
-            };
+                // placeholders: replace with the connection string (with full access) for your notification hub and the hub name from the Azure Management Portal
+                Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}",  "{hub name}");
+            }
 
-            notifications.Add(notification);
+            public Notification CreateNotification(string message, string richType, string payload)
+            {
+                var notification = new Notification()
+                {
+                    Id = notifications.Count,
+                    Message = message,
+                    RichType = richType,
+                    Payload = payload,
+                    Read = false
+                };
 
-            return notification;
+                notifications.Add(notification);
+
+                return notification;
+            }
+
+            public Stream ReadImage(int id)
+            {
+                var assembly = Assembly.GetExecutingAssembly();
+                // placeholder: image file name (i.e. logo.png).
+                return assembly.GetManifestResourceStream("AppBackend.img.{logo.png}");
+            }
         }
-
-        public Stream ReadImage(int id)
-        {
-            var assembly = Assembly.GetExecutingAssembly();
-            // placeholder: image file name (i.e. myImage.png).
-            return assembly.GetManifestResourceStream("AppBackend.img.{myImage.png}");
-        }
-    }
 
 > [AZURE.NOTE] check out [How to embed and access resources by using Visual C#](http://support.microsoft.com/kb/319292) for more information on how to add and obtain project resources.
 
@@ -110,7 +110,7 @@ This Rich Push tutorial builds on the [Notify Users](http://azure.microsoft.com/
         public async Task<HttpResponseMessage> Post()
         {   
             // replace placeholder with image file name
-            var richNotificationInTheBackend = Notifications.Instance.CreateNotification("Check this image out!", "img",  "{myImage.png}");
+            var richNotificationInTheBackend = Notifications.Instance.CreateNotification("Check this image out!", "img",  "{logo.png}");
             
             var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
 
@@ -129,20 +129,19 @@ This Rich Push tutorial builds on the [Notify Users](http://azure.microsoft.com/
 
 ## Modify the iOS project
 
-Now that you have modified your app back-end to send just the *id* of a notification, you have to change your iOS app to handle that id and retrieve the rich message from the back-end to be displayed.
+Now that you have modified your app backend to send just the *id* of a notification, you have to change your iOS app to handle that id and retrieve the rich message from the backend to be displayed.
 
 1. Open your iOS project, and enable it to run in the background to receive remote notifications by going to your main app target in the **Targets** section, clicking on **Capabilities**, turning on the **Background Modes**, and checking the **Remote Notifications** checkbox.
 
-![][IOS3]
+    ![][IOS3]
 
 2. Go to **Main.storyboard**, and make sure you have a View Controller (refered to as Home View Controller in this tutorial) from the **Notify User** tutorial.
 
 3. Add a **Navigation Controller** to the storyboard, and control-drag to Home View Controller to make the latter the **root view** of navigation. Make sure the **Is Initial View Controller** in Attributes inspector is selected for the Navigation Controller only.
 
-4. Add a **View Controller** to the storyboard and put in an **Image View** in this controller. This is the page users will see once they click the notification to learn more.
-
-Your storyboard should look as the following:
-![][IOS4]
+4. Add a **View Controller** to the storyboard and put in an **Image View** in this controller. This is the page users will see once they click the notification to learn more. Your storyboard should look as the following:
+    
+    ![][IOS4]
 
 5. Click on the **Home View Controller** in the storyboard, and make sure it has **homeViewController** as its **Custom Class** and **Storyboard ID** under the Identity inspector.
 
@@ -151,10 +150,12 @@ Your storyboard should look as the following:
 7. Then, create a new View Controller class titled **imageViewController** to handle the UI you just created.
 
 8. In **imageViewController.h**, add the following to the interface declarations. Make sure to control-drag from the storyboard image view to these properties to link them up with the UI:
+        
         @property (weak, nonatomic) IBOutlet UIImageView *myImage;
         @property (strong) UIImage* imagePayload;
 
 9. In **imageViewController.m**, add the following at the end of **viewDidload**:
+        
         // display the UI Image in UI Image View
         [self.myImage setImage:self.imagePayload];
 
@@ -178,7 +179,7 @@ Your storyboard should look as the following:
 
         @end
 
-12. In **AppDelegate**'s implementation, make sure the app registers for silent notifications so it processes the notification id sent from the back-end. Add the **UIRemoteNotificationTypeNewsstandContentAvailability** option in **didFinishLaunchingWithOptions**:
+12. In **AppDelegate**'s implementation, make sure the app registers for silent notifications so it processes the notification id sent from the backend. Add the **UIRemoteNotificationTypeNewsstandContentAvailability** option in **didFinishLaunchingWithOptions**:
 
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 
@@ -190,11 +191,11 @@ Your storyboard should look as the following:
         homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
         hvc.deviceToken = deviceToken;
 
-14. Then add the follow functions into the implementation of **AppDelegate**. Make sure to substitute the placeholder `{back-end endpoint}` with your back-end endpoint:
+14. Then add the follow functions into the implementation of **AppDelegate**. Make sure to substitute the placeholder `{backend endpoint}` with your backend endpoint:
 
-        NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
+        NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
 
-        // helper: retrieve notification content from back-end with rich notification id
+        // helper: retrieve notification content from backend with rich notification id
         - (void)retrieveRichImageWithId:(int)richId completion: (void(^)(NSError*)) completion{
     
             // check if authenticated
@@ -314,9 +315,9 @@ Your storyboard should look as the following:
 
 2. In the iOS app UI, enter a username and password of the same value to go through authentication and click **Log In**.
 
-3. Click **Send push** and you should see an in-app alert. If you click on **More**, you will be brought to the image you chose in your app back-end.
+3. Click **Send push** and you should see an in-app alert. If you click on **More**, you will be brought to the image you chose to include in your app backend.
 
-4. You can also click **Send push** and press the home button of your device. In a few moments, you will receive a push notification. If you click on it, you will be brought to the app and the image you chose.
+4. You can also click **Send push** and press the home button of your device. In a few moments, you will receive a push notification. If you tap on it, you will be brought to the app and the image.
 
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-1.png
