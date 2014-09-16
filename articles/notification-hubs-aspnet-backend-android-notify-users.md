@@ -268,13 +268,11 @@ The next step is to create the Android application.
 
 To run the application, do the following:
 
-1. Make sure **AppBackend** is deployed in Azure. If using Visual Studio, run the **AppBackend** Web API application. An ASP.NET web page is displayed.
+1. In Eclipse, run the app on a physical Android device or the emulator.
 
-2. In Eclipse, run the app on a physical Android device or the emulator.
+2. In the Android app UI, enter a username and password. These can be any string, but they must be the same value.
 
-3. In the Android app UI, enter a username and password. These can be any string, but they must be the same value.
-
-4. In the Android app UI, click **Log in**. Then click **Send push**.
+3. In the Android app UI, click **Log in**. Then click **Send push**.
 
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG
