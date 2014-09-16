@@ -27,7 +27,7 @@ You just install an agent in the server and see performance data on Application 
 
 - This method instruments the web app as it stands. You don't insert trace or log code. (But you can do that later if you want.)
 
-If you want to insert logging or diagnostic traces, don't continue here - instead, [add Application Insights to your project][existing] and redeploy it.
+If you want to insert logging or diagnostic traces, don't continue here - instead, [add Application Insights to your project][start] and redeploy it.
 
 ## Install the Application Insights agent on your web server
 
@@ -76,11 +76,13 @@ You'll see data under Application Health.
   * Wait a few minutes to let the data arrive.
   * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com 
 
+#### What do the data on the tiles mean?
+ * [View data][perf]
 
 ## <a name="next"></a>Next steps
 
 
-[View data][explore]
+[View data][perf]
 
 [Search diagnostic logs][diagnostic]
 
@@ -93,23 +95,22 @@ You'll see data under Application Health.
 
 ## Learn more
 
-* [Application Insights][root]
-* [Add Application Insights to your project][start]
+* [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
-* [Explore metrics in Application Insights][explore]
-* [Diagnostic log search][diagnostic]
+* [Monitor performance in web applications][perf]
+* [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
-* [Usage tracking with events and metrics][usage]
+* [Track usage][usage]
 * [Q & A and troubleshooting][qna]
-
 
 <!--Link references-->
 
-[root]: ../app-insights-get-started/
-[start]: ../app-insights-monitor-application-health-usage/
+
+[start]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
-[explore]: ../app-insights-explore-metrics/
+[perf]: ../app-insights-web-monitor-performance/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-track-usage-custom-events-metrics/
+[usage]: ../app-insights-web-track-usage/
 [qna]: ../app-insights-troubleshoot-faq/
+
