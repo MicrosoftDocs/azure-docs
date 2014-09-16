@@ -130,15 +130,11 @@
 		}
 
 
-13. Back in TodoActivity.java file, update the **onCreate** method of the ToDoActivity class to register the notification handler class. Make sure to add this code after the MobileServiceClient is instantiated.
+14. Back in TodoActivity.java file, update the **onCreate** method of the ToDoActivity class to register the notification handler class. Make sure to add this code after the MobileServiceClient is instantiated.
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
-
-
-
-
-Your app is now updated to support push notifications.
+    Your app is now updated to support push notifications.
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126

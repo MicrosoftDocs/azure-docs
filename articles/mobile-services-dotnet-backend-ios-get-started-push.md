@@ -107,7 +107,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             return YES;
         }
 
-3. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you grab the Mobile Service Url and Application Key and switch them in for the placeholders:
+3. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you copy the Mobile Service Url and Application Key values and switch them in for the placeholders:
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
@@ -143,7 +143,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             [alert show];
         }
 
-   > [WACOM.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
+   > [WACOM.NOTE] You must add this code before calling the <strong>addItem</strong> method.
 
 Your app is now updated to support push notifications.
 

@@ -7,7 +7,9 @@
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/web-sites-custom-domain-name" title="Custom Domain" class="current">Custom Domain</a><a href="/en-us/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/en-us/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/en-us/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/en-us/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/en-us/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/en-us/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/en-us/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/web-sites-custom-domain-name/" title="Websites" class="current">Website</a> | <a href="/en-us/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Website using Traffic Manager">Website using Traffic Manager</a></div>
 
-When you create a website, Azure assigns it to a subdomain of azurewebsites.net. For example, if you your website is named **contoso**, the URL is **contoso.azurewebsites.net**. Azure also assigns a virtual IP address.
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
+
+When you create a website, Azure assigns it to a subdomain of azurewebsites.net. For example, if your website is named **contoso**, the URL is **contoso.azurewebsites.net**. Azure also assigns a virtual IP address.
 
 ![contoso.azurewebsites.net subdomain][subdomain]
 
@@ -48,7 +50,7 @@ Within this basic outline, there are specific cases to consider:
 The Domain Name System (DNS) uses data records to map domain names into IP addresses. There are several types of DNS records. For websites, you’ll create either an *A* record or a *CNAME* record.
 
 - An A **(Address)** record maps a domain name to an IP address. 
-- A **CNAME (Canonical Name)** record maps a domain name to another domain name. DNS uses the second name to look up the address. The user still sees the first domain name in their browser. For example, you could map contoso.com to *&lt;yoursite&gt;*.azurewebsites.net. 
+- A **CNAME (Canonical Name)** record maps a domain name to another domain name. DNS uses the second name to look up the address. Users still see the first domain name in their browser. For example, you could map contoso.com to *&lt;yoursite&gt;*.azurewebsites.net. 
 
 If the IP address changes, a CNAME entry is still valid, whereas an A record must be updated. However, some domain registrars do not allow CNAME records for the root domain or for wildcard domains. In that case, you must use an A record. 
 
@@ -59,7 +61,7 @@ If the IP address changes, a CNAME entry is still valid, whereas an A record mus
 
 Skip this step if you are creating a CNAME record. To create an A record, you need the virtual IP address of your website. To get the IP address:
 
-1.	In your browser, open the Azure Management Portal.
+1.	In your browser, open the [Azure Management Portal](https://manage.windowsazure.com).
 2.	In the **Websites** tab, click the name of your site and select **Dashboard**.
 3.	Select **Manage Domains** from the bottom of the page. (If this option is disabled, make sure you are using Shared, Basic, or Standard mode. For more information, see [How to scale websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).) 
 
