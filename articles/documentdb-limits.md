@@ -19,7 +19,7 @@ The following table describes the limits and quota enforcements of DocumentDB du
 |Minimum Allocated Throughput per collection with minimum 1 document |667 RUs
 |Elasticity of a collection    |0-10 GB
 |Maximum Request Units / sec per collection   |2000
-|Number of stored procedures, triggers and UDFs per collection       |25 each
+|Number of stored procedures, triggers and UDFs per collection       |5 each
 |Maximum execution time for stored procedure and trigger     |5 seconds
 |Provisioned document storage / capacity unit |10 GB
 |Provisioned Request Units / sec / capacity unit     |2000
@@ -27,13 +27,13 @@ The following table describes the limits and quota enforcements of DocumentDB du
 |Maximum Length of the Id property    |255 characters
 |Default number of items per page     |100
 |Maximum items per page        |1000
-|Maximum request size of document and attachment       |256KB
-|Maximum request size of stored procedure, trigger and UDF        |256KB
+|Maximum request size of document and attachment       |16KB
+|Maximum request size of stored procedure, trigger and UDF        |128KB
 |Maximum response size |1MB
 |Maximum number of unique paths per collection       |100
 |String |All strings must conform to the UTF-8 encoding. Since UTF-8 is a variable width encoding, string sizes are determined using the UTF-8 bytes.
 |Maximum length of property or value  |No practical limit
 |Maximum number of UDFs per query     |1
 |Maximum number of JOINs per query    |2
-|Maximum number of AND clauses per query      |5
-|Maximum number of OR clauses per query       |5
+|Maximum number of AND clauses per query      |3
+|Maximum number of OR clauses per query       |3
