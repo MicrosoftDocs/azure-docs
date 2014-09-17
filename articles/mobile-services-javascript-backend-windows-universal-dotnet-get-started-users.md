@@ -55,7 +55,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
 ##<a name="add-authentication"></a> Add authentication to the app
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-authenticate-app](../includes/mobile-services-windows-dotnet-authenticate-app.md)] 
+[WACOM.INCLUDE [mobile-services-windows-universal-dotnet-authenticate-app](../includes/mobile-services-windows-universal-dotnet-authenticate-app.md)] 
 
 ##<a name="tokens"></a>Store the authorization token on the client
 
