@@ -4,7 +4,6 @@
 
 <a name="intro"></a>
 # Integrate a cloud service with Azure CDN #
-***Updated 23 July 2014*** 
 
 Azure CDN can be integrated with a cloud service, serving any content from the cloud service's CDN directory. This approach gives you the following advantages:
 
