@@ -11,7 +11,7 @@ This tutorial requires the following:
 + [Mobile Services Android SDK]
 + [Baidu Push Android SDK]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.</p></div>
+>[WACOM.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.</div>
 
 The tutorial walks you through these basic steps to enable push notifications:
 
@@ -24,7 +24,7 @@ The tutorial walks you through these basic steps to enable push notifications:
 
 ##<a id="createBaiduAccount"></a>Create a Baidu account
 
-To use Baidu, you must create an account. Login to the [Baidu portal] with your Baidu account if you already have one and skip to the next step otherwise see the instructions below on how to create a new Baidu account.  
+To use Baidu, you must create an account. If you already have one, login to the [Baidu portal] with your Baidu account and skip to the next step; otherwise, see the instructions below on how to create a new Baidu account.  
 
 1. Go to [Baidu portal] and click on 登录 (Login) link. Click 立即注册 to start a new account registration process. 
 
@@ -34,11 +34,11 @@ To use Baidu, you must create an account. Login to the [Baidu portal] with your 
 
    	![][2]
 
-3. You will be sent an email on the email address you entered, a link to activate your Baidu account. 
+3. You will be sent an email to the email address you entered with a link to activate your Baidu account. 
 
    	![][3]
 
-4. Login to your email account, open the Baidu activation mail and click on the activation link to activate your Baidu account. 
+4. Login to your email account, open the Baidu activation mail, and click on the activation link to activate your Baidu account. 
 
    	![][4]
 
@@ -46,11 +46,11 @@ Once you have an activated Baidu account, login to the [Baidu portal] with your 
 
 ##<a id="registerBaiduDeveloper"></a>Register as a Baidu developer
 
-1. Once you have logged in to the [Baidu portal], click **更多>> (more)**
+1. Once you have logged in to the [Baidu portal], click **更多>> (more)**.
 
   	![][5]
 
-2. Scroll down the **站长与开发者服务 (Webmaster and Developer Services)** section and click **百度开放云平台 (Baidu open cloud platform)** 
+2. Scroll down the **站长与开发者服务 (Webmaster and Developer Services)** section and click **百度开放云平台 (Baidu open cloud platform)**. 
 
   	![][6]
 
@@ -66,13 +66,13 @@ Once you have an activated Baidu account, login to the [Baidu portal] with your 
 
   	![][9]
 
-6. You should then receive a text message with a verification number like the following on the phone number you provided:
+6. You should then receive a text message with a verification number, as shown in the following example:
 
   	![][10] 
 
 7. Enter the verification number from the message in the **验证码 (Confirmation code)**. 
 
-8. Finally complete the developer registration by accepting the Baidu agreement and clicking **提交 (Submit)**. You will see the following page on successful completion of registration:
+8. Finally, complete the developer registration by accepting the Baidu agreement and clicking **提交 (Submit)**. You will see the following page on successful completion of registration:
 
   	![][11] 
 
@@ -80,11 +80,11 @@ Once you have an activated Baidu account, login to the [Baidu portal] with your 
 
 When you create a Baidu cloud push project, you receive your app ID, API key, and secret key.
 
-1. Once you have logged in to the [Baidu portal], click **更多>> (more)**
+1. Once you have logged in to the [Baidu portal], click **更多>> (more)**.
 
   	![][5]
 
-2. Scroll down the **站长与开发者服务 (Webmaster and Developer Services)** section and click **百度开放云平台 (Baidu open cloud platform)** 
+2. Scroll down the **站长与开发者服务 (Webmaster and Developer Services)** section and click **百度开放云平台 (Baidu open cloud platform)**. 
 
   	![][6]
 
@@ -134,7 +134,7 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 
   	![][20]
 
-7. Click the **Dashboard** tab at the top for the Notification Hub and click **View Connection String**
+7. Click the **Dashboard** tab at the top for the Notification Hub and click **View Connection String**.
 
   	![][21]
 
@@ -148,7 +148,7 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 
    ![][23]
 
-2. Enter an **Application Name** and ensure that the **Minimum Required SDK** version is set to **API 16: Android 4.1**
+2. Enter an **Application Name** and ensure that the **Minimum Required SDK** version is set to **API 16: Android 4.1**.
 
    ![][24]
 
