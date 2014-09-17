@@ -50,9 +50,7 @@ Notice from the table that the request units consumed by insert/replace/delete o
 -	You may choose to index only some of your properties and not let DocumentDB automatically index everything
 -	Your queries and stored procedures may be far more complex.  
 
-For getting an accurate number of request units for your application, you can use the request unit calculator for calculating the request units consumed for various operations. You can also inspect the x-ms-request-charge response header which includes the number of request units consumed for a given request.  
-
-[Request Unit Calculator](http://go.microsoft.com/fwlink/?LinkID=510088)  
+ You can acquire the request units for a given request by inspecting the x-ms-request-charge response header of the request.  
 
 #Collections and Provisioned Throughput
 Provisioned throughput for your database account is allocated uniformly across all collections up to the maximum throughput level (Request Units) for a single collection. For example, if you purchase a single capacity unit and create a single collection, all of the provisioned throughput for the CU will be available to the collection. If an additional collection is created the provisioned throughput will be allocated evenly with each collection receiving half of all provisioned throughput.  
@@ -63,13 +61,8 @@ The choice of default consistency level has an impact on the throughput and late
 -	Session and Eventual consistency levels provide approximately 2000 read requests of documents and 500 insert/replace/delete of documents.
 -	Strong and Bounded staleness consistency levels provide approximately 1200 read requests of documents approximately and 500 insert/replace/delete of documents. The inserts/replace/deletes with Bounded Staleness are significantly lower in latency than Strong.  
 
-[Request Unit Calculator](http://go.microsoft.com/fwlink/?LinkID=510088)
-
 #Provisioned Document Storage and Index Overhead
 With each CU purchased your account is provisioned with 10GB of SSD backed document storage. The 10GB of document storage includes the documents plus storage for the index. By default, a DocumentDB collection is configured to automatically index all of the documents without explicitly requiring any secondary indices or schema. Based production usage in consumer scale first party applications using DocumentDB, the typical index overhead is between 2-20%. The indexing technology used by DocumentDB ensures that regardless of the values of the properties, the index overhead does not exceed more than 80% of the size of the documents with default settings.  
 
 By default all documents are indexed by DocumentDB automatically. However, in case you want to fine tune the index overhead, you can chose to remove certain documents from being indexed at the time of inserting or replacing a document. You can configure a DocumentDB collection to exclude all documents within the collection from being indexed. You can also configure a DocumentDB collection to selectively index only a certain properties or paths with wildcards of your JSON documents.  Excluding properties or documents also improves the write throughput – which means you will consume fewer request units.   
  
-[Request Unit Calculator](http://go.microsoft.com/fwlink/?LinkID=510088)
-
-
