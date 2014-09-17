@@ -16,10 +16,12 @@ You'll need [Visual Studio Update 3](http://go.microsoft.com/fwlink/?LinkId=3978
 1. [Add Application Insights](#add)
 + [Run your project](#run)
 + [See monitor data](#monitor)
++ [Set up web client monitoring](#webclient)
 + [Deploy your application](#deploy)
 + [Next steps](#next)
 
 *Alternatively, if you want to monitor an existing web service without redeploying it or using Visual Studio, you can [install an agent on the server][redfield].*
+
 
 ## <a name="add"></a>1. Add Application Insights
 
@@ -40,6 +42,8 @@ To add Application Insights to a new project, right click the project in Solutio
 
 ![Choose Add Application Insights](./media/appinsights/appinsights-03-addExisting.png)
 
+*There's one more step if you want to set up web usage analytics, but let's see some data first...*
+
 
 ## <a name="run"></a>2. Run your project
 
@@ -56,18 +60,36 @@ Open Application Insights from your project.
 ![Right-click your project and open the Azure portal](./media/appinsights/appinsights-04-openPortal.png)
 
 
-Look for data in the  Application health and Usage analytics tiles. For example:
+Look for data in the **Application health** tiles. At first, you'll just see one or two points. For example:
 
-![Click through to more data](./media/appinsights/appinsights-05-usageTiles.png)
+![Click through to more data](./media/appinsights/appinsights-41firstHealth.png)
 
 Click any tile to see more detail. [Learn more about the tiles and reports.][explore]
 
 > [WACOM.NOTE] Many of the tiles show limited detail in this preview version. 
 
-## <a name="deploy"></a>4. Deploy your application
+## <a name="webclient"></a>4. Set up web usage analytics
+
+If you added Application Insights to an *existing* web project, you won't see anything yet in the Usage analytics tiles. There's one more step you need.
+
+In Application Insights, choose Quick start, Instrument your website. 
+
+![In your project in Application Insights, click Quick start, Instrument your website, and copy the code](./media/appinsights/appinsights-06webcode.png)
+
+Copy the JavaScript code into the web pages that you want to monitor, just before the closing &lt;/head&gt; tag. In an ASP.NET project, a good way to monitor all the pages is to put the code in the master page, usually called `_SiteLayout` or `Views\Shared\_Layout`. Notice that the code contains the Application Insights key of your application.
+
+Run your application again and you'll see data in **Usage analytics**.
+
+![Click through to more data](./media/appinsights/appinsights-05-usageTiles.png)
+
+
+## <a name="deploy"></a>5. Deploy your application
 
 Deploy your application and watch the data accumulate.
 
+## <a name="video"></a>Getting started with Application Insights
+
+[WACOM.VIDEO getting-started-with-application-insights]
 
 ## <a name="next"></a>Next steps
 

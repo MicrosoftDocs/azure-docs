@@ -26,6 +26,8 @@ In this tutorial, you will update the app from the [Get started with Mobile Serv
 
 
 >[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].
+>
+> To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 
 This tutorial walks you through these basic steps:
 
@@ -123,9 +125,9 @@ This section uses SQLite as the local store for the offline features.
               Description="Use the Pull and Push buttons to synchronize the local store with the server" />
         </StackPanel>
         <Button Grid.Row="1" Grid.Column="0" Margin="5,5,0,0" Name="ButtonPush"
-            Click="ButtonPush_Click" Width="80" Height="34">⬆ Push</Button>
+            Click="ButtonPush_Click" Width="80" Height="34">Push</Button>
         <Button Grid.Row="1" Grid.Column="1" Margin="5,5,0,0"  Name="ButtonPull" 
-            Click="ButtonPull_Click" Width="80" Height="34">⬇ Pull</Button>
+            Click="ButtonPull_Click" Width="80" Height="34">Pull</Button>
         <ListView Name="ListItems" SelectionMode="None" Margin="0,10,0,0" Grid.ColumnSpan="2" Grid.Row="2">
         
 

@@ -650,9 +650,11 @@ This command lists Azure cloud services.
 
 This command deletes an Azure cloud service.
 
-	~$ azure cloud-service delete myservice
-	info:   Executing command cloud-service delete myservice 
+	~$ azure service delete myservice
+	info:   Executing command service delete myservice 
 	info:   cloud-service delete command OK
+
+To force the deletion, use the `-q` parameter.
 
 
 ##<a name="Commands_to_manage_your_Azure_certificates"></a>Commands to manage your Azure certificates

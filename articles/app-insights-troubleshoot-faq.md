@@ -15,11 +15,10 @@
 + [How do I get data for Windows Phone or Windows Store?](#q09)
 + [How can I see the events and page views that I logged in my code?](#q10)
 + [How come there are two versions of Application Insights?](#q11)
-+ [What's currently missing in the Azure version of Application Insights?](#q12)
-+ [How do I get back all the fantastic features I had in the Visual Studio Online version of Application Insights?](#q13)
++ [How do I get back all the features I had in the Visual Studio Online version of Application Insights?](#q13)
 + [What does Application Insights modify in my project?](#q14)
 + [How do I find my results in Application Insights?](#q15)
-+ [Next steps](#next)
++ [Learn more](#next)
 
 
 
@@ -75,6 +74,10 @@ Yes, you can monitor health and usage if your server can send data to the public
 
 But if you want to run web tests for your service, it must be accessible from the public internet.
 
+## <a name="q09"></a>How do I get data for Windows Phone or Windows Store?
+
+Not yet supported in the Microsoft Azure version. Use the [Visual Studio Online version][older].
+
 
 ## <a name="q10"></a>How can I see the events and page views that I logged in my code?
 
@@ -85,13 +88,7 @@ We don't support that yet in the Microsoft Azure version. Coming soon. For the p
 
 The older portal is part of Visual Studio Online. We'll make no more substantial changes to that version. If you have an older version of the Application Insights tools for Visual Studio, they connect to the Visual Studio Online portal.
 
-Visual Studio Update 3 comes with a pre-installed version of the new Application Insights tools. They connect to the new Application Insights portal, which is a component of Microsoft Azure Preview. We're currently porting Application Insights to this new environment. The work isn't complete yet, and there are a number of restrictions.
-
-## <a name="q12"></a>What's currently missing in the Azure version of Application Insights?
-
-Great things are on the way.
-
-But just at present, the main missing features are: support for device apps such as Windows Phone and Windows Store; and reports for custom telemetry like `trackEvent()` and `trackPageView()`.
+Visual Studio Update 3 comes with a pre-installed version of the new Application Insights tools. They connect to the new Application Insights portal, which is a component of Microsoft Azure Preview. We're currently porting Application Insights to this new environment. The work isn't complete yet.
 
 ## <a name="q13"></a>How do I get back to all the features I had in the Visual Studio Online version of Application Insights?
 
@@ -100,6 +97,9 @@ But just at present, the main missing features are: support for device apps such
 3. Run [the installer for the older version of the tools](http://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) and read its [get-started guide][older].
 
 ## <a name="q14"></a>What does Application Insights modify in my project?
+
+The details depend on the type of project. For a web application:+
+
 
 + Adds these files to your project:
 
@@ -121,13 +121,14 @@ But just at present, the main missing features are: support for device apps such
 
  - Microsoft.ApplicationInsights.Platform
 
-+ (New projects only - if you [add Application Insights to an existing project][start], you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into:
-
- - the master page Views/Shared/_Layout.cshtml
++ Inserts items into:
 
  - Web.config
 
  - packages.config
+
++ (New projects only - if you [add Application Insights to an existing project][start], you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/_Layout.cshtml
+
 
 ## <a name="q15"></a>How do I find my results in Application Insights?
 1. Open Microsoft Azure:

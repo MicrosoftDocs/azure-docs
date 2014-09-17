@@ -1,11 +1,11 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-streaming-content" urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="How to Deliver Streaming Content from Media Services – Azure" metaKeywords="" description="Learn how to deliver streaming content from Media Services using a direct URL. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="" />
+<properties linkid="develop-media-services-how-to-guides-deliver-streaming-content" urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="How to Deliver Streaming Content from Media Services – Azure" metaKeywords="" description="Learn how to deliver streaming content from Media Services using a direct URL. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="juliako" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 
 #How to: Deliver streaming content
 
-This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Deliver an Asset by Download](http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409).
+This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Deliver an Asset by Download](../media-services-deliver-asset-download/).
 
 In addition to downloading media content from Media Services, you can use adaptive bitrate streaming to deliver content. For example, you can create a direct URL, called a locator, to streaming content on a Media Services origin server. Client applications such as Microsoft Silverlight can play the streaming content directly from the locator.
 
@@ -76,4 +76,4 @@ For more information about delivering assets, see:
 </ul>
 
 <h2>Next Steps</h2>
-So far we have covered delivering media by downloading from Azure Storage and using Smooth Streaming. The next topic [How to Deliver HLS content](http://go.microsoft.com/fwlink/?LinkId=301817) discusses delivering streaming content using Apple HTTP Live Streaming (HLS).
+So far we have covered delivering media by downloading from Azure Storage and using Smooth Streaming. The next topic [How to Deliver HLS content](../media-services-deliver-http-live-streaming-content/) discusses delivering streaming content using Apple HTTP Live Streaming (HLS).

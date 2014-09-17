@@ -109,8 +109,8 @@ To log in using an organizational account, use the following command:
 	azure login [username] [password]
 
 > [WACOM.NOTE] If this is the first time you have logged in with these credentials, you will receive a prompt asking you to verify that you wish to cache an authentication token. This prompt will also occur if you have previously used the `azure logout` command described below. To bypass this prompt for automation scenarios, use the `-q` parameter with the `azure login` command.
-
-> [WACOM.NOTE] When you authenticate with an organizational account, the information for accessing your Azure subscription is stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
+>
+> When you authenticate with an organizational account, the information for accessing your Azure subscription is stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
 
 To log out, use the following command:
 
@@ -382,7 +382,7 @@ If you are writing a script that relies on the exit status, please verify that t
 
 * If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
 
-* For more information on Azure, see [http://www.windowsazure.com/](http://www.windowsazure.com).
+* For more information on Azure, see [http://azure.microsoft.com/](http://azure.microsoft.com).
 
 
 

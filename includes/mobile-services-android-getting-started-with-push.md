@@ -29,19 +29,38 @@
 5.  Open the file *ToDoItemActivity.java*, and add the following import statement:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
+		import com.microsoft.windowsazure.mobileservices.Registration;
+		import com.microsoft.windowsazure.mobileservices.RegistrationCallback;
+
 
 6. Add the following private variable to the class, where _`<PROJECT_NUMBER>`_ is the Project Number assigned by Google to your app in the preceding procedure:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. In the **onCreate** method, before the MobileServiceClient is instantiated, add this code which registers the Notification Handler for the device:
+7. In ToDoActivity.java, add the following method to the ToDoActivity class to allow registering for notifications.
 
-		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
+        /**
+         * Registers mobile services client to receive GCM push notifications
+         * @param gcmRegistrationId The Google Cloud Messaging session Id returned 
+         * by the call to GoogleCloudMessaging.register in NotificationsManager.handleNotifications
+         */
+        public void registerForPush(String gcmRegistrationId)
+        {
+          mClient.getPush().register(gcmRegistrationId,null,new RegistrationCallback()
+          {
+            @Override
+            public void onRegister(Registration registration, Exception exception)
+              {
+                if (exception != null)
+                {
+                  // handle exception
+                }
+              }
+          });
+        }	
 
-	Later we define the MyHandler.class referenced in this code.
-	
 
-8. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
+8. Next we need to add a new class to handle notifications. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
 
 9. In **Name** type `MyHandler`, in **Superclass** type `com.microsoft.windowsazure.notifications.NotificationsHandler`, then click **Finish**
 
@@ -73,17 +92,11 @@
 12. In the `MyHandler` class, add the following code to override the **onRegistered** method: which registers your device with the mobile service Notification Hub.
 
 		@Override
-		public void onRegistered(Context context, String gcmRegistrationId) {
-			super.onRegistered(context, gcmRegistrationId);
-			
-			ToDoActivity.mClient.getPush().register(gcmRegistrationId, null, new RegistrationCallback() {
-	            @Override
-	            public void onRegister(Registration registration, Exception exception) {
-	                  if (exception != null) {
-	                        // handle error
-	                  }
-	            }
-	      	});
+		public void onRegistered(Context context, String gcmRegistrationId) 
+		{
+		  super.onRegistered(context, gcmRegistrationId);
+		  ToDoActivity toDoActivity = (ToDoActivity)context;
+		  toDoActivity.registerForPush(gcmRegistrationId);
 		}
 
 
@@ -117,7 +130,11 @@
 		}
 
 
-Your app is now updated to support push notifications.
+14. Back in TodoActivity.java file, update the **onCreate** method of the ToDoActivity class to register the notification handler class. Make sure to add this code after the MobileServiceClient is instantiated.
+
+		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
+
+    Your app is now updated to support push notifications.
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126

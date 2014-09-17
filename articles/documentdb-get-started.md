@@ -63,12 +63,12 @@ Using the .NET SDK, a DocumentDB database can be created via the CreateDatabaseA
 
 Using the .NET SDK, a DocumentDB collection can be created via the CreateDocumentCollectionAsync method of a DocumentClient.  The database created in the previous step has a number of properties, one of which is the SelfLink property.  With that information, we can now create a collection.  
 
-    //Create a document collection 
+    	//Create a document collection 
 	documentCollection = new DocumentCollection
 		{
-		Id = "FamilyCollection"
+			Id = "FamilyCollection"
 		};
-
+	
 		documentCollection = await client.CreateDocumentCollectionAsync(database.SelfLink,documentCollection); 
 
     
@@ -133,8 +133,8 @@ Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentA
             IsRegistered = false
         };
 
-        await client.CreateDocumentAsync(colSelfLink, WakefieldFamily);
-}   
+         await client.CreateDocumentAsync(colSelfLink, WakefieldFamily);
+	}   
  
 
 ##<a id="Query"></a>Query DocumentDB Resources

@@ -53,7 +53,7 @@ free version)
 Azure SDK for .NET version 2.3 or higher, available through
 [Microsoft Web Platform Installer][]
 
-All the screenshots in this document have been taken using
+All the screen shots in this document have been taken using
 Visual Studio 2013 with Update 3 applied and Azure SDK for .NET version
 2.4. If your system is configured with different versions it is likely
 that your screens and options won't match entirely, but if you meet the
@@ -92,9 +92,9 @@ account.
 
 ![Alt text](./media/documentdb-dotnet-application/image6.png)
 
-Once you're done supplying the values for your account, Click "Create"
-and the provisioning process will begin creating your database account.
-Once the provisioning process is complete you should see a notification
+
+Once you're done supplying the values for your account, click "Create" and the provisioning process will begin creating your database account.
+When the provisioning process is complete, you should see a notification
 appear in the notifications area of the portal and the tile on your
 start screen (if you selected to create one) will change to show the
 completed action.
@@ -132,9 +132,7 @@ Select where you would like to create the project and click Ok.
 ![Alt text](./media/documentdb-dotnet-application/image11.png)
 
 
-If you plan on hosting your application in Azure then select the box on
-the lower right to "Host in the cloud". We've selected to host in the
-cloud, and run the application hosted in an Azure Website. Selecting
+If you plan on hosting your application in Azure then select the box on the lower right to "Host in the cloud". We've selected to host in the cloud, and run the application hosted in an Azure Website. Selecting
 this option will pre-provision an Azure Website for you and make life a
 lot easier when it comes times to deploy the final working application.
 
@@ -146,9 +144,7 @@ Website. Proceed to supply all these Azure values and continue.
 Once Visual Studio has finished creating the boilerplate MVC application
 you have an empty ASP.NET application that you can run locally.
 
-We'll skip running locally because I'm sure we've all seen the ASP.NET
-"Hello World" application. Let's go straight to adding DocumentDB to
-this project and building our application.
+We'll skip running locally because I'm sure we've all seen the ASP.NET "Hello World" application. Let's go straight to adding DocumentDB to this project and building our application.
 
 <a name="_Toc395637763">Setting up the ASP.NET MVC application</a>
 ==================================================================
@@ -261,8 +257,7 @@ will return to these Views later.
 =============================================================
 
 That takes care of most of the ASP.NET MVC plumbing that we need for
-this solution. Now let's get to the real purpose of this tutorial,
-adding Azure DoucmentDB to our web application.
+this solution. Now let's get to the real purpose of this tutorial, adding Azure DocumentDB to our web application.
 
 </h1>
 <a name="_Toc395637768">Installing the DocumentDB NuGet package</a>
@@ -290,8 +285,7 @@ with two new references added;
 ### <a name="_Toc395637770">Listing Incomplete Items</a>
 
 Open the **ItemController** and remove all the code within the class
-(but leave the class) that Visual Studio added. We'll rebuild it piece
-by piece using DoucmentDB.
+(but leave the class) that Visual Studio added. We'll rebuild it piece by piece using DocumentDB.
 
 Add the following code snippet within the now empty ItemController
 class;
@@ -344,58 +338,57 @@ below to your repository class;
         private static Database database;
         private static Database Database
         {
-            get
-            {
-                if (database == null)
-                {
-                    ReadOrCreateDatabase().Wait();
-                }
-
-                return database;
-            }
+			get
+			{
+				if (database == null)
+				{
+					ReadOrCreateDatabase().Wait();
+				}
+				
+				return database;
+			}
         }
 
         private static DocumentCollection collection;
         private static DocumentCollection Collection
         {
-            get
-            {
-                if (collection == null)
-                {
-                    ReadOrCreateCollection(Database.SelfLink).Wait();
-                }
-
-                return collection;
-            }
+			get
+			{
+				if (collection == null)
+				{
+					ReadOrCreateCollection(Database.SelfLink).Wait();
+				}
+				
+				return collection;
+			}
         }
 
-         
         private static string databaseId;
         private static String DatabaseId
         {
-            get
-            {
-                if (string.IsNullOrEmpty(databaseId))
-                {
-                    databaseId = ConfigurationManager.GetSetting("database");
-                }
-
-                return databaseId;
-            }
+			get
+			{
+				if (string.IsNullOrEmpty(databaseId))
+				{
+					databaseId = ConfigurationManager.AppSettings["database"];
+				}
+			
+				return databaseId;
+			}
         }
 	  
         private static string collectionId;
         private static String CollectionId
         {
-            get
-            {
-                if (string.IsNullOrEmpty(collectionId))
-                {
-                    collectionId = ConfigurationManager.GetSetting("collection");
-                }
-
-                return collectionId;
-            }
+			get
+			{
+				if (string.IsNullOrEmpty(collectionId))
+				{
+					collectionId = ConfigurationManager.AppSettings["collection"];
+				}
+			
+				return collectionId;
+			}
         }
 
         private static DocumentClient client;
@@ -405,45 +398,46 @@ below to your repository class;
             {
                 if (client == null)
                 {
-	      		String endpoint = ConfigurationManager.GetSetting("endpoint")
-	            	string authKey = ConfigurationManager.GetSetting("authKey");
-	        	Uri endpointUri = new Uri(endpoint);
-	            	client = new DocumentClient(endpointUri, authKey);
+					String endpoint = ConfigurationManager.AppSettings["endpoint"];
+					string authKey = ConfigurationManager.AppSettings["authKey"];
+					Uri endpointUri = new Uri(endpoint);
+					client = new DocumentClient(endpointUri, authKey);
                 }
+                
                 return client;
             }
         }
 
         private static async Task ReadOrCreateCollection(string databaseLink)
         {
-            var collections = Client.CreateDocumentCollectionQuery(databaseLink)
-                              .Where(col => col.Id == CollectionId).ToArray();
-
-            if (collections.Any())
-            {
-                collection = collections.First();
-            }
-            else
-            {
-                collection = await Client.CreateDocumentCollectionAsync(databaseLink, 
-                    new DocumentCollection { Id = CollectionId });
-            }
+			var collections = Client.CreateDocumentCollectionQuery(databaseLink)
+							  .Where(col => col.Id == CollectionId).ToArray();
+			
+			if (collections.Any())
+			{
+				collection = collections.First();
+			}
+			else
+			{
+				collection = await Client.CreateDocumentCollectionAsync(databaseLink, 
+					new DocumentCollection { Id = CollectionId });
+			}
         }
 	 
         private static async Task ReadOrCreateDatabase()
         {
-            var databases = Client.CreateDatabaseQuery()
-                            .Where(db => db.Id == DatabaseId).ToArray();
-
-            if (databases.Any())
-            {
-                database = databases.First();
-            }
-            else
-            {
-		Database database = new Database { Id = DatabaseId };	
-                database = await Client.CreateDatabaseAsync(database);
-            }
+			var databases = Client.CreateDatabaseQuery()
+							.Where(db => db.Id == DatabaseId).ToArray();
+			
+			if (databases.Any())
+			{
+				database = databases.First();
+			}
+			else
+			{
+				Database database = new Database { Id = DatabaseId };	
+				database = await Client.CreateDatabaseAsync(database);
+			}
         }
 </h1>
 
@@ -516,11 +510,11 @@ do with a form POST for this controller.
     [HttpPost]  
     public async Task<ActionResult> Create(Item item)  
     {
-	if (ModelState.IsValid)  
-	{  
-	    await repo.CreateDocument(item);  
-	    return RedirectToAction("Index");  
-	}   
+		if (ModelState.IsValid)  
+		{  
+		    await repo.CreateDocument(item);  
+		    return RedirectToAction("Index");  
+		}   
     	return View(item);   
     }
 
@@ -552,16 +546,19 @@ Add the following to the ItemController class;
     public async Task<ActionResult> Edit(string id)    
     {  
        	if (id == null)  
-	{
-	    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);   
-	}
+		{
+		    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);   
+		}
+
     	Item item = await repo.GetDocument(id);
     	if (item == null)
         {	    
-	    return HttpNotFound();
-	}
+		    return HttpNotFound();
+		}
+		
     	return View(item);
-    } 
+    }
+	
     [HttpPost] 
     public async Task<ActionResult> Edit(Item item)  
     {
@@ -569,7 +566,8 @@ Add the following to the ItemController class;
         {
     	     await repo.UpdateDocument(item);
     	     return RedirectToAction("Index");
-	}
+		}
+		
     	return View(item); 
     }
 
@@ -591,14 +589,14 @@ Add the following to the DocumentDBRepository class;
 	        Client.CreateDocumentQuery<Item>(Collection.DocumentsLink)
 	    		.Where(d => d.ID == id)
 	    		.AsEnumerable()
-			.FirstOrDefault());
+				.FirstOrDefault());
     }
     
     public static async Task<Document> UpdateDocument(Item item)
     {
-            var doc = Client.CreateDocumentQuery<Document>(Collection.DocumentsLink)
-                        .Where(d => d.Id == item.ID)
-                        .AsEnumerable().FirstOrDefault();
+        var doc = Client.CreateDocumentQuery<Document>(Collection.DocumentsLink)
+                    .Where(d => d.Id == item.ID)
+                    .AsEnumerable().FirstOrDefault();
 		
         return await Client.ReplaceDocumentAsync(doc.SelfLink, item);
     }
@@ -628,8 +626,8 @@ grid page we saw before:
 
 1\.Use the provided fields for Item, Item Name and Category to enter
 information, and then click **"Create New"** link and supply some
-values. Leave the "Completed" checkbox unselected else the new item will
-be added in the completed state and will not appear on the initial list.
+values. Leave the "Completed" checkbox unselected otherwise the new item will
+be added in a completed state and will not appear on the initial list.
 
 ![Alt text](./media/documentdb-dotnet-application/image25.png)
 

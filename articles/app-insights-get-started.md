@@ -40,6 +40,8 @@ There are two ways to get started:
 
 ![Example application monitor in Application Insights](./media/appinsights/appinsights-00-appblade.png)
 
+[WACOM.VIDEO application-insights-introduction]
+
 ## Learn more
 
 * [Application Insights][root]
@@ -60,5 +62,5 @@ There are two ways to get started:
 [explore]: ../app-insights-explore-metrics/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-web-track-usage-custom-events-metrics/
+[usage]: ../app-insights-track-usage-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/

@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+﻿<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
@@ -9,7 +9,7 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title=".NET backend" >.NET backend</a> | 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="JavaScript backend" class="current">JavaScript backend</a></div>
  
-This topic shows you how to use Azure Mobile Services to send push notifications to an iOS app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
+This topic shows you how to use Azure Mobile Services to send push notifications through Apple Push Notification service (APNS) to an iOS app, more specifically, the [quickstart project](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/). When complete, your mobile service will send a push notification each time a record is inserted.
 
 
 >[WACOM.NOTE]This tutorial demonstrates Mobile Services integration with Notification Hubs, which is how you send push notifications from your mobile service. If you are using an older mobile service that is using legacy push and has not yet been upgraded to use Notification Hubs, <em>we recommend that you upgrade</em> as part of this tutorial. If you choose not to upgrade now, you should follow this version of the tutorial: [Get started with push notifications (legacy)](/en-us/documentation/articles/mobile-services-ios-get-started-push/).
@@ -19,10 +19,10 @@ This tutorial walks you through these basic steps to enable push notifications:
 1. [Generate the certificate signing request] 
 2. [Register your app and enable push notifications]
 3. [Create a provisioning profile for the app]
-3. [Configure Mobile Services]
-4. [Add push notifications to the app]
-5. [Update scripts to send push notifications]
-6. [Insert data to receive notifications]
+4. [Configure Mobile Services]
+5. [Add push notifications to the app]
+6. [Update scripts to send push notifications]
+7. [Insert data to receive notifications]
 
 This tutorial requires the following:
 
@@ -45,7 +45,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## Add push notifications to your app
 
-1. In QSAppDelegate.m, replace the following handler method inside the implementation: 
+1. In QSAppDelegate.m, insert the following snippet to import the Mobile Services iOS SDK:
+
+        #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
+
+2. In QSAppDelegate.m, replace the following handler method inside the implementation: 
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
         (NSDictionary *)launchOptions
@@ -56,14 +60,21 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             return YES;
         }
 
-2. In QSAppDelegate.m, add the following handler method inside the implementation: 
+3. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you copy the Mobile Service Url and Application Key values and switch them in for the placeholders:
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
-			client.push.registerNative(deviceToken, @”uniqueTag”);
+            // TODO: update @"MobileServiceUrl" and @"AppKey" placeholders
+			MSClient *client = [MSClient clientWithApplicationURLString:@"MobileServiceUrl" applicationKey:@"AppKey"]
+			
+            [client.push registerNativeWithDeviceToken:deviceToken tags:@[@"uniqueTag"] completion:^(NSError *error) {
+                if (error != nil) {
+                    NSLog(@"Error registering for notifications: %@", error);
+                }
+            }];
         }
 
-3. In QSAppDelegate.m, add the following handler method inside the implementation: 
+4. In QSAppDelegate.m, add the following handler method inside the implementation: 
 
         // Handle any failure to register. 
         - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
@@ -71,7 +82,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             NSLog(@"Failed to register for remote notifications: %@", error);
         }
 
-4. In QSAppDelegate.m, add the following handler method inside the implementation:  
+5. In QSAppDelegate.m, add the following handler method inside the implementation:  
 
         // Because alerts don't work when the app is running, the app handles them.
         // This uses the userInfo in the payload to display a UIAlertView.
@@ -83,30 +94,6 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             @"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-
-5. In QSTodoListViewController.m, import the QSAppDelegate.h file so that you can use the delegate to obtain the device token: 
-
-        #import "QSAppDelegate.h"
-
-6. In QSTodoListViewController.m, modify the **(IBAction)onAdd** action by locating the following line: 
-
-        NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) }; 
- 
-   Replace this with the following code:
-
-        // Get a reference to the AppDelegate to easily retrieve the deviceToken
-        QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    
-        NSDictionary *item = @{
-            @"text" : itemText.text,
-            @"complete" : @(NO),
-            // add the device token property to our todo item payload
-            @"deviceToken" : [[NSString alloc] initWithData:delegate.deviceToken encoding:NSUTF8StringEncoding]
-        };
-
-   This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
-
-   > [WACOM.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
 
 Your app is now updated to support push notifications.
 

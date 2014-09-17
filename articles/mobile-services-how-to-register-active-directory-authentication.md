@@ -34,9 +34,14 @@ This topic shows you how to register your apps to be able to use Azure Active Di
 
     ![][5]
 
-8. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your mobile service. Also enter a unique resource identifier in the **App ID URI** box. Then click to continue.
+8. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your mobile service. 
+ 
+    
 
-	>[WACOM.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-aad_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-aad</code>.  
+    - If you created the mobile service to use the JavaScript backend for your mobile service, enter the same unique resource identifier in the **App ID URI** box. Then click to continue.
+
+    - If you created the mobile service to use the .Net backend for your mobile service, the URI for the **App ID URI** box must be the URL of your mobile service appended with the path, _signin-aad_. For example,  `https://todolist.azure-mobile.net/signin-aad`
+
 
     ![][6]
 
@@ -47,10 +52,14 @@ This topic shows you how to register your apps to be able to use Azure Active Di
 
 
 10. Return to your mobile service's **Identity** tab. At the bottom, paste in the **Client ID** setting for the azure active directory identity provider.
-    
-11. In the **Allowed Tenants** list, add the domain of the directory in which you registered the application (e.g. contoso.onmicrosoft.com). 
+
+  
+11. In the **Allowed Tenants** list, you need to add the domain of the directory in which you registered the application (e.g. contoso.onmicrosoft.com). You can find your default domain name by clicking the **Domains** tab on your Active Directory.
+
+    ![][11]
  
-    Then click **Save**.
+    Add your domain name to the **Allowed Tenants** list then click **Save**.    
+
 
     ![][9]
 
@@ -73,6 +82,7 @@ You are now ready to use an Azure Active Directory for authentication in your ap
 [8]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-clientid-waad-auth.png
 [9]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-clientid-pasted-waad-auth.png
 [10]:./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-waad-idenity-tab-selection.png
+[11]:./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-default-domain.png
 
 <!-- URLs. -->
 [Azure Management Portal]: https://manage.windowsazure.com/

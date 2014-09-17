@@ -33,10 +33,15 @@ The **ServiceBusService** object lets you work with queues. Add the following ne
 
 	from azure.servicebus import *
 
-The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'mykey' and 'myissuer' with the real namespace, key and issuer.
+The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'sharedaccesskeyname' and 'sharedaccesskey' with the real namespace, shared access signature (SAS) key name and value.
 
-	bus_service = ServiceBusService(service_namespace='mynamespace', account_key='mykey', issuer='myissuer')
-	
+	bus_service = ServiceBusService(
+		service_namespace='mynamespace',
+		shared_access_key_name='sharedaccesskeyname',
+		shared_access_key_value='sharedaccesskey')
+
+The values for the SAS key name and value can be found in the Azure Portal connection information, or in Visual Studio Properties window when selecting the service bus namespace in Server Explorer (as shown in the previous section).
+
 	bus_service.create_queue('taskqueue')
 
 **create_queue** also supports additional options, which
@@ -73,15 +78,15 @@ upper limit of 5 GB.
 Messages are received from a queue using the **receive\_queue\_message**
 method on the **ServiceBusService** object:
 
-	msg = bus_service.receive_queue_message('taskqueue')
+	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 	print(msg.body)
 
-Messages are
-deleted from the queue as they are read; however, you can read (peek)
-and lock the message without deleting it from the queue by setting the
-optional parameter **peek\_lock** to **True**.
+Messages are deleted from the queue as they are read when the parameter
+**peek\_lock** is set to **False**. You can read (peek) and lock the
+message without deleting it from the queue by setting the parameter
+**peek\_lock** to **True**.
 
-The default behavior of reading and deleting the message as part of the
+The behavior of reading and deleting the message as part of the
 receive operation is the simplest model, and works best for scenarios in
 which an application can tolerate not processing a message in the event
 of a failure. To understand this, consider a scenario in which the
@@ -98,8 +103,9 @@ request, it finds the next message to be consumed, locks it to prevent
 other consumers receiving it, and then returns it to the application.
 After the application finishes processing the message (or stores it
 reliably for future processing), it completes the second stage of the
-receive process by calling the **delete** method on the **Message** object. The **delete** method will
-mark the message as being consumed and remove it from the queue.
+receive process by calling the **delete** method on the **Message**
+object. The **delete** method will mark the message as being consumed
+and remove it from the queue.
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
 	print(msg.body)

@@ -34,8 +34,8 @@ Request units are provisioned for each Database Account based on the number of c
 
 The following table provides a list of various database operations and the request units available per CU. The table helps you plan how a given database operation consumes the provisioned throughput associated with a CU.  We assume that the document size is of 1KB consisting of 10 unique property values with the default consistency level is set to “Session” and all of the documents automatically indexed by DocumentDB. 
 
-|Database Operations	|Number of operations per second per CU
-|-|-
+|Database Operations|Number of operations per second per CU|
+|-------------------|--------------------------------------|
 |Reading a single document	|2000
 |Inserting/Replacing/Deleting a single document	|500
 |Query a collection with a simple predicate and returning a single document	|1000

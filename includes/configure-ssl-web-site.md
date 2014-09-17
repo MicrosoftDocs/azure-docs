@@ -1,5 +1,8 @@
 #Enable HTTPS for an Azure website
 
+> [WACOM.NOTE]
+> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
+
 When someone visits your website using HTTPS, the communication between the website and the browser is secured using Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your site are secure. This article discusses how to enable HTTPS for an Azure Website. 
 
 > [WACOM.NOTE] In order to enable HTTPS for custom domain names, you must configure your websites for standard mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and standard mode pricing, see [Pricing Details][pricing]. To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
@@ -235,7 +238,7 @@ Before performing the steps in this section, you must have associated a custom d
 
 	![upload a certificate][uploadcert]
 
-4. Using the **Upload a certificate** dialog, select the .pfx certificate file created earlier using the IIS Manager or OpenSSL. Specify the password, if any, that was used to secure the .pfx file. Finally, click the **check** to upload the certificate.
+4. Using the **Upload a certificate** dialog, select the .pfx certificate file created earlier using the IIS Manager or OpenSSL. Specify the password, if any, that was used to secure the .pfx file. Finally, click the **check** to upload the certificate. Please note : The Certificates should be SSL Certificate with Extended Key Value of 1.3.6.1.5.5.7.3.1. If not the certficate upload will fail with error message “Could not upload the certificate for web site xxx”.
 
 	![upload certificate dialog][uploadcertdlg]
 

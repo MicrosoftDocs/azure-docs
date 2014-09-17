@@ -1,6 +1,6 @@
-<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 
 This is the second step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
@@ -32,7 +32,7 @@ We'll use the file named **german.data**. Download this file to your local hard 
 
 This dataset contains rows of 20 variables for 1000 past applicants for credit. These 20 variables represent the dataset's feature vector which provides identifying characteristics for each credit applicant. An additional column in each row represents the applicant's credit risk, with 700 applicants identified as a low credit risk and 300 as a high risk.   
 
-The UCI website provides a description of the attributes of the feature vector which include financial information, credit history, employment status, and personal information. For each applicant a binary rating has been given indicating whether they are a low or high credit risk.  
+The UCI website provides a description of the attributes of the feature vector, which include financial information, credit history, employment status, and personal information. For each applicant, a binary rating has been given indicating whether they are a low or high credit risk.  
 
 We'll use this data to train a predictive analytics model. When we're done, our model should be able to accept information for new individuals and predict whether they are a low or high credit risk.  
 
@@ -41,7 +41,7 @@ Here's one interesting twist. The description of the dataset explains that miscl
 ##Convert the dataset format
 The original dataset uses a blank-separated format. ML Studio works better with a comma-separated (CSV) file, so we'll convert the dataset by replacing spaces with commas.  
 
-We can do this using the following PowerShell command:   
+We can do this using the following Windows PowerShell command:   
 
 	cat german.data | %{$_ -replace " ",","} | sc german.csv  
 
@@ -50,16 +50,18 @@ We can also do this using the Unix sed command:
 	sed 's/ /,/g' german.data > german.csv  
 
 ##Upload the dataset to ML Studio
+
 Once the data has been converted to CSV format, we need to upload it into ML Studio.  
 
-1.	In ML Studio, click **+NEW** at the bottom of the window
-2.	Select **DATASET**
-3.	Select **FROM LOCAL FILE**
-4.	In the **Upload a new dataset dialog**, click **Browse** and find the **german.csv** file you created
-5.	Enter a name for the dataset - for this example we'll call it "UCI German Credit Card Data"
-6.	For data type, select "Generic CSV File With no header (.nh.csv)"
-7.	Add a description if you'd like
-8.	Click **OK**  
+1.	In ML Studio, click **+NEW** at the bottom of the window.
+2.	Select **DATASET**.
+3.	Select **FROM LOCAL FILE**.
+4.	In the **Upload a new dataset dialog**, click **Browse** and find the **german.csv** file you created.
+5.	Enter a name for the dataset. For this example, we'll call it "UCI German Credit Card Data".
+6.	For data type, select "Generic CSV File With no header (.nh.csv)".
+7.	Add a description if you’d like.
+8.	Click **OK**.  
+
 ![Upload the dataset][1]  
 
  
