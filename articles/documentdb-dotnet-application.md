@@ -1,7 +1,7 @@
-<properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="Build a web application with ASP.NET MVC using DocumentDB | Azure" description="Learn how to use DocumentDB to build a To Do List web application. You'll store and access data from an ASP.NET MVC web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="Build a web application with ASP.NET MVC using DocumentDB | Azure" description="Learn how to use DocumentDB to build a To Do List web application. You'll store and access data from an ASP.NET MVC web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="ryancraw" manager="johnmac" editor="cgronlun" videoId="" scriptId="" />
 
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="hawong" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="ryancraw" />
 
 <a name="_Toc395809351">Build a web application with ASP.NET MVC using DocumentDB</a>
 =======================================================================================================
@@ -25,7 +25,7 @@ You will learn:
 
 4\. Deploying the Web Application to Azure Websites
 
-By following this walkthrough, you will build a simple web-based task-management application that allows creating, retrieving and completing of tasks. The tasks will be stored as JSON documents in Azure DocumentDB.
+By following this walk-through, you will build a simple web-based task-management application that allows creating, retrieving and completing of tasks. The tasks will be stored as JSON documents in Azure DocumentDB.
 
 ![Alt text](./media/documentdb-dotnet-application/image1.png)
 
@@ -332,7 +332,7 @@ Replace the code in the class file with the following;
 
 #### 
 
-Spend some time resolving all the namespaces in Visual Studio. All namespaces will be easy to resolve in Visual Studio as long as the NuGet package was installed successfully. 
+Spend some time resolving all the namespaces in Visual Studio. All namespaces will be easy to resolve in Visual Studio as long as the NuGet package was installed successfully. The references to the ReadOrCreateDatabase and ReadOrCreateCollection methods will remain unresolved until we have added them, which comes next. 
 
 There are two method calls used here for reading or creating DocumentDB Databases and Document Collections.
 So add the following two methods to this class;
@@ -497,7 +497,7 @@ Add the following to the DocumentDBRepository class;
     public static Item GetItem(string id)
     {
         return Client.CreateDocumentQuery<Item>(Collection.DocumentsLink)
-                    .Where(d => d.ID == id)
+                    .Where(d => d.Id == id)
                     .AsEnumerable()
                     .FirstOrDefault();
     }
@@ -505,7 +505,7 @@ Add the following to the DocumentDBRepository class;
     public static async Task<Document> UpdateItemAsync(Item item)
     {
         Document doc = Client.CreateDocumentQuery(Collection.DocumentsLink)
-                            .Where(d => d.Id == item.ID)
+                            .Where(d => d.Id == item.Id)
                             .AsEnumerable()
                             .FirstOrDefault();
 
@@ -528,7 +528,7 @@ To test the application on your local machine, hit F5 in Visual Studio and it sh
 
 ![Alt text](./media/documentdb-dotnet-application/image24.png)
 
-1\.Use the provided fields for Item, Item Name and Category to enter information, and then click **"Create New"** link and supply some values. Leave the "Completed" checkbox unselected otherwise the new item will be added in a completed state and will not appear on the initial list.
+1\.Use the provided fields for Item, Item Name and Category to enter information, and then click **"Create New"** link and supply some values. Leave the "Completed" check box unselected otherwise the new item will be added in a completed state and will not appear on the initial list.
 
 ![Alt text](./media/documentdb-dotnet-application/image25.png)
 
