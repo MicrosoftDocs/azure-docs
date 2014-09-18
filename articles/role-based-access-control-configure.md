@@ -52,7 +52,7 @@ The **actions** property of the role definition specifies the allowed actions on
 **Built-In Role**  | Actions  | Not Actions	
 ------------- | -------------  | ------------
 Owner (allow all actions)  | *  | 
-Contributor (allow all actions except writing or deleting role assignments)  | *  | Microsoft.Authorization/*/Write, Microsoft.Authorization/*/Delete
+Contributor (allow all actions except writing or deleting role assignments)  | *  | Microsoft.Authorization/ * /Write, Microsoft.Authorization/ * /Delete
 Reader (allow all read actions)  | */Read  | 
 
 ### Role Assignment
@@ -104,19 +104,19 @@ All of Ellen Adams’ team  | Create and manage all resources in the Test resour
 Tony  | Create and manage all resources in the Prod resource group  | Add Tony to Contributor role for the Prod resource group
 
 
-First, let’s add Read access for all resources of the subscription. Click **Browse -> Everything -> Subscriptions**.
+First, let’s add Read access for all resources of the subscription. Click **Browse > Everything > Subscriptions**.
 
 ![][3] 
 
-Click *name of your subscription* **-> Reader -> Add**. From the list of users and groups, select or type the name of the Active Directory group.
+Click *name of your subscription* ** > Reader > Add**. From the list of users and groups, select or type the name of the Active Directory group.
 
 ![][4]
 
-Then add the same team to the Contributor role of the Test resource group. Click the resource group to open its property blade. Under **Roles**, click **Contributor -> Add** and type the name of the team.
+Then add the same team to the Contributor role of the Test resource group. Click the resource group to open its property blade. Under **Roles**, click **Contributor > Add** and type the name of the team.
 
 ![][5]
 
-To add Tony to the Contributor role of the Prod resource group, click the resource group click **Contributor -> Add** and type Tony’s name. 
+To add Tony to the Contributor role of the Prod resource group, click the resource group click **Contributor > Add** and type Tony’s name. 
 
 ![][6]
 
@@ -128,7 +128,7 @@ For more information about using Windows PowerShell to add and remove access, se
 
 <h3><a id="remove"></a>Remove access</h2>
 
-You can also remove assignments easily. Let’s say you want to remove a user named Brad Adams from the Reader role for a resource group named TestDB. Open the resource group blade, click **Reader -> Brad Adams -> Remove**.
+You can also remove assignments easily. Let’s say you want to remove a user named Brad Adams from the Reader role for a resource group named TestDB. Open the resource group blade, click **Reader > Brad Adams > Remove**.
 
 ![][7]
 
@@ -147,7 +147,15 @@ Then you can edit the options to control access for external users.
 
 ![][8]
 
-Let’s step through the process to add access for an external user. We’ll add an external user to the same Reader role for TestDB resource group so that user can help debug an error. Open the resource group blade, click **Reader -> Add -> Invite** and type the email address of the user you want to add. 
+By default, guests cannot enumerate the contents of the directory, so they do not see any users or groups in the **Member List**. They can search for a user by typing the user's full email address, and then grant access. The set of default restrictions for guests are:
+
+- They cannot enumerate users and groups in the directory.
+- They can see limited details of a user if they know the user's email address.
+- They can see limited details of a group when they know the group name.
+
+The ability for guests to see limited details of a user or group allows them to invite other people and see some details of people with whom they are collaborating.  
+
+Let’s step through the process to add access for an external user. We’ll add an external user to the same Reader role for TestDB resource group so that user can help debug an error. Open the resource group blade, click **Reader > Add > Invite** and type the email address of the user you want to add. 
 
 ![][9]
 
