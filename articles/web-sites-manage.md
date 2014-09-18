@@ -68,24 +68,9 @@ The **Monitor** management page provides a chart that displays usage information
 The WebJobs management page lets you create on demand, scheduled, or continuously running tasks for your website. For more information, see [How to Use the WebJobs feature in Microsoft Azure Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-create-web-jobs/).
 
 ##Configure##
-The **Configure** management page is used to set application specific settings including:
+The **Configure** management page is used to set application specific settings.
 
-- **General** - Set the version of the .NET framework, PHP, Python, or Java required by your web application. For sites in Standard or Basic mode, there is an option to choose a 64-bit platform. Set **Managed Pipeline Mode**  to **Classic** only if you have legacy websites that run exclusively on older versions of IIS (**Integrated** is the default.) To enable your website to use real time request pattern applications such as chat, you can set **Web Sockets** to **On**. To enable editing of your website directly online, set **Edit in Visual Studio Online** to **On**.
-- **Certificates** - Upload an SSL certificate for a custom domain. SSL certificates can be uploaded only in Standard or Basic mode. The certificates you upload are listed here and can be assigned to any website in your subscription and region. Wildcard certificates (certificates with an asterisk) are supported.
-- **Domain Names** - View or add additional custom domain names for a website. Custom domain names can only be used in Shared, Basic, or Standard mode.
-- **SSL Bindings** - SSL bindings to custom domains can only be used in Basic or Standard mode. Choose an SSL mode (**SNI**, **IP**, or **No SSL**) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded.  
-- **Deployments** - This section appears only if you have enabled deployment from source control. Use these settings to configure deployments.
-- **Application Diagnostics** - Set options for gathering diagnostic information for a web application that supports logging. You can choose to log to the file system or to a Microsoft Azure Storage account, and choose a logging level to specify the amount of information gathered.
-- **Site Diagnostics** - Set logging options for gathering diagnostic information for your website, or enable Visual Studio 2012 or Visual Studio 2013 to debug your website remotely for a maximum of 48 hours.
-- **Monitoring** - For websites in Standard mode, test the availability of HTTP or HTTPS endpoints from geo-distributed locations.
-- **Developer Analytics** - Analytics monitor the performance of your web application. Choose an analytics add-on from the Microsoft Azure store, or choose a custom analytics provider such as New Relic.
-- **App Settings** - Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into the website's .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node websites, these settings will be available as environment variables at runtime.
-- **Connection Strings** - View connection strings to linked resources. For .NET sites, these connection strings will be injected into the website's .NET configuration connectionStrings settings at runtime, overriding any existing entries where the key equals the linked database name. For PHP and Node websites, these settings will be available as environment variables at runtime.
-- **Default Documents** - Add your website's default document to this list if it is not already in the list. If your website contains more than one of the files in the list then make sure your website's default document appears at the top of the list by changing the order of the files in the list.
-- **Handler Mappings** - Add custom script processors that handle requests for specific file types (for example, *.php).
-- **Virtual Applications and Directories**  - Configure virtual applications and directories associated with your website. You also have the option to mark a virtual directory as an application in site configuration.
-
-For more information about how to configure a Website, see [How to Configure Web Sites][Configure].
+For details, see [How to Configure Web Sites][Configure].
 
 
 ##Scale##
