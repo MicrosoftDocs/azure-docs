@@ -31,10 +31,11 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-02.png)
 
-2. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**. This example uses the ID **MobileServices.Quickstart** but you may not reuse this same ID, as app IDs must be unique across all users. As such, it is recommended that you append your full name or initials after the app name.
+
 
 > [WACOM.NOTE] If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project. We recommend that you use the exact bundle identifier value you already used in your quickstart project.
 
+2. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**. This example uses the ID **MobileServices.Quickstart** but you may not reuse this same ID, as app IDs must be unique across all users. As such, it is recommended that you append your full name or initials after the app name.
 
 
     ![](./media/enable-apple-push-notifications/mobile-services-ios-push-03.png)
