@@ -1,6 +1,6 @@
 <properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
 # How to Use the Blob Storage Service from Python
 This guide will show you how to perform common scenarios using the
@@ -37,7 +37,7 @@ The **BlobService** object lets you work with containers and blobs. The
 following code creates a **BlobService** object. Add the following near
 the top of any Python file in which you wish to programmatically access Azure Storage:
 
-	from azure.storage import *
+	from azure.storage import BlobService
 
 The following code creates a **BlobService** object using the storage account name and account key.  Replace 'myaccount' and 'mykey' with the real account and key.
 
