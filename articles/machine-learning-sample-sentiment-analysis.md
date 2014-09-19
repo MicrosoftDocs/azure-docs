@@ -22,12 +22,21 @@ We used feature hashing module to transform English text to integer-valued featu
 3. multiclass classification using multiclass logistic regression classifier
  
 ##Results
- 
+
+<table>
+<tr><th>Algorithm</th>                    <th>Mean Absolute Error</th><th>Root Mean Square Error</th></tr>
+<tr><td>Ordinal Regression</td>       <td>0.82</td>               <td>1.41</td></tr>
+<tr><td>Linear Regression</td>        <td>1.04</td>               <td>1.36</td></tr>
+<tr><td>Multiclass Classification</td><td>0.85</td>               <td>1.57</td></tr>
+</table>
+
+<!-- 
 Algorithm|                         Mean Absolute Error|           Root Mean Square Error
 ---------|  
 Ordinal Regression |             0.82|                                            1.41|
 Linear Regression  |              1.04|                                            1.36|
 Multiclass classification  |    0.85  |                                          1.57
+-->
  
 Based on these results we chose ordinal regression model and build a web service based on it.
  
