@@ -62,7 +62,7 @@ Select any event to see more detail.
 
 ## Tracking usage
 
-> [WACOM.VIDEO tracking-usage-with-application-insights]
+> [AZURE.VIDEO tracking-usage-with-application-insights]
 
 
 ## Learn more
