@@ -99,11 +99,11 @@ Once you have a live application, [set up web tests][availability] to make sure 
 
 ### Introduction
 
-> [WACOM.VIDEO application-insights-introduction]
+> [AZURE.VIDEO application-insights-introduction]
 
 ### Get started
 
-> [WACOM.VIDEO getting-started-with-application-insights]
+> [AZURE.VIDEO getting-started-with-application-insights]
 
 ## <a name="next"></a>Next steps
 
