@@ -2,11 +2,11 @@
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
 
-#Federation Migration 
+#Federations Migration 
 
-The Azure SQL DB federations feature is being retired along with the Web/Business editions in September 2015. At that point in time, applications that utilize the federations feature will cease to execute. To ensure a successful migration, it is highly encouraged that migration efforts begin as soon as possible to allow for sufficient planning and execution. This document provides the context, examples, and introduction to the federations Migration Utility that will enable one to successfully migrate a current federation application seamlessly to the Azure SQL DB Elastic Scale APIs. The objective of the document is to walk you through the suggested steps to migrate application without any data movement.
+The Azure SQL DB federations feature is being retired along with the Web/Business editions in September 2015. At that point in time, applications that utilize the federations feature will cease to execute. To ensure a successful migration, it is highly encouraged that migration efforts begin as soon as possible to allow for sufficient planning and execution. This document provides the context, examples, and introduction to the federations migration utility that will enable one to successfully migrate a current federations application seamlessly to the Azure SQL DB Elastic Scale preview APIs. The objective of the document is to walk you through the suggested steps to migrate a federations application without any data movement.
 
-There are three major steps for migrating an existing federation app to one that uses the Elastic Scale API.
+There are three major steps for migrating an existing federations application to one that uses the Elastic Scale API.
 
 1. [Create a Shard Map Manager from a Federation Root] 
 2. [Modify the Existing Application]
@@ -14,7 +14,7 @@ There are three major steps for migrating an existing federation app to one that
     
 
 ### The Migration Utility Tool
-To assist in this process, a federation Migration Utility has been created. **[need a link to the tool download]** 
+To assist in this process, a federation migration utility has been created. **[need a link to the tool download]** 
 The tool accomplishes steps 1 and 3. 
 
 ## Create a Shard Map Manager from a Federation Root
@@ -26,13 +26,13 @@ Start with an existing federation application in a test environment.
  
 Use the Use the **Federation Migration Utility** to clone the federation root metadata into the constructs of the Elastic Scale Shard Map Manager. Analogous to a federation Root, the Shard Map Manager database is a standalone database that contains the shard maps (i.e., federations), shards (i.e., federation members) and respective range mappings. 
 
-The cloning of the federation root to the Shard Map Manager is a copy and translation of metadata. No metadata is altered on the federation root. Note that the cloning of the federation root with the federation Migration Utility is a point-in-time operation, and any changes to either the federation root or Shard Map Manager will not be reflected in the other respective data store. If critical changes are made to the federation root during the testing of the new APIs, the federation Migration Utility can be used to refresh the Shard Map Manager to represent the current state. 
+The cloning of the federation root to the Shard Map Manager is a copy and translation of metadata. No metadata is altered on the federation root. Note that the cloning of the federation root with the federation migration utility is a point-in-time operation, and any changes to either the federation root or Shard Map Manager will not be reflected in the other respective data store. If critical changes are made to the federation root during the testing of the new APIs, the federation migration utility can be used to refresh the Shard Map Manager to represent the current state. 
 
 ![][2]
 
 ## Modify the Existing Application 
 
-With Shard Map Manager in place and the federation members and ranges registered with the Shard Map Manager (done via the migration utility), one can modify their existing application to utilize the Elastic Scale APIs. As shown in Figure 1.1, the application connections via the Elastic Scale APIs will be routed through the Shard Map Manager to appropriate federation members (now also a shard).  Mapping federation members to the Shard Map Manager enables two versions of an application – one that uses federations and one that uses Elastic Scale - to be executed side-by-side to verify functionality.   
+With Shard Map Manager in place and the federation members and ranges registered with the Shard Map Manager (done via the migration utility), one can modify their existing application to utilize the Elastic Scale APIs. As shown in Figure 1.1, the application connections via the Elastic Scale APIs will be routed through the Shard Map Manager to appropriate federation members (now also a shard). Mapping federation members to the Shard Map Manager enables two versions of an application – one that uses federations and one that uses Elastic Scale - to be executed side-by-side to verify functionality.   
 
 During the migration of the application, there will be two core modifications to the existing application that will need to be made.
 
@@ -79,10 +79,10 @@ Once the application has been modified with the inclusion of the Elastic Scale A
 
 Note that issuing a **SWITCH OUT** against a Federation member is a one-way operation and cannot be undone. Once performed, the resulting database cannot be added back to a Federation, and the USE FEDERATION commands can no longer be issued against the database. 
 
-To perform the switch, an additional argument has been added to the ALTER FEDERATION command in order to SWITCH OUT a Federation member (for more information, please see the MSDN reference for [ALTER FEDERATION (Azure SQL Database](http://msdn.microsoft.com/en-us/library/azure/hh597475.aspx)).  While the command can be issued against individual Federation members, the federation Migration Utility provides the functionality to programmatically iterate through each federation member and perform the switch. 
+To perform the switch, an additional argument has been added to the ALTER FEDERATION command in order to SWITCH OUT a Federation member (for more information, please see the MSDN reference for [ALTER FEDERATION (Azure SQL Database](http://msdn.microsoft.com/en-us/library/azure/hh597475.aspx)).  While the command can be issued against individual Federation members, the federation migration utility provides the functionality to programmatically iterate through each federation member and perform the switch. 
 
 Once the switch has been performed on all existing federation members, the migration of the application is done.  
-The federation Migration Utility provides the abilities to: 
+The federation migration utility provides the abilities to: 
 
 1.    Perform a clone of the federation root to a Shard Map Manager.  One can choose to put the existing Shard Map Manager on a new Azure SQL DB (recommended) or on the existing federation root database.
 2.    Issue the SWITCH OUT against all federation members in a federation.
@@ -133,6 +133,7 @@ A console application opens that walks through a series of menu options and prom
 
 
 <!--Image references-->
-[1]: ./media/elastic-scale-federation-migration/migrate-1.png
-[2]: ./media/elastic-scale-federation-migration/migrate-2.png
-[3]: ./media/elastic-scale-federation-migration/migrate-3.png
+[1]: ./media/sql-database-elastic-scale-federation-migration/migrate-1.png
+[2]: ./media/sql-database-elastic-scale-federation-migration/migrate-2.png
+[3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
+

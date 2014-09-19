@@ -41,8 +41,6 @@ The public preview release for Azure SQL Database Elastic Scale makes developing
 
 * **Split/Merge Service**: When capacity needs fluctuate in tandem with business momentum, applications need to flexibly re-distribute data across a number of databases. Elastic scale provides a customer-hosted service experience for growing and shrinking the data tier capacity and managing hotspots for sharded applications in situations that also involve movement of data. It builds on an underlying capability for moving shardlets on demand between different shards and integrates with shard map management to maintain consistent mappings and accurate data dependent routing connections. 
 
-
 <!--Anchors-->
-
 <!--Image references-->
-[1]: ./media/elastic-scale-intro/overview.png
+[1]:./media/sql-database-elastic-scale-intro/overview.png

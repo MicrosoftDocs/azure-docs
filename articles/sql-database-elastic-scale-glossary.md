@@ -3,6 +3,8 @@
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
 #Elastic Scale Glossary
+![Elastic Scale terms][1]
+
 **Database** – SQL Azure database 
 
 **Sharding Key**: An attribute of a shard - a column value (int, bigint, varbinary, uniqueidentifier) that determines how the data is sharded into a one or more shardlets. 
@@ -50,3 +52,6 @@
 **Point move**: The act of moving a single shardlet to a different shard. 
 
 **Shard**: The act of horizontally partitioning identically structured data across multiple physical databases based on a key.
+
+<!--Image references-->
+[1]: ./media/sql-database-elastic-scale-glossary/glossary.png

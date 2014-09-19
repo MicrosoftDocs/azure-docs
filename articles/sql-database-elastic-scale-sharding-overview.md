@@ -26,4 +26,4 @@ In other scenarios, such as ingestion of data from distributed devices, sharding
 
 Regardless of the sharding model being used, a special data structure known as a shard map serves as a lookup table associating sharding key values with databases, allowing the application to perform the routing for database requests. This is referred to as Data Dependent Routing (DDR) and is a core capability needed for an application to use a sharded data tier. The Elastic Scale client APIs provide a rich set of functions necessary for managing shard maps and enabling efficient, easy-to-use DDR capabilities in an application. 
 <!--Image references-->
-[1]: ./media/elastic-scale-sharding-overview/tenancy.png
+[1]: ./media/sql-database-elastic-scale-sharding-overview/tenancy.png
