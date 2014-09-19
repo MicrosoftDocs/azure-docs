@@ -248,4 +248,4 @@ Entity Framework applications can easily benefit from Azure Database Elastic Sca
 
 
 <!--Image references-->
-[1]: ./media/elastic-scale-using-entity-framework/sample.png
+[1]: ./media/sql-database-elastic-scale-using-entity-framework/sample.png
