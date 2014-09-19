@@ -18,6 +18,7 @@
 + [How do I get back all the features I had in the Visual Studio Online version of Application Insights?](#q13)
 + [What does Application Insights modify in my project?](#q14)
 + [How do I find my results in Application Insights?](#q15)
++ [What ports should I open in my firewall?](#q16)
 + [Learn more](#next)
 
 
@@ -42,7 +43,7 @@ This can happen if communication with the Application Insights portal failed, or
 
 + You have to close and open any blade where you are waiting for data. In the current version, the content of a blade doesn't refresh automatically.
 + In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
-+ In your web server's firewall, you might have to open port 443 for outgoing traffic. 
++ In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 
 ## <a name="q04"></a>I see no data under Usage Analytics
 
@@ -137,31 +138,33 @@ The details depend on the type of project. For a web application:+
 
 2. Choose Browse, Application Insights, then select your project.
 
+## <a name="q16"></a>There's a firewall between my server or dev machine and the public internet. What traffic should I allow to enable Application Insights?
 
+Performance and usage data are sent to TCP ports 80 and 443 at dc.services.visualstudio.com and f5.services.visualstudio.com.
 
-## <a name="next"></a>Learn more
+Web availability tests depend on incoming access to your web server on port 80.
 
-* [Application Insights][root]
-* [Add Application Insights to your project][start]
+## Learn more
+
+* [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
-* [Explore metrics in Application Insights][explore]
-* [Diagnostic log search][diagnostic]
+* [Monitor performance in web applications][perf]
+* [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
-* [Usage tracking with events and metrics][usage]
+* [Track usage][usage]
 * [Q & A and troubleshooting][qna]
-
 
 <!--Link references-->
 
 
-[root]: ../app-insights-get-started/
-[start]: ../app-insights-monitor-application-health-usage/
+[start]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
-[explore]: ../app-insights-explore-metrics/
+[perf]: ../app-insights-web-monitor-performance/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-track-usage-custom-events-metrics/
+[usage]: ../app-insights-web-track-usage/
 [qna]: ../app-insights-troubleshoot-faq/
+[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
 
 [older]: http://www.visualstudio.com/get-started/get-usage-data-vs
 
