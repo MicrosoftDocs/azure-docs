@@ -87,7 +87,7 @@ You might want to disable web tests while you are performing maintenance on your
 
 ## <a name="video"></a>Monitoring availability
 
-> [WACOM.VIDEO monitoring-availability-with-application-insights]
+> [AZURE.VIDEO monitoring-availability-with-application-insights]
 
 ## <a name="next"></a>Next steps
 

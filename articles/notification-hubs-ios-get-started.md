@@ -159,7 +159,7 @@ You can send notifications using Notification Hubs from any back-end using the <
  
 	You should receive an alert on your device. If you are using Wi-fi, make sure your connection is working.
 
-You can find all the possible payloads in the Apple [Local and Push Notification Programming Guide].
+You can find all the possible payloads in the Apple [Local and Push Notification Programming Guide].   
 
 ## <a name="next-steps"> </a>Next steps
 

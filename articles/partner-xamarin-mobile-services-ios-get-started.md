@@ -14,7 +14,7 @@ If you prefer to watch a video, the clip below follows the same steps as this tu
 
 Video: "Getting Started with Xamarin and Azure Mobile Services" with Craig Dunn, developer evangelist for Xamarin  (duration: 10:05 min)
 
-> [WACOM.VIDEO getting-started-with-xamarin-and-mobile-services]
+> [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
 
 
 
