@@ -15,7 +15,7 @@ This topic shows you how to use the job scheduler functionality in the Managemen
 + Processing or resizing stored images.
 
 <!-- // Removed because this shortcode b/c it's old and doesn't use the new Twitter v1.1. APIs
->[WACOM.VIDEO Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler]
+>[AZURE.VIDEO Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler]
 -->
 
 <!-- // Original video HTML code for reference.

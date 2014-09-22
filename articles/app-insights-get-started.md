@@ -2,6 +2,6 @@
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
 
-# Application Insights - Get Started
+# Application Insights - Start monitoring your app's health and usage
 
 [Sorry, this page has moved.](../app-insights-start-monitoring-app-health-usage/)

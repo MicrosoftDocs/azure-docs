@@ -31,19 +31,25 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-02.png)
 
-2. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**. This example uses the ID **MobileServices.Quickstart** but you may not reuse this same ID, as app IDs must be unique across all users. As such, it is recommended that you append your full name or initials after the app name.
+
 
 > [WACOM.NOTE] If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project. We recommend that you use the exact bundle identifier value you already used in your quickstart project.
 
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-03.png)
+2. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**. This example uses the ID **MobileServices.Quickstart** but you may not reuse this same ID, as app IDs must be unique across all users. As such, it is recommended that you append your full name or initials after the app name.
+
+
+    ![](./media/enable-apple-push-notifications/mobile-services-ios-push-03.png)
 
    	This generates your app ID and requests you to **Submit** the information. Click **Submit**
 
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-04.png)
+
+    ![](./media/enable-apple-push-notifications/mobile-services-ios-push-04.png)
+
 
    	Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
 
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-05.png)
+
+    ![](./media/enable-apple-push-notifications/mobile-services-ios-push-05.png)
 
 
 3. Locate the app ID that you just created, and click on its row.
@@ -116,9 +122,10 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
 
 7. In Xcode, open the Organizer select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and then click the **Refresh** button at the bottom of the middle pane.
 
-   Alternatively, from the Xcode menu, select **Preferences** and then **Accounts**. Select your Apple Developer ID in the left panel. Click the **View Details** button on the right. In the pop-over window, click the rounded **Refresh** button. This refreshes the list of Provisioning profiles. This process may take a few minutes. We recommend taht you click **Refresh** 2-3 times until you see your new provisioning profile. Also, confirm that the bundle identifier of this Xcode project is identical to the bundle identifier associated with the app ID and provisioning profile you've created so far. 
+   Alternatively, from the Xcode menu, select **Preferences** and then **Accounts**. Select your Apple Developer ID in the left panel. Click the **View Details** button on the right. In the pop-over window, click the rounded **Refresh** button. This refreshes the list of Provisioning profiles. This process may take a few minutes. We recommend taht you click **Refresh** 2-3 times until you see your new provisioning profile. Also, confirm that the bundle identifier of this Xcode project is identical to the bundle identifier associated with the app ID and provisioning profile you've created so far.
 
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-01.png)
+
+    ![](./media/enable-apple-push-notifications/mobile-services-ios-push-01.png)
 
 8. Under **Targets**, click **Quickstart**, expand **Code Signing Identity**, then under **Debug** select the new profile.
 
