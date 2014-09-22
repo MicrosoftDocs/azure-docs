@@ -8,21 +8,18 @@
         <a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
 </div>
 
-Rich notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
-
-In order to engage users by providing them with instant rich contents, an application looks to notifications to push beyond plain texts. These notifications allow user interactions, and pipeline seamlessly to contents such as urls, sounds, images/coupons, and much more. This tutorial decribes how to ultilize push notifications with Notification Hubs to present a desired image to users.
+In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications allow user interactions, and pipeline seamlessly to contents such as urls, sounds, images/coupons, and much more. This tutorial build on the [Notify Users](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) topic, and teaches you to send push notifications that incorporate a payload (i.e. image)
     ![][IOS1]
 
 At a high level:
 
 1. The app backend:
     - Stores rich payload (i.e. image) in backend database/local storage
-    - Sends the ID of this rich notification to device
+    - Sends ID of this rich notification to device
 2. The app on the device:
-    - Contacts the backend requesting the rich payload with received ID
+    - Contacts the backend requesting the rich payload with its received ID
     - Sends users notifications on device when data retrieval is complete and show payload immediately when users tap to learn more
 
-This Rich Push tutorial builds on the [Notify Users](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) tutorial.
 
 ## WebAPI Project
 
@@ -88,9 +85,9 @@ This Rich Push tutorial builds on the [Notify Users](http://azure.microsoft.com/
             }
         }
 
-> [AZURE.NOTE] check out [How to embed and access resources by using Visual C#](http://support.microsoft.com/kb/319292) for more information on how to add and obtain project resources.
+> [AZURE.NOTE]  (optional) Refer to [How to embed and access resources by using Visual C#](http://support.microsoft.com/kb/319292) for more information on how to add and obtain project resources.
 
-7. In **NotificationsController.cs**, redefine **NotificationsController** class with the following to send an initial silent rich notification id to device and to allow client-side retrieval of content:
+7. In **NotificationsController.cs**, redefine **NotificationsController**  with the following snippets. This sends an initial silent rich notification id to device and allows client-side retrieval of image:
 
         // return http response with image binary
         public HttpResponseMessage Get(int id)
@@ -130,13 +127,15 @@ This Rich Push tutorial builds on the [Notify Users](http://azure.microsoft.com/
 
 Now that you have modified your app backend to send just the *id* of a notification, you have to change your iOS app to handle that id and retrieve the rich message from the backend to be displayed.
 
-1. Open your iOS project, and enable it to run in the background to receive remote notifications by going to your main app target in the **Targets** section, clicking on **Capabilities**, turning on the **Background Modes**, and checking the **Remote Notifications** checkbox.
+1. Open your iOS project, and enable remote notifications by going to your main app target in the **Targets** section. 
+
+2. Click on **Capabilities**, turn on **Background Modes**, and check the **Remote Notifications** checkbox.
 
     ![][IOS3]
 
-2. Go to **Main.storyboard**, and make sure you have a View Controller (refered to as Home View Controller in this tutorial) from the **Notify User** tutorial.
+3. Go to **Main.storyboard**, and make sure you have a View Controller (refered to as Home View Controller in this tutorial) from the **Notify User** tutorial.
 
-3. Add a **Navigation Controller** to the storyboard, and control-drag to Home View Controller to make the latter the **root view** of navigation. Make sure the **Is Initial View Controller** in Attributes inspector is selected for the Navigation Controller only.
+4. Add a **Navigation Controller** to the storyboard, and control-drag to Home View Controller to make the latter the **root view** of navigation. Make sure the **Is Initial View Controller** in Attributes inspector is selected for the Navigation Controller only.
 
 4. Add a **View Controller** to the storyboard and put in an **Image View** in this controller. This is the page users will see once they click the notification to learn more. Your storyboard should look as the following:
     
@@ -190,7 +189,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
         homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
         hvc.deviceToken = deviceToken;
 
-14. Then add the follow functions into the implementation of **AppDelegate**. Make sure to substitute the placeholder `{backend endpoint}` with your backend endpoint:
+14. Then, add the following implementations to **AppDelegate**. Make sure to substitute the placeholder `{backend endpoint}` with your backend endpoint:
 
         NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
 
