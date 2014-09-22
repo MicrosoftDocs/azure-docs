@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Sample: Sentiment analysis" pageTitle="Machine Learning Sample: Sentiment analysis | Azure" description="A sample Azure Machine Learning experiment that uses sentiment classification to predict product reviews." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/19/2014" ms.author="garye" />
 
 #Azure Machine Learning sample: Sentiment analysis
 
@@ -22,12 +22,12 @@ We used feature hashing module to transform English text to integer-valued featu
 3. multiclass classification using multiclass logistic regression classifier
  
 ##Results
- 
-Algorithm|                         Mean Absolute Error|           Root Mean Square Error
----------|  
-Ordinal Regression |             0.82|                                            1.41|
-Linear Regression  |              1.04|                                            1.36|
-Multiclass classification  |    0.85  |                                          1.57
+
+Algorithm                 | Mean Absolute Error | Root Mean Square Error
+:---------                | :-----------------: | :--------------------:
+Ordinal Regression        | 0.82                | 1.41
+Linear Regression         | 1.04                | 1.36
+Multiclass Classification | 0.85                | 1.57
  
 Based on these results we chose ordinal regression model and build a web service based on it.
  
