@@ -3,55 +3,58 @@
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
 #Elastic Scale Glossary
+The following terms are defined for the Elastic Scale feature of Azure SQL Database.
+
 ![Elastic Scale terms][1]
 
-**Database** – SQL Azure database 
+**Database**: An Azure SQL database. 
 
-**Sharding Key**: An attribute of a shard - a column value (int, bigint, varbinary, uniqueidentifier) that determines how the data is sharded into a one or more shardlets. 
+**Data Dependent Routing** (DDR): The functionality that enables an application to connect to a shard given a specific sharding key. Compare to **Multi-Shard Query**.
+
+**Global Shard Map** (GSM or Shard Map): The set of mappings between sharding keys and their respective shards within a **shard set**. The GSM is stored in the **shard map manager**. Compare to a **Local Shard Map**.
+
+**List Shard Map**: A shard map in which the sharding key is a singular value. Compare to **Range Shard Map**.   
+
+**Local Shard Map** (LSM): Stored on a shard, the local shard map contains mappings for the shardlets that reside on the shard.
+
+**Multi-Shard Query** (MSQ): The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). Compare to a **Data Dependent Routing**.
+
+**Range Shard Map**: A shard map in which the shard distribution strategy is based on multiple ranges of contiguous values. 
+
+**Reference tables**: Tables that are not sharded but are replicated across shards. 
+
+**Shard**: An Azure SQL database that stores data from a sharded data set. 
+
+**Shard Elasticity** (SE): The ability to perform both **horizontal scaling** and **vertical scaling**.
+
+**Sharding Key**: A column value that determines how data is distributed across shards. The value type can be one of the following: int, bigint, varbinary, or uniqueidentifier. 
+
+**Shard Set**: The complete set of shards that are attributed to the same shard map in the shard map manager.  
+
+**Shardlet**: All of the data associated with a single value of a sharding key on a shard. A shardlet is the smallest unit of data movement possible when redistributing sharded tables. 
+
+**Shard Map**: The set of mappings between sharding keys and their respective shards.
 
 **Shard Map Manager**: A management service and data store that contains the shard map(s), shard locations, and mappings for one or more shard sets. 
 
-**Shardlet**: All of the data associated with a single value of a sharding key - including all rows within one or more sharded tables that share that key. All of the data associated with a shardlet must be co-located within a single shard. A shardlet is the smallest unit of data movement possible when redistributing sharded tables. 
+**Shard Set**:The collection of shards that belong to the same shard map in the shard map manager. 
 
-**Shard**: A logical container of zero or more shardlets. A shard resides on an Azure SQL database and individual shards can be of different SQL DB editions (i.e., basic, standard, or premium). 
-
-**Shard Set**: A collection of one or more shards. 
-
-**Reference tables**: Replicated tables that enable consistent join semantics across a set of shards.  Reference tables themselves are not sharded. 
-
-**Global Shard Set**: The complete set of shards that are attributed to the same shard map in the shard map manager.  
-
-**Shard Set**: One or more shards that share the same schema and sharding key.
-
-**Global Shard Map** (GSM or Shard Map): A global shard map is the set of mappings between sharding keys and their respective shards within a shard set. 
-
-**Local Shard Map** (LSM): A shard map specific to the individual shard on which the data resides.
-
-**List Shard Map**: The shard key is directly associated to an individual shard (one-customer per shard model).  A lookup is done to get the shard connection details.  
-
-**Range Shard Map**: Shard distribution strategy based on multiple ranges of low and high values. 
-
-**Data Dependent Routing** (DDR): The functionality that enables an application to determine which physical database to connect to in order to process a transaction.
-
-
-**Multi-Shard Query** (MSQ): The ability to issue an interactive query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). 
-
-
-**Split/Merge** (S/M) Service: A customer-hosted cloud service that enables customers to split, merge, and perform point move operations on one or more shardlets. 
-
-
-**Shard Elasticity** (SE): The ability to vertically scale the performance level of a single shard and/or horizontally scale a shard map by adding/removing shards.
-
+**Split/Merge Service (SMS)**: A customer-hosted cloud service that enables customers to split and merge one or more shardlets. 
 
 ##Verbs
 
-**Split**: The act of creating two shards from one by splitting the source shard by the shard key.
+**Horizontal scaling**: The act of scaling out (or in) a collection of shards by adding or removing shards to a shard map.
 
-**Merge**: The act of creating one shard from two adjacent shards 
+**Merge**: The act of creating one shard from two shards.
 
 **Point move**: The act of moving a single shardlet to a different shard. 
 
-**Shard**: The act of horizontally partitioning identically structured data across multiple physical databases based on a key.
+**To Shard**: The act of horizontally partitioning identically structured data across multiple databases based on a sharding key.
+
+**Split**: The act of splitting a single shard into two. A sharding key is provided by the user as the split point.
+
+**Vertical Scaling**: The act of scaling up (or down) the performance level of an individual shard. For example, changing a shard from Standard to Premium (as required for performance reasons). 
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
