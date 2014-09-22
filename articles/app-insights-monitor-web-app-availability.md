@@ -32,7 +32,7 @@ In the home blade for your application in Application Insights, click through th
 
 ![Click the empty availability test](./media/appinsights/appinsights-12avail.png)
 
-> *Already got web tests? Click through the webtests tile and then choose Add Webtest.*
+*Already got web tests? Click through the webtests tile and then choose Add Webtest.*
 
 Provide a name for the test, and the URL that you want to test. The URL has to be visible from the public internet.
 
