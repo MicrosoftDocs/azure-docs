@@ -75,7 +75,7 @@ The offline sync feature of Mobile Services is currently in beta and available t
         @end
 
 
-3. Open the implementation file QSAppDelegate.m and add the following codefor the core data stack methods. This is similar to the code youfrom the new application template in Xcode with the **Use Core Data** option, with the main difference that this code uses uses a private queue concurrency type when initializing the `NSManagedContextObject`.
+3. Open the implementation file QSAppDelegate.m and add the following code for the core data stack methods. This is similar to the code from the new application template in Xcode with the selected option **Use Core Data**; the main difference is that this code uses uses a private queue concurrency type when initializing the `NSManagedContextObject`.
 
         #import "QSAppDelegate.h"
 
