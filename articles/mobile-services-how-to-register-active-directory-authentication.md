@@ -34,19 +34,14 @@ This topic shows you how to register your apps to be able to use Azure Active Di
 
     ![][5]
 
-8. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your mobile service. 
+8. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your mobile service. Enter the same unique resource identifier in the **App ID URI** box. Then click to continue.
  
-    
-
-    - If you created the mobile service to use the JavaScript backend for your mobile service, enter the same unique resource identifier in the **App ID URI** box. Then click to continue.
-
-    - If you created the mobile service to use the .Net backend for your mobile service, the URI for the **App ID URI** box must be the URL of your mobile service appended with the path, _signin-aad_. For example,  `https://todolist.azure-mobile.net/signin-aad`
-
-
     ![][6]
 
 
 9. Once the application has been added, click the **Configure** tab. Then click to copy the **Client ID** for the app.
+
+    If you created the mobile service to use the .Net backend for your mobile service, additionally edit the **Reply URL** under **Single Sign-on** to be the URL of your mobile service appended with the path, _signin-aad_. For example,  `https://todolist.azure-mobile.net/signin-aad`
 
     ![][8]
 
