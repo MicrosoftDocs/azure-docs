@@ -29,13 +29,13 @@ The **Elastic Scale with Azure SQL Database - Getting Started** sample applicati
 1. Open Visual Studio and select **File -> New -> Project**.
 2. In the dialog, click **Online**.
 
-    ![New Project>Online][1]
+    ![New Project>Online][2]
 3. Then click **Visual C#** under **Samples**.
 
-    ![Click Visual C#][2]
+    ![Click Visual C#][3]
 4. In the search box, type **Elastic Scale** to search for the sample.The title **Elastic Scale with Azure SQL Database-Getting Started** appears.
 
-    ![Search Box][3]
+    ![Search Box][1]
  
 5. Select the sample, choose a name and a location for the new project and press **OK** to create the project.
 6. Open the **app.config** file in the solution for the sample project and follow the instructions in the file to add your Azure SQL database server name and your login information (user name and password).
