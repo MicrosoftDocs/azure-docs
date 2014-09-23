@@ -211,6 +211,11 @@ Here are the search expressions you can use:
                     </tr>
 </table>
 
+## <a name="limits"></a>How much data is retained?
+
+Up to 500 events per second from each application. Events are retained for seven days.
+
+
 ## <a name="add"></a>Next steps
 
 * [Set up availability and responsiveness tests][availability]
