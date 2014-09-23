@@ -38,7 +38,7 @@ Note that this simple call will deliver the correct localized piece of news to *
 In your Mobile Service scheduler, overwrite your script with:
 
 	var azure = require('azure');
-    var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
+    var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string with full access>');
     var notification = {
 			"News_English": "World News in English!",
 			"News_French": "World News in French!",
