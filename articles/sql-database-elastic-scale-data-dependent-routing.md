@@ -66,34 +66,35 @@ Transient fault handling can coexist naturally with the Data Dependent Routing p
 
 ###Example – Data Dependent Routing with Transient Fault Handling 
 
-	int customerId = 12345; 
-    int newPersonId = 4321; 
+<pre><code>int customerId = 12345; 
+int newPersonId = 4321; 
 
-    Configuration.SqlRetryPolicy.ExecuteAction(() => 
-    	{ 
+<span style="background-color:  #FFFF00">Configuration.SqlRetryPolicy.ExecuteAction(() =&gt; </span> 
+<span style="background-color:  #FFFF00">    { </span>
+        // Connection to the shard for that customer ID 
+        using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId,  
+        Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
+        { 
+            // Execute a simple command 
+            SqlCommand cmd = conn.CreateCommand(); 
 
-        	// Connection to the shard for that customer ID 
-            using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId,  
-			Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
-            { 
-            	// Execute a simple command 
-                SqlCommand cmd = conn.CreateCommand(); 
+            cmd.CommandText = @&quot;UPDATE Sales.Customer 
+                            SET PersonID = @newPersonID 
+                            WHERE CustomerID = @customerID&quot;; 
 
-                cmd.CommandText = @"UPDATE Sales.Customer 
-                				SET PersonID = @newPersonID 
-                                WHERE CustomerID = @customerID"; 
+            cmd.Parameters.AddWithValue(&quot;@customerID&quot;, customerId); 
+            cmd.Parameters.AddWithValue(&quot;@newPersonID&quot;, newPersonId); 
+            cmd.ExecuteNonQuery(); 
 
-				cmd.Parameters.AddWithValue("@customerID", customerId); 
-                cmd.Parameters.AddWithValue("@newPersonID", newPersonId); 
-                cmd.ExecuteNonQuery(); 
+            Console.WriteLine(&quot;Update completed&quot;); 
+        } 
+<span style="background-color:  #FFFF00">    }); </span> 
+</code></pre>
 
-                Console.WriteLine("Update completed"); 
-			} 
-		}); 
- 
 
 Packages necessary to implement Transient Fault Handling are downloaded automatically when you build the Elastic Scale Hello World application. Packages are also available separately at [Enterprise Library - Transient Fault Handling Application Block](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/). Use version 6.0 or later. 
 
 ##Transactional Consistency 
+
 Transactional properties are guaranteed for all operations local to a shard. For example, transactions submitted through Data Dependent Routing execute within the scope of the target shard for the connection. At this time, there are no capabilities provided for enlisting multiple connections into a transaction, and therefore there are no transactional guarantees for operations performed across shards.  
 
