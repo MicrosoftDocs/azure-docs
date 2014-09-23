@@ -1,32 +1,49 @@
+<properties title="Elastic Scale Security Configurations" pageTitle="Elastic Scale Security Configurations" description="Security for Split/Merge services, elastic scale security" metaKeywords="Elastic Scale Security Configurations, Azure SQL Database sharding, elastic scale " services="sql-database" documentationCenter="sql-database" authors="sidneyh@microsoft.com"/>
+
+<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+
 # Elastic Scale Security Configurations  
 
 The public preview of Microsoft Azure SQL Database Elastic Scale includes a self-hosted service. The distribution includes a service configuration file which contains security related settings that must be configured.
 
+1. [Configuring Certificates][]
+	
+	It also includes security related settings with default values that can be changed:
+2. [Allowed IP Addresses][]
+3. [Denial of Service Prevention][]
 
-It also includes security related settings with default values that can be changed: 
+## <a name="configuring-certificates"></a>Configuring Certificates
 
-* Configure Certificates 
+Certificates are configured in two ways. 
 
-##To Obtain Certificates
+1. [To Configure the SSL Certificate][]
+2. [To Configure Client Certificates][] 
+
+## <a name="obtain-certificates"></a>To Obtain Certificates
+
 Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](http://msdn.microsoft.com/en-us/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
 
 If those options are not available, you can generate **self-signed certificates**.
  
-##Tools to generate certificates
+## <a name="tools"></a>Tools to Generate Certificates
+
 * [makecert.exe](http://msdn.microsoft.com/en-us/library/bfsktky3.aspx)
 * [pvk2pfx.exe](http://msdn.microsoft.com/en-us/library/windows/hardware/ff550672.aspx)
 
-To run the tools
+###To Run the Tools
 
-* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](http://msdn.microsoft.com/en-us/library/ms229859.aspx) If installed, go to
+* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](http://msdn.microsoft.com/en-us/library/ms229859.aspx) 
 
-	%ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+	If installed, go to:
+
+		%ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+
 * Get the WDK from [Windows 8.1: Download kits and tools](http://msdn.microsoft.com/en-US/windows/hardware/gg454513#drivers)
 
-##	To Configure the SSL Certificate
+##	<a name="to-configure-ssl-cert"></a>To Configure the SSL Certificate
 A SSL certificate is required to encrypt the communication and authenticate the server. Choose the most applicable of the three scenarios below, and execute all its steps:
 
-###Create a new self-signed certificate
+###Create a New Self-Signed Certificate
 
 1.	[Create a Self-Signed Certificate][]
 2.	[Create PFX file for Self-Signed SSL Certificate][]
@@ -34,18 +51,17 @@ A SSL certificate is required to encrypt the communication and authenticate the 
 4.	[Update SSL Certificate in Service Configuration File][]
 5.	[Import SSL Certification Authority][]
 
-#### Use an existing certificate from the certificate store
+#### To Use an Existing Certificate from the Certificate Store
 1. [Export SSL Certificate From Certificate Store][]
 2. [Upload SSL Certificate to Cloud Service][]
 3. [Update SSL Certificate in Service Configuration File][]
 
-#### Use an existing certificate in a PFX file
+#### To Use an Existing Certificate in a PFX File
 
 1. [Upload SSL Certificate to Cloud Service][]
 2. [Update SSL Certificate in Service Configuration File][]
 
-
-## Configure Client Certificates
+## <a name="configuring-client-certs"></a>To Configure Client Certificates
 Client certificates are required in order to authenticate requests to the service. Choose the most applicable of the three scenarios below, and execute all its steps:
 
 1.	[Turn Off Client Certificate-Based Authentication][]
@@ -66,16 +82,16 @@ Client certificates are required in order to authenticate requests to the servic
 	5.	Configure allowed clients in service configuration file
 	6.	[Configure Client Certificate Revocation Check][]
 
-## Allowed IP addresses
+## <a name="allowed-ip-addresses"></a>Allowed IP Addresses
 
 Access to the service endpoints can be restricted to specific ranges of IP addresses.
  
-## The default configuration
+## The Default Configuration
 
 The default configuration denies all access to the HTTP endpoint. This is the recommended setting, since the requests to these endpoints may carry sensitive information like database credentials.
 The default configuration allows all access to the HTTPS endpoint. This setting may be restricted further.
 
-### Changing the configuration
+### Changing the Configuration
 
 The group of access control rules that apply to and endpoint are configured in the **<EndpointAcls>** section in the **service configuration file**.
 
@@ -96,7 +112,8 @@ For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to ac
 	<EndpointAcls>
 	<EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
 
-##Denial of Service prevention
+## <a name = "denial-of-service-prevention"></a>Denial of Service Prevention
+
 There are two different mechanisms supported to detect and prevent Denial of Service attacks:
 
 *	Restrict number of concurrent requests per remote host (off by default)
@@ -392,7 +409,9 @@ In the [Azure Management Portal](http://manage.windowsazure.com/)
 6. If it is a .PFX file, enter the password for the private key
 7. Once completed, copy the certificate thumbprint from the new entry in the list
 
-
+[Configuring Certificates]:#configuring-certificates
+[Allowed IP Addresses]:#allowed-ip-addresses
+[To Configure Client Certificates]:#configuring-client-certs
 [Create a Self-Signed Certificate]:#create-self-signed-cert
 [Create PFX file for Self-Signed SSL Certificate]:#create-pfx-for-self-signed-cert
 [Upload SSL Certificate to Cloud Service]: #upload-ssl
@@ -409,3 +428,7 @@ In the [Azure Management Portal](http://manage.windowsazure.com/)
 [Configure Allowed Clients in the Service Configuration File]:#configure-allowed-client
 [Find CA Public Key]:#find-ca-public-key
 [Configure Client Certificate Revocation Check]:#configure-client-revocation
+[Denial of Service Prevention]:#denial-of-service-prevention
+[To Obtain Certificates]:#obtain-certificates
+[Tools to Generate Certificates]:#tools
+[To Configure the SSL Certificate]:#to-configure-ssl-cert
