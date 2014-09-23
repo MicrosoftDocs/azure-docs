@@ -46,7 +46,7 @@ The page name can contain the same characters as a URL, but anything after "#" o
 
 ## Inspecting individual page view events
 
-Usually page view telemetry is analysed by Application Insights and you see only cumulative reports, averaged over all your users. But for debugging purposes, you can look at some page view events. Only a sample of the recent events are retained for inspection.
+Usually page view telemetry is analysed by Application Insights and you see only cumulative reports, averaged over all your users. But for debugging purposes, you can also look at individual page view events.
 
 In the Diagnostic Search blade, set Filters to Page View.
 
@@ -54,7 +54,7 @@ In the Diagnostic Search blade, set Filters to Page View.
 
 Select any event to see more detail.
 
-> If you use Search, notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About". 
+> [WACOM.NOTE] If you use [Search][diagnostic], notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About". 
 
 > [Learn more about diagnostic search][diagnostic]
 
