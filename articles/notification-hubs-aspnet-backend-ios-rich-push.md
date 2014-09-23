@@ -157,7 +157,6 @@ Now that you have modified your app backend to send just the *id* of a notificat
         // display the UI Image in UI Image View
         [self.myImage setImage:self.imagePayload];
 
-
 10. In **AppDelegate.m**, import the image controller you created:
 
         #import "imageViewController.h"
@@ -196,11 +195,11 @@ Now that you have modified your app backend to send just the *id* of a notificat
         // helper: retrieve notification content from backend with rich notification id
         - (void)retrieveRichImageWithId:(int)richId completion: (void(^)(NSError*)) completion{
     
-            // check if authenticated
+            // get root view
             UINavigationController *nc = (UINavigationController *)self.window.rootViewController;
             homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
             NSString* authenticationHeader = hvc.registerClient.authenticationHeader;
-            
+            // check if authenticated
             if (!authenticationHeader) return;
             
             NSURLSession* session = [NSURLSession
@@ -214,8 +213,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
             NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", authenticationHeader];
             [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
             
-            NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+            NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *httpResponse, NSError *error) {
                 
                 if (!error && httpResponse.statusCode == 200)
                 {

@@ -26,7 +26,6 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 
 > [AZURE.NOTE] In this section we assume that your project is configured with an empty organization name. If not, you will need to prepend your organization name to all class names.
 
-
 2. In your Main.storyboard add the following components from the object library:
 	+ A UITextField with placeholder text **Username**
 	+ A UITextField with placeholder text **Password**, and check the **Secure** option in the Attribute Inspector, under Textfield Return Key
