@@ -20,7 +20,7 @@ The tool accomplishes steps 1 and 3.
 ## Create a Shard Map Manager from a Federation Root
 The first step in migrating a federations application is to clone the metadata of a federation root to the constructs of a shard map management. 
 
-![][1]
+![Clone the federation root to the shard map manager][1]
  
 Start with an existing federation application in a test environment.
  
@@ -28,7 +28,7 @@ Use the Use the **Federation Migration Utility** to clone the federation root me
 
 The cloning of the federation root to the Shard Map Manager is a copy and translation of metadata. No metadata is altered on the federation root. Note that the cloning of the federation root with the federation migration utility is a point-in-time operation, and any changes to either the federation root or Shard Map Manager will not be reflected in the other respective data store. If critical changes are made to the federation root during the testing of the new APIs, the federation migration utility can be used to refresh the Shard Map Manager to represent the current state. 
 
-![][2]
+![Migrate the existing app to use the Elastic Scale APIs][2]
 
 ## Modify the Existing Application 
 
@@ -73,7 +73,7 @@ The steps in this section are necessary but may not address all of migration sce
 
 ## Switch Out Existing Federation Members 
 
-![][3]
+![Switch out the federation members for the shards][3]
 
 Once the application has been modified with the inclusion of the Elastic Scale APIs and constructs, the last step in the migration of a Federation application is to **switch out** the federation members. The end result of issuing a SWITCH OUT against a particular federation member is the removal of all federation constraints and metadata rendering the federation member as a regular Azure SQL database, no different than any other Azure SQL DB. 
 
