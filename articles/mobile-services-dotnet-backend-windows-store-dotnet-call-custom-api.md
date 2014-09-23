@@ -18,11 +18,13 @@ You will add this functionality to the app that you created when you completed e
 2. [Update the app to call the custom API]
 3. [Test the app] 
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Get started with data]. This tutorial uses Visual Studio 2012 Express for Windows 8.
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Get started with data]. 
 
 ## <a name="define-custom-api"></a>Define the custom API
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../includes/mobile-services-dotnet-backend-create-custom-api.md)]
+
+## <a name="update-app"></a>Update the app to call the custom API
 
 [WACOM.INCLUDE [mobile-services-windows-store-dotnet-call-custom-api](../includes/mobile-services-windows-store-dotnet-call-custom-api.md)]
 
