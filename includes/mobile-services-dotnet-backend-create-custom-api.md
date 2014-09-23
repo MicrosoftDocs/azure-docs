@@ -6,7 +6,7 @@
 
 2. Expand **Azure Mobile Services** and click **Azure Mobile Services Custom Controller**, then click **Add**, supply a **Controller name** of `CompleteAllController`, then click **Add** again.
 
-	![](./media/mobile-services-dotnet-backend-create-custom-api/add-custom-api-controller.png)
+	![Web API Add Scaffold dialog](./media/mobile-services-dotnet-backend-create-custom-api/add-custom-api-controller.png)
 
 	This creates a new empty controller class named **CompleteAllController**.
 

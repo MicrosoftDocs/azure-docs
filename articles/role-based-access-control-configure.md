@@ -99,9 +99,9 @@ Here is a summary of the access requirements and how they are set up in Azure.
 
 User/Group  | Access requirement  | role and scope for access	
 ------------- | -------------  | ------------
-All of Ellen Adams’ team  | Read all Azure resources  | Add the AD group that represents Ellen Adams’ team to Reader role for the Azure subscription
-All of Ellen Adams’ team  | Create and manage all resources in the Test resource group  | Add the AD group that represents Ellen Adams’ team to Contributor role for the Test resource group
-Tony  | Create and manage all resources in the Prod resource group  | Add Tony to Contributor role for the Prod resource group
+All of Jill Santos’ team  | Read all Azure resources  | Add the AD group that represents Jill Santos’ team to Reader role for the Azure subscription
+All of Jill Santos’ team  | Create and manage all resources in the Test resource group  | Add the AD group that represents Jill Santos’ team to Contributor role for the Test resource group
+Brock  | Create and manage all resources in the Prod resource group  | Add Brock to Contributor role for the Prod resource group
 
 
 First, let’s add Read access for all resources of the subscription. Click **Browse > Everything > Subscriptions**.
@@ -116,13 +116,13 @@ Then add the same team to the Contributor role of the Test resource group. Click
 
 ![][5]
 
-To add Tony to the Contributor role of the Prod resource group, click the resource group click **Contributor > Add** and type Tony’s name. 
+To add Brock to the Contributor role of the Prod resource group, click the resource group click **Contributor > Add** and type Brock’s name. 
 
 ![][6]
 
-Role assignments can also be managed by using the Microsoft Azure module for Windows PowerShell. Here is an example of adding Tony's account by using the New-AzureRoleAssignment cmdlet rather than the portal:
+Role assignments can also be managed by using the Microsoft Azure module for Windows PowerShell. Here is an example of adding Brock's account by using the New-AzureRoleAssignment cmdlet rather than the portal:
 
-	PS C:\> New-AzureRoleAssignment -Mail tonyw@vipswapper.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
 For more information about using Windows PowerShell to add and remove access, see [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/). 
 
@@ -191,12 +191,12 @@ Here are some additional resources to help you use role-based access control:
 [1]: ./media/role-based-access-control-configure/RBACSubAuthDir.png
 [2]: ./media/role-based-access-control-configure/RBACAssignmentScopes.png
 [3]: ./media/role-based-access-control-configure/RBACSubscriptionBlade.png
-[4]: ./media/role-based-access-control-configure/RBACAddSubReader.png
-[5]: ./media/role-based-access-control-configure/RBACAddRGContributor.png
-[6]: ./media/role-based-access-control-configure/RBACAddProdContributor.png
+[4]: ./media/role-based-access-control-configure/RBACAddSubReader_NEW.png
+[5]: ./media/role-based-access-control-configure/RBACAddRGContributor_NEW.png
+[6]: ./media/role-based-access-control-configure/RBACAddProdContributor_NEW.png
 [7]: ./media/role-based-access-control-configure/RBACRemoveRole.png
 [8]: ./media/role-based-access-control-configure/RBACGuestAccessControls.png
-[9]: ./media/role-based-access-control-configure/RBACInviteExtUser.png
+[9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
 
