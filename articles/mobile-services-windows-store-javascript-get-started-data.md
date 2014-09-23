@@ -5,18 +5,7 @@
 
 # Get started with data in Mobile Services
 
-> [AZURE.SELECTOR-LIST (Platform | Backend )]
-- [(iOS | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/)
-- [(iOS | JavaScript)](/en-us/documentation/articles/mobile-services-ios-get-started-data/)
-- [(Windows C# | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)
-- [(Windows C# | Javascript)](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)
-- [(Windows JavaScript | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/)
-- [(Windows JavaScript | Javascript)](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/)
-- [(Android | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/)
-- [(Android | Javascript)](/en-us/documentation/articles/mobile-services-android-get-started-data/)
-- [(Xamarin iOS | Javascript)](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/)
-- [(Xamarin Android | Javascript)](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/)
-- [(HTML | Javascript)](/en-us/documentation/articles/mobile-services-html-get-started-data/)
+[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 This topic shows you how to use Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
 
