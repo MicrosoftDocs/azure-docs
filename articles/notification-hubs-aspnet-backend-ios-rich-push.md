@@ -213,8 +213,9 @@ Now that you have modified your app backend to send just the *id* of a notificat
             NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", authenticationHeader];
             [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
             
-            NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *httpResponse, NSError *error) {
+            NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                 
+                NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
                 if (!error && httpResponse.statusCode == 200)
                 {
                     // from NSData to UIImage
