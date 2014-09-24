@@ -1,6 +1,6 @@
-<properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  />
+<properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  
 # Diagnostic search in Application Insights
 
@@ -193,6 +193,7 @@ Here are the search expressions you can use:
                         <p>Shorter form.</p>
                       </td>
                     </tr>
+       <!-- -- fielded search feature not ready yet --
                     <tr>
                       <td>
                         <p>
@@ -209,7 +210,13 @@ Here are the search expressions you can use:
                         <p>Match the specified field. By default, all fields are searched. To see what fields are available, select an event to look at its detail.</p>
                       </td>
                     </tr>
+ -->
 </table>
+
+## <a name="limits"></a>How much data is retained?
+
+Up to 500 events per second from each application. Events are retained for seven days.
+
 
 ## <a name="add"></a>Next steps
 

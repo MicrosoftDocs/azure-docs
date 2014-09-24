@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-active-directory-authentication" urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="Register for Azure Active Directory authentication - Mobile Services" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="Learn how to register for Azure Active Directory authentication in your Mobile Services application." title="Register your account to use an Azure Active Directory account login" authors="wesmc" services="mobile-services" documentationCenter="Mobile" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Register your apps to use an Azure Active Directory Account login
 
@@ -34,19 +34,14 @@ This topic shows you how to register your apps to be able to use Azure Active Di
 
     ![][5]
 
-8. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your mobile service. 
+8. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your mobile service. Enter the same unique resource identifier in the **App ID URI** box. Then click to continue.
  
-    
-
-    - If you created the mobile service to use the JavaScript backend for your mobile service, enter the same unique resource identifier in the **App ID URI** box. Then click to continue.
-
-    - If you created the mobile service to use the .Net backend for your mobile service, the URI for the **App ID URI** box must be the URL of your mobile service appended with the path, _signin-aad_. For example,  `https://todolist.azure-mobile.net/signin-aad`
-
-
     ![][6]
 
 
 9. Once the application has been added, click the **Configure** tab. Then click to copy the **Client ID** for the app.
+
+    If you created the mobile service to use the .Net backend for your mobile service, additionally edit the **Reply URL** under **Single Sign-on** to be the URL of your mobile service appended with the path, _signin-aad_. For example,  `https://todolist.azure-mobile.net/signin-aad`
 
     ![][8]
 
