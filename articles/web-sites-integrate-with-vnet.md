@@ -20,21 +20,21 @@ You have the option to connect to a new or existing virtual network.  If you cre
 
 If your website is not at a Standard tier then the UI lets you know and gives you access to the pricing tiers should you click it.
 
-![](/media/web-sites-integrate-with-vnet/upgrade-to-standard.png) 
+![](./media/web-sites-integrate-with-vnet/upgrade-to-standard.png) 
 
 ## How the system works ##
 Under the covers this feature uses Point-to-Site VPN technology to connect your Azure website to your VNET.  The Azure Websites system architecture is multi-tenant by nature which precludes provisioning websites directly in a VNET as is done with virtual machines.  By building on point-to-site technology we limit network access to just the virtual machine hosting the website.  Access to the network is further restricted on those website hosts so that your websites can only access the networks that you configure them to access.  
 
 The work required to secure your networks to only the websites that need access prevents being able to create SMB connections.  While you can access remote resources this does not include being able to mount a remote drive.
 
-![](/media/web-sites-integrate-with-vnet/how-it-works.png)
+![](./media/web-sites-integrate-with-vnet/how-it-works.png)
  
 If you haven’t configured a DNS server with your virtual network you will need to use IP addresses.  Be sure expose the ports for your desired endpoints through your firewall.  When it comes to testing your connection the only method currently available is to use a website or webjob that makes a call to your desired endpoint.  Tools such as ping or nslookup do not currently work through the Kudu console.  This is an area that will be improved in the near future.  
 
 ## Connect to a pre-existing network ##
 To connect a site to a Virtual Network go to your website’s blade, click the Virtual network tile in the Networking section, and select one of your pre-existing networks.
 
-![](/media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png)
+![](./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png)
  
 The system will then create a certificate to authenticate with your VNET if it is the first website in your subscription to establish a connection to that network.  To see the certificate go to the current portal, navigate to Virtual Networks, select the network and select the Certificates tab.  
 
@@ -43,17 +43,17 @@ In the above image you can see a network named cantConnectVnet that is greyed ou
 ## Create and connect to a new VNET ##
 In addition to connecting to a pre-existing VNET, you can also create a new VNET from the website UI and automatically connect to it.  To do this follow the same path to reach the Virtual Network UI and select Create new virtual network.  The UI that opens up allows you to name the network, specify the address space and set the addresses for the DNS servers to be used by the virtual network.
 
-![](/media/web-sites-integrate-with-vnet/create-new-vnet.png)
+![](./media/web-sites-integrate-with-vnet/create-new-vnet.png)
  
 The creation of a new virtual network with configured gateways can take up to 30 minutes to complete.  During this time the UI will let you know that it is still working on it and will show the following message.
 
-![](/media/web-sites-integrate-with-vnet/new-vnet-progress.png)
+![](./media/web-sites-integrate-with-vnet/new-vnet-progress.png)
 
 Once the network has been joined to the website, the website will have access to resources in that VNET over TCP or UDP.  If you wish to access resources in your on premise system that are available through Site-to-site VPN to your VNET then you will need to add routes on your own corporate network to allow traffic to go from your network to the Point-to-Site addresses configured in your VNET.
 
 After successfully completing integration, the portal will display basic information about the connection, give a way to disconnect the website from the network and also give you a way to synchronize the certificates used to authenticate the connection.  Synchronization may be required if a certificate has been expired or revoked.  
 
-![](/media/web-sites-integrate-with-vnet/vnet-status-portal.png)
+![](./media/web-sites-integrate-with-vnet/vnet-status-portal.png)
 
 Managing the virtual network connection
 You can see a list of all virtual networks currently associated with sites in a web hosting plan by visiting the web hosting plan’s blade.  You can have at most 5 networks associated with a standard web hosting plan.
@@ -65,18 +65,18 @@ At this time it is not possible in Azure to take an existing virtual machine and
 ## Accessing on premise resources ##
 When working with a VNET that has been configured with Site-to-Site VPN there is an additional step required in order to provide access to your on premise resources from you Azure Website.  Routes need to be added to your on premise network to allow traffic to go from your network to the Point-to-Site addresses configured in your VNET.  To see your IP range for your Point-to-Site connectivity go to the Network area in the current portal as shown here.
 
-![](/media/web-sites-integrate-with-vnet/vpn-to-onpremise.png)
+![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png)
 
 ## Certificates ##
 In order to establish a secure connection with your VNET, there is an exchange of certificates.  You can see the thumbprint for the public certificate that Azure Websites generates from the current Network portal as shown below.  
 
-![](/media/web-sites-integrate-with-vnet/vpn-to-onpremise-certificate.png)
+![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise-certificate.png)
 
 If the certificates go out of sync for whatever reason, such as accidental deleting it from the Network portal, then connectivity will be broken.  To fix things there is a Sync Connection action in your Websites virtual network UI that will re-establish connectivity.
 
 This action must also be used if you add a DNS to your virtual network or if you add site-to-site VPN to your network.  
 
-![](/media/web-sites-integrate-with-vnet/vnet-sync-connection.png)
+![](./media/web-sites-integrate-with-vnet/vnet-sync-connection.png)
 
 ## Compare and contrast with Hybrid Connections ##
 There is another feature offered by Azure Websites called Hybrid Connections that is similar in some ways to Virtual Network integration.  While there is some use case overlap, neither feature can replace the other.  With Hybrid Connections you can establish connections to multiple application endpoints in a mix of networks.  The Virtual Networks feature connects your website to a VNET which can be connected to your on-premise network.  That works great if your resources are all in the scope of that network.  
