@@ -1,6 +1,6 @@
-<properties title="Monitor your web app's availability and responsiveness" pageTitle="Web tests in Application Insights" description="Make sure your web application is available and responsive. Get alerts if it becomes unavailable or responds slowly." metaKeywords="analytics web test" authors="awills"  />
+<properties title="Monitor your web app's availability and responsiveness" pageTitle="Web tests in Application Insights" description="Make sure your web application is available and responsive. Get alerts if it becomes unavailable or responds slowly." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  
 # Monitor your web app's availability and responsiveness
 
@@ -32,7 +32,7 @@ In the home blade for your application in Application Insights, click through th
 
 ![Click the empty availability test](./media/appinsights/appinsights-12avail.png)
 
-> *Already got web tests? Click through the webtests tile and then choose Add Webtest.*
+*Already got web tests? Click through the webtests tile and then choose Add Webtest.*
 
 Provide a name for the test, and the URL that you want to test. The URL has to be visible from the public internet.
 
@@ -87,7 +87,7 @@ You might want to disable web tests while you are performing maintenance on your
 
 ## <a name="video"></a>Monitoring availability
 
-> [WACOM.VIDEO monitoring-availability-with-application-insights]
+> [AZURE.VIDEO monitoring-availability-with-application-insights]
 
 ## <a name="next"></a>Next steps
 

@@ -26,7 +26,7 @@ For information on restoring an Azure website from backup, see [Restore an Azure
 
 In this video, Eduardo Laureano and Scott Hanselman introduce Azure websites backups. (Duration: 11:43)  
 
-> [WACOM.VIDEO azure-websites-automatic-and-easy-backup]
+> [AZURE.VIDEO azure-websites-automatic-and-easy-backup]
 
 <a name="whatsbackedup"></a>
 ##What Gets Backed Up 
