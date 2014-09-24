@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-commontask-install-sql-server" urlDisplayName="Install SQL Server" pageTitle="Provision a SQL Server virtual machine in Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="clairt" editor="tyson" />
+<properties linkid="manage-windows-commontask-install-sql-server" urlDisplayName="Install SQL Server" pageTitle="Provision a SQL Server virtual machine in Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="jeffreyg" editor="tyson" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="selcint" />
 
@@ -340,9 +340,8 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 
 - Tutorial: AlwaysOn Availability Groups in Azure (GUI)
 - Tutorial: AlwaysOn Availability Groups in Azure (PowerShell)
-- Tutorial: AlwaysOn Availability Groups in Hybrid IT (PowerShell)
-- Tutorial: Listener Configuration for AlwaysOn Availability Groups in Azure
-- Tutorial: Listener Configuration for AlwaysOn Availability Groups in HybridIT
+- Tutorial: Listener Configuration for AlwaysOn Availability Groups
+- Tutorial: Add Azure Replica Wizard
 - Tutorial: Database Mirroring for Disaster Recovery in Azure
 - Tutorial: Database Mirroring for Disaster Recovery in Hybrid IT 
 - Tutorial: Database Mirroring for High Availability in Azure
@@ -366,6 +365,8 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 - [White paper: Deploy SQL Server Business Intelligence in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
 
 - [White paper: Performance Guidance for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn248436.aspx)
+
+- [White paper: Reporting Services report viewer control and Microsoft Azure virtual machine based report servers](http://msdn.microsoft.com/library/azure/dn753698.aspx)
 
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
 [Image5b]: ./media/virtual-machines-provision-sql-server/5VM-Connect.png

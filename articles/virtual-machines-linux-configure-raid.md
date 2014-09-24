@@ -148,7 +148,7 @@ In this example, after running this command a new RAID device called **/dev/md12
 
 5. Optional Parameters
 
-	Many distributions include either the “`nobootwait`” or “`nofail`” mount parameters that may be added to the /etc/fstab file. These parameters allow for failures when mounting a particular file system and allow the Linux system to continue to boot even if it is unable to properly mount the RAID file system. Please refer to your distribution's documentation for more information on these parameters.
+	Many distributions include either the `nobootwait` or `nofail` mount parameters that may be added to the /etc/fstab file. These parameters allow for failures when mounting a particular file system and allow the Linux system to continue to boot even if it is unable to properly mount the RAID file system. Please refer to your distribution's documentation for more information on these parameters.
 
 	Example (Ubuntu):
 
