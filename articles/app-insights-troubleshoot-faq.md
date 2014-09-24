@@ -65,9 +65,9 @@ No! It shows the status of the Azure service. To see your web test results, choo
 
 ## <a name="q07"></a>When I use add Application Insights to my application and open the Application Insights portal, it all looks completely different from your screenshots.
 
-You might be using the older version of the Application Insights Tools, which connect to the Visual Studio Online version.
+You might be using [the older version of the Application Insights Tools](http://msdn.microsoft.com/library/dn793604.aspx), which connect to the Visual Studio Online version.
 
-The help pages you're looking at refer to Application Insights for Microsoft Azure Preview, which comes already switched on in Visual Studio Update 3. 
+The help pages you're looking at refer to [Application Insights for Microsoft Azure Preview][start], which comes already switched on in Visual Studio Update 3. 
 
 ## <a name="q08"></a>Can I use Application Insights to monitor an intranet web server?
 

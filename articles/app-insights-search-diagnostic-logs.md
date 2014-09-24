@@ -193,6 +193,7 @@ Here are the search expressions you can use:
                         <p>Shorter form.</p>
                       </td>
                     </tr>
+       <!-- -- fielded search feature not ready yet --
                     <tr>
                       <td>
                         <p>
@@ -209,6 +210,7 @@ Here are the search expressions you can use:
                         <p>Match the specified field. By default, all fields are searched. To see what fields are available, select an event to look at its detail.</p>
                       </td>
                     </tr>
+ -->
 </table>
 
 ## <a name="limits"></a>How much data is retained?
