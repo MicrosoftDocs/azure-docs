@@ -164,8 +164,8 @@ Use this area to add custom script processors to handle requests for specific fi
 ### Virtual applications and directories 
 
 To configure virtual applications and directories associated with your website, specify each virtual directory and its corresponding physical path relative to the site root. Optionally, you can select the <strong>Application</strong> checkbox to mark a virtual directory as an application in site configuration.
-	
 
+	
 
 <!-- HOW TO: CONFIGURE A WEBSITE TO USE A SQL DATABASE -->
 ##<a name="howtoconfigSQL"></a>How to: Configure a website to use a SQL database

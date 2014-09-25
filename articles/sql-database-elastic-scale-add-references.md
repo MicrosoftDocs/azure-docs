@@ -4,16 +4,19 @@
 
 #How To: Add Azure SQL DB Elastic Scale References to a Visual Studio Project 
 
-Prerequisites 
-Install NuGet Visual Studio Extension Gallery for Visual Studio 
+Prerequisites: 
 
-Add elastic scale reference in Visual Studio: 
+- Install [NuGet Visual Studio Extension Gallery](http://docs.nuget.org/docs/start-here/installing-nuget) for Visual Studio 
 
-1. Create a new project via the New Project dialog through File à New à Project 
-2. In the Solution Explorer, right-click on “References” and select “Manage NuGet Packages”
-3. In the menu on the left-hand side of the Manage NuGet Packages window, select “Online” and then “nuget.org” or “All” 
-4. In the “Search Online” dialog box, type “Elastic Scale”, select the **Elastic Scale client libraries **and click **Install**.
-4. Review the License, and click “I Accept.” 
+Add an Elastic Scale reference in Visual Studio: 
 
-The Azure SQL DB elastic scale references have now been added to your project. To learn more about SQL DB elastic scale, please see the elastic scale MSDN content and API reference. 
+1. Create a new project via the New Project dialog through **File** --> **New** --> **Project** 
+2. In the Solution Explorer, right-click on **References** and select **Manage NuGet Packages**
+3. In the menu on the left-hand side of the Manage NuGet Packages window, select **Online** and then **nuget.org** or “All” 
+4. In the **Search Online** dialog box, type **Elastic Scale**, select the **Elastic Scale client libraries** and click **Install**.
+4. Review the license, and click **I Accept**. 
+
+The Azure SQL DB elastic scale references have now been added to your project. 
+
+[AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 

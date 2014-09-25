@@ -27,8 +27,7 @@ To complete this tutorial, you need the following:
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
-<ol start="5">
-<li><p>When you complete the wizard, a new <strong>Push setup is almost complete</strong> page is opened in Visual Studio. This page details an alternate method to configure your mobile service project to send notifications that is different from this tutorial. However, keep this page open, you will need it later in this tutorial.</p></li>
+<ol start="6">
 <li><p>Browse to the <code>\services\mobileServices\scripts</code> project folder, copy the generated &lt;<em>your_service_name</em>&gt;.push.register.js script file into the shared <code>\js</code> folder, and then delete this file from both of the individual Windows and WindowsPhone app projects.</p></li> 
 <li><p>Open this script file in the shared <code>\js</code> project folder, locate the code in the <em>activated</em> event listener that registers the device's channel URL with the notification hub, and delete the <strong>done</strong> promise function.</p>
 <p>This tutorial sends notifications when a new item is inserted, not when a custom API is called.</p></li>
@@ -53,7 +52,7 @@ The remaining steps in this section are optional. They allow you to test your ap
 
 >[WACOM.NOTE]Never use a production mobile service for testing and development work. Always publish your mobile service project to a separate staging service for testing.
 
-<ol start="7">
+<ol start="5">
 <li><p>Browse to the <code>\services\mobileServices\settings</code> project folder, copy the generated &lt;<em>your_service_name</em>&gt;.js script file into the shared <code>\js</code> project folder, and then delete this file from both of the individual Windows and WindowsPhone app projects. Also delete this file from the <code>\services\mobileServices\scripts</code> folder in each app project if it exists there too.</p></li> 
 <li><p>Open this script file in the shared <code>\js</code> project folder and comment-out the existing code that defines the <a href="http://msdn.microsoft.com/en-us/library/azure/jj554219.aspx">MobileServiceClient object</a> used to access the mobile service running in Azure.</p></li>
 <li><p>Add a new <strong>MobileServiceClient</strong> object definition of the same name but using the URL of the local host in the constructor, similar to the following:</p>

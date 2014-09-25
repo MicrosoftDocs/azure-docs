@@ -3,10 +3,10 @@
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
 #Azure SQL Database Elastic Scale 
-Welcome to the Azure Database Elastic Scale Public Preview! 
+Welcome to the Azure SQL Database Elastic Scale Public Preview! 
 
 ###Promises and Challenges
-Azure SQL Database Elastic Scale delivers on the promise of cloud computing and enables both virtually unbounded capacity as well as elasticity on the Azure SQL DB platform. To date, cloud service providers have been able to deliver on most aspects around boundless capacity of compute and state-less blob storage. Elasticity, however, still remains a challenge when it comes to stateful data processing in the cloud, particularly with relational database management. We have seen these challenges emerge most prominently in the two following scenarios: 
+Azure SQL Database Elastic Scale delivers on the promise of cloud computing and enables both virtually unbounded capacity as well as elasticity on the Azure SQL DB platform. To date, cloud service providers have been able to deliver on most aspects around boundless capacity of compute and blob storage. Elasticity, however, still remains a challenge when it comes to stateful data processing in the cloud, particularly with relational database management. We have seen these challenges emerge most prominently in the two following scenarios: 
 
 * Growing and shrinking capacity for the relational database part of your workload.
 * Management of utilization hotspots for stateful database workloads and their data.
@@ -36,12 +36,14 @@ The public preview release for Azure SQL Database Elastic Scale makes developing
 * **Shard Map Management (SMM)**: Shard map management (1) is the ability for an application to manage various metadata about its shards. Shard map management is a feature of the Elastic Scale client library. Developers can use this functionality to register shards, describe mappings of individual sharding keys or key ranges to shards, and maintain this metadata as the layout of shards in the data tier evolves to reflect capacity changes. Shard map management constitutes a big part of boiler-plate code that customers had to write in their applications when they were implementing sharding themselves. For details, see [Shard Map Management](./sql-database-elastic-scale-shardmapmanagement.md)
  
 * **Data Dependent Routing (DDR)**: Imagine a request coming into the application. Based on the sharding key value of the request, the application needs to determine the correct shard that holds the data for this sharding key value, and then open a connection to this shard (2) to process the request. DDR provides the ability to open connections with a single easy call into the shard map of the application. DDR was another area of infrastructure code that is now covered by functionality in the Elastic Scale client library. For details, see [Data Dependent Routing](./sql-database-elastic-scale-data-dependent-routing.md)
-* 
+
 * **Multi-Shard Queries (MSQ)**: Multi-shard querying works when a request involves several (or all) shards. A multi-shard query (3) executes the same T-SQL code on all shards or a set of shards. The results from the participating shards are merged into an overall result set using UNION ALL semantics. The functionality is exposed through the client library handles many tasks, including: connection management, thread management, fault handling and intermediate results processing. MSQ can query up to hundreds of shards. For details, see [Multi-Shard Querying](./sql-database-elastic-scale-multishard-querying.md).
 
 * **Shard Elasticity (SE)**: This sample capability aids administrators that need to change the capacity of a single shard (4). This works by changing the Azure SQL DB edition to address a hotspot or under-utilization of a given shard. For example, the edition can be temporarily changed from standard to premium. This illustrates how edition changes can be automated based on simple, extensible policies. For more information, see [Azure SQL Database Service Tiers (Editions)](http://msdn.microsoft.com/en-us/library/azure/dn741340.aspx).
 
 * **Split/Merge Service**: When capacity needs fluctuate in tandem with business momentum, applications need to flexibly re-distribute data across a number of databases. Elastic scale provides a customer-hosted service experience for growing and shrinking the data tier capacity and managing hotspots for sharded applications in situations that also involve movement of data. It builds on an underlying capability for moving shardlets on demand between different shards and integrates with shard map management to maintain consistent mappings and accurate data dependent routing connections. For details, see [Splitting and Merging with Elastic Scale](./sql-database-elastic-scale-split-and-merge.md)
+
+[AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
 <!--Image references-->

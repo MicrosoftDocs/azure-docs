@@ -61,14 +61,14 @@ Web Platform Installer][]
 
 To provision a DocumentDB database account in Azure, open the Azure
 Management Portal and either Click the Azure Gallery tile on the
-homepage or click “+” in the lower left hand corner of the screen.
+homepage or click "+" in the lower left hand corner of the screen.
 
 ![Alt text](./media/documentdb-python-application/image2.png)
 
 
 This will open the Azure Gallery, where you can select from the many
-available Azure services. In the Gallery, select “Data, storage and
-backup” from the list of categories.
+available Azure services. In the Gallery, select "Data, storage and
+backup" from the list of categories.
 
 ![Alt text](./media/documentdb-python-application/image3.png)
 
@@ -76,17 +76,17 @@ From here, select the option for Azure DocumentDB
 
 ![Alt text](./media/documentdb-python-application/image4.png)
 
-Then select “Create” from the bottom of the screen
+Then select "Create" from the bottom of the screen
 
 ![Alt text](./media/documentdb-python-application/image5.png)
 
-This will open up the “New DocumentDB” blade where you can specify the
+This will open up the "New DocumentDB" blade where you can specify the
 name, region, scale, resource group and other settings for your new
 account.
 
 ![Alt text](./media/documentdb-python-application/image6.png)
 
-Once you’re done supplying the values for your account, Click “Create”
+Once you’re done supplying the values for your account, Click "Create"
 and the provisioning process will begin creating your database account.
 Once the provisioning process is complete you should see a notification
 appear in the notifications area of the portal and the tile on your
@@ -104,7 +104,7 @@ DocumentDB account.
 
 
 
-Using the “Keys” button, access your endpoint URL and the Primary Key,
+Using the "Keys" button, access your endpoint URL and the Primary Key,
 copy these to your clipboard and keep them handy as we will use these
 values in the web application we will create next.
 
@@ -128,7 +128,7 @@ applications in Python faster. [Click here to access Flask tutorials][].
 ==================================
 
 Once your project is setup you need to add certain flask packages that
-we will need for our project – for example forms. Right-click on **env**
+we will need for our project - for example forms. Right-click on **env**
 and **Install the following Python Packages (following this order is
 important)**:
 
@@ -151,15 +151,14 @@ important)**:
 this happens, check if the error is related to cleanup. Sometimes the
 cleanup will fail but installation will still be successful (scroll up
 in the output window to verify this).
-<a name="verify-the-virtual-environment"></a> If this occurs it’s ok to
-continue.
+<a name="verify-the-virtual-environment"></a> If this occurs it's ok to continue.
 
 </h1>
 <a name="_Toc395888522"></a><a name="_Toc395809331">Verify the virtual environment</a>
 ======================================================================================
 
 
- Let’s make sure that everything is installed properly. Start the web
+Let's make sure that everything is installed properly. Start the web
 site with clicking **F5** This will launch the flask development server
 and start your web browser. You should see the following page:
 
@@ -172,7 +171,7 @@ The DocumentDB Python SDK is hosted in PyPi and can be installed with
 pip.
 
 Expand the Python Environments node in Solution Explorer, right click on
-your environment and select “Install Python Package…”
+your environment and select "Install Python Package…"
 
 ![Alt text](./media/documentdb-python-application/image13.png)
 
@@ -258,7 +257,7 @@ existing code.
 ============================
 
 Add the following import statements at the top in **views.py**. These
-will import DocumentDB’s PythonSDK and Flask packages.
+will import DocumentDB's PythonSDK and Flask packages.
 
 
     from wtforms import Form, BooleanField, TextField, PasswordField, validators
@@ -396,7 +395,7 @@ serves as the landing page for your application
 <a name="_Toc395888532"></a><a name="_Toc395809341">Add a configuration file and change the \_\_init\_\_.py</a>.
 ----------------------------------------------------------------------------------------------------------------
 
-Right click on the project name tutorial and add a file – **config.py**.
+Right click on the project name tutorial and add a file - **config.py**.
 This config is required by forms in flask. You may use it to provide a
 secret key as well. Add the following code to config.py
     
@@ -441,8 +440,8 @@ you vote the next time you will be able to see the results.
 ========================================================================================================================
 
 Now that you have the complete application working correctly against
-DocumentDB we’re going to deploy this to Azure Websites. Right Click on
-the Project in Solution Explorer (make sure you’re not still running it
+DocumentDB we're going to deploy this to Azure Websites. Right Click on
+the Project in Solution Explorer (make sure you're not still running it
 locally) and select Publish.
 
 ![Alt text](./media/documentdb-python-application/image19.png)
