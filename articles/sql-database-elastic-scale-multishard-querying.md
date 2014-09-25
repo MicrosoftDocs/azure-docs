@@ -42,6 +42,7 @@ A key difference is the construction of multi-shard connections. Where **SqlConn
  
 
 Note the call to **myShardMap.GetShards()**. This method retrieves all shards from the shard map and provides an easy way to run a query across all shards from that shard map. The collection of shards for a multi-shard query can be refined further by performing a LINQ query over the collection returned from the call to **myShardMap.GetShards()**. In combination with the partial results policy, the current capability in multi-shard querying has been designed to work well for tens up to hundreds of shards.
+
 A limitation with multi-shard querying is currently the lack of validation for shards and shardlets that are queried. While DDR verifies that a given shard is part of the shard map at the time of querying, multi-shard queries do not perform this check. This can lead to multi-shard queries running on shards that have since been removed from the shard map.
 Multi-shard queries also do not verify whether shardlets on the queried shard are participating in ongoing split/merge operations. This can lead to inconsistencies where rows from the same shardlet show for multiple shards in the same multi-shard query. Customers using multi-shard queries need to be mindful of these limitations and consider draining ongoing split/merge operations and changes to the shard map while performing multi-shard queries.
 
