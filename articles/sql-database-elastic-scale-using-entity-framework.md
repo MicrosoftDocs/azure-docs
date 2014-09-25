@@ -257,7 +257,6 @@ The approaches outlined in this document entail a couple of limitations:
 
 Entity Framework applications can easily benefit from Azure SQL Database Elastic Scale. Through the steps outlined in this document, EF applications can use Elastic Scale’s capability for data dependent routing by refactoring constructors of the **DbContext** sub-classes used in the EF application. This limits the  changes required to those places where **DbContext** classes already exist. In addition, EF applications can continue to benefit from automatic schema deployment by combining the steps that invoke the necessary EF migrations with the registration of new shards and mappings in the Elastic Scale shard map. 
 
-
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
 <!--Image references-->

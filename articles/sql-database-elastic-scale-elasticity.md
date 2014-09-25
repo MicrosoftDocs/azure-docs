@@ -136,8 +136,8 @@ This can be done by either provisioning a new shard in advance of every new day 
 
 To facilitate the actual implementation of both horizontal and vertical scaling scenarios, a number of [Shard Elasticity example scripts](http://go.microsoft.com/?linkid=9862617) have been created and posted on Script Center. Written to run in the Azure Automation service, these PowerShell runbooks provide a number of methods that interact with the Elastic Scale client libraries and Azure SQL Database.  Building upon, or extracting from these code samples, one can craft the necessary scripts in order to automate the horizontal, vertical or both scaling scenarios for their application. 
 
-
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-elasticity/data-ingestion.png
+
