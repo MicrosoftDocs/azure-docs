@@ -1,10 +1,10 @@
-<properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Create a cloud-only virtual network" pageTitle="Create a cloud-only virtual network - Azure service management" metaKeywords="" description="Learn how to create a cloud-only Azure Virtual Network." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Tutorial: Create a cloud-only virtual network" metaKeywords="" description="Learn how to create an example cloud-only Azure Virtual Network in this tutorial." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/22/2014" ms.author="" />
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
 
 <h1 id="vnettut1">Tutorial: Create a Cloud-Only Virtual Network in Azure</h1>
 
-This tutorial walks you through the steps to create an example of a cloud-only Azure Virtual Network that contains two subnets using the Azure Management Portal. The resulting virtual network will look like the following:
+This tutorial walks you through the steps in the Azure Management Portal to create an example cloud-only Azure Virtual Network that contains two subnets. The resulting virtual network will look like the following:
 
 ![createvnet](./media/create-virtual-network/createVNet_06_VNetExample.png)
 
@@ -15,7 +15,7 @@ This tutorial assumes you have no prior experience using Azure. It is meant to h
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>This tutorial does not walk you through creating a cross-premises configuration, in which the virtual network is connected to your organization network. For a tutorial that walks you through creating a virtual network with cross-premises connectivity and a site-to-site VPN connection (i.e., connecting to Active Directory or SharePoint located at your company), see <a href="/en-us/manage/services/networking/cross-premises-connectivity/">Create a Virtual Network for Cross-Premises Connectivity</a>.</p> 
+<p>This tutorial does not walk you through creating a cross-premises configuration, in which the virtual network is connected to your organization network. For a tutorial that walks you through creating a virtual network with cross-premises connectivity and a site-to-site VPN connection (i.e., connecting to Active Directory or SharePoint located at your company), see <a href="/en-us/manage/services/networking/cross-premises-connectivity/">Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity</a>.</p> 
 </div>
 
 
@@ -60,7 +60,7 @@ To create this example cloud-only virtual network, do the following
 
  Returning to our diagram of the virtual network, you have configured the following address spaces:
  
-	![createvnet](./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png)
+	![][Image7]	
 
  Note that the address space for a virtual network must be from the private address spaces of 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 and specified in Classless Inter-Domain Routing (CIDR) notation (also known as network prefix notation). For more information about the settings on this page, see the Virtual Network Address Spaces page in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409).
 
@@ -100,4 +100,4 @@ For additional Virtual Network configuration procedures and settings, see [Azure
 [Image3]: ./media/create-virtual-network/createVNet_03_DNSServersandVPNConnectivity.png
 [Image4]: ./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png
 [Image5]: ./media/create-virtual-network/createVNet_05_VirtualNetworkCreatedStatus.png
-
+[Image7]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
