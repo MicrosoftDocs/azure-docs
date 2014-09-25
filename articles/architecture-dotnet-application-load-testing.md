@@ -1,5 +1,7 @@
 <properties linkid="develop-net-architecture-load-testing" urlDisplayName="Load Testing Pattern" pageTitle="Load Testing Application Pattern - Azure Architecture Patterns" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a load testing system on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Azure" authors="" solutions="" manager="" editor="" />
 
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
 # Load Testing in Azure
 
 The cloud-based load testing service can load test your web applications. Use Visual Studio to create a load test to determine the capacity and performance of your web application-there's no need to use your own Azure VMs. Instead, you can let the [cloud-based load testing service](http://tfs.visualstudio.com/en-us/learn/load-testing) create these for you.

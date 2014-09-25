@@ -1,4 +1,6 @@
-<properties linkid="manage-services-mediaservices-scale-media-service" urlDisplayName="How to scale" pageTitle="How to Scale a media service | Azure Documentation" metaKeywords="" description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors="migree" solutions="" manager="" editor="" />
+<properties linkid="manage-services-mediaservices-scale-media-service" urlDisplayName="How to scale" pageTitle="How to Scale a media service | Azure Documentation" metaKeywords="" description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors="juliako" solutions="" manager="" editor="" />
+
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 
 
@@ -20,11 +22,10 @@ To change the number of on-demand streaming reserved units, do the following:
 
 1. In the [Management Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
 
-2. Select the ORIGINS page. Then, click on the origin that you want to modify.
+2. Select the STREAMING ENDPOINTS page. Then, click on the streaming endpoint that you want to modify.
 
-	![Origin page](./media/media-services-how-to-scale/media-services-origin-page.png)
 
-3. To specify the number of reserved units, select the SCALE tab and move the **reserved capacity** slider.
+3. To specify the number of streaming units, select the SCALE tab and move the **reserved capacity** slider.
 
 	![Scale page](./media/media-services-how-to-scale/media-services-origin-scale.png)
 
@@ -33,10 +34,10 @@ To change the number of on-demand streaming reserved units, do the following:
 	The allocation of any new units of on-demand streaming takes around 20 minutes to complete. 
 
 	 
-	**Note:** Currently, going from any positive value of on-demand streaming units back to none, can disable on-demand streaming for up to an hour.
+	>[WACOM.NOTE] Currently, going from any positive value of on-demand streaming units back to none, can disable on-demand streaming for up to an hour.
 
 
-	**Note:** The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+	>[WACOM.NOTE] The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 <h2>Encoding Reserved Units</h2>
 
@@ -46,15 +47,21 @@ To change the number of encoding reserved units, do the following:
 
 1. In the [Management Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
 
-2. Select the PROCESSORS page. 
+2. Select the ENCODING page. 
+	
+	The Encoding page enables you to select between three different types of encoding reserved units:  Basic, Standard and Premium (as shown below).
 
-	![Processors page](./media/media-services-how-to-scale/media-services-encoding-scale.png) 
+	![Processors page](./media/media-services-how-to-scale/media-services-encoding-scale.png)
+
+	You can change the number of reserved units for the selected RESERVED UNIT TYPE by using the ENCODING slider.  
+	
+	For more information, see the "Encoding Reserved Unit Types" blog written by [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
 
 3. Press the SAVE button to save your changes.
 
-	The new encoding reserved units are allocated almost immediately.
+	The new encoding reserved units are allocated as soon as you press SAVE.
 
-	**Note:** The highest number of units specified for the 24-hour period is used in calculating the cost.
+	>[WACOM.NOTE] The highest number of units specified for the 24-hour period is used in calculating the cost.
 
 <h2>Opening a Support Ticket</h2>
 

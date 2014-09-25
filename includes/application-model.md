@@ -196,7 +196,7 @@ center.
 Sometimes, you may want to take a single application (like a simple web
 site) and have it hosted in Azure. But frequently, your
 application may consist of several roles that all work together. For
-example, in the figure below, there are two instances of the Web Site
+example, in the figure below, there are two instances of the Website
 role, three instances of the Order Processing role, and one instance of
 the Report Generator role. These roles are all working together and the
 code for all of them can be packaged together and deployed as a single
@@ -208,18 +208,18 @@ The main reason to split an application into different roles each
 running on its own set of role instances (that is, VMs) is to scale the
 roles independently. For example, during the holiday season, many
 customers may be purchasing products from your company, so you might
-want to increase the number of role instances running your Web Site role
+want to increase the number of role instances running your Website role
 as well as the number of role instances running your Order Processing
 role. After the holiday season, you may get a lot of products returned,
-so you may still need a lot of Web Site instances but fewer Order
+so you may still need a lot of Website instances but fewer Order
 Processing instances. During the rest of the year, you may only need a
-few Web Site and Order Processing instances. Throughout all of this, you
+few Website and Order Processing instances. Throughout all of this, you
 may need only one Report Generator instance. The flexibility of
 role-based deployments in Azure enables you to easily adapt your
 application to your business needs.
 
 It's common to have the role instances within your hosted service
-communicate with each other. For example, the web site role accepts a
+communicate with each other. For example, the website role accepts a
 customer's order but then it offloads the order processing to the Order
 Processing role instances. The best way to pass work form one set of
 role instances to another set of instances is using the queuing
@@ -244,9 +244,9 @@ guaranteed to eventually get processed. The queue also acts as a load
 balancer by effectively distributing its messages to any and all role
 instances that request messages from it.
 
-For the Web Site role instances, you can monitor the traffic coming into
+For the Website role instances, you can monitor the traffic coming into
 them and decide to scale the number of them up or down as well. The
-queue allows you to scale the number of Web Site role instances
+queue allows you to scale the number of Website role instances
 independently of the Order Processing role instances. This is very
 powerful and gives you a lot of flexibility. Of course, if your
 application consists of additional roles, you could add additional

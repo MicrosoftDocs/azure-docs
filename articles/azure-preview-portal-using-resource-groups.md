@@ -1,14 +1,16 @@
-<properties linkid="" urlDisplayName="" pageTitle="Using Resource groups to manage your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="" editor=""  />
+<properties urlDisplayName="" pageTitle="Using Resource groups to manage your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="" editor=""  />
+
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala" />
 
 
 # Using Resource groups to manage your Azure resources
 
 ### Introduction
 
-Historically, managing a resource (a user-managed entity such as a database server, database or web site,) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, management of this application became a complex task. In the Microsoft Azure preview portal you can create resource groups to manage all your resources in an application together. Resource group is a new concept in Azure that serves as the lifecycle boundary for every resource contained within it. 
+Historically, managing a resource (a user-managed entity such as a database server, database or website,) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, management of this application became a complex task. In the Microsoft Azure preview portal you can create resource groups to manage all your resources in an application together. Resource group is a new concept in Azure that serves as the lifecycle boundary for every resource contained within it. 
 <br><br />
 
-Resource groups enable you to manage all your resources in an application together. Resource groups are enabled by the new management functionality, Azure Resource Manager. Azure Resource Manager allows you to group multiple resources as a logical group which serves as the lifecycle boundary for every resource contained within it. Typically a group will contain resources related to a specific application. For example, a group may contain a Web Site resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. 
+Resource groups enable you to manage all your resources in an application together. Resource groups are enabled by the new management functionality, Azure Resource Manager. Azure Resource Manager allows you to group multiple resources as a logical group which serves as the lifecycle boundary for every resource contained within it. Typically a group will contain resources related to a specific application. For example, a group may contain a Website resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. 
 
 Here is a concise overview of how to use Resource groups within the Microsoft Azure Preview Portal. 
 <br><br />
@@ -20,7 +22,7 @@ Whenever a resource is created in the preview portal, it is always created withi
 ![](http://i.imgur.com/USKkQdW.png)
 
 <br><br />
-When you are create an application that consists of a few resources working together (e.g. Website + Database) it is always created in its own resource group, so you can manage the lifecycle of all related assets using the resource group. You can additional or remove additional resources from the resource group as your application evolves. 
+When you create an application that consists of a few resources working together (e.g. Website + Database) it is always created in its own resource group, so you can manage the lifecycle of all related assets using the resource group. You can add or remove additional resources from the resource group as your application evolves. 
 
 ![](http://i.imgur.com/Me0jbio.png)
 
@@ -29,7 +31,7 @@ When you are create an application that consists of a few resources working toge
 
 ### Browsing Resource groups
 
-You can browse all resource groups by clicking on the Jumpbar on the left side of your screen. A resource group has a blade that gives you all the information on a particular resource group. The Resource group blade will also give you a unified view of your billing and monitoring information for all the resources in the Resource group.
+You can browse all resource groups by clicking the Jumpbar on the left side of your screen. A resource group has a blade that gives you all the information on a particular resource group. The Resource group blade will also give you a unified view of your billing and monitoring information for all the resources in the Resource group.
 
 The summary section shows a visual resource map of all the resources in the resource group, it also shows resources in other resource groups that are linked to the resource group. The resource map also shows the status of each resource. 
 ![](http://i.imgur.com/PhJeLZQ.png)

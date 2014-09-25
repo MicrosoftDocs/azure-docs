@@ -1,11 +1,13 @@
-<properties title="Download the Azure SDK for PHP" pageTitle="Download the Azure SDK for PHP" metaKeywords="" description="Learn how to download and install the Azure SDK for PHP." documentationCenter="PHP" services="" solutions="web" authors="" />
+<properties title="Download the Azure SDK for PHP" pageTitle="Download the Azure SDK for PHP" metaKeywords="" description="Learn how to download and install the Azure SDK for PHP." documentationCenter="PHP" services="" solutions="web" authors="robmcm" />
+
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 #Download the Azure SDK for PHP
 
 The Azure SDK for PHP includes components that allow you to develop, deploy, and manage PHP applications for Azure. Specifically, the Azure SDK for PHP includes the following:
 
 * **The PHP client libraries for Azure**. These class libraries provide an interface for accessing Azure features, such as data management services and cloud services.  
-* **The Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Azure services, such as Azure Web Sites and Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
+* **The Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Azure services, such as Azure Websites and Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
 * **Azure PowerShell (Windows Only)**. This is a set of PowerShell cmdlets for deploying and managing Azure Services, such as Cloud Services and Virtual Machines.
 * **The Azure Emulators (Windows Only)**. The compute and storage emulators are local emulators of cloud services and data management services that allow you to test an application locally. The Azure Emulators run on Windows only.
 
@@ -86,7 +88,7 @@ For information about how to use Azure PowerShell, see [How to Use Azure PowerSh
 
 ##Azure Command-Line Tools for Mac and Linux
 
-The Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Azure services, such as Azure Web Sites and Azure Virtual Machines. The following list describes how to install the tools, depending on your operating system:
+The Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Azure services, such as Azure Websites and Azure Virtual Machines. The following list describes how to install the tools, depending on your operating system:
 
 * **Mac**: Download the Azure SDK Installer here: [http://go.microsoft.com/fwlink/?LinkId=252249][mac-installer]. Open the downloaded .pkg file and complete the installation steps as your are prompted.
 

@@ -1,15 +1,22 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-users-html" urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="Get started with authentication (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-users-html" urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="Get started with authentication (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="mobile" manager="" editor="" />
 
-
-
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Get started with authentication in Mobile Services
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML" class="current">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+<div class="dev-center-tutorial-selector sublanding">
+    <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users" title="Windows Store C#">Windows Store C#</a>
+    <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users" title="Windows Store JavaScript">Windows Store JavaScript</a>
+    <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-users" title="Windows Phone">Windows Phone</a>
+    <a href="/en-us/documentation/articles/mobile-services-ios-get-started-users" title="iOS">iOS</a>
+    <a href="/en-us/documentation/articles/mobile-services-android-get-started-users" title="Android">Android</a>
+    <a href="/en-us/documentation/articles/mobile-services-html-get-started-users" title="HTML" class="current">HTML</a>
+    <a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-users" title="Xamarin.Android">Xamarin.Android</a>
+	<a href="/en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users" title="Appcelerator">Appcelerator</a>
 </div>
 
 
-This topic shows you how to authenticate users in Azure Mobile Services from your HTML app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
+This topic shows you how to authenticate users in Azure Mobile Services from your HTML or PhoneGap app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
 
 This tutorial walks you through these basic steps to enable authentication in your app:
 
@@ -19,50 +26,14 @@ This tutorial walks you through these basic steps to enable authentication in yo
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
-<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
+##<a name="register"></a>Register your app for authentication and configure Mobile Services
 
-To be able to authenticate users, you must register your app with an identity provider. You must then register the provider-generated client secret with Mobile Services.
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+##<a name="permissions"></a>Restrict permissions to authenticated users
 
-   	![][4]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
-2. Click the **Dashboard** tab and make a note of the **Mobile Service URL** value.
-
-   	![][5]
-
-    You may need to provide this value to the identity provider when you register your app.
-
-3. Choose a supported identity provider from the list below and follow the steps to register your app with that provider:
-
- - <a href="/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication/" target="_blank">Microsoft Account</a>
- - <a href="/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/" target="_blank">Facebook login</a>
- - <a href="/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/" target="_blank">Twitter login</a>
- - <a href="/en-us/develop/mobile/how-to-guides/register-for-google-authentication/" target="_blank">Google login</a>
- - <a href="/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
-
-
-    Remember to make a note of the client identity and secret values generated by the provider.
-
-    <div class="dev-callout"><b>Security Note</b>
-	<p>The provider-generated secret is an important security credential. Do not share this secret with anyone or distribute it with your app.</p>
-    </div>
-
-4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your identity provider, and click **Save**.
-
-   	![][13]
-
-Both your mobile service and your app are now configured to work with your chosen authentication provider.
-
-<h2><a name="permissions"></a><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
-
-1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
-
-   	![][14]
-
-2. Click the **Permissions** tab, set all permissions to **Only authenticated users**, and then click **Save**. This will ensure that all operations against the **TodoItem** table require an authenticated user. This also simplifies the scripts in the next tutorial because they will not have to allow for the possibility of anonymous users.
-
-   	![][15]
 
 3. In the app directory, launch one of the following command files from the **server** subfolder.
 
@@ -70,9 +41,7 @@ Both your mobile service and your app are now configured to work with your chose
 	+ **launch-mac.command** (Mac OS X computers)
 	+ **launch-linux.sh** (Linux computers)
 
-	<div class="dev-callout"><b>Note</b>
-		<p>On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.</p>
-	</div>
+	>[WACOM.NOTE]On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.
 
 	This starts a web server on your local computer to host the new app.
 
@@ -84,11 +53,9 @@ Both your mobile service and your app are now configured to work with your chose
 
 Next, you will update the app to allow authentication before requesting resources from the mobile service.
 
-<h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
+##<a name="add-authentication"></a>Add authentication to the app
 
-<div class="dev-callout"><b>Note</b>
-		<p>Because the login is performed in a popup, you should invoke the <strong>login</strong> method from a button's click event. Otherwise, many browsers will suppress the login window.</p>
-</div>
+>[WACOM.NOTE]Because the login is performed in a popup, you should invoke the <strong>login</strong> method from a button's click event. Otherwise, many browsers will suppress the login window.
 
 1. Open the project file index.html, locate the H1 element and under it add the following code snippet:
 
@@ -136,19 +103,17 @@ Next, you will update the app to allow authentication before requesting resource
 			$("#logged-in button").click(logOut);
 		});
 
-    This creates a set of functions to handle the authentication process. The user is authenticated by using a Facebook login.
+    This creates a set of functions to handle the authentication process. The user is authenticated by using a Facebook login. If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em>, or <em>aad</em>.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em>, or <em>aad</em>.</p>
-    </div>
+	>[WACOM.NOTE]In a PhoneGap app, you must also add the following plugins to the project:
+	><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
+	><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. Go back to the browser where your app is running, and refresh the page. 
 
-   When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+	   When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
-	<div class="dev-callout"><b>Note</b>
-		<p>When you use Internet Explorer, you may receive the error after login: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. This occurs because the pop-up runs in a different security zone (internet) from localhost (intranet). This only affects apps during development using localhost. As a workaround, open the <strong>Security</strong> tab of <strong>Internet Options</strong>, click <strong>Local Intranet</strong>, click <strong>Sites</strong>, and disable <strong>Automatically detect intranet network</strong>. Remember to change this setting back when you are done testing.</p>
-	</div>
+	>[WACOM.NOTE]When you use Internet Explorer, you may receive the error after login: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. This occurs because the pop-up runs in a different security zone (internet) from localhost (intranet). This only affects apps during development using localhost. As a workaround, open the <strong>Security</strong> tab of <strong>Internet Options</strong>, click <strong>Local Intranet</strong>, click <strong>Sites</strong>, and disable <strong>Automatically detect intranet network</strong>. Remember to change this setting back when you are done testing.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -169,13 +134,9 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
-[Microsoft Account login]: /en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication
-[Facebook login]: /en-us/develop/mobile/how-to-guides/register-for-facebook-authentication
-[Twitter login]: /en-us/develop/mobile/how-to-guides/register-for-twitter-authentication
-[Google login]: /en-us/develop/mobile/how-to-guides/register-for-google-authentication
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-html
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-html
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-html
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-html-get-started
+[Get started with data]: /en-us/documentation/articles/mobile-services-html-get-started-data
+[Authorize users with scripts]: /en-us/documentation/articles/mobile-services-html-authorize-users-in-scripts
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library

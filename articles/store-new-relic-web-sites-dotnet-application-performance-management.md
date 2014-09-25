@@ -1,11 +1,13 @@
-<properties linkid="develop-net-how-to-guides-new-relic-app" urlDisplayName="New Relic App Performance Management" pageTitle="New Relic App Performance Management on Azure" metaKeywords="new relic Azure, performance azure" description="Learn how to use New Relic's performance monitoring on Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="New Relic Application Performance Management on Azure Web Sites" authors="larryfr" solutions="" manager="" editor="" />
+<properties linkid="develop-net-how-to-guides-new-relic-app" urlDisplayName="New Relic App Performance Management" pageTitle="New Relic App Performance Management on Azure" metaKeywords="new relic Azure, performance azure" description="Learn how to use New Relic's performance monitoring on Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="New Relic Application Performance Management on Azure Websites" authors="larryfr" solutions="" manager="" editor="" />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new relic" />
 
 
 
-#New Relic Application Performance Management on Azure Web Sites
+#New Relic Application Performance Management on Azure Websites
 
 This guide describes how to add New Relic's world-class performance
-monitoring to your Azure Web Site. We'll cover the fast and simple
+monitoring to your Azure Website. We'll cover the fast and simple
 process to add New Relic to your application and introduce you to some of
 New Relic's features. For more information about using New Relic, see [Using New Relic](#using-new-relic).
 
@@ -26,7 +28,7 @@ New Relic special pricing through the Azure Store
 --
 
 New Relic Standard is free to Azure users.
-New Relic Pro is offered in multiple packages based on which web site mode you are using, and the instance size if you are using reserved mode.
+New Relic Pro is offered in multiple packages based on which website mode you are using, and the instance size if you are using reserved mode.
 
 For pricing information see the [New Relic page in the Azure Store](http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/).
 
@@ -40,7 +42,7 @@ Azure customers receive a 2 week trial subscription of New Relic Pro when they d
 Sign up for New Relic using the Azure Store
 --
 
-New Relic integrates seamlessly with Azure Web Roles, Worker roles and Web Sites.
+New Relic integrates seamlessly with Azure Web Roles, Worker roles and Websites.
 
 To sign up for New Relic directly from the Azure Store, follow these four easy steps.
 
@@ -64,13 +66,13 @@ To sign up for New Relic directly from the Azure Store, follow these four easy s
 
 ### Step 2. Install the New Relic package
 
-The New Relic Web Sites Agent is distributed as a NuGet package, which can be added to your Web Site using either Visual Studio or WebMatrix. If you are unfamiliar with using Visual Studio or WebMatrix with an Azure Web Site, see [Deploying an ASP.NET Web Application to an Azure Web Site using Visual Studio][vswebsite] or [Develop and deploy a web site with Microsoft WebMatrix][webmatrixwebsite].
+The New Relic Websites Agent is distributed as a NuGet package, which can be added to your Website using either Visual Studio or WebMatrix. If you are unfamiliar with using Visual Studio or WebMatrix with an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Web Site using Visual Studio][vswebsite] or [Develop and deploy a web site with Microsoft WebMatrix][webmatrixwebsite].
 
 Perform the following steps for the specific development environment you are using:
 
 **Visual Studio**
 
-1. Open your Visual Studio Web Site solution.
+1. Open your Visual Studio Website solution.
 
 2. Open the Package Manager console by selecting **Tools > Library Package Manager > 
    Package Manager Console**. Set your project to be the Default Project at the
@@ -93,7 +95,7 @@ Perform the following steps for the specific development environment you are usi
 
 **WebMatrix**
 
-1. Open your Web Site using WebMatrix.
+1. Open your Website using WebMatrix.
 
 2. On the **Home** tab of the ribbon, select **NuGet**.
 
@@ -103,7 +105,7 @@ Perform the following steps for the specific development environment you are usi
 
 	![nuget gallery searching for NewRelic.Azure.WebSites][wmnugetgallery]
 
-4. Select the **New Relic for Azure Web Sites** entry, and then click **Install**.
+4. Select the **New Relic for Azure Websites** entry, and then click **Install**.
 
 5. After installing the package, your site will now contain a folder named **newrelic**. Expand this folder and open the **newrelic.config** file. In this file, replace the value **REPLACE\_WITH\_LICENSE_KEY** with the license key you received from the Azure Store.
 
@@ -111,13 +113,13 @@ Perform the following steps for the specific development environment you are usi
 
 	After adding the license key information, save the changes to the **newrelic.config** file.
 
-### Step 3. Configure the Web Site and publish the application.
+### Step 3. Configure the Website and publish the application.
 
-The New Relic package added to your application in the previous step is configured by **App Settings** added to your Azure Web Site. Perform the following steps to add these settings.
+The New Relic package added to your application in the previous step is configured by **App Settings** added to your Azure Website. Perform the following steps to add these settings.
 
-1. Sign in to the [Azure Management Portal](https://manage.windowsazure.com) and navigate to your Web Site.
+1. Sign in to the [Azure Management Portal](https://manage.windowsazure.com) and navigate to your Website.
 
-2. From your Web Site, select **Configure**. In the **Developer Analytics** section, select either **Add-on** or **Custom**. Either method produces the same output, but requires slightly different input. **Add-on** lists your current New-Relic licenses and allows you to select one, while **Custom** requires you to manually specify the license key.
+2. From your Website, select **Configure**. In the **Developer Analytics** section, select either **Add-on** or **Custom**. Either method produces the same output, but requires slightly different input. **Add-on** lists your current New-Relic licenses and allows you to select one, while **Custom** requires you to manually specify the license key.
 
 	If you selected **Add-on**, use the **choose add-on** field to select your your New-Relic license.
 
@@ -157,7 +159,7 @@ The New Relic package added to your application in the previous step is configur
 
 	<div class="dev-callout"> 
 	<strong>Note</strong> 
-	<p>It may take up to 30 seconds for the new <strong>App Settings</strong> to take effect. To force the settings to take effect immediately, restart the web site.</p> 
+	<p>It may take up to 30 seconds for the new <strong>App Settings</strong> to take effect. To force the settings to take effect immediately, restart the website.</p> 
 	</div>
 
 

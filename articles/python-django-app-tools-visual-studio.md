@@ -1,4 +1,6 @@
-<properties linkid="develop-python-django-with-visual-studio" urlDisplayName="Django with Visual Studio" pageTitle="Django with Visual Studio (Python) - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to build a Django web application hosted in an Azure virtual machine." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools for Visual Studio 1.5" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-python-django-with-visual-studio" urlDisplayName="Django with Visual Studio" pageTitle="Django with Visual Studio (Python) - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to build a Django web application hosted in an Azure virtual machine." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools for Visual Studio 1.5" authors="huvalo" solutions="" manager="" editor="" />
+
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 
 
@@ -114,7 +116,7 @@ At this point you've created your very first Django application.  Now you can ru
 
 ![Django Hello World in a Browser and the Test Server](./media/python-django-app-tools-visual-studio/ptvs-dj-DjangoHelloWorldTestServer.png)
 
-This will start your Python interpreter running Django's **manage.py** to run the test server.  Once the test server is successfully launched it will also launch a web browser to view the web site.  Because you launched with F5 this is launched under the debugger so we can also set breakpoints either in any of the Python code such as the view code or in the template files themselves:
+This will start your Python interpreter running Django's **manage.py** to run the test server.  Once the test server is successfully launched it will also launch a web browser to view the website.  Because you launched with F5 this is launched under the debugger so we can also set breakpoints either in any of the Python code such as the view code or in the template files themselves:
 
 ![Debugger stopped at a template breakpoint](./media/python-django-app-tools-visual-studio/ptvs-dj-TemplateBreakpoint.png)
 
@@ -160,7 +162,7 @@ You'll now need to wait for the application be setup and deployed.
 
 ![Package Deployment](./media/python-django-app-tools-visual-studio/ptvs-dj-publish4.png)
 
-Once it's all setup you can click on the link below DNS Name to view your web site running in the cloud:
+Once it's all setup you can click on the link below DNS Name to view your website running in the cloud:
 
 
 ![Your Django app in the cloud](./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png)

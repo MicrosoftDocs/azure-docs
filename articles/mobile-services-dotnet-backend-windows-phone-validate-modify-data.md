@@ -1,5 +1,7 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-validate-modify-and-augment-data-wp8" urlDisplayName="Validate and Modify Data" pageTitle="Use the .Net backend to validate and modify data (Windows Phone 8) | Mobile Dev Center" metaKeywords="" description="Learn how to validate, modify, and augment data for your Windows Phone app with .Net backend Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="" editor="" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+
 
 
 
@@ -31,7 +33,7 @@ This tutorial walks you through these basic steps:
 4. [Add a timestamp for CompleteDate]
 5. [Update the client to display the CompleteDate]
 
-This tutorial builds on the steps and the sample app from the previous tutorial, [Getting Started] or [Get started with data]. Before you begin this tutorial, you must first complete the [Getting Started] or [Get started with data] tutorial.  
+This tutorial builds on the steps and the sample app from the previous tutorial, [Getting Started] or [Get started with data](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). Before you begin this tutorial, you must first complete the [Getting Started] or [Get started with data](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) tutorial.  
 
 ## <a name="string-length-validation"></a>Add validation
 
@@ -203,7 +205,6 @@ Server scripts are also used when authorizing users and for sending push notific
 [Service-side authorization of users]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js

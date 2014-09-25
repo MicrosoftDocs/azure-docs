@@ -1,5 +1,7 @@
 <properties linkid="dev-net-how-to-queue-service" urlDisplayName="Queue Service" pageTitle="How to use queue storage from .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" />
 
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+
 # How to use Queue Storage from .NET
 
 This guide will show you how to perform common scenarios using the
@@ -9,7 +11,7 @@ and use the Azure Storage Client for .NET. The scenarios covered include **inser
 **creating and deleting queues**. For more information on queues, refer
 to the [Next steps][] section.
 
-> [WACOM.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 3.x, which is available via NuGet or as part of the Azure SDK for .NET 2.3. See [How to: Programmatically access Queues storage][] below for details on obtaining the Storage Client Library.
+> [WACOM.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/en-us/downloads/). See [How to: Programmatically access Queue storage][] below for more details on obtaining the Storage Client Library.
 
 <h2>Table of contents</h2>
 
@@ -17,7 +19,7 @@ to the [Next steps][] section.
 -   [Concepts][]
 -   [Create an Azure Storage Account][]
 -   [Setup an Azure Storage connection string][]
--   [How to: Programmatically access Queues storage][]
+-   [How to: Programmatically access Queue storage][]
 -   [How to: Create a queue][]
 -   [How to: Insert a message into a queue][]
 -   [How to: Peek at the next message][]
@@ -30,71 +32,15 @@ to the [Next steps][] section.
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-<h2><a name="create-account"></a><span  class="short-header">Create an account</span>Create an Azure Storage account</h2>
+## <h2><a name="create-account"></a><span  class="short-header">Create an account</span>Create an Azure Storage account</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-<h2><a name="setup-connection-string"></a><span  class="short-header">Setup a connection string</span>Setup an Azure Storage Connection String</h2>
+## <h2><a name="setup-connection-string"></a><span  class="short-header">Setup a connection string</span>Setup an Azure Storage Connection String</h2>
 
-The Azure Storage Client Library for .NET supports using a storage connection
-string to configure endpoints and credentials for accessing storage
-services. You can put your storage connection string in a configuration
-file, rather than hard-coding it in code:
+[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
-- When using Azure Cloud Services, it is recommended you store your connection string using the Azure service configuration system (`*.csdef` and `*.cscfg` files).
-- When using Azure Web Sites, Azure Virtual Machines, or building .NET applications that are intended to run outside of Azure, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` or `app.config` file).
-
-In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method, as shown later in this guide.
-
-### Configuring your connection string when using Cloud Services
-
-The service configuration mechanism is unique to Azure Cloud Services
-projects and enables you to dynamically change configuration settings
-from the Azure Management Portal without redeploying your
-application.
-
-To configure your connection string in the Azure service
-configuration:
-
-1.  Within the Solution Explorer of Visual Studio, in the **Roles** folder of your Azure Deployment Project, right-click your web role or worker role and click **Properties**.  
-
-	![Blob5](./media/storage-dotnet-how-to-use-queues/blob5.png)
-
-2.  Click the **Settings** tab and press the **Add Setting** button. 
- 
-	![Blob6](./media/storage-dotnet-how-to-use-queues/blob6.png)
-
-	A new **Setting1** entry will then show up in the settings grid.
-
-3.  In the **Type** drop-down of the new **Setting1** entry, choose **Connection String**.  
-
-	![Blob7](./media/storage-dotnet-how-to-use-queues/blob7.png)
-
-4.  Click the **...** button at the right end of the **Setting1** entry. The **Storage Account Connection String** dialog will open.
-
-5.  Choose whether you want to target the storage emulator (the Azure storage simulated on your local machine) or an actual storage account in the cloud. The code in this guide works with either option. Enter the **Primary Access Key** value copied from the earlier step in this tutorial if you wish to store queue data in the    storage account we created earlier on Azure.   
-
-	![Blob8](./media/storage-dotnet-how-to-use-queues/blob8.png)
-
-6.  Change the entry **Name** from **Setting1** to a "friendlier" name like **StorageConnectionString**. You will reference this connection string later in the code in this guide.  
-
-	![Blob9](./media/storage-dotnet-how-to-use-queues/blob9.png)
-	
-### Configuring your connection string using .NET configuration
-
-If you are writing an application that is not an Azure cloud service, (see previous section), it is recommended you use the .NET configuration system (e.g. `web.config` or `app.config`).  This includes Azure Web Sites or Azure Virtual Machines, as well as applications designed to run outside of Azure.  You store the connection string using the `<appSettings>` element as follows:
-
-	<configuration>
-  		<appSettings>
-    		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey" />
-  		</appSettings>
-	</configuration>
-
-Read [Configuring Connection Strings][] for more information on storage connection strings.
-	
-You are now ready to perform the how-to tasks in this guide.
-
-## <a name="access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access Queue storage
+## <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access Queue storage
 
 <h3>Obtaining the assembly</h3>
 You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
@@ -347,12 +293,13 @@ to learn how to do more complex storage tasks.
 <ul>
 <li>View the Queue service reference documentation for complete details about available APIs:
   <ul>
-    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx">Storage Client Library for .NET reference</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
     </li>
     <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179355">REST API reference</a></li>
   </ul>
 </li>
 <li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
+<li>Learn how to work with Azure Storage in backend processes for Azure Websites at <a href="/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/">Get Started with the Azure WebJobs SDK</a>.</li>
 <li>View more feature guides to learn about additional options for storing data in Azure.
   <ul>
     <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>
@@ -369,7 +316,7 @@ to learn how to do more complex storage tasks.
   [Concepts]: #concepts
   [Create an Azure Storage Account]: #create-account
   [Setup an Azure Storage Connection String]: #setup-connection-string
-  [How to: Programmatically access queues using .NET]: #access
+  [How to: Programmatically access Queue storage]: #configure-access
   [How To: Create a Queue]: #create-queue
   [How To: Insert a Message into a Queue]: #insert-message
   [How To: Peek at the Next Message]: #peek-message
@@ -379,7 +326,7 @@ to learn how to do more complex storage tasks.
   [How To: Get the Queue Length]: #get-queue-length
   [How To: Delete a Queue]: #delete-queue
   [Download and install the Azure SDK for .NET]: /en-us/develop/net/
-  [.NET client library reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx
+  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx 
   [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

@@ -19,10 +19,21 @@
 
 	In the above code, replace `todolistService` with the namespace of your mobile service project, which should be the mobile service name appended with `Service`. 
 
-4. Add the following code to the new controller:
+4. In CompleteAllController.cs, add the following class definition to the namespace. This class wraps the response sent to the client.
+
+        // We use this class to keep parity with other Mobile Services
+        // that use the JavaScript backend. This way the same client
+        // code can call either type of Mobile Service backend.
+        public class MarkAllResult
+        {
+            public Int32 count;
+        }
+
+
+5. Add the following code to the new controller:
 
 	    // POST api/completeall        
-        public Task<int> Post()
+        public async Task<MarkAllResult> Post()
         {
             using (todolistContext context = new todolistContext())
             {
@@ -31,19 +42,23 @@
 
                 // Create a SQL statement that sets all uncompleted items
                 // to complete and execute the statement asynchronously.
-                var sql = @"UPDATE TodoItems SET Complete = 1 " +
+                var sql = @"UPDATE todolistService.TodoItems SET Complete = 1 " +
                             @"WHERE Complete = 0; SELECT @@ROWCOUNT as count";
-                var result = database.ExecuteSqlCommandAsync(sql);
+
+                var result = new MarkAllResult();
+                result.count = await database.ExecuteSqlCommandAsync(sql);
 
                 // Log the result.
                 Services.Log.Info(string.Format("{0} items set to 'complete'.", 
-                    result.ToString()));
+                    result.count.ToString()));
                 
                 return result;
             }
         }
 
-	In the above code, replace `todolistContext` with the name of the DbContext for your data model, which should be the mobile service name appended with `Context`. This code uses the [Database Class](http://msdn.microsoft.com/en-us/library/system.data.entity.database.aspx) to access the **TodoItems** table directly to set the completed flag on all items. This method supports a POST request, and the number of changed rows is returned to the client as an integer value.
+	In the above code, replace `todolistContext` with the name of the DbContext for your data model, which should be the mobile service name appended with `Context`. Also replace the schema name in the UPDATE statement with the name of your mobile service. 
+
+	This code uses the [Database Class](http://msdn.microsoft.com/en-us/library/system.data.entity.database.aspx) to access the **TodoItems** table directly to set the completed flag on all items. This method supports a POST request, and the number of changed rows is returned to the client as an integer value.
 
 	> [WACOM.NOTE] Default permissions are set, which means that any user of the app can call the custom API. However, the application key is not distributed or stored securely and cannot be considered a secure credential. Because of this, you should consider restricting access to only authenticated users on operations that modify data or affect the mobile service. 
 

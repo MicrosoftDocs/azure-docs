@@ -1,10 +1,10 @@
 While it's possible to paste a MongoLab URI into your code, we recommend configuring it in the environment for ease of management. This way, if the URI changes, you can update it through the Azure Portal without going to the code.
 
 
-1. In the Azure Portal, select **Web Sites**.
-1. Click the name of the web site in the web site list.  
+1. In the Azure Portal, select **Websites**.
+1. Click the name of the website in the website list.  
 ![WebSiteEntry][entry-website]  
-The Web Site Dashboard displays.
+The Website Dashboard displays.
 
 1. Click **Configure** in the menu bar.  
 ![WebSiteDashboardConfig][focus-mongolab-websitedashboard-config]

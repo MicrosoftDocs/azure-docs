@@ -1,5 +1,7 @@
 <properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
 
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
 # How to use the Queue service from PHP
 
 This guide will show you how to perform common scenarios using the Azure Queue service. The samples are written using classes from the Windows SDK for PHP. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**. For more information on queues, see the [Next Steps](#NextSteps) section.
@@ -32,7 +34,7 @@ This guide will show you how to perform common scenarios using the Azure Queue s
 
 The only requirement for creating a PHP application that accesses the Azure Queue service is the referencing of classes from the Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use Queue service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or web site.
+In this guide, you will use Queue service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 <h2><a id="GetClientLibrary"></a>Get the Azure Client Libraries</h2>
 

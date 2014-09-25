@@ -1,7 +1,6 @@
-<properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-js" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your app with Live Connect (JavaScript)" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso, Azure Javascript SSO" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Store application." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/" services="" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-js" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your app with Live Connect (JavaScript)" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso, Azure Javascript SSO" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Store application." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="" editor="" />
 
-
-
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Authenticate your Windows Store app with Live Connect single sign-on
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -11,9 +10,7 @@
 
 This topic shows you how to authenticate users in Azure Mobile Services from a Windows Store app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
 
-<div class="dev-callout"><b>Note</b>
-	<p>This tutorial demonstrates the benefits of using the single sign-on experience provided by Live Connect for Windows Store apps. This enables you to more easily authenticate an already logged-on user with you mobile service. For a more generalized authentication experience that supports multiple authentication providers, see the topic <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js/">Get started with authentication</a>. </p>
-</div>
+>[WACOM.NOTE]This tutorial demonstrates the benefits of using the single sign-on experience provided by Live Connect for Windows Store apps. This enables you to more easily authenticate an already logged-on user with you mobile service. For a more generalized authentication experience that supports multiple authentication providers, see the topic <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/">Get started with authentication</a>.
 
 This tutorial walks you through these basic steps to enable Live Connect authentication:
 
@@ -28,85 +25,28 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services].
 
-<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for the Windows Store</h2>
+>[WACOM.NOTE]This tutorial uses a JavaScript backend mobile service. Client-managed authentication using Live Connect or other authentication clients is not yet supported in a .NET backend mobile service.
+
+##<a name="register"></a>Register your app for the Windows Store
 
 To be able to authenticate users, you must submit your app to the Windows Store. You must then register the client secret to integrate Live Connect with Mobile Services.
 
-1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Submit an app page</a> at the Dev Center for Windows Store apps, log on with your Microsoft account, and then click **App name**.
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
-   	![][0]
+##<a name="permissions"></a>Restrict permissions to authenticated users
 
-2. Type a name for your app in **App name**, click **Reserve app name**, and then click **Save**.
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
-   	![][1]
-
-   	This creates a new Windows Store registration for your app.
-
-3. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services].
-
-4. In solution explorer, right-click the project, click **Store**, and then click **Associate App with the Store...**. 
-
-  	![][2]
-
-   	This displays the **Associate Your App with the Windows Store** Wizard.
-
-5. In the wizard, click **Sign in** and then login with your Microsoft account.
-
-6. Select the app that you registered in step 2, click **Next**, and then click **Associate**.
-
-   	![][3]
-
-   	This adds the required Windows Store registration information to the application manifest.    
-
-7. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
-
-   	![][4]
-
-8. Click the **Dashboard** tab and make a note of the **Site URL** value.
-
-   	![][5]
-
-    You will use this value to define the redirect domain.
-
-9. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">My Applications</a> page in the Live Connect Developer Center and click on your app in the **My applications** list.
-
-   	![][6] 
-
-10. Click **Edit settings**, then **API Settings** and make a note of the values of **Client ID** and **Client secret**. 
-
-   	![][7]
-
-    <div class="dev-callout"><b>Security Note</b>
-	<p>The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.</p>
-    </div>
-
-11. In **Redirect domain**, enter the URL of your mobile service from Step 8, and then click **Save**.
-
-12. Back in the Management Portal, click the **Identity** tab, enter the **Client secret** obtained from Windows Store, and click **Save**.
-
-   	![][13]
-
-Both your mobile service and your app are now configured to work with Live Connect.
-
-<h2><a name="permissions"></a><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
-
-1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
-
-   	![][14]
-
-2. Click the **Permissions** tab, set all permissions to **Only authenticated users**, and then click **Save**. This will ensure that all operations against the **TodoItem** table require an authenticated user. This also simplifies the scripts in the next tutorial because they will not have to allow for the possibility of anonymous users.
-
-   	![][15]
-
-3. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
-
-4. Press the F5 key to run this quickstart-based app; verify that an exception with a status code of 401 (Unauthorized) is raised. 
+<ol start="3">
+<li><p>In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial <a href="/en-us/documentation/articles/mobile-services-windows-store-get-started">Get started with Mobile Services</a>.</p></li> 
+<li><p>Press the F5 key to run this quickstart-based app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
    
-   	This happens because the app is accessing Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+   	<p>This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
+</ol>
 
-Next, you will update the app to authenticate users with Live Connect before requesting resources from the mobile service.
+Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
-<h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
+##<a name="add-authentication"></a>Add authentication to the app
 
 1. Download and install the [Live SDK for Windows].
 
@@ -187,13 +127,11 @@ Next, you will update the app to authenticate users with Live Connect before req
             
         authenticate();
 
-    This initializes the Live Connect client, forces a logout, sends a new login request to Live Connect, sends the returned authentication token to Mobile Services, and then displays information about the logged-in user. 
+    This initializes the Live Connect client, forces a logout, sends a new login request to Live Connect, sends the returned authentication token to Mobile Services, and then displays information about the logged-in user. This code forces a logout, when possible, to make sure that the user is prompted for credentials each time the application runs. This makes it easier to test the application with different Microsoft Accounts to ensure that the authentication is working correctly. This mechanism will only work if the logged in user does not have a connected Microsoft account.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>This code forces a logout, when possible, to make sure that the user is prompted for credentials each time the application runs. This makes it easier to test the application with different Microsoft Accounts to ensure that the authentication is working correctly. This mechanism will only work if the logged in user does not have a connected Microsoft account.</p>
-    </div>
+	>[WACOM.NOTE]You should not request either Live Connection authentiction tokens or Mobile Services authorization tokens every time that your app runs. Not only is this inefficient, you can run into usage-relates issues should many customers try to start your app at the same time. A better approach is to cache the tokens and first try to use the cached Mobile Services token before calling **LoginWithMicrosoftAccountAsync**. For an example of how to cache this token, see [Get started with authentication](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/#tokens)
 	
-7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when setting up the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
+7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when configuring the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
 		
 8. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
 

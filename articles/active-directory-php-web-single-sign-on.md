@@ -1,5 +1,7 @@
 <properties linkid="develop-php-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Azure Active Directory (PHP)" metaKeywords="Azure PHP web app, Azure single sign-on, Azure PHP Active Directory" description="Learn how to create a PHP web application that uses single sign-on with Azure Active Directory." metaCanonical="" services="active-directory" documentationCenter="PHP" title="Web Single Sign-On with PHP and Azure Active Directory" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+
 # Web Single Sign-On with PHP and Azure Active Directory
 
 ##<a name="introduction"></a>Introduction
@@ -49,7 +51,7 @@ This step describes how to create a simple PHP application that will represent a
 
 7. Open **Internet Information Services (IIS) Manager** by typing *inetmgr* at the Run prompt and pressing Enter.
 
-8. In IIS Manager, expand the **Sites** folder in the left menu, right-click **Default Web Site**, then click **Add Application...**.
+8. In IIS Manager, expand the **Sites** folder in the left menu, right-click **Default Website**, then click **Add Application...**.
 
 9. On the **Add Application** dialog, set the **Alias** value to *phpSample* and the **Physical path** to the file path where you created the PHP project.
 
@@ -74,11 +76,11 @@ The provisioning process begins by creating a new Service Principal for the appl
 		Connect-MsolService
 5. Now you will create a new Service Principal for the application. Type the following command and press Enter:
 
-		New-MsolServicePrincipal -ServicePrincipalNames @("phpSample/localhost") -DisplayName "Federation Sample Web Site" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
+		New-MsolServicePrincipal -ServicePrincipalNames @("phpSample/localhost") -DisplayName "Federation Sample Website" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
 This step will output information similar to the following:
 
 		The following symmetric key was created as one was not supplied qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=
-		DisplayName           : Federation Sample PHP Web Site
+		DisplayName           : Federation Sample PHP Website
 		ServicePrincipalNames : {phpSample/localhost}
 		ObjectId              : 59cab09a-3f5d-4e86-999c-2e69f682d90d
 		AppPrincipalId        : 7829c758-2bef-43df-a685-717089474505
@@ -177,7 +179,7 @@ This step shows you how to add support for federated login using Windows Identit
 ##<a name="summary"></a>Summary
 This tutorial has shown you how to create and configure a single tenant PHP application that uses the single sign-on capabilities of Azure Active Directory.
 
-A sample that shows how to use Azure Active Directory and single sign-on for PHP web sites is available at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>.
+A sample that shows how to use Azure Active Directory and single sign-on for PHP websites is available at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>.
 
 
 [Step 1: Create a PHP Application]: #createapp

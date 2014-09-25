@@ -1,4 +1,4 @@
-To use storage operations, you need an Azure storage account. You 
+To use Azure storage, you'll need a storage account. You 
 can create a storage account by following these steps. (You can also
 create a storage account [using the REST API].)
 
@@ -23,7 +23,7 @@ create a storage account [using the REST API].)
     application, select the same region where you will deploy your
     application.
 
-6. Optionally, you can enable geo-replication.
+6. Optionally, you can select the type of replication you desire for your account. Geo-redundant replication is the default and provides maximum durability. For more details on replication options, see [Azure Storage Redundancy Options](http://msdn.microsoft.com/en-us/library/azure/dn727290.aspx) and the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
 
 6.  Click **CREATE STORAGE ACCOUNT**.
 

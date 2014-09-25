@@ -1,5 +1,7 @@
 <properties linkid="develop-mobile-tutorials-store-scripts-in-source-control" urlDisplayName="Store server scripts in source control" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="" documentationCenter="Mobile" title="Store server scripts in source control" authors="glenga" solutions="" manager="" editor="" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+
 
 # Store server scripts in source control
 
@@ -85,7 +87,7 @@ Now that you have created your local repository, you can make changes to server 
 
 		function insert(item, user, request) {
 		    request.execute();
-		    console.log(item);
+		    console.log(JSON.stringify(item, null, 4));
 		}
 	
 	This code simply writes the inserted item to the log. If this file already contains code, simply add some valid JavaScript code to this file, such as a call to `console.log()`, then save your changes. 
@@ -120,7 +122,7 @@ Mobile Services provides access to the full set of core Node.js modules, which y
 
 Next, you will add the [node-uuid] Node.js module to your mobile service by using source control and the Node.js package manager (NPM). This module is then used to generate a new GUID value for the **uuid** property on inserted items. 
 
-1. If you haven't already done so, install Node.js on your local computer by following the steps at the <a href="http://nodejs.org/" target="_blank">Node.js web site</a>. 
+1. If you haven't already done so, install Node.js on your local computer by following the steps at the <a href="http://nodejs.org/" target="_blank">Node.js website</a>. 
 
 2. Navigate to the `.\service` folder of your local Git repository, then from the command prompt run the following command:
 
@@ -139,7 +141,7 @@ Next, you will add the [node-uuid] Node.js module to your mobile service by usin
 		    var uuid = require('node-uuid');
 		    item.uuid = uuid.v1();
 		    request.execute();
-		    console.log(item);
+		    console.log(JSON.stringify(item, null, 4));
 		}
 
 	This code adds a uuid column to the table, populating it with unique GUID identifiers.

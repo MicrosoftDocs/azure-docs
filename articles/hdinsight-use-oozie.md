@@ -1,5 +1,7 @@
 <properties linkid="hdinsight-use-hadoop-oozie-in-hdinsight" urlDisplayName="Use Hadoop Oozie in HDInsight" pageTitle="Use Hadoop Oozie in HDInsight | Azure" metaKeywords="" description="Use Hadoop Oozie in HDInsight, a big data solution. Learn how to define an Oozie workflow, and submit an Oozie job." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadop Oozie in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
+
 
 # Use Oozie with Hadoop in HDInsight
 
@@ -90,8 +92,7 @@ Oozie workflows definitions are written in hPDL (a XML Process Definition Langua
 The Hive action in the workflow calls a HiveQL script file. This script file contains three HiveQL statements:
 
 1. **The DROP TABLE statement** deletes the log4j Hive table in case it exists.
-2. **The CREATE TABLE statement** creates a log4j Hive external table pointing to the 
-3.  location of the log4j log file. The field delimiter is ",". The default line delimiter is "\n".  Hive external table is used to avoid the data file being removed from the original location, in case you want to run the Oozie workflow multiple times.
+2. **The CREATE TABLE statement** creates a log4j Hive external table pointing to the location of the log4j log file. The field delimiter is ",". The default line delimiter is "\n".  Hive external table is used to avoid the data file being removed from the original location, in case you want to run the Oozie workflow multiple times.
 3. **The INSERT OVERWRITE statement** counts the occurrences of each log level type from the log4j Hive table, and saves the output to an Azure Storage - Blob (WASB) location. 
 
 There is a known Hive path issue. You will run into this problem when submitting an Oozie job. The instructions for fixing the issue can be found at [TechNet Wiki][technetwiki-hive-error].
@@ -445,7 +446,7 @@ the Invoke-RestMethod PowerShell cmdlet to invoke Oozie web services. The Oozie 
 		
 		   <property>
 		       <name>user.name</name>
-		       <value>admin</value>
+		       <value>$clusterUsername</value>
 		   </property>
 		
 		   <property>

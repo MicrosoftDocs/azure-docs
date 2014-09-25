@@ -1,26 +1,26 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="ricksal" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app (legacy push)." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" solutions="" manager="dwrede" editor="" authors="krisragh" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
  
-# Get started with push notifications in Mobile Services
+# Get started with push notifications in Mobile Services (legacy push)
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS" class="current">iOS</a>
-	<a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a>
+    <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
+    <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
+    <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+    <a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS" class="current">iOS</a>
+    <a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
+	<a href="/en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
 </div>
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>This topic shows you how to use Azure Mobile Services to send push notifications to an iOS app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
-<p>You can watch a video version of this tutorial by clicking the clip to the right.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-push-ios-180x120.png') !important;" href="http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:37</span></div>
-</div>
+<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-ios-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
 
->[WACOM.NOTE] This topic shows how to enable push notifications by using the legacy support provided by Mobile Services. Azure Notification Hubs integrates with Mobile Services to enable you to send template-based and cross-platform push notifications to millions of devices. By default, push notifications using Notification Hubs is not enabled.
+This topic shows you how to use Azure Mobile Services to send push notifications to an iOS app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
+
+
+>[WACOM.NOTE]This topic supports <em>existing</em> mobile services that have <em>not yet been upgraded</em> to use Notification Hubs integration. When you create a <em>new</em> mobile service, this integrated functionality is automatically enabled. For new mobile services, see [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/).
+>
+>Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. <em>You should upgrade your existing mobile services to use Notification Hubs when possible</em>. Once you have upgraded, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/).
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -35,7 +35,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 This tutorial requires the following:
 
 + [Mobile Services iOS SDK]
-+ [XCode 4.5][Install Xcode] 
++ [Xcode 4.5][Install Xcode] 
 + An iOS 5.0 (or later version) capable device
 + iOS Developer Program membership
 
@@ -43,162 +43,11 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
-
-## Generate the Certificate Signing Request file
-
-First you must generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed certificate.
-
-1. From the Utilities folder, run the Keychain Access tool.
-
-2. Click **Keychain Access**, expand **Certificate Assistant**, then click **Request a Certificate from a Certificate Authority...**.
-
-  	![][5]
-
-3. Select your **User Email Address** and **Common Name** , make sure that **Saved to disk** is selected, and then click **Continue**. Leave the **CA Email Address** field blank as it is not required.
-
-  	![][6]
-
-4. Type a name for the Certificate Signing Request (CSR) file in **Save As**, select the location in **Where**, then click **Save**.
-
-  	![][7]
-  
-  	This saves the CSR file in the selected location; the default location is in the Desktop. Remember the location chosen for this file.
-
-Next, you will register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.
-
-## Register your app for push notifications
-
-To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and also register for push notifications.  
-
-1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to register a new app.
-
-   	![][102] 
-
-2. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**. This example uses the ID **MobileServices.Quickstart** but you may not reuse this same ID, as app IDs must be unique across all users. As such, it is recommended that you append your full name or initials after the app name. 
-
-   	![][103]
-   
-   	This generates your app ID and requests you to **Submit** the information. Click **Submit**
-   
-   	![][104] 
-   
-   	Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
-   
-   	![][105]
-
-    > [WACOM.NOTE] If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project.
-
-3. Locate the app ID that you just created, and click on its row. 
-
-   	![][106]
-   
-   	Clicking on the app ID will display details on the app and app ID. Click the **Settings** button.
-   
-   	![][107] 
-   
-4. Scroll to the bottom of the screen, and click the **Create Certificate...** button under the section **Development Push SSL Certificate**.
-
-   	![][108] 
-
-   	This displays the "Add iOS Certificate" assistant.
-   
-   	![][108] 
-
-
-    > [WACOM.NOTE] This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.
-
-5. Click **Choose File**, browse to the location where you saved the CSR file that you created in the first task, then click **Generate**. 
-
-  	![][110]
-  
-6. After the certificate is created by the portal, click the **Download** button, and click **Done**.
- 
-  	![][111]  
-
-   	This downloads the signing certificate and saves it to your computer in your Downloads folder. 
-
-  	![][9] 
-
-    > [WACOM.NOTE] By default, the downloaded file a development certificate is named **aps_development.cer**.
-
-7. Double-click the downloaded push certificate **aps_development.cer**.
-
-   	This installs the new certificate in the Keychain, as shown below:
-
-   	![][10]
-
-    > [WACOM.NOTE] The name in your certificate might be different, but it will be prefixed with **Apple Development iOS Push Notification Services:**.
-
-Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.
-
-## Create a provisioning profile for the app
- 
-1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This launches the **Add iOS Provisiong Profile** Wizard
-
-   	![][112]
-
-2. Select **iOS App Development** under **Development** as the provisiong profile type, and click **Continue**
-
-   	![][113]
-
-3. Next, select the app ID for the Mobile Services Quickstart app from the **App ID** drop-down list, and click **Continue**
-
-   	![][114]
-
-4. In the **Select certificates** screen, select the certificate created earlier, and click **Continue**
-  
-   	![][115]
-
-5. Next, select the **Devices** to use for testing, and click **Continue**
-
-   	![][116]
-
-6. Finally, pick a name for the profile in **Profile Name**, click **Generate**, and click **Done**
-
-   	![][117]
-	
-  	This creates a new provisioning profile.
-
-7. In Xcode, open the Organizer select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and then click the **Refresh** button at the bottom of the middle pane. 
-
-   	![][101]
-
-8. Under **Targets**, click **Quickstart**, expand **Code Signing Identity**, then under **Debug** select the new profile.
-
-   	![][17]
-
-This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to Mobile Services.
+[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 ## Configure Mobile Services to send push requests
 
-After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.
-
-1. In Keychain Access, right-click the new certificate, click **Export**, name your file QuickstartPusher, select the **.p12** format, then click **Save**.
-
-   	![][28]
-
-  Make a note of the file name and location of the exported certificate.
-
-	> [WACOM.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
-
-2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
-
-   	![][18]
-
-3. Click the **Push** tab and click **Upload**.
-
-   	![][19]
-
-	This displays the Upload Certificate dialog.
-
-4. Click **File**, select the exported certificate QuickstartPusher.p12 file, enter the **Password**, make sure that the correct **Mode** is selected, click the check icon, then click **Save**.
-
-   	![][20] 
-
-    > [WACOM.NOTE] This tutorial uses developement certificates.
-
-Both your mobile service is now configured to work with APNS.
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## Add push notifications to your app
 

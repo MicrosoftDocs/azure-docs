@@ -1,5 +1,7 @@
 <properties linkid="automation-create-runbook-from-samples" urlDisplayName="Get Started with Azure Automation" pageTitle="Get Started with Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="" solutions="" manager="" editor="" />
 
+<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
 
 # Get started with Azure Automation
 
@@ -7,7 +9,7 @@ Microsoft Azure Automation provides a way for developers to automate the manual,
 
 This tutorial walks you through the steps to import a sample "Hello World" runbook into Azure Automation, execute the runbook, and then view its output.
 
->[WACOM.NOTE] For more help getting started with Automation, learn how to automate Azure operations using the PowerShell cmdlets <a href="http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx">here</a>.
+>[WACOM.NOTE] To learn how to automate Azure operations using the [Azure PowerShell cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) see <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Azure Automation: Authenticating to Azure using Azure Active Directory</a>.
 
 ## Samples and utility runbooks
 
@@ -15,7 +17,7 @@ The Azure Automation team has created a number of runbook samples to help you ge
 
 The Automation team has also created utility runbooks that you can use as building blocks for larger Automation tasks.  
 
->[WACOM.NOTE] It's a best practice to write small, modular, reusable runbooks. We also strongly recommend that you create your own utility runbooks for commonly used scenarios after you’re familiar with Automation.  
+>[WACOM.NOTE] It's a best practice to write small, modular, reusable runbooks. We also strongly recommend that you create your own utility runbooks for commonly used scenarios after you're familiar with Automation.  
 
 You can view and download the Automation team’s sample and utility runbooks on [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029). 
 
@@ -112,9 +114,13 @@ To start using Automation, you’ll need an active Azure subscription with the M
  
 	![Runbook Summary](./media/automation/automation_13_RunbookSummary_callouts.png)
 
-## See Also
+
+# Managing Azure Services from a Runbook 
+The example above shows a simple runbook that does not manage Azure services. The [Azure cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) require authentication to Azure. You can follow the instructions at [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) in order to configure your Azure subscription for management through Azure Automation.
+
+# See Also
 
 - [Automation Overview](http://go.microsoft.com/fwlink/p/?LinkId=392860)
 - [Runbook Authoring Guide](http://go.microsoft.com/fwlink/p/?LinkID=301740)
 - [Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561)
-- [Automate Azure operations using Azure Automation and the PowerShell cmdlets](http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx)
+- [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)

@@ -1,5 +1,7 @@
 <properties linkid="dev-net-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage  from .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="How to use Microsoft Azure Table storage" authors="tamram" />
 
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+
 
 
 # How to use Table Storage from .NET
@@ -11,7 +13,7 @@ and use the Azure Storage Client Library for .NET. The scenarios covered include
 deleting a table**, as well as **working with table entities**. For more
 information on tables, see the [Next steps][] section.
 
-> [WACOM.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 3.x, which is available via NuGet or as part of the Azure SDK for .NET 2.3. See [How to: Programmatically access Table storage][] below for details on obtaining the Storage Client Library.
+> [WACOM.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/en-us/downloads/). See [How to: Programmatically access Table storage][] below for more details on obtaining the Storage Client Library.
 
 ## Table of Contents
 
@@ -35,77 +37,15 @@ information on tables, see the [Next steps][] section.
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-<h2><a name="create-account"></a><span class="short-header">Create an account</span>Create an Azure Storage account</h2>
+## <h2><a name="create-account"></a><span class="short-header">Create an account</span>Create an Azure Storage account</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-<h2><a name="setup-connection-string"></a><span class="short-header">Setup a connection string</span>Setup a storage connection string</h2>
+## <h2><a name="setup-connection-string"></a><span class="short-header">Setup a connection string</span>Setup a storage connection string</h2>
 
-The Azure Storage Client Library for .NET supports using a storage connection
-string to configure endpoints and credentials for accessing storage
-services. You can put your storage connection string in a configuration
-file, rather than hard-coding it in code:
+[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
-- When using Azure Cloud Services, it is recommended you store your connection string using the Azure service configuration system (`*.csdef` and `*.cscfg` files).
-- When using Azure Web Sites, Azure Virtual Machines, or building .NET applications that are intended to run outside of Azure, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` or `app.config` file).
-
-In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method, as shown later in this guide.
-
-### Configuring your connection string when using Cloud Services
-
-The service configuration mechanism is unique to Azure Cloud Services
-projects and enables you to dynamically change configuration settings
-from the Azure Management Portal without redeploying your
-application.
-
-To configure your connection string in the Azure service
-configuration:
-
-1.  Within the Solution Explorer of Visual Studio, in the **Roles**
-    folder of your Azure Deployment Project, right-click your
-    web role or worker role and click **Properties**.  
-    ![Blob5][Blob5]
-
-2.  Click the **Settings** tab and press the **Add Setting** button.  
-    ![Blob6][Blob6]
-
-    A new **Setting1** entry will then show up in the settings grid.
-
-3.  In the **Type** drop-down of the new **Setting1** entry, choose
-    **Connection String**.  
-    ![Blob7][Blob7]
-
-4.  Click the **...** button at the right end of the **Setting1** entry.
-    The **Storage Account Connection String** dialog will open.
-
-5.  Choose whether you want to target the storage emulator (the Windows
-    Azure storage simulated on your local machine) or an actual storage
-    account in the cloud. The code in this guide works with either
-    option. Enter the **Primary Access Key** value copied from the
-    earlier step in this tutorial if you wish to store blob data in the
-    storage account we created earlier on Azure.   
-    ![Blob8][Blob8]
-
-6.  Change the entry **Name** from **Setting1** to a "friendlier" name
-    like **StorageConnectionString**. You will reference this
-    connection string later in the code in this guide.  
-    ![Blob9][Blob9]
-	
-### Configuring your connection string using .NET configuration
-
-If you are writing an application that is not an Azure cloud service, (see previous section), it is recommended you use the .NET configuration system (e.g. `web.config` or `app.config`).  This includes Azure Web Sites or Azure Virtual Machines, as well as applications designed to run outside of Azure.  You store the connection string using the `<appSettings>` element as follows:
-
-	<configuration>
-  		<appSettings>
-    		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
-  		</appSettings>
-	</configuration>
-
-Read [Configuring Connection Strings][] for more information on storage connection strings.
-	
-You are now ready to perform the how-to tasks in this guide.
-
-<h2> <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access Table storage</h2>
+## <h2> <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access Table storage</h2>
 
 <h3>Obtaining the assembly</h3>
 You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
@@ -546,14 +486,15 @@ Now that you've learned the basics of Table storage, follow these links
 to learn how to do more complex storage tasks.
 
 <ul>
-<li>View the blob service reference documentation for complete details about available APIs:
+<li>View the Table service reference documentation for complete details about available APIs:
   <ul>
-    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx">Storage Client Library for .NET reference</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
     </li>
     <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179355">REST API reference</a></li>
   </ul>
 </li>
 <li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
+<li>Learn how to work with Azure Storage in backend processes for Azure Websites at <a href="/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/">Get Started with the Azure WebJobs SDK</a>.</li>
 <li>View more feature guides to learn about additional options for storing data in Azure.
   <ul>
     <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>
@@ -592,7 +533,7 @@ to learn how to do more complex storage tasks.
   [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
   
   [blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [.NET client library reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx
+  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx

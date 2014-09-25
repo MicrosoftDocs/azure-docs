@@ -1,7 +1,9 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-android" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="ricksal" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 # Get started with Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android" class="current">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android" class="current">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
 This topic shows you how to use Azure Notification Hubs to send push notifications to an Android application. 
 In this tutorial, you create a blank Android app that receives push notifications using Google Cloud Messaging (GCM). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
@@ -216,25 +218,29 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 ##<a name="send"></a>How to send a notification to your app
 
-You can send notifications using Notification Hubs from any back-end that uses our <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we show two ways to send notifications: with a .NET console app, and with a Mobile Service using a node script.
+You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/) | [JavaScript backend](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)).  For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP** ([Java](/en-us/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/en-us/documentation/articles/notification-hubs-php-backend-how-to/)).
 
-###To send notifications using a .NET console app:
-
-1. Create a new Visual C# console application: 
+1. In Visual Studio, from the **File** menu select **New** and then **Project...**, then under **Visual C#** click **Windows** and **Console Application** and click **OK**.  
 
    	![][20]
 
-2. Add a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then **Library Package Manager**, then **Package Manager Console**. Then, in the console window type:
+	This creates a new console application project.
+
+2. From the **Tools** menu, click **Library Package Manager** and then **Package Manager Console**. 
+
+	This displays the Package Manager Console.
+
+3. In the console window, execute the following command:
 
         Install-Package WindowsAzure.ServiceBus
+    
+	This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. 
 
-    and press Enter.
-
-3. Open the file Program.cs and add the following using statement:
+4. Open the file Program.cs and add the following `using` statement:
 
         using Microsoft.ServiceBus.Notifications;
 
-4. In your `Program` class add the following method:
+5. In the **Program** class, add the following method:
 
         private static async void SendNotificationAsync()
         {
@@ -242,49 +248,18 @@ You can send notifications using Notification Hubs from any back-end that uses o
             await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"msg\":\"Hello from Azure!\"}}");
         }
 
-5. Then add the following lines in your Main method:
+   	Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub." 
+
+	>[WACOM.NOTE]Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
+
+5. Then add the following lines in the **Main** method:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-
-###To send a notification using a Mobile Service
-
-1. Log on to the [Azure Management Portal], and select your Mobile Service. If you do not already have a mobile service, then follow [Get started with Mobile Services].
-
-2. Select the tab **Scheduler** on the top.
-
-   	![][22]
-
-3. Create a new scheduled job, insert a name, and select **On demand**.
-
-   	![][23]
-
-4. When the job is created, click the job name. Then click the tab **Script** in the top bar.
-
-5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. Click **Save**.
-
-        var azure = require('azure');
-		var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string>');
-		notificationHubService.gcm.send(null,'{"data":{"msg" : "Hello from Mobile Services!"}}',
-    	  function (error)
-    	  {
-        	if (!error) {
-               console.warn("Notification successful");
-            }
-            else
-            {
-              console.warn("Notification failed" + error);
-            }
-          }
-	    );
-
-
 ##<a name="run-app"></a>Testing your app
 
-To test this app with an actual phone, just connect it to your computer with a USB cable.
-
-To test this app with the emulator:
+Before testing the app on an emulator, you need to complete these emulator configuration steps (skip if testing on a physical device):
 
 1. Make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
 
@@ -299,19 +274,17 @@ To test this app with the emulator:
 4. 	In order to receive push notifications, you must set up a Google account on your Android Virtual Device (in the emulator, navigate to <strong>Settings</strong> and click <strong>Add Account</strong>). Also, make sure that the emulator is connected to the Internet.
 
 
+Use the following steps to run the app on a device or on the emulator:
 
-Whichever device you chose, next do the following:
-
-1. On the Eclipse top toolbar, click **Run**, and then select your app. This loads your app, either onto the attached phone, or else it starts the emulator , and loads and runs the app.
-
-2. The app retrieves the *registrationId* from GCM and registers with the Notification Hub.
-
-3. Now use one of the methods in the preceding section to send a notification to your app:  
-
-	- If you are using a .Net console application, press the F5 key in Visual Studio to run the application, which will send a notification. 
-	- Otherwise, if you are using a Mobile Services script, click **Run Once** on the bottom bar of your mobile service screen, and the script will send a notification.
+1. On the Eclipse top toolbar, click **Run**, and then select your app. 
  
-5. An icon will appear in the notification area (upper left corner). Pull down the notification drawer to see the notification.  
+	This starts the emulator (if using an emulator) and loads and runs the app. The app retrieves the *registrationId* from GCM and registers with the notification hub.
+
+3. Press the F5 key in Visual Studio run the console app. 
+
+	A notification is sent to your app.  
+ 
+5. When an icon appears in the notification area (upper left corner), pull down the notification drawer to see the notification.  
 
    	![][21]
 

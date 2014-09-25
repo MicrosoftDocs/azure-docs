@@ -1,5 +1,7 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" pageTitle="Get Started with Azure Cloud Services and ASP.NET" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure storage queues and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Get Started with Azure Cloud Services and ASP.NET" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra,riande" />
+
 # Get Started with Azure Cloud Services and ASP.NET
 
 This tutorial shows how to create a multi-tier .NET application with an ASP.NET MVC front-end, and deploy it to an [Azure cloud service](/en-us/documentation/articles/fundamentals-application-models/#CloudServices). The application uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), the [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and the [Azure Queue service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). You can [download the Visual Studio project](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) from the MSDN Code Gallery. 
@@ -12,9 +14,9 @@ The application is an advertising bulletin board. Users create an ad by entering
 
 The application uses the [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process. 
 
-### Alternative architecture: Web Sites and WebJobs
+### Alternative architecture: Websites and WebJobs
 
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure web site](/en-us/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For information about how to choose the services that best fit your scenario, see [Azure Web Sites, Cloud Services, and Virtual Machines Comparison](http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/en-us/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
 
 ### What you'll learn
 
@@ -121,7 +123,7 @@ An Azure cloud service is the environment the application will run in.
 
 1. In your browser, open the [Azure Management Portal](http://manage.windowsazure.com).
 
-2. In Visual Studio, click **New** - **Compute** - **Cloud Service** - **Quick Create**.
+2. Click **New** - **Compute** - **Cloud Service** - **Quick Create**.
 
 4. In the URL input box, enter a URL prefix. 
 
@@ -293,7 +295,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 ###  Deploy the project to Azure
 
-3.	In **Solution Explorer**, right-click the **AzureEmailService** cloud project and select **Publish**.
+3.	In **Solution Explorer**, right-click the **ContosoAdsCloudService** cloud project and select **Publish**.
 
 	![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)	
 
@@ -328,7 +330,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 ## Create the application from scratch 
 
 If you haven't already downloaded 
-[the completed application](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), do that now. Instead of creating new files and copying and pasting code into them, you'll copy files from the downloaded project into the new project.
+[the completed application](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), do that now. You'll copy files from the downloaded project into the new project.
 
 Creating the Contoso Ads application involves the following steps:
 
@@ -338,7 +340,7 @@ Creating the Contoso Ads application involves the following steps:
 * Configure connection strings
 * Add code files
 
-After the solution is created, you'll review the code and settings that are unique to cloud service projects and Azure blobs and queues.
+After the solution is created, you'll review the code that is unique to cloud service projects and Azure blobs and queues.
  
 ### Create a cloud service Visual Studio solution
 
@@ -404,7 +406,7 @@ After the solution is created, you'll review the code and settings that are uniq
 
 In this section you configure Azure Storage and SQL connection strings for testing locally. The deployment instructions earlier in the tutorial explain how to set up the connection strings for when the app runs in the cloud.
 
-3. In the ContosoAdsWeb project, open the application Web.config file, and insert the following `connectionStrings` element after the `configSections` element and before the `system.diagnostics element`:
+3. In the ContosoAdsWeb project, open the application Web.config file, and insert the following `connectionStrings` element after the `configSections` element:
 
 		<connectionStrings>
 		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
@@ -442,14 +444,14 @@ In this section you copy code files from the downloaded solution into the new so
 
 To add files to a project or a folder, right-click the project or folder and click **Add** - **Existing Item**. Select the files you want and click **Add**. If asked whether you want to replace existing files, click **Yes**.
 
-3. In the ContosoAdsCommon project, delete the *Class1.cs* file and add in its place the *Add.cs* and *ContosoAdscontext.cs* files from the downloaded project.
+3. In the ContosoAdsCommon project, delete the *Class1.cs* file and add in its place the *Ad.cs* and *ContosoAdscontext.cs* files from the downloaded project.
 
 3. In the ContosoAdsWeb project, add the following files from the downloaded project.
 	- *Global.asax.cs*  
-	- <em>_Layout.cshtml</em> file in the *Views\Shared* folder
-	- *Index.cshtml* in the *Views\Home* folder
-	- *AdController.cs* in the *Controllers* folder
-	- Five *.cshtml* files in the *Views\Ad* folder (create the folder first)
+	- In the *Views\Shared* folder: <em>_Layout.cshtml</em>.
+	- In the *Views\Home* folder: *Index.cshtml*.
+	- In the *Controllers* folder: *AdController.cs*.
+	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.
 
 3. In the ContosoAdsWorker project, add *WorkerRole.cs* from the downloaded project.
 
@@ -531,7 +533,7 @@ The code gets access to the storage account by using the storage connection stri
 		var storageAccount = CloudStorageAccount.Parse
 		    (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
 
-Then it gets a reference to the *images* blob container, creates the container if it doesn't already exist, and sets access permissions on the new container. By default new containers only allow clients with storage account credentials to access blobs. The web site needs the blobs to be public so that it can display images using URLs that point to the image blobs.
+Then it gets a reference to the *images* blob container, creates the container if it doesn't already exist, and sets access permissions on the new container. By default new containers only allow clients with storage account credentials to access blobs. The website needs the blobs to be public so that it can display images using URLs that point to the image blobs.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		var imagesBlobContainer = blobClient.GetContainerReference("images");
@@ -623,20 +625,26 @@ The code for the HttpPost `Edit` method is similar except that if the user selec
 		    ad.ImageURL = imageBlob.Uri.ToString();
 		}
 
-Here is the DeleteAdBlobsAsync method:
+Here is the code that deletes blobs when you delete an ad:
 
 		private async Task DeleteAdBlobsAsync(Ad ad)
 		{
 		    if (!string.IsNullOrWhiteSpace(ad.ImageURL))
 		    {
-		        CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(ad.ImageURL);
-		        await blobToDelete.DeleteAsync();
+		        Uri blobUri = new Uri(ad.ImageURL);
+		        await DeleteAdBlobAsync(blobUri);
 		    }
 		    if (!string.IsNullOrWhiteSpace(ad.ThumbnailURL))
 		    {
-		        CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(ad.ThumbnailURL);
-		        await blobToDelete.DeleteAsync();
+		        Uri blobUri = new Uri(ad.ThumbnailURL);
+		        await DeleteAdBlobAsync(blobUri);
 		    }
+		}
+		private static async Task DeleteAdBlobAsync(Uri blobUri)
+		{
+		    string blobName = blobUri.Segments[blobUri.Segments.Length - 1];
+		    CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(blobName);
+		    await blobToDelete.DeleteAsync();
 		}
  
 ### ContosoAdsWeb - Views\Ad\Index.cshtml and Details.cshtml

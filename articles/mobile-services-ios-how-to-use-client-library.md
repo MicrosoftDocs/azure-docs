@@ -1,5 +1,7 @@
 <properties linkid="mobile-services-how-to-ios-client" urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+
 
 
 
@@ -166,18 +168,26 @@ Mobile Services limits the amount of records that are returned in a single respo
 +	`NSInteger fetchLimit`
 +	`NSInteger fetchOffset`
 
+
 In the following example, a simple function requests 20 records from the server and then appends them to the local collection of previously loaded records:
 
+	- (bool) loadResults() {
 		MSQuery *query = [table query];
 
 		query.includeTotalCount = YES;
 		query.fetchLimit = 20;
-		query.fetchOffset = 0;
+		query.fetchOffset = self.loadedItems.count;
+
 		[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
 			if(!error) {
-				//code to parse results here
+				// Add the items to our local copy
+				[self.loadedItems addObjectsFromArray:items];		
+
+				// Set a flag to keep track if there are any additional records we need to load
+				self.moreResults = (self.loadedItems.count < totalCount);
 			}
 		}];
+	}
 
 #### <a name="selecting"></a>Limiting the returned fields
  

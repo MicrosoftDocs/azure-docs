@@ -1,4 +1,6 @@
-<properties linkid="develop-python-install-python" urlDisplayName="Install Python" pageTitle="Install Python and the SDK - Azure" metaKeywords="Azure Python SDK" description="Learn how to install Python and the SDK to use with Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-python-install-python" urlDisplayName="Install Python" pageTitle="Install Python and the SDK - Azure" metaKeywords="Azure Python SDK" description="Learn how to install Python and the SDK to use with Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="" editor="" />
+
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 
 
@@ -21,7 +23,7 @@ The Azure SDK for Python includes components that allow you to develop, deploy, 
 
 The core scenarios for this release are:
 
-* **Windows**: Cloud Service, Web Site -- for example a Django site using Web Roles
+* **Windows**: Cloud Service, Website -- for example a Django site using Web Roles
 * **Mac/Linux**: IaaS -- Run what you like in a VM; Consume Azure Services through Python
 
 ## Which Python and which version to use

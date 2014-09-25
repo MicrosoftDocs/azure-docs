@@ -1,5 +1,7 @@
 <properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
 
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
 # How to use the Table service from PHP
 
 This guide will show you how to perform common scenarios using the Azure Table service. The samples are written in PHP and use the [Azure SDK for PHP][download]. The scenarios covered include **creating and deleting a table, and inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next Steps](#NextSteps) section.
@@ -33,7 +35,7 @@ This guide will show you how to perform common scenarios using the Azure Table s
 
 The only requirement for creating a PHP application that accesses the Azure Table service is the referencing of classes in the Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use Table service features which can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or web site.
+In this guide, you will use Table service features which can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ##<a id="GetClientLibrary"></a>Get the Azure Client Libraries
 

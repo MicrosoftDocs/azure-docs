@@ -1,10 +1,13 @@
-
 <properties linkid="develop-mobile-tutorials-sso-with-adal" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Authenticate your app with Active Directory Authentication Library Single Sign-On
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="Windows Store C#" class="current">Windows Store C#</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS" >iOS</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
 </div>
 
 In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library. 
@@ -26,55 +29,10 @@ This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1.
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
-* Windows Azure Mobile Services SDK NuGet package
+* Microsoft Azure Mobile Services SDK NuGet package
 * Active Directory Authentication Library NuGet package 
 
-
-
-## <a name="register-mobile-service-aad"></a>Register your mobile service with the Azure Active Directory
-
-
-In this section you will register your mobile service with the Azure Active Directory and configure permissions to allow single sign-on impersonation.
-
-1. Register your application with your Azure Active Directory by following the [How to Register with the Azure Active Directory] topic.
-
-2. In the [Azure Management Portal], go back to the Azure Active Directory extension and click on your active directory
-
-3. Click the **Applications** tab and then click your application.
-
-4. Click **Manage Manifest**. Then click **Download Manifest** and save the application manifest to a local directory.
-
-    ![][0]
-
-5. Open the application manifest file with Visual Studio. At the top of the file find the app permissions line that looks as follows:
-
-        "appPermissions": [],
-
-    Replace that line with the following app permissions and save the file.
-
-        "appPermissions": [
-	        {
-        		"claimValue": "user_impersonation",
-		        "description": "Allow the application access to the mobile service",
-        		"directAccessGrantTypes": [],
-	        	"displayName": "Have full access to the mobile service",
-	        	"impersonationAccessGrantTypes": [
-	        		{
-	        			"impersonated": "User",
-	        			"impersonator": "Application"
-	        		}
-	        	],
-	        	"isDisabled": false,
-	        	"origin": "Application",
-	        	"permissionId": "b69ee3c9-c40d-4f2a-ac80-961cd1534e40",
-	        	"resourceScopeType": "Personal",
-	        	"userConsentDescription": "Allow the application full access to the mobile service on your behalf",
-	        	"userConsentDisplayName": "Have full access to the mobile service"
-        	}
-        ],
-
-6. In the Azure Management portal, click **Manage Manifest** for the application again and click **Upload Manifest**.  Browse to the location of the application manifest that you just updated and upload the manifest.
-
+[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
 
 ## <a name="register-app-aad"></a>Register your app with the Azure Active Directory
 
@@ -152,46 +110,13 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
 
 ## <a name="require-authentication"></a>Configure the mobile service to require authentication
 
-Configure you .NET backend mobile service to require authentication.
-
-
-1. Open your .NET backend mobile service project in Visual Studio.
-
-2. In the Solution Explorer window for Visual Studio, expand the **Controllers** folder under your .NET backend mobile service project. Open the TodoItemController.cs file and add the following using statement
-
-        using Microsoft.WindowsAzure.Mobile.Service.Security;
-
-3. In the TodoItemController.cs file, add the `[AuthorizeLevel(AuthorizationLevel.User)]` attribute to each of the following methods and save the TodoItemController.cs file.
-  
-        [AuthorizeLevel(AuthorizationLevel.User)]
-        public IQueryable<TodoItem> GetAllTodoItems()
-        ...
-        [AuthorizeLevel(AuthorizationLevel.User)]
-        public SingleResult<TodoItem> GetTodoItem(string id)
-        ...
-        [AuthorizeLevel(AuthorizationLevel.User)]
-        public Task<TodoItem> PatchTodoItem(string id, Delta<TodoItem> patch)
-        ...
-        [AuthorizeLevel(AuthorizationLevel.User)]
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        ...
-        [AuthorizeLevel(AuthorizationLevel.User)]
-        public Task DeleteTodoItem(string id)
-        ...
-
-4. Right click the .NET backend mobile serivce project and click **Rebuild**.
-5. Right click the .NET backend mobile serivce project and click **Publish** and publish your change to your Azure account.
-
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-code"></a>Add authentication code to the client app
 
-1. open your Windows store client app project in Visual Studio.
+1. Open your Windows store client app project in Visual Studio.
 
-2. In the Solution Explorer window of Visual Studio, right click the client app project and click **Manage NuGet Packages**.
-
-3. In the NuGet Package manager, click **Online** and **Include Prerelease**. Enter **Microsoft.IdentityModel.Clients** as a search term. Then click **Install** to install the Active Directory Authentication Library Nuget package. 
-
-    ![][13]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 4. In the Solution Explorer window of Visual Studio, open the MainPage.xaml.cs file and add the following using statements.
 
@@ -213,7 +138,7 @@ Configure you .NET backend mobile service to require authentication.
                 string message;
                 try
                 {
-                  AuthenticationContext ac = new AuthenticationContext(authority, false);
+                  AuthenticationContext ac = new AuthenticationContext(authority);
                   AuthenticationResult ar = await ac.AcquireTokenAsync(resourceURI, clientID);
                   JObject payload = new JObject();
                   payload["access_token"] = ar.AccessToken;
@@ -284,7 +209,6 @@ Configure you .NET backend mobile service to require authentication.
 [10]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-sid-redirect-uri.png
 [11]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-client-id.png
 [12]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-add-permissions.png
-[13]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-adal-nuget-package.png
 [14]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-package-appxmanifest.png
 [15]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-app-run.png
 
@@ -292,5 +216,5 @@ Configure you .NET backend mobile service to require authentication.
 [How to Register with the Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
 [Windows Dev Center Dashboard]: http://go.microsoft.com/fwlink/p/?LinkID=266734

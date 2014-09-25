@@ -1,16 +1,18 @@
-<properties title="How to Scale Web Sites" pageTitle="How to Scale Web sites" description="required" metaKeywords="scaling Azure web sites" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
+<properties title="How to Scale Websites" pageTitle="How to Scale Websites" description="required" metaKeywords="scaling Azure websites" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
 
-# How to Scale Web Sites #
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
 
-For increased performance and throughput for your web sites on Microsoft Azure, you can use the Azure Management Portal to scale your Web Hosting Plan mode from Free to Shared, Basic, or Standard. 
+# How to Scale Websites #
 
-Scaling up on Azure Web Sites involves two related actions: changing your Web Hosting Plan mode to a higher level of service, and configuring certain settings after you have switched to the higher level of service. Both topics are covered in this article. Higher service tiers like Standard mode offer greater robustness and flexibility in determining how your resources on Azure are used.
+For increased performance and throughput for your websites on Microsoft Azure, you can use the Azure Management Portal to scale your Web Hosting Plan mode from Free to Shared, Basic, or Standard. 
 
-Changing modes and configuring them is easily done in the Scale tab of the management portal. You can scale up or down as required. These changes take only seconds to apply and affect all web sites in your Web Hosting Plan. They do not require your code to be changed or your applications to be redeployed.
+Scaling up on Azure Websites involves two related actions: changing your Web Hosting Plan mode to a higher level of service, and configuring certain settings after you have switched to the higher level of service. Both topics are covered in this article. Higher service tiers like Standard mode offer greater robustness and flexibility in determining how your resources on Azure are used.
 
-For information about Web Hosting Plans, see [What is a Web Hosting Plan?](http://azure.microsoft.com/en-us/documentation/articles/web-sites-web-hosting-plan-overview/) and [Azure Web Sites Web Hosting Plans In-Depth Overview](http://www.azure.microsoft.com/en-us/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). For information the pricing and features of individual Web Hosting Plans, see [Web Sites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).  
+Changing modes and configuring them is easily done in the Scale tab of the management portal. You can scale up or down as required. These changes take only seconds to apply and affect all websites in your Web Hosting Plan. They do not require your code to be changed or your applications to be redeployed.
 
-> [WACOM.NOTE] Before switching a web site from a **Free** Web Hosting Plan mode to **Basic** or **Standard** Web Hosting Plan mode, you must first remove the spending caps in place for your Web Site subscription. To view or change options for your Microsoft Azure Web Sites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
+For information about Web Hosting Plans, see [What is a Web Hosting Plan?](http://azure.microsoft.com/en-us/documentation/articles/web-sites-web-hosting-plan-overview/) and [Azure Websites Web Hosting Plans In-Depth Overview](http://www.azure.microsoft.com/en-us/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). For information the pricing and features of individual Web Hosting Plans, see [Websites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).  
+
+> [WACOM.NOTE] Before switching a website from a **Free** Web Hosting Plan mode to **Basic** or **Standard** Web Hosting Plan mode, you must first remove the spending caps in place for your Azure Websites subscription. To view or change options for your Microsoft Azure Websites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
 In this article:
 
@@ -27,9 +29,9 @@ In this article:
 
 1. In your browser, open the [Management Portal][portal].
 	
-2. In the **Web Sites** tab, select your web site.
+2. In the **Websites** tab, select your website.
 	
-	![Selecting a web site][SelectWebsite]
+	![Selecting a website][SelectWebsite]
 	
 3. Click the **Scale** tab.
 	
@@ -55,7 +57,7 @@ In this article:
  	
 	> [WACOM.NOTE] You can configure and save the **Web Hosting Plan**, **Instance Size**, and **Instance Count** settings separately if you wish.
 	
-8. A confirmation message reminds you that sites in the same Web Hosting Plan as the current web site will also change to the new mode. Choose **Yes** to complete the change. 
+8. A confirmation message reminds you that sites in the same Web Hosting Plan as the current website will also change to the new mode. Choose **Yes** to complete the change. 
 	
 	In the example, the plan mode has been changed to **Basic**:
 	
@@ -66,7 +68,7 @@ In this article:
 ## Scaling to Standard Plan Mode
 <!-- ================================= -->
 
-> [WACOM.NOTE] Before switching a Web Hosting Plan to Standard mode, you should remove spending caps in place for your Microsoft Azure Web Sites subscription. Otherwise, you risk your site becoming unavailable if you reach your caps before the billing period ends. To view or change options for your Microsoft Azure Web Sites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
+> [WACOM.NOTE] Before switching a Web Hosting Plan to Standard mode, you should remove spending caps in place for your Microsoft Azure Websites subscription. Otherwise, you risk your site becoming unavailable if you reach your caps before the billing period ends. To view or change options for your Microsoft Azure Websites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
 1. To scale to Standard, follow the same initial steps as when scaling to Shared or Basic, and then choose **Standard** for **Web Hosting Plan Mode**. 
 	
@@ -108,7 +110,7 @@ In this article:
 	
 	You can now use the **Scale by Metric** and the **Instance Count** features to fine tune the scaling of resources for each schedule that you choose. 
 	
-11.  To dynamically adjust the number of instances that your web site uses if its load changes, enable the **Scale by Metric** option by choosing **CPU**.
+11.  To dynamically adjust the number of instances that your website uses if its load changes, enable the **Scale by Metric** option by choosing **CPU**.
 	
 	![Scale By Metric][ScaleByMetric]
 	
@@ -118,17 +120,19 @@ In this article:
 	
 	![Instance count][InstanceCount]
 	
-13. **Scale by Metric** also enables the **Target CPU** option so that you can specify a target range for CPU usage. This range represents average CPU usage for your web site. Windows Azure will add or remove Standard instances to keep your web site in this range.
+13. **Scale by Metric** also enables the **Target CPU** option so that you can specify a target range for CPU usage. This range represents average CPU usage for your website. Windows Azure will add or remove Standard instances to keep your website in this range.
 	
 	![Target CPU][TargetCPU]
 	
-	**Note**: When **Scale by Metric** is enabled, Microsoft Azure checks the CPU of your web site once every five minutes and adds instances as needed at that point in time. If CPU usage is low, Microsoft Azure will remove instances once every two hours to ensure that your website remains performant. Generally, putting the minimum instance count at 1 is appropriate. However, if you have sudden usage spikes on your web site, be sure that you have a sufficient minimum number of instances to handle the load. For example, if you have a sudden spike of traffic during the 5 minute interval before Microsoft Azure checks your CPU usage, your site might not be responsive during that time. If you expect sudden, large amounts of traffic, set the minimum instance count higher to anticipate these bursts. 
+	**Note**: When **Scale by Metric** is enabled, Microsoft Azure checks the CPU of your website once every five minutes and adds instances as needed at that point in time. If CPU usage is low, Microsoft Azure will remove instances once every two hours to ensure that your website remains performant. Generally, putting the minimum instance count at 1 is appropriate. However, if you have sudden usage spikes on your website, be sure that you have a sufficient minimum number of instances to handle the load. For example, if you have a sudden spike of traffic during the 5 minute interval before Microsoft Azure checks your CPU usage, your site might not be responsive during that time. If you expect sudden, large amounts of traffic, set the minimum instance count higher to anticipate these bursts. 
 	
 14. After you have finished making changes to the items in the **Edit Scale Settings for Schedule** list, click the **Save** icon in the command bar at the bottom of the page to save all schedule settings at once (you do not have to save each schedule individually).
 
+> [WACOM.NOTE] In the [Azure Preview Portal](https://portal.azure.com/), you can scale not only on CPU percentage, but also on the additional metrics of Memory Percentage, Disk Queue Length, HTTP Queue Length, Data In, and Data Out. You can also create one or more Scale up and Scale down rules that give you even more custom control over scaling. For more information, see [How to Scale a Website](http://azure.microsoft.com/en-us/documentation/articles/insights-how-to-scale/) in the Azure Preview Portal documentation.
+
 <a name="ScalingSQLServer"></a>
 ##Scaling a SQL Server Database connected to your site	
-If you have one or more SQL Server databases linked to your web site (regardless of web hosting plan mode), they will be listed under a **Linked Resources** section at the bottom of the Scaling page.
+If you have one or more SQL Server databases linked to your website (regardless of web hosting plan mode), they will be listed under a **Linked Resources** section at the bottom of the Scaling page.
 
 1. To scale one of the databases, in the **Linked Resources** section, click the **Manage scale for this database** link next to the name of the database.
 	
@@ -161,9 +165,9 @@ Depending on the web hosting plan mode, the following developer-oriented feature
 
 **Web Endpoint Monitoring**
 
-- Web endpoint monitoring is available in the Basic and Standard web hosting plan modes. For more information about web endpoint monitoring, see [How to Monitor Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/).
+- Web endpoint monitoring is available in the Basic and Standard web hosting plan modes. For more information about web endpoint monitoring, see [How to Monitor Websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/).
 
-- For detailed information about all of the remaining features in the web hosting plans, including pricing and features of interest to all users (including developers), see [Web Sites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).
+- For detailed information about all of the remaining features in the web hosting plans, including pricing and features of interest to all users (including developers), see [Websites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).
 
 <a name="Next Steps"></a>	
 ## Next Steps
@@ -182,19 +186,19 @@ Depending on the web hosting plan mode, the following developer-oriented feature
 	
 	[Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
 	
-	[Web Sites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/)
+	[Websites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/)
 	
-	[Web Sites Pricing Details - SSL Connections](http://www.windowsazure.com/en-us/pricing/details/web-sites/#ssl-connections)
+	[Websites Pricing Details - SSL Connections](http://www.windowsazure.com/en-us/pricing/details/web-sites/#ssl-connections)
 
-- For information on Azure Web Sites best practices, including building a scalable and resilient architecture, see [Best Practices: Windows Azure Websites (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+- For information on Azure Websites best practices, including building a scalable and resilient architecture, see [Best Practices: Windows Azure Websites (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
-- Videos on scaling Azure Web Sites:
+- Videos on scaling Azure Websites:
 	
-	[When to Scale Azure Web Sites - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	[When to Scale Azure Websites - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 	
-	[Auto Scaling Azure Web Sites, CPU or Scheduled - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/auto-scaling-azure-web-sites/)
+	[Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/auto-scaling-azure-web-sites/)
 
-	[How Azure Web Sites Scale - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/how-azure-web-sites-scale/)
+	[How Azure Websites Scale - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/how-azure-web-sites-scale/)
 
 
 

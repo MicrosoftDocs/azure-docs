@@ -1,8 +1,6 @@
-<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous deliver PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
+<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
 
-
-
-
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Continuous Delivery for Cloud Services in Azure
 
@@ -56,7 +54,7 @@ documentation.
     for Visual Studio 2013). You
     should copy it to the same directory on the build server.
 5.  Install the [Azure Tools for Visual Studio][].
-    Look for WindowsAzureTools.VS120.exe to build Visual Studio 2012 projects, and WindowsAzureTools.VS120.exe to build Visual Studio 2013 projects.
+    Look for WindowsAzureTools.VS110.exe to build Visual Studio 2012 projects, and WindowsAzureTools.VS120.exe to build Visual Studio 2013 projects.
 
 <h2><a name="step2"> </a><span class="short-header">Build a Package Using MSBuild</span>Step 2: Build a Package using MSBuild Commands</h2>
 
@@ -773,6 +771,10 @@ $deploymentUrl = $deployment.Url
 Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl."
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
 </pre>
+
+## Next steps
+
+To enable remote debugging when using continuous delivery, see [these instructions](http://go.microsoft.com/fwlink/p/?LinkID=402354). 
 
   [Continuous Delivery to Azure by Using Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
   [Step 1: Configure the Build Server]: #step1
