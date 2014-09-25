@@ -8,6 +8,13 @@
 <div class="dev-center-tutorial-selector sublanding">
 <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data" title="Windows Store JavaScript">Windows Store JavaScript</a></div>
 
+
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET backend">.NET backend</a> | 
+	<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/" title="JavaScript backend" class="current">JavaScript backend</a>
+</div>
+
+
 This topic shows you how to use Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then sign-in to the Azure Management Portal to view changes to data made when running the app.
 
 >[WACOM.NOTE]This topic shows you how to use Visual Studio 2013 to add Azure Mobile Services to a Windows Store project. You can add the same JavaScript backend mobile service to a universal Windows app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data) of this tutorial. 

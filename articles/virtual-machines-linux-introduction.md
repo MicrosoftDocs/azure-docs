@@ -41,11 +41,11 @@ The current version of the Management Portal only accepts SSH public keys that a
 
 		chmod 600 myPrivateKey.key
 
-3. Convert the  myCert.pem to myCert.cer (DER encoded X509 certificate)
+3. Convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate)
 
 		openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-4. Upload the myCert.cer while creating the Linux virtual machine. The provisioning process will automatically install the public key in this certificate into the authorized_keys file for the specified user in the virtual machine.
+4. Upload the `myCert.cer` while creating the Linux virtual machine. The provisioning process will automatically install the public key in this certificate into the `~/.ssh/authorized_keys` file for the specified user in the virtual machine.
 
 5. Connect to the Linux virtual machine using ssh.
 
@@ -53,7 +53,11 @@ The current version of the Management Portal only accepts SSH public keys that a
 
 	You will be prompted to accept the fingerprint of the host's public key the first time you log in.
 
-6. You may optionally copy myPrivateKey.key to ~/.ssh/id_rsa so that your openssh client can automatically pick this up without the use of the -i option.
+6. You may optionally copy `myPrivateKey.key` to `~/.ssh/id_rsa` so that your openssh client can automatically pick this up without the use of the -i option.
+   Alternatively you can modify `~/.ssh/config` to include a section for your virtual machine:
+
+        Host servicename.cloudapp.net
+          IdentityFile %d/.ssh/myPrivateKey.key
 
 
 ### Generate a Key from an Existing OpenSSH Compatible Key

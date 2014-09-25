@@ -675,7 +675,7 @@ The list below replaces step 1 of the process to create your own VHD:
 
 2.	Your kernel should also include the latest version of the ATA PiiX driver that is used to to provision the iamges and has the fixes committed to the kernel with commit cd006086fa5d91414d8ff9ff2b78fbb593878e3c Date:   Fri May 4 22:15:11 2012 +0100   ata_piix: defer disks to the Hyper-V drivers by default
 
-3.	Your compressed intird should be less than 40 MB (* we are continuously workign to increase this number so it might be outdated by now)
+3.	Your compressed intird should be less than 40 MB (* we are continuously working to increase this number so it might be outdated by now)
 
 4.	Modify the kernel boot line in Grub or Grub2 to include the following parameters. This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:
 

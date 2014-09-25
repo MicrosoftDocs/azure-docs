@@ -6,12 +6,12 @@
 # Learning map for HDInsight
 HDInsight provides ability to work with "big data" on Azure by enabling you to provision Hadoop and HBase clusters on the cloud. This page provides links to all the resources that you need to start learning about HDInsight. Use the flow suggested in the illustration for the most effective learning path.
 
-<!--object type="image/svg+xml" data="https://mysstorage.blob.core.windows.net/picture/HDI.Content.Flow.svg" width="100%" height="100%">
-</object-->
+<object type="image/svg+xml" data="https://mysstorage.blob.core.windows.net/picture/HDI.Content.Flow.svg" width="100%" height="100%">
+</object>
 
 <!--center><iframe width="780" height="1407" src="https://mysstorage.blob.core.windows.net/picture/HDI.Content.Flow.svg" frameborder="0"></iframe></center-->
 
-<center><img src = "https://mysstorage.blob.core.windows.net/picture/HDI.ContentFlow.png" title = "" usemap="#imagemap">
+<!--center><img src = "https://mysstorage.blob.core.windows.net/picture/HDI.ContentFlow.png" title = "" usemap="#imagemap">
 	<map name="imagemap">
 	  <area shape="rect" alt="What is Hadoop on HDInsight" title="What is Hadoop on HDInsight" coords="591,70,717,99" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-introduction/" target="_blank" />
 	  <area shape="rect" alt="What is HBase on HDInsight" title="What is HBase on HDInsight" coords="591,107,718,136" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-overview/" target="_blank" />
@@ -56,7 +56,7 @@ HDInsight provides ability to work with "big data" on Azure by enabling you to p
 	  <area shape="rect" alt="What's new in HDInsight?" title="What's new in HDInsight?" coords="648,713,774,754" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/" target="_blank" />
 	  <area shape="rect" alt="HDInsight release notes" title="HDInsight release notes" coords="648,764,773,804" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/" target="_blank" />
 	</map>
-</img></center>
+</img></center-->
 
 
 [hadoop-hdinsight-intro]: ../hdinsight-introduction/

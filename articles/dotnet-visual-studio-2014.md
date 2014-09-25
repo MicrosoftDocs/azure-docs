@@ -1,6 +1,6 @@
-<properties linkid="dotnet-visual-studio-2014" urlDisplayName="Visual Studio 14 CTP2" pageTitle="Installing the Azure SDK 2.4 for Visual Studio 14 CTP2" metaKeywords="Visual Studio, Azure SDK" description="Install Azure SDK 2.4 and Visual Studio 14 CTP2" metaCanonical="" services="" documentationCenter="" title="Installing Azure SDK 2.4 for Visual Studio 14 CTP2" authors="ghogen" solutions="" manager="" editor="" />
+<properties linkid="dotnet-visual-studio-2014" urlDisplayName="Visual Studio 14 CTP" pageTitle="Installing the Azure SDK 2.4 for Visual Studio 14 CTP2" metaKeywords="Visual Studio, Azure SDK" description="Install Azure SDK 2.4 and Visual Studio 14 CTP2" metaCanonical="" services="" documentationCenter="" title="Installing Azure SDK 2.4 for Visual Studio 14 CTP" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 ## Installing the Azure SDK 2.4 for Visual Studio "14" CTP
 
@@ -15,10 +15,10 @@ To install the Azure SDK 2.4 for .NET, follow these steps:
 2. Install each component of the Azure SDK using the links in the following list, in this order. Choose the x86 or x64 version of each of the following components.
 
        <ul>
-        <li>Azure authoring tools: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400892">WindowsAzureAuthoringTools-x86.msi</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400893">WindowsAzureAuthoringTools-x64.msi</a>.</li>
-       <li>Azure compute emulator: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400894">WindowsAzureEmulator-x86.exe</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400895">WindowsAzureEmulator-x64.exe</a>.</li>
-       <li>The Azure client libraries: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400896">WindowsAzureLibsForNet-x86.msi</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400897">WindowsAzureLibsForNet-x64.msi</a>.</li>
-       <li>The storage emulator: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400904">WindowsAzureStorageEmulator.msi</a>.                            If you receive a warning regarding local SQL databases, install SQL Server LocalDB 11.0 from <a href="http://go.microsoft.com/fwlink/p/?LinkId=400778">this location</a> for x86 or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400779">this location</a> for x64.</li><li> Azure Tools for Visual Studio: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400903">WindowsAzureTools.vs140.exe</a>.</li></ul>
+        <li>Azure authoring tools: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400892">MicrosoftAzureAuthoringTools-x86.msi</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400893">MicrosoftAzureAuthoringTools-x64.msi</a>.</li>
+       <li>Azure compute emulator: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400894">MicrosoftAzureEmulator-x86.exe</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400895">MicrosoftAzureEmulator-x64.exe</a>.</li>
+       <li>The Azure client libraries: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400896">MicrosoftAzureLibsForNet-x86.msi</a> or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400897">MicrosoftAzureLibsForNet-x64.msi</a>.</li>
+       <li>The storage emulator: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400904">MicrosoftAzureStorageEmulator.msi</a>.                            If you receive a warning regarding local SQL databases, install SQL Server LocalDB 11.0 from <a href="http://go.microsoft.com/fwlink/p/?LinkId=400778">this location</a> for x86 or <a href="http://go.microsoft.com/fwlink/p/?LinkId=400779">this location</a> for x64.</li><li> Azure Tools for Visual Studio: <a href="http://go.microsoft.com/fwlink/p/?LinkId=400903">WindowsAzureTools.vs140.exe</a>.</li></ul>
 
 ## Known Issues
 
