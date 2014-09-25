@@ -24,8 +24,8 @@ Offline sync has several potential uses:
 This tutorial will show how to update the app from [Get started with Mobile Services] or [Get Started with Data] tutorial to support the offline features of Azure Mobile Services. Then you will add data in a disconnected offline scenario, sync those items to the online database, and then log in to the Azure Management Portal to view changes to data made when running the app.
 
 >[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
-
->[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].
+>
+>This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].
 
 This tutorial walks you through these basic steps:
 
@@ -37,7 +37,7 @@ This tutorial walks you through these basic steps:
 
 For a completed version of this tutorial, see the sample [iOS Offline ToDo list].
 
-## <a name="update-framework">Update the app to use the offline iOS SDK
+## <a name="update-framework"></a>Update the app to use the offline iOS SDK
 
 The offline sync feature of Mobile Services is currently in beta and available through a separate download. This section describes how to upgrade the SDK that you are using in the app.
 
@@ -49,7 +49,7 @@ The offline sync feature of Mobile Services is currently in beta and available t
 
 3.  In your Xcode project, add the new Mobile Services framework to your project. Drag the WindowsAzureMobileServices.framework folder from the Finder into your project, and check the box **Copy items into destination group's folder (if needed)**.
 
-## <a name="add-core-data">Add Core Data support
+## <a name="add-core-data"></a>Add Core Data support
 
 1.  Open the application target, and in its **Build phases**, under the **Link Binary With Libraries**, add **CoreData.framework**.
 
@@ -189,7 +189,7 @@ The offline sync feature of Mobile Services is currently in beta and available t
 
 At this point the application is (almost) ready to use Core Data, but it's not doing anything with it.
 
-## <a name="define-data-model">Define the data model
+## <a name="define-data-model"></a>Define the data model
 
 The last thing we need to do to use the Core Data framework is to define the data model which will be stored in the persistent store. If you're not familiar with Core Data you can think of it as a simplified "schema" of the local database. We need to define the tables used by the application, but we also need to define two tables which will be used by the Mobile Services framework itself: one table to track the items which need to be synchronized with the server and one table to record any errors which may happen during this synchronization.
 
@@ -234,12 +234,12 @@ The last thing we need to do to use the Core Data framework is to define the dat
 
 Now we have finished setting up the application to work with Core Data, but the app is not using it yet.
 
-## <a name="add-offline-sync">Add offline sync support
+## <a name="add-offline-sync"></a>Add offline sync support
 
 To make the app work offline, this section will walk through the following changes:
 
--   Instead of using the regular `MSTable` class to access the mobile service, we'll use `MSSyncTable`. A sync table is basically a local table which knows how to push changes made locally to the remote table, and pull items from that table locally.
--   The *synchronization context* in the `MSClient` (a new property) must be initialized with the data source that we choose (in our case, the Core Data-based store implementation). The context is responsible for tracking which items have been changed locally, and sending those to the server when a push operation is started.
+* Instead of using the regular `MSTable` class to access the mobile service, we'll use `MSSyncTable`. A sync table is basically a local table which knows how to push changes made locally to the remote table, and pull items from that table locally.
+* The *synchronization context* in the `MSClient` (a new property) must be initialized with the data source that we choose (in our case, the Core Data-based store implementation). The context is responsible for tracking which items have been changed locally, and sending those to the server when a push operation is started.
 
 1.  In the implementation for the `QSTodoService` class, rename the private property `table` to `syncTable` and change its type to `MSSyncTable`:
     
@@ -391,7 +391,7 @@ Note that after the code was changed to use the sync table, we wrapped calls to 
 
 During the initialization of the sync context, the code did not pass a callback parameter, so the framework creates a default serial queue that dispatches the results of all sync table operations into into a background thread. Though it is a performance improvement to execute data operations in the background, this app modifies UI components and therefore needs to dispatch code back to the UI thread.
 
-## <a name="test-app">Test the app
+## <a name="test-app"></a>Test the app
 
 1.  Run the app. Notice that the list of items in the app is empty. As a result of the code changes in the previous section, the app no longer reads items from the mobile service, but rather from the local store.
 

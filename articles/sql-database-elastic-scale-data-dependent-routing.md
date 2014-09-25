@@ -4,9 +4,9 @@
 
 #Data Dependent Routing (DDR) 
 
-The **ShardMapManager** class provides applications built using ADO.Net the ability to easily direct database queries and commands to the appropriate physical database in a sharded environment. This is called **Data Dependent Routing (DDR)** and is a fundamental pattern when working with sharded databases. Each specific query or transaction in an application using DDR is restricted to accessing a single database per request.  
+The **ShardMapManager** class provides ADO.NET applications the ability to easily direct database queries and commands to the appropriate physical database in a sharded environment. This is called **Data Dependent Routing (DDR)** and is a fundamental pattern when working with sharded databases. Each specific query or transaction in an application using DDR is restricted to accessing a single database per request.  
 
-Using DDR, there is no need for the application to track the various connection strings or DB locations associated with different slices of data in the environment. Rather, the **ShardMapManager** takes responsibility for handing out open connections to the correct database when needed, based on the data in the desired ShardMap and value of the sharding key that is the target of the application’s request. (This key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
+Using DDR, there is no need for the application to track the various connection strings or DB locations associated with different slices of data in the sharded environment. Rather, the [Shard Map Manager](http://go.microsoft.com/?linkid=9862595) takes responsibility for handing out open connections to the correct database when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. (This key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
 
 ##Using a ShardMapManager in a DDR Application 
 
@@ -16,23 +16,23 @@ For applications using DDR, a **ShardMapManager** should be instantiated once pe
                       ShardMapManagerLoadPolicy.Lazy);
 	RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap"); 
 
-In this example we get both a **ShardMapManager** and a specific **ShardMap** that it contains in the initialization section of the application. 
+In this example, both a **ShardMapManager** and a specific **ShardMap** that it contains are initialized. 
 
-For an application like this that is not manipulating the shard map itself, the credentials used in the factory method to get the **ShardMapManager** (in the above example, *SMMConnStr*) should be credentials that have just read-only permissions on the **Global Shard Map** database referenced by the connection string. These are typically different from credentials used to open connections on the shards themselves.  
+For an application that is not manipulating the shard map itself, the credentials used in the factory method to get the **ShardMapManager** (in the above example, *smmConnectionString*) should be credentials that have just read-only permissions on the **Global Shard Map** database referenced by the connection string. These credentials are typically different from credentials used to open connections to the shard map manager.  
 
 ##Invoking DDR 
 
 The method **ShardMap.OpenConnectionForKey(key, connectionString, connectionOptions)** returns an ADO.Net connection ready for issuing commands to the appropriate database based on the value of the **key** parameter. Shard information is cached in the application by the **ShardMapManager**, so these requests do not typically involve a database lookup against the **Global Shard Map** (GSM) database. 
 
-* The key parameter is used as a lookup key into the shard map to determine the appropriate database for the request. 
+* The **key** parameter is used as a lookup key into the shard map to determine the appropriate database for the request. 
 
-* The **connectionString** is used to pass only the user credentials for the desired connection. No database name or server name are included in this *connectionString* since the method will determine the DB and server using the **ShardMap**. 
+* The **connectionString** is used to pass only the user credentials for the desired connection. No database name or server name are included in this *connectionString* since the method will determine the database and server using the **ShardMap**. 
 
 * The **connectionOptions** enum is used to indicate whether validation occurs or not when delivering the open connection. **ConnectionOptions.Validate** is recommended. In an environment where shard maps may be changing and rows may be moving to other databases as a result of split or merge operations, validation ensures that the cached lookup of the database based on a key value is still correct. Validation involves a brief query to the Local Shard Map (LSM) on the target database (not to the GSM) before the connection is delivered to the application. 
 
 If the validation against the LSM fails (indicating that the cache is incorrect), the Shard Map Manager will query the GSM to obtain the new correct value for the lookup, update the cache, and obtain and return the appropriate database connection. 
 
-The only time that **ConnectionOptions.None** (don’t validate) is acceptable occurs when shard mapping changes are not expected with an application online. In that case, the cached values can be assumed to always be correct, and the extra round-trip validation call to the target database can be safely skipped. That may reduce transaction latencies and database traffic. The **connectionOptions** may also be set via a value in a configuration file to indicate whether sharding changes are expected or not during a period of time.  
+The only time that **ConnectionOptions.None** (do not validate) is acceptable occurs when shard mapping changes are not expected while an application is online. In that case, the cached values can be assumed to always be correct, and the extra round-trip validation call to the target database can be safely skipped. That may reduce transaction latencies and database traffic. The **connectionOptions** may also be set via a value in a configuration file to indicate whether sharding changes are expected or not during a period of time.  
 
 This is an example of code that uses the Shard Map Manager to perform DDR based on the value of an integer key CustomerID, using a ShardMap object named customerShardMap.  
 
@@ -92,9 +92,11 @@ int newPersonId = 4321;
 </code></pre>
 
 
-Packages necessary to implement Transient Fault Handling are downloaded automatically when you build the Elastic Scale Hello World application. Packages are also available separately at [Enterprise Library - Transient Fault Handling Application Block](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/). Use version 6.0 or later. 
+Packages necessary to implement Transient Fault Handling are downloaded automatically when you build the Elastic Scale Starter Kit application. Packages are also available separately at [Enterprise Library - Transient Fault Handling Application Block](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/). Use version 6.0 or later. 
 
 ##Transactional Consistency 
 
 Transactional properties are guaranteed for all operations local to a shard. For example, transactions submitted through Data Dependent Routing execute within the scope of the target shard for the connection. At this time, there are no capabilities provided for enlisting multiple connections into a transaction, and therefore there are no transactional guarantees for operations performed across shards.  
+
+[AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
