@@ -44,7 +44,7 @@ For how-to steps for an administrator, see [Get Started with Azure Key Vault](ht
 
 
 <!--Image references-->
-[1]: ./media/key-vault-whatis/AzureKeyVault-overview.png
+[1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
 
 
