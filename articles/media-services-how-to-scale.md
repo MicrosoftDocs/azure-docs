@@ -34,10 +34,9 @@ To change the number of on-demand streaming reserved units, do the following:
 	The allocation of any new units of on-demand streaming takes around 20 minutes to complete. 
 
 	 
-	>[WACOM.NOTE] Currently, going from any positive value of on-demand streaming units back to none, can disable on-demand streaming for up to an hour.
+	>[Azure.Note] Currently, going from any positive value of on-demand streaming units back to none, can disable on-demand streaming for up to an hour.
 
-
-	>[WACOM.NOTE] The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+	>[Azure.Note] The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 <h2>Encoding Reserved Units</h2>
 
@@ -55,13 +54,15 @@ To change the number of encoding reserved units, do the following:
 
 	You can change the number of reserved units for the selected RESERVED UNIT TYPE by using the ENCODING slider.  
 	
-	For more information, see the "Encoding Reserved Unit Types" blog written by [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
+	The main difference between reserver unit types is speed. For example, the same encoding job runs faster when you use the Standard reserved unit type compare to the Basic type. For more information, see the "Encoding Reserved Unit Types" blog written by [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
+
+	>[Azure.Note] The following data centers to not offer the Premium reserved unit type: Singapore, Hong Kong, Osaka, Beijing, Shanghai.
 
 3. Press the SAVE button to save your changes.
 
 	The new encoding reserved units are allocated as soon as you press SAVE.
 
-	>[WACOM.NOTE] The highest number of units specified for the 24-hour period is used in calculating the cost.
+	>[Azure.Note] The highest number of units specified for the 24-hour period is used in calculating the cost.
 
 <h2>Opening a Support Ticket</h2>
 
