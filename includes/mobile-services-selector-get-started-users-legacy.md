@@ -11,7 +11,7 @@
 - [(Android | Javascript)](/en-us/documentation/articles/mobile-services-android-get-started-users/)
 - [(Xamarin iOS | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/)
 - [(Xamarin iOS | Javascript)](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users/)
-- [(HTML | Javascript)](/en-us/documentation/articles/mobile-services-html-get-started-users/)
 - [(Xamarin Android | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/)
 - [(Xamarin Android | Javascript)](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-users/)
+- [(HTML | Javascript)](/en-us/documentation/articles/mobile-services-html-get-started-users/)
 - [(Appcelerator | Javascript)](/en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users/)
