@@ -122,13 +122,10 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
 
 7. In Xcode, open the Organizer select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and then click the **Refresh** button at the bottom of the middle pane.
 
-   Alternatively, from the Xcode menu, select **Preferences** and then **Accounts**. Select your Apple Developer ID in the left panel. Click the **View Details** button on the right. In the pop-over window, click the rounded **Refresh** button. This refreshes the list of Provisioning profiles. This process may take a few minutes. We recommend taht you click **Refresh** 2-3 times until you see your new provisioning profile. Also, confirm that the bundle identifier of this Xcode project is identical to the bundle identifier associated with the app ID and provisioning profile you've created so far.
-    
+8. Alternatively, from the Xcode menu, select **Preferences** and then **Accounts**. Select your Apple Developer ID in the left panel. Click the **View Details** button on the right. In the pop-over window, click the rounded **Refresh** button. This refreshes the list of Provisioning profiles. This process may take a few minutes. We recommend taht you click **Refresh** 2-3 times until you see your new provisioning profile. Also, confirm that the bundle identifier of this Xcode project is identical to the bundle identifier associated with the app ID and provisioning profile you've created so far.
 
-    ![](./media/enable-apple-push-notifications/mobile-services-ios-push-01.png)
+         ![](./media/enable-apple-push-notifications/mobile-services-ios-push-01.png)
 
-8. Under **Targets**, click **Quickstart**, expand **Code Signing Identity**, then under **Debug** select the new profile.
+9. Under **Targets**, click **Quickstart**, expand **Code Signing Identity**, then under **Debug** select the new profile. This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to Azure.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
-
-   This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to Azure.
