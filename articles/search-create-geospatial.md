@@ -1,4 +1,6 @@
-<properties title="Create a geospatial search solution using Azure Search" pageTitle="Create a geospatial search app using Azure Search" description="Create a geospatial search app using Bing and Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="heidist" videoId="" scriptId="" />
+<properties title="Create a geospatial search solution using Azure Search" pageTitle="Create a geospatial search app using Azure Search" description="Create a geospatial search app using Bing and Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+
+<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
 
 # Create a geospatial search app using Azure Search
 
@@ -11,7 +13,9 @@
 
 <h2>Overview</h2>
 
-This tutorial demonstrates how to add geospatial search to web applications using Azure Search and Bing Maps. Using geo-search, you can find search targets within a certain distance of a point (such as finding all restaurants within 5 KM of my current location). The geo-spatial capability in Azure Search supports commonly used mapping techniques. For example, if you want to use polygon shapes in a real estate app showing houses for sale within a polygon boundary, you can easily do that using either OData or our simple search syntax.    
+This tutorial demonstrates how to add geospatial search to web applications using Azure Search and Bing Maps. Using geo-search, you can find search targets within a certain distance of a point (such as finding all restaurants within 5 KM of my current location). The geo-spatial capability in Azure Search supports commonly used mapping techniques. For example, if you want to use polygon shapes in a real estate app showing houses for sale within a polygon boundary, you can easily do that using either OData or our simple search syntax.
+
+For more overview, watch this Channel 9 video about [Azure Search and Geospatial Data](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)
 
 ![][7]
 
@@ -95,7 +99,7 @@ In this step, you'll build and run the search application in a web browser that 
 
 4.	Save Web.config.
 	
-5.	Press F5 to launch the project.
+5.	Press **F5** to launch the project. Follow these [Troubleshooting](#err-mvc) steps if you get a build error.
 
 Notice how the stores are overlayed as points on the map. Click on one of the stores and you will see a pop-up that outlines the details of the store. All of this information is coming from an Azure Search index called "stores" that was created in the previous steps. 
 
@@ -119,6 +123,16 @@ The project **AdventureWorksWebGeo** shows us how ASP.NET MVC 4 can be used to i
 4.	Open HomeController.cs under **Controllers** and look at the **Search** function. Notice how it makes a call to _storeSearch.Search(lat, lon, 10000). This will cause a query to be executed to find all stores within 10,000 KM of the specified latitude (lat) and longitude (lon). The results of this query are processed and then sent back to the Index view to be processed as PushPins overlayed on the Bing Map.
 
 This concludes the demo. You have now walked through all of the main operations that you'll need to know before building out a Map based ASP.NET MVC4 application using Azure Search.
+
+
+<h2 id="err-mvc">How to resolve "Could not load file or assembly 'System.Web.Mvc"</h2>
+
+When building AdventureWorksWeb, if you get "Could not load file or assembly 'System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies", try these steps to resolve the error.
+
+1. Open the Package Manager Console: **Tools** | **NuGet Package Manager** | **Package Manager Console**
+2. At the PM> prompt, enter "Update-package -reinstall Microsoft.AspNet.Mvc"
+3. When asked to reload the file, choose **Yes to All**.
+4. Rebuild the solution and try **F5** again.
 
 
 <h2 id="next-steps">Next steps</h2>
