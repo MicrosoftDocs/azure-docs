@@ -49,7 +49,7 @@ Shard maps can be constructed using **lists of individual sharding key values**,
 ###Range Shard Maps 
 In a **range shard map**, the key range is described by a pair **[Low Value, High Value)** where the *Low Value* is the minimum key in the range, and the *High Value* is the first value higher than the range. 
 
-For example, **[0, 100)** includes all integers greater than or equal 0 and less than 100. Note that multiple ranges can point to the same database, and disjoint ranges are supported (e.g., [100,200) and [400,600) both point to Database C in the example above.) A range can also cover values up to the maximum possible for the data type, indicated by +inf in the range mapped to Database D below.
+For example, **[0, 100)** includes all integers greater than or equal 0 and less than 100. Note that multiple ranges can point to the same database, and disjoint ranges are supported (e.g., [100,200) and [400,600) both point to Database C in the example above.)
 <table>
    <tr>
     <td>**Key Range**</td>
@@ -70,10 +70,6 @@ For example, **[0, 100)** includes all integers greater than or equal 0 and less
   <tr>
     <td>[400, 600)</td>
      <td>Database_C</td>
-   </tr>
-  <tr>
-    <td>[600, +inf)</td>
-     <td>Database_D</td>
    </tr>
   <tr>
     <td>...</td>
@@ -253,10 +249,63 @@ These methods work together as the building blocks available for modifying the o
 
 	Certain operations on shard mappings are only allowed when a mapping is in an “offline” state, including UpdateMapping and DeleteMapping. When a mapping is offline, a DDR request based on a key included in that mapping will return an error. In addition, when a range is first taken offline, all connections to the affected shard are automatically killed in order to prevent inconsistent or incomplete results for queries directed against ranges being changed. 
 
-Mappings are immutable objects in .Net.  All of the methods above that change mappings also invalidate any references to them in your code, and return a new mapping reference.  As a result, operations on mappings can be chained.  For example, to delete an existing mapping that contains the key 25, you can execute the following: 
-             
-           sm.DeleteMapping(sm.MarkMappingOffline(sm.GetMappingForKey(25))); 
+##Adding a Shard 
+
+### To Add a Shard for a New Range or Key  
+
+Applications often need to simply add new shards to handle data that is expected from new keys or key ranges, for a shard map that already exists. For example, an application sharded by Tenant ID may need to provision a new shard for a new tenant, or data sharded monthly may need a new shard provisioned before the start of each new month. 
+
+If the new range of key values is not already part of an existing mapping, it is very simple to add the new shard and associate the new key or range to that shard. 
+
+###Example:  Adding a Shard and its Range to an Existing Shard Map
+In the sample below, a database named **sample_shard_2** and all necessary schema objects inside of it have been created to hold range [300, 400).  
+
+	// sm is a RangeShardMap object.
+	// Add a new shard to hold the range being added. 
+    Shard shard2 = null; 
+
+    if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_2"),out shard2)) 
+    { 
+		Shard2 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_2"));  
+	} 
+
+	// Create the mapping and associate it with the new shard 
+    sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
+							(new Range<long>(300, 400), shard2, MappingStatus.Online)); 
+
+
+### To Add a Shard for an Empty Part of an Existing Range  
+
+In some circumstances, you may have already mapped a range to a shard and partially filled it with data, but you now want upcoming data to be directed to a different shard. For example, you shard by day range and have already allocated 50 days to a shard, but on day 24, you want future data to land in a different shard. The Elastic Scale Preview [Split/Merge Service](http://go.microsoft.com/?linkid=9862599) can perform this operation, but if data movement is not necessary (for example, data for days 25-50 does no yet exist) you can perform this entirely using the Shard Map Management APIs directly.
+
+###Example:  Splitting a Range and Assigning the Empty Portion to a Newly-added Shard
+
+A database named “sample_shard_2” and all necessary schema objects inside of it have been created.  
+
+ 
+	// sm is a RangeShardMap object.
+	// Add a new shard to hold the range we will move 
+	Shard shard2 = null; 
+
+	if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_2"),out shard2)) 
+	{ 
+	
+		Shard2 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_2"));  
+	} 
+
+	// Split the Range holding Key 25 
+
+	sm.SplitMapping(sm.GetMappingForKey(25), 25); 
+
+	// Map new range holding (25-50] to different shard: 
+    // first take existing mapping offline 
+    sm.MarkMappingOffline(sm.GetMappingForKey(25)); 
+    // now map while offline to a different shard and take online 
+    RangeMappingUpdate upd = new RangeMappingUpdate(); 
+    upd.Shard = shard2; 
+    sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd)); 
+
+**Important**:  Use this technique only if you are certain that the range for the updated mapping is empty.  The methods above do not check data for the range being moved, so it is best to include checks in your code.  If rows exist in the range being moved, the actual data distribution will not match the updated shard map. Use the **Split/Merge** Service to perform the operation instead in these cases.  
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
-  
 
