@@ -63,9 +63,11 @@ Before you begin this tutorial, you must have the following:
 
 	* To **create and configure a Virtual Network**, see [Virtual Network Configuration Tasks](http://msdn.microsoft.com/en-us/library/azure/jj156206.aspx).
 
-		* When using an **SQL Server** in your datacenter, you must configure the Virtual Network as either **site-to-site** or **point-to-site**. This article was tested using a Virtual Network configured to **point-to-site**.
+		* When using SQL Server **in your datacenter**, you must configure the Virtual Network as either *site-to-site* or *point-to-site*.
 
 			> [WACOM.NOTE] For **point-to-site** Virtual Networks, the SQL Server must be running the VPN client configuration application, which is available from the **Dashboard** of your Azure Virtual Network configuration.
+
+		* When using SQL Server in an **Azure Virtual Machine**, any Virtual Network configuration may be used as long as the Virtual Machine hosting SQL Server is a member of the same Virtual Network as HDInsight.
 
 	* To **provision an HDInsight cluster onto a Virtual Network**, see [Provision Hadoop clusters in HDInsight using custom options](/en-us/documentation/articles/hdinsight-provision-clusters/)
 

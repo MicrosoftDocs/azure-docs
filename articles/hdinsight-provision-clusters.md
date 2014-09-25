@@ -53,11 +53,13 @@ When provisioning an HDInsight cluster, you can specify a SQL Database that will
 
 	![diagram of cloud-only configuration](.\media\hdinsight-provision-clusters\cloud-only.png)
 
-* Connect your cloud resources to your local datacenter network (site-to-site) using a Virtual Private Network (VPN)
+* Connect your cloud resources to your local datacenter network (site-to-site or point to site) using a Virtual Private Network (VPN)
+
+	Site-to-site configuration allows you to connect multiple resources from your data center to the Azure Virtual Network using a hardware VPN or the Routing and Remote Access Service
 
 	![diagram of site-to-site configuration](.\media\hdinsight-provision-clusters\site-to-site.png)
 
-* Connect to your cloud resources over a Virtual Private Network (VPN) from a specific machine in your datacenter (point-to-site). This is useful when developing or debugging a job on an HDInsight cluster.
+	Point-to-site configuration allows you to connect a specific resource to the Azure Virtual Network using software VPN
 
 	![diagram of point-to-site configuration](.\media\hdinsight-provision-clusters\point-to-site.png)
 
@@ -104,8 +106,9 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 	<table border="1">
 	<tr><th>Name</th><th>Value</th></tr>
 	<tr><td>Data nodes</td><td>Number of data nodes you want to deploy. For testing purposes, create a single node cluster. <br />The cluster size limit varies for Azure subscriptions. Contact Azure billing support to increase the limit.</td></tr>
-	<tr><td>Region/Virtual network</td><td>Choose the same region as the storage account you created in the last procedure. HDInsight requires the storage account located in the same region. Later in the configuration, you can only choose a storage account that is in the same region as you specified here.<br/>The available regions are: <strong>East Asia</strong>, <strong>Southeast Asia</strong>, <strong>North Europe</strong>, <strong>West Europe</strong>, <strong>East US</strong>, <strong>West US</strong>, <strong>North Central US</strong>, <strong>South Central US</strong><br/>If you have created an Azure Virtual Network, you can select the network that the HDInsight cluster will be configured to use.</td></tr>
+	<tr><td>Region/Virtual network</td><td><p>Choose the same region as the storage account you created in the last procedure. HDInsight requires the storage account located in the same region. Later in the configuration, you can only choose a storage account that is in the same region as you specified here.</p><p>The available regions are: <strong>East Asia</strong>, <strong>Southeast Asia</strong>, <strong>North Europe</strong>, <strong>West Europe</strong>, <strong>East US</strong>, <strong>West US</strong>, <strong>North Central US</strong>, <strong>South Central US</strong><br/>If you have created an Azure Virtual Network, you can select the network that the HDInsight cluster will be configured to use.</p><p>For more information on creating an Azure Virtual Network, see [Virtual Network configuration tasks](http://msdn.microsoft.com/en-us/library/azure/jj156206.aspx).</p></td></tr>
 	</table>
+
 
 5. On the **Configure Cluster User** page, provide the following values:
 
@@ -176,6 +179,8 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 ##<a id="powershell"></a> Using Azure PowerShell
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. This section provides instructions on how to provision an HDInsight cluster using For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure]. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell]. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
+> [WACOM.NOTE] While the scripts in this section can be used to configure an HDInsight cluster on an Azure Virtual Network, they will not create an Azure Virtual Network. For information on creating an Azure Virtual Network, see [Virtual Network configuration tasks](http://msdn.microsoft.com/en-us/library/azure/jj156206.aspx).
+
 The following procedures are needed to provision an HDInsight cluster using PowerShell:
 
 - Create an Azure Storage account
@@ -183,7 +188,6 @@ The following procedures are needed to provision an HDInsight cluster using Powe
 - Create a HDInsight cluster
 
 HDInsight uses an Azure Blob Storage container as the default file system. An Azure storage account and storage container are required before you can create an HDInsight cluster. The storage account must be located in the same data center as the HDInsight Cluster.
-
 
 
 **To create an Azure storage account**
