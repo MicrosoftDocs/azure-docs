@@ -4,10 +4,10 @@
 
 #Managing Elastic Scale Credentials  
 
-The Elastic Scale Client Library expects credentials for different types of operations – in particular creating or manipulating a Shard Map Manager, referencing an existing Shard Map Manager to obtain information about shards, and performing actual connections to shards.   Credentials for these types of operations are discussed below. 
+The [Elastic Scale Client APIs](http://go.microsoft.com/?linkid=9862605) expects credentials for different types of operations – in particular creating or manipulating a Shard Map Manager, referencing an existing [Shard Map Manager](http://go.microsoft.com/?linkid=9862595) to obtain information about shards, and performing actual connections to shards. Credentials for these types of operations are discussed below. 
 
 
-* **Management Credentials for Shard Map Access**: The management credentials are used when instantiating a ShardMapManager for applications that manipulate the shard maps. The user of the Elastic Scale libraries has to create the necessary SQL users and SQL logins and make sure they are granted the read/write permissions on the global shard map database and all shard databases as well. These credentials are used to maintain the global shard map and the local shard maps when changes to the shard map are performed. For instance, one would use the management credentials to instantiate the shard map manager object, as the following code shows: 
+* **Management Credentials for Shard Map Access**: The management credentials are used when instantiating a **ShardMapManager** object for applications that manipulate the shard maps. The user of the Elastic Scale APIs has to create the necessary SQL users and SQL logins and make sure they are granted the read/write permissions on the global shard map database and all shard databases as well. These credentials are used to maintain the global shard map and the local shard maps when changes to the shard map are performed. For instance, one would use the management credentials to instantiate the shard map manager object, as the following code shows: 
 
 		// Obtain shard map manager. 
 		ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -21,7 +21,7 @@ The Elastic Scale Client Library expects credentials for different types of oper
 
 		"Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 
-* **User Credentials for Shard Map Manager Access**:  When instantiating the Shard Map Manager in an application that is not going to administer shard maps, we suggest using credentials that have read-only permissions on the global shard map. The information retrieved from the global shard map under these credentials will be used for data dependent routing and to populate the shard map cache on the client. The credentials are provided through the same call pattern to **GetSqlShardMapManager** as shown earlier: 
+* **User Credentials for Shard Map Manager Access**:  When instantiating the Shard Map Manager in an application that is not going to administer shard maps, we suggest using credentials that have read-only permissions on the global shard map. The information retrieved from the global shard map under these credentials will be used for [data dependent routing](http://go.microsoft.com/?linkid=9862596) and to populate the shard map cache on the client. The credentials are provided through the same call pattern to **GetSqlShardMapManager** as shown earlier: 
  
 		// Obtain shard map manager. 
 		ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -42,3 +42,4 @@ The Elastic Scale Client Library expects credentials for different types of oper
 
 	Note that the connection string for the user credentials does not contain a server name and database name. That is because the **OpenConnectionForKey** call will automatically direct the connection to the correct shard based on the key. Hence, the database name and server name must not be provided for the **OpenConnectionForKey** call. 
 
+[AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
