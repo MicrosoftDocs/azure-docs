@@ -1,10 +1,13 @@
 #Enable HTTPS for an Azure website
 
+> [WACOM.NOTE]
+> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
+
 You can secure the communication between the website and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your site are secure. This article discusses how to configure HTTPS for an Azure Website. 
 
 <a href="bkmk_azurewebsites"></a><h2>HTTPS for the \*.azurewebsites.net domain</h2>
 
-If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your website by Azure (for example, contoso.azurewebsites.net,) theyn HTTPS is already enabled on your site with a certificate from Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your site. However, \*.azurewebsites.net is a shared domain, and like all shared domains is not as secure as using a custom domain with your own certificate.
+If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your website by Azure (for example, contoso.azurewebsites.net,) theyn HTTPS is already enabled on your site with a certificate from Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your site. However, \*.azurewebsites.net is a wildcard domain. Like [all wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), it is not as secure as using a custom domain with your own certificate. 
 
 The rest of this document provides details on enabling HTTPS for custom domains, such as **contoso.com**, **www.contoso.com**, or **\*.contoso.com**
 
@@ -12,14 +15,14 @@ The rest of this document provides details on enabling HTTPS for custom domains,
 
 To enable HTTPS for a custom domain, such as **contoso.com**, you must first register a custom domain name with a domain name registrar. For more information on how to configure the domain name of an Azure Website, see [Configuring a custom domain name for an Azure Web Site](/en-us/develop/net/common-tasks/custom-dns-web-site/). Once you have registered a custom domain name and configured your website to respond to the custom name, you must request an SSL certificate for the domain. 
 
-> [WACOM.NOTE] In order to enable HTTPS for custom domain names, you must configure your website for **Standard ** web hosting plan mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and **Standard** pricing, see [Pricing Details][pricing]. To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
+> [WACOM.NOTE] In order to enable HTTPS for custom domain names, you must configure your website for **Standard** web hosting plan mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and **Standard** pricing, see [Pricing Details][pricing]. 
 
 Once you have a valid custom domain, enabling HTTPS for your website consists of the following steps:
 
-- [Get an SSL certificate](#bkmk_getcert)
-- [Configure Standard mode](#bkmk_standardmode)
-- [Configure SSL](#bkmk_configuressl)
-- [Enforce HTTPS on your Azure website](#bkmk_enforce)
+1. [Get an SSL certificate](#bkmk_getcert)
+1. [Configure Standard mode](#bkmk_standardmode)
+1. [Configure SSL](#bkmk_configuressl)
+1. [Enforce HTTPS on your Azure website](#bkmk_enforce)
 
 <a href="bkmk_getcert"></a><h2>Get an SSL certificate</h2>
 
@@ -35,19 +38,19 @@ The certificate must meet the following requirements for SSL certificates in Azu
 * The certificate should use a minimum of 2048-bit encryption.
 * Certificates issued from private CA servers are not supported by Azure Websites.
 
-Some of the most common ways to get a certificate are: 
+To get an SSL certificate for use with Azure Websites, you submit a Certificate Signing Request (CSR) to a Certificate Authority and then generate a .pfx file from the certificate you receive back. You can do this using the tool of your choice. Below are some of the common ways to get a certificate:
 
 - [Get a certificate using Certreq.exe](#bkmk_certreq)
 - [Get a certificate using IIS Manager](#bkmk_iismgr)
 - [Get a certificate using OpenSSL](#bkmk_openssl)
 - [Get a SubjectAltName certificate using OpenSSL](#bkmk_subjectaltname)
-- [Generate self-signed certificates](#bkmk_selfsigned) 
+- [Generate self-signed certificates (for testing only)](#bkmk_selfsigned) 
 
 > [WACOM.NOTE] When following the steps, you will be prompted to enter a **Common Name**, such as `www.contoso.com`. For wildcard certificates, this value should be \*.domainname (for example, \*.contoso.com). If you need to support both a wildcard name like \*.contoso.com and a root domain name like contoso.com, you can use a wildcard subjectAltName certificate.
 
 > [WACOM.NOTE] Elliptic Curve Cryptography (ECC) certificates are supported with Azure Websites; however, they are relatively new and you should work with your CA on the exact steps to create the CSR.
 
-You may also need to obtain **intermediate certificates** (also known as chain certificates), if these are used by your CA. The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them. Intermediate certificates are often provided as a separate download from the CAs website. The steps in this article provide steps to ensure that any intermediate certificates are merged with the certificate uploaded to your Azure website. 
+You may also need to obtain **[intermediate certificates](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (also known as chain certificates), if these are used by your CA. The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them. Intermediate certificates are often provided as a separate download from the CAs website. The steps in this article provide steps to ensure that any intermediate certificates are merged with the certificate uploaded to your Azure website. 
 
 <a href="bkmk_certreq"></a>
 ###Get a certificate using Certreq.exe (Windows only)
@@ -188,7 +191,7 @@ You can now upload the exported PFX file to your Azure Website.
 
 If you are familiar with IIS Manager, you can use it to generate a certificate that can be used with Azure Websites.
 
-1. Generate a Certificate Signing Request (CSR) with IIS Manager to send to the Certificate Authority. For more information on generating a CSR, see [Request an Internet Server Certificate (IIS 7)][iiscsr].
+1. Generate a CSR with IIS Manager to send to the Certificate Authority. For more information on generating a CSR, see [Request an Internet Server Certificate (IIS 7)][iiscsr].
 
 2. Submit your CSR to a Certificate Authority to obtain an SSL certificate. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
 
@@ -310,7 +313,7 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 	After running this command, you should have a **myserver.pfx** file suitable for use with Azure Websites.
 
 
-###<a href="bkmk_selfsigned"></a>Generate a self-signed certificate
+###<a href="bkmk_selfsigned"></a>Generate a self-signed certificate (for testing only)
 
 In some cases you may wish to obtain a certificate for testing, and delay purchasing one from a trusted CA until you go into production. Self-signed certificates can fill this gap. A self-signed certificate is a certificate you create and sign as if you were a Certificate Authority. While this certificate can be used to secure a website, most browsers will return errors when visiting the site as the certificate was not signed by a trusted CA. Some browsers may even refuse to allow you to view the site.
 
@@ -462,7 +465,7 @@ At this point, you should be able to visit your website using `HTTPS://` instead
 
 ##<a href="bkmk_enforce"></a>Enforce HTTPS on your Azure website
 
-Azure Websites do *not* enforce HTTPS. Visitors may still access your site using HTTP, which may expose sensitive information. If you want to enforce HTTPS for your website, you can use the **URL Rewrite** module. The URL Rewrite module is included with Azure Websites, and enables you to define rules that are applied to incoming requests before the requests are handed to your application. It can be used for applications written in any programming language supported by Azure Websites. 
+Azure Websites do *not* enforce HTTPS. Visitors may still access your site using HTTP, which may compromise your website's security. If you want to enforce HTTPS for your website, you can use the **URL Rewrite** module. The URL Rewrite module is included with Azure Websites, and enables you to define rules that are applied to incoming requests before the requests are handed to your application. **It can be used for applications written in any programming language supported by Azure Websites.** 
 
 > [WACOM.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to an Azure Web Site](/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 > 
