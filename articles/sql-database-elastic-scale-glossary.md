@@ -11,13 +11,13 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **Data Dependent Routing** (DDR): The functionality that enables an application to connect to a shard given a specific sharding key. Compare to **Multi-Shard Query**.
 
-**Global Shard Map** (GSM or Shard Map): The set of mappings between sharding keys and their respective shards within a **shard set**. The GSM is stored in the **shard map manager**. Compare to a **Local Shard Map**.
+**Global Shard Map** (GSM or Shard Map): The set of mappings between sharding keys and their respective shards within a **shard set**. The GSM is stored in the **shard map manager**. Compare to **Local Shard Map**.
 
-**List Shard Map**: A shard map in which the sharding key is a singular value. Compare to **Range Shard Map**.   
+**List Shard Map**: A shard map in which sharding keys are mapped individually. Compare to **Range Shard Map**.   
 
 **Local Shard Map** (LSM): Stored on a shard, the local shard map contains mappings for the shardlets that reside on the shard.
 
-**Multi-Shard Query** (MSQ): The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). Compare to a **Data Dependent Routing**.
+**Multi-Shard Query** (MSQ): The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). Compare to **Data Dependent Routing**.
 
 **Range Shard Map**: A shard map in which the shard distribution strategy is based on multiple ranges of contiguous values. 
 
@@ -55,6 +55,7 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **Vertical Scaling**: The act of scaling up (or down) the performance level of an individual shard. For example, changing a shard from Standard to Premium (as required for performance reasons). 
 
+[AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]  
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png

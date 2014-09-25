@@ -7,8 +7,8 @@
 Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning library to generate movie recommendations with Microsoft Azure HDInsight (Hadoop).
 
 > [WACOM.NOTE] You must have an HDInsight cluster to use the information in this article. For information on creating one, see [Get started using Hadoop in HDInsight][getstarted].
-
-> [WACOM.NOTE] Mahout is provided with HDInsight 3.1 clusters. If you are using an earlier version of HDInsight, see [Install Mahout](#install) before continuing.
+>
+> Mahout is provided with HDInsight 3.1 clusters. If you are using an earlier version of HDInsight, see [Install Mahout](#install) before continuing.
 
 ##<a name="learn"></a>What you will learn
 
