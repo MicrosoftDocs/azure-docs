@@ -96,7 +96,7 @@ Finally, to delete a blob, call **delete_blob**.
 
 ## <a name="next-steps"> </a>Next Steps
 
-Now that you’ve learned the basics of blob storage, follow these links
+Now that you have learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Azure][]
