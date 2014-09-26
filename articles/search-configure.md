@@ -1,4 +1,6 @@
-<properties title="Configure Search in the Azure Preview Portal" pageTitle="Configure Search in the Azure Preview Portal" description="Configure Search in the Azure Preview Portal" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" videoId="" scriptId="" />
+<properties title="Configure Search in the Azure Preview Portal" pageTitle="Configure Search in the Azure Preview Portal" description="Configure Search in the Azure Preview Portal" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+
+<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
 
 # Configure Search in the Azure Preview portal
 
@@ -349,11 +351,19 @@ Ready for the next step? The following links take you to additional material tha
 
 [Create your first azure search solution](../search-create-first-solution/) 
 
+[Create an Azure Search GeoSearch Sample](../search-create-geospatial/)
+
 [Manage your search solution in Microsoft Azure](../search-manage/) 
 
 [Azure Search Technical Overview](http://msdn.microsoft.com/en-us/library/dn798933.aspx)
 
 [Azure Search REST API](http://msdn.microsoft.com/en-us/library/dn798935.aspx)
+
+[Channel 9 video: Introduction to Azure Search](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
+
+[Channel 9 video: Azure Search and Geospatial Data](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)
+
+[Cloud Cover episode 152: Generate an index in Azure Search](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh)
 
 <!--Anchors-->
 [Start with the free service]: #sub-1
@@ -387,4 +397,4 @@ Ready for the next step? The following links take you to additional material tha
 [Manage your search solution in Microsoft Azure]: ../search-manage/
 [Azure Search development workflow]: ../search-workflow/
 [Create your first azure search solution]: ../search-create-first-solution/
-
+[Create a geospatial search app using Azure Search]: ../search-create-geospatial/

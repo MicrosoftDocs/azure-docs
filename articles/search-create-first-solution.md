@@ -1,4 +1,6 @@
-<properties title="Create your first search solution using Azure Search" pageTitle="Create your first search solution using Azure Search" description="Create your first search solution using Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="heidist" videoId="" scriptId="" />
+<properties title="Create your first search solution using Azure Search" pageTitle="Create your first search solution using Azure Search" description="Create your first search solution using Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+
+<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
 
 # Create your first search solution using Azure Search
 
@@ -47,7 +49,7 @@ This solution contains two projects:
 In this step, you will use **CatalogIndex** to create a new Azure Search index called "catalog" based on data in an AdventureWorks SQL Server database.
 
 1.	In Visual Studio, open up the Azure Search Demo solution named **AdventureWorksCatalog.sln**.  
-2.	Right-click **CatalogIndexer** in Solution Explorer and select **Set as startup project** so that this application runs, rather than the **AdventureWorksWeb** project, when you press F5.
+2.	Right-click **CatalogIndexer** in Solution Explorer and select **Set as startup project** so that this application runs, rather than the **AdventureWorksWeb** project, when you press **F5**.
 3.	Open **App.config** in this project and update the values for "SearchServiceName" and "SearchServiceApiKey" to those of your Azure Search service. For Search service name, if your service is "mysearch.search.windows.net", you would enter "mysearch".
 4.	Optionally, App.config includes an entry for "SourceSqlConnectionString" that assumes SQL Server 2014 Express LocalDB (Server=(LocalDB)\v11.0). If you’re using a different edition of SQL Server, update the server name accordingly. For example, if you have a local default instance, you can use (local) or localhost.
 5.	Save **App.config**.
@@ -64,7 +66,7 @@ Press **Enter** to close the application. At this point, you have successfully c
 > [WACOM.NOTE] If you get errors that include "invalid value for key 'attachdbfilename'" or some other database attachment error, you might be running into UAC conflicts. For the purposes of this demo, work around these errors by doing the following: 
 > Copy the solution to a new or existing folder (such as Temp) that provides access to authenticated users. 
 > Use **Run as Administrator** to start Visual Studio. 
-> Open the solution, build it, and then press F5 to create the index.
+> Open the solution, build it, and then press **F5** to create the index.
 
 To verify index creation and document upload, go to your Search service dashboard in the [Azure Preview portal](https://portal.azure.com). In Usage, the index count should be up by one, and you should have 294 documents, one for each product in the database.
 
@@ -106,7 +108,7 @@ In this step, you’ll build and run the search application in a web browser.
 
 4.	Save **Web.config**.
 
-5.	Press **F5** to launch the project.
+5.	Press **F5** to launch the project. Follow these [Troubleshooting](#err-mvc) steps if you get a build error. 
 
     ![][10]
 
@@ -160,12 +162,23 @@ You might want to add a breakpoint to the `Suggest` function within **HomeContro
 This concludes the demo. You have now walked through all of the main operations that you'll need to know before building out an ASP.NET MVC4 application using Azure Search.
 
 
+<h2 id="err-mvc">How to resolve "Could not load file or assembly 'System.Web.Mvc"</h2>
+
+When building AdventureWorksWeb, if you get "Could not load file or assembly 'System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies", try these steps to resolve the error.
+
+1. Open the Package Manager Console: **Tools** | **NuGet Package Manager** | **Package Manager Console**
+2. At the PM> prompt, enter "Update-package -reinstall Microsoft.AspNet.Mvc"
+3. When asked to reload the file, choose **Yes to All**.
+4. Rebuild the solution and try **F5** again.
+
+
 <h2 id="next-steps">Next steps</h2>
 
 For additional self-study, consider adding a Details page that opens when a user clicks one of the Search results. To prepare, you could do the following:
 
 +	Read up on the [Lookup API](http://msdn.microsoft.com/en-us/library/azure/dn798929.aspx) that allows you to make a query to Azure Search to bring back a specific document (for example you could pass the productID).
 +	Try adding a new function in the **HomeController.cs** file called Details. Add a corresponding **Details.cshtml** view that receives the results of this Lookup and displays the results.
++	Check out this additional code sample and video on geospatial search: [Channel 9 - Azure Search and Geospatial Data](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) and [CodePlex: Azure Search GeoSearch Sample](http://azuresearchgeospatial.codeplex.com)
 
 You can also review the [Azure Search REST API](http://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) on MSDN.
 
