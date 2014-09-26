@@ -53,7 +53,7 @@ To determine the access key, go to the [Azure Management portal](https://manage.
 6.	Enter the name of the storage account and one of the access keys provided into the placeholders in the storage connection string. This connection string is used under both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** setting. You can potentially use different storage accounts for the different roles. 
 
 ### Configuring Security 
-For detailed instructions to configure the security of the service, refer to the [Service Security Configurations](./sql-database-elastic-scale-service-security-considerations.md).
+For detailed instructions to configure the security of the service, refer to the [Elastic Scale Security Configurations](./sql-database-elastic-scale-configure-security.md).
 
 For the purposes of  a simple test deployment suitable to complete this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 

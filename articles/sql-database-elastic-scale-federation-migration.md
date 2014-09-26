@@ -16,7 +16,7 @@ There are three major steps for migrating an existing Federations application to
 ### The Migration Sample Tool
 To assist in this process, a [Federations Migration Utility](http://go.microsoft.com/?linkid=9862613) has been created. The utility accomplishes steps 1 and 3. 
 
-## Create Shard Map Manager from a Federation Root
+## <a name="create-shard-map-manager"></a>Create Shard Map Manager from a Federation Root
 The first step in migrating a Federations application is to clone the metadata of a federation root to the constructs of a shard map manager. 
 
 ![Clone the federation root to the shard map manager][1]
@@ -47,7 +47,7 @@ Unlike Federations, Elastic Scale APIs interact with the Shard Map Manager throu
     
 #### Change 2: Route Connections to the Appropriate Shard 
 
-With Federations, a [data dependent routing](http://go.microsoft.com/?linkid=9862596) connection is established to a particular federation member with the USE FEDERATION command as follows:  
+With Federations, a [data dependent routing](./sql-database-elastic-scale-data-dependent-routing.md) connection is established to a particular federation member with the USE FEDERATION command as follows:  
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
@@ -68,7 +68,7 @@ With the Elastic Scale APIs, a connection to a particular shard is established v
         } 
     }
 
-The steps in this section are necessary but may not address all migration scenarios that arise. For more information, please see the [conceptual overview of Elastic Scale](http://go.microsoft.com/?linkid=9862592) and the [API reference](http://go.microsoft.com/?linkid=9862604).
+The steps in this section are necessary but may not address all migration scenarios that arise. For more information, please see the [conceptual overview of Elastic Scale](./sql-database-elastic-scale-introduction.md) and the [API reference](http://go.microsoft.com/?linkid=9862604).
 
 ## Switch Out Existing Federation Members 
 
@@ -114,9 +114,9 @@ Yields the same result as:
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
-[Create a Shard Map Manager from a Federation Root]: #Create-a-Shard-Map-Manager-from-a-Federation-Root
+[Create Shard Map Manager from a Federation Root]:#create-shard-map-manager
 [Modify the Existing Application]:#Modify-the-Existing-Application
-[Switch Out Existing Federation Members]: #Switch-Out-Existing-Federation-members
+[Switch Out Existing Federation Members]:#Switch-Out-Existing-Federation-members
 
 
 <!--Image references-->
