@@ -34,6 +34,10 @@ Click the page views tile to get a more detailed history.
 
 Click Time Range to see a longer history up to seven days.
 
+Click a graph to see other metrics that you can display.
+
+![](./media/appinsights/appinsights-63usermetrics.png)
+
 ## Custom page counts
 
 By default, a page count occurs each time a new page loads into the client browser.  But you might want to count additional page views. For example, a page might display its content in tabs and you want to count a page when the user switches tabs. Or JavaScript code in the page might load new content without changing the browser's URL. 
