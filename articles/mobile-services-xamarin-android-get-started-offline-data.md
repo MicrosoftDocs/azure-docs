@@ -20,6 +20,7 @@ In this tutorial, you will update the app from the [Get started with Mobile Serv
 >
 > To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 
+A project with the completed state of this tutorial is available [here](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.Android).
 
 This tutorial walks you through these basic steps:
 
@@ -30,14 +31,14 @@ This tutorial requires the following:
 
 * Visual Studio with the [Xamarin extension] **or** [Xamarin Studio] 
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial
-* [Azure Mobile Services SDK version 1.3.0-alpha3][Mobile Services SDK Nuget]
-* [Azure Mobile Services SQLite Store version 1.0.0-alpha2][SQLite store nuget]
+* [Azure Mobile Services SDK version 1.3.0-beta2][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0-beta2][SQLite store nuget]
 
->[WACOM.NOTE] The instructions below assume you are using Visual Studio 2012 or higher with the Xamarin extension. If you are using Xamarin Studio, most of the instructions are the same, but you should also install the [NuGet Addin for Xamarin] so that you can easily add the prerelease Mobile Services NuGet packages to your project.
+>[WACOM.NOTE] The instructions below assume you are using Visual Studio 2012 or higher with the Xamarin extension. If you are using Xamarin Studio, use the built-in NuGet package manager support.
 
 ## <a name="enable-offline-app"></a>Update the app to support offline features
 
-Azure Mobile Services offline features allow you to interact with a local database when you are in an offline scenario with your Mobile Service. To use these features in your app, you initialize `MobileServiceClient.SyncContext` to a local store. Then reference your table through the `IMobileServiceSyncTable` interface.
+Azure Mobile Services offline sync allows end users to interact with a local database when the network is not accessible. To use these features in your app, you initialize `MobileServiceClient.SyncContext` to a local store. Then reference your table through the `IMobileServiceSyncTable` interface.
 
 1. In Visual Studio open the project that you completed in the [Get started with Mobile Services] or [Get Started with Data] tutorial. In Solution Explorer, remove the reference to **Azure Mobile Services SDK** in **Components**.
 
@@ -51,15 +52,15 @@ Azure Mobile Services offline features allow you to interact with a local databa
 
 ### Edit ToDoActivity.cs
 
-- Add the declarations
+1. Add the declarations
 
 		using Microsoft.WindowsAzure.MobileServices.Sync;
 		using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 		using System.IO;
 
-- Change the type of the member `ToDoActivity.toDoTable` from  `IMobileServiceTable<>` to `IMobileServiceSyncTable<>`
+2. Change the type of the member `ToDoActivity.toDoTable` from  `IMobileServiceTable<>` to `IMobileServiceSyncTable<>`
 
-- In the method `OnCreate(Bundle)`, after the line that initializes the member `client`, add the following code:
+3. In the method `OnCreate(Bundle)`, after the line that initializes the member `client`, add the following code:
 
 	    // existing initializer
 	    client = new MobileServiceClient (applicationURL, applicationKey, progressHandler);
@@ -77,27 +78,27 @@ Azure Mobile Services offline features allow you to interact with a local databa
 	
 	    await client.SyncContext.InitializeAsync(store, new TodoSyncHandler(this));
 
-- In the same method, change the line that initializes `toDoTable` to use the method `GetSyncTable<>` instead of `GetTable<>`:
+4. In the same method, change the line that initializes `toDoTable` to use the method `GetSyncTable<>` instead of `GetTable<>`:
 
 		toDoTable = client.GetSyncTable <ToDoItem> ();
 
-- Modify the method `OnRefreshItemsSelected` to add calls to `PushAsync` and `PullAsync`:
+5. Modify the method `OnRefreshItemsSelected` to add calls to `PushAsync` and `PullAsync`:
 
 		async void OnRefreshItemsSelected ()
 		{
 		    await client.SyncContext.PushAsync();
-		    await toDoTable.PullAsync();
+			await this.todoTable.PullAsync("todoItems", todoTable.CreateQuery());
 		    await RefreshItemsFromTableAsync();
 		}
 
 ### Edit ToDoItem.cs 
 
-- Add the using statement: 
+1. Add the using statement: 
 
         using Microsoft.WindowsAzure.MobileServices; 
 
 
-- Add the following members to the class `ToDoItem`:
+2. Add the following members to the class `ToDoItem`:
  
 		[Version]
 		public string Version { get; set; }
@@ -156,9 +157,11 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 
     A pull always issues a push first.  
 
-    There are also overloads of **PullAsync()** that allow a query to be specified. Note that in the preview release of offline support for Mobile Services, **PullAsync** will read all rows in the corresponding table (or query)--it does not attempt to read only rows newer than the last sync, for instance. If the rows already exist in the local sync table, they will remain unchanged.
+    This sample uses an overload of **PullAsync()** that allows specifying a query key and a query. The query key is used for incremental sync. The Mobile Services SDK tracks the last updated timestamp after each successful pull operation. On the next pull, only newer records will be retrieved. If no query key is specified, a full sync will be performed for the sync table.
 
 ## Next steps
+
+You can download the completed version of this tutorial in our [GitHub samples repository](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.Android).
 
 <!--* [Handling conflicts with offline support for Mobile Services]
 -->
@@ -182,8 +185,8 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [Get started with Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started/
 [How to use the Xamarin Component client for Azure Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
 
-[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha3
-[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha2
+[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
+[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
