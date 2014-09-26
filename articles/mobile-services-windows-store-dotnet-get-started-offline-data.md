@@ -35,9 +35,9 @@ This tutorial walks you through these basic steps:
 This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1.
-* Completion of the [Get started with Mobile Services] tutorial.
-* Windows Azure Mobile Services SDK NuGet package version 1.3.0-alpha2
-* Windows Azure Mobile Services SQLite Store NuGet package 1.0.0-alpha 
+* Completion of the [Get started with Mobile Services].
+* [Azure Mobile Services SDK version 1.3.0-beta2 (or later)][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0-beta2 (or later)][SQLite store nuget]
 * SQLite for Windows 8.1
 
 >[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
@@ -374,3 +374,5 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [Windows Phone 8 Tutorial for Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data/
 
 
+[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
+[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
