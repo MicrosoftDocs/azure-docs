@@ -66,6 +66,8 @@ When provisioning an HDInsight cluster, you can specify a SQL Database that will
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
 > [WACOM.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](http://msdn.microsoft.com/en-us/library/azure/jj156206.aspx).
+> 
+> Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks.
 
 
 > [WACOM.NOTE] It is highly recommended to designate a single subnet for one cluster. 
