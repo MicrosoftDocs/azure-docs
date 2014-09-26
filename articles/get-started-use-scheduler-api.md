@@ -1,6 +1,6 @@
-<properties linkid="get-started-with-scheduler-API" urlDisplayName="Get started with the Scheduler API" pageTitle="Get started with the Scheduler API | Azure" metaKeywords="scheduler" description="TBD" umbracoNaviHide="0" disqusComments="1" editor="mattshel" manager="dwrede" titel="Get started with the Scheduler API" authors="" title="Get started with the Scheduler API" author="krisragh" />
+<properties linkid="get-started-with-scheduler-API" urlDisplayName="Get started with the Scheduler API" pageTitle="Get started with the Scheduler API | Azure" metaKeywords="scheduler" description="TBD" umbracoNaviHide="0" disqusComments="1" editor="mattshel" manager="carolz" titel="Get started with the Scheduler API" authors="" title="Get started with the Scheduler API" />
 
-<tags ms.service="scheduler" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="rest" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
+<tags ms.service="scheduler" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="rest" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 
 # Get started with the Scheduler API
