@@ -52,8 +52,8 @@ In a **range shard map**, the key range is described by a pair **[Low Value, Hig
 For example, **[0, 100)** includes all integers greater than or equal 0 and less than 100. Note that multiple ranges can point to the same database, and disjoint ranges are supported (e.g., [100,200) and [400,600) both point to Database C in the example above.) A range can also cover values up to the maximum possible for the data type, indicated by +inf in the range mapped to Database D below.
 <table>
    <tr>
-    <td>**Key Range**</td>
-     <td>**Shard Location**</td>
+    <td><b>Key Range</b></td>
+     <td><b>Shard Location</b></td>
    </tr>
    <tr>
     <td>[1, 50)</td>

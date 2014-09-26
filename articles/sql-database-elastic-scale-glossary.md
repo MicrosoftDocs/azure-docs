@@ -11,13 +11,13 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **data-dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. Compare to **Multi-Shard Query**.
 
-**global shard map** (GSM or Shard Map): The set of mappings between sharding keys and their respective shards within a **shard set**. The GSM is stored in the **shard map manager**. Compare to **local shard map**.
+**global shard map**: The set of mappings between sharding keys and their respective shards within a **shard set**. The GSM is stored in the **shard map manager**. Compare to **local shard map**.
 
 **list shard map**: A shard map in which sharding keys are mapped individually. Compare to **range shard map**.   
 
-**local shard map** (LSM): Stored on a shard, the local shard map contains mappings for the shardlets that reside on the shard.
+**local shard map**: Stored on a shard, the local shard map contains mappings for the shardlets that reside on the shard.
 
-**multishard query** (MSQ): The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). Compare to **Data Dependent Routing**.
+**multi-shard query**: The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). Compare to **Data Dependent Routing**.
 
 **range shard map**: A shard map in which the shard distribution strategy is based on multiple ranges of contiguous values. 
 
@@ -27,7 +27,7 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **shard elasticity** (SE): The ability to perform both **horizontal scaling** and **vertical scaling**.
 
-**Sharding Key**: A column value that determines how data is distributed across shards. The value type can be one of the following: int, bigint, varbinary, or uniqueidentifier. 
+**sharding key**: A column value that determines how data is distributed across shards. The value type can be one of the following: int, bigint, varbinary, or uniqueidentifier. 
 
 **shard set**: The complete set of shards that are attributed to the same shard map in the shard map manager.  
 
@@ -35,11 +35,11 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **shard map**: The set of mappings between sharding keys and their respective shards.
 
-**Shard Map Manager**: A management service and data store that contains the shard map(s), shard locations, and mappings for one or more shard sets. 
+**Shard Map Manager**: A management object and data store that contains the shard map(s), shard locations, and mappings for one or more shard sets.
 
 **shard set**:The collection of shards that belong to the same shard map in the shard map manager. 
 
-**split** (verb): To split a single shard into two. A sharding key is provided by the user as the split point.
+**split** (Verb): To split a single shard into two. A sharding key is provided by the user as the split point.
 
 **Split and Merge service (SMS)**: A customer-hosted cloud service that enables customers to split and merge one or more shardlets. 
 
@@ -47,11 +47,11 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **vertical scaling**: The act of scaling up (or down) the performance level of an individual shard. For example, changing a shard from Standard to Premium (as required for performance reasons).**merge**: The act of creating one shard from two shards.
 
-**point move** (verb): The act of moving a single shardlet to a different shard. 
+**point move** (Verb): The act of moving a single shardlet to a different shard. 
 
-**shard** (verb): The act of horizontally partitioning identically structured data across multiple databases based on a sharding key.
+**shard**: (Verb) The act of horizontally partitioning identically structured data across multiple databases based on a sharding key.
 
-**split** (verb): The act of splitting a single shard into two. A sharding key is provided by the user as the split point.
+**split**: (Verb) The act of splitting a single shard into two. A sharding key is provided by the user as the split point.
 
  
 

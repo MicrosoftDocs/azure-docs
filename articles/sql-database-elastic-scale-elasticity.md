@@ -6,7 +6,7 @@
 
 **Shard elasticity** enables application developers to dynamically shrink and grow database resources according to need. Shard elasticity lets you optimize the performance of your applications, and also to minimize costs.   
 
-**Horizontal scaling** is a design pattern in which databases ("shards," in [Elastic Scale terms](http://go.microsoft.com/?linkid=9862603)) are added or removed from a **shard set** to grow or shrink capacity. 
+**Horizontal scaling** is a design pattern in which databases ("shards," in [Elastic Scale terms](sql-database-elastic-scale-glossary.md)) are added or removed from a **shard set** to grow or shrink capacity. 
 
 ### Horizontal Scaling Example: Concert Spike
 
