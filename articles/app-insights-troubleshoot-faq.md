@@ -58,6 +58,10 @@ Either:
 
 * In Visual Studio Solution Explorer, right-click your web project and choose Open Application Insights Portal.
 
+## <a name="update"></a>How can I change which Azure resource my project sends data to?
+
+In Solution Explorer, right-click ApplicationInsights.config and choose Update Application Insights. You can send the data to an existing or new resource in Azure. The update wizard changes the ID in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the ID where it appears in your web pages.
+
 ## <a name="q06"></a>On the Microsoft Azure Preview home screen, does that map show the status of my application?
 
 No! It shows the status of the Azure service. To see your web test results, choose Browse > Application Insights > (your application) and then look at the web test results. 
