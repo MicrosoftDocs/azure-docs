@@ -33,8 +33,8 @@ This tutorial requires the following:
 * Visual Studio 2012
 * [Windows Phone 8 SDK]
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
-* [Azure Mobile Services SDK version 1.3.0-alpha4 (or later)][Mobile Services SDK Nuget]
-* [Azure Mobile Services SQLite Store version 1.0.0-alpha4 (or later)][SQLite store nuget]
+* [Azure Mobile Services SDK version 1.3.0-beta2 (or later)][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0-beta2 (or later)][SQLite store nuget]
 * [SQLite for Windows Phone 8]
 
 >[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
@@ -287,5 +287,5 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
 
-[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha4
-[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha4
+[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
+[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
