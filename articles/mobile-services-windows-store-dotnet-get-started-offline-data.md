@@ -22,6 +22,9 @@ In this tutorial, you will update the Universal app project from the [Get starte
 
 >[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. If this is your first experience with Mobile Services, you should complete the tutorial [Get started with Mobile Services] first.
 
+>[WACOM.NOTE] The older Windows Phone 8 tutorial for Visual Studio 2012 is still viewable here, [Windows Phone 8 Tutorial for Visual Studio 2012].
+
+
 This tutorial walks you through these basic steps:
 
 1. [Update the app to support offline features]
@@ -181,10 +184,10 @@ Azure Mobile Services offline features allow you to interact with a local databa
             try
             {
                 // In this example scenario we are demonstrating incremental sync. We only want to 
-                // sync the completed todoitems. If another client updated the text or any other 
-                // field before completing the item, it doesn't concern us. So we pass a query to the 
-                // PullAsync() method to pull completed todoitems instead of the entire table.
-                await todoTable.PullAsync(todoTable.Where(todoItem => todoItem.Complete == true));
+                // sync the uncomplete todoitems. If another client updated the text or any other 
+                // field after completing the item, it doesn't concern us. So we pass a query to the 
+                // PullAsync() method to pull uncomplete todoitems instead of the entire table.
+                await todoTable.PullAsync(todoTable.Where(todoItem => todoItem.Complete == false));
 
                 await RefreshTodoItems();
             }
@@ -305,7 +308,7 @@ In this section you will test push and pull operations to sync the local store w
 
     ![][8]
 
-5. This time press the **Pull** button in the app. The app only calls `IMobileServiceSyncTable.PullAsync()` and `RefreshTodoItems`.  Notice that all the data from the mobile service database was pulled into the local store and shown in the app. However, also notice that all the data in the local store was still pushed to the mobile service database. This is because a **pull always does a push first**. This is to ensure all tables in the local store along with relationships stay in sync.
+5. This time press the **Pull** button in the app. The app calls `IMobileServiceSyncTable.PullAsync()` and `RefreshTodoItems`.  Notice that all the data from the mobile service database was pulled into the local store and shown in the app. However, also notice that all the data in the local store was still pushed to the mobile service database. This is because a **pull always does a push first**. This is to ensure all tables in the local store along with relationships stay in sync.
  
     ![][9]
 
@@ -368,5 +371,6 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
+[Windows Phone 8 Tutorial for Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data/
 
 
