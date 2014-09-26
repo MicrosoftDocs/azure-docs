@@ -88,26 +88,16 @@ You have two options:
 
 To create a new WebJobs-enabled project, you can use the Console Application project template and enable WebJobs deployment as explained in [the previous section](#convert). As an alternative, you can use the WebJobs new-project template:
 
-* [Use the WebJobs new-project template for a WebJob linked to a web project](#createlink)
-
-	Create a project that is configured to deploy automatically as a WebJob when a web project in the same solution is deployed. Use this option when you want to run your WebJob in the same website in which you run the related web application.
-
 * [Use the WebJobs new-project template for an independent WebJob](#createnolink)
 
 	Create a project and configure it to deploy by itself as a WebJob, with no link to a web project. Use this option when you want to run a WebJob in a website by itself, with no web application running in the website. You might want to do this in order to be able to scale your WebJob resources independently of your web application resources.
 
+* [Use the WebJobs new-project template for a WebJob linked to a web project](#createlink)
+
+	Create a project that is configured to deploy automatically as a WebJob when a web project in the same solution is deployed. Use this option when you want to run your WebJob in the same website in which you run the related web application.
+
 In the SDK 2.4 release, the WebJobs new-project template isn't much easier than creating a Console Application project and enabling WebJobs deployment. In the future, the WebJobs new-project template will be more convenient for [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs) development, because it will automatically install the appropriate WebJobs SDK NuGet packages. Until then, you can configure a project to use the WebJobs SDK by installing the packages manually as shown in the [WebJobs SDK tutorial](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). 
 
-
-### <a id="createlink"></a> Use the WebJobs new-project template for a WebJob linked to a web project
-
-*  Right-click the web project in **Solution Explorer**, and then click **Add** > **New Azure WebJob Project**.
-
-	![New Azure WebJob Project menu entry](./media/websites-dotnet-deploy-webjobs/nawj.png)
-
-	The [Add Azure WebJob](#configure) dialog box appears.
-
-*  Complete the [Add Azure WebJob](#configure) dialog box, and then click **OK**.
 
 ### <a id="createnolink"></a> Use the WebJobs new-project template for an independent WebJob
   
@@ -116,6 +106,16 @@ In the SDK 2.4 release, the WebJobs new-project template isn't much easier than 
 	![New Project dialog showing WebJob template](./media/websites-dotnet-deploy-webjobs/np.png)
 	
 2. Follow the directions shown earlier to [make the Console Application project an independent WebJobs project](#convertnolink).
+
+### <a id="createlink"></a> Use the WebJobs new-project template for a WebJob linked to a web project
+
+1. Right-click the web project in **Solution Explorer**, and then click **Add** > **New Azure WebJob Project**.
+
+	![New Azure WebJob Project menu entry](./media/websites-dotnet-deploy-webjobs/nawj.png)
+
+	The [Add Azure WebJob](#configure) dialog box appears.
+
+2. Complete the [Add Azure WebJob](#configure) dialog box, and then click **OK**.
 
 ## <a id="configure"></a>The Add Azure WebJob dialog
 
