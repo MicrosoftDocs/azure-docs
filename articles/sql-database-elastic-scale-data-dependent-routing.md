@@ -2,13 +2,13 @@
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
-#Data Dependent Routing (DDR) 
+#Data-Dependent Routing
 
-The **ShardMapManager** class provides ADO.NET applications the ability to easily direct database queries and commands to the appropriate physical database in a sharded environment. This is called **Data Dependent Routing (DDR)** and is a fundamental pattern when working with sharded databases. Each specific query or transaction in an application using DDR is restricted to accessing a single database per request.  
+The **ShardMapManager** class provides ADO.NET applications the ability to easily direct database queries and commands to the appropriate physical database in a sharded environment. This is called **data-dependent routing** and it is a fundamental pattern when working with sharded databases. Each specific query or transaction in an application using DDR is restricted to accessing a single database per request.  
 
 Using DDR, there is no need for the application to track the various connection strings or DB locations associated with different slices of data in the sharded environment. Rather, the [Shard Map Manager](http://go.microsoft.com/?linkid=9862595) takes responsibility for handing out open connections to the correct database when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. (This key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
 
-##Using a ShardMapManager in a DDR Application 
+## Using a ShardMapManager in a Data-Dependent Routing Application 
 
 For applications using DDR, a **ShardMapManager** should be instantiated once per app domain, during initialization, using the factory call **GetSQLShardMapManager**.
 

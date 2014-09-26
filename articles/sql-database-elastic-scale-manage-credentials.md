@@ -21,7 +21,7 @@ The [Elastic Scale Client APIs](http://go.microsoft.com/?linkid=9862605) expects
 
 		"Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 
-* **User Credentials for Shard Map Manager Access**:  When instantiating the Shard Map Manager in an application that is not going to administer shard maps, we suggest using credentials that have read-only permissions on the global shard map. The information retrieved from the global shard map under these credentials will be used for [data dependent routing](http://go.microsoft.com/?linkid=9862596) and to populate the shard map cache on the client. The credentials are provided through the same call pattern to **GetSqlShardMapManager** as shown earlier: 
+* **User Credentials for Shard Map Manager Access**:  When instantiating the Shard Map Manager in an application that is not going to administer shard maps, we suggest using credentials that have read-only permissions on the global shard map. The information retrieved from the global shard map under these credentials will be used for [data-dependent routing](sql-database-elastic-scale-data-dependent-routing) and to populate the shard map cache on the client. The credentials are provided through the same call pattern to **GetSqlShardMapManager** as shown earlier: 
  
 		// Obtain shard map manager. 
 		ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 

@@ -27,7 +27,7 @@ Here is a database named **sample_shard_2**. All necessary schema objects inside
 
 ### To Add a Shard for an Empty Part of an Existing Range  
 
-You have mapped a range to a shard and partially filled it with data, but upcoming data must be directed to a different shard. For example, you shard by day range and have allocated 50 days to a shard. But on day 24, data should go to a different shard. The [Split/Merge Service](http://go.microsoft.com/?linkid=9862599) can perform this operation, but if data movement is not needed, use the Shard Map Management APIs directly. (For example, data for days 25-50 does not yet exist) .
+You have mapped a range to a shard and partially filled it with data, but upcoming data must be directed to a different shard. For example, you shard by day range and have allocated 50 days to a shard. But on day 24, data should go to a different shard. The [Split-Merge Service](./sql-database-elastic-scale-overview-split-and-merge.md) can perform this operation, but if data movement is not needed, use the Shard Map Management APIs directly. (For example, data for days 25-50 does not yet exist) .
 
 ### To Split a Range and Assign the Empty Portion to a Newly-added Shard
 
