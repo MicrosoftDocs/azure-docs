@@ -20,7 +20,7 @@ You'll need Visual Studio 2013 and the Azure SDK installed. If you don't already
 
 To set up a cloud service to automatically build and deploy to Azure by using Visual Studio Online, follow these steps:
 
--   [Step 1: Sign up for Visual Studio Online and create a Git repository.][]
+-   [Step 1: Create a Git repository.][]
 
 -   [Step 2: Create a project and push it to your Git repository.][]
 
@@ -34,7 +34,7 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 
 -	[Step 7: Deploy from a working branch][]
 
-<h2> <a name="step1"></a><span class="short-header">Step 1: Sign up for Visual Studio Online and create a Git repository.</span>Step 1: Sign up for Visual Studio Online and create a Git repository</h2>
+<h2> <a name="step1"></a><span class="short-header">Step 1: Create a Git repository.</span>Step 1: Create a Git repository</h2>
 
 
 1. If you don’t yet have a Visual Studio Online account, follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=397665). When you create your team project, choose Git as your source control system. Follow the instructions to connect Visual Studio to your team project.
@@ -198,7 +198,7 @@ When you use Git, you usually make changes in a working branch and integrate int
 
 For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). For additional tips on using Git with Visual Studio Online, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and for information about using a Git repository that's not managed by Visual Studio Online to publish to Azure, see [Publishing from Source Control to Azure Websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control).
 
-[Step 1: Sign up for Visual Studio Online and create a Git repository.]: #step1
+[Step 1: Create a Git repository.]: #step1
 [Step 2: Create a project and push it to your Git repository.]: #step2
 [Step 3: Connect the project to Azure.]: #step3
 [Step 4: Make changes and trigger a rebuild and redeployment.]: #step4
