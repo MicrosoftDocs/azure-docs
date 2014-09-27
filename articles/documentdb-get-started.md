@@ -91,7 +91,7 @@ Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentA
                     FirstName = "Henriette Thaulow", 
                     Gender = "female", 
                     Grade = 5, 
-                    Pets = new [] {
+                    Pets = new Pet[] {
                         new Pet { GivenName = "Fluffy" } 
                     }
                 } 
