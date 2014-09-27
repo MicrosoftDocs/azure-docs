@@ -51,26 +51,23 @@ Now that you know how to connect to a DocumentDB account and create an instance 
 Using the .NET SDK, a DocumentDB database can be created via the CreateDatabaseAsync method of a DocumentClient.  
 
     //Create a Database
-	 Database database = await client.CreateDatabaseAsync(
- 		new Database
- 		{
- 		Id = "FamilyRegistry"
- 		});
-
-
+	Database database = await client.CreateDatabaseAsync(
+ 	      new Database
+ 		     {
+ 		         Id = "FamilyRegistry"
+ 		     });
 
 ##<a id="CreateColl"></a>Create a collection  
 
 Using the .NET SDK, a DocumentDB collection can be created via the CreateDocumentCollectionAsync method of a DocumentClient.  The database created in the previous step has a number of properties, one of which is the SelfLink property.  With that information, we can now create a collection.  
 
-    	//Create a document collection 
+    //Create a document collection 
 	documentCollection = new DocumentCollection
 		{
 			Id = "FamilyCollection"
 		};
 	
-		documentCollection = await client.CreateDocumentCollectionAsync(database.SelfLink,documentCollection); 
-
+	documentCollection = await client.CreateDocumentCollectionAsync(database.SelfLink,documentCollection); 
     
 ##<a id="CreateDoc"></a>Create documents	
 Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentAsync method of a DocumentClient.  The collection created in the previous step has a number of properties, one of which is the DocumentsLink property.  With that information, we can now insert 1 or more documents.  For the purposes of this example, we'll assume that we have a Family class that describes the attributes of a family such as name, gender and age.  
@@ -144,9 +141,9 @@ DocumentDB supports rich queries against the JSON documents stored in each colle
 	//Querying the documents using DocumentDB SQL for the Andersen family
 	//
 	foreach (var family in client.CreateDocumentQuery(collectionLink, 
-    "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
+        "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
 	{
-    Console.WriteLine("\tRead {0} from SQL", family);
+        Console.WriteLine("\tRead {0} from SQL", family);
 	}
 
 	//
@@ -157,7 +154,7 @@ DocumentDB supports rich queries against the JSON documents stored in each colle
     	where f.Id == "AndersenFamily"
     	select f))
 	{
-   	 Console.WriteLine("\tRead {0} from LINQ", family);
+   	    Console.WriteLine("\tRead {0} from LINQ", family);
 	}
 
 	//
