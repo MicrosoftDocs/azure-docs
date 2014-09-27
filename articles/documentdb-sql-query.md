@@ -1277,7 +1277,7 @@ Below is an example of how a UDF can be registered at the DocumentDB database, s
    
 	   UserDefinedFunction sqrtUdf = new UserDefinedFunction
 	   {
-	       Name = "SQRT",
+	       Id = "SQRT",
 	       Body = @"function(number) { 
 	                   return Math.sqrt(number);
 	               };",
