@@ -31,7 +31,7 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 
 -	[Step 7: Run unit tests (optional)][]
 
-<h2> <a name="step1"></a><span class="short-header">Sign up for Visual Studio Online</span>Step 1: Create a team project</h2>
+<h2> <a name="step1"></a><span class="short-header">Create a team project</span>Step 1: Create a team project</h2>
 
 Follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=512980) to create your team project and link it to Visual Studio. This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution. If you want to use Git for version control, see [the Git version of this walkthrough](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
