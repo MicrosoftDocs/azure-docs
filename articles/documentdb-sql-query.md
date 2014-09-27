@@ -1331,7 +1331,7 @@ To expand on the power of UDFs, let's look at another example with conditional l
 
 	   UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
 	   {
-	       Name = "SEALEVEL",
+	       Id = "SEALEVEL",
 	       Body = @"function(city) {
 	       		switch (city) {
 	       		    case 'seattle':
