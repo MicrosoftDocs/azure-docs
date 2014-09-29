@@ -398,7 +398,7 @@ In the Certificate Import Wizard:
 	1. 	If the Trusted Root Certification Authority store was chosen; click Yes
 9. 	Click OK on all dialog windows
 
-## Upload certificate
+## <a name="upload-certificate"></a>Upload Certificate
 
 In the [Azure Management Portal](http://manage.windowsazure.com/)
 
@@ -445,3 +445,4 @@ The data stored in this database is not encrypted. To avoid disclosing credentia
 [Tools to Generate Certificates]:#tools
 [To Configure the SSL Certificate]:#to-configure-ssl-cert
 [Other Security Considerations]:#other-security 
+[Upload Certificate]:#upload-certificate
