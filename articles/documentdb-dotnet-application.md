@@ -571,7 +571,7 @@ In a few seconds, Visual Studio will finish publishing your web application and 
 
 ### 
 
-Congratulations! You have just built your first ASP.NET MVC Application using Azure DocumentDB and published it to Azure Websites. The source code for the complete reference application can be downloaded here.
+Congratulations! You have just built your first ASP.NET MVC Application using Azure DocumentDB and published it to Azure Websites. The source code for the complete reference application can be downloaded [here][].
 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
