@@ -61,7 +61,7 @@ Before you begin this tutorial, you must have the following:
 
 * **SQL Server**. If your HDInsight cluster is on the same Azure Virtual Network as a SQL Server, you can use the steps in this article to import and export data to a SQL Server database. For more information, see the following articles.
 
-> [WACOM.NOTE] > Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks.
+	> [WACOM.NOTE] > Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks.
 
 	* To **create and configure a Virtual Network**, see [Virtual Network Configuration Tasks](http://msdn.microsoft.com/en-us/library/azure/jj156206.aspx).
 
