@@ -76,7 +76,7 @@ The tables ‘region’ and ‘nation’ are defined as reference tables and wil
 
 ## Getting the Service Binaries
 
-The service binaries for Split/Merge are provided through NuGet. See the step-by-step [Split-Merge tutorial](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) for more information about downloading the binaries.
+The service binaries for Split/Merge are provided through [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). See the step-by-step [Split-Merge tutorial](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) for more information about downloading the binaries.
 
 ## The Split/Merge User Interface
 
