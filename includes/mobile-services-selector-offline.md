@@ -1,6 +1,11 @@
-> [AZURE.SELECTOR-LIST (Platform)]
-- [(iOS)](/en-us/documentation/articles/mobile-services-ios-get-started-offline-data/)
-- [(Windows Store C#)](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/)
-- [(Android)](/en-us/documentation/articles/mobile-services-android-get-started-offline-data/)
-- [(Xamarin iOS)](/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data/)
-- [(Xamarin Android)](/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data/)
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(iOS | .NET)](/en-us/documentation/articles/mobile-services-ios-get-started-offline-data/)
+- [(iOS | JavaScript)](/en-us/documentation/articles/mobile-services-ios-get-started-offline-data/)
+- [(Windows Store C# | .NET)](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/)
+- [(Windows Store C# | JavaScript)](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/)
+- [(Android | .NET)](/en-us/documentation/articles/mobile-services-android-get-started-offline-data/)
+- [(Android | JavaScript)](/en-us/documentation/articles/mobile-services-android-get-started-offline-data/)
+- [(Xamarin iOS | .NET)](/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data/)
+- [(Xamarin iOS | JavaScript)](/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data/)
+- [(Xamarin Android | .NET)](/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data/)
+- [(Xamarin Android | JavaScript)](/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data/)
