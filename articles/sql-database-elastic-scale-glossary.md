@@ -9,15 +9,15 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **Database**: An Azure SQL database. 
 
-**Data Dependent Routing** (DDR): The functionality that enables an application to connect to a shard given a specific sharding key. Compare to **Multi-Shard Query**.
+**Data Dependent Routing**: The functionality that enables an application to connect to a shard given a specific sharding key. Compare to **Multi-Shard Query**.
 
-**global shard map**: The set of mappings between sharding keys and their respective shards within a **shard set**. The GSM is stored in the **shard map manager**. Compare to **local shard map**.
+**Global shard map**: The set of mappings between sharding keys and their respective shards within a **shard set**. The GSM is stored in the **shard map manager**. Compare to **local shard map**.
 
 **List Shard Map**: A shard map in which sharding keys are mapped individually. Compare to **Range Shard Map**.   
 
-**local shard map**: Stored on a shard, the local shard map contains mappings for the shardlets that reside on the shard.
+**Local shard map**: Stored on a shard, the local shard map contains mappings for the shardlets that reside on the shard.
 
-**multi-shard query**: The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). Compare to **Data Dependent Routing**.
+**Multi-shard query**: The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). Compare to **Data Dependent Routing**.
 
 **Range Shard Map**: A shard map in which the shard distribution strategy is based on multiple ranges of contiguous values. 
 
@@ -27,7 +27,7 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **Shard Elasticity** (SE): The ability to perform both **horizontal scaling** and **vertical scaling**.
 
-**sharding key**: A column value that determines how data is distributed across shards. The value type can be one of the following: int, bigint, varbinary, or uniqueidentifier. 
+**Sharding key**: A column value that determines how data is distributed across shards. The value type can be one of the following: int, bigint, varbinary, or uniqueidentifier. 
 
 **Shard Set**: The complete set of shards that are attributed to the same shard map in the shard map manager.  
 
@@ -39,7 +39,7 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **Shard Set**:The collection of shards that belong to the same shard map in the shard map manager. 
 
-**split** (Verb): To split a single shard into two. A sharding key is provided by the user as the split point.
+**Split** (Verb): To split a single shard into two. A sharding key is provided by the user as the split point.
 
 ##Verbs
 
@@ -47,11 +47,11 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **Merge**: The act of creating one shard from two shards.
 
-**point move** (Verb): The act of moving a single shardlet to a different shard. 
+**Point move** (Verb): The act of moving a single shardlet to a different shard. 
 
-**shard**: (Verb) The act of horizontally partitioning identically structured data across multiple databases based on a sharding key.
+**Shard**: (Verb) The act of horizontally partitioning identically structured data across multiple databases based on a sharding key.
 
-**split**: (Verb) The act of splitting a single shard into two. A sharding key is provided by the user as the split point.
+**Split**: (Verb) The act of splitting a single shard into two. A sharding key is provided by the user as the split point.
 
 **Vertical Scaling**: The act of scaling up (or down) the performance level of an individual shard. For example, changing a shard from Standard to Premium (as required for performance reasons). 
 

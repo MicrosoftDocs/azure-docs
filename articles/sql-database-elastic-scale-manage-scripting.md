@@ -7,11 +7,16 @@
 
 ## Azure Automation Service 
 
-Recently [introduced](http://blogs.technet.com/b/in_the_cloud/archive/2014/04/15/announcing-the-microsoft-azure-automation-preview.aspx) as a [public preview service](https://account.windowsazure.com/PreviewFeatures?fid=automation), [Azure](https://account.windowsazure.com/PreviewFeatures?fid=automation) [Automation](http://azure.microsoft.com/en-us/documentation/services/automation/) brings a powerful, much needed PowerShell Workflow execution service to the Azure platform.  Those once difficult maintenance tasks are now possible to automate, and conveniently encapsulated within the common Azure portal experience.  Simply author a PowerShell Workflow (called a **runbook** in Azure Automation), upload it to the cloud, and schedule when you want the runbook to execute. This document provides thorough details on the end-to-end setup of Azure Automation for a handful of shard elasticity examples. 
+[Azure Automation](http://azure.microsoft.com/en-us/documentation/services/automation/) brings a powerful, much needed PowerShell Workflow execution service to the Azure platform. Now you can automate maintenance tasks that are difficult from within the common Azure portal experience.  Simply author a PowerShell Workflow (called a **runbook** in Azure Automation), upload it to the cloud, and schedule when you want the runbook to execute. This document provides end-to-end setup of Azure Automation for a handful of shard elasticity examples. For more information, see the [preview announcement](http://blogs.technet.com/b/in_the_cloud/archive/2014/04/15/announcing-the-microsoft-azure-automation-preview.aspx). Or sign up for an Azure [subscription](https://account.windowsazure.com/PreviewFeatures?fid=automation).
 
-In the context of this example, Azure Automation will be utilized as the schedule and workload execution framework – think of Azure Automation as [Your SQL Agent in the Cloud](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/). 
+In this example, Azure Automation is used as the schedule and workload execution framework. Think of Azure Automation as your [SQL Agent in the Cloud](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/). 
 
-In addition to the detailed steps provided in this document there have been a few [getting](http://azure.microsoft.com/en-us/documentation/articles/automation-create-runbook-from-samples/) [started](http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx) [guides](http://blogs.technet.com/b/cbernier/archive/2014/04/08/microsoft-azure-automation.aspx) for Azure Automation to help supplement the content.  If you have any Azure Automation specific questions, please post them [here](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).  
+In addition to this document, here are other resources:
+
+* [Get started with Azure Automation](http://azure.microsoft.com/en-us/documentation/articles/automation-create-runbook-from-samples/)
+* [Step-by-Step: Getting Started with NEW Microsoft Azure Automation preview feature](http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx) 
+* [Microsoft Azure Automation](http://blogs.technet.com/b/cbernier/archive/2014/04/08/microsoft-azure-automation.aspx) 
+* Ask Azure Automation specific questions on the [Automation forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).  
 
 
 ## Prerequisites
@@ -19,27 +24,27 @@ In addition to the detailed steps provided in this document there have been a fe
 [Sign-up](http://azure.microsoft.com/en-us/services/preview/) and [familiarize](http://azure.microsoft.com/en-us/documentation/articles/automation-create-runbook-from-samples/) yourself with the Microsoft Azure Automation Preview service. 
 
 
-## Shard Elasticity PowerShell Files  
+## Shard Elasticity PowerShell Files
 
-The following set of PowerShell files provide the primitives in order to accomplish both of the previously described horizontal and vertically scaling scenarios using Azure Automation. 
+The following set of PowerShell files contain the basic commands to accomplish horizontal and vertically scaling scenarios using Azure Automation. 
 
-To facilitate both horizontal and vertical elasticity, the provided examples illustrate how to use the Shard Elasticity with PowerShell sample modules, the Microsoft Azure Automation service and corresponding Azure Automation runbooks to create automated and scheduled jobs that can provision a new shard and/or change the performance level (i.e., edition) of specific shards in a shard set based on a set of rules. 
+These examples illustrate how to use the PowerShell sample modules to perform basic shard elasticity tasks. In combination with the Microsoft Azure Automation service and corresponding Azure Automation runbooks, you can create automated and scheduled jobs that provision a new shard and/or change the performance level of specific shards based on a set of rules. 
 
-**SetupShardedEnvironment.ps1** - This PowerShell runbook performs a one-time setup of a sharded environment complete with a shard map manager and range shard map. 
+**SetupShardedEnvironment.ps1**: This PowerShell runbook performs a one-time setup of a sharded environment complete with a shard map manager and range shard map. 
 
-**ProvisionShardByDate.ps1** - This script provisions a new database in advance of the upcoming day's workload. The database is created and named based on date stamp (YYYYMMDD) and is registered with the shard map manager as a range [YYYYMMDD, YYYYMMDD + 1D). 
+**ProvisionShardByDate.ps1**: Provisions a new database in advance of the upcoming day's workload. The database is created and named based on date stamp (YYYYMMDD) and is registered with the shard map manager as a range [YYYYMMDD, YYYYMMDD + 1D). 
 
-**ProvisionShardBySize.ps1** – Similar to ProvisionShardByDate.ps1, but instead provisions a new database when the current database is running out of capacity. 
+**ProvisionShardBySize.ps1**: Provisions a new database when the current database is running out of capacity. 
 
-**ReduceServiceTier.ps1** - This script iterates through the shards in a provided shard map and determines if each individual shard is a candidate for performance tier reduction (e.g., change a database from Standard to Basic).  There are two criteria that determine whether or not the shard is a candidate: 1) the current service tier of the shard and 2) the age of the database.  In this implementation, the current DB service tier is 'Standard' and the desired database SKU when the DB is >= 1 day old is 'Basic'. 
+**ReduceServiceTier.ps1**: Iterates through the shards in a provided shard map and determines if each individual shard is a candidate for performance tier reduction. Two criteria determine whether or not the shard is a candidate: 1) the current service tier of the shard and 2) the age of the database.  
 
-**ShardManagement.psm1** - Provides a set of methods to interact with Elastic Scale shard map manager. 
+**ShardManagement.psm1**: Provides a set of methods to interact with the shard map manager. 
 
-**SqlDatabaseHelpers.psm1** - Provides a set of methods to interact with Azure SQL databases. 
+**SqlDatabaseHelpers.psm1**: Provides a set of methods to interact with Azure SQL databases. 
 
-**ShardElasticity.psm1** - Provides a set of methods to perform horizontal scaling as well as vertical scaling operations. 
+**ShardElasticity.psm1**: Provides a set of methods to perform horizontal scaling as well as vertical scaling operations. 
 
-**ShardElasticity.psd1** - Provides a set of methods to interact with Elastic Scale and Azure SQL DB. 
+**ShardElasticity.psd1**: Provides a set of methods to interact with Elastic Scale and Azure SQL DB. 
 
 ## Costs
 
@@ -51,26 +56,23 @@ Note that the execution of the PowerShell example scripts will result in the cre
 
 Lastly, within the scope of the provided examples, the use of [Azure Automation](http://azure.microsoft.com/en-us/pricing/details/automation/) currently will not incur any charges to the subscription owner.  Please see the [Azure Automation pricing page](http://azure.microsoft.com/en-us/pricing/details/automation/) for more details. 
 
+## To load the runbooks 
 
-
-## Quick Example Instructions 
-
-To execute the Shard Elasticity scenario mentioned above, below are the detailed steps to exercise the provided example code: 
-
-1. Download the “ShardElasticity.zip” file and extract contents.
-2. Via the Elastic Scale NuGet feed, obtain the Elastic Scale client DLL (i.e., Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll), place the DLL in the ShardElasticityModule folder and then zip the folder. 
-3. In your Azure Automation account, upload the ShardElasticityModule.zip file as an Asset. 
-4. Continuing in Azure Automation, create an Asset Credential called “ElasticScaleCredential” that contains the username and password for your Azure SQL Database server.  Additionally, create an Asset Variable called “SqlServerName” for your fully-qualified Azure SQL Database server name. 
-5. Upload the “SetupShardedEnvironment.ps1”, “ProvisionBySize.ps1”, “ProvisionByDate.ps1”, “ProvisionByDate.ps1” files as runbooks. 
-6. As a one-time operation, test the “SetupShardedEnvironment.ps1” runbook to setup the sharded environment. 
+1. Download the **ShardElasticity.zip** file and extract contents.
+2. [Add references to the Elastic Scale binaries using NuGet](./sql-database-elastic-scale-add-references-visual-studio.md)
+3. Find the Elastic Scale client binary (**Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll**).
+4. Place the DLL in the ShardElasticityModule folder and zip the folder. 
+3. In your Azure Automation account, upload the ShardElasticityModule.zip file as an **Asset**. 
+4. In Azure Automation, create an **Asset Credential** called *ElasticScaleCredential* that contains the username and password for your Azure SQL Database server. 
+5. Create an **Asset Variable** called *SqlServerName* for your fully-qualified Azure SQL Database server name. 
+5. Upload **SetupShardedEnvironment.ps1**, **ProvisionBySize.ps1**, **ProvisionByDate.ps1**, and **ProvisionByDate.ps1** as runbooks. 
+6. As a one-time operation, test the **SetupShardedEnvironment.ps1** runbook to setup the sharded environment. 
 7. Publish one or more of the remaining runbooks and link the runbook(s) to a schedule. 
-8. Observe the output of the runbook via the “JOBS” tab. 
+8. Observe the output of the runbook via the **JOBS** tab. 
 
 If the Quick Example Instructions were not successful, please see the Detailed Example Instructions below.  
 
-## Detailed Example Instructions 
-
-To execute the shard elasticity scenario mentioned above, below are the detailed steps to exercise the provided example code: 
+##  To use runbooks
 
 1. Author and package a PowerShell module 
 2. Create a Microsoft Azure Automation Account 
@@ -104,54 +106,61 @@ The first step is to create a PowerShell module that references the Elastic Scal
 	![dll][3]
 
 
-## Create a Microsoft Azure Automation Account 
+## Sign up for the Azure Automation Preview
 
-The second step is to create an Azure Automation Account. 
+1. Go to the [Azure Preview Features](http://azure.microsoft.com/en-us/services/preview/).
+	
+2. Click **Try It**.
 
-1. Go to[ Microsoft Azure portal](https://manage.windowsazure.com/microsoft.onmicrosoft.com).
-2. Click on **Automation**.
+	![Click Try It][8]
+
+2. Go to[ Microsoft Azure portal](https://manage.windowsazure.com/microsoft.onmicrosoft.com).
+3. Click on **Automation**.
 
 	![Automation][4]
-3. At the bottom of the screen click **Create**. 
-4. In the prompt shown below, please enter a valid account name and click the check in the bottom right-hand corner of the box.
+4. At the bottom of the screen click **Create**. 
+5. In the prompt shown below, please enter a valid account name and click the check in the bottom right-hand corner of the box.
 
 	![Prompt][5] 
-5. Proceed to the next step.
+5. Proceed to the next step. Success resembles the graphic below.
+
+	![success][6]
 
 ## Upload PowerShell Module to Azure Automation as an Asset 
 
-The third step is to upload the PowerShell module from Step 1 to the Azure Automation Account created in Step 2. For example, the module contains a set of Shard Elasticity functions and Elastic Scale DLLs that can be referenced from the runbooks. 
+Upload the PowerShell module from above to the your Azure Automation Account. For example, the module contains a set of Shard Elasticity functions and Elastic Scale DLLs that can be referenced from the runbooks. 
 
 1. Click **ASSETS** in the ribbon on the top of the screen.
 2. Click **IMPORT MODULE** at the bottom of the page. 
-3. Click **BROWSE FOR FILE…**, and locate the “ShardElasticityModule.zip” file from above. 
+3. Click **BROWSE FOR FILE…**, and locate the **ShardElasticityModule.zip** file from above. 
 4. Once the correct file has been chosen, click the check in the bottom right-hand corner of the box to import it. Azure Automation service imports the module. 
 5. Proceed to the next step. Success resembles this graphic. If the module was not imported successfully, please ensure that the zip file matches conventions described above.
 
-	![Success][6] 
-
+	![Assets][10] 
 	  
 ## Create Azure Automation Credential and Variable Assets 
 
-Instead of hard coding credentials and commonly used variables into the runbooks, Azure Automation provides the facility to create credential and variable assets respectively that can be referenced across many runbooks.  For example, changing a password then happens in only one location. 
+Instead of hard coding credentials and commonly used variables into the runbooks, Azure Automation can create credential and variable assets respectively that can be referenced across many runbooks. For example, changing a password then happens in only one location. 
 
 1. Select the new Azure Automation account that you just created.
-2. Under the ShardElasticityExamples account, click **ASSETS** in the ribbon .
-2. Click **ADD SETTING** at the bottom of the screen.  
-3. Click **ADD CREDENTIAL**. 
+2. Under the **ShardElasticityExamples** account, click **ASSETS** in the ribbon.
+3. Click **ADD SETTING** at the bottom of the screen.  
+4. Click **ADD CREDENTIAL**. 
+
+	![Add credential][9]
 4. Select **Windows PowerShell Credential** as the **CREDENTIAL TYPE** and **ElasticScaleCredential** as the Name. A description is optional.  
 5. Click the arrow in the bottom right-hand corner of the box. 
 
 	Note: To use the runbooks without modification, use the variable names verbatim, as provided in the instructions. The variable names are referenced by the runbooks. 
-5. Insert the user name and password (twice) for the Azure SQL DB server on which you wish to run the Shard Elasticity examples. Click the check when finished. 
-6. To create the variable asset, repeat step 3, but instead select **ADD VARIABLE**. 
+5. Insert the user name and password (twice) for the Azure SQL DB server on which you wish to run the Shard Elasticity examples. 
+ 
+6. To create the variable asset, click **ADD SETTING**, then select **ADD VARIABLE**. 
 
 	![Add variable][7]
 7. For this tutorial, create a variable for the fully-qualified Azure SQL DB server name under which the shard map manager and sharded databases will reside. Select **String** as the **VARIABLE TYPE** and enter **SqlServerName**. Click the arrow to proceed. 
 8. Enter the fully-qualified Azure SQL DB server name as the VALUE and click on the check. 
 9. You have now created both a credential and variable asset that will be used in the Shard Elasticity runbooks.  Proceed to the next step. Success looks like the following: 
-
-WE ARE MISSING A SCREENSHOT HERE!!!
+	
 
 ## Upload PowerShell Runbooks to Azure Automation 
 
@@ -218,3 +227,6 @@ The provided examples only scratch the surface for what is possible when combini
 [5]: ./media/sql-database-elastic-scale-scripting/prompt.png
 [6]: ./media/sql-database-elastic-scale-scripting/success.png
 [7]: ./media/sql-database-elastic-scale-scripting/add-variable.png
+[8]: ./media/sql-database-elastic-scale-scripting/signup.png
+[9]: ./media/sql-database-elastic-scale-scripting/add-credential.png
+[10]: ./media/sql-database-elastic-scale-scripting/assets.png
