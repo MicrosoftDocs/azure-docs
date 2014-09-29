@@ -96,19 +96,19 @@ Before you begin this tutorial, you must have the following:
 2. Click **NEW** on the lower left corner, point to **DATA SERVICES**, point to **HDINSIGHT**, and then click **CUSTOM CREATE**.
 3. Enter a **CLUSTER NAME** and select the **HDINSIGHT VERSION** to use for the cluster.
 
-	![cluster name and version fields](../media/hdinsight-hbase-provision-vnet/hbasewizard1.png)
+	![cluster name and version fields](./media/hdinsight-hbase-provision-vnet/hbasewizard1.png)
 
 4. Select the number of **DATA NODES** to create for the cluster, and the region or Azure Virtual network (**REGION/VIRTUAL NETWORK**) to use for this cluster.
 
-	![number of nodes and region fields](../media/hdinsight-hbase-provision-vnet/hbasewizard2.png)
+	![number of nodes and region fields](./media/hdinsight-hbase-provision-vnet/hbasewizard2.png)
 
 5. Enter the administrator **USER NAME** and **PASSWORD** to use for this cluster.
 
-	![administrator name and password fields](../media/hdinsight-hbase-provision-vnet/hbasewizard3.png)
+	![administrator name and password fields](./media/hdinsight-hbase-provision-vnet/hbasewizard3.png)
 
 6. Select whether to use a new storage account or an existing one. If a new one, enter the **ACCOUNT NAME** and **DEFAULT CONTAINER** to create. Finally, select the checkmark to create the cluster.
 
-	![storage account selection](../media/hdinsight-hbase-provision-vnet/hbasewizard4.png)
+	![storage account selection](./media/hdinsight-hbase-provision-vnet/hbasewizard4.png)
 
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight][hbase-get-started].
 
