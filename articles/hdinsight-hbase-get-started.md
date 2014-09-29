@@ -40,7 +40,11 @@ Before you begin this tutorial, you must have the following:
 
 This section describes how to provision an HBase cluster using the Azure portal.
 
+
+[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+
 **To provision an HDInsight cluster in the Azure portal** 
+
 
 1. Sign in to the [Azure Management Portal][azure-management-portal]. 
 

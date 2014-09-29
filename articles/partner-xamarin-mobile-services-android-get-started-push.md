@@ -2,7 +2,7 @@
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="partner" />
 
-# Get started with push notifications in Mobile Services
+# Add push notifications to your Mobile Services app
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-push-xamarin](../includes/mobile-services-selector-get-started-push-xamarin.md)]
 

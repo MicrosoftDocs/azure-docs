@@ -4,7 +4,7 @@
 
 # Use Sqoop with Hadoop in HDInsight
  
-Learn how to use Azure PowerShell and HDInsight .NET SDK from a workstation to run Sqoop import and export between an HDInsight cluster and an Azure SQL database.
+Learn how to use Azure PowerShell and HDInsight .NET SDK from a workstation to run Sqoop import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
 
 **Estimated time to complete:** 30 minutes
 
@@ -36,9 +36,9 @@ For supported Sqoop versions on HDInsight clusters, see [What's new in the clust
 
 Before you begin this tutorial, you must have the following:
 
-- **A workstation** with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install]. To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
+- **Workstation** - A computer with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install]. To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
 
-- **An Azure HDInsight cluster**. For instructions on cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
+- **Azure HDInsight cluster**. For instructions on cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
 
 	<table border="1">
 	<tr><th>Cluster property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
@@ -47,7 +47,7 @@ Before you begin this tutorial, you must have the following:
 	<tr><td>Azure Blob container name</td><td>$containerName</td><td></td><td>For this example, use the Azure Blob storage container used for the default HDInsight cluster file system. By default, it has the same name as the HDInsight cluster.</td></tr>
 	</table>
 
-- **An Azure SQL Database**. You must configure a firewall rule for the SQL Database server to allow access from your workstation. For instructions on creating a SQL database and configuring firewall, see [Get started using Azure SQL database][sqldatabase-get-started]. This article provides a PowerShell script for creating the SQL database table needed for this tutorial. 
+- **Azure SQL Database**. You must configure a firewall rule for the SQL Database server to allow access from your workstation. For instructions on creating a SQL database and configuring firewall, see [Get started using Azure SQL database][sqldatabase-get-started]. This article provides a PowerShell script for creating the SQL database table needed for this tutorial. 
 
 	<table border="1">
 	<tr><th>SQL database property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
@@ -59,8 +59,32 @@ Before you begin this tutorial, you must have the following:
 
 	> [WACOM.NOTE] By default an Azure SQL database allows connections from Azure services like Azure HDInsight. If this firewall setting is disabled, you must enabled it from Azure Management portal. For instruction on creating SQL database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configue]. 
 
+* **SQL Server**. If your HDInsight cluster is on the same Azure Virtual Network as a SQL Server, you can use the steps in this article to import and export data to a SQL Server database. For more information, see the following articles.
 
-> [WACOM.NOTE] Fill the values into the tables.  It will be helpful for going through this tutorial.
+	> [WACOM.NOTE] > Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks.
+
+	* To **create and configure a Virtual Network**, see [Virtual Network Configuration Tasks](http://msdn.microsoft.com/en-us/library/azure/jj156206.aspx).
+
+		* When using SQL Server **in your datacenter**, you must configure the Virtual Network as either *site-to-site* or *point-to-site*.
+
+			> [WACOM.NOTE] For **point-to-site** Virtual Networks, the SQL Server must be running the VPN client configuration application, which is available from the **Dashboard** of your Azure Virtual Network configuration.
+
+		* When using SQL Server in an **Azure Virtual Machine**, any Virtual Network configuration may be used as long as the Virtual Machine hosting SQL Server is a member of the same Virtual Network as HDInsight.
+
+	* To **provision an HDInsight cluster onto a Virtual Network**, see [Provision Hadoop clusters in HDInsight using custom options](/en-us/documentation/articles/hdinsight-provision-clusters/)
+
+	> [WACOM.NOTE] The SQL Server must also allow SQL Authentication. You must use a SQL login for the steps in this article.
+
+	<table border="1">
+	<tr><th>SQL database property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
+	<tr><td>SQL Server name</td><td>$sqlDatabaseServer</td><td></td><td>The SQL Server to which Sqoop will export data to or import data from. </td></tr>
+	<tr><td>SQL Server login name</td><td>$sqlDatabaseLogin</td><td></td><td>A SQL login name.</td></tr>
+	<tr><td>SQL login password</td><td>$sqlDatabasePassword</td><td></td><td>The SQL login password.</td></tr>
+	<tr><td>SQL Server database name</td><td>$sqlDatabaseName</td><td></td><td>The database to which Sqoop will export data to or import data from. </td></tr>
+	</table>
+
+
+> [WACOM.NOTE] Fill the values into the tables above.  It will be helpful for going through this tutorial.
 
 ## <a id="scenario"></a>Understand the scenario
 HDInsight cluster comes with some sample data. You will use the following two:
@@ -89,7 +113,7 @@ HDInsight cluster comes with some sample data. You will use the following two:
 	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
 	</table>
 
-You will first export both sample.log and hivesampletable to SQL database, and then import the table containing the mobile device data back to HDInsight using the following path:
+You will first export both sample.log and hivesampletable to SQL database or SQL Server, and then import the table containing the mobile device data back to HDInsight using the following path:
 
 	/tutorials/usesqoop/importeddata
 
@@ -119,9 +143,11 @@ If you want to access the file directly from the storage account, the blob name 
 
 ##<a id="prepare"></a>Prepare the tutorial
 
-You will create two SQL database tables used by Sqoop export later in the tutorial. You will also need to pre-process the sample.log files before it can be processed by Sqoop.
+You will create two tables in SQL Database or SQL Server. These are used by Sqoop export later in the tutorial. You will also need to pre-process the sample.log files before it can be processed by Sqoop.
 
-**To create a SQL database tables**
+###Create a SQL tables
+
+**For Azure SQL Database**
 
 1. Open Windows PowerShell ISE (On Windows 8 Start screen, type **PowerShell_ISE** and then click **Windows PowerShell ISE**. See [Start Windows PowerShell on Windows 8 and Windows][powershell-start]).
 
@@ -195,14 +221,52 @@ You will create two SQL database tables used by Sqoop export later in the tutori
 5. Click **Run Script** or press **F5** to run the script. 
 6. Use [Azure Management portal][azure-management-portal] to examine the tables and clustered indexes.
 
+**For SQL Server**
+
+1. Open **SQL Server Management Studio** and connect to the SQL Server.
+
+2. Create a new database named **sqoopdb**.
+
+3. Select the **sqoopdb** database, and then select **New query** from the ribbon at the top of SQL Server Management Studio.
+
+4. Enter the following into the query window.
+
+		CREATE TABLE [dbo].[log4jlogs](
+		 [t1] [nvarchar](50), 
+		 [t2] [nvarchar](50), 
+		 [t3] [nvarchar](50), 
+		 [t4] [nvarchar](50), 
+		 [t5] [nvarchar](50), 
+		 [t6] [nvarchar](50), 
+		 [t7] [nvarchar](50))
+
+		CREATE TABLE [dbo].[mobiledata](
+		 [clientid] [nvarchar](50), 
+		 [querytime] [nvarchar](50), 
+		 [market] [nvarchar](50), 
+		 [deviceplatform] [nvarchar](50), 
+		 [devicemake] [nvarchar](50), 
+		 [devicemodel] [nvarchar](50), 
+		 [state] [nvarchar](50), 
+		 [country] [nvarchar](50), 
+		 [querydwelltime] [float],
+		 [sessionid] [bigint],
+		 [sessionpagevieworder][bigint])
+
+5. Use the **F5** function key, or select **! Execute** on the ribbon to run the query. The following message should appear below the query.
+
+		Command(s) completed successfully.
+
+6. Close SQL Server Management Studio.
+
+###Generate data
+
 In this tutorial, you will export a log4j log file (a delimited file) and a Hive table to SQL Database.  The delimited file is */example/data/sample.log*. Earlier in the tutorial, you see a few samples of log4j logs. In the log file, there are some empty lines and some other lines similar to:
 
 	java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
 		at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
 
-You might want to remove *java.lang.Exception:* from the row, so the record can be parsed correctly. 
-
-Sqoop export will fail if there is an empty string, or a line with fewer number of elements than the number of fields defined in the SQL database table. The log4jlogs table has 7 string-type fields.
+This is fine for other examples that use this data, but we must remove these exceptions before we can import it into SQL Database or SQL Server. Sqoop export will fail if there is an empty string, or a line with fewer number of elements than the number of fields defined in the SQL database table. The log4jlogs table has 7 string-type fields.
 
 **To pre-process the sample.log file**
 
@@ -281,81 +345,15 @@ Sqoop export will fail if there is an empty string, or a line with fewer number 
 6. To examine the modified data file, you can use Azure Management portal, or an Azure Storage explorer tool, or Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample on using PowerShell to download a file and display the file content.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ##<a id="export"></a>Use PowerShell to run Sqoop export
 
-In this section, you will use Azure PowerShell to run the Sqoop export command to export both a Hive table, and a data file to an Azure SQL database. The next section provides an HDInsight .NET sample.
+In this section, you will use Azure PowerShell to run the Sqoop export command to export both a Hive table, and a data file to an Azure SQL database or SQL Server. The next section provides an HDInsight .NET sample.
+
+> [WACOM.NOTE] Other than connection string information, the steps in this section should work for either Azure SQL Database or SQL Server. These steps were tested against the following configuration:
+> 
+> * **Azure Virtual Network point-to-site configuration** - A virtual network connecting the HDInsight cluster to a SQL Server in a private datacenter. See [Configure a Point-to-Site VPN in the Management Portal](http://msdn.microsoft.com/en-us/library/azure/dn133792.aspx) for more information.
+> * **Azure HDInsight 3.1** - See [Provision Hadoop clusters in HDInsight using custom options](/en-us/documentation/articles/hdinsight-provision-clusters/) for information on creating a cluster on a Virtual Network
+> * **SQL Server 2014** - Configured to allow SQL Authentication and running the VPN client configuration package to connect securely to the Virtual Network
 
 **To export the log4j log file**
 
@@ -376,12 +374,17 @@ In this section, you will use Azure PowerShell to run the Sqoop export command t
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
 		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
-		$sqlDatabasePassword = "SQLDatabasePassword>"
+		$sqlDatabasePassword = "<SQLDatabasePassword>"
 		$databaseName = "<SQLDatabaseName>"
 
 		$tableName_log4j = "log4jlogs"
 		
+		# Connection string for Azure SQL Database.
+		# Comment if using SQL Server
 		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
+		# Connection string for SQL Server.
+		# Uncomment if using SQL Server.
+		#$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$databaseName"
 		
 		$exportDir_log4j = "/tutorials/usesqoop/data"
 	
@@ -430,7 +433,12 @@ In this section, you will use Azure PowerShell to run the Sqoop export command t
 
 		$tableName_mobile = "mobiledata"
 		
+		# Connection string for Azure SQL Database.
+		# Comment if using SQL Server
 		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
+		# Connection string for SQL Server.
+		# Uncomment if using SQL Server
+		#$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$databaseName"
 		
 		$exportDir_mobile = "/hive/warehouse/hivesampletable"
 	
@@ -481,13 +489,18 @@ The following is a C# sample using HDInsight .NET SDK to run Sqoop export. For t
 	            string clusterName = "<HDInsightClusterName>";
 	            string certFriendlyName = "<AzureCertificateFriendlyName>";
 	            string sqlDatabaseServerName = "<SQLDatabaseServerName>";
-	            string sqlDatabaseLogin = "<SQLDatabaseLogin>" + "@" + sqlDatabaseServerName;
+	            string sqlDatabaseLogin = "<SQLDatabaseLogin>";
 	            string sqlDatabaseLoginPassword = "<SQLDatabaseLoginPassword>";
 	            string sqlDatabaseDatabaseName = "hdisqoop";
 	            string sqlDatabaseTableName = "log4jlogs";
 	
 	            cmdExport = @"export";
-	            cmdExport = cmdExport + @" --connect jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
+				// Connection string for using Azure SQL Database.
+				// Comment if using SQL Server
+	            cmdExport = cmdExport + @" --connect jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + "@" + sqlDatabaseServerName + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
+				// Connection string for using SQL Server.
+				// Uncomment if using SQL Server
+				//cmdExport = cmdExport + @" --connect jdbc:sqlserver://" + sqlDatabaseServerName + ";user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
 	            cmdExport = cmdExport + @" --table " + sqlDatabaseTableName;
 	            cmdExport = cmdExport + @" --export-dir /tutorials/usesqoop/data";
 	            cmdExport = cmdExport + @" --input-fields-terminated-by \0x20 -m 1";
@@ -572,7 +585,12 @@ In this section, you will import the log4j logs (that you exported to SQL Databa
 
 		$tableName_log4j = "log4jlogs"
 		
+		# Connection string for Azure SQL Database
+		# Comment if using SQL Server
 		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
+		# Connection string for SQL Server
+		# Uncomment if using SQL Server
+		#$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$databaseName"
 		
 		$tableName_mobile = "mobiledata"
 		$targetDir_mobile = "/tutorials/usesqoop/importeddata/"
