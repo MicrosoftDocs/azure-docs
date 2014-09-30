@@ -2,7 +2,7 @@
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
-#Azure SQL Split and Merge Service Tutorial
+#Elastic Scale Split and Merge Service Tutorial
 
 ## Download the Split-Merge packages 
 1. Download the latest NuGet version from [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
@@ -103,6 +103,8 @@ Paste the certificate thumbprint copied above into the thumbprint/value attribut
 	<Setting name="AllowedClientCertificateThumbprints" value="" />
 	<Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 	<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+
+Please note that for production deployments separate certificates should be used for the CA, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](./sql-database-elastic-scale-configure-security.md).
 
 ### Deploying your Split-Merge Service
 1. Go to the [Azure Management Portal](https://manage.windowsazure.com).
