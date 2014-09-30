@@ -1,6 +1,6 @@
-<properties linkid="mobile-services-ios-get-started-mobile-analytics" urlDisplayName="Get Started with Mobile Analytics" pageTitle="Get Started with Mobile Analytics | Mobile Dev Center" metaKeywords="" description="Get Started with Mobile Analytics." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" />
+<properties linkid="mobile-services-ios-get-started-mobile-analytics" urlDisplayName="Get Started with Mobile Analytics" pageTitle="Get Started with Mobile Analytics | Mobile Dev Center" metaKeywords="" description="Get Started with Mobile Analytics." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/30/2014" ms.author="mahender" />
 
 # Get Started with Mobile Analytics (Capptain)
 
@@ -11,7 +11,7 @@
 In this tutorial, you add mobile analytics capabilities to your app using [Capptain]. Mobile Analytics allow you to determine how users are interacting with your app and what sections are driving the most activity. To start getting these data, you will instrument your app with the Capptain SDK.
 
 
->[WACOM.NOTE] Microsoft-owned Capptain.com offers analytics for mobile apps free up to 100,000 monthly active users for Azure Mobile Services Standard Tier customers. To take advantage of this offer, please contact us at mobileservices@microsoft.com for further instructions. The tutorial below summarizes the Capptain.com features and capabilities and provides instructions on how to use them. 
+>[AZURE.NOTE] Microsoft-owned Capptain.com offers analytics for mobile apps free up to 100,000 monthly active users for Azure Mobile Services Standard Tier customers. To take advantage of this offer, please contact us at mobileservices@microsoft.com for further instructions. The tutorial below summarizes the Capptain.com features and capabilities and provides instructions on how to use them. 
 
 
 This tutorial walks you through these basic steps:
@@ -38,7 +38,7 @@ This tutorial requires the following:
     * CoreLocation.framework
     * libxml2.dylib
 
-    >[WACOM.NOTE] The AdSupport framework can be removed. Capptain needs this framework to collect the IDFA. However, IDFA collection can be disabled to comply with the Apple policy regarding this ID.
+    >[AZURE.NOTE] The AdSupport framework can be removed. Capptain needs this framework to collect the IDFA. However, IDFA collection can be disabled to comply with the Apple policy regarding this ID.
 
 4. In the Application Delegate implementation file, import the Capptain Agent.
 
