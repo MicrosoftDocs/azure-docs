@@ -7,12 +7,8 @@
 ## Download the Split-Merge packages 
 1. Download the latest NuGet version from [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
 2. Open a command prompt and navigate to the directory where you downloaded nuget.exe. 
-3. Run this command:
-`nuget sources add -Name ElasticScaleMyget -Source https://www.myget.org/F/elasticscale-preview/api/v2 -UserName <your myget user name> -Password <your myget password>` 
-4. (Optional) List the available Split-Merge packages with the below command: 
-`nuget list Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge -Pre -All`
-5. Download the latest Split-Merge package into the current directory with the below command: 
-`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge -Pre`  
+3. Download the latest Split-Merge package into the current directory with the below command: 
+`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
 The steps above download the Split-Merge files to the current directory. The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** where *x.x.xxx.x* reflects the version number. Find the Split-Merge Service files in the **content\splitmerge\service** sub-directory, and the Split-Merge PowerShell scripts (and required client .dlls) in the **content\splitmerge\powershell** sub-directory.
 
@@ -48,7 +44,7 @@ The steps above download the Split-Merge files to the current directory. The fil
 	
 To determine the access key, go to the [Azure Management portal](https://manage.windowsazure.com), click the **Storage** tab on the left, select the name corresponding to your storage account, and click **Manage Access Keys** on the bottom. Click the **copy** button for **Primary Access Key**.
 
-	![manage access keys][2]
+![manage access keys][2]
 
 6.	Enter the name of the storage account and one of the access keys provided into the placeholders in the storage connection string. This connection string is used under both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** setting. You can potentially use different storage accounts for the different roles. 
 
@@ -59,7 +55,7 @@ For the purposes of  a simple test deployment suitable to complete this tutorial
 
 ### Creating a Self-signed Certificate 
 
-Create a new directory and from this directory execute the following command using a Developer Command Prompt for Visual Studio window:
+Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/en-us/library/ms229859.aspx) window:
 
 	makecert ^
 	-n "CN=*.cloudapp.net" ^

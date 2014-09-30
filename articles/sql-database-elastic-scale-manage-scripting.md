@@ -32,9 +32,9 @@ These examples illustrate how to use the PowerShell sample modules to perform ba
 
 **SetupShardedEnvironment.ps1**: This PowerShell runbook performs a one-time setup of a sharded environment complete with a shard map manager and range shard map. 
 
-**ProvisionShardByDate.ps1**: Provisions a new database in advance of the upcoming day's workload. The database is created and named based on date stamp (YYYYMMDD) and is registered with the shard map manager as a range [YYYYMMDD, YYYYMMDD + 1D). 
+**ProvisionByDate.ps1**: Provisions a new database in advance of the upcoming day's workload. The database is created and named based on date stamp (YYYYMMDD) and is registered with the shard map manager as a range [YYYYMMDD, YYYYMMDD + 1D). 
 
-**ProvisionShardBySize.ps1**: Provisions a new database when the current database is running out of capacity. 
+**ProvisionBySize.ps1**: Provisions a new database when the current database is running out of capacity. 
 
 **ReduceServiceTier.ps1**: Iterates through the shards in a provided shard map and determines if each individual shard is a candidate for performance tier reduction. Two criteria determine whether or not the shard is a candidate: 1) the current service tier of the shard and 2) the age of the database.  
 
@@ -44,7 +44,7 @@ These examples illustrate how to use the PowerShell sample modules to perform ba
 
 **ShardElasticity.psm1**: Provides a set of methods to perform horizontal scaling as well as vertical scaling operations. 
 
-**ShardElasticity.psd1**: Provides a set of methods to interact with Elastic Scale and Azure SQL DB. 
+**ShardElasticityModule.psd1**: Provides a set of methods to interact with Elastic Scale and Azure SQL DB. 
 
 ## Costs
 

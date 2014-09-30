@@ -4,9 +4,9 @@
 
 #Data-Dependent Routing
 
-The **ShardMapManager** class provides ADO.NET applications the ability to easily direct database queries and commands to the appropriate physical database in a sharded environment. This is called **data-dependent routing** and it is a fundamental pattern when working with sharded databases. Each specific query or transaction in an application using DDR is restricted to accessing a single database per request.  
+The **ShardMapManager** class provides ADO.NET applications the ability to easily direct database queries and commands to the appropriate physical database in a sharded environment. This is called **data-dependent routing** and it is a fundamental pattern when working with sharded databases. Each specific query or transaction in an application using data-dependent routing is restricted to accessing a single database per request.  
 
-Using DDR, there is no need for the application to track the various connection strings or DB locations associated with different slices of data in the sharded environment. Rather, the [Shard Map Manager](./sql-database-elastic-scale-shard-map-management.md) takes responsibility for handing out open connections to the correct database when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. (This key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
+Using data-dependent routing, there is no need for the application to track the various connection strings or DB locations associated with different slices of data in the sharded environment. Rather, the [Shard Map Manager](./sql-database-elastic-scale-shard-map-management.md) takes responsibility for handing out open connections to the correct database when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. (This key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
 
 ## Using a ShardMapManager in a Data-Dependent Routing Application 
 
@@ -18,7 +18,7 @@ For applications using data-dependent routing, a **ShardMapManager** should be i
 
 In this example, both a **ShardMapManager** and a specific **ShardMap** that it contains are initialized. 
 
-For an application that is not manipulating the shard map itself, the credentials used in the factory method to get the **ShardMapManager** (in the above example, *smmConnectionString*) should be credentials that have just read-only permissions on the **Global Shard Map** database referenced by the connection string. These credentials are typically different from credentials used to open connections to the shard map manager.  
+For an application that is not manipulating the shard map itself, the credentials used in the factory method to get the **ShardMapManager** (in the above example, *smmConnectionString*) should be credentials that have just read-only permissions on the **Global Shard Map** database referenced by the connection string. These credentials are typically different from credentials used to open connections to the shard map manager. See also [Managing Elastic Scale Credentials](sql-database-elastic-scale-manage-credentials.md). 
 
 ##Invoking Data-Dependent Routing 
 
