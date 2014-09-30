@@ -4,7 +4,7 @@
 
 #Developing for Storm in HDInsight with Java and Maven
 
-Learn how to develop a Java-based Storm topology (application) using Maven, test it locally, and then deploy it to HDInsight. This application will ...
+Learn how to develop a Java-based Storm topology (application) using Maven, test it locally, and then deploy it to HDInsight. This application will read values from [tbd], 
 
 ##In this article, you will learn
 
@@ -12,13 +12,15 @@ Learn how to develop a Java-based Storm topology (application) using Maven, test
 - [Write the code](#code)
 - [Build and test locally](#build)
 - [Deploy and run on HDInsight](#deploy)
-- [Next steps]
+- [Next steps](#next)
 
 ##Prerequisites
 
-* [Java]
+* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 or higher
 
-* [Maven]
+* [Maven](http://maven.apache.org/)
+
+* [An Azure HDInsight cluster with Storm](/en-us/documentation/articles/hdinsight-storm-getting-started)
 
 ##<a id="create"></a>Create the application project
 
