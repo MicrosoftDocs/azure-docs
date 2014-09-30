@@ -1,6 +1,6 @@
 <properties linkid="manage-services-networking-active-directory-forest" urlDisplayName="Active Directory forest" pageTitle="Install an Active Directory forest on an Azure virtual network" metaKeywords="" description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network." metaCanonical="" services="active-directory,virtual-network" documentationCenter="" title="Install a new Active Directory forest in Azure" authors="Justinha"  solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft"  />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="Justinha" />
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="Justinha" />
 
 
 
@@ -32,7 +32,7 @@ There is not much difference between installing a domain controller on Azure ver
 
 To configure...  | On-premises  | Azure virtual network	
 ------------- | -------------  | ------------
-**IP address for the domain controller**  | Assign static IP address on the network adapter properties   | Obtain IP address via DHCP and optionally run the Set-AzureStaticVNetIP cmdlet to make it static
+**IP address for the domain controller**  | Assign static IP address on the network adapter properties   | Run the Set-AzureStaticVNetIP cmdlet assign a static IP address
 **DNS client resolver**  | Set Preferred and Alternate DNS server address on the network adapter properties of domain members   | Set DNS server address on the the virtual network properties
 **Active Directory database storage**  | Optionally change the default storage location from C:\  | You need to change default storage location from C:\
 
@@ -44,7 +44,7 @@ To configure...  | On-premises  | Azure virtual network
 
 	On this wizard page…  | Specify these values
 	------------- | -------------
-	**Virtual Network Details**  | <p>Name: Enter a name for your virtual network</p><p>Region: Choose the closest region</p><p>Affinity Group: <b>Create a new affinity group</b></p><p>Affinity Group Name: Enter a name for your affinity group</p>
+	**Virtual Network Details**  | <p>Name: Enter a name for your virtual network</p><p>Region: Choose the closest region</p>
 	**DNS and VPN**  | <p>Leave DNS server blank</p><p>Don't select either VPN option</p>
 	**Virtual network address spaces**  | <p>Subnet name: Enter a name for your subnet</p><p>Starting IP: <b>10.0.0.0</b></p><p>CIDR: <b>/24 (256)</b></p>
 
@@ -62,7 +62,7 @@ To configure...  | On-premises  | Azure virtual network
 	**Cloud service**  | <p>Cloud service: <b>Create a new cloud service</b></p><p>Cloud service name: Accept default value</p><p>Region/AffinityGroup/VirtualNetwork: Select the virtual network you created</p><p>Virtual network subnet: Select the subnet you created. </p><p>Storage account: <b>Use an automatically generated storage account</b></p><p>Availability set: <b>None</b></p><p>Endpoints: Accept default values</p>
 	**VM Agent**  | Select **Install the VM Agent**
 
-1. The dynamic IP address that the VM is assigned by default is valid for the duration of the cloud service. But it will change if the VM is shut down. You can assign a static IP address by [running the Set-AzureStaticVNetIP Azure PowerShell cmdlet](http://msdn.microsoft.com/en-us/library/windowsazure/dn630228.aspx) so the IP address will persist if you ever do need to shut down the VM. 
+1. The dynamic IP address that the VM is assigned by default is valid for the duration of the cloud service. But it will change if the VM is shut down. Assign a static IP address by [running the Set-AzureStaticVNetIP Azure PowerShell cmdlet](http://msdn.microsoft.com/en-us/library/windowsazure/dn630228.aspx) so the IP address will persist if you ever do need to shut down the VM. 
 2. Attach an additional disk to the VM to store the Active Directory database, logs, and SYSVOL. 
   3. Click the <b>VM</b> > <b>Attach</b> > <b>Attach empty disk</b>. 
   4. Specify a size (for example, 10 GB) and accept all other default values.
