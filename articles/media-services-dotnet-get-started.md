@@ -319,15 +319,15 @@ CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
 Add the following helper methods to the class. These are required to support the <strong>CreateEncodingJob</strong> method. Following is a summary of the helper methods.
 <ul>
 <li>
-The <strong>GetLatestMediaProcessorByName</strong> method returns an appropriate media processor to handle an encoding, encryption, or other related processing task. You create a media processor using the appropriate string name of the processor you want to create. The possible strings that can be passed into the method for the mediaProcessor parameter are: <strong>Azure Media Encoder</strong>, <strong>Azure Media Packager</strong>, <strong>Azure Media Encryptor</strong>, <strong>Storage Decryption</strong>.
+The <strong>GetLatestMediaProcessorByName</strong> method returns an appropriate media processor to handle an encoding, encryption, or other related processing task. You create a media processor using the appropriate string name of the processor you want to create. The possible strings that can be passed into the method for the mediaProcessor parameter are: <strong>Azure Media Encoder</strong>, <strong>Windows Azure Media Packager</strong>, <strong>Windows Azure Media Encryptor</strong>, <strong>Storage Decryption</strong>.
 <pre><code>
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 {
     // The possible strings that can be passed into the 
     // method for the mediaProcessor parameter:
     //   Azure Media Encoder
-    //   Azure Media Packager
-    //   Azure Media Encryptor
+    //   Windows Azure Media Packager
+    //   Windows Azure Media Encryptor
     //   Storage Decryption
 
     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
