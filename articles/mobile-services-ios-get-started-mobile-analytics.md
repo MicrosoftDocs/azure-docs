@@ -11,7 +11,8 @@
 In this tutorial, you add mobile analytics capabilities to your app using [Capptain]. Mobile Analytics allow you to determine how users are interacting with your app and what sections are driving the most activity. To start getting these data, you will instrument your app with the Capptain SDK.
 
 
->[WACOM.NOTE] The [Mobile Services Standard tier] comes with 100K monthly active users for the Capptain Analytics feature. To enable this, please contact the Mobile Services team at mobileservices@microsoft.com
+>[WACOM.NOTE] Microsoft-owned Capptain.com offers analytics for mobile apps free up to 100,000 monthly active users for Azure Mobile Services Standard Tier customers. To take advantage of this offer, please contact us at mobileservices@microsoft.com for further instructions. The tutorial below summarizes the Capptain.com features and capabilities and provides instructions on how to use them. 
+
 
 This tutorial walks you through these basic steps:
 
