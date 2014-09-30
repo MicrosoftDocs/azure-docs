@@ -129,7 +129,7 @@ To configure a web role to use a PHP runtime that you provide, follow the steps 
 
 5. Add your application files to your web role's root directory. This will be the web server's root directory.
 
-6. Publish your application as described in the [How to: Publish your applicaiton](#Publish) section below.
+6. Publish your application as described in the [How to: Publish your application](#Publish) section below.
 
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -175,11 +175,11 @@ To configure a worker role to use a PHP runtime that you provide, follow the ste
 
 5. Add your application files to your worker role's root directory.
 
-6. Publish your application as described in the [How to: Publish your applicaiton](#Publish) section below.
+6. Publish your application as described in the [How to: Publish your application](#Publish) section below.
 
 ##<a name="Emulators"></a>How to: Run your application in the Compute and Storage Emulators
 
-The Azure Compute and Storage Emulators provide a local environment in which you can test your Azure applicaiton before deploying it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Differences Between the Compute Emulator and Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg432960.aspx) and [Differences Between the Storage Emulator and Azure Storage Services](http://msdn.microsoft.com/en-us/library/windowsazure/gg433135.aspx).
+The Azure Compute and Storage Emulators provide a local environment in which you can test your Azure application before deploying it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Differences Between the Compute Emulator and Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg432960.aspx) and [Differences Between the Storage Emulator and Azure Storage Services](http://msdn.microsoft.com/en-us/library/windowsazure/gg433135.aspx).
 
 Note that you must have PHP installed locally to use the Compute Emulator. The Compute Emulator will use your local PHP installation to run your application.
 
