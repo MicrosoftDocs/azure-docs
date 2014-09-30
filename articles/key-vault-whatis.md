@@ -1,6 +1,6 @@
 <properties title="What is Azure Key Vault?" pageTitle="What is Azure Key Vault? | Overview" description="The Azure Key Vault service is a pay-as-you-go security solution that stores and manages cryptographic keys in Azure. The service uses a single location, called a vault, which stores and helps to secure the keys. These keys can then be used by applications for small, high-value security data, such as access keys and passwords." metaKeywords="Azure Key Vault, Azure Key Vault Overview, access keys, passwords" services="Key-Vault" solutions="" documentationCenter="" authors="cabailey" manager="terrylan" videoId="" scriptId="" />
 
-<tags ms.service="key-vault" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/12014" ms.author="cabailey" />
+<tags ms.service="key-vault" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="cabailey" />
 
 
 
