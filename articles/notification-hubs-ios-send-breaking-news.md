@@ -52,6 +52,8 @@ The first step is to add the UI elements to your existing storyboard that enable
 
 5. Create a new class called `Notifications`. Copy the following code in the interface section of the file Notifications.h:
 
+		@property NSData* deviceToken;
+		
 		- (void)storeCategoriesAndSubscribeWithCategories:(NSArray*) categories completion: (void (^)(NSError* error))completion;
 		- (void)subscribeWithCategories:(NSSet*) categories completion:(void (^)(NSError *))completion;
 
