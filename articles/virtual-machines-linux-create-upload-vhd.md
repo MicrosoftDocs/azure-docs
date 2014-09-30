@@ -1,6 +1,6 @@
 <properties linkid="manage-linux-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Learn to create and upload an Azure virtual hard disk (VHD) that has the Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="kathydav, szarkos" />
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System
 
@@ -30,15 +30,15 @@ This article assumes that you have the following items:
 
 - **Add-AzureVhd cmdlet**, which is part of the Azure PowerShell module. To download the module, see [Azure Downloads](/en-us/develop/downloads/). For reference information, see [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 
-**For all distributions please note the following:**
+**For all distributions, note the following:**
 
-- When installing the Linux system it is recommended to utilize standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.
+- When installing the Linux system we recommend that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.
 
 - The Azure Linux Agent (waagent) is not compatible with NetworkManager. Networking configuration should be controllable via the ifup/ifdown scripts.  Most of the RPM/Deb packages provided by distributions configure NetworkManager as a conflict to the waagent package, and thus will uninstall NetworkManager when you install the Linux agent package.  The Azure Linux Agent also requires that the python-pyasn1 package is installed.
 
 - NUMA is not supported for larger VM sizes due to a bug in Linux kernel versions below 2.6.37. Manual installation of waagent will automatically disable NUMA in the GRUB configuration for the Linux kernel. This issue primarily impacts distributions using the upstream Red Hat 2.6.32 kernel.
 
-- It is recommended that you do not create a SWAP partition at installation time. You may configure SWAP space by using the Azure Linux Agent. It is also not recommended to use the mainstream Linux kernel with an Azure virtual machine without the patch available at the [Microsoft web site](http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409) (many current distributions/kernels may already include this fix).
+- We recommend that you do not create a SWAP partition at installation time. You can configure SWAP space by using the Azure Linux Agent. We also don't recommend using the mainstream Linux kernel with an Azure virtual machine without the patch available at the [Microsoft web site](http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409) (many current distributions/kernels may already include this fix).
 
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
@@ -54,7 +54,7 @@ This task includes the following steps:
 
 ### Prepare CentOS 6.2+ ###
 
-You must complete specific configuration steps in the operating system for the virtual machine to run in Azure.
+Be sure to do these configuration steps in the operating system so the virtual machine can be used as an image
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
@@ -416,9 +416,7 @@ You must complete specific configuration steps in the operating system for the v
 
 ### Prepare SUSE Linux Enterprise Server 11 SP2 & SP3 ###
 
-**NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
-
-> - [SLES 11 SP3 for Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
+**NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization --  [SLES 11 SP3 for Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure).
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
