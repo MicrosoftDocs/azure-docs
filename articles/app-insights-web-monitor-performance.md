@@ -1,6 +1,6 @@
-<properties title="Monitor your app's health and usage with Application Insights" pageTitle="Monitor your app's health and usage with Application Insights" description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." metaKeywords="analytics monitoring application insights" authors="awills"  />
+<properties title="Monitor your app's health and usage with Application Insights" pageTitle="Monitor your app's health and usage with Application Insights" description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  
 # Monitor performance in web applications
 
@@ -52,7 +52,13 @@ If you don't see data at first, wait a minute and then click Refresh.
 Click any tile to see more detail, and to see results for a longer period. For example, click the Requests tile and then select a time range:
 
 
-![Click through to more data](./media/appinsights/appinsights-48metrics.png)
+![Click through to more data and select a time range](./media/appinsights/appinsights-48metrics.png)
+
+Click a graph to choose which metrics it displays:
+
+![Click a graph to choose metrics](./media/appinsights/appinsights-61perfchoices.png)
+
+> [AZURE.NOTE] **Uncheck all the metrics** to see the full selection that is available. The metrics fall into groups; when any member of a group is selected, only the other members of that group appear.
 
 
 ## <a name="metrics"></a>What does it all mean? Performance tiles and reports
@@ -97,6 +103,16 @@ A count of requests that threw uncaught exceptions.
 Click the tile to see the details of specific failures, and select an individual request to see its detail. 
 
 Only a representative sample of failures is retained for individual inspection.
+
+### Other metrics
+
+To see what other metrics you can display, click a graph, and then deselect all the metrics to see the full available set. Click (i) to see each metric's definition.
+
+![Deselect all metrics to see the whole set](./media/appinsights/appinsights-62allchoices.png)
+
+
+Selecting any metric will hide the others that can't appear on the same chart.
+
 
 ## <a name="diagnosis"></a>Diagnosing issues
 

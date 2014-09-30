@@ -7,5 +7,5 @@
 2. In Visual Studio expand App_Start and open the WebApiConfig.cs file. Add the following code to the `Register` method, immediately after `options` is instantiated:
 
         options.LoginProviders.Remove(typeof(AzureActiveDirectoryLoginProvider));
-        options.LoginProviders.Add(typeof(AzureActiveDirectoryExtendedLoginProvider);
+        options.LoginProviders.Add(typeof(AzureActiveDirectoryExtendedLoginProvider));
 

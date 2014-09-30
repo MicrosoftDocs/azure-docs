@@ -24,6 +24,8 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 
+## <a name="update-app"></a>Update the app to call the custom API
+
 [WACOM.INCLUDE [mobile-services-windows-store-javascript-call-custom-api](../includes/mobile-services-windows-store-javascript-call-custom-api.md)]
 
 
