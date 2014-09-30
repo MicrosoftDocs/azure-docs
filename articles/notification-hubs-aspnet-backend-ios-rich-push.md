@@ -8,7 +8,9 @@
         <a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
 </div>
 
-In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications allow user interactions, and pipeline seamlessly to contents such as urls, sounds, images/coupons, and much more. This tutorial build on the [Notify Users](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) topic, and teaches you to send push notifications that incorporate a payload (i.e. image)
+In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications allow user interactions, and pipeline seamlessly to contents such as urls, sounds, images/coupons, and much more. This tutorial build on the [Notify Users](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) topic, and teaches you to send push notifications that incorporate a payload (i.e. image).
+
+This tutorial is compatible with iOS7 and iOS8.
     ![][IOS1]
 
 At a high level:
@@ -36,8 +38,7 @@ At a high level:
 
 6. Update the whole **Notifications** class with the following code. Be sure to replace the placeholders with your notification hub credentials and image file name.
 
-        public class Notification
-        {
+        public class Notification {
             public int Id { get; set; }
             // initial notification message to display to users
             public string Message { get; set; }
@@ -47,24 +48,20 @@ At a high level:
             public bool Read { get; set; }
         }
 
-        public class Notifications
-        {
+        public class Notifications {
             public static Notifications Instance = new Notifications();
 
             private List<Notification> notifications = new List<Notification>();
 
             public NotificationHubClient Hub { get; set; }
 
-            private Notifications() 
-            {
+            private Notifications() {
                 // placeholders: replace with the connection string (with full access) for your notification hub and the hub name from the Azure Management Portal
                 Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}",  "{hub name}");
             }
 
-            public Notification CreateNotification(string message, string richType, string payload)
-            {
-                var notification = new Notification()
-                {
+            public Notification CreateNotification(string message, string richType, string payload) {
+                var notification = new Notification() {
                     Id = notifications.Count,
                     Message = message,
                     RichType = richType,
@@ -77,8 +74,7 @@ At a high level:
                 return notification;
             }
 
-            public Stream ReadImage(int id)
-            {
+            public Stream ReadImage(int id) {
                 var assembly = Assembly.GetExecutingAssembly();
                 // placeholder: image file name (i.e. logo.png).
                 return assembly.GetManifestResourceStream("AppBackend.img.{logo.png}");
@@ -90,8 +86,7 @@ At a high level:
 7. In **NotificationsController.cs**, redefine **NotificationsController**  with the following snippets. This sends an initial silent rich notification id to device and allows client-side retrieval of image:
 
         // return http response with image binary
-        public HttpResponseMessage Get(int id)
-        {
+        public HttpResponseMessage Get(int id) {
             var stream = Notifications.Instance.ReadImage(id);
 
             var result = new HttpResponseMessage(HttpStatusCode.OK);
@@ -103,8 +98,7 @@ At a high level:
         }
 
         // create rich notification and send initial silent notification (containing id) to client
-        public async Task<HttpResponseMessage> Post()
-        {   
+        public async Task<HttpResponseMessage> Post() {   
             // replace placeholder with image file name
             var richNotificationInTheBackend = Notifications.Instance.CreateNotification("Check this image out!", "img",  "{logo.png}");
             
@@ -137,36 +131,37 @@ Now that you have modified your app backend to send just the *id* of a notificat
 
 4. Add a **Navigation Controller** to the storyboard, and control-drag to Home View Controller to make the latter the **root view** of navigation. Make sure the **Is Initial View Controller** in Attributes inspector is selected for the Navigation Controller only.
 
-4. Add a **View Controller** to the storyboard and put in an **Image View** in this controller. This is the page users will see once they click the notification to learn more. Your storyboard should look as the following:
+5. Add a **View Controller** to the storyboard and put in an **Image View** in this controller. This is the page users will see once they click the notification to learn more. Your storyboard should look as the following:
     
     ![][IOS4]
 
-5. Click on the **Home View Controller** in the storyboard, and make sure it has **homeViewController** as its **Custom Class** and **Storyboard ID** under the Identity inspector.
+6. Click on the **Home View Controller** in the storyboard, and make sure it has **homeViewController** as its **Custom Class** and **Storyboard ID** under the Identity inspector.
 
-6. Do the same for Image View Controller as **imageViewController**.
+7. Do the same for Image View Controller as **imageViewController**.
 
-7. Then, create a new View Controller class titled **imageViewController** to handle the UI you just created.
+8. Then, create a new View Controller class titled **imageViewController** to handle the UI you just created.
 
-8. In **imageViewController.h**, add the following to the interface declarations. Make sure to control-drag from the storyboard image view to these properties to link them up with the UI:
+9. In **imageViewController.h**, add the following to the interface declarations. Make sure to control-drag from the storyboard image view to these properties to link them up with the UI:
         
         @property (weak, nonatomic) IBOutlet UIImageView *myImage;
         @property (strong) UIImage* imagePayload;
 
-9. In **imageViewController.m**, add the following at the end of **viewDidload**:
+10. In **imageViewController.m**, add the following at the end of **viewDidload**:
         
         // display the UI Image in UI Image View
         [self.myImage setImage:self.imagePayload];
 
-10. In **AppDelegate.m**, import the image controller you created:
+11. In **AppDelegate.m**, import the image controller you created:
 
         #import "imageViewController.h"
 
-11. add an interface section at the top with the following declaration:
+12. add an interface section at the top with the following declaration:
 
         @interface AppDelegate ()
 
         @property UIImage* imagePayload;
         @property NSDictionary* userInfo;
+        @property BOOL iOS8;
 
         // obtain content from backend with notification id
         - (void)retrieveRichImageWithId:(int)richId completion: (void(^)(NSError*)) completion;
@@ -176,11 +171,50 @@ Now that you have modified your app backend to send just the *id* of a notificat
 
         @end
 
-12. In **AppDelegate**'s implementation, make sure the app registers for silent notifications so it processes the notification id sent from the backend. Add the **UIRemoteNotificationTypeNewsstandContentAvailability** option in **didFinishLaunchingWithOptions**:
+13. In **AppDelegate**'s implementation, make sure the app registers for silent notifications in **application: didFinishLaunchingWithOptions**:
 
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
+        // software version
+        self.iOS8 = [[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)];
+    
+        // register for remote notifications for iOS8 and previous versions
+        if (self.iOS8) {
+            NSLog(@"This device is running with iOS8.");
+            
+            // action
+            UIMutableUserNotificationAction *richPushAction = [[UIMutableUserNotificationAction alloc] init];
+            richPushAction.identifier = @"richPushMore";
+            richPushAction.activationMode = UIUserNotificationActivationModeForeground;
+            richPushAction.authenticationRequired = NO;
+            richPushAction.title = @"More";
+            
+            // notification category
+            UIMutableUserNotificationCategory* richPushCategory = [[UIMutableUserNotificationCategory alloc] init];
+            richPushCategory.identifier = @"richPush";
+            [richPushCategory setActions:@[richPushAction] forContext:UIUserNotificationActionContextDefault];
+            
+            // notification categories
+            NSSet* richPushCategories = [NSSet setWithObjects:richPushCategory, nil];
+            
+            
+            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
+                                                    UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge
+                                                                                     categories:richPushCategories];
+            
+            [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+            [[UIApplication sharedApplication] registerForRemoteNotifications];
+            
+        } 
+        else {
+            // previos iOS versions
+            NSLog(@"This device is running with iOS7 or earlier versions.");
+            
+            [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
+        }
 
-13. Subsitute in the following implementation for **didRegisterForRemoteNotificationsWithDeviceToken** to take the storyboard UI changes into account:
+        return YES;
+
+14. Subsitute in the following implementation for **application:didRegisterForRemoteNotificationsWithDeviceToken** to take the storyboard UI changes into account:
 
         // access navigation controller which is at the root of window
         UINavigationController *nc = (UINavigationController *)self.window.rootViewController;
@@ -188,14 +222,12 @@ Now that you have modified your app backend to send just the *id* of a notificat
         homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
         hvc.deviceToken = deviceToken;
 
-14. Then, add the following implementations to **AppDelegate**. Make sure to substitute the placeholder `{backend endpoint}` with your backend endpoint:
+15. Then, add the following methods to **AppDelegate.m** to retrieve the image from your endpoint and send a local notification when retrieval is complete. Make sure to substitute the placeholder `{backend endpoint}` with your backend endpoint:
 
         NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
 
         // helper: retrieve notification content from backend with rich notification id
-        - (void)retrieveRichImageWithId:(int)richId completion: (void(^)(NSError*)) completion{
-    
-            // get root view
+        - (void)retrieveRichImageWithId:(int)richId completion: (void(^)(NSError*)) completion {
             UINavigationController *nc = (UINavigationController *)self.window.rootViewController;
             homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
             NSString* authenticationHeader = hvc.registerClient.authenticationHeader;
@@ -216,15 +248,13 @@ Now that you have modified your app backend to send just the *id* of a notificat
             NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                 
                 NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-                if (!error && httpResponse.statusCode == 200)
-                {
+                if (!error && httpResponse.statusCode == 200) {
                     // from NSData to UIImage
                     self.imagePayload = [UIImage imageWithData:data];
                     
                     completion(nil);
                 }
-                else
-                {
+                else {
                     NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
                     if (error)
                         completion(error);
@@ -235,6 +265,44 @@ Now that you have modified your app backend to send just the *id* of a notificat
             }];
             [dataTask resume];
         }
+
+        // handle silent push notifications when id is sent from backend
+        - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler {
+            self.userInfo = userInfo;
+            int richId = [[self.userInfo objectForKey:@"richId"] intValue];
+            NSString* richType = [self.userInfo objectForKey:@"richType"];
+            
+            // retrieve image data
+            if ([richType isEqualToString:@"img"]) {  
+                [self retrieveRichImageWithId:richId completion:^(NSError* error) {
+                    if (!error){
+                        // send local notification
+                        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+                        
+                        // "5" is arbitrary here to give you enough time to quit out of the app and receive push notifications
+                        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+                        localNotification.userInfo = self.userInfo;
+                        localNotification.alertBody = [self.userInfo objectForKey:@"richMessage"];
+                        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+
+                        // iOS8 categories
+                        if (self.iOS8) {
+                            localNotification.category = @"richPush";
+                        }
+                        
+                        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+                        
+                        handler(UIBackgroundFetchResultNewData);
+                    }
+                    else{
+                        handler(UIBackgroundFetchResultFailed);
+                    }
+                }];
+            }
+            // add "else if" here to handle more types of rich content such as url, sound files, etc.
+        }
+
+16. Handle the local notification above by opening up the image view controller in **AppDelegate.m** with the following methods:
 
         // helper: redirect users to image view controller 
         - (void)redirectToImageViewWithImage: (UIImage *)img {
@@ -249,40 +317,8 @@ Now that you have modified your app backend to send just the *id* of a notificat
             [navigationController pushViewController:imgViewController animated:YES];
         }
 
-        // handle silent push notifications when id is sent from backend
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler{
-            self.userInfo = userInfo;
-            int richId = [[self.userInfo objectForKey:@"richId"] intValue];
-            NSString* richType = [self.userInfo objectForKey:@"richType"];
-            
-            // retrieve image data
-            if ([richType isEqualToString:@"img"]){  
-                [self retrieveRichImageWithId:richId completion:^(NSError* error) {
-                    if (!error){
-                        // send local notification
-                        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-                        
-                        // "5" is arbitrary here to give you enough time to quit out of the app and receive push notifications
-                        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
-                        localNotification.userInfo = self.userInfo;
-                        localNotification.alertBody = [self.userInfo objectForKey:@"richMessage"];
-                        localNotification.timeZone = [NSTimeZone defaultTimeZone];
-                        
-                        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-                        
-                        handler(UIBackgroundFetchResultNewData);
-                    }
-                    else{
-                        handler(UIBackgroundFetchResultFailed);
-                    }
-                }];
-            }
-            // add "else if" here to handle more types of rich content such as url, sound files, etc.
-        }
-
         // handle local notification sent above in didReceiveRemoteNotification
         - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-
             if (application.applicationState == UIApplicationStateActive) {
                 // show in-app alert with an extra "more" button
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:notification.alertBody delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"More", nil];
@@ -296,14 +332,22 @@ Now that you have modified your app backend to send just the *id* of a notificat
         }
 
         // handle buttons in in-app alerts and redirect with data/image
-        - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-        {
+        - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
             // handle "more" button
             if (buttonIndex == 1)
             {
                 [self redirectToImageViewWithImage:self.imagePayload];
             }
             // add "else if" here to handle more buttons
+        }
+
+        // handle notification setting actions in iOS8
+        - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler {
+            // handle richPush related buttons
+            if ([identifier isEqualToString:@"richPushMore"]) {
+                [self redirectToImageViewWithImage:self.imagePayload];
+            }
+            completionHandler();
         }
 
 ## Run the Application
