@@ -8,7 +8,7 @@ An availability set helps keep your virtual machines available during downtime, 
 
 It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For details about load-balanced endpoints, see [Load Balancing for Azure Infrastructure Services] [].
 
-There are two basic ways you can put virtual machines into an availability set. This article shows you how. You can:
+You can put virtual machines into an availability set using one of two options:
 
 - [Option 1: Create a virtual machine and an availability set at the same time] []. Then, add new virtual machines to the set when you create those virtual machines.
 - [Option 2: Add an existing virtual machine to an availability set] [].
@@ -32,21 +32,20 @@ To use the Management Portal:
  
 5. The third screen lets you configure resources for networking, storage, and availability. Do the following:
 	 
-	1. Create a cloud service. Under **Cloud Service**, leave it set to **Create a new cloud service**. Then, under **Cloud Service DNS Name**, type a name. The cloud service acts as a communications and isolation group. The DNS name becomes part of the URI that's used to contact the virtual machine. All virtual machines in the same cloud service can communicate with each other, can be set up for load balancing and can be placed in the same availability set. 
+	1. Pick the appropriate choice for cloud service. Leave it set to **Create a new cloud service** (unless you are adding this new virtual machine to an existing VM cloud service). Then, under **Cloud Service DNS Name**, type a name. The DNS name becomes part of the URI that's used to contact the virtual machine. The cloud service acts as a communications and isolation group. All virtual machines in the same cloud service can communicate with each other, can be set up for load balancing, and can be placed in the same availability set. 
 
-	2. Under **Region/Affinity Group/Virtual Network**, use a region that's appropriate to your location. You can also choose to specify a virtual network instead. 
-	>[WACOM.NOTE] If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the VM. For more information, see [Azure Virtual Network Overview][]. 
-
+	2. Under **Region/Affinity Group/Virtual Network**, specify a virtual network if you plan to use one. **Important**: If you want a virtual machine to use a virtual network, you must join the VM to the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the VM. For more information, see [Azure Virtual Network Overview][]. 
+	
 	3. Create the availability set. Under **Availability Set**, leave it set to **Create an availability set**. Then, type a name for the set. 
 	4. Create the default endpoints and add more endpoints if needed. You also can add endpoints later. 
 
 	![Create an availabililty set for a new VM](./media/virtual-machines-how-to-configure-availability/VMavailabilityset.png) 
 
-6. On the fourth screen, choose the extensions you want to install. Extensions provide features that help you manage the virtual machine. For details, see [Azure VM Agent and VM Extensions](http://go.microsoft.com/fwlink/p/?LinkId=XXX).
+6. On the fourth screen, choose the extensions you want to install. Extensions provide features that make it easier to manage the virtual machine, such as running antimalware or resetting passwords. For details, see [Azure VM Agent and VM Extensions](http://go.microsoft.com/fwlink/p/?LinkId=XXX).
 
 7.	Click the arrow to create the virtual machine and the availability set.
 
-	From the dashboard of the new virtual machine, you can click **Configure** and see that the virtual machine is a member of the new availability set.
+	From the dashboard of the new virtual machine, you can click **Configure** to see that the virtual machine belongs to the new availability set.
 
 To use Azure cmdlets:
 
@@ -56,13 +55,15 @@ To use Azure cmdlets:
 
 	`C:\PS> $image = (Get-AzureVMImage)[4].ImageName`
 
+	>[WA.COM NOTE] To get a list of all images that apply to your subscription, run `Get-AzureVMImage` without parameters.
+
 3.	Specify the configuration for the new virtual machine, and then use the pipeline to pass a configuration object to the cmdlet that creates the VM:
 
 	` C:\PS> New-AzureVMConfig -Name "MyVM1" -InstanceSize ExtraSmall -AvailabilitySetName "MySet" -ImageName $image | Add-AzureProvisioningConfig -Windows -Password "MyPassword" | Add-AzureDataDisk -CreateNew -DiskSizeInGB 50 -DiskLabel 'datadisk1' -LUN 0 | New-AzureVM –ServiceName "MySvc1" `
 
 ## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set##
 
-In the Management Portal, you can add existing virtual machines to an existing availability set, or create an availability set for them and then add the VMs to it. The steps are almost the same. In Azure PowerShell, you can add the virtual machine to an existing availability set.
+In the Management Portal, you can add existing virtual machines to an existing availability set, or create a new one for them. (Keep in mind that the virtual machines must belong to the same cloud service.) The steps are almost the same. In Azure PowerShell, you can add the virtual machine to an existing availability set. 
 
 1. If you have not already done so, sign in to the Azure [Management Portal](http://manage.windowsazure.com).
 
@@ -71,8 +72,6 @@ In the Management Portal, you can add existing virtual machines to an existing a
 3. From the list of virtual machines, pick one of the virtual machines you want to add to the set. Click the row of the virtual machine to open its dashboard.
 
 4. From the tabs below the virtual machine name, click **Configure**. 
-
-	The **Virtual machine configuration** dialog box appears.
 
 5. In the Settings section, find **Availability Set**. Do one of the following:
 
