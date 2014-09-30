@@ -27,6 +27,8 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **Shard Elasticity** (SE): The ability to perform both **horizontal scaling** and **vertical scaling**.
 
+**Sharded tables**: Tables that are sharded, i.e., whose data is distributed across shards based on their sharding key values. 
+
 **Sharding key**: A column value that determines how data is distributed across shards. The value type can be one of the following: int, bigint, varbinary, or uniqueidentifier. 
 
 **Shard Set**: The complete set of shards that are attributed to the same shard map in the shard map manager.  
@@ -39,19 +41,17 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **Shard Set**:The collection of shards that belong to the same shard map in the shard map manager. 
 
-**Split** (Verb): To split a single shard into two. A sharding key is provided by the user as the split point.
-
 ##Verbs
 
 **Horizontal scaling**: The act of scaling out (or in) a collection of shards by adding or removing shards to a shard map.
 
-**Merge**: The act of creating one shard from two shards.
+**Merge**: The act of moving shardlets from two shards to one shard and updating the shard map accordingly.
 
-**Point move** (Verb): The act of moving a single shardlet to a different shard. 
+**Shardlet move**: The act of moving a single shardlet to a different shard. 
 
-**Shard**: (Verb) The act of horizontally partitioning identically structured data across multiple databases based on a sharding key.
+**Shard**: The act of horizontally partitioning identically structured data across multiple databases based on a sharding key.
 
-**Split**: (Verb) The act of splitting a single shard into two. A sharding key is provided by the user as the split point.
+**Split**: The act of moving several shardlets from one shard to another (typically new) shard. A sharding key is provided by the user as the split point.
 
 **Vertical Scaling**: The act of scaling up (or down) the performance level of an individual shard. For example, changing a shard from Standard to Premium (as required for performance reasons). 
 
