@@ -63,23 +63,26 @@ A SSL certificate is required to encrypt the communication and authenticate the 
 ## <a name="configuring-client-certs"></a>To Configure Client Certificates
 Client certificates are required in order to authenticate requests to the service. Choose the most applicable of the three scenarios below, and execute all its steps:
 
+###Turn Off Client Certificates
 1.	[Turn Off Client Certificate-Based Authentication][]
-2.	Issue new self-signed client certificates
-	1.	[Create a Self-Signed Certification Authority][]
-	2.	[Upload CA Certificate to Cloud Service][]
-	3.	[Update CA Certificate in Service Configuration File][]
-	4.	[Issue Client Certificates][]
-	5.	[Create PFX files for Client Certificates][]
-	6.	[Import Client Certificate][]
-	7.	[Copy Client Certificate Thumbprints][]
-	8.	[Configure Allowed Clients in the Service Configuration File][]
-3.	Use existing client certificates
-	1.	[Find CA Public Key][]
-	2.	[Upload CA Certificate to Cloud Service][]
-	3.	[Update CA Certificate in Service Configuration File][]
-	4.	[Copy Client Certificate Thumbprints][]
-	5.	[Configure Allowed Clients in the Service Configuration File][]
-	6.	[Configure Client Certificate Revocation Check][]
+
+###Issue new self-signed client certificates
+1.	[Create a Self-Signed Certification Authority][]
+2.	[Upload CA Certificate to Cloud Service][]
+3.	[Update CA Certificate in Service Configuration File][]
+4.	[Issue Client Certificates][]
+5.	[Create PFX files for Client Certificates][]
+6.	[Import Client Certificate][]
+7.	[Copy Client Certificate Thumbprints][]
+8.	[Configure Allowed Clients in the Service Configuration File][]
+
+###Use existing client certificates
+1.	[Find CA Public Key][]
+2.	[Upload CA Certificate to Cloud Service][]
+3.	[Update CA Certificate in Service Configuration File][]
+4.	[Copy Client Certificate Thumbprints][]
+5.	[Configure Allowed Clients in the Service Configuration File][]
+6.	[Configure Client Certificate Revocation Check][]
 
 ## <a name="allowed-ip-addresses"></a>Allowed IP Addresses
 

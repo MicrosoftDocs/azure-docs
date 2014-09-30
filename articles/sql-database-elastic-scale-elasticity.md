@@ -12,17 +12,17 @@
 
 A canonical scenario for horizontal scaling is an application that processes transactions for concert tickets. Under normal customer volume, the application uses minimal database resources to handle purchase transactions.  However, when tickets go on sale for a popular concert, a single database cannot handle the large spike in customer demand. 
 
-To handle the dramatic increase in transactions, the application scales horizontally. The application can now distribute the transaction load across many shards. When the the additional resources are no longer needed, the database tier shrinks back for normal usage. Here horizontal scaling enables an application to scale-out to match customer demand and scale-in when the resources are no longer needed.   
+To handle the dramatic increase in transactions, the application scales horizontally. The application can now distribute the transaction load across many shards. When the additional resources are no longer needed, the database tier shrinks back for normal usage. Here horizontal scaling enables an application to scale-out to match customer demand and scale-in when the resources are no longer needed.   
 
-Similar to horizontal scaling, **vertical scaling** is the increase or decrease of resources for a specific database.
+**Vertical scaling** is the increase or decrease of resources for a specific database.
 
-Within Azure SQL database, the Basic, Standard, and Premium service tiers enable an application developer to match the performance of any single shard or database to their workload.
+Within Azure SQL Database, there are three service tiers: Basic, Standard, and Premium. Vertical scaling allows you to match the performance of any single shard (database) to their workload by changing the service tier.
 
 ### Vertical Scaling Example: Telemetry
 
-A canonical scenario for vertical scaling is an application that uses a shard set to store operational telemetry. In this scenario, it is better to co-locate all telemetry data for a single day on a single shard. That configuration improves the ability to perform joins locally. In such an application, data for the current day is ingested into a shard and a new shard is provisioned for subsequent days. The operational data can then be aged and queried as appropriate. 
+A canonical scenario for vertical scaling is an application that uses a **shard set** to store operational telemetry. In this scenario, it is better to co-locate all telemetry data for a single day on a single shard. The configuration improves the ability to perform joins locally. In this application, data for the current day is ingested into a shard and a new shard is provisioned for subsequent days. The operational data can then be aged and queried as appropriate. 
 
-As the database ingests telemetry data at high loads, it is better to employ a higher Azure SQL DB performance service tier. In other words, a Premium database is better than a Basic database. Once the database reaches its capacity, it switches from ingestion to analysis and reporting. In this case, the Standard tier's performance is equal to the task. Thus one can vertically scale down the service tier (or performance level) on shards other than the most recently created one in order to fit the lower performance requirements of this application pattern for older data. 
+To ingest telemetry data at high loads, it is better to employ a higher service tier. In other words, a Premium database is better than a Basic database. Once the database reaches its capacity, it switches from ingestion to analysis and reporting. For that, the Standard tier's performance is equal to the task. Thus one can vertically scale down the service tier on shards (other than the most recently created one) in order to fit the lower performance requirements for older data. 
 
 Vertical scaling can also be used to increase the performance of a single database in order to achieve increased performance. An example is a tax filing application. At filing time, it is better to keep a single customer’s data all on the same database and increase the performance of that shard. Depending on the application, vertically scaling up and down resources is advantageous to optimize for both cost and performance requirements. 
 
@@ -38,7 +38,7 @@ Vertical and horizontal scaling is a function of three basic components:
 2. **Rule**
 3. **Action**   
 
-## Telemetry 
+## <a name="telemetry"> </a>Telemetry
 
 **Data-driven elasticity** is at the heart of an elastic scale application. Depending on the performance requirements, use telemetry to make data-driven decisions on whether to scale vertically or horizontally.  
 
@@ -99,7 +99,7 @@ As data is ingested into a particular shard, it is useful to project forward a d
 	WHERE 
 		Size.[order] < 8 
 
-## Rule  
+## <a name="rule"></a>Rule  
 
 The rule is the decision engine that determines whether or not an action is taken. Some rules are very straightforward and some are much more complicated. As shown in the code snippet below, a capacity-focused rule can be configured so that when a shard reaches $SafetyMargin, e.g., 80%, of its maximum capacity, a new shard is provisioned.
 
@@ -109,7 +109,7 @@ The rule is the decision engine that determines whether or not an action is take
 
 Given the data sources above, a number of rules can be formulated in order to accomplish numerous shard elasticity scenarios. 
 
-## Action  
+## <a name="action"></a>Action  
 
 Based on the outcome of the rule, the action (or non-action) is the result. The two most common actions are:
 
@@ -141,3 +141,8 @@ To facilitate the actual implementation of both horizontal and vertical scaling 
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-elasticity/data-ingestion.png
+
+<!--anchors-->
+[Telemetry]:#telemetry
+[Rule]:#rule
+[Action]:#action

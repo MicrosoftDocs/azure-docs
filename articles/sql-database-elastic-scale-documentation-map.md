@@ -41,6 +41,6 @@ Azure SQL Database Elastic Scale (in preview) enables the data-tier of an applic
 	
 Management Services
 
-* [Elastic Scale Security Considerations](./sql-database-elastic-scale-service-security-considerations.md)
+* [Elastic Scale Security Considerations](./sql-database-elastic-scale-configure-security.md)
 * [Managing Elastic Scale Credentials](./sql-database-elastic-scale-manage-credentials.md)
 * [Azure SQL Database Split and Merge Service Tutorial](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)
