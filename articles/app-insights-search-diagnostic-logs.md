@@ -1,6 +1,6 @@
-<properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  />
+<properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  
 # Diagnostic search in Application Insights
 
@@ -13,6 +13,7 @@ Your search results can also include the regular page view and request events th
 + [Insert diagnostic log calls](#pepper)
 + [View log data](#view)
 + [Search log data](#search)
++ [Troubleshooting](#questions)
 + [Next steps](#next)
 
 
@@ -193,6 +194,7 @@ Here are the search expressions you can use:
                         <p>Shorter form.</p>
                       </td>
                     </tr>
+       <!-- -- fielded search feature not ready yet --
                     <tr>
                       <td>
                         <p>
@@ -209,9 +211,19 @@ Here are the search expressions you can use:
                         <p>Match the specified field. By default, all fields are searched. To see what fields are available, select an event to look at its detail.</p>
                       </td>
                     </tr>
+ -->
 </table>
 
-## <a name="limits"></a>How much data is retained?
+
+## <a name="questions"></a>Q & A
+
+### <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
+
+Looks like you installed the logging adapter Nuget package without installing Application Insights.
+
+In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one. That should fix it.
+
+### <a name="limits"></a>How much data is retained?
 
 Up to 500 events per second from each application. Events are retained for seven days.
 
