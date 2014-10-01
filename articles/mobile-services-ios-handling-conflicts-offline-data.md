@@ -58,7 +58,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
         @property (nonatomic, weak) NSMutableDictionary *item;
 
-3. In **QSTodoItemViewController.m**, add two private properties for the two fields of the todo item we'll edit -- the completion status and the text of the todo items themselves:
+3. In **QSTodoItemViewController.m**, add two private properties for the two fields of the todo item we'll edit -- the completion status and the text of the todo item itself:
 
         @interface QSTodoItemViewController ()
 
@@ -136,7 +136,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 ### Add Item Details to Todo Item View Controller
 
-1. We will refer to **QSTodoItemViewController** from  **QSTodoListViewController.m**, so add an import statement to **QSTodoListViewController.m**.
+1. We will refer to **QSTodoItemViewController** from  **QSTodoListViewController.m**. So, in **QSTodoListViewController.m**, let's add a line to import **QSTodoItemViewController.h**.
 
         #import "QSTodoItemViewController.h"
 
@@ -154,7 +154,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
               [self performSegueWithIdentifier:@"detailSegue" sender:self];
           }
 
-4. Implement **prepareForSegue:sender** in **QSTodoListViewController.m** to pass the item to the  **Todo Item View Controller**.
+4. Implement **prepareForSegue:sender:** in **QSTodoListViewController.m** to pass the item to the  **Todo Item View Controller**.
 
         - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
             if ([[segue identifier] isEqualToString:@"detailSegue"]) {
@@ -167,8 +167,6 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
       ![][add-todo-item-view-controller-6]
 
-      ![][add-todo-item-view-controller-7]
-
 ### Add Support for Saving Edits
 
 1. When you click the "Back" button in the navigation view, the edits are lost. We've sent data to the detail view, but the data isn't  sent back to the master view. Since we already pass a pointer to a copy of the item, we can use that pointer to retrieve the list of updates made to the item and update it on the server. To get started, first update the server wrapper class of **QSTodoService** in **QSTodoService.m** by removing the **completeItem** operation and adding a new  **updateItem** operation. This is because **completeItem** only marks items as complete; instead, **updateItem** will update items.
@@ -180,7 +178,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
             // Replace the original in the items array
             [mutableItems replaceObjectAtIndex:index withObject:item];
 
-            // Update the item in the TodoItem table and remove from the items array on completion
+            // Update the item in the TodoItem table and remove from the items array when we mark an item as complete
             [self.syncTable update:item completion:^(NSError *error) {
                 [self logErrorIfNotNil:error];
 
@@ -257,7 +255,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
       ![][conflict-handling-problem-1]
 
-2. Launch the app in two places: on two iOS devices, or in the simulator and on an iOS device. If you don't have a physical device to test on, launch one instance in the simulator, and using a REST client, send a PATCH request to the mobile service.Tthe URL of the PATCH request reflects the name of the Mobile Service, the name of the todo item table, and the ID of the todo item table you're editing, while the x-zumo-application header is the application key:
+2. Launch the app in two places: on two iOS devices, or in the simulator and on an iOS device. If you don't have a physical device to test on, launch one instance in the simulator, and using a REST client, send a PATCH request to the mobile service.The URL of the PATCH request reflects the name of the Mobile Service, the name of the todo item table, and the ID of the todo item table you're editing, while the x-zumo-application header is the application key:
 
         PATCH https://todolist.azure-mobile.net/tables/todoitem/D265929E-B17B-42D1-8FAB-D0ADF26486FA?__systemproperties=__version
         Content-Type: application/json
@@ -450,7 +448,6 @@ Along the way, you added a **QSUIAlertViewWithBlock** helper class to display an
 [add-todo-item-view-controller-4]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-4.png
 [add-todo-item-view-controller-5]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-5.png
 [add-todo-item-view-controller-6]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-6.png
-[add-todo-item-view-controller-7]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-7.png
 [conflict-handling-problem-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/conflict-handling-problem-1.png
 [update-todo-list-view-controller-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-1.png
 [update-todo-list-view-controller-2]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-2.png
