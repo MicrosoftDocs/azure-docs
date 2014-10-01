@@ -1,4 +1,4 @@
-<properties title="Splitting and Merging with Elastic Scale" pageTitle="Splitting and Merging with Elastic Scale" description="Splitting and Merging with Elastic Scale" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" services="sql-database" documentationCenter="sql-database" authors="sidneyh@microsoft.com"/>
+<properties title="Splitting and Merging with Elastic Scale" pageTitle="Splitting and Merging with Elastic Scale" description="Explains how to manipulate shards and move data via a self-hosted service using Elastic Scale APIs." metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" services="sql-database" documentationCenter="" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
@@ -48,25 +48,25 @@ The default deployed service runs with one worker and one web role. Each uses th
 
 * **Sharded tables**: Split/Merge/Move operations move shardlets from source to target shard. After successful completion of the overall request, those shardlets are no longer present on the source. Note that the target tables need to exist on the target shard and must not contain data in the target range prior to processing of the operation. 
 
--	**Reference tables**: For reference tables, the split, merge and move operations copy the data from the source to the target shard. Note, however, that no changes occur on the target shard for a given table if any row is already present in this table on the target. The table has to be empty for any reference table copy operation to get processed.
+-    **Reference tables**: For reference tables, the split, merge and move operations copy the data from the source to the target shard. Note, however, that no changes occur on the target shard for a given table if any row is already present in this table on the target. The table has to be empty for any reference table copy operation to get processed.
 
--	**Other Tables**: Other tables can be present on either the source or the target of a split/merge operation. Split/merge disregards these tables for any data movement or copy operations. Note, however, that they can interfere with these operations in case of constraints.
+-    **Other Tables**: Other tables can be present on either the source or the target of a split/merge operation. Split/merge disregards these tables for any data movement or copy operations. Note, however, that they can interfere with these operations in case of constraints.
 
 The information on reference vs. sharded tables is provided by the **SchemaInfo** APIs on the shard map. The following example illustrates the use of these APIs on a given shard map manager object smm: 
 
-	// Create the schema annotations 
-	SchemaInfo schemaInfo = new SchemaInfo(); 
+    // Create the schema annotations 
+    SchemaInfo schemaInfo = new SchemaInfo(); 
 
-	// Reference tables 
-	schemaInfo.Add(new ReferenceTableInfo("dbo", "region")); 
-	schemaInfo.Add(new ReferenceTableInfo("dbo", "nation")); 
+    // Reference tables 
+    schemaInfo.Add(new ReferenceTableInfo("dbo", "region")); 
+    schemaInfo.Add(new ReferenceTableInfo("dbo", "nation")); 
 
-	// Sharded tables 
-	schemaInfo.Add(new ShardedTableInfo("dbo", "customer", "C_CUSTKEY")); 
-	schemaInfo.Add(new ShardedTableInfo("dbo", "orders", "O_CUSTKEY")); 
+    // Sharded tables 
+    schemaInfo.Add(new ShardedTableInfo("dbo", "customer", "C_CUSTKEY")); 
+    schemaInfo.Add(new ShardedTableInfo("dbo", "orders", "O_CUSTKEY")); 
 
-	// Publish 
-	smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo); 
+    // Publish 
+    smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo); 
 
 The tables ‘region’ and ‘nation’ are defined as reference tables and will be copied with split/merge/move operations. ‘customer’ and ‘orders’ in turn are defined as sharded tables. C_CUSTKEY and O_CUSTKEY serve as the sharding key. 
 
@@ -82,23 +82,23 @@ The service binaries for Split/Merge are provided through [Nuget](http://www.nug
 
 Besides its worker role, the Split/Merge service package also includes a web role that can be used to submit Split/Merge requests in an interactive way. The main components of the user interface are as follows:
 
--	Operation Type: The operation type is a radio button that controls the kind of operation performed by the service for this request. You can choose between the split, merge and move scenarios discussed in Concepts and Key Features. In addition, you can also cancel a previously submitted operation.
+-    Operation Type: The operation type is a radio button that controls the kind of operation performed by the service for this request. You can choose between the split, merge and move scenarios discussed in Concepts and Key Features. In addition, you can also cancel a previously submitted operation.
 
--	Shard Map: The next section of request parameters cover information about the shard map and the database hosting your shard map. In particular, you need to provide the name of the Azure SQL Database server and database hosting the shardmap, credentials to connect to the shard map database, and finally the name of the shard map. Currently, the operation only accepts a single set of credentials. These credentials need to have sufficient permissions to perform changes to the shard map as well as to the user data on the shards.
+-    Shard Map: The next section of request parameters cover information about the shard map and the database hosting your shard map. In particular, you need to provide the name of the Azure SQL Database server and database hosting the shardmap, credentials to connect to the shard map database, and finally the name of the shard map. Currently, the operation only accepts a single set of credentials. These credentials need to have sufficient permissions to perform changes to the shard map as well as to the user data on the shards.
 
--	Source Range (Split/Merge): For split and merge operation, a request needs to have the low and high key of the source range on the source shard. Currently, you need to specifiy the keys exactly as they occur in the mappings in your shard map. You can use the GetMappings.ps1 PowerShell script to retrieve the current mappings in a given shard map.
+-    Source Range (Split/Merge): For split and merge operation, a request needs to have the low and high key of the source range on the source shard. Currently, you need to specifiy the keys exactly as they occur in the mappings in your shard map. You can use the GetMappings.ps1 PowerShell script to retrieve the current mappings in a given shard map.
 
--	Split Key and Behavior (Split): For split operations, you also need to define at which point you want to split the source range. You do this by providing the sharding key where you want the split to occur. Use the radio button next to define whether you want the lower part of the range (excluding the split key) to move, or whether you want the upper part to move (including the split key).
+-    Split Key and Behavior (Split): For split operations, you also need to define at which point you want to split the source range. You do this by providing the sharding key where you want the split to occur. Use the radio button next to define whether you want the lower part of the range (excluding the split key) to move, or whether you want the upper part to move (including the split key).
 
--	Source Shardlet (Move): Move operations are different from split or merge operations as they do not require a range to describe the source. A source for move is simply identified by the sharding key value that you plan to move.
+-    Source Shardlet (Move): Move operations are different from split or merge operations as they do not require a range to describe the source. A source for move is simply identified by the sharding key value that you plan to move.
 
--	Target Shard (Split): Once you have provided the information on the source of your split operation, you need to define where you want the data to be copied to by providing the Azure SQL Db server and database name for the target.
+-    Target Shard (Split): Once you have provided the information on the source of your split operation, you need to define where you want the data to be copied to by providing the Azure SQL Db server and database name for the target.
 
--	Target Range (Merge): Merge operations instead move shardlets to an existing shard. You identify the existing shard by providing the range boundaries of the existing range that you want to merge with.
+-    Target Range (Merge): Merge operations instead move shardlets to an existing shard. You identify the existing shard by providing the range boundaries of the existing range that you want to merge with.
 
--	Batch Size: The batch size controls the number of shardlets that will go offline at a time during the data movement. This is an integer value where you can use smaller values when you are sensitive to long periods of downtime for shardlets. Larger values will increase the time that a given shardlet is offline but may improve performance.
+-    Batch Size: The batch size controls the number of shardlets that will go offline at a time during the data movement. This is an integer value where you can use smaller values when you are sensitive to long periods of downtime for shardlets. Larger values will increase the time that a given shardlet is offline but may improve performance.
 
--	Operation Id (Cancel): If you have an ongoing operation that is no longer needed, you can cancel the operation by providing its operation ID in this field. You can retrieve the operation ID from the request status table (see Section 8.1) or from the output in the web browser where you submitted the request.
+-    Operation Id (Cancel): If you have an ongoing operation that is no longer needed, you can cancel the operation by providing its operation ID in this field. You can retrieve the operation ID from the request status table (see Section 8.1) or from the output in the web browser where you submitted the request.
 
 
 ## Requirements and Limitations 
@@ -161,11 +161,11 @@ Note that the service also performs validation queries as part of its normal ope
 In addition, a uniqueness property with the sharding key as the leading column will allow the service to use an optimized approach that limits resource consumption in terms of log space and memory. This uniqueness property is required to move large data sizes (typically above 1GB). 
 
 ## Best Practices & Troubleshooting 
--	Consider defining a test tenant and exercise your most important split/merge/move operations with the test tenant across several shards. This will help you ensure that all metadata is defined correctly in your shard map and that the operations do not violate constraints or foreign keys.
--	Keep the test tenant data size above the maximum data size of your largest tenant to ensure you are not encountering data size related issues. This will also help you assess an upper bound on the time it takes to move a single tenant around. 
--	The Split/Merge service requires the ability to remove data from the source shard once the data has been successfully copied to the target. Inspect your schema closely to make sure that your schema allows the deletions. For instance, delete triggers can prevent the service from deleting the data on the source and may cause operations to fail.
--	Ensure that the sharding key is the leading column in your primary key or unique index definition. That will ensure the best performance for the split/merge validation queries and for the actual data movement and deletion operations which always operate on sharding key ranges.
--	For performance and cost reasons, collocating your split/merge service in the region and data center where your databases reside is typically the best choice. 
+-    Consider defining a test tenant and exercise your most important split/merge/move operations with the test tenant across several shards. This will help you ensure that all metadata is defined correctly in your shard map and that the operations do not violate constraints or foreign keys.
+-    Keep the test tenant data size above the maximum data size of your largest tenant to ensure you are not encountering data size related issues. This will also help you assess an upper bound on the time it takes to move a single tenant around. 
+-    The Split/Merge service requires the ability to remove data from the source shard once the data has been successfully copied to the target. Inspect your schema closely to make sure that your schema allows the deletions. For instance, delete triggers can prevent the service from deleting the data on the source and may cause operations to fail.
+-    Ensure that the sharding key is the leading column in your primary key or unique index definition. That will ensure the best performance for the split/merge validation queries and for the actual data movement and deletion operations which always operate on sharding key ranges.
+-    For performance and cost reasons, collocating your split/merge service in the region and data center where your databases reside is typically the best choice. 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
