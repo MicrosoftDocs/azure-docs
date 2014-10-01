@@ -444,27 +444,16 @@ Along the way, you added a **QSUIAlertViewWithBlock** helper class to display an
 
 <!-- URLs. -->
 
-[add-todo-item-view-controller-1]: ./media/mobile-services-ios-get-started-offline-data/add-todo-item-view-controller-1.png
-[add-todo-item-view-controller-2]: ./media/mobile-services-ios-get-started-offline-data/add-todo-item-view-controller-2.png
-[add-todo-item-view-controller-3]: ./media/mobile-services-ios-get-started-offline-data/add-todo-item-view-controller-3.png
-[add-todo-item-view-controller-4]: ./media/mobile-services-ios-get-started-offline-data/add-todo-item-view-controller-4.png
-[add-todo-item-view-controller-5]: ./media/mobile-services-ios-get-started-offline-data/add-todo-item-view-controller-5.png
-[add-todo-item-view-controller-6]: ./media/mobile-services-ios-get-started-offline-data/add-todo-item-view-controller-6.png
-[add-todo-item-view-controller-7]: ./media/mobile-services-ios-get-started-offline-data/add-todo-item-view-controller-7.png
-[conflict-handling-problem-1]: ./media/mobile-services-ios-get-started-offline-data/conflict-handling-problem-1.png
-[core-data-1]: ./media/mobile-services-ios-get-started-offline-data/core-data-1.png
-[core-data-2]: ./media/mobile-services-ios-get-started-offline-data/core-data-2.png
-[core-data-3]: ./media/mobile-services-ios-get-started-offline-data/core-data-3.png
-[defining-core-data-main-screen]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-main-screen.png
-[defining-core-data-map]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-map.png
-[defining-core-data-model-editor]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-model-editor.png
-[defining-core-data-tableoperationerrors-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png
-[defining-core-data-tableoperations-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableoperations-entity.png
-[defining-core-data-todoitem-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
-[update-framework-1]: ./media/mobile-services-ios-get-started-offline-data/update-framework-1.png
-[update-framework-2]: ./media/mobile-services-ios-get-started-offline-data/update-framework-2.png
-[update-todo-list-view-controller-1]: ./media/mobile-services-ios-get-started-offline-data/update-todo-list-view-controller-1.png
-[update-todo-list-view-controller-2]: ./media/mobile-services-ios-get-started-offline-data/update-todo-list-view-controller-2.png
+[add-todo-item-view-controller-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-1.png
+[add-todo-item-view-controller-2]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-2.png
+[add-todo-item-view-controller-3]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-3.png
+[add-todo-item-view-controller-4]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-4.png
+[add-todo-item-view-controller-5]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-5.png
+[add-todo-item-view-controller-6]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-6.png
+[add-todo-item-view-controller-7]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-7.png
+[conflict-handling-problem-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/conflict-handling-problem-1.png
+[update-todo-list-view-controller-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-1.png
+[update-todo-list-view-controller-2]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-2.png
 
 
 
