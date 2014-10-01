@@ -20,7 +20,7 @@ In the sample below, a database named **sample_shard_2** and all necessary schem
 
     if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_2"),out shard2)) 
     { 
-		Shard2 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_2"));  
+		shard2 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_2"));  
 	} 
 
 	// Create the mapping and associate it with the new shard 
@@ -44,14 +44,14 @@ A database named “sample_shard_2” and all necessary schema objects inside of
 	if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_2"),out shard2)) 
 	{ 
 	
-		Shard2 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_2"));  
+		shard2 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_2"));  
 	} 
 
 	// Split the Range holding Key 25 
 
 	sm.SplitMapping(sm.GetMappingForKey(25), 25); 
 
-	// Map new range holding [25-51) to different shard: 
+	// Map new range holding [25-50) to different shard: 
     // first take existing mapping offline 
     sm.MarkMappingOffline(sm.GetMappingForKey(25)); 
     // now map while offline to a different shard and take online 

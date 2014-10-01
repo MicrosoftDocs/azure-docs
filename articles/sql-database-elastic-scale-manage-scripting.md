@@ -185,10 +185,10 @@ The next step is to execute the **SetupShardedEnvironment** runbook which provis
 
 Test the successful execution of each of the runbooks before publishing and scheduling the runbook. 
 
-1. Click “RUNBOOK” on the ribbon at the top of the page. 
-2. Click the “ProvisionByDate” runbook.
-3. Click “AUTHOR” on the ribbon at the top of the page. 
-4. Click “SAVE” then “TEST”.
+1. Click **RUNBOOK** on the ribbon at the top of the page. 
+2. Click the **ProvisionByDate** runbook.
+3. Click **AUTHOR** on the ribbon at the top of the page. 
+4. Click **SAVE **then **TEST**.
 5. Repeat for the **ReduceServiceTier**. 
 
 	Note, since **ProvisionBySize** and **ProvisionByDate** both provision new shards (using different algorithms), it is not necessary to run **ProvisionByDate** at this time. 
@@ -196,20 +196,20 @@ Test the successful execution of each of the runbooks before publishing and sche
 ## Publish the Runbook 
 The next step is to publish the runbook so that it can be scheduled to execute on a periodic basis. 
 
-1. Click “PUBLISH” on the bottom of the page. 
-2. Click “Published”. 
+1. Click **PUBLISH** on the bottom of the page. 
+2. Click **Published**. 
 3. Proceed to the next step.
  
 ## Schedule the Runbook 
 
 The final step is to create and link a schedule to the runbook published above. 
 
-1. Click “SCHEDULE” at the top of the page. 
-2. Click “LINK TO A NEW SCHEDULE”.
+1. Click **SCHEDULE** at the top of the page. 
+2. Click **LINK TO A NEW SCHEDULE**.
 3. Name the schedule appropriately and click the right arrow button.
 4. Configure the schedule.
 5. When finished, click the check at the bottom of the box.
-6. Once the job has been executed based on the previously established schedule, click the “JOBS” option on the ribbon at the top of the page and then select the scheduled job. 
+6. Once the job has been executed based on the previously established schedule, click the **JOBS **option on the ribbon at the top of the page and then select the scheduled job. 
 
 ## Conclusion 
 
