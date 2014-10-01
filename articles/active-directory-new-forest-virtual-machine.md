@@ -32,7 +32,7 @@ There is not much difference between installing a domain controller on Azure ver
 
 To configure...  | On-premises  | Azure virtual network	
 ------------- | -------------  | ------------
-**IP address for the domain controller**  | Assign static IP address on the network adapter properties   | Run the Set-AzureStaticVNetIP cmdlet assign a static IP address
+**IP address for the domain controller**  | Assign static IP address on the network adapter properties   | Run the Set-AzureStaticVNetIP cmdlet to assign a static IP address
 **DNS client resolver**  | Set Preferred and Alternate DNS server address on the network adapter properties of domain members   | Set DNS server address on the the virtual network properties
 **Active Directory database storage**  | Optionally change the default storage location from C:\  | You need to change default storage location from C:\
 
@@ -100,7 +100,6 @@ To configure...  | On-premises  | Azure virtual network
 	# OS Image to Use
 	$image = 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201404.01-en.us-127GB.vhd'
 	$service = 'DC2'
-	$AG = 'YourAffinityGroup'
 	$vnet = 'YourVirtualNetwork'
 	$pwd = 'P@ssw0rd'
 	$size = 'Small'
@@ -111,7 +110,7 @@ To configure...  | On-premises  | Azure virtual network
     Add-AzureProvisioningConfig -AdminUserName 'PierreSettles' -WindowsDomain -Password $pwd -Domain 'Contoso' -DomainPassword 'P@ssw0rd' -DomainUserName 'PierreSettles' -JoinDomain 'contoso.com'|
     Set-AzureSubnet -SubnetNames 'FrontEnd' 
 
-	New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyVM3 -DnsSettings $myDNS -VNetName $vnet   
+	New-AzureVM -ServiceName $service -VMs $MyVM3 -DnsSettings $myDNS -VNetName $vnet   
 
 If you rerun the script, you need to supply a unique value for $service. You can run Test-AzureName -Service <i>service name</i>, which returns if the name is already taken. 	
 
