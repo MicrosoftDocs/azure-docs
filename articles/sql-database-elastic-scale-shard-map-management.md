@@ -49,11 +49,11 @@ Shard maps can be constructed using **lists of individual sharding key values**,
 ###Range Shard Maps 
 In a **range shard map**, the key range is described by a pair **[Low Value, High Value)** where the *Low Value* is the minimum key in the range, and the *High Value* is the first value higher than the range. 
 
-For example, **[0, 100)** includes all integers greater than or equal 0 and less than 100. Note that multiple ranges can point to the same database, and disjoint ranges are supported (e.g., [100,200) and [400,600) both point to Database C in the example above.)
+For example, **[0, 100)** includes all integers greater than or equal 0 and less than 100. Note that multiple ranges can point to the same database, and disjoint ranges are supported (e.g., [100,200) and [400,600) both point to Database C in the example below.)
 <table>
    <tr>
-    <td>**Key Range**</td>
-     <td>**Shard Location**</td>
+    <td><b>Key Range</b></td>
+     <td><b>Shard Location</b></td>
    </tr>
    <tr>
     <td>[1, 50)</td>
@@ -85,7 +85,7 @@ In the Elastic Scale APIs, the Shard Map Manager is a collection of shard maps. 
 
 1. **Global ShardMapManager database (GSM)**: When you create a **ShardMapManager**, you specify a database to serve as the repository for all of its shard maps and mappings. Special tables and stored procedures are automatically created to manage the information. This is typically a small database and lightly accessed, but it should not be used for other needs of the application. The tables are in a special schema named **__ShardManagement**. 
 
-2. **Local ShardMapManager databases (LSM)**: Every database that you specify to be a shard within a shard map will be modified to contain several small tables and special stored procedures that contain and manage shard map information specific to that shard. This information is redundant to the map information in the GSM, but it allows the application to validate cached shard map information without placing any load on the GSM; the application uses the LSM to determine if a cached mapping is still valid. The tables corresponding to the LSM on each shard are in schema **__ShardManagement**.
+2. **Local ShardMapManager databases (LSM)**: Every database that you specify to be a shard within a shard map will be modified to contain several small tables and special stored procedures that contain and manage shard map information specific to that shard. This information is redundant to the information in the GSM, but it allows the application to validate cached shard map information without placing any load on the GSM; the application uses the LSM to determine if a cached mapping is still valid. The tables corresponding to the LSM on each shard are in schema **__ShardManagement**.
 
 3. **Application cache**: Each application instance accessing a **ShardMapManager** object maintains a local in-memory cache of its mappings. It stores routing information that has recently been retrieved. 
 
@@ -98,7 +98,6 @@ In this code, an application tries to open an existing **ShardMapManager**.  If 
 
     // Try to get a reference to the Shard Map Manager via the Shard Map Manager database.  
     // If it doesn't already exist, then create it. 
-
     ShardMapManager shardMapManager; 
     bool shardMapManagerExists = ShardMapManagerFactory.TryGetSqlShardMapManager(
         								connectionString, 
@@ -119,14 +118,14 @@ In this code, an application tries to open an existing **ShardMapManager**.  If 
             connectionString, 
             ShardMapManagerLoadPolicy.Lazy);
 
-		// The connectionString contains server name, database name, and admin credentials for 
-		// privileges on both the GSM and the shards themselves.
+		// The connectionString contains server name, database name, and admin credentials 
+		// for privileges on both the GSM and the shards themselves.
     } 
  
 
 ###Shard Map Administration Credentials
 
-Typically, applications that administer and manipulate shard maps are different from those that use the maps to route connections. 
+Typically, applications that administer and manipulate shard maps are different from those that use the shard maps to route connections. 
 
 For applications that administer shard maps (adding or changing shards, shard maps, shard mappings, etc.) you must instantiate the **ShardMapManager** using **credentials that have read/write privileges on both the GSM database and on each database that serves as a shard**. The credentials must allow for writes against the tables in both the GSM and LSM as shard map information is entered or changed, as well as for creating LSM tables on new shards.  
 
@@ -154,21 +153,22 @@ The code is written in a way that the entire method can be safely rerun in case 
             } 
 
             Shard shard0 = null, shard1=null; 
-            // check if shard exists and if not, create it (Idempotent / tolerant of re-execute) 
-
-            if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_0"),out shard0)) 
+            // check if shard exists and if not, 
+			// create it (Idempotent / tolerant of re-execute) 
+            if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_0"), out shard0)) 
             { 
                 Shard0 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_0")); 
             } 
 
-            if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_1"),out shard1)) 
+            if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_1"), out shard1)) 
             { 
                 Shard1 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_1"));  
             } 
 
             RangeMapping<long> rmpg=null; 
 
-            // Check if mapping exists and if not create it (Idempotent / tolerant of re-execute) 
+            // Check if mapping exists and if not,
+			// create it (Idempotent / tolerant of re-execute) 
             if (!sm.TryGetMappingForKey(0, out rmpg)) 
             { 
                 sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
@@ -200,14 +200,17 @@ The code is written in a way that the entire method can be safely rerun in case 
             } 
 
             // List the shards and mappings 
-            foreach (Shard s in sm.GetShards().OrderBy(s => s.Location.DataSource).ThenBy(s => s.Location.Database))
+            foreach (Shard s in sm.GetShards()
+									.OrderBy(s => s.Location.DataSource)
+									.ThenBy(s => s.Location.Database))
             { 
                Console.WriteLine("shard: "+ s.Location); 
             } 
 
             foreach (RangeMapping<long> rm in sm.GetMappings()) 
             { 
-                Console.WriteLine("range: ["+ rm.Value.Low.ToString()+":"+rm.Value.High.ToString()+ ")  ==>" +rm.Shard.Location); 
+                Console.WriteLine("range: [" + rm.Value.Low.ToString() + ":" 
+						+ rm.Value.High.ToString()+ ")  ==>" +rm.Shard.Location); 
             } 
         } 
  
@@ -217,7 +220,7 @@ Once shard maps have been populated, data access applications can be created or 
 
 ##Data Dependent Routing 
 
-Most use of the shard map manager will come from the applications that require database connections to perform the app-specific data operations. In a sharded application, those connections now must be associated with the correct target database. This is known as **Data Dependent Routing** or DDR.  For these applications, instantiate a shard map manager object from the factory using credentials that have read-only access on the GSM database. Individual requests for connections will later supply credentials necessary for connecting to the appropriate shard database.
+Most use of the shard map manager will come from the applications that require database connections to perform the app-specific data operations. In a sharded application, those connections now must be associated with the correct target database. This is known as **Data Dependent Routing**.  For these applications, instantiate a shard map manager object from the factory using credentials that have read-only access on the GSM database. Individual requests for connections will later supply credentials necessary for connecting to the appropriate shard database.
 
 Note that these applications (using **ShardMapManager** opened with read-only credentials) will be unable to make changes to the maps or mappings.  For those needs, create administrative-specific applications or PowerShell scripts that supply higher-privileged credentials as discussed earlier.   
 
@@ -247,65 +250,15 @@ These methods work together as the building blocks available for modifying the o
 
 * To take mappings online and offline: use **MarkMappingOffline** and **MarkMappingOnline** to control the online state of a mapping. 
 
-	Certain operations on shard mappings are only allowed when a mapping is in an “offline” state, including UpdateMapping and DeleteMapping. When a mapping is offline, a DDR request based on a key included in that mapping will return an error. In addition, when a range is first taken offline, all connections to the affected shard are automatically killed in order to prevent inconsistent or incomplete results for queries directed against ranges being changed. 
+	Certain operations on shard mappings are only allowed when a mapping is in an “offline” state, including UpdateMapping and DeleteMapping. When a mapping is offline, a data-dependent request based on a key included in that mapping will return an error. In addition, when a range is first taken offline, all connections to the affected shard are automatically killed in order to prevent inconsistent or incomplete results for queries directed against ranges being changed. 
 
 ##Adding a Shard 
 
-### To Add a Shard for a New Range or Key  
-
 Applications often need to simply add new shards to handle data that is expected from new keys or key ranges, for a shard map that already exists. For example, an application sharded by Tenant ID may need to provision a new shard for a new tenant, or data sharded monthly may need a new shard provisioned before the start of each new month. 
 
-If the new range of key values is not already part of an existing mapping, it is very simple to add the new shard and associate the new key or range to that shard. 
+If the new range of key values is not already part of an existing mapping and no data movement is necessary, it is very simple to add the new shard and associate the new key or range to that shard. For details on adding new shards, see [Adding a new Shard](./sql-database-elasic-scale-add-a-shard.md).
 
-###Example:  Adding a Shard and its Range to an Existing Shard Map
-In the sample below, a database named **sample_shard_2** and all necessary schema objects inside of it have been created to hold range [300, 400).  
-
-	// sm is a RangeShardMap object.
-	// Add a new shard to hold the range being added. 
-    Shard shard2 = null; 
-
-    if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_2"),out shard2)) 
-    { 
-		Shard2 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_2"));  
-	} 
-
-	// Create the mapping and associate it with the new shard 
-    sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
-							(new Range<long>(300, 400), shard2, MappingStatus.Online)); 
-
-
-### To Add a Shard for an Empty Part of an Existing Range  
-
-In some circumstances, you may have already mapped a range to a shard and partially filled it with data, but you now want upcoming data to be directed to a different shard. For example, you shard by day range and have already allocated 50 days to a shard, but on day 24, you want future data to land in a different shard. The Elastic Scale Preview [Split/Merge Service](http://go.microsoft.com/?linkid=9862599) can perform this operation, but if data movement is not necessary (for example, data for days 25-50 does no yet exist) you can perform this entirely using the Shard Map Management APIs directly.
-
-###Example:  Splitting a Range and Assigning the Empty Portion to a Newly-added Shard
-
-A database named “sample_shard_2” and all necessary schema objects inside of it have been created.  
-
- 
-	// sm is a RangeShardMap object.
-	// Add a new shard to hold the range we will move 
-	Shard shard2 = null; 
-
-	if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_2"),out shard2)) 
-	{ 
-	
-		Shard2 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_2"));  
-	} 
-
-	// Split the Range holding Key 25 
-
-	sm.SplitMapping(sm.GetMappingForKey(25), 25); 
-
-	// Map new range holding (25-50] to different shard: 
-    // first take existing mapping offline 
-    sm.MarkMappingOffline(sm.GetMappingForKey(25)); 
-    // now map while offline to a different shard and take online 
-    RangeMappingUpdate upd = new RangeMappingUpdate(); 
-    upd.Shard = shard2; 
-    sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd)); 
-
-**Important**:  Use this technique only if you are certain that the range for the updated mapping is empty.  The methods above do not check data for the range being moved, so it is best to include checks in your code.  If rows exist in the range being moved, the actual data distribution will not match the updated shard map. Use the **Split/Merge** Service to perform the operation instead in these cases.  
+For scenarios that require data movement, however, the Split-Merge service is needed to orchestrate the data movement between shards in combination with the necessary shard map updates. For details on using the Split-MErge service, see [Overview of Split-Merge](./sql-database-elastic-scale-overview-split-and-merge.md) 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
