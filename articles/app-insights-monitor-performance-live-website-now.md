@@ -75,8 +75,8 @@ You'll see data under Application Health.
   * Wait a few minutes to let the data arrive.
   * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com 
 
-#### What do the data on the tiles mean?
- * [View data][perf]
+#### What can I do with the Application Health reports?
+ * [Understand the data and configure the tiles][perf]
 
 ## <a name="next"></a>Next steps
 

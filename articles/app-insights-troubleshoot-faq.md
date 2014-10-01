@@ -9,6 +9,8 @@
 + [I added Application Insights successfully and ran my app, but I've never seen data in the portal.](#q03)
 + [I see no data under Usage Analytics](#q04)
 + [I'm looking at the Microsoft Azure Preview start board. How do I find my data in Application Insights?](#q05)
++ [How can I change the Azure resource my data appears under?](#update)
++ [I get an error "Instrumentation key cannot be empty"](#emptykey)
 + [On the Microsoft Azure Preview home screen, does that map show the status of my application?](#q06)
 + [When I use add Application Insights to my application and open the Application Insights portal, it all looks completely different from your screenshots.](#q07)
 + [Can I use Application Insights to monitor an intranet web server?](#q08)
@@ -57,6 +59,16 @@ Either:
 * Choose Browse, Application Insights, your project name. If you don't have any projects there, you need to [add Application Insights to your web project in Visual Studio][start].
 
 * In Visual Studio Solution Explorer, right-click your web project and choose Open Application Insights Portal.
+
+## <a name="update"></a>How can I change which Azure resource my project sends data to?
+
+In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
+
+## <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
+
+Looks like something went wrong while you were installing Application Insights or maybe a logging adapter.
+
+In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one.
 
 ## <a name="q06"></a>On the Microsoft Azure Preview home screen, does that map show the status of my application?
 
