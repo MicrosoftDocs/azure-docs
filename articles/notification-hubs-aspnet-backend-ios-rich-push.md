@@ -1,4 +1,4 @@
-<properties title="Azure Notification Hubs Rich Push" pageTitle="Azure Notification Hubs Rich Push" metaKeywords="Azure push notifications, Azure notification hubs, rich push" description="Learn how to send rich push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." documentationCenter="Mobile" metaCanonical="" services="notification-hubs" authors="yuaxu" manager="" />
+<properties title="Azure Notification Hubs Rich Push" pageTitle="Azure Notification Hubs Rich Push" metaKeywords="Azure push notifications, Azure notification hubs, rich push" description="Learn how to send rich push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." documentationCenter="Mobile" metaCanonical="" services="notification-hubs" authors="yuaxu" manager="timlt" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="yuaxu" />
 
