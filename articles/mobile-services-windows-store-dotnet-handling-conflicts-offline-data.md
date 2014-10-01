@@ -75,6 +75,9 @@ Now it's time to test the app against Mobile Services.
 
 In a real world scenario, a sync conflict would occur when one app pushes updates to a record in the database, and then another app tries to push an update to the same record using an outdated version field in that record. If you recall from the [Get started with offline data], the version system property is required to support the offline syncing features. This version information is examined with each database update. If an instance of the app tries to update a record using an outdated version, a conflict will occur and be caught as a `MobileServicePreconditionFailedException` in the app. If the app doesn't catch the `MobileServicePreconditionFailedException` then a `MobileServicePushFailedException` will end up being thrown describing how many sync errors were encountered.
 
+>[WACOM.NOTE] To support synchronization of deleted records with offline data sync, you should enable [Soft Delete](/en-us/documentation/articles/mobile-services-using-soft-delete/). Otherwise, you have to manually remove records in the local store, or call `IMobileServiceSyncTable::PurgeAsync()` to purge the local store.
+
+
 The following steps show the Windows Phone 8.1 and Windows Store 8.1 clients running at the same time to cause and resolve a conflict using the sample.
 
 1. In Visual Studio, right click the Windows Phone 8.1 project and click **Set as Startup Project**. Then press **Ctrl+F5** keys to run the Windows Phone 8.1 client without debugging. Once you have the Windows Phone 8.1 client up and running in the emulator, click the **Pull** button to sync the local store with the current state of the database.

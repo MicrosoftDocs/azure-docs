@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Using Offline Data" pageTitle="Using offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data sync in Mobile Services" authors="wesmc" />
+<properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Using Offline Data" pageTitle="Using offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data sync in Mobile Services" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc" />
 
@@ -22,7 +22,7 @@ In this tutorial, you will update the Universal app project from the [Get starte
 
 >[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. If this is your first experience with Mobile Services, you should complete the tutorial [Get started with Mobile Services] first.
 
->[WACOM.NOTE] The older Windows Phone 8 tutorial for Visual Studio 2012 is still viewable here, [Windows Phone 8 Tutorial for Visual Studio 2012].
+>[WACOM.NOTE] The older Windows Phone 8 tutorial for Visual Studio 2012 is still available here, [Windows Phone 8 Tutorial for Visual Studio 2012].
 
 
 This tutorial walks you through these basic steps:
@@ -170,7 +170,9 @@ Azure Mobile Services offline features allow you to interact with a local databa
  
     Notice the `MobileServicePushFailedException` can occur for both a push and a pull operation. It can occur for a pull because the pull operation internally executes a push to make sure all tables along with any relationships are in sync. The next tutorial, [Handling conflicts with offline support for Mobile Services], shows how to handle these sync related exceptions.
 
-    Also, we pass a query to the `PullAsync` method call to support incremental syncing. This is useful in cases where you really don't want the expense of pulling the entire table during syncing. In this scenario we aren't concerned about text changes to the todoitems, we just want to pull completed items to mark them off our todolist.
+    To support synchronization of deleted records with offline data sync, you should enable [Soft Delete](/en-us/documentation/articles/mobile-services-using-soft-delete/). Otherwise, you have to manually remove records in the local store, or call `IMobileServiceSyncTable::PurgeAsync()` to purge the local store.
+
+    In this example, we pass a query to the `PullAsync` method call to support incremental syncing. This is useful in cases where you really don't want the expense of pulling the entire table during syncing. In this scenario we aren't concerned about text changes to the todoitems, we just want to pull completed items to mark them off our todolist.
 
         private async void ButtonPull_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
