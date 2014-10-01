@@ -37,7 +37,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
     string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml"));
 
     // Get a media processor instance
-    IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager");
+    IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Packager");
 
     // Create a task with the conversion details, using the configuration data 
     ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
@@ -60,7 +60,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
     string configPlayReady = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaEncryptor_PlayReadyProtection.xml"));
 
     // Get a media processor instance
-    IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Azure Media Encryptor");
+    IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Windows Azure Media Encryptor");
 
     // Create a second task, specifying a task name, the media processor, and configuration
     ITask playreadyTask = job.Tasks.AddNew("My PlayReady Task",
