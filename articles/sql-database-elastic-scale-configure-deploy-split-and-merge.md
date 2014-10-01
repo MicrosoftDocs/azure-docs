@@ -2,17 +2,13 @@
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
-#Azure SQL Split and Merge Service Tutorial
+#Elastic Scale Split and Merge Service Tutorial
 
 ## Download the Split-Merge packages 
 1. Download the latest NuGet version from [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
 2. Open a command prompt and navigate to the directory where you downloaded nuget.exe. 
-3. Run this command:
-`nuget sources add -Name ElasticScaleMyget -Source https://www.myget.org/F/elasticscale-preview/api/v2 -UserName <your myget user name> -Password <your myget password>` 
-4. (Optional) List the available Split-Merge packages with the below command: 
-`nuget list Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge -Pre -All`
-5. Download the latest Split-Merge package into the current directory with the below command: 
-`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge -Pre`  
+3. Download the latest Split-Merge package into the current directory with the below command: 
+`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
 The steps above download the Split-Merge files to the current directory. The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** where *x.x.xxx.x* reflects the version number. Find the Split-Merge Service files in the **content\splitmerge\service** sub-directory, and the Split-Merge PowerShell scripts (and required client .dlls) in the **content\splitmerge\powershell** sub-directory.
 
@@ -48,18 +44,18 @@ The steps above download the Split-Merge files to the current directory. The fil
 	
 To determine the access key, go to the [Azure Management portal](https://manage.windowsazure.com), click the **Storage** tab on the left, select the name corresponding to your storage account, and click **Manage Access Keys** on the bottom. Click the **copy** button for **Primary Access Key**.
 
-	![manage access keys][2]
+![manage access keys][2]
 
 6.	Enter the name of the storage account and one of the access keys provided into the placeholders in the storage connection string. This connection string is used under both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** setting. You can potentially use different storage accounts for the different roles. 
 
 ### Configuring Security 
-For detailed instructions to configure the security of the service, refer to the [Service Security Configurations](./sql-database-elastic-scale-service-security-considerations.md).
+For detailed instructions to configure the security of the service, refer to the [Elastic Scale Security Configurations](./sql-database-elastic-scale-configure-security.md).
 
 For the purposes of  a simple test deployment suitable to complete this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 
 ### Creating a Self-signed Certificate 
 
-Create a new directory and from this directory execute the following command using a Developer Command Prompt for Visual Studio window:
+Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/en-us/library/ms229859.aspx) window:
 
 	makecert ^
 	-n "CN=*.cloudapp.net" ^
@@ -103,6 +99,8 @@ Paste the certificate thumbprint copied above into the thumbprint/value attribut
 	<Setting name="AllowedClientCertificateThumbprints" value="" />
 	<Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 	<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+
+Please note that for production deployments separate certificates should be used for the CA, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](./sql-database-elastic-scale-configure-security.md).
 
 ### Deploying your Split-Merge Service
 1. Go to the [Azure Management Portal](https://manage.windowsazure.com).

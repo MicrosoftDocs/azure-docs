@@ -4,7 +4,7 @@
 
 #Using Elastic Scale with Entity Framework 
  
-You can use the Azure SQL Database Elastic Scale with Microsoft’s Entity Framework (EF) to build applications. Elastic scale allows you to grow and shrink capacity through sharding and to scale-out for your applications’ data tier. This document shows the changes in an Entity Framework application that are needed to integrate with the Elastic Scale capabilities. The focus is on composing [Elastic Scale shard management](http://go.microsoft.com/?linkid=9862595) and [data dependent routing](http://go.microsoft.com/?linkid=9862596) with the Entity Framework **Code First** approach (see [http://msdn.microsoft.com/en-us/data/jj193542.aspx](http://msdn.microsoft.com/en-us/data/jj193542.aspx)). The **Code First – New Database** tutorial for EF serves as our running example throughout this document. The sample code accompanying this document is part of the Elastic Scale samples in the Visual Studio Code Samples.
+You can use the Azure SQL Database Elastic Scale with Microsoft’s Entity Framework (EF) to build applications. Elastic scale allows you to grow and shrink capacity through sharding and to scale-out for your applications’ data tier. This document shows the changes in an Entity Framework application that are needed to integrate with the Elastic Scale capabilities. The focus is on composing [Elastic Scale shard management](http://go.microsoft.com/?linkid=9862595) and [data-dependent routing](./sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework **Code First** approach (see [here](http://msdn.microsoft.com/en-us/data/jj193542.aspx)). The **Code First – New Database** tutorial for EF serves as our running example throughout this document. The sample code accompanying this document is part of the Elastic Scale samples in the Visual Studio Code Samples.
   
 ## Downloading and Running the Sample Code
 To download the code for this article:
@@ -41,7 +41,7 @@ All these approaches rely on the DbContext class to transparently manage databas
 
 For term definitions, see [Elastic Scale Glossary](./sql-database-elastic-scale-glossary.md).
 
-With Azure SQL Database Elastic Scale, you define partitions of your application data called shardlets.  Shardlets are identified by a sharding key and are mapped to specific databases. An application may have as many databases as needed and distribute the shardlets to provide enough capacity or performance given current business requirements. The mapping of sharding key values to the databases is stored by a shard map provided by the Elastic Scale APIs. We call this capability Shard Map Management, or SMM for short. The shard map also serves as the broker of database connections for requests that carry a sharding key. We refer to this capability as data dependent routing, or DDR for short. 
+With Azure SQL Database Elastic Scale, you define partitions of your application data called shardlets.  Shardlets are identified by a sharding key and are mapped to specific databases. An application may have as many databases as needed and distribute the shardlets to provide enough capacity or performance given current business requirements. The mapping of sharding key values to the databases is stored by a shard map provided by the Elastic Scale APIs. We call this capability Shard Map Management, or SMM for short. The shard map also serves as the broker of database connections for requests that carry a sharding key. We refer to this capability as data-dependent routing. 
  
 The shard map manager in Elastic Scale protects users from inconsistent views into shardlet data that can occur when concurrent shardlet management operations (such as relocating data from one shard to another) are happening. To do so, the shard maps in Elastic Scale broker the database connections for an Elastic Scale application. This allows the shard map functionality to automatically kill a database connection when shard management operations could impact the shardlet that the connection has been created for. This approach needs to integrate with some of EF’s functionality, such as creating new connections from an existing one to check for database existence. In general, our observation has been that the standard DbContext constructors only work reliably for closed database connections that can safely be cloned for EF work. The design principle of Elastic Scale instead is to only broker opened connections. One might think that closing a connection brokered by Elastic Scale before handing it over to the EF DbContext may solve this issue. However, by closing the connection and relying on EF to re-open it, one foregoes the validation and consistency checks performed by Elastic Scale. The migrations functionality in EF, however, uses these connections to manage the underlying database schema in a way that is transparent to the application. Ideally, we would like to retain and combine all these capabilities from both Elastic Scale and EF in the same application. The following section discusses these properties and requirements in more detail. 
 
@@ -66,9 +66,9 @@ Database connections with Entity Framework are typically managed through sub-cla
 
 * The database already exists and has been registered in the Elastic Scale shard map. 
 * The schema of the application has already been deployed to the database (explained below). 
-* DDR connections to the database are brokered by the Elastic Scale shard map. 
+* Data-dependent routing connections to the database are brokered by the Elastic Scale shard map. 
 
-To integrate **DbContexts** with DDR for scaleout:
+To integrate **DbContexts** with data-dependent routing for scaleout:
 
 1. Create physical database connections through the Elastic Scale interfaces of the shard map manager, 
 2. Wrap the connection with the **DbContext** sub-class
@@ -85,7 +85,7 @@ The following code example illustrates this approach. (This code is also in the 
         // routed to the proper shard by the shard map manager. 
         // Note that the base class c'tor call will fail for an open connection
         // if migrations need to be done and SQL credentials are used. This is the reason for the 
-        // separation of c'tors into the DDR case (this c'tor) and the internal c'tor for new shards.
+        // separation of c'tors into the data-dependent routing case (this c'tor) and the internal c'tor for new shards.
         public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
             : base(CreateDDRConnection(shardMap, shardingKey, connectionStr), 
             true /* contextOwnsConnection */)
@@ -110,10 +110,10 @@ The following code example illustrates this approach. (This code is also in the 
 #### Main Points
 * A new constructor replaces the default constructor in the DbContext sub-class 
 * The new constructor takes the arguments that are required for data dependent routing through Elastic Scale: 
-	* the shard map to access the DDR interfaces, 
+	* the shard map to access the data-dependent routing interfaces, 
 	* the sharding key to identify the shardlet, 
-	* a connection string with the credentials for the DDR connection to the shard. 
-* The call to the base class constructor takes a detour into a static method that performs all the steps necessary for DDR. 
+	* a connection string with the credentials for the data-dependent routing connection to the shard. 
+* The call to the base class constructor takes a detour into a static method that performs all the steps necessary for data-dependent routing. 
 	* It uses the **OpenConnectionForKey** call of the Elastic Scale interfaces on the shard map to establish an open connection. 
 	* The shard map creates the open connection to the shard that holds the shardlet for the given sharding key.
 	* This open connection is passed back to the base class constructor of **DbContext** to indicate that this connection is to be used by EF instead of letting EF create a new connection automatically. This way the connection has been tagged by Elastic Scale so that it can guarantee consistency under shard map management operations.  
@@ -167,10 +167,10 @@ The following code sample illustrates how a SQL retry policy can be used around 
 The code examples above illustrate the default constructor re-writes required for your application in order to use Elastic Scale data dependent routing with the Entity Framework. The following table generalizes this approach to other constructors. 
 
 
-Current Constructor  | Rewritten Constructor for DDR | Base Constructor | Notes
+Current Constructor  | Rewritten Constructor for data | Base Constructor | Notes
 ---------- | ----------- | ------------|----------
-MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |The connection needs to be a function of the shard map and the DDR key. You need to by-pass automatic connection creation by EF and instead use the shard map to broker the connection. 
-MyContext(string)|ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |The connection is a function of the shard map and the DDR key. A fixed database name or connection string will not work as they by-pass validation by the shard map. 
+MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |The connection needs to be a function of the shard map and the data-dependent routing key. You need to by-pass automatic connection creation by EF and instead use the shard map to broker the connection. 
+MyContext(string)|ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |The connection is a function of the shard map and the data-dependent routing key. A fixed database name or connection string will not work as they by-pass validation by the shard map. 
 MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |The connection will get created for the given shard map and sharding key with the model provided. The compiled model will be passed on to the base c’tor.
 MyContext(DbConnection, bool) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext(DbConnection, bool) |The connection needs to be inferred from the shard map and the key. It cannot be provided as an input (unless that input was already using the shard map and the key). The Boolean will be passed on. 
 MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |The connection needs to be inferred from the shard map and the key. It cannot be provided as an input (unless that input was using the shard map and the key). The compiled model will be passed on. 
@@ -181,13 +181,13 @@ MyContext(DbConnection, DbCompiledModel,bool) |ElasticScaleContext(ShardMap, TKe
 
 Automatic schema management is a convenience provided by the Entity Framework. In the context of Elastic Scale application, we want to retain this capability to automatically provision the schema to newly created shards when databases are added to the sharded application. The primary use case is to increase capacity at the data tier for sharded applications using EF. Relying on EF’s capabilities for schema management reduces the database administration effort with a sharded application built on EF. 
 
-Schema deployment through EF migrations works best on **unopened connections**. This is in contrast to the scenario for data dependent routing that relies on the opened connection provided by Elastic Scale. Another difference is the consistency requirement: While desirable to ensure consistency for all DDR connections to protect against concurrent shard map manipulation, it is not a concern with initial schema deployment to a new database that has not yet been registered in the shard map, and not yet been allocated to hold shardlets. We can therefore rely on regular database connections for this scenarios, as opposed to DDR.  
+Schema deployment through EF migrations works best on **unopened connections**. This is in contrast to the scenario for data dependent routing that relies on the opened connection provided by Elastic Scale. Another difference is the consistency requirement: While desirable to ensure consistency for all data-dependent routing connections to protect against concurrent shard map manipulation, it is not a concern with initial schema deployment to a new database that has not yet been registered in the shard map, and not yet been allocated to hold shardlets. We can therefore rely on regular database connections for this scenarios, as opposed to data-dependent routing.  
 
 This leads to an approach where schema deployment through EF migrations is tightly coupled with the registration of the new database as a shard in the application’s shard map. This relies on the following prerequisites: 
 
 * The database has already been created. 
 * The database is empty – it holds no user schema and no user data.
-* The database cannot yet be accessed through the Elastic Scale APIs for DDR. 
+* The database cannot yet be accessed through the Elastic Scale APIs for data-dependent routing. 
 
 With these prerequisites in place, we can create a regular un-opened **SqlConnection** to kick off EF migrations for schema deployment. The following code sample illustrates this approach. 
 
@@ -213,7 +213,7 @@ With these prerequisites in place, we can create a regular un-opened **SqlConnec
             } 
 
             // Register the mapping of the tenant to the shard in the shard map. 
-            // After this step, DDR on the shard map can be used 
+            // After this step, data-dependent routing on the shard map can be used 
 
             this.ShardMap.CreatePointMapping(key, shard); 
         } 

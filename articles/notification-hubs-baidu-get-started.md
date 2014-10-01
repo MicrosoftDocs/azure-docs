@@ -168,12 +168,16 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 
 7. Open up the **AndroidManifest.xml** of your Android project and add the permissions required by the Baidu SDK.
 
-    	<uses-permission android:name="android.permission.INTERNET" />
+	    <uses-permission android:name="android.permission.INTERNET" />
 	    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-	    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
 	    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+	    <uses-permission android:name="android.permission.VIBRATE" />
+	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+	    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
 	    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
@@ -250,7 +254,9 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 
 12. Add another new class called **MyPushMessageReceiver.java** and add the code below to it. This is the class which handles the push notifications received from the Baidu push server:
 
+		import java.util.List;
 		import android.content.Context;
+		import android.os.AsyncTask;
 		import android.util.Log;
 		import com.baidu.frontia.api.FrontiaPushMessageReceiver;
 		import com.microsoft.windowsazure.messaging.NotificationHub;
@@ -258,6 +264,7 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 		public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
 		    /** TAG to Log */
 			public static NotificationHub hub = null;
+			public static String mChannelId, mUserId;
 		    public static final String TAG = MyPushMessageReceiver.class
 		            .getSimpleName();
 		    
@@ -268,29 +275,41 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 		                + appid + " userId=" + userId + " channelId=" + channelId
 		                + " requestId=" + requestId;
 		        Log.d(TAG, responseString);
-		    RegisterWithNotificationHub(context, channelId, userId);
-			}
-		
-		    public static void RegisterWithNotificationHub(Context context, 
-		    		String channelId, String userId) {
-		        if (hub == null) {
-		            hub = new NotificationHub(
-		            		ConfigurationSettings.NotificationHubName, 
-		            		ConfigurationSettings.NotificationHubConnectionString, 
-		            		context);
-		            Log.i(TAG, "Notification hub initialized");
-		        }
+		        mChannelId = channelId;
+		        mUserId = userId;
+		        
 		        try {
-					hub.registerBaidu(userId, channelId);
-			    	Log.i(TAG, "Registered with Notification Hub - '" 
-			    			+ ConfigurationSettings.NotificationHubName + "'" 
-			    			+ " with UserId - '"
-			    			+ userId + "' and Channel Id"
-			    			+ channelId + "'");
-			    	
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		       	 if (hub == null) {
+		                hub = new NotificationHub(
+		                		ConfigurationSettings.NotificationHubName, 
+		                		ConfigurationSettings.NotificationHubConnectionString, 
+		                		context);
+		                Log.i(TAG, "Notification hub initialized");
+		            }
+		        } catch (Exception e) {
+		           Log.e(TAG, e.getMessage());
+		        }
+		        
+		        registerWithNotificationHubs();
+			}
+		    
+		    private void registerWithNotificationHubs() {
+		       new AsyncTask<Void, Void, Void>() {
+		          @Override
+		          protected Void doInBackground(Void... params) {
+		             try {
+		            	 hub.registerBaidu(mUserId, mChannelId);
+		            	 Log.i(TAG, "Registered with Notification Hub - '" 
+		     	    			+ ConfigurationSettings.NotificationHubName + "'" 
+		     	    			+ " with UserId - '"
+		     	    			+ mUserId + "' and Channel Id - '"
+		     	    			+ mChannelId + "'");
+		             } catch (Exception e) {
+		            	 Log.e(TAG, e.getMessage());
+		             }
+		             return null;
+		         }
+		       }.execute(null, null, null);
 		    }
 		    
 		    @Override
