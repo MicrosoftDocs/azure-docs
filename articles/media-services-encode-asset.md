@@ -22,7 +22,7 @@ The following method uploads a single asset and creates a job to encode the asse
     	IJob job = _context.Jobs.Create("My encoding job");
 	
 		// Get a reference to the Azure Media Encoder
-		IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Encoder");
+		IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
     
 		// Create a task with the encoding details, using a string preset.
     	ITask task = job.Tasks.AddNew("My encoding task",
