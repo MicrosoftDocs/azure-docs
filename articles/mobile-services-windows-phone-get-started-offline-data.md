@@ -12,7 +12,7 @@ This topic shows you how to use use the offline capabilities of Azure Mobile Ser
 In this tutorial, you will update the app from the [Get Started with Data] tutorial to support the offline features of Azure Mobile Services. Then you will add data in a disconnected offline scenario, sync those items to the online database, and then log in to the Azure Management Portal to view changes to data made when running the app.
 
 
->[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Phone app. If this is your first experience with Mobile Services, consider first completing the [Get started with Mobile Services] and [Get Started with Data] tutorials. 
+>[AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Phone app. If this is your first experience with Mobile Services, consider first completing the [Get started with Mobile Services] and [Get Started with Data] tutorials. 
 
 This tutorial walks you through these basic steps:
 
@@ -30,7 +30,7 @@ This tutorial requires the following:
 * [Azure Mobile Services SQLite Store version 1.0.0-beta2 (or later)][SQLite store nuget]
 * [SQLite for Windows Phone 8]
 
->[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+>[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 
 ## <a name="enable-offline-app"></a>Update the app to support offline features
 
@@ -38,12 +38,12 @@ Azure Mobile Services offline features allow you to interact with a local databa
 
 This section uses SQLite as the local store for the offline features.
 
->[WACOM.NOTE] You can skip this section and just download a version of the Getting Started project that already has offline support.  To download a project with offline support enabled, see [Getting Started Offline Sample for Windows Phone].
+>[AZURE.NOTE] You can skip this section and just download a version of the Getting Started project that already has offline support.  To download a project with offline support enabled, see [Getting Started Offline Sample for Windows Phone].
 
 
 1. Install SQLite for Windows Phone 8 projects. You can install it from this link, [SQLite for Windows Phone 8].
 
-    >[WACOM.NOTE] If you are using Internet Explorer, clicking the link to install SQLite may prompt you to download the .vsix as a .zip file. Save the file to a location on your hard drive with the .vsix extension instead of .zip. The double click the .vsix file in Windows Explorer to run the installation.
+    >[AZURE.NOTE] If you are using Internet Explorer, clicking the link to install SQLite may prompt you to download the .vsix as a .zip file. Save the file to a location on your hard drive with the .vsix extension instead of .zip. The double click the .vsix file in Windows Explorer to run the installation.
 
 2. In Visual Studio open the project that you completed in the [Get started with Mobile Services] or [Get Started with Data] tutorial. In Solution Explorer, right click **References** under the project and add a reference to **SQLite for Windows Phone** under **Windows Phone**>**Extensions**. 
 
@@ -220,7 +220,7 @@ In this section you will test push and pull operations to sync the local store w
 
 5. This time press the **Pull** button in the app. The app only calls `IMobileServiceSyncTable.PullAsync()` and `RefreshTodoItems`.  Notice that all the data from the mobile service database was pulled into the local store and shown in the app. However, also notice that all the data in the local store was still pushed to the mobile service database. This is because a **pull always does a push first**.    
 
-    >[WACOM.NOTE] To support synchronization of deleted records with offline data sync, you should enable [Soft Delete](/en-us/documentation/articles/mobile-services-using-soft-delete/). Otherwise, you have to manually remove records in the local store, or call `IMobileServiceSyncTable::PurgeAsync()` to purge the local store.
+    >[AZURE.NOTE] To support synchronization of deleted records with offline data sync, you should enable [Soft Delete](/en-us/documentation/articles/mobile-services-using-soft-delete/). Otherwise, you have to manually remove records in the local store, or call `IMobileServiceSyncTable::PurgeAsync()` to purge the local store.
 
  
     ![][9]
