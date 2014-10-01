@@ -8,13 +8,15 @@ Growing and shrinking capacity on demand is one of the key cloud computing promi
 
 Azure SQL Database Elastic Scale (in preview) enables the data-tier of an application to scale out and in via industry-standard sharding practices, while significantly streamlining the development and management of your sharded cloud applications. Elastic Scale delivers both developer and management functionality which are provided through a set of .Net libraries and through Azure service templates that you can host in your own Azure subscription to manage your highly scalable applications. Azure DB Elastic Scale implements the infrastructure aspects of sharding and thus allows you to focus on the business logic of your application instead. 
 
-This document introduces you to the developer experience for Azure SQL DB Elastic Scale. The sample creates a simple sharded application and explores key capabilities of Elastic Scale.
+This document introduces you to the developer experience for Azure SQL DB Elastic Scale. 
 
 For more information about how Elastic Scale works, see [Elastic Scale Overview](http://go.microsoft.com/?linkid=9862592).
 
 For a list of all topics on Elastic Scale, see [Elastic Scale Documentation Map](./sql-database-elastic-scale-documentation-map.md)
 
 ## The Elastic Scale Sample Application
+
+The sample creates a simple sharded application and explores key capabilities of Elastic Scale.
 
 ###Prerequisites
 To run the sample app, you must use Visual Studio, and you must have access to an Azure SQL Database running on Azure. If you do not already have a subscription to Azure, sign up for a [trial subscription](http://azure.microsoft.com/en-us/pricing/free-trial/).
@@ -58,8 +60,11 @@ Congratulations – you have successfully built and run your first Elastic Scale
 3. **Querying over Multiple Shards**: Querying across shards is illustrated in the file **MultiShardQuerySample.cs**. For more details, see [Multi-Shard Querying](http://go.microsoft.com/?linkid=9862597).
 4. **Adding empty shards**: The iterative adding of new empty shards is performed by the code in
 file **AddNewShardsSample.cs**. Details of this topic are covered here: [Shard Map Management](http://go.microsoft.com/?linkid=9862595).
-5. **Splitting an existing shard**: The capability to split shards is provided through the **Split/Merge service**. You can find more information on this service here: [Split/Merge Service](http://go.microsoft.com/?linkid=9862795).
-6. **Merging existing shards**: Shard merges are also performed using the **Split/Merge service**. For more information, refer to: [Split/Merge Service](http://go.microsoft.com/?linkid=9862795).   
+
+### Other Elastic Scale Operations
+
+1. **Splitting an existing shard**: The capability to split shards is provided through the **Split/Merge service**. You can find more information on this service here: [Split/Merge Service](http://go.microsoft.com/?linkid=9862795).
+2. **Merging existing shards**: Shard merges are also performed using the **Split/Merge service**. For more information, refer to: [Split/Merge Service](http://go.microsoft.com/?linkid=9862795).   
 
 
 ## Cost
@@ -77,9 +82,9 @@ For more information about the Elastic Scale feature, see:
 -    Code Samples: 
 	-    [Elastic Scale with Azure SQL Database - Getting Started](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
 	-    [Elastic Scale with Azure SQL Database - Integrating with Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
-	-    [Link to Scripting Page]()
+	-    [Shard Elasticity on Script Center](http://go.microsoft.com/?linkid=9862617)
 -    Blog: [Elastic Scale Announcement](http://go.microsoft.com/?linkid=9862608)
--    Channel 9: [SQL Database Sharding Patterns](http://channel9.msdn.com/Shows/Data-Exposed/SqlDbShardingIntro)
+-    Channel 9: [Elastic Scale Overview](http://go.microsoft.com/?linkid=9862609)
 -    Discussion Forum: [Azure SQL Database forum](http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=ssdsgetstarted)
 
 
@@ -93,4 +98,4 @@ For more information about the Elastic Scale feature, see:
 [1]: ./media/sql-database-elastic-scale-get-started/newProject.png
 [2]: ./media/sql-database-elastic-scale-get-started/click-online.png
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
-[4]: ./media/sql-database-elastic-scale-get-started/output.png
+[4]: ./media/sql-database-elastic-scale-get-started/output2.png

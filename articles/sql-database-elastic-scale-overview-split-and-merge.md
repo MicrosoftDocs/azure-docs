@@ -32,7 +32,7 @@ Figure 1: Conceptual Overview of Split/Merge
 
 ## Concepts & Key Features
 
-**Customer-Hosted Services**: Split/Merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the  [Split/Merge tutorial](./sql-database-elastic-scale-split-and-merge-tutorial.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure SSL, certificate-based client authentication, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [Elastic Scale Security Considerations](./sql-database-elastic-scale-service-security-considerations.md).
+**Customer-Hosted Services**: Split/Merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the  [Split-Merge tutorial](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure SSL, certificate-based client authentication, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [Elastic Scale Security Considerations](./sql-database-elastic-scale-configure-security.md).
 
 The default deployed service runs with one worker and one web role. Each uses the A1 VM size in Azure Cloud Services. While you cannot modify these settings when deploying the package, you could change them after a successful deployment in the running cloud service, (through the Azure portal). Note that the worker role must not be configured for more than a single instance for technical reasons. 
 
@@ -42,7 +42,7 @@ The default deployed service runs with one worker and one web role. Each uses th
 
 **Managing Shardlet Availability**: Limiting the connection killing to the current batch of shardlets as discussed above restricts the scope of unavailability to one batch of shardlets at a time. This is preferred over an approach where the complete shard would remain offline for all its shardlets during the course of a split/merge operation. The size of a batch, defined as the number of distinct shardlets to move at a time, is a configuration parameter. It can be defined for each split/merge operation depending on the application’s availability and performance needs. Note that the range that is being locked in the shard map may be larger than the batch size specified. This is because the service picks the range size such that the actual number of sharding key values in the data approximately matches the batch size. This is important to remember in particular for sparsely populated sharding keys. 
 
-**Metadata Storage**: The Split/Merge service uses a database to maintain its status and to keep logs during request processing. The user creates this database in their subscription and provide the connection string for it in the configuration file for the service deployment. Administrators from the user’s organization can also connect to this database to review request progress and to investigate detailed information regarding potential failures.
+**Metadata Storage**: The Split/Merge service uses a database to maintain its status and to keep logs during request processing. The user creates this database in their subscription and provides the connection string for it in the configuration file for the service deployment. Administrators from the user’s organization can also connect to this database to review request progress and to investigate detailed information regarding potential failures.
 
 **Sharding-Awareness**: The Split/Merge service differentiates between (1) sharded tables, (2) reference tables, and (3) normal tables. The semantics of a split/merge/move operation depend on the type of the table used and are defined as follows: 
 
@@ -76,7 +76,7 @@ The tables ‘region’ and ‘nation’ are defined as reference tables and wil
 
 ## Getting the Service Binaries
 
-The service binaries for Split/Merge are provided through NuGet. See the [Split/Merge tutorial](./sql-database-elastic-scale-split-and-merge-tutorial.md) for more information about downloading the binaries.
+The service binaries for Split/Merge are provided through [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). See the step-by-step [Split-Merge tutorial](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) for more information about downloading the binaries.
 
 ## The Split/Merge User Interface
 
@@ -109,7 +109,7 @@ The current implementation of the Split/Merge service is subject to the followin
 
 * The Split/Merge service currently does not create tables or any other database objects automatically as part of its operations. This means that the schema for all sharded tables and reference tables need to exist on the target shard prior to any split/merge/move operation. Sharded tables in particular are required to be empty in the range where new shardlets are to be added by a split/merge/move operation. Otherwise, the operation will fail the initial consistency check on the target shard. Also note that reference data is only copied if the reference table is empty and that there are no consistency guarantees with regard to other concurrent write operations on the reference tables. We recommend that – at the time of running split/merge operations – there are no other write operations making changes to the reference tables.
 
-* The service currently relies on row identity established by a unique index or key that includes the sharding key to improve performance and reliability for large shardlets. This allows the service to move data at an even finer granularity than just the sharding key value. This helps to reduce the maximum amount of log space and locks that are required during the operation. Consider creating a unique index or a primary key on a table if you want to use that table with split/merge/move requests. For performance reasons, the sharding key should be the leading column in the key or the index.
+* The service currently relies on row identity established by a unique index or key that includes the sharding key to improve performance and reliability for large shardlets. This allows the service to move data at an even finer granularity than just the sharding key value. This helps to reduce the maximum amount of log space and locks that are required during the operation. Consider creating a unique index or a primary key including the sharding key on a given table if you want to use that table with split/merge/move requests. For performance reasons, the sharding key should be the leading column in the key or the index.
 
 * During the course of request processing, some shardlet data may be present both on the source and the target shard. This is currently necessary to protect against failures during the shardlet movement. As explained above, the integration of Split/Merge with the Elastic Scale shard map ensures, that connections through the data dependent routing APIs using the **OpenConnectionForKey** method on the shard map do not see any inconsistent intermediate states. However, when connecting to the source or the target shards without using the **OpenConnectionForKey** method, inconsistent intermediate states might be visible when split/merge/move requests are going on. These connections may show partial or duplicate results depending on the timing or the shard underlying the connection. This limitation currently includes the connections made by Elastic Scale Multi-Shard-Queries.
 
@@ -164,17 +164,16 @@ In addition, a uniqueness property with the sharding key as the leading column w
 -	Consider defining a test tenant and exercise your most important split/merge/move operations with the test tenant across several shards. This will help you ensure that all metadata is defined correctly in your shard map and that the operations do not violate constraints or foreign keys.
 -	Keep the test tenant data size above the maximum data size of your largest tenant to ensure you are not encountering data size related issues. This will also help you assess an upper bound on the time it takes to move a single tenant around. 
 -	The Split/Merge service requires the ability to remove data from the source shard once the data has been successfully copied to the target. Inspect your schema closely to make sure that your schema allows the deletions. For instance, delete triggers can prevent the service from deleting the data on the source and may cause operations to fail.
--	Ensure that the sharding key is the leading column in your primary key or unique index definition. That will ensure the best performance for the split/merge validation queries and for the actual 
--	data movement and deletion operations which always operate on sharding key ranges.
+-	Ensure that the sharding key is the leading column in your primary key or unique index definition. That will ensure the best performance for the split/merge validation queries and for the actual data movement and deletion operations which always operate on sharding key ranges.
 -	For performance and cost reasons, collocating your split/merge service in the region and data center where your databases reside is typically the best choice. 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
 ## References 
 
-* [Step-by-step Tutorial for Split/Merge](./sql-database-elastic-scale-split-and-merge-tutorial.md) 
+* [Split-Merge tutorial](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
-* [Security Configuration for Elastic Scale Services](./sql-database-elastic-scale-service-security-considerations.md)  
+* [Elastic Scale Security Considerations](./sql-database-elastic-scale-configure-security.md)  
 
 
 <!--Anchors-->

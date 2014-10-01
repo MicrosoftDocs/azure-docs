@@ -13,6 +13,7 @@ Your search results can also include the regular page view and request events th
 + [Insert diagnostic log calls](#pepper)
 + [View log data](#view)
 + [Search log data](#search)
++ [Troubleshooting](#questions)
 + [Next steps](#next)
 
 
@@ -213,7 +214,16 @@ Here are the search expressions you can use:
  -->
 </table>
 
-## <a name="limits"></a>How much data is retained?
+
+## <a name="questions"></a>Q & A
+
+### <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
+
+Looks like you installed the logging adapter Nuget package without installing Application Insights.
+
+In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one. That should fix it.
+
+### <a name="limits"></a>How much data is retained?
 
 Up to 500 events per second from each application. Events are retained for seven days.
 
