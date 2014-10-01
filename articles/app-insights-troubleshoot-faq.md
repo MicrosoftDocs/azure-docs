@@ -156,14 +156,29 @@ Performance and usage data are sent to TCP ports 80 and 443 at dc.services.visua
 
 Web availability tests depend on incoming access to your web server on port 80.
 
-## Learn more
+## Have I enabled everything in Application Insights?
 
+<table>
+<tr><th>What you should see</th><th>How to get it</th><th>Why you want it</th></tr>
+<tr><td>Availability charts</td><td>[Web tests][availability]</td><td>Know your web app is up</td></tr>
+<tr><td>Server app perf: response times, ...
+</td><td>[Add Application Insights to your project][start]
+<br/>or<br/>[Install AI Agent on server][redfield]</td><td>Detect perf issues</td></tr>
+<tr><td>Server globals: CPU, memory, ...</td><td>[Install AI Agent on server][redfield]</td><td>Diagnose capacity issues</td></tr>
+<tr><td>Search log traces</td><td>[Add a logging adapter][diagnostic]</td><td>Diagnose exceptions, perf issues</td></tr>
+<tr><td>Client usage basics: page views, returns, ...</td><td>[JavaScript initializer in web pages][webclient]</td><td>Count users</td></tr>
+<tr><td>Client custom metrics</td><td>[Tracking calls in web pages][track]</td><td>Enhance user experience</td></tr>
+<tr><td>Server custom metrics</td><td>[Tracking calls in server code][track]</td><td>Business intelligence</td></tr>
+</table>
+
+## Learn more
 * [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
 * [Monitor performance in web applications][perf]
 * [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
 * [Track usage][usage]
+* [Track custom events and metrics][track]
 * [Q & A and troubleshooting][qna]
 
 <!--Link references-->
@@ -175,8 +190,10 @@ Web availability tests depend on incoming access to your web server on port 80.
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
 [usage]: ../app-insights-web-track-usage/
+[track]: ../app-insights-web-track-custom-events/
 [qna]: ../app-insights-troubleshoot-faq/
 [webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+
 
 [older]: http://www.visualstudio.com/get-started/get-usage-data-vs
 

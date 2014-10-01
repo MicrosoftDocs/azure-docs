@@ -9,7 +9,7 @@ After you've deployed your web application, you can set up web tests to monitor 
 You can set up web tests for any HTTP endpoint that is accessible from the public internet.
 
 
-1. [Create a new application?](#create)
+1. [Create a new resource?](#create)
 + [Set up a web test](#setup)
 + [See monitor reports](#monitor)
 + [Edit or disable a test](#edit)
@@ -18,17 +18,17 @@ You can set up web tests for any HTTP endpoint that is accessible from the publi
 
 
 
-## <a name="create"></a>1. Create a new application?
+## <a name="create"></a>1. Create a new resource?
 
-Skip this step if you're already [monitoring usage and health][start] for this web app, and you want to see the availability data in the same place.
+Skip this step if you're already [monitoring usage and health][start] for this web application, and you want to see the availability data in the same place.
 
-But if you want to keep these results separate, login to Microsoft Azure preview and create a new application in Application Insights. 
+But if you want to see these results separately, login to Microsoft Azure preview and create a new Application Insights resource. 
 
 ![New > Application Insights](./media/appinsights/appinsights-11newApp.png)
 
 ## <a name="setup"></a>2. Set up a web test
 
-In the home blade for your application in Application Insights, click through the empty webtests tile. 
+In the overview blade for your application in Application Insights, click through the empty webtests tile. 
 
 ![Click the empty availability test](./media/appinsights/appinsights-12avail.png)
 
@@ -99,13 +99,13 @@ You might want to disable web tests while you are performing maintenance on your
 
 
 ## Learn more
-
 * [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
 * [Monitor performance in web applications][perf]
 * [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
 * [Track usage][usage]
+* [Track custom events and metrics][track]
 * [Q & A and troubleshooting][qna]
 
 <!--Link references-->
@@ -117,5 +117,6 @@ You might want to disable web tests while you are performing maintenance on your
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
 [usage]: ../app-insights-web-track-usage/
+[track]: ../app-insights-web-track-custom-events/
 [qna]: ../app-insights-troubleshoot-faq/
-
+[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
