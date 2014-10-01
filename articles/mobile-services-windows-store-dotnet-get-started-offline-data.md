@@ -20,9 +20,9 @@
 In this tutorial, you will update the Universal app project from the [Get started with Mobile Services] tutorial to support the offline features of Azure Mobile Services. Then you will add data in a disconnected offline scenario, sync those items to the online database, and then log in to the Azure Management Portal to view changes to data made when running the app.
 
 
->[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. If this is your first experience with Mobile Services, you should complete the tutorial [Get started with Mobile Services] first.
+>[AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. If this is your first experience with Mobile Services, you should complete the tutorial [Get started with Mobile Services] first.
 
->[WACOM.NOTE] The older Windows Phone 8 tutorial for Visual Studio 2012 is still available here, [Windows Phone 8 Tutorial for Visual Studio 2012].
+>[AZURE.NOTE] The older Windows Phone 8 tutorial for Visual Studio 2012 is still available here, [Windows Phone 8 Tutorial for Visual Studio 2012].
 
 
 This tutorial walks you through these basic steps:
@@ -40,13 +40,13 @@ This tutorial requires the following:
 * [Azure Mobile Services SQLite Store version 1.0.0-beta2 (or later)][SQLite store nuget]
 * SQLite for Windows 8.1
 
->[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+>[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 
 ## <a name="enable-offline-app"></a>Update the app to support offline features
 
 Azure Mobile Services offline features allow you to interact with a local database when you are in an offline scenario with your Mobile Service. To use these features in your app, you initialize a `MobileServiceClient.SyncContext` to a local store. Then reference your table through the `IMobileServiceSyncTable` interface. In this tutorial we use SQLite for the local store.
 
->[WACOM.NOTE] You can skip this section and just get the example project that already has offline support from the Github samples repository for Mobile Services. The sample project with offline support enabled is located here, [TodoList Offline Sample].
+>[AZURE.NOTE] You can skip this section and just get the example project that already has offline support from the Github samples repository for Mobile Services. The sample project with offline support enabled is located here, [TodoList Offline Sample].
 
 
 1. Install the SQLite runtime for Windows 8.1 and Windows Phone 8.1. 
@@ -54,7 +54,7 @@ Azure Mobile Services offline features allow you to interact with a local databa
     * **Windows 8.1 Runtime:** Install the SQLite runtime for Windows 8.1 from this link, [SQLite for Windows 8.1].
     * **Windows Phone 8.1:** Install the SQLite runtime for Windows Phone 8.1 from this link, [SQLite for Windows Phone 8.1].
 
-    >[WACOM.NOTE] If you are using Internet Explorer, clicking the link to install SQLite may prompt you to download the .vsix as a .zip file. Save the file to a location on your hard drive with the .vsix extension instead of .zip. The double click the .vsix file in Windows Explorer to run the installation.
+    >[AZURE.NOTE] If you are using Internet Explorer, clicking the link to install SQLite may prompt you to download the .vsix as a .zip file. Save the file to a location on your hard drive with the .vsix extension instead of .zip. The double click the .vsix file in Windows Explorer to run the installation.
 
 2. In Visual Studio open the project that you completed in the [Get started with Mobile Services] tutorial. In Solution Explorer, right click **References** for the Windows 8.1 Runtime and Windows Phone 8.1 platform projects and add a reference to SQLite, which is located in the **Extensions** section. 
 
