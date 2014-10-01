@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight-Hadoop" urlDisplayName="HDInsight Tutorials" pageTitle="Develop Java MapReduce programs for Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight." services="hdinsight" title="Develop Java MapReduce programs for Hadoop in HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="jgao" />
 
 # Develop Java MapReduce programs for Hadoop in HDInsight
 This tutorial walks you through an end-to-end scenario for developing and testing a word counting Hadoop MapReduce job in Java on the HDInsight Emulator and then for deploying and running it on Azure HDInsight.
@@ -45,7 +45,7 @@ Word counting is a simple application that counts the occurrences of each word i
 		import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 		import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 		import org.apache.hadoop.util.GenericOptionsParser;
-		
+
 		public class WordCount {
 		
 		  public static class TokenizerMapper 
@@ -104,22 +104,22 @@ Word counting is a simple application that counts the occurrences of each word i
 	
 3. Save the file as **c:\Tutorials\WordCountJava\WordCount.java**. Create the folder structure if it doesn't exist.
 
-HDInsight emulator comes with the *javac* compiler.
-
 **To compile the MapReduce program**
 
+HDInsight emulator comes with the *javac* compiler, which is available at located in the **C:\Azul\zulu1.7.0_65-7.6.0.1-win64\bin** folder. 
+
 1. Open command prompt.
-2. Change directory to **c:\Tutorials\WordCountJava**.  This is the folder for the word counting MapReduce program.
+2. Change directory to **C:\Tutorials\WordCountJava**.  This is the folder where you saved the MapReduce program for counting words.
 3. Run the following command to check the existence of the two jar files:
 
-		dir %hadoop_home%\hadoop-core-1.1.0-SNAPSHOT.jar
-		dir %hadoop_home%\lib\commons-cli-1.2.jar
+		dir %hadoop_home%\share\hadoop\mapreduce\hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar
+		dir %hadoop_home%\share\hadoop\common\lib\commons-cli-1.2.jar
 
 4. Run the following command to compile the program:
 
-		C:\Hadoop\java\bin\javac -classpath %hadoop_home%\hadoop-core-1.1.0-SNAPSHOT.jar;%hadoop_home%\lib\commons-cli-1.2.jar WordCount.java
+		C:\Hadoop\java\bin\javac -classpath %hadoop_home%\share\hadoop\mapreduce\hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar;%hadoop_home%\share\hadoop\common\lib\commons-cli-1.2.jar WordCount.java
 
-	javac is located in the C:\Hadoop\java\bin folder. The last parameter is the java program that is in the current folder. The compiler creates 3 class files in the current folder.
+	The last parameter is the java program that is in the current folder. The compiler creates 3 class files in the current folder.
 
 5. Run the following command to create a jar file:
 

@@ -3,7 +3,7 @@
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/15/2014" ms.author="glenga" />
 
 
-# Get started with push notifications in Mobile Services
+# Add push notifications to your Mobile Services app
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
@@ -26,8 +26,7 @@ To complete this tutorial, you need the following:
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
-<ol start="5">
-<li><p>When you complete the wizard, a new <strong>Push setup is almost complete</strong> page is opened in Visual Studio. This page details an alternate method to configure your mobile service project to send notifications that is different from this tutorial. However, keep this page open, you will need it later in this tutorial.</p></li>
+<ol start="6">
 <li><p>Browse to the <code>\services\mobileServices\scripts</code> project folder, copy the generated &lt;<em>your_service_name</em>&gt;.push.register.js script file into the shared <code>\js</code> folder, and then delete this file from both of the individual Windows and WindowsPhone app projects.</p></li> 
 <li><p>Open this script file in the shared <code>\js</code> project folder, locate the code in the <em>activated</em> event listener that registers the device's channel URL with the notification hub, and delete the <strong>done</strong> promise function.</p>
 <p>This tutorial sends notifications when a new item is inserted, not when a custom API is called.</p></li>

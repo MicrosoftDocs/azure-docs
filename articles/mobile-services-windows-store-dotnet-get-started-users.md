@@ -2,24 +2,9 @@
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn Gailey" />
 
-# Get started with authentication in Mobile Services
-> [AZURE.SELECTOR-LIST (Platform | Backend )]
-- [(iOS | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/)
-- [(iOS | JavaScript)](/en-us/documentation/articles/mobile-services-ios-get-started-users/)
-- [(Windows C# | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/)
-- [(Windows C# | Javascript)](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/)
-- [(Windows JavaScript | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/)
-- [(Windows JavaScript | Javascript)](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
-- [(Windows Phone | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/)
-- [(Windows Phone | Javascript)](/en-us/documentation/articles/mobile-services-windows-phone-get-started-users/)
-- [(Android | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/)
-- [(Android | Javascript)](/en-us/documentation/articles/mobile-services-android-get-started-users/)
-- [(Xamarin iOS | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/)
-- [(Xamarin iOS | Javascript)](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users/)
-- [(HTML | Javascript)](/en-us/documentation/articles/mobile-services-html-get-started-users/)
-- [(Xamarin Android | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/)
-- [(Xamarin Android | Javascript)](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-users/)
-- [(Appcelerator | Javascript)](/en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users/)		
+# Add authentication to your Mobile Services app 
+
+[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]		
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -28,6 +13,8 @@
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-users-windows-store-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:04</span></div>
 </div> 
+
+>[WACOM.NOTE]Authentication is not currently supported for Windows Phone Store 8.1 apps when using the Mobile Services JavaScript client library. If you have a universal Windows app project that uses the JavaScript client, you will not be able to authenticate users on Windows Phone at this time.
 
 This tutorial walks you through these basic steps to enable authentication in your app:
 

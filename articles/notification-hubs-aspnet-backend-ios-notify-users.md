@@ -1,6 +1,6 @@
-<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
+<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 #Azure Notification Hubs Notify Users
 
@@ -25,7 +25,6 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 1. Open the Single Page view app you created following sections 1 through 5 in [Getting Started with Notification Hubs (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/).
 
 > [AZURE.NOTE] In this section we assume that your project is configured with an empty organization name. If not, you will need to prepend your organization name to all class names.
-
 
 2. In your Main.storyboard add the following components from the object library:
 	+ A UITextField with placeholder text **Username**
@@ -196,28 +195,18 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 	
 	Note that this class requires its property **authorizationHeader** to be set in order to work properly. This property is set by the **ViewController** class after the log in.
 	
-7. In ViewController.h, add the following declaration for the device token:
-
-		@property (strong, nonatomic) NSData* deviceToken;
-	
-
-8. In ViewController.m, make the ViewController class a UITextFieldDelegate, and add property to reference a RegisterClient instance. Then add a private method declaration. Your interface section should look like this:
-
-		@interface ViewController () <UITextFieldDelegate>
-
-		@property (weak, nonatomic) IBOutlet ...
-		@property (weak, nonatomic) IBOutlet ...
-		@property (weak, nonatomic) IBOutlet ...
-		@property (weak, nonatomic) IBOutlet ...
+7. In ViewController.h, add the following declaration for the device token and reference to a RegisterClient instance:
 
 		@property (strong, nonatomic) NSData* deviceToken;
 		@property (strong, nonatomic) RegisterClient* registerClient;
-		
-		- (IBAction)LogInAction:(id)sender;
-		- (IBAction)SendPushAction:(id)sender;
-		
+
+8. In ViewController.m, make the ViewController class a UITextFieldDelegate. Then add a private method declaration:
+
+		@interface ViewController () <UITextFieldDelegate>
+
 		// create the Authorization header to perform Basic authentication with your app back-end
 		-(void) createAndSetAuthenticationHeaderWithUsername: (NSString*) username AndPassword: (NSString*) password;
+
 		@end
 
 > [AZURE.NOTE] The following snippet is not a secure authentication scheme, you should substitute the implementation of the **createAndSetAuthenticationHeaderWithUsername:AndPassword:** with your specific authentication mechanism that generates an authentication token to be consumed by the register client class, e.g. OAuth, Active Directory.

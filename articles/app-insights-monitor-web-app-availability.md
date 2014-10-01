@@ -1,6 +1,6 @@
-<properties title="Monitor your web app's availability and responsiveness" pageTitle="Web tests in Application Insights" description="Make sure your web application is available and responsive. Get alerts if it becomes unavailable or responds slowly." metaKeywords="analytics web test" authors="awills"  />
+<properties title="Monitor your web app's availability and responsiveness" pageTitle="Web tests in Application Insights" description="Make sure your web application is available and responsive. Get alerts if it becomes unavailable or responds slowly." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  
 # Monitor your web app's availability and responsiveness
 
@@ -38,6 +38,8 @@ Provide a name for the test, and the URL that you want to test. The URL has to b
 
 ![Fill at least the URL of your website](./media/appinsights/appinsights-13availChoices.png)
 
+- Set the URL you want to test. It can include a query string, so for example you could exercise your database a little. If the URL resolves to a redirect, we will follow it, up to 10 redirects.
+
 - Test locations are the places from where our servers send web requests to your URL. Choose two or three so that you can distinguish problems in your website from network issues. You can't select more than three.
 
 - Success criteria - Specify the acceptable HTTP return codes - 200 is usual. 
@@ -53,9 +55,9 @@ You can add more tests for as many URLs as you like. For example, as well as tes
 ![On the web tests blade, choose Add](./media/appinsights/appinsights-16anotherWebtest.png)
 
 
-## <a name="monitor"></a>3. See monitor reports
+## <a name="monitor"></a>3. View availability reports
 
-After 1-2 minutes, close and re-open the application blade. (In this release, it doesn't refresh automatically.)
+After 1-2 minutes, click Refresh. (In this release, it doesn't refresh automatically.)
 
 ![Summary results on the home blade](./media/appinsights/appinsights-14availSummary.png)
 

@@ -1,8 +1,6 @@
-<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="" editor="" />
+<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
-
-
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 
 # Continuous delivery to Azure using Visual Studio Online
@@ -11,9 +9,15 @@
 
 This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed. If you don't already have Visual Studio 2013, download it by choosing the **Get started for free** link at [www.visualstudio.com](http://www.visualstudio.com). Install the Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
+<div class="wa-note">
+  <span class="wa-icon-bulb"></span>
+  <h5><a name="note"></a>You need an Visual Studio online account to complete this tutorial:</h5>
+<p>You can <a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">open a Visual Studio Online account for free</a>.</p>
+</div>
+
 To set up a cloud service to automatically build and deploy to Azure by using Visual Studio Online, follow these steps:
 
--   [Step 1: Sign up for Visual Studio Online.][]
+-   [Step 1: Create a team project.][]
 
 -   [Step 2: Check in a project to source control.][]
 
@@ -27,9 +31,9 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 
 -	[Step 7: Run unit tests (optional)][]
 
-<h2> <a name="step1"></a><span class="short-header">Sign up for Visual Studio Online</span>Step 1: Sign up for Visual Studio Online and create a team project</h2>
+<h2> <a name="step1"></a><span class="short-header">Create a team project</span>Step 1: Create a team project</h2>
 
-Follow the instructions [here](http://go.microsoft.com/fwlink/p/?LinkId=239540) to create your team project and link it to Visual Studio. This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution. If you want to use Git for version control, see [the Git version of this walkthrough](http://go.microsoft.com/fwlink/p/?LinkId=397358).
+Follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=512980) to create your team project and link it to Visual Studio. This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution. If you want to use Git for version control, see [the Git version of this walkthrough](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
 <h2><a name="step2"> </a><span class="short-header">Check in a project to source control.</span>Step 2: Check in a project to source control</h2>
 
@@ -228,7 +232,7 @@ For more about unit testing in Visual Studio Online, see [Run unit tests in your
 
 For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publishing from Source Control to Azure Websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control).
 
-[Step 1: Sign up for Visual Studio Online.]: #step1
+[Step 1: Create a team project.]: #step1
 [Step 2: Check in a project to source control.]: #step2
 [Step 3: Connect the project to Azure.]: #step3
 [Step 4: Make changes and trigger a rebuild and redeployment.]: #step4
