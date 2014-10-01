@@ -44,7 +44,7 @@ This tutorial is a walkthrough of how the [Todo Offline Mobile Services sample] 
 
 3. In Visual Studio 2013, open the *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln* solution file. Press the **F5** key to rebuild and run the project. Verify the NuGet packages are restored and the references are correctly set.
 
-    >[WACOM.NOTE] You may need to delete any old references to the SQLite runtime and replace them with the updated reference as mentioned in the [Get started with offline data] tutorial.
+    >[AZURE.NOTE] You may need to delete any old references to the SQLite runtime and replace them with the updated reference as mentioned in the [Get started with offline data] tutorial.
 
 4. In the app, type some text in **Insert a TodoItem**, then click **Save** to add some todo items to the local store. Then close the app.
 
@@ -75,7 +75,7 @@ Now it's time to test the app against Mobile Services.
 
 In a real world scenario, a sync conflict would occur when one app pushes updates to a record in the database, and then another app tries to push an update to the same record using an outdated version field in that record. If you recall from the [Get started with offline data], the version system property is required to support the offline syncing features. This version information is examined with each database update. If an instance of the app tries to update a record using an outdated version, a conflict will occur and be caught as a `MobileServicePreconditionFailedException` in the app. If the app doesn't catch the `MobileServicePreconditionFailedException` then a `MobileServicePushFailedException` will end up being thrown describing how many sync errors were encountered.
 
->[WACOM.NOTE] To support synchronization of deleted records with offline data sync, you should enable [Soft Delete](/en-us/documentation/articles/mobile-services-using-soft-delete/). Otherwise, you have to manually remove records in the local store, or call `IMobileServiceSyncTable::PurgeAsync()` to purge the local store.
+>[AZURE.NOTE] To support synchronization of deleted records with offline data sync, you should enable [Soft Delete](/en-us/documentation/articles/mobile-services-using-soft-delete/). Otherwise, you have to manually remove records in the local store, or call `IMobileServiceSyncTable::PurgeAsync()` to purge the local store.
 
 
 The following steps show the Windows Phone 8.1 and Windows Store 8.1 clients running at the same time to cause and resolve a conflict using the sample.
