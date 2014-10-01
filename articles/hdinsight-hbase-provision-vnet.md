@@ -116,10 +116,29 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
 1.	Provision an IaaS virtual machine into the same Azure virtual network and the same subnet. So both the virtual machine and the HBase cluster use the same internal DNS server to resolve host names. To do so, you must choose the From Gallery option, and select the virtual network instead of a data center. For the instructions, see [Create a Virtual Machine Running Windows Server][vm-create]. A standard Windows Server 2012 image with a small VM size is sufficient.
 	
-2.	Get the connection-specific DNS suffix of the HBase cluster. To do that RDP into the HBase cluster (you will be connected to the headnode) and run **ipconfig** from a command prompt. For instructions on enabling RDP and connect to the cluster using RDP, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal].
+2.	When using a Java application to connect to HBase remotely, you must use the fully qualified domain name (FQDN). To determine this, we must get the connection-specific DNS suffix of the HBase cluster. To do that use either Curl or PowerShell to query Ambari using the following information.
 
-	![hdinsight.hbase.dns.surffix][img-dns-surffix]
+	* **Curl** - use the following command:
 
+			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
+
+		In the JSON data returned, find the "host_name" entry. This will contain the fully qualified domain name (FQDN) for the nodes in the cluster. For example:
+
+			...
+			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
+			...
+
+		The portion of the domain name beginning with the cluster name is the DNS suffix. For example, mycluster.b1.cloudapp.net.
+
+	* **PowerShell** - use the following script:
+
+			[tbd]
+
+	> [WACOM.NOTE] You can also use Remote Desktop to connect the HBase cluster (you will be connected to the headnode) and run **ipconfig** from a command prompt to obtain the DNS suffix. For instructions on enabling RDP and connect to the cluster using RDP, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal].
+	>
+	> ![hdinsight.hbase.dns.surffix][img-dns-surffix]
+
+<!-- 
 3.	Change the Primary DNS Suffix configuration of the virtual machine. This enables virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to the workernode0 of the HBase cluster. 
 	To make the configuration change:
 
@@ -131,8 +150,18 @@ To begin working with your new HBase cluster, you can use the procedures found i
 		![hdinsight.hbase.primary.dns.suffix][img-primary-dns-suffix]
 	4. Click **OK**. 
 	5. Reboot the virtual machine.
+-->
 
-	Now the virtual machine is ready to communicate with the HBase cluster. To test the connection, run “ping headnode0” from the virtual machine.
+To verify that the virtual machine can communicate with the HBase cluster, use the following command `ping headnode0.<dns suffix>` from the virtual machine. For example, ping headnode0.mycluster.b1.cloudapp.net
+
+To use this information in a Java application, you can follow the steps in [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)](azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-build-java-maven/) to create an application. To have the application connect to a remote HBase server, modify the **hbase-site.xml** file in this example to use the FQDN for ZooKeeper. For example:
+
+	<property>
+    	<name>hbase.zookeeper.quorum</name>
+    	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
+	</property>
+
+> [WACOM.NOTE] For more information on name resolution in Azure Virtual Networks, including how to use your own DNS server, see [Name Resolution (DNS)](http://msdn.microsoft.com/en-us/library/azure/jj156088.aspx).
 
 ##<a id="powershell"></a>Provision an HBase cluster using Azure PowerShell:**
 
