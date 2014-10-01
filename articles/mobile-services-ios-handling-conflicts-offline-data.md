@@ -436,9 +436,9 @@ In order to set up the completed project from [Get Started with Offline Data] to
 
 To do so, you added a new item details view controller, connected the main view controller and the details view controller, and finally added the ability to save edits and push them to the cloud.
 
-Next, you discovered what happens when there is a conflict. You added support for a conflict handler by implementing the **MSSyncContextDelegate** protocol, adding support for the sync context delegate through the server interface class of **QSTodoService**, **QSTodoListViewController**, and supporting classes.
+Next, you discovered what happens when there is a conflict. You added support for a conflict handler by implementing the **MSSyncContextDelegate** protocol. You also enabled support for the sync context delegate through the server interface class of **QSTodoService**, **QSTodoListViewController**, and supporting classes.
 
-Along the way, you added a **QSUIAlertViewWithBlock** helper class to display an alert to users, and finished by adding codde to **QSTodoListViewController** to prompt the user to reconcile the conflict in one of three ways.
+Along the way, you added a **QSUIAlertViewWithBlock** helper class to display an alert to users, and finished by adding code to **QSTodoListViewController** to prompt the user to reconcile the conflict in one of three ways.
 
 <!-- URLs. -->
 
