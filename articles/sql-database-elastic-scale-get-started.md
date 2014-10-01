@@ -1,4 +1,4 @@
-<properties title="Get Started with  Azure SQL Database Elastic Scale" pageTitle="Get Started with  Azure SQL Database Elastic Scale" description="Scale Azure SQL Database shards with elastic scale APIs, Azure elastic scale Getting Started" metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale" services="sql-database" documentationCenter="sql-database" authors="sidneyh@microsoft.com"/>
+<properties title="Get Started with  Azure SQL Database Elastic Scale" pageTitle="Get Started with  Azure SQL Database Elastic Scale" description="Basic explanation of Elastic Scale feature of Azure SQL Database, including easy to run sample app." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale" services="sql-database" documentationCenter="" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
@@ -16,7 +16,7 @@ For a list of all topics on Elastic Scale, see [Elastic Scale Documentation Map]
 
 ## The Elastic Scale Sample Application
 
-The sample creates a simple sharded application and explores key capabilities of Elastic Scale.
+The sample creates a simple sharded application and explores key capabilities of Elastic Scale. To download and run the application, follow the steps shown below or in the video [Elastic Scale - Get Started](http://go.microsoft.com/?linkid=9862983). 
 
 ###Prerequisites
 To run the sample app, you must use Visual Studio, and you must have access to an Azure SQL Database running on Azure. If you do not already have a subscription to Azure, sign up for a [trial subscription](http://azure.microsoft.com/en-us/pricing/free-trial/).
@@ -45,7 +45,7 @@ The **Elastic Scale with Azure SQL Database - Getting Started** sample applicati
 5. Select the sample, choose a name and a location for the new project and press **OK** to create the project.
 6. Open the **app.config** file in the solution for the sample project and follow the instructions in the file to add your Azure SQL database server name and your login information (user name and password).
 7. Build and run the application. When asked, please allow Visual Studio to restore the NuGet packages of the solution. This will download the latest version of the Elastic Scale client libraries from NuGet.
-8. Follow the progress of the sample in the console window and note the Elastic Scale steps it takes in the output.
+8. Play with the different options to learn more about the Elastic Scale capabilities. Note the steps the application takes in the console output and feel free to explore the code behind the scenes.
 
     ![progress][4]
 
@@ -80,9 +80,9 @@ For more information about the Elastic Scale feature, see:
 
 * [Elastic Scale Learning Page](./sql-database-elastic-scale-documentation-map.md) 
 -    Code Samples: 
-	-    [Elastic Scale with Azure SQL Database - Getting Started](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
-	-    [Elastic Scale with Azure SQL Database - Integrating with Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
-	-    [Shard Elasticity on Script Center](http://go.microsoft.com/?linkid=9862617)
+    -    [Elastic Scale with Azure SQL Database - Getting Started](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
+    -    [Elastic Scale with Azure SQL Database - Integrating with Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
+    -    [Shard Elasticity on Script Center](http://go.microsoft.com/?linkid=9862617)
 -    Blog: [Elastic Scale Announcement](http://go.microsoft.com/?linkid=9862608)
 -    Channel 9: [Elastic Scale Overview](http://go.microsoft.com/?linkid=9862609)
 -    Discussion Forum: [Azure SQL Database forum](http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=ssdsgetstarted)
