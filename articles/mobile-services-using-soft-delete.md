@@ -6,7 +6,7 @@
 
 Tables created with either the JavaScript or .NET backend can optionally have soft delete enabled. When using soft delete, a new column called *\__deleted* of [SQL bit type] is added to the database. With soft delete enabled, a delete operation does not physically delete rows from the database, but rather sets the value of the deleted column to TRUE.
 
->[WACOM.NOTE] Soft delete support for the .NET backend is scheduled to release with version 1.0.393 of the .NET backend NuGet packages. Until then, soft delete can only be tested by hosting the .NET backend mobile service locally.
+>[AZURE.NOTE] Soft delete support for the .NET backend is scheduled to release with version 1.0.393 of the .NET backend NuGet packages. Until then, soft delete can only be tested by hosting the .NET backend mobile service locally.
 
 When querying records on a table with soft delete enabled, deleted rows are not returned in the query by default. In order to request these rows, you must pass a query parameter *\__includeDeleted=true* in your [REST Query operaation](http://msdn.microsoft.com/en-us/library/azure/jj677199.aspx). In the .NET client SDK, you can also use the helper method `IMobileServiceTable.IncludeDeleted()`.
 
@@ -30,7 +30,7 @@ Overview of this topic:
 
 ## <a name="enable-for-dotnet"></a>Enabling soft delete for the .NET backend
 
->[WACOM.NOTE] Soft delete support for the .NET backend is scheduled to release with version 1.0.393 of the .NET backend NuGet packages. Until then, soft delete can only be tested by hosting the .NET backend mobile service locally.
+>[AZURE.NOTE] Soft delete support for the .NET backend is scheduled to release with version 1.0.393 of the .NET backend NuGet packages. Until then, soft delete can only be tested by hosting the .NET backend mobile service locally.
 
 
 The following steps guide you on how to enable soft delete for a .NET backend mobile service.
@@ -66,7 +66,7 @@ To enable soft delete on an existing table in the JavaScript backend:
 
 ## <a name="using-with-dotnet"></a>Using soft delete with the .NET backend
 
->[WACOM.NOTE] Soft delete support for the .NET backend is scheduled to release with version 1.0.393 of the .NET backend NuGet packages. Until then, soft delete can only be tested by hosting the .NET backend mobile service locally.
+>[AZURE.NOTE] Soft delete support for the .NET backend is scheduled to release with version 1.0.393 of the .NET backend NuGet packages. Until then, soft delete can only be tested by hosting the .NET backend mobile service locally.
 
 
 The following scheduled job purges soft deleted records that are more than a month old:
