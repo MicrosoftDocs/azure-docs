@@ -95,5 +95,7 @@ To learn more about configuring Windows virtual machines on Azure, see the follo
 
 [Manage the Availability of Virtual Machines](http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/)
 
+[About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx)
+
 [How to create the virtual machine]: #custommachine
 [How to log on to the virtual machine after you create it]: #logon
