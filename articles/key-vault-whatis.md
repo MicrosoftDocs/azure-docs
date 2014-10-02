@@ -1,10 +1,9 @@
-<properties title="required" pageTitle="required" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="What is Azure Key Vault?" pageTitle="What is Azure Key Vault? | Overview" description="The Azure Key Vault service is a pay-as-you-go security solution that stores and manages cryptographic keys in Azure. The service uses a single location, called a vault, which stores and helps to secure the keys. These keys can then be used by applications for small, high-value security data, such as access keys and passwords." metaKeywords="Azure Key Vault, Azure Key Vault Overview, access keys, passwords" services="Key-Vault" solutions="" documentationCenter="" authors="cabailey" manager="terrylan" videoId="" scriptId="" />
 
-<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
+<tags ms.service="key-vault" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="cabailey" />
 
-<!--Properties section (above): this is required in all topics. Please fill it out!-->
 
-<!--The next line, with one pound sign at the beginning, is the page title--> 
+
 # What is Azure Key Vault? 
 
 The Azure Key Vault service—currently in Preview—is a pay-as-you-go security solution that stores and manages cryptographic keys in Azure. The service uses a single location, called a vault, which stores and helps to secure the keys. These keys can then be used by applications for small, high-value security data, such as access keys and passwords. 
@@ -38,8 +37,6 @@ However, developers can also manage the keys directly, by using REST APIs. For m
 
 For how-to steps for an administrator, see [Get Started with Azure Key Vault](https://www.google.com).
 
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 
 

@@ -1,4 +1,4 @@
-<properties title="Data Dependent Routing" pageTitle="Data Dependent Routing" description="Data Dependent Routing, azure sql database, elastic scale, ShardMapManager" metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, multi-shard, multishard, querying" services="sql-database" documentationCenter="sql-database" authors="sidneyh@microsoft.com"/>
+<properties title="Data Dependent Routing" pageTitle="Data Dependent Routing" description="How to use the ShardMapManager for data-dependent routing, a feature of Elastic Scale for Azure SQL DB" metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, multi-shard, multishard, querying" services="sql-database" documentationCenter="" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
@@ -14,7 +14,7 @@ For applications using data-dependent routing, a **ShardMapManager** should be i
 
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString, 
                       ShardMapManagerLoadPolicy.Lazy);
-	RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap"); 
+    RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap"); 
 
 In this example, both a **ShardMapManager** and a specific **ShardMap** that it contains are initialized. 
 
@@ -43,7 +43,7 @@ This is an example of code that uses the Shard Map Manager to perform data-depen
 
     // Connection to the shard for that customer ID
     using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, 
-		Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
+        Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
     { 
         // Execute a simple command 
         SqlCommand cmd = conn.CreateCommand(); 
@@ -99,4 +99,3 @@ Packages necessary to implement transient fault handling are downloaded automati
 Transactional properties are guaranteed for all operations local to a shard. For example, transactions submitted through data-dependent routing execute within the scope of the target shard for the connection. At this time, there are no capabilities provided for enlisting multiple connections into a transaction, and therefore there are no transactional guarantees for operations performed across shards.  
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
-

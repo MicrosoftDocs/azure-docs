@@ -236,13 +236,13 @@ Up to 500 events per second from each application. Events are retained for seven
 
 
 ## Learn more
-
 * [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
 * [Monitor performance in web applications][perf]
 * [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
 * [Track usage][usage]
+* [Track custom events and metrics][track]
 * [Q & A and troubleshooting][qna]
 
 <!--Link references-->
@@ -254,5 +254,7 @@ Up to 500 events per second from each application. Events are retained for seven
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
 [usage]: ../app-insights-web-track-usage/
+[track]: ../app-insights-web-track-custom-events/
 [qna]: ../app-insights-troubleshoot-faq/
 [webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+

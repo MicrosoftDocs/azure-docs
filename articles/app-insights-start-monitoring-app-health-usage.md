@@ -86,7 +86,7 @@ Run your application again and you'll see data in **Usage analytics**.
 
 ![Click through to more data](./media/appinsights/appinsights-05-usageTiles.png)
 
-[Click through charts to see more detail.][perf]
+[Click through charts to see more detail.][usage]
 
 ### <a name="deploy"></a>5. Deploy your application
 
@@ -130,13 +130,13 @@ Afterwards, go back to the portal and delete the old resource.
 
 
 ## Learn more
-
 * [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
 * [Monitor performance in web applications][perf]
 * [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
 * [Track usage][usage]
+* [Track custom events and metrics][track]
 * [Q & A and troubleshooting][qna]
 
 <!--Link references-->
@@ -148,4 +148,6 @@ Afterwards, go back to the portal and delete the old resource.
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
 [usage]: ../app-insights-web-track-usage/
+[track]: ../app-insights-web-track-custom-events/
 [qna]: ../app-insights-troubleshoot-faq/
+[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient

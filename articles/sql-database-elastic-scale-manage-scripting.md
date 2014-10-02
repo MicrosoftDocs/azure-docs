@@ -1,4 +1,4 @@
-<properties title="Scripting Elastic Scale with Scripts" pageTitle="Scripting Elastic Scale with Scripts" description="Scripting Elastic Scale with Scripts, powershell, elastic scale" metaKeywords="Azure SQL Database, elastic scale, powershell scripts" services="sql-database" documentationCenter="sql-database" authors="sidneyh@microsoft.com"/>
+<properties title="Scripting Elastic Scale with Scripts" pageTitle="Scripting Elastic Scale with Scripts" description="Script Elastic Scale tasks with PowerShell and Azure Automation Service runbooks." metaKeywords="Azure SQL Database, elastic scale, powershell scripts" services="sql-database" documentationCenter="" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
@@ -92,39 +92,39 @@ The first step is to create a PowerShell module that references the Elastic Scal
 1. Download the “ShardElasticity.zip” file.
 2. Extract all content.
 
-	![Extract all][1]
+    ![Extract all][1]
 3. Obtain the Elastic Scale client DLL (i.e., Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll) and copy the following files into your local “ShardElasticityModule” folder that was downloaded in step 1.  This can be done in two ways: 1) download the DLL via the Elastic Scale NuGet package [link] or 2) from your Elastic Scale Starter Kit project [link] (must be built), go to \bin\Debug\ to obtain the DLL.
 
-	![Obtain Dll][2]
+    ![Obtain Dll][2]
 
 4. Zip the ShardElasticityModule folder. 
 
-	Note: Azure Automation requires several name conventions: given the module name ShardElasticityModule.psm1, the zip file name must match exactly (ShardElasticityModule.zip). The zip file contains the folder ShardElasticityModule (name matching name of module), which in turn contains the psm1 file. If this structure is not followed, Azure Automation will not be able to unpack the module.
+    Note: Azure Automation requires several name conventions: given the module name ShardElasticityModule.psm1, the zip file name must match exactly (ShardElasticityModule.zip). The zip file contains the folder ShardElasticityModule (name matching name of module), which in turn contains the psm1 file. If this structure is not followed, Azure Automation will not be able to unpack the module.
 
-5.	Once you have verified that the contents and structure of the zipped folder match requirements, proceed to the next step. It should resemble this:
+5.    Once you have verified that the contents and structure of the zipped folder match requirements, proceed to the next step. It should resemble this:
 
-	![dll][3]
+    ![dll][3]
 
 
 ## Sign up for the Azure Automation Preview
 
 1. Go to the [Azure Preview Features](http://azure.microsoft.com/en-us/services/preview/).
-	
+    
 2. Click **Try It**.
 
-	![Click Try It][8]
+    ![Click Try It][8]
 
 2. Go to[ Microsoft Azure portal](https://manage.windowsazure.com/microsoft.onmicrosoft.com).
 3. Click on **Automation**.
 
-	![Automation][4]
+    ![Automation][4]
 4. At the bottom of the screen click **Create**. 
 5. In the prompt shown below, please enter a valid account name and click the check in the bottom right-hand corner of the box.
 
-	![Prompt][5] 
+    ![Prompt][5] 
 5. Proceed to the next step. Success resembles the graphic below.
 
-	![success][6]
+    ![success][6]
 
 ## Upload PowerShell Module to Azure Automation as an Asset 
 
@@ -136,8 +136,8 @@ Upload the PowerShell module from above to the your Azure Automation Account. Fo
 4. Once the correct file has been chosen, click the check in the bottom right-hand corner of the box to import it. Azure Automation service imports the module. 
 5. Proceed to the next step. Success resembles this graphic. If the module was not imported successfully, please ensure that the zip file matches conventions described above.
 
-	![Assets][10] 
-	  
+    ![Assets][10] 
+      
 ## Create Azure Automation Credential and Variable Assets 
 
 Instead of hard coding credentials and commonly used variables into the runbooks, Azure Automation can create credential and variable assets respectively that can be referenced across many runbooks. For example, changing a password then happens in only one location. 
@@ -147,20 +147,20 @@ Instead of hard coding credentials and commonly used variables into the runbooks
 3. Click **ADD SETTING** at the bottom of the screen.  
 4. Click **ADD CREDENTIAL**. 
 
-	![Add credential][9]
+    ![Add credential][9]
 4. Select **Windows PowerShell Credential** as the **CREDENTIAL TYPE** and **ElasticScaleCredential** as the Name. A description is optional.  
 5. Click the arrow in the bottom right-hand corner of the box. 
 
-	Note: To use the runbooks without modification, use the variable names verbatim, as provided in the instructions. The variable names are referenced by the runbooks. 
+    Note: To use the runbooks without modification, use the variable names verbatim, as provided in the instructions. The variable names are referenced by the runbooks. 
 5. Insert the user name and password (twice) for the Azure SQL DB server on which you wish to run the Shard Elasticity examples. 
  
 6. To create the variable asset, click **ADD SETTING**, then select **ADD VARIABLE**. 
 
-	![Add variable][7]
+    ![Add variable][7]
 7. For this tutorial, create a variable for the fully-qualified Azure SQL DB server name under which the shard map manager and sharded databases will reside. Select **String** as the **VARIABLE TYPE** and enter **SqlServerName**. Click the arrow to proceed. 
 8. Enter the fully-qualified Azure SQL DB server name as the VALUE and click on the check. 
 9. You have now created both a credential and variable asset that will be used in the Shard Elasticity runbooks.  Proceed to the next step. Success looks like the following: 
-	
+    
 
 ## Upload PowerShell Runbooks to Azure Automation 
 
@@ -185,31 +185,31 @@ The next step is to execute the **SetupShardedEnvironment** runbook which provis
 
 Test the successful execution of each of the runbooks before publishing and scheduling the runbook. 
 
-1. Click “RUNBOOK” on the ribbon at the top of the page. 
-2. Click the “ProvisionByDate” runbook.
-3. Click “AUTHOR” on the ribbon at the top of the page. 
-4. Click “SAVE” then “TEST”.
+1. Click **RUNBOOK** on the ribbon at the top of the page. 
+2. Click the **ProvisionByDate** runbook.
+3. Click **AUTHOR** on the ribbon at the top of the page. 
+4. Click **SAVE **then **TEST**.
 5. Repeat for the **ReduceServiceTier**. 
 
-	Note, since **ProvisionBySize** and **ProvisionByDate** both provision new shards (using different algorithms), it is not necessary to run **ProvisionByDate** at this time. 
+    Note, since **ProvisionBySize** and **ProvisionByDate** both provision new shards (using different algorithms), it is not necessary to run **ProvisionByDate** at this time. 
 
 ## Publish the Runbook 
 The next step is to publish the runbook so that it can be scheduled to execute on a periodic basis. 
 
-1. Click “PUBLISH” on the bottom of the page. 
-2. Click “Published”. 
+1. Click **PUBLISH** on the bottom of the page. 
+2. Click **Published**. 
 3. Proceed to the next step.
  
 ## Schedule the Runbook 
 
 The final step is to create and link a schedule to the runbook published above. 
 
-1. Click “SCHEDULE” at the top of the page. 
-2. Click “LINK TO A NEW SCHEDULE”.
+1. Click **SCHEDULE** at the top of the page. 
+2. Click **LINK TO A NEW SCHEDULE**.
 3. Name the schedule appropriately and click the right arrow button.
 4. Configure the schedule.
 5. When finished, click the check at the bottom of the box.
-6. Once the job has been executed based on the previously established schedule, click the “JOBS” option on the ribbon at the top of the page and then select the scheduled job. 
+6. Once the job has been executed based on the previously established schedule, click the **JOBS **option on the ribbon at the top of the page and then select the scheduled job. 
 
 ## Conclusion 
 
@@ -227,6 +227,6 @@ The provided examples only scratch the surface for what is possible when combini
 [5]: ./media/sql-database-elastic-scale-scripting/prompt.png
 [6]: ./media/sql-database-elastic-scale-scripting/success.png
 [7]: ./media/sql-database-elastic-scale-scripting/add-variable.png
-[8]: ./media/sql-database-elastic-scale-scripting/signup.png
+[8]: ./media/sql-database-elastic-scale-scripting/sign-up.png
 [9]: ./media/sql-database-elastic-scale-scripting/add-credential.png
 [10]: ./media/sql-database-elastic-scale-scripting/assets.png
