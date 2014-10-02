@@ -366,12 +366,12 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 
 13. Open up the **MainActivity.java** and add the following to the **onCreate** method:
 
-        PushManager.startWork(getApplicationContext(),
-                PushConstants.LOGIN_TYPE_API_KEY, ConfigurationSettings.API_KEY);
+	        PushManager.startWork(getApplicationContext(),
+	                PushConstants.LOGIN_TYPE_API_KEY, ConfigurationSettings.API_KEY);
 
 and add the following import statements at the top:
-		import com.baidu.android.pushservice.PushConstants;
-		import com.baidu.android.pushservice.PushManager;
+			import com.baidu.android.pushservice.PushConstants;
+			import com.baidu.android.pushservice.PushManager;
 
 ##<a id="send"></a>Send notifications to your app
 
@@ -394,7 +394,8 @@ You can send notifications using Notification Hubs from any back-end that uses o
 		private static async void SendNotificationAsync()
 		{
 			NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("DefaultFullSharedAccessSignatureSASConnectionString", "NotificationHubName");
-			await hub.SendBaiduNativeNotificationAsync("{\"data\" : {\"payload\":\"" + "Hello from Azure" + "\"}}");
+			string message = "{\"title\":\"((Notification title))\",\"description\":\"Hello from Azure\"}";
+			var result = await hub.SendBaiduNativeNotificationAsync(message);
 		}
 
 5. Then add the following lines in your Main method:
