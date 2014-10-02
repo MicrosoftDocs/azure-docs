@@ -1,4 +1,4 @@
-<properties title="Multi-Shard Querying" pageTitle="Multi-Shard Querying" description="Multi-Shard Querying, azure sql database, elastic scale, shard queries" metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, multi-shard, multishard, querying" services="sql-database" documentationCenter="sql-database" authors="sidneyh@microsoft.com"/>
+<properties title="Multi-Shard Querying" pageTitle="Multi-Shard Querying" description="Run queries across shards using Elastic Scale APIs." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, multi-shard, multishard, querying" services="sql-database" documentationCenter="" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
@@ -18,9 +18,8 @@ A key difference is the construction of multi-shard connections. Where **SqlConn
 
     using (MultiShardConnection conn = new MultiShardConnection( 
                                         myShardMap.GetShards(), 
-                                        myShardConnectionString 
-                                        ) 
-                                    ) 
+                                        myShardConnectionString) 
+          ) 
     { 
     using (MultiShardCommand cmd = conn.CreateCommand())
            { 
@@ -30,16 +29,15 @@ A key difference is the construction of multi-shard connections. Where **SqlConn
             cmd.ExecutionPolicy = MultiShardExecutionPolicy.PartialResults; 
 
             using (MultiShardDataReader sdr = cmd.ExecuteReader()) 
-            { 
-                while (sdr.Read())
-                    { 
-                        var c1Field = sdr.GetString(0); 
-                        var c2Field = sdr.GetFieldValue<int>(1); 
-                        var c3Field = sdr.GetFieldValue<Int64>(2);
-                     } 
-                 } 
-             } 
-        } 
+            	{ 
+                	while (sdr.Read())
+                    	{ 
+                        	var c1Field = sdr.GetString(0); 
+                        	var c2Field = sdr.GetFieldValue<int>(1); 
+                        	var c3Field = sdr.GetFieldValue<Int64>(2);
+                    	} 
+             	} 
+           } 
     } 
  
 
