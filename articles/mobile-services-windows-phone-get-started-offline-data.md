@@ -219,7 +219,7 @@ In this section you will test push and pull operations to sync the local store w
     ![][8]
 
 5. This time press the **Pull** button in the app. The app only calls `IMobileServiceSyncTable.PullAsync()` and `RefreshTodoItems`.  Notice that all the data from the mobile service database was pulled into the local store and shown in the app. However, also notice that all the data in the local store was still pushed to the mobile service database. This is because a **pull always does a push first**.    
-
+ 
     >[AZURE.NOTE] To support synchronization of deleted records with offline data sync, you should enable [Soft Delete](/en-us/documentation/articles/mobile-services-using-soft-delete/). Otherwise, you have to manually remove records in the local store, or call `IMobileServiceSyncTable::PurgeAsync()` to purge the local store.
 
  

@@ -50,7 +50,7 @@ Azure Mobile Services offline features allow you to interact with a local databa
 
 
 1. Install the SQLite runtime for Windows 8.1 and Windows Phone 8.1. 
- 
+
     * **Windows 8.1 Runtime:** Install the SQLite runtime for Windows 8.1 from this link, [SQLite for Windows 8.1].
     * **Windows Phone 8.1:** Install the SQLite runtime for Windows Phone 8.1 from this link, [SQLite for Windows Phone 8.1].
 
@@ -162,12 +162,12 @@ Azure Mobile Services offline features allow you to interact with a local databa
                         <SymbolIcon Symbol="Upload"/>
                     </StackPanel>
                 </Button>
-            </StackPanel>
+        </StackPanel>
         
 
 
 10. In the shared MainPage.cs file, add click event handlers for the **Push** and **Pull** buttons. Then save the file. 
- 
+        
     Notice the `MobileServicePushFailedException` can occur for both a push and a pull operation. It can occur for a pull because the pull operation internally executes a push to make sure all tables along with any relationships are in sync. The next tutorial, [Handling conflicts with offline support for Mobile Services], shows how to handle these sync related exceptions.
 
     To support synchronization of deleted records with offline data sync, you should enable [Soft Delete](/en-us/documentation/articles/mobile-services-using-soft-delete/). Otherwise, you have to manually remove records in the local store, or call `IMobileServiceSyncTable::PurgeAsync()` to purge the local store.
@@ -230,7 +230,7 @@ Azure Mobile Services offline features allow you to interact with a local databa
             }
             catch (MobileServicePushFailedException ex)
             {
-                errorString = "Push failed because of sync errors: " +
+                errorString = "Push failed because of sync errors: " + 
                   ex.PushResult.Errors.Count + " errors, message: " + ex.Message;
             }
             catch (Exception ex)
