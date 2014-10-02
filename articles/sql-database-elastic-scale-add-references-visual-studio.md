@@ -16,6 +16,6 @@
 4. In the **Search Online** dialog box, type **Elastic Scale**, select the **Elastic Scale client libraries** and click **Install**.
 4. Review the license, and click **I Accept**. 
 
-The Azure SQL DB elastic scale references have now been added to your project. 
+The Azure SQL Database Elastic Scale references have now been added to your project. 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
