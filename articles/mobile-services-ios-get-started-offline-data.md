@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-offline-data-ios" urlDisplayName="Using Offline Data" pageTitle="Using offline data in Mobile Services (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data sync in Mobile Services" authors="wesmc" />
+<properties linkid="develop-mobile-tutorials-get-started-offline-data-ios" urlDisplayName="Using Offline Data" pageTitle="Using offline data in Mobile Services (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data sync in Mobile Services" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc" />
 
