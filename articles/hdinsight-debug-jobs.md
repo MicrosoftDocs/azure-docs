@@ -18,7 +18,7 @@ The errors a user can encounter in Azure PowerShell or in the Azure Portal are l
 
 ###HDInsight Errors
 
-[AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)	
+[AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)
 [AzureRegionNotSupported](#AzureRegionNotSupported)		
 [ClusterContainerRecordNotFound](#ClusterContainerRecordNotFound)	 
 [ClusterDnsNameInvalidReservedWord](#ClusterDnsNameInvalidReservedWord)		
