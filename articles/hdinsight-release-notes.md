@@ -5,6 +5,35 @@
 
 #Microsoft HDInsight release notes
 
+## Notes for 9/30/2014 release ##
+
+We have provided new memory settings for the default deployment of the HDInsight cluster. Previous default memory settings did not take adequate account of the guidance for the number of CPU cores being deployed. The new memory settings used by the default 4 CPU core (8 container) HDInsight cluster are itemized in the following table. (The values used prior to this release are also provided parenthetically). 
+ 
+<table border="1">
+<tr><th>Component</th><th>Memory Allocation</th></tr>
+<tr><td> yarn.scheduler.minimum-allocation</td><td>768MB (previously 512MB)</td></tr>
+<tr><td> yarn.scheduler.maximum-allocation</td><td>6144MB (unchanged)</td></tr>
+<tr><td>yarn.nodemanager.resource.memory</td><td>6144MB (unchanged)</td></tr>
+<tr><td>mapreduce.map.memory</td><td>768MB (previously 512MB)</td></tr>
+<tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (previously -Xmx410m)</td></tr>
+<tr><td>mapreduce.reduce.memory</td><td>1536MB (previously 1024MB)</td></tr>
+<tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (previously -Xmx819m)</td></tr>
+<tr><td>yarn.app.mapreduce.am.resource</td><td>768MB (previously 1024MB)</td></tr>
+<tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (previously -Xmx819m)</td></tr>
+<tr><td>mapreduce.task.io.sort</td><td>256MB (unchanged)</td></tr>
+<tr><td>tez.am.resource.memory</td><td>1536MB (unchanged)</td></tr>
+
+</table><br>
+
+For more information on the memory configuration settings used by YARN and MapReduce on the Hortonworks Data Platform used by HDInsight, see [Determine HDP Memory Configuration Settings](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html). Hortonworks has also provide a tool to calculate proper memory settings.
+
+
+## Notes for 9/12/2014 release of HDinsight 3.1##
+
+* This release is based on Hortonworks Data Platform (HDP) 2.1.5. For a list of the bugs fixed in this release, see the [Fixed in this Release](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) page on the Hortonworks site.
+* In the pig libraries folder, the file “avro-mapred-1.7.4.jar” has been changed to avro-mapred-1.7.4-hadoop2.jar. The contents of these file contain a minor bug fix that is non-breaking. It is recommended that customers do not take a direct dependency on the name of the JAR file itself to avoid breaks when files are renamed.
+
+
 ## Notes for 8/21/2014 release ##
 
 * We are adding the following new WebHCat configuration (HIVE-7155) that sets the default memory limit for a Templeton controller job to 1GB (the previous default value was 512MB):

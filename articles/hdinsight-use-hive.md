@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-howto-hive" urlDisplayName="Use Hadoop Hive in HDInsight" pageTitle="Use Hadoop Hive in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive with HDInsight. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data and report basic statistics." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Hive in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="jgao" />
 
 # Use Hive with Hadoop in HDInsight
 
@@ -25,6 +25,8 @@
 * [Next steps](#nextsteps)
 
 ##<a id="usage"></a>The Hive usage case
+
+![HDI.HIVE.Architecture][image-hdi-hive-architecture]
 
 Hive projects some kind of structure on a largely unstructured data set (which is all Hadoop is about), and then lets you query that data using HiveQL. Hive provides a layer of abstraction over the Java-based MapReduce framework, enabling users to query data without knowledge of Java or MapReduce. HiveQL provides a simple SQL-like wrapper that allows queries to be written in HiveQL that are then compiled to MapReduce for you by HDInsight and run on the cluster. Other benefits of Hive are: 
 
@@ -193,7 +195,7 @@ If required, you can also import the output of your queries into Microsoft Excel
 
 If required, you can also import the output of your queries into Microsoft Excel for further analysis. For instructions, see [Connect Excel to Hadoop with Power Query][import-to-excel].
 
-##<a id="usetez"</a>Using Tez For Improved Performance
+##<a id="usetez"></a>Using Tez For Improved Performance
 
 [Apache Tez][apache-tez] is a framework that allows for data intensive applications like Hive to execute much more efficiently at scale. In the latest release of HDInsight, Hive now supports running on Tez.  This is currently off by default and must be enabled.  In future cluster versions, this will be set to be on by default. In order to take advantage of Tez, the following value must be set for a Hive query:
 
@@ -248,3 +250,4 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png 
+[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png

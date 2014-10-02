@@ -1,8 +1,6 @@
-<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="" editor="" />
+<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
-
-
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 
 # Continuous delivery to Azure using Visual Studio Online
@@ -11,9 +9,15 @@
 
 This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed. If you don't already have Visual Studio 2013, download it by choosing the **Get started for free** link at [www.visualstudio.com](http://www.visualstudio.com). Install the Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
+<div class="wa-note">
+  <span class="wa-icon-bulb"></span>
+  <h5><a name="note"></a>You need an Visual Studio online account to complete this tutorial:</h5>
+<p>You can <a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">open a Visual Studio Online account for free</a>.</p>
+</div>
+
 To set up a cloud service to automatically build and deploy to Azure by using Visual Studio Online, follow these steps:
 
--   [Step 1: Sign up for Visual Studio Online.][]
+-   [Step 1: Create a team project.][]
 
 -   [Step 2: Check in a project to source control.][]
 
@@ -25,9 +29,11 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 
 -   [Step 6: Change the Production deployment (cloud services only)][]
 
-<h2> <a name="step1"></a><span class="short-header">Sign up for Visual Studio Online</span>Step 1: Sign up for Visual Studio Online and create a team project</h2>
+-	[Step 7: Run unit tests (optional)][]
 
-Follow the instructions [here](http://go.microsoft.com/fwlink/p/?LinkId=239540) to create your team project and link it to Visual Studio. This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution. If you want to use Git for version control, see [the Git version of this walkthrough](http://go.microsoft.com/fwlink/p/?LinkId=397358).
+<h2> <a name="step1"></a><span class="short-header">Create a team project</span>Step 1: Create a team project</h2>
+
+Follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=512980) to create your team project and link it to Visual Studio. This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution. If you want to use Git for version control, see [the Git version of this walkthrough](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
 <h2><a name="step2"> </a><span class="short-header">Check in a project to source control.</span>Step 2: Check in a project to source control</h2>
 
@@ -155,14 +161,84 @@ This step applies to cloud services and is optional. In the management portal, s
 This step applies only to cloud services, not websites. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button in the management portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.<br/>
 ![][35]
 
+<h2> <a name="step7"> </a><span class="short-header">Run unit tests</span>Step 7: Run unit tests</h2>
+
+To put a quality gate on your live or staging deployments, you can run unit tests and if they fail, you can stop the deployment.
+
+1.  In Visual Studio, add a unit test project.<br/>
+![][39]
+
+2.  Add project references to the projects you want to test.<br/>
+![][40]
+
+3.  Add some unit tests. To get started, try a dummy test that will always pass.
+
+		using System;
+		using Microsoft.VisualStudio.TestTools.UnitTesting;
+		
+		namespace UnitTestProject1
+		{
+		    [TestClass]
+		    public class UnitTest1
+		    {
+		        [TestMethod]
+		        [ExpectedException(typeof(NotImplementedException))]
+		        public void TestMethod1()
+		        {
+		            throw new NotImplementedException();
+		        }
+		    }
+		}
+
+4.  Edit the build definition, choose the Process tab, and expand the Test node.
+
+
+5.  Set the **Fail build on test failure** to True. This means that the deployment won't occur unless the tests pass.<br/>
+![][41]
+
+6.  Queue a new build.<br/>
+![][42]
+<br/>
+![][43]
+
+7. While the build is proceeding, check on its progress.<br/>
+![][44]
+<br/>
+![][45]
+
+7. When the build is done, check the test results.<br/>
+![][46]
+<br/>
+![][47]
+
+8.  Try creating a test that will fail. Add a new test by copying the first one, rename it, and comment out the line of code that throws the NotImplementedException. 
+
+		[TestMethod]
+		[ExpectedException(typeof(NotImplementedException))]
+		public void TestMethod2()
+		{
+		    //throw new NotImplementedException();
+		}
+
+9. Check in the change to queue a new build.<br/>
+![][48]
+
+10. View the test results to see details about the failure.<br/>
+![][49]
+<br/>
+![][50]
+
+For more about unit testing in Visual Studio Online, see [Run unit tests in your build](http://go.microsoft.com/fwlink/p/?LinkId=510474).
+
 For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publishing from Source Control to Azure Websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control).
 
-[Step 1: Sign up for Visual Studio Online.]: #step1
+[Step 1: Create a team project.]: #step1
 [Step 2: Check in a project to source control.]: #step2
 [Step 3: Connect the project to Azure.]: #step3
 [Step 4: Make changes and trigger a rebuild and redeployment.]: #step4
 [Step 5: Redeploy an earlier build (optional)]: #step5
 [Step 6: Change the Production deployment (cloud services only)]: #step6
+[Step 7: Run unit tests (optional)]: #step7
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
 [2]: ./media/cloud-services-continuous-delivery-use-vso/tfs2.png
@@ -202,3 +278,15 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [36]: ./media/cloud-services-continuous-delivery-use-vso/tfs36.PNG
 [37]: ./media/cloud-services-continuous-delivery-use-vso/tfs37.PNG
 [38]: ./media/cloud-services-continuous-delivery-use-vso/AdvancedMSBuildSettings.PNG
+[39]: ./media/cloud-services-continuous-delivery-use-vso/AddUnitTestProject.PNG
+[40]: ./media/cloud-services-continuous-delivery-use-vso/AddProjectReferences.PNG
+[41]: ./media/cloud-services-continuous-delivery-use-vso/EditBuildDefinitionForTest.PNG
+[42]: ./media/cloud-services-continuous-delivery-use-vso/QueueNewBuild.PNG
+[43]: ./media/cloud-services-continuous-delivery-use-vso/QueueBuildDialog.PNG
+[44]: ./media/cloud-services-continuous-delivery-use-vso/BuildInTeamExplorer.PNG
+[45]: ./media/cloud-services-continuous-delivery-use-vso/BuildRequestInfo.PNG
+[46]: ./media/cloud-services-continuous-delivery-use-vso/BuildSucceeded.PNG
+[47]: ./media/cloud-services-continuous-delivery-use-vso/TestResultsPassed.PNG
+[48]: ./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG
+[49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
+[50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG

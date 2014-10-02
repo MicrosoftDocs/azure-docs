@@ -1,14 +1,14 @@
-<properties title="Generate movie recommendations using Mahout" pageTitle="Generate movie recommendations using Mahout with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)" metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning, azure hadoop mahout, azure hadoop machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" />
+<properties title="Generate movie recommendations using Mahout" pageTitle="Generate movie recommendations using Mahout with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)" metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning, azure hadoop mahout, azure hadoop machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 #Generate movie recommendations using Apache Mahout with HDInsight (Hadoop)
 
 Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning library to generate movie recommendations with Microsoft Azure HDInsight (Hadoop).
 
 > [WACOM.NOTE] You must have an HDInsight cluster to use the information in this article. For information on creating one, see [Get started using Hadoop in HDInsight][getstarted].
-
-> [WACOM.NOTE] Mahout is provided with HDInsight 3.1 clusters. If you are using an earlier version of HDInsight, see [Install Mahout](#install) before continuing.
+>
+> Mahout is provided with HDInsight 3.1 clusters. If you are using an earlier version of HDInsight, see [Install Mahout](#install) before continuing.
 
 ##<a name="learn"></a>What you will learn
 

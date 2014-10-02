@@ -1,6 +1,6 @@
-<properties title="Monitor your web app's availability and responsiveness" pageTitle="Web tests in Application Insights" description="Make sure your web application is available and responsive. Get alerts if it becomes unavailable or responds slowly." metaKeywords="analytics web test" authors="awills"  />
+<properties title="Monitor your web app's availability and responsiveness" pageTitle="Web tests in Application Insights" description="Make sure your web application is available and responsive. Get alerts if it becomes unavailable or responds slowly." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  
 # Monitor your web app's availability and responsiveness
 
@@ -32,11 +32,13 @@ In the home blade for your application in Application Insights, click through th
 
 ![Click the empty availability test](./media/appinsights/appinsights-12avail.png)
 
-> *Already got web tests? Click through the webtests tile and then choose Add Webtest.*
+*Already got web tests? Click through the webtests tile and then choose Add Webtest.*
 
 Provide a name for the test, and the URL that you want to test. The URL has to be visible from the public internet.
 
 ![Fill at least the URL of your website](./media/appinsights/appinsights-13availChoices.png)
+
+- Set the URL you want to test. It can include a query string, so for example you could exercise your database a little. If the URL resolves to a redirect, we will follow it, up to 10 redirects.
 
 - Test locations are the places from where our servers send web requests to your URL. Choose two or three so that you can distinguish problems in your website from network issues. You can't select more than three.
 
@@ -53,9 +55,9 @@ You can add more tests for as many URLs as you like. For example, as well as tes
 ![On the web tests blade, choose Add](./media/appinsights/appinsights-16anotherWebtest.png)
 
 
-## <a name="monitor"></a>3. See monitor reports
+## <a name="monitor"></a>3. View availability reports
 
-After 1-2 minutes, close and re-open the application blade. (In this release, it doesn't refresh automatically.)
+After 1-2 minutes, click Refresh. (In this release, it doesn't refresh automatically.)
 
 ![Summary results on the home blade](./media/appinsights/appinsights-14availSummary.png)
 
@@ -86,7 +88,8 @@ Open an individual test to edit or disable it.
 You might want to disable web tests while you are performing maintenance on your service.
 
 ## <a name="video"></a>Monitoring availability
-[WACOM.VIDEO monitoring-availability-with-application-insights]
+
+> [AZURE.VIDEO monitoring-availability-with-application-insights]
 
 ## <a name="next"></a>Next steps
 
@@ -94,26 +97,25 @@ You might want to disable web tests while you are performing maintenance on your
 
 [Troubleshooting][qna]
 
-## <a name="next"></a>Learn more
 
-* [Application Insights][root]
-* [Add Application Insights to your project][start]
+## Learn more
+
+* [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
-* [Explore metrics in Application Insights][explore]
-* [Diagnostic log search][diagnostic]
+* [Monitor performance in web applications][perf]
+* [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
-* [Usage tracking with events and metrics][usage]
+* [Track usage][usage]
 * [Q & A and troubleshooting][qna]
-
 
 <!--Link references-->
 
 
-[root]: ../app-insights-get-started/
-[start]: ../app-insights-monitor-application-health-usage/
+[start]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
-[explore]: ../app-insights-explore-metrics/
+[perf]: ../app-insights-web-monitor-performance/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-track-usage-custom-events-metrics/
+[usage]: ../app-insights-web-track-usage/
 [qna]: ../app-insights-troubleshoot-faq/
+

@@ -181,7 +181,7 @@ If you want to add a Note section to your article, use the following:
 
 You can add [Channel 9](http://channel9.msdn.com/) videos to articles with the following syntax:
  
-    > [WACOM.VIDEO video-id-string]
+    > [AZURE.VIDEO video-id-string]
     
 
 1. Make sure that the video is on the [Azure Video Center](http://azure.microsoft.com/en-us/documentation/videos/home/). 

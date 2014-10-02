@@ -1,4 +1,4 @@
-<properties linkid="manage-services-cache-net-how-to-cache-service" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="" editor="" />
+<properties linkid="manage-services-cache-net-how-to-cache-service" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
@@ -12,6 +12,8 @@ use the .NET API. The scenarios covered include **creating and configuring a cac
 objects from the cache, storing ASP.NET session state in the cache**,
 and **enabling ASP.NET page output caching using the cache**. For more
 information on using Azure Cache, refer to the [Next Steps][] section.
+
+>For guidance on choosing the right Azure Cache offering for your application, see [Which Azure Cache offering is right for me?][].
 
 ## Table of Contents
 
@@ -520,3 +522,5 @@ follow these links to learn how to do more complex caching tasks.
 [How to install and configure Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
 [Add-AzureAccount]: http://msdn.microsoft.com/en-us/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/en-us/library/dn495203.aspx
+
+[Which Azure Cache offering is right for me?]: http://msdn.microsoft.com/en-us/library/azure/dn766201.aspx

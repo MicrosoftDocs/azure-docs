@@ -20,7 +20,7 @@ Now that authentication is required to access data in the TodoItem table, you ca
 
 	The **TodoItemController** class implements data access for the TodoItem table. 
  
-4. Locate the **PostTodoItem** method and add the following code at the end right before the **return** statement:
+4. Locate the **PostTodoItem** method and add the following code at the beginning of the method:
 
 		// Get the logged-in user.
 	    var currentUser = User as ServiceUser;

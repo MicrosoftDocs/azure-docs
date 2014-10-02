@@ -1,11 +1,20 @@
-<properties linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Staged Deployment on Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Staged Deployment, Site Slots" description="Learn how to use staged publishing on Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="timamm"  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
+<properties linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Staged Deployment on Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Staged Deployment, Site Slots" description="Learn how to use staged publishing on Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/9/2014" ms.author="cephalin" />
 
+<a name="Overview"></a>
 #Staged Deployment on Microsoft Azure Websites#
+When you deploy your application to Azure Websites, you can deploy to a separate deployment slot instead of the default production slot, which are actually live sites with their own hostnames. This option is available in the **Standard** web hosting plan. Furthermore, you can swap the sites and site configurations between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+
+- You can validate website changes in a staging deployment slot before swapping it with the production slot.
+
+- After a swap, the slot with previously staged site now has the previous production site. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back. 
+ 
+- Deploying a site to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your site. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. 
+
+Four deployment slots in addition to the production slot are supported for each website in the **Standard** plan. 
 
 ## Table of Contents ##
-- [Overview](#Overview)
 - [To Add a Deployment Slot to a Web Site](#Add)
 - [About Configuration for Deployment Slots](#AboutConfiguration)
 - [To Swap Deployment Slots](#Swap)
@@ -14,49 +23,29 @@
 - [Azure PowerShell cmdlets for Site Slots](#PowerShell)
 - [Azure Cross-Platform Command-Line Interface (xplat-cli) commands for Site Slots](#CLI)
 
-<a name="Overview"></a>
-##Overview##
-The option to create site slots for Standard mode sites running on Microsoft Azure Websites enables a staged deployment workflow. Create development or staging site slots for each default production site (which now becomes a production slot) and swap these slots with no down time. Staged deployment is invaluable for the following scenarios:
-
-- **Validating before deployment** - After you deploy content or configuration to a staging site slot, you can validate changes before swapping these changes to production.
-
-- **Building and integrating site content** - You can incrementally add content updates to your staging deployment slot, and then swap the deployment slot into production when your updates are  completed.
-
-- **Rolling back a production site** - If the changes swapped into production are not as you expected, you can swap the original content back to production right away. 
-
-Microsoft Azure warms up all instances of the source site slot before the swap to production, eliminating cold starts when you deploy content. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. Four deployment slots in addition to the default production slot are supported per Standard website.   
-
 <a name="Add"></a>
 ##To Add a Deployment Slot to a Website##
 
-The site must be running in Standard mode to enable site slot creation. The Azure Websites platform supports 4 deployment slots in addition to the production slot per Standard website. 
+The website must be running in the **Standard** hosting plan to enable multiple deployment slots. 
 
 1. On the Quick Start page, or in the Quick Glance section of the Dashboard page for your website, click **Add a new deployment slot**. 
 	
 	![Add a new deployment slot][QGAddNewDeploymentSlot]
 	
 	> [WACOM.NOTE]
-	> If the website is not already in Standard mode, you will receive the message **You must be in the standard mode to enable staged publishing**. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your website before continuing.
+	> If the website is not already in **Standard** mode, you will receive the message **You must be in the standard mode to enable staged publishing**. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your website before continuing.
 	
-2. The **Add New Deployment Slot** dialog appears.
-	
-	![Add New Deployment Slot dialog][AddNewDeploymentSlotDialog]
-	
-	Provide a name for the deployment slot. The name cannot exceed 60 alphanumeric characters. No special characters or spaces are allowed.
-	
-3. Use the **Configuration Source** option to clone website configuration from the production site slot, from another existing deployment slot, or to choose to not clone any configuration at all. The default option is **Don't  clone configuration from an existing slot**.
+2. In the **Add New Deployment Slot** dialog, give the slot a name, and select whether to clone website configuration from another existing deployment slot. Click the check mark to continue. 
 	
 	![Configuration Source][ConfigurationSource1]
 	
-	The first time you create a slot, you will only have two choices: clone configuration from the production main site, or none at all. 
+	The first time you create a slot, you will only have two choices: clone configuration from the default slot in production or not at all. 
 	
-	After you have created several slots, you will be able to clone configuration from a slot other than production:
+	After you have created several slots, you will be able to clone configuration from a slot other than the one in production:
 	
 	![Configuration sources][MultipleConfigurationSources]
 
-4. Click the check mark to continue.
-	
-5. In the list of websites, expand the mark to the left of your website name to reveal the deployment slot. It will have the name of your production site followed in parentheses by the deployment slot name that you provided. 
+5. In the list of websites, expand the mark to the left of your website name to reveal the deployment slot. It will have the website name followed by the deployment slot name. 
 	
 	![Site List with Deployment Slot][SiteListWithStagedSite]
 	
@@ -64,11 +53,15 @@ The site must be running in Standard mode to enable site slot creation. The Azur
 	
 	![Deployment Slot Title][StagingTitle]
 	
-You can now update content and configuration for the deployment site slot. Use the publish profile or deployment credentials associated with the deployment site slot for content updates. 
+5. Click the site URL in the dashboard view. Notice the the deployment slot has its own hostname and is also a live site. To limit public access to the deployment slot, see [Azure Web Sites – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+
+	-	 
+
+There is no content. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](http://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/).
 
 <a name="AboutConfiguration"></a>
 ##About Configuration for Deployment Slots##
-When you clone configuration from the production site or another slot, the cloned configuration is editable. The following lists show the configuration that will change when you swap slots.
+When you clone configuration from another deployment slot, the cloned configuration is editable. The following lists show the configuration that will change when you swap slots.
 
 **Configuration that will change on slot swap**:
 
@@ -86,11 +79,11 @@ When you clone configuration from the production site or another slot, the clone
 
 **Notes**:
 
-- Deployment slots are only available for sites in Standard mode.
+- Multiple deployment slots are only available for sites in the **Standard** web hosting plan.
 
-- If you change a site to Free, Shared, or Basic mode, it will no longer be swappable.
+- When you site has multiple slots, you cannot change the hosting plan.
 
-- A deployment slot that you intend to swap into production needs to be configured exactly as you want to have it in production.
+- A slot that you intend to swap into production needs to be configured exactly as you want to have it in production.
 
 - By default, a deployment slot will point to the same database as the production site. However, you can configure the deployment slot to point to an alternate database by changing the database connection string(s) for the deployment slot. You can then restore the original database connection string(s) on the deployment slot right before you swap it into production.
 
@@ -111,10 +104,7 @@ When you clone configuration from the production site or another slot, the clone
 
 <a name="Rollback"></a>
 ##To Rollback a Production Site to Staging##
-If any errors are identified for the content or configuration swapped to production, you can simply swap a deployment slot (formerly your production site) back into production, and then make further fixes to the new version of your site while it is in staging mode. 
-
-> [WACOM.NOTE]
-> For a rollback to be successful, the deployment site slot must still contain the unaltered content and configuration of the previous production site.
+If any errors are identified in production after a slot swap, roll the slots back to their pre-swap states by swapping the same two slots immediately. 
 
 <a name="Delete"></a>
 ##To Delete a Site Slot##
@@ -123,15 +113,13 @@ In the command bar at the bottom of the Azure Websites portal page, click **Dele
 
 ![Delete a Site Slot][DeleteStagingSiteButton]
 
-After you answer **Yes** to the confirmation message, one or all slots will be deleted, depending on the option that you chose.
-
 **Notes**:
 
-- Scaling is not available for non-production site slots. It is only available for production site slots.
+- Scaling is not available for non-production slots. It is only available for production slots.
 
-- Linked resource management is not supported for non-production site slots. 
+- Linked resource management is not supported for non-production slots. 
 
-- You can still publish directly to your production site slot if you wish.
+- You can still publish directly to your production slot if you wish.
 
 - By default, your deployment slots (sites) share the same resources as your production slots (sites) and run on the same VMs. If you run stress testing on a stage slot, your production environment will experience a comparable stress load. 
 	
@@ -217,7 +205,7 @@ To create a site slot for any website in Standard mode, call **azure site create
 
 To enable source control for the new slot, use the **--git** option, as in the following example.
  
-`azure site create –-git siteslotstest --slot staging`
+`azure site create --git siteslotstest --slot staging`
 
 ----------
 ###azure site swap

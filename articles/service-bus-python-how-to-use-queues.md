@@ -1,4 +1,4 @@
-<properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="" editor="" />
+<properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
@@ -33,10 +33,15 @@ The **ServiceBusService** object lets you work with queues. Add the following ne
 
 	from azure.servicebus import *
 
-The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'mykey' and 'myissuer' with the real namespace, key and issuer.
+The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'sharedaccesskeyname' and 'sharedaccesskey' with the real namespace, shared access signature (SAS) key name and value.
 
-	bus_service = ServiceBusService(service_namespace='mynamespace', account_key='mykey', issuer='myissuer')
-	
+	bus_service = ServiceBusService(
+		service_namespace='mynamespace',
+		shared_access_key_name='sharedaccesskeyname',
+		shared_access_key_value='sharedaccesskey')
+
+The values for the SAS key name and value can be found in the Azure Portal connection information, or in Visual Studio Properties window when selecting the service bus namespace in Server Explorer (as shown in the previous section).
+
 	bus_service.create_queue('taskqueue')
 
 **create_queue** also supports additional options, which

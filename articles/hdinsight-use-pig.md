@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-howto-pig" urlDisplayName="Use Hadoop Pig in HDInsight" pageTitle="Use Hadoop Pig in HDInsight | Azure" metaKeywords="" description="Learn how to use Pig with HDInsight. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Pig in HDInsight" authors="jgao" solutions="big data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="jgao" />
 
 
 
@@ -28,6 +28,8 @@ In this tutorial you learn how to run [Apache Pig][apachepig-home] jobs on HDIns
  
 ##<a id="usage"></a>Why use Pig?
 Working with big data is difficult using relational databases and statistics/visualization packages. Due to the large amounts of data and the computation of this data, parallel software running on tens, hundreds, or even thousands of servers is often required to compute this data in a reasonable time. Hadoop provides a *MapReduce* framework for writing applications that processes large amounts of structured and unstructured data in parallel across large clusters of machines in a very reliable and fault-tolerant manner.
+
+![HDI.Pig.Architecture][image-hdi-pig-architecture]
 
 [Apache *Pig*][apachepig-home] provides a layer of abstraction over the Java-based MapReduce framework, enabling users to analyze data without knowledge of Java or MapReduce. Pig is a platform for analyzing large data sets using easy-to-use language called *Pig Latin*, which is a data-flow language. Pig reduces the time needed to write mapper and reducer programs. It does not require any knowledge of Java. You also have the flexibility to combine Java code with Pig. Many complex algorithms can be written in less than five lines of human-readable Pig code. 
 
@@ -386,3 +388,4 @@ While Pig allows you to perform data analysis, other languages included with HDI
 [image-hdi-log4j-sample]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
+[image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png

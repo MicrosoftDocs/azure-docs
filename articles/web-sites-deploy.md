@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-deploy-websites" pageTitle="How to deploy an Azure Website" metaKeywords="Azure deploy publish web site" description="Learn what methods are available for deploying content to an Azure Website." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/02/2014" ms.author="tdykstra" />
 
 #How to Deploy an Azure Website
 
@@ -102,13 +102,6 @@ For information about how to deploy to Azure Websites from WebMatrix, see the fo
 * [Create and deploy a PHP-MySQL Azure Web Site using WebMatrix](http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/).
 * [WebMatrix 3: Integrated Git and Deployment to Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). How to use WebMatrix to deploy from a Git source control repository.
 
-
-
-
-
-
-
-
 ##<a name="ftp"></a>Deploying by using an FTP utility
 
 Regardless of what IDE you use, you can also deploy content to your site by using [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) to copy files. It's easy to create FTP credentials for an Azure Website, and you can use them in any application that works with FTP, including browsers such as Internet Explorer and full-featured free utilities such as [FileZilla](https://filezilla-project.org/).  Azure Websites also support the more secure FTPS protocol. 
@@ -118,13 +111,7 @@ Although it's easy to copy your website's files to Azure using FTP utilities, th
 For more information, see the following resources:
 
 * [Create a PHP-MySQL Azure Web Site and Deploy Using FTP](/en-us/documentation/articles/web-sites-php-mysql-deploy-use-ftp/). 
-* [How to Manage Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-manage/). Includes additional information not included in the PHP tutorial about how to set FTP credentials. See the comments at the bottom of the page for information missing in the document itself about how to get the credentials.
-
-
-
-
-
-
+* [How to Manage Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-manage#ftp-credentials). Includes additional information not included in the PHP tutorial about how to set FTP credentials. 
 
 
 ##<a name="onpremises"></a>Deploying from an on-premises source control system

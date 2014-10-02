@@ -1,4 +1,4 @@
-<properties pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="hero-article" ms.date="08/18/2014" ms.author="glenga" />
 
@@ -75,7 +75,7 @@ For more information about universal Windows apps, see [Supporting multiple devi
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data
+[Get started with data]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546

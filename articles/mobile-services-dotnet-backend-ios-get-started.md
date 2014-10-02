@@ -1,4 +1,4 @@
-<properties pageTitle="Get Started with Azure Mobile Services for iOS apps" metaKeywords="Azure iOS application, mobile service iOS, getting started Azure iOS" description="Follow this tutorial to get started using Azure Mobile Services for iOS development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
+<properties pageTitle="Get Started with Azure Mobile Services for iOS apps" metaKeywords="Azure iOS application, mobile service iOS, getting started Azure iOS" description="Follow this tutorial to get started using Azure Mobile Services for iOS development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
@@ -14,11 +14,11 @@ A screenshot from the completed app is below:
 
 Completing this tutorial requires XCode 4.5 and iOS 5.0 or later versions. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F" target="_blank">Azure Free Trial</a>.</p></div>
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F" target="_blank">Azure Free Trial</a>.</p></div>
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## Download the mobile service to your local computer
 
@@ -64,13 +64,14 @@ In this section you will create a new iOS app that is connected to your mobile s
 
 This shows how to run your new client app against the mobile service running in Azure. Before you can test the iOS app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your iOS development computer. For more information, see [Configure the local web server to allow connections to a local mobile service](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
 
-<!--
-
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
 * [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
+
+* [Get started with offline data sync]
+  <br/>Learn how to use offline data sync to make your app responsive and robust.
 
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
@@ -78,7 +79,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
--->
+* [Troubleshoot a Mobile Services .NET backend]
+  <br/> Learn how to diagnose and fix issues that can arise with a Mobile Services .NET backend. 
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -101,8 +103,10 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- URLs. -->
 [Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
+[Get started with offline data sync]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
+[Troubleshoot a Mobile Services .NET backend]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 

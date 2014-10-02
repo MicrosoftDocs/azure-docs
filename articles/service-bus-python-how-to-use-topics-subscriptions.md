@@ -1,4 +1,4 @@
-<properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors="huvalo" solutions="" manager="" editor="" />
+<properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
@@ -39,9 +39,14 @@ The **ServiceBusService** object lets you work with topics. Add the following ne
 
 	from azure.servicebus import *
 
-The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'mykey' and 'myissuer' with the real namespace, key and issuer.
+The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'sharedaccesskeyname' and 'sharedaccesskey' with the real namespace, shared access signature (SAS) key name and value.
 
-	bus_service = ServiceBusService(service_namespace='mynamespace', account_key='mykey', issuer='myissuer')
+	bus_service = ServiceBusService(
+		service_namespace='mynamespace',
+		shared_access_key_name='sharedaccesskeyname',
+		shared_access_key_value='sharedaccesskey')
+
+The values for the SAS key name and value can be found in the Azure Portal connection information, or in Visual Studio Properties window when selecting the service bus namespace in Server Explorer (as shown in the previous section).
 
 	bus_service.create_topic('mytopic')
 

@@ -1,6 +1,6 @@
-<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
+<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 #Azure Notification Hubs Notify Users
 
@@ -232,13 +232,11 @@ The next step is to create the Windows Phone application. To add this project to
 
 To run the application, do the following:
 
-1. In Visual Studio, run the **AppBackend** Web API application. An ASP.NET web page is displayed.
+1. In Visual Studio, run the **NotifyUserWindowsPhone (Windows Phone 8.1)** Windows Phone app. The Windows Phone emulator runs and loads the app automatically.
 
-2. In Visual Studio, run the **NotifyUserWindowsPhone (Windows Phone 8.1)** Windows Phone app. The Windows Phone emulator runs and loads the app automatically.
+2. In the **NotifyUserWindowsPhone** app UI, enter a username and password. These can be any string, but they must be the same value.
 
-3. In the **NotifyUserWindowsPhone** app UI, enter a username and password. These can be any string, but they must be the same value.
-
-4. In the **NotifyUserWindowsPhone** app UI, click **Log in and register**. Then click **Send push**.
+3. In the **NotifyUserWindowsPhone** app UI, click **Log in and register**. Then click **Send push**.
 
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png

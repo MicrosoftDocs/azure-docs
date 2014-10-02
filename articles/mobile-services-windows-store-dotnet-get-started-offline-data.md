@@ -1,6 +1,6 @@
-<properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" />
+<properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Get started with offline data sync in Mobile Services
 
@@ -26,6 +26,8 @@ In this tutorial, you will update the app from the [Get started with Mobile Serv
 
 
 >[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].
+>
+> To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 
 This tutorial walks you through these basic steps:
 
@@ -38,8 +40,8 @@ This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1.
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
-* Windows Azure Mobile Services SDK NuGet package version 1.3.0-alpha2
-* Windows Azure Mobile Services SQLite Store NuGet package 1.0.0-alpha 
+* [Azure Mobile Services SDK version 1.3.0-beta2 (or later)][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0-beta2 (or later)][SQLite store nuget]
 * SQLite for Windows 8.1
 
 >[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
@@ -298,3 +300,5 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 
 
+[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
+[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2

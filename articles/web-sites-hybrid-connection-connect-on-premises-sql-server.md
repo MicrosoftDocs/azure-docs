@@ -1,6 +1,6 @@
-<properties linkid="web-sites-hybrid-connection-getting-started" title="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" pageTitle="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" description="Create a a website on Microsoft Azure and connect it to an on-premises SQL Server database" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
+<properties linkid="web-sites-hybrid-connection-getting-started" title="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" pageTitle="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" description="Create a a website on Microsoft Azure and connect it to an on-premises SQL Server database" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 #Connect to an on-premises SQL Server from an Azure website using Hybrid Connections
 
@@ -31,7 +31,27 @@ To use an on-premises SQL Server or SQL Server Express database with a hybrid co
 
 The computer on which you install the on-premises Hybrid Connection Manager agent:
 
-- Must be able to connect to Azure over port 5671
+- Must have outbound connectivity to Azure over:
+
+> <table border="1">
+    <tr>
+       <th><strong>Port</strong></th>
+        <th>Why</th>
+    </tr>
+    <tr>
+        <td>80</td>
+        <td><strong>Required</strong> for HTTP port for certificate validation and optionally for data connectivity.</td>
+    </tr>
+    <tr>
+        <td>443</td>
+        <td><strong>Optional</strong> for data connectivity. If outbound connectivity to 443 is unavailable, TCP port 80 is used.</td>
+    </tr>
+	<tr>
+        <td>5671 and 9352</td>
+        <td><strong>Recommended</strong> but Optional for data connectivity. Note this mode usually yields higher throughput. If outbound connectivity to these ports is unavailable, TCP port 443 is used.</td>
+	</tr>
+</table>
+
 - Must be able to reach the *hostname*:*portnumber* of your on-premises resource. 
 
 The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.

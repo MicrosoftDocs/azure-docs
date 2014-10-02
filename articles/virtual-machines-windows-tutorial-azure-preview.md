@@ -1,14 +1,14 @@
-<properties linkid="virtual-machines-windows-tutorial-azure-preview" urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Create a virtual machine running Windows Server in the Azure Preview Portal" metaKeywords="Azure image gallery vm" description="Learn how to create an Azure virtual machine (VM) running Windows Server, using the VM Gallery in the Azure Preview Portal" metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="danlep,kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties linkid="virtual-machines-windows-tutorial-azure-preview" urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Create a virtual machine running Windows in the Azure Preview Portal" metaKeywords="Azure image gallery vm" description="Learn how to create an Azure virtual machine (VM) running Windows, using the VM Gallery in the Azure Preview Portal" metaCanonical="" services="virtual-machines" documentationCenter="" title="Create a Virtual Machine Running Windows in the Azure Preview Portal" authors="danlep,kathydav,rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="danlep,kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="danlep,kathydav,rasquill" />
 
 
 
-# Create a Virtual Machine Running Windows Server in the Azure Preview Portal#
+# Create a Virtual Machine Running Windows in the Azure Preview Portal#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal">Azure Portal</a><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal" class="current">Azure Preview Portal</a></div>
 
-This tutorial shows you how easy it is to create an Azure virtual machine (VM) running Windows Server, using the VM Gallery in the Azure Preview Portal. The Gallery offers a variety of images, including Windows operating systems, Linux-based operating systems, and application images. 
+This tutorial shows you how easy it is to create an Azure virtual machine (VM) running Windows, using as an example a Windows Server image from the Image Gallery in the Azure Preview Portal. The Gallery offers a variety of images, including Windows operating systems, Linux-based operating systems, and application images. 
 
 > [WACOM.NOTE] You don't need any experience with Azure VMs to finish this tutorial. However, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
 
@@ -22,7 +22,9 @@ If you'd like to know more, see [Virtual Machines](http://go.microsoft.com/fwlin
 
 ##<a id="createvirtualmachine"> </a>How to create the virtual machine##
 
-This section shows you how to use the Preview Portal to create a VM running Windows Server. You can use Azure's default settings for most of the configuration and create the VM in just a few minutes.
+This section shows you how to use the Preview Portal to create a VM, using Windows Server as an example. You can use Azure's default settings for most of the configuration and create the VM in just a few minutes.
+
+> [WACOM.NOTE] How many and what kind of images are available in the gallery depends upon the type of subscription you have. This tutorial uses a Windows Server image, but an MSDN subscription may have additional images available to you including desktop images. 
  
 
 1. Sign in to the [Azure Preview Portal](https://portal.azure.com). Check out the [Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/) offer if you do not have a subscription yet.
@@ -92,6 +94,8 @@ To learn more about configuring Windows virtual machines on Azure, see the follo
 [Attach Data Disks to a Virtual Machine](http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/)
 
 [Manage the Availability of Virtual Machines](http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/)
+
+[About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
 [How to create the virtual machine]: #custommachine
 [How to log on to the virtual machine after you create it]: #logon

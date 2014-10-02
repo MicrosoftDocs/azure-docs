@@ -15,9 +15,7 @@ In this tutorial, you learn how to create and query HBase tables with HDInsight.
 - How to use the .NET SDK to create a new HBase table, list the HBase tables in your account, and how to add and retrieve the rows from your tables.
 
 
-> [WACOM.NOTE] HBase is currently only available in preview for use with HDInsight 3.0 clusters on HDInsight (based on Hadoop 2.2.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
-
-During preview period, it is recommended that a backup copy of the original version of any data used in the HBase cluster be stored outside of that cluster. This is because the format of the database files may be changed in future versions and the current data file formats used in the preview version may not be supported or upgradable to subsequent versions.
+> [WACOM.NOTE] HBase (version 0.98.0) is only available for use with HDInsight 3.1 clusters on HDInsight (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
 
 **Prerequisites:**
 
@@ -36,12 +34,17 @@ Before you begin this tutorial, you must have the following:
 * [Use Hive to query an HBase table](#hive-query)
 * [Use HBase C# APIs to create an HBase table and retrieve data from the table](#hbase-powershell)
 * [Summary](#summary)
+* [What's Next?](#next)
 	
 ##<a name="create-hbase-cluster"></a>Provision an HBase cluster on the Azure portal
 
 This section describes how to provision an HBase cluster using the Azure portal.
 
+
+[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+
 **To provision an HDInsight cluster in the Azure portal** 
+
 
 1. Sign in to the [Azure Management Portal][azure-management-portal]. 
 
@@ -113,8 +116,7 @@ Now you have an HBase cluster provisioned and have created a table, you can quer
 **To run an Hive query**
 
 1. To create a Hive Table with a mapping to HBase table, enter HiveQL script below into Hive console window and click **SUBMIT** button. Make sure that you have created the sampletable referenced here in HBase using the HBase Shell before executing this statement.
-
-	    SET hbase.zookeeper.quorum=zookeeper0,zookeeper1,zookeeper2;  
+ 
     	CREATE EXTERNAL TABLE hbasesampletable(rowkey STRING, col1 STRING, col2 STRING)
     	STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
     	WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,cf1:col1,cf1:col2')
@@ -123,8 +125,6 @@ Now you have an HBase cluster provisioned and have created a table, you can quer
  
 2. To execute a Hive Query Over the Data in HBase, enter the HiveQL script below into Hive console window and click **SUBMIT** button.
 
-	    SET hbase.zookeeper.quorum=zookeeper0,zookeeper1,zookeeper2;
-    	SET hive.aux.jars.path=file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hive-hbase-handler-0.12.0.2.0.9.0-1677.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hbase-server-0.96.0.2.0.9.0-1677-hadoop2.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hbase-protocol-0.96.0.2.0.9.0-1677-hadoop2.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/htrace-core-2.01.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hbase-client-0.96.0.2.0.9.0-1677-hadoop2.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/guava-12.0.1.jar;
      	SELECT count(*) FROM hbasesampletable;
  
 4. To retrieve the results of the Hive query, click on the **View Details** link in the **Job Session** window when the job finishes executing.
@@ -205,7 +205,16 @@ Marlin is a thin layer on top of the REST API, which takes care of interacting w
 ##<a name="summary"></a>Summary
 In this tutorial, you have learned how to provision an HBase cluster, how to create tables, and and view the data in those tables from the HBase shell. You also learned how use Hive to query the data in HBase tables and how to use the HBase C# APIs to create an HBase table and retrieve data from the table.
 
+##<a name="next"></a> What's Next?
 
+[HDInsight HBase overview][hdinsight-hbase-overview]:
+HBase is an Apache open source NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data.
+
+[Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet]:
+With the virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly.
+
+[hdinsight-hbase-overview]: ../hdinsight-hbase-overview/
+[hdinsight-hbase-provision-vnet]: ../hdinsight-hbase-provision-vnet
 [hdinsight-versions]: ../hdinsight-component-versioning/
 
 [hdinsight-get-started-30]: ../hdinsight-get-started-30/

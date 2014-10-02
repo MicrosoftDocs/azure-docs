@@ -1,72 +1,96 @@
-<properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  />
+<properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  
-# Search diagnostic logs with Application Insights
+# Diagnostic search in Application Insights
 
-You can capture and search diagnostic data from System.Diagnostics.Trace, NLog, and Log4Net. Application Insights provides an efficient and easy-to-use tool for collecting and investigating logged events from one or more sources, complementing the application health monitoring features.
+One of the most traditional debugging methods is to insert lines of code that emit a trace log. [Application Insights][start] can capture your web server logs and help you search and filter them. You can write your log code using log4Net, NLog or System.Diagnostics.Trace. There's also a simple TrackTrace method in the Application Insights SDK.
 
-The monitored web application can be hosted on-premise or in a virtual machine, or it can be a Microsoft Azure website.
+Your search results can also include the regular page view and request events that are used to build the usage and performance reports, together with any custom TrackEvent calls that you have written [to track usage][usage].
 
-1. [Add a logging adapter](#add)
-+ [Insert log statements, build and deploy](#deploy)
+
+2. [Capture log events](#capture)
++ [Insert diagnostic log calls](#pepper)
 + [View log data](#view)
-+ [Search the data](#search)
++ [Search log data](#search)
++ [Troubleshooting](#questions)
 + [Next steps](#next)
 
 
 
-## <a name="add"></a>1. Add a logging adapter
+## <a name="capture"></a> Capture log events
 
-1. If you haven't done this already, [add Application Insights to your web service project][start] in Visual Studio. 
+You have to install an adapter in your project, in order to search logs generated with log4Net, NLog, or System.Diagnostics.Trace. 
 
-    If you add Application Insights after you add logging to your project, you'll find that the logging adapter has already been set up and configured - just [redeploy your project](#deploy) and [view your data](#view).
+(Alternatively, there's a simple tracing call, TrackTrace(String), built into the Application Insights SDK. It doesn't need an adapter, so if that's all you need, you can [skip this step](#deploy).)
 
-2. In Solution Explorer, in the context menu of your project, choose **Manage NuGet Packages**.
+1. If you plan to use log4Net or NLog, install it in your project. 
+2. If you haven't yet [installed Application Insights in your project][start], do that now.
+2. In Solution Explorer, right-click your project and choose **Manage NuGet Packages**.
 3. Select Online > All, select **Include Prerelease** and search for "Microsoft.ApplicationInsights"
 
     ![Get the prerelease version of the appropriate adapter](./media/appinsights/appinsights-36nuget.png)
 
-    The NuGet package modifies web.config or app.config, in addition to installing the necessary assemblies.
 
-4. Select the prerelease version of the appropriate package - one of:
-  + Microsoft.ApplicationInsights.TraceListener
+4. Select the appropriate package - one of:
+  + Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
   + Microsoft.ApplicationInsights.NLogTarget
   + Microsoft.ApplicationInsights.Log4NetAppender
 
+The NuGet package installs the necessary assemblies, and also modifies web.config or app.config.
 
-## <a name="deploy"></a>2. Insert log statements, build and deploy
+## <a name="pepper"></a>3. Insert diagnostic log calls
 
-Insert event logging calls using your chosen logging framework. For example if you use Trace, you might have calls like:
+Insert event logging calls using your chosen logging framework. 
+
+For example, if you use the simple Application Insights SDK, you might insert:
+
+    var tc = new Microsoft.ApplicationInsights.TelemetryContext();
+    tc.TrackTrace("Slow response - database01");
+
+Or if you use System.Diagnostics.Trace:
 
     System.Diagnostics.Trace.TraceWarning("Slow response - database01");
 
-Or if you prefer to use log4net:
+If you prefer log4net or NLog:
 
-    log.Warn("Slow response - database01");
+    logger.Warn("Slow response - database01");
 
-Logged events will be sent to Application Insights both in development and in operation.
+Run your app in debug mode, or deploy it to your web server.
 
-## <a name="view"></a>3. View log data
+## <a name="view"></a>4. View log data
 
-In Application Insights, open diagnostic search.
 
-![Open diagnostic search](./media/appinsights/appinsights-30openDiagnostics.png)
+1. In Application Insights, open diagnostic search.
+
+    ![Open diagnostic search](./media/appinsights/appinsights-30openDiagnostics.png)
+   
+2. Set the filter for the event types you'd like to see.
+
+    ![Open diagnostic search](./media/appinsights/appinsights-331filterTrace.png)
+
+
+The event types are:
+
+* **Trace** - Search diagnostic logs that you've captured from your web server. This includes log4Net, NLog, System.Diagnostic.Trace, and ApplicationInsights TrackTrace calls.
+* **Request** - Search HTTP requests received by the server component of your web app, including page requests, data requests, images, and so on. The events you'll see are the telemetry sent by the Application Insights server SDK, which are used to create the request count report.
+* **Page View** - Search page view events. These events are sent by the web client and are used to create page view reports. (If you don't see anything here, set up [web client monitoring][webclient].)
+* **Custom Event** - If you inserted calls to TrackEvent() and TrackMetric() to [monitor usage][usage], you can search them here.
 
 Select any log event to see its detail. 
 
 ![Open diagnostic search](./media/appinsights/appinsights-32detail.png)
 
-The available fields depend on the logging framework and the parameters you used in the call.
-
 You can use plain strings (without wildcards) to filter the field data within an item.
 
+The available fields depend on the logging framework and the parameters you used in the call.
 
-## <a name="search"></a>4. Search the data
+
+## <a name="search"></a>5. Search the data
 
 Set a time range and search for terms. Searches over a shorter range are faster. 
 
-![Open diagnostic search](./media/appinsights/appinsights-31search.png)
+![Open diagnostic search](./media/appinsights/appinsights-311search.png)
 
 Notice that you search for terms, not substrings. Terms are alphanumeric strings including some punctuation such as '.' and '_'. For example:
 
@@ -170,6 +194,7 @@ Here are the search expressions you can use:
                         <p>Shorter form.</p>
                       </td>
                     </tr>
+       <!-- -- fielded search feature not ready yet --
                     <tr>
                       <td>
                         <p>
@@ -186,36 +211,48 @@ Here are the search expressions you can use:
                         <p>Match the specified field. By default, all fields are searched. To see what fields are available, select an event to look at its detail.</p>
                       </td>
                     </tr>
+ -->
 </table>
+
+
+## <a name="questions"></a>Q & A
+
+### <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
+
+Looks like you installed the logging adapter Nuget package without installing Application Insights.
+
+In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one. That should fix it.
+
+### <a name="limits"></a>How much data is retained?
+
+Up to 500 events per second from each application. Events are retained for seven days.
+
 
 ## <a name="add"></a>Next steps
 
-* [Add Application Insights to a project][start]
 * [Set up availability and responsiveness tests][availability]
 * [Troubleshooting][qna]
 
 
+
 ## Learn more
 
-* [Application Insights][root]
-* [Add Application Insights to your project][start]
+* [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
-* [Explore metrics in Application Insights][explore]
-* [Diagnostic log search][diagnostic]
+* [Monitor performance in web applications][perf]
+* [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
-* [Usage tracking with events and metrics][usage]
+* [Track usage][usage]
 * [Q & A and troubleshooting][qna]
-
 
 <!--Link references-->
 
 
-[root]: ../app-insights-get-started/
-[start]: ../app-insights-monitor-application-health-usage/
+[start]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
-[explore]: ../app-insights-explore-metrics/
+[perf]: ../app-insights-web-monitor-performance/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-track-usage-custom-events-metrics/
+[usage]: ../app-insights-web-track-usage/
 [qna]: ../app-insights-troubleshoot-faq/
-
+[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient

@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-how-to-guides-check-job-progress" urlDisplayName="Check Job Progress" pageTitle="How to Check Job Progress in Media Services - Azure" metaKeywords="" description="Learn how to use event handler code to track job progress and send status updates. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Check Job Progress" authors="migree" solutions="" manager="" editor="" />
+<properties linkid="develop-media-services-how-to-guides-check-job-progress" urlDisplayName="Check Job Progress" pageTitle="How to Check Job Progress in Media Services - Azure" metaKeywords="" description="Learn how to use event handler code to track job progress and send status updates. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Check Job Progress" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 
 
@@ -87,5 +87,5 @@ private static string JobIdAsFileName(string jobID)
     return jobID.Replace(":", "_");
 }
 </code></pre>
-<h1>Next Steps</h1>
+<h2>Next Steps</h2>
 Now that you know how to create a job and track it's progress, the next step is protecting assets. For more information, see [How to Protect an Asset with Azure Media Services](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).

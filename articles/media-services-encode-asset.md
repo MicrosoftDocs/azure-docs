@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-encode-an-asset" urlDisplayName="How to Encode an Asset" pageTitle="How to Encode an Asset for Media Services - Azure" metaKeywords="" description="Learn how to use the Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="migree" solutions="" manager="" editor="" />
+<properties linkid="develop-media-services-how-to-guides-encode-an-asset" urlDisplayName="How to Encode an Asset" pageTitle="How to Encode an Asset for Media Services - Azure" metaKeywords="" description="Learn how to use the Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 
 #How to: Encode an Asset
-This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Get a Media Processor](http://go.microsoft.com/fwlink/?LinkID=301732&ampclcid=0x409).
+This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Get a Media Processor](../media-services-get-media-processor/).
 
 For media content on the server, you can encode the content with a number of media encodings and formats using Azure Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the [Azure Marketplace][]. You can specify the details of encoding tasks by using [Encoder Preset][] strings, or by using configuration files. 
 
@@ -22,7 +22,7 @@ The following method uploads a single asset and creates a job to encode the asse
     	IJob job = _context.Jobs.Create("My encoding job");
 	
 		// Get a reference to the Azure Media Encoder
-		IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Encoder");
+		IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
     
 		// Create a task with the encoding details, using a string preset.
     	ITask task = job.Tasks.AddNew("My encoding task",
@@ -153,7 +153,7 @@ For more information about processing assets, see:
 </ul>
 
 ##Next Steps
-Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](http://go.microsoft.com/fwlink/?LinkID=301737&ampclcid=0x409) topic.
+Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](../media-services-check-job-progress/) topic.
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Encoder Preset]: http://msdn.microsoft.com/en-us/library/hh973610.aspx

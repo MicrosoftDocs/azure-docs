@@ -1,4 +1,4 @@
-<properties title="Get started with a DocumentDB account" pageTitle="Get started with a DocumentDB account | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within the account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
+<properties title="Get started with a DocumentDB account" pageTitle="Get started with a DocumentDB account | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within the account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
@@ -50,139 +50,140 @@ Now that you know how to connect to a DocumentDB account and create an instance 
 ##<a id="CreateDB"></a>Create a database
 Using the .NET SDK, a DocumentDB database can be created via the CreateDatabaseAsync method of a DocumentClient.  
 
-    //Create a Database
-	 Database database = await client.CreateDatabaseAsync(
- 		new Database
- 		{
- 		Id = "FamilyRegistry"
- 		});
+    //Create a database
+    Database database = await client.CreateDatabaseAsync(
+        new Database
+        {
+            Id = "FamilyRegistry"
+        });
 
 
 
 ##<a id="CreateColl"></a>Create a collection  
 
-Using the .NET SDK, a DocumentDB collection can be created via the CreateDocumentCollectionAsync method of a DocumentClient.  The database created in the previous step has a number of properties, one of which is the SelfLink property.  With that information, we can now create a collection.  
+Using the .NET SDK, a DocumentDB collection can be created via the CreateDocumentCollectionAsync method of a DocumentClient.  The database created in the previous step has a number of properties, one of which is the CollectionsLink property.  With that information, we can now create a collection.  
 
-    	//Create a document collection 
-	documentCollection = new DocumentCollection
-		{
-			Id = "FamilyCollection"
-		};
-	
-		documentCollection = await client.CreateDocumentCollectionAsync(database.SelfLink,documentCollection); 
+    //Create a document collection
+    DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink,
+        new DocumentCollection
+        {
+            Id = "FamilyCollection"
+        });
 
     
 ##<a id="CreateDoc"></a>Create documents	
-Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentAsync method of a DocumentClient.  The collection created in the previous step has a number of properties, one of which is the DocumentsLink property.  With that information, we can now insert 1 or more documents.  For the purposes of this example, we'll assume that we have a Family class that describes the attributes of a family such as name, gender and age.  
+Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentAsync method of a DocumentClient.  The collection created in the previous step has a number of properties, one of which is the DocumentsLink property.  With that information, we can now insert one or more documents.  For the purposes of this example, we'll assume that we have a Family class that describes the attributes of a family such as name, gender and age.  
 
-	private static async Task CreateDocuments(string 	colSelfLink)
-	{
-		Family AndersonFamily = new Family
-        {
-            Id = "AndersenFamily",
-            LastName = "Andersen",
-            Parents =  new Parent[] {
-                new Parent { FirstName = "Thomas" },
-                new Parent { FirstName = "Mary Kay"}
-            },
-            Children = new Child[] {
-                new Child
-                { 
-                    FirstName = "Henriette Thaulow", 
-                    Gender = "female", 
-                    Grade = 5, 
-                    Pets = new [] {
-                        new Pet { GivenName = "Fluffy" } 
-                    }
-                } 
-            },
-            Address = new Address { State = "WA", County = "King", City = "Seattle" },
-            IsRegistered = true
-        };
+    //Create the Andersen Family document
+    Family AndersonFamily = new Family
+    {
+        Id = "AndersenFamily",
+        LastName = "Andersen",
+        Parents = new Parent[] {
+            new Parent { FirstName = "Thomas" },
+            new Parent { FirstName = "Mary Kay"}
+        },
+        Children = new Child[] {
+            new Child
+            { 
+                FirstName = "Henriette Thaulow", 
+                Gender = "female", 
+                Grade = 5, 
+                Pets = new [] {
+                    new Pet { GivenName = "Fluffy" } 
+                }
+            } 
+        },
+        Address = new Address { State = "WA", County = "King", City = "Seattle" },
+        IsRegistered = true
+    };
 
-        await client.CreateDocumentAsync(colSelfLink, AndersonFamily);
-
-        Family WakefieldFamily = new Family
-        {
-            Id = "WakefieldFamily",
-            Parents = new [] {
-                new Parent { FamilyName= "Wakefield", FirstName= "Robin" },
-                new Parent { FamilyName= "Miller", FirstName= "Ben" }
-            },
-            Children = new Child[] {
-                new Child
-                {
-                    FamilyName= "Merriam", 
-                    FirstName= "Jesse", 
-                    Gender= "female", 
-                    Grade= 8,
-                    Pets= new Pet[] {
-                        new Pet { GivenName= "Goofy" },
-                        new Pet { GivenName= "Shadow" }
-                    }
-                },
-                new Child
-                {
-                    FamilyName= "Miller", 
-                    FirstName= "Lisa", 
-                    Gender= "female", 
-                    Grade= 1
+    await client.CreateDocumentAsync(documentCollection.DocumentsLink, AndersonFamily);
+    
+    //Create the WakeField document
+    Family WakefieldFamily = new Family
+    {
+        Id = "WakefieldFamily",
+        Parents = new[] {
+            new Parent { FamilyName= "Wakefield", FirstName= "Robin" },
+            new Parent { FamilyName= "Miller", FirstName= "Ben" }
+        },
+        Children = new Child[] {
+            new Child {
+                FamilyName= "Merriam", 
+                FirstName= "Jesse", 
+                Gender= "female", 
+                Grade= 8,
+                Pets= new Pet[] {
+                    new Pet { GivenName= "Goofy" },
+                    new Pet { GivenName= "Shadow" }
                 }
             },
-            Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
-            IsRegistered = false
-        };
+            new Child {
+                FamilyName= "Miller", 
+                FirstName= "Lisa", 
+                Gender= "female", 
+                Grade= 1
+            }
+        },
+        Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
+        IsRegistered = false
+    };
 
-         await client.CreateDocumentAsync(colSelfLink, WakefieldFamily);
-	}   
+    await client.CreateDocumentAsync(documentCollection.DocumentsLink, WakefieldFamily);
  
 
 ##<a id="Query"></a>Query DocumentDB Resources
 DocumentDB supports rich queries against the JSON documents stored in each collection.  The sample code below shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step.  
 
-	//
-	//Querying the documents using DocumentDB SQL for the Andersen family
-	//
-	foreach (var family in client.CreateDocumentQuery(collectionLink, 
+    //Query the documents using DocumentDB SQL for the Andersen family
+    foreach (var family in client.CreateDocumentQuery(documentCollection.DocumentsLink,
     "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
-	{
-    Console.WriteLine("\tRead {0} from SQL", family);
-	}
+    {
+        Console.WriteLine("\tRead {0} from SQL", family);
+    }
 
-	//
-	//Querying the documents using LINQ for the Andersen family
-	//
-	foreach (var family in (
-    	from f in client.CreateDocumentQuery(collectionLink)
-    	where f.Id == "AndersenFamily"
-    	select f))
-	{
-   	 Console.WriteLine("\tRead {0} from LINQ", family);
-	}
+    //Query the documents using LINQ for the Andersen family
+    foreach (var family in (
+    from f in client.CreateDocumentQuery(documentCollection.DocumentsLink)
+    where f.Id == "AndersenFamily"
+    select f))
+    {
+        Console.WriteLine("\tRead {0} from LINQ", family);
+    }
 
-	//
-	//Querying the documents using LINQ lambdas for the Andersen family
-	//
-	foreach (var family in client.CreateDocumentQuery(collectionLink)
+    //Query the documents using LINQ lambdas for the Andersen family
+    foreach (var family in client.CreateDocumentQuery(documentCollection.DocumentsLink)
     .Where(f => f.Id == "AndersenFamily")
     .Select(f => f))
-	{
-    	Console.WriteLine("\tRead {0} from LINQ query", family);
-	}
+    {
+        Console.WriteLine("\tRead {0} from LINQ query", family);
+    }
 
-	//
-	//DocumentDB SQL -  using <> interchangably with != for "not equals"
-	//
-	families = client.CreateDocumentQuery<Family>(colSelfLink, "SELECT * FROM Families f WHERE f.id <> 'AndersenFamily'");
+    //Query the documents using DocumentSQl with one join
+    var cc = client.CreateDocumentQuery<dynamic>(documentCollection.DocumentsLink,
+            "SELECT f.id, c.FirstName AS child " +
+            "FROM Families f " +
+            "JOIN c IN f.Children ");
+    foreach (var item in cc.ToList())
+    {
+        Console.WriteLine(item);
+    }
 
-	//   
-	// LINQ - combine equality and inequality
-	//
-	families = from f in client.CreateDocumentQuery<Family>(colSelfLink)
-           where f.Id == "Wakefield" && f.Address.City != "NY"
-           select f; 
+    //Query the documents using LINQ with one join
+    var dd = client.CreateDocumentQuery<Family>(documentCollection.DocumentsLink)
+            .SelectMany(family => family.Children
+            .Select(children => new
+            {
+                family = family.Id,
+                child = children.FirstName
+            }));
+    foreach (var item in dd.ToList())
+    {
+        Console.WriteLine(item);
+    }
 	
-
+For the full get-started sample, click [here](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started).
 
 ##<a id="NextSteps"></a>Next steps
 -	Learn how to [monitor a DocumentDB account](http://go.microsoft.com/fwlink/p/?LinkId=402378).
