@@ -30,16 +30,17 @@ In Quick Start, get the script for web pages.
 
 ![](./media/appinsights/appinsights-06webcode.png)
 
-Insert the script in the header of every page you want to track. Usually you can do that by inserting it in a master page.
-
+Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there.
 
 ## <a name="usage"></a>Usage analytics
+
+Run your website, use it a bit to generate telemetry, and wait 1-2 minutes. You can either run it with F5 on your development machine, or deploy it to your server.
 
 In the application overview blade, you'll see these usage tiles:
 
 ![](./media/appinsights/appinsights-47usage.png)
 
-
+*No data yet? Click **Refresh** at the top of the page.*
 
 ### Sessions per browser
 
@@ -82,7 +83,7 @@ In the Diagnostic Search blade, set Filters to Page View.
 
 Select any event to see more detail.
 
-> [WACOM.NOTE] If you use [Search][diagnostic], notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About". 
+> [AZURE.NOTE] If you use [Search][diagnostic], notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About". 
 
 > [Learn more about diagnostic search][diagnostic]
 
@@ -123,4 +124,6 @@ Want to find out what your users do with your app? By inserting calls in your cl
 [track]: ../app-insights-web-track-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/
 [webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+
+
 
