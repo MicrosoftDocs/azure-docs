@@ -163,8 +163,8 @@ Web availability tests depend on incoming access to your web server on port 80.
 <tr><td>Availability charts</td><td>[Web tests][availability]</td><td>Know your web app is up</td></tr>
 <tr><td>Server app perf: response times, ...
 </td><td>[Add Application Insights to your project][start]
-<br/>or<br/>[Install AI Agent on server][redfield]</td><td>Detect perf issues</td></tr>
-<tr><td>Server globals: CPU, memory, ...</td><td>[Install AI Agent on server][redfield]</td><td>Diagnose capacity issues</td></tr>
+<br/>or (not Azure web roles)<br/>[Install AI Agent on server][redfield]</td><td>Detect perf issues</td></tr>
+<tr><td>Server globals: CPU, memory, ...</td><td>[Install AI Agent on server][redfield]<br/>or (Azure)<br/>[Switch on Azure VM diagnostics][azurediagnostic]</td><td>Diagnose capacity issues</td></tr>
 <tr><td>Search log traces</td><td>[Add a logging adapter][diagnostic]</td><td>Diagnose exceptions, perf issues</td></tr>
 <tr><td>Client usage basics: page views, returns, ...</td><td>[JavaScript initializer in web pages][webclient]</td><td>Count users</td></tr>
 <tr><td>Client custom metrics</td><td>[Tracking calls in web pages][track]</td><td>Enhance user experience</td></tr>
@@ -194,6 +194,7 @@ Web availability tests depend on incoming access to your web server on port 80.
 [qna]: ../app-insights-troubleshoot-faq/
 [webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
 
+[azurediagnostic]: ../insights-how-to-use-diagnostics/
 
 [older]: http://www.visualstudio.com/get-started/get-usage-data-vs
 
