@@ -116,7 +116,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
 1.	Provision an IaaS virtual machine into the same Azure virtual network and the same subnet. So both the virtual machine and the HBase cluster use the same internal DNS server to resolve host names. To do so, you must choose the From Gallery option, and select the virtual network instead of a data center. For the instructions, see [Create a Virtual Machine Running Windows Server][vm-create]. A standard Windows Server 2012 image with a small VM size is sufficient.
 	
-2.	When using a Java application to connect to HBase remotely, you must use the fully qualified domain name (FQDN). To determine this, we must get the connection-specific DNS suffix of the HBase cluster. To do that use either Curl or PowerShell to query Ambari using the following information.
+2.	When using a Java application to connect to HBase remotely, you must use the fully qualified domain name (FQDN). To determine this, we must get the connection-specific DNS suffix of the HBase cluster. To do that use Curl to query Ambari, or remote desktop to connect to the cluster.
 
 	* **Curl** - use the following command:
 
@@ -130,13 +130,15 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
 		The portion of the domain name beginning with the cluster name is the DNS suffix. For example, mycluster.b1.cloudapp.net.
 
-	* **PowerShell** - use the following script:
+	* **Remote Desktop** - For information on enabling Remote Desktop and connecting to the cluster, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal]. After connecting to the cluster, open the Hadoop Command Line and run the **ipconfig** command to obtain the DNS suffix.
 
-			[tbd]
+		![hdinsight.hbase.dns.surffix][img-dns-surffix]
 
+<!--
 	> [WACOM.NOTE] You can also use Remote Desktop to connect the HBase cluster (you will be connected to the headnode) and run **ipconfig** from a command prompt to obtain the DNS suffix. For instructions on enabling RDP and connect to the cluster using RDP, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal].
 	>
 	> ![hdinsight.hbase.dns.surffix][img-dns-surffix]
+-->
 
 <!-- 
 3.	Change the Primary DNS Suffix configuration of the virtual machine. This enables virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to the workernode0 of the HBase cluster. 
