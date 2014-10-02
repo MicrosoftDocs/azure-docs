@@ -173,7 +173,9 @@ Web availability tests depend on incoming access to your web server on port 80.
 
 If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
 
-## Learn more
+
+## Application Insights - learn more
+
 * [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
 * [Monitor performance in web applications][perf]
@@ -192,7 +194,7 @@ If your web service is running in an Azure VM, you can also [get diagnostics][az
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
 [usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-custom-events/
+[track]: ../app-insights-web-track-usage-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/
 [webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
 
