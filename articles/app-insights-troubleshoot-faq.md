@@ -158,15 +158,14 @@ Web availability tests depend on incoming access to your web server on port 80.
 
 ## Have I enabled everything in Application Insights?
 
-<table>
+<table border="1">
 <tr><th>What you should see</th><th>How to get it</th><th>Why you want it</th></tr>
 <tr><td>Availability charts</td><td>[Web tests][availability]</td><td>Know your web app is up</td></tr>
 <tr><td>Server app perf: response times, ...
-</td><td>[Add Application Insights to your project][start]
-<br/>or (not Azure web roles)<br/>[Install AI Agent on server][redfield]</td><td>Detect perf issues</td></tr>
-<tr><td>Server globals: CPU, memory, ...</td><td>[Install AI Agent on server][redfield]<br/>or (Azure)<br/>[Switch on Azure VM diagnostics][azurediagnostic]</td><td>Diagnose capacity issues</td></tr>
+</td><td>[Add Application Insights to your project][start]<br/>or <br/>[Install AI Status Monitor on server][redfield]</td><td>Detect perf issues</td></tr>
+<tr><td>Server globals: CPU, memory, ...</td><td>[Install AI Status Monitor on server][redfield]<br/>or (for Azure websites)<br/>[Switch on Azure VM diagnostics][azurediagnostic]</td><td>Diagnose capacity issues</td></tr>
 <tr><td>Search log traces</td><td>[Add a logging adapter][diagnostic]</td><td>Diagnose exceptions, perf issues</td></tr>
-<tr><td>Client usage basics: page views, returns, ...</td><td>[JavaScript initializer in web pages][webclient]</td><td>Count users</td></tr>
+<tr><td>Client usage basics: page views, returns, ...</td><td>[JavaScript initializer in web pages][webclient]</td><td>Usage analytics</td></tr>
 <tr><td>Client custom metrics</td><td>[Tracking calls in web pages][track]</td><td>Enhance user experience</td></tr>
 <tr><td>Server custom metrics</td><td>[Tracking calls in server code][track]</td><td>Business intelligence</td></tr>
 </table>
