@@ -1,4 +1,4 @@
-<properties title="How to Configure An Availability Set for Virtual Machines" pageTitle="How to Configure An Availability Set for Virtual Machines" description="Gives the steps to configure an availability set for a VM in Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties title="How to Configure An Availability Set for Virtual Machines" pageTitle="How to Configure An Availability Set for Virtual Machines" description="Gives the steps to configure an availability set for a VM in Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="kathydav" />
 
@@ -55,11 +55,11 @@ To use Azure cmdlets:
 
 	`C:\PS> $image = (Get-AzureVMImage)[4].ImageName`
 
-	>[WA.COM NOTE] To get a list of all images that apply to your subscription, run `Get-AzureVMImage` without parameters.
+	>[WACOM.NOTE] To get a list of all images that apply to your subscription, run `Get-AzureVMImage` without parameters.
 
-3.	Specify the configuration for the new virtual machine, and then use the pipeline to pass a configuration object to the cmdlet that creates the VM:
+3.	Specify the configuration for the new virtual machine, and then use the pipeline to pass a configuration object to the cmdlet that creates the VM. Be sure to substitute your own values for the placeholders, such as  &lt;VmName&gt; and &lt;VmSize&gt;.
 
-	` C:\PS> New-AzureVMConfig -Name "MyVM1" -InstanceSize ExtraSmall -AvailabilitySetName "MySet" -ImageName $image | Add-AzureProvisioningConfig -Windows -Password "MyPassword" | Add-AzureDataDisk -CreateNew -DiskSizeInGB 50 -DiskLabel 'datadisk1' -LUN 0 | New-AzureVM –ServiceName "MySvc1" `
+	`C:\PS> New-AzureVMConfig -Name "<VmName>" -InstanceSize <VmSize> -AvailabilitySetName "<SetName>" -ImageName $image | Add-AzureProvisioningConfig -Windows -AdminUsername "<UserName>" -Password "<MyPassword>" | Add-AzureDataDisk -CreateNew -DiskSizeInGB 50 -DiskLabel 'datadisk1' -LUN 0 | New-AzureVM –ServiceName "<MySvc1>" `
 
 ## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set##
 
@@ -87,7 +87,7 @@ To use Azure cmdlets:
 
 Open an Azure PowerShell session and run the following command. Be sure to substitute your own values for the placeholders, such as &lt;VmCloudServiceName&gt; and &lt;VmName&gt;.
 
-	C:\PS> Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "VmName" | Set-AzureAvailabilitySet -AvailabilitySetName "MyAvSet" | Update-AzureVM
+	C:\PS> Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<MyAvSet>" | Update-AzureVM
 
 >[WACOM.NOTE] The virtual machine might be restarted to finish adding it to the availability set.
 
