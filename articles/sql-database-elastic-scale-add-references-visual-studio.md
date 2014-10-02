@@ -1,4 +1,4 @@
-<properties title="Add Azure SQL DB Elastic Scale References to a Visual Studio Project" pageTitle="Add Azure SQL DB Elastic Scale References to a Visual Studio Project" description="add nuget references for elastic scale, shard maps, elastic scale" metaKeywords="Azure SQL Database, elastic scale, Nuget references" services="sql-database" documentationCenter="sql-database" authors="sidneyh@microsoft.com"/>
+<properties title="Add Azure SQL DB Elastic Scale References to a Visual Studio Project" pageTitle="Add Azure SQL DB Elastic Scale References to a Visual Studio Project" description="How to add .NET references for Elastic Scale APIs to Visual Studio projects using Nuget." metaKeywords="Azure SQL Database, elastic scale, Nuget references" services="sql-database" documentationCenter="" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
@@ -19,4 +19,3 @@
 The Azure SQL DB elastic scale references have now been added to your project. 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
-
