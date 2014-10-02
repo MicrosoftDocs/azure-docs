@@ -2,15 +2,10 @@
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/23/2014" ms.author="krisragh" />
 
-# Using Offline data sync in Mobile Services
+# Get started with offline data sync in Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows Store C#">Windows Store C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone">Windows Phone</a>
-<a href="/en-us/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS" class="current">iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
-</div>
+
+[WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
 
 This tutorial covers the offline sync feature of Mobile Services on iOS, which allows developers to write apps that are usable even when the end user has no network access.
@@ -18,7 +13,7 @@ This tutorial covers the offline sync feature of Mobile Services on iOS, which a
 Offline sync has several potential uses:
 
 * Improve app responsiveness by caching server data locally on the device
-* Make apps resilient against intermittent network connectivity
+* Make apps resilient against intermittent network connectivity 
 * Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity
 * Sync data across multiple devices and detect conflicts when the same record is modified by two devices
 
@@ -69,20 +64,20 @@ Follow the instructions at [Get started with Mobile Services] and download the q
 
 3. We are adding Core Data to an existing project in Xcode that does not already support Core Data. As such, we need to add additional boilerplate code to various parts of the project. First add the following code in **QSAppDelegate.h**:
 
-        #import <UIKit/UIKit.h>
-        #import <CoreData/CoreData.h>
-
-        @interface QSAppDelegate : UIResponder <UIApplicationDelegate>
-
-        @property (strong, nonatomic) UIWindow *window;
-
-        @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-        @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-        @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
-        - (void)saveContext;
-        - (NSURL *)applicationDocumentsDirectory;
-
+        #import <UIKit/UIKit.h>  
+        #import <CoreData/CoreData.h>  
+          
+        @interface QSAppDelegate : UIResponder <UIApplicationDelegate>  
+          
+        @property (strong, nonatomic) UIWindow *window;  
+          
+        @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;  
+        @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;  
+        @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;  
+          
+        - (void)saveContext;  
+        - (NSURL *)applicationDocumentsDirectory;  
+          
         @end
 
 4. Next, replace the contents of **QSAppDelegate.m** with the following code. This is almost the same code that you get when you create a new application in Xcode and select the "Use Core Data" checkbox, except that you're using a private queue concurrency type when initializing **_managedObjectContext**. With this change, you're almost ready to use Core Data, but you're not doing anything with it yet.
@@ -220,30 +215,30 @@ Follow the instructions at [Get started with Mobile Services] and download the q
       ![][defining-core-data-tableoperationerrors-entity]
 
 
-  **TodoItem**
+    **TodoItem**
 
-  | Attribute  |  Type   |
-  |----------- |  ------ |
-  | id         | String  |
-  | complete   | Boolean |
-  | text       | String  |
-  | ms_version | String  |
+    | Attribute  |  Type   |
+    |----------- |  ------ |
+    | id         | String  |
+    | complete   | Boolean |
+    | text       | String  |
+    | ms_version | String  |
 
-  **MS_TableOperations**
+    **MS_TableOperations**
 
-  | Attribute  |    Type     |
-  |----------- |   ------    |
-  | id         | Integer 64  |
-  | properties | Binary Data |
-  | itemId     | String      |
-  | table      | String      |
+    | Attribute  |    Type     |
+    |----------- |   ------    |
+    | id         | Integer 64  |
+    | properties | Binary Data |
+    | itemId     | String      |
+    | table      | String      |
 
-  **MS_TableOperationErrors**
+    **MS_TableOperationErrors**
 
-  | Attribute  |    Type     |
-  |----------- |   ------    |
-  | id         | String      |
-  | properties | Binary Data |
+    | Attribute  |    Type     |
+    |----------- |   ------    |
+    | id         | String      |
+    | properties | Binary Data |
 
 ## <a name="setup-sync"></a> Initializing and Using Sync Table and Sync Context
 
@@ -256,7 +251,7 @@ Follow the instructions at [Get started with Mobile Services] and download the q
         @property (nonatomic, strong)   MSTable *syncTable;
 
 2. Add the following import statement at the top of **QSTodoService.m**:
-
+    
         #import "QSAppDelegate.h"
 
 3. In **QSTodoService.m**, remove the following two lines in **init**:
@@ -285,13 +280,13 @@ Follow the instructions at [Get started with Mobile Services] and download the q
         {
             NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
             MSQuery *query = [self.syncTable queryWithPredicate:predicate];
-
+            
             [query orderByAscending:@"text"];
             [query readWithCompletion:^(NSArray *results, NSInteger totalCount, NSError *error) {
                 [self logErrorIfNotNil:error];
-
+                
                 self.items = [results mutableCopy];
-
+                
                 // Let the caller know that we finished
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion();
@@ -307,10 +302,10 @@ Follow the instructions at [Get started with Mobile Services] and download the q
             [self.syncTable insert:item completion:^(NSDictionary *result, NSError *error)
              {
                  [self logErrorIfNotNil:error];
-
+                 
                  NSUInteger index = [items count];
                  [(NSMutableArray *)items insertObject:result atIndex:index];
-
+                 
                  // Let the caller know that we finished
                  dispatch_async(dispatch_get_main_queue(), ^{
                      completion(index);
@@ -324,26 +319,26 @@ Follow the instructions at [Get started with Mobile Services] and download the q
         {
             // Cast the public items property to the mutable type (it was created as mutable)
             NSMutableArray *mutableItems = (NSMutableArray *) items;
-
+            
             // Set the item to be complete (we need a mutable copy)
             NSMutableDictionary *mutable = [item mutableCopy];
             [mutable setObject:@YES forKey:@"complete"];
-
+            
             // Replace the original in the items array
             NSUInteger index = [items indexOfObjectIdenticalTo:item];
             [mutableItems replaceObjectAtIndex:index withObject:item];
-
+            
             // Update the item in the TodoItem table and remove from the items array on completion
             [self.syncTable update:mutable completion:^(NSError *error) {
-
+                
                 [self logErrorIfNotNil:error];
-
+                
                 NSUInteger index = [items indexOfObjectIdenticalTo:mutable];
                 if (index != NSNotFound)
                 {
                     [mutableItems removeObjectAtIndex:index];
                 }
-
+                
                 // Let the caller know that we have finished
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion(index);
@@ -359,7 +354,7 @@ Follow the instructions at [Get started with Mobile Services] and download the q
    Add the corresponding implementation of **syncData** to **QSTodoService.m**. We're adding this operation to update the sync table with remote changes.
 
         -(void)syncData:(QSCompletionBlock)completion
-        {
+         {
             // Create a predicate that finds items where complete is false
             NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
@@ -370,7 +365,7 @@ Follow the instructions at [Get started with Mobile Services] and download the q
             [self.syncTable pullWithQuery:query completion:^(NSError *error) {
                 [self logErrorIfNotNil:error];
                 [self refreshDataOnSuccess:completion];
-            }];
+         }];
         }
 
 9. Back in **QSTodoListViewController.m**, change the implementation of **refresh** to call **syncData** instead of **refreshDataOnSuccess**:
