@@ -92,7 +92,8 @@ You'll see data under Application Health.
 [Troubleshooting][qna]
 
 
-## Learn more
+## Application Insights - learn more
+
 * [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
 * [Monitor performance in web applications][perf]
@@ -111,7 +112,7 @@ You'll see data under Application Health.
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
 [usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-custom-events/
+[track]: ../app-insights-web-track-usage-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/
 [webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
 
