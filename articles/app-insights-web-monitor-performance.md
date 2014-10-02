@@ -22,7 +22,8 @@ Application Insights can monitor ASP.NET web applications hosted on-premise or o
 If you haven't yet added Application Insights to your project (that is, if it doesn't have ApplicationInsights.config), choose one of these ways to get started:
 
 * [Add Application Insights to your app project in Visual Studio][start] - Recommended. As well as passive performance monitoring, you can insert diagnostic logging and track usage.
-* [Monitor performance of a live website now][redfield] - This way, you don't need to update the application project or redeploy the website. 
+* [Monitor performance of a live website now][redfield] - This way, you don't need to update the application project or redeploy the website.
+* [For a Microsoft Azure website](../insights-how-to-customize-monitoring/)  you can already see metrics on the website's Monitoring lens. 
 
 
 ## <a name="view"></a>View reports
