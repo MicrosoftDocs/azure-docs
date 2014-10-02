@@ -51,11 +51,11 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 1. In Visual Studio 2013, create a new ASP.NET web application from the menu bar by going to **File > New > Project > Web > ASP.NET Web Application**. Give it a name and click **OK**.
 
-	![](media/cdn-websites-with-cdn/1-new-project.PNG)
+	![](media/cdn-websites-with-cdn/1-new-project.png)
 
 3. Select **MVC** and click **Manage Subscriptions**.
 
-	![](media/cdn-websites-with-cdn/2-webapp-template.PNG)
+	![](media/cdn-websites-with-cdn/2-webapp-template.png)
 
 4. Click **Sign In**.
 
@@ -107,7 +107,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	When you navigate to **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**, you will be prompted to download the bootstrap.css that came from your Azure website. 
 
-	![](media/cdn-websites-with-cdn/12-file-access.PNG)
+	![](media/cdn-websites-with-cdn/12-file-access.png)
 
 You can similarly access any publicly accessible URL at **http://*&lt;serviceName>*.cloudapp.net/**, straight from your CDN endpoint. For example:
 
