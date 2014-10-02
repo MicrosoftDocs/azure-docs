@@ -1,4 +1,4 @@
-<properties title="Migrating Federations to Elastic Scale" pageTitle="Migrating Federations to Elastic Scale" description="Scale Azure SQL Database shards with Elastic Scale APIs, Azure Elastic Scale, SQL Federation Migration, Migrate Federations to Elastic Scale" metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter="sql-database" authors="sidneyh@microsoft.com"/>
+<properties title="Federations Migration" pageTitle="Federations Migration" description="Outlines the steps to migrate an existing app built with Federations feature to Elastic Scale model." metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter="" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
 
@@ -90,11 +90,12 @@ The Federations Migration Utility provides the abilities to:
 ##Feature Comparison  
 Although Elastic Scale offers many additional features (for example, [multi-shard querying](./sql-database-elastic-scale-multishard-querying.md), [spliting and merging shards](./sql-database-elastic-scale-overview-split-and-merge.md), [shard elasticity](./sql-database-elastic-scale-elasticity.md), [client-side caching](./sql-database-elastic-scale-shard-map-management.md), and more), there are a few noteworthy Federations features that are not supported in Elastic Scale.
   
-1. The use of **FILTERING=ON**. Elastic scale does not currently support row-level filtering. One mitigation is to build the filtering logic into the query issued against the shard as follows: 
+
+- The use of **FILTERING=ON**. Elastic scale does not currently support row-level filtering. One mitigation is to build the filtering logic into the query issued against the shard as follows: 
 
         --Example of USE FEDERATION with FILTERING=ON
         USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=ON 
-		SELECT * FROM customer
+        SELECT * FROM customer
 
 Yields the same result as:
 
@@ -102,8 +103,8 @@ Yields the same result as:
         USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF 
         SELECT * FROM customer WHERE CustomerId = 100 
 
-2. The Elastic Scale **Split** feature is not fully online. During a split operation, each individual shardlet is taken offline during the duration of the move.
-3. The Elastic Scale split feature requires database provisioning and schema management.
+- The Elastic Scale **Split** feature is not fully online. During a split operation, each individual shardlet is taken offline during the duration of the move.
+- The Elastic Scale split feature requires manual database provisioning and schema management.
 
 ## Additional Considerations
 
@@ -123,4 +124,3 @@ Yields the same result as:
 [1]: ./media/sql-database-elastic-scale-federation-migration/migrate-1.png
 [2]: ./media/sql-database-elastic-scale-federation-migration/migrate-2.png
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
-
