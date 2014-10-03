@@ -282,11 +282,11 @@ Follow the instructions at [Get started with Mobile Services] and download the q
             MSQuery *query = [self.syncTable queryWithPredicate:predicate];
             
             [query orderByAscending:@"text"];
-            [query readWithCompletion:^(NSArray *results, NSInteger totalCount, NSError *error) {
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error) {
                 [self logErrorIfNotNil:error];
-                
-                self.items = [results mutableCopy];
-                
+
+                self.items = [result.items mutableCopy];
+
                 // Let the caller know that we finished
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion();
@@ -401,6 +401,10 @@ Finally, let's test the application offline. Add a few items in the app. Then go
 
 You'll see that the items have not been added to the service yet. Now perform the refresh gesture in the app by dragging it from the top. You'll see that the data has been saved in the cloud now. You can even close the app after adding some items. When you launch the app again it will sync with the server and your changes are saved.
 
+## Next Steps
+
+* [Handling conflicts with offline support for Mobile Services]
+
 <!-- URLs. -->
 
 [Get the Sample Quickstart App]: #get-app
@@ -438,3 +442,4 @@ You'll see that the items have not been added to the service yet. Now perform th
 
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started/
 [Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
+[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-ios-handling-conflicts-offline-data/ 
