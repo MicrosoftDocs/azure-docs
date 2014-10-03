@@ -1,4 +1,4 @@
-<properties title="Shard Map Management" pageTitle="Shard Map Management" description="How to use the ShardMapManager, Elastic Scale API for .NET" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, shardmapmanager" services="sql-database" documentationCenter="" authors="sidneyh@microsoft.com"/>
+<properties title="Shard Map Management" pageTitle="Shard Map Management" description="How to use the ShardMapManager, Elastic Scale API for .NET" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, shardmapmanager" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
@@ -258,6 +258,6 @@ Applications often need to simply add new shards to handle data that is expected
 
 If the new range of key values is not already part of an existing mapping and no data movement is necessary, it is very simple to add the new shard and associate the new key or range to that shard. For details on adding new shards, see [Adding a new Shard](./sql-database-elasic-scale-add-a-shard.md).
 
-For scenarios that require data movement, however, the Split-Merge service is needed to orchestrate the data movement between shards in combination with the necessary shard map updates. For details on using the Split-MErge service, see [Overview of Split-Merge](./sql-database-elastic-scale-overview-split-and-merge.md) 
+For scenarios that require data movement, however, the Split-Merge service is needed to orchestrate the data movement between shards in combination with the necessary shard map updates. For details on using the Split-Merge service, see [Overview of Split-Merge](./sql-database-elastic-scale-overview-split-and-merge.md) 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
