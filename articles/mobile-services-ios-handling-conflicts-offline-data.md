@@ -468,6 +468,6 @@ Along the way, you added a **QSUIAlertViewWithBlock** helper class to display an
 [How to use the Mobile Services client library for iOS]: /en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/
 [Getting Started Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
 
-[Get Started with Offline Data]: en-us/documentation/articles/mobile-services-ios-get-started-offline-data/
+[Get Started with Offline Data]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data/
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started/
 [Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
