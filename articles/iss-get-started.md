@@ -1,4 +1,4 @@
-<properties title="Get started with Intelligent Systems Service" pageTitle="Get started with Intelligent Systems Service" description="Learn how to set up your ISS account and find next steps for connecting devices." metaKeywords="intelligent systems,iss" services="intelligent-systems" solutions="" documentationCenter="" authors="jdecker" videoId="" scriptId="" />
+<properties title="Get started with Intelligent Systems Service" pageTitle="Get started with Intelligent Systems Service" description="Learn how to set up your ISS account and find next steps for connecting devices." metaKeywords="intelligent systems,iss" services="intelligent-systems" solutions="" documentationCenter="" authors="jdecker" videoId="" scriptId="" manager="alanth" />
 
 <tags ms.service="intelligent-systems" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="tbd" ms.date="10/01/2014" ms.author="jdecker" />
 
