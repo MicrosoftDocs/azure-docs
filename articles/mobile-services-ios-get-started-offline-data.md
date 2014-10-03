@@ -282,11 +282,11 @@ Follow the instructions at [Get started with Mobile Services] and download the q
             MSQuery *query = [self.syncTable queryWithPredicate:predicate];
             
             [query orderByAscending:@"text"];
-            [query readWithCompletion:^(NSArray *results, NSInteger totalCount, NSError *error) {
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error) {
                 [self logErrorIfNotNil:error];
-                
-                self.items = [results mutableCopy];
-                
+
+                self.items = [result.items mutableCopy];
+
                 // Let the caller know that we finished
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion();
