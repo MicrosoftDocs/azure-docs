@@ -1,4 +1,4 @@
-<properties title="Azure Elastic Scale Glossary" pageTitle="Azure Elastic Scale Glossary" description="Explanation of terms used for Elastic Scale feature of Azure SQL Database" metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter="" authors="sidneyh@microsoft.com"/>
+<properties title="Azure Elastic Scale Glossary" pageTitle="Azure Elastic Scale Glossary" description="Explanation of terms used for Elastic Scale feature of Azure SQL Database" metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
@@ -31,7 +31,7 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **Sharding key**: A column value that determines how data is distributed across shards. The value type can be one of the following: int, bigint, varbinary, or uniqueidentifier. 
 
-**Shard Set**: The complete set of shards that are attributed to the same shard map in the shard map manager.  
+**Shard Set**: The collection of shards that are attributed to the same shard map in the shard map manager.  
 
 **Shardlet**: All of the data associated with a single value of a sharding key on a shard. A shardlet is the smallest unit of data movement possible when redistributing sharded tables. 
 
@@ -39,7 +39,6 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **Shard Map Manager**: A management object and data store that contains the shard map(s), shard locations, and mappings for one or more shard sets.
 
-**Shard Set**:The collection of shards that belong to the same shard map in the shard map manager. 
 
 ##Verbs
 
