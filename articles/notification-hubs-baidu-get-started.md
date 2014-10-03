@@ -115,6 +115,20 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 
   	![][16]
 
+9. Configure the project for Push Notifications by clicking on **云推送 (Cloud Push)** on the left pane. 
+
+  	![][31]
+
+10. On the next page, click the **推送设置 (Push settings)** button.
+
+	![][32]  
+
+11. On the configuration page, add the package name that you will be using in your Android project in the **应用包名 (Application package)** field and click **保存设置 (Save)**  
+
+	![][33]
+
+You will see **保存成功！(Successfully saved!)** message.
+
 ##<a id="configure-hub"></a>Configure your Notification Hub
 
 1. Log on to the [Azure Management Portal], and then click **+NEW** at the bottom of the screen.
@@ -184,7 +198,7 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 	    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
 	    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
-8. Add the *android:name* property to your *application* element in the **AndroidManifest.xml** replacing *yourprojectname* e.g. **com.example.BaiduTest**:
+8. Add the *android:name* property to your *application* element in the **AndroidManifest.xml** replacing *yourprojectname* e.g. **com.example.BaiduTest**. Make sure that this project name matches the one you configured in the Baidu console. 
 
 		<application android:name="yourprojectname.DemoApplication"
 
@@ -449,6 +463,9 @@ To test this app with the emulator:
 [28]: ./media/notification-hubs-baidu-get-started/EclipseNewClass.png
 [29]: ./media/notification-hubs-baidu-get-started/EclipseConfigSettingsClass.png
 [30]: ./media/notification-hubs-baidu-get-started/ConsoleProject.png
+[31]: ./media/notification-hubs-baidu-get-started/BaiduPushConfig1.png
+[32]: ./media/notification-hubs-baidu-get-started/BaiduPushConfig2.png
+[33]: ./media/notification-hubs-baidu-get-started/BaiduPushConfig3.png
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
