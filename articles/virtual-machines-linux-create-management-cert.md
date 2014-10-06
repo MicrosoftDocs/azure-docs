@@ -122,7 +122,7 @@ You also need the ID of your subscription to upload the .vhd file.
 
 You will need to base 64 encode the  PFX file you created using openssl with command:
 
- 		Base64 [file] > [econded file]
+ 		Base64 [file] > [encoded file]
 
 You will then need to merge your subscription ID and the base64 encoded pfx into a single file that has the structure: 
 
