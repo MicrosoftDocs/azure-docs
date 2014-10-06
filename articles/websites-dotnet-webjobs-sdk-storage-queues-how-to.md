@@ -329,7 +329,7 @@ In the following example the `CopyBlob` function will fail when a queue message 
 
 The following illustration shows console output from these functions when a poison message is processed.
 
-![Console output for poison message handling](./media/websites-webjobs-sdk-storage-queues-how-to/poison.png)
+![Console output for poison message handling](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/poison.png)
 
 #### Manual poison message handling
 
