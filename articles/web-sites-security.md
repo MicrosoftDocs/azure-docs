@@ -3,7 +3,7 @@
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 
-##Securing a web application in an Azure Website
+#Securing a web application in an Azure Website
 
 One of the challenges of developing a web application is how to provide a safe and secure service for your customers. In this article, you will learn about features of Azure Websites that can secure your web application.
 
