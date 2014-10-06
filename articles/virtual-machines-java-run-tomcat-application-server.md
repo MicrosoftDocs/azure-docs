@@ -49,9 +49,9 @@ Note that **JDK 6 Windows Server 2012** is available in case you have legacy app
 1. Log on to the [Management Portal](https://manage.windowsazure.com).
 2. Click **Virtual machines**.
 3. Click the name of the virtual machine that you want to log in to.
-4. Once the virtual machine has booted a pop-up menu at the bottom of the page will allow connections
+4. Once the virtual machine has started, a pop-up menu at the bottom of the page will allow connections.
 5. Click **Connect**.
-6. Respond to the prompts as needed to connect to the virtual machine. This should entail saving or opening the rdp file that contains connection details. You may have to copy the url:port as the last part of the first line of the rdp file and paste it a remote loggin application.
+6. Respond to the prompts as needed to connect to the virtual machine. This should entail saving or opening the .rdp file that contains the connection details. You might have to copy the url:port as the last part of the first line of the .rdp file and paste it in a remote log-in application.
 
 ## To install a Java application server on your virtual machine
 
