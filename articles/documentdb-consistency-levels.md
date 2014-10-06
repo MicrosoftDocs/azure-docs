@@ -1,6 +1,6 @@
 <properties title="Consistency levels in DocumentDB" pageTitle="Consistency levels in DocumentDB" description="DocumentDB has four consistency levels with associated performance levels to help application developers make predictable consistency-availability-latency trade-offs." metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 #Consistency levels in DocumentDB
 Developers are often faced with the challenge of choosing between the two extremes of strong and eventual consistency. The reality is that there exist multiple consistency click-stops between these two extremes. In most real world scenarios, applications benefit from making fine grained trade-offs between consistency, availability and latency. DocumentDB offers four well-defined consistency levels with associated performance levels. This allows application developers to make predictable consistency-availability-latency trade-offs.  

@@ -246,7 +246,7 @@ Follow the instructions at [Get started with Mobile Services] and download the q
 
         @property (nonatomic, strong)   MSTable *table;
 
-  Add a new line to define the **syncTable** property:
+    Add a new line to define the **syncTable** property:
 
         @property (nonatomic, strong)   MSTable *syncTable;
 
@@ -259,7 +259,7 @@ Follow the instructions at [Get started with Mobile Services] and download the q
         // Create an MSTable instance to allow us to work with the TodoItem table
         self.table = [_client tableWithName:@"TodoItem"];
 
-  Instead, add these two new lines in its place:
+    Instead, add these two new lines in its place:
 
         // Create an MSSyncTable instance to allow us to work with the TodoItem table
         self.syncTable = [self.client syncTableWithName:@"TodoItem"];
@@ -274,25 +274,25 @@ Follow the instructions at [Get started with Mobile Services] and download the q
 
 5. Next, let's update the operations in **QSTodoService.m** to use the sync table instead of the regular table. First, replace **refreshDataOnSuccess** with the following implementation. This retrieves data from the service, so let's update it to use a sync table, ask the sync table to pull only items that match our criteria, and start loading data from the local sync table into the **items** property of the service. With this code,  **refreshDataOnSuccess** pulls the data from the remote table into the local (sync) table. We should generally pull only a subset of the table so that we don't overload the client with information that it may not need.
 
-  For this and the remaining operations further below, we wrap the calls to the completion blocks in a **dispatch_async** call to the main thread. When we initialize the sync context, we do not pass a callback parameter, so the framework creates a default serial queue that dispatches the results of all syncTable operations into a background thread. When modifying UI components, we need to dispatch the code back to the UI thread.
+    For this and the remaining operations further below, we wrap the calls to the completion blocks in a **dispatch_async** call to the main thread. When we initialize the sync context, we do not pass a callback parameter, so the framework creates a default serial queue that dispatches the results of all syncTable operations into a background thread. When modifying UI components, we need to dispatch the code back to the UI thread.
 
-        -(void) refreshDataOnSuccess:(QSCompletionBlock)completion
-        {
-            NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-            MSQuery *query = [self.syncTable queryWithPredicate:predicate];
-            
-            [query orderByAscending:@"text"];
-            [query readWithCompletion:^(NSArray *results, NSInteger totalCount, NSError *error) {
-                [self logErrorIfNotNil:error];
-                
-                self.items = [results mutableCopy];
-                
-                // Let the caller know that we finished
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion();
-                });
-            }];
-        }
+          -(void) refreshDataOnSuccess:(QSCompletionBlock)completion
+          {
+              NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+              MSQuery *query = [self.syncTable queryWithPredicate:predicate];
+              
+              [query orderByAscending:@"text"];
+              [query readWithCompletion:^(MSQueryResult *result, NSError *error) {
+                  [self logErrorIfNotNil:error];
+
+                  self.items = [result.items mutableCopy];
+
+                  // Let the caller know that we finished
+                  dispatch_async(dispatch_get_main_queue(), ^{
+                      completion();
+                  });
+              }];
+          }
 
 6. Next, replace **addItem** in **QSTodoService.m** as follows. With this change, you're queuing the operation so that you push the changes to the remote service and make it visible to everyone:
 
@@ -351,22 +351,22 @@ Follow the instructions at [Get started with Mobile Services] and download the q
 
         - (void)syncData:(QSCompletionBlock)completion;
 
-   Add the corresponding implementation of **syncData** to **QSTodoService.m**. We're adding this operation to update the sync table with remote changes.
+     Add the corresponding implementation of **syncData** to **QSTodoService.m**. We're adding this operation to update the sync table with remote changes.
 
-        -(void)syncData:(QSCompletionBlock)completion
-         {
-            // Create a predicate that finds items where complete is false
-            NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+          -(void)syncData:(QSCompletionBlock)completion
+           {
+              // Create a predicate that finds items where complete is false
+              NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
-            MSQuery *query = [self.syncTable queryWithPredicate:predicate];
+              MSQuery *query = [self.syncTable queryWithPredicate:predicate];
 
-            // Pulls data from the remote server into the local table. We're only
-            // pulling the items which we want to display (complete == NO).
-            [self.syncTable pullWithQuery:query completion:^(NSError *error) {
-                [self logErrorIfNotNil:error];
-                [self refreshDataOnSuccess:completion];
-         }];
-        }
+              // Pulls data from the remote server into the local table. We're only
+              // pulling the items which we want to display (complete == NO).
+              [self.syncTable pullWithQuery:query completion:^(NSError *error) {
+                  [self logErrorIfNotNil:error];
+                  [self refreshDataOnSuccess:completion];
+           }];
+          }
 
 9. Back in **QSTodoListViewController.m**, change the implementation of **refresh** to call **syncData** instead of **refreshDataOnSuccess**:
 
@@ -400,6 +400,10 @@ Follow the instructions at [Get started with Mobile Services] and download the q
 Finally, let's test the application offline. Add a few items in the app. Then go to the portal and browse the data (or use a networking tool such as PostMan or Fiddler to query the table directly).
 
 You'll see that the items have not been added to the service yet. Now perform the refresh gesture in the app by dragging it from the top. You'll see that the data has been saved in the cloud now. You can even close the app after adding some items. When you launch the app again it will sync with the server and your changes are saved.
+
+## Next Steps
+
+* [Handling conflicts with offline support for Mobile Services]
 
 <!-- URLs. -->
 
@@ -438,3 +442,4 @@ You'll see that the items have not been added to the service yet. Now perform th
 
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started/
 [Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
+[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-ios-handling-conflicts-offline-data/ 

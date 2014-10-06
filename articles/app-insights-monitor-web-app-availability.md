@@ -131,7 +131,7 @@ You might want to disable web tests while you are performing maintenance on your
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
 [usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-custom-events/
+[track]: ../app-insights-web-track-usage-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/
 [webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
 
