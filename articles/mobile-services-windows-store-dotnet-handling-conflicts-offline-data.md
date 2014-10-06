@@ -8,6 +8,7 @@
 <div class="dev-center-tutorial-selector sublanding">
 <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store C#" class="current">Windows Store C#</a>
 <a href="/en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone">Windows Phone</a>
+<a href="/en-us/documentation/articles/mobile-services-ios-handling-conflicts-offline-data" title="iOS">iOS</a>
 </div>
 
 <div class="dev-onpage-video-clear clearfix">
