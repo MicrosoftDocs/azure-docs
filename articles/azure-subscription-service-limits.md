@@ -36,8 +36,8 @@ The following document specifies some of the most common Microsoft Azure limits.
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/">Storage accounts</a> per subscription</p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>50</p></td>
+   <td valign="middle"><p>100</p></td>
+   <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Cloud services</a> per subscription</p></td>
