@@ -7,7 +7,7 @@
 
 These release notes summarize changes from previous releases and known issues.
 
->[WACOM.NOTE] We want to hear from our customers and focus on fixing problems that affect you. To report a problem or ask questions, please post in the [Azure Media Services MSDN Forum].
+>[AZURE.NOTE] We want to hear from our customers and focus on fixing problems that affect you. To report a problem or ask questions, please post in the [Azure Media Services MSDN Forum].
 
 
 - [Currently Known Issues][]
@@ -108,11 +108,11 @@ This section contains:
 
 * PlayReady License Delivery Service. For more information, see [Using PlayReady 
 *  Encryption and License Delivery Service].
->[WACOM.NOTE]To sign up for PlayReady License Delivery Service do the following:
+>[AZURE.NOTE] To sign up for PlayReady License Delivery Service do the following:
 
 >Follow instructions described in Preview features.
 
->In the Azure Management Portal, go to the CONTENT PROTECTION tab and add a row to the Branding Reporting table. The Media Services PlayReady license service will be enabled a few minutes after you press SAVE.
+In the Azure Management Portal, go to the CONTENT PROTECTION tab and add a row to the Branding Reporting table. The Media Services PlayReady license service will be enabled a few minutes after you press SAVE.
 
 * PlayReady Dynamic Encryption. For more information, see [Using PlayReady Dynamic Encryption and License Delivery Service].
 
@@ -192,7 +192,7 @@ The following changes were made in 3.0.0.3:
 
 ### <a name="dec_13_donnet_changes"></a>Azure Media Services .NET SDK 3.0.0.0.0
 
->[WACOM.NOTE] 3.0.*.* releases are not backward compatible with 2.4.*.* releases.
+>[AZURE.NOTE] 3.0.*.* releases are not backward compatible with 2.4.*.* releases.
 
 The latest version of the Media Services SDK is now 3.0.0.0.0. You can download the latest package from Nuget or get the bits from [Github].
 
