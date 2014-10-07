@@ -61,7 +61,8 @@ Sample input could be:
 	}
 
 An example of how results can be found in a non-programmatic way through the ‘EXPLORE THIS DATASET’ feature of the Marketplace is displayed below
- 
+
+![Explore web service][1] 
 
 ##Creation of Web Service 
 
@@ -72,7 +73,7 @@ From within Azure ML, a new blank experiment was created. A sample input data wa
 
 
 ###Experiment Flow:
-![Experiment flow][1]
+![Experiment flow][2]
 ####Module 1:
  
 	#data schema with example data 
@@ -97,4 +98,5 @@ From within Azure ML, a new blank experiment was created. A sample input data wa
 
 This is a very simple example for ARIMA forecasting. As can be seen from the example code above, no error catching is implemented and the service assumes that all the variables are continuous/positive values and the frequency should be an integer greater than 1. The length of the date and value vectors should be the same. The date variable should adhere to the format ‘mm/dd/yyyy’.
 
-[1]: ./media/machine-learning-r-csharp-arima/arima-img2.png
+[1]: ./media/machine-learning-r-csharp-arima/arima-img1.png
+[2]: ./media/machine-learning-r-csharp-arima/arima-img2.png
