@@ -79,8 +79,9 @@ From within Azure ML, a new blank experiment was created. A sample input data wa
 
 ####Module 1:
  
-	# Add in the CSV file 
-	
+	# Add in the CSV file with the data in the format shown below 
+![Create workspace][3]	
+
 ####Module 2:
 	# Apply time series model from forecast package 
  	# Input data 
@@ -103,3 +104,4 @@ This is a very simple example for ARIMA forecasting. As can be seen from the exa
 
 [1]: ./media/machine-learning-r-csharp-arima/arima-img1.png
 [2]: ./media/machine-learning-r-csharp-arima/arima-img2.png
+[2]: ./media/machine-learning-r-csharp-arima/arima-img3.png
