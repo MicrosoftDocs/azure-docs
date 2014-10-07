@@ -104,4 +104,4 @@ This is a very simple example for ARIMA forecasting. As can be seen from the exa
 
 [1]: ./media/machine-learning-r-csharp-arima/arima-img1.png
 [2]: ./media/machine-learning-r-csharp-arima/arima-img2.png
-[2]: ./media/machine-learning-r-csharp-arima/arima-img3.png
+[3]: ./media/machine-learning-r-csharp-arima/arima-img3.png
