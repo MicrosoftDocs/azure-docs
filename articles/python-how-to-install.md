@@ -50,9 +50,10 @@ Unless you have a specific need, we recommend the first two options, as describe
 
 For Windows you can use the provided [WebPI installer] from the main Python Developer Center to streamline the installation (it will grab CPython from www.python.org).
 
-**Note:** On Windows Server, in order to download the WebPI installer you may have to configure IE ESC settings (Start/Administrative Tools/Server Manager, then click **Configure IE ESC**, set to Off)
+**Note:** On Windows Server, in order to download the WebPI installer you may have to configure IE ESC settings (Start/Administrative Tools/Server Manager/Local Server, then click **IE Enhanced Security Configuration**, set to Off)
 
-You can choose to install Python 2.7 and/or Python 3.4 using WebPI.
+You can choose to install Python 2.7 and/or Python 3.4 using WebPI.  
+
 
 ### Python 2.7
 

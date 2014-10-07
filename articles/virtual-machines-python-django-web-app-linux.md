@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
 
 
 
@@ -29,13 +29,13 @@ A screenshot of the completed application is below:
 
 ## Creating and configuring an Azure virtual machine to host Django
 
-1. Follow the instructions given [here][portal-vm] to create an Azure virtual machine of the *Ubuntu Server 14.04* distribution.
+1. Follow the instructions given [here][portal-vm] to create an Azure virtual machine of the *Ubuntu Server 14.04 LTS* distribution.
 
   **Note:** you *only* need to create the virtual machine. Stop at the section titled *How to log on to the virtual machine after you create it*.
 
 1. Instruct Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
 	* Navigate to your newly created virtual machine in the Azure Portal and click the *ENDPOINTS* tab.
-	* Click *ADD ENDPOINT* button at the bottom of the screen.
+	* Click the *ADD* button at the bottom of the screen.
 	![add endpoint](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
 	* Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 80*.
 	![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
@@ -76,19 +76,18 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
     -   **helloworld/helloworld/settings.py** contains Django settings for your application.
     -   **helloworld/helloworld/urls.py** contains the mapping code between each url and its view.
 
-1.  Create a new file named **views.py** in the **/var/www/helloworld/helloworld** directory (as a sibling of **urls.py**). This will contain the view that renders the "hello world" page. Start your editor and enter the following:
+1.  Create a new file named **views.py** in the **/var/www/helloworld/helloworld** directory. This will contain the view that renders the "hello world" page. Start your editor and enter the following:
 		
 		from django.http import HttpResponse
-		def hello(request):
+		def home(request):
     		html = "<html><body>Hello World!</body></html>"
     		return HttpResponse(html)
 
 1.  Now replace the contents of the **urls.py** file with the following:
 
-		from django.conf.urls.defaults import patterns, include, url
-		from helloworld.views import hello
+		from django.conf.urls import patterns, url
 		urlpatterns = patterns('',
-			(r'^$',hello),
+			url(r'^$', 'helloworld.views.home', name='home'),
 		)
 
 
