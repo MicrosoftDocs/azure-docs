@@ -54,6 +54,7 @@ VB at server
 
 When you run your app on your development machine in debug mode, results will appear in Application Insights within seconds. When you deploy the app, data takes longer to move through the pipeline from your server and clients.
 
+<!--
 ## <a name="metrics"></a> Track metrics
 
 You don't have to do any more to get basic usage data such as page views. But you can write a few lines of code to find out more about what your users are doing with your app.
@@ -64,30 +65,28 @@ To track a metric – that is, a numeric value like a score - insert a line of s
 
 JavaScript at client
 
-    appInsights.trackMetric("Score", currentGame.Score);
+    appInsights.trackMetric("Alerts", notifications.Count);
 
 C# at server
 
     var telemetry = new TelemetryClient();
-    telemetry.TrackMetric ("Opponents", game.Opponent.Count);
+    telemetry.TrackMetric ("Users online", currentUsers.Count);
 
 VB at server
 
     Dim telemetry = New TelemetryClient
-    telemetry.TrackMetric ("Opponents", game.Opponent.Count)
+    telemetry.TrackMetric ("Users online", currentUsers.Count)
 
 Test the app, and use it so as to run your trackMetric() call.
 
 
-<!-- Then go to your application in Application Insights and click through the [Metrics][metrics] tile. Select your metric to see the first results. -->
+Then go to your application in Application Insights and click through the [Metrics][metrics] tile. Select your metric to see the first results.
 
-<!-- PIC  -->
 
-<!-- The graph shows the recent average over values logged from all your users. -->
+The graph shows the recent average over values logged from all your users. 
 
-If you send telemetry from both the client and server, be sure to give the metrics different names.
 
-(By the way: metrics aren’t optimized for diagnosing problems. If that's what you need, look at [Diagnostic Logging][diagnostic].) 
+(By the way: metrics aren’t optimized for diagnosing problems. If that's what you need, look at [Diagnostic Logging][diagnostic].) -->
 
 
 ## <a name="events"></a>Track events
@@ -109,10 +108,8 @@ VB at server
     Dim telemetry = New TelemetryClient
     telemetry.TrackEvent("EndOfGame")
 
+If you send telemetry from both the client and server, be sure to give the events different names.
 
-<!-- Run your game, and you'll see events appearing under //// Usage analytics. -->
-
-<!-- PIC -->
 
 ## <a name="pageViews"></a>Page views (client only)
 
@@ -135,9 +132,9 @@ If you have several tabs within different HTML pages, you can specify the URL to
 
 ## <a name="properties"></a>Filter, search and segment your data with properties
 
-You can attach properties and measurements to your events, metrics, and other telemetry data. 
+You can attach properties and measurements to your events, page views, and other telemetry data. 
 
-**Properties** are string values that you can use to filter your telemetry in the usage reports. For example if your app provides several games, you’ll want to attach the name of the game to each event or metric, so that you can see which games are more popular.
+**Properties** are string values that you can use to filter your telemetry in the usage reports. For example if your app provides several games, you’ll want to attach the name of the game to each event, so that you can see which games are more popular.
 
 **Measurements** are numeric values that you can get statistics from in the usage reports.
 
@@ -162,6 +159,7 @@ C# at server
     // Send the event:
     telemetry.TrackEvent("endOfGame", properties, measurements);
 
+
 VB at server
 
     ' Set up some properties:
@@ -177,31 +175,13 @@ VB at server
     telemetry.TrackEvent("endOfGame", properties, measurements)
 
 
-Attach properties to metrics, page views and exception telemetry in the same way:
+Attach properties to page views in the same way:
 
 JavaScript at client
 
-    appInsights.trackMetric("Score", currentGame.Score,
-           {Game: currentGame.Name, 
-            Difficulty: currentGame.difficulty});
-
-C# at server
-
-    // Set up some properties:
-    var properties = new Dictionary <string, string> 
-       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
-    // Send the metric:
-    telemetry.TrackMetric("Score", score, properties);
-
-VB at server
-
-    ' Set up some properties:
-    Dim properties = New Dictionary (Of String, String)
-    properties.Add("game", currentGame.Name)
-    properties.Add("difficulty", currentGame.Difficulty)
-
-    ' Send the metric:
-    telemetry.TrackMetric("Score", score, properties)
+    appInsights.trackPageView("Win", 
+     {Game: currentGame.Name}, 
+     {Score: currentGame.Score});
 
  
 
@@ -213,7 +193,6 @@ To see the filters, expand the parent event group, and select a particular event
 
 > [WACOM.NOTE] Take care not to log personally identifiable information in properties.
 
-> Tip: Don't send stack traces in events. Individual events can't easily be read in the event reports. For debugging, use TrackTrace() and TrackException() - read more in [Diagnostic search][diagnostic].
 
 ## Timed page views and events
 
@@ -244,22 +223,20 @@ C# at server
     var context = new TelemetryContext();
     context.Properties["Game"] = currentGame.Name;
     var telemetry = new TelemetryClient(context);
-    // Now all events and metrics will automatically be sent with the context property:
+    // Now all telemetry will automatically be sent with the context property:
     telemetry.TrackEvent("EndOfGame");
-    telemetry.TrackMetric("Score", currentGame.Score);
     
 VB at server
 
     Dim context = New TelemetryContext
     context.Properties("Game") = currentGame.Name
     Dim telemetry = New TelemetryClient(context)
-    ' Now all events and metrics will automatically be sent with the context property:
+    ' Now all telemetry will automatically be sent with the context property:
     telemetry.TrackEvent("EndOfGame")
-    telemetry.TrackMetric("Score", currentGame.Score)
 
     
     
-Individual events and metrics can override the default values.
+Individual telemetry can override the default values.
 
 If you want to switch between groups of default property values, set up multiple contexts.
 
@@ -268,7 +245,7 @@ If you want to switch between groups of default property values, set up multiple
 ## <a name="next"></a>Next steps
 
 
-[Explore your metrics][explore]
+[Search events and logs][diagnostic]
 
 [Troubleshooting][qna]
 
