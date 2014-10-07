@@ -1,6 +1,6 @@
 <properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
 
 
@@ -37,7 +37,7 @@ and subscriptions, see the [Next Steps](#Next_Steps) section.
 
 The **ServiceBusService** object lets you work with topics. Add the following near the top of any Python file in which you wish to programmatically access Azure Service Bus:
 
-	from azure.servicebus import *
+	from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 
 The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'sharedaccesskeyname' and 'sharedaccesskey' with the real namespace, shared access signature (SAS) key name and value.
 
@@ -145,7 +145,7 @@ message varies on the iteration of the loop (this will determine which
 subscriptions receive it):
 
 	for i in range(5):
-		msg = Message('Msg ' + str(i), custom_properties={'messagenumber':i})
+		msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
 		bus_service.send_topic_message('mytopic', msg)
 
 Service Bus topics support a maximum message size of 256 MB (the header,
