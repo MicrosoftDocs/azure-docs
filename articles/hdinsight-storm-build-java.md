@@ -2,12 +2,45 @@
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
-#Developing for Storm in HDInsight with Java and Maven
+#Developing for Storm in HDInsight
 
-Learn how to develop a Java-based Storm topology (application) using Maven, test it locally, and then deploy it to HDInsight. This application will read values from [tbd], 
+[What] - Developing Storm topologies is a pain. You need:
+* A data source. This is usually something outside Hadoop, like a queue or API.
+* A spout to talk to the data source.
+* One or more bolts to process the data.
+* One or more bolts to act on the data (raise alerts, send e-mail, or just save it somewhere.)
+* If you want to visualize the data in real-time, you have to build some sort of real-time dashboard. You also have to find some communication channel that is common between Java and your dashboard. For example, websockets, signalr, etc.
 
 ##In this article, you will learn
 
+- [Concepts](#concepts)
+- [Languages, DSLs, and abstractions]
+	- Java
+	- Trident
+	- Clojure
+- [Common patterns](#)
+	- [Guaranteed message processing]
+	- [BasicBolt]
+	- [Joins]
+	- [Batching]
+	- [Caching]
+	- [Streaming top N]
+	- [Distributed RPC]
+
+
+
+##Concepts
+
+topologies, streams, tuples, spouts, bolts
+how - distributed processing
+
+##Common patterns
+
+See https://storm.incubator.apache.org/documentation/Common-patterns.html
+
+
+
+<!-- old -->
 - [Create the application project](#create)
 - [Write the code](#code)
 - [Build and test locally](#build)
