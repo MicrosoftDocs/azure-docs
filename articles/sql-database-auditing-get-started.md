@@ -44,7 +44,7 @@ Security-enabled connection string: <*server name*>.database.**secure**.windows.
 ##<a id="subheading-2"></a>Set up auditing for your database
 
 1. <a href="http://go.microsoft.com/fwlink/?LinkId=404163" target="_blank">Sign up for the Auditing preview</a>.
-2. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com.
+2. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com. Alternatively, you can also luanch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. Refer to detials below.
 3. Click the database you want to audit, and then click **Auditing Preview** to enable the auditing preview and launch the auditing configuration blade.
 
 	![][1]
@@ -82,10 +82,24 @@ For more detailed instructions on working with the report template, read the <a 
 ![][6]
 
 
+##<a id="subheading-4"></a>Set up auditing for your database using the classic azure portal
+
+1. <a href="http://go.microsoft.com/fwlink/?LinkId=404163" target="_blank">Sign up for the Auditing preview</a>.
+2. Launch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. 
+3. Click the database you want to audit, and then click the **Auditing & Secuirity Preview** tab.
+4. At the auditing section click "Enable".
+5. Edit the **EVENT TYPE** as needed.
+6. Select a **STORAGE ACCOUNT**.
+7. Click **SAVE**.
+8. Click **Show secured connection string** for the connection string.
+
+
+
 <!--Anchors-->
 [Azure SQL Database Auditing basics]: #subheading-1
 [Set up auditing for your database]: #subheading-2
 [Analyze audit logs and reports]: #subheading-3
+[Set up auditing for your database using the classic azure portal]: #subheading-4
 
 
 <!--Image references-->
