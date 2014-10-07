@@ -60,7 +60,7 @@ To create this example cloud-only virtual network, do the following
 
  Returning to our diagram of the virtual network, you have configured the following address spaces:
  
-	![][Image7]	
+	![][Image7]
 
  Note that the address space for a virtual network must be from the private address spaces of 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 and specified in Classless Inter-Domain Routing (CIDR) notation (also known as network prefix notation). For more information about the settings on this page, see the Virtual Network Address Spaces page in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409).
 
