@@ -8,11 +8,17 @@
 
 <h1 id="vnettut1">Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity</h1>
 
-This tutorial walks you through the steps to create an example cross-premises virtual network with a site-to-site connection. If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=296653).
+This tutorial walks you through the steps to create an example cross-premises virtual network with a site-to-site connection. 
 
-This tutorial assumes you have no prior experience using Azure. It's meant to help you become familiar with the steps required to create a cross-premises virtual network. If you're looking for design scenarios and advanced information about Virtual Network, see the [Azure Virtual Network Overview](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
+If you want to create a cloud-only virtual network, see [Tutorial: Create a Cloud-Only Virtual Network in Azure](http://azure.microsoft.com/en-us/documentation/articles/create-virtual-network/). If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=296653).
 
-After completing this tutorial, you will have an example cross-premises virtual network where Azure services and virtual machines can be deployed. 
+This tutorial assumes you have no prior experience using Azure. It's meant to help you become familiar with the steps required to create an example cross-premises virtual network. If you're looking for design scenarios and advanced information about Virtual Network, see the [Azure Virtual Network Overview](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
+
+After completing this tutorial, you will have an example cross-premises virtual network. The following figure shows the details, based on the example settings in this tutorial.
+
+![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_12_TutorialCrossPremVNet.png)
+
+For a copy of this figure and one that you can use to depict your own cross-premises virtual network, see [Example cross-premises virtual network figure from tutorial topic](http://gallery.technet.microsoft.com/Example-cross-premises-e5ecb8bb).
 
 Note that the example configuration settings used in this tutorial are not customized for your organization's network. If you configure the virtual network and the site-to-site connection using the example configuration settings described in this topic, it will not work. To configure a cross-premises virtual network that does work, you must work with your IT department and network administrator to obtain the correct settings. For more information, see the **Prerequisites** section of this topic.
 
@@ -97,7 +103,7 @@ To create an example virtual network that connects to a company network:
 
 	-  **NAME:** For the example in this tutorial, type **YourCorpHQ**.
 
-	-  **VPN DEVICE IP ADDRESS:** Enter the public IP address of your VPN device. If you don't have this information, you'll need to obtain it before moving forward with the next steps in the wizard. Note that your VPN device cannot be behind a NAT. For more information about VPN devices, see [About VPN Devices for Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx).
+	-  **VPN DEVICE IP ADDRESS:** For the example in this tutorial, type **3.2.1.1**. Otherwise, enter the public IP address of your VPN device. If you don't have this information, you'll need to obtain it before moving forward with the next steps in the wizard. Note that your VPN device cannot be behind a NAT. For more information about VPN devices, see [About VPN Devices for Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx).
 
 	-  **ADDRESS SPACE:** For the example in this tutorial, type **10.1.0.0/16**.
 	-  **Add address space:** This tutorial does not require additional address space.
