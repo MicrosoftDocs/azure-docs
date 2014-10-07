@@ -233,6 +233,8 @@ To learn more about Linux on Azure, see the following articles:
 
 - [How to use the Azure Command-Line Tools for Mac and Linux](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/)
 
+- [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx)
+
 
 [Next Steps]: #next
 [About virtual machines in Azure]: #virtualmachine

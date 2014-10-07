@@ -11,6 +11,7 @@ The following document specifies some of the most common Microsoft Azure limits.
 - [Virtual Machine Limits](#vmlimits)
 - [Networking Limits](#networkinglimits)
 - [Storage Limits](#storagelimits)
+- [DocumentDB Preview Limits](#documentdblimits)
 - [SQL Database Limits](#sqldblimits)
 
 > [WACOM.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge][azurelimitsblogpost]. The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
@@ -35,8 +36,8 @@ The following document specifies some of the most common Microsoft Azure limits.
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/">Storage accounts</a> per subscription</p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>50</p></td>
+   <td valign="middle"><p>100</p></td>
+   <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Cloud services</a> per subscription</p></td>
@@ -52,6 +53,16 @@ The following document specifies some of the most common Microsoft Azure limits.
    <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/jj157100.aspx">Local networks</a> per subscription</p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>SQL Databases per subscription</p></td>
+   <td valign="middle"><p>150</p></td>
+   <td valign="middle"><p>500</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Logical SQL Database servers per subscription</p></td>
+   <td valign="middle"><p>6</p></td>
+   <td valign="middle"><p>150</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>DNS servers per subscription</p></td>
@@ -246,12 +257,17 @@ The following document specifies some of the most common Microsoft Azure limits.
 
 <sup>3</sup>GRS is [Geo Redundant Storage][georedundantstorage]. LRS is [Locally Redundant Storage][locallyredundantstorage]. Note that GRS is also locally redundant.
 
+##<a name="documentdblimits"></a>DocumentDB Preview Limits
+
+[WACOM.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
+
 ##<a name="sqldblimits"></a>SQL Database Limits
 
 For SQL Database Limits, please see the following topics:
 
  - [Azure SQL Database Service Tiers (Editions)][sqltiers]
  - [Azure SQL Database Service Tiers and Performance Levels][sqltiersperflevels]
+ - [Database Throughput Unit (DTU) Quotas][sqlDTU]
  - [SQL Database Resource Limits][sqldblimits]
 
 ##<a name="seealso"></a>See Also
@@ -259,14 +275,6 @@ For SQL Database Limits, please see the following topics:
 [Understanding Azure Limits and Increases][azurelimitsblogpost]
 
 [Virtual Machine and Cloud Service Sizes for Azure][vmsizes]
-
-[Azure Storage Scalability and Performance Targets][storagelimits]
-
-[Azure SQL Database Service Tiers (Editions)][sqltiers]
-
-[Azure SQL Database Service Tiers and Performance Levels][sqltiersperflevels] 
-
-[SQL Database Resource Limits][sqldblimits]
 
   [customersupportfaq]: http://azure.microsoft.com/en-us/support/faq/
   [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
@@ -276,6 +284,7 @@ For SQL Database Limits, please see the following topics:
   [sqldblimits]: http://msdn.microsoft.com/en-us/library/azure/dn338081.aspx
   [sqltiers]: http://msdn.microsoft.com/en-us/library/azure/dn741340.aspx
   [sqltiersperflevels]: http://msdn.microsoft.com/en-us/library/azure/dn741336.aspx
+  [sqlDTU]: http://msdn.microsoft.com/en-us/library/azure/ee336245.aspx#DTUs
   [vmsizes]: http://msdn.microsoft.com/en-us/library/azure/dn197896.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
