@@ -196,22 +196,23 @@ To see the filters, expand the parent event group, and select a particular event
 
 ## Timed page views and events
 
-You can attach timing data to events and page views.
+You can attach timing data to events and page views. Instead of calling trackEvent or trackPageView, use these calls:
 
 JavaScript at client
 
-    // At the start of the timed event:
-    appInsights.startTrackEvent("game", {GameName: name});
+    // At the start of the game:
+    appInsights.startTrackEvent(game.id);
 
-    // At the end of the event:
-    appInsights.stopTrackEvent("game");
+    // At the end of the game:
+    appInsights.stopTrackEvent(game.id, {GameName: game.name}, {Score: game.score});
 
     // At the start of a page view:
-    appInsights.startTrackPage("pageName", "url", properties, measurements);
+    appInsights.startTrackPage(myPage.name);
 
     // At the completion of a page view:
-    appInsights.stopTrackPage("pageName");
+    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
 
+Use the same string as the first parameter in the start and stop calls.
 
 ## <a name="defaults"></a>Set default property values (not at web client)
 
