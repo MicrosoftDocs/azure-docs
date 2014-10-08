@@ -17,7 +17,7 @@ Most of the code snippets only show functions, not the code that creates the `Jo
 		    host.RunAndBlock();
 		}
 		
-<h2>Table of contents</h2>
+## Table of contents
 
 -   [How to trigger a function when a queue message is received](#trigger)
 	- String queue messages
@@ -55,12 +55,12 @@ If your website runs on multiple VMs, the WebJob will run on each machine, and e
 
 ### String queue messages
 
-In the following example, the queue contains a string message, so `QueueTrigger` is applied to a string parameter named `logMessage` which contains the content of the queue message. The function writes an INFO message to the [application log](#logs).
+In the following example, the queue contains a string message, so `QueueTrigger` is applied to a string parameter named `logMessage` which contains the content of the queue message. The function [writes a log message to the Dashboard](#logs).
  
 
-		public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage)
+		public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
 		{
-		    Console.Out.WriteLine(logMessage);
+		    logger.WriteLine(logMessage);
 		}
 
 Besides `string`, the parameter may be a byte array, a `CloudQueueMessage` object, or a POCO object that you define.
@@ -69,9 +69,9 @@ Besides `string`, the parameter may be a byte array, a `CloudQueueMessage` objec
 
 In the following example, the queue message contains JSON for a `BlobInformation` object which includes a `BlobName` property. The SDK automatically deserializes the object.
 
-		public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo)
+		public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
 		{
-		    Console.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
+		    logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
 		}
 
 The following example shows how to create a POCO queue message without using the WebJobs SDK, that the SDK can parse. The SDK uses the [Newtonsoft.Json NuGet package](http://www.nuget.org/packages/Newtonsoft.Json) to serialize and deserialize messages.
@@ -82,11 +82,11 @@ The following example shows how to create a POCO queue message without using the
 
 ### Async functions
 
-The following async function writes an ERROR message to the [application log](#logs).
+The following async function [writes a log to the Dashboard](#logs).
 
-		public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage)
+		public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
 		{
-		    await Console.Error.WriteLineAsync(logMessage);
+		    await logger.WriteLineAsync(logMessage);
 		}
 
 Async functions may take a cancellation token, as shown in the following example which copies a blob. (For an explanation of the `queueTrigger` placeholder, see the [Blobs](#blobs) section.)
@@ -102,7 +102,7 @@ Async functions may take a cancellation token, as shown in the following example
 
 ### Polling algorithm
 
-The SDK implements a random exponential back-off algorithm to reduce the effect of idle-queue polling on storage transaction costs.  When a message is found, the SDK waits two seconds and then checks for another message; when no message is found it waits longer before trying again. After subsequent failed attempts to get a queue message, the wait time increases until it reaches the maximum wait time, which defaults to one minute. [The maximum wait time is configurable](#config).
+The SDK implements a random exponential back-off algorithm to reduce the effect of idle-queue polling on storage transaction costs.  When a message is found, the SDK waits two seconds and then checks for another message; when no message is found it waits about four seconds before trying again. After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute. [The maximum wait time is configurable](#config).
 
 ### Parallel execution
 
@@ -117,13 +117,14 @@ You can get the following message properties by adding parameters to the method 
 * `DateTimeOffset` expirationTime
 * `DateTimeOffset` insertionTime
 * `DateTimeOffset` nextVisibleTime
+* `string` queueTrigger (contains message text)
 * `string` id
 * `string` popReceipt
 * `int` dequeueCount
 
 If you want to work directly with the Azure storage API, you can also add a `CloudStorageAccount` parameter.
 
-The following example writes all of this metadata to an INFO application log.
+The following example writes all of this metadata to an INFO application log. In the example, both logMessage and queueTrigger contain the content of the queue message.
 
 		public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
 		    DateTimeOffset expirationTime,
@@ -131,15 +132,36 @@ The following example writes all of this metadata to an INFO application log.
 		    DateTimeOffset nextVisibleTime,
 		    string id,
 		    string popReceipt,
-		    int dequeueCount)
+		    int dequeueCount,
+		    string queueTrigger,
+		    CloudStorageAccount cloudStorageAccount,
+		    TextWriter logger)
 		{
-		    Console.Out.WriteLine(
-		        "message={0} expirationTime={1} insertionTime={2} nextVisibleTime={3} " +
-		        "id={4} popReceipt={5} dequeueCount={6}",
-		        logMessage, expirationTime, insertionTime, 
-		        nextVisibleTime,id,popReceipt,
-		        dequeueCount);
+		    logger.WriteLine(
+		        "logMessage={0}\n"
+				nexpirationTime={1}\ninsertionTime={2}\n" +
+		        "nextVisibleTime={3}\n" +
+		        "id={4}\npopReceipt={5}\ndequeueCount={6}\n" +
+		        "queue endpoint={7} queueTrigger={8}",
+		        logMessage, expirationTime,
+		        insertionTime,
+		        nextVisibleTime, id,
+		        popReceipt, dequeueCount,
+		        cloudStorageAccount.QueueEndpoint,
+		        queueTrigger);
 		}
+
+Here is a sample log written by the sample code:
+
+		logMessage=Hello world!
+		expirationTime=10/14/2014 10:31:04 PM +00:00
+		insertionTime=10/7/2014 10:31:04 PM +00:00
+		nextVisibleTime=10/7/2014 10:41:23 PM +00:00
+		id=262e49cd-26d3-4303-ae88-33baf8796d91
+		popReceipt=AgAAAAMAAAAAAAAAfc9H0n/izwE=
+		dequeueCount=1
+		queue endpoint=https://contosoads.queue.core.windows.net/
+		queueTrigger=Hello world!
 
 ### <a id="graceful"></a>Graceful shutdown
 
@@ -149,17 +171,18 @@ The following example shows how to check for impending WebJob termination in a f
 
 	public static void GracefulShutdownDemo(
 	            [QueueTrigger("inputqueue")] string inputText,
+	            TextWriter logger,
 	            CancellationToken token)
 	{
 	    for (int i = 0; i < 100; i++)
 	    {
 	        if (token.IsCancellationRequested)
 	        {
-	            Console.Out.WriteLine("Function was cancelled at iteration {0}", i);
+	            logger.WriteLine("Function was cancelled at iteration {0}", i);
 	            break;
 	        }
 	        Thread.Sleep(1000);
-	        Console.Out.WriteLine("Normal processing for queue message={0}", inputText);
+	        logger.WriteLine("Normal processing for queue message={0}", inputText);
 	    }
 	}
 
@@ -212,14 +235,17 @@ To create multiple messages, make the parameter type for the output queue `IColl
 
 		public static void CreateQueueMessages(
 		    [QueueTrigger("inputqueue")] string queueMessage,
-		    [Queue("outputqueue")] ICollector<string> outputQueueMessage)
+		    [Queue("outputqueue")] ICollector<string> outputQueueMessage,
+		    TextWriter logger)
 		{
-		    Console.WriteLine("Creating 2 messages in outputqueue");
+		    logger.WriteLine("Creating 2 messages in outputqueue");
 		    outputQueueMessage.Add(queueMessage + "1");
 		    outputQueueMessage.Add(queueMessage + "2");
 		}
 
-### Use Queue attributes in the body of a function
+Each queue message is created immediately when the `Add` method is called.
+
+### <a id="queuebody"></a>Use Queue attributes in the body of a function
 
 If you need to do some work in your function before using the `Queue` attribute to create a queue message, you can use the `IBinder` interface to get a `CloudQueue` object that enables you to work with a queue directly. 
 
@@ -235,9 +261,11 @@ The following example takes an input queue message and creates a new message wit
 		    outputQueue.AddMessage(new CloudQueueMessage(queueMessage));
 		}
 
-## <a id="blobs"></a> How to read and write blobs while processing a queue message
+## <a id="blobs"></a> How to read and write blobs and tables while processing a queue message
 
-The `Blob` attribute enables you to read and write blobs. Some of the types it can be used with include `Stream`, `TextReader`, `TextWriter`, and `CloudBlockBlob` . The `Blob` attribute constructor takes a `blobPath` parameter that specifies the container and blob name, and with `Stream` objects another parameter specifies the `FileAccess` mode as read, write, or read/write.  
+The `Blob` and `Table` attributes enable you to read and write blobs and tables. The samples in this section apply to blobs.
+
+Some of the types the `Blob` attribute can be used with include `Stream`, `TextReader`, `TextWriter`, and `CloudBlockBlob` . The attribute constructor takes a `blobPath` parameter that specifies the container and blob name; and when the attribute decorates a `Stream` object, another constructor parameter specifies the `FileAccess` mode as read, write, or read/write. If you need to do some work in your function before binding a blob to an object, you can use the attribute in the body of the function, [as shown earlier for the Queue attribute](#queuebody).
 
 ### String queue messages
 
@@ -282,25 +310,6 @@ The following example shows how to create a POCO queue message without using the
 		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 		logQueue.AddMessage(queueMessage);
 
-### a id="blobbody"></a>Use Blob attributes in the body of a function
-
-If you need to do some work in your function before binding a blob to an object, you can use the `IBinder` interface.
-
-The following example shows how to use the `IBinder` interface to create a new blob. The container, name, and content of the blob are all specified in the body of the method.
-		
-		public static void CreateBlob(
-		    [QueueTrigger("inputqueue")] string queueMessage,
-		    IBinder binder)
-		{
-		    string ticks = DateTime.Now.Ticks.ToString();
-		    BlobAttribute attribute = new BlobAttribute(@"textblobs/" + ticks, FileAccess.Write);
-		    using (TextWriter newBlob = binder.Bind<TextWriter>(attribute))
-		    {
-		        newBlob.WriteLine("queue message: " + queueMessage + " ticks: " + ticks);
-		    }
-		    
-		}
-
 ## <a id="poison"></a> How to handle poison messages
 
 Messages whose content causes a function to fail are called *poison messages*. When the function fails, the queue message is not deleted and eventually is picked up again, causing the cycle to be repeated. The SDK can automatically interrupt the cycle after a limited number of iterations, or you can do it manually.
@@ -322,27 +331,28 @@ In the following example the `CopyBlob` function will fail when a queue message 
 		}
 		
 		public static void ProcessPoisonMessage(
-		    [QueueTrigger("copyblobqueue-poison")] string blobName)
+		    [QueueTrigger("copyblobqueue-poison")] string blobName, TextWriter logger)
 		{
-		    Console.Out.WriteLine("Failed to copy blob, name=" + blobName);
+		    logger.WriteLine("Failed to copy blob, name=" + blobName);
 		}
 
 The following illustration shows console output from these functions when a poison message is processed.
 
 ![Console output for poison message handling](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/poison.png)
 
-#### Manual poison message handling
+### Manual poison message handling
 
 You can get the number of times a message has been picked up for processing by adding an `int` parameter named `dequeueCount` to your function. You can then check the dequeue count in function code and perform your own poison message handling when the number exceeds a threshold, as shown in the following example.
 
 		public static void CopyBlob(
 		    [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
 		    [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
-		    [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput)
+		    [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput,
+		    TextWriter logger)
 		{
 		    if (dequeueCount > 5)
 		    {
-		        Console.WriteLine("Failed to copy blob, name=" + blobName);
+		        logger.WriteLine("Failed to copy blob, name=" + blobName);
 		    }
 		    else
 		    {
@@ -350,7 +360,7 @@ You can get the number of times a message has been picked up for processing by a
 		    }
 		}
 
-For this code to work as expected, you would need to increase the maximum number of retries for automatic poison handling or the dequeue count in this example would never exceed 5.
+For this code to work as expected, you would have to increase the maximum number of retries for automatic poison handling or the dequeue count in this example would never exceed 5.
 
 ## <a id="config"></a> How to set configuration options
 
@@ -360,7 +370,7 @@ You can use the `JobHostConfiguration` type to set the following configuration o
 * Configure `QueueTrigger` settings such as maximum dequeue count.
 * Get queue names from configuration.
 
-### Set SDK connection strings in code
+### <a id="setconnstr"></a>Set SDK connection strings in code
 
 Setting the SDK connection strings in code enables you to use your own connection string names in configuration files or environment variables, as shown in the following example.
 
@@ -383,9 +393,9 @@ Setting the SDK connection strings in code enables you to use your own connectio
 		    host.RunAndBlock();
 		}
 
-### Configure QueueTrigger settings
+### <a id="configqueue"></a>Configure queue settings
 
-You can configure the following `QueueTrigger` settings:
+You can configure the following settings that apply to the queue message processing:
 
 - The maximum number of queue messages that are picked up simultaneously to be executed in parallel (default is 16).
 - The maximum number of retries before a queue message is sent to a poison queue (default is 5).
@@ -403,7 +413,7 @@ The following example shows how to configure these settings:
 		    host.RunAndBlock();
 		}
 
-### Get queue names from configuration
+### <a id="configqueuenames"></a>Get queue names from configuration
 
 The `JobHostConfiguration` type enables you to pass in a `NameResolver` object that provides the queue name to the SDK for the `QueueTrigger` and `Queue` attributes.
 
@@ -435,7 +445,7 @@ You pass the `NameResolver` class in to the `JobHost` object as shown in the fol
 		}
  
 
-### How to trigger a function manually
+## <a id="manual"></a>How to trigger a function manually
 
 To trigger a function manually, use the `Call` or `CallAsync` method on the `JobHost` object and the `NoAutomaticTrigger` attribute on the function, as shown in the following example. 
 
@@ -449,12 +459,12 @@ To trigger a function manually, use the `Call` or `CallAsync` method on the `Job
 		
 		    [NoAutomaticTrigger]
 		    public static void CreateQueueMessage(
-		        TextWriter log, 
+		        TextWriter logger, 
 		        string value, 
 		        [Queue("outputqueue")] out string message)
 		    {
 		        message = value;
-		        log.WriteLine("Creating queue message: ", message);
+		        logger.WriteLine("Creating queue message: ", message);
 		    }
 		}
 
@@ -463,30 +473,32 @@ To trigger a function manually, use the `Call` or `CallAsync` method on the `Job
 How you write logs depends on where you want to read them:
 
 * To write logs that appear in the WebJobs dashboard page linked to a particular function invocation, use a `TextWriter` object that you obtain from a parameter in your method signature.
-* To write [application tracing logs](../articles/web-sites-dotnet-troubleshoot-visual-studio/#logsoverview) that appear in the website log files, Azure tables, or Azure blobs depending on how you configure your Azure Website, use `Console.Out` (creates logs marked as INFO) and `Console.Error` (creates logs marked as ERROR).
+* To write [application tracing logs](../articles/web-sites-dotnet-troubleshoot-visual-studio/#logsoverview) that appear in the website log files, Azure tables, or Azure blobs depending on how you configure your Azure Website, use `Console.Out` (creates logs marked as INFO) and `Console.Error` (creates logs marked as ERROR). 
  
-Scheduled WebJobs handle the output from `Console.Out` and `Console.Error` differently than continuous WebJobs:
-
-* For continuous WebJobs, the output is routed to files, tables or blobs as specified by website configuration.
-* For scheduled WebJobs, the output is routed to a log file that is specific to each run of the WebJob. The file is accessible in the Azure portal and is stored at data/jobs/triggered/*{webjobName}*/*{runId}* in the website file system. 
-
 The following example shows several ways to write logs:
 
 		public static void WriteLog(
 		    [QueueTrigger("logqueue")] string logMessage,
-		    TextWriter logWriter)
+		    TextWriter logger)
 		{
 		    Console.WriteLine("Console.Write - " + logMessage);
 		    Console.Out.WriteLine("Console.Out - " + logMessage);
 		    Console.Error.WriteLine("Console.Error - " + logMessage);
-		    logWriter.WriteLine("TextWriter - " + logMessage);
+		    logger.WriteLine("TextWriter - " + logMessage);
 		}
+
+You can disable logging by [setting the Dashboard connection string to null](#config).
 
 In the WebJobs SDK dashboard, the output from the `TextWriter` object shows up when you go to the page for a particular function invocation and click `Toggle Output`:
 
 ![Click function invocation link](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png)
 
 ![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
+
+When a program is running as a WebJob in an Azure Website, the Dashboard shows the most recent 100 lines of application logs; otherwise (such as when the program runs locally) application logs don't appear in the Dashboard. To see application logs, go to the page for the WebJob (not for the function invocation) and click **Toggle Output**.
+ 
+![Click Toggle Output](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
+
 
 In a continuous WebJob the other three logs show up in /data/jobs/continuous/*{webjobname}*/job_log.txt in the website file system.
 
@@ -508,4 +520,4 @@ And in an Azure table the `Console.Out` and `Console.Error` logs look like this:
 
 ## <a id="nextsteps"></a> Next steps
 
-This topic has provided code samples that show how to handle common scenarios for working with Azure queues. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226)
+This topic has provided code samples that show how to handle common scenarios for working with Azure queues. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).
