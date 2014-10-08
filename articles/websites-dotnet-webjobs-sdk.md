@@ -12,7 +12,7 @@ This article explains what the WebJobs SDK is, reviews some common scenarios it 
 - [Scenarios](#scenarios)
 - [Code samples](#code)
 - [Using the WebJobs SDK outside of WebJobs](#workerrole)
-- [Using the WebJobs SDK without Storage or Service Bus](#nostorage)
+- [Using the WebJobs SDK to invoke any function](#nostorage)
 - [Next steps](#nextsteps)
 
 ## <a id="overview"></a>Overview
@@ -31,11 +31,13 @@ Here are some typical scenarios you can handle more easily with the Azure WebJob
 
 * Image processing or other CPU-intensive work. A common feature of websites is the ability to upload images or videos. Often you want to manipulate the content after it's uploaded, but you don't want to make the user wait while you do that.
 
-* Queue processing. A common way for a web frontend to communicate with a backend service is to use queues. When the website needs to get work done, it pushes a message onto a queue. A backend service pulls messages from the queue and does the work. You could use queues for image processing: for example, after the user uploads a number of files, put the file names in a queue message to be picked up by the backend for processing. Or you could use queues to improve site responsiveness. For example, instead of writing directly to a SQL database, write to a queue, tell the user you're done, and let the backend service handle high-latency relational database work.
+* Queue processing. A common way for a web frontend to communicate with a backend service is to use queues. When the website needs to get work done, it pushes a message onto a queue. A backend service pulls messages from the queue and does the work. You could use queues for image processing: for example, after the user uploads a number of files, put the file names in a queue message to be picked up by the backend for processing. Or you could use queues to improve site responsiveness. For example, instead of writing directly to a SQL database, write to a queue, tell the user you're done, and let the backend service handle high-latency relational database work. For an example of queue processing with image process, see the [WebJobs SDK Get Started tutorial](../websites-dotnet-webjobs-sdk-get-started/).
 
 * RSS aggregation. If you have a site that maintains a list of RSS feeds, you could pull in all of the articles from the feeds in a background process.
 
 * File maintenance, such as aggregating or cleaning up log files.  You might have log files being created by several sites or for separate time spans which you want to combine in order to run analysis jobs on them. Or you might want to schedule a task to run weekly to clean up old log files.
+
+* Ingress into Azure Tables. You might have files stored and blobs and want to parse them and store the data in tables. The ingress function could be writing lots of rows (millions in some cases), and the WebJobs SDK makes it possible to implement this functionality easily. The SDK also provides real-time monitoring of progress indicators such as the number of rows written in the table.
 
 * Other long-running tasks that you want to run in a background thread, such as sending emails. 
 
@@ -79,15 +81,19 @@ The WebJobs SDK provides many ways to work with  Azure Storage. For example, if 
 
 ## <a id="workerrole"></a>Using the WebJobs SDK outside of WebJobs
 
-A program that uses the the WebJobs SDK is a standard Console Application and can run anywhere -- it doesn't have to run as a WebJob. You can test the program locally on your development computer, and in production you can run it in a Cloud Service worker role if you prefer that environment. 
+A program that uses the the WebJobs SDK is a standard Console Application and can run anywhere -- it doesn't have to run as a WebJob. You can test the program locally on your development computer, and in production you can run it in a Cloud Service worker role or a Windows service if you prefer one of those environments. 
 
-However, the dashboard is only available as a site extension for an Azure Website. If you want to run outside of a WebJob and still use the dashboard, you can configure an Azure Website to use the same storage account that you use with the WebJobs SDK, and that site's WebJobs dashboard will then show data about function execution from your program that is running somewhere else. You can get to the dashboard by using the URL https://*{websitename}*.scm.azurewebsites.net/azurejobs/#/functions. For more information, see [Getting a dashboard for local development with the WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), but note that the blog post shows an old connection string name. 
+However, the dashboard is only available as a site extension for an Azure Website. If you want to run outside of a WebJob and still use the Dashboard, you can configure an Azure Website to use the same storage account that your WebJobs SDK Dashboard connection string refers to, and that site's WebJobs Dashboard will then show data about function execution from your program that is running somewhere else. You can get to the Dashboard by using the URL https://*{websitename}*.scm.azurewebsites.net/azurejobs/#/functions. For more information, see [Getting a dashboard for local development with the WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), but note that the blog post shows an old connection string name. 
 
-## <a id="nostorage"></a>Using the WebJobs SDK without Storage or Service Bus
+## <a id="nostorage"></a>Using the WebJobs SDK to invoke any function
 
-The WebJobs SDK can provide Dashboard monitoring even if you don't need to work with Azure Storage queues, tables, or blobs, or Service Bus queues. You can write logs to a storage account, and the Dashboard will display them linked to the particular function invocation that generated them. For more information, see [How to write logs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#logs) 
+The WebJobs SDK provides several advantages even if you don't need to work directly with Azure Storage queues, tables, or blobs, or Service Bus queues:
 
-## <a id="nextsteps"></a>Tutorials and Guides
+* You can invoke functions from the Dashboard.
+* You can replay functions from the Dashboard.
+* You can view logs in the Dashboard, linked to the particular WebJob (application logs) or linked to the particular function invocation that generated them (`TextWriter` parameter logs). 
+
+* For more information, see [How to manually invoke a function](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual) and [How to write logs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#logs) 
 
 ### Next steps
 
