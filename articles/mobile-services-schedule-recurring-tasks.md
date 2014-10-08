@@ -4,7 +4,9 @@
 
 # Schedule recurring jobs in Mobile Services 
 
-[WACOM.INCLUDE [mobile-services-selector-schedule-recurring-tasks](../includes/mobile-services-selector-schedule-recurring-tasks.md)]
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" class="current">JavaScript backend</a>
+</div>
  
 This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
 
