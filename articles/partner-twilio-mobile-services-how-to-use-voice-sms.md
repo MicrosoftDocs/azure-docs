@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-twilio-for-voice-and-sms" pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/03/2014" ms.author="MicrosoftHelp@twilio.com" />
 
@@ -99,7 +99,7 @@ To use the Twilio node.js library in your Mobile Service, you need leverage Mobi
 		}
 
 	>[WACOM.NOTE]The dependency for Twilio should be added as `"twilio": "~1.7.0"`, with a (~). A reference with a caret (^) is not supported. 
-	
+
 Now you can reference and use the Twilio library in your custom API and table scripts.
 
 <h2><a id="howto_make_call"></a>How to: Make an outgoing call</h2>
