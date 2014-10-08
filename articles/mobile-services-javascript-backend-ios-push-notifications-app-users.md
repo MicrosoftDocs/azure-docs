@@ -14,8 +14,6 @@ This tutorial walks you through the following process:
 + [Updating the app to log in before registration]
 + [Testing the app]
  
-This tutorial supports Windows Phone 8.0 and Windows Phone 8.1 ("Silverlight") apps. For Windows Phone 8.1 Store apps, see the [Windows Store version of this topic](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users).
-
 ##Prerequisites 
 
 Before you start this tutorial, you must have already completed these Mobile Services tutorials:

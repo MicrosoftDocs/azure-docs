@@ -21,7 +21,7 @@ This tutorial walks you through these basic steps:
 3. [Add a timestamp on insert]
 4. [Update the client to display the timestamp]
 
-This tutorial builds on the steps and the sample app from the previous tutorial [Get started with data]. Before you begin this tutorial, you must first complete [Get started with data].  
+This tutorial builds on the steps and the sample app from the previous tutorial, [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/). Before you begin this tutorial, you must first complete this tutorial.  
 
 ## <a name="string-length-validation"></a>Add validation
 
