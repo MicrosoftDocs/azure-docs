@@ -16,7 +16,7 @@ This tutorial walks you through these basic steps:
 4. [Add a timestamp for CompleteDate]
 5. [Update the client to display the CompleteDate]
 
-This tutorial builds on the steps and the sample app from the previous tutorial, [Getting Started] or [Get started with data](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). Before you begin this tutorial, you must first complete the [Getting Started] or [Get started with data](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) tutorial.  
+This tutorial builds on the steps and the sample app from the previous tutorial, [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). Before you begin this tutorial, you must first complete this tutorial.  
 
 ## <a name="string-length-validation"></a>Add validation
 

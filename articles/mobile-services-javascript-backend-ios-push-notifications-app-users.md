@@ -1,4 +1,4 @@
-<properties linkid="/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users" pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
+<properties pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
@@ -14,8 +14,6 @@ This tutorial walks you through the following process:
 + [Updating the app to log in before registration]
 + [Testing the app]
  
-This tutorial supports Windows Phone 8.0 and Windows Phone 8.1 ("Silverlight") apps. For Windows Phone 8.1 Store apps, see the [Windows Store version of this topic](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users).
-
 ##Prerequisites 
 
 Before you start this tutorial, you must have already completed these Mobile Services tutorials:
