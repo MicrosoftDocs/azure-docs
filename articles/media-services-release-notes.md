@@ -1,4 +1,4 @@
-<properties linkid="media-services-release-notes" urlDisplayName="Media Services Release Notes" pageTitle="Media Services Release Notes" metaKeywords="Azure Media Services" description="Azure Media Services release notes." metaCanonical="" services="" documentationCenter="Media" title="Media Services Release Notes" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties linkid="media-services-release-notes" urlDisplayName="Media Services Release Notes" pageTitle="Media Services Release Notes" metaKeywords="Azure Media Services" description="Azure Media Services release notes." metaCanonical="" services="media-services" documentationCenter="Media" title="Media Services Release Notes" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="media" ms.devlang="dotnet" ms.topic="article" ms.date="10/06/2014" ms.author="juliako" />
 
@@ -108,9 +108,10 @@ This section contains:
 
 * PlayReady License Delivery Service. For more information, see [Using PlayReady 
 *  Encryption and License Delivery Service].
->[AZURE.NOTE] To sign up for PlayReady License Delivery Service do the following:
 
->Follow instructions described in Preview features.
+To sign up for PlayReady License Delivery Service do the following:
+
+Follow instructions described in Preview features.
 
 In the Azure Management Portal, go to the CONTENT PROTECTION tab and add a row to the Branding Reporting table. The Media Services PlayReady license service will be enabled a few minutes after you press SAVE.
 
@@ -120,7 +121,7 @@ In the Azure Management Portal, go to the CONTENT PROTECTION tab and add a row t
 
 * Streaming storage encrypted assets. For more information, see [Streaming Storage Encrypted Content].
 
-<h2><a name="august_changes_14"></a><span class="short-header">August Changes</span>August 2014 Release</h2>
+##<a name="august_changes_14">August 2014 Release</a>
 
 When you encode an asset, an output asset is produced upon completion of the encoding job. Until this release, Azure Media Services Encoder produced metadata about output assets. Starting with this release the encoder also produces metadata about input assets. For more information, see the [Input Metadata] and [Output Metadata] topics.
 
@@ -190,15 +191,15 @@ The following changes were made in 3.0.0.3:
 
 <h2><a name="december_changes_13"></a><span class="short-header">December Changes</span>December 2013 Release</h2>
 
-### <a name="dec_13_donnet_changes"></a>Azure Media Services .NET SDK 3.0.0.0.0
+### <a name="dec_13_donnet_changes"></a>Azure Media Services .NET SDK 3.0.0.0
 
->[AZURE.NOTE] 3.0.*.* releases are not backward compatible with 2.4.*.* releases.
+>[AZURE.NOTE] 3.0.x.x releases are not backward compatible with 2.4.x.x releases.
 
-The latest version of the Media Services SDK is now 3.0.0.0.0. You can download the latest package from Nuget or get the bits from [Github].
+The latest version of the Media Services SDK is now 3.0.0.0. You can download the latest package from Nuget or get the bits from [Github].
 
 Starting with the Media Services SDK version 3.0.0.0, you can reuse the [Azure Active Directory Access Control Service (ACS)] tokens. For more information, see the “Reusing Access Control Service Tokens” section in the [Connecting to Media Services with the Media Services SDK for .NET] topic.
 
-### <a name="dec_13_donnet_ext_changes"></a>Azure Media Services .NET SDK Extensions 2.0.0.0.0
+### <a name="dec_13_donnet_ext_changes"></a>Azure Media Services .NET SDK Extensions 2.0.0.0
 
 The Azure Media Services .NET SDK Extensions is a set of extension methods and helper functions that will simplify your code and make it easier to develop with Azure Media Services. You can get the latest bits from [Azure Media Services .NET SDK Extensions].
 
