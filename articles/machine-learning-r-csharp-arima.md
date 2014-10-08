@@ -1,11 +1,11 @@
-<properties title="Web service: Forecasting - Autoregressive Integrated Moving Average (ARIMA)" pageTitle="Step 1: Web service: Forecasting - Autoregressive Integrated Moving Average (ARIMA) | Azure" description="Web service: Forecasting - Autoregressive Integrated Moving Average (ARIMA)" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Forecasting - Autoregressive Integrated Moving Average (ARIMA)" pageTitle="Step 1: Web service: Forecasting - Autoregressive Integrated Moving Average (ARIMA) | Azure" description="Web service: Forecasting - Autoregressive Integrated Moving Average (ARIMA)" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
 
  
 #Forecasting - Autoregressive Integrated Moving Average (ARIMA)
  
-This web service implements Autoregressive Integrated Moving Average (ARIMA) to produce predictions based on the historical daa provided by the user. Will the demand for a specific product increase this year? Can I predict my product sales for the Christmas season, so that I can effectively plan my inventory? Forecasting models are apt to address such questions. Given the past data, these models examine hidden trends and seasonality to predict future trends.  
+This web service implements Autoregressive Integrated Moving Average (ARIMA) to produce predictions based on the historical data provided by the user. Will the demand for a specific product increase this year? Can I predict my product sales for the Christmas season, so that I can effectively plan my inventory? Forecasting models are apt to address such questions. Given the past data, these models examine hidden trends and seasonality to predict future trends.  
 
 >While this web service could be consumed by users – potentially through a mobile app, website, or even on a local computer for example, the purpose of the web service is also to serve as an example of how Azure ML can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within the Azure ML Studio, a forecasting test experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure set-up by the author of the web service.
 
