@@ -54,6 +54,7 @@ VB at server
 
 When you run your app on your development machine in debug mode, results will appear in Application Insights within seconds. When you deploy the app, data takes longer to move through the pipeline from your server and clients.
 
+<!--
 ## <a name="metrics"></a> Track metrics
 
 You don't have to do any more to get basic usage data such as page views. But you can write a few lines of code to find out more about what your users are doing with your app.
@@ -64,30 +65,28 @@ To track a metric – that is, a numeric value like a score - insert a line of s
 
 JavaScript at client
 
-    appInsights.trackMetric("Score", currentGame.Score);
+    appInsights.trackMetric("Alerts", notifications.Count);
 
 C# at server
 
-    var telemetryContext = new TelemetryContext();
-    telemetryContext.TrackMetric ("Opponents", game.Opponent.Count);
+    var telemetry = new TelemetryClient();
+    telemetry.TrackMetric ("Users online", currentUsers.Count);
 
 VB at server
 
-    Dim telemetryContext = New TelemetryContext
-    telemetryContext.TrackMetric ("Opponents", game.Opponent.Count)
+    Dim telemetry = New TelemetryClient
+    telemetry.TrackMetric ("Users online", currentUsers.Count)
 
 Test the app, and use it so as to run your trackMetric() call.
 
 
-<!-- Then go to your application in Application Insights and click through the [Metrics][metrics] tile. Select your metric to see the first results. -->
+Then go to your application in Application Insights and click through the [Metrics][metrics] tile. Select your metric to see the first results.
 
-<!-- PIC  -->
 
-<!-- The graph shows the recent average over values logged from all your users. -->
+The graph shows the recent average over values logged from all your users. 
 
-If you send telemetry from both the client and server, be sure to give the metrics different names.
 
-(By the way: metrics aren’t optimized for diagnosing problems. If that's what you need, look at [Diagnostic Logging][diagnostic].) 
+(By the way: metrics aren’t optimized for diagnosing problems. If that's what you need, look at [Diagnostic Logging][diagnostic].) -->
 
 
 ## <a name="events"></a>Track events
@@ -100,19 +99,17 @@ JavaScript at client
 
 C# at server
     
-    var telemetryContext = new TelemetryContext();
-    telemetryContext.TrackEvent("EndOfGame");
+    var telemetry = new TelemetryClient();
+    telemetry.TrackEvent("EndOfGame");
 
 VB at server
 
 
-    Dim telemetryContext = New TelemetryContext
-    telemetryContext.TrackEvent("EndOfGame")
+    Dim telemetry = New TelemetryClient
+    telemetry.TrackEvent("EndOfGame")
 
+If you send telemetry from both the client and server, be sure to give the events different names.
 
-<!-- Run your game, and you'll see events appearing under //// Usage analytics. -->
-
-<!-- PIC -->
 
 ## <a name="pageViews"></a>Page views (client only)
 
@@ -126,96 +123,67 @@ If you want, you can modify the call to change the name, or you can insert addit
 
 JavaScript at client:
 
-    appinsights.trackPageView("tab1");
+    appInsights.trackPageView("tab1");
 
 If you have several tabs within different HTML pages, you can specify the URL too:
 
-    appinsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
-
-If you want to measure the time the user spent on a page, you can send it:
-
-    // When the page opens:
-    window.startTime = new Date().getTime();
-    ...
-    // When the page closes:
-    var endTime = new Date().getTime();
-    var durationInMilliseconds = endTime-startTime;
-    appinsights.trackPageView("tab1", "http://fabrikam.com/page1.htm", durationInMilliseconds);
+    appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
 
 ## <a name="properties"></a>Filter, search and segment your data with properties
 
-You can attach properties to your events, metrics, and other telemetry data. In the usage reports, you can set a filter to show just the data for specific property values. For example if your app provides several games, you’ll want to attach the name of the game to each event or metric, so that you can see which games are more popular. 
+You can attach properties and measurements to your events, page views, and other telemetry data. 
+
+**Properties** are string values that you can use to filter your telemetry in the usage reports. For example if your app provides several games, you’ll want to attach the name of the game to each event, so that you can see which games are more popular.
+
+**Measurements** are numeric values that you can get statistics from in the usage reports.
 
 
 JavaScript at client
 
-    // Create a metric, but don’t send it yet:
-    var metric = new Microsoft.ApplicationInsights
-                   .MetricTelemetry("Score", currentGame.Score);
-    // Attach some properties to it:
-    metric.data.item.properties["Game"] = currentGame.name;
-    metric.data.item.properties["Difficulty"] = currentGame.difficulty;
-    // Send it:
-    appinsights.context.track(metric);
+    appInsights.trackEvent("EndOfGame",
+         // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric measurements:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
 
 C# at server
 
-    // Create a metric, but don’t send it yet:
-    var metric = new MetricTelemetry("Score", currentGame.Score);
-    // Attach some properties to it:
-    metric.Properties["Game"] = currentGame.Name;
-    metric.Properties["Difficulty"] = currentGame.Difficulty;
-    // Send the metric:
-    telemetryContext.Track(metric);
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+    var measurements = new Dictionary <string, double>
+       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+
+    // Send the event:
+    telemetry.TrackEvent("endOfGame", properties, measurements);
+
 
 VB at server
 
-    ' Create a metric, but don’t send it yet:
-    Dim metric = New MetricTelemetry("Score", currentGame.Score)
-    ' Attach some properties to it:
-    metric.Properties("Game") = currentGame.Name
-    metric.Properties("Difficulty") = currentGame.Difficulty
-    ' Send the metric:
-    telemetryContext.Track(metric)
+    ' Set up some properties:
+    Dim properties = New Dictionary (Of String, String)
+    properties.Add("game", currentGame.Name)
+    properties.Add("difficulty", currentGame.Difficulty)
 
-Attach properties to events in the same way:
+    Dim measurements = New Dictionary (Of String, Double)
+    measurements.Add("Score", currentGame.Score)
+    measurements.Add("Opponents", currentGame.OpponentCount)
+
+    ' Send the event:
+    telemetry.TrackEvent("endOfGame", properties, measurements)
+
+
+Attach properties to page views in the same way:
 
 JavaScript at client
 
-    // Create an event, but don’t send it yet:
-    var event1 = new Microsoft.ApplicationInsights
-                    .EventTelemetry("EndOfGame");
-    // Attach some properties to it:
-    event1.data.item.properties["Game"] = currentGame.name;
-    event1.data.item.properties["Difficulty"] = currentGame.difficulty;
-    // Send it:
-    appinsights.context.track(event1);
+    appInsights.trackPageView("Win", 
+     {Game: currentGame.Name}, 
+     {Score: currentGame.Score});
 
-C# at server
-
-    // Create an event, but don’t send it yet:
-    var event1 = new EventTelemetry("EndOfGame");
-    // Attach some properties to it:
-    event1.Properties["game"] = currentGame.Name;
-    event1.Properties["difficulty"] = currentGame.Difficulty;
-    // Send the metric:
-    telemetryContext.Track(event1);
-
-VB at server
-
-    ' Create an event, but don’t send it yet:
-    Dim event1 = New EventTelemetry("EndOfGame")
-    ' Attach some properties to it:
-    event1.Properties("Game") = currentGame.Name
-    event1.Properties("Difficulty") = currentGame.Difficulty
-    ' Send it:
-    telemetryContext.Track(event1)
-
-You can attach as many properties as you like with each metric or event.
-A property value can be of any type. It will be converted to a string.
-
-In the Application Insights portal, you can filter on property values. 
+ 
 
 <!--
 To see the filters, expand the parent event group, and select a particular event in the table – in this example, we expanded 'open' and selected 'buy':
@@ -225,100 +193,60 @@ To see the filters, expand the parent event group, and select a particular event
 
 > [WACOM.NOTE] Take care not to log personally identifiable information in properties.
 
-> Tip: Don't send stack traces in events. Individual events can't easily be read in the event reports. For debugging, use TrackTrace() and TrackException() - read more in [Diagnostic search][diagnostic].
 
-## <a name="measurements"></a>Combine metrics and events
+## Timed page views and events
 
-You can attach measurements - that is, numeric values - to an event. 
+You can attach timing data to events and page views. Instead of calling trackEvent or trackPageView, use these calls:
 
 JavaScript at client
 
-    // Create an event, but don’t send it yet:
-    var event1 = new Microsoft.ApplicationInsights.EventTelemetry("EndOfGame");
-    // Attach some metrics to it:
-    event1.data.item.measurements["Score"] = currentGame.Score;
-    event1.data.item.measurements["Duration"] = currentGame.DurationOfPlayInSeconds;
-    // Attach some properties to it:
-    event1.data.item.properties["Game"] = currentGame.name;
-    // Send it:
-    appinsights.track(event1);
+    // At the start of the game:
+    appInsights.startTrackEvent(game.id);
 
-C# at server
+    // At the end of the game:
+    appInsights.stopTrackEvent(game.id, {GameName: game.name}, {Score: game.score});
 
-    // Create an event, but don’t send it yet:
-    var event1 = new EventTelemetry("EndOfGame");
-    // Attach some measurements to it:
-    event1.Metrics["Score"] = currentGame.Score;
-    event1.Metrics["Duration"] = currentGame.DurationOfPlayInSeconds;
-    // Attach some properties to it:
-    event1.Properties["game"] = currentGame.Name;
-    // Send the event:
-    telemetryContext.Track(event1);
+    // At the start of a page view:
+    appInsights.startTrackPage(myPage.name);
 
-VB at server
+    // At the completion of a page view:
+    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
 
-    ' Create an event, but don’t send it yet:
-    Dim event1 = New EventTelemetry("EndOfGame")
-    ' Attach some metrics to it:
-    event1.Metrics("Score") = currentGame.Score
-    event1.Metrics("Duration") = currentGame.DurationOfPlayInSeconds
-    ' Attach some properties to it:
-    event1.Properties("game") = currentGame.Name
-    ' Send the event:
-    telemetryContext.Track(event1)
-    
-<!--
-//// PIC
-
-//// CHECK: //// In the event chart, hover over a data point to see average values for the metrics.  -->
+Use the same string as the first parameter in the start and stop calls.
 
 ## <a name="defaults"></a>Set default property values (not at web client)
 
-You can set default values in the context. They are attached to every metric and event sent from the context. 
+You can set default values in a TelemetryContext. They are attached to every metric and event sent from the context. 
     
 
 C# at server
 
-    telemetryContext.Properties["Game"] = currentGame.Name;
-    // Now all events and metrics will automatically be sent with the context property:
-    telemetryContext.TrackEvent("EndOfGame");
-    telemetryContext.TrackMetric("Score", currentGame.Score);
+    var context = new TelemetryContext();
+    context.Properties["Game"] = currentGame.Name;
+    var telemetry = new TelemetryClient(context);
+    // Now all telemetry will automatically be sent with the context property:
+    telemetry.TrackEvent("EndOfGame");
     
 VB at server
 
-    telemetryContext.Properties["Game"] = currentGame.Name
-    ' Now all events and metrics will automatically be sent with the context property:
-    telemetryContext.TrackEvent("EndOfGame")
-    telemetryContext.TrackMetric("Score", currentGame.Score)
+    Dim context = New TelemetryContext
+    context.Properties("Game") = currentGame.Name
+    Dim telemetry = New TelemetryClient(context)
+    ' Now all telemetry will automatically be sent with the context property:
+    telemetry.TrackEvent("EndOfGame")
 
     
     
-Individual events and metrics can override the default values.
+Individual telemetry can override the default values.
 
-## <a name="contexts"></a>Define multiple contexts (not at web client)
+If you want to switch between groups of default property values, set up multiple contexts.
 
-If you want to switch between groups of default property values, set up multiple contexts:
-
-C# at server
-
-    var context2 = new TelemetryContext();
-    context2.Properties["Game"] = "none"; 
-    context2.TrackEvent("EndOfGame");
-    context2.TrackMetric("Score", currentGame.Score);
-    
-
-VB at server
-
-    Dim context2 = New TelemetryContext()
-    context2.Properties["Game"] = "none"
-    context2.TrackEvent("EndOfGame")
-    context2.TrackMetric("Score", currentGame.Score)
 
 
 ## <a name="next"></a>Next steps
 
 
-[Explore your metrics][explore]
+[Search events and logs][diagnostic]
 
 [Troubleshooting][qna]
 
