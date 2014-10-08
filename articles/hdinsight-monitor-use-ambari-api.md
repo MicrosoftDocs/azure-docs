@@ -112,8 +112,10 @@ The output is:
 	             "host_name":"headnode0"}},
 	   {"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/hosts/workernode0",
 	    "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
-	             "host_name":"workernode0"}}]}
+	             "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
+Note for the 10/8/2014 release:
+When using Ambari endpoint, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", the *host_name* field now returns the fully qualified domain name (FQDN) of the node instead of the host name. Before the 10/8/2014 release, this example returned" simply **headnode0**". After the 10/8/2014, you get the FQDN “**headnode0.{ClusterDNS}.azurehdinsight.net**” as shown in the example above. This change was required to facilitate scenarios where multiple cluster types such as HBase and Hadoop can be deployed in one Virtual Network (VNET). This happens, for example, when using HBase as a back-end platform for Hadoop.
 
 ##<a id="monitor"></a>Ambari monitoring APIs
 
