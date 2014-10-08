@@ -1,4 +1,4 @@
-<properties linkid="mobile-services-ios-get-started-mobile-analytics" urlDisplayName="Get Started with Mobile Analytics" pageTitle="Get Started with Mobile Analytics | Mobile Dev Center" metaKeywords="" description="Get Started with Mobile Analytics." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
+<properties urlDisplayName="Get Started with Mobile Analytics" pageTitle="Get Started with Mobile Analytics | Mobile Dev Center" metaKeywords="" description="Get Started with Mobile Analytics." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/30/2014" ms.author="mahender" />
 
