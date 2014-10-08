@@ -1,4 +1,4 @@
-<properties linkid="web-sites-create-web-jobs" urlDisplayName="Use WebJobs to run background tasks in Microsoft Azure Websites" pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Web Jobs, background tasks" description="Learn how to run background tasks in Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Use WebJobs to run background tasks in Microsoft Azure Websites" authors="cephalin"  solutions="" writer="timamm" manager="wpickett" editor="mollybos"  />
+<properties urlDisplayName="Use WebJobs to run background tasks in Microsoft Azure Websites" pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Web Jobs, background tasks" description="Learn how to run background tasks in Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Use WebJobs to run background tasks in Microsoft Azure Websites" authors="cephalin"  solutions="" writer="timamm" manager="wpickett" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="cephalin" />
 
@@ -123,7 +123,7 @@ Scheduled jobs can be further configured in the Azure Scheduler portal.
 3. The **Job Action** page opens, where you can further configure the job. 
 	
 	![Job Action PageInScheduler][JobActionPageInScheduler]
-
+	
 ## <a name="ViewJobHistory"></a>View the Job History
 
 1. To view the execution history of a job, including jobs created with the WebJobs SDK, click  its corresponding link under the **Logs** column. (You can use the clipboard icon to copy the URL of the log file page to the clipboard if you wish.)
@@ -161,7 +161,7 @@ Scheduled jobs can be further configured in the Azure Scheduler portal.
 ## <a name="NextSteps"></a>Next Steps
  
 For more information, see [Azure WebJobs Recommended Resources][WebJobsRecommendedResources].
-	
+
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]:http://go.microsoft.com/fwlink/?LinkId=390226
 

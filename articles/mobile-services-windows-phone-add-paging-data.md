@@ -10,7 +10,7 @@ This topic shows you how to use paging to manage the amount of data returned to 
 
 >[WACOM.NOTE]To prevent data overflow in mobile device clients, Mobile Services implements an automatic page limit, which defaults to a maximum of 50 items in a response. By specifying the page size, you can explicitly request up to 1,000 items in the response.
 
-This tutorial builds on the steps and the sample app from the previous tutorial [Get started with data]. Before you begin this tutorial, you must complete at least the first tutorial in the working with data series, [Get started with data]. 
+This tutorial builds on the steps and the sample app from the previous tutorial [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/). Before you begin this tutorial, you must complete this tutorial.  
 
 [WACOM.INCLUDE [mobile-services-windows-dotnet-paging](../includes/mobile-services-windows-dotnet-paging.md)]
 
