@@ -46,8 +46,8 @@ Insert event logging calls using your chosen logging framework.
 
 For example, if you use the simple Application Insights SDK, you might insert:
 
-    var tc = new Microsoft.ApplicationInsights.TelemetryContext();
-    tc.TrackTrace("Slow response - database01");
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow response - database01");
 
 Or if you use System.Diagnostics.Trace:
 
@@ -77,6 +77,8 @@ JavaScript at client
 
 C# at server
 
+    var telemetry = new TelemetryClient();
+    ...
     try 
     { ...
     }
@@ -95,6 +97,8 @@ C# at server
 
 VB at server
 
+    Dim telemetry = New TelemetryClient
+    ...
     Try
       ...
     Catch ex as Exception
@@ -106,7 +110,7 @@ VB at server
       measurements.Add("Users", currentGame.Users.Count)
   
       ' Send the exception telemetry:
-      telemetry.TrackMetric(ex, properties, measurements)
+      telemetry.TrackException(ex, properties, measurements)
     End Try
 
 The properties and measurements parameters are optional, but are useful for filtering and adding extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you like to each dictionary.
@@ -280,6 +284,13 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 
 Up to 500 events per second from each application. Events are retained for seven days.
 
+### <a name="cani"></a>Can I...?
+
+- Set alerts on events and exceptions
+- Export logs for further analysis
+- Search on specific properties
+
+Not just yet, but all these features are on the backlog.
 
 ## <a name="add"></a>Next steps
 
