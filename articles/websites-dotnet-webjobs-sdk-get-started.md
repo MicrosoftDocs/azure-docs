@@ -23,7 +23,6 @@ You can [download the Visual Studio project][download] from the MSDN Code Galler
 - [Build, run, and deploy the application](#storage)
 - [Create the application from scratch](#create)
 - [Review the application code](#code)
-- [Troubleshoot](#troubleshoot)
 - [Next Steps](#next-steps)
 
 ## <a id="prerequisites"></a>Prerequisites
@@ -781,19 +780,12 @@ The WebJobs SDK calls this method when a queue message is received. The method c
 
 >[WACOM.NOTE] 
 >* If your website runs on multiple VMs, this program will run on each machine, and each machine will wait for triggers and attempt to run functions. In some scenarios this can lead to some functions processing the same data twice, so functions should be idempotent (written so that calling them repeatedly with the same input data doesn't produce duplicate results).
->* For information about how to implement graceful shutdown, see [the WebJobs SDK 0.3.0 beta announcement](http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/).   
+>* For information about how to implement graceful shutdown, see [Graceful Shutdown](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).   
 >* The code in the `ConvertImageToThumbnailJPG` method (not shown) uses classes in the `System.Drawing` namespace for simplicity. However, the classes in this namespace were designed for use with Windows Forms. They are not supported for use in a Windows or ASP.NET service.
 
-### WebJobs versus Cloud Service worker role
+### WebJobs SDK versus Cloud Service worker role without WebJobs SDK
 
 If you compare the amount of code in the `GenerateThumbnails` method in this sample application with the worker role code in the [Cloud Service version of the application](/en-us/documentation/articles/cloud-services-dotnet-get-started/), you can see how much work the WebJobs SDK is doing for you. The advantage is greater than it appears, because the Cloud Service sample application code doesn't do all of the things (such as poison message handling) that you would do in a production application, and which the WebJobs SDK does for you.
-
-The Cloud Service version of this sample application has a `ProcessQueueMessage` method that performs the following tasks:
-
-* Get the database record ID from the queue message.
-* Read the database to get the URL of the blob.
-* Convert the image to a thumbnail, and save the thumbnail in a new blob.
-* Update the database record by adding the thumbnail blob URL. 
 
 In the Cloud Service version of the application, the record ID is the only information in the queue message, and the background process gets the image URL from the database. In the WebJobs SDK version of the application, the queue message includes the image URL so that it can be provided to the `Blob` attributes. If the queue message didn't have the blob URL, you could [use the Blob attribute in the body of the method instead of in the method signature](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#blobbody).
 
