@@ -135,7 +135,7 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
                 try
                 {
                   AuthenticationContext ac = new AuthenticationContext(authority);
-                  AuthenticationResult ar = await ac.AcquireTokenAsync(resourceURI, clientID);
+                  AuthenticationResult ar = await ac.AcquireTokenAsync(resourceURI, clientID, (Uri) null);
                   JObject payload = new JObject();
                   payload["access_token"] = ar.AccessToken;
                   user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
