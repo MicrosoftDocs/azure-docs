@@ -22,7 +22,8 @@ Application Insights can monitor ASP.NET web applications hosted on-premise or o
 If you haven't yet added Application Insights to your project (that is, if it doesn't have ApplicationInsights.config), choose one of these ways to get started:
 
 * [Add Application Insights to your app project in Visual Studio][start] - Recommended. As well as passive performance monitoring, you can insert diagnostic logging and track usage.
-* [Monitor performance of a live website now][redfield] - This way, you don't need to update the application project or redeploy the website. 
+* [Monitor performance of a live website now][redfield] - This way, you don't need to update the application project or redeploy the website.
+* [For a Microsoft Azure website](../insights-how-to-customize-monitoring/)  you can already see metrics on the website's Monitoring lens. 
 
 
 ## <a name="view"></a>View reports
@@ -133,7 +134,8 @@ Here are a few tips for finding and diagnosing performance issues:
 [Troubleshooting][qna] - and Q & A
 
 
-## Learn more
+
+## Application Insights - learn more
 
 * [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
@@ -141,6 +143,7 @@ Here are a few tips for finding and diagnosing performance issues:
 * [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
 * [Track usage][usage]
+* [Track custom events and metrics][track]
 * [Q & A and troubleshooting][qna]
 
 <!--Link references-->
@@ -152,5 +155,7 @@ Here are a few tips for finding and diagnosing performance issues:
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
 [usage]: ../app-insights-web-track-usage/
+[track]: ../app-insights-web-track-usage-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/
 [webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+
