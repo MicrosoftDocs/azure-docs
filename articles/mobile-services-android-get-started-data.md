@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get Started with Data - Android" pageTitle="Get started with data (Android) | Mobile Dev Center" metaKeywords="Azure android data, Azure mobile services data, windows droid, windows android, microsoft droid, microsoft android" description="Learn how to get started using Mobile Services to leverage data in your Android app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="ricksal,glenga" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-data-android" urlDisplayName="Get Started with Data - Android" pageTitle="Get started with data (Android) | Mobile Dev Center" metaKeywords="Azure android data, Azure mobile services data, windows droid, windows android, microsoft droid, microsoft android" description="Learn how to get started using Mobile Services to leverage data in your Android app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="ricksal,glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/29/2014" ms.author="ricksal,glenga" />
 
@@ -35,7 +35,7 @@ This tutorial requires the [Mobile Services Android SDK]; the <a href="https://g
 <p>This tutorial provides instructions for installing both the Android SDK and the Mobile Services Android SDK. The downloaded GetStartedWithData project requires Android 4.2 or a later version. However, the Mobile Services SDK requires only Android 2.2 or a later version.</p>
 </div>
 
-
+>[AZURE.NOTE] This tutorial uses the latest version of the Mobile Services SDK. You can find an earlier version of it <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126"> here</a> for backward compatibility purposes, but the code contained in these tutorials does not work with it.
 
 <h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
 
@@ -118,8 +118,6 @@ Once you have completed the data series, try these other Android tutorials:
 <!-- Images. -->
 [8]: ./media/mobile-services-android-get-started-data/mobile-dashboard-tab.png
 [9]: ./media/mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
-
-
 [12]: ./media/mobile-services-android-get-started-data/mobile-eclipse-project.png
 [13]: ./media/mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
 [14]: ./media/mobile-services-android-get-started-data/mobile-services-import-android-workspace.png
@@ -136,6 +134,6 @@ Once you have completed the data series, try these other Android tutorials:
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
-[Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
+[Mobile Services Android SDK]: http://aka.ms/Iajk6q
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
