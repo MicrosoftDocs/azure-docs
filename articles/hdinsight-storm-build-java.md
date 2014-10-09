@@ -11,6 +11,7 @@
 * One or more bolts to act on the data (raise alerts, send e-mail, or just save it somewhere.)
 * If you want to visualize the data in real-time, you have to build some sort of real-time dashboard. You also have to find some communication channel that is common between Java and your dashboard. For example, websockets, signalr, etc.
 
+
 ##In this article, you will learn
 
 - [Concepts](#concepts)
@@ -31,8 +32,51 @@
 
 ##Concepts
 
-topologies, streams, tuples, spouts, bolts
-how - distributed processing
+* **HDInsight Storm** - HDInsight Storm clusters process **topologies** instead of the MapReduce jobs that you may be familiar with from HDInsight or Hadoop. A Storm cluster contains two types of nodes, head nodes that run **Nimbus** and worker nodes that run **Supervisor**
+
+	* **Nimbus** - Similar to the JobTracker in Hadoop, it is responsible for distributing code throughout the cluster, assigning tasks to machines, and monitoring for failure. HDInsight provides two Nimbus nodes, so there is no single point of failure for a Storm cluster
+
+	* **Supervisior** - The supervisor for each worker node is responsible for starting and stopping **worker processes** on the node
+
+		* **Worker process** - A worker process runs a subset of a **topology**. A running topology is distributed across many worker processes throughout the cluster.
+
+* **Topology** - Defines a graph of computation that processes **streams** of data. Unlike MapReduce jobs, topologies run until you stop them
+
+* **Stream** - An unbound collection of **tuples**. Streams are produced by **spouts** and **bolts**, and consumed by **bolts**
+
+* **Tuple** - A named list of dynamically typed values
+
+* **Spout** - Consumes data from a data source and emits one or more **streams**
+
+	> [WACOM.NOTE] In many cases, data is read from a queue such as Kafka, Azure ServiceBus Queues or Event Hubs. The queue ensures that data is persisted in case of an outage.
+
+* **Bolt** - Consumes **streams**, performs processing on **tuples**, and may emit **streams**. Bolts are also responsible for writing data to external storage, such as a queue, HDInsight HBase, a blob, or other data store
+
+* **Thrift** - Apache Thrift is a software framework for scalable cross-language service development. It allows you to build services that work between C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, and other languages.
+
+	* **Nimbus** is a Thrift service, and a **topology** is a Thrift definition, so it is possible to develop topologies using a variety of programming languages 
+
+For more information on Storm components, see the [Storm tutorial][apachetutorial] at apache.org.
+
+##Development languages
+
+While Storm was created to be used with multiple programming languages, you will most often see examples written in Java. While there is [support for multiple languages](https://storm.incubator.apache.org/about/multi-language.html), many of these will require you to install an additional programming language on the HDInsight cluster. 
+
+The HDInsight Storm cluster only provide language support Java, Python, and .NET.
+
+###.NET
+
+SCP is a project that enables .NET developers to design and implement a topology (including spouts and bolts.) Support for SCP is provided by default with HDInsight Storm clusters.
+
+For more information on developing with SCP, see [Link TBD](tbd).
+
+###Java
+
+Most examples you encounter will be either plain Java, or Trident. Trident is a high-level abstraction that makes it easier to do things such as joins, aggregations, grouping, and filtering. However, Trident acts on batches of tuples, where a raw Java solution will process a stream one tuple at a time.
+
+For more information on Trident, see the [Trident tutorial](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) at apache.org.
+
+For examples of both raw Java and Trident topologies, see the **%storm_home%\contrib\storm-starter** directory on your HDInsight Storm cluster.
 
 ##Common patterns
 
