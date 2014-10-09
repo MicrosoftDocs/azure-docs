@@ -148,11 +148,8 @@
 		}
 
 
-<<<<<<< HEAD
-15. Back in TodoActivity.java file, update the **onCreate** method of the ToDoActivity class to register the notification handler class. Make sure to add this code after the MobileServiceClient is instantiated.
-=======
-14. Back in TodoActivity.java file, update the **onCreate** method of the ToDoActivity class to register the notification handler class. Make sure to add this code after the MobileServiceClient is instantiated.
->>>>>>> 533079b731db8a758f3a771655135e696528d2a8
+15. Back in the TodoActivity.java file, update the **onCreate** method of the ToDoActivity class to register the notification handler class. Make sure to add this code after the MobileServiceClient is instantiated.
+
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
