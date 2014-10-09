@@ -73,7 +73,7 @@ Use the following PowerShell script to run a job using the Mahout recommendation
 	$clusterName = "the cluster name"
 	
 	# The location of the Mahout jar file.
-	$jarFile = "C:\apps\dist\mahout-0.9.0.2.1.3.0-1887\examples\target\mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
+	$jarFile = "file:///c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
 	# Use the following to find the location and name
