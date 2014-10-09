@@ -2,7 +2,7 @@
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="tdykstra" />
 
-# What is the WebJobs SDK
+# What is the Azure WebJobs SDK
 
 This article explains what the WebJobs SDK is, reviews some common scenarios it is useful for, and gives an overview of how you use it in your code.
 
@@ -25,7 +25,7 @@ The WebJobs SDK includes the following components:
   
 * **Dashboard**. Part of the WebJobs SDK is included in Azure Websites and provides rich monitoring and diagnostics for programs that use the NuGet packages. You don't have to write code to use these monitoring and diagnostics features.
 
-### Scenarios
+## <a id="scenarios"></a>Scenarios
 
 Here are some typical scenarios you can handle more easily with the Azure WebJobs SDK:
 
@@ -39,9 +39,9 @@ Here are some typical scenarios you can handle more easily with the Azure WebJob
 
 * Ingress into Azure Tables. You might have files stored and blobs and want to parse them and store the data in tables. The ingress function could be writing lots of rows (millions in some cases), and the WebJobs SDK makes it possible to implement this functionality easily. The SDK also provides real-time monitoring of progress indicators such as the number of rows written in the table.
 
-* Other long-running tasks that you want to run in a background thread, such as sending emails. 
+* Other long-running tasks that you want to run in a background thread, such as [sending emails](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure). 
 
-### Code samples
+## <a id="code"></a> Code samples
 
 The code for handling typical tasks that work with Azure Storage is simple. In a Console Application, you write methods for the background tasks that you want to execute, and you decorate them with attributes from the WebJobs SDK. Your `Main` method creates a `JobHost` object that coordinates the calls to methods you write. The WebJobs SDK framework knows when to call your methods based on the WebJobs SDK attributes you use in them. 
 
@@ -95,6 +95,6 @@ The WebJobs SDK provides several advantages even if you don't need to work direc
 
 * For more information, see [How to manually invoke a function](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual) and [How to write logs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#logs) 
 
-### Next steps
+## <a id="nextsteps"></a>Next steps
 
 For more information about the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).
