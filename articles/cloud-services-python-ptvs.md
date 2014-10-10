@@ -1,11 +1,11 @@
-<properties linkid="develop-python-cloud-services-with-ptvs" urlDisplayName="Create Web and Worker Roles" pageTitle="Create Web and Worker Roles" metaKeywords="Azure python, web role, worker role" description="A guide for using Python Tools for Visual Studio to create web and worker roles in Python." metaCanonical="" services="" documentationCenter="Python" title="How to create Python web and worker roles" authors="huvalo" solutions="" manager="" editor="" />
+<properties linkid="develop-python-cloud-services-with-ptvs" urlDisplayName="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" pageTitle="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" metaKeywords="Azure python, web role, worker role, PTVS, cloud service" description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles." metaCanonical="" services="" documentationCenter="Python" title="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" authors="huvalo" solutions="" manager="" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 
 
 
 
-# How to create Python web and worker roles
+# Python Web and Worker Roles with Python Tools 2.1 for Visual Studio
 
 This guide gives an overview of using Python web and worker roles using [Python Tools for Visual Studio][].
 
