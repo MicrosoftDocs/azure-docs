@@ -6,11 +6,13 @@
 
 Learn how to use build a solution that uses an HDInsight Storm cluster to process sensor data from Azure Event Hub. During processing, the Storm topology will store all data into an HDInsight HBase cluster. The topology will also use SignalR to provide information to a web-based dashboard.
 
-For this scenario, two temperature values will be stored into Event Hub - one represents the ambient outdoor temperature, and the other represents the temperature in a greenhouse. 
+[insert diagram]
 
 ##Prerequisites
 
 * An Azure subscription
+
+* Visual Studio with the [Microsoft Azure SDK for .NET](http://azure.microsoft.com/en-us/downloads/archive-net-downloads/)
 
 * [Java]
 
@@ -20,13 +22,342 @@ For this scenario, two temperature values will be stored into Event Hub - one re
 
 > [WACOM.NOTE] A complete version of this project is available at [github location].
 
-##Architecture
+##Create the dashboard
 
-![An architecture diagram][tbd]
+The dashboard is used to display near-real time sensor information. In this case, the dashboard is an ASP.NET application hosted in an Azure Website. The application's primary purpose is to serve as a [SignalR](http://www.asp.net/signalr/overview/getting-started/introduction-to-signalr) hub that receives information from the Storm topology as it processes messages.
+
+The website also contains a static index.html file, which also connects to SignalR, and uses D3.js to graph the data transmitted by the Storm topology.
+
+> [WACOM.NOTE] While you could also use raw WebSockets instead of SignalR, WebSockets does not provide a built-in scaling mechanism if you need to scale out the web site. SignalR can be scaled using [TBD].
+>
+> For an example of using a Storm topology to communicate with a Python website using raw WebSockets, see the [Storm Tweet Sentiment D3 Visualization](https://github.com/P7h/StormTweetsSentimentD3Viz) project.
+
+1. In Visual Studio, create a new C# application using the **ASP.NET Web Application** project template. Name the new application **Dashboard**.
+
+2. In the **New ASP.NET Project** window, select the **Empty** application template. In the **Windows Azure** section, select **Host in the cloud** and **Web site**. Finally, click **Ok**.
+
+	> [AZURE.NOTE] If prompted, sign in to your Azure subscription.
+
+3. In the **Configure Windows Azure Site** dialog, enter a **Site name** and **Region** for your web site, then click **OK**. This will create the Azure Website that will host the dashboard.
+
+3. In **Solution Explorer**, right-click the project and then select **Add | SignalR Hub Class (v2)**. Name the class **DashHub.cs** and add it to the project. This will contain the SignalR hub that is used to communicate data between HDInsight and the dashboard web page.
+
+	> [AZURE.NOTE] If you are using Visual Studio 2012, the **SignalR Hub Class (v2)** template will not be available. You can add a plain **Class** called DashHub instead. You will also need to manually install the SignalR package by opening the **Tools | Library Package Manager | Package Manager Console and running the following command:
+	> 
+	> `install-package Microsoft.AspNet.SignalR`
+
+4. Replace the code in **DashHub.cs** with the following.
+
+		using System;
+		using System.Collections.Generic;
+		using System.Linq;
+		using System.Web;
+		using Microsoft.AspNet.SignalR;
+		
+		namespace dashboard
+		{
+		    public class DashHub : Hub
+		    {
+		        public void Send(string message)
+		        {
+		            // Call the broadcastMessage method to update clients.
+		            Clients.All.broadcastMessage(message);
+		        }
+		    }
+		}
+
+5. In **Solution Explorer**, right-click the project and then select **Add | OWIN Startup Class**. Name the new class **Startup.cs**.
+
+	> [AZURE.NOTE] If you are using Visual Studio 2012, the **OWIN Startup Class** template will not be available. You can create a **Class** called Startup instead.
+
+6. Replace the contents of **Startup.cs** with the following.
+
+		using System;
+		using System.Threading.Tasks;
+		using Microsoft.Owin;
+		using Owin;
+		
+		[assembly: OwinStartup(typeof(dashboard.Startup))]
+		
+		namespace dashboard
+		{
+		    public class Startup
+		    {
+		        public void Configuration(IAppBuilder app)
+		        {
+		            // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
+		            app.MapSignalR();
+		        }
+		    }
+		}
+
+7. In **Solution Explorer**, right-click the project and then click **Add | HTML Page**. Name the new page **index.html**. This page will contain the realtime dashboard for this project. It will receive information from DashHub and display a graph using D3.js.
+
+8. In **Solution Explorer**, right-click on **index.html** and select **Set as Start Page**.
+
+10. Replace the code in the **index.html** file with the following.
+
+		<!DOCTYPE html>
+		<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+		    <title>Dashboard</title>
+		    <style>
+		
+		        .x.axis line {
+		            shape-rendering: auto;
+		        }
+		
+		        .line {
+		            fill: none;
+		            stroke-width: 1.5px;
+		        }
+		
+		    </style>
+		    <!--Script references. -->
+		    <!--Reference the jQuery library. -->
+		    <script src="Scripts/jquery-1.10.2.min.js"></script>
+		    <!--Reference the SignalR library. -->
+		    <script src="Scripts/jquery.signalR-2.0.2.min.js"></script>
+		    <!--Reference the autogenerated SignalR hub script. -->
+		    <script src="signalr/hubs"></script>
+		    <!--Reference d3.js.-->
+		    <script src="http://d3js.org/d3.v3.min.js"></script>
+		</head>
+		<body>
+		    <script>
+		        $(function () {
+		            //Huge thanks to Mike Bostok for his Path Transitions article - http://bost.ocks.org/mike/path/
+		            var n = 243,                                 //number of x coordinates in the graph
+		            duration = 750,                          //duration for transitions
+		            minValue = 0,                            //global vars for holding values coming in from signalr
+		            maxValue = 0,
+		            now = new Date(Date.now() - duration),   //Now
+		            //fill an array of arrays with dummy data to start the chart
+		            //each item in the top-level array is a line
+		            //each item in the line arrays represents a Y coordinate and color
+					//In this case, top line = min values (in blue), bottom line = max values (in red)
+		            data = [                                 
+		                d3.range(n).map(function () { return { value: 0, color: 'blue' }; }),
+		                d3.range(n).map(function () { return { value: 0, color: 'red' }; })
+		            ];
+		
+		            //set margins and figure out width/height
+		            var margin = {top: 6, right: 0, bottom: 20, left: 40},
+		                width = 960 - margin.right,
+		                height = 240 - margin.top - margin.bottom;
+		
+		            //the time scale for the X axis
+		            var x = d3.time.scale()
+		                .domain([now - (n - 2) * duration, now - duration])
+		                .range([0, width]);
+		
+		            //the numerical scale for the Y axis
+		            var y = d3.scale.linear()
+		                .domain([100, 0])
+		                .range([0, height]);
+		
+		            //The line, which is really just a
+		            //couple functions that we can pass data to
+		            //in order to get back x/y coords.
+		            var line = d3.svg.line()
+		                .interpolate("basis")
+		                .x(function (d, i) { return x(now - (n - 1 - i) * duration); })
+		                .y(function (d, i) { return y(d.value); });
+		
+		            //Find the HTML body element and add a child SVG element
+		            var svg = d3.select("body").append("svg")
+		                .attr("width", width + margin.left + margin.right)
+		                .attr("height", height + margin.top + margin.bottom)
+		              .append("g")
+		                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		
+		            //Define a clipping path, because we need to clip
+		            //the graph to render only the bits we want to see
+		            //as it moves
+		            svg.append("defs").append("clipPath")
+		                .attr("id", "clip")
+		              .append("rect")
+		                .attr("width", width)
+		                .attr("height", height);
+		
+		            //Append the x axis
+		            var axis = svg.append("g")
+		                .attr("class", "x axis")
+		                .attr("transform", "translate(0," + height + ")")
+		                .call(x.axis = d3.svg.axis().scale(x).orient("bottom"));
+		
+		            //append the y axis
+		            var yaxis = svg.append("g")
+		                .attr("class", "y axis")
+		                .call(y.axis = d3.svg.axis().scale(y).orient("left").ticks(5));
+		
+		            //append the clipping path
+		            var linegroup = svg.append("g")
+		              .attr("clip-path", "url(#clip)");
+		
+		            //magic. Select all paths with a class of .line
+		            //if they don't exist, make them.
+		            //use the points in the line object to define
+		            //the paths
+		            //set the color to the color defined in the data
+		            var path = linegroup.selectAll(".line")
+		              .data(data)
+		              .enter().append("path")
+		              .attr("class", "line")
+		              .attr("d", line)
+		              .style("stroke", function (d, i) { return d[i].color; });
+		
+		            //We need to transition the graph after all
+		            //lines have been updated. There's no
+		            //built-in for this, so this function
+		            //does reference counting on end events
+		            //for each line, then applies whatever
+		            //callback when all are finished.
+		            function endall(transition, callback) {
+		                var n = 0;
+		                transition
+		                    .each(function () { ++n; })
+		                    .each("end", function () { if (!--n) callback.apply(this, arguments); });
+		            }
+		
+		            //wire up the SignalR client and listen for messages
+		            var chat = $.connection.dashHub;
+		            chat.client.broadcastMessage = function (message) {
+		                //parse the JSON data
+		                var incomingData = JSON.parse(message);
+		                //stuff it in the global vars
+		                minValue = incomingData.low;
+		                maxValue = incomingData.high;
+		            };
+		            //start listening
+		            $.connection.hub.start();
+		            //tick for D3 graphics
+		            tick();
+		
+		
+		            function tick() {
+		                // update the domains
+		                now = new Date();
+		                x.domain([now - (n - 2) * duration, now - duration]);
+		    
+		                //push the (presumably) fresh data in the globals onto
+		                //the arrays that define the lines.
+		                data[0].push({ value: minValue, color: 'blue' });
+		                data[1].push({ value: maxValue, color: 'red' });
+		
+		                //slide the x-axis left
+		                axis.transition()
+		                    .duration(duration)
+		                    .ease("linear")
+		                    .call(x.axis);
+		
+		                //Update the paths based on the updated line data
+		                //and slide left
+		                path
+		                    .attr("d", line)
+		                    .attr("transform", null)
+		                .transition()
+		                    .duration(duration)
+		                    .ease("linear")
+		                    .attr("transform", "translate(" + x(now - (n - 1) * duration) + ",0)")
+		                    .call(endall, tick);
+		    
+		                // pop the old data point off the front
+		                // of the arrays
+		                for (var i = 0; i < data.length; i++) {
+		                    data[i].shift();
+		                };
+		            };
+		         })()
+		        </script>
+		    </body>
+		</html>
+
+
+	> [AZURE.NOTE] A later version of the SignalR scripts may be installed by the package manager. Verify that the script references below correspond to the versions of the script files in the project (they will be different if you added SignalR using NuGet rather than adding a hub.)
+
+11. In **Solution Explorer**, right-click the project and then click **Add | HTML Page**. Name the new page **test.html**. This page can be used to test DashHub and the dashboard by sending and receiving messages.
+
+11. Replace the code in the **test.html** file with the following.
+
+		<!DOCTYPE html>
+		<html>
+		<head>
+		    <title>Test</title>
+		    <style type="text/css">
+		        .container {
+		            background-color: #99CCFF;
+		            border: thick solid #808080;
+		            padding: 20px;
+		            margin: 20px;
+		        }
+		    </style>
+		</head>
+		<body>
+		    <div class="container">
+		        <input type="text" id="message" />
+		        <input type="button" id="sendmessage" value="Send" />
+		        <input type="hidden" id="displayname" />
+		        <ul id="discussion"></ul>
+		    </div>
+		    <!--Script references. -->
+		    <!--Reference the jQuery library. -->
+		    <script src="Scripts/jquery-1.10.2.min.js"></script>
+		    <!--Reference the SignalR library. -->
+		    <script src="Scripts/jquery.signalR-2.0.2.min.js"></script>
+		    <!--Reference the autogenerated SignalR hub script. -->
+		    <script src="signalr/hubs"></script>
+		    <!--Add script to update the page and send messages.-->
+		    <script type="text/javascript">
+		        $(function () {
+		            // Declare a proxy to reference the hub.
+		            var chat = $.connection.dashHub;
+		            // Create a function that the hub can call to broadcast messages.
+		            chat.client.broadcastMessage = function (message) {
+		                // Html encode display the message.
+		                var encodedMsg = $('<div />').text(message).html();
+		                // Add the message to the page.
+		                $('#discussion').append('<li>' + encodedMsg + '</li>');
+		            };
+		            // Set initial focus to message input box.
+		            $('#message').focus();
+		            // Start the connection.
+		            $.connection.hub.start().done(function () {
+		                $('#sendmessage').click(function () {
+		                    // Call the Send method on the hub.
+		                    chat.server.send($('#message').val());
+		                    // Clear text box and reset focus for next comment.
+		                    $('#message').val('').focus();
+		                });
+		            });
+		        });
+		    </script>
+		</body>
+		</html>
+
+11. **Save All** for the project.
+
+12. In **Solution Explorer**, right-click on the **Dashboard** project and select **Publish**. Select the website you created for this project, then click **Publish**.
+
+13. Once the site has been published, a web page should open displaying a moving timeline.
+
+###Test the dashboard
+
+14. To verify that SignalR is working, and that the dashboard will display graph lines for data sent to SignalR, open a new browser window to the **test.html** page on this website. For example, **http://mydashboard.azurewebsites.net/test.html**.
+
+15. The dashboard expects JSON formatted data, with a low and high value. For example **{"low":30, "high":80}**. Enter some test values on the **test.html** page, while the dashboard is open in another page. Note that the red (high) and blue (low) graph lines are drawn using the values you enter.
+
+<!-- commenting until this works
+##Create the virtual network
+
+An Azure Virtual Network allows the Storm cluster to communicate directly with the HBase cluster, without having to go through public gateways into and out of the Azure datacenter. This reduces latency between the systems.
+
+[PowerShell]
+-->
 
 ##Configure Event Hub
 
-Event Hub is used to receive sensor data from on-site sensors. Since not everyone has access to temperature sensors, or the expertiese to hook them up to Event Hub, use one of the following applications to create and store sensor data into Event Hub.
+Event Hub is used to receive sensor data from sensors. Since not everyone has access to temperature sensors, use the following script to populate Event Hub with data.
 
 [needs:]
 * create
@@ -34,29 +365,22 @@ Event Hub is used to receive sensor data from on-site sensors. Since not everyon
 * send
 * send-error
 
-###.NET application
+##Send messages to Event Hub
 
-###Python application
+To send messages to Event Hub, we will use an ASP.NET application.
 
-##Create the dashboard
+1. In Visual Studio, create a new **Windows Desktop** project and select the **Console Application** project template. Name the project **SendEvents** and then click **OK**.
 
-The dashboard is used to display near-real time sensor information. In this case, the dashboard is an ASP.NET application hosted in an Azure Website. The application's primary purpose is to serve as a SignalR hub that receives information from the Storm topology as it processes messages.
+2. In **Solution Explorer**, right-click **SendEvents** and then select **Manage NuGet packages**.
 
-The website also contains a static index.html file, which also connects to SignalR, and uses D3.js to graph the data transmitted by the Storm topology.
+3. In **Manage NuGet Packages**, search for **Microsoft Azure Service Bus**. Install the **Microsoft Azure Service Bus** package. Accept the license agreement and, after the package has installed, **Close** the package manager.
 
-> [WACOM.NOTE] While you could also use raw WebSockets instead of SignalR, WebSockets does not provide a built-in scaling mechanism if you need to scale out the web site. SignalR can be scaled using [link TBD].
->
-> For an example of using a Storm topology to communicate with a website using raw WebSockets, see the [Storm Tweet Sentiment D3 Visualization](https://github.com/P7h/StormTweetsSentimentD3Viz) project.
 
-##Create the virtual network
 
-An Azure Virtual Network allows the Storm cluster to communicate directly with the HBase cluster, without having to go through public gateways into and out of the Azure datacenter. This reduces latency between the systems.
 
-[PowerShell]
+##Create the Storm cluster
 
-##Create the Storm and HBase clusters
-
-Now that the virtual network has been created, use the following PowerShell to create a new Storm and HBase cluster on the same virtual network.
+Use the following PowerShell script to create a new HDInsight Storm cluster.
 
 [PowerShell]
 
