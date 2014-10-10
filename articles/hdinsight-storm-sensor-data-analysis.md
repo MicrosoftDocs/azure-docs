@@ -2,7 +2,7 @@
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
-#Use Apache Storm to analyze sensor data
+#Use Apache Storm to analyze sensor data with HDInsight (Hadoop)
 
 In this tutorial, you will learn how to use build a solution that uses an HDInsight Storm cluster to process sensor data from an Azure Event Hub. During processing, the Storm topology will store all data into an HDInsight HBase cluster, as well as send email alerts via SendGrid. The topology will also use SignalR to provide information to a web-based dashboard.
 
