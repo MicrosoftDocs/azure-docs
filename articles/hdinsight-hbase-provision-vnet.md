@@ -235,6 +235,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
 <!-- 
 3.	Change the Primary DNS Suffix configuration of the virtual machine. This enables virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to the workernode0 of the HBase cluster. 
+
 	To make the configuration change:
 
 	1. RDP into the virtual machine. 
