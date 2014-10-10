@@ -1,4 +1,4 @@
-<properties linkid="develop-python-web-site-with-flask" urlDisplayName="Create Web and Worker Roles" pageTitle="Create Web and Worker Roles" metaKeywords="Azure python, web role, worker role" description="A guide for using Python Tools for Visual Studio to create web and worker roles in Python." metaCanonical="" services="" documentationCenter="Python" title="How to create Python web and worker roles" authors="huvalo" solutions="" manager="" editor="" />
+<properties linkid="develop-python-cloud-services-with-ptvs" urlDisplayName="Create Web and Worker Roles" pageTitle="Create Web and Worker Roles" metaKeywords="Azure python, web role, worker role" description="A guide for using Python Tools for Visual Studio to create web and worker roles in Python." metaCanonical="" services="" documentationCenter="Python" title="How to create Python web and worker roles" authors="huvalo" solutions="" manager="" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 
