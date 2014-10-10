@@ -16,7 +16,7 @@ To programmatically access blobs in ASP.NET projects, you need to do the followi
 
 1.	Get the Microsoft.WindowsAzure.Storage.dll assembly. You can use NuGet to do this. Right-click your project in Solution Explorer and choose Manage NuGet Packages. Search online for "WindowsAzure.Storage" and click Install to install the Azure Storage package and dependencies. Add a reference to this assembly to your project.
 2.	Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.
-
+	
 	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Queue;
