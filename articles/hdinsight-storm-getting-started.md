@@ -165,7 +165,9 @@ If you view the Storm UI web page immediately after this command, you will notic
 
 	> [WACOM.NOTE] Java docs consist of web pages. Once extracted, use a browser to view the **index.html** file.
 
-* [Developing for Storm in HDInsight with Java and Maven](/en-us/documentation/articles/hdinsight-storm-build-java)
+* [Analyzing sensor data with Storm and HDInsight](/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis)
+
+* [Develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight](/en-us/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html

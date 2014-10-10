@@ -72,7 +72,7 @@ The HDInsight Storm cluster provides support for .NET, Java, and Python out of t
 
 SCP is a project that enables .NET developers to design and implement a topology (including spouts and bolts.) Support for SCP is provided by default with HDInsight Storm clusters.
 
-For more information on developing with SCP, see [Link TBD](tbd).
+For more information on developing with SCP, see [Develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight](/en-us/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application).
 
 ###Java
 
@@ -106,7 +106,7 @@ In the following Java example, fieldsGrouping is used to route tuples originatin
 
 Batching can be accomplished several ways. With a basic Storm Java topology, you might use simple counter to batch X number of tuples before emitting them, or use an internal timing mechanism known as a tick tuple to emit a batch every X seconds.
 
-For an example of using tick tuples, see [TBD]
+For an example of using tick tuples, see [Analyzing sensor data with Storm and HDInsight](/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis.md)
 
 If you are using Trident, it is based on processing batches of tuples.
 
@@ -124,9 +124,13 @@ For an example of this, see the [RollingTopWords](https://github.com/nathanmarz/
 
 * [Getting Started with Storm in HDInsight][gettingstarted]
 
+* [Analyzing sensor data with Storm and HDInsight](/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis)
+
+* [Develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight](/en-us/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
+
 [apachestorm]: https://storm.incubator.apache.org
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [poweredby]: https://storm.incubator.apache.org/documentation/Powered-By.html
-[gettingstarted]: [TBD]
+[gettingstarted]: /en-us/documentation/articles/hdinsight-storm-getting-started
