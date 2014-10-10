@@ -13,16 +13,16 @@ The polls application defines an abstraction for its repository, so you can easi
 
 We'll learn how to create an Azure Storage account, how to configure the application to use Azure Table Storage, and how to publish the application to an Azure Website.
 
-+ [Prerequisites] 
-+ [Create the Project]
-+ [Create an Azure Storage Account]
-+ [Configure the Project]
-+ [Explore the Azure Table Storage]
-+ [Publish to an Azure Website]
-+ [Configure the Azure Website]
-+ [Next steps]
++ [Prerequisites](#prerequisites)
++ [Create the Project](#create-the-project)
++ [Create an Azure Storage Account](#create-an-azure-storage-account)
++ [Configure the Project](#configure-the-project)
++ [Explore the Azure Table Storage](#explore-the-azure-table-storage)
++ [Publish to an Azure Website](#publish-to-an-azure-website)
++ [Configure the Azure Website](#configure-the-azure-website)
++ [Next steps](#next-steps)
 
-## Prerequisites
+##<a name="prerequisites"></a>Prerequisites
 
  - Visual Studio 2012 or 2013
  - [Python Tools 2.1 for Visual Studio][]
@@ -30,7 +30,9 @@ We'll learn how to create an Azure Storage account, how to configure the applica
  - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
  - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
 
-## Create the Project
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+
+##<a name="create-the-project"></a>Create the Project
 
 In this section, we'll create a Visual Studio project using a sample template.  We'll create a virtual environment and install required packages.  Then we'll run the application locally using the default in-memory repository.
 
@@ -54,7 +56,7 @@ In this section, we'll create a Visual Studio project using a sample template.  
 
   	![][4]
 
-## Create an Azure Storage Account
+##<a name="create-an-azure-storage-account"></a>Create an Azure Storage Account
 
 To use storage operations, you need an Azure storage account. You can create a storage account by following these steps.
 
@@ -76,7 +78,7 @@ To use storage operations, you need an Azure storage account. You can create a s
 
 1.  Click **CREATE STORAGE ACCOUNT**.
 
-## Configure the Project
+##<a name="configure-the-project"></a>Configure the Project
 
 In this section, we'll configure our application to use the storage account we just created.  We'll see how to obtain connection settings from the Azure portal.  Then we'll run the application locally.
 
@@ -108,7 +110,7 @@ In this section, we'll configure our application to use the storage account we j
 
   	![][9]
 
-## Explore the Azure Table Storage
+##<a name="explore-the-azure-table-storage"></a>Explore the Azure Table Storage
 
 It's easy to view and edit storage tables using Server Explorer in Visual Studio.  In this section we'll use Server Explorer to view the contents of the polls application tables.
 
@@ -122,7 +124,7 @@ It's easy to view and edit storage tables using Server Explorer in Visual Studio
 
   	![][11]
 
-## Publish to an Azure Website
+##<a name="publish-to-an-azure-website"></a>Publish to an Azure Website
 
 PTVS provides an easy way to deploy your web application to an Azure Website.
 
@@ -144,7 +146,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
     That's because the environment variables are not set on the Azure Website, so it uses the default values specified in **settings.py**.
 
-## Configure the Azure Website
+##<a name="configure-the-azure-website"></a>Configure the Azure Website
 
 In this section, we'll configure environment variables for the site.
 
@@ -168,7 +170,7 @@ In this section, we'll configure environment variables for the site.
 
   	![][17]
 
-## Next steps
+##<a name="next-steps"></a>Next steps
 
 Follow these links to learn more about Python Tools for Visual Studio, Flask and Azure Table Storage.
 
@@ -181,16 +183,6 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 - [Azure SDK for Python][]
 - [How to Use the Table Storage Service from Python][]
 
-
-<!--Anchors-->
-[Prerequisites]: #prerequisites
-[Create the Project]: #create-the-project
-[Create an Azure Storage Account]: #create-an-azure-storage-account
-[Configure the Project]: #configure-the-project
-[Explore the Azure Table Storage]: #explore-the-azure-table-storage
-[Publish to an Azure Website]: #publish-to-an-azure-website
-[Configure the Azure Website]: #configure-the-azure-website
-[Next steps]: #next-steps
 
 <!--Image references-->
 [1]: ./media/python-ptvs-flask-table-storage/PollsFlaskNewProject.png

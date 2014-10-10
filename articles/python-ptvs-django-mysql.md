@@ -11,14 +11,14 @@ In this tutorial, we'll create a simple polls application using one of the PTVS 
 
 We'll learn how to use a MySQL service hosted on Azure, how to configure the application to use MySQL, and how to publish the application to an Azure Website.
 
-+ [Prerequisites]
-+ [Create the Project]
-+ [Create a MySQL Database]
-+ [Configure the Project]
-+ [Publish to an Azure Website]
-+ [Next steps]
++ [Prerequisites](#prerequisites)
++ [Create the Project](#create-the-project)
++ [Create a MySQL Database](#create-a-mysql-database)
++ [Configure the Project](#configure-the-project)
++ [Publish to an Azure Website](#publish-to-an-azure-website)
++ [Next steps](#next-steps)
 
-## Prerequisites
+##<a name="prerequisites"></a>Prerequisites
 
  - Visual Studio 2012 or 2013
  - [Python Tools 2.1 for Visual Studio][]
@@ -26,7 +26,9 @@ We'll learn how to use a MySQL service hosted on Azure, how to configure the app
  - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
  - [Python 2.7 32-bit][]
 
-## Create the Project
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+
+##<a name="create-the-project"></a>Create the Project
 
 In this section, we'll create a Visual Studio project using a sample template. We'll create a virtual environment and install required packages.  We'll create a local database using sqlite.  Then we'll run the application locally.
 
@@ -72,7 +74,7 @@ In this section, we'll create a Visual Studio project using a sample template. W
 
   	![][9]
 
-## Create a MySQL Database
+##<a name="create-a-mysql-database"></a>Create a MySQL Database
 
 For the database, we'll create a ClearDB MySQL hosted database on Azure.
 
@@ -98,7 +100,7 @@ You can create a database with a free plan by following these steps.
 
 1.  Click **PURCHASE**.
 
-## Configure the Project
+##<a name="configure-the-project"></a>Configure the Project
 
 In this section, we'll configure our application to use the MySQL database we just created.  We'll see how to obtain connection settings from the Azure portal.  We'll also install additional Python packages required to use MySQL databases with Django.  Then we'll run the application locally.
 
@@ -140,7 +142,7 @@ In this section, we'll configure our application to use the MySQL database we ju
 
 1.  Run the application with <kbd>F5</kbd>.  Polls that are created with **Create Sample Polls** and the data submitted by voting will be serialized in the MySQL database.
 
-## Publish to an Azure Website
+##<a name="publish-to-an-azure-website"></a>Publish to an Azure Website
 
 PTVS provides an easy way to deploy your web application to an Azure Website.
 
@@ -164,7 +166,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
   	![][17]
 
-## Next steps
+##<a name="next-steps"></a>Next steps
 
 Follow these links to learn more about Python Tools for Visual Studio, Django and MySQL.
 
@@ -174,14 +176,6 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
   - [Remote Debugging on Microsoft Azure][]
 - [Django Documentation][]
 - [MySQL][]
-
-<!--Anchors-->
-[Prerequisites]: #prerequisites
-[Create the Project]: #create-the-project
-[Create a MySQL Database]: #create-a-mysql-database
-[Configure the Project]: #configure-the-project
-[Publish to an Azure Website]: #publish-to-an-azure-website
-[Next steps]: #next-steps
 
 <!--Image references-->
 [1]: ./media/python-ptvs-django-mysql/PollsDjangoNewProject.png

@@ -13,16 +13,16 @@ The polls application defines an abstraction for its repository, so you can easi
 
 We'll learn how to use one of the hosted MongoDB services on Azure, how to configure the application to use MongoDB, and how to publish the application to an Azure Website.
 
-+ [Prerequisites] 
-+ [Create the Project]
-+ [Create a MongoDB Database]
-+ [Configure the Project]
-+ [Explore the MongoDB Database]
-+ [Publish to an Azure Website]
-+ [Configure the Azure Website]
-+ [Next steps]
++ [Prerequisites](#prerequisites)
++ [Create the Project](#create-the-project)
++ [Create a MongoDB Database](#create-a-mongodb-database)
++ [Configure the Project](#configure-the-project)
++ [Explore the MongoDB Database](#explore-the-mongodb-database)
++ [Publish to an Azure Website](#publish-to-an-azure-website)
++ [Configure the Azure Website](#configure-the-azure-website)
++ [Next steps](#next-steps)
 
-## Prerequisites
+##<a name="prerequisites"></a>Prerequisites
 
  - Visual Studio 2012 or 2013
  - [Python Tools 2.1 for Visual Studio][]
@@ -31,7 +31,9 @@ We'll learn how to use one of the hosted MongoDB services on Azure, how to confi
  - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
  - [RoboMongo][] (optional)
 
-## Create the Project
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+
+##<a name="create-the-project"></a>Create the Project
 
 In this section, we'll create a Visual Studio project using a sample template.  We'll create a virtual environment and install required packages.  Then we'll run the application locally using the default in-memory repository.
 
@@ -55,7 +57,7 @@ In this section, we'll create a Visual Studio project using a sample template.  
 
   	![][4]
 
-## Create a MongoDB Database
+##<a name="create-a-mongodb-database"></a>Create a MongoDB Database
 
 For the database, we'll create a MongoLab hosted database on Azure.
 
@@ -81,7 +83,7 @@ You can create a free trial with MongoLab by following these steps.
 
 1.  Click **PURCHASE**.
 
-## Configure the Project
+##<a name="configure-the-project"></a>Configure the Project
 
 In this section, we'll configure our application to use the MongoDB database we just created.  We'll see how to obtain connection settings from the Azure portal.  Then we'll run the application locally.
 
@@ -113,7 +115,7 @@ In this section, we'll configure our application to use the MongoDB database we 
 
   	![][10]
 
-## Explore the MongoDB Database
+##<a name="explore-the-mongodb-database"></a>Explore the MongoDB Database
 
 You can use an application such as [RoboMongo][] to query and make edits to a MongoDB database.  In this section we'll use RoboMongo to view the contents of the polls application database.
 
@@ -135,7 +137,7 @@ You can use an application such as [RoboMongo][] to query and make edits to a Mo
 
   	![][13]
 
-## Publish to an Azure Website
+##<a name="publish-to-an-azure-website"></a>Publish to an Azure Website
 
 PTVS provides an easy way to deploy your web application to an Azure Website.
 
@@ -157,7 +159,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
     That's because the environment variables are not set on the Azure Website, so it uses the default values specified in **settings.py**.
 
-## Configure the Azure Website
+##<a name="configure-the-azure-website"></a>Configure the Azure Website
 
 In this section, we'll configure environment variables for the site.
 
@@ -181,7 +183,7 @@ In this section, we'll configure environment variables for the site.
 
   	![][19]
 
-## Next steps
+##<a name="next-steps"></a>Next steps
 
 Follow these links to learn more about Python Tools for Visual Studio, Flask and MongoDB.
 
@@ -194,16 +196,6 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 - [PyMongo Documentation][]
 - [PyMongo][]
 
-
-<!--Anchors-->
-[Prerequisites]: #prerequisites
-[Create the Project]: #create-the-project
-[Create a MongoDB Database]: #create-a-mongodb-database
-[Configure the Project]: #configure-the-project
-[Explore the MongoDB Database]: #explore-the-mongodb-database
-[Publish to an Azure Website]: #publish-to-an-azure-website
-[Configure the Azure Website]: #configure-the-azure-website
-[Next steps]: #next-steps
 
 <!--Image references-->
 [1]: ./media/python-ptvs-flask-mongodb/PollsFlaskNewProject.png

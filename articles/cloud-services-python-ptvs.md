@@ -9,22 +9,29 @@
 
 This guide gives an overview of using Python web and worker roles using [Python Tools for Visual Studio][].
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
++ [Prerequisites](#prerequisites)
++ [What are Python web and worker roles?](#what-are-python-web-and-worker-roles)
++ [Project creation](#project-creation)
++ [Run locally](#run-locally)
++ [Publish to Azure](#publish-to-azure)
++ [Next steps](#next-steps)
 
-## Prerequisites
+##<a name="prerequisites"></a>Prerequisites
 
  - Visual Studio 2012 or 2013
  - [Python Tools 2.1 for Visual Studio][]
  - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
  - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
 
-## What are Python web and worker roles?
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+
+##<a name="what-are-python-web-and-worker-roles"></a>What are Python web and worker roles?
 
 Azure provides three compute models for running applications: [Azure Web Sites][execution model-web sites], [Azure Virtual Machines][execution model-vms], and [Azure Cloud Services][execution model-cloud services]. All three models support Python. Cloud Services, which include web and worker roles, provide *Platform as a Service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications, while a worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
 
 For more information, see [What is a Cloud Service?].
 
-## Project creation
+##<a name="project-creation"></a>Project creation
 
 In Visual Studio, you can select **Azure Cloud Service** in the **New Project** dialog, under **Python**. 
 
@@ -44,8 +51,7 @@ You can add web or worker roles to an existing cloud service at any time.  You c
 
 Your cloud service can contain roles implemented in different languages.  For example, you can have a Python web role implemented using Django, with Python and C# worker roles.  You can easily communicate between your roles using service bus queues or storage queues.
 
-
-## Run locally
+##<a name="run-locally"></a>Run locally
 
 If you set your cloud service project as the startup project and press F5, the cloud service will run in the local Azure emulator.
 
@@ -55,8 +61,7 @@ To debug your web and worker roles, you can set the role project as the startup 
 
 ![](./media/cloud-services-python-ptvs/startup.png)
 
-
-## Publish to Azure
+##<a name="publish-to-azure"></a>Publish to Azure
 
 To publish, right-click on the cloud service project in the solution and select **Publish**.
 
@@ -82,8 +87,7 @@ Some progress will appear in the output window, then you'll see the Microsoft Az
 
 Deployment will take several minutes to complete, then your web and/or worker roles will be running on Azure!
 
-
-## Next Steps
+##<a name="next-steps"></a>Next steps
 
 For more detailed information on working with web and worker roles in Python Tools for Visual Studio, see the PTVS documentation:
 
@@ -97,6 +101,8 @@ For more details on using Azure services from your web and worker roles, such as
 - [Service Bus Queues][]
 - [Service Bus Topics][]
 
+
+<!--Link references-->
 
 [What is a Cloud Service?]: /en-us/manage/services/cloud-services/what-is-a-cloud-service/
 [execution model-web sites]: /en-us/documentation/articles/fundamentals-application-models/#WebSites
