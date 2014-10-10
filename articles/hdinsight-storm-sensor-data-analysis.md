@@ -4,7 +4,7 @@
 
 #Analyzing sensor data with Storm and HDInsight (Hadoop)
 
-In this tutorial, you will learn how to use build a solution that uses an HDInsight Storm cluster to process sensor data from an Azure Event Hub. During processing, the Storm topology will store all data into an HDInsight HBase cluster, as well as send email alerts via SendGrid. The topology will also use SignalR to provide information to a web-based dashboard.
+Learn how to use build a solution that uses an HDInsight Storm cluster to process sensor data from Azure Event Hub. During processing, the Storm topology will store all data into an HDInsight HBase cluster. The topology will also use SignalR to provide information to a web-based dashboard.
 
 For this scenario, two temperature values will be stored into Event Hub - one represents the ambient outdoor temperature, and the other represents the temperature in a greenhouse. 
 
