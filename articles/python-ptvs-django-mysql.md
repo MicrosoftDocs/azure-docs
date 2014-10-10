@@ -204,11 +204,11 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 
 <!--External Link references-->
 [Azure Management Portal]: https://manage.windowsazure.com
-[Python Tools 2.1 for Visual Studio]: http://pytools.codeplex.com/releases
-[Python Tools 2.1 for Visual Studio Samples VSIX]: http://pytools.codeplex.com/releases
-[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510 
-[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/p/?linkid=323511
-[Python 2.7 32-bit]: https://www.python.org/ftp/python/2.7.8/python-2.7.8.msi 
+[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.1 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation
 [Remote Debugging on Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Web Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
