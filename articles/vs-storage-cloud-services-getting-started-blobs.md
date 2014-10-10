@@ -32,4 +32,4 @@ If you’re creating an application without a reference to Microsoft.WindowsAzur
 
 	using System.Configuration;
 
-[WACOM.INCLUDE [vs-storage-getting-started-blobs](../includes/vs-storage-getting-started-blobs.md)]
+[WACOM.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
