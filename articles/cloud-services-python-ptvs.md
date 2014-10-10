@@ -9,10 +9,14 @@
 
 This guide gives an overview of using Python web and worker roles using [Python Tools for Visual Studio][].
 
-In addition to PTVS, you'll need to install the [Azure SDK for .NET][], which provides the Visual Studio integration for Azure tools.
-
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
+## Prerequisites
+
+ - Visual Studio 2012 or 2013
+ - [Python Tools 2.1 for Visual Studio][]
+ - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
+ - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
 
 ## What are Python web and worker roles?
 
@@ -105,8 +109,15 @@ For more details on using Azure services from your web and worker roles, such as
 [Service Bus Queues]: /en-us/documentation/articles/service-bus-python-how-to-use-queues/
 [Service Bus Topics]: /en-us/documentation/articles/service-bus-python-how-to-use-topics-subscriptions/
 
-[Azure SDK for .NET]: /en-us/downloads/
+
+<!--External Link references-->
 
 [Python Tools for Visual Studio]: http://pytools.codeplex.com
 [Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation 
 [Cloud Service Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+
+[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
