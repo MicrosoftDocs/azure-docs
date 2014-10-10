@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-howto-administer-hdinsight" urlDisplayName="Administration" pageTitle="Manage Hadoop clusters in HDInsight using Azure Portal | Azure" metaKeywords="" description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console." metaCanonical="" services="hdinsight" documentationCenter="" title="Manage Hadoop clusters in HDInsight using the Azure Management Portal" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Administration" pageTitle="Manage Hadoop clusters in HDInsight using Azure Portal | Azure" metaKeywords="" description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console." metaCanonical="" services="hdinsight" documentationCenter="" title="Manage Hadoop clusters in HDInsight using the Azure Management Portal" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -25,6 +25,7 @@ Before you begin this article, you must have the following:
 * [Customize HDInsight clusters](#customize)
 * [Change HDInsight cluster username and password](#password)
 * [Connect to HDInsight clusters using RDP](#rdp)
+* [Create a self-signed certificate](#cert)
 * [Grant/revoke HTTP services access](#httpservice)
 * [Open Hadoop command console](#hadoopcmd)
 * [Next steps](#nextsteps)
@@ -97,7 +98,6 @@ An HDInsight cluster can have two user accounts.  The HDInsight cluster user acc
 8. Click **SAVE**.
 
 
-
 ##<a id="rdp"></a> Connect to HDInsight clusters using RDP
 
 The credentials for the cluster that you provided at its creation give access to the services on the cluster, but not to the cluster itself through remote desktop. Remote Desktop access is turned off by default and so direct access to the cluster using it requires some additional, post-creation configuration.
@@ -124,6 +124,21 @@ The credentials for the cluster that you provided at its creation give access to
 3. Click the HDInsight cluster that you want to connect to.
 4. From the top of the page, click **CONFIGURATION**.
 5. Click **CONNECT**, and then follow the instructions.
+
+##<a id="cert"></a>Create a self-signed certificate
+
+If you want to perform any operations on the cluster using the .NET SDK, you must create a self-signed certificate on the workstation, and also upload the certificate to your Azure subscription. This is a one-time task. You can install the same certificate on other machines, as long as the certificate is valid.
+
+**To create a self-signed certificate**
+
+1. Create a self-signed certificate that is used to authenticate the requests. You can use IIS or [makecert][makecert-info] to create the certificate.
+ 
+2. Browse to the location of the certificate, right-click the certificate, click **Install Certificate**, and install the certificate to the computer's personal store. Edit the certificate properties to assign it a friendly name.
+
+3. Import the certificate into the Azure Management Portal. From the portal, click **Settings** on the bottom-left of the page, and then click **Management Certificates**. From the bottom of the page, click **Upload** and follow the instructions to upload the .cer file you created in the previous step.
+
+	![HDI.ClusterCreate.UploadCert][image-hdiclustercreate-uploadcert]
+
 
 ##<a id="httpservice"></a> Grant/revoke HTTP services access
 
@@ -204,6 +219,7 @@ In this article, you have learned how to create an HDInsight cluster using the A
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-versions]: ../hdinsight-component-versioning/
 [hdinsight-support]: http://azure.microsoft.com/en-us/support/options/
+[makecert-info]: http://msdn.microsoft.com/en-us/library/bfsktky3(v=vs.110).aspx
 
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/
@@ -219,3 +235,4 @@ In this article, you have learned how to create an HDInsight cluster using the A
 [image-cluster-landing]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterLanding.PNG "Cluster landing page"
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop command line"
+[image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png

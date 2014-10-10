@@ -1,16 +1,17 @@
-<properties linkid="web-sites-backup" urlDisplayName="Azure Web Sites Backups" pageTitle="Azure Web Sites Backups" metaKeywords="Azure Web Sites, Backups" description="Learn how to create backups of your Azure web sites." metaCanonical="" services="web-sites" documentationCenter="" title="Azure Web Sites Backups" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Azure Websites Backups" pageTitle="Azure Websites Backups" metaKeywords="Azure Web Sites, Backups" description="Learn how to create backups of your Azure websites." metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Backups" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
-#Azure Web Sites Backups
+#Azure Websites Backups
 
-The Azure Web Sites Backup and Restore feature lets you easily create web site backups manually or automatically. You can restore your web site to a previous state, or create a new web site based on one of your original site's backups. 
+The Azure Websites Backup and Restore feature lets you easily create website backups manually or automatically. You can restore your website to a previous state, or create a new website based on one of your original site's backups. 
 
 
-For information on restoring an Azure web site from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+For information on restoring an Azure website from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
 
 ##In this article
 
+- [Automatic and Easy Backup (Video)](#video)
 - [What Gets Backed Up](#whatsbackedup)
 - [Requirements and Restrictions](#requirements)
 - [To Create a Manual Backup](#manualbackup)
@@ -20,37 +21,44 @@ For information on restoring an Azure web site from backup, see [Restore an Azur
 - [Next Steps](#nextsteps)
 	- [More about storage accounts](#moreaboutstorage)
 
+<a name="video"></a>
+##Automatic and Easy Backup (Video)
+
+In this video, Eduardo Laureano and Scott Hanselman introduce Azure websites backups. (Duration: 11:43)  
+
+> [AZURE.VIDEO azure-websites-automatic-and-easy-backup]
+
 <a name="whatsbackedup"></a>
 ##What Gets Backed Up 
-Azure Web Sites backs up the following information:
+Azure Websites backs up the following information:
 
-* Web site configuration
-* Web site file content
+* Website configuration
+* Website file content
 * Any SQL Server or MySQL databases connected to your site (you can choose which ones to include in the backup)
 
 This information is backed up to the Azure storage account that you specify. 
 
-> [WACOM.NOTE] Each backup is a complete offline copy of your web site, not an incremental update.
+> [WACOM.NOTE] Each backup is a complete offline copy of your website, not an incremental update.
 
 <a name="requirements"></a>
 ##Requirements and Restrictions
 
-* The Backup and Restore feature requires the site to be in a Standard tier. For more information about scaling your web site use a Standard tier, see [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/). 
+* The Backup and Restore feature requires the site to be in a Standard tier. For more information about scaling your website use a Standard tier, see [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/). 
 
-* The Backup and Restore feature requires an Azure storage account that must belong to the same subscription as the web site that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage** button (grid icon) in the left pane of the Azure portal, and then choosing **New** in the command bar at the bottom. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
+* The Backup and Restore feature requires an Azure storage account that must belong to the same subscription as the website that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage** button (grid icon) in the left pane of the Azure portal, and then choosing **New** in the command bar at the bottom. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
 
 <a name="manualbackup"></a>
 ## To Create a Manual Backup
 
-1. In the Azure portal for your web site, choose the **Backups** tab.
+1. In the Azure portal for your website, choose the **Backups** tab.
 	
 	![Backups page][ChooseBackupsPage]
 	
-2. Select the storage account to which you want to back up your web site. The storage account must belong to the same subscription as the web site that you are going to back up.
+2. Select the storage account to which you want to back up your website. The storage account must belong to the same subscription as the website that you are going to back up.
 	
 	![Choose storage account][ChooseStorageAccount]
 	
-3. In the **Included Databases** option, select the databases that are connected to your web site (SQL Server or MySQL) that you want to back up. 
+3. In the **Included Databases** option, select the databases that are connected to your website (SQL Server or MySQL) that you want to back up. 
 	
 	![Choose databases to include][IncludedDatabases]
 
@@ -73,7 +81,7 @@ You can make a manual backup at any time. During Preview, no more than 2 manual 
 	
 	![Enable automated backups][SetAutomatedBackupOn]
 	
-2. Select the storage account to which you want to back up your web site. The storage account must belong to the same subscription as the web site that you are going to back up.
+2. Select the storage account to which you want to back up your website. The storage account must belong to the same subscription as the website that you are going to back up.
 	
 	![Choose storage account][ChooseStorageAccount]
 	
@@ -93,7 +101,7 @@ You can make a manual backup at any time. During Preview, no more than 2 manual 
 	
 	> [WACOM.NOTE] Azure stores backup times in UTC format, but displays them in accordance with the system time on the computer that you are using to display the portal.
 	
-5. In the **Included Databases** section, select the databases that are connected to your web site (SQL Server or MySQL) that you want to back up. For a database to appear in the list, its connection string must exist in the **Connection Strings** section of the Configure tab in the portal.
+5. In the **Included Databases** section, select the databases that are connected to your website (SQL Server or MySQL) that you want to back up. For a database to appear in the list, its connection string must exist in the **Connection Strings** section of the Configure tab in the portal.
 	
 	![Choose databases to include][IncludedDatabases]
 	
@@ -108,7 +116,7 @@ You can make a manual backup at any time. During Preview, no more than 2 manual 
 
 After you have made one or more backups, they will be visible on the Containers tab of your storage account. Your backups will be in a container called **websitebackups**. Each backup consists of a .zip file that contains the backed up data and an .xml file that contains a manifest of the .zip file contents. 
 
-The .zip and .xml backup file names consist of your web site name followed by an underscore and a time stamp of when the backup was taken. The time stamp contains the date in the format YYYYMMDD (in digits with no spaces) plus the 24-hour time in UTC format (for example, fabrikam_201402152300.zip). The content of these files can be unzipped and browsed in case you want to access your backups without actually performing a web site restore.
+The .zip and .xml backup file names consist of your website name followed by an underscore and a time stamp of when the backup was taken. The time stamp contains the date in the format YYYYMMDD (in digits with no spaces) plus the 24-hour time in UTC format (for example, fabrikam_201402152300.zip). The content of these files can be unzipped and browsed in case you want to access your backups without actually performing a website restore.
 
 The XML file that is stored with the zip file indicates the database file name under *backupdescription* > *databases* > *databasebackupdescription* > *filename*.
 
@@ -121,14 +129,14 @@ For information on restoring an Azure website (including databases) by using the
 <a name="notes"></a>
 ## Notes
 
-* Make sure that you set up the connection strings for each of your databases properly on the Configure tab of the web site so that the Backup and Restore feature can include your databases.
+* Make sure that you set up the connection strings for each of your databases properly on the Configure tab of the website so that the Backup and Restore feature can include your databases.
 * During Preview, you are responsible for managing the backed up content saved to your storage account. If you delete a backup from your storage account and have not made a copy elsewhere, you will not be able to restore the backup later. 
-* Although you can back up more than one web site to the same storage account, for ease of maintenance, consider creating a separate storage account for each web site.
+* Although you can back up more than one website to the same storage account, for ease of maintenance, consider creating a separate storage account for each website.
 * During Preview, backup and restore operations are available only through the Azure Management Portal.
 
 <a name="nextsteps"></a>
 ## Next Steps
-For information on restoring an Azure web site from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+For information on restoring an Azure website from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
 
 To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
 

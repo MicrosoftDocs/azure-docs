@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Azure AD Integration with Google Apps" metaKeywords="Azure Google Apps Integration" description="Learn about integrating Azure AD with Google Apps." linkid="documentation-services-identity-windows-azure-ad-integration-with-google=apps" urlDisplayName="Azure AD Integration with Google Apps" headerExpose="" footerExpose="" disqusComments="0" editor="lisatoft" manager="terrylan" title="Azure AD Integration with Google Apps" authors="" />
+<properties umbracoNaviHide="0" pageTitle="Azure AD Integration with Google Apps" metaKeywords="Azure Google Apps Integration" description="Learn about integrating Azure AD with Google Apps." urlDisplayName="Azure AD Integration with Google Apps" headerExpose="" footerExpose="" disqusComments="0" editor="lisatoft" manager="terrylan" title="Azure AD Integration with Google Apps" authors="" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
@@ -8,7 +8,7 @@ The objective of this tutorial is to show the integration of Azure and Google Ap
 - A valid Azure subscription
 - A test tenant in Googe Apps
 
-If you don't have a valid tenant in Google Apps yet, you can, for example, sign up for a trial account at Google Apps for Business web site.
+If you don't have a valid tenant in Google Apps yet, you can, for example, sign up for a trial account at Google Apps for Business website.
 
 The scenario outlined in this tutorial consists of the following building blocks:
 

@@ -1,6 +1,6 @@
-<properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Integrating Multi-Tenant Cloud Applications with Azure Active Directory" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="" pageTitle="Integrating Multi-Tenant Cloud Applications with Azure Active Directory" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Integrating Multi-Tenant Cloud Applications with Azure Active Directory" authors="" solutions="" manager="terrylan" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
 
 # Integrating Multi-Tenant Cloud Applications with Azure Active Directory
 
@@ -329,7 +329,7 @@ This method is called from the **HomeController.cs** file to show the user list 
 
 Once you have thoroughly tested your application, you can create an application listing and publish your application listing on the Azure Marketplace. These steps are performed on the Microsoft Seller Dashboard.  
 
-<div class="dev-callout"><strong>Note</strong><p>Your app is responsible for managing any billing relationship with your customers. The Azure Marketplace only provides links to your application's web site and information about it.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>Your app is responsible for managing any billing relationship with your customers. The Azure Marketplace only provides links to your application's website and information about it.</p></div>
 
 <h3>Step 1: Creating an Application Manifest and App Listing</h3>
 

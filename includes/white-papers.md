@@ -163,7 +163,7 @@
         <td style="width: 200px;">
           <a href="http://go.microsoft.com/?linkid=9736946">Developing and Deploying with SQL Azure</a>
         </td>
-        <td style="width: 400px;">This paper provides guidelines on how to deploy an existing on-premise SQL Server database into SQL Azure. It also discusses best practices related to data migration.</td>
+        <td style="width: 400px;">This paper provides guidelines on how to deploy an existing on-premise SQL Server database into SQL Azure. It also discusses best practices related to data migration. </td>
       </tr>
 
   </table>

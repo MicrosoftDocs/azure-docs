@@ -1,6 +1,6 @@
-<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Publishing Azure ML Web Services to the Azure Marketplace | Azure" description="Publishing Azure ML Web Services to the Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Publishing Azure ML Web Services to the Azure Marketplace | Azure" description="Publishing Azure ML Web Services to the Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/03/2014" ms.author="garye" />
 
 # Publishing Azure ML Web Services to the Azure Marketplace 
 
@@ -25,7 +25,7 @@ The Azure Marketplace provides the ability to publish Azure Machine Learning web
 
 The following are the steps in publishing an Azure ML web service to Azure Marketplace:
 
-1.	Create and publish an Azure ML RRS (Request-response service) or BES (Batch-execution service) web service.
+1.	Create and publish an Azure ML RRS (Request-response service) web service.
 2.	From the Azure Management Portal, deploy the service into production.
 3.	Use the URL of the published web service to publish to Azure Marketplace.
 4.	Publishing process overview: http://msdn.microsoft.com/en-us/library/azure/hh580725.aspx 
@@ -50,27 +50,31 @@ The following are the steps in publishing an Azure ML web service to Azure Marke
 
 	![Azure Marketplace][image2]
 
-3.	For **Service URL**, use the URL for your web service:
+3.	Get the Web Service URL and API key from the Azure Management Portal:
+	1.	In a separate browser window or tab, log in to the Azure Management Portal ([https://manage.windowsazure.com](https://manage.windowsazure.com)) 
+	2.	Select **Machine Learning** in the left menu
+	3.	Click **Web Services**, and then click the web service you are publishing
+	4.	Copy the **API key** to a temporary location (for example, Notepad)
+	5.	Click **API help page** for the Request/Response service type
+	6.	Copy the **OData Endpoint Address** to the temporary location
 
-	- In the left menu of Azure ML Studio, click **WEB SERVICES**. 
-	- Click the web service you want to publish in the Marketplace.
-	- On the **Dashboard** page, click **API help page** for the RRS service.
-	- Copy the OData Endpoint Address.
+	<br />
+
+3.	In the Marketplace Data Service setup dialog, paste the OData Endpoint Address into **Service URL**.
 
 	<br />
 
 4. For Authentication, choose **Header** as the **Authentication Scheme**.
 
-	- Enter "Authorization" for **Header Name**.
-	- For **Header Value**:
-		- On the **Dashboard** page for your web service in ML Studio, copy the **API Key**.
-		- In the **Header Value** field, enter "Bearer" (without the quotes), then space, then paste the API Key.
-	- Check the **This Service is OData** checkbox.
+	- Enter "Authorization" for **Header Name**
+	- For **Header Value**, enter "Bearer" (without the quotes), then space, then paste the API Key
+	- Check the **This Service is OData** checkbox
+	- Click **Test Connection** to test the connection
 
 	<br />
 
-5.	Categories:
-	- Ensure **Machine Learning** is checked.
+5.	Under Categories:
+	- Ensure **Machine Learning** is checked
 
 
 

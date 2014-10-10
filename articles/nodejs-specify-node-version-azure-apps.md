@@ -1,6 +1,6 @@
-<properties linkid="develop-nodejs-common-tasks-specifying-a-node-version" urlDisplayName="Specifying a Node.js Version" pageTitle="Specifying a Node.js Version" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="Node.js" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Specifying a Node.js Version" pageTitle="Specifying a Node.js Version" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 
 
@@ -40,9 +40,9 @@ If you are hosting the application in a Cloud Service, and are deploying the app
 
 You can also use the **Get-AzureServiceProjectRoleRuntime** to retrieve a list of Node.js versions available for applications hosted as a Cloud Service.
 
-##Using a custom version with Azure Web Sites
+##Using a custom version with Azure Websites
 
-While Azure provides several default versions of Node.js, you may want to use a version that is not provided by default. If your application is hosted as an Azure Web Site, you can accomplish this by using the **iisnode.yml** file. The following steps walk through the process of using a custom version of Node.Js with an Azure Web Site:
+While Azure provides several default versions of Node.js, you may want to use a version that is not provided by default. If your application is hosted as an Azure Website, you can accomplish this by using the **iisnode.yml** file. The following steps walk through the process of using a custom version of Node.Js with an Azure Website:
 
 1. Create a new directory, and then create a **server.js** file within the directory. The **server.js** file should contain the following:
 
@@ -52,9 +52,9 @@ While Azure provides several default versions of Node.js, you may want to use a 
 		  res.end('Hello from Azure running node version: ' + process.version + '</br>');
 		}).listen(process.env.PORT || 3000);
 
-	This will display the Node.js version being used when you browse the web site.
+	This will display the Node.js version being used when you browse the website.
 
-2. Create a new Web Site and note the name of the site. For example, the following uses the [Azure Command-line tools] to create a new Azure Web Site named **mywebsite**, and then enable a Git repository for the web site.
+2. Create a new Website and note the name of the site. For example, the following uses the [Azure Command-line tools] to create a new Azure Website named **mywebsite**, and then enable a Git repository for the website.
 
 		azure site create mywebsite --git
 
@@ -70,15 +70,15 @@ While Azure provides several default versions of Node.js, you may want to use a 
 
 		nodeProcessCommandLine: "D:\home\site\wwwroot\bin\node.exe"
 
-	This path is where the **node.exe** file within your project will be located once you have published your application to the Azure Web Site.
+	This path is where the **node.exe** file within your project will be located once you have published your application to the Azure Website.
 
-6. Publish your application. For example, since I created a new web site with the --git parameter earlier, the following commands will add the application files to my local Git repository, and then push them to the web site repository:
+6. Publish your application. For example, since I created a new website with the --git parameter earlier, the following commands will add the application files to my local Git repository, and then push them to the website repository:
 
 		git add .
 		git commit -m "testing node v0.8.1"
 		git push azure master
 
-	After the application has published, open the web site in a browser. You should see a message stating "Hello from Azure running node version: v0.8.1".
+	After the application has published, open the website in a browser. You should see a message stating "Hello from Azure running node version: v0.8.1".
 
 ##Next Steps
 

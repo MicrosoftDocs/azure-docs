@@ -1,23 +1,27 @@
-<properties writer="josephd" editor="tysonn" manager="dongill" />
+<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Load Balancing for Azure Infrastructure Services" description="Describes the facilities to perform load balancing with Traffic Manager and load balancer." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="josephd" />
 
 #Load Balancing for Azure Infrastructure Services#
 
 There are two levels of load balancing available for Azure infrastructure services:
 
-- **DNS Level**:  Load balancing for traffic to different cloud services located in different data centers, to different Azure web sites located in different data centers, or to external endpoints. This is done with Traffic Manager and the Round Robin load balancing method.
+- **DNS Level**:  Load balancing for traffic to different cloud services located in different data centers, to different Azure websites located in different data centers, or to external endpoints. This is done with Traffic Manager and the Round Robin load balancing method.
 - **Network Level**:  Load balancing of incoming Internet traffic to different virtual machines of a cloud service, or load balancing of traffic between virtual machines in a cloud service or virtual network. This is done with the Azure load balancer.
 
-##Traffic Manager load balancing for cloud services and web sites##
+##Traffic Manager load balancing for cloud services and websites##
 
-Azure Traffic Manager allows you to control the distribution of user traffic to cloud services, web sites, and external endpoints. Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources. Your cloud services or web sites can be running in different datacenters across the world. 
+Azure Traffic Manager allows you to control the distribution of user traffic to endpoints, which can include cloud services, websites, external sites, and other Traffic Manager profiles. Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources. Your cloud services or websites can be running in different datacenters across the world. 
 
-You must use either REST or Windows PowerShell to configure external endpoints. For more information, see [About Traffic Manager Load Balancing Methods](http://msdn.microsoft.com/en-us/library/azure/dn339010.aspx).
+You must use either REST or Windows PowerShell to configure external endpoints or Traffic Manager profiles as endpoints. 
 
 Azure Traffic Manager uses three load-balancing methods to distribute traffic:
 
-- **Failover**:  Use this method when you want to use a primary cloud service or web site for all traffic, but provide backups in case the primary becomes unavailable.
-- **Performance**:  Use this method when you have cloud services or web sites in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.
-- **Round Robin:**  Use this method when you want to distribute load across a set of cloud services in the same datacenter or across cloud services or web sites in different datacenters.
+- **Failover**:  Use this method when you want to use a primary endpoint for all traffic, but provide backups in case the primary becomes unavailable.
+- **Performance**:  Use this method when you have endpoints in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.
+- **Round Robin:**  Use this method when you want to distribute load across a set of cloud services in the same datacenter or across cloud services or websites in different datacenters.
+
+For more information, see [About Traffic Manager Load Balancing Methods](http://msdn.microsoft.com/en-us/library/azure/dn339010.aspx).
 
 The following figure shows an example of the Round Robin load balancing method for distributing traffic between different cloud services.
 
@@ -27,8 +31,8 @@ The basic process is the following:
 
 1.	An Internet client queries a domain name corresponding to a web service.
 2.	DNS forwards the name query request to Traffic Manager.
-3.	Traffic Manager sends back the DNS name of the cloud service in the round robin list.
-4.	The Internet client connects.
+3.	Traffic Manager sends back the DNS name of the cloud service in the round robin list. The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.
+4.	The Internet client connects with the chosen cloud service.
 
 For more information, see [Traffic Manager](http://msdn.microsoft.com/en-us/library/azure/hh745750.aspx).
 
@@ -52,7 +56,7 @@ Azure can also load balance within a cloud service or virtual network. This is k
 
 Similar to Azure load balancing, internal load balancing is facilitated by configuring an internal load-balanced set. 
 
-The following figure shows an example of an internal load-balanced endpoint for an LOB application that is shared among three virtual machines in the cross-premises virtual network. 
+The following figure shows an example of an internal load-balanced endpoint for a line of business (LOB) application that is shared among three virtual machines in a cross-premises virtual network. 
 
 ![loadbalancing](./media/load-balancing-vms/LOBServers.png)
 

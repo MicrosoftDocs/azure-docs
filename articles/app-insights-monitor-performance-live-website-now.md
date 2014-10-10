@@ -1,8 +1,7 @@
-<properties title="Diagnose performance issues on a running website" pageTitle="Diagnose performance issues on a running website" description="Monitor a website's performance without re-deploying it." metaKeywords="analytics monitoring application insights" authors="awills"  />
+<properties title="Diagnose performance issues on a running website" pageTitle="Diagnose performance issues on a running website" description="Monitor a website's performance without re-deploying it." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  
-<!-- Required end of Sprint 69 - AUX48 -->
 
 # Monitor performance on a live website now
 
@@ -13,7 +12,7 @@ Got a web application that's misbehaving? Diagnose exceptions and performance is
 
 #### When should I use this method to set up Application Insights?
 
-This approach is mainly for quickly diagnosing performance issues in a live IIS web site.
+This approach is mainly for quickly diagnosing performance issues in a live IIS website.
 
 You just install an agent in the server and see performance data on Application Insights.
 
@@ -27,7 +26,7 @@ You just install an agent in the server and see performance data on Application 
 
 - This method instruments the web app as it stands. You don't insert trace or log code. (But you can do that later if you want.)
 
-If you want to insert logging or diagnostic traces, don't continue here - instead, [add Application Insights to your project][existing] and redeploy it.
+If you want to insert logging or diagnostic traces, don't continue here - instead, [add Application Insights to your project][start] and redeploy it.
 
 ## Install the Application Insights agent on your web server
 
@@ -76,11 +75,13 @@ You'll see data under Application Health.
   * Wait a few minutes to let the data arrive.
   * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com 
 
+#### What can I do with the Application Health reports?
+ * [Understand the data and configure the tiles][perf]
 
 ## <a name="next"></a>Next steps
 
 
-[View data][explore]
+[View data][perf]
 
 [Search diagnostic logs][diagnostic]
 
@@ -91,25 +92,27 @@ You'll see data under Application Health.
 [Troubleshooting][qna]
 
 
-## Learn more
+## Application Insights - learn more
 
-* [Application Insights][root]
-* [Add Application Insights to your project][start]
+* [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
-* [Explore metrics in Application Insights][explore]
-* [Diagnostic log search][diagnostic]
+* [Monitor performance in web applications][perf]
+* [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
-* [Usage tracking with events and metrics][usage]
+* [Track usage][usage]
+* [Track custom events and metrics][track]
 * [Q & A and troubleshooting][qna]
-
 
 <!--Link references-->
 
-[root]: ../app-insights-get-started/
-[start]: ../app-insights-monitor-application-health-usage/
+
+[start]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
-[explore]: ../app-insights-explore-metrics/
+[perf]: ../app-insights-web-monitor-performance/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-track-usage-custom-events-metrics/
+[usage]: ../app-insights-web-track-usage/
+[track]: ../app-insights-web-track-usage-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/
+[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+

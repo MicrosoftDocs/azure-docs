@@ -1,11 +1,11 @@
-<properties title="Guide to the Net# Neural Networks Specification Language for Azure ML" pageTitle="Guide to the Net# Neural Networks Specification Language for Azure ML " description="Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model in Microsoft Azure ML using Net# " metaKeywords="" services="" solutions="" documentationCenter="" authors="jeannt" videoId="" scriptId="" />
+<properties title="Guide to the Net# Neural Networks Specification Language for Azure ML" pageTitle="Guide to the Net# Neural Networks Specification Language for Azure ML " description="Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model in Microsoft Azure ML using Net# " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jeannt" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeannt" />
-
-
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/08/2014" ms.author="jeannt" />
 
 
-#Guide to the Net# Neural Networks Specification Language
+
+# Guide to the Net# Neural Networks Specification Language
+
 
 Net#© is a language developed by Microsoft that is used to define neural network architectures for neural network modules in Microsoft Azure Machine Learning. In this article, you will learn:  
 
@@ -82,6 +82,7 @@ The layer declaration is required, and defines the size and source of the layer,
 -	The product of the dimensions is the number of nodes in the layer. In this example, there are two dimensions [5,20], which means there are  100 nodes in the layer.
 -	The layers can be declared in any order, with one exception: if more than one input layer is defined, the order in which they are declared must match the order of features in the input data.  
 
+<!-- REMOVED THIS CONTENT UNTIL THIS FEATURE IS SUPPORTED IN THE PRODUCT
 To specify that the number of nodes in a layer be determined automatically, use the **auto** keyword. The **auto** keyword has different effects, depending on the layer:  
 
 -	In an input layer declaration, the number of nodes is the number of features in the input data.
@@ -93,6 +94,7 @@ For example, the following network definition allows the size of all layers to b
 	input Data auto;
 	hidden Hidden auto from Data all;
 	output Result auto from Hidden all;  
+-->
 
 A layer declaration for a trainable layer (namely, the hidden or output layers) can optionally include the output function (also called an activation function), which defaults to **sigmoid**. The following output functions are supported:  
 
@@ -300,7 +302,7 @@ This simple example demonstrates how to create a neural network model that has a
 
 The example illustrates some basic commands and their order:  
 
--	The first line defines the input layer, named Mydata, which has 100 nodes, each node representing a feature in the input examples.
+-	The first line defines the input layer, named Data, which has 100 nodes, each node representing a feature in the input examples.
 -	The second line creates the hidden layer. The name H is assigned to the hidden layer, which has 200 nodes. This layer is fully connected to the input layer.
 -	The third line defines the output layer, which is named O, and contains 10 output nodes. For classification neural networks, there is one output node per class. The keyword **sigmoid** indicates the output function applied to the output layer.   
 
@@ -366,12 +368,12 @@ The definition of the following network, designed to recognize numbers, illustra
 -	The net has a third hidden layer, Hid3, which is fully connected to the second hidden layer, Conv2.
 -	The output layer, Digit, is connected only to the third hidden layer, Hid3. The keyword **all** indicates that the output layer is fully connected to Hid3.
 -	The arity of the convolution is three (the length of the tuples **InputShape**, **KernelShape**, **Stride** and **Sharing**). 
--	The number of weights per kernel is 1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Or 26 * 50 = 1300.
+-	The number of weights per kernel is 1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Or 26 * 50 = 1300.
 -	You can calculate the nodes in each hidden layer as follows:
-	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5. 
-	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	The total number of nodes can be calculated by using the declared dimensionality of the layer, [50, 5, 5] as follows: **MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[1] = 10 * 5 * 5 * 5 
--	Since **Sharing**[d] is false only for d == 0, the number of kernels is **MapCount** * **NodeCount**[0] = 10 * 5 = 50. 
+	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
+	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
+-	The total number of nodes can be calculated by using the declared dimensionality of the layer, [50, 5, 5] as follows: **MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5
+-	Since **Sharing**[d] is false only for d == 0, the number of kernels is **MapCount** * **NodeCount**\[0] = 10 * 5 = 50. 
 
-[1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_med.PNG
+[1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif

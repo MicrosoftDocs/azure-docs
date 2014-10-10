@@ -1,4 +1,4 @@
-<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="Using load-balanced sets to clusterize MySQL on Linux" description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" />
+<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="Using load-balanced sets to clusterize MySQL on Linux" description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" manager="timlt" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jparrel" />
 
@@ -154,7 +154,7 @@ At this moment we have everything we need for a manual operation of the cluster.
 
 ### Testing the load balanced set
 
-Tests can be performed from an outside machine, by using any MySQL client, as well as applications (for example, phpMyAdmin running as an Azure Web Site) In this case we used MySQL's command line tool on another Linux box:
+Tests can be performed from an outside machine, by using any MySQL client, as well as applications (for example, phpMyAdmin running as an Azure Website) In this case we used MySQL's command line tool on another Linux box:
 
     mysql azureha –u root –h hadb.cloudapp.net –e "select * from things;"
 

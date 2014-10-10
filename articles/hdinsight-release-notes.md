@@ -5,6 +5,63 @@
 
 #Microsoft HDInsight release notes
 
+## Notes for 10/7/2014 release ##
+
+* When using Ambari endpoint, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", the *host_name* field now returns the fully qualified domain name (FQDN) of the node instead of just the host name. For example, instead of returning "**headnode0**", you get the FQDN “**headnode0.{ClusterDNS}.azurehdinsight.net**”. This change was required to facilitate scenarios where multiple cluster types such as HBase and Hadoop can be deployed in one Virtual Network (VNET). This happens, for example, when using HBase as a back-end platform for Hadoop.
+
+* We have provided new memory settings for the default deployment of the HDInsight cluster. Previous default memory settings did not take adequate account of the guidance for the number of CPU cores being deployed. The new memory settings used by the default 4 CPU core (8 container) HDInsight cluster are itemized in the following table. (The values used prior to this release are also provided parenthetically). 
+ 
+<table border="1">
+<tr><th>Component</th><th>Memory Allocation</th></tr>
+<tr><td> yarn.scheduler.minimum-allocation</td><td>768MB (previously 512MB)</td></tr>
+<tr><td> yarn.scheduler.maximum-allocation</td><td>6144MB (unchanged)</td></tr>
+<tr><td>yarn.nodemanager.resource.memory</td><td>6144MB (unchanged)</td></tr>
+<tr><td>mapreduce.map.memory</td><td>768MB (previously 512MB)</td></tr>
+<tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (previously -Xmx410m)</td></tr>
+<tr><td>mapreduce.reduce.memory</td><td>1536MB (previously 1024MB)</td></tr>
+<tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (previously -Xmx819m)</td></tr>
+<tr><td>yarn.app.mapreduce.am.resource</td><td>768MB (previously 1024MB)</td></tr>
+<tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (previously -Xmx819m)</td></tr>
+<tr><td>mapreduce.task.io.sort</td><td>256MB (unchanged)</td></tr>
+<tr><td>tez.am.resource.memory</td><td>1536MB (unchanged)</td></tr>
+
+</table><br>
+
+For more information on the memory configuration settings used by YARN and MapReduce on the Hortonworks Data Platform used by HDInsight, see [Determine HDP Memory Configuration Settings](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html). Hortonworks has also provide a tool to calculate proper memory settings.
+
+
+## Notes for 9/12/2014 release of HDinsight 3.1##
+
+* This release is based on Hortonworks Data Platform (HDP) 2.1.5. For a list of the bugs fixed in this release, see the [Fixed in this Release](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) page on the Hortonworks site.
+* In the pig libraries folder, the file “avro-mapred-1.7.4.jar” has been changed to avro-mapred-1.7.4-hadoop2.jar. The contents of these file contain a minor bug fix that is non-breaking. It is recommended that customers do not take a direct dependency on the name of the JAR file itself to avoid breaks when files are renamed.
+
+
+## Notes for 8/21/2014 release ##
+
+* We are adding the following new WebHCat configuration (HIVE-7155) that sets the default memory limit for a Templeton controller job to 1GB (the previous default value was 512MB):
+	
+	* templeton.mapper.memory.mb (=1024)
+	* This change addresses the following error which certain Hive queries had run into due to lower memory limits: “Container is running beyond physical memory limits”.
+	* To revert back to old defaults, you can set this configuration value to 512 through PowerShell SDK at cluster creation time using the following command:
+	
+		Add-AzureHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
+
+
+* The host name of zookeeper role was changed to zookeeper. This affects name resolution within the cluster, but doesn't affect external REST APIs. If you have components that use zookeepernode host name you will need to update them to use new name instead. The new names for the three zookeeper nodes are: 
+	* zookeeper0 
+	* zookeeper1 
+	* zookeeper2 
+* HBase version support matrix is updated. Only version HDInsight 3.1 (HBase version 0.98) is supported for production HBase workloads. Version 3.0 that was available for preview will not be supported moving forward. During transition period customers can still create clusters of 3.0 version. 
+
+## Notes on clusters created prior to 8/15/2014 ##
+
+An HDInsight PowerShell/SDK error with the message "Cluster <clustername> is not configured for Http Services access" (or, depending on the operation other error messages like: "Cannot connect to cluster") may be encountered due to a version difference between SDK/PowerShell and a cluster. Clusters created on 8/15 or later have support for new provisioning capability into Virtual Networks. This capability isn’t correctly interpreted by older versions of the SDK/PowerShell, which results in failures of job submission operations. If you use SDK APIs or PowerShell cmdlets to submit jobs, such as Use-AzureHDInsightCluster or Invoke-AzureHDInsightHiveJob, those operations may fail with one of the error message described above.
+
+These compatibility issues are resolved in the latest versions of SDK and Azure PowerShell. We recommend updating HDInsight SDK to the version 1.3.1.6 or later and Azure PowerShell Tools to the version 0.8.8 or later. You can get access to the latest HDInsight SDK from [nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/) and the Azure PowerShell Tools using [Microsoft Web PI](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+
+You can expect that SDK and PowerShell will continue to work with new updates to clusters as long as the version of the cluster remains the same. For example, clusters version 3.1 will always be compatible with current version of the SDK/PowerShell 1.3.1.6 and 0.8.8.
+
+
 ## Notes for 7/28/2014 release ##
 
 * **HDInsight Available in New Regions**: With this release, we have expanded HDInsight geographical presence to three new regions. HDInsight customers can now create clusters in these regions. 
@@ -34,7 +91,7 @@ This release contains several new enhancements to HDInsight service:
 
 With HBase, you can build a variety of real-time workloads on HDInsight, from interactive websites that work with large datasets to services storing sensor and telemetry data from millions of end points. The next step would be to analyze the data in these workloads with Hadoop jobs and this is immediately possible in HDInsight through the experiences provided like PowerShell and Hive cluster dashboard.
 
-### Apache™ Mahout Now Pre-Installed on HDInsight 3.1 ###
+### Apache Mahout now pre-installed on HDInsight 3.1 ###
 
  [Mahout](http://hortonworks.com/hadoop/mahout/) is preinstalled on HDInsight 3.1 Hadoop clusters. So you can run Mahout jobs without the need for any additional cluster configuration. For example, you can remote into an Hadoop cluster using the Remote Desktop Protocol (RDP) and without additional steps execute the Hello world Mahout command:
 

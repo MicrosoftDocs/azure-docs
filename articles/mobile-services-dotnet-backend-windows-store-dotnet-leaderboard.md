@@ -1,6 +1,6 @@
-<properties urlDisplayName=".NET Client Library" pageTitle="Creating a Leaderboard App with Azure Mobile Services .NET Backend" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to build a Windows Store app using Azure Mobile Services with a .NET backend." documentationCenter="Mobile" title="Creating a Leaderboard App with Azure Mobile Services .NET Backend" authors="mwasson" solutions="" manager="" editor="" />
+<properties urlDisplayName=".NET Client Library" pageTitle="Creating a Leaderboard App with Azure Mobile Services .NET Backend" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to build a Windows Store app using Azure Mobile Services with a .NET backend." documentationCenter="Mobile" title="Creating a Leaderboard App with Azure Mobile Services .NET Backend" authors="mwasson" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mwasson" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson" />
 
 # Creating a Leaderboard App with Azure Mobile Services .NET Backend
 
@@ -22,7 +22,7 @@ This tutorial shows how build a Windows Store app using Azure Mobile Services wi
 
 ## Overview
 
-Web API is an open-source framework that gives .NET developers a first-class way to create REST APIs. You can host a Web API solution on Azure Web Sites, on Azure Mobile Services using the .NET backend, or even self-hosted in a custom process. Mobile Services is a hosting environment that is designed especially for mobile apps. When you host your Web API service on Mobile Services, you get the following advantages in addition to data storage:
+Web API is an open-source framework that gives .NET developers a first-class way to create REST APIs. You can host a Web API solution on Azure Websites, on Azure Mobile Services using the .NET backend, or even self-hosted in a custom process. Mobile Services is a hosting environment that is designed especially for mobile apps. When you host your Web API service on Mobile Services, you get the following advantages in addition to data storage:
 
 - Built-in authentication with social providers and Azure Active Directory (AAD). 
 - Push notifications to apps using device-specific notification services.
@@ -37,7 +37,7 @@ In this tutorial you will:
 - Use Entity Framework (EF) to create foreign key relations and data transfer objects (DTOs).
 - Use ASP.NET Web API to define a custom API.
 
-This tutorial uses [Visual Studio 2013 Update 2](http://go.microsoft.com/fwlink/p/?LinkID=390465). 
+This tutorial uses [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/p/?LinkID=390465). 
 
 
 ## About the sample app
@@ -49,7 +49,7 @@ A *leaderboard* shows a list of players for a game, along with their scores and 
 To keep the app simple, there is no actual game. Instead, you can add players and submit a score for each player. When you submit a score, the mobile service calculates the new rankings. On the back end, the mobile service creates a database with two tables:
 
 - Player. Contains the player ID and name.
-- PlayerRank. Contains a player’s score and rank.
+- PlayerRank. Contains a player's score and rank.
 
 PlayerRank has a foreign key to Player. Each player has zero or one PlayerRank.
 
@@ -57,7 +57,7 @@ In a real leaderboard app, PlayerRank might also have a game ID, so that a playe
 
 ![][2]
 
-The client app can perform the full set of CRUD operations on Players. It can read or delete existing PlayerRank entities, but it cannot create or update them directly. That’s because the rank value is calculated by the service. Instead, the client submits a score, and the service updates the ranks for all players.
+The client app can perform the full set of CRUD operations on Players. It can read or delete existing PlayerRank entities, but it cannot create or update them directly. That's because the rank value is calculated by the service. Instead, the client submits a score, and the service updates the ranks for all players.
 
 Download the completed project [here](http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af).
 
@@ -68,7 +68,7 @@ Launch Visual Studio and create a new ASP.NET Web Application project. Name the 
 
 ![][3]
 
-In Visual Studio 2013 Update 2, the ASP.NET Web Application project now includes a template for Windows Azure Mobile Service. Select this template and click **OK**.
+In Visual Studio 2013 Update 3, the ASP.NET Web Application project includes a template for Windows Azure Mobile Service. Select this template and click **OK**.
 
 ![][4]
  
@@ -76,7 +76,7 @@ The project template includes an example controller and data object.
 
 ![][5]
  
-These aren’t needed for the tutorial, so you can delete them from the project. Also remove the references to TodoItem  in WebApiConfig.cs and LeaderboardContext.cs.
+These aren't needed for the tutorial, so you can delete them from the project. Also remove the references to TodoItem  in WebApiConfig.cs and LeaderboardContext.cs.
 
 ## Add data models
 
@@ -123,15 +123,15 @@ Right click the Controllers folder, select Add, then select New Scaffolded Item.
 
 In the **Add Scaffold** dialog, expand **Common** on the left and select **Windows Azure Mobile Services**. Then select **Windows Azure Mobile Services Table Controller**. Click **Add**.
 
+![][7] 
+ 
 In the **Add Controller** dialog:
 
 1.	Under **Model class**, select Player. 
-2.	Under **Data context class**, select LeaderboardContext.
-3.	Name the controller “PlayerContoller”.
+2.	Under **Data context class**, select MobileServiceContext.
+3.	Name the controller "PlayerController".
 4.	Click **Add**.
 
-![][7] 
- 
 
 This step adds a file named PlayerController.cs to the project.
 
@@ -142,7 +142,7 @@ The controller derives from **TableController<T>**. This class inherits **ApiCon
 - Routing: The default route for a **TableController** is `/tables/{table_name}/{id}`, where *table_name* matches the entity name. So the route for the Player controller is */tables/player/{id}*. This routing convention makes **TableController** consistent with the Mobile Services [REST API](http://msdn.microsoft.com/en-us/library/azure/jj710104.aspx).
 - Data access: For database operations, the **TableController** class uses the **IDomainManager** interface, which defines an abstraction for data access.  The scaffolding uses **EntityDomainManager**, which is a concrete implementation of **IDomainManager** that wraps an EF context. 
 
-Now add a second controller for PlayerRank entities. Follow the same steps, but choose PlayerRank for the model class. Use the same data context class; don’t create a new one. Name the controller “PlayerRankController”.
+Now add a second controller for PlayerRank entities. Follow the same steps, but choose PlayerRank for the model class. Use the same data context class; don't create a new one. Name the controller "PlayerRankController".
 
 ## Use a DTO to return related entities
 
@@ -185,7 +185,7 @@ A DTO is an object that defines how data is sent over the network. DTOs are usef
 	    }
 	}
 
-In the `PlayerRankController` class, we’ll use the LINQ **Select** method to convert `PlayerRank` instances to `PlayerRankDto` instances. Update the `GetAllPlayerRank` and `GetPlayerRank` controller methods as follows:
+In the `PlayerRankController` class, we'll use the LINQ **Select** method to convert `PlayerRank` instances to `PlayerRankDto` instances. Update the `GetAllPlayerRank` and `GetPlayerRank` controller methods as follows:
 
 	// GET tables/PlayerRank
 	public IQueryable<PlayerRankDto> GetAllPlayerRank()
@@ -232,7 +232,7 @@ Instead of using LINQ Select statements, another option is to use AutoMapper. Th
 
 ## Define a custom API to submit scores
 
-The `PlayerRank` entity includes a `Rank` property. This value is calculated by the server, and we don’t want clients setting it. Instead, clients will use a custom API to submit a player’s score.  When the server gets a new score, it will update all of the player ranks.
+The `PlayerRank` entity includes a `Rank` property. This value is calculated by the server, and we don't want clients setting it. Instead, clients will use a custom API to submit a player's score.  When the server gets a new score, it will update all of the player ranks.
 
 First, add a class named `PlayerScore` to the DataObjects folder.
 
@@ -245,19 +245,19 @@ First, add a class named `PlayerScore` to the DataObjects folder.
 	    }
 	}
 
-In the `PlayerRankController` class, move the `LeaderboardContext` variable from the constructor to a class variable:
+In the `PlayerRankController` class, move the `MobileServiceContext` variable from the constructor to a class variable:
 
     public class PlayerRankController : TableController<PlayerRank>
     {
         // Add this:
-        LeaderboardContext context = new LeaderboardContext();
+        MobileServiceContext context = new MobileServiceContext();
 
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
 
             // Delete this:
-            // LeaderboardContext context = new LeaderboardContext();
+            // MobileServiceContext context = new MobileServiceContext();
             DomainManager = new EntityDomainManager<PlayerRank>(context, Request, Services);
         }
 
@@ -310,8 +310,8 @@ Then add the following code to `PlayerRankController`:
 
 The `PostPlayerScore` method takes a `PlayerScore` instance as input. (The client will send the `PlayerScore` in an HTTP POST request.) The method does the following:
 
-1.	Adds a new `PlayerRank` for the player, if there isn’t one in the database already.
-2.	Updates the player’s score.
+1.	Adds a new `PlayerRank` for the player, if there isn't one in the database already.
+2.	Updates the player's score.
 3.	Run a SQL query that batch updates all of the player ranks.
 
 The **[Route]** attribute to define a custom route for this method:
@@ -323,7 +323,7 @@ To learn more about the **[Route]** attribute, see [Attribute Routing in Web API
 
 ## Create the Windows Store app
 
-In this section, I’ll describe the Windows Store app that consumes the mobile service. However, I won’t focus much on the XAML or the UI. Instead, I want to focus on the application logic. You can download the complete project [here](http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af).
+In this section, I'll describe the Windows Store app that consumes the mobile service. However, I won't focus much on the XAML or the UI. Instead, I want to focus on the application logic. You can download the complete project [here](http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af).
 
 Add a new Windows Store App project to the solution. I used the Blank App (Windows) template. 
 
@@ -629,7 +629,7 @@ In the main page, add an instance of the view model. Then set the view model as 
        // ...
 
 
-As I mentioned earlier, I won’t show all of the XAML for the app. One benefit of the MVVM pattern is to separate presentation from app logic, so it’s easy to change the UI, if you don’t like the sample app.
+As I mentioned earlier, I won't show all of the XAML for the app. One benefit of the MVVM pattern is to separate presentation from app logic, so it's easy to change the UI, if you don't like the sample app.
 
 The list of players is displayed in a **ListBox**:
 
@@ -679,7 +679,7 @@ Select an existing Mobile Service, or click **New** to create a new one. Then cl
 
 ![][15]
  
-The publishing process automatically creates the database. You don’t need to configure a connection string.
+The publishing process automatically creates the database. You don't need to configure a connection string.
 
 Now you are ready to connect the leaderboard app to the live service. You need two things:
 

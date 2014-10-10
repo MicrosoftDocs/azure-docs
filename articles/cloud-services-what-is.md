@@ -1,4 +1,4 @@
-<properties linkid="manage-services-what-is-a-cloud-service" urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="An introduction to the cloud service in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="What is a cloud service?" authors="ryanwi" solutions="" manager="" editor="" />
+<properties urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="An introduction to the cloud service in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="What is a cloud service?" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
@@ -8,7 +8,7 @@
 #What is a cloud service?
 When you create an application and run it in Azure, the code and configuration together are called an Azure cloud service (known as a *hosted service* in earlier Azure releases).
 
-By creating a cloud service, you can deploy a multi-tier application in Azure, defining multiple roles to distribute processing and allow flexible scaling of your application. A cloud service consists of one or more web roles and/or worker roles, each with its own application files and configuration.
+By creating a cloud service, you can deploy a multi-tier web application in Azure, defining multiple roles to distribute processing and allow flexible scaling of your application. A cloud service consists of one or more web roles and/or worker roles, each with its own application files and configuration. Azure Websites and Virtual Machines also enable web applications on Azure.  The main advantage of cloud services is the ability to support more complex multi-tier architectures. For a  detailed comparison, see [Azure Web Sites, Cloud Services and Virtual Machines comparison][Comparison].
 
 For a cloud service, Azure maintains the infrastructure for you, performing routine maintenance, patching the operating systems, and attempting to recover from service and hardware failures. If you define at least two instances of every role, most maintenance, as well as your own service upgrades, can be performed without any interruption in service. A cloud service must have at least two instances of every role to qualify for the Azure Service Level Agreement, which guarantees external connectivity to your Internet-facing roles at least 99.95 percent of the time. 
 
@@ -44,7 +44,7 @@ Each cloud service has two environments to which you can deploy your service pac
 
 - **minimal vs. verbose monitoring:** *Minimal monitoring*, which is configured by default for a cloud service, uses performance counters gathered from the host operating systems for role instances (virtual machines). *Verbose monitoring* gathers additional metrics based on performance data within the role instances to enable closer analysis of issues that occur during application processing. For more information, see [How to Monitor Cloud Services][HTMonitorCloudServices].
 
-- **Azure Diagnostics:** Azure Diagnostics is the API that enables you to collect diagnostic data from applications running in Azure. Azure Diagnostics must be enabled for cloud service roles in order for verbose monitoring to be turned on. 
+- **Azure Diagnostics:** Azure Diagnostics is the API that enables you to collect diagnostic data from applications running in Azure. Azure Diagnostics must be enabled for cloud service roles in order for verbose monitoring to be turned on. For more information, see [Enabling Diagnostics in Azure][CloudServicesDiagnostics].
 
 - **link a resource:** To show your cloud service's dependencies on other resources, such as an Azure SQL Database instance, you can "link" the resource to the cloud service. In the Preview Management Portal, you can view linked resources on the **Linked Resources** page, view their status on the dashboard, and scale a linked SQL Database instance along with the service roles on the **Scale** page. Linking a resource in this sense does not connect the resource to the application; you must configure the connections in the application code.
 
@@ -52,5 +52,7 @@ Each cloud service has two environments to which you can deploy your service pac
 
 - **Azure Service Level Agreement (SLA):** The Azure Compute SLA guarantees that, when you deploy two or more role instances for every role, access to your cloud service will be maintained at least 99.95 percent of the time. Also, detection and corrective action will be initiated 99.9 percent of the time when a role instance's process is not running. For more information, see [Service Level Agreements] [SLA].
 
-[HTMonitorCloudServices]:https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/
-[SLA]: https://www.windowsazure.com/en-us/support/legal/sla/
+[HTMonitorCloudServices]:http://azure.microsoft.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/
+[SLA]: http://azure.microsoft.com/en-us/support/legal/sla/
+[CloudServicesDiagnostics]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-diagnostics/
+[Comparison]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/

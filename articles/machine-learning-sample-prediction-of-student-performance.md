@@ -1,9 +1,13 @@
-<properties title="Azure Machine Learning Sample: Prediction of student performance" pageTitle="Machine Learning Sample: Predict student performance | Azure" description="A sample Azure Machine Learning experiment to develop a model that predicts student performance on tests." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Azure Machine Learning Sample: Prediction of student performance" pageTitle="Machine Learning Sample: Predict student performance | Azure" description="A sample Azure Machine Learning experiment to develop a model that predicts student performance on tests." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
 
-#Azure Machine Learning sample: Prediction of student performance
 
+# Azure Machine Learning sample: Prediction of student performance
+
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Sample Experiment - Student Performance - Development
 
 ##Dataset and problem description
 In this experiment our dataset is Algebra_2008_2009 training set from KDD Cup 2010. This dataset can be downloaded from [https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp](https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp) . The dataset contains log files of student tutoring system. The supplied features include problem id and its brief description, student id, timestamp and how many attempt student did before solving the problem in the right way. The learning problem is to predict if a student will solve a given problem from the first attempt. Following KDD Cup rules, we measure the accuracy of learning algorithms using [Root Mean Square Error](http://en.wikipedia.org/wiki/Root-mean-square_deviation) (RMSE). The original dataset has 8.9M records. To speed up the experiment we downsampled the dataset to the first 100K rows. The dataset has 23 columns of various types: numeric, categorical and timestamp. The columns are tab-separated.

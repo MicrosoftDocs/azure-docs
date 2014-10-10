@@ -1,14 +1,14 @@
-<properties linkid="web-sites-restore" urlDisplayName="Restore a Microsoft Azure web site" pageTitle="Restore a Microsoft Azure web site" metaKeywords="Azure Web Sites, Restore, restoring" description="Learn how to restore your Azure web sites from backup." metaCanonical="" services="web-sites" documentationCenter="" title="Restore a Microsoft Azure web site" authors="timamm"  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
+<properties urlDisplayName="Restore a Microsoft Azure website" pageTitle="Restore a Microsoft Azure website" metaKeywords="Azure Websites, Restore, restoring" description="Learn how to restore your Azure websites from backup." metaCanonical="" services="web-sites" documentationCenter="" title="Restore a Microsoft Azure website" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
-#Restore a Microsoft Azure web site
+#Restore a Microsoft Azure website
 
-This article shows you how to restore a web site that you have previously backed up by using the Azure Web Sites Backup feature. For more information, see [Microsoft Azure Web Sites Backups](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/). 
+This article shows you how to restore a website that you have previously backed up by using the Azure Websites Backup feature. For more information, see [Microsoft Azure Web Sites Backups](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/). 
 
-The Azure Web Sites Restore feature lets restore your web site on-demand to a previous state, or create a new web site based on one of your original site's backups. Creating a new web site that runs in parallel to the latest version can be useful for A/B testing.
+The Azure Websites Restore feature lets restore your website on-demand to a previous state, or create a new website based on one of your original site's backups. Creating a new website that runs in parallel to the latest version can be useful for A/B testing.
 
-The Restore feature, available on the Backups tab in the Azure Web Sites portal, is available only in Standard mode.
+The Restore feature, available on the Backups tab in the Azure Websites portal, is available only in Standard mode.
 
 ##In this article
 - [To Restore an Azure web site from a previously made backup](#PreviousBackup)
@@ -18,18 +18,18 @@ The Restore feature, available on the Backups tab in the Azure Web Sites portal,
 
 
 <a name="PreviousBackup"></a>
-##To Restore an Azure web site from a previously made backup
+##To Restore an Azure website from a previously made backup
 
 1. On the **Backups** tab, click **Restore Now** in the command bar at the bottom of the portal page. The **Restore Now** dialog box appears.
 	
 	![Choose backup source][ChooseBackupSource]
 	
-2. Under **Choose backup source**, select **Previous Backup for this Web Site**.
+2. Under **Choose backup source**, select **Previous Backup for this Website**.
 3. Select the date of the backup that you want to restore, and then click the right arrow to continue.
 4. Follow the steps in the [Choose Your Web Site Restore Settings](#RestoreSettings) section later in this article.
 
 <a name="StorageAccount"></a>
-##To Restore an Azure web site directly from a storage account
+##To Restore an Azure website directly from a storage account
 
 1. On the **Backups** tab, click **Restore Now** in the command bar at the bottom of the portal page. The **Restore Now** dialog box appears.
 	
@@ -53,17 +53,17 @@ The Restore feature, available on the Backups tab in the Azure Web Sites portal,
 7. Continue with the section that follows, [Choose Your Web Site Restore Settings and Start the Restore Operation](#RestoreSettings).
 
 <a name="RestoreSettings"></a>
-##Choose Your Web Site Restore Settings and Start the Restore Operation
-1. Under **Choose your web site restore settings**, **Restore To**, select either **Current web site** or **New web site instance**.
+##Choose Your Website Restore Settings and Start the Restore Operation
+1. Under **Choose your website restore settings**, **Restore To**, select either **Current website** or **New website instance**.
 	
 	![Choose your web site restore settings][ChooseRestoreSettings]
 	
-	If you select **Current web site**, your existing web site will be overwritten by the backup that you selected (destructive restore). All changes you have made to the web site since the time of the chosen backup will be permanently removed, and the restore operation cannot be undone. During the restore operation, your current web site will be temporarily unavailable, and you will be warned to this effect.
+	If you select **Current website**, your existing website will be overwritten by the backup that you selected (destructive restore). All changes you have made to the website since the time of the chosen backup will be permanently removed, and the restore operation cannot be undone. During the restore operation, your current website will be temporarily unavailable, and you will be warned to this effect.
 	
-	If you select **New web site instance**, a new web site will be created in the same region with the name that you specify. (By default, the new name is **restored-***oldWebSiteName*.) 
+	If you select **New website instance**, a new website will be created in the same region with the name that you specify. (By default, the new name is **restored-***oldWebSiteName*.) 
 	
 	The site that you restore will contain the same content and configuration that were made in the portal for the original site. It will also include any databases that you choose to include in the next step.
-2. If you want to restore a database along with your web site, under **Included Databases**, select the name of the database server that you want to restore the database to by using the dropdown under **Restore To**. You can also choose to create a new database server to restore to, or choose **Don't Restore** to not restore the database, which is the default. 
+2. If you want to restore a database along with your website, under **Included Databases**, select the name of the database server that you want to restore the database to by using the dropdown under **Restore To**. You can also choose to create a new database server to restore to, or choose **Don't Restore** to not restore the database, which is the default. 
 	
 	After you have chosen the server name, specify the name of the target database for the restore in the **Database Name** box.
 	
@@ -84,14 +84,14 @@ The Restore feature, available on the Backups tab in the Azure Web Sites portal,
 	
 	![New SQL database settings][NewSQLDBConfig]
 	
-5. Click the check mark to start the restore operation. When it completes, the new web site instance (if that is the restore option you chose) will be visible in the list of web sites in the portal.
+5. Click the check mark to start the restore operation. When it completes, the new website instance (if that is the restore option you chose) will be visible in the list of websites in the portal.
 	
 	![Restored Contoso web site][RestoredContosoWebSite]
 
 <a name="OperationLogs"></a>
 ##View the Operation Logs
 	
-1. To see details about the success or failure of the web site restore operation, go to the web site's Dashboard tab. In the **Quick Glance** section, under **Management Services**, click **Operation Logs**.
+1. To see details about the success or failure of the website restore operation, go to the website's Dashboard tab. In the **Quick Glance** section, under **Management Services**, click **Operation Logs**.
 	
 	![Dashboard - Operation Logs Link][DashboardOperationLogsLink]
 	

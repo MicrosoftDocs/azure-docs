@@ -1,4 +1,4 @@
-<properties linkid="storage-use-azcopy" urlDisplayName="AzCopy" pageTitle="How to use AzCopy with Microsoft Azure Storage" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="Learn how to use the AzCopy utility to upload, download, and copy blob and file content." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="AzCopy" pageTitle="How to use AzCopy with Microsoft Azure Storage" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="Learn how to use the AzCopy utility to upload, download, and copy blob and file content." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="tamram" />
 
@@ -299,11 +299,11 @@ When you copy a blob within a storage account or across storage accounts, a serv
 
 **Copy a blob within a storage account:**
 
-	AzCopy https://myaccount.blob.core.windows.net/mycontainer/mycontainer1 https://myaccount.blob.core.windows.net/mycontainer2 /sourcekey:key /destkey:key abc.txt 
+	AzCopy https://myaccount.blob.core.windows.net/mycontainer1 https://myaccount.blob.core.windows.net/mycontainer2 /sourcekey:key /destkey:key abc.txt 
 
 **Copy a blob across storage accounts:**
 
-	AzCopy https://sourceaccount.blob.core.windows.net/mycontainer/mycontainer1 https://destaccount.blob.core.windows.net/mycontainer2 /sourcekey:key1 /destkey:key2 abc.txt
+	AzCopy https://sourceaccount.blob.core.windows.net/mycontainer1 https://destaccount.blob.core.windows.net/mycontainer2 /sourcekey:key1 /destkey:key2 abc.txt
  
 ### Copy a blob from the secondary region 
 
@@ -311,7 +311,7 @@ If your storage account has read-access geo-redundant storage enabled, then you 
 
 **Copy a blob to the primary account from the secondary:**
 
-	AzCopy https://myaccount-secondary.blob.core.windows.net/mynewcontainer https://myaccount.blob.core.windows.net/mynewcontainer /sourcekey:key /destkey:key abc.txt
+	AzCopy https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 https://myaccount2.blob.core.windows.net/mynewcontainer2 /sourcekey:key1 /destkey:key2 abc.txt
 
 **Download a blob in the secondary to a file in the file system:**
 
@@ -457,7 +457,7 @@ Note that the prefix applies to the virtual directory, which forms the first par
 
 ### Copy a blob and its snapshots to another storage account
 
-	AzCopy https://sourceaccount.blob.core.windows.net/mycontainer/mycontainer1 https://destaccount.blob.core.windows.net/mycontainer2 /sourcekey:key1 /destkey:key2 abc.txt /snapshot
+	AzCopy https://sourceaccount.blob.core.windows.net/mycontainer1 https://destaccount.blob.core.windows.net/mycontainer2 /sourcekey:key1 /destkey:key2 abc.txt /snapshot
 
 After the copy operation, the target container will include the blob and its snapshots. Assuming the blob in the example above has two snapshots, the container will include the following blob and snapshots:
 
@@ -641,7 +641,8 @@ Note that any empty folders will not be copied.
 
 | Version | What's New                                                                                      				|
 |---------|-----------------------------------------------------------------------------------------------------------------|
-| **V2.5.0**  | **Current version. Optimizes performance for large-scale copy scenarios, and introduces several important usability improvements.**	
+| **V2.5.1**  | **Current version. Optimizes performance when using options /xo and /xn. Fixes bugs related to special characters in source file names and journal file corruption after user input the wrong command-line syntax.**	
+| V2.5.0  | Optimizes performance for large-scale copy scenarios, and introduces several important usability improvements.	
 | V2.4.1  | Supports specifying the destination folder in the installation wizard.                     			
 | V2.4.0  | Supports uploading and downloading files for Azure File storage.                       				                              
 | V2.3.0  | Supports read-access geo-redundant storage accounts.                                                  			|

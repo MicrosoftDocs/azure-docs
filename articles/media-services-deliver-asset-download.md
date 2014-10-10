@@ -1,13 +1,13 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-media-assets" urlDisplayName="Delivering Media Assets" pageTitle="How to Deliver Media Assets - Azure" metaKeywords="" description="Learn about options for delivering media assets that have been uploaded to Media Services in Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Delivering Media Assets" pageTitle="How to Deliver Media Assets - Azure" metaKeywords="" description="Learn about options for delivering media assets that have been uploaded to Media Services in Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 
 
 
 
 <h1>How to: Deliver an Asset by Download</h1>
-This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Manage Assets](http://go.microsoft.com/fwlink/?LinkID=301815&clcid=0x409).
+This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Manage Assets](../media-services-manage-assets/).
 
 This topic discusses options for delivering media assets uploaded to Media Services. You can deliver Media Services content in numerous application scenarios. You can download media assets, or access them by using a locator. You can send media content to another application or to another content provider. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN), such as the Azure CDN.
 
@@ -71,4 +71,4 @@ For more information about delivering assets, see:
 </ul>
 
 <h2>Next Steps</h2>
-This topic explained downloading an asset from Azure Storage. For information on other ways to deliver assets go to the [How to Deliver Streaming Content](http://go.microsoft.com/fwlink/?LinkID=301942) topic.
+This topic explained downloading an asset from Azure Storage. For information on other ways to deliver assets go to the [How to Deliver Streaming Content](../media-services-deliver-streaming-content/) topic.

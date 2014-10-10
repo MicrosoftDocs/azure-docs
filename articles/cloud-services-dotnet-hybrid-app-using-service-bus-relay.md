@@ -1,6 +1,6 @@
-<properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
 
 
@@ -53,7 +53,7 @@ using Azure Active Directory Access Control.
 
 ### THE SOLUTION SCENARIO
 
-In this tutorial, you will create an ASP.NET MVC 4 web site that will
+In this tutorial, you will create an ASP.NET MVC 4 website that will
 allow you to see a list of products on the product inventory page.
 
 ![][0]
@@ -288,7 +288,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
             class ProductsService : IProducts
             {
                 
-                // Populate array of products for display on Web site
+                // Populate array of products for display on Website
                 ProductData[] products = 
                     new []
                         {
@@ -505,7 +505,7 @@ Run the application to verify that it works.
 
     <h2><span class="short-header">DEPLOY TO AZURE</span>MAKE YOUR APPLICATION READY TO DEPLOY TO AZURE</h2>
 
-    You can deploy your application to an Azure Cloud Service or to an Azure Web Site. To learn more about the difference between web sites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Web Site, see [Deploying an ASP.NET Web Application to an Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure Cloud Service.
+    You can deploy your application to an Azure Cloud Service or to an Azure Website. To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure Cloud Service.
 
     To deploy your application to a cloud service, you'll add a cloud service project deployment project to the solution.
     The deployment project contains configuration
@@ -693,13 +693,13 @@ Run the application to verify that it works.
 
         ![][35]
 
-    12. When deployment is complete, you can view your Web site by
-        clicking the **Web site URL** link in the monitoring window.
+    12. When deployment is complete, you can view your Website by
+        clicking the **Website URL** link in the monitoring window.
 
         ![][36]
 
-        Your Web site depends on your on-premises server, so you must
-        run the **ProductsServer** application locally for the Web site
+        Your Website depends on your on-premises server, so you must
+        run the **ProductsServer** application locally for the Website
         to function properly. As you perform requests on the cloud Web
         site, you will see requests coming into your on-premises console
         application, as indicated by the "GetProducts called" output
@@ -707,7 +707,7 @@ Run the application to verify that it works.
 
         ![][37]
 
-To learn more about the difference between web sites and cloud services, see [Azure Execution Models][executionmodels].
+To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels].
 
 <h2><span class="short-header">DELETE THE APPLICATION</span>STOP AND DELETE YOUR APPLICATION</h2>
 

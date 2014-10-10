@@ -1,6 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Application Model" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling." linkid="dev-net-fundamentals-application-model" urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Application Model" authors="" />
+<properties umbracoNaviHide="0" pageTitle="Application Model" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling." urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Application Model" authors="robb" manager="johndaw" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
 
 
@@ -120,25 +120,25 @@ As these examples show, you can use Azure Virtual Machines to create and run new
 
 
 
-<h2><a id="WebSites"></a>Web Sites</h2>
+<h2><a id="WebSites"></a>Websites</h2>
 
-People use web technologies in many different ways. A corporation may need to migrate or setup a presence web site that can handle millions of hits a week and be deployed in several data centers across the globe. A web design agency might work with a team of developers to build a custom web application capable of handling thousands of users. A corporate developer may need to setup an application to track expense reports in the Cloud for authenticated users from his corporate Active Directory. An IT consultant might use a popular open source application to set up a content management system for a small business.
-All of these things could be accomplished using Azure Virtual Machines. But creating and managing raw VMs requires some skill and takes effort. If you need to implement a web site or web application, there's an easier (and cheaper) solution: the approach commonly known as Platform as a Service (PaaS). As Figure 5 shows, Azure provides this with Web Sites.
+People use web technologies in many different ways. A corporation may need to migrate or setup a presence website that can handle millions of hits a week and be deployed in several data centers across the globe. A web design agency might work with a team of developers to build a custom web application capable of handling thousands of users. A corporate developer may need to setup an application to track expense reports in the Cloud for authenticated users from his corporate Active Directory. An IT consultant might use a popular open source application to set up a content management system for a small business.
+All of these things could be accomplished using Azure Virtual Machines. But creating and managing raw VMs requires some skill and takes effort. If you need to implement a website or web application, there's an easier (and cheaper) solution: the approach commonly known as Platform as a Service (PaaS). As Figure 5 shows, Azure provides this with Websites.
 
 
 <a name="Fig5"></a>![05_Websites][05_Websites]
  
-**Figure 5: Azure Web Sites supports static web sites, popular web applications, and custom web applications built with various technologies.** 
+**Figure 5: Azure Websites supports static websites, popular web applications, and custom web applications built with various technologies.** 
 
-Azure Web Sites is built on top of Azure Cloud Services to create a Platform as a Service solution optimized for running web applications. As the figure shows, Web Sites runs on a set of single VMs that may contain multiple web sites created by multiple users as well as standard VMs that belong to an individual user. VMs are a part of a pool of resources managed by Azure Web Sites and thus allow for high reliability and fault tolerance.
-Getting started is easy. With Azure Web Sites, users can select from a range of applications, frameworks and template and create a web site in seconds. They can then use their favorite development tools (WebMatrix, Visual Studio, any other editor) and source control options to setup continuous integration and develop as a team. Applications that rely on a MySQL DB can consume a MySQL service provided for Azure by ClearDB, a Microsoft partner.
-Developers can create large, scalable web applications with Web Sites. The technology supports creating applications using ASP.NET, PHP, Node.js and Python. Applications can use sticky sessions, for example, and existing web applications can be moved to this cloud platform with no changes. Applications built on Web Sites are free to use other aspects of Azure, such as Service Bus, SQL Database, and Blob Storage. You can also run multiple copies of an application in different VMs, with Web Sites automatically load balancing requests across them. And because new Web Sites instances are created in VMs that already exist, starting a new application instance happens very quickly; it's significantly faster than waiting for a new VM to be created.
-As [Figure 5](#Fig5) shows, you can publish code and other web content into Web Sites in several ways. You can use FTP, FTPS, or Microsoft's WebDeploy technology. Web Sites also supports publishing code from source control systems, including Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server, and the cloud-based Team Foundation Service.
+Azure Websites is built on top of Azure Cloud Services to create a Platform as a Service solution optimized for running web applications. As the figure shows, Websites runs on a set of single VMs that may contain multiple websites created by multiple users as well as standard VMs that belong to an individual user. VMs are a part of a pool of resources managed by Azure Websites and thus allow for high reliability and fault tolerance.
+Getting started is easy. With Azure Websites, users can select from a range of applications, frameworks and template and create a website in seconds. They can then use their favorite development tools (WebMatrix, Visual Studio, any other editor) and source control options to setup continuous integration and develop as a team. Applications that rely on a MySQL DB can consume a MySQL service provided for Azure by ClearDB, a Microsoft partner.
+Developers can create large, scalable web applications with Websites. The technology supports creating applications using ASP.NET, PHP, Node.js and Python. Applications can use sticky sessions, for example, and existing web applications can be moved to this cloud platform with no changes. Applications built on Websites are free to use other aspects of Azure, such as Service Bus, SQL Database, and Blob Storage. You can also run multiple copies of an application in different VMs, with Websites automatically load balancing requests across them. And because new Websites instances are created in VMs that already exist, starting a new application instance happens very quickly; it's significantly faster than waiting for a new VM to be created.
+As [Figure 5](#Fig5) shows, you can publish code and other web content into Websites in several ways. You can use FTP, FTPS, or Microsoft's WebDeploy technology. Websites also supports publishing code from source control systems, including Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server, and the cloud-based Team Foundation Service.
 
 
 <h2><a id="CloudServices"></a>Cloud Services</h2>
 
-Azure Virtual Machines provides IaaS, while Azure Web Sites provides web hosting. The third compute option, Cloud Services, provides *Platform as a Service (PaaS)*. This technology is designed to support applications that are scalable, reliable, and cheap to operate. It's also meant to free developers from worrying about managing the platform they're using, letting them focus entirely on their applications. [Figure 6](#Fig6) illustrates the idea.
+Azure Virtual Machines provides IaaS, while Azure Websites provides web hosting. The third compute option, Cloud Services, provides *Platform as a Service (PaaS)*. This technology is designed to support applications that are scalable, reliable, and cheap to operate. It's also meant to free developers from worrying about managing the platform they're using, letting them focus entirely on their applications. [Figure 6](#Fig6) illustrates the idea.
 
 <a name="Fig6"></a>![06_CloudServices2][06_CloudServices2] 
 
@@ -167,15 +167,15 @@ All three Azure execution models let you build scalable, reliable applications i
 
 Virtual Machines provides the most general solution. If you want the most control possible, or if you need generic VMs, such as for development and test, this is the best option. Virtual Machines is also the best choice for running off-the-shelf on-premises applications in the cloud, as illustrated by the SharePoint example described earlier. And because the VMs you create with this technology can look just like your on-premises VMs, it's also likely to be the best choice for disaster recovery. The trade-off, of course, is that with great power comes great responsibility -- IaaS requires you to take on some administrative work.  
 
-Web Sites is the right option when you want to create a simple web site. This is especially true if your site will be based on an existing application such as Joomla, WordPress, or Drupal. Web Sites is also a good choice for creating a low-administration web application, even one that must be quite scalable, or moving an existing IIS web app to the public cloud. It provides fast deployment as well. A new instance of your application can start running almost immediately, while deploying a new VM with either Virtual Machines or Cloud Services can take several minutes. 
+Websites is the right option when you want to create a simple website. This is especially true if your site will be based on an existing application such as Joomla, WordPress, or Drupal. Websites is also a good choice for creating a low-administration web application, even one that must be quite scalable, or moving an existing IIS web app to the public cloud. It provides fast deployment as well. A new instance of your application can start running almost immediately, while deploying a new VM with either Virtual Machines or Cloud Services can take several minutes. 
 
-Cloud Services, which was the initial execution model provided by Azure, is an explicitly PaaS approach. While the line between PaaS and web hosting is blurry, Cloud Services differs in some important ways from Web Sites, including the following:
+Cloud Services, which was the initial execution model provided by Azure, is an explicitly PaaS approach. While the line between PaaS and web hosting is blurry, Cloud Services differs in some important ways from Websites, including the following:
 
-- Unlike Web Sites, Cloud Services gives you administrative access to your application's VMs. This lets you install arbitrary software that your application needs, something that's not possible with Web Sites.
-- Because Cloud Services offers both web roles and worker roles, it's a better choice than Web Sites for multi-tier applications that need separate VMs for their business logic.
-- Cloud Services provides separate staging and production environments, making application updates somewhat smoother than Web Sites. 
-- Unlike Web Sites, you can use networking technologies such as Azure Virtual Network and Azure Connect to hook on-premises computers to Cloud Services applications. 
-- Cloud Services lets you use Remote Desktop to connect directly to an application's VMs, something that's not possible with Web Sites.
+- Unlike Websites, Cloud Services gives you administrative access to your application's VMs. This lets you install arbitrary software that your application needs, something that's not possible with Websites.
+- Because Cloud Services offers both web roles and worker roles, it's a better choice than Websites for multi-tier applications that need separate VMs for their business logic.
+- Cloud Services provides separate staging and production environments, making application updates somewhat smoother than Websites. 
+- Unlike Websites, you can use networking technologies such as Azure Virtual Network and Azure Connect to hook on-premises computers to Cloud Services applications. 
+- Cloud Services lets you use Remote Desktop to connect directly to an application's VMs, something that's not possible with Websites.
 
 Because it's PaaS, Cloud Services also offers some advantages over Azure Virtual Machines. More management tasks are done for you, for instance, such as deploying operating system updates, and so your operations costs are likely to be lower than with the IaaS approach of Azure Virtual Machines.
 

@@ -3,7 +3,7 @@
 Thank you for your interest in Azure documentation!
 
 * [Ways to contribute](#ways-to-contribute)
-* [Before we can accept your pull request](#before-we-can-accept-your-pull-request)
+* [About your contributions to Azure content](#about-your-contributions)
 * [Repository organization](#repository-organization)
 * [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
 * [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
@@ -18,7 +18,7 @@ You can contribute to [Azure documentation](http://azure.microsoft.com/en-us/doc
 * Submit Disqus comments at the bottom of articles.
 * Contribute to articles via the public Azure repo.
 
-##Before we can accept your pull request
+##About your contributions to Azure content
 
 ###Minor corrections
 
@@ -27,12 +27,14 @@ Minor corrections or clarifications you submit for documentation and code exampl
 
 ###Larger submissions
 
-If you submit new or significant changes to documentation and code examples, you need to send a signed Contribution License Agreement (CLA) before we can accept your pull request if you are in one of these groups:
+If you submit a pull request with new or significant changes to documentation and code examples, we'll send a comment in GitHub asking you to submit an online Contribution License Agreement (CLA) if you are in one of these groups:
 
 * Members of the Microsoft Open Technologies group.
 * Contributors who don't work for Microsoft.
 
-Full details are available at [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
+We need you to complete the online form before we can accept your pull request.
+
+Full details are available at [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla). 
 
 ## Repository organization
 
@@ -181,7 +183,7 @@ If you want to add a Note section to your article, use the following:
 
 You can add [Channel 9](http://channel9.msdn.com/) videos to articles with the following syntax:
  
-    > [WACOM.VIDEO video-id-string]
+    > [AZURE.VIDEO video-id-string]
     
 
 1. Make sure that the video is on the [Azure Video Center](http://azure.microsoft.com/en-us/documentation/videos/home/). 

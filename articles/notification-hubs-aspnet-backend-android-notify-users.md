@@ -1,4 +1,4 @@
-<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="elioda" />
+<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="elioda" manager="timlt" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
 
@@ -268,13 +268,11 @@ The next step is to create the Android application.
 
 To run the application, do the following:
 
-1. Make sure **AppBackend** is deployed in Azure. If using Visual Studio, run the **AppBackend** Web API application. An ASP.NET web page is displayed.
+1. In Eclipse, run the app on a physical Android device or the emulator.
 
-2. In Eclipse, run the app on a physical Android device or the emulator.
+2. In the Android app UI, enter a username and password. These can be any string, but they must be the same value.
 
-3. In the Android app UI, enter a username and password. These can be any string, but they must be the same value.
-
-4. In the Android app UI, click **Log in**. Then click **Send push**.
+3. In the Android app UI, click **Log in**. Then click **Send push**.
 
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG

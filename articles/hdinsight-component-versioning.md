@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
+<properties urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -10,13 +10,13 @@ HDInsight supports multiple Hadoop cluster versions that can be deployed at any 
 
 
 <table border="1">
-<tr><th>Component</th><th>Version 3.1 (Default)</th><th>Version 3.0</th><th>Version 2.1</th><th>Version 1.6</th></tr>
+<tr><th>Component</th><th>HDInsight Version 3.1 (Default)</th><th>HDInsight Version 3.0</th><th>HDIinsight Version 2.1</th><th>HDInsight Version 1.6</th></tr>
 <tr><td>Hortonworks Data Platform (HDP)</td><td>2.1</td><td>2.0</td><td>1.3</td><td>1.1</td></tr>
 <tr><td>Apache Hadoop & YARN</td><td>2.4.0</td><td>2.2.0</td><td>1.2.0</td><td>1.0.3</td></tr>
 <tr><td>Tez</td><td>0.4.0</td><td></td><td></td><td></td></tr>
 <tr><td>Apache Pig</td><td>0.12.1</td><td>0.12.0</td><td>0.11.0</td><td>0.9.3</td></tr>
 <tr><td>Apache Hive & HCatalog</td><td>0.13.0</td><td>0.12.0</td><td>0.11.0</td><td>0.9.0</td></tr>
-<tr><td>HBase (Preview)</td><td></td><td>0.96.0</td><td></td><td></td></tr>
+<tr><td>HBase </td><td>0.98.0</td><td></td><td></td><td></td></tr>
 <tr><td>Apache Sqoop</td><td>1.4.4</td><td>1.4.4</td><td>1.4.3</td><td>1.4.2</td></tr>
 <tr><td>Apache Oozie</td><td>4.0.0</td><td>4.0.0</td><td>3.3.2</td><td>3.2.0</td></tr>
 <tr><td>Apache HCatalog</td><td>Merged with Hive</td><td>Merged with Hive</td><td>Merged with Hive</td><td>0.4.1</td></tr>
@@ -45,7 +45,7 @@ If you use the **Quick Create** option, you will get the version 3.1 of HDInsigh
 ##Feature highlights
 Azure HDInsight now supports Hadoop 2.4 with HDInsight cluster version 3.1 (using Hortonworks Data Platform 2.1) by default. It takes full advantage of the platform to provide a range of significant benefits to customers. These include, most notably:
 
-- **HBase (Preview)**: HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs.
+- **HBase**: HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs.
 
 - **Cluster Dashboard**: A new web application that is deployed to your HDInsight cluster.  Use it to run Hive Queries, check job logs, and browse Azure Blob storage. The URL used to access the web application is <*ClusterName*>.azurehdinsight.net.
 
@@ -55,13 +55,15 @@ Azure HDInsight now supports Hadoop 2.4 with HDInsight cluster version 3.1 (usin
 
 - **Tez (HDInsight 3.1 only)**: A general-purpose and customizable framework that creates simplified data-processing tasks across both small scale and large-scale workloads in Hadoop. It provides the ability to execute a complex directed acyclic graph (DAG) of tasks for a single job, so that projects in the Apache Hadoop ecosystem such as Apache Hive and Apache Pig can meet requirements for human-interactive response times and extreme throughput at petabyte scale. Note that Hive 0.13 allows Hive queries to run on top of Tez, rather than on MapReduce.
 
-- **High Availability**: A second headnode has been added to the Hadoop clusters deployed by HDInsight to increase the availability of the service. Standard implementations of Hadoop clusters typically have a single headnode. HDInsight removes this single point of failure with the addition of a secondary headnode. The switch to new HA cluster configuration doesn’t change the price of the cluster, unless customers provision clusters with extra large head node instead of the default large size node.
+- **High Availability**: A second headnode has been added to the Hadoop clusters deployed by HDInsight to increase the availability of the service. Standard implementations of Hadoop clusters typically have a single headnode. HDInsight removes this single point of failure with the addition of a secondary headnode. The switch to new HA cluster configuration doesn't change the price of the cluster, unless customers provision clusters with extra large head node instead of the default large size node.
 
 - **Hive performance**: Order of magnitude improvements to Hive query response times (up to 40x) and to data compression (up to 80%) using the **Optimized Row Columnar** (ORC) format.
 
 - **Pig, Sqoop, Qozie, Ambari**: Component version upgrades for HDInsight cluster version 3.0 (HDP 2.0/Hadoop 2.2) that provide parity with HDInsight cluster version 2.1 (HDP 1.3/Hadoop 1.2). See the version tables below for specifics.
 
 - **Mahout**: This library of scalable machine-learning algorithms is preinstalled on HDInsight 3.1 Hadoop clusters. So you can run Mahout jobs without the need for any additional cluster configuration.
+
+- **Virtual Network support**: HDInsight clusters can be used with Azure Virtual Network to support isolation of cloud resources or hybrid scenarios that link cloud resources with those in your datacenter.
 
 
 ## Supported versions

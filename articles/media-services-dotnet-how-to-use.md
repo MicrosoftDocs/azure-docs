@@ -1,6 +1,6 @@
-<properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Media Services" authors="" solutions="" manager="" editor="" />
+<properties" pageTitle="How to Use Media Services" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Media Services" authors="" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 
 #How to Use Media Services
@@ -67,7 +67,7 @@ For PCs and Macs you can target a streaming experience using Microsoft Silverlig
 
 -	[Smooth Streaming Client for Silverlight](http://www.microsoft.com/en-us/download/details.aspx?id=29940)
 -	[Microsoft Media Platform: Player Framework for Silverlight](http://smf.codeplex.com/documentation)
--	[Smooth Streaming Plugin for OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022). For information on how to use this plug-in, see [How to Use Smooth Streaming Plugin for Adobe Open Source Media Framework](http://go.microsoft.com/fwlink/?LinkId=275034).
+-	[Smooth Streaming Plugin for OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022). For information on how to use this plug-in, see [How to Use Smooth Streaming Plugin for Adobe Open Source Media Framework](../media-services-use-osmf-smooth-streaming-client-plugin/).
 
 ####Windows 8 applications
 For Windows 8, you can build Windows Store applications using any of the supported development languages and constructs like HTML, Javascript, XAML, C# and C+.
@@ -101,7 +101,7 @@ For iOS devices including iPhone, iPod, and iPad, Microsoft ships an SDK that yo
 Several Microsoft partners ship SDKs for the Android platform that add the capability to play back Smooth Streaming on an Android device. Please [email Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) for more details on the partners.
 
 ##Next Steps
-Now that you have an overview of Media Services, go to the [Setting Up Your Computer for Media Services](http://go.microsoft.com/fwlink/?LinkId=301751) topic.
+Now that you have an overview of Media Services, go to the [Setting Up Your Computer for Media Services](../media-services-set-up-computer/) topic.
 
 
   [What Are Media Services?]: #what-are
@@ -138,7 +138,7 @@ Now that you have an overview of Media Services, go to the [Setting Up Your Comp
   [Getting Started with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Building Applications with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Azure Management Portal]: https://manage.windowsazure.com/
-  [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
-  [Supported File Types for Media Services]: http://msdn.microsoft.com/en-us/library/hh973634
+  [How to Create a Media Services Account]: ../media-services-create-account/
+  [Supported File Types for Media Services]: http://msdn.microsoft.com/en-us/library/dn535852.aspx
 
 

@@ -1,34 +1,16 @@
-<properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-javascript-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="wesmc" />
 
+# Add Mobile Services to an existing app
 
+[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-# Get started with data in Mobile Services
+This topic shows you how to use Azure Mobile Services as a backend data source for a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
 
+The mobile service that you will create in this tutorial is a .NET backend mobile service. .NET backend enables you to use .NET languages and Visual Studio for server-side business logic in the mobile service, and you can run and debug your mobile service on your local computer. To create a mobile service that lets you write your server-side business logic in JavaScript, see the JavaScript backend version of this topic.
 
-<div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS">iOS</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android">Android</a>
-
-</div>
-
-
-<div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title=".NET backend" class="current">.NET backend</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/"  title="JavaScript backend">JavaScript backend</a>
-</div>
-
-This topic shows you how to use Azure Mobile Services as a backend datasource for a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
-
-The mobile service that you will create in this tutorial will support the .NET runtime in the Mobile Service. This will allow you to use .NET languages and Visual Studio for server-side business logic in the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.
-
-<div class="dev-callout"><b>Note</b>
-<p>This tutorial requires Visual Studio 2013.</p>
-</div>
+>[WACOM.NOTE]This topic shows you how to add Azure Mobile Services to a Windows Store project. You can use Visual Studio 2013 tools to add the same .NET backend mobile service to a universal Windows app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data) of this tutorial.
 
 This tutorial walks you through these basic steps:
 
@@ -40,16 +22,16 @@ This tutorial walks you through these basic steps:
 6. [Publish the mobile service to Azure]
 7. [Test the Windows Store App against the service hosted in Azure]
 
+To complete this tutorial, you need the following:
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started-data%2F" target="_blank">Azure Free Trial</a>.</p></div> 
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started-data%2F).
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. A free trial version is available.
 
-<h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
+##<a name="download-app"></a>Download the GetStartedWithData project
 
 This tutorial is built on the [GetStartedWithMobileServices app][Developer Code Samples site], which is a Windows Store app project in Visual Studio 2013. The UI for this app is similar to the app generated by the Mobile Services quickstart, except that added items are stored locally in memory. 
 
 1. Download the JavaScript version of the GetStartedWithMobileServices sample app from the [Developer Code Samples site]. 
-
-   	![][1]
 
 2. Run Visual Studio 2013 with administrative privileges by right clicking Visual Studio and clicking **Run as administrator**.
 
@@ -65,13 +47,11 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
    	Notice that the saved text is displayed in the second column under **Query and update data**.
 
-<h2><a name="create-service"></a><span class="short-header">Create a new mobile service</span>Create a new mobile service</h2>
+##<a name="create-service"></a>Create a new mobile service
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
-
-
-<h2><a name="download-the-service-locally"></a><span class="short-header">Download the service locally</span>Download the mobile service project and add it to the solution</h2>
+##<a name="download-the-service-locally"></a>Download the mobile service project and add it to the solution
 
 1. In the [Azure Management Portal], click your new Mobile Service or its cloud icon tab to go to the overview page.
 
@@ -117,7 +97,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
     ![][23]
 
 
-<h2><a name="update-app"></a><span class="short-header">Update the Windows Store app</span>Update the Windows Store app to use the mobile service</h2>
+#<a name="update-app"></a>Update the Windows Store app to use the mobile service
 
 In this section you will update the Windows Store app to use the mobile service as a backend service for the application.
 
@@ -193,43 +173,16 @@ In this section you will update the Windows Store app to use the mobile service 
 
     ![][19]
 
+##<a name="test-locally-hosted"></a>Test the Windows Store app with the service hosted locally
 
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-data](../includes/mobile-services-dotnet-backend-test-local-service-data.md)]
 
-<h2><a name="test-locally-hosted"></a><span class="short-header">Test the Windows Store app locally</span>Test the Windows Store app with the service hosted locally</h2>
-
-In this section you will use Visual Studio to host the mobile service locally on your development workstation in IIS Express. Then you will test the app and the backend service.
-
-
-1. In Visual Studio, press the F7 key or click **Build Solution** from the Build menu to build both the Windows Store app and the mobile service. Verify both projects build with no errors in the output window of Visual Studio
-
-    ![][11]
-
-2. In Visual Studio, press the F5 key or click **Start Debugging** from the Debug menu to run the app and host the mobile service locally in IIS Express. 
-
-    ![][12]
-
-
-3. Enter a new todoitem's text. Then click **Save**. This inserts a new todoItem in the database created by the mobile service hosted locally in IIS Express. 
-
-    ![][13]
-
-4. Click the checkbox for one of the items to mark it as completed.
-
-    ![][15]
-
-5. In Visual Studio you can view the changes in the database created for the backend service by opening Server Explorer and expanding the Data Connections. Right click the TodoItems table under **MS_TableConnectionString** and click **Show Table Data**
-
-    ![][14]
-
-
-
-<h2><a name="publish-mobile-service"></a><span class="short-header">Publish the mobile service to Azure</span>Publish the mobile service to Azure</h2>
-
+##<a name="publish-mobile-service"></a>Publish the mobile service to Azure
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 
-<h2><a name="test-azure-hosted"></a><span class="short-header">Test the mobile service on Azure</span>Test the mobile service published to Azure</h2>
+##<a name="test-azure-hosted"></a>Test the mobile service published to Azure
 
 1. In Visual Studio in Solution Explorer, expand the **js** folder and open default.js.  Comment out the code that creates the `MobileServiceClient` that connects to the locally hosted mobile service. Uncomment the code that creates the `MobileServiceClient` that connects to your service in Azure. Save your changes to the file.
 
@@ -311,9 +264,7 @@ Once you have completed the data series, try one of these other tutorials:
 [10]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/vs-pasted-mobileserviceclient.png
 [11]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/vs-build-solution.png
 [12]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/vs-run-solution.png
-[13]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/new-local-todoitem.png
-[14]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/vs-show-local-table-data.png
-[15]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/local-item-checked.png
+
 [16]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/azure-items.png
 [17]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/manage-sql-azure-database.png
 [18]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/sql-azure-query.png
@@ -332,13 +283,12 @@ Once you have completed the data series, try one of these other tutorials:
 [Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
-[JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-js
+
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library/
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   

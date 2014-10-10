@@ -1,49 +1,60 @@
-<properties title="Monitor your web app's availability and responsiveness" pageTitle="Web tests in Application Insights" description="Make sure your web application is available and responsive. Get alerts if it becomes unavailable or responds slowly." metaKeywords="analytics web test" authors="awills"  />
+<properties title="Monitor any web site's availability and responsiveness" pageTitle="Monitor any web site's availability and responsiveness" description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly." metaKeywords="analytics web test availability" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-02" ms.author="awills" />
  
-# Monitor your web app's availability and responsiveness
+# Monitor any web site's availability and responsiveness
 
 After you've deployed your web application, you can set up web tests to monitor its availability and responsiveness. Application Insights will send web requests at regular intervals from points around the world, and can alert you if your application responds slowly or not at all.
 
+![Web test example](./media/appinsights/appinsights-10webtestresult.png)
+
 You can set up web tests for any HTTP endpoint that is accessible from the public internet.
 
+*Is it an Azure website? Just [create the web test in the website blade][azurewebtest].*
 
-1. [Create a new application?](#create)
-+ [Set up a web test](#setup)
-+ [See monitor reports](#monitor)
-+ [Edit or disable a test](#edit)
-+ [Next steps](#next)
+####Steps
+
+1. [Create a new resource?](#create)
+1. [Set up a web test](#setup)
+1. [View results](#monitor)
+1. [Edit or disable a test](#edit)
+
+
+ [Video](#video)
+ [Next steps](#next)
 
 
 
-## <a name="create"></a>1. Create a new application?
+## <a name="create"></a>1. Create a new resource?
 
-Skip this step if you're already [monitoring usage and health][start] for this web app, and you want to see the availability data in the same place.
+Skip this step if you've already [set up an Application Insights resource][start] for this application, and you want to see the availability data in the same place.
 
-But if you want to keep these results separate, login to Microsoft Azure preview and create a new application in Application Insights. 
+Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and create a new Application Insights resource. 
 
 ![New > Application Insights](./media/appinsights/appinsights-11newApp.png)
 
 ## <a name="setup"></a>2. Set up a web test
 
-In the home blade for your application in Application Insights, click through the empty webtests tile. 
+In the overview blade for your application, click through the webtests tile. 
 
 ![Click the empty availability test](./media/appinsights/appinsights-12avail.png)
 
-> *Already got web tests? Click through the webtests tile and then choose Add Webtest.*
+*Already got some web tests? Click through the webtests tile, and choose Add Webtest.*
 
-Provide a name for the test, and the URL that you want to test. The URL has to be visible from the public internet.
+Set up the test details.
 
 ![Fill at least the URL of your website](./media/appinsights/appinsights-13availChoices.png)
 
-- Test locations are the places from where our servers send web requests to your URL. Choose two or three so that you can distinguish problems in your website from network issues. You can't select more than three.
+- **The URL** must be visible from the public internet. It can include a query string - so for example you could exercise your database a little. If the URL resolves to a redirect, we will follow it, up to 10 redirects.
 
-- Success criteria - Specify the acceptable HTTP return codes - 200 is usual. 
+- **Test locations** are the places from where our servers send web requests to your URL. Choose two or three so that you can distinguish problems in your website from network issues. You can't select more than three.
 
-    You can also specify a string that should be found in every correct response. It must be a plain string, without wildcards. Don't forget that if your content changes you might have to update it.
+- **Success criteria**:
+    **HTTP return codes**: 200 is usual. 
 
-- Alerts - By default, alerts are sent to you if there are repeated failures over 15 minutes. But you can change it to be more sensitive, and you can also change the notified email addresses.
+    **Content match** string, like "Welcome!" We'll test that it occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
+
+- **Alerts**: By default, alerts are sent to you if there are repeated failures over 15 minutes. But you can change it to be more or less sensitive, and you can also change the notified email addresses.
 
 ### Test more URLs
 
@@ -52,21 +63,23 @@ You can add more tests for as many URLs as you like. For example, as well as tes
 ![On the web tests blade, choose Add](./media/appinsights/appinsights-16anotherWebtest.png)
 
 
-## <a name="monitor"></a>3. See monitor reports
+## <a name="monitor"></a>3. View availability reports
 
-After 1-2 minutes, close and re-open the application blade. (In this release, it doesn't refresh automatically.)
+After 1-2 minutes, click Refresh on the overview blade. (In this release, it doesn't refresh automatically.)
 
 ![Summary results on the home blade](./media/appinsights/appinsights-14availSummary.png)
 
-This is a summary. If you've defined several web tests for this application, they're all combined here.
+The chart on the overview blade combines results for all the web tests of this application.
 
-Click through to the Webtests blade to see a list of your web tests.
+### If you see failures...
+
+Click through to the webtests blade to see separate results for each test.
 
 Open a specific web test.
 
 ![Click a specific webtest](./media/appinsights/appinsights-15webTestList.png)
 
-In the specific web test blade, scroll down to **Failed tests** and pick a result.
+Scroll down to **Failed tests** and pick a result.
 
 ![Click a specific webtest](./media/appinsights/appinsights-17-availViewDetails.png)
 
@@ -84,32 +97,42 @@ Open an individual test to edit or disable it.
 
 You might want to disable web tests while you are performing maintenance on your service.
 
+## <a name="video"></a>Video
+
+> [AZURE.VIDEO monitoring-availability-with-application-insights]
+
 ## <a name="next"></a>Next steps
 
 [Search diagnostic logs][diagnostic]
 
 [Troubleshooting][qna]
 
-## <a name="next"></a>Learn more
 
-* [Application Insights][root]
-* [Add Application Insights to your project][start]
+## Application Insights - learn more
+
+* [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
-* [Explore metrics in Application Insights][explore]
-* [Diagnostic log search][diagnostic]
+* [Monitor performance in web applications][perf]
+* [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
-* [Usage tracking with events and metrics][usage]
+* [Track usage][usage]
+* [Track custom events and metrics][track]
 * [Q & A and troubleshooting][qna]
 
+
+* [Web tests for Azure websites][azurewebtest]
 
 <!--Link references-->
 
 
-[root]: ../app-insights-get-started/
-[start]: ../app-insights-monitor-application-health-usage/
+[start]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
-[explore]: ../app-insights-explore-metrics/
+[perf]: ../app-insights-web-monitor-performance/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-track-usage-custom-events-metrics/
+[usage]: ../app-insights-web-track-usage/
+[track]: ../app-insights-web-track-usage-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/
+[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+
+[azurewebtest]: ../insights-create-web-tests/

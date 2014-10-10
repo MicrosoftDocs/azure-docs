@@ -1,6 +1,7 @@
-<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Step 4: Train and evaluate the predictive analytic models | Azure" description="Step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Step 4: Train and evaluate the predictive analytic models | Azure" description="Step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+
 
 This is the fourth step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
@@ -22,7 +23,7 @@ This is the fourth step of the walkthrough, [Developing a Predictive Solution wi
 
 ----------
 
-#Step 4: Train and evaluate the predictive analytic models
+# Step 4: Train and evaluate the predictive analytic models
 
 In this experiment we want to try different algorithms for our predictive model. We'll create two different types of models and then compare their scoring results to decide which algorithm we want to use in our final experiment.  
 
@@ -31,7 +32,7 @@ There are a number of models we could choose from. To see the models available, 
 ##Train the models
 First, let's set up the boosted decision tree model:  
 
-1.	Find the T**wo-Class Boosted Decision Tree** module in the module palette and drag it onto the canvas.
+1.	Find the **Two-Class Boosted Decision Tree** module in the module palette and drag it onto the canvas.
 2.	Find the **Train Model** module, drag it onto the canvas, and then connect the output of the boosted decision tree module to the left input port ("Untrained model") of the **Train Model** module.
 3.	Connect the output of the left **Execute R Script** module to the right input port ("Dataset") of the **Train Model** module.
 

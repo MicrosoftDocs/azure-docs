@@ -1,6 +1,6 @@
-<properties pageTitle="Using Windows PowerShell with Resource Manager" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Use Windows PowerShell to create a resource group" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="juneb" solutions="" manager="mbaldwin" editor="mollybos" />
+<properties pageTitle="Using Windows PowerShell with Resource Manager" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Use Windows PowerShell to create a resource group" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="stevenka; juneb" solutions="" manager="stevenka" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juneb" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb" />
 
 # Using Windows PowerShell with Resource Manager #
 
@@ -8,7 +8,7 @@
 
 Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining a complex service, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a resource model of the service --  to create a resource group with the resources that you need to support the service. Then, you can manage and deploy that resource group as a logical unit. 
 
-In this tutorial, you learn how to use Windows PowerShell with Resource Manager for Microsoft Azure. It walks you through the process of creating and deploying a resource group for an Azure-hosted web site (or web application) with a SQL database, complete with all of the resources that you need to support it.
+In this tutorial, you learn how to use Windows PowerShell with Resource Manager for Microsoft Azure. It walks you through the process of creating and deploying a resource group for an Azure-hosted website (or web application) with a SQL database, complete with all of the resources that you need to support it.
 
 **Estimated time to complete:** 15 minutes
 
@@ -43,7 +43,7 @@ For example, to get help for the Add-AzureAccount cmdlet, type:
 ##<a id="about"></a>About the Azure PowerShell Modules ##
 Beginning in version 0.8.0, the Azure PowerShell installation includes three Windows PowerShell modules:
 
-- **Azure**: Includes the traditional cmdlets for managing individual resources, such as storage accounts, web sites, databases, virtual machines, and media services. For more information, see [Azure Service Management Cmdlets](http://msdn.microsoft.com/en-us/library/jj152841.aspx).
+- **Azure**: Includes the traditional cmdlets for managing individual resources, such as storage accounts, websites, databases, virtual machines, and media services. For more information, see [Azure Service Management Cmdlets](http://msdn.microsoft.com/en-us/library/jj152841.aspx).
 
 - **AzureResourceManager**: Includes cmdlets for creating, managing, and deploying the Azure resources for a resource group. For more information, see [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765).
 
@@ -101,9 +101,9 @@ For example,
   
 #<a id="create"></a> Create a resource group#
 
-This section of the tutorial guides you through the process of creating and deploying a resource group for a web site with a SQL database. 
+This section of the tutorial guides you through the process of creating and deploying a resource group for a website with a SQL database. 
 
-You don't need to be an expert in Azure, SQL, web sites, or resource management to do this task. The templates provide a model of the resource group with all of the resources that you're likely to need. And because we're using Windows PowerShell to automate the tasks, you can use these process as a model for scripting large-scale tasks.
+You don't need to be an expert in Azure, SQL, websites, or resource management to do this task. The templates provide a model of the resource group with all of the resources that you're likely to need. And because we're using Windows PowerShell to automate the tasks, you can use these process as a model for scripting large-scale tasks.
 
 ## Step 1: Switch to Azure Resource Manager 
 1. Start Windows PowerShell. You can use any host program that you like, such as the Windows PowerShell console or Windows PowerShell ISE.
@@ -156,7 +156,7 @@ The Microsoft.WebSiteSQLDatabase.0.1.0-preview1 template looks interesting. To g
 
 The cmdlet returns an object with much more information about the template, including a description.
 
-	<p>Windows Azure Web Sites offers secure and flexible development, 
+	<p>Windows Azure Websites offers secure and flexible development, 
 	deployment and scaling options for any sized web application. Leverage 
 	your existing tools to create and deploy applications without the hassle 
 	of managing infrastructure.</p>
@@ -178,7 +178,7 @@ Save-AzureResourceGroupGalleryTemplate saves the template and returns the path a
 
 You can view the template file in a text editor, such as Notepad. Each template has a **resources** section and a **parameters** section.
 
-The **resources** section of the template lists the resources that the template creates. This template creates a SQL database server and SQL database, a server farm and web site, and several management settings.
+The **resources** section of the template lists the resources that the template creates. This template creates a SQL database server and SQL database, a server farm and website, and several management settings.
   
 The definition of each resource includes its properties, such as name, type and location, and parameters for user-defined values. For example, this section of the template defines the SQL database. It includes parameters for the database name ([parameters('databaseName')]), the database server location [parameters('serverLocation')], and the collation property [parameters('collation')].
 
@@ -298,7 +298,7 @@ Windows PowerShell completes the parameter name. To cycle through the parameter 
 		PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
 		-siteName 
 
-Enter a name for the web site and repeat the TAB process for each of the parameters. The parameters with a default value are optional. To accept the default value, omit the parameter from the command. 
+Enter a name for the website and repeat the TAB process for each of the parameters. The parameters with a default value are optional. To accept the default value, omit the parameter from the command. 
 
 When a template parameter has enumerated values, such as the sku parameter in this template, to cycle through the parameter values, press the TAB key.
 
@@ -369,7 +369,7 @@ When you enter the command, you are prompted for the missing mandatory parameter
                     TestSite               Microsoft.Web/sites                   westus
 
 
-In just a few steps, we created and deployed the resources required for a complex web site. 
+In just a few steps, we created and deployed the resources required for a complex website. 
 The gallery template provided almost all of the information that we needed to do this task.
 And, the task is easily automated. 
 
@@ -411,7 +411,7 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 
 
 
-- To add a resource to the resource group, use the **New-AzureResource** cmdlet. This command adds a new web site to the TestRG resource group. This command is a bit more complex, because it does not use a template. 
+- To add a resource to the resource group, use the **New-AzureResource** cmdlet. This command adds a new website to the TestRG resource group. This command is a bit more complex, because it does not use a template. 
 
 		PS C:\>New-AzureResource -Name TestSite2 `
 		-Location "North Europe" `
@@ -436,7 +436,7 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 
 - To delete a resource from the resource group, use the **Remove-AzureResource** cmdlet. This cmdlet deletes the resource, but does not delete the resource group.
 
-	This command removes the TestSite2 web site from the TestRG resource group.
+	This command removes the TestSite2 website from the TestRG resource group.
 
 		Remove-AzureResource -Name TestSite2 `
 			-Location "North Europe" `

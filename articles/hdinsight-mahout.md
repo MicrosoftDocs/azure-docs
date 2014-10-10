@@ -1,18 +1,18 @@
-<properties title="How to use Mahout with HDNishgt" pageTitle="How to use Mahout with Microsoft Azure HDInsight" description="Learn how to use Mahout to run jobs with HDInsight" metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" />
+<properties title="Generate movie recommendations using Mahout" pageTitle="Generate movie recommendations using Mahout with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)" metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning, azure hadoop mahout, azure hadoop machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
-#How to use Apache Mahout with HDInsight
+#Generate movie recommendations using Apache Mahout with HDInsight (Hadoop)
 
-Learn how to use [Apache Mahout](http://mahout.apache.org) with Microsoft Azure HDInsight (Hadoop).
+Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning library to generate movie recommendations with Microsoft Azure HDInsight (Hadoop).
 
 > [WACOM.NOTE] You must have an HDInsight cluster to use the information in this article. For information on creating one, see [Get started using Hadoop in HDInsight][getstarted].
-
-> [WACOM.NOTE] Mahout is provided with HDInsight 3.1 clusters. If you are using an earlier version of HDInsight, see [Install Mahout](#install) before continuing.
+>
+> Mahout is provided with HDInsight 3.1 clusters. If you are using an earlier version of HDInsight, see [Install Mahout](#install) before continuing.
 
 ##<a name="learn"></a>What you will learn
 
-Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article you will generate recommendations using a recommendation engine, as well as performing classifications with a decision forest. This will teach you the following.
+Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article you will use a recommendation engine to generate movie recommendations based on movies that your friends have seen. You will also learn how to performing classifications with a decision forest. This will teach you the following.
 
 * How to run Mahout jobs from PowerShell
 
@@ -73,7 +73,7 @@ Use the following PowerShell script to run a job using the Mahout recommendation
 	$clusterName = "the cluster name"
 	
 	# The location of the Mahout jar file.
-	$jarFile = "C:\apps\dist\mahout-0.9.0.2.1.3.0-1887\examples\target\mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
+	$jarFile = "file:///c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
 	# Use the following to find the location and name
