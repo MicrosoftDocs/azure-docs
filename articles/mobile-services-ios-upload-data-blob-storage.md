@@ -6,6 +6,6 @@
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-upload-data-blob-storage" title="iOS" class="current">iOS</a></div>
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title=".NET backend" >.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage" title="JavaScript backend" class="current">JavaScript backend</a></div>
 
-Learn how to upload data to Blob Storage through Mobile Services with Chris Risner's tutorial [iOS and Mobile Services and Windows Azure Storage].
+As announced in TechEd 2014, we will be releasing the iOS Storage SDK soon to simplify your development experience. Meanwhile, learn how to upload data to Blob Storage through Mobile Services with Chris Risner's tutorial [iOS and Mobile Services and Windows Azure Storage].
 
 [iOS and Mobile Services and Windows Azure Storage]: http://chrisrisner.com/iOS-and-Mobile-Services-and-Windows-Azure-Storage
