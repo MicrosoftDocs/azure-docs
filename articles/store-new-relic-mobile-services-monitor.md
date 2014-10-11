@@ -107,6 +107,7 @@ Next, you will enable New Relic monitoring of your mobile service in the [Manage
 
 ##<a name="next-steps"> </a>Next steps
 
++ To optimzie your **iOS**/**Android** mobile app performance, see [New Relic Mobile].
 + For pricing information see the [New Relic page in the Azure Store].
 + For more information about using New Relic, see [Applications Overview] in the New Relic documentation. 
 
@@ -137,4 +138,5 @@ Next, you will enable New Relic monitoring of your mobile service in the [Manage
 [Applications Overview]: https://docs.newrelic.com/docs/applications-dashboards/applications-overview
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+[New Relic Mobile]: http://newrelic.com/mobile-monitoring
 
