@@ -1,4 +1,4 @@
-<properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="juliako" solutions="" manager="" editor="" />
+<properties urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
@@ -319,15 +319,15 @@ CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
 Add the following helper methods to the class. These are required to support the <strong>CreateEncodingJob</strong> method. Following is a summary of the helper methods.
 <ul>
 <li>
-The <strong>GetLatestMediaProcessorByName</strong> method returns an appropriate media processor to handle an encoding, encryption, or other related processing task. You create a media processor using the appropriate string name of the processor you want to create. The possible strings that can be passed into the method for the mediaProcessor parameter are: <strong>Azure Media Encoder</strong>, <strong>Azure Media Packager</strong>, <strong>Azure Media Encryptor</strong>, <strong>Storage Decryption</strong>.
+The <strong>GetLatestMediaProcessorByName</strong> method returns an appropriate media processor to handle an encoding, encryption, or other related processing task. You create a media processor using the appropriate string name of the processor you want to create. The possible strings that can be passed into the method for the mediaProcessor parameter are: <strong>Azure Media Encoder</strong>, <strong>Windows Azure Media Packager</strong>, <strong>Windows Azure Media Encryptor</strong>, <strong>Storage Decryption</strong>.
 <pre><code>
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 {
     // The possible strings that can be passed into the 
     // method for the mediaProcessor parameter:
     //   Azure Media Encoder
-    //   Azure Media Packager
-    //   Azure Media Encryptor
+    //   Windows Azure Media Packager
+    //   Windows Azure Media Encryptor
     //   Storage Decryption
 
     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).

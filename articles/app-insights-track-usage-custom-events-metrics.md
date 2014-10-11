@@ -13,8 +13,7 @@ We're currently still porting this feature over to the new Application Insights 
 However, one thing you can do right now is to [capture and search diagnostic event logs generated with Trace, NLog or Log4Net][diagnostic]. 
 
 
-
-## Learn more
+## Application Insights - learn more
 
 * [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]

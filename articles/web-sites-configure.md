@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure websites - Azure service management" metaKeywords="Azure websites, configuring Azure websites, Azure SQL database, Azure MySQL" description="Learn how to configure websites in Azure, including how to configure a website to use a SQL Database or MySQL database." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Websites" authors="timamm, mwasson" solutions="" manager="" editor="mollybos" />
+<properties urlDisplayName="How to configure" pageTitle="How to configure websites - Azure service management" metaKeywords="Azure websites, configuring Azure websites, Azure SQL database, Azure MySQL" description="Learn how to configure websites in Azure, including how to configure a website to use a SQL Database or MySQL database." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Websites" authors="mwasson" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
 
@@ -164,8 +164,8 @@ Use this area to add custom script processors to handle requests for specific fi
 ### Virtual applications and directories 
 
 To configure virtual applications and directories associated with your website, specify each virtual directory and its corresponding physical path relative to the site root. Optionally, you can select the <strong>Application</strong> checkbox to mark a virtual directory as an application in site configuration.
-	
 
+	
 
 <!-- HOW TO: CONFIGURE A WEBSITE TO USE A SQL DATABASE -->
 ##<a name="howtoconfigSQL"></a>How to: Configure a website to use a SQL database

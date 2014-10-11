@@ -1,4 +1,4 @@
-<properties pageTitle="Azure API Management Policy Reference" metaKeywords="" description="Learn about the policies available to configure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="Azure API Management Policy Reference" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="Azure API Management Policy Reference" metaKeywords="" description="Learn about the policies available to configure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="Azure API Management Policy Reference" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
@@ -735,6 +735,32 @@ CORS allows a browser and a server to interact and determine whether or not to a
         </allowed-origins>
     </cors>
 
+The above is all you need to support simple CORS requests. However to support pre-flight requests (those with custom headers or methods other than GET and POST) you’ll need to add specific configuration for your supported HTTP methods and headers.
+
+**Example:**
+
+	<cors>
+		<allowed-origins>
+			<!-- Localhost useful for development -->
+			<origin>http://localhost:8080/</origin>
+			<origin>http://example.com/</origin>
+		</allowed-origins>
+		<allowed-methods>
+			<method>GET</method>
+			<method>POST</method>
+			<method>PATCH</method>
+			<method>DELETE</method>
+		</allowed-methods>
+		<allowed-headers>
+			<!-- Examples below show Azure Mobile Services headers -->
+			<header>x-zumo-installation-id</header>
+			<header>x-zumo-application</header>
+			<header>x-zumo-version</header>
+			<header>x-zumo-auth</header>
+			<header>content-type</header>
+			<header>accept</header>
+		</allowed-headers>
+	</cors>
 
 **Where it can be applied:**
 Use in the inbound section and only in the *API* and *Operation* scopes.

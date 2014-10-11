@@ -1,18 +1,12 @@
-﻿<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/27/2014" ms.author="krisragh" />
 
+# Add push notifications to your Mobile Services app
 
-# Get started with push notifications in Mobile Services
+[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push" title="iOS" class="current">iOS</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android">Android</a><!---<a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>--></div>
-
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title=".NET backend" >.NET backend</a> | 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="JavaScript backend" class="current">JavaScript backend</a></div>
-
-This topic shows you how to use Azure Mobile Services to send push notifications through Apple Push Notification service (APNS) to an iOS app, more specifically, the [quickstart project](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/). When complete, your mobile service will send a push notification each time a record is inserted.
-
-
->[WACOM.NOTE]This tutorial demonstrates Mobile Services integration with Notification Hubs, which is how you send push notifications from your mobile service. If you are using an older mobile service that is using legacy push and has not yet been upgraded to use Notification Hubs, <em>we recommend that you upgrade</em> as part of this tutorial. If you choose not to upgrade now, you should follow this version of the tutorial: [Get started with push notifications (legacy)](/en-us/documentation/articles/mobile-services-ios-get-started-push/).
+This topic shows you how to use Azure Mobile Services to send push notifications through Apple Push Notification service (APNS) to an iOS app. In this tutorial, you enable push notifications using Azure Notification Hubs to the [quickstart project](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/). When complete, your mobile service will send a push notification each time a record is inserted.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
