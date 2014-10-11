@@ -35,19 +35,19 @@ For more information, see [What is a Cloud Service?].
 
 In Visual Studio, you can select **Azure Cloud Service** in the **New Project** dialog, under **Python**. 
 
-![](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
+![New Project Dialog](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
 
 In the Azure Cloud Service wizard, you can select to create new web and worker roles.
 
-![](./media/cloud-services-python-ptvs/new-service-wizard.png)
+![Azure Cloud Service Dialog](./media/cloud-services-python-ptvs/new-service-wizard.png)
 
 The worker role template comes with boilerplate code to connect to a Azure storage account or service bus.
 
-![](./media/cloud-services-python-ptvs/worker.png)
+![Cloud Service Solution](./media/cloud-services-python-ptvs/worker.png)
 
 You can add web or worker roles to an existing cloud service at any time.  You can choose to add existing projects in your solution, or create new ones. 
 
-![](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
+![Add Role Command](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
 Your cloud service can contain roles implemented in different languages.  For example, you can have a Python web role implemented using Django, with Python and C# worker roles.  You can easily communicate between your roles using service bus queues or storage queues.
 
@@ -59,31 +59,31 @@ Although PTVS supports launching in the emulator, debugging (breakpoints, etc) w
 
 To debug your web and worker roles, you can set the role project as the startup project and debug that instead.  You can also set multiple startup projects.  Right-click on the solution and select **Set StartUp Projects**.
 
-![](./media/cloud-services-python-ptvs/startup.png)
+![Solution Startup Project Properties](./media/cloud-services-python-ptvs/startup.png)
 
 ##<a name="publish-to-azure"></a>Publish to Azure
 
 To publish, right-click on the cloud service project in the solution and select **Publish**.
 
-![](./media/cloud-services-python-ptvs/publish-sign-in.png)
+![Microsoft Azure Publish Sign In](./media/cloud-services-python-ptvs/publish-sign-in.png)
 
 In the settings page, select the cloud service you want to publish to.
 
-![](./media/cloud-services-python-ptvs/publish-settings.png)
+![Microsoft Azure Publish Settings](./media/cloud-services-python-ptvs/publish-settings.png)
 
 You can create a new cloud service if you don't already have one available.
 
-![](./media/cloud-services-python-ptvs/publish-create-cloud-service.png)
+![Create Cloud Service Dialog](./media/cloud-services-python-ptvs/publish-create-cloud-service.png)
 
 It's also useful to enable remote desktop connections to the machine(s) for debugging failures.
 
-![](./media/cloud-services-python-ptvs/publish-remote-desktop-configuration.png)
+![Remote Desktop Configuration Dialog](./media/cloud-services-python-ptvs/publish-remote-desktop-configuration.png)
 
 When you are done configuring settings, click **Publish**.
 
 Some progress will appear in the output window, then you'll see the Microsoft Azure Activity Log window.
 
-![](./media/cloud-services-python-ptvs/publish-activity-log.png)
+![Microsoft Azure Activity Log Window](./media/cloud-services-python-ptvs/publish-activity-log.png)
 
 Deployment will take several minutes to complete, then your web and/or worker roles will be running on Azure!
 

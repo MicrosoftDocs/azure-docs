@@ -41,21 +41,21 @@ In this section, we'll create a Visual Studio project using a sample template.  
 
 1.  The project templates from the PTVS Samples VSIX are available under **Python**, **Samples**.  Select **Polls Bottle Web Project** and click OK to create the project.
 
-  	![][1]
+  	![New Project Dialog](./media/python-ptvs-bottle-mongodb/PollsBottleNewProject.png)
 
 1.  You will be prompted to install external packages.  Select **Install into a virtual environment**.
 
-  	![][2]
+  	![External Packages Dialog](./media/python-ptvs-bottle-mongodb/PollsBottleExternalPackages.png)
 
 1.  Select **Python 2.7** or **Python 3.4** as the base interpreter.
 
-  	![][3]
+  	![Add Virtual Environment Dialog](./media/python-ptvs-bottle-mongodb/PollsCommonAddVirtualEnv.png)
 
 1.  Confirm that the application works by pressing <kbd>F5</kbd>.  By default, the application uses an in-memory repository which doesn't require any configuration.  All data is lost when the web server is stopped.
 
 1.  Click **Create Sample Polls**, then click on a poll and vote.
 
-  	![][4]
+  	![Web Browser](./media/python-ptvs-bottle-mongodb/PollsBottleInMemoryBrowser.png)
 
 ##<a name="create-a-mongodb-database"></a>Create a MongoDB Database
 
@@ -69,17 +69,17 @@ You can create a free trial with MongoLab by following these steps.
 
 1.  At the bottom of the navigation pane, click **NEW**.
 
-  	![][5]
+  	![New Button](./media/python-ptvs-bottle-mongodb/PollsCommonAzurePlusNew.png)
 
 1.  Click **STORE**, then **MongoLab**.
 
-  	![][6]
+  	![Choose Add-on Dialog](./media/python-ptvs-bottle-mongodb/PollsCommonMongoLabAddon1.png)
 
 1.  In Name, type a name to use for the database service.
 
 1.  Choose a Region/Affinity Group in which to locate the database service. If you will be using the database from your Azure application, select the same region where you will deploy your application.
 
-  	![][7]
+  	![Personalize Add-on Dialog](./media/python-ptvs-bottle-mongodb/PollsCommonMongoLabAddon2.png)
 
 1.  Click **PURCHASE**.
 
@@ -91,11 +91,11 @@ In this section, we'll configure our application to use the MongoDB database we 
 
 1.  Click on **CONNECTION INFO**.  You can use the copy button to put the value of **MONGOLAB\_URI** on the clipboard.
 
-  	![][8]
+  	![Connection Info Dialog](./media/python-ptvs-bottle-mongodb/PollsCommonMongoLabConnectionInfo.png)
 
 1.  In Visual Studio, right-click on your project node in Solution Explorer and select **Properties**.  Click on the **Debug** tab.
 
-  	![][9]
+  	![Project Debug Settings](./media/python-ptvs-bottle-mongodb/PollsBottleMongoDBProjectDebugSettings.png)
 
 1.  Set the values of environment variables required by the application in **Debug Server Command**, **Environment**.
 
@@ -113,7 +113,7 @@ In this section, we'll configure our application to use the MongoDB database we 
 
 1.  Browse to the **About** page to verify that the application is using the   **MongoDB** repository.
 
-  	![][10]
+  	![Web Browser](./media/python-ptvs-bottle-mongodb/PollsBottleMongoDBAbout.png)
 
 ##<a name="explore-the-mongodb-database"></a>Explore the MongoDB Database
 
@@ -127,15 +127,15 @@ You can use an application such as [RoboMongo][] to query and make edits to a Mo
 
 1.  In the connection page, set the **Name** to any name you would like for the   connection.  Also set the **Address** and **Port** fields to the *address* and *port* from **MONGOLAB\_URI**.
 
-  	![][11]
+  	![Connection Settings Dialog](./media/python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
 1.  In the authentication page, set the **Database** and **User name** to the *name* from **MONGOLAB\_URI**.  Also set the **Password** to the *password* from **MONGOLAB\_URI**.
 
-  	![][12]
+  	![Connection Settings Dialog](./media/python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
 1.  Save and connect to the database.  You can now query the polls collection.
 
-  	![][13]
+  	![RoboMongo Query Results](./media/python-ptvs-bottle-mongodb/PollsCommonRobomongoQuery.png)
 
 ##<a name="publish-to-an-azure-website"></a>Publish to an Azure Website
 
@@ -143,7 +143,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
 1.  In **Solution Explorer**, right-click on the project node and select **Publish**.
 
-  	![][14]
+  	![Publish Web Dialog](./media/python-ptvs-bottle-mongodb/PollsCommonPublishWebSiteDialog.png)
 
 1.  Click on **Microsoft Azure Websites**.
 
@@ -151,7 +151,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
 1.  Select a **Site name** and a **Region** and click **Create**.
 
-  	![][15]
+  	![Create Site on Microsoft Azure Dialog](./media/python-ptvs-bottle-mongodb/PollsCommonCreateWebSite.png)
 
 1.  Accept all other defaults and click **Publish**.
 
@@ -167,21 +167,21 @@ In this section, we'll configure environment variables for the site.
 
 1.  In the top menu, click on **CONFIGURE**.
 
-  	![][16]
+  	![Top Menu](./media/python-ptvs-bottle-mongodb/PollsCommonWebSiteTopMenu.png)
 
 1.  Scroll down to the **app settings** section and set the values for **REPOSITORY\_NAME**, **MONGODB\_HOST** and **MONGODB\_DATABASE** as described in the section above.
 
-  	![][17]
+  	![App Settings](./media/python-ptvs-bottle-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png)
 
 1.  In the bottom menu, click on **SAVE**, then **RESTART** and finally **BROWSE**.
 
-  	![][18]
+  	![Bottom Menu](./media/python-ptvs-bottle-mongodb/PollsCommonWebSiteConfigureBottomMenu.png)
 
 1.  You should see the application working as expected, using the **MongoDB** repository.
 
     Congratulations!
 
-  	![][19]
+  	![Web Browser](./media/python-ptvs-bottle-mongodb/PollsBottleAzureBrowser.png)
 
 ##<a name="next-steps"></a>Next steps
 
@@ -196,27 +196,6 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 - [PyMongo Documentation][]
 - [PyMongo][]
 
-
-<!--Image references-->
-[1]: ./media/python-ptvs-bottle-mongodb/PollsBottleNewProject.png
-[2]: ./media/python-ptvs-bottle-mongodb/PollsBottleExternalPackages.png
-[3]: ./media/python-ptvs-bottle-mongodb/PollsCommonAddVirtualEnv.png
-[4]: ./media/python-ptvs-bottle-mongodb/PollsBottleInMemoryBrowser.png
-[5]: ./media/python-ptvs-bottle-mongodb/PollsCommonAzurePlusNew.png
-[6]: ./media/python-ptvs-bottle-mongodb/PollsCommonMongoLabAddon1.png
-[7]: ./media/python-ptvs-bottle-mongodb/PollsCommonMongoLabAddon2.png
-[8]: ./media/python-ptvs-bottle-mongodb/PollsCommonMongoLabConnectionInfo.png
-[9]: ./media/python-ptvs-bottle-mongodb/PollsBottleMongoDBProjectDebugSettings.png
-[10]: ./media/python-ptvs-bottle-mongodb/PollsBottleMongoDBAbout.png
-[11]: ./media/python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection1.png
-[12]: ./media/python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection2.png
-[13]: ./media/python-ptvs-bottle-mongodb/PollsCommonRobomongoQuery.png
-[14]: ./media/python-ptvs-bottle-mongodb/PollsCommonPublishWebSiteDialog.png
-[15]: ./media/python-ptvs-bottle-mongodb/PollsCommonCreateWebSite.png
-[16]: ./media/python-ptvs-bottle-mongodb/PollsCommonWebSiteTopMenu.png
-[17]: ./media/python-ptvs-bottle-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png
-[18]: ./media/python-ptvs-bottle-mongodb/PollsCommonWebSiteConfigureBottomMenu.png
-[19]: ./media/python-ptvs-bottle-mongodb/PollsBottleAzureBrowser.png
 
 <!--External Link references-->
 [Azure Management Portal]: https://manage.windowsazure.com
