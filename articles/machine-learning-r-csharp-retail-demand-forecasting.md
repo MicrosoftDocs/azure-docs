@@ -11,7 +11,7 @@ This [web service]( https://datamarket.azure.com/dataset/aml_labs/demand_forecas
  
 ##Consumption of Web Service 
 
-This service accepts 4 arguments and calculates the retail demand forecasts.
+This service accepts 4 arguments and calculates the forecasts.
 The input arguments are:
 
 * Frequency: indicates the frequency of the raw data (daily/weekly/monthly/quarterly/yearly)
