@@ -69,6 +69,6 @@ For more information about creating indexes or documents, see the [Azure Search 
 <!--Image references-->
 
 <!--Link references-->
-[Configure search in the Azure Preview portal]: ../search-configure/
+[Get started with Azure Search]: ../search-get-started/
 [Manage your search service on Microsoft Azure]: ../search-manage/
 [Create your first azure search solution]: ../search-create-first-solution/
