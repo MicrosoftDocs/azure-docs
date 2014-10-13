@@ -6,7 +6,7 @@
 #Binomial Distribution Suite
 
 
-The Binomial Distribution Suite is a set of sample web services, specifically three services that help generating and dealing with binomial distributions. The services allow generating a binomial distribution sequence of any length, calculating quantiles out of given probability and calculating probability from a given quantile.  Each of the services emit different outputs based on the selected service (see description below). The Binomial Distribution Suite is based on R functions qbinom, rbinom and pbinom that are included in R stats package. 
+The Binomial Distribution Suite is a set of sample web services ([Binomial Generator](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Probability Calculator]( https://datamarket.azure.com/dataset/aml_labs/bdp4), [Quantile Calculator]( https://datamarket.azure.com/dataset/aml_labs/bdq5)) specifically three services that help generating and dealing with binomial distributions. The services allow generating a binomial distribution sequence of any length, calculating quantiles out of given probability and calculating probability from a given quantile.  Each of the services emits different outputs based on the selected service (see description below). The Binomial Distribution Suite is based on R functions qbinom, rbinom and pbinom that are included in R stats package. 
 
 >While these web services could be consumed by users – potentially directly on the marketplace, through a mobile app, website, or even on a local computer for example, the purpose of the web service is also to serve as an example of how Azure ML can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within the Azure ML Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world – no infrastructure set-up by the author of the web service is required.
 
@@ -47,9 +47,9 @@ The output of the service is a sequence of length n with a binomial distribution
 
 >This service as hosted on the Microsoft Azure Marketplace is an OData service; these may be called through POST or GET methods. 
 
-Two example ways to consume this service are through the creation of a web application that calls the web service in an automated fashion (example apps are here: [Generator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx),
+There are multiple ways of consuming the service in an automated fashion (example apps are here: [Generator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx),
 [Probability Calculator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx),
-[Quantile Calculator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator), or the web service results may be examined in a more exploratory manner on the marketplace through the ‘EXPLORE THIS DATASET’ feature.
+[Quantile Calculator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)). 
 
 ###Starting C# code for web service consumption:
 
@@ -83,10 +83,6 @@ Two example ways to consume this service are through the creation of a web appli
   	scoreResult.Dump();
 	}
 
-
-Examples of how results can be found in a non-programmatic way through the ‘EXPLORE THIS DATASET’ feature of the Marketplace are displayed below:
-
-![Create workspace][1] 
 
 ##Creation of the web-service 
 
@@ -140,7 +136,9 @@ Examples of how results can be found in a non-programmatic way through the ‘EX
 
 
 ###Binomial Distribution Probability Calculator
+
 ![Create workspace][5]
+
 ####Module 1:
 
     #data schema with example data (replaced with data from web service)
