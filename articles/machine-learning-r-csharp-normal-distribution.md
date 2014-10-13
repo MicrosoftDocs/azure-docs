@@ -4,7 +4,7 @@
 
 #Normal Distribution Web Service Suite
 
-The Normal Distribution Suite is a set of sample web services, specifically three services that help generating and handling normal distributions. The services allow generating a normal distribution sequence of any length, calculating quantiles out of given probability and calculating probability from a given quantile.  Each of the services emit different outputs based on the selected service (see description below). The Normal Distribution Suite is based on R functions qnorm, rnorm and pnorm that are included in R stats package.
+The Normal Distribution Suite is a set of sample web services ([Generator]( https://datamarket.azure.com/dataset/aml_labs/ndg7), [Quantile Calculator]( https://datamarket.azure.com/dataset/aml_labs/bdq5), [Probability Calculator]( https://datamarket.azure.com/dataset/aml_labs/bdq5)), specifically three services that help generating and handling normal distributions. The services allow generating a normal distribution sequence of any length, calculating quantiles out of given probability and calculating probability from a given quantile.  Each of the services emit different outputs based on the selected service (see description below). The Normal Distribution Suite is based on R functions qnorm, rnorm and pnorm that are included in R stats package.
 
 >While this web service could be consumed by users – potentially through a mobile app, website, or even on a local computer for example, the purpose of the web service is also to serve as an example of how Azure ML can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within the Azure ML Studio, a forecasting test experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure set-up by the author of the web service.
  
@@ -48,9 +48,9 @@ The output of the service is a sequence of length n with a normal distribution b
 
 >This service as hosted on the Microsoft Azure Marketplace is an OData service; these may be called through POST or GET methods. 
 
-Two example ways to consume this service are through the creation of a web application that calls the web service in an automated fashion (example apps are here: [Generator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionGenerator.aspx),
+There are multiple ways of consuming the service in an automated fashion (example apps are here: [Generator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionGenerator.aspx),
 [Probability Calculator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionProbabilityCalculator.aspx),
-[Quantile Calculator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionQuantileCalculator.aspx)), or the web service results may be examined in a more exploratory manner on the marketplace through the ‘EXPLORE THIS DATASET’ feature.
+[Quantile Calculator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionQuantileCalculator.aspx)).
 
 ###Starting C# code for web service consumption:
 
@@ -83,10 +83,6 @@ Two example ways to consume this service are through the creation of a web appli
   	var scoreResult = result.ReadAsStringAsync().Result;
   	scoreResult.Dump();
 	}
-
-An example of how results can be found in a non-programmatic way through the ‘EXPLORE THIS DATASET’ feature of the Marketplace is displayed below:
-
-![Web service][1]
 
 ##Creation of Web Service 
 >This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and publishing web services, please see [azure.com/ml](http://azure.com/ml). 

@@ -42,9 +42,9 @@ In this tutorial, you will:
 	>[WACOM.NOTE] The size of the virtual machine is specified during provisioning:
  	> A2 is the smallest size recommended for production workloads. 
     > The minimum recommended size for a virtual machine is A3 when using SQL Server Enterprise Edition.
-    > Select A3 or higher when using SQL Server Enterprise Edition. 
-   	> Select A6 when using SQL Server 2012 Enterprise for Data Warehousing image. 
-   	> Select A7 when using SQL Server 2014 for Data Warehousing image. 
+    > Select A3 or higher when using SQL Server Enterprise Edition.
+   	> Select A4 when using SQL Server 2012 or 2014 Enterprise Optimized for Transactional Workloads images.  
+   	> Select A7 when using SQL Server 2012 or 2014 Enterprise Optimized for Data Warehousing Workloads images. 
    	> The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](http://msdn.microsoft.com/en-us/library/azure/dn197896.aspx).
 
 	Click the next arrow on the bottom right to continue.
