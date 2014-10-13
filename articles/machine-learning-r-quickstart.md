@@ -1128,30 +1128,30 @@ RStudio is quite well documented, so in this appendix I will provide some links 
 	The breakpoint troubleshooting features are documented at https://support.rstudio.com/hc/en-us/articles/200534337-Breakpoint-Troubleshooting.
 
 <!--Image references-->
-[1]: ./figure/fig1.png
-[2]: ./figure/fig2.png
-[3]: ./figure/fig3.png
-[4]: ./figure/fig4.png
-[5]: ./figure/fig5.png
-[6]: ./figure/fig6.png
-[7]: ./figure/fig7.png
-[8]: ./figure/fig8.png
-[9]: ./figure/fig9.png
-[10]: ./figure/fig10.png
-[11]: ./figure/fig11.png
-[12]: ./figure/fig12.png
-[13]: ./figure/fig13.png
-[14]: ./figure/fig14.png
-[15]: ./figure/fig15.png
-[16]: ./figure/fig16.png
-[17]: ./figure/fig17.png
-[18]: ./figure/fig18.png
-[19]: ./figure/fig19.png
-[20]: ./figure/fig20.png
-[21]: ./figure/fig21.png
-[22]: ./figure/fig22.png
+[1]: ./media/machine-learning-r-quickstart/fig1.png
+[2]: ./media/machine-learning-r-quickstart/fig2.png
+[3]: ./media/machine-learning-r-quickstart/fig3.png
+[4]: ./media/machine-learning-r-quickstart/fig4.png
+[5]: ./media/machine-learning-r-quickstart/fig5.png
+[6]: ./media/machine-learning-r-quickstart/fig6.png
+[7]: ./media/machine-learning-r-quickstart/fig7.png
+[8]: ./media/machine-learning-r-quickstart/fig8.png
+[9]: ./media/machine-learning-r-quickstart/fig9.png
+[10]: ./media/machine-learning-r-quickstart/fig10.png
+[11]: ./media/machine-learning-r-quickstart/fig11.png
+[12]: ./media/machine-learning-r-quickstart/fig12.png
+[13]: ./media/machine-learning-r-quickstart/fig13.png
+[14]: ./media/machine-learning-r-quickstart/fig14.png
+[15]: ./media/machine-learning-r-quickstart/fig15.png
+[16]: ./media/machine-learning-r-quickstart/fig16.png
+[17]: ./media/machine-learning-r-quickstart/fig17.png
+[18]: ./media/machine-learning-r-quickstart/fig18.png
+[19]: ./media/machine-learning-r-quickstart/fig19.png
+[20]: ./media/machine-learning-r-quickstart/fig20.png
+[21]: ./media/machine-learning-r-quickstart/fig21.png
+[22]: ./media/machine-learning-r-quickstart/fig22.png
 
-[26]: ./figure/fig26.png
+[26]: ./media/machine-learning-r-quickstart/fig26.png
 
 <!--links-->
 [appendixa]: #appendixa
