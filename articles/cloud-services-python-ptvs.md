@@ -7,7 +7,7 @@
 
 # Python Web and Worker Roles with Python Tools 2.1 for Visual Studio
 
-This guide gives an overview of using Python web and worker roles using [Python Tools for Visual Studio][].
+This guide provides an overview of using Python web and worker roles using [Python Tools for Visual Studio][].
 
 + [Prerequisites](#prerequisites)
 + [What are Python web and worker roles?](#what-are-python-web-and-worker-roles)
@@ -30,6 +30,12 @@ This guide gives an overview of using Python web and worker roles using [Python 
 Azure provides three compute models for running applications: [Azure Web Sites][execution model-web sites], [Azure Virtual Machines][execution model-vms], and [Azure Cloud Services][execution model-cloud services]. All three models support Python. Cloud Services, which include web and worker roles, provide *Platform as a Service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications, while a worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
 
 For more information, see [What is a Cloud Service?].
+
+<div class="dev-callout"><strong>Looking to build a simple website?</strong>
+<p>If your scenario involves just a simple website front-end, consider using a lightweight Azure Website. You can easily upgrade to a Cloud Service as your website grows and your requirements change. See the <a href="/en-us/develop/python/">Python Developer Center</a> for articles that cover development of Azure Websites.</p>
+</div>
+<br />
+
 
 ##<a name="project-creation"></a>Project creation
 
@@ -108,6 +114,7 @@ For more details on using Azure services from your web and worker roles, such as
 [execution model-web sites]: /en-us/documentation/articles/fundamentals-application-models/#WebSites
 [execution model-vms]: /en-us/documentation/articles/fundamentals-application-models/#VMachine
 [execution model-cloud services]: /en-us/documentation/articles/fundamentals-application-models/#CloudServices
+[Python Developer Center]: /en-us/develop/python/
 
 [Blob Service]: /en-us/documentation/articles/storage-python-how-to-use-blob-storage/
 [Queue Service]: /en-us/documentation/articles/storage-python-how-to-use-queue-storage/
