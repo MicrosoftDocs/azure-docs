@@ -46,15 +46,17 @@
   + **A subscription**. This is the Azure subscription you want your ISS account to reside in. If you have multiple Azure subscriptions, you can choose the one you want from the menu.
   + **A region**. This is the data center that your ISS account will reside in. For the preview, you can select West US or North Europe.
   + **Pricing tier**. The pricing tier is how much it will cost for devices to send data to ISS. The tier you select when you create your ISS account will apply to any devices registered unless the device registration specifies a different pricing tier. You can change the default pricing tier and the pricing tier for specific devices in the ISS management portal.
-  + **Azure Active Directory Tenant**. This is the Azure AD tenant that will be used to control access to your ISS account. 
-
+  + **Azure Active Directory Tenant**. This is the Azure AD tenant that will be used to control access to your ISS account.
+  
+![ISScreateaccount][]
 
 
 ## Next steps
 
-<p>After your ISS account is created, click **Manage** to open your ISS management portal. <a href="http://go.microsoft.com/fwlink/p/?LinkId=513336">Learn about using the ISS management portal.</a>
+<p>After your ISS account is created, go to your ISS account in the Azure portal and click **Manage** to open your ISS management portal.<p>![manage][] <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=513336">Learn about using the ISS management portal.</a><p>
+
 <p>
-[Link 3 to another azure.microsoft.com documentation topic]. 
+ 
 
 <!--Anchors-->
 [Before you begin]: #before-you-begin
@@ -62,9 +64,8 @@
 [Next steps]: #next-steps
 
 <!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
+[ISscreateaccount]: ./media/iss-get-started/isscreateaccount.jpg
+[manage]: ./media/iss-get-started/manage.png
 
 
 <!--Link references-->
