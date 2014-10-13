@@ -12,7 +12,7 @@ To complete this tutorial, you will need:
 
 In the course of completing the tutorial, two services will be provisioned: Azure Search and Azure Active Directory (AD). Additionally, you will create an AD application that establishes trust between your client application and the resource manager endpoint in Azure.
 
-[WA.COM INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-node.md)]
+You need an Azure account to complete this tutorial.
 
 
 <h2 id="download">Download the sample application</h2>
@@ -53,7 +53,7 @@ In this section, you will perform the following tasks:
 
 6. Enter a service name, domain, and  geo-location. The domain must be unique. Click the check mark to create the service.
 
-     ![5]
+     ![][5]
 
 <h3>Create a new AD application for this service</h3>
 
@@ -65,13 +65,13 @@ In this section, you will perform the following tasks:
  
 4. Choose **Add an application my organization is developing**. This option provides registration settings for applications that are not published to the application gallery. Since the client application is not part of the application gallery, this is the right choice for this tutorial.
 
-     ![6]
+     ![][6]
  
 5. Enter a name, such as "Azure-Search-Manager".
 
 6. Choose **Native client application** for application type. This is correct for the sample application; it happens to be a Windows client (console) application, not a web application.
 
-     ![7]
+     ![][7]
  
 7. In Redirect URI, enter "http://localhost/Azure-Search-Manager-App". This a URI to which Azure Active Directory will redirect the user-agent in response to an OAuth 2.0 authorization request. The value does not need to be a physical endpoint, but must be a valid URI. 
 
@@ -89,7 +89,7 @@ In this section, you will perform the following tasks:
 
 12. In Delegated Permissions, click the drop down list and select **Access Azure Service Management (Preview**).
  
-     ![8]
+     ![][8]
  
 13. Save the changes. 
 
@@ -115,7 +115,7 @@ If you have not yet [downloaded the sample application from Codeplex](linkTBD), 
 
 4. Provide `RedirectUrl`. Copy Redirect URI from the same portal page, and paste it into Program.cs.
 
-	![9]
+	![][9]
 
 5. Provide `TenantID.` 
 	- Go back to Active Directory | SearchTutorial (service). 
@@ -126,7 +126,7 @@ If you have not yet [downloaded the sample application from Codeplex](linkTBD), 
 
     Given "https://login.windows.net/55e324c7-1656-4afe-8dc3-43efcd4ffa50/oauth2/authorize?api-version=1.0", delete everything except "55e324c7-1656-4afe-8dc3-43efcd4ffa50".
 
-	![10]
+	![][10]
 
 6. Provide `SubscriptionID`.
 	- Go to the main portal page.
