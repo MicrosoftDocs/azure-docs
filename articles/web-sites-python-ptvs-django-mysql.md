@@ -1,4 +1,4 @@
-<properties linkid="python-ptvs-django-mysql" title="Django and MySQL on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Django and MySQL on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a MySQL database instance and can be deployed to a web site." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="" editor="" />
+<properties linkid="web-sites-python-ptvs-django-mysql" title="Django and MySQL on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Django and MySQL on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a MySQL database instance and can be deployed to a web site." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 
@@ -36,43 +36,43 @@ In this section, we'll create a Visual Studio project using a sample template. W
 
 1.  The project templates from the PTVS Samples VSIX are available under **Python**, **Samples**.  Select **Polls Django Web Project** and click OK to create the project.
 
-  	![New Project Dialog](./media/python-ptvs-django-mysql/PollsDjangoNewProject.png)
+  	![New Project Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoNewProject.png)
 
 1.  You will be prompted to install external packages.  Select **Install into a virtual environment**.
 
-  	![External Packages Dialog](./media/python-ptvs-django-mysql/PollsDjangoExternalPackages.png)
+  	![External Packages Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoExternalPackages.png)
 
 1.  Select **Python 2.7** as the base interpreter.
 
-  	![Add Virtual Environment Dialog](./media/python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
+  	![Add Virtual Environment Dialog](./media/web-sites-python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
 
 1.  Right-click the project node and select **Python**, **Django Sync DB**.
 
-  	![Django Sync DB Command](./media/python-ptvs-django-mysql/PollsDjangoSyncDB.png)
+  	![Django Sync DB Command](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSyncDB.png)
 
 1.  This will open a Django Management Console.  Follow the prompts to create a user.
 
     This will create a sqlite database in the project folder.
 
-  	![Django Management Console Window](./media/python-ptvs-django-mysql/PollsDjangoConsole.png)
+  	![Django Management Console Window](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
 1.  Confirm that the application works by pressing <kbd>F5</kbd>.
 
 1.  Click **Log in** from the navigation bar at the top.
 
-  	![Web Browser](./media/python-ptvs-django-mysql/PollsDjangoCommonBrowserLocalMenu.png)
+  	![Web Browser](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserLocalMenu.png)
 
 1.  Enter the credentials for the user you created when you synchronized the database.
 
-  	![Web Browser](./media/python-ptvs-django-mysql/PollsDjangoCommonBrowserLocalLogin.png)
+  	![Web Browser](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserLocalLogin.png)
 
 1.  Click **Create Sample Polls**.
 
-  	![Web Browser](./media/python-ptvs-django-mysql/PollsDjangoCommonBrowserNoPolls.png)
+  	![Web Browser](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserNoPolls.png)
 
 1.  Click on a poll and vote.
 
-  	![Web Browser](./media/python-ptvs-django-mysql/PollsDjangoSqliteBrowser.png)
+  	![Web Browser](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSqliteBrowser.png)
 
 ##<a name="create-a-mysql-database"></a>Create a MySQL Database
 
@@ -86,17 +86,17 @@ You can create a database with a free plan by following these steps.
 
 1.  At the bottom of the navigation pane, click **NEW**.
 
-  	![New Button](./media/python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)
+  	![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)
 
 1.  Click **STORE**, then **ClearDB MySQL Database**.
 
-  	![Choose Add-on Dialog](./media/python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png)
+  	![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png)
 
 1.  In Name, type a name to use for the database service.
 
 1.  Choose a Region/Affinity Group in which to locate the database service. If you will be using the database from your Azure application, select the same region where you will deploy your application.
 
-  	![Personalize Add-on Dialog](./media/python-ptvs-django-mysql/PollsDjangoClearDBAddon2.png)
+  	![Personalize Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon2.png)
 
 1.  Click **PURCHASE**.
 
@@ -108,7 +108,7 @@ In this section, we'll configure our application to use the MySQL database we ju
 
 1.  Click on **CONNECTION INFO**.  You can use the copy button to put the value of **CONNECTIONSTRING** on the clipboard.
 
-  	![Connection Info Dialog](./media/python-ptvs-django-mysql/PollsDjangoMySQLConnectionInfo.png)
+  	![Connection Info Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLConnectionInfo.png)
 
 1.  In Visual Studio, open **settings.py**, from the *ProjectName* folder.  Temporarily paste the connection string in the editor.  The connection string is in this format:
 
@@ -132,13 +132,13 @@ In this section, we'll configure our application to use the MySQL database we ju
 
 1. Install the package `mysql-python` using **easy_install**.
 
-  	![Install Package Dialog](./media/python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
+  	![Install Package Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
 1.  Right-click the project node and select **Python**, **Django Sync DB**.  
 
     This will create the tables for the MySQL database we created in the previous section.  Follow the prompts to create a user, which doesn't have to match the user in the sqlite database created in the first section.
 
-  	![Django Management Console Window](./media/python-ptvs-django-mysql/PollsDjangoConsole.png)
+  	![Django Management Console Window](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
 1.  Run the application with <kbd>F5</kbd>.  Polls that are created with **Create Sample Polls** and the data submitted by voting will be serialized in the MySQL database.
 
@@ -148,7 +148,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
 1.  In **Solution Explorer**, right-click on the project node and select **Publish**.
 
-  	![Publish Web Dialog](./media/python-ptvs-django-mysql/PollsCommonPublishWebSiteDialog.png)
+  	![Publish Web Dialog](./media/web-sites-python-ptvs-django-mysql/PollsCommonPublishWebSiteDialog.png)
 
 1.  Click on **Microsoft Azure Websites**.
 
@@ -156,7 +156,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
 1.  Select a **Site name** and a **Region** and click **Create**.
 
-  	![Create Site on Microsoft Azure Dialog](./media/python-ptvs-django-mysql/PollsCommonCreateWebSite.png)
+  	![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-mysql/PollsCommonCreateWebSite.png)
 
 1.  Accept all other defaults and click **Publish**.
 
@@ -164,7 +164,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
     Congratulations!
 
-  	![Web Browser](./media/python-ptvs-django-mysql/PollsDjangoAzureBrowser.png)
+  	![Web Browser](./media/web-sites-python-ptvs-django-mysql/PollsDjangoAzureBrowser.png)
 
 ##<a name="next-steps"></a>Next steps
 

@@ -1,11 +1,11 @@
-<properties linkid="python-ptvs-bottle-table-storage" title="Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Bottle application that stores data in Azure Table Storage and can be deployed to a web site." metaKeywords="" services="web-sites" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="" editor="" />
+<properties linkid="web-sites-python-ptvs-flask-table-storage" title="Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Flask application that stores data in Azure Table Storage and can be deployed to a web site." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 
 
 
 
-# Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio 
+# Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio 
 
 In this tutorial, we'll create a simple polls application using one of the PTVS sample templates.
 
@@ -38,23 +38,23 @@ In this section, we'll create a Visual Studio project using a sample template.  
 
 1.  In Visual Studio, select **File**, **New Project**.
 
-1.  The project templates from the PTVS Samples VSIX are available under **Python**, **Samples**.  Select **Polls Bottle Web Project** and click OK to create the project.
+1.  The project templates from the PTVS Samples VSIX are available under **Python**, **Samples**.  Select **Polls Flask Web Project** and click OK to create the project.
 
-  	![New Project Dialog](./media/python-ptvs-bottle-table-storage/PollsBottleNewProject.png)
+  	![New Project Dialog](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskNewProject.png)
 
 1.  You will be prompted to install external packages.  Select **Install into a virtual environment**.
 
-  	![External Packages Dialog](./media/python-ptvs-bottle-table-storage/PollsBottleExternalPackages.png)
+  	![External Packages Dialog](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskExternalPackages.png)
 
 1.  Select **Python 2.7** or **Python 3.4** as the base interpreter.
 
-  	![Add Virtual Environment Dialog](./media/python-ptvs-bottle-table-storage/PollsCommonAddVirtualEnv.png)
+  	![Add Virtual Environment Dialog](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAddVirtualEnv.png)
 
 1.  Confirm that the application works by pressing <kbd>F5</kbd>.  By default, the application uses an in-memory repository which doesn't require any configuration.  All data is lost when the web server is stopped.
 
 1.  Click **Create Sample Polls**, then click on a poll and vote.
 
-  	![Web Browser](./media/python-ptvs-bottle-table-storage/PollsBottleInMemoryBrowser.png)
+  	![Web Browser](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskInMemoryBrowser.png)
 
 ##<a name="create-an-azure-storage-account"></a>Create an Azure Storage Account
 
@@ -64,11 +64,11 @@ To use storage operations, you need an Azure storage account. You can create a s
 
 1.  At the bottom of the navigation pane, click **NEW**.
 
-  	![New Button](./media/python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png)
+  	![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png)
 
 1.  Click **DATA SERVICES**, then **STORAGE**, and then click **QUICK CREATE**.
 
-  	![Quick Create](./media/python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png)
+  	![Quick Create](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageCreate.png)
 
 1.  In URL, type a subdomain name to use in the URI for the storage account.  The entry can contain from 3-24 lowercase letters and numbers. This value  becomes the host name within the URI that is used to address Blob, Queue, or Table resources for the subscription.
 
@@ -86,11 +86,11 @@ In this section, we'll configure our application to use the storage account we j
 
 1.  Click on **MANAGE ACCESS KEYS**.
 
-  	![Manage Access Keys Dialog](./media/python-ptvs-bottle-table-storage/PollsCommonAzureTableStorageManageKeys.png)
+  	![Manage Access Keys Dialog](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureTableStorageManageKeys.png)
 
 1.  In Visual Studio, right-click on your project node in Solution Explorer and select **Properties**.  Click on the **Debug** tab.
 
-  	![Project Debug Settings](./media/python-ptvs-bottle-table-storage/PollsBottleAzureTableStorageProjectDebugSettings.png)
+  	![Project Debug Settings](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskAzureTableStorageProjectDebugSettings.png)
 
 1.  Set the values of environment variables required by the application in **Debug Server Command**, **Environment**.
 
@@ -108,7 +108,7 @@ In this section, we'll configure our application to use the storage account we j
 
 1.  Browse to the **About** page to verify that the application is using the **Azure Table Storage** repository.
 
-  	![Web Browser](./media/python-ptvs-bottle-table-storage/PollsBottleAzureTableStorageAbout.png)
+  	![Web Browser](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskAzureTableStorageAbout.png)
 
 ##<a name="explore-the-azure-table-storage"></a>Explore the Azure Table Storage
 
@@ -118,11 +118,11 @@ It's easy to view and edit storage tables using Server Explorer in Visual Studio
 
 1.  Open **Server Explorer**.  Expand **Azure**, **Storage**, your storage account, then **Tables**.
 
-  	![Server Explorer](./media/python-ptvs-bottle-table-storage/PollsCommonServerExplorer.png)
+  	![Server Explorer](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonServerExplorer.png)
 
 1.  Double-click on the **polls** or **choices** table to view the contents of the table in a document window, as well as add/remove/edit entities.
 
-  	![Table Query Results](./media/python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png)
+  	![Table Query Results](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonServerExplorerTable.png)
 
 ##<a name="publish-to-an-azure-website"></a>Publish to an Azure Website
 
@@ -130,7 +130,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
 1.  In **Solution Explorer**, right-click on the project node and select **Publish**.
 
-  	![Publish Web Dialog](./media/python-ptvs-bottle-table-storage/PollsCommonPublishWebSiteDialog.png)
+  	![Publish Web Dialog](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonPublishWebSiteDialog.png)
 
 1.  Click on **Microsoft Azure Websites**.
 
@@ -138,7 +138,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
 1.  Select a **Site name** and a **Region** and click **Create**.
 
-  	![Create Site on Microsoft Azure Dialog](./media/python-ptvs-bottle-table-storage/PollsCommonCreateWebSite.png)
+  	![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonCreateWebSite.png)
 
 1.  Accept all other defaults and click **Publish**.
 
@@ -154,31 +154,31 @@ In this section, we'll configure environment variables for the site.
 
 1.  In the top menu, click on **CONFIGURE**.
 
-  	![Top Menu](./media/python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png)
+  	![Top Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png)
 
 1.  Scroll down to the **app settings** section and set the values for **REPOSITORY\_NAME**, **STORAGE\_NAME** and **STORAGE\_KEY** as described in the section above.
 
-  	![App Settings](./media/python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
+  	![App Settings](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 
 1. In the bottom menu, click on **SAVE**, then **RESTART** and finally **BROWSE**.
 
-  	![Bottom Menu](./media/python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureBottomMenu.png)
+  	![Bottom Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureBottomMenu.png)
 
 1.  You should see the application working as expected, using the **Azure Table Storage** repository.
 
     Congratulations!
 
-  	![Web Browser](./media/python-ptvs-bottle-table-storage/PollsBottleAzureBrowser.png)
+  	![Web Browser](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskAzureBrowser.png)
 
 ##<a name="next-steps"></a>Next steps
 
-Follow these links to learn more about Python Tools for Visual Studio, Bottle and Azure Table Storage.
+Follow these links to learn more about Python Tools for Visual Studio, Flask and Azure Table Storage.
 
 - [Python Tools for Visual Studio Documentation][]
   - [Web Projects][]
   - [Cloud Service Projects][]
   - [Remote Debugging on Microsoft Azure][]
-- [Bottle Documentation][]
+- [Flask Documentation][]
 - [Azure Storage][]
 - [Azure SDK for Python][]
 - [How to Use the Table Storage Service from Python][]
@@ -198,7 +198,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 [Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation
-[Bottle Documentation]: http://bottlepy.org/docs/dev/index.html
+[Flask Documentation]: http://flask.pocoo.org/
 [Remote Debugging on Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Web Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Cloud Service Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project

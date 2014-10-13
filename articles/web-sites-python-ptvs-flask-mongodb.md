@@ -1,4 +1,4 @@
-<properties linkid="python-ptvs-flask-mongodb" title="Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Flask application that stores data in a MongoDB database instance and can be deployed to a web site." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="" editor="" />
+<properties linkid="web-sites-python-ptvs-flask-mongodb" title="Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Flask application that stores data in a MongoDB database instance and can be deployed to a web site." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 
@@ -41,21 +41,21 @@ In this section, we'll create a Visual Studio project using a sample template.  
 
 1.  The project templates from the PTVS Samples VSIX are available under **Python**, **Samples**.  Select **Polls Flask Web Project** and click OK to create the project.
 
-  	![New Project Dialog](./media/python-ptvs-flask-mongodb/PollsFlaskNewProject.png)
+  	![New Project Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskNewProject.png)
 
 1.  You will be prompted to install external packages.  Select **Install into a virtual environment**.
 
-  	![External Packages Dialog](./media/python-ptvs-flask-mongodb/PollsFlaskExternalPackages.png)
+  	![External Packages Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskExternalPackages.png)
 
 1.  Select **Python 2.7** or **Python 3.4** as the base interpreter.
 
-  	![Add Virtual Environment Dialog](./media/python-ptvs-flask-mongodb/PollsCommonAddVirtualEnv.png)
+  	![Add Virtual Environment Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonAddVirtualEnv.png)
 
 1.  Confirm that the application works by pressing <kbd>F5</kbd>.  By default, the application uses an in-memory repository which doesn't require any configuration.  All data is lost when the web server is stopped.
 
 1.  Click **Create Sample Polls**, then click on a poll and vote.
 
-  	![Web Browser](./media/python-ptvs-flask-mongodb/PollsFlaskInMemoryBrowser.png)
+  	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskInMemoryBrowser.png)
 
 ##<a name="create-a-mongodb-database"></a>Create a MongoDB Database
 
@@ -69,17 +69,17 @@ You can create a free trial with MongoLab by following these steps.
 
 1.  At the bottom of the navigation pane, click **NEW**.
 
-  	![New Button](./media/python-ptvs-flask-mongodb/PollsCommonAzurePlusNew.png)
+  	![New Button](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonAzurePlusNew.png)
 
 1.  Click **STORE**, then **MongoLab**.
 
-  	![Choose Add-on Dialog](./media/python-ptvs-flask-mongodb/PollsCommonMongoLabAddon1.png)
+  	![Choose Add-on Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabAddon1.png)
 
 1.  In Name, type a name to use for the database service.
 
 1.  Choose a Region/Affinity Group in which to locate the database service. If you will be using the database from your Azure application, select the same region where you will deploy your application.
 
-  	![Personalize Add-on Dialog](./media/python-ptvs-flask-mongodb/PollsCommonMongoLabAddon2.png)
+  	![Personalize Add-on Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabAddon2.png)
 
 1.  Click **PURCHASE**.
 
@@ -91,11 +91,11 @@ In this section, we'll configure our application to use the MongoDB database we 
 
 1.  Click on **CONNECTION INFO**.  You can use the copy button to put the value of **MONGOLAB\_URI** on the clipboard.
 
-  	![Connection Info Dialog](./media/python-ptvs-flask-mongodb/PollsCommonMongoLabConnectionInfo.png)
+  	![Connection Info Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabConnectionInfo.png)
 
 1.  In Visual Studio, right-click on your project node in Solution Explorer and select **Properties**.  Click on the **Debug** tab.
 
-  	![Project Debug Settings](./media/python-ptvs-flask-mongodb/PollsFlaskMongoDBProjectDebugSettings.png)
+  	![Project Debug Settings](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBProjectDebugSettings.png)
 
 1.  Set the values of environment variables required by the application in **Debug Server Command**, **Environment**.
 
@@ -113,7 +113,7 @@ In this section, we'll configure our application to use the MongoDB database we 
 
 1.  Browse to the **About** page to verify that the application is using the   **MongoDB** repository.
 
-  	![Web Browser](./media/python-ptvs-flask-mongodb/PollsFlaskMongoDBAbout.png)
+  	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBAbout.png)
 
 ##<a name="explore-the-mongodb-database"></a>Explore the MongoDB Database
 
@@ -127,15 +127,15 @@ You can use an application such as [RoboMongo][] to query and make edits to a Mo
 
 1.  In the connection page, set the **Name** to any name you would like for the   connection.  Also set the **Address** and **Port** fields to the *address* and *port* from **MONGOLAB\_URI**.
 
-  	![Connection Settings Dialog](./media/python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection1.png)
+  	![Connection Settings Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
 1.  In the authentication page, set the **Database** and **User name** to the *name* from **MONGOLAB\_URI**.  Also set the **Password** to the *password* from **MONGOLAB\_URI**.
 
-  	![Connection Settings Dialog](./media/python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection2.png)
+  	![Connection Settings Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
 1.  Save and connect to the database.  You can now query the polls collection.
 
-  	![RoboMongo Query Results](./media/python-ptvs-flask-mongodb/PollsCommonRobomongoQuery.png)
+  	![RoboMongo Query Results](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoQuery.png)
 
 ##<a name="publish-to-an-azure-website"></a>Publish to an Azure Website
 
@@ -143,7 +143,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
 1.  In **Solution Explorer**, right-click on the project node and select **Publish**.
 
-  	![Publish Web Dialog](./media/python-ptvs-flask-mongodb/PollsCommonPublishWebSiteDialog.png)
+  	![Publish Web Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonPublishWebSiteDialog.png)
 
 1.  Click on **Microsoft Azure Websites**.
 
@@ -151,7 +151,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
 1.  Select a **Site name** and a **Region** and click **Create**.
 
-  	![Create Site on Microsoft Azure Dialog](./media/python-ptvs-flask-mongodb/PollsCommonCreateWebSite.png)
+  	![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonCreateWebSite.png)
 
 1.  Accept all other defaults and click **Publish**.
 
@@ -167,21 +167,21 @@ In this section, we'll configure environment variables for the site.
 
 1.  In the top menu, click on **CONFIGURE**.
 
-  	![Top Menu](./media/python-ptvs-flask-mongodb/PollsCommonWebSiteTopMenu.png)
+  	![Top Menu](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteTopMenu.png)
 
 1.  Scroll down to the **app settings** section and set the values for **REPOSITORY\_NAME**, **MONGODB\_HOST** and **MONGODB\_DATABASE** as described in the section above.
 
-  	![App Settings](./media/python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png)
+  	![App Settings](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png)
 
 1.  In the bottom menu, click on **SAVE**, then **RESTART** and finally **BROWSE**.
 
-  	![Bottom Menu](./media/python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureBottomMenu.png)
+  	![Bottom Menu](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureBottomMenu.png)
 
 1.  You should see the application working as expected, using the **MongoDB** repository.
 
     Congratulations!
 
-  	![Web Browser](./media/python-ptvs-flask-mongodb/PollsFlaskAzureBrowser.png)
+  	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskAzureBrowser.png)
 
 ##<a name="next-steps"></a>Next steps
 

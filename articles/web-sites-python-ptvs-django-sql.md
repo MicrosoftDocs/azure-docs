@@ -1,4 +1,4 @@
-<properties linkid="python-ptvs-django-sql" title="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL database instance and can be deployed to a web site." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="" editor="" />
+<properties linkid="web-sites-python-ptvs-django-sql" title="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL database instance and can be deployed to a web site." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 
@@ -36,43 +36,43 @@ In this section, we'll create a Visual Studio project using a sample template. W
 
 1.  The project templates from the PTVS Samples VSIX are available under **Python**, **Samples**.  Select **Polls Django Web Project** and click OK to create the project.
 
-  	![New Project Dialog](./media/python-ptvs-django-sql/PollsDjangoNewProject.png)
+  	![New Project Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoNewProject.png)
 
 1.  You will be prompted to install external packages.  Select **Install into a virtual environment**.
 
-  	![External Packages Dialog](./media/python-ptvs-django-sql/PollsDjangoExternalPackages.png)
+  	![External Packages Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoExternalPackages.png)
 
 1.  Select **Python 2.7** as the base interpreter.
 
-  	![Add Virtual Environment Dialog](./media/python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
+  	![Add Virtual Environment Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
 
 1.  Right-click the project node and select **Python**, **Django Sync DB**.
 
-  	![Django Sync DB Command](./media/python-ptvs-django-sql/PollsDjangoSyncDB.png)
+  	![Django Sync DB Command](./media/web-sites-python-ptvs-django-sql/PollsDjangoSyncDB.png)
 
 1.  This will open a Django Management Console.  Follow the prompts to create a user.
 
     This will create a sqlite database in the project folder.
 
-  	![Django Management Console Window](./media/python-ptvs-django-sql/PollsDjangoConsole.png)
+  	![Django Management Console Window](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
 1.  Confirm that the application works by pressing <kbd>F5</kbd>.
 
 1.  Click **Log in** from the navigation bar at the top.
 
-  	![Web Browser](./media/python-ptvs-django-sql/PollsDjangoCommonBrowserLocalMenu.png)
+  	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalMenu.png)
 
 1.  Enter the credentials for the user you created when you synchronized the database.
 
-  	![Web Browser](./media/python-ptvs-django-sql/PollsDjangoCommonBrowserLocalLogin.png)
+  	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalLogin.png)
 
 1.  Click **Create Sample Polls**.
 
-  	![Web Browser](./media/python-ptvs-django-sql/PollsDjangoCommonBrowserNoPolls.png)
+  	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserNoPolls.png)
 
 1.  Click on a poll and vote.
 
-  	![Web Browser](./media/python-ptvs-django-sql/PollsDjangoSqliteBrowser.png)
+  	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqliteBrowser.png)
 
 ##<a name="create-a-sql-database"></a>Create a SQL Database
 
@@ -84,11 +84,11 @@ You can create a database by following these steps.
 
 1.  At the bottom of the navigation pane, click **NEW**.
 
-  	![New Button](./media/python-ptvs-django-sql/PollsCommonAzurePlusNew.png)
+  	![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png)
 
 1.  Click **DATA SERVICES**, then **SQL DATABASE**, and then click **QUICK CREATE**.
 
-  	![Quick Create SQL Database](./media/python-ptvs-django-sql/PollsDjangoSqlCreate.png)
+  	![Quick Create SQL Database](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlCreate.png)
 
 1.  Choose to create a New SQL database server.
 
@@ -105,11 +105,11 @@ databases with Django.  Then we'll run the application locally.
 
 1.  Click **MANAGE**.
 
-  	![Manage Button](./media/python-ptvs-django-sql/PollsDjangoSqlManage.png)
+  	![Manage Button](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlManage.png)
 
 1.  You will be prompted to update the firewall rules. Click **YES**.  This will allow connections to the database server from your development machine.
 
-  	![Allow Connections](./media/python-ptvs-django-sql/PollsDjangoSqlUpdateFirewall.png)
+  	![Allow Connections](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlUpdateFirewall.png)
 
 1.  Click on **SQL DATABASES**, then **SERVERS**.  Click on the server for your database, then on **CONFIGURE**.
 
@@ -117,7 +117,7 @@ databases with Django.  Then we'll run the application locally.
 
     Below, under **allowed services**, make sure that Azure services are allowed access to the server.  When the application is running in an Azure Website (which we'll do in the next section of this tutorial), it will be allowed to connect to the database.  Click **SAVE** to apply the change.
 
-  	![Allowed Services](./media/python-ptvs-django-sql/PollsDjangoSqlAllowedServices.png)
+  	![Allowed Services](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlAllowedServices.png)
 
 1.  In Visual Studio, open **settings.py**, from the *ProjectName* folder. Edit the definition of `DATABASES`.
 
@@ -144,17 +144,17 @@ databases with Django.  Then we'll run the application locally.
 
 1.  Install the package `pyodbc` using **easy_install**.
 
-  	![Install Python Package Dialog](./media/python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
+  	![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
 1.  Install the package `django-pyodbc-azure` using **pip**.
 
-  	![Install Python Package Dialog](./media/python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
+  	![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 
 1.  Right-click the project node and select **Python**, **Django Sync DB**.  
 
     This will create the tables for the SQL database we created in the previous section.  Follow the prompts to create a user, which doesn't have to match the user in the sqlite database created in the first section.
 
-  	![Django Management Console Window](./media/python-ptvs-django-sql/PollsDjangoConsole.png)
+  	![Django Management Console Window](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
 1.  Run the application with <kbd>F5</kbd>.  Polls that are created with **Create Sample Polls** and the data submitted by voting will be serialized in the SQL database.
 
@@ -165,7 +165,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
 1.  In **Solution Explorer**, right-click on the project node and select **Publish**.
 
-  	![Publish Web Dialog](./media/python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png)
+  	![Publish Web Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png)
 
 1.  Click on **Microsoft Azure Websites**.
 
@@ -173,7 +173,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
 1.  Select a **Site name** and a **Region** and click **Create**.
 
-  	![Create Site on Microsoft Azure Dialog](./media/python-ptvs-django-sql/PollsCommonCreateWebSite.png)
+  	![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonCreateWebSite.png)
 
 1.  Accept all other defaults and click **Publish**.
 
@@ -181,7 +181,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
     Congratulations!
 
-  	![Web Browser](./media/python-ptvs-django-sql/PollsDjangoAzureBrowser.png)
+  	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoAzureBrowser.png)
 
 ##<a name="next-steps"></a>Next steps
 
