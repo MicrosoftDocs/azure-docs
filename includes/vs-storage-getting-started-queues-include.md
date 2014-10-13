@@ -1,4 +1,4 @@
-######Create a Queue
+#####Create a Queue
 A **CloudQueueClient** object lets you get reference objects for queues. The following code creates a **CloudQueueClient** object. All code in this topic uses a storage connection string stored in the Azure application's service configuration. There are also other ways to create a **CloudStorageAccount** object. See the [CloudStorageAccount](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") documentation for details.
 
 	// Get the storage account from its connection string.
@@ -18,14 +18,14 @@ Use the **queueClient** object to get a reference to the queue you want to use. 
 
 **NOTE:** Use this code block in front of the code in the following sections.
 
-######Insert a Message into a Queue
+#####Insert a Message into a Queue
 To insert a message into an existing queue, first create a new **CloudQueueMessage** object. Next, call the AddMessage() method. A **CloudQueueMessage** object can be created from either a string (in UTF-8 format) or a byte array. Here is code which creates a queue (if it doesn't exist) and inserts the message 'Hello, World'.
 
 	// Create a message and add it to the queue.
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	queue.AddMessage(message);
 
-######Peek at the Next Message
+#####Peek at the Next Message
 You can peek at the message in the front of a queue without removing it from the queue by calling the PeekMessage() method.
 
 	// Peek at the next message in the queue.
@@ -34,7 +34,7 @@ You can peek at the message in the front of a queue without removing it from the
 	// Display the message.
 	Console.WriteLine(peekedMessage.AsString);
 
-######Remove the Next Message
+#####Remove the Next Message
 Your code can remove (de-queue) a message from a queue in two steps. 
 
 
@@ -48,3 +48,5 @@ This two-step process of removing a message assures that if your code fails to p
 
 	// Process the message in less than 30 seconds, and then delete the message.
 	queue.DeleteMessage(retrievedMessage);
+
+[Learn more about Azure Storage](http://azure.microsoft.com/documentation/services/storage/)

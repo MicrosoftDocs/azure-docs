@@ -2,27 +2,29 @@
   
 <tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
 
+## Getting Started with Azure Active Directory (AD)
+
 ###What Happened?
  
 References have been added to your project
 
-######NuGet package references
+#####NuGet package references
 
-Microsoft.IdentityModel.Protocol.Extensions, Microsoft.Owin, Microsoft.Owin.Host.SystemWeb, Microsoft.Owin.Security, Microsoft.Owin.Security.Cookies, Microsoft.Owin.Security.OpenIdConnect, Owin, System.IdentityModel.Tokens.Jwt
+`Microsoft.IdentityModel.Protocol.Extensions`, `Microsoft.Owin`, `Microsoft.Owin.Host.SystemWeb`, `Microsoft.Owin.Security`, `Microsoft.Owin.Security.Cookies`, `Microsoft.Owin.Security.OpenIdConnect`, `Owin`, `System.IdentityModel.Tokens.Jwt`
 
-######.NET references
+#####.NET references
 
-Microsoft.IdentityModel.Protocol.Extensions, Microsoft.Owin, Microsoft.Owin.Host.SystemWeb, Microsoft.Owin.Security, Microsoft.Owin.Security.Cookies, Microsoft.Owin.Security.OpenIdConnect, Owin, System, System.Data, System.Drawing, System.IdentityModel, System.IdentityModel.Tokens.Jwt, System.Runtime.Serialization
+`Microsoft.IdentityModel.Protocol.Extensions`, `Microsoft.Owin`, `Microsoft.Owin.Host.SystemWeb`, `Microsoft.Owin.Security`, `Microsoft.Owin.Security.Cookies`, `Microsoft.Owin.Security.OpenIdConnect`, `Owin`, `System`, `System.Data`, `System.Drawing`, `System.IdentityModel`, `System.IdentityModel.Tokens.Jwt`, `System.Runtime.Serialization`
 
-######Code files were added to your project 
+#####Code files were added to your project 
 
-An authentication startup class, App\_Start/Startup.Auth.cs was added to your project containing startup logic for Azure AD authentication. Also, a controller class, Controllers/AccountController.cs was added which contains SignIn() and SignOut() methods. Finally, a partial view, Views/Shared/_LoginPartial.cshtml was added containing an action link for SignIn/SignOut. 
+An authentication startup class, `App_Start/Startup.Auth.cs` was added to your project containing startup logic for Azure AD authentication. Also, a controller class, Controllers/AccountController.cs was added which contains `SignIn()` and `SignOut()` methods. Finally, a partial view, `Views/Shared/_LoginPartial.cshtml` was added containing an action link for SignIn/SignOut. 
 
-######Startup code was added to your project
+#####Startup code was added to your project
  
-If you already had a Startup class in your project, the Configuration() method was updated to include a call to ConfigureAuth(app) was added to that method. Otherwise, a Startup class was added to your project. 
+If you already had a Startup class in your project, the **Configuration** method was updated to include a call to `ConfigureAuth(app)` was added to that method. Otherwise, a Startup class was added to your project. 
 
-######Your app.config or web.config has new configuration values 
+#####Your app.config or web.config has new configuration values 
 
 The following configuration entries have been added. 
 	<pre>
@@ -33,25 +35,25 @@ The following configuration entries have been added.
 	    <add key="Ida:PostLogoutRedirectURI" value="Your project start page" /> 
 	</appSettings>` </pre>
 
-######An Azure Active Directory (AD) App was created 
+#####An Azure Active Directory (AD) App was created 
 An Azure AD Application was created in the directory that you selected in the wizard. 
 
-##Getting Started with Azure Active Directory (AD)
+###Getting Started
 
 Here is what you can do with the code that was added.
  
-######Requiring authentication to access controllers 
+#####Requiring authentication to access controllers 
 
-All controllers in your project were adorned with the [Authorize] attribute. This attribute will require the user to be authenticated before accessing these controllers. To allow the controller to be accessed anonymously, remove this attribute from the controller.
+All controllers in your project were adorned with the **Authorize** attribute. This attribute will require the user to be authenticated before accessing these controllers. To allow the controller to be accessed anonymously, remove this attribute from the controller. If you want to set the permissions at a more granular level, apply the attribute to each method that requires authorization instead of applying it to the controller class.
  
-######Adding SignIn / SignOut Controls 
+#####Adding SignIn / SignOut Controls 
 
-To add a the SignIn/SignOut controls to your view, you can use the _LoginPartial.cshtml partial view to add the functionality to one of your views. Here is an example of the functionality added to the standard _Layout.cshtml view:
+To add a the SignIn/SignOut controls to your view, you can use the **_LoginPartial.cshtml** partial view to add the functionality to one of your views. Here is an example of the functionality added to the standard **_Layout.cshtml** view. (Note the last element in the div with class navbar-collapse):
 	<pre> 
-	`<!DOCTYPE html> 
-	<html> 
-	<head> 
-	    <meta charset="utf-8" /> 
+	` <!DOCTYPE html> 
+	 <html> 
+	 <head> 
+	     <meta charset="utf-8" /> 
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	    <title>@ViewBag.Title - My ASP.NET Application</title> 
 	    @Styles.Render("~/Content/css") 
@@ -90,3 +92,5 @@ To add a the SignIn/SignOut controls to your view, you can use the _LoginPartial
 	    @RenderSection("scripts", required: false) 
 	</body> 
 	</html>` </pre>
+
+[Learn more about Azure Active Directory](http://azure.microsoft.com/services/active-directory/)

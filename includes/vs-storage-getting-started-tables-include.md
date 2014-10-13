@@ -1,4 +1,4 @@
-######Create a table
+#####Create a table
 A **CloudTableClient** object lets you get reference objects for tables and entities. The following code creates a **CloudTableClient** object and uses it to create a new table. 
 
 **NOTE:** All code in this guide assumes that the application being built is an Azure Cloud Service project and uses a storage connection string stored in the Azure application's service configuration.
@@ -14,7 +14,7 @@ A **CloudTableClient** object lets you get reference objects for tables and enti
 	CloudTable table = tableClient.GetTableReference("people");
 	table.CreateIfNotExists();
 
-######Add an entity to a table
+#####Add an entity to a table
 To add an entity to a table you create a class that defines the properties of your entity. The following code defines an entity class called **CustomerEntity** that uses the customer's first name as the row key and last name as the partition key.
 
 	public class CustomerEntity : TableEntity
@@ -55,7 +55,7 @@ Table operations involving entities are done using the **CloudTable** object you
 	// Execute the insert operation.
 	table.Execute(insertOperation);
 
-######Insert a batch of entities
+#####Insert a batch of entities
 You can insert multiple entities into a table in a single write operation. The following code example creates two entity objects ("Jeff Smith" and "Ben Smith"), adds them to a **TableBatchOperation** object using the Insert method, and then starts the operation by calling CloudTable.Execute.
 
 	// Get the storage account from the connection string.
@@ -88,7 +88,7 @@ You can insert multiple entities into a table in a single write operation. The f
 	// Execute the batch operation.
 	table.ExecuteBatch(batchOperation);
 
-######Get all of the entities in a partition
+#####Get all of the entities in a partition
 To query a table for all of the entities in a partition, use a **TableQuery** object. The following code example specifies a filter for entities where 'Smith' is the partition key. This example prints the fields of each entity in the query results to the console.
 
 	// Get the storage account from the connection string.
@@ -111,7 +111,7 @@ To query a table for all of the entities in a partition, use a **TableQuery** ob
 	        entity.Email, entity.PhoneNumber);
 	}
 
-######Get a single entity
+#####Get a single entity
 You can write a query to get a single, specific entity. The following code uses a **TableOperation** object to specify a customer named 'Ben Smith'. This method returns just one entity, rather than a collection, and the returned value in TableResult.Result is a **CustomerEntity** object. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the **Table** service.
 
 	// Get the storage account from the connection string.
@@ -136,7 +136,7 @@ You can write a query to get a single, specific entity. The following code uses 
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-######Delete an entity
+#####Delete an entity
 You can delete an entity after you find it. The following code looks for a customer entity named "Ben Smith" and if it finds it, it deletes it.
 
 	// Get the storage account from the connection string.
@@ -171,3 +171,5 @@ You can delete an entity after you find it. The following code looks for a custo
 	
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
+
+[Learn more about Azure Storage](http://azure.microsoft.com/documentation/services/storage/)

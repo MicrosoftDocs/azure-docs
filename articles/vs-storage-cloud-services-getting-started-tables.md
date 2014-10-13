@@ -2,11 +2,16 @@
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="ghogen, kempb" />
 
+##Getting Started with Azure Storage
+
 [WACOM.INCLUDE [vs-storage-cloud-services-getting-started-intro](../includes/vs-storage-cloud-services-getting-started-intro.md)]
 
-### Getting Started with Azure Storage
+### Getting Started
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-cloud-services-getting-started-blobs" title="Blobs" class="current">Blobs</a><a href="/en-us/documentation/articles/vs-storage-cloud-services-getting-started-queues" title="Queues">Queues</a><a href="/en-us/documentation/articles/vs-storage-cloud-services-getting-started-tables" title="Tables">Tables</a></div>
+> [AZURE.SELECTOR]
+> - [Blobs](/en-us/documentation/articles/vs-storage-cloud-services-getting-started-blobs)
+> - [Queues](/en-us/documentation/articles/vs-storage-cloud-services-getting-started-queues)
+> - [Tables](/en-us/documentation/articles/vs-storage-cloud-services-getting-started-tables)
 
 The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET") for more information.
 
@@ -19,7 +24,7 @@ To programmatically access tables in a cloud service project, you need to do the
 	using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Queue;
 
-######Get the storage connection string
+#####Get the storage connection string
 Before you can do anything with a table, you need to get the connection string for the storage account the tables will live in. You can use the **CloudStorageAccount** type to represent your storage account information. For cloud service projects, you can you use the **CloudConfigurationManager** type to retrieve your storage connection string and storage account information from the Azure service configuration, as shown in the following code.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
