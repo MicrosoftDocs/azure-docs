@@ -1,26 +1,28 @@
-<properties title="Configure Search in the Azure Preview Portal" pageTitle="Configure Search in the Azure Preview Portal" description="Configure Search in the Azure Preview Portal" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties title="Get started with Azure Search" pageTitle="Get started with Azure Search" description="Get started with Azure Search" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
 
 <tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
 
-# Configure Search in the Azure Preview portal
+# Get started with Azure Search
 
 [WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
-Microsoft Azure Search (Public Preview) is available in the new Preview portal. As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
+Microsoft Azure Search (Public Preview) is new service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a REST API. To read more about why you would use Azure Search, see [Azure Search Scenarios and Capabilities](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/).  
+
+As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
 
 <!--Table of contents -->
 
 + [Start with the free service](#sub-1)
 + [Upgrade to standard search](#sub-2)
 + [Test service operations](#sub-3)
-+ [Explore Search service configuration pages](#sub-4)
++ [Explore Search service dashboard](#sub-4)
 + [Try it out](#next-steps)
 
 <h2 id="sub-1">Start with the free service</h2>
 
 Subscribers automatically get free access to a shared, multitenant Search service that you can use for learning purposes, proof-of-concept testing, or small development search projects. Sign up for the free version using these steps.
 
-1. Sign in to [Azure Preview portal](https://portal.azure.com) using your existing subscription. Notice that this URL takes you to the Preview portal. 
+1. Sign in to [Azure Preview portal](https://portal.azure.com) using your existing subscription. Notice that this URL takes you to the Preview portal. Using the Preview portal is a requirement. 
 
 2. Click **New** at the bottom of the page.
  
@@ -327,7 +329,7 @@ You can also query the system to get document counts and storage consumption. On
 
  	![][21]
 
-<h2 id="sub-4">Explore Search service configuration pages</h2>
+<h2 id="sub-4">Explore Search service dashboard</h2>
 
 If you need a refresher on where to find the configuration pages, follow these steps to locate the service dashboard.
 
@@ -349,48 +351,48 @@ If you need a refresher on where to find the configuration pages, follow these s
 
 Ready for the next step? The following links take you to additional material that shows you how to build and manage search applications that use Azure Search.
 
-[Create your first azure search solution](../search-create-first-solution/) 
+- [Create your first azure search solution](../search-create-first-solution/) 
 
-[Create an Azure Search GeoSearch Sample](../search-create-geospatial/)
+- [Create an Azure Search GeoSearch Sample](../search-create-geospatial/)
 
-[Manage your search solution in Microsoft Azure](../search-manage/) 
+- [Manage your search solution in Microsoft Azure](../search-manage/) 
 
-[Azure Search Technical Overview](http://msdn.microsoft.com/en-us/library/dn798933.aspx)
+- [Azure Search Technical Overview](http://msdn.microsoft.com/en-us/library/dn798933.aspx)
 
-[Azure Search REST API](http://msdn.microsoft.com/en-us/library/dn798935.aspx)
+- [Azure Search REST API](http://msdn.microsoft.com/en-us/library/dn798935.aspx)
 
-[Channel 9 video: Introduction to Azure Search](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
+- [Channel 9 video: Introduction to Azure Search](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 
-[Channel 9 video: Azure Search and Geospatial Data](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)
+- [Channel 9 video: Azure Search and Geospatial Data](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)
 
-[Cloud Cover episode 152: Generate an index in Azure Search](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh)
+- [Cloud Cover episode 152: Generate an index in Azure Search](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh)
 
 <!--Anchors-->
 [Start with the free service]: #sub-1
 [Upgrade to standard search]: #sub-2
 [Test service operations]: #sub-3
-[Explore Search service configuration pages]: #sub-4
+[Explore Search service dashboard]: #sub-4
 [Try it out]: #next-steps
 
 <!--Image references-->
-[6]: ./media/search-configure/AzureSearch_Configure1_1_New.PNG
-[7]: ./media/search-configure/AzureSearch_Configure1_2_Everything.PNG
-[8]: ./media/search-configure/Azuresearch_Configure1_3_Gallery.PNG
-[9]: ./media/search-configure/AzureSearch_Configure1_4_GallerySeeAll.PNG
-[10]: ./media/search-configure/AzureSearch_Configure1_5_DataServicesList.PNG
-[11]: ./media/search-configure/AzureSearch_Configure1_6_URL.PNG
-[12]: ./media/search-configure/AzureSearch_Configure1_7_Free.PNG
-[13]: ./media/search-configure/AzureSearch_Configure1_8_SearchServiceList.PNG
-[14]: ./media/search-configure/AzureSearch_Configure1_9_Standard.PNG
-[15]: ./media/search-configure/AzureSearch_Configure1_10_ScaleUp.PNG
-[16]: ./media/search-configure/AzureSearch_Configure1_11_PUTIndex.PNG
-[17]: ./media/search-configure/AzureSearch_Configure1_12_POSTDocs.PNG
-[18]: ./media/search-configure/AzureSearch_Configure1_13_GETQuery.PNG
-[19]: ./media/search-configure/AzureSearch_Configure1_14_GETQueryResponse.PNG
-[20]: ./media/search-configure/AzureSearch_Configure1_15_Stats.PNG
-[21]: ./media/search-configure/AzureSearch_Configure1_16_StatsResponse.PNG
-[22]: ./media/search-configure/AzureSearch_Configure1_17_BrowseEverything.PNG
-[23]: ./media/search-configure/AzureSearch_Configure1_18_Explore.PNG
+[6]: ./media/search-get-started/AzureSearch_Configure1_1_New.PNG
+[7]: ./media/search-get-started/AzureSearch_Configure1_2_Everything.PNG
+[8]: ./media/search-get-started/Azuresearch_Configure1_3_Gallery.PNG
+[9]: ./media/search-get-started/AzureSearch_Configure1_4_GallerySeeAll.PNG
+[10]: ./media/search-get-started/AzureSearch_Configure1_5_DataServicesList.PNG
+[11]: ./media/search-get-started/AzureSearch_Configure1_6_URL.PNG
+[12]: ./media/search-get-started/AzureSearch_Configure1_7_Free.PNG
+[13]: ./media/search-get-started/AzureSearch_Configure1_8_SearchServiceList.PNG
+[14]: ./media/search-get-started/AzureSearch_Configure1_9_Standard.PNG
+[15]: ./media/search-get-started/AzureSearch_Configure1_10_ScaleUp.PNG
+[16]: ./media/search-get-started/AzureSearch_Configure1_11_PUTIndex.PNG
+[17]: ./media/search-get-started/AzureSearch_Configure1_12_POSTDocs.PNG
+[18]: ./media/search-get-started/AzureSearch_Configure1_13_GETQuery.PNG
+[19]: ./media/search-get-started/AzureSearch_Configure1_14_GETQueryResponse.PNG
+[20]: ./media/search-get-started/AzureSearch_Configure1_15_Stats.PNG
+[21]: ./media/search-get-started/AzureSearch_Configure1_16_StatsResponse.PNG
+[22]: ./media/search-get-started/AzureSearch_Configure1_17_BrowseEverything.PNG
+[23]: ./media/search-get-started/AzureSearch_Configure1_18_Explore.PNG
 
 
 <!--Link references-->
