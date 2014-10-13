@@ -130,18 +130,112 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
 		The portion of the domain name beginning with the cluster name is the DNS suffix. For example, mycluster.b1.cloudapp.net.
 
-	* **Remote Desktop** - For information on enabling Remote Desktop and connecting to the cluster, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal]. After connecting to the cluster, open the Hadoop Command Line and run the **ipconfig** command to obtain the DNS suffix.
+	* **PowerShell** - use the following PowerShell script to register the **Get-ClusterDetail** function, which can be used to return the DNS suffix.
 
-		![hdinsight.hbase.dns.surffix][img-dns-surffix]
+			function Get-ClusterDetail(
+			    [String]
+			    [Parameter( Position=0, Mandatory=$true )]
+			    $ClusterDnsName,
+				[String]
+			    [Parameter( Position=1, Mandatory=$true )]
+			    $Username,
+				[String]
+			    [Parameter( Position=2, Mandatory=$true )]
+			    $Password,
+			    [String]
+			    [Parameter( Position=3, Mandatory=$true )]
+			    $PropertyName
+				)
+			{
+			<#
+			    .SYNOPSIS 
+			     Displays information to facilitate HDInsight cluster to cluster scinario within same virtual network.
+				.Description
+				 This command shows following 4 properties of an HDInsight cluster.
+				 1. ZookeeperQuorum (only support HBase type cluster)
+					Shows the value of hbase property "hbase.zookeeper.quorum".
+				 2. ZookeeperClientPort (only support HBase type cluster)
+					Shows the value of hbase property "hbase.zookeeper.property.clientPort".
+				 3. HBaseRestServers (only support HBase type cluster)
+					Shows a list of host FQDNs which run HBase rest server.
+				 4. FQDNSuffix (support all type cluster)
+					Shows FQDN suffix of hosts in the cluster.
+			    .EXAMPLE
+			     Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName ZookeeperQuorum
+			     This command shows the value of hbase property "hbase.zookeeper.quorum".
+			    .EXAMPLE
+			     Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName ZookeeperClientPort
+			     This command shows the value of hbase property "hbase.zookeeper.property.clientPort".
+			    .EXAMPLE
+			     Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName HBaseRestServers
+			     This command shows a list of host FQDNs which run HBase rest server.
+			    .EXAMPLE
+			     Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName FQDNSuffix
+			     This command shows FQDN suffix of hosts in the cluster.
+			#>
+			
+				$DnsSuffix = ".azurehdinsight.net"
+				
+				$ClusterFQDN = $ClusterDnsName + $DnsSuffix
+				$webclient = new-object System.Net.WebClient
+				$webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password)
+			
+				if($PropertyName -eq "ZookeeperQuorum")
+				{
+					$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum"
+					$Response = $webclient.DownloadString($Url)
+					$JsonObject = $Response | ConvertFrom-Json
+					Write-host $JsonObject.items[0].properties.'hbase.zookeeper.quorum'
+				}
+				if($PropertyName -eq "ZookeeperClientPort")
+				{
+					$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.property.clientPort"
+					$Response = $webclient.DownloadString($Url)
+					$JsonObject = $Response | ConvertFrom-Json
+					Write-host $JsonObject.items[0].properties.'hbase.zookeeper.property.clientPort'
+				}
+				if($PropertyName -eq "HBaseRestServers")
+				{
+					$Url1 = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.rest.port"
+					$Response1 = $webclient.DownloadString($Url1)
+					$JsonObject1 = $Response1 | ConvertFrom-Json
+					$PortNumber = $JsonObject1.items[0].properties.'hbase.rest.port'
+					
+					$Url2 = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/hbase/components/hbrest"
+					$Response2 = $webclient.DownloadString($Url2)
+					$JsonObject2 = $Response2 | ConvertFrom-Json
+					foreach ($host_component in $JsonObject2.host_components)
+					{
+						$ConnectionString = $host_component.HostRoles.host_name + ":" + $PortNumber
+						Write-host $ConnectionString
+					}
+				}
+				if($PropertyName -eq "FQDNSuffix")
+				{
+					$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/yarn/components/resourcemanager"
+					$Response = $webclient.DownloadString($Url)
+					$JsonObject = $Response | ConvertFrom-Json
+					$FQDN = $JsonObject.host_components[0].HostRoles.host_name
+					$pos = $FQDN.IndexOf(".")
+					$Suffix = $FQDN.Substring($pos + 1)
+					Write-host $Suffix
+				}
+			}
 
-<!--
+		After running the PowerShell script, use the following command to return the DNS suffix using the Get-ClusterDetail function. Specify your HDInsight HBase cluster name, admin name, and admin password when using this command.
+
+			Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
+
+		This will return the DNS suffix. For example, **yourclustername.b4.internal.cloudapp.net**.
+
 	> [WACOM.NOTE] You can also use Remote Desktop to connect the HBase cluster (you will be connected to the headnode) and run **ipconfig** from a command prompt to obtain the DNS suffix. For instructions on enabling RDP and connect to the cluster using RDP, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal].
 	>
 	> ![hdinsight.hbase.dns.surffix][img-dns-surffix]
--->
+
 
 <!-- 
 3.	Change the Primary DNS Suffix configuration of the virtual machine. This enables virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to the workernode0 of the HBase cluster. 
+
 	To make the configuration change:
 
 	1. RDP into the virtual machine. 
