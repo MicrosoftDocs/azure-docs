@@ -2,8 +2,10 @@
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-29" ms.author="awills"  />
 
-# Web tests
+# Web tests for Microsoft Azure Websites
 Is your Azure Website still running? Is it responding properly, and fast enough? Tests your website at regular intervals by configuring a Web test. If the site goes down or responds slowly or incorrectly, you'll receive an email alert. And you'll get graphs showing its availability and responsiveness over time.  
+
+*Want to test any other website? Use [Application Insights web tests][availability] for non-Azure web apps.*
 
 ![Browse Hub](./media/insights-create-web-tests/Inisghts_WebTestBlade.png)
 
@@ -43,3 +45,5 @@ If your web test doesn't pass the success criteria then it will be marked as a f
 Failed tests can be analyzed to determine why they failed.  Drill into a failed web test and download and open Visual Studio Web Test Result File to analyze and understand why the test failed.
 
 ![Open in VS](./media/insights-create-web-tests/Insights_OpenInVS.png)
+
+[availability]: ../app-insights-monitor-web-app-availability/

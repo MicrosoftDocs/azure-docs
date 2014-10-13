@@ -5,9 +5,11 @@
 
 #Microsoft HDInsight release notes
 
-## Notes for 9/30/2014 release ##
+## Notes for 10/7/2014 release ##
 
-We have provided new memory settings for the default deployment of the HDInsight cluster. Previous default memory settings did not take adequate account of the guidance for the number of CPU cores being deployed. The new memory settings used by the default 4 CPU core (8 container) HDInsight cluster are itemized in the following table. (The values used prior to this release are also provided parenthetically). 
+* When using Ambari endpoint, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", the *host_name* field now returns the fully qualified domain name (FQDN) of the node instead of just the host name. For example, instead of returning "**headnode0**", you get the FQDN “**headnode0.{ClusterDNS}.azurehdinsight.net**”. This change was required to facilitate scenarios where multiple cluster types such as HBase and Hadoop can be deployed in one Virtual Network (VNET). This happens, for example, when using HBase as a back-end platform for Hadoop.
+
+* We have provided new memory settings for the default deployment of the HDInsight cluster. Previous default memory settings did not take adequate account of the guidance for the number of CPU cores being deployed. The new memory settings used by the default 4 CPU core (8 container) HDInsight cluster are itemized in the following table. (The values used prior to this release are also provided parenthetically). 
  
 <table border="1">
 <tr><th>Component</th><th>Memory Allocation</th></tr>

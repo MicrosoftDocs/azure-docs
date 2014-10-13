@@ -1,4 +1,4 @@
-<properties linkid="data-management-azure-sql-database-and-sql-server-iaas" urlDisplayName="Learn Azure SQL Database and SQL Server in Azure VMs" pageTitle="Understanding Azure SQL Database and SQL Server in Azure VMs" metaKeywords="SQL, Azure SQL Database, SQL Server IAAS, SQL Server in Azure VM" description="Learn Azure SQL Database and SQL Server in Azure Virtual Machines. Review common business motivators for determining which SQL technology works best for your application." metaCanonical="" services="virtual-machines" documentationCenter="" title="Understanding Azure SQL Database and SQL Server in Azure VMs" authors="selcint" solutions="data-management" manager="jeffreyg" editor="tysonn" />
+<properties urlDisplayName="Learn Azure SQL Database and SQL Server in Azure VMs" pageTitle="Understanding Azure SQL Database and SQL Server in Azure VMs" metaKeywords="SQL, Azure SQL Database, SQL Server IAAS, SQL Server in Azure VM" description="Learn Azure SQL Database and SQL Server in Azure Virtual Machines. Review common business motivators for determining which SQL technology works best for your application." metaCanonical="" services="virtual-machines" documentationCenter="" title="Understanding Azure SQL Database and SQL Server in Azure VMs" authors="selcint" solutions="data-management" manager="jeffreyg" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/26/2014" ms.author="selcint" />
 
@@ -67,7 +67,7 @@ The following table summarizes the main characteristics of Azure SQL Database an
          <li type=round>Applications using scale-out patterns.
          <li type=round>Databases of up to 500 GB in size.
          <li type=round>Building Software-as-a-Service applications.
-         <li type=round>If you want to migrate existing applications built-on SQL Server 2005 or earlier to Azure.
+         
   </ul>
 </td>
    <td valign="middle">
@@ -184,7 +184,8 @@ The following is a summary of suggestions for you to consider when to use one or
 
 Choose **Azure SQL Database**, if:
 
-- You are building brand new, cloud-based applications; or you want to migrate existing applications built-on SQL Server 2005 or earlier to Azure. This approach provides the benefits of a fully managed cloud service and ensures the fast time-to-market. 
+- You are building brand new, cloud-based applications; or you want to migrate your existing SQL Server database to Azure SQL Database and your database is not using one of the unsupported functionalities in Azure SQL Database. For more information, see [Unsupported Transact-SQL Statements](http://msdn.microsoft.com/library/azure/ee336253.aspx). This approach provides the benefits of a fully managed cloud service and ensures the fast time-to-market.
+
 - You want to have Microsoft perform common management operations on your databases and require stronger availability SLAs for databases. This approach can minimize the administration costs and at the same time provides a guaranteed availability for the database. 
 
 Choose **SQL Server in Azure VM**, if:
