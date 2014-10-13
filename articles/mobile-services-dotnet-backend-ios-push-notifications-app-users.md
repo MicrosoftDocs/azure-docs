@@ -1,6 +1,6 @@
 <properties pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="krisragh" solutions="Mobile" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/29/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
 # Send push notifications to authenticated users
 
@@ -15,30 +15,30 @@ This tutorial walks you through the following process:
 + [Updating the service to require authentication for registration]
 + [Updating the app to log in before registration]
 + [Testing the app]
- 
+
 This tutorial supports both Windows Store and Windows Phone Store apps.
 
-##Prerequisites 
+##Prerequisites
 
 Before you start this tutorial, you must have already completed these Mobile Services tutorials:
 
 + [Get started with authentication]<br/>Adds a login requirement to the TodoList sample app.
 
-+ [Get started with push notifications]<br/>Configures the TodoList sample app for push notifications by using Notification Hubs. 
++ [Get started with push notifications]<br/>Configures the TodoList sample app for push notifications by using Notification Hubs.
 
 After you have completed both tutorials, you can prevent unauthenticated users from registering for push notifications from your mobile service.
 
 ##<a name="register"></a>Update the service to require authentication to register
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)] 
+[WACOM.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
 
 ##<a name="update-app"></a>Update the app to log in before registration
 
-[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../includes/mobile-services-ios-push-notifications-app-users-login.md)] 
+[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../includes/mobile-services-ios-push-notifications-app-users-login.md)]
 
 ##<a name="test"></a>Test the app
 
-[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)] 
+[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
 <!-- Anchors. -->
 [Updating the service to require authentication for registration]: #register

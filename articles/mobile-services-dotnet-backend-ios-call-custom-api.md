@@ -1,9 +1,9 @@
 <properties pageTitle="Call a custom API from an iOS app | Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from an iOS app that uses Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="krisragh"  solutions="" writer="krisragh" manager="dwrede" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/26/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
 
-# Call a custom API from the client 
+# Call a custom API from the client
 
 [WACOM.INCLUDE [mobile-services-selector-call-custom-api](../includes/mobile-services-selector-call-custom-api.md)]
 
@@ -15,7 +15,7 @@ You will add this functionality to the app that you created when you completed e
 
 1. [Define the custom API]
 2. [Update the app to call the custom API]
-3. [Test the app] 
+3. [Test the app]
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. This tutorial requires the [Mobile Services iOS SDK](https://go.microsoft.com/fwLink/p/?LinkID=266533) and [XCode 4.5](https://go.microsoft.com/fwLink/p/?LinkID=266532) and iOS 5.0 or later versions.
 
