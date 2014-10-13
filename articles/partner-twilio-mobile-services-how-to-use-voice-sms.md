@@ -72,13 +72,11 @@ To use the Twilio node.js library in your Mobile Service, you need leverage Mobi
 
 1. Complete the tutorial [Store Scripts in Source Control](/en-us/documentation/articles/mobile-services-store-scripts-source-control/). This walks you through setting-up source control for your Mobile Services and storing your server scripts in a Git repository.
 
-2. After you have set up source control for your Mobile Service, open the repository on your local computer, browse to the `\services` subfolder, and run the following command:
+2. After you have set up source control for your Mobile Service, open the repository on your local computer, browse to the `\services` subfolder, open the package.json file in a text editor, and add the following field to the **dependencies** object:
 
-		npm install twilio --save
-
-	This installs the Twilio package and updates the package.json file, which controls which node.js modules are loaded by your mobile service.
-
-3. Open the package.json file in a text editor and verify that the dependency reference looks like the following:
+		"twilio": "~1.7.0"
+ 
+3. After you have added the Twilio package reference to the **dependencies** object, the package.json file should look like the following:
 
 		{
 		  "name": "todolist",
@@ -99,8 +97,12 @@ To use the Twilio node.js library in your Mobile Service, you need leverage Mobi
 		}
 
 	>[WACOM.NOTE]The dependency for Twilio should be added as `"twilio": "~1.7.0"`, with a (~). A reference with a caret (^) is not supported. 
+
+4. Commit this file update and push the update back to the mobile service.
+
+	This update to the package.json file will restart your mobile service.
 	
-Now you can reference and use the Twilio library in your custom API and table scripts.
+The mobile service now installs and loads the Twilio package so you can reference and use the Twilio library in your custom API and table scripts.
 
 <h2><a id="howto_make_call"></a>How to: Make an outgoing call</h2>
 The following script shows how to initiate an outgoing call from your Mobile Service using the **makeCall** function. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **From** and **To** phone numbers, and ensure that you verify the **From** phone number for your Twilio account prior to running the code.
