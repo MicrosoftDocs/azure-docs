@@ -819,6 +819,7 @@ To support serialization to and from JSON, we need some helper classes that defi
 		package com.microsoft.examples;
 
 		public class EventHubMessage {
+		  String TimeStamp;
 		  int DeviceId;
 		  int Temperature;
 		}
@@ -834,28 +835,68 @@ To support serialization to and from JSON, we need some helper classes that defi
 
 5. Save and close these files.
 
-###Add the Dashboard bolt
+###Add the bolts
 
-Bolts do the main processing in a topology. To start out, we'll just add the Dashboard bolt that sends values to the dashboard.
+Bolts do the main processing in a topology. We will have two bolts:
+
+* **ParserBolt** - parses the incoming JSON data into fields in a tuple. Eventually, this will also write data to HBase.
+
+* **DashboardBolt** - emits a high/low value for a 5 second period to the Dashboard
 
 1. In the **\temperaturemonitor\src\main\java\com\microsoft\examples** directory, create a new directory named **bolts**.
 
-2. In the **bolts** directory, create a new file named **DashboardBolt.java**.
+2. In the **bolts** directory, create two new files named **ParserBolt.java** and **DashboardBolt.java**.
+
+3. Use the following as the contents of the **ParserBolt.java** file.
+
+		package com.microsoft.examples;
+		
+		import backtype.storm.topology.base.BaseBasicBolt;
+		import backtype.storm.topology.BasicOutputCollector;
+		import backtype.storm.topology.OutputFieldsDeclarer;
+		import backtype.storm.tuple.Tuple;
+		import backtype.storm.tuple.Fields;
+		import backtype.storm.tuple.Values;
+		
+		import com.google.gson.Gson;
+		import com.google.gson.GsonBuilder;
+		
+		public class ParserBolt extends BaseBasicBolt {
+		
+		  //Declare output fields
+		  @Override
+		  public void declareOutputFields(OutputFieldsDeclarer declarer) {
+		    declarer.declare(new Fields("temperature"));
+		  }
+		
+		  //Process tuples
+		  @Override
+		  public void execute(Tuple tuple, BasicOutputCollector collector) {
+		    Gson gson = new Gson();
+		    //Should only be one tuple, which is the JSON message from the spout
+		    String value = tuple.getString(0);
+		
+		    //Convert it from JSON to an object
+		    EventHubMessage evMessage = gson.fromJson(value, EventHubMessage.class);
+		    
+		    //Pull out the temperature and emit as a stream
+		    int temperature = evMessage.Temperature;
+		    collector.emit(new Values(temperature));
+		  }
+		}
 
 3. Use the following as the contents of the **DashboardBolt.java** file.
 
 		package com.microsoft.examples;
-
+		
 		import backtype.storm.topology.BasicOutputCollector;
 		import backtype.storm.topology.OutputFieldsDeclarer;
 		import backtype.storm.topology.base.BaseBasicBolt;
 		import backtype.storm.tuple.Tuple;
-		import backtype.storm.tuple.Fields;
-		import backtype.storm.tuple.Values;
 		import backtype.storm.task.TopologyContext;
 		import backtype.storm.Config;
 		import backtype.storm.Constants;
-
+		
 		import microsoft.aspnet.signalr.client.Action;
 		import microsoft.aspnet.signalr.client.ErrorCallback;
 		import microsoft.aspnet.signalr.client.LogLevel;
@@ -863,46 +904,46 @@ Bolts do the main processing in a topology. To start out, we'll just add the Das
 		import microsoft.aspnet.signalr.client.MessageReceivedHandler;
 		import microsoft.aspnet.signalr.client.hubs.HubConnection;
 		import microsoft.aspnet.signalr.client.hubs.HubProxy;
-
+		
 		import com.google.gson.Gson;
 		import com.google.gson.GsonBuilder;
-
+		
 		import java.util.Map;
-
+		
 		public class DashboardBolt extends BaseBasicBolt {
 		  private HubConnection conn;
 		  private HubProxy proxy;
 		  private int low;
 		  private int high;
-
+		
 		  //Declare output fields
 		  @Override
 		  public void declareOutputFields(OutputFieldsDeclarer declarer) {
 		    //no stream output - we talk directly to SignalR
 		  }
-
+		
 		  @Override
 		  public Map<String, Object> getComponentConfiguration() {
 		    // configure how often a tick tuple will be sent to our bolt
 		    Config conf = new Config();
-		      conf.put(Config.TOPOLOGY_TICK_TUPLE_FREQ_SECS, 3);
+		      conf.put(Config.TOPOLOGY_TICK_TUPLE_FREQ_SECS, 5);
 		      return conf;
 		  }
-
+		
 		  //received tick tuple?
 		  protected static boolean isTickTuple(Tuple tuple) {
 		    return tuple.getSourceComponent().equals(Constants.SYSTEM_COMPONENT_ID)
 		        && tuple.getSourceStreamId().equals(Constants.SYSTEM_TICK_STREAM_ID);
 		  }
-
+		
 		  @Override
 		  public void prepare(Map config, TopologyContext context) {
 		    //set  low/high to values that we know will be overwritten
-		    high = -500;
-		    low = 500;
-
-		    // Connect to the server
-		    conn = new HubConnection("http://yourwebsiteaddress");
+		    high = 0;
+		    low = 100;
+		
+		    // Connect to the DashHub SignalR server
+		    conn = new HubConnection("http://larryfrdashboard.azurewebsites.net/");
 		    // Create the hub proxy
 		    proxy = conn.createHubProxy("DashHub");
 		    // Subscribe to the error event
@@ -935,7 +976,7 @@ Bolts do the main processing in a topology. To start out, we'll just add the Das
 		        }
 		    });
 		  }
-
+		
 		  //Process tuples
 		  @Override
 		  public void execute(Tuple tuple, BasicOutputCollector collector) {
@@ -949,26 +990,22 @@ Bolts do the main processing in a topology. To start out, we'll just add the Das
 		        //send it as JSON
 		        proxy.invoke("send", gson.toJson(srMessage));
 		        //reset high/low so they will be overwritten for the next set
-		        high = -500;
-		        low = 500;
+		        high = 0;
+		        low = 100;
 		        return;
 		      }
 		      //If it's not a tick tuple
-		      //Get value by location, since we only have one
-		      //string coming in each tuple
-		      String value = tuple.getString(0);
-		      //Convert it from JSON to an object
-		      EventHubMessage evMessage = gson.fromJson(value, EventHubMessage.class);
+		      //Get the temperature by field name
+		      int temp = tuple.getIntegerByField("temperature");
 		      //check temperature against current low/high for this batch
 		      //set as new high/low if it's higher or lower
-		      int temp = evMessage.Temperature;
+		      //int temp = evMessage.Temperature;
 		      if (temp > high) {
 		        high = temp;
 		      }
 		      if (temp < low) {
 		        low = temp;
 		      }
-
 		    } catch (Exception e) {
 		       // LOG.error("Bolt execute error: {}", e);
 		       collector.reportError(e);
@@ -999,36 +1036,24 @@ The topology describes how data flows between the spouts and bolts in a topology
 2. Open the **Temperature.java** file and use the following as the contents.
 
 		package com.microsoft.examples;
-
+		
 		import backtype.storm.Config;
 		import backtype.storm.LocalCluster;
 		import backtype.storm.StormSubmitter;
-		import backtype.storm.task.OutputCollector;
-		import backtype.storm.task.TopologyContext;
-		import backtype.storm.topology.OutputFieldsDeclarer;
-		import backtype.storm.topology.TopologyBuilder;
-		import backtype.storm.topology.base.BaseRichBolt;
-		import backtype.storm.tuple.Fields;
-		import backtype.storm.tuple.Tuple;
-		import backtype.storm.tuple.Values;
-		import backtype.storm.utils.Utils;
-
 		import backtype.storm.generated.StormTopology;
 		import backtype.storm.topology.TopologyBuilder;
-
-		import java.util.Map;
-
+		
 		import com.microsoft.eventhubs.spout.EventHubSpout;
 		import com.microsoft.eventhubs.spout.EventHubSpoutConfig;
-
+		
 		import java.io.FileReader;
 		import java.util.Properties;
-
+		
 		public class Temperature
 		{
 		  protected EventHubSpoutConfig spoutConfig;
 		  protected int numWorkers;
-
+		
 		  // Reads the configuration information for the Event Hub spout
 		  protected void readEHConfig(String[] args) throws Exception {
 		    Properties properties = new Properties();
@@ -1039,7 +1064,7 @@ The topology describes how data flows between the spouts and bolts in a topology
 		      properties.load(Temperature.class.getClassLoader().getResourceAsStream(
 		        "Config.properties"));
 		    }
-
+		
 		    String username = properties.getProperty("eventhubspout.username");
 		    String password = properties.getProperty("eventhubspout.password");
 		    String namespaceName = properties.getProperty("eventhubspout.namespace");
@@ -1055,61 +1080,62 @@ The topology describes how data flows between the spouts and bolts in a topology
 		    spoutConfig = new EventHubSpoutConfig(username, password,
 		      namespaceName, entityPath, partitionCount, zkEndpointAddress,
 		      checkpointIntervalInSeconds, receiverCredits);
-
+		
 		    //set the number of workers to be the same as partition number.
 		    //the idea is to have a spout and a partial count bolt co-exist in one
 		    //worker to avoid shuffling messages across workers in storm cluster.
 		    numWorkers = spoutConfig.getPartitionCount();
-
+		    
 		    if(args.length > 0) {
 		      //set topology name so that sample Trident topology can use it as stream name.
 		      spoutConfig.setTopologyName(args[0]);
 		    }
 		  }
-
+		
 		  // Create the spout using the configuration
 		  protected EventHubSpout createEventHubSpout() {
 		    EventHubSpout eventHubSpout = new EventHubSpout(spoutConfig);
 		    return eventHubSpout;
 		  }
-
+		
 		  // Build the topology
 		  protected StormTopology buildTopology(EventHubSpout eventHubSpout) {
 		    TopologyBuilder topologyBuilder = new TopologyBuilder();
 		    // Name the spout 'EventHubsSpout', and set it to create
 		    // as many as we have partition counts in the config file
-		    topologyBuilder.setSpout("EventHubsSpout", eventHubSpout, spoutConfig.getPartitionCount())
+		    topologyBuilder.setSpout("EventHub", eventHubSpout, spoutConfig.getPartitionCount())
 		      .setNumTasks(spoutConfig.getPartitionCount());
-		    // Create the dashboard, but just one since we don't want to flood SignalR with
-		    // multiple bolts sending to it every 3 seconds.
-		    // Set it to accept a stream from 'EventHubsSpout'
-		    topologyBuilder.setBolt("dashboard", new DashboardBolt(), spoutConfig.getPartitionCount())
-		      .localOrShuffleGrouping("EventHubsSpout").setNumTasks(1);
+		    // Create the parser bolt, which subscribes to the stream from EventHub
+		    topologyBuilder.setBolt("Parser", new ParserBolt(), spoutConfig.getPartitionCount())
+		      .localOrShuffleGrouping("EventHub").setNumTasks(spoutConfig.getPartitionCount());
+		    // Create the dashboard bolt, which subscribes to the stream from Parser
+		    topologyBuilder.setBolt("Dashboard", new DashboardBolt(), 1)
+		      .localOrShuffleGrouping("Parser").setNumTasks(1);
 		    return topologyBuilder.createTopology();
 		  }
-
+		
 		  protected void submitTopology(String[] args, StormTopology topology) throws Exception {
 		    Config config = new Config();
 		    config.setDebug(false);
 		    //Enable metrics
 		    config.registerMetricsConsumer(backtype.storm.metric.LoggingMetricsConsumer.class, 1);
-
+		
 		    // Is this running locally, or on an HDInsight cluster?
 		    if (args != null && args.length > 0) {
 		      config.setNumWorkers(numWorkers);
 		      StormSubmitter.submitTopology(args[0], config, topology);
 		    } else {
 		      config.setMaxTaskParallelism(2);
-
+		
 		      LocalCluster localCluster = new LocalCluster();
 		      localCluster.submitTopology("test", config, topology);
-
+		
 		      Thread.sleep(5000000);
-
+		
 		      localCluster.shutdown();
 		    }
 		  }
-
+		
 		  // Loads the configuration, creates the spout, builds the topology,
 		  // and then submits it
 		  protected void runScenario(String[] args) throws Exception{
@@ -1118,7 +1144,7 @@ The topology describes how data flows between the spouts and bolts in a topology
 		    StormTopology topology = buildTopology(eventHubSpout);
 		    submitTopology(args, topology);
 		  }
-
+		
 		  public static void main(String[] args) throws Exception {
 		    Temperature scenario = new Temperature();
 		    scenario.runScenario(args);
@@ -1127,12 +1153,61 @@ The topology describes how data flows between the spouts and bolts in a topology
 
 ###Test the topology locally
 
-To compile and test the file on your development machine, use the following command.
+The main reason that we haven't added HBase functionality yet is that we will be writing directly to HBase. Without adding your development environment to the Azure Virtual Network, and setting up DNS for the Zookeeper nodes on HBase, there's not a great way to test that functionality locally. What we have currently just talks to EventHub and a Website, so we can run this locally to verify that it works.
+
+To compile and test the file on your development environment, use the following command.
 
 	mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
 
 This will start the topology, read files from Event Hub, and send them to the dashboard running in Azure Websites. You should open the dashboard in a browser before starting the application. To stop the application, use CTRL-C.
 
+##Write to HBase
+
+To add functionality to write to HBase, perform the following steps.
+
+1. Discover the DNS suffix used by your HBase cluster by using [Curl, PowerShell, or Remote Desktop](/en-us/documentation/articles/hdinsight-hbase-provision-vnet/#connect). The suffix will be similar to the following:
+
+		<clustername>.b4.internal.cloudapp.net
+
+2. Create a new file named **hbase-site.xml** in the **\temperaturemonitor\conf** directory. Use the following as the contents of the file, replacing the **suffix** for the **zookeeper** entries with the suffix for your HBase cluster. For example, **zookeeper0.mycluster.b4.internal.cloudapp.net, zookeeper1.mycluster.b4.internal.cloudapp.net, zookeeper2.mycluster.b4.cloudapp.net**.
+
+		<?xml version="1.0"?>
+		<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+		<!--
+		/**
+		 * Copyright 2010 The Apache Software Foundation
+		 *
+		 * Licensed to the Apache Software Foundation (ASF) under one
+		 * or more contributor license agreements.  See the NOTICE file
+		 * distributed with this work for additional information
+		 * regarding copyright ownership.  The ASF licenses this file
+		 * to you under the Apache License, Version 2.0 (the
+		 * "License"); you may not use this file except in compliance
+		 * with the License.  You may obtain a copy of the License at
+		 *
+		 *     http://www.apache.org/licenses/LICENSE-2.0
+		 *
+		 * Unless required by applicable law or agreed to in writing, software
+		 * distributed under the License is distributed on an "AS IS" BASIS,
+		 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+		 * See the License for the specific language governing permissions and
+		 * limitations under the License.
+		 */
+		-->
+		<configuration>
+		  <property>
+		    <name>hbase.cluster.distributed</name>
+		    <value>true</value>
+		  </property>
+		  <property>
+		    <name>hbase.zookeeper.quorum</name>
+		    <value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
+		  </property>
+		  <property>
+		    <name>hbase.zookeeper.property.clientPort</name>
+		    <value>2181</value>
+		  </property>
+		</configuration>
 
 
 ##Package and deploy the topology to HDInsight
