@@ -13,6 +13,8 @@ The polls application defines an abstraction for its repository, so you can easi
 
 We'll learn how to use one of the hosted MongoDB services on Azure, how to configure the application to use MongoDB, and how to publish the application to an Azure Website.
 
+See the [Python Developer Center][] for more articles that cover development of Azure Websites with PTVS using Bottle, Flask and Django web frameworks, with MongoDB, Azure Table Storage, MySQL and SQL Database services.  While this article focuses on Azure Websites, the steps are similar when developing [Azure Cloud Services][].
+
 + [Prerequisites](#prerequisites)
 + [Create the Project](#create-the-project)
 + [Create a MongoDB Database](#create-a-mongodb-database)
@@ -196,6 +198,10 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 - [PyMongo Documentation][]
 - [PyMongo][]
 
+
+<!--Link references-->
+[Python Developer Center]: /en-us/develop/python/
+[Azure Cloud Services]: ../cloud-services-python-ptvs/
 
 <!--External Link references-->
 [Azure Management Portal]: https://manage.windowsazure.com
