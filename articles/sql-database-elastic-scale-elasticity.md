@@ -1,28 +1,22 @@
-<properties title="Data Dependent Routing" pageTitle="Shard Elasticity" description="Shard Elasticity, azure sql database, elastic scale" metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, elasticity" services="sql-database" documentationCenter="sql-database" authors="sidneyh@microsoft.com"/>
+<properties title="Data Dependent Routing" pageTitle="Shard Elasticity" description="Explains concepts and gives examples behind shard elasticity, the ability to scale out Azure SQL databases easily." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, elasticity" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
 # Shard Elasticity 
 
-**Shard elasticity** enables application developers to dynamically shrink and grow database resources according to need. Shard elasticity lets you optimize the performance of your applications, and also to minimize costs.   
-
-**Horizontal scaling** is a design pattern in which databases ("shards," in [Elastic Scale terms](http://go.microsoft.com/?linkid=9862603)) are added or removed from a **shard set** to grow or shrink capacity. 
+**Shard elasticity** enables application developers to dynamically grow and shrink database resources according to need, enabling one to optimize the performance of their applications, and also to minimize costs. The combination of the Elastic Scale for Azure SQL Database along with the [Basic, Standard, and Premium service tiers](http://msdn.microsoft.com/en-us/library/azure/dn741340.aspx) provides very compelling elasticity scenarios.  Elastic Scale enables **horizontal scaling** - a design pattern in which databases ("shards," in [Elastic Scale terms](sql-database-elastic-scale-glossary.md)) are added or removed from a **shard set** to grow or shrink capacity. Similarly, the SQL Database service tiers provide **vertical scaling** capabilities in that a single database's resources can scale up or down to appropriately match demand.  Together, the vertical scaling of a single shard and the horizontal scaling of many shards, affords application developers a very flexible environment that can scale to meet performance, capacity and cost-optimization needs.
 
 ### Horizontal Scaling Example: Concert Spike
 
 A canonical scenario for horizontal scaling is an application that processes transactions for concert tickets. Under normal customer volume, the application uses minimal database resources to handle purchase transactions.  However, when tickets go on sale for a popular concert, a single database cannot handle the large spike in customer demand. 
 
-To handle the dramatic increase in transactions, the application scales horizontally. The application can now distribute the transaction load across many shards. When the the additional resources are no longer needed, the database tier shrinks back for normal usage. Here horizontal scaling enables an application to scale-out to match customer demand and scale-in when the resources are no longer needed.   
-
-Similar to horizontal scaling, **vertical scaling** is the increase or decrease of resources for a specific database.
-
-Within Azure SQL database, the Basic, Standard, and Premium service tiers enable an application developer to match the performance of any single shard or database to their workload.
+To process the dramatic increase in transactions, the application scales horizontally. The application can now distribute the transaction load across many shards. When the additional resources are no longer needed, the database tier shrinks back for normal usage. Here horizontal scaling enables an application to scale-out to match customer demand and scale-in when the resources are no longer needed.   
 
 ### Vertical Scaling Example: Telemetry
 
-A canonical scenario for vertical scaling is an application that uses a shard set to store operational telemetry. In this scenario, it is better to co-locate all telemetry data for a single day on a single shard. That configuration improves the ability to perform joins locally. In such an application, data for the current day is ingested into a shard and a new shard is provisioned for subsequent days. The operational data can then be aged and queried as appropriate. 
+A canonical scenario for vertical scaling is an application that uses a **shard set** to store operational telemetry. In this scenario, it is better to co-locate all telemetry data for a single day on a single shard. In this application, data for the current day is ingested into a shard and a new shard is provisioned for subsequent days. The operational data can then be aged and queried as appropriate. 
 
-As the database ingests telemetry data at high loads, it is better to employ a higher Azure SQL DB performance service tier. In other words, a Premium database is better than a Basic database. Once the database reaches its capacity, it switches from ingestion to analysis and reporting. In this case, the Standard tier's performance is equal to the task. Thus one can vertically scale down the service tier (or performance level) on shards other than the most recently created one in order to fit the lower performance requirements of this application pattern for older data. 
+To ingest telemetry data at high loads, it is better to employ a higher service tier. In other words, a Premium database is better than a Basic database. Once the database reaches its capacity, it switches from ingestion to analysis and reporting. For that, the Standard tier's performance is equal to the task. Thus one can vertically scale down the service tier on shards (other than the most recently created one) in order to fit the lower performance requirements for older data. 
 
 Vertical scaling can also be used to increase the performance of a single database in order to achieve increased performance. An example is a tax filing application. At filing time, it is better to keep a single customer’s data all on the same database and increase the performance of that shard. Depending on the application, vertically scaling up and down resources is advantageous to optimize for both cost and performance requirements. 
 
@@ -38,7 +32,7 @@ Vertical and horizontal scaling is a function of three basic components:
 2. **Rule**
 3. **Action**   
 
-## Telemetry 
+## <a name="telemetry"> </a>Telemetry
 
 **Data-driven elasticity** is at the heart of an elastic scale application. Depending on the performance requirements, use telemetry to make data-driven decisions on whether to scale vertically or horizontally.  
 
@@ -50,66 +44,66 @@ In the context of Azure SQL DB, there are a handful of key sources that can be l
 
 One can analyze the performance resources usage by querying the master DB using the following query where ‘Shard_20140623’ is the name of the targeted database. 
 
-	SELECT TOP 10 *  
-	FROM sys.resource_stats  
-	WHERE database_name = 'Shard_20140623'  
-	ORDER BY start_time DESC 
+    SELECT TOP 10 *  
+    FROM sys.resource_stats  
+    WHERE database_name = 'Shard_20140623'  
+    ORDER BY start_time DESC 
 
-**Performance telemetry** can be summarized over a period of time (seven days in the query below) in order to remove transient behavior. 
+**Performance telemetry** can be summarized over a period of time (seven days in the query below) in order to remove transient behaviors. 
 
-	SELECT  
+    SELECT  
     avg(avg_cpu_percent) AS 'Average CPU Utilization In Percent', 
-	    max(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent', 
-	    avg(avg_physical_data_read_percent) AS 'Average Physical Data Read Utilization In Percent', 
-	    max(avg_physical_data_read_percent) AS 'Maximum Physical Data Read Utilization In Percent', 
-	    avg(avg_log_write_percent) AS 'Average Log Write Utilization In Percent', 
-	    max(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent', 
-	    avg(active_session_count) AS 'Average # of Sessions', 
-	    max(active_session_count) AS 'Maximum # of Sessions', 
-	    avg(active_worker_count) AS 'Average # of Workers', 
-	    max(active_worker_count) AS 'Maximum # of Workers' 
-	FROM sys.resource_stats  
-	WHERE database_name = ' Shard_20140623' AND start_time > DATEADD(day, -7, GETDATE()); 
+        max(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent', 
+        avg(avg_physical_data_read_percent) AS 'Average Physical Data Read Utilization In Percent', 
+        max(avg_physical_data_read_percent) AS 'Maximum Physical Data Read Utilization In Percent', 
+        avg(avg_log_write_percent) AS 'Average Log Write Utilization In Percent', 
+        max(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent', 
+        avg(active_session_count) AS 'Average # of Sessions', 
+        max(active_session_count) AS 'Maximum # of Sessions', 
+        avg(active_worker_count) AS 'Average # of Workers', 
+        max(active_worker_count) AS 'Maximum # of Workers' 
+    FROM sys.resource_stats  
+    WHERE database_name = ' Shard_20140623' AND start_time > DATEADD(day, -7, GETDATE()); 
 
 **Database capacity** can be measured with a similar query against the **sys.resource_usage** view. The max of the **storage_in_megabytes** column yields the current size of the database. Such telemetry is useful for horizontally scaling an application when a particular shard reaches its capacity. 
 
-	SELECT TOP 10 * 
-	FROM [sys].[resource_usage] 
-	WHERE database_name = 'Shard_20140623'  
-	ORDER BY time DESC 
+    SELECT TOP 10 * 
+    FROM [sys].[resource_usage] 
+    WHERE database_name = 'Shard_20140623'  
+    ORDER BY time DESC 
 
 As data is ingested into a particular shard, it is useful to project forward a day and determine if the shard has sufficient capacity to handle the coming workload. While not a true implementation of linear regression, the following query returns the maximum delta in database capacity between two consecutive days.  Such telemetry can then be applied to a rule that would then result in an action (or non-action) being taken. 
 
-	WITH MaxDatabaseDailySize AS( 
-		SELECT 
-			ROW_NUMBER() OVER (ORDER BY convert(date, [time]) DESC) as [Order], 
-			CONVERT(date,[time]) as [date],  
-			MAX(storage_in_megabytes) as [MaxSizeDay] 
-		FROM [sys].[resource_usage] 
-		WHERE  
-			database_name = 'Shard_20140623' 
-		GROUP BY CONVERT(date,[time]) 
-		) 
-	
-	SELECT 
-		MAX(ISNULL(Size.[MaxSizeDay] - PreviousDaySize.[MaxSizeDay], 0)) 
-	FROM  
-		MaxDatabaseDailySize Size INNER JOIN 
-		MaxDatabaseDailySize PreviousDaySize ON Size.[order]+1 = PreviousDaySize.[order] 
-	WHERE 
-		Size.[order] < 8 
+    WITH MaxDatabaseDailySize AS( 
+        SELECT 
+            ROW_NUMBER() OVER (ORDER BY convert(date, [time]) DESC) as [Order], 
+            CONVERT(date,[time]) as [date],  
+            MAX(storage_in_megabytes) as [MaxSizeDay] 
+        FROM [sys].[resource_usage] 
+        WHERE  
+            database_name = 'Shard_20140623' 
+        GROUP BY CONVERT(date,[time]) 
+        ) 
+    
+    SELECT 
+        MAX(ISNULL(Size.[MaxSizeDay] - PreviousDaySize.[MaxSizeDay], 0)) 
+    FROM  
+        MaxDatabaseDailySize Size INNER JOIN 
+        MaxDatabaseDailySize PreviousDaySize ON Size.[order]+1 = PreviousDaySize.[order] 
+    WHERE 
+        Size.[order] < 8 
 
-## Rule  
+## <a name="rule"></a>Rule  
 
 The rule is the decision engine that determines whether or not an action is taken. Some rules are very straightforward and some are much more complicated. As shown in the code snippet below, a capacity-focused rule can be configured so that when a shard reaches $SafetyMargin, e.g., 80%, of its maximum capacity, a new shard is provisioned.
 
-	# Determine if the current DB size plus the maximum daily delta size is greater than the threshold 
-	if( ($CurrentDbSizeMb + $MaxDbDeltaMb) -gt ($MaxDbSizeMb * $SafetyMargin))  
-	{#provision new shard} 
+    # Determine if the current DB size plus the maximum daily delta size is greater than the threshold 
+    if( ($CurrentDbSizeMb + $MaxDbDeltaMb) -gt ($MaxDbSizeMb * $SafetyMargin))  
+    {#provision new shard} 
 
 Given the data sources above, a number of rules can be formulated in order to accomplish numerous shard elasticity scenarios. 
 
-## Action  
+## <a name="action"></a>Action  
 
 Based on the outcome of the rule, the action (or non-action) is the result. The two most common actions are:
 
@@ -120,7 +114,7 @@ Note that in both horizontal and vertical scaling solutions, the result of an ac
 
 ## Example Shard Elasticity Scenario 
 
-The example depicted in Figure 1.1 highlights two elastic scale scenarios: 
+The example depicted in the figure below highlights two elastic scale scenarios: 
 1. horizontal scaling of a shard map 
 2. vertical scaling of an individual shard.  
 
@@ -141,3 +135,8 @@ To facilitate the actual implementation of both horizontal and vertical scaling 
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-elasticity/data-ingestion.png
+
+<!--anchors-->
+[Telemetry]:#telemetry
+[Rule]:#rule
+[Action]:#action

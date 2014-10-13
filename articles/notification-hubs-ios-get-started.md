@@ -1,4 +1,4 @@
-<properties linkid="develop-notificationhubs-tutorials-get-started-ios" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="krisragh" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/24/2014" ms.author="krisragh" />
 
@@ -37,29 +37,37 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 ##<a name="configure-hub"></a>Configure your notification hub
 
-1. Log on to the [Azure Management Portal], and click **+NEW** at the bottom of the screen.
+1. In Keychain Access, right-click the quickstart app's new certificate **My Certificates**. Click **Export**, name the file, select the **.p12** format, then click **Save**.
 
-2. Click on **App Services**, then **Service Bus**, then **Notification Hub**, then **Quick Create**.
+    ![][26]
+
+  Make a note of the file name and location of the exported certificate.
+
+>[WACOM.NOTE] This tutorial creates a QuickStart.p12 file. Your file name and location might be different.
+
+2. Log on to the [Azure Management Portal], and click **+NEW** at the bottom of the screen.
+
+3. Click on **App Services**, then **Service Bus**, then **Notification Hub**, then **Quick Create**.
 
    	![][27]
 
-3. Type a name for your notification hub, select your desired region, and then click **Create a new Notification Hub**.
+4. Type a name for your notification hub, select your desired region, and then click **Create a new Notification Hub**.
 
    	![][28]
 
-4. Click the namespace you just created (usually ***notification hub name*-ns**), and then click the **Configure** tab at the top.
+5. Click the namespace you just created (usually ***notification hub name*-ns**), and then click the **Configure** tab at the top.
 
    	![][29]
 
-5. Click the **Notification Hubs** tab at the top, and then click on the notification hub you just created.
+6. Click the **Notification Hubs** tab at the top, and then click on the notification hub you just created.
 
    	![][210]
 
-6. Select the **Configure** tab at the top, and then click **Upload** for the Apple notification settings. Then select the **.p12** certificate you exported earlier, and the password for the certificate. Make sure to select whether you want to use the **Production** (if you want to send push notifications to users that purchased your app from the store) or the **Sandbox** (during development) push service.
+7. Select the **Configure** tab at the top, and then click **Upload** for the Apple notification settings. Then select the **.p12** certificate you exported earlier, and the password for the certificate. Make sure to select whether you want to use the **Production** (if you want to send push notifications to users that purchased your app from the store) or the **Sandbox** (during development) push service.
 
    	![][211]
 
-7. Click the **Dashboard** tab at the top, and then click **Connection Information**. Take note of the two connection strings.
+8. Click the **Dashboard** tab at the top, and then click **Connection Information**. Take note of the two connection strings.
 
    	![][212]
 
@@ -184,6 +192,7 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 
 
 [18]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-step18.png
+[26]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
 
 
 [105]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-05.png

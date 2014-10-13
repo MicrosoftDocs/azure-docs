@@ -1,12 +1,12 @@
-<properties linkid="manage-scenarios-choose-web-app-service" pageTitle="Azure Websites, Cloud Services and Virtual Machines comparison" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title=" Cloud Services" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+<properties pageTitle="Azure Websites, Cloud Services and Virtual Machines comparison" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title=" Cloud Services" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
 
 # Azure Websites, Cloud Services, and Virtual Machines comparison
 
-Azure offers several ways to host web sites: [Azure Websites][], [Cloud Services][], and [Virtual Machines][]. This article helps you understand the options and make the right choice for your web application.
-
 ## Overview
+
+Azure offers several ways to host web sites: [Azure Websites][], [Cloud Services][], and [Virtual Machines][]. This article helps you understand the options and make the right choice for your web application.
 
 Azure Websites is the best choice for most web apps. Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability. You can move existing sites to Azure Websites easily with an [online migration tool](https://www.migratetoazure.net/), use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice. The [WebJobs][] feature (currently in preview) makes it easy to add background job processing to your app. 
 
@@ -29,8 +29,8 @@ The following diagram illustrates the relative degree of control versus ease of 
 Here are some common application scenarios with recommendations as to which Azure web hosting option might be most appropriate for each.
 
 - [I need a web front end with background processing and database backend to run business applications integrated with on premise assets.](#onprem)
-- [I have an IIS6 application running on Windows Server 2003.](#iis6)
 - [I need a reliable way to host my corporate website that scales well and offers global reach.](#corp)
+- [I have an IIS6 application running on Windows Server 2003.](#iis6)
 - [I'm a small business owner, and I need an inexpensive way to host my site but with future growth in mind.](#smallbusiness)
 - [I'm a web or graphic designer, and I want to design and build web sites for my customers.](#designer)
 - [I'm migrating my multi-tier application with a web front-end to the Cloud.](#multitier)
@@ -96,14 +96,14 @@ Choose Cloud Service for one or more of your tiers if you need more control over
 
 Choose Virtual Machines for one or more of your tiers if you want to use your own machine image or run server software or services that you can't configure on Cloud Services. 
 
-### <a id="vm"></a>My application depends on highly customized Windows or Linux environments and I want to move it to the cloud.
+### <a id="custom"></a>My application depends on highly customized Windows or Linux environments and I want to move it to the cloud.
 
 If your application requires complex installation or configuration of software and the operating system, Virtual Machines is probably the best solution. With Virtual Machines, you can:
 
 - Use the Virtual Machine gallery to start with an operating system, such as Windows or Linux, and then customize it for your application requirements. 
 - Create and upload a custom image of an existing on-premises server to run on a virtual machine in Azure. 
 
-### My site uses open source software, and I want to host it in Azure
+### <a id="oss"></a>My site uses open source software, and I want to host it in Azure
 
 If your open source framework is supported on Websites, the languages and frameworks needed by your application are configured for you automatically. Websites enables you to:
 
@@ -154,13 +154,6 @@ The following table compares the capabilities of Websites, Cloud Services, and V
 </tr>
 <tr>
    <td valign="middle"><p>Web server instances share content and configuration, which means you don't have to redeploy or reconfigure as you scale.</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Can use custom ETW events for tracing and debugging</p></td>
    <td valign="middle">X</td>
    <td valign="middle"></td>
    <td valign="middle"></td>
@@ -227,7 +220,7 @@ The following table compares the capabilities of Websites, Cloud Services, and V
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">In Websites, you can host a middle tier by using the <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> feature (currently in Preview). You can run WebJobs in a dedicated website to achieve independent scalability for the tier.</td>
+   <td valign="middle">Websites can easily host a REST API middle tier, and the <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> feature of Websites (currently in Preview) can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier.</td>
 </tr>
 <tr>
    <td valign="middle"><p>Integrated MySQL-as-a-service support</p></td>
@@ -315,6 +308,13 @@ The following table compares the capabilities of Websites, Cloud Services, and V
 </tr>
 <tr>
    <td valign="middle"><p>Ability to define/execute start-up tasks</p></td>
+   <td valign="middle"></td>
+   <td valign="middle">X</td>
+   <td valign="middle">X</td>
+   <td valign="middle"></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Can use custom ETW events for tracing and debugging</p></td>
    <td valign="middle"></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>

@@ -9,6 +9,8 @@
 + [I added Application Insights successfully and ran my app, but I've never seen data in the portal.](#q03)
 + [I see no data under Usage Analytics](#q04)
 + [I'm looking at the Microsoft Azure Preview start board. How do I find my data in Application Insights?](#q05)
++ [How can I change the Azure resource my data appears under?](#update)
++ [I get an error "Instrumentation key cannot be empty"](#emptykey)
 + [On the Microsoft Azure Preview home screen, does that map show the status of my application?](#q06)
 + [When I use add Application Insights to my application and open the Application Insights portal, it all looks completely different from your screenshots.](#q07)
 + [Can I use Application Insights to monitor an intranet web server?](#q08)
@@ -57,6 +59,16 @@ Either:
 * Choose Browse, Application Insights, your project name. If you don't have any projects there, you need to [add Application Insights to your web project in Visual Studio][start].
 
 * In Visual Studio Solution Explorer, right-click your web project and choose Open Application Insights Portal.
+
+## <a name="update"></a>How can I change which Azure resource my project sends data to?
+
+In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
+
+## <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
+
+Looks like something went wrong while you were installing Application Insights or maybe a logging adapter.
+
+In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one.
 
 ## <a name="q06"></a>On the Microsoft Azure Preview home screen, does that map show the status of my application?
 
@@ -144,7 +156,25 @@ Performance and usage data are sent to TCP ports 80 and 443 at dc.services.visua
 
 Web availability tests depend on incoming access to your web server on port 80.
 
-## Learn more
+## Have I enabled everything in Application Insights?
+
+<table border="1">
+<tr><th>What you should see</th><th>How to get it</th><th>Why you want it</th></tr>
+<tr><td>Availability charts</td><td>[Web tests][availability]</td><td>Know your web app is up</td></tr>
+<tr><td>Server app perf: response times, ...
+</td><td>[Add Application Insights to your project][start]<br/>or <br/>[Install AI Status Monitor on server][redfield]</td><td>Detect perf issues</td></tr>
+<!-- ####future#### <tr><td>Dependency telemetry</td><td>[Install AI Status Monitor on server][redfield]</td><td>Diagnose issues with databases or other external components</td></tr> -->
+<!-- #####74.1#### <tr><td>Server globals: CPU, memory, ...</td><td> [Install AI Status Monitor on server][redfield]</td><td>Diagnose capacity issues</td></tr> --> 
+<tr><td>Search log traces</td><td>[Add a logging adapter][diagnostic]</td><td>Diagnose exceptions, perf issues</td></tr>
+<tr><td>Client usage basics: page views, returns, ...</td><td>[JavaScript initializer in web pages][webclient]</td><td>Usage analytics</td></tr>
+<tr><td>Client custom metrics</td><td>[Tracking calls in web pages][track]</td><td>Enhance user experience</td></tr>
+<tr><td>Server custom metrics</td><td>[Tracking calls in server code][track]</td><td>Business intelligence</td></tr>
+</table>
+
+If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
+
+
+## Application Insights - learn more
 
 * [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
@@ -152,6 +182,7 @@ Web availability tests depend on incoming access to your web server on port 80.
 * [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
 * [Track usage][usage]
+* [Track custom events and metrics][track]
 * [Q & A and troubleshooting][qna]
 
 <!--Link references-->
@@ -163,8 +194,11 @@ Web availability tests depend on incoming access to your web server on port 80.
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
 [usage]: ../app-insights-web-track-usage/
+[track]: ../app-insights-web-track-usage-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/
 [webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+
+[azurediagnostic]: ../insights-how-to-use-diagnostics/
 
 [older]: http://www.visualstudio.com/get-started/get-usage-data-vs
 

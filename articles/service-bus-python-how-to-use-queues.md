@@ -1,6 +1,6 @@
-<properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
 
 
@@ -31,7 +31,7 @@ covered include **creating queues, sending and receiving messages**, and
 
 The **ServiceBusService** object lets you work with queues. Add the following near the top of any Python file in which you wish to programmatically access Azure Service Bus:
 
-	from azure.servicebus import *
+	from azure.servicebus import ServiceBusService, Message, Queue
 
 The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'sharedaccesskeyname' and 'sharedaccesskey' with the real namespace, shared access signature (SAS) key name and value.
 
@@ -63,7 +63,7 @@ To send a message to a Service Bus queue, your application will call the
 The following example demonstrates how to send a test message to the
 queue named *taskqueue using* **send\_queue\_message**:
 
-	msg = Message('Test Message')
+	msg = Message(b'Test Message')
 	bus_service.send_queue_message('taskqueue', msg)
 
 Service Bus queues support a maximum message size of 256 KB (the header,
