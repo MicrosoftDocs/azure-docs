@@ -2,9 +2,9 @@
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
-#Analyzing sensor data with Storm and HDInsight (Hadoop)
+#Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)
 
-Learn how to use build a solution that uses an HDInsight Storm cluster to process sensor data from Azure Event Hub. During processing, the Storm topology will store all data into an HDInsight HBase cluster. The topology will also use SignalR to provide information to a web-based dashboard.
+Learn how to use build a solution that uses an HDInsight Storm cluster to process sensor data from Azure Event Hub. During processing, the Storm topology will store incoming data into an HDInsight HBase cluster. The topology will also use SignalR to provide information to a web-based dashboard.
 
 [insert diagram]
 
@@ -13,8 +13,6 @@ Learn how to use build a solution that uses an HDInsight Storm cluster to proces
 ##Prerequisites
 
 * An Azure subscription
-
-* An HDInsight Storm cluster
 
 * Visual Studio with the [Microsoft Azure SDK for .NET](http://azure.microsoft.com/en-us/downloads/archive-net-downloads/)
 
@@ -238,7 +236,6 @@ The website also contains a static index.html file, which also connects to Signa
 		            //tick for D3 graphics
 		            tick();
 
-
 		            function tick() {
 		                // update the domains
 		                now = new Date();
@@ -353,6 +350,8 @@ The website also contains a static index.html file, which also connects to Signa
 
 ##Configure Event Hub
 
+Event Hub is used to receive messages (events) from the sensors. Use the following steps to create a new Event Hub.
+
 1. From the [Azure Portal](https://manage.windowsazure.com), select **NEW | Service Bus | Event Hub | Custom Create**.
 
 2. On the **Add a new Event Hub** dialog, enter an **Event Hub Name**, select the **Region** to create the hub in, and either create a new namespace or select an existing one. Finally, click the **Arrow**.
@@ -373,9 +372,9 @@ The website also contains a static index.html file, which also connects to Signa
 
 5. After saving the policies, use the **Shared access key generator** at the bottom of the page to retrieve the key for both the **devices** and **storm** policies. Save these as they will be used later.
 
-##Send messages to Event Hub
+###Send messages to Event Hub
 
-Event Hub is used to receive sensor data from sensors. Since there isn't an easy, standard set of sensors available to everyone, a .NET application is used to generate random numbers.
+Since there isn't an easy, standard set of sensors available to everyone, a .NET application is used to generate random numbers.
 
 1. In Visual Studio, create a new **Windows Desktop** project and select the **Console Application** project template. Name the project **SendEvents** and then click **OK**.
 
@@ -499,9 +498,77 @@ Event Hub is used to receive sensor data from sensors. Since there isn't an easy
 
 6. **Save All**, then run the application to populate Event Hub with messages.
 
-##Create the Storm cluster
+##Create an Azure Virtual Network
 
-If you have not already created an HDInsight Storm cluster, see [Getting started using Storm with HDInsight](/en-us/documentation/articles/hdinsight-storm-getting-started.md) for steps on provisioning an HDInsight Storm cluster, as well as how to enable and connect to the cluster using Remote Desktop.
+In order for the topology running on the Storm cluster to communicate directly with HBase, you must provision both servers into an Azure Virtual Network.
+
+1. Sign in to the [Azure Management portal][azure-portal].
+
+2. On the bottom of the page, click **+NEW**, click **Network Services**, click **Virtual Network**, and then click **Quick Create**.
+
+3. Type or select the following values:
+
+	- **Name**: The name of your virtual network.
+	- **Address space**: Choose an address space for the virtual network that is large enough to provide addresses for all nodes in the cluster. Otherwise the provision will fail.
+	- **Maximum VM count**: Choose one of the Maximum VM counts.
+	- **Location**: The location must be the same as the HBase cluster that you will create.
+	- **DNS server**: This article uses internal DNS server provided by Azure, therefore you can choose **None**. More advanced networking configuration with custom DNS servers are also supported. For the detailed guidance, see [http://msdn.microsoft.com/library/azure/jj156088.aspx](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+
+4. Click **Create a Virtual Network**. The new virtual network name will appear in the list. Wait until the Status column shows **Created**.
+
+5. In the main pane, click the virtual network you just created.
+
+6. On the top of the page, click **DASHBOARD**.
+
+7. Under **quick glance**, make a note of **VIRTUAL NETWORK ID**. You will need it when provisioning the Storm and HBase clusters.
+
+8. On the top of the page, click **CONFIGURE**.
+
+9. On the bottom of the page, the default subnet name is **Subnet-1**. Use the **add subnet** button to add **Subnet-2**. These subnets will house the Storm and HBase clusters.
+
+	> [WACOM.NOTE] In this article, we will be using clusters with only one node. If you are creating multi-node clusters, you must verify the **CIDR(ADDRESS COUNT)** for the subnet that will be used for the cluster. The address count must be greater than the number of worker nodes plus seven (Gateway: 2, Headnode: 2, Zookeeper: 3). For example, if you need a 10 node HBase cluster, the address count for the subnet must be greater than 17 (10+7). Otherwise the deployment will fail.
+	>
+	> It is highly recommended to designate a single subnet for one cluster. 
+
+11. Click **Save** on the bottom of the page.
+
+##Create the HDInsight Storm cluster
+
+1. Sign in to the [Azure Management Portal][azureportal]
+
+2. Click **HDInsight** on the left, and then **+NEW** in the lower left corner of the page.
+
+3. Click on the HDInsight icon in the second column, and then select **Custom**.
+
+4. On the **Cluster Details** page, enter the name of the new cluster, and select **Storm** for the **Cluster Type**. Select the arrow to continue.
+
+5. Enter 1 for the number of **Data Nodes** to use for this cluster. For **Region/Virtual Network**, select the Azure Virtual Network created earlier. For **Virtual Network Subnets**, select **Subnet-2**.
+
+	> [WACOM.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
+
+6. Enter the administrator **User Name** and **Password**, then select the arrow to continue.
+
+4. For **Storage Account**, select **Create New Storage** or select an existing storage account. Select or enter the **Account Name** and **Default container** to use. Click on the check icon on the lower left to create the Storm cluster.
+
+##Create the HDInsight HBase cluster
+
+1. Sign in to the [Azure Management Portal][azureportal]
+
+2. Click **HDInsight** on the left, and then **+NEW** in the lower left corner of the page.
+
+3. Click on the HDInsight icon in the second column, and then select **Custom**.
+
+4. On the **Cluster Details** page, enter the name of the new cluster, and select **HBase** for the **Cluster Type**. Select the arrow to continue.
+
+5. Enter 1 for the number of **Data Nodes** to use for this cluster. For **Region/Virtual Network**, select the Azure Virtual Network created earlier. For **Virtual Network Subnets**, select **Subnet-1**.
+
+	> [WACOM.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
+
+6. Enter the administrator **User Name** and **Password**, then select the arrow to continue.
+
+4. For **Storage Account**, select **Create New Storage** or select an existing storage account. Select or enter the **Account Name** and **Default container** to use. Click on the check icon on the lower left to create the Storm cluster.
+
+	> [WACOM.NOTE] You should use a different container than the one used for the Storm cluster.
 
 ##Develop the Storm topology
 
@@ -519,7 +586,7 @@ Several of the dependencies used in this project must be downloaded and built in
 
 In order to receive data from Event Hub, we will use the **eventhubs-storm-spout**.
 
-[TBD - download from cluster or from GitHub?]
+1. Use Remote Desktop to connect to your Storm cluster, then copy the **%storm_home%\contrib\tbd** file to your local development environment. This contains the **events-storm-spout**.
 
 5. Use the following to build the spout and create a new JAR file containing the spout and dependencies.
 
@@ -581,6 +648,8 @@ Now that we have installed the Event Hub spout and SignalR client into the local
 
 ###Add dependencies and plugins
 
+Next, modify the **pom.xml** to reference the dependencies for this project, as well as the Maven plugins to use when building and packaging.
+
 1. Using a text editor, open the **pom.xml** file, and add the following to the **&lt;dependencies>** section. You can add them at the end of the section, after the dependency for junit.
 
 		<dependency>
@@ -621,8 +690,6 @@ Now that we have installed the Event Hub spout and SignalR client into the local
 	      </exclusions>
 	      <scope>provided</scope>
 	    </dependency>
-
-	[finalize list of dependencies]
 
 	This adds dependencies for...
 
@@ -708,6 +775,8 @@ Now that we have installed the Event Hub spout and SignalR client into the local
 
 ###Add the Event Hub spout configuration file
 
+The **eventhubs-storm-spout** reads configuration information from a **Config.properties** file. This tells it what Event Hub to connect to. While you can specify a configuration file when starting the topology on a cluster, including one in the project gives you a known default configuration.
+
 1. In the **Temperature** directory, create a new directory named **conf**.
 
 2. In the **conf** directory, create a new file named **Config.properties** and add the following as the file contents.
@@ -734,6 +803,8 @@ Now that we have installed the Event Hub spout and SignalR client into the local
 3. Save the file.
 
 ###Add helpers
+
+To support serialization to and from JSON, we need some helper classes that define the object structure.
 
 1. In the **\temperaturemonitor\src\main\java\com\microsoft\examples** directory, create a new directory named **helpers**.
 
@@ -763,7 +834,9 @@ Now that we have installed the Event Hub spout and SignalR client into the local
 
 5. Save and close these files.
 
-###Add the bolts
+###Add the Dashboard bolt
+
+Bolts do the main processing in a topology. To start out, we'll just add the Dashboard bolt that sends values to the dashboard.
 
 1. In the **\temperaturemonitor\src\main\java\com\microsoft\examples** directory, create a new directory named **bolts**.
 
@@ -919,6 +992,8 @@ Now that we have installed the Event Hub spout and SignalR client into the local
 
 ###Define the topology
 
+The topology describes how data flows between the spouts and bolts in a topology, as well as degree of parallelism for the topology and the components within it.
+
 1. In the **\temperaturemonitor\src\main\java\com\microsoft\examples** directory, create a new file named **Temperature.java**.
 
 2. Open the **Temperature.java** file and use the following as the contents.
@@ -948,7 +1023,6 @@ Now that we have installed the Event Hub spout and SignalR client into the local
 
 		import java.io.FileReader;
 		import java.util.Properties;
-
 
 		public class Temperature
 		{
@@ -1051,13 +1125,15 @@ Now that we have installed the Event Hub spout and SignalR client into the local
 		  }
 		}
 
-##Test locally
+###Test the topology locally
 
 To compile and test the file on your development machine, use the following command.
 
 	mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
 
 This will start the topology, read files from Event Hub, and send them to the dashboard running in Azure Websites. You should open the dashboard in a browser before starting the application. To stop the application, use CTRL-C.
+
+
 
 ##Package and deploy the topology to HDInsight
 
