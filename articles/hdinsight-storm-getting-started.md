@@ -2,7 +2,7 @@
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
-#Getting started using Storm with Hadoop in HDInsight
+#Getting started using Storm with HDInsight (Hadoop)
 
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Azure HDInsight, you can create a cloud-based Hadoop cluster that performs real-time data analysis with Storm.
 
