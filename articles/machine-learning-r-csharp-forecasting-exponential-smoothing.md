@@ -6,7 +6,7 @@
 #Forecasting-Exponential Smoothing 
   
 
-This web service implements Exponential Smoothing model (ETS) to produce predictions based on the historical data provided by the user. Will the demand for a specific product increase this year? Can I predict my product sales for the Christmas season, so that I can effectively plan my inventory? Forecasting models are apt to address such questions. Given the past data, these models examine hidden trends and seasonality to predict future trends.  
+This [web service]( https://datamarket.azure.com/dataset/aml_labs/ets) implements Exponential Smoothing model (ETS) to produce predictions based on the historical data provided by the user. Will the demand for a specific product increase this year? Can I predict my product sales for the Christmas season, so that I can effectively plan my inventory? Forecasting models are apt to address such questions. Given the past data, these models examine hidden trends and seasonality to predict future trends.  
  
 >While this web service could be consumed by users – potentially through a mobile app, website, or even on a local computer for example, the purpose of the web service is also to serve as an example of how Azure ML can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within the Azure ML Studio, a forecasting test experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure set-up by the author of the web service.
  
@@ -31,7 +31,7 @@ Sample input could be:
  
 >This service as hosted on the Microsoft Azure Marketplace is an OData service; these may be called through POST or GET methods. 
 
-Two example ways to consume this service are through the creation of a web application that calls the web service in an automated fashion (an example app is [here](http://microsoftazuremachinelearning.azurewebsites.net/etsForecasting.aspx)), or the web service results may be examined in a more exploratory manner on the marketplace through the ‘EXPLORE THIS DATASET’ feature.
+There are multiple ways of consuming the service in an automated fashion (an example app is [here](http://microsoftazuremachinelearning.azurewebsites.net/etsForecasting.aspx)).
 
 ###Starting C# code for web service consumption:
 
@@ -64,10 +64,6 @@ Two example ways to consume this service are through the creation of a web appli
   	var scoreResult = result.ReadAsStringAsync().Result;
   	scoreResult.Dump();
 	}
-
-An example of how results can be found in a non-programmatic way through the ‘EXPLORE THIS DATASET’ feature of the Marketplace is displayed below:
-
-![Web service][1]
 
 ##Creation of Web Service 
 

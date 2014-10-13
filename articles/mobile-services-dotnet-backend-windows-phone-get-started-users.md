@@ -8,6 +8,8 @@
 
 This topic shows you how to authenticate users in Azure Mobile Services from your Windows Phone app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 
+>[AZURE.NOTE] This topic supports only Windows Phone 8.0 and Windows Phone 8.1 Silverlight apps. If you have a Windows Phone Store 8.1 or universal Windows app, please instead follow the [universal Windows app version of this topic](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
+
 This tutorial walks you through these basic steps to enable authentication in your app:
 
 1. [Register your app for authentication and configure Mobile Services]
