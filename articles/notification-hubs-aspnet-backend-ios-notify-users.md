@@ -1,10 +1,10 @@
-<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="dwrede" />
+<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="kirillg" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 
 #Azure Notification Hubs Notify Users
 
-<div class="dev-center-tutorial-selector sublanding"> 
+<div class="dev-center-tutorial-selector sublanding">
     	<a href="/en-us/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
 		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
@@ -31,11 +31,11 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 	+ A UITextField with placeholder text **Password**, and check the **Secure** option in the Attribute Inspector, under Textfield Return Key
 	+ A UIButton labeled **1. Log in**, and uncheck the **Enabled** option in the Attributes Inspector, under Control then Content
 	+ A UIButton labeled **2. Send Push**, and uncheck the **Enabled** option
-	
+
 	Your storyboard should look as follows:
-	
+
     ![][IOS1]
-    
+
 3. Create outlets for both the UITextFields and the UIButtons in the interface portion of your ViewController.h
 
 	    @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -50,23 +50,23 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 
 		@property (strong, nonatomic) NSString* authenticationHeader;
 		-(void) registerWithDeviceToken:(NSData*) token tags:(NSSet*) tags andCompletion: (void(^)(NSError*)) completion;
-		
+
 5. In the RegisterClient.m add the following interface section:
 
 		@interface RegisterClient ()
-		
+
 		@property (strong, nonatomic) NSURLSession* session;
 		-(void) tryToRegisterWithDeviceToken:(NSData*) token tags:(NSSet*) tags retry: (BOOL) retry andCompletion: (void(^)(NSError*)) completion;
 		-(void) retrieveOrRequestRegistrationIdWithDeviceToken: (NSString*) token completion: (void(^)(NSString*, NSError*)) completion;
 		-(void) upsertRegistrationWithRegistrationId: (NSString*) registrationId deviceToken: (NSString*) token tags: (NSSet*)tags andCompletion: (void(^)(NSURLResponse*, NSError*)) completion;
-		
+
 		@end
 
 6. Add the following code in the RegisterClient.m implementation section, and substitute the *{backend endpoint}* placeholder with the Destination URL you used to deploy your app backend in the previous section.
-		
+
 		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";
 		NSString *const BackEndEndpoint = @"{backend endpoint}/api/register";
-		
+
 		- (instancetype)init
 		{
 		    self = [super init];
@@ -76,32 +76,32 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 		    }
 		    return self;
 		}
-		
+
 		-(void) registerWithDeviceToken:(NSData*) token tags:(NSSet*) tags andCompletion: (void(^)(NSError*)) completion;
 		{
 		    [self tryToRegisterWithDeviceToken:token tags:tags retry:YES andCompletion:completion];
 		}
-		
+
 		-(void) tryToRegisterWithDeviceToken:(NSData*) token tags:(NSSet*) tags retry: (BOOL) retry andCompletion: (void(^)(NSError*)) completion;
 		{
 		    NSSet* tagsSet = tags?tags:[[NSSet alloc] init];
-		    
+
 		    NSString *deviceTokenString = [[token description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
 		    deviceTokenString = [[deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""] uppercaseString];
-		    
+
 		    [self retrieveOrRequestRegistrationIdWithDeviceToken: deviceTokenString completion:^(NSString* registrationId, NSError *error) {
 		        NSLog(@"regId: %@", registrationId);
 		        if (error) {
 		            completion(error);
 		            return;
 		        }
-		        
+
 		        [self upsertRegistrationWithRegistrationId:registrationId deviceToken:deviceTokenString tags:tagsSet andCompletion:^(NSURLResponse * response, NSError *error) {
 		            if (error) {
 		                completion(error);
 		                return;
 		            }
-		            
+
 		            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
 		            if (httpResponse.statusCode == 200) {
 		                completion(nil);
@@ -109,21 +109,21 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 		                [self tryToRegisterWithDeviceToken:token tags:tags retry:NO andCompletion:completion];
 		            } else {
 		                NSLog(@"Registration error with response status: %ld", (long) httpResponse.statusCode);
-		                
+
 		                completion([NSError errorWithDomain:@"Registration" code:httpResponse.statusCode userInfo:nil]);
 		            }
-		            
+
 		        }];
 		    }];
 		}
-		
+
 		-(void) upsertRegistrationWithRegistrationId: (NSString*) registrationId deviceToken: (NSData*) token tags: (NSSet*)tags andCompletion: (void(^)(NSURLResponse*, NSError*)) completion;
 		{
 		    NSDictionary* deviceRegistration = @{@"Platform" : @"apns", @"Handle": token, @"Tags": [tags allObjects]};
 		    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:deviceRegistration options:NSJSONWritingPrettyPrinted error:nil];
-		    
+
 		    NSLog(@"JSON registration: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
-		    
+
 		    NSString* endpoint = [NSString stringWithFormat:@"%@/%@", BackEndEndpoint, registrationId];
 		    NSURL* requestURL = [NSURL URLWithString:endpoint];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
@@ -132,7 +132,7 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", self.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 		    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-		    
+
 		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 		        if (!error)
 		        {
@@ -146,36 +146,36 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 		    }];
 		    [dataTask resume];
 		}
-		
+
 		-(void) retrieveOrRequestRegistrationIdWithDeviceToken: (NSString*) token completion: (void(^)(NSString*, NSError*)) completion;
 		{
 		    NSString* registrationId = [[NSUserDefaults standardUserDefaults] objectForKey:RegistrationIdLocalStorageKey];
-		    
+
 		    if (registrationId)
 		    {
 		        completion(registrationId, nil);
 		        return;
 		    }
-		    
+
 		    // request new one & save
 		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?handle=%@", BackEndEndpoint, token]];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"POST"];
 		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", self.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
-		    
+
 		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (!error && httpResponse.statusCode == 200)
 		        {
 		            NSString* registrationId = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-		            
+
 		            // remove quotes
 		            registrationId = [registrationId substringWithRange: NSMakeRange(1, [registrationId length]-2)];
-		            
+
 		            [[NSUserDefaults standardUserDefaults] setObject:registrationId forKey:RegistrationIdLocalStorageKey];
 		            [[NSUserDefaults standardUserDefaults] synchronize];
-		            
+
 		            completion(registrationId, nil);
 		        }
 		        else
@@ -192,9 +192,9 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 		}
 
 	The code above implements the logic explained in the guidance article [Registering from your app backend](http://msdn.microsoft.com/en-us/library/dn743807.aspx) using NSURLSession to perform REST calls to your app backend, and NSUserDefaults to locally store the registrationId returned by the notification hub.
-	
+
 	Note that this class requires its property **authorizationHeader** to be set in order to work properly. This property is set by the **ViewController** class after the log in.
-	
+
 7. In ViewController.h, add the following declaration for the device token and reference to a RegisterClient instance:
 
 		@property (strong, nonatomic) NSData* deviceToken;
@@ -218,22 +218,22 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 		    _deviceToken = deviceToken;
 		    self.LogInButton.enabled = YES;
 		}
-		
+
 		-(void) createAndSetAuthenticationHeaderWithUsername: (NSString*) username AndPassword: (NSString*) password;
 		{
 		    NSString* headerValue = [NSString stringWithFormat:@"%@:%@", username, password];
-		    
+
 		    NSData* encodedData = [[headerValue dataUsingEncoding:NSUTF8StringEncoding] base64EncodedDataWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
-		
+
 		    self.registerClient.authenticationHeader = [[NSString alloc] initWithData:encodedData encoding:NSUTF8StringEncoding];
 		}
-		
+
 		-(BOOL)textFieldShouldReturn:(UITextField *)textField
 		{
 		    [textField resignFirstResponder];
 		    return YES;
 		}
-		
+
 	Note how setting the device token enables the log in button. This is becasue as a part of the login action, the view controller registers for push notifications with the app backend. Hence, we do not want Log In action to be accessible till the device token has been properly set up. You can decouple the log in from the push registration as long as the former happens before the latter.
 
 10. In ViewController.m, add a constant for your backend endpoint and use the following snippets to implement the action methods for your UIButtons. Replace the placeholder backend endpoint with the Destination URL you used for your backend.
@@ -242,15 +242,15 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 		    // create authentication header and set it in register client
 		    NSString* username = self.UsernameField.text;
 		    NSString* password = self.PasswordField.text;
-		    
+
 		    [self createAndSetAuthenticationHeaderWithUsername:username AndPassword:password];
-		    
+
 		    __weak ViewController* selfie = self;
 		    [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil andCompletion: ^(NSError* error) {
 		        if (!error) {
 		            dispatch_async(dispatch_get_main_queue(), ^{
 		                selfie.SendPushButton.enabled = YES;
-		                
+
 		                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:
 		                                      @"Registered successfully!" delegate:nil cancelButtonTitle:
 		                                      @"OK" otherButtonTitles:nil, nil];
@@ -259,22 +259,22 @@ Please follow sections 1 through 5 in [Getting Started with Notification Hubs (i
 		        }
 		    }];
 		}
-		
+
 		NSString *const SendNotificationEndpoint = @"{backend endpoint}/api/notifications";
-		
+
 		- (IBAction)SendPushAction:(id)sender {
 		    NSURLSession* session = [NSURLSession
 		                             sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
 		                             delegate:nil
 		                             delegateQueue:nil];
-		    
-		    
+
+
 		    NSURL* requestURL = [NSURL URLWithString:SendNotificationEndpoint];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"POST"];
 		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", self.registerClient.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
-		    
+
 		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (error || httpResponse.statusCode != 200)
