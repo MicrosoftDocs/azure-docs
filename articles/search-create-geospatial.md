@@ -26,7 +26,7 @@ This tutorial builds on the [Azure Search – Adventure Works Demo](http://azure
 <h2 id="sub-1">Prerequisites</h2>
 
 +	Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed. You can get Visual Studio 2013 Express from the web from the [Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=40747).
-+	An Azure Search service. You'll need the Search service name, plus the admin key. See [Configure Search on Azure Preview portal](../search-configure/) for details.
++	An Azure Search service. You'll need the Search service name, plus the admin key. See [Get started with Azure Search](../search-get-started/) for details.
 +	A Bing map service and a key to access it. Instructions are provided in the next section
 +	[Azure Search GeoSearch Sample on CodePlex](https://azuresearchgeospatial.codeplex.com/). On the Source tab, click **Download** to get a zip file of the solution. 
 
