@@ -1,6 +1,6 @@
-<properties urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="nitinme" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="nitinme" />
 
 
 # Get started with Hadoop in HDInsight
@@ -47,8 +47,8 @@ Before you begin this tutorial, you must have the following:
 
 * [Create an Azure storage account](#storage)
 * [Provision an HDInsight cluster](#provision)
-* [Run a Hive job](#sample)
-* [Connect to Microsoft business intelligence tools](#powerquery)
+* [Run samples from the portal](#sample)
+* [Run a HIVE job](#hivequery)
 * [Next steps](#nextsteps)
 
 ##<a name="storage"></a>Create an Azure Storage account
@@ -110,7 +110,7 @@ When you provision an HDInsight cluster, you provision Azure compute resources t
 
 	Once a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
-	The HDInsight cluster is co-located in the same datacenter as the storage account.
+	The HDInsight cluster is co-located in the same datacenter as the storage account. 
 	</td></tr>
 	</table>
 
@@ -122,15 +122,26 @@ When you provision an HDInsight cluster, you provision Azure compute resources t
 	>[WACOM.NOTE] The procedure above creates cluster with HDInsight cluster version 3.1. To create other cluster versions, use the custom create method from the management portal, or use Azure PowerShell. For information on what's different between each cluster version, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions] For information on using the **CUSTOM CREATE** option, see [Provision HDInsight clusters using custom options][hdinsight-provision].
 
 
-##<a name="sample"></a>Run a Hive job
+##<a name="sample"></a>Run samples from the portal
 
+A successfully provisioned HDInsight cluster provides a query console to run samples directly from the portal. You can use the samples to learn how to work with HDInsight by walking through some basic scenarios. These samples come with all the required components, such as the data to analyze and the queries to run on the data. 
+
+**To run the sample**, from the Azure Management Portal, click the cluster name where you want to run the sample, and then click **Query Console** from the bottom of the page. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Samples** category, click the sample that you want to run. Follow the instructions on the web page to finish the sample. To know more about what each sample does, click the links below.
+
+Sample | What does it do?
+------ | ---------------
+[Sensor data analysis][hdinsight-sensor-data-sample] | Learn how to use HDInsight to process historical data produced by heating, ventilation, and air conditioning (HVAC) systems to identify systems that are not able to reliably maintain a set temperature
+[Website log analysis][hdinsight-weblogs-sample] | Learn how to use HDInsight to analyze website log files to get insight into the frequency of visits to the website in a day from external websites, and a summary of website errors that the users experience
+
+
+##<a name="hivequery"></a>Run a HIVE query from the portal
 Now that you have an HDInsight cluster provisioned, the next step is to run a Hive job to query a sample Hive table, *hivesampletable*, which comes with HDInsight clusters. The table contains data on mobile device manufacturer, platforms, and models. We query this table to retrieve data for mobile devices by a specific manufacturer.
 
 **To run a Hive job from cluster dashboard**
 
 1. Sign in to the [Azure Management Portal][azure-management-portal]. 
 2. Click **HDINSIGHT** from the left pane. You shall see a list of clusters created, including the one you just created in the last section.
-3. Click the cluster name where you want to run the Hive job and then click **MANAGE CLUSTER** from the bottom of the page. 
+3. Click the cluster name where you want to run the Hive job and then click **QUERY CONSOLE** from the bottom of the page. 
 4. It opens a Web page on a different browser tab. Enter the Hadoop user account and password.  The default user name is **admin**; the password is what you entered while provisioning the cluster.  The dashboard looks like :
 
 	![hdi.dashboard][img-hdi-dashboard]
@@ -172,10 +183,10 @@ Now that you have an HDInsight cluster provisioned, the next step is to run a Hi
 3. Click **admin** and then click the GUID which has the last modified time a little after the job start time you noted earlier. Make a note of this GUID. You will need it in the next section.
 
 
-     ![hdi.dashboard.query.browse.output][img-hdi-dashboard-query-browse-output]
+   	![hdi.dashboard.query.browse.output][img-hdi-dashboard-query-browse-output]
 
 
-##<a name="powerquery"></a>Connect to Microsoft business intelligence tools 
+###<a name="powerquery"></a>Connect to Microsoft business intelligence tools 
 
 You can use the Power Query add-in for Microsoft Excel to import the job output from HDInsight into Excel, where Microsoft Business Intelligence (BI) tools can be used to further analysis of results. 
 
@@ -232,6 +243,8 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 [hadoop-hdinsight-intro]: ../hdinsight-introduction/
+[hdinsight-weblogs-sample]: ../hdinsight-use-hive-website-log-analysis/
+[hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
 
 [azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
