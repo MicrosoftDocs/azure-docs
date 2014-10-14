@@ -8,7 +8,7 @@
         <a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
 </div>
 
-In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications promote user interactions and  presents contents such as urls, sounds, images/coupons, and more. This tutorial builds on the [Notify Users](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) topic, and shows how to send push notifications that incorporate payloads (i.e. image).
+In order to engage users with instant rich content, an application might want to push beyond plain text. These notifications promote user interactions and present content such as urls, sounds, images/coupons, and more. This tutorial builds on the [Notify Users](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) topic, and shows how to send push notifications that incorporate payloads (i.e. image).
 
 This tutorial is compatible with iOS 7 & 8.
     ![][IOS1]
