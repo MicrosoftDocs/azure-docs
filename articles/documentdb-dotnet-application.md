@@ -445,7 +445,7 @@ Add the next block of code which tells ASP.NET MVC what to do with a form POST f
 
 **Security Note**: The [ValidateAntiForgeryToken] attribute is used here to help protect this application against Cross-site Request Forgery attacks. There is more to it than just adding this attribute, your Views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please refer to [Preventing Cross-Site Request Forgery][]. The source code in the download link at the end of the article has the full implementation in place.
 
-**Security Note**: We also use the [Bind] attribute on the method parameter to help protect against overposting attacks. For more details please see [Basic CRUD Operatins in ASP.NET MVC][]
+**Security Note**: We also use the [Bind] attribute on the method parameter to help protect against overposting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][]
 
 Now that this is in place, The Items Controller will  (securely) pass the Item, from the form, to the CreateDocument method of repository the class, so add the following method to your DocumentDBRepository class.
 
@@ -585,4 +585,4 @@ Congratulations! You have just built your first ASP.NET MVC Application using Az
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [here]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operatins in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
