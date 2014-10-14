@@ -1,16 +1,16 @@
-<properties urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" metaKeywords="" description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="krisragh" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" metaKeywords="" description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="donnam" solutions="" manager="kirillg" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam" />
 
 
 # Build Real-time Apps with Mobile Services and Pusher
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="" title="iOS" class="current">iOS</a> 
+<div class="dev-center-tutorial-selector sublanding">
+	<a href="" title="iOS" class="current">iOS</a>
 </div>
 
 This topic shows you how can add real-time functionality to your Azure Mobile Services-based app. When completed, your TodoList data is synchronized, in real-time, across all running instances of your app.
- 
-The [Push Notifications to Users][] tutorial shows you how to use push notifications to inform users of new items in the Todo list. Push notifications are a great way to show occasional changes. However, sometimes an app needs frequent real-time notifications. Real-time notifications can be added to your mobile service using the Pusher API. In this tutorial, we use Pusher with Mobile Services to keep a Todo list synchronized when changes are made in any running instance of the app. 
+
+The [Push Notifications to Users][] tutorial shows you how to use push notifications to inform users of new items in the Todo list. Push notifications are a great way to show occasional changes. However, sometimes an app needs frequent real-time notifications. Real-time notifications can be added to your mobile service using the Pusher API. In this tutorial, we use Pusher with Mobile Services to keep a Todo list synchronized when changes are made in any running instance of the app.
 
 Pusher is a cloud-based service that, like Mobile Services, makes building real-time apps incredibly easy. You can use Pusher to quickly build live polls, chat rooms, multi-player games, collaborative apps, to broadcast live data and content, and that's just the start! For more information, see [http://pusher.com](http://pusher.com).
 
@@ -33,7 +33,7 @@ Now that you have your Pusher account set up, the next step is to modify the iOS
 
 ###Install the libPusher library
 
-The [libPusher][] library lets you access Pusher from iOS. 
+The [libPusher][] library lets you access Pusher from iOS.
 
 1. Download the libPusher library [from here][libPusherDownload].
 
@@ -42,7 +42,7 @@ The [libPusher][] library lets you access Pusher from iOS.
 3. In Finder, unzip the downloaded zip file, select the **libPusher-combined.a** and **/headers** folders, and drag these items into the **libPusher** group in your project.
 
 4. Check **Copy items into destination group's folder**, then click **Finish**
-	
+
 	![][add-files-to-group]
 
    This copies the libPusher files into your project.
@@ -54,14 +54,14 @@ The [libPusher][] library lets you access Pusher from iOS.
 7. Change the **Destination** to **Frameworks** and click **Copy only when installing**.
 
 	![][add-build-phase]
-	
+
 8. Within the **Link Binary With Libraries** area, add the following libraries:
-	
+
 	- libicucore.dylib
 	- CFNetwork.framework
 	- Security.framework
 	- SystemConfiguration.framework
-	
+
 9. Finally within **Build Settings**, locate the target build setting **Other Linker Flags** and add the **-all_load** flag.
 
 	![][add-linker-flag]
@@ -79,10 +79,10 @@ The library is now installed ready for use.
 
         // To be called when items are added by other users
         - (NSUInteger) itemAdded:(NSDictionary *)item;
-        
+
         // To be called when items are completed by other users
         - (NSUInteger) itemCompleted:(NSDictionary *)item;
-        
+
 2. Replace the existing declarations of **addItem** and **completeItem** with the following:
 
 		- (void) addItem:(NSDictionary *) item;
@@ -94,7 +94,7 @@ The library is now installed ready for use.
 		- (NSUInteger) getItemIndex:(NSDictionary *)item
 		{
 		    NSInteger itemId = [[item objectForKey: @"id"] integerValue];
-    
+
 		    return [items indexOfObjectPassingTest:^BOOL(id currItem, NSUInteger idx, BOOL *stop)
                  {
                      return ([[currItem objectForKey: @"id"] integerValue] == itemId);
@@ -105,7 +105,7 @@ The library is now installed ready for use.
         -(NSUInteger) itemAdded:(NSDictionary *)item
 		{
 		    NSUInteger index = [self getItemIndex:item];
-    
+
 		    // Only complete action if item not already in list
 		    if(index == NSNotFound)
 		    {
@@ -121,18 +121,18 @@ The library is now installed ready for use.
 		- (NSUInteger) itemCompleted:(NSDictionary *)item
 		{
 		    NSUInteger index = [self getItemIndex:item];
-    
+
 		    // Only complete action if item exists in items list
 		    if(index != NSNotFound)
 		    {
 		        NSMutableArray *mutableItems = (NSMutableArray *) items;
 		        [mutableItems removeObjectAtIndex:index];
-		    }  		
+		    }
 		    return index;
 		}
 
 	The QSTodoService now allows you to find items by **id** and add and complete items locally without sending explicit requests to the remote service.
-	
+
 4. Replace the existing **addItem** and **completeItem** methods with the following code:
 
 		-(void) addItem:(NSDictionary *)item
@@ -148,7 +148,7 @@ The library is now installed ready for use.
 		    // Set the item to be complete (we need a mutable copy)
 		    NSMutableDictionary *mutable = [item mutableCopy];
 		    [mutable setObject:@(YES) forKey:@"complete"];
-    
+
 		    // Update the item in the TodoItem table and remove from the items array on completion
 		    [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
 		        [self logErrorIfNotNil:error];
@@ -164,11 +164,11 @@ The library is now installed ready for use.
 		#import "PTPusher.h"
 		#import "PTPusherEvent.h"
 		#import "PTPusherChannel.h"
-		
+
 6. Modify the interface declaration to add **PTPusherDelegate** to look like the following:
 
 		@interface QSTodoListViewController : UITableViewController<UITextFieldDelegate, PTPusherDelegate>
-		
+
 7. Add the following new property:
 
 		@property (nonatomic, strong) PTPusher *pusher;
@@ -177,7 +177,7 @@ The library is now installed ready for use.
 
 		// Sets up the Pusher client
 		- (void) setupPusher;
-		
+
 9. In **QSTodoListViewController.m**, add the following line under the other **@synthesise** lines to implement the new property:
 
 		@synthesize pusher = _pusher;
@@ -186,21 +186,21 @@ The library is now installed ready for use.
 
 		// Sets up the Pusher client
 		- (void) setupPusher {
-		
+
 			// Create a Pusher client, using your Pusher app key as the credential
 		    // TODO: Move Pusher app key to configuration file
 		    self.pusher = [PTPusher pusherWithKey:@"**your_app_key**" delegate:self encrypted:NO];
 		    self.pusher.reconnectAutomatically = YES;
-    		
+
     		// Subscribe to the 'todo-updates' channel
 		    PTPusherChannel *todoChannel = [self.pusher subscribeToChannelNamed:@"todo-updates"];
-    		
+
     		// Bind to the 'todo-added' event
 		    [todoChannel bindToEventNamed:@"todo-added" handleWithBlock:^(PTPusherEvent *channelEvent) {
-		    
+
 		    	// Add item to the todo list
         		NSUInteger index = [self.todoService itemAdded:channelEvent.data];
-        
+
         		// If the item was not already in the list, add the item to the UI
 		        if(index != -1)
         		{
@@ -212,17 +212,17 @@ The library is now installed ready for use.
 
     		// Bind to the 'todo-completed' event
 		    [todoChannel bindToEventNamed:@"todo-completed" handleWithBlock:^(PTPusherEvent *channelEvent) {
-		    
+
 		    	// Update the item to be completed
 		        NSUInteger index = [self.todoService itemCompleted:channelEvent.data];
-        		
+
         		// As long as the item did exit in the list, update the UI
 		        if(index != NSNotFound)
 		        {
 		            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
         		    [self.tableView deleteRowsAtIndexPaths:@[ indexPath ]
                                   withRowAnimation:UITableViewRowAnimationTop];
-		        }		        
+		        }
 		    }];
 		}
 
@@ -235,10 +235,10 @@ The library is now installed ready for use.
 		    if (itemText.text.length  == 0) {
         		return;
 		    }
-    
+
 		    NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) };
 		    [self.todoService addItem:item];
-    
+
 		    itemText.text = @"";
 		}
 
@@ -248,7 +248,7 @@ The library is now installed ready for use.
 		{
 		    [super viewDidLoad];
 		    [self setupPusher];
-		    
+
 14. At the end of the **tableView:commitEditingStyle:forRowAtIndexPath** method, replace the call to **completeItem** with the following code:
 
 		// Ask the todoService to set the item's complete value to YES
@@ -280,7 +280,7 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 
 	![][2]
 
-   
+
 
 	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
@@ -289,8 +289,8 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 
 
 		var Pusher = require('pusher');
-		
-		function insert(item, user, request) {   
+
+		function insert(item, user, request) {
 
 			request.execute({
 	    		success: function() {
@@ -301,18 +301,18 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 			        publishItemCreatedEvent(item);
 			    }
 			});
-		
+
 			function publishItemCreatedEvent(item) {
-		
+
 				// Ideally these settings would be taken from config
 			    var pusher = new Pusher({
 				  appId: '**your_app_id**',
 				  key: '**your_app_key**',
 				  secret: '**your_app_secret**'
-				});     
-		
+				});
+
 				// Publish event on Pusher channel
-			    pusher.trigger( 'todo-updates', 'todo-added', item );	
+			    pusher.trigger( 'todo-updates', 'todo-added', item );
 			}
 		}
 
@@ -334,8 +334,8 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 8. Replace the update function with the following code:
 
 		var Pusher = require('pusher');
-		
-		function update(item, user, request) {   
+
+		function update(item, user, request) {
 
 			request.execute({
 	    		success: function() {
@@ -346,19 +346,19 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 			        publishItemUpdatedEvent(item);
 			    }
 			});
-		
+
 			function publishItemUpdatedEvent(item) {
-		
+
 				// Ideally these settings would be taken from config
 			    var pusher = new Pusher({
 				  appId: '**your_app_id**',
 				  key: '**your_app_key**',
 				  secret: '**your_app_secret**'
-				});     
-		
+				});
+
 				// Publish event on Pusher channel
 			    pusher.trigger( 'todo-updates', 'todo-completed', item );
-		
+
 			}
 		}
 
@@ -377,7 +377,7 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 
 To test the app you'll need to run two instances. You can run one instance on an iOS device and another in the iOS simulator.
 
-1. Connect your iOS device, press the **Run** button (or the Command+R key) to start the app on the device, then stop debugging. 
+1. Connect your iOS device, press the **Run** button (or the Command+R key) to start the app on the device, then stop debugging.
 
 	You now have your app installed on your device.
 
@@ -385,13 +385,13 @@ To test the app you'll need to run two instances. You can run one instance on an
 
 	Now you have two instances of the app running.
 
-3. Add a new Todo item in one of the app instances. 
+3. Add a new Todo item in one of the app instances.
 
 	Verify that the added item appears in the other instance.
 
-4. Check a Todo item to mark it complete in one app instance. 
+4. Check a Todo item to mark it complete in one app instance.
 
-	Verify that the item disappears from the other instance. 
+	Verify that the item disappears from the other instance.
 
 Congratulations, you have successfully configured your mobile service app to synchronise across all clients in realtime.
 

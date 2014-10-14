@@ -7,7 +7,7 @@
 This guide shows how to write C# code for common scenarios using the
 Azure queue storage service and the Azure WebJobs SDK, version 1.0.0.
 
-The guide assumes you already know [what the Webjobs SDK is](../websites-webjobs-sdk-storage-queues) and [how to perform basic tasks](../websites-dotnet-webjobs-sdk-get-started/), such as install the WebJobs SDK NuGet package, create an Azure storage account, and create connection strings for the WebJobs SDK that point to your storage account.
+The guide assumes you already know [what the Webjobs SDK is](../websites-webjobs-sdk-storage-queues-how-to) and [how to perform basic tasks](../websites-dotnet-webjobs-sdk-get-started/), such as install the WebJobs SDK NuGet package, create an Azure storage account, and create connection strings for the WebJobs SDK that point to your storage account.
 
 Most of the code snippets only show functions, not the code that creates the `JobHost` object as in this example:
 
@@ -470,11 +470,14 @@ To trigger a function manually, use the `Call` or `CallAsync` method on the `Job
 
 ## <a id="logs"></a>How to write logs
 
-How you write logs depends on where you want to read them:
+To write logs that appear in the WebJobs dashboard page linked to a particular function invocation, use a `TextWriter` object that you obtain from a parameter in your method signature.
 
-* To write logs that appear in the WebJobs dashboard page linked to a particular function invocation, use a `TextWriter` object that you obtain from a parameter in your method signature.
-* To write [application tracing logs](../articles/web-sites-dotnet-troubleshoot-visual-studio/#logsoverview) that appear in the website log files, Azure tables, or Azure blobs depending on how you configure your Azure Website, use `Console.Out` (creates logs marked as INFO) and `Console.Error` (creates logs marked as ERROR). 
- 
+To write [application tracing logs](../web-sites-dotnet-troubleshoot-visual-studio/#logsoverview), use `Console.Out` (creates logs marked as INFO) and `Console.Error` (creates logs marked as ERROR). An alternative is to use [Trace or TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx).
+
+Application logs appear in the website log files, Azure tables, or Azure blobs depending on how you configure your Azure Website. The most recent 100 application logs also appear in the Dashboard if the program is running in an Azure WebJob. (No application logs appear in the Dashboard from a program that is running locally or in some other environment.)   
+
+You can disable logging by [setting the Dashboard connection string to null](#config).
+
 The following example shows several ways to write logs:
 
 		public static void WriteLog(
@@ -487,27 +490,23 @@ The following example shows several ways to write logs:
 		    logger.WriteLine("TextWriter - " + logMessage);
 		}
 
-You can disable logging by [setting the Dashboard connection string to null](#config).
-
-In the WebJobs SDK dashboard, the output from the `TextWriter` object shows up when you go to the page for a particular function invocation and click `Toggle Output`:
+In the WebJobs SDK dashboard, the output from the `TextWriter` object shows up when you go to the page for a particular function invocation and click **Toggle Output**:
 
 ![Click function invocation link](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png)
 
 ![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
 
-When a program is running as a WebJob in an Azure Website, the Dashboard shows the most recent 100 lines of application logs; otherwise (such as when the program runs locally) application logs don't appear in the Dashboard. To see application logs, go to the page for the WebJob (not for the function invocation) and click **Toggle Output**.
+In the WebJobs SDK Dashboard, the most recent 100 lines of application logs show up when you go to the page for the WebJob (not for the function invocation) and click **Toggle Output**.
  
 ![Click Toggle Output](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-
-In a continuous WebJob the other three logs show up in /data/jobs/continuous/*{webjobname}*/job_log.txt in the website file system.
+In a continuous WebJob, application logs show up in /data/jobs/continuous/*{webjobname}*/job_log.txt in the website file system.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
 In an Azure blob the application logs look like this:
-
 		2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!,
 		2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!,
 		2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,

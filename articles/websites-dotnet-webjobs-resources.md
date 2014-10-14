@@ -22,9 +22,9 @@ This topic links to documentation resources about how to use Azure WebJobs and t
 
 * [Introducing Azure WebJobs](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
 * [What is the WebJobs SDK](../websites-dotnet-webjobs-sdk/)
-* [Get Started with the Azure WebJobs SDK](../websites-dotnet-webjobs-sdk)
+* [Get Started with the Azure WebJobs SDK](../websites-dotnet-webjobs-sdk-get-started/)
 * [How to work with Azure queue storage using the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
-* [How to Deploy Azure WebJobs to Azure Websites](../articles/websites-dotnet-deploy-webjobs/)
+* [How to Deploy Azure WebJobs to Azure Websites](../websites-dotnet-deploy-webjobs/)
 * [How to deploy WebJobs using the Azure Management Portal](../web-sites-create-web-jobs/)
 * [Troubleshooting Azure Web Sites in Visual Studio](../web-sites-dotnet-troubleshoot-visual-studio/).
 * Videos
@@ -41,7 +41,7 @@ This topic links to documentation resources about how to use Azure WebJobs and t
 
 ##<a name="deploy"></a>Deploying WebJobs
 
-* [How to Deploy Azure WebJobs to Azure Websites](../articles/websites-dotnet-deploy-webjobs/)
+* [How to Deploy Azure WebJobs to Azure Websites](../websites-dotnet-deploy-webjobs/)
 * [How to deploy WebJobs using the Azure Management Portal](../web-sites-create-web-jobs/)
 * [Enabling Command-line or Continuous Delivery of Azure WebJobs](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Git deploying a .NET console app to Azure using WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/) 
@@ -83,7 +83,7 @@ This topic links to documentation resources about how to use Azure WebJobs and t
 * [Simple Web Site Backup retention policy with WebJobs](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [Windows Azure WebSites and Cloud Services Slow on First Request](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Shows how to use WebJobs to simulate the AlwaysOn feature that is only available for the Standard Websites tier.
 * [WebJobs Graceful Shutdown](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). For WebJobs SDK graceful shutdown, see [Graceful shutdown](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).)
-[Scaling Your Web Application with Azure Websites](http://msdn.microsoft.com/en-us/magazine/dn786914.aspx)
+* [Scaling Your Web Application with Azure Websites](http://msdn.microsoft.com/en-us/magazine/dn786914.aspx)
 * Videos
 	* [Azure WebJobs video series on Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
