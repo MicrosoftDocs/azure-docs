@@ -8,7 +8,7 @@
         <a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
 </div>
 
-In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications promote user interactions and  presents contents such as urls, sounds, images/coupons, and more. This tutorial builds on the [Notify Users](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) topic, and shows how to send push notifications that incorporate payloads (i.e. image).
+In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications promote user interactions and  present content such as urls, sounds, images/coupons, and more. This tutorial builds on the [Notify Users](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) topic, and shows how to send push notifications that incorporate payloads (for example, image).
 
 This tutorial is compatible with iOS 7 & 8.
     ![][IOS1]
@@ -16,11 +16,11 @@ This tutorial is compatible with iOS 7 & 8.
 At a high level:
 
 1. The app backend:
-    - Stores rich payload (i.e. image) in backend database/local storage
-    - Sends ID of this rich notification to device
-2. The app on device:
-    - Contacts backend requesting the rich payload with the ID it receives
-    - Sends users notifications on device when data retrieval is complete, and shows payload immediately when users tap to learn more
+    - Stores the rich payload (in this case, image) in the backend database/local storage
+    - Sends ID of this rich notification to the device
+2. App on the device:
+    - Contacts the backend requesting the rich payload with the ID it receives
+    - Sends users notifications on the device when data retrieval is complete, and shows the payload immediately when users tap to learn more
 
 
 ## WebAPI Project
@@ -76,7 +76,7 @@ At a high level:
 
             public Stream ReadImage(int id) {
                 var assembly = Assembly.GetExecutingAssembly();
-                // Placeholder: image file name (i.e. logo.png).
+                // Placeholder: image file name (for example, logo.png).
                 return assembly.GetManifestResourceStream("AppBackend.img.{logo.png}");
             }
         }
@@ -99,7 +99,7 @@ At a high level:
 
         // Create rich notification and send initial silent notification (containing id) to client
         public async Task<HttpResponseMessage> Post() {
-            // Replace placeholder with image file name
+            // Replace the placeholder with image file name
             var richNotificationInTheBackend = Notifications.Instance.CreateNotification("Check this image out!", "img",  "{logo.png}");
 
             var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
@@ -131,7 +131,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
 
 4. Add a **Navigation Controller** to your storyboard, and control-drag to Home View Controller to make it the **root view** of navigation. Make sure the **Is Initial View Controller** in Attributes inspector is selected for the Navigation Controller only.
 
-5. Add a **View Controller** to storyboard and add an **Image View**. This is the page users will see once they choose to learn more by clicking on the notifiication. Your storyboard should look as following:
+5. Add a **View Controller** to storyboard and add an **Image View**. This is the page users will see once they choose to learn more by clicking on the notifiication. Your storyboard should look as follows:
 
     ![][IOS4]
 
@@ -206,7 +206,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
 
         }
         else {
-            // Previos iOS versions
+            // Previous iOS versions
             NSLog(@"This device is running with iOS7 or earlier versions.");
 
             [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
@@ -222,7 +222,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
         homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
         hvc.deviceToken = deviceToken;
 
-15. Then, add the following methods to **AppDelegate.m** to retrieve the image from your endpoint and send a local notification when retrieval is complete. Make sure to substitute placeholder `{backend endpoint}` with your backend endpoint:
+15. Then, add the following methods to **AppDelegate.m** to retrieve the image from your endpoint and send a local notification when retrieval is complete. Make sure to substitute the placeholder `{backend endpoint}` with your backend endpoint:
 
         NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
 
