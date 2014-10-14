@@ -165,10 +165,8 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (user == null)
-                await AuthenticateAsync();
-
-            RefreshTodoItems();
+            await AuthenticateAsync();
+            await RefreshTodoItems();
         }
 
 
