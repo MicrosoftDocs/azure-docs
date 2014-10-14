@@ -49,48 +49,95 @@ All controllers in your project were adorned with the **Authorize** attribute. T
 #####Adding SignIn / SignOut Controls 
 
 To add a the SignIn/SignOut controls to your view, you can use the **_LoginPartial.cshtml** partial view to add the functionality to one of your views. Here is an example of the functionality added to the standard **_Layout.cshtml** view. (Note the last element in the div with class navbar-collapse):
-	<pre> 
-	` <!DOCTYPE html> 
-	 <html> 
-	 <head> 
-	     <meta charset="utf-8" /> 
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	    <title>@ViewBag.Title - My ASP.NET Application</title> 
-	    @Styles.Render("~/Content/css") 
-	    @Scripts.Render("~/bundles/modernizr") 
-	</head> 
-	<body> 
-	    <div class="navbar navbar-inverse navbar-fixed-top"> 
-	        <div class="container"> 
-	            <div class="navbar-header"> 
-	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
-	                    <span class="icon-bar"></span> 
-	                    <span class="icon-bar"></span> 
-	                    <span class="icon-bar"></span> 
-	                </button> 
-	                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) 
-	            </div> 
-	            <div class="navbar-collapse collapse"> 
-	                <ul class="nav navbar-nav"> 
-	                    <li>@Html.ActionLink("Home", "Index", "Home")</li> 
-	                    <li>@Html.ActionLink("About", "About", "Home")</li> 
-	                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li> 
-	                </ul> 
-	                @Html.Partial("_LoginPartial") 
-	            </div> 
-	        </div> 
-	    </div> 
-	    <div class="container body-content"> 
-	        @RenderBody() 
-	        <hr /> 
-	        <footer> 
-	            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p> 
-	        </footer> 
-	    </div> 
-	    @Scripts.Render("~/bundles/jquery") 
-	    @Scripts.Render("~/bundles/bootstrap") 
-	    @RenderSection("scripts", required: false) 
-	</body> 
-	</html>` </pre>
+
+<code style="whitespace: pre"> 
+    &lt;!DOCTYPE html&gt; <br/>
+     &lt;html&gt; <br/>
+     &lt;head&gt; <br/>
+         &lt;meta charset="utf-8" /&gt; <br/>
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; <br/>
+        &lt;title&gt;@ViewBag.Title - My ASP.NET Application&lt;/title&gt; <br/>
+        @Styles.Render("~/Content/css") <br/>
+        @Scripts.Render("~/bundles/modernizr") <br/>
+    &lt;/head&gt; <br/>
+    &lt;body&gt; <br/>
+        &lt;div class="navbar navbar-inverse navbar-fixed-top"&gt; <br/>
+            &lt;div class="container"&gt; <br/>
+                &lt;div class="navbar-header"&gt; <br/>
+                    &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt; <br/>
+                        &lt;span class="icon-bar"&gt;&lt;/span&gt; <br/>
+                        &lt;span class="icon-bar"&gt;&lt;/span&gt; <br/>
+                        &lt;span class="icon-bar"&gt;&lt;/span&gt; <br/>
+                    &lt;/button&gt; <br/>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) <br/>
+                &lt;/div&gt; <br/>
+                &lt;div class="navbar-collapse collapse"&gt; <br/>
+                    &lt;ul class="nav navbar-nav"&gt; <br/>
+                        &lt;li&gt;@Html.ActionLink("Home", "Index", "Home")&lt;/li&gt; <br/>
+                        &lt;li&gt;@Html.ActionLink("About", "About", "Home")&lt;/li&gt; <br/>
+                        &lt;li&gt;@Html.ActionLink("Contact", "Contact", "Home")&lt;/li&gt; <br/>
+                    &lt;/ul&gt; <br/>
+                    <span style="background-color: yellow">@Html.Partial("_LoginPartial")</span> <br/>
+                &lt;/div&gt; <br/>
+            &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="container body-content"&gt; <br/>
+            @RenderBody()<br/> 
+            &lt;hr /&gt; <br/>
+            &lt;footer&gt; <br/>
+                &lt;p&gt;&amp;copy; @DateTime.Now.Year - My ASP.NET Application&lt;/p&gt; <br/>
+            &lt;/footer&gt; <br/>
+        &lt;/div&gt; <br/> 
+        @Scripts.Render("~/bundles/jquery") <br/>
+        @Scripts.Render("~/bundles/bootstrap") <br/>
+        @RenderSection("scripts", required: false) <br/>
+    &lt;/body&gt; <br/>
+    &lt;/html&gt; <br/>
+</code>
+
+<PRE>
+    &lt;!DOCTYPE html&gt; 
+     &lt;html&gt; 
+     &lt;head&gt; 
+         &lt;meta charset="utf-8" /&gt; 
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; 
+        &lt;title&gt;@ViewBag.Title - My ASP.NET Application&lt;/title&gt; 
+        @Styles.Render("~/Content/css") 
+        @Scripts.Render("~/bundles/modernizr") 
+    &lt;/head&gt; 
+    &lt;body&gt; 
+        &lt;div class="navbar navbar-inverse navbar-fixed-top"&gt; 
+            &lt;div class="container"&gt; 
+                &lt;div class="navbar-header"&gt; 
+                    &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt; 
+                        &lt;span class="icon-bar"&gt;&lt;/span&gt; 
+                        &lt;span class="icon-bar"&gt;&lt;/span&gt; 
+                        &lt;span class="icon-bar"&gt;&lt;/span&gt; 
+                    &lt;/button&gt; 
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) 
+                &lt;/div&gt; 
+                &lt;div class="navbar-collapse collapse"&gt; 
+                    &lt;ul class="nav navbar-nav"&gt; 
+                        &lt;li&gt;@Html.ActionLink("Home", "Index", "Home")&lt;/li&gt; 
+                        &lt;li&gt;@Html.ActionLink("About", "About", "Home")&lt;/li&gt; 
+                        &lt;li&gt;@Html.ActionLink("Contact", "Contact", "Home")&lt;/li&gt; 
+                    &lt;/ul&gt; 
+                    <span style="background-color:yellow">@Html.Partial("_LoginPartial")</span> 
+                &lt;/div&gt; 
+            &lt;/div&gt; 
+        &lt;/div&gt; 
+        &lt;div class="container body-content"&gt; 
+            @RenderBody() 
+            &lt;hr /&gt; 
+            &lt;footer&gt; 
+                &lt;p&gt;&amp;copy; @DateTime.Now.Year - My ASP.NET Application&lt;/p&gt; 
+            &lt;/footer&gt; 
+        &lt;/div&gt; 
+        @Scripts.Render("~/bundles/jquery") 
+        @Scripts.Render("~/bundles/bootstrap") 
+        @RenderSection("scripts", required: false) 
+    &lt;/body&gt; 
+    &lt;/html&gt;
+</PRE>
 
 [Learn more about Azure Active Directory](http://azure.microsoft.com/services/active-directory/)

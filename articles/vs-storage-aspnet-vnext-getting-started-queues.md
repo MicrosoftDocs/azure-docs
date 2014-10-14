@@ -17,13 +17,11 @@ Azure queue storage is a service for storing large numbers of messages that can 
 
 To programmatically access queues in ASP.NET vNext projects, you need to do the following tasks.
 
-1.	Get the Microsoft.WindowsAzure.Storage.dll assembly. You can use NuGet to do this. Right-click your project in Solution Explorer and choose Manage NuGet Packages. Search online for "WindowsAzure.Storage" and click Install to install the Azure Storage package and dependencies. Add a reference to this assembly to your project.
-2.	Install the Microsoft.Framework.ConfigurationModel.Json NuGet package.
-3.	Add the following code namespace declaration to the top of any C# file in which you wish to programmatically access Azure Storage.
+1. Add the following code namespace declaration to the top of any C# file in which you wish to programmatically access Azure Storage.
 
 		using Microsoft.Framework.ConfigurationModel;
 
-4. Use the following code to get the configuration setting.
+2. Use the following code to get the configuration setting.
 
 		var config = new Configuration();
 		config.AddJsonFile("config.json");

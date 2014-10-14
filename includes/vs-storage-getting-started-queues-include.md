@@ -8,7 +8,7 @@ A **CloudQueueClient** object lets you get reference objects for queues. The fol
 	// Create the queue client.
 	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-Use the **queueClient** object to get a reference to the queue you want to use. You can create the queue if it doesn't exist.
+Use the **queueClient** object to get a reference to the queue you want to use. The code tries to reference a queue named “myqueue.” If it can’t find a queue with that name, it creates one.
 
 	// Get a reference to a queue named “myqueue”.
 	CloudQueue queue = queueClient.GetQueueReference("myqueue");
@@ -50,3 +50,4 @@ This two-step process of removing a message assures that if your code fails to p
 	queue.DeleteMessage(retrievedMessage);
 
 [Learn more about Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
+See also [Browsing Storage Resources in Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx).
