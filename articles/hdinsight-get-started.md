@@ -243,8 +243,8 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 [hadoop-hdinsight-intro]: ../hdinsight-introduction/
-[hdinsight-weblogs-sample]: ../hdinsight-use-hive-website-log-analysis/
-[hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
+[hdinsight-weblogs-sample]: ../hdinsight-hive-analyze-website-log/
+[hdinsight-sensor-data-sample]: ../hdinsight-hive-analyze-sensor-data/
 
 [azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
