@@ -1,4 +1,4 @@
-<properties title="Survival Analysis" pageTitle="Step 1: Survival Analysis | Azure" description="Survival Analysis" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Survival Analysis" pageTitle="Survival Analysis | Azure" description="Survival Analysis" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
 
@@ -10,7 +10,7 @@ Under many scenarios, the main outcome under assessment is the time to an event 
 
 This [web service]( https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) answers the question “what is the probability the event of interest will occur by time n for object x?” By providing a survival analysis model, this web service enables the users to supply data to train the model and test it. The main theme of the experiment is to model the length of the elapsed time until the event of interest occurs. 
 
->While this web service could be consumed by users – potentially through a mobile app, website, or even on a local computer for example, the purpose of the web service is also to serve as an example of how Azure ML can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within the Azure ML Studio, an experiment involving a Cox proportional hazard model can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world - no infrastructure set-up by the author of the web service is required.
+>While this web service could be consumed by users – potentially through a mobile app, website, or even on a local computer for example, the purpose of the web service is also to serve as an example of how Azure ML can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within the Azure ML Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure set-up by the author of the web service.  
 
 ##Consumption of Web Service
 
