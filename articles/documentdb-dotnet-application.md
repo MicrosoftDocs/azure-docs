@@ -424,7 +424,7 @@ Open the ***ItemController.cs*** and add the following code snippet which is how
 
     public ActionResult Create()
     { 
-		return View(); 
+	return View(); 
     }
 
 We now need some more code in this controller which will accept the submission from the create view.
@@ -432,17 +432,22 @@ We now need some more code in this controller which will accept the submission f
 Add the next block of code which tells ASP.NET MVC what to do with a form POST for this controller.
 	
     [HttpPost]
-    public async Task<ActionResult> Create(Item item)
+    [ValidateAntiForgeryToken]
+    public async Task<ActionResult> Create([Bind(Include = "Id,Name,Description,Completed")] Item item)  
     {
-        if (ModelState.IsValid)
-        {
-            await DocumentDBRepository.CreateItemAsync(item);
-            return RedirectToAction("Index");
-        }
-        return View(item);
+		if (ModelState.IsValid)  
+		{  
+		    await repo.CreateDocument(item);  
+		    return RedirectToAction("Index");  
+		}   
+    	return View(item);   
     }
 
-The Items Controller will now pass the Item, from the form, to the CreateDocument method of repository the class, so add the following method to your DocumentDBRepository class.
+**Security Note**: The [ValidateAntiForgeryToken] attribute is used here to help protect this application against Cross-site Request Forgery attacks. There is more to it than just adding this attribute, your Views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please refer to [Preventing Cross-Site Request Forgery][]. The source code in the download link at the end of the article has the full implementation in place.
+
+**Security Note**: We also use the [Bind] attribute on the method parameter to help protect against overposting attacks. For more details please see [Basic CRUD Operatins in ASP.NET MVC][]
+
+Now that this is in place, The Items Controller will  (securely) pass the Item, from the form, to the CreateDocument method of repository the class, so add the following method to your DocumentDBRepository class.
 
     public static async Task<Document> CreateItemAsync(Item item)
     {
@@ -460,7 +465,8 @@ There is one last thing for us to do, and that is the ability to edit items in t
 Add the following to the ItemController class;
 
     [HttpPost]
-    public async Task<ActionResult> Edit(Item item)
+    [ValidateAntiForgeryToken]
+    public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
     {
         if (ModelState.IsValid)
         {
@@ -571,10 +577,12 @@ In a few seconds, Visual Studio will finish publishing your web application and 
 
 ### 
 
-Congratulations! You have just built your first ASP.NET MVC Application using Azure DocumentDB and published it to Azure Websites. The source code for the complete reference application can be downloaded [here][].
+Congratulations! You have just built your first ASP.NET MVC Application using Azure DocumentDB and published it to Azure Websites. The source code for the complete application, including the Details & Delete functionality that we skipped here, can be downloaded [here][].
 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [here]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
+[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operatins in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
