@@ -4,11 +4,9 @@
 
 #Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)
 
-Learn how to use build a solution that uses an HDInsight Storm cluster to process sensor data from Azure Event Hub. During processing, the Storm topology will store incoming data into an HDInsight HBase cluster. The topology will also use SignalR to provide information to a web-based dashboard.
+Learn how to use build a solution that uses an HDInsight Storm cluster to process sensor data from Azure Event Hub. During processing, the Storm topology will store incoming data into an HBase cluster. The topology will also use SignalR to provide near-real-time information through a web-based dashboard hosted on Azure Websites.
 
-[insert diagram]
-
-> [AZURE.NOTE] A complete version of this project is available at [github location].
+> [AZURE.NOTE] A complete version of this project is available at [https://github.com/Blackmist/hdinsight-eventhub-example](https://github.com/Blackmist/hdinsight-eventhub-example).
 
 ##Prerequisites
 
@@ -104,16 +102,16 @@ The website also contains a static index.html file, which also connects to Signa
 		<head>
 		    <title>Dashboard</title>
 		    <style>
-
+		
 		        .x.axis line {
 		            shape-rendering: auto;
 		        }
-
+		
 		        .line {
 		            fill: none;
 		            stroke-width: 1.5px;
 		        }
-
+		
 		    </style>
 		    <!--Script references. -->
 		    <!--Reference the jQuery library. -->
@@ -131,33 +129,48 @@ The website also contains a static index.html file, which also connects to Signa
 		            //Huge thanks to Mike Bostok for his Path Transitions article - http://bost.ocks.org/mike/path/
 		            var n = 243,                                 //number of x coordinates in the graph
 		            duration = 750,                          //duration for transitions
-		            minValue = 0,                            //global vars for holding values coming in from signalr
-		            maxValue = 0,
+		            deviceValue=[0,0,0,0,0,0,0,0,0,0],       //temp holding for each device value
 		            now = new Date(Date.now() - duration),   //Now
 		            //fill an array of arrays with dummy data to start the chart
 		            //each item in the top-level array is a line
-		            //each item in the line arrays represents a Y coordinate and color
-					//In this case, top line = min values (in blue), bottom line = max values (in red)
-		            data = [
-		                d3.range(n).map(function () { return { value: 0, color: 'blue' }; }),
-		                d3.range(n).map(function () { return { value: 0, color: 'red' }; })
+		            //each item in the line arrays represents the X coordinate across a graph
+		            //The 'value' within each line array represents the Y coordinate for that point
+		            data = [                                 
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; })
 		            ];
-
+		
+		            //Color scale for 10 items
+		            var color = d3.scale.category10();
+		            //The domain for color (the device IDs)
+		            var devices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+		            //This will auto-generate colors for this range of IDs
+		            color.domain(devices);
+		
 		            //set margins and figure out width/height
 		            var margin = {top: 6, right: 0, bottom: 20, left: 40},
 		                width = 960 - margin.right,
 		                height = 240 - margin.top - margin.bottom;
-
+		
 		            //the time scale for the X axis
 		            var x = d3.time.scale()
 		                .domain([now - (n - 2) * duration, now - duration])
 		                .range([0, width]);
-
+		
 		            //the numerical scale for the Y axis
 		            var y = d3.scale.linear()
 		                .domain([100, 0])
 		                .range([0, height]);
-
+		
 		            //The line, which is really just a
 		            //couple functions that we can pass data to
 		            //in order to get back x/y coords.
@@ -165,14 +178,14 @@ The website also contains a static index.html file, which also connects to Signa
 		                .interpolate("basis")
 		                .x(function (d, i) { return x(now - (n - 1 - i) * duration); })
 		                .y(function (d, i) { return y(d.value); });
-
+		
 		            //Find the HTML body element and add a child SVG element
 		            var svg = d3.select("body").append("svg")
 		                .attr("width", width + margin.left + margin.right)
 		                .attr("height", height + margin.top + margin.bottom)
 		              .append("g")
 		                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+		
 		            //Define a clipping path, because we need to clip
 		            //the graph to render only the bits we want to see
 		            //as it moves
@@ -181,34 +194,34 @@ The website also contains a static index.html file, which also connects to Signa
 		              .append("rect")
 		                .attr("width", width)
 		                .attr("height", height);
-
+		
 		            //Append the x axis
 		            var axis = svg.append("g")
 		                .attr("class", "x axis")
 		                .attr("transform", "translate(0," + height + ")")
 		                .call(x.axis = d3.svg.axis().scale(x).orient("bottom"));
-
+		
 		            //append the y axis
 		            var yaxis = svg.append("g")
 		                .attr("class", "y axis")
 		                .call(y.axis = d3.svg.axis().scale(y).orient("left").ticks(5));
-
+		
 		            //append the clipping path
 		            var linegroup = svg.append("g")
 		              .attr("clip-path", "url(#clip)");
-
+		
 		            //magic. Select all paths with a class of .line
 		            //if they don't exist, make them.
 		            //use the points in the line object to define
 		            //the paths
-		            //set the color to the color defined in the data
+		            //set the color to the cooresponding auto-generated coclor
 		            var path = linegroup.selectAll(".line")
 		              .data(data)
 		              .enter().append("path")
 		              .attr("class", "line")
 		              .attr("d", line)
-		              .style("stroke", function (d, i) { return d[i].color; });
-
+		              .style("stroke", function (d, i) { return color(i); });
+		
 		            //We need to transition the graph after all
 		            //lines have been updated. There's no
 		            //built-in for this, so this function
@@ -221,37 +234,38 @@ The website also contains a static index.html file, which also connects to Signa
 		                    .each(function () { ++n; })
 		                    .each("end", function () { if (!--n) callback.apply(this, arguments); });
 		            }
-
+		
 		            //wire up the SignalR client and listen for messages
 		            var chat = $.connection.dashHub;
 		            chat.client.broadcastMessage = function (message) {
 		                //parse the JSON data
 		                var incomingData = JSON.parse(message);
-		                //stuff it in the global vars
-		                minValue = incomingData.low;
-		                maxValue = incomingData.high;
+		                //stuff it in the global array slot for the device ID
+		                deviceValue[incomingData.device] = incomingData.temperature;
+		
 		            };
 		            //start listening
 		            $.connection.hub.start();
 		            //tick for D3 graphics
 		            tick();
-
+		
 		            function tick() {
 		                // update the domains
 		                now = new Date();
 		                x.domain([now - (n - 2) * duration, now - duration]);
-
-		                //push the (presumably) fresh data in the globals onto
+		    
+		                //push the (presumably) fresh data deviceValue array onto
 		                //the arrays that define the lines.
-		                data[0].push({ value: minValue, color: 'blue' });
-		                data[1].push({ value: maxValue, color: 'red' });
-
+		                for (i = 0; i < 10; i++) {
+		                    data[i].push({ value: deviceValue[i] });
+		                    //data[1].push({ value: maxValue });
+		                }
 		                //slide the x-axis left
 		                axis.transition()
 		                    .duration(duration)
 		                    .ease("linear")
 		                    .call(x.axis);
-
+		
 		                //Update the paths based on the updated line data
 		                //and slide left
 		                path
@@ -262,7 +276,7 @@ The website also contains a static index.html file, which also connects to Signa
 		                    .ease("linear")
 		                    .attr("transform", "translate(" + x(now - (n - 1) * duration) + ",0)")
 		                    .call(endall, tick);
-
+		    
 		                // pop the old data point off the front
 		                // of the arrays
 		                for (var i = 0; i < data.length; i++) {
@@ -273,7 +287,6 @@ The website also contains a static index.html file, which also connects to Signa
 		        </script>
 		    </body>
 		</html>
-
 
 	> [AZURE.NOTE] A later version of the SignalR scripts may be installed by the package manager. Verify that the script references below correspond to the versions of the script files in the project (they will be different if you added SignalR using NuGet rather than adding a hub.)
 
@@ -346,7 +359,7 @@ The website also contains a static index.html file, which also connects to Signa
 
 14. To verify that SignalR is working, and that the dashboard will display graph lines for data sent to SignalR, open a new browser window to the **test.html** page on this website. For example, **http://mydashboard.azurewebsites.net/test.html**.
 
-15. The dashboard expects JSON formatted data, with a low and high value. For example **{"low":30, "high":80}**. Enter some test values on the **test.html** page, while the dashboard is open in another page. Note that the red (high) and blue (low) graph lines are drawn using the values you enter.
+15. The dashboard expects JSON formatted data, with a **device id** and **temperature** value. For example **{"device":0, "temperature":80}**. Enter some test values on the **test.html** page, using device IDs 0 through 9, while the dashboard is open in another page. Note that the lines for each device ID are drawn using a different color.
 
 ##Configure Event Hub
 
@@ -374,7 +387,7 @@ Event Hub is used to receive messages (events) from the sensors. Use the followi
 
 ###Send messages to Event Hub
 
-Since there isn't an easy, standard set of sensors available to everyone, a .NET application is used to generate random numbers.
+Since there isn't an easy, standard set of sensors available to everyone, a .NET application is used to generate random numbers. The .NET application created using the steps below will generate events for 10 devices every second, until you stop the application by pressing a key.
 
 1. In Visual Studio, create a new **Windows Desktop** project and select the **Console Application** project template. Name the project **SendEvents** and then click **OK**.
 
@@ -397,22 +410,21 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 		using Microsoft.ServiceBus.Messaging;
 		using Newtonsoft.Json;
 		using Microsoft.ServiceBus;
-
+		using System.Threading;
+		
 		namespace SendEvents
 		{
 		    class Program
 		    {
-		        static int numberOfMessages = 1000; // The number of messages to send
-		        static int numberOfDevices = 10;    // The number of devices to send from
-
-		        static string eventHubName = "the event hub name";
-		        static string eventHubNamespace = "service bus namespace";
-		        static string sharedAccessPolicyName = "shared access policy with write access";
-		        static string sharedAccessPolicyKey = "key for the policy";
-
+		
+		        static int numberOfDevices = 10;
+		        static string eventHubName = "temperature";
+		        static string eventHubNamespace = "namespace";
+		        static string sharedAccessPolicyName = "devices";
+		        static string sharedAccessPolicyKey = "key for devices policy";
+		
 		        static void Main(string[] args)
 		        {
-					// Create a messaging factory based on the policy and namespace
 		            var settings = new MessagingFactorySettings()
 		            {
 		                TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(sharedAccessPolicyName, sharedAccessPolicyKey),
@@ -420,41 +432,50 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 		            };
 		            var factory = MessagingFactory.Create(
 		                 ServiceBusEnvironment.CreateServiceUri("sb", eventHubNamespace, ""), settings);
-
-					// Create the Event Hub client
+		
 		            EventHubClient client = factory.CreateEventHubClient(eventHubName);
-
+		 
 		            try
 		            {
+		
 		                List<Task> tasks = new List<Task>();
 		                // Send messages to Event Hub
 		                Console.WriteLine("Sending messages to Event Hub {0}", client.Path);
 		                Random random = new Random();
-		                for (int i = 0; i < numberOfMessages; ++i)
+		                //for (int i = 0; i < numberOfMessages; ++i)
+		                while(!Console.KeyAvailable)
 		                {
-		                    // Create the device/temperature values randomly
-		                   Event info = new Event() { DeviceId = random.Next(numberOfDevices), Temperature = random.Next(100) };
-							// Serialize to JSON
-		                    var serializedString = JsonConvert.SerializeObject(info);
-		                    EventData data = new EventData(Encoding.UTF8.GetBytes(serializedString))
+		                    // One event per device
+		                    for(int devices = 0; devices < numberOfDevices; devices++)
 		                    {
-		                        PartitionKey = info.DeviceId.ToString()
-		                    };
-
-		                    // Set user properties if needed
-		                    data.Properties.Add("Type", "Telemetry_" + DateTime.Now.ToLongTimeString());
-		                    //OutputMessageInfo("SENDING: ", data, info);
-
-		                    // Send the metric to Event Hub
-		                    tasks.Add(client.SendAsync(data));
+		                        // Create the device/temperature metric
+		                        Event info = new Event() { 
+		                            TimeStamp = DateTime.UtcNow,
+		                            DeviceId = random.Next(numberOfDevices),
+		                            Temperature = random.Next(100)
+		                        };
+		                        // Serialize to JSON
+		                        var serializedString = JsonConvert.SerializeObject(info);
+		                        Console.WriteLine(serializedString);
+		                        EventData data = new EventData(Encoding.UTF8.GetBytes(serializedString))
+		                        {
+		                            PartitionKey = info.DeviceId.ToString()
+		                        };
+		
+		                        // Send the metric to Event Hub
+		                        tasks.Add(client.SendAsync(data));
+		                    }
+		                    // Sleep a second
+		                    Thread.Sleep(1000);
 		                };
-
+		
 		                Task.WaitAll(tasks.ToArray());
 		            }
 		            catch (Exception exp)
 		            {
 		                Console.WriteLine("Error on send: " + exp.Message);
 		            }
+		
 		        }
 		    }
 		}
@@ -570,6 +591,26 @@ In order for the topology running on the Storm cluster to communicate directly w
 
 	> [WACOM.NOTE] You should use a different container than the one used for the Storm cluster.
 
+###Enable remote desktop
+
+For this tutorial, we must use remote desktop to access the Storm and HBase clusters. Use these steps to enable Remote Desktop on both.
+
+1. Sign in to the [Azure Management Portal][azureportal].
+
+2. On the left, select **HDInsight**, then select your Storm cluster from the list. Finally, select **Configure** at the top of the page.
+
+3. At the bottom of the page, select **Enable Remote**. When prompted enter a user name, password, and a date when Remote Desktop access will expire. Click the checkmark to enable Remote Desktop.
+
+Once Remote Desktop has been enabled, you can select **Connect** at the bottom of the page. Follow the prompts to connect to the cluster.
+
+###Discover the HBase DNS suffix
+
+In order to write to HBase from the Storm cluster, you must use the fully qualified domain name (FQDN) for the HBase cluster. Use the following steps to discover this information.
+
+1. Connect to the HBase cluster using Remote Desktop.
+
+2. After connecting to the cluster, open the Hadoop Command Line and run the **ipconfig** command to obtain the DNS suffix. The **Connection-specific DNS Suffix** will contain the suffix value. For example, **mycluster.b4.internal.cloudapp.net**. Save this information.
+
 ##Develop the Storm topology
 
 > [WACOM.NOTE] The steps in this section should be performed on your local development environment.
@@ -586,11 +627,7 @@ Several of the dependencies used in this project must be downloaded and built in
 
 In order to receive data from Event Hub, we will use the **eventhubs-storm-spout**.
 
-1. Use Remote Desktop to connect to your Storm cluster, then copy the **%storm_home%\contrib\tbd** file to your local development environment. This contains the **events-storm-spout**.
-
-5. Use the following to build the spout and create a new JAR file containing the spout and dependencies.
-
-	mvn package
+1. Use Remote Desktop to connect to your Storm cluster, then copy the **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** file to your local development environment. This contains the **events-storm-spout**.
 
 6. Use the following command to install the package into the local Maven store. This will allow us to easily add it as a reference in the Storm project in a later step.
 
@@ -674,6 +711,11 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 	      <artifactId>gson</artifactId>
 	      <version>2.2.2</version>
 	    </dependency>
+		<dependency>
+      	  <groupId>com.github.ptgoetz</groupId>
+      	  <artifactId>storm-hbase</artifactId>
+      	  <version>0.1.2</version>
+    	</dependency>
 	    <dependency>
 	      <groupId>com.netflix.curator</groupId>
 	      <artifactId>curator-framework</artifactId>
@@ -700,6 +742,7 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 	* slf4j - provides logging capabilities and used by eventhubs-storm-spout
 	* curator-framework - used by the eventhubs-storm-spout
 	* storm-core - core classes for Storm
+	* storm-hbase - classes that allow writing to HBase
 
 	> [WACOM.NOTE] Note that some dependencies are marked with a scope of **provided** to indicate that these dependencies should be downloaded from the Maven repository and used to build and test the application locally, but that they will also be available in your runtime environment and do not need to be compiled and included in the JAR created by this project.
 
@@ -761,6 +804,7 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 		        <filtering>false</filtering>
 		        <includes>
 		          <include>Config.properties</include>
+				  <include>hbase-site.xml</include>
 		        </includes>
 		      </resource>
 		    </resources>
@@ -769,25 +813,31 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 	This tells Maven to do the following when building the project:
 
 	* Include the **/conf/Config.properties** resource file. This file will be created later, but it will contain configuration information for connecting to Azure Event Hub.
+	* Include the **/conf/hbase-site.xml** resource file. This file will be created later, but it will contain information on how to connect to HBase
 	* Use the **maven-compiler-plugin** to compile the application.
 	* Use the **maven-shade-plugin** to build an uberjar or fat jar, which contains this project and any required dependencies.
 	* Use the **exec-maven-plugin**, which allows you to run the application locally without a Hadoop cluster.
 
-###Add the Event Hub spout configuration file
+###Add configuration files
 
-The **eventhubs-storm-spout** reads configuration information from a **Config.properties** file. This tells it what Event Hub to connect to. While you can specify a configuration file when starting the topology on a cluster, including one in the project gives you a known default configuration.
+**eventhubs-storm-spout** reads configuration information from a **Config.properties** file. This tells it what Event Hub to connect to. While you can specify a configuration file when starting the topology on a cluster, including one in the project gives you a known default configuration.
 
 1. In the **Temperature** directory, create a new directory named **conf**.
 
-2. In the **conf** directory, create a new file named **Config.properties** and add the following as the file contents.
+2. In the **conf** directory, create two new files:
 
-		eventhubspout.username = <the name of the 'listen' policy>
+	* **Config.properties** - contains settings for event hub
+	* **hbase-site.xml** - contains settings for connecting to hbase
 
-		eventhubspout.password = <the key of the 'listen' policy>
+3. Use the following as the contents for the **Config.properties** file.
+
+		eventhubspout.username = storm
+
+		eventhubspout.password = <the key of the 'storm' policy>
 
 		eventhubspout.namespace = <the event hub namespace>
 
-		eventhubspout.entitypath = <the name of the event hub>
+		eventhubspout.entitypath = temperature
 
 		eventhubspout.partitions.count = <the number of partitions for the event hub>
 
@@ -798,9 +848,51 @@ The **eventhubs-storm-spout** reads configuration information from a **Config.pr
 
 		eventhub.receiver.credits = 1024
 
-	Replace the **username**, **password**, **namespace**, **entitypath** and **count** with values for your Event Hub.
+	Replace the **password** with the key for the **storm** policy created earlier on Event Hub. Replace **namespace** with the namespace of your Event Hub.
 
-3. Save the file.
+3. Use the following as the contents for the **hbase-site.xml** file.
+
+		<?xml version="1.0"?>
+		<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+		<!--
+		/**
+		 * Copyright 2010 The Apache Software Foundation
+		 *
+		 * Licensed to the Apache Software Foundation (ASF) under one
+		 * or more contributor license agreements.  See the NOTICE file
+		 * distributed with this work for additional information
+		 * regarding copyright ownership.  The ASF licenses this file
+		 * to you under the Apache License, Version 2.0 (the
+		 * "License"); you may not use this file except in compliance
+		 * with the License.  You may obtain a copy of the License at
+		 *
+		 *     http://www.apache.org/licenses/LICENSE-2.0
+		 *
+		 * Unless required by applicable law or agreed to in writing, software
+		 * distributed under the License is distributed on an "AS IS" BASIS,
+		 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+		 * See the License for the specific language governing permissions and
+		 * limitations under the License.
+		 */
+		-->
+		<configuration>
+		  <property>
+		    <name>hbase.cluster.distributed</name>
+		    <value>true</value>
+		  </property>
+		  <property>
+		    <name>hbase.zookeeper.quorum</name>
+		    <value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
+		  </property>
+		  <property>
+		    <name>hbase.zookeeper.property.clientPort</name>
+		    <value>2181</value>
+		  </property>
+		</configuration>
+
+3. In the **hbase-site.xml** file, replace the **suffix** value for the zookeeper entries with the DNS suffix you retrieved earlier for HBase. For example, **zookeeper0.mycluster.b4.internal.cloudapp.net, zookeeper1.mycluster.b4.internal.cloudapp.net, zookeeper2.mycluster.b4.internal.cloudapp.net**.
+
+3. Save the files.
 
 ###Add helpers
 
@@ -819,6 +911,7 @@ To support serialization to and from JSON, we need some helper classes that defi
 		package com.microsoft.examples;
 
 		public class EventHubMessage {
+		  String TimeStamp;
 		  int DeviceId;
 		  int Temperature;
 		}
@@ -828,34 +921,79 @@ To support serialization to and from JSON, we need some helper classes that defi
 		package com.microsoft.examples;
 
 		public class SignalRMessage {
-		  int low;
-		  int high;
+		  int device;
+		  int temperature;
 		}
 
 5. Save and close these files.
 
-###Add the Dashboard bolt
+###Add bolts
 
-Bolts do the main processing in a topology. To start out, we'll just add the Dashboard bolt that sends values to the dashboard.
+Bolts do the main processing in a topology. For this topology there are three bolts, though one is the hbase-bolt, which will be downloaded automatically when the project is built.
 
 1. In the **\temperaturemonitor\src\main\java\com\microsoft\examples** directory, create a new directory named **bolts**.
 
-2. In the **bolts** directory, create a new file named **DashboardBolt.java**.
+2. In the **bolts** directory, create two new files:
+
+	* **ParserBolt.java** - parses the incoming message from Event Hub into individual fields, then emits two streams
+	* **DashboardBolt.java** - logs information to the web dashboard via SignalR
+
+2. Use the following as the contents of the **ParserBolt.java** file.
+
+		package com.microsoft.examples;
+		
+		import backtype.storm.topology.base.BaseBasicBolt;
+		import backtype.storm.topology.BasicOutputCollector;
+		import backtype.storm.topology.OutputFieldsDeclarer;
+		import backtype.storm.tuple.Tuple;
+		import backtype.storm.tuple.Fields;
+		import backtype.storm.tuple.Values;
+		
+		import com.google.gson.Gson;
+		import com.google.gson.GsonBuilder;
+		
+		public class ParserBolt extends BaseBasicBolt {
+		
+		  //Declare output fields & streams
+		  //hbasestream is all fields, and goes to hbase
+		  //dashstream is just the device and temperature, and goes to the dashboard
+		  @Override
+		  public void declareOutputFields(OutputFieldsDeclarer declarer) {
+		    declarer.declareStream("hbasestream", new Fields("timestamp", "deviceid", "temperature"));
+		    declarer.declareStream("dashstream", new Fields("deviceid", "temperature"));
+		  }
+		
+		  //Process tuples
+		  @Override
+		  public void execute(Tuple tuple, BasicOutputCollector collector) {
+		    Gson gson = new Gson();
+		    //Should only be one tuple, which is the JSON message from the spout
+		    String value = tuple.getString(0);
+		
+		    //Convert it from JSON to an object
+		    EventHubMessage evMessage = gson.fromJson(value, EventHubMessage.class);
+		    
+		    //Pull out the values and emit as a stream
+		    String timestamp = evMessage.TimeStamp;
+		    int deviceid = evMessage.DeviceId;
+		    int temperature = evMessage.Temperature;
+		    collector.emit("hbasestream", new Values(timestamp, deviceid, temperature));
+		    collector.emit("dashstream", new Values(deviceid, temperature));
+		  }
+		}
 
 3. Use the following as the contents of the **DashboardBolt.java** file.
 
 		package com.microsoft.examples;
-
+		
 		import backtype.storm.topology.BasicOutputCollector;
 		import backtype.storm.topology.OutputFieldsDeclarer;
 		import backtype.storm.topology.base.BaseBasicBolt;
 		import backtype.storm.tuple.Tuple;
-		import backtype.storm.tuple.Fields;
-		import backtype.storm.tuple.Values;
 		import backtype.storm.task.TopologyContext;
 		import backtype.storm.Config;
 		import backtype.storm.Constants;
-
+		
 		import microsoft.aspnet.signalr.client.Action;
 		import microsoft.aspnet.signalr.client.ErrorCallback;
 		import microsoft.aspnet.signalr.client.LogLevel;
@@ -863,46 +1001,28 @@ Bolts do the main processing in a topology. To start out, we'll just add the Das
 		import microsoft.aspnet.signalr.client.MessageReceivedHandler;
 		import microsoft.aspnet.signalr.client.hubs.HubConnection;
 		import microsoft.aspnet.signalr.client.hubs.HubProxy;
-
+		
 		import com.google.gson.Gson;
 		import com.google.gson.GsonBuilder;
-
+		
 		import java.util.Map;
-
+		
 		public class DashboardBolt extends BaseBasicBolt {
+		  //Connection and proxy for SignalR hub
 		  private HubConnection conn;
 		  private HubProxy proxy;
-		  private int low;
-		  private int high;
-
+		
 		  //Declare output fields
 		  @Override
 		  public void declareOutputFields(OutputFieldsDeclarer declarer) {
 		    //no stream output - we talk directly to SignalR
 		  }
-
-		  @Override
-		  public Map<String, Object> getComponentConfiguration() {
-		    // configure how often a tick tuple will be sent to our bolt
-		    Config conf = new Config();
-		      conf.put(Config.TOPOLOGY_TICK_TUPLE_FREQ_SECS, 3);
-		      return conf;
-		  }
-
-		  //received tick tuple?
-		  protected static boolean isTickTuple(Tuple tuple) {
-		    return tuple.getSourceComponent().equals(Constants.SYSTEM_COMPONENT_ID)
-		        && tuple.getSourceStreamId().equals(Constants.SYSTEM_TICK_STREAM_ID);
-		  }
-
+		
 		  @Override
 		  public void prepare(Map config, TopologyContext context) {
-		    //set  low/high to values that we know will be overwritten
-		    high = -500;
-		    low = 500;
-
-		    // Connect to the server
-		    conn = new HubConnection("http://yourwebsiteaddress");
+		
+		    // Connect to the DashHub SignalR server
+		    conn = new HubConnection("http://larryfrdashboard.azurewebsites.net/");
 		    // Create the hub proxy
 		    proxy = conn.createHubProxy("DashHub");
 		    // Subscribe to the error event
@@ -935,40 +1055,21 @@ Bolts do the main processing in a topology. To start out, we'll just add the Das
 		        }
 		    });
 		  }
-
+		
 		  //Process tuples
 		  @Override
 		  public void execute(Tuple tuple, BasicOutputCollector collector) {
 		    Gson gson = new Gson();
 		    try {
-		      if (isTickTuple(tuple)) {
-		        SignalRMessage srMessage = new SignalRMessage();
-		        //set the low/high for this interval
-		        srMessage.low = low;
-		        srMessage.high = high;
-		        //send it as JSON
-		        proxy.invoke("send", gson.toJson(srMessage));
-		        //reset high/low so they will be overwritten for the next set
-		        high = -500;
-		        low = 500;
-		        return;
-		      }
-		      //If it's not a tick tuple
-		      //Get value by location, since we only have one
-		      //string coming in each tuple
-		      String value = tuple.getString(0);
-		      //Convert it from JSON to an object
-		      EventHubMessage evMessage = gson.fromJson(value, EventHubMessage.class);
-		      //check temperature against current low/high for this batch
-		      //set as new high/low if it's higher or lower
-		      int temp = evMessage.Temperature;
-		      if (temp > high) {
-		        high = temp;
-		      }
-		      if (temp < low) {
-		        low = temp;
-		      }
-
+		      //Get the deviceid and temperature by field name
+		      int deviceid = tuple.getIntegerByField("deviceid");
+		      int temperature = tuple.getIntegerByField("temperature");
+		      //Construct the SignalR message
+		      SignalRMessage srMessage = new SignalRMessage();
+		      srMessage.device = deviceid;
+		      srMessage.temperature = temperature;
+		      // send it as JSON
+		      proxy.invoke("send", gson.toJson(srMessage));
 		    } catch (Exception e) {
 		       // LOG.error("Bolt execute error: {}", e);
 		       collector.reportError(e);
@@ -978,17 +1079,7 @@ Bolts do the main processing in a topology. To start out, we'll just add the Das
 
 	Replace `http://yourwebsiteaddress` with the address of the Azure Website that you published the dashboard to earlier. For example, http://mydashboard.azurewebsites.net.
 
-	This defines a bolt that reads that:
-
-	* Configures a **tick tuple** to be sent every 3 seconds
-
-	* Reads the incoming stream
-
-	* If the tuple **is not** a tick tuple, we assume it contains device and temperature information and try to load it. We then see if the temperature is higher or lower than the current high and low values. If it is, we set the high or low to the temperature.
-
-	* If the tuple **is** a tick tuple, we create a message with the current high and low values, and send it to the SignalR hub using the website address. This should happen every 3 seconds when a tick tuple occurs
-
-2. Save and close the file.
+2. Save and close the files.
 
 ###Define the topology
 
@@ -999,36 +1090,31 @@ The topology describes how data flows between the spouts and bolts in a topology
 2. Open the **Temperature.java** file and use the following as the contents.
 
 		package com.microsoft.examples;
-
+		
 		import backtype.storm.Config;
 		import backtype.storm.LocalCluster;
 		import backtype.storm.StormSubmitter;
-		import backtype.storm.task.OutputCollector;
-		import backtype.storm.task.TopologyContext;
-		import backtype.storm.topology.OutputFieldsDeclarer;
-		import backtype.storm.topology.TopologyBuilder;
-		import backtype.storm.topology.base.BaseRichBolt;
-		import backtype.storm.tuple.Fields;
-		import backtype.storm.tuple.Tuple;
-		import backtype.storm.tuple.Values;
-		import backtype.storm.utils.Utils;
-
 		import backtype.storm.generated.StormTopology;
 		import backtype.storm.topology.TopologyBuilder;
-
-		import java.util.Map;
-
+		import backtype.storm.tuple.Fields;
 		import com.microsoft.eventhubs.spout.EventHubSpout;
 		import com.microsoft.eventhubs.spout.EventHubSpoutConfig;
-
+		
 		import java.io.FileReader;
 		import java.util.Properties;
-
+		
+		//hbase
+		import org.apache.storm.hbase.bolt.mapper.SimpleHBaseMapper;
+		import org.apache.storm.hbase.bolt.HBaseBolt;
+		import java.util.Map;
+		import java.util.HashMap;
+		import backtype.storm.tuple.Fields;
+		
 		public class Temperature
 		{
 		  protected EventHubSpoutConfig spoutConfig;
 		  protected int numWorkers;
-
+		
 		  // Reads the configuration information for the Event Hub spout
 		  protected void readEHConfig(String[] args) throws Exception {
 		    Properties properties = new Properties();
@@ -1039,7 +1125,7 @@ The topology describes how data flows between the spouts and bolts in a topology
 		      properties.load(Temperature.class.getClassLoader().getResourceAsStream(
 		        "Config.properties"));
 		    }
-
+		
 		    String username = properties.getProperty("eventhubspout.username");
 		    String password = properties.getProperty("eventhubspout.password");
 		    String namespaceName = properties.getProperty("eventhubspout.namespace");
@@ -1055,95 +1141,153 @@ The topology describes how data flows between the spouts and bolts in a topology
 		    spoutConfig = new EventHubSpoutConfig(username, password,
 		      namespaceName, entityPath, partitionCount, zkEndpointAddress,
 		      checkpointIntervalInSeconds, receiverCredits);
-
+		
 		    //set the number of workers to be the same as partition number.
 		    //the idea is to have a spout and a partial count bolt co-exist in one
 		    //worker to avoid shuffling messages across workers in storm cluster.
 		    numWorkers = spoutConfig.getPartitionCount();
-
+		    
 		    if(args.length > 0) {
 		      //set topology name so that sample Trident topology can use it as stream name.
 		      spoutConfig.setTopologyName(args[0]);
 		    }
 		  }
-
+		
 		  // Create the spout using the configuration
 		  protected EventHubSpout createEventHubSpout() {
 		    EventHubSpout eventHubSpout = new EventHubSpout(spoutConfig);
 		    return eventHubSpout;
 		  }
-
+		
 		  // Build the topology
-		  protected StormTopology buildTopology(EventHubSpout eventHubSpout) {
+		  protected StormTopology buildTopology(EventHubSpout eventHubSpout, SimpleHBaseMapper mapper) {
 		    TopologyBuilder topologyBuilder = new TopologyBuilder();
 		    // Name the spout 'EventHubsSpout', and set it to create
 		    // as many as we have partition counts in the config file
-		    topologyBuilder.setSpout("EventHubsSpout", eventHubSpout, spoutConfig.getPartitionCount())
+		    topologyBuilder.setSpout("EventHub", eventHubSpout, spoutConfig.getPartitionCount())
 		      .setNumTasks(spoutConfig.getPartitionCount());
-		    // Create the dashboard, but just one since we don't want to flood SignalR with
-		    // multiple bolts sending to it every 3 seconds.
-		    // Set it to accept a stream from 'EventHubsSpout'
-		    topologyBuilder.setBolt("dashboard", new DashboardBolt(), spoutConfig.getPartitionCount())
-		      .localOrShuffleGrouping("EventHubsSpout").setNumTasks(1);
+		    // Create the parser bolt, which subscribes to the stream from EventHub
+		    topologyBuilder.setBolt("Parser", new ParserBolt(), spoutConfig.getPartitionCount())
+		      .localOrShuffleGrouping("EventHub").setNumTasks(spoutConfig.getPartitionCount());
+		    // Create the dashboard bolt, which subscribes to the stream from Parser
+		    topologyBuilder.setBolt("Dashboard", new DashboardBolt(), spoutConfig.getPartitionCount())
+		      .fieldsGrouping("Parser", "dashstream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
+		    // Create the HBase bolt, which subscribes to the stream from Parser
+		    // WARNING - uncomment the following two lines when deploying
+			// leave commented when testing locally
+			// topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
+		    //  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
 		    return topologyBuilder.createTopology();
 		  }
-
-		  protected void submitTopology(String[] args, StormTopology topology) throws Exception {
-		    Config config = new Config();
+		
+		  protected void submitTopology(String[] args, StormTopology topology, Config config) throws Exception {
+		    // Config config = new Config();
 		    config.setDebug(false);
+		
 		    //Enable metrics
 		    config.registerMetricsConsumer(backtype.storm.metric.LoggingMetricsConsumer.class, 1);
-
+		
 		    // Is this running locally, or on an HDInsight cluster?
 		    if (args != null && args.length > 0) {
 		      config.setNumWorkers(numWorkers);
 		      StormSubmitter.submitTopology(args[0], config, topology);
 		    } else {
 		      config.setMaxTaskParallelism(2);
-
+		
 		      LocalCluster localCluster = new LocalCluster();
 		      localCluster.submitTopology("test", config, topology);
-
+		
 		      Thread.sleep(5000000);
-
+		
 		      localCluster.shutdown();
 		    }
 		  }
-
+		
 		  // Loads the configuration, creates the spout, builds the topology,
 		  // and then submits it
 		  protected void runScenario(String[] args) throws Exception{
 		    readEHConfig(args);
+		    Config config = new Config();
+		
+		    //hbase configuration
+		    Map<String, Object> hbConf = new HashMap<String, Object>();
+		    if(args.length > 0) {
+		      hbConf.put("hbase.rootdir", args[0]);
+		    }
+		    config.put("hbase.conf", hbConf);
+		    SimpleHBaseMapper mapper = new SimpleHBaseMapper()
+		          .withRowKeyField("deviceid")
+		          .withColumnFields(new Fields("timestamp", "temperature"))
+		          .withColumnFamily("cf");
+		
 		    EventHubSpout eventHubSpout = createEventHubSpout();
-		    StormTopology topology = buildTopology(eventHubSpout);
-		    submitTopology(args, topology);
+		    StormTopology topology = buildTopology(eventHubSpout, mapper);
+		    submitTopology(args, topology, config);
 		  }
-
+		
 		  public static void main(String[] args) throws Exception {
 		    Temperature scenario = new Temperature();
 		    scenario.runScenario(args);
 		  }
 		}
 
+	> [AZURE.NOTE] Note that the lines for the **HBaseBolt** are commented out. This is because the next step is to run the topology locally. Since the HBaseBolt talks directly to HBase, this will return errors if it is enabled. Unless you've configured a virtual network with a DNS server and joined your local machine to the virtual network also.
+
 ###Test the topology locally
 
-To compile and test the file on your development machine, use the following command.
+To compile and test the file on your development machine, use the following steps.
+
+1. Start the **SendEvent** .NET application to begin sending events, so that we have something to read from Event Hub.
+
+2. Open a web browser to the web dashboard you deployed earlier into an Azure Website. This will allow you to see the graph plot the values as they flow through the topology
+
+2. Start the topology locally using the following command
 
 	mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
 
-This will start the topology, read files from Event Hub, and send them to the dashboard running in Azure Websites. You should open the dashboard in a browser before starting the application. To stop the application, use CTRL-C.
+	This will start the topology, read files from Event Hub, and send them to the dashboard running in Azure Websites. You should see lines appear in the web dashboard.
 
+3. After verifying that this works, stop the topology by entering Ctrl-C. To stop the SendEvent app, select the window and press any key.
 
+###Enable the HBaseBolt and prepare HBase
+
+1. Open the **Temperature.java** file and remove the comment (//) from the following lines:
+
+		//topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
+    	//  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
+
+	This enables the HBase bolt.
+
+2. Save **Temperature.java**.
+
+3. Using Remote Desktop, connect to the HBase cluster.
+
+4. From the desktop, start the HDInsight Command Line and enter the following commands.
+
+		cd %hbase_home%
+		bin\hbase shell
+
+5. From the HBase shell, enter the following command to create a table that sensor data will be stored in.
+
+		create 'SensorData', 'cf'
+
+6. Verify that the table contains no data by entering the following command.
+
+		scan 'SensorData'
+
+Leave this prompt open in the HBase shell for now.
 
 ##Package and deploy the topology to HDInsight
 
-Use the following steps to run the Temperature topology on your HDInsight Storm Cluster.
-
+On your development environment, use the following steps to run the Temperature topology on your HDInsight Storm Cluster.
+	
 1. Use the following command to create a JAR package from your project.
 
 		mvn package
 
 	This will create a file named **TemperatureMonitor-1.0-SNAPSHOT.jar** in the **target** directory of your project.
+
+2. On your local development machine, start the **SendEvents** .NET application, so that we have some events to read.
 
 1. Connect to your HDInsight Storm cluster using Remote Desktop, and copy the **TemperatureMonitor-1.0-SNAPSHOT.jar** file to the **c:\apps\dist\storm&lt;version number>** directory.
 
@@ -1152,6 +1296,30 @@ Use the following steps to run the Temperature topology on your HDInsight Storm 
 		cd %storm_home%
 		bin\storm jar TemperatureMonitor-1.0-SNAPSHOT.jar com.microsoft.examples.Temperature Temperature
 
-3. Once the topology has started, you can use the **Storm UI** icon on the desktop to view the status of the topology. For more information on using the **Storm UI**, see [Getting started using Storm with HDInsight](/en-us/documentation/articles/hdinsight-storm-getting-started.md).
+3. Once the topology has started, it may be a few seconds before items begin appearing on the web dashboard.
 
-4. To stop the topology
+3. After items have appeared on the dashboard, switch to the Remote Desktop session on the HBase cluster.
+
+4. From the HBase shell, enter the following command.
+
+		scan 'SensorData'
+
+	Note that this now returns several rows of data that have been written by the Storm topology.
+
+5. To stop the topology, go to the Remote Desktop session with the Storm cluster and enter the following in the HDInsight Command Line.
+
+		bin\storm kill Temperature
+
+	After a few seconds, the topology will stop.
+
+##Summary
+
+You have now learned how to use Storm to read data from Event Hub, store data in HBase, and display information from Storm on an external dashboard using SignalR and D3.js.
+
+* For more information on Apache Storm, see [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)
+
+* For more information on HBase with HDInsight, see the [HBase with HDInsight Overview](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-overview/)
+
+* For more information on SignalR, see [ASP.NET SignalR](http://signalr.net/)
+
+* For more information on D3.js, see [D3.js - Data Driven Documents](http://d3js.org/)
