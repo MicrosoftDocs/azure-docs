@@ -20,9 +20,11 @@
 In this tutorial, you will update the Universal app project from the [Get started with Mobile Services] tutorial to support the offline features of Azure Mobile Services. Then you will add data in a disconnected offline scenario, sync those items to the online database, and then log in to the Azure Management Portal to view changes to data made when running the app.
 
 
->[AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. If this is your first experience with Mobile Services, you should complete the tutorial [Get started with Mobile Services] first.
-
->[AZURE.NOTE] The older Windows Phone 8 tutorial for Visual Studio 2012 is still available here, [Windows Phone 8 Tutorial for Visual Studio 2012].
+>[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. If this is your first experience with Mobile Services, you should complete the tutorial [Get started with Mobile Services] first.
+>
+>To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+>
+>The older Windows Phone 8 tutorial for Visual Studio 2012 is still available here, [Windows Phone 8 Tutorial for Visual Studio 2012].
 
 
 This tutorial walks you through these basic steps:
