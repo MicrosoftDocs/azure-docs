@@ -177,7 +177,7 @@ To upload data to a page blob, use the following:
 
 * **createPageBlob** - creates a new page blob of a specific length.
 
-* **createPageBlobFromFile** - creates a new page blob and uploads the contents of a file.
+* **createPageBlobFromLocalFile** - creates a new page blob and uploads the contents of a file.
 
 * **createPageBlobFromStream** - creates a new page blob and uploads the contents of a stream.
 
@@ -187,7 +187,7 @@ To upload data to a page blob, use the following:
 
 The following example uploads the contents of the **test.txt** file into **mypageblob**.
 
-	blobSvc.createPageBlobFromFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
+	blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
 	  if(!error){
 	    // file uploaded
 	  }
