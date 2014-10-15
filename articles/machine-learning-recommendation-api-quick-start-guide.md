@@ -576,12 +576,12 @@ This document does not provide you with any legal rights to any intellectual pro
 © 2014 Microsoft. All rights reserved. 
 
 
-[1]: ./media/machine-learning-recommendation-api-quick-start-guide/Table1.png
-[2]: ./media/machine-learning-recommendation-api-quick-start-guide/Table2.png
-[3]: ./media/machine-learning-recommendation-api-quick-start-guide/Table3a.png
-[4]: ./media/machine-learning-recommendation-api-quick-start-guide/Table3b.png
-[5]: ./media/machine-learning-recommendation-api-quick-start-guide/Table4.png
-[6]: ./media/machine-learning-recommendation-api-quick-start-guide/Table5.png
-[7]: ./media/machine-learning-recommendation-api-quick-start-guide/Table6.png
-[8]: ./media/machine-learning-recommendation-api-quick-start-guide/Table7.png
-[9]: ./media/machine-learning-recommendation-api-quick-start-guide/Table8.png
+[1]: ./media/machine-learning-recommendation-api-quick-start-guide/Table01.png
+[2]: ./media/machine-learning-recommendation-api-quick-start-guide/Table02.png
+[3]: ./media/machine-learning-recommendation-api-quick-start-guide/Table03a.png
+[4]: ./media/machine-learning-recommendation-api-quick-start-guide/Table03b.png
+[5]: ./media/machine-learning-recommendation-api-quick-start-guide/Table04.png
+[6]: ./media/machine-learning-recommendation-api-quick-start-guide/Table05.png
+[7]: ./media/machine-learning-recommendation-api-quick-start-guide/Table06.png
+[8]: ./media/machine-learning-recommendation-api-quick-start-guide/Table07.png
+[9]: ./media/machine-learning-recommendation-api-quick-start-guide/Table08.png
