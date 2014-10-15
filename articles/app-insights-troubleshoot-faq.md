@@ -21,6 +21,7 @@
 + [What does Application Insights modify in my project?](#q14)
 + [How do I find my results in Application Insights?](#q15)
 + [What ports should I open in my firewall?](#q16)
++ [Have I enabled everything in Application Insights?](#q17)
 + [Learn more](#next)
 
 
@@ -156,19 +157,19 @@ Performance and usage data are sent to TCP ports 80 and 443 at dc.services.visua
 
 Web availability tests depend on incoming access to your web server on port 80.
 
-## Have I enabled everything in Application Insights?
+## <a name="q17"></a> Have I enabled everything in Application Insights?
 
 <table border="1">
 <tr><th>What you should see</th><th>How to get it</th><th>Why you want it</th></tr>
-<tr><td>Availability charts</td><td>[Web tests][availability]</td><td>Know your web app is up</td></tr>
+<tr><td>Availability charts</td><td><a href="../app-insights-monitor-web-app-availability/">Web tests</a></td><td>Know your web app is up</td></tr>
 <tr><td>Server app perf: response times, ...
-</td><td>[Add Application Insights to your project][start]<br/>or <br/>[Install AI Status Monitor on server][redfield]</td><td>Detect perf issues</td></tr>
-<!-- ####future#### <tr><td>Dependency telemetry</td><td>[Install AI Status Monitor on server][redfield]</td><td>Diagnose issues with databases or other external components</td></tr> -->
-<!-- #####74.1#### <tr><td>Server globals: CPU, memory, ...</td><td> [Install AI Status Monitor on server][redfield]</td><td>Diagnose capacity issues</td></tr> --> 
-<tr><td>Search log traces</td><td>[Add a logging adapter][diagnostic]</td><td>Diagnose exceptions, perf issues</td></tr>
-<tr><td>Client usage basics: page views, returns, ...</td><td>[JavaScript initializer in web pages][webclient]</td><td>Usage analytics</td></tr>
-<tr><td>Client custom metrics</td><td>[Tracking calls in web pages][track]</td><td>Enhance user experience</td></tr>
-<tr><td>Server custom metrics</td><td>[Tracking calls in server code][track]</td><td>Business intelligence</td></tr>
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights to your project</a><br/>or <br/><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Detect perf issues</td></tr>
+<!-- ####future#### <tr><td>Dependency telemetry</td><td><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Diagnose issues with databases or other external components</td></tr> -->
+<!-- #####74.1#### <tr><td>Server globals: CPU, memory, ...</td><td><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Diagnose capacity issues</td></tr> --> 
+<tr><td>Search log traces</td><td><a href="../app-insights-search-diagnostic-logs/">Add a logging adapter</a></td><td>Diagnose exceptions, perf issues</td></tr>
+<tr><td>Client usage basics: page views, returns, ...</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">JavaScript initializer in web pages</a></td><td>Usage analytics</td></tr>
+<tr><td>Client custom metrics</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tracking calls in web pages</a></td><td>Enhance user experience</td></tr>
+<tr><td>Server custom metrics</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tracking calls in server code</a></td><td>Business intelligence</td></tr>
 </table>
 
 If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
