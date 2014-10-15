@@ -1,4 +1,4 @@
-<properties pageTitle="Get Started with Event Hubs" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs with C# using EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Get Started with Event Hubs" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs sending events with Java and receiving in C# using EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -9,9 +9,11 @@
 Event Hubs is a highly scalable ingestion system that can intake millions of events per second enabling your application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs you can transform and store data using any real-time analytics provider or storage cluster.
 Please refer to [Event Hubs developer guide] for more information.
 
-In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in C#, and to retrieve them in parallel using the C# [Event Processor Host] library.
+In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in Java, and to retrieve them in parallel using the C# [Event Processor Host] library.
 
 In order to complete this tutorial you will need:
+
++ A Java development environment, we will assume [Eclipse](https://www.eclipse.org/)
 
 + Microsoft Visual Studio Express 2013 for Windows
 
@@ -41,13 +43,17 @@ In order to complete this tutorial you will need:
 
    	![][5]
 
-7. Select the tab **Dashboard** at the top, and then click **Connection Information**. Take note of the two connection strings.
+7. In the same page, take note of the generated keys for **SendRule**.
+
+   	![][6b]
+
+8. Select the tab **Dashboard** at the top, and then click **Connection Information**. Take note of the two connection strings.
 
    	![][6]
 
 Your event hub is now created, and you have the connection strings to send and receive events.
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-csharp.md)]
+[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-java](../includes/service-bus-event-hubs-get-started-send-java.md)]
 
 
 [WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/)]
@@ -65,12 +71,14 @@ Now you are ready to run your applications.
    	![][22]
 
 <!-- Images. -->
-[1]: ../includes/media/service-bus-event-hubs-getstarted/create-event-hub1.png
-[2]: ../includes/media/service-bus-event-hubs-getstarted/create-event-hub2.png
-[3]: ../includes/media/service-bus-event-hubs-getstarted/create-event-hub3.png
-[4]: ../includes/media/service-bus-event-hubs-getstarted/create-event-hub4.png
-[5]: ../includes/media/service-bus-event-hubs-getstarted/create-event-hub5.png
-[6]: ../includes/media/service-bus-event-hubs-getstarted/create-event-hub6.png
+[1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
+[2]: ./media/service-bus-event-hubs-getstarted/create-event-hub2.png
+[3]: ./media/service-bus-event-hubs-getstarted/create-event-hub3.png
+[4]: ./media/service-bus-event-hubs-getstarted/create-event-hub4.png
+[5]: ./media/service-bus-event-hubs-getstarted/create-event-hub5.png
+[6]: ./media/service-bus-event-hubs-getstarted/create-event-hub6.png
+[6b]: ./media/service-bus-event-hubs-getstarted/create-event-hub6b.png
+
 
 [21]: ./media/service-bus-event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/service-bus-event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
