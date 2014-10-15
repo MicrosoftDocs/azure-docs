@@ -28,7 +28,7 @@ The dashboard is used to display near-real time sensor information. In this case
 
 The website also contains a static index.html file, which also connects to SignalR, and uses D3.js to graph the data transmitted by the Storm topology.
 
-> [WACOM.NOTE] While you could also use raw WebSockets instead of SignalR, WebSockets does not provide a built-in scaling mechanism if you need to scale out the web site. SignalR can be scaled using [TBD].
+> [WACOM.NOTE] While you could also use raw WebSockets instead of SignalR, WebSockets does not provide a built-in scaling mechanism if you need to scale out the web site. SignalR can be scaled using Azure Service Bus ([http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus](http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus)).
 >
 > For an example of using a Storm topology to communicate with a Python website using raw WebSockets, see the [Storm Tweet Sentiment D3 Visualization](https://github.com/P7h/StormTweetsSentimentD3Viz) project.
 
@@ -42,7 +42,7 @@ The website also contains a static index.html file, which also connects to Signa
 
 3. In **Solution Explorer**, right-click the project and then select **Add | SignalR Hub Class (v2)**. Name the class **DashHub.cs** and add it to the project. This will contain the SignalR hub that is used to communicate data between HDInsight and the dashboard web page.
 
-	> [AZURE.NOTE] If you are using Visual Studio 2012, the **SignalR Hub Class (v2)** template will not be available. You can add a plain **Class** called DashHub instead. You will also need to manually install the SignalR package by opening the **Tools | Library Package Manager | Package Manager Console and running the following command:
+	> [AZURE.NOTE] If you are using Visual Studio 2012, the **SignalR Hub Class (v2)** template will not be available. You can add a plain **Class** called DashHub instead. You will also need to manually install the SignalR package by opening the **Tools | Library Package Manager | Package Manager Console** and running the following command:
 	>
 	> `install-package Microsoft.AspNet.SignalR`
 
@@ -486,9 +486,9 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 
 	<table>
 	<tr><th>Set this...</th><th>To this...</th></tr>
-	<tr><td>eventHubName</td><td>The name of your event hub. For example, **temperature**.</td></tr>
-	<tr><td>eventHubNamespace</td><td>The namespace of your event hub. For example, **sensors-ns**.</td></tr>
-	<tr><td>sharedAccessPolicyName</td><td>The policy you created with send access. For example, **devices**.</td></tr>
+	<tr><td>eventHubName</td><td>The name of your event hub. For example, <strong>temperature</strong>.</td></tr>
+	<tr><td>eventHubNamespace</td><td>The namespace of your event hub. For example, <strong>sensors-ns</strong>.</td></tr>
+	<tr><td>sharedAccessPolicyName</td><td>The policy you created with send access. For example, <strong>devices</strong>.</td></tr>
 	<tr><td>sharedAccessPolicyKey</td><td>The key for the policy with send access.</td></tr>
 	</table>
 
@@ -505,6 +505,8 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 
 		namespace SendEvents
 		{
+			[DataMember]
+        	public DateTime TimeStamp { get; set; }
 		    [DataContract]
 		    public class Event
 		    {
@@ -515,7 +517,7 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 		    }
 		}
 
-	This class describes the data we are sending - a DeviceID and a Temperature value.
+	This class describes the data we are sending - the TimeStamp, a DeviceID and a Temperature value.
 
 6. **Save All**, then run the application to populate Event Hub with messages.
 
@@ -1022,7 +1024,7 @@ Bolts do the main processing in a topology. For this topology there are three bo
 		  public void prepare(Map config, TopologyContext context) {
 		
 		    // Connect to the DashHub SignalR server
-		    conn = new HubConnection("http://larryfrdashboard.azurewebsites.net/");
+		    conn = new HubConnection("http://dashboard.azurewebsites.net/");
 		    // Create the hub proxy
 		    proxy = conn.createHubProxy("DashHub");
 		    // Subscribe to the error event
@@ -1323,3 +1325,7 @@ You have now learned how to use Storm to read data from Event Hub, store data in
 * For more information on SignalR, see [ASP.NET SignalR](http://signalr.net/)
 
 * For more information on D3.js, see [D3.js - Data Driven Documents](http://d3js.org/)
+
+* For information on creating topologies in .NET, see [Develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight](/en-us/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
+
+[azure-portal]: https://manage.windowsazure.com/
