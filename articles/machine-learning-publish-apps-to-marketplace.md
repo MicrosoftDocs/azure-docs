@@ -14,6 +14,6 @@ These include for example:
   
 * [Frequently bought together](https://datamarket.azure.com/dataset/amla/mba) – an API that helps your customers discover items in your catalog that are frequently purchased together. Use your customer purchase history to add "Frequently Bought Together" recommendations to your website and to improve conversion in your digital store.
 
-* [Anomaly detection](https://datamarket.azure.com/dataset/explore/aml_labs/anomalydetection) - an API that can spot anomalous events in time-series data (e.g. server telemetry, sensor based data).
+* [Anomaly detection](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) - an API that can spot anomalous events in time-series data (e.g. server telemetry, sensor based data).
 
 These APIs allow you to consume powerful machine learning based services built on Azure ML, without needing to be a data scientist or spend a lot of time developing those yourself – just bring your own data and start using them.
