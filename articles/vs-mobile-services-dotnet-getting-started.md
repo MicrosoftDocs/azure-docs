@@ -46,11 +46,11 @@ Insert a new item into a data table.
 
 The following code queries a table for all items. Note that it returns only the first page of data, which by default is 50 items. You can pass the page size you want, since it's an optional parameter.
 
-    List<TodoItem> items = await todoTable.ToListAsync();
+    List<TodoItem> items;
     try
     {
         // Query that returns all items.   
-        items = await todoTable.ToCollectionAsync();             
+        items = await todoTable.ToListAsync();             
     }
     catch (MobileServiceInvalidOperationException e)
     {
