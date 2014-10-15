@@ -18,33 +18,34 @@ The current version of the Azure Management Portal only accepts SSH public keys 
 
 	**CentOS / Oracle Linux**
 
-		`sudo yum install openssl`
+		# sudo yum install openssl
 
 	**Ubuntu**
 
-		`sudo apt-get install openssl`
+		# sudo apt-get install openssl
 
 	**SLES & openSUSE**
 
-		`sudo zypper install openssl`
+		# sudo zypper install openssl
 
 
 2. Use `openssl` to generate an X509 certificate with a 2048-bit RSA keypair. Please answer the few questions that the `openssl` prompts for (or you may leave them blank). The content in these fields is not used by the platform:
 
-			openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
+		# openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
 
 3.	Change the permissions on the private key to secure it.
 
-			chmod 600 myPrivateKey.key
+		# chmod 600 myPrivateKey.key
+
 4.	Upload the `myCert.pem` while creating the Linux virtual machine. The provisioning process will automatically install the public key in this certificate into the `authorized_keys` file for the specified user in the virtual machine.
 
 5.	If you are going to use the API directly, and not use the Management Portal, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate) using the following command:
 
-			openssl  x509 -outform der -in myCert.pem -out myCert.cer
+		# openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
 
 ## Generate a Key from an Existing OpenSSH Compatible Key
-The previous example describes how to create a new key for use with Windows Azure. In some cases users may already have an existing OpenSSH compatible public & private key pair and wish to use the same keys with Windows Azure.
+The previous example describes how to create a new key for use with Windows Azure. In some cases you may already have an existing OpenSSH compatible public & private key pair and wish to use the same keys with Windows Azure.
 
 OpenSSH private keys are directly readable by the `openssl` utility. The following command will take an existing SSH private key (id_rsa in the example below) and create the `.pem` public key that is needed for Windows Azure:
 
@@ -54,13 +55,14 @@ The **myCert.pem** file is the public key that may then be used to provision a L
 
 
 ## Connect to an Windows Azure Virtual Machine from Linux
-Every Linux virtual machine is provisioned with SSH in a particular port that may be different from the standard port used so you 
 
-1.	Find the port you will use to connect to the Linux virtual machine from the Management Portal.
+1. In some cases the SSH endpoint for a Linux virtual machine may be configured for a port other then the default port 22. You can find the correct port number on the Dashboard for the VM in the Management Portal (under "SSH Details").
+
 2.	Connect to the Linux virtual machine using `ssh`. You will be prompted to accept the fingerprint of the host's public key the first time you log in.
 
-		ssh -i  myPrivateKey.key -p <port> username@servicename.cloudapp.net
-3.	(Optional) You may copy `myPrivateKey.key` to `~/.ssh/id_rsa` so that your openssh client can automatically pick this up without the use of the `-i` option.
+		# ssh -i  myPrivateKey.key -p <port> username@servicename.cloudapp.net
+
+3.	(Optional) You may copy `myPrivateKey.key` to `~/.ssh/id_rsa` so that your OpenSSH client can automatically pick this up without the use of the `-i` option.
 
 ## Get OpenSSL on Windows ##
 ### Use msysgit ###
@@ -85,7 +87,7 @@ Every Linux virtual machine is provisioned with SSH in a particular port that ma
 1.	Follow one of the set of instructions above to be able to run `openssl.exe`
 2.	Type in the following command:
 
-		openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
+		# openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
 
 3.	Your screen should look like the following:
 
@@ -95,35 +97,48 @@ Every Linux virtual machine is provisioned with SSH in a particular port that ma
 5.	It would have created two files: `myPrivateKey.key` and `myCert.pem`.
 6.	If you are going to use the API directly, and not use the Management Portal, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate) using the following command:
 
-		openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
+		# openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
 
 ## Create a PPK for Putty ##
 
-1.	Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2.	Run `puttygen.exe`
-3.	Click the menu: File > Load a Private Key
-4.	Find your private key, which we named `myPrivateKey.key`. You will need to change the file filter to show **All Files (\*.*)**
-5.	Click **Open**. You will receive a prompt which should look like this:
+1. Download and install Puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+
+2. Puttygen may not be able to read the private key that was created earlier (`myPrivateKey.key`). Run the following command to translate it into an RSA private key that Puttygen can understand:
+
+		# openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
+		# chmod 600 ./myPrivateKey_rsa
+
+	The command above should produce a new private key called myPrivateKey_rsa.
+
+3. Run `puttygen.exe`
+
+4. Click the menu: File > Load a Private Key
+
+5. Find your private key, which we named `myPrivateKey_rsa` above. You will need to change the file filter to show **All Files (\*.\*)**
+
+6. Click **Open**. You will receive a prompt which should look like this:
 
 	![linuxgoodforeignkey](./media/virtual-machines-linux-use-ssh-key/linuxgoodforeignkey.png)
 
-6.	Click **OK**.
-7.	Click **Save Private Key**, which is highlighted in the screenshot below:
+7. Click **OK**
+
+8. Click **Save Private Key**, which is highlighted in the screenshot below:
 
 	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtygenprivatekey.png)
 
-8.	Save the file as a PPK.
+9. Save the file as a PPK
+
 
 ## Use Putty to Connect to a Linux Machine ##
 
 1.	Download and install putty from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	Run putty.exe
-3.	Fill in the host name using the IP from the Management Portal.
+3.	Fill in the host name using the IP from the Management Portal:
 
 	![linuxputtyconfig](./media/virtual-machines-linux-use-ssh-key/linuxputtyconfig.png)
 
-4.	Before selecting **Open**, click the Connection > SSH > Auth tab to choose your key. See the screenshot below for the field to fill in.
+4.	Before selecting **Open**, click the Connection > SSH > Auth tab to choose your key. See the screenshot below for the field to fill in:
 
 	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
 
-5.	Click **Open** to connect to your virtual machine.
+5.	Click **Open** to connect to your virtual machine
