@@ -10,7 +10,7 @@ This topic follows this [MS Open Tech blog announcement](http://msopentech.com/b
 + [Docker and Linux Containers](#Docker and Linux Containers)
 + [How to use the Docker VM Extension with Azure](#How to use the Docker VM Extension with Azure)
 + [Next Steps](#Next Steps)
-+ [Virtual Machine Extensions for Linux and Windows] (#Virtual Machine Extensions for Linux and Windows)
++ [Virtual Machine Extensions for Linux and Windows](#Virtual Machine Extensions for Linux and Windows)
 
 
 ## </a id="Docker and Linux Containers">Docker and Linux Containers</a>
