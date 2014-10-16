@@ -1,6 +1,6 @@
-<properties linkid="media-services-release-notes" urlDisplayName="Media Services Release Notes" pageTitle="Media Services Release Notes" metaKeywords="Azure Media Services" description="Azure Media Services release notes." metaCanonical="" services="media-services" documentationCenter="Media" title="Media Services Release Notes" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Media Services Release Notes" metaKeywords="Azure Media Services" description="Media Services Release Notes" metaCanonical="" services="media-services" documentationCenter="Media" title="Media Services Release Notes" authors="juliako" solutions="media" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="media" ms.devlang="dotnet" ms.topic="article" ms.date="10/06/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="media" ms.devlang="dotnet" ms.topic="article" ms.date="10/15/2014" ms.author="juliako" />
 
 
 # Azure Media Services Release Notes
@@ -359,7 +359,6 @@ The following functionality was new in the November release of the SDK.
 	Asynchronous support has been added to all methods.
 
 <!-- Anchors. -->
-
 
 <!-- Images. -->
 

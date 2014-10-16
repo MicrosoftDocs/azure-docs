@@ -643,7 +643,7 @@ You might want to attach a custom header to every outgoing request, or to change
 
 The [MobileServiceClient](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) class exposes a `SerializerSettings` property of type [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm)
 
-Using this property, you may set Json.NET properties (there have many), including one -- for example -- to convert all properties to lower case:
+Using this property, you may set Json.NET properties (there are many), including one -- for example -- to convert all properties to lower case:
 
 	var settings = new JsonSerializerSettings();
 	settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
