@@ -216,9 +216,9 @@ Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 * Sample that demonstrates using SendGrid in an Azure deployment: [How to send email using SendGrid from Java in an Azure deployment](../store-sendgrid-java-how-to-send-email-example/)
-* SendGrid Java information: <http://sendgrid.com/docs/Code_Examples/java.html>
-* SendGrid API documentation: <http://sendgrid.com/docs/API_Reference/index.html>
-* SendGrid special offer for Azure customers: <http://sendgrid.com/azure.html>
+* SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
+* SendGrid API documentation: <https://sendgrid.com/docs/API_Reference/index.html>
+* SendGrid special offer for Azure customers: <https://sendgrid.com/windowsazure.html>
 
   [Next Steps]: #bkmk_NextSteps
   [What is the SendGrid Email Service?]: #bkmk_WhatIsSendGrid
@@ -230,13 +230,13 @@ these links to learn more.
   [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #bkmk_HowToUseFilters
   [How to: Update Email Properties]: #bkmk_HowToUpdateEmail
   [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
-  [http://sendgrid.com]: http://sendgrid.com
+  [http://sendgrid.com]: https://sendgrid.com
   [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
-  [http://www.sendgrid.com/azure.html]: http://www.sendgrid.com/azure.html
-  [http://sendgrid.com/features]: http://sendgrid.com/features
+  [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
+  [http://sendgrid.com/features]: https://sendgrid.com/features
   [http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
-  [Filter Settings]: http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
-  [SendGrid API documentation]: http://sendgrid.com/docs/API_Reference/index.html
-  [http://sendgrid.com/azure.html]: http://sendgrid.com/azure.html
-  [cloud-based email service]: http://sendgrid.com/solutions
-  [transactional email delivery]: http://sendgrid.com/transactional-email
+  [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
+  [SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/index.html
+  [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
+  [cloud-based email service]: https://sendgrid.com/email-solutions
+  [transactional email delivery]: https://sendgrid.com/transactional-email

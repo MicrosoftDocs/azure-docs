@@ -102,9 +102,9 @@ Now that you've seen how easy it is to use the SendGrid email service with Mobil
 these links to learn more about SendGrid.
 
 -   SendGrid API documentation:
-    <http://docs.sendgrid.com/documentation/api/>
+    <https://sendgrid.com/docs>
 -   SendGrid special offer for Azure customers:
-    <http://sendgrid.com/azure.html>
+    <https://sendgrid.com/windowsazure.html>
 
 <!-- Anchors. -->
 [Create a SendGrid account]: #sign-up
@@ -119,9 +119,9 @@ these links to learn more about SendGrid.
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[sign up page]: http://sendgrid.com/azure.html
-[Multiple User Credentials page]: http://sendgrid.com/credentials
+[sign up page]: https://sendgrid.com/windowsazure.html
+[Multiple User Credentials page]: https://sendgrid.com/credentials
 [Azure Management Portal]: https://manage.windowsazure.com/
-[cloud-based email service]: http://sendgrid.com/solutions
-[transactional email delivery]: http://sendgrid.com/transactional-email
+[cloud-based email service]: https://sendgrid.com/email-solutions
+[transactional email delivery]: https://sendgrid.com/transactional-email
 

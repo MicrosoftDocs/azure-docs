@@ -44,7 +44,7 @@ include:
 -   Generating reports to help identify trends.
 -   Forwarding customer inquiries.
 
-For more information, see [http://sendgrid.com](http://sendgrid.com).
+For more information, see [https://sendgrid.com](https://sendgrid.com).
 
 <h2><a name="createaccount"></a><span  class="short-header">Create a SendGrid account</span></h2>
 
@@ -256,8 +256,8 @@ Now that you've learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 * SendGrid C\# library repo: [sendgrid-csharp][]
-*   SendGrid API documentation: <http://docs.sendgrid.com/documentation/api/>
-*   SendGrid special offer for Azure customers: [http://sendgrid.com](http://sendgrid.com)
+*   SendGrid API documentation: <https://sendgrid.com/docs>
+*   SendGrid special offer for Azure customers: [https://sendgrid.com](https://sendgrid.com)
 
   [Next steps]: #nextsteps
   [What is the SendGrid Email Service?]: #whatis
@@ -270,15 +270,15 @@ these links to learn more.
   [How to: Use Additional SendGrid Services]: #useservices
   
   
-  [special offer]: http://www.sendgrid.com/azure.html
+  [special offer]: https://www.sendgrid.com/windowsazure.html
   
   
   
   [SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
-  [SMTP vs. Web API]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
-  [Filter Settings]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/
-  [SendGrid API documentation]: http://docs.sendgrid.com/documentation/api/
+  [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
+  [Filter Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [SendGrid API documentation]: https://sendgrid.com/docs
   
-  [cloud-based email service]: http://sendgrid.com/solutions
-  [transactional email delivery]: http://sendgrid.com/transactional-email
+  [cloud-based email service]: https://sendgrid.com/email-solutions
+  [transactional email delivery]: https://sendgrid.com/transactional-email
