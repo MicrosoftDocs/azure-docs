@@ -85,6 +85,9 @@ Consider finding out more about the following Mobile Services and Notification H
 * [What are Notification Hubs?]
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
 
+* [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>Get guidance troubleshooting and debugging Notification Hubs solutions. 
+
 * [Mobile Services HTML/JavaScript How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with JavaScript apps.
 
