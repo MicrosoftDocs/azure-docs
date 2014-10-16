@@ -152,9 +152,9 @@ Microsoft Data Management Gateway is software that connects on-premises data sou
 
 [datafactory-getstarted]: ../documentdb-get-started/
 
-[image-data-factory-introduction-traditional-ETL]: ./media/data-factory-introduction/TraditionalETL.png
+[image-data-factory-introduction-traditional-ETL]: ./media/data-factory-introduction/TraditionalETL.PNG
 
-[image-data-factory-introduction-todays-diverse-processing-landspace]:./media/data-factory-introduction/TodaysDiverseDataProcessingLandscape.png
+[image-data-factory-introduction-todays-diverse-processing-landspace]:./media/data-factory-introduction/TodaysDiverseDataProcessingLandscape.PNG
 
 [image-data-factory-introduction-secenario1-source-datahub]:./media/data-factory-introduction/Scenario#1-Source-DataHub.png
 
