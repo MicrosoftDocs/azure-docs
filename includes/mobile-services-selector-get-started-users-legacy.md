@@ -2,7 +2,7 @@
 - [(iOS | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/)
 - [(iOS | JavaScript)](/en-us/documentation/articles/mobile-services-ios-get-started-users/)
 - [(Windows Store C# | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/)
-- [(Windows Store C# | Javascript)](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-users/)
+- [(Windows Store C# | Javascript)](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/)
 - [(Windows Store JavaScript | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/)
 - [(Windows Store JavaScript | Javascript)](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
 - [(Windows Phone | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/)

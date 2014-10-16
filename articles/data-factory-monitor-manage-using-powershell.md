@@ -9,6 +9,8 @@ The following table lists cmdlets you can use monitor and manage Azure data fact
 - [Get-AzureDataFactory](#get-azuredatafactory)
 - [Get-AzureDataFactoryLinkedService](#get-azuredatafactorylinkedservice)
 - [Get-AzureDataFactoryTable](#get-azuredatafactorytable)
+- [Get-AzureDataFactoryPipeline](#get-azuredatafactorypipeline)
+- 
 
 
 ##<a name="get-azuredatafactory"></a>Get-AzureDataFactory
@@ -55,3 +57,233 @@ This command returns information about all tables in the Azure data factory ADFT
     Get-AzureDataFactoryTable -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name EmpTableFromBlob
 
 This command returns information about the table EmpTableFromBlob in the Azure data factory ADFTutorialDataFactory.
+
+## <a name="get-azuredatafactorypipeline"></a>Get-AzureDataFactoryPipeline
+The Get-AzureDataFactoryPipeline cmdlet gets information about a specific pipeline or all pipelines in an Azure data factory.
+
+### Example 1
+
+    Get-AzureDataFactoryPipeline -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
+
+This command returns information about all pipelines in the Azure data factory ADFTutorialDataFactory.
+
+### Example 2
+
+    Get-AzureDataFactoryPipeline -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name ADFTutorialPipeline
+
+Gets information about the pipeline ADFTutorialPipeline in the Azure data factory ADFTutorialDataFactory.
+
+## <a name="get-azuredatafactoryslice"> </a> Get-AzureDataFactorySlice
+The Get-AzureDataFactorySlice cmdlet gets all the slices for a table in an Azure data factory that are produced after the StartDateTime and before the EndDateTime. The data slice with status Ready is ready for consumption by dependent slices.
+
+The following table lists all the statuses of a slice and their descriptions.
+
+<table border="1">	<tr><th>Status</th><th>Descritpion</th></tr>	
+
+<tr><td>PendingExecution</td><td>Data processing has not started yet.</td></tr>	
+
+<tr><td>InProgress</td><<td>Data processing is in-progress.</td>/tr>
+
+<tr><td>Ready</td><<td>Data processing has completed and the data slice is ready.</td>/tr>
+
+<tr><td>Failed</td><<td>Execution of the run that produces the slice failed.</td>/tr>
+
+<tr><td>Skip</td><<td>Skip processing of the slice.</td>/tr>
+
+<tr><td>Retry</td><<td>Retrying the run that produces the slice.</td>/tr>
+
+<tr><td>Timed Out</td><<td>Data processing has timed out.</td>/tr>
+
+<tr><td>PendingValidation</td><<td>Data slice is waiting for validation against validation policies before being processed.</td>/tr>
+
+<tr><td>Retry Validation</td><<td>Retry the validation of the slice.</td>/tr>
+
+<tr><td>Failed Validation</td><<td>Validation of the slice failed.</td>/tr>
+
+</table>
+
+For each of the slices, you can drill-down deeper, and see more information about the run that is producing the slice by using Get-AzureDataFactoryRun and Save-AzureDataFactoryRunLog cmdlets.
+
+### Example
+
+    Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-05-20T10:00:00
+
+This command gets all the slices for the table EmpSQLTable in the Azure data factory ADFTutorialDataFactory produced after 2014-05-20T10:00:00 (GMT). Replace the date-time with the start date time you specified when you ran the Set-AzureDataFactoryPipelineActivePeriod.
+
+## Get-AzureDataFactoryRun
+The Get-AzureDataFactoryRun cmdlet gets all the runs for a data slice of a table in an Azure data factory.  A table in an Azure data factory is composed of slices over the time axis. The width of a slice is determined by the schedule – hourly/daily. The run is a unit of processing for a slice. There could be one or more runs for a slice in case of retries or if you rerun your slice in case of failures. A slice is identified by its start time. Therefore for the Get-AzureDataFactoryRun cmdlet, you need to pass in the start time of the slice from the results of the Get-AzureDataFactorySlice cmdlet.
+
+For example, to get a run for the following slice, you use 2015-04-02T20:00:00. 
+
+    ResourceGroupName  	: ADFTutorialResourceGroup
+    DataFactoryName 	: ADFTutorialDataFactory
+    TableName 			: EmpSQLTable
+    Start 				: 5/2/2014 8:00:00 PM
+    End 				: 5/3/2014 8:00:00 PM
+    RetryCount 			: 0
+    Status 				: Ready
+    LatencyStatus 		:
+
+
+
+### Example
+
+    Get-AzureDataFactoryRun -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -ResourceGroupName ADFTutorialResourceGroup -StartDateTime 2014-05-21T16:00:00
+
+This command gets all runs for slices of the table EmpSQLTable in the Azure data factory ADFTutorialDataFactory starting from 4 PM GMT on 05/21/2014.
+
+## Save-AzureDataFactoryRunLog
+The Save-AzureDataFactoryRunLog cmdlet saves HDInsight logs corresponding to the run for a data slice. You pass the the run ID from the output of the Get-AzureDataFactoryRun cmdlet to the Save-AzureDataFactoryRunLog.
+
+###Example
+Save-AzureDataFactoryRunLog -DataFactoryName ADFTutorialDataFactory -ResourceGroupName ADFTutorialResourceGroup -Id a7c4913c-9623-49b3-ae1e-3e45e2b68819
+
+
+## Get-AzureDataFactoryGateway
+The Get-AzureDataFactoryGateway cmdlet gets information about a specific gateway or all gateways in an Azure data factory. You need to install a gateway on your on-premises computer so to be able add an on-premises SQL Server as a linked service to a data factory.
+
+### Example 1
+    Get-AzureDataFactoryGateway -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
+This command returns information about all gateways in the Azure data factory ADFTutorialDataFactory.
+
+### Example 2
+
+    Get-AzureDataFactoryGateway -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name ADFTutorialGateway
+
+This command returns information about the gateway ADFTutorialGateway in the Azure data factory ADFTutorialDataFactory.
+
+## Set-AzureDataFactoryPipelineActivePeriod
+This cmdlet sets the active period for the data slices that are processed by the pipeline. If you use Set-AzureDataFactorySliceStatus, make sure that the slice startdate and end date are in the active period of the pipeline.
+
+Once the pipelines are created, you can specify the duration in which data processing will occur. By specifying the active period for a pipeline, you are defining the time duration in which the data slices will be processed based on the Availability properties that were defined for each ADF table.
+
+### Example
+
+    Set-AzureDataFactoryPipelineActivePeriod  -Name ADFTutorialPipeline -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-22T16:00:00
+
+This command sets the active period for the data slices that are processed by the pipeline ADFTutoiralPipeline to 5/21/2014 4 PM GMT to 5/22/2014 4 PM GMT.
+
+## Set-AzureDataFactorySliceStatus
+Sets the status of a slice for a table. The slice start date and end date must be in the active period of the pipeline.
+
+### Supported values for status
+Each data slice for a table goes through different stages. These stages are slightly different based on whether validation policies are specified.
+
+
+- If validation policies are  not specified: PendingExecution -> InProgress -> Ready
+- If validation policies are specified: PendingExecution -> Pending Validation -> InProgress -> Ready
+
+The following table provides descriptions for possible statuses of a slice and tells you whether the status can be set using the Set-AzureDataFactorySliceStatus or not.
+
+<table border="1">	
+	<tr>
+		<th>Status</th>
+		<th>Descritpion</th>
+		<th>Can this be set using cmdlet></th>
+	</tr>	
+
+	<tr>
+		<td>PendingExecution</td>
+		<td>Data processing has not started yet.</td>
+		<td>Y</td>
+	</tr>	
+
+	<tr>
+		<td>InProgress</td>
+		<td>Data processing is in-progress.</td>
+		<td>N</td>
+	</tr>
+
+	<tr>
+		<td>Ready</td>
+		<td>Data processing has completed and the data slice is ready.</td>
+		<td>Y</td>
+	</tr>
+
+	<tr>
+		<td>Failed</td>
+		<td>Execution of the run that produces the slice failed.</td>
+		<td>N</td>
+	</tr>
+
+	<tr>
+		<td>Skip</td>
+		<td>Skip processing of the slice.</td>
+		<td>Y</td>
+	</tr>
+
+	<tr>
+		<td>Retry</td>
+		<td>Retrying the run that produces the slice.</td>
+		<td>N</td>
+	</tr>
+
+	<tr>
+		<td>Timed Out</td>
+		<td>Data processing has timed out.</td>
+		<td>N</td>
+	</tr>
+
+	<tr>
+		<td>PendingValidation</td>
+		<td>Data slice is waiting for validation against validation policies before being processed.</td>
+		<td>Y</td>
+	</tr>
+
+	<tr>
+		<td>Retry Validation</td>
+		<td>Retry the validation of the slice.</td>
+		<td>N</td>
+	</tr>
+
+	<tr>
+		<td>Failed Validation</td>
+		<td>Validation of the slice failed.</td>
+		<td>N</td>
+	</tr>
+	</table>
+
+
+### Supported Values - Update Type
+For each table in an Azure data factory, when you set the status of a slice, you need to specify whether the status update applies to only to the table, or whether the status updates propagate to all affected slices.
+
+<table border="1">	
+	<tr>
+		<th>Update Type</th>
+		<th>Descritpion</th>
+		<th>Can this be set using cmdlet</th>
+	</tr>
+
+	<tr>
+		<td>Individual</td>
+		<td>Sets the status of each slice for the table in the specified time range</td>
+		<td>Y</td>
+	</tr>
+
+	<tr>
+		<td>UpstreamInPipeline</td>
+		<td>Sets the status of each slice for the table and all the dependent (upstream) tables which are used as input tables for activities in the pipeline.</td>
+		<td>Y</td>
+	</tr>
+
+</table>
+## Suspend-AzureDataFactoryPipeline
+The Suspend-AzureDataFactoryPipeline cmdlet suspends the specified pipeline in an Azure data factory. You can resume the pipeline later by using the Resume-AzureDataFactoryPipeline cmdlet.
+
+### Example
+
+    Suspend-AzureDataFactoryPipeline -Name ADFTutorialPipeline -DataFactoryName ADFTutorialDataFactory -ResourceGroupName ADFTutorialResourceGroup
+
+This command suspends the pipeline ADFTutorialPipeline in the Azure data factory ADFTutorialDataFactory.
+
+## Resume-AzureDataFactoryPipeline
+The Resume-AzureDataFactoryPipeline cmdlet resumes the specified pipeline that is currently in suspended state in an Azure data factory. 
+
+### Example
+
+    Resume-AzureDataFactoryPipeline ADFTutorialPipeline -DataFactoryName ADFTutorialDataFactory -ResourceGroupName ADFTutorialResourceGroup
+
+This command resumes the pipeline ADFTutorialPipeline in the Azure data factory ADFTutorialDataFactory that was suspended before by using the Suspend-AzureDataFactoryPipeline command.
+
+
+
