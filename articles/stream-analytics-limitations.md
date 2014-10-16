@@ -2,104 +2,80 @@
 
 <tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="09/31/2014" ms.author="jgao" />
 
-<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
+#Azure Stream Analytics limitations in the preview release
 
-<!--Properties section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20properties%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20values.aspx for details. -->
-
-<!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. -->
-
-<!--The next line, with one pound sign at the beginning, is the page title--> 
-# Azure Stream Analytics limitations in the public preview release 
-
-<p> Intro paragraph: Lorem ipsum dolor amet, consectetur adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
-
+This document describes the limits and known issues of [Azure Stream Analytics][azure.stream.analytics.documentation] during the Preview release.  In most cases these limits exist with an intent to get your early feedback or based on current capacity constraints. 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
-+ [Subheading 1] 
-+ [Subheading 2]
-+ [Subheading 3]
-+ [Next steps]
++ [Limitations] 
++ [Release notes and known issues]
+
+## Limitations
+
+###Regional availability
+Stream Analytics jobs can only be provisioned in the Central US and West Europe regions in the preview release.
+
+###Elevated Event Hub permissions required
+
+At this time Stream Analytics requires a Shared Access Policy with Manage permissions for Event Hub input and output sources.
+
+###Scale 
+**Streaming Unit quota**
+
+Due to current capacity constraints, a quota of 12 Streaming Units per region per subscription is enforced. For more information see [Scale Azure Stream Analytics jobs][azure.stream.analytics.scale]. If you have business need to relax this limit, please call [Microsoft support][microsoft.support] and we will do our best to accommodate within the constraints of the public offer. 
+
+**Streaming Unit specification and utilization**
+
+The number of Streaming Units that can be allocated to a job depend on the number of partitions on the data input and the way that the job query is written.
+  
+In this preview release, the number of Streaming Units provided to a job may sometimes be higher than the amount selected or billed.  Additionally, Streaming Units will not be throttled down, meaning that observed performance may be higher than guaranteed depending on the availability of computational resources.
+
+**Partition key**
+
+When scaling out your query with PARTITION BY, the field to partition on must be PartitionId.  Partitioning on other user-defined fields will be enabled in a future release.
+For details on scaling your job, see [Scale Azure Stream Analytics jobs][azure.stream.analytics.scale].
+
+###Inputs
 
 
 
-## Subheading 1
+**Character encoding**
 
-Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque. <a href="http://msdn.microsoft.com/library/azure" target="_blank">Link text for link outside of azure.microsoft.com</a>. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris.
-
-> [WACOM.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
-
-1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio. 
-
-2. Aenean tellus lectus, faucibus in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
- 
-  	![][5]
-
-3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl. 
-
-  	![][6]
+For the CSV and JSON input sources, UTF-8 is the only support  encoding format.
 
 
-Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic]
+###Query complexity
+The maximum number of supported aggregate functions in a Stream Analytics job query definition is seven.
 
-## Subheading 2
+###Lifecycle management
 
-Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.   
+**Job upgrade**
 
-1. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus. 
+At this time Stream Analytics does not support live edits to the definition or configuration of a running job.  In order to change the input, output, query, scale or configuration of a running job, you must first stop the job.
 
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
-        (NSDictionary *)launchOptions
-        {
-            // Register for remote notifications
-            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-            return YES;
-        }   	 
+**Job stop and restart**
 
-2. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia. 
+Stopping a job does not preserve any state about job progress, meaning that there is currently no way to configure a restarted job to resume from where it was last stopped.  This is a limitation that will be addressed in a future release.  For best practices on starting and stopping jobs, see [Azure Stream Analytics developer guide][azure.stream.analytics.developer.guide]. 
 
-   	    // Because toast alerts don't work when the app is running, the app handles them.
-        // This uses the userInfo in the payload to display a UIAlertView.
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification:
-        (NSDictionary *)userInfo {
-            NSLog(@"%@", userInfo);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-            [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
-            @"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
+###Monitor jobs
+Some metrics related to job usage and performance, such as latency, are not available in the preview release.  The preview release also only surfaces job throughput in terms of event count, not size.
+
+##Release notes / known issues
+
+This contains a list of known issues for Azure Stream Analytics. This section will change over time as we remove items from the list, encounter new issues or learn more about existing ones.
+
+###Delay in Azure Storage account configuration
+When creating a Stream Analytics job in a region for the first time, you will be prompted to create a new storage account or specify an existing account for monitoring Stream Analytics jobs in that region.  Due to latency in configuring monitoring, creating another Stream Analytics job in the same region within 30 minutes will prompt for the specifying of a second storage account instead of showing the recently configured one in the Monitoring Storage Account Dropdown.  To avoid creating an unnecessary storage account, wait 30 minutes after creating a job in a region for the first time before provisioning additional jobs in that region. 
+
+###Jobs use Default Consumer Group for Event Hub
+When an Event Hub is specified as an input, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.  Doing so without additional configuration means that no other receivers can access the Event Hub.  To enable an Event Hub to have more than one receiver, additional consumer groups must be configured.  For details, see [Event Hubs developer guide][azure.event.hubs.developer.guide].
 
 
-    > [WACOM.NOTE] Duis sed diam non <i>nisl molestie</i> pharetra eget a est. [Link 2 to another azure.microsoft.com documentation topic]
 
-
-Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus suscipit tellus dignissim ultrices.
-
-## Subheading 3
- 
-1. Maecenas sed condimentum nisi. Suspendisse potenti. 
-
-  + Fusce
-  + Malesuada
-  + Sem
-
-2. Nullam in massa eu tellus tempus hendrerit.
-
-  	![][7]
-
-3. Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
-
- 
-
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps
-
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
 
 <!--Anchors-->
-[Subheading 1]: #subheading-1
-[Subheading 2]: #subheading-2
+[Limitations]: #Limitations
+[Release notes and known issues]: #Release-notes-and-known-issues
 [Subheading 3]: #subheading-3
 [Next steps]: #next-steps
 
@@ -110,6 +86,15 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 
 
 <!--Link references-->
+
+[azure.stream.analytics.documentation]: http://go.microsoft.com/fwlink/?LinkId=512092
+[azure.stream.analytics.scale]: ../stream-analytics-scale-jobs/
+[azure.stream.analytics.developer.guide]: ../stream-analytics-scale-jobs/
+
+
+[microsoft.support]: http://support.microsoft.com/
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/

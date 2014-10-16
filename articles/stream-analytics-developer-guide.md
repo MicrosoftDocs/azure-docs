@@ -2,98 +2,120 @@
 
 <tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="09/31/2014" ms.author="jgao" />
 
-<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
 
-<!--Properties section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20properties%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20values.aspx for details. -->
-
-<!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. -->
-
-<!--The next line, with one pound sign at the beginning, is the page title--> 
 # Azure Stream Analytics (preview) developer guide 
 
-<p> Intro paragraph: Lorem ipsum dolor amet, consectetur adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
+Azure Stream Analytics is a fully managed service providing low latency, highly available, scalable complex event processing over streaming data in the cloud. In the preview release,  Stream Analytics enables customers to setup streaming jobs to analyze streams of data, and allows customers to drive near real-time analytics.  
 
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
+Targeted scenarios of Stream Analytics:
 
-+ [Subheading 1] 
-+ [Subheading 2]
-+ [Subheading 3]
-+ [Next steps]
+- Perform complex event processing on high volume and high velocity data   
+- Collect event data from globally distributed assets or equipment such as connected cars or utility grids 
+- Process telemetry data for near real time monitoring and diagnostics 
+- Capture and archive real-time events for future processing
+
+Stream Analytics jobs are defined as one or more input sources, a query over the incoming stream data, and an output target.  
+
+
+##In this article
+
++ [Inputs](#inputs) 
++ [Query](#query)
++ [Output](#output)
++ [Scale jobs](#scale)
++ [Monitor and troubleshot jobs](#monitor)
++ [Manage jobs](#manage)
++ [Next steps](#nextsteps)
 
 
 
-## Subheading 1
+##<a name="inputs"></a>Inputs
 
-Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque. <a href="http://msdn.microsoft.com/library/azure" target="_blank">Link text for link outside of azure.microsoft.com</a>. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris.
+### Data stream
 
-> [WACOM.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
+Each Stream Analytics job definition must contain at least one streaming data input source to be consumed and transformed by the job.  [Azure Blob Storage][azure.blob.storage] and [Azure Service Bus Event Hubs][azure.event.hubs] are supported as stream data input sources.  Event Hub input sources are used to collect event streams from multiple different devices and services, while Blob Storage can be used an input source for ingesting large amounts of data.  Because Blobs do not stream data, Stream Analytics jobs over Blobs will not be temporal in nature unless the records in the Blob contain timestamps.
 
-1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio. 
+### Reference data
 
-2. Aenean tellus lectus, faucibus in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
+Stream Analytics also supports a second type of input source: reference data.  This is auxiliary data used for performing correlation and lookups and the data here is usually static or infrequently changing.  In the preview release, Blob Storage is the only supported input source for Reference Data.
+
+### Serialization
+To ensure correct behavior of queries, Stream Analytics must be aware of the serialization format being used on incoming data streams. Currently supported formats are JSON, CSV, and Avro for Streaming Data and CSV for Reference Data.
+
+###Additional resources
+For details on creating input sources, see [Azure Event Hubs developer guide][azure.event.hubs.developer.guide] and [Use Azure Blob Storage][azure.blob.storage.use].  
+
+
+
+##<a name="query"></a>Query
+The logic to filter, manipulate and process incoming data is defined in the Query of Stream Analytics jobs.  Queries are written using the Stream Analytics query language, a SQL-Like language that is largely a subset of standard T-SQL syntax with some specific extensions for temporal queries.
+
+###Windowing
+Windowing extensions allow aggregations and computations to be performed over subsets of events that fall within some period of time. Windowing functions are invoked using the GROUP BY statement. For example, the following query counts the events received per second: 
+
+	SELECT Count(*) FROM input GROUP BY TumblingWindow(second, 1) 
+
+###Execution steps
+For more complex queries, the standard SQL clause WITH can be used to specify a temporary named result set.  For example, this query uses WITH to perform a transformation with two execution steps:
  
-  	![][5]
+	WITH local AS ( 
+	SELECT Avg(Reading) as avr 
+	FROM temperature GROUP BY Building, TumblingWindow(hour, 1) 
+	) 
+	SELECT Avg(avr) AS campus_Avg FROM local GROUP BY TumblingWindow (day, 1) 
 
-3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl. 
+To learn more about the query language, see [Azure Stream Analytics Query Language Reference][azure.stream.analytics.query.language.reference]. 
 
-  	![][6]
+##<a name="output"></a>Output
+The output source is where the results of the Stream Analytics job will be written to. Results are written continuously to the output source as the job processes input events.  The following output sources are supported:
 
-
-Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic]
-
-## Subheading 2
-
-Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.   
-
-1. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus. 
-
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
-        (NSDictionary *)launchOptions
-        {
-            // Register for remote notifications
-            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-            return YES;
-        }   	 
-
-2. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia. 
-
-   	    // Because toast alerts don't work when the app is running, the app handles them.
-        // This uses the userInfo in the payload to display a UIAlertView.
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification:
-        (NSDictionary *)userInfo {
-            NSLog(@"%@", userInfo);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-            [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
-            @"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
+- Azure Service Bus Event Hubs: Choose Event Hub as an output source for scenarios when multiple streaming pipelines need to be composed together, such as issuing commands back to devices.
+- Azure Storage Blobs : Use Blob storage for long-term archival of output or for storing data for later processing.
+- Azure SQL Database: This output source is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
 
-    > [WACOM.NOTE] Duis sed diam non <i>nisl molestie</i> pharetra eget a est. [Link 2 to another azure.microsoft.com documentation topic]
+##<a name="Scale jobs"></a>Scale jobs
+
+A Stream Analytics job can be scaled through configuring Streaming Units, which define the amount of processing power a job receives. Each Streaming Unit corresponds to roughly 1 MB/second of throughput.   Each subscription has a quota of 30 Streaming Units per region to be allocated across jobs in that region, and the number of Streaming Units that can be provided to a job depend on how the input is partitioned and how the job query is written.
+
+For details on scaling Stream Analytics jobs, see [Scale Azure Stream Analytics jobs][azure.stream.analytics.scale].
 
 
-Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus suscipit tellus dignissim ultrices.
+##<a name="monitor"></a>Monitoring and troubleshooting jobs
 
-## Subheading 3
- 
-1. Maecenas sed condimentum nisi. Suspendisse potenti. 
+###Regional monitoring storage account
 
-  + Fusce
-  + Malesuada
-  + Sem
+To enable job monitoring, Stream Analytics requires you to designate an Azure Storage account for monitoring data in each region containing Stream Analytics jobs.  This is configured at the time of job creation.  
 
-2. Nullam in massa eu tellus tempus hendrerit.
+###Metrics
+The following metrics are available for monitoring the usage and performance of Stream Analytics jobs:
 
-  	![][7]
+- Incoming Throughput: amount of data received by the Stream Analytics job, in terms of event count
+- Outgoing Throughput: amount of data sent by the Stream Analytics job to output source, in terms event count
+- Error Count: number of error messages incurred by a Stream Analytics job
 
-3. Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
-
- 
+###Operation logs
+The best approach to debugging or troubleshooting a Stream Analytics job is through Azure Operation Logs.  Operation Logs can be accessed under Management Services section of the portal.  To inspect logs for your job, set Service Type to "Stream Analytics" and Service Name to the name of your job.
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps
+##<a name="manage"></a>Manage jobs 
+
+###Starting and stopping jobs
+In the preview release of Stream Analytics, stopping a job does not preserve any state about the last events consumed by the job.  As a result, restarting a stopped job can result in dropped events or duplicate data.  If a job must be stopped temporarily, the best practice is to inspect the output and use the insert time of the last record to approximate when the job stopped.  Then specify this time in the Start Output setting on the Configure tab when the job is restarted.
+This is a temporary limitation and enabling job start and stop without data loss is a high priority to fix in future releases.  
+
+###Configure jobs
+You can adjust the following top-level settings for a Stream Analytics job:
+
+- Start output: Use this setting to specify when the job should start outputting data from.  This setting is useful for specifying how much historical input to consume and for restarting a stopped job back up from approximately when it was last stopped.
+- Out of order policy: Settings for handling events that do not arrive to the Stream Analytics job sequentially.  You can designate a time threshold to reorder events within and also determine whether to drop or adjust the timestamp of events that can’t be resolved in this time window.
+- Locale: Use this setting to specify the internationalization preference for the stream analytics job.  While timestamps of data are locale neutral, settings here impact how the job will parse, compare, and sort data.  For the preview release, only en-US is supported.
+
+##<a name="support"></a>Get support
+For additional support, see [Azure Stream Analytics forum][azure.stream.analytics.forum]. 
+
+
+##<a name="nextsteps"></a>Next steps
 
 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
 
@@ -110,6 +132,17 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 
 
 <!--Link references-->
+[azure.blob.storage]: http://azure.microsoft.com/en-us/documentation/services/storage/
+[azure.blob.storage.use]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
+
+[azure.event.hubs]: http://azure.microsoft.com/en-us/services/event-hubs/
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+
+[azure.stream.analytics.query.language.reference]: http://go.microsoft.com/fwlinks/?LinkID=513299
+[azure.stream.analytics.scale]: ./stream-analytics-scale-jobs/
+[azure.stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151
+
+
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
