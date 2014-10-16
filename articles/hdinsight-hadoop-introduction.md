@@ -44,12 +44,12 @@ Here are the Hadoop technologies in HDInsight:
 * **[HDFS](#hdfs):** Hadoop Distributed File System
 * **[Hive](#hive):** SQL-like querying
 * **[Mahout](#mahout):** Machine learning
-* **[MapReduce and YARN](#mapreduce):** Distributed processing
+* **[MapReduce and YARN](#mapreduce):** Distributed processing and resource management
 * **[Oozie](#oozie):** Workflow management
 * **[Pig](#pig):** Simpler scripting for MapReduce transformations
 * **[Sqoop](#sqoop):** Data import and export 
-* **[Storm](#storm):** Real-time processing of data streams
-* **[Zookeeper](#zookeeper):** Management of distributed systems
+* **[Storm](#storm):** Real-time processing of fast, large data streams
+* **[Zookeeper](#zookeeper):** Coordinates processes in distributed systems
  
 Also, find out about **[business intelligence tools](#bi)** you can use with HDInsight.
 
@@ -99,7 +99,7 @@ For more information on MapReduce, see <a target="_blank" href="http://wiki.apac
 <a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a> is a distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](../hdinsight-storm-sensor-data-analysis/).
 
 ### <a name="zookeeper"></a>Zookeeper
-<a  target="_blank" href="http://zookeeper.apache.org/">Apache Zookeeper</a> coordinates processes in large distributed systems by means of a shared hierarchical namespace of data registers (znodes). Znodes contain small amounts of meta information needed to coordinate the processes: status, location, configuration, and so on. 
+<a  target="_blank" href="http://zookeeper.apache.org/">Apache Zookeeper</a> coordinates processes in large distributed systems by means of a shared hierarchical namespace of data registers (znodes). Znodes contain small amounts of meta information needed to coordinate processes: status, location, configuration, and so on. 
 
 ### <a name="bi"></a>Business intelligence tools 
 Familiar business intelligence (BI) tools - such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services - retrieve, analyze, and report data integrated with HDInsight using either the Power Query add-in or the Microsoft Hive ODBC Driver. 
