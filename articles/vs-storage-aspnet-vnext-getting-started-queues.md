@@ -4,14 +4,12 @@
 
 ## Getting Started with Azure Storage
 
-[WACOM.INCLUDE [vs-storage-aspnet-vnext-getting-started-intro](../includes/vs-storage-aspnet-vnext-getting-started-intro.md)]
-
-### Getting Started
+See details on what happened to your project [here](#whathappened).
 
 > [AZURE.SELECTOR]
-> - [Blobs](/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs)
-> - [Queues](/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues)
-> - [Tables](/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables)
+> - [Blobs](/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs/)
+> - [Queues](/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues/)
+> - [Tables](/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables/)
 
 Azure queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. See [How to use Queue Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET") for more information.
 
@@ -30,6 +28,8 @@ To programmatically access queues in ASP.NET vNext projects, you need to do the 
 Before you can do anything with a queue, you need to get the connection string for the storage account the queues will live in. You can use the **CloudStorageAccount** type to represent your storage account information. If you’re using an ASP.NET vNext project, you can you call the get method of the Configuration object to get your storage connection string and storage account information from the Azure service configuration, as shown in the following code.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      config.get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
+      config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
 [WACOM.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
+
+[WACOM.INCLUDE [vs-storage-aspnet-vnext-getting-started-intro](../includes/vs-storage-aspnet-vnext-getting-started-intro.md)]

@@ -2,27 +2,10 @@
 
 <tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
 
-## Getting Started with Mobile Services
+## Getting Started with Mobile Services (Cordova Projects)
 
-### What Happened?
-
-#####References Added
-
-The Azure Mobile Service Client plugin included with all Multi-Device Hybrid Apps has been enabled.
+See details on what happened to your project [here](#whathappened).
   
-#####Connection string values for Mobile Services
-
-Under `services\mobileServices\settings`, a new JavaScript (.js) file with a **MobileServiceClient** was generated containing the selected mobile service’s application URL and application key. The file contains the initialization of a mobile service client object, similar to the following code.
-
-	var mobileServiceClient;
-	document.addEventListener("deviceready", function() {
-            mobileServiceClient = new WindowsAzure.MobileServiceClient(
-	        "<your mobile service name>.azure-mobile.net",
-	        "<insert your key>"
-	    );
-  
-### Getting Started
-
 #####Get reference to a table
 
 The following code gets a reference to a table that contains data for a TodoItem, which you can use in subsequent operations to read and update the data table. The TodoItem table is created automatically when you create a mobile service.
@@ -83,5 +66,22 @@ Delete a row in a data table using the **del** method. Call the [done]() method 
 	todoTable.del(todoItem).done(function (item) {
         items.splice(items.indexOf(todoItem), 1);
 	});
+
+###<span id="whathappened">What happened to my project?</span>
+
+#####References Added
+
+The Azure Mobile Service Client plugin included with all Multi-Device Hybrid Apps has been enabled.
+  
+#####Connection string values for Mobile Services
+
+Under `services\mobileServices\settings`, a new JavaScript (.js) file with a **MobileServiceClient** was generated containing the selected mobile service’s application URL and application key. The file contains the initialization of a mobile service client object, similar to the following code.
+
+	var mobileServiceClient;
+	document.addEventListener("deviceready", function() {
+            mobileServiceClient = new WindowsAzure.MobileServiceClient(
+	        "<your mobile service name>.azure-mobile.net",
+	        "<insert your key>"
+	    );
 
 [Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)

@@ -4,14 +4,12 @@
 
 ## Getting Started with Azure Storage
 
-[WACOM.INCLUDE [vs-storage-cloud-services-getting-started-intro](../includes/vs-storage-cloud-services-getting-started-intro.md)]
-
-### Getting Started
+See details on what happened to your project [here](#whathappened).
 
 > [AZURE.SELECTOR]
-> - [Blobs](/en-us/documentation/articles/vs-storage-cloud-services-getting-started-blobs)
-> - [Queues](/en-us/documentation/articles/vs-storage-cloud-services-getting-started-queues)
-> - [Tables](/en-us/documentation/articles/vs-storage-cloud-services-getting-started-tables)
+> - [Blobs](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
+> - [Queues](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
+> - [Tables](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
 
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files.
 
@@ -30,3 +28,5 @@ Before you can do anything with a blob, you need to get the connection string fo
       CloudConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
 [WACOM.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
+
+[WACOM.INCLUDE [vs-storage-cloud-services-getting-started-intro](../includes/vs-storage-cloud-services-getting-started-intro.md)]

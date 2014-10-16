@@ -4,14 +4,12 @@
 
 ## Getting Started with Azure Storage
 
-[WACOM.INCLUDE [vs-storage-aspnet-getting-started-intro](../includes/vs-storage-aspnet-getting-started-intro.md)]
-
-### Getting Started
+See details on what happened to your project [here](#whathappened).
 
 > [AZURE.SELECTOR]
-> - [Blobs](/en-us/documentation/articles/vs-storage-aspnet-getting-started-blobs)
-> - [Queues](/en-us/documentation/articles/vs-storage-aspnet-getting-started-queues)
-> - [Tables](/en-us/documentation/articles/vs-storage-aspnet-getting-started-tables)
+> - [Blobs](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
+> - [Queues](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
+> - [Tables](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
 
 Azure queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. See [How to use Queue Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-queues/) for more information.
 
@@ -28,3 +26,5 @@ Before you can do anything with a queue, you need to get the connection string f
       ConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
 [WACOM.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
+
+[WACOM.INCLUDE [vs-storage-aspnet-getting-started-intro](../includes/vs-storage-aspnet-getting-started-intro.md)]

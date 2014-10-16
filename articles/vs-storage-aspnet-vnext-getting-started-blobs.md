@@ -4,14 +4,12 @@
 
 ## Getting Started with Azure Storage
 
-[WACOM.INCLUDE [vs-storage-aspnet-vnext-getting-started-intro](../includes/vs-storage-aspnet-vnext-getting-started-intro.md)]
-
-### Getting Started
+See details on what happened to your project [here](#whathappened).
 
 > [AZURE.SELECTOR]
-> - [Blobs](/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs)
-> - [Queues](/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues)
-> - [Tables](/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables)
+> - [Blobs](/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs/)
+> - [Queues](/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues/)
+> - [Tables](/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables/)
 
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files.
 
@@ -32,6 +30,8 @@ To programmatically access blobs in ASP.NET vNext projects, you need to do the f
 Before you can do anything with a blob, you need to get the connection string for the storage account the blobs will live in. You can use the **CloudStorageAccount** type to represent your storage account information. If you’re using an ASP.NET vNext project, you can you call the get method of the Configuration object to get your storage connection string and storage account information from the Azure service configuration, as shown in the following code.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      config.get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
+      config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
 [WACOM.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
+
+[WACOM.INCLUDE [vs-storage-aspnet-vnext-getting-started-intro](../includes/vs-storage-aspnet-vnext-getting-started-intro.md)]
