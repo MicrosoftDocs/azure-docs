@@ -116,76 +116,64 @@ Users also can upload a sysprepped image on the Azure Management Portal. For mor
 You can deploy SharePoint 2010 on Azure by following these steps:
 
 <ol>
-<li>Log on to the <a href="http://manage.windowsazure.com/">Azure Management Portal</a> through your account.
+<li>Log on to the <a href="http://manage.windowsazure.com/">Azure Management Portal</a> through your Azure subscription account.
 <ul>
 
 <li>If you do not have an Azure account, <a href="http://www.windowsazure.com/en-us/pricing/free-trial/">sign up for a free trial of Azure</a>.</li>
 </ul>
 </li>
 
-<li>Create a VM with base operating system: On the Azure Management Portal, click <strong>+NEW</strong>, then click <strong>VIRTUAL MACHINE</strong>, and then click <strong>FROM GALLERY</strong>. ![azure-sharepoint-wp-4](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-4.png)</li>
+<li>To create a VM with the base operating system, on the Azure Management Portal, click <strong>NEW</strong>, then click <strong>COMPUTE</strong>, then click <strong>VIRTUAL MACHINE</strong>, and then click <strong>FROM GALLERY</strong>.</li>
 
-<li>The <strong>VM OS Selection</strong> dialog box appears. Click <strong>Platform Images</strong>, select the <strong>Windows Server 2008 R2 SP1</strong> platform image. ![azure-sharepoint-wp-5](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-5.png)</li>
+<li>The <strong>Choose an image</strong> dialog box appears. Click the <strong>Windows Server 2008 R2 SP1</strong> platform image, and then click the right arrow.</li>
 
-<li>The <strong><em>VM Configuration </em></strong>dialog box appears. Provide the following information:
+<li>The <strong><em>Virtual machine configuration </em></strong>dialog box appears. Provide the following information:
 
 <ul>
 <li>Enter a <strong>VIRTUAL MACHINE NAME</strong>.
-<ul>
-<li>This machine name should be globally unique.</li>
-</ul>
 </li>
-<li>Leave the <strong>NEW USER NAME</strong> box as Administrator.</li>
-<li>In the <strong>NEW PASSWORD</strong> box, type a strong password.</li>
-<li>In the <strong>CONFIRM PASSWORD</strong> box, retype the password.</li>
 <li>Select the appropriate <strong>SIZE</strong>.
 <ul>
-<li>For a production environment (SharePoint application server and database), it is recommended to use Large <em>(4 Core, 7GB memory)</em>.</li>
+<li>For a production environment (SharePoint application server and database), it is recommended to use A3 <em>(4 Core, 7GB memory)</em>.</li>
 </ul>
 </li>
+<li>In <strong>NEW USER NAME</strong>, type a local administrator account name.</li>
+<li>In the <strong>NEW PASSWORD</strong> box, type a strong password.</li>
+<li>In the <strong>CONFIRM</strong> box, retype the password, and then click the right arrow.</li>
 </ul>
-![azure-sharepoint-wp-6](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-6.png)</li>
-<li>The <strong><em>VM Mode </em></strong>dialog box appears. Provide the following information:
+<li>The second <strong>Virtual machine configuration</strong> dialog box appears. Provide the following information:
 <ul>
-<li>Select Standalone Virtual Machine.</li>
-<li>In the <strong>DNS NAME </strong>box, provide the first portion of a DNS name of your choice.
+<li>In the <strong>CLOUD SERVICE</strong> box, choose one of the following:
 <ul>
-<li>This portion will complete a name in the format MyService1.cloudapp.net.</li>
+<li><strong>Create a new cloud service</strong>, in which case you must also provide a cloud service DNS name.</li>
+<li>Select an existing cloud service.</li>
 </ul>
-</li>
+<li>In the <strong>REGION/AFFINITY GROUP/VIRTUAL NETWORK </strong>box, select the region where the virtual image will be hosted.</li>
 <li>In the <strong>STORAGE ACCOUNT </strong>box, choose one of the following:
 <ul>
-<li>Select a storage account where the VHD file is stored.</li>
-<li>Choose to have a storage account automatically created.
+<li><strong>Use an automatically generated storage account</strong>.</li>
+<li>Select an existing storage account name.</li>
 <ul>
 <li>Only one storage account per region is automatically created. All other VMs created with this setting are located in this storage account.</li>
 <li>You are limited to 20 storage accounts.</li>
 <li>For more information, go to <a href="/en-us/manage/windows/common-tasks/upload-a-vhd/#createstorage">Create a Storage Account in Azure</a>.</li>
 </ul>
 </li>
+<li>In the <strong>AVAILABILITY SET</strong> box, select <STRONG>(none)</STRONG>, and then click the right arrow.</li>
 </ul>
 </li>
-<li>In the <strong>REGION/AFFINITY GROUP/VIRTUAL NETWORK</strong> box, select the region where the virtual image will be hosted.</li>
 </ul>
-![azure-sharepoint-wp-7](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-7.png)</li>
-<li>The <strong><em>VM Options </em></strong>dialog box appears. Provide the following information:
-<ul>
-<li>In the <strong>AVAILABILITY SET</strong> box, select (none).</li>
-<li>Read and accept the legal terms.</li>
-<li>Click the checkmark to create the VM.</li>
-</ul>
-![azure-sharepoint-wp-8](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-8.png)</li>
-<li>The <strong><em>VM Instances</em></strong> page appears. Verify that your VM was created successfully. 
+</li>
+<li>In the third <strong>Virtual machine configuration </strong>dialog box, click the checkmark to create the VM.</li>
 
-![azure-sharepoint-wp-9](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-9.png)</li>
 
-<li>Complete VM setup:
+<li>To connect to the VM:
 <ul>
 <li>Open the VM using Remote Desktop.</li>
 <li>On the Azure Management Portal, select your VM, and then select the <strong>DASHBOARD</strong> page.</li>
 <li>Click <strong>Connect</strong>.</li>
 </ul>
-![azure-sharepoint-wp-10](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-10.png)</li>
+</li>
 <li>Build the SQL Server VM using any of the following options:
 <ul>
 <li>Create a SQL Server 2012 VM by following steps 1 to 7 above-except in <strong>step 3</strong>, use the SQL Server 2012 image instead of the Windows Server 2008 R2 SP1 image. For more information, go to <a href="/en-us/manage/windows/common-tasks/install-sql-server/">Provisioning a SQL Server Virtual Machine on Azure</a>.
