@@ -1,5 +1,7 @@
 # Migrate your IIS Websites to Azure Websites using the Migration Assistant #
-You can easily migrate to Azure Websites your existing websites that run on Internet Information Service (IIS) 6 or later. The [Azure Websites Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to Azure Websites, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
+You can easily migrate to Azure Websites your existing websites that run on Internet Information Service (IIS) 6 or later. [Azure Websites Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to Azure Websites, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
+
+>[WACOM.NOTE] Windows Server 2003 will reach end of support on July 14th 2015. If you are currently your websites on an IIS server that is Windows Server 2003, Azure Websites is a low-risk, low-cost, and low-friction way to keep your websites online, and Azure Websites Migration Assistant can help automate the migration process for you. 
 
 ## Elements Verified During Compatibility Analysis ##
 The Azure Websites Migration Assistant creates a readiness report to identify any potential causes for concern or blocking issues which may prevent a successful migration from on-premises IIS to Azure Websites.  Some of the key items to be aware of are:
