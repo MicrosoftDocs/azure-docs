@@ -10,10 +10,11 @@ Linear Regression is a popular statistical technique used for such predictions. 
 
 A simple scenario could be where the researcher is trying to predict the weight of an individual (y)  based on their height (x). A more advanced scenario could be where the researcher has additional information for the individual (such as weight, gender, race) and attempts to predict the weight of the individual. This [web service]( https://datamarket.azure.com/dataset/aml_labs/multivariate_regression) fits the linear regression model to the data and outputs the predicted value (y) for each of the observations in the data.
 
->While this web service could be consumed by users – potentially through a mobile app, website, or even on a local computer for example, the purpose of the web service is also to serve as an example of how Azure ML can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within the Azure ML Studio, a multivariate regression experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure set-up by the author of the web service.  
+>While this web service could be consumed by users – potentially through a mobile app, website, or even on a local computer for example, the purpose of the web service is also to serve as an example of how Azure ML can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within the Azure ML Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure set-up by the author of the web service.  
 
 #Consumption of Web Service  
 This web service gives the predicted values of the dependent variable based on the independent variables for all of the observations. The web-service expects the end user to input their data as a string where rows are separated by comma (,) and columns are separated by semi-colons (;). The web service expects 1 row at a time and for the first column to be the dependent variable. An example dataset could look like this:
+
 ![Sample data][1]
 
 Observations without a dependent variable should be input as “NA” for y. The data input for the above dataset would be the following string: “10;5;2,18;1;6,6;5.3;2.1,7;5;5,22;3;4,12;2;1,NA;3;4”. The output is the predicted value for each of the rows based on the independent variables. 
@@ -59,7 +60,8 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 >This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and publishing web services, please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 
-From within Azure ML, a new blank experiment was created and two “Execute R Scripts” pulled onto the workspace. This web-service runs an Azure Machine Learning experiment with underlying R script.  There are 2 parts to this experiment namely: schema definition, training model + scoring.  The first module defines the expected structure of the input dataset where the first variable is the dependent variable and the remaining variables are independent. The second module fits a generic linear regression model for the input data.    
+From within Azure ML, a new blank experiment was created and two “Execute R Scripts” pulled onto the workspace. This web-service runs an Azure Machine Learning experiment with underlying R script.  There are 2 parts to this experiment namely: schema definition, training model + scoring.  The first module defines the expected structure of the input dataset where the first variable is the dependent variable and the remaining variables are independent. The second module fits a generic linear regression model for the input data.  
+  
 ![Experiment flow][3]
 
 ####Module 1:

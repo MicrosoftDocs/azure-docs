@@ -1,6 +1,6 @@
-<properties linkid="media-services-release-notes" urlDisplayName="Media Services Release Notes" pageTitle="Media Services Release Notes" metaKeywords="Azure Media Services" description="Azure Media Services release notes." metaCanonical="" services="media-services" documentationCenter="Media" title="Media Services Release Notes" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Media Services Release Notes" metaKeywords="Azure Media Services" description="Media Services Release Notes" metaCanonical="" services="media-services" documentationCenter="Media" title="Media Services Release Notes" authors="juliako" solutions="media" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="media" ms.devlang="dotnet" ms.topic="article" ms.date="10/06/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="media" ms.devlang="dotnet" ms.topic="article" ms.date="10/15/2014" ms.author="juliako" />
 
 
 # Azure Media Services Release Notes
@@ -10,29 +10,26 @@ These release notes summarize changes from previous releases and known issues.
 >[AZURE.NOTE] We want to hear from our customers and focus on fixing problems that affect you. To report a problem or ask questions, please post in the [Azure Media Services MSDN Forum].
 
 
-- [Currently Known Issues][]
-- [REST API Version History][]
-- [October 2014 Release][]
-- [September 2014 Release][]
-- [August 2014 Release][]
-- [July 2014 Release][]
-- [May 2014 Release][]
-- [April 2014 Release][] 
-- [January\February 2014 Releases][] 
-- [December 2013 Release][]
-- [November 2013 Release][]
-- [August 2013 Release][]
-- [June 2013 Release][]
-- [December 2012 Release][]
-- [November 2012 Release][]
-- [June 2012 Preview Release][]
+- [Currently Known Issues](#issues)
+- [REST API Version History](#rest_version_history)
+- [October 2014 Release](#october_changes_14)
+- [September 2014 Release](#september_changes_14)
+- [August 2014 Release](#august_changes_14)
+- [July 2014 Release](#july_changes_14)
+- [May 2014 Release](#may_changes_14)
+- [April 2014 Release](#april_changes_14) 
+- [January\February 2014 Releases](#jan_feb_changes_14) 
+- [December 2013 Release](#december_changes_13)
+- [November 2013 Release](#november_changes_13)
+- [August 2013 Release](#august_changes_13)
+- [June 2013 Release](#june_changes_13)
+- [December 2012 Release](#december_changes_12)
+- [November 2012 Release](#november_changes_12)
+- [June 2012 Preview Release](#june_changes_12)
 
-<h2><a name="issues"></a><span class="short-header">Known issues</span>Currently Known Issues</h2>
+##<a id="issues"></a>Currently Known Issues
 
-- [Media Services General Issues][]
-- [Media Services SDK for .NET Issues][]
- 
-### <a name="general_issues"></a>Media Services General Issues
+### <a id="general_issues"></a>Media Services General Issues
 
 <table border="1">
 <tr><th>Issue</th><th>Description</yt></tr>
@@ -43,35 +40,29 @@ These release notes summarize changes from previous releases and known issues.
 <tr><td>Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code.</td><td>For more information, see the description of the 503 HTTP status code in the <a href="http://msdn.microsoft.com/en-us/library/azure/dn168949.aspx">Azure Media Services Error Codes</a> topic.</td></tr>
 </table><br/>
 
-### <a name="dotnet_issues"></a>Media Services SDK for .NET Issues
+### <a id="dotnet_issues"></a>Media Services SDK for .NET Issues
 
 <table border="1">
 <tr><th>Issue</th><th>Description</yt></tr>
 <tr><td>Media Services objects in the SDK cannot be serialized and as a result do not work with Azure Caching.</td><td>If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown.</td></tr>
 </table><br/>
 
-<h2><a name="rest_version_history"></a><span class="short-header">REST API Versions</span>REST API Version History</h2>
+##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
     
-<h2><a name="october_changes_14"></a><span class="short-header">October Changes</span>October 2014 Release</h2>
-### <a name="new_encoder_release"></a>Media Services Encoder Release
+##<a id="october_changes_14"></a>October 2014 Release
+### <a id="new_encoder_release"></a>Media Services Encoder Release
 
 Announcing the new release of Media Services Azure Media Encoder. With the latest Azure Media Encoder you are only charged for output GBs, but otherwise the new encoder is feature compatible with Windows Azure Media Encoder. For more information [Media Services Pricing Details]).
 
-<h2><a name="september_changes_14"></a><span class="short-header">September Changes</span>September 2014 Release</h2>
+##<a id="september_changes_14"></a>September 2014 Release
 
 Media Services REST metadata is now version 2.7. For more information about the latest REST updates, see [Azure Media Services REST API Reference].
 
-Media Services SDK for .NET is now version 3.0.0.7.
-
-This section contains:
-
-- [Breaking Changes][]
-- [New features\scenarios that are part of GA release][]
-- [New features\scenarios that are part of the public preview release][]
+Media Services SDK for .NET is now version 3.0.0.7
  
-### <a name="sept_14_breaking_changes"></a>Breaking Changes
+### <a id="sept_14_breaking_changes"></a>Breaking Changes
 
 * **Origin** was renamed to [StreamingEndpoint].
 * A change in the default behavior when using the **Azure Management Portal** to encode and then publish MP4 files. 
@@ -85,7 +76,7 @@ This section contains:
 	* Create a SAS url to download (or progressively play) the .mp4. For more information about how to create a SAS locator, see [Delivering Content]. 
 
 
-### <a name="sept_14_GA_changes"></a>New features\scenarios that are part of GA release
+### <a id="sept_14_GA_changes"></a>New features\scenarios that are part of GA release
 
 * **Indexer Media Processor**. For more information see [Indexing Media Files with Azure Media Indexer].
 
@@ -101,19 +92,14 @@ This section contains:
 	
 	For more information, see the **CustomHostNames** property in the [StreamingEndpoint] topic.
 
-### <a name="sept_14_preview_changes"></a>New features\scenarios that are part of the public preview release
+### <a id="sept_14_preview_changes"></a>New features\scenarios that are part of the public preview release
 * Live Streaming Preview. For more information, see [Working with Azure Media Services Live Streaming].
+
+* Key Delivery Service. For more information, see [Using AES-128 Dynamic Encryption and Key Delivery Service].
 
 * AES Dynamic Encryption. For more information, see [Using AES-128 Dynamic Encryption and Key Delivery Service].
 
-* PlayReady License Delivery Service. For more information, see [Using PlayReady 
-*  Encryption and License Delivery Service].
-
-To sign up for PlayReady License Delivery Service do the following:
-
-Follow instructions described in Preview features.
-
-In the Azure Management Portal, go to the CONTENT PROTECTION tab and add a row to the Branding Reporting table. The Media Services PlayReady license service will be enabled a few minutes after you press SAVE.
+* PlayReady License Delivery Service. For more information, see [Using PlayReady Dynamic Encryption and License Delivery Service].
 
 * PlayReady Dynamic Encryption. For more information, see [Using PlayReady Dynamic Encryption and License Delivery Service].
 
@@ -121,11 +107,12 @@ In the Azure Management Portal, go to the CONTENT PROTECTION tab and add a row t
 
 * Streaming storage encrypted assets. For more information, see [Streaming Storage Encrypted Content].
 
-##<a name="august_changes_14">August 2014 Release</a>
+##<a id="august_changes_14"></a>August 2014 Release
 
 When you encode an asset, an output asset is produced upon completion of the encoding job. Until this release, Azure Media Services Encoder produced metadata about output assets. Starting with this release the encoder also produces metadata about input assets. For more information, see the [Input Metadata] and [Output Metadata] topics.
 
-<h2><a name="july_changes_14"></a><span class="short-header">July Changes</span>July 2014 Release</h2>
+
+##<a id="july_changes_14"></a>July 2014 Release
 
 The following bug fixes were made for the Azure Media Services Packager and Encryptor:
 
@@ -133,9 +120,9 @@ The following bug fixes were made for the Azure Media Services Packager and Encr
 
 * When packaging an asset to HTTP Live Streaming and AES 128-bit envelope encryption, the packaged streams do not play back on Android devices – this bug has been fixed and the packaged stream plays back on Android devices that support HTTP Live Streaming.
 
-<h2><a name="may_changes_14"></a><span class="short-header">May Changes</span>May 2014 Release</h2>
+##<a id="may_changes_14"></a>May 2014 Release
 
-### <a name="may_14_changes"></a>General Media Services Updates
+### <a id="may_14_changes"></a>General Media Services Updates
 
 You can now use [Dynamic Packaging] to stream HTTP Live Streaming (HLS) v3. To stream HLS v3, add the following format to the origin locator path: *.ism/manifest(format=m3u8-aapl-v3). For more information, see [Nick Drouin's Blog].
 
@@ -155,7 +142,7 @@ The following improvements are included in the Media Services .NET SDK 3.0.0.5 r
 
 For more information, see [Retry Logic in the Media Services SDK for .NET].
 
-<h2><a name="april_changes_14"></a><span class="short-header">April Changes</span>April 2014 Encoder Release</h2>
+##<a id="april_changes_14"></a>April 2014 Encoder Release
 
 ### <a name="april_14_enocer_changes"></a>Media Services Encoder Updates
 
@@ -170,7 +157,7 @@ For more information, see [Retry Logic in the Media Services SDK for .NET].
 * Fixed a bug related to transcoding of MP4s where the audio has been encoded with MPEG-1 Audio layer 3 (aka MP3).
 
 
-<h2><a name="jan_feb_changes_14"></a><span class="short-header">JanuaryFebruary Changes</span>January\February 2014 Releases</h2>
+##<a id="jan_feb_changes_14"></a>January\February 2014 Releases
 
 ### <a name="jan_fab_14_donnet_changes"></a>Azure Media Services .NET SDK 3.0.0.1, 3.0.0.2 and 3.0.0.3
 
@@ -189,7 +176,7 @@ The following changes were made in 3.0.0.3:
 * Fixed backward compatibility issue for 3.0.*.* releases. 
 
 
-<h2><a name="december_changes_13"></a><span class="short-header">December Changes</span>December 2013 Release</h2>
+##<a id="december_changes_13"></a>December 2013 Release
 
 ### <a name="dec_13_donnet_changes"></a>Azure Media Services .NET SDK 3.0.0.0
 
@@ -203,13 +190,13 @@ Starting with the Media Services SDK version 3.0.0.0, you can reuse the [Azure A
 
 The Azure Media Services .NET SDK Extensions is a set of extension methods and helper functions that will simplify your code and make it easier to develop with Azure Media Services. You can get the latest bits from [Azure Media Services .NET SDK Extensions].
 
-<h2><a name="november_changes_13"></a><span class="short-header">November Changes</span>November 2013 Release</h2>
+##<a id="november_changes_13"></a>November 2013 Release
 
 ### <a name="nov_13_donnet_changes"></a>Azure Media Services .NET SDK Changes
 
 Starting with this version, the Media Services SDK for .NET handles transient fault errors that may occur when making calls to the Media Services REST API layer.
 
-<h2><a name="august_changes_13"></a><span class="short-header">August Changes</span>August 2013 Release</h2>
+##<a id="august_changes_13"></a>August 2013 Release
 
 ### <a name="aug_13_powershell_changes"></a>Media Services PowerShell Cmdlets included in Azure Sdk Tools
 
@@ -231,7 +218,7 @@ The following Media Services PowerShell cmdlets are now included in [azure-sdk-t
 
 	For example, `Remove-AzureMediaServicesAccount -Name “MediaAccountName” -Force`.
 
-<h2><a name="june_changes_13"></a><span class="short-header">June Changes</span>June 2013 Release</h2>
+##<a id="june_changes_13"></a>June 2013 Release
 
 ### <a name="june_13_general_changes"></a>Azure Media Services changes
 
@@ -292,7 +279,7 @@ The following changes are included in June 2013 Media Services SDK releases. The
 * Dependency on OData 5.5 (Microsoft.Data.OData.dll).
 
 
-<h2><a name="december_changes_12"></a><span class="short-header">December Changes</span>December 2012 Release</h2>
+##<a id="december_changes_12"></a>December 2012 Release
 
 ### <a name="dec_12_dotnet_changes"></a>Azure Media Services .NET SDK changes
 
@@ -324,7 +311,7 @@ Fixes for issues found in the November 2012 SDK:
 
 * EncryptionUtils.GetCertificateFromStore() : This method no longer throws a null reference exception due to a failures finding the certificate based on certificate configuration issues.
 
-<h2><a name="november_changes_12"></a><span class="short-header">November Changes</span>November 2012 Release</h2>
+##<a id="november_changes_12"></a>November 2012 Release
 
 The changes mentioned in this section were updates included in the November 2012 (version 2.0.0.0) SDK. These changes may require any code written for the June 2012 preview SDK release to be modified or rewritten.
 
@@ -353,7 +340,7 @@ The changes mentioned in this section were updates included in the November 2012
 	The Origin-specific versions have been removed. The SAS-specific context.Locators.CreateSasLocator(asset, accessPolicy) will be marked deprecated, or removed by GA. See the Locators section under New Functionality for updated behavior.
 
 
-<h2><a name="june_changes_12"></a><span class="short-header">June Changes</span>June 2012 Preview Release</h2>
+##<a id="june_changes_12"></a>June 2012 Preview Release
 
 The following functionality was new in the November release of the SDK.
 
@@ -372,29 +359,6 @@ The following functionality was new in the November release of the SDK.
 	Asynchronous support has been added to all methods.
 
 <!-- Anchors. -->
-
-[Currently Known Issues]: #issues
-[Media Services General Issues]: #general_issues
-[Media Services SDK for .NET Issues]: #dotnet_issues
-[REST API Version History]: #rest_version_history
-[October 2014 Release]: #october_changes_14
-[September 2014 Release]: #september_changes_14
-[August 2014 Release]: #august_changes_14
-[July 2014 Release]: #july_changes_14
-[May 2014 Release]: #may_changes_14
-[April 2014 Release]: #april_changes_14
-[January\February 2014 Releases]: #jan_feb_changes_14
-[December 2013 Release]: #december_changes_13
-[November 2013 Release]: #november_changes_13
-[August 2013 Release]: #august_changes_13
-[June 2013 Release]: #june_changes_13
-[December 2012 Release]: #december_changes_12
-[November 2012 Release]: #november_changes_12
-[June 2012 Preview Release]: #december_changes_12
-[Breaking Changes]: #sept_14_breaking_changes
-[New features\scenarios that are part of GA release]: #sept_14_GA_changes
-[New features\scenarios that are part of the public preview release]: #sept_14_preview_changes
-
 
 <!-- Images. -->
 
