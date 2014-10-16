@@ -20,7 +20,7 @@ A storm cluster process **topologies** instead of the MapReduce jobs that you ma
 
 * **Nimbus** - Similar to the JobTracker in Hadoop, it is responsible for distributing code throughout the cluster, assigning tasks to machines, and monitoring for failure. HDInsight provides two Nimbus nodes, so there is no single point of failure for a Storm cluster
 
-* **Supervisior** - The supervisor for each worker node is responsible for starting and stopping **worker processes** on the node
+* **Supervisor** - The supervisor for each worker node is responsible for starting and stopping **worker processes** on the node
 
 * **Worker process** - A worker process runs a subset of a **topology**. A running topology is distributed across many worker processes throughout the cluster.
 
