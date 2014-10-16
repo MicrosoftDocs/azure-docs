@@ -28,11 +28,9 @@ Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus 
 
 2. Aenean tellus lectus, faucibus in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
  
-  	![][5]
 
 3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl. 
 
-  	![][6]
 
 
 Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic]
@@ -81,8 +79,6 @@ Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus
 
 2. Nullam in massa eu tellus tempus hendrerit.
 
-  	![][7]
-
 3. Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
 
  
@@ -100,10 +96,6 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 [Next steps]: #next-steps
 
 <!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
