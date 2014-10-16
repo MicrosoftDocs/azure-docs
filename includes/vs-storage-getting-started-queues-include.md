@@ -1,10 +1,6 @@
 #####Create a Queue
 A **CloudQueueClient** object lets you get reference objects for queues. The following code creates a **CloudQueueClient** object. All code in this topic uses a storage connection string stored in the Azure application's service configuration. There are also other ways to create a **CloudStorageAccount** object. See the [CloudStorageAccount](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") documentation for details.
 
-	// Get the storage account from its connection string.
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
 	// Create the queue client.
 	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
@@ -14,7 +10,7 @@ Use the **queueClient** object to get a reference to the queue you want to use. 
 	CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
 	// If the queue isn’t already there, then create it.
-	queue.CreateIfNotExist();
+	queue.CreateIfNotExists();
 
 **NOTE:** Use this code block in front of the code in the following sections.
 
