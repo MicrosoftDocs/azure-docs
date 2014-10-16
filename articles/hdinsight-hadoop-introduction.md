@@ -44,68 +44,68 @@ Apache Hadoop is a software framework for big data management and analysis. Apac
 
 Here are the Hadoop technologies in HDInsight:
 
-* **Ambari:** Cluster provisioning, management, and monitoring 
-* **Avro** (Microsoft .NET Library for Avro): Data serialization for the Microsoft .NET environment 
-* **HBase:** Non-relational database for very large tables
-* **HDFS:** Hadoop Distributed File System
-* **Hive:** SQL-like querying
-* **Mahout:** Machine learning
-* **MapReduce and YARN:** Distributed processing
-* **Oozie:** Workflow management
-* **Pig:** Scripting
-* **Sqoop:** Data import and export 
-* **Storm:** Real-time processing of data streams
-* **Zookeeper:** Management of distributed systems
+* **[Ambari](#ambari):** Cluster provisioning, management, and monitoring 
+* **[Avro](#avro)** (Microsoft .NET Library for Avro): Data serialization for the Microsoft .NET environment 
+* **[HBase](#hbase):** Non-relational database for very large tables
+* **[HDFS](#hdfs):** Hadoop Distributed File System
+* **[Hive](#hive):** SQL-like querying
+* **[Mahout](#mahout):** Machine learning
+* **[MapReduce and YARN](#mapreduce):** Distributed processing
+* **[Oozie](#oozie):** Workflow management
+* **[Pig](#pig):** Scripting
+* **[Sqoop](#sqoop):** Data import and export 
+* **[Storm](#storm):** Real-time processing of data streams
+* **[Zookeeper](#zookeeper):** Management of distributed systems
  
-Also, find out about **business intelligence tools** you can use with HDInsight.
+Also, find out about **[business intelligence tools](#bi)** you can use with HDInsight.
 
-### Ambari
+###<a name="ambari"></a>Ambari
 
 Apache Ambari is for provisioning, managing and monitoring Apache Hadoop clusters. It includes an intuitive collection of operator tools and a robust set of APIs that hide the complexity of Hadoop, simplifying the operation of clusters. For more information about the APIs, see Ambari API reference. 
 
-### Avro (Microsoft .NET Library for Avro)
+### <a name="avro"></a>Avro (Microsoft .NET Library for Avro)
 
 The Microsoft .NET Library for Avro implements the Apache Avro compact binary data interchange format for serialization for the Microsoft .NET environment. It uses JSON to define a language-agnostic schema that underwrites language interoperability, meaning data serialized in one language can be read in another. Detailed information on the format can be found in the Apache Avro Specification. 
 The format of Avro files supports the distributed MapReduce programming model. Files are “splittable”, meaning you can seek any point in a file and start reading from a particular block. For additional information, see Serialize data with the Microsoft .NET Library for Avro.
 
-### HBase
+### <a name="hbase"></a>HBase
 
 Apache HBase is a non-relational database built on Hadoop and designed for large amounts of unstructured and semi-structured data - potentially billions of rows times millions of columns. HBase clusters on HDInsight are configured to store data directly in Azure Blob storage
 
-### HDFS
+### <a name="hdfs"></a>HDFS
 
 Hadoop Distributed File System (HDFS) is a distributed file system that, with MapReduce and YARN, is the core of the Hadoop ecosystem. HDFS is the standard file system for Hadoop clusters on HDInsight.
 
-### Hive
+### <a name="hive"></a>Hive
 
 Apache Hive is a data warehouse software built on Hadoop that provides a way to project structure on data and query it using a SQL-like language call HiveQL. Hive, like Pig, is an abstraction on top of MapReduce and when run, Hive translates queries into a series of MapReduce jobs. Hive is conceptually closer to a relational database management system than Pig, and is therefore appropriate for use with more structured data. For unstructured data, Pig is better choice. For additional information, see Welcome to Apache Hive!
 
-### Mahout
+### <a name="mahout"></a>Mahout
 
 Apache Mahout is a scalable library of machine learning algorithms that run on Hadoop. Using principles of statistics, machine learning applications teach systems to learn from data and to use past outcomes to determine future behavior. 
 
-### MapReduce and YARN
+### <a name="mapreduce"></a>MapReduce and YARN
 Hadoop MapReduce is a software framework for writing applications to process big data sets in parallel. A MapReduce job splits large data sets and organizes the data into key-value pairs for processing. 
 Apache YARN is the next generation of MapReduce (MapReduce 2.0, or MRv2) that splits the two major tasks of JobTracker, resource management and job scheduling/monitoring, into separate entities.
 For more information on MapReduce, see MapReduce in the Hadoop Wiki. To learn about YARN, see Apache Hadoop NextGen MapReduce (YARN).
 
-### Oozie
+### <a name="oozie"></a>Oozie
 Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack and supports Hadoop jobs for MapReduce, Pig, Hive, and Sqoop. It can also be used to schedule jobs specific to a system, like Java programs or shell scripts.
 
-### Pig
+### <a name="pig"></a>Pig
 
 Apache Pig is a high-level platform that allows you to perform complex MapReduce transformations on very large data sets using a simple scripting language called Pig Latin. Pig translates the Pig Latin scripts so they’ll run within Hadoop. You can create User Defined Functions (UDFs) to extend Pig Latin. For additional information, see Welcome to Apache Pig!
 
-### Sqoop
+### <a name="sqoop"></a>Sqoop
 Apache Sqoop is tool that transfers bulk data between Hadoop and relational databases such a SQL, or other structured data stores, as efficiently as possible. For additional information, see the Apache Sqoop Website.
 
-### Storm
+### <a name="storm"></a>Storm
 Apache Storm is a distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. 
 
-### Zookeeper
+### <a name="zookeeper"></a>Zookeeper
 Apache Zookeeper coordinates processes in large distributed systems by means of a shared hierarchical namespace of data registers (znodes). Znodes contain small amounts of meta information needed to coordinate the processes: status, location, configuration, and so on. For more information on Zookeeper, see the Apache Zookeeper Wiki.
 
-### Business intelligence tools 
+### <a name="bi"></a>Business intelligence tools 
 Familiar business intelligence (BI) tools - such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services - retrieve, analyze, and report data integrated with HDInsight using either the Power Query add-in or the Microsoft Hive ODBC Driver. 
 
 These BI tools can help in your big data analysis:
