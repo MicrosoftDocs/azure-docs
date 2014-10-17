@@ -56,7 +56,7 @@ Content authors can create reusable content sections to be included into one or 
 
 ## Use GitHub, Git, and this repository
 
-**Note:** Most of the information in this section can be found in [GitHub Help] [] articles.  If you are familiar with Git and GitHub, skip to the "Contribut and edit content" section for the particulars of the code/content flow of this repository.
+**Note:** Most of the information in this section can be found in [GitHub Help] [] articles.  If you are familiar with Git and GitHub, skip to the "Contribute and edit content" section for the particulars of the code/content flow of this repository.
 
 ### Setting up your fork of the repository
 
