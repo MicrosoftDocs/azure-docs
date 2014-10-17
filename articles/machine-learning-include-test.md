@@ -1,3 +1,8 @@
+<properties title="This is a test of included text" pageTitle="This is a test of included text | Azure" description="This is a test of included text." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="garye" />
+
+
 # This is a test of included text
 
 Here's an attempt to put a link to the level-3 headings in the include file. The first link is defined here, the second is defined in the include file.
