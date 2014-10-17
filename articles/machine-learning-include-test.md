@@ -19,4 +19,47 @@ Now here is an include file with level 3 headings:
 
 [AZURE.INCLUDE [machine-learning-heading-3-3](../includes/machine-learning-heading-3-3.md)]
 
+
+Here's a table with an attempt at inserting an externally-linkable spot in it. The links are:
+
+- airportcodes
+- bikerental
+- billgatesimage
+
+| Dataset | Associated Model | Associated Experiment |
+|:------- |:---------------- |:--------------------- |
+| <p ID=airportcodes>**Airport Codes Dataset <p> Flight Delays Data <p> Weather Dataset** | [Azure Machine Learning Sample: Flight delay prediction](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-flight-delay-prediction/) | Sample Experiment - Flight Delay Prediction - Development |
+| <p ID=bikerental>**Bike Rental UCI dataset** | [Azure Machine Learning Sample: Prediction of the number of bike rentals](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/) | Sample Experiment - Demand Forecasting of Bikes |
+| <p ID=billgatesimage>**Bil Gates RGB Image** | [Azure Machine Learning Sample: Color quantization using K-Means clustering](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/) | Sample Experiment - Color Based Image Compression using K-Means Clustering - Development |
  
+This is the same table, but in HTML. The links are:
+
+- airportcodes2
+- bikerental2
+- billgatesimage2
+
+Also replaced the first hyperlink with an explicit <a> tag, but left the next two as MD links. 
+
+<table>
+
+<tr><th>Dataset</th>
+<th>Associated Model</th>
+<th>Associated Experiment</th>
+</tr>
+
+<tr><td><p ID=airportcodes2>**Airport Codes Dataset <p> Flight Delays Data <p> Weather Dataset**</td>
+<td><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-flight-delay-prediction/">Azure Machine Learning Sample: Flight delay prediction</a></td>
+<td>Sample Experiment - Flight Delay Prediction - Development</td>
+</tr>
+
+<tr><td><p ID=bikerental2>**Bike Rental UCI dataset**</td>
+<td>[Azure Machine Learning Sample: Prediction of the number of bike rentals](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/)</td>
+<td>Sample Experiment - Demand Forecasting of Bikes</td>
+</tr>
+
+<tr><td><p ID=billgatesimage2>**Bil Gates RGB Image**</td>
+<td>[Azure Machine Learning Sample: Color quantization using K-Means clustering](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/)</td>
+<td>Sample Experiment - Color Based Image Compression using K-Means Clustering - Development</td>
+</tr>
+
+</table>
