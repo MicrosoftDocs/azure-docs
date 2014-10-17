@@ -50,7 +50,7 @@ Your event hub is now created, and you have the connection strings to send and r
 [WACOM.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/)]
+[WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
 ## Run the applications
 
@@ -65,12 +65,12 @@ Now you are ready to run your applications.
    	![][22]
 
 <!-- Images. -->
-[1]: ../includes/media/service-bus-event-hubs-getstarted/create-event-hub1.png
-[2]: ../includes/media/service-bus-event-hubs-getstarted/create-event-hub2.png
-[3]: ../includes/media/service-bus-event-hubs-getstarted/create-event-hub3.png
-[4]: ../includes/media/service-bus-event-hubs-getstarted/create-event-hub4.png
-[5]: ../includes/media/service-bus-event-hubs-getstarted/create-event-hub5.png
-[6]: ../includes/media/service-bus-event-hubs-getstarted/create-event-hub6.png
+[1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
+[2]: ./media/service-bus-event-hubs-getstarted/create-event-hub2.png
+[3]: ./media/service-bus-event-hubs-getstarted/create-event-hub3.png
+[4]: ./media/service-bus-event-hubs-getstarted/create-event-hub4.png
+[5]: ./media/service-bus-event-hubs-getstarted/create-event-hub5.png
+[6]: ./media/service-bus-event-hubs-getstarted/create-event-hub6.png
 
 [21]: ./media/service-bus-event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/service-bus-event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
