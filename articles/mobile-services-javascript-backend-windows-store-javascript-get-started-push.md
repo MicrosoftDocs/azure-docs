@@ -99,9 +99,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 <!-- Images. -->
 
 
-[13]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
-[14]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png
-[2]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
+[2]: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started-push/mobile-app-enable-toast-win8.png
 
 
 <!-- URLs. -->
