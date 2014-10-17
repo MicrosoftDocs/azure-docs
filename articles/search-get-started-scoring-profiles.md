@@ -4,11 +4,11 @@
 
 # Get started with scoring profiles in Azure Search
 
-Scoring profiles are a feature of Azure Search that customize the calculation of search scores, influencing how items are ranked in a search results list. You can think of scoring profiles as a way to model relevance, by boosting items that meet predefined criteria. For example, suppose your application is an online hotel reservation site. By boosting the `location` field, searches that include a term like Seattle will result in higher scores for items that have Seattle in the `location` field. Note that you can have more than one scoring profile, or none at all, if the default scoring is sufficient for your application.
+Scoring profiles are a feature of Microsoft Azure Search that customize the calculation of search scores, influencing how items are ranked in a search results list. You can think of scoring profiles as a way to model relevance, by boosting items that meet predefined criteria. For example, suppose your application is an online hotel reservation site. By boosting the `location` field, searches that include a term like Seattle will result in higher scores for items that have Seattle in the `location` field. Note that you can have more than one scoring profile, or none at all, if the default scoring is sufficient for your application.
 
-To help you experiment with scoring profiles, you can download a sample application that uses scoring profiles to change the rank order of search results. The sample is a console application – admittedly not very realistic for real-world application development – but still useful as learning tool. 
+To help you experiment with scoring profiles, you can download a sample application that uses scoring profiles to change the rank order of search results. The sample is a console application – perhaps not very realistic for real-world application development – but useful nonetheless as  a learning tool. 
 
-The sample application demonstrates scoring behaviors using fictional data, called the `musicstoreindex`. The simplicity of the sample app makes it easy to modify scoring profiles and queries, and then see the effect on rank order when the program is executed.
+The sample application demonstrates scoring behaviors using fictional data, called the `musicstoreindex`. The simplicity of the sample app makes it easy to modify scoring profiles and queries, and then see the immediate effects on rank order when the program is executed.
 
 <h2 id="sub-1">Prerequisites</h2>
 
@@ -100,5 +100,5 @@ Need to step back and learn more about index creation? [Watch this video](http:/
 <!--Image references-->
 [12]: ./media/search-get-started-scoring-profiles/AzureSearch_CodeplexDownload.PNG
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
-[10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX3.PNG
-[9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX4.PNG
+[10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
+[9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
