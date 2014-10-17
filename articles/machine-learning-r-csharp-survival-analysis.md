@@ -6,6 +6,9 @@
 #Survival Analysis 
 
 
+
+
+
 Under many scenarios, the main outcome under assessment is the time to an event of interest. In other words, the question “when this event will occur” is asked. As examples, consider the situations where the data describes the elapsed time (days, years, mileage, etc.) until the event of interest (disease relapse, PhD degree received, brake pad failed) occurs. Each instance in the data represents a specific object (a patient, a person, a car, etc.).
 
 This [web service]( https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) answers the question “what is the probability the event of interest will occur by time n for object x?” By providing a survival analysis model, this web service enables the users to supply data to train the model and test it. The main theme of the experiment is to model the length of the elapsed time until the event of interest occurs. 
@@ -67,7 +70,7 @@ The interpretation of this test is as follows. Assuming the goal of the data is 
 
 ##Creation of Web Service
 
->This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and publishing web services, please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 From within AzureML, a new blank experiment was created and two “Execute R Scripts” pulled onto the workspace. The data schema was created with a simple ‘Execute R Script’, which defines the input data schema for the web service. This module is then linked to the second ‘Execute R Script’ module, which does major work. This module does data preprocessing, model building, and predictions. In the data preprocessing step, the input data represented by a long string is transformed and converted into a data frame. In the model building step, an external R package “survival_2.37-7.zip” is first installed for conducting survival analysis. Then the “coxph” function is executed after a series data processing tasks. The details of “coxph” function for survival analysis can be read from the R documentation. In the prediction step, a testing instance is supplied into the trained model with the “surfit” function, and the survival curve for this testing instance is produced as “curve” variable. Finally, the probability of the time of interest is obtained. 
 
@@ -167,5 +170,8 @@ From within AzureML, a new blank experiment was created and two “Execute R Scr
 ##Limitations
 
 This web service can only take numerical values as feature variables (columns). The “event” column can only take value 0 or 1. The “time” column needs to be a positive integer.
+
+##FAQ
+For Frequently Asked Questions on consumption of the web service or publishing to marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png

@@ -5,6 +5,9 @@
 
 #Sample Web Services Built with R on Azure ML and Published to Marketplace
 
+
+
+
 With the Azure Machine Learning Studio, users can write R code and with a few clicks of a button, publish it as a web service for other individuals and devices to consume around the world. From producing simple calculators that provide statistical functionality to creating a custom text mining sentiment analysis predictor for example, both new and experienced R users can benefit from the ease with which users of Azure ML can operationalize R code. While these web services could be consumed by users, potentially through a mobile app or a website, the purpose of these web services is also to serve as an example of how Azure ML can operationalize R scripts for analytical purposes and be used to create web services on top of R code.
 
 In this page you can find a broad set of example web services that were created using Azure ML and published to the Microsoft Azure Marketplace. Each web service has a comprehensive document attached, embedding sample data sets for testing the services and explaining how the user can create a similar service themselves. 
@@ -38,6 +41,9 @@ A user provides advanced calculations or simulations, that doesn’t require any
 * [Difference in Proportions Test](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-r-csharp-difference-in-two-proportions/)
 * [Normal Distribution Suite](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-r-csharp-normal-distribution/)
 * [Binomial Distribution Suite](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-r-csharp-binomial-distribution/)
+
+##FAQ
+For Frequently Asked Questions on consumption of the web service or publishing to marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-web-service-examples/base1.png
 
