@@ -39,7 +39,7 @@ With this support from the Azure Data Factory service, organizations can focus o
 There are a wide range of use cases for data pipelines that span on-premises systems, cloud systems, Software-as-a-Service (SaaS) systems as well as streaming and batch-based data production.  This section describes a few sample scenarios that the Azure Data Factory supports.
 
 ###Scenario #1: Source the Data Hub
-![image-data-factory-introduction-secenario1-source-datahub]
+![Source the Data Hub][image-data-factory-introduction-secenario1-source-datahub]
 
 Customers have data of disparate types located in disparate sources.  The first step in building an information production pipeline to fulfill a business process that can connect to all the required sources (SaaS services, file shares, FTP, web services, etc…) of data and, if not already there, move the data into a data hub for subsequent processing (join, aggregate, cleanse, enrich, etc…).
   
@@ -48,7 +48,7 @@ Organizations had to build custom data movement components or write a lot of glu
 Azure Data Factory not only makes it easy to move the data from various data sources to a Data Hub but also provides a rich user-interface as well PowerShell cmdlets to monitor and manage the system.
 
 ###Scenario #2: Operationalize Information Production
-![image-data-factory-introduction-secenario2-operationalize-infoproduction]
+![Operationalize Information Production][image-data-factory-introduction-secenario2-operationalize-infoproduction]
 
 This scenario expands on scenario #1. Once data is present in a Data Hub, you want to author and operationalize (schedule) data processing pipelines that utilize all the compute services of the hub to transform/aggregate/cleanse/etc… their data.  This is a complex infrastructure and pose a number of challenges while implementing, managing, scaling, troubleshooting, and versioning such a pipeline system.
 
@@ -65,7 +65,7 @@ Azure Data Factory supports the following capabilities to enable simple consumpt
 
 ## Application Model
 The following diagram illustrates the application model supported by Azure Data Factory.
-![image-data-factory-application-model]
+![Application Model][image-data-factory-application-model]
 
 There are three information production stages in an Azure Data Factory:
 

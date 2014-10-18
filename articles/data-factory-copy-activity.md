@@ -3,13 +3,14 @@
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 
 # Copy data with Azure Data Factory (Copy Activity)
-You can use the **Copy Activity **in a pipeline to copy data from a source to a sink (destination) in a batch. The Copy Activity can be used in the following scenarios:
+You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. The Copy Activity can be used in the following scenarios:
 
 - Ingress to Windows Azure. In this scenario, data is copied from an on-premises data source (ex: SQL Server) to a Windows Azure data store (ex: Azure blob, Azure table, or Azure SQL Database) for the following sub-scenarios:
 	- Collect data in a centralized location on Azure for further processing.
 	- Migrate data from on-premises or non-Azure cloud platforms to Azure.
 	- Archive or back up data to Azure for cost-effective tiered storage.
-- Egress from Windows Azure. In this scenario, data is copied from Azure (ex: Azure blob, Azure table, or Azure SQL Database) to on-premises data marts and data warehouse (ex: SQL Server) for the following sub-scenarios:
+- Egress from Windows Azure. In this scenario, data is copied from Azure (ex: Azure blob, Azure table, or Azure SQL Database) to on-premises data marts and data 
+- warehouse (ex: SQL Server) for the following sub-scenarios:
 	- Transfer data to on-premises due to lack of cloud data warehouse support.
 	- Transfer data to on-premises to take advantage of existing on-premises solution or reporting infrastructure.
 	- Archive or back up data to on-premises for tiered storage
@@ -315,7 +316,7 @@ For SQL on Infrastructure-as-a-Service (IaaS), Azure and Amazon as IaaS provider
 	<li>VM with onpremises-to-cloud site-to-site VPN using Azure Virtual Network.</li>
 	<li>Amazon VPC (Virutal Private Cloud).</li>
 	</ol>  
-	![image-data-factory-copy-actvity]
+	![Data Factory with Copy Activity][image-data-factory-copy-actvity]
 
 ### Source and sink types
 The following table lists source types and sink types that can be used in a JSON file for a pipeline that contains a Copy Activity.
@@ -642,7 +643,7 @@ In this sample, an activity in a pipeline is defined as follows. The columns fro
 		},
 	}
 
-![image-data-factory-column-mapping-1]
+![Column Mapping][image-data-factory-column-mapping-1]
 
 ##### Sample 2 – column mapping with SQL query from SQL Server to Azure blob
 In this sample, a SQL query (vs. table in the previous sample) is used to extract data from an on-premises SQL Server and columns from query results are mapped to source artifact and then to destination artifact. For the purpose of this sample, the query returns 5 columns.
@@ -675,7 +676,7 @@ In this sample, a SQL query (vs. table in the previous sample) is used to extrac
 		},
 	}
 
-![image-data-factory-column-mapping-2]
+![Column Mapping 2][image-data-factory-column-mapping-2]
 
 #### Type handling during conversion or mapping
 

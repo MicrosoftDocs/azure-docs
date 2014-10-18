@@ -268,9 +268,9 @@ The following Walkthrough provides you with step-by-step instructions for creati
 10. Compile the project. Click **Build** from the menu and click **Build Solution**.
 11. Launch **Windows Explorer**, and navigate to **bin\debug** or **bin\release** folder depending type of build.
 12. Create a zip file **MyCustomActivity.zip** that contain all the binaries in the <project folder>\bin\Debug folder.
-	![image-data-factory-zip-output-binaries]
+	![zip output binaries][image-data-factory-zip-output-binaries]
 13. Upload **MyCustomActivity.zip** as a blob to your blob storage. In the following example, the zip file is uploaded as a blob to the blob container: blobcustomactivitycontainer.
-    ![image-data-factory-upload-zip-to-blob]
+    ![upload zip to blob][image-data-factory-upload-zip-to-blob]
 
 
 ### Step 2: Use the custom activity in a pipeline
@@ -401,7 +401,7 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
 
 8. Verify that the output files are generated in the blob storage in the **adftutorial** container.
 
-	![image-data-factory-ouput-from-custom-activity]
+	![output from custom activity][image-data-factory-ouput-from-custom-activity]
 
 9. If you open the output file, you should see the output similar to the following:
 	
@@ -411,7 +411,7 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
 
 10.	Use the [Azure Portal][azure-preview-portal] or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs you can download from the portal or using cmdlets.
 
-	![image-data-factory-download-logs-from-custom-activity]
+	![download logs from custom activity][image-data-factory-download-logs-from-custom-activity]
    
 See [Get started with Azure Data Factory][adfgetstarted] for detailed steps for monitoring datasets and pipelines.      
     
