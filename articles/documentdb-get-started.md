@@ -72,7 +72,7 @@ Using the .NET SDK, a DocumentDB collection can be created via the CreateDocumen
 Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentAsync method of a DocumentClient.  The collection created in the previous step has a number of properties, one of which is the DocumentsLink property.  With that information, we can now insert one or more documents.  For the purposes of this example, we'll assume that we have a Family class that describes the attributes of a family such as name, gender and age.  
 
     // Create the Andersen Family document
-	Family AndersonFamily = new Family
+	Family andersenFamily = new Family
     {
         Id = "AndersenFamily",
         LastName = "Andersen",
@@ -94,10 +94,10 @@ Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentA
         IsRegistered = true
     };
 
-    await client.CreateDocumentAsync(documentCollection.DocumentsLink, AndersonFamily);
+    await client.CreateDocumentAsync(documentCollection.DocumentsLink, andersenFamily);
     
     // Create the WakeField Family document
-    Family WakefieldFamily = new Family
+    Family wakefieldFamily = new Family
     {
         Id = "WakefieldFamily",
         Parents = new Parent[] {
@@ -126,7 +126,7 @@ Using the .NET SDK, a DocumentDB document can be created via the CreateDocumentA
         IsRegistered = false
     };
 
-    await client.CreateDocumentAsync(documentCollection.DocumentsLink, WakefieldFamily);
+    await client.CreateDocumentAsync(documentCollection.DocumentsLink, wakefieldFamily);
  
 
 ##<a id="Query"></a>Query DocumentDB Resources
