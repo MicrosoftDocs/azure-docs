@@ -40,7 +40,7 @@ When defining Pig or Hive activity in a pipeline JSON, the **type** property sho
 		"type": "HDInsightActivity",
 		"inputs":  [ { "name": "InputSqlDA"  } ],
 		"outputs":  [ { "name": “OutputBlobDA” } ],
-		“linkedServiceName”: "MyLinkedService",
+		“linkedServiceName”: "MyHDInsightLinkedService",
 		"transformation":
 		{
 			"type": "Pig",
@@ -61,7 +61,7 @@ When defining Pig or Hive activity in a pipeline JSON, the **type** property sho
 		"type": "HDInsightActivity",
 		"inputs":  [ { "name": "InputSqlDA"  } ],
 		"outputs":  [ { "name": “OutputBlobDA” } ],
-		“linkedServiceName”: "MyLinkedService",
+		“linkedServiceName”: "MyHDInsightLinkedService",
 		"transformation":
 		{
 			"type": "Hive",
@@ -95,7 +95,7 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
 					"inputs": [ {"name": "EnrichedGameEventsTable"}, 
                             {"name": "RefMarketingCampaignTable"} ],
 					"outputs": [ {"name": "MarketingCampaignEffectivenessBlobTable"} ],
-					"linkedServiceName": "HDInsightLinkedService",
+					"linkedServiceName": "MyHDInsightLinkedService",
 					"transformation":
 					{
     					"type": "Hive",
@@ -141,7 +141,7 @@ See the following example for specifying parameters for a Hive script using **ex
 					  	"type": "HDInsightActivity",
 					  	"inputs": [{"Name": "DA_Input"}],
 						"outputs": [{"Name": "DA_Output1"}, {"Name": "DA_Output2"},],
-				  		“linkedServiceName”: "Asset_HDI",
+				  		“linkedServiceName”: "MyHDInsightLinkedService",
 				  		"transformation":
 				  		{
 							"type": "Hive", 
@@ -178,7 +178,7 @@ See the following example for specifying parameters for a Hive script using **ex
 		FROM hivesampletable 
 		group by country, state;
 		
-3.  Upload the **HiveQuery.hql** to the **adftutorial **container in your blob storage
+3.  Upload the **HiveQuery.hql** to the **adftutorial** container in your blob storage
 
 ### Walkthrough
 
@@ -197,7 +197,7 @@ See the following example for specifying parameters for a Hive script using **ex
         		},
         		"availability": 
         		{
-            		"frequency": "day",
+            		"frequency": "Day",
             		"interval": 1,
             		"waitonexternal": {}
         		}
@@ -209,7 +209,7 @@ See the following example for specifying parameters for a Hive script using **ex
     		
     	Switch-AzureMode AzureResourceManager
 
-5. Switch to the folder: C:\ADFGetStarted\Hive.
+5. Switch to the folder: **C:\ADFGetStarted\Hive**.
 6. Execute the following command to create the input table in the **ADFTutorialDataFactory**.
 
 		New-AzureDataFactoryTable –ResourceGroupName ADFTutorialResourceGroup –DataFactoryName ADFTutorialDataFactory -File .\HiveInputBlobTable.json
@@ -230,7 +230,7 @@ See the following example for specifying parameters for a Hive script using **ex
         		},
         		"availability": 
         		{
-            		"frequency": "day",
+            		"frequency": "Day",
             		"interval": 1,
         		}
     		}
@@ -240,9 +240,54 @@ See the following example for specifying parameters for a Hive script using **ex
  
 		New-AzureDataFactoryTable –ResourceGroupName ADFTutorialResourceGroup –DataFactoryName ADFTutorialDataFactory -File .\HiveOutputBlobTable.json
 
-## Create and schedule pipeline
+### Create a linked service for an HDInsight cluster
+The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
+
+1. Create a JSON file named **HDInsightOnDemandCluster.json** with the following content and save it to **C:\ADFGetStarted\Hive** folder.
+
+
+		{
+    		"name": "HDInsightOnDemandCluster",
+    		"properties": 
+    		{
+        		"type": "HDInsightOnDemandLinkedService",
+				"clusterSize": 4,
+        		"jobsContainer": "adftutorialjobscontainer",
+        		"timeToLive": "00:05:00",
+        		"version": "3.1",
+        		"linkedServiceName": "MyBlobStore"
+    		}
+		}
+
+2. Execute the following command to create the linked service for the on-demand HDInsight cluster.
+ 
+		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\HDInsightOnDemandCluster.json
+  
+3. You should see the tables and linked services on the **DATA FACTORY** blade in the **Azure Preview Portal**.    
    
-1. Create a JSON file named **ADFTutorialHivePipeline.json** with the following content and save it in the **C:\ADFGetStarted\Hive** folder.
+#### To use your own cluster: 
+
+1. Create a JSON file named **HDInsightOnDemandCluster.json** with the following content and save it to **C:\ADFGetStarted\Hive** folder. Replace clustername, username, and password with appropriate values before saving the JSON file.  
+
+		{
+   			Name: "MyHDInsightCluster",
+    		Properties: 
+			{
+        		"Type": "HDInsightBYOCLinkedService",
+	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
+    	    	"UserName": "<username>",
+    	    	"Password": "<password>",
+    	    	"LinkedServiceName": "MyBlobStore"
+    		}
+		}
+
+2. Execute the following command to create the linked service for the on-demand HDInsight cluster.
+ 
+		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\MyHDInsightCluster.json
+
+### Create and schedule pipeline
+   
+1. Create a JSON file named **ADFTutorialHivePipeline.json** with the following content and save it in the **C:\ADFGetStarted\Hive** folder. If you want to use your own cluster and followed the steps to create the **MyHDInsightCluster** linked service, replaced **HDInsightOnDemandCluster** with **MyHDInsightCluster** in the following JSON. 
 
 
     	{
@@ -258,7 +303,7 @@ See the following example for specifying parameters for a Hive script using **ex
 						"type": "HDInsightActivity",
 						"inputs": [{"name": "HiveInputBlobTable"}],
 						"outputs": [ {"name": "HiveOutputBlobTable"} ],
-						"linkedServiceName": "MyHDInsightCluster",
+						"linkedServiceName": "HDInsightOnDemandCluster",
 						"transformation":
 						{
                     		"type": "Hive",
@@ -290,10 +335,10 @@ See the following example for specifying parameters for a Hive script using **ex
     	
 3. Schedule the pipeline.
     	
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline 
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-27 –EndDateTime 2014-09-30 –Name ADFTutorialHivePipeline 
 
-> [WACOM.NOTE] Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. Both StartDateTime and EndDateTime are UTC times and must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. 
-  
+	> [WACOM.NOTE] Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime are UTC times and must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. 
+  	
 
 4. See [Monitor datasets and pipeline][adfgetstartedmonitoring] section of [Get started with Data Factory][adfgetstarted] article.   
 
