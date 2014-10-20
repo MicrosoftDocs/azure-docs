@@ -1,6 +1,6 @@
 <properties urlDisplayName="Hybrid Connections Overview - BizTalk Services" pageTitle="Hybrid Connections Overview | Azure" metaKeywords="BizTalk Services, BizTalk, websites, web sites, hybrid connections, Azure" description="Learn about hybrid connections, including Security." metaCanonical="" services="integration-services" documentationCenter="" title="Hybrid Connections Overview" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="mandia" />
 
 
 
@@ -9,7 +9,7 @@ This topic introduces Hybrid Connections, lists the supported configurations, an
 
 - [What is a Hybrid Connection](#HCOverview)
 - [Supported Configurations](#KnownIssues)
-- [Security](#HCSecurity)
+- [Security and Ports](#HCSecurity)
 
 ##<a name="HCOverview"></a>What is a Hybrid Connection
 
@@ -56,7 +56,7 @@ When using Hybrid Connections to access on-premises SQL Server, consider the fol
 - SQL Authentication may be required as the end-to-end authorization method supported by the Azure application and the on-premises SQL server.
 
 
-##<a name="HCSecurity"></a>Security
+##<a name="HCSecurity"></a>Security and Ports
 
 Hybrid Connections uses Shared Access Signature (SAS) authorization to secure the connections from the Azure applications and the on-premises Hybrid Connection Manager to the Hybrid Connection. Separate connection keys are created for the application and the on-premises Hybrid Connection Manager. These connection keys can be rolled over and revoked independently.
 
@@ -67,6 +67,9 @@ See  [Create and Manage Hybrid Connections](http://azure.microsoft.com/en-us/doc
 **Application authorization is separate from the Hybrid Connection**. Any appropriate authorization method can be used. The authorization method depends on the end-to-end authorization methods supported across the Azure cloud and the on-premises components. For example, your Azure application accesses an on-premises SQL Server. In this scenario, SQL Authorization may be the authorization method that is supported end-to-end.
 
 ####TCP Ports
+Hybrid Connections requires only outbound TCP or HTTP connectivity from your private network. You do not need to open any firewall ports or change your network perimeter configuration to allow any inbound connectivity into your network.
+
+The following TCP ports are used by Hybrid Connections:
 
 <table border="1">
     <tr>
