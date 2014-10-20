@@ -44,35 +44,37 @@ In this section we will write a Java console app to send events to your event hu
 
 8. Then, add the following code in it:
 
-		public static void main(String[] args) throws NamingException, JMSException, IOException {
+		public static void main(String[] args) throws NamingException,
+				JMSException, IOException, InterruptedException {
 			// Configure JNDI environment
-	        Hashtable<String, String> env = new Hashtable<String, String>();
-	        env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
-	        env.put(Context.PROVIDER_URL, "servicebus.properties");
-	        Context context = new InitialContext(env);
+			Hashtable<String, String> env = new Hashtable<String, String>();
+			env.put(Context.INITIAL_CONTEXT_FACTORY,
+					"org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
+			env.put(Context.PROVIDER_URL, "servicebus.properties");
+			Context context = new InitialContext(env);
 	
-	        ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
-	        Destination queue = (Destination) context.lookup("EventHub");
-	        
-	        // Create Connection
-	        Connection connection = cf.createConnection();
+			ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
 	
-	        // Create sender-side Session and MessageProducer
-	        Session sendSession = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-	        MessageProducer sender = sendSession.createProducer(queue);
-	        
-	        System.out.println("Press [enter] to send a message. Type 'exit' + [enter] to quit.");
-	        BufferedReader commandLine = new java.io.BufferedReader(new InputStreamReader(System.in));
-	        
-	        while (true) {
-	            String s = commandLine.readLine();
-	            if (s.equalsIgnoreCase("exit")) {
-	                connection.close();
-	                break;
-	            } else {
-	                sendBytesMessage(sendSession, sender);
-	            }
-	        }
+			Destination queue = (Destination) context.lookup("EventHub");
+	
+			// Create Connection
+			Connection connection = cf.createConnection();
+	
+			// Create sender-side Session and MessageProducer
+			Session sendSession = connection.createSession(false,
+					Session.AUTO_ACKNOWLEDGE);
+			MessageProducer sender = sendSession.createProducer(queue);
+	
+			System.out.println("Press Ctrl-C to stop the sender process");
+			System.out.println("Press Enter to start now");
+			BufferedReader commandLine = new java.io.BufferedReader(
+					new InputStreamReader(System.in));
+			commandLine.readLine();
+	
+			while (true) {
+				sendBytesMessage(sendSession, sender);
+				Thread.sleep(200);
+			}
 		}
 		
 		private static void sendBytesMessage(Session sendSession, MessageProducer sender) throws JMSException, UnsupportedEncodingException {
