@@ -4,7 +4,7 @@
 
 #Azure WebJobs Recommended Resources
 
-This topic links to documentation resources about how to use Azure WebJobs and the Azure WebJobs SDK.
+This topic links to documentation resources about how to use Azure WebJobs and the Azure WebJobs SDK. The WebJobs feature of Azure Websites enables you to run a program or script in the same context as a website. The WebJobs SDK simplifies the task of writing code that runs as a WebJob and works with Azure Storage queues, blobs, and tables, and Service Bus queues.
 
 ## Table of Contents
 
