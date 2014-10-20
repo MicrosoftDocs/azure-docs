@@ -88,7 +88,13 @@ For more detailed instructions on working with the report template, read the <a 
 2. Launch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. 
 3. Click the database you want to audit, and then click the **Auditing & Secuirity Preview** tab.
 4. At the auditing section click "Enable".
+
+![][7]
+
 5. Edit the **EVENT TYPE** as needed.
+
+![][8]
+
 6. Select a **STORAGE ACCOUNT**.
 7. Click **SAVE**.
 8. Click **Show secured connection string** for the connection string.
@@ -109,6 +115,8 @@ For more detailed instructions on working with the report template, read the <a 
 [4]: ./media/sql-database-auditing-get-started/sql-database-get-started-saveconfigasdefault.png
 [5]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
 [6]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png
+[7]: ./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-enable.png
+[8]: ./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-configure.png
 
 
 
