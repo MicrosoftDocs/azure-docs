@@ -29,7 +29,6 @@ This topic links to documentation resources about how to use Azure WebJobs and t
 * [Troubleshooting Azure Web Sites in Visual Studio](../web-sites-dotnet-troubleshoot-visual-studio/).
 * Videos
 	* [WebJobs and the WebJobs SDK](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)
-	* [Azure WebJobs (in Swedish)](https://www.youtube.com/watch?v=DfA65c8cnjI&list=PLcHuyfrfAedUf3FXQXvz9mX9O8iTfsDOl) 
 	* [Azure WebJobs video series on Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 	* [Introducing WebJobs Tooling for Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 
