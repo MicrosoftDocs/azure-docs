@@ -2,9 +2,11 @@
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="ghogen, kempb" />
 
-##Getting Started with Azure Storage
+> [AZURE.SELECTOR]
+> - [Getting Started](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
+> - [What Happened](/documentation/articles/vs-storage-cloud-services-what-happened/)
 
-See details on what happened to your project [here](#whathappened).
+##Getting Started with Azure Storage
 
 > [AZURE.SELECTOR]
 > - [Blobs](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
@@ -26,5 +28,3 @@ Before you can do anything with a table, you need to get the connection string f
       CloudConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
 [WACOM.INCLUDE [vs-storage-getting-started-tables-include](../includes/vs-storage-getting-started-tables-include.md)]
-
-[WACOM.INCLUDE [vs-storage-cloud-services-getting-started-intro](../includes/vs-storage-cloud-services-getting-started-intro.md)]
