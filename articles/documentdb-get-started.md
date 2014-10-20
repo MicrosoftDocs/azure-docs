@@ -8,7 +8,7 @@ This guide shows you how to get started using **Azure DocumentDB (Preview)**.  T
 
 In order to use this getting started guide, you must have a DocumentDB account and the access key (either primary or secondary) of the account. For more information, see:  
 
--	[Create a Document DB Account][documentdb-create-account]
+-	[Create a DocumentDB Account][documentdb-create-account]
 
 ##Table of contents
 -	[Connect to a DocumentDB Account][]

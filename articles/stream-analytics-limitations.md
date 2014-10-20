@@ -2,13 +2,15 @@
 
 <tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="09/31/2014" ms.author="jgao" />
 
-#Azure Stream Analytics limitations in the preview release
+#Azure Stream Analytics (preview) limitations and known issues
 
-This document describes the limits and known issues of [Azure Stream Analytics][azure.stream.analytics.documentation] during the Preview release.  In most cases these limits exist with an intent to get your early feedback or based on current capacity constraints. 
+This document describes the limitations and known issues of [Azure Stream Analytics][azure.stream.analytics.documentation] during the Preview release.  In most cases these limits exist with an intent to get your early feedback or based on current capacity constraints. 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
+##In this article
 + [Limitations] 
 + [Release notes and known issues]
++ [Next steps]
 
 ## Limitations
 
@@ -71,12 +73,18 @@ When creating a Stream Analytics job in a region for the first time, you will be
 When an Event Hub is specified as an input, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.  Doing so without additional configuration means that no other receivers can access the Event Hub.  To enable an Event Hub to have more than one receiver, additional consumer groups must be configured.  For details, see [Event Hubs developer guide][azure.event.hubs.developer.guide].
 
 
+##<a name="nextsteps"></a>Next steps
 
+- [Introduction to Azure Stream Analytics][stream.analytics.introduction]
+- [Get started using Azure Stream Analytics][stream.analytics.get.started]
+- [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs]
+- [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]
+- [Azure Stream Analytics query language reference][stream.analytics.query.language.reference]
+- [Azure Stream Analytics REST API reference][stream.analytics.rest.api.reference] 
 
 <!--Anchors-->
 [Limitations]: #Limitations
 [Release notes and known issues]: #Release-notes-and-known-issues
-[Subheading 3]: #subheading-3
 [Next steps]: #next-steps
 
 <!--Image references-->

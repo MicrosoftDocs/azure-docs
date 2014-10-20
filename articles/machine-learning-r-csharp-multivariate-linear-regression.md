@@ -4,7 +4,9 @@
 
 
 #Multivariate Linear Regression   
-  
+ 
+
+ 
 Suppose you have a dataset and would like to quickly predict a dependent variable y for each individual (i) based on the other independent variables. 
 Linear Regression is a popular statistical technique used for such predictions. Here the dependent variable y is assumed to be a continuous value.    
 
@@ -57,7 +59,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 
 #Creation of the web-service  
->This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and publishing web services, please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 
 From within Azure ML, a new blank experiment was created and two “Execute R Scripts” pulled onto the workspace. This web-service runs an Azure Machine Learning experiment with underlying R script.  There are 2 parts to this experiment namely: schema definition, training model + scoring.  The first module defines the expected structure of the input dataset where the first variable is the dependent variable and the remaining variables are independent. The second module fits a generic linear regression model for the input data.  
@@ -87,6 +89,9 @@ From within Azure ML, a new blank experiment was created and two “Execute R Sc
  
 ##Limitations
 This is a very simple example of a multiple linear regression web service. As can be seen from the example code above, no error catching is implemented and the service assumes everything is a continuous variable (no categorical features allowed) as the service only inputs numeric values at the time of the creation of this web service. Also, the service currently handles limited data size, due to the request/response nature of the web service call and the fact the model is being fit every time the web service is called. 
+
+##FAQ
+For Frequently Asked Questions on consumption of the web service or publishing to marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img1.png
 [2]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img2.png
