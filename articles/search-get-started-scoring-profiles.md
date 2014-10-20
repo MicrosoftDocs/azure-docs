@@ -63,7 +63,7 @@ You're almost ready to build and run the app, but before you do, take a look at 
 
 <h2 id="sub-5">Build and run the application</h2>
 
-To rule out connectivity or assembly reference problems, build and run the application to ensure there are no issues to work out first. You should see a console application open in the background. All four queries execute in sequence without pausing. On many systems, the entire program executes in under 15 seconds. If the console application includes a message stating “Complete. Press <enter> to continue”, the program completed successfully. 
+To rule out connectivity or assembly reference problems, build and run the application to ensure there are no issues to work out first. You should see a console application open in the background. All four queries execute in sequence without pausing. On many systems, the entire program executes in under 15 seconds. If the console application includes a message stating “Complete. Press enter to continue”, the program completed successfully. 
 
 To compare query runs, you can mark-copy-paste the query results from the console and paste them into an Excel file. 
 
@@ -71,9 +71,11 @@ The following illustration shows results from the first three queries side-by-si
 
    ![][10]
 
-The first query uses default scoring. The second query uses a scoring profile, but notice that the profile had no effect. The results are identical to those of the first query. This is because the scoring profile boosts a field ('genre') that is not germane to the query. The search term 'best' does not exist in any 'genre' field of any document. When a scoring profile has no effect, the results are the same as default scoring.  
+The first query uses default scoring. Since the search term appears only in album titles, and no other criteria is specified, items having 'best' in the album title are returned in the order in which the search service finds them. 
 
-The third query is the first evidence of scoring profile impact. Notice that the combined effects of 'rating' and 'last-updated' propel some items higher in the list.
+The second query uses a scoring profile, but notice that the profile had no effect. The results are identical to those of the first query. This is because the scoring profile boosts a field ('genre') that is not germane to the query. The search term 'best' does not exist in any 'genre' field of any document. When a scoring profile has no effect, the results are the same as default scoring.  
+
+The third query is the first evidence of scoring profile impact. The search term is still 'best' so we are working with the same set of albums, but because the scoring profile provides additional criteria that boosts 'rating' and 'last-updated', some items are propelled higher in the list.
 
 The next illustration shows the fourth and final query, boosted by 'margin'. The 'margin' field is non-searchable and cannot be returned in search results. The 'margin' value was manually added to the spreadsheet to help illustrate the point that items with higher margins show up higher in the search results list. 
 

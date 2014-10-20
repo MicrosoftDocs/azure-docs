@@ -4,7 +4,7 @@
 
 #Azure WebJobs Recommended Resources
 
-This topic links to documentation resources about how to use Azure WebJobs and the Azure WebJobs SDK.
+This topic links to documentation resources about how to use Azure WebJobs and the Azure WebJobs SDK. The WebJobs feature of Azure Websites enables you to run a program or script in the same context as a website. The WebJobs SDK simplifies the task of writing code that runs as a WebJob and works with Azure Storage queues, blobs, and tables, and Service Bus queues.
 
 ## Table of Contents
 
@@ -72,9 +72,11 @@ This topic links to documentation resources about how to use Azure WebJobs and t
 
 * [Amit Apple's blog](http://blog.amitapple.com/). Focuses on WebJobs (not the SDK).
 * [Mike Stall's blog](http://blogs.msdn.com/b/jmstall/archive/tags/simplebatch/). Focuses on the WebJobs SDK. 
+* [Magnus Mårtensson's blog](http://magnusmartensson.com/)
 
 ##<a name="additional"></a>Additional WebJobs resources
 
+* [Azure WebJobs GA blog post by Magnus Mårtensson](http://magnusmartensson.com/azure-webjobs-ga)
 * [WebJobs settings documentation in GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * [Running Powershell Web Jobs on Azure websites](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Getting notified when your Azure triggered WebJobs completes](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
@@ -84,6 +86,7 @@ This topic links to documentation resources about how to use Azure WebJobs and t
 * [WebJobs Graceful Shutdown](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). For WebJobs SDK graceful shutdown, see [Graceful shutdown](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).)
 * [Scaling Your Web Application with Azure Websites](http://msdn.microsoft.com/en-us/magazine/dn786914.aspx)
 * Videos
+	* [Azure WebJobs videos by Magnus Mårtensson](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)
 	* [Azure WebJobs video series on Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
 ##<a name="additionalsdk"></a>Additional WebJobs SDK resources
