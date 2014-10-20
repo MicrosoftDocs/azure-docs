@@ -276,7 +276,7 @@ The following Walkthrough provides you with step-by-step instructions for creati
 ### Step 2: Use the custom activity in a pipeline
 Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetstarted] to create another pipeline to test this custom activity.
 
-1.	Create a JSON for the pipeline as shown in the following example and save it as C:\ADFGetStarted\ADFTutorialPipelineCustom.json.
+1.	Create a JSON for the pipeline as shown in the following example and save it as **ADFTutorialPipelineCustom.json** in **C:\ADFGetStarted\Custom** folder. 
 
 
 		{
@@ -291,7 +291,7 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
                      	"Type": "CustomActivity",
                      	"Inputs": [{"Name": "EmpTableFromBlob"}],
                      	"Outputs": [{"Name": "OutputTableForCustom"}],
-						"LinkedServiceName": "myhdinsightcluster",
+						"LinkedServiceName": "MyHDInsightCluster",
                      	"Transformation":
                      	{
                         	"AssemblyName": "MyCustomActivity.dll",
@@ -326,27 +326,27 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
 	- **PackageLinkedService** is set to **myblobstore** that was created as part of the tutorial from [Get started with Azure Data Factory][adfgetstarted].
 	- **PackageFile** is set to **customactivitycontainer/MyCustomActivity.zip**.
      
-2. The custom activity runs as a map-only job on your HDI cluster so the **LinkedServiceName** property is required for us to know where to schedule the job. Create a linked service to your HDI cluster if you haven’t created already: Create a JSON file with the following content and save it as **c:\ADFGetStarted\myhdinsightcluster.json**.
+2. The custom activity runs as a map-only job on your HDI cluster so the **LinkedServiceName** property is required for us to know where to schedule the job. Create a linked service to your HDI cluster if you haven’t created already (as part of the walkthrough in [Use Pig and Hive with Azure Data Factory][hivewalkthrough] article): Create a JSON file with the following content and save it as **c:\ADFGetStarted\Custom\MyHDInsightCluster.json**.
 
 		
 		{
-    		Name: "myhdinsightcluster",
+    		Name: "MyHDIInsightCluster",
 			Properties: 
 			{
 				"Type": "HDInsightBYOCLinkedService",
 				"ClusterUri": "https://<HDIClusterName.azurehdinsight.net/",
 				"UserName": "username",
 				"Password": "Password",
-				"LinkedServiceName": "myblobstore"
+				"LinkedServiceName": "MyBlobStore"
     		}
 		} 
 
-3. Run the following command to **create the HDInsight linked service**.
+3. Run the following command to create the **HDInsight linked service**.
 
 		
-		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -Name myhdinsightcluster -DataFactoryName ADFTutorialDataFactory -File c:\ADFGetStarted\myhdinsightcluster.json
+		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -Name MyHDInsightCluster -DataFactoryName ADFTutorialDataFactory -File c:\ADFGetStarted\Custom\MyHDInsightCluster.json
 
-4. Create a JSON file for the output table (**OutputTableForCustom** referred by the pipeline JSON) and save it as C:\ADFGetStarted\OutputTableForCustom.json.
+4. Create a JSON file for the output table (**OutputTableForCustom** referred by the pipeline JSON) and save it as C:\ADFGetStarted\Custom\OutputTableForCustom.json.
 
 		
 
@@ -362,7 +362,7 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
         		"location": 
         		{
         			"type": "AzureBlobLocation",
-          			"blobPath": "$$Text.Format('adftutorial/output/{0:yyyyMMdd-HH}', SliceStart)",
+          			"blobPath": "$$Text.Format('adftutorial/customactivityoutput/{0:yyyyMMdd-HH}', SliceStart)",
             		"format":
             		{
               			"type": "TextFormat",
@@ -384,12 +384,12 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
 		
 		
 
-		New-AzureDataFactoryTable  -DataFactoryName ADFTutorialDataFactory –File C:\ADFGetStarted\OutputTableForCustom.json -ResourceGroupName ADFTutorialResourceGroup
+		New-AzureDataFactoryTable  -DataFactoryName ADFTutorialDataFactory –File C:\ADFGetStarted\Custom\OutputTableForCustom.json -ResourceGroupName ADFTutorialResourceGroup
 
 
 6. Now, run the following command to **create the pipeline**. You had created the pipeline JSON file in an earlier step.
 
-		New-AzureDataFactoryPipeline  -DataFactoryName ADFTutorialDataFactory -File C:\ADFGetStarted\CustomActivity\ADFTutorialPipelineCustom.json -ResourceGroupName ADFTutorialResourceGroup
+		New-AzureDataFactoryPipeline  -DataFactoryName ADFTutorialDataFactory -File C:\ADFGetStarted\Custom\ADFTutorialPipelineCustom.json -ResourceGroupName ADFTutorialResourceGroup
 
 
 
@@ -427,6 +427,7 @@ See [Get started with Azure Data Factory][adfgetstarted] for detailed steps for 
 [azure-preview-portal]: https://portal.azure.com/
 
 [adfgetstarted]: ../data-factory-get-started
+[hivewalkthrough]: ../data-factory-pig-hive-activities.md
 
 [image-data-factory-zip-output-binaries]: ./media/data-factory-use-custom-activities/ZipOuputBinaries.png
 

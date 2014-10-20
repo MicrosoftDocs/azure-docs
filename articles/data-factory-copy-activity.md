@@ -52,7 +52,6 @@ Activities in the pipelines are defined with in the **activities []** section. E
 		"type": CopyActivity
 		"inputs":  [],
 		"outputs":  [],
-		“linkedServiceName”: "MyLinkedService",
 		"transformation":
 		{
 
@@ -97,14 +96,6 @@ Activities in the pipelines are defined with in the **activities []** section. E
 	<tr>
 		<td>outputs</td>
 		<td>Output tables used by the activity.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>linkedServiceName</td>
-		<td>Name of the HDInsight linked service used by the activity. <br/><br/>
-			<b>Important:</b> Copy Activity runs as a map-only join on this HDInsight cluster. The cluster can be your own or on-demand. The on-demand cluster is created automatically the Data Factory service for you to run the Copy Activity. 
-		</td>
 		<td>Y</td>
 	</tr>
 
@@ -204,7 +195,6 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 - **MyOnPremTable** is specified as the input (**inputs** tag).
 - **MyAzureBlob** is specified as the output (**outputs** tag)
 - **Transformation** section contains two sub sections: **source** and **sink**. The type for source is set to **SqlSource** and the type for sink is set to **BlobSink**. The **sqlReaderQuery** defines the transformation (projection) to be performed on the source. For details about all the properties, see Developer Reference.
-- **MyHDInsightLinkedService** is specified as the linked service that refers to an HDInsight cluster, on which the pipeline is run. The Copy Activity requires you to use an HDInsight cluster, whether it is your cluster or an on-demand cluster.
 
          
 		{
@@ -220,7 +210,6 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 						"type": "CopyActivity",
 						"inputs":  [ { "name": "MyOnPremTable"  } ],
 						"outputs":  [ { "name": “MyAzureBlob” } ],
-						“linkedServiceName”: "MyHDInsightLinkedService",
 						"transformation":
 	    				{
 							"source":
@@ -622,7 +611,6 @@ In this sample, an activity in a pipeline is defined as follows. The columns fro
 		"type": "CopyActivity",
 		"inputs":  [ { "name": "MyOnPremTable"  } ],
 		"outputs":  [ { "name": “MyDemoBlob” } ],
-		“linkedServiceName”: "MyHDInsightLinkedService",
 		"transformation":
 		{
 			"source":
@@ -654,7 +642,6 @@ In this sample, a SQL query (vs. table in the previous sample) is used to extrac
 		"type": "CopyActivity",
 		"inputs":  [ { "name": "InputSqlDA"  } ],
 		"outputs":  [ { "name": “OutputBlobDA” } ],
-		“linkedServiceName”: "MyLinkedService",
 		"transformation":
 		{
 			"source":
@@ -678,35 +665,41 @@ In this sample, a SQL query (vs. table in the previous sample) is used to extrac
 
 ![Column Mapping 2][image-data-factory-column-mapping-2]
 
-#### Type handling during conversion or mapping
+#### Data Type Handling by the Copy Activity
 
+The data types specified in the Structure section of the Table definition is only honored for **BlobSource**.  The table below describes how data types are handled for other types of source and sink.
 
-- SqlSource
-	- Logical types are ignored.
-	- Returned data has the physical data types defined in the source table.
-- SqlSink
-	- Logical types are ignored.
-	- Compares the input data types with the target table types.
-		- If type match, directly inserts data into the target table for better performance.
-		- Else, using a temp DataTable to try implicit type conversion. Throw exception if implicit type conversion failed.
-- BlobSource
-	- If transfer a single blob to a target blob (by specifying fileName), logical types are ignored. Directly transfer binary data for better performance.
-	- Else, logical types are honored.
-		- If logical types are missing:
-			- Csv: all column types are treated as string, and all column names are set as "Prop_<0-N>"
-			- Avro: use the built-in column types and names in Avro file.
-			- Json: all column types are treated as string, and use the built-in column names in Json file.
-- BlobSink
-	- Logical types are ignored.
-	- Always use the input data types.
-- AzureTableSource
-	- Logical types are ignored.
-	- If the Structure is missing, returned data has the physical data types defined in the source table.
-	- Else, returned data types are set as string.
-- AzureTableSink
-	- Logical types are ignored.
-	- Always use the input data types.
-- In a summary, the logic types in Structure are only honored in BlobSource.
+<table>	
+	<tr>
+		<th align="left">Source/Sink</th>
+		<th align="left">Data Type Handling logic</th>
+	</tr>	
+
+	<tr>
+		<td>SqlSource</td>
+		<td>Data types defined in <b>Structure</b> section of table definition are ignored.  Data types defined on the underlying SQL database will be used for data extraction during copy activity.</td>
+	</tr>
+
+	<tr>
+		<td>SqlSink</td>
+		<td>Data types defined in <b>Structure</b> section of table definition are ignored.  The data types on the underlying source and destination will be compared and implicit type conversion will be done if there are type mismatches.</td>
+	</tr>
+
+	<tr>
+		<td>BlobSource</td>
+		<td><p>When transferring from <b>BlobSource</b> to <b>BlobSink</b>, there is no type transformation. Types defined in <b>Structure</b> section of table definition are ignored.  For destinations other than <b>BlobSink</b>, data types defined in <b>Structure</b> section of Table definition will be honored.</p>
+		<p>
+		If the <b>Structure</b> is not specified in table definition, type handling depends on the <b>format</b> property of <b>BlobSink</b>:
+		</p>
+		<ul>
+			<li> <b>TextFormat:</b> all column types are treated as string, and all column names are set as "Prop_<0-N>"</li> 
+			<li><b>AvroFormat:</b> use the built-in column types and names in Avro file.</li> 
+			<li><b>JsonFormat:</b> all column types are treated as string, and use the built-in column names in Json file.</li>
+		</ul>
+		</td>
+	</tr>
+
+</table>
 
 ## Walkthroughs
 See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity.
