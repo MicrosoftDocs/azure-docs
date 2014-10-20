@@ -3,12 +3,12 @@
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 
 # Introduction to Azure Data Factory
-Azure Data Factory is a managed service that you can use to produce trusted information from raw data in cloud or on-premises data sources. It allows developers to build data-driven workflows (pipelines) that join, aggregate and transform data sourced from their local, cloud-based and internet services, and set up complex data processing logic with little programming. The Azure Data Factory service enables the easy monitoring and management of these pipelines by providing rich visual experience offered through Azure Management Portal. The information produced by pipelines can be easily consumed from BI, analytics tools, and other applications to reliably drive key business insights and decisions.
+Azure Data Factory is a managed service that you can use to produce trusted information from raw data in cloud or on-premises data sources. It allows developers to build data-driven workflows (pipelines) that join, aggregate and transform data sourced from their local, cloud-based and internet services, and set up complex data processing logic with little programming. The Azure Data Factory service enables the easy monitoring and management of these pipelines by providing rich visual experience offered through Azure Preview Portal. The information produced by pipelines can be easily consumed by BI, analytics tools, and other applications to reliably drive key business insights and decisions.
 
 This article provides detailed overview of the Azure Data Factory service, the value it provides, and the scenarios it supports.
 
 ##Azure Data Factory Overview
-Traditionally, data integration projects focused on creating Extract-Transform-Load (ETL) processes that extract data from various data sources within an organization, transform the data to confirm to the target schema of an Enterprise Data Warehouse (EDW), and load the data into EDW – the single source of truth analytics, on top of which, the business intelligence (BI) solutions are built.
+Traditionally, data integration projects focused on creating Extract-Transform-Load (ETL) processes that extract data from various data sources within an organization, transform the data to confirm to the target schema of an Enterprise Data Warehouse (EDW), and load the data into EDW – the single source of truth analytics, on top of which,  business intelligence (BI) solutions are built.
 
 ![Traditional ETL][image-data-factory-introduction-traditional-ETL]
 
@@ -17,7 +17,6 @@ In the world of Big Data, as organizations look to leverage the data available t
 ![Todays Diverse Processing Landscape][image-data-factory-introduction-todays-diverse-processing-landspace]
 
 The Enterprise Data Warehouse and Big Data “worlds” are merging such that a modern information production system needs to use the best of breed technologies across all to produce the richest, and most agile insights possible. Traditional ETL developers extend the scale and reach of their projects to include Big Data technologies and Big Data developers complement their Big Data systems with those that already exist in the enterprise (EDW, custom solutions, etc…). In short, developers need to be able to create workflows that orchestrate data movement and data processing that involve cloud and on-premises data sources, EDW and Big Data systems, and so on. A system that lets IT Professionals monitor and manage these workflows also must be in place. Organizations had to write large amounts of code to deliver such an information production system that supports creation, scheduling, monitoring and management of workflows. 
-
 
 
 The Azure Data Factory service empowers organizations to harness such diversity by providing a platform to compose data processing, data storage and data movement services to create and schedule information production pipelines, and manage the data assets the pipelines produce.  Developers can quickly build and chain data pipelines that join, aggregate and transform data sourced from their local, cloud-based and internet services.  IT Professionals can use rich metrics, health and lineage information available for all data assets created by a data factory to easily operate a factory and quickly diagnose any issues that disrupt the generation of business critical data assets.
@@ -29,7 +28,7 @@ The data processing landscape is more diverse than ever.  Data and processing so
 - **Transform your data into trusted data assets.** 
 Combining and shaping complex data can take more than one try to get it right, and upgrading to new data models can be costly and time consuming.  The Data Factory service supports Hive, Pig and C# processing on HDInsight to iteratively transform your data until it meets your needs.  
 - **Monitor your data production processes in one place.** 
-With a diverse data portfolio, it is increasingly important to have a reliable and uniform view of your storage, processing, and data movement services.  The Azure Data Factory provides rich visual experience through Azure Management Portal that you can use to get the information you need to quickly understand end-to-end pipeline health, pinpoint data production issues and quickly take corrective action. You can also visually track data lineage and the relationships between your raw data, processes, and trusted data, and see a full historical accounting of job execution, system health, and dependencies.
+With a diverse data portfolio, it is increasingly important to have a reliable and uniform view of your storage, processing, and data movement services.  The Azure Data Factory provides rich visual experience through Azure Portal that you can use to get the information you need to quickly understand end-to-end pipeline health, pinpoint data production issues and quickly take corrective action. You can also visually track data lineage and the relationships between your raw data, processes, and trusted data, and see a full historical accounting of job execution, system health, and dependencies.
 - **Produce trusted data**
 Organizations need to adapt to the constantly changing questions they need to answer, and stay on top of when their production data is ready to go. The Data Factory service Improves your ability to drive better business insights by producing timely and trusted information that is easily consumed by BI and analytics tools, data marts, and other applications.
 
@@ -62,6 +61,13 @@ Azure Data Factory supports the following capabilities to enable simple consumpt
 - Easily move (one time or scheduled) the produced data assets to relational data marts for consumption using existing BI tools (Excel, Tableau, etc…).
 - Consume data assets produced by a data factory directly using Power Query in Excel.
 - Publish the produced data assets to the Power BI corporate data catalog enabling information workers to easily discover and consume the data.
+
+See the following topics for consuming data using Power Query: 
+
+- [Power Query: Connect to Microsoft Azure Table Storage] [Power-Query-Azure-Table]
+- [Power Query: Connect to Microsoft Azure Blob Storage] [Power-Query-Azure-Blob]
+- [Power Query: Connect to Microsoft Azure SQL Database] [Power-Query-Azure-SQL]
+- [Power Query: Connect to Microsoft On-premises SQL Server][Power-Query-OnPrem-SQL] 
 
 ## Application Model
 The following diagram illustrates the application model supported by Azure Data Factory.
@@ -98,13 +104,17 @@ Here is another way of looking at the overall data flow within an Azure Data Fac
 ##Terminology
 This section introduces you to the terminology related to Azure Data Factory.
 
-###Data Factory
-A cloud service that consumes, produces, manages and publishes **datasets**. An Azure subscription may have one or more Azure Data Factory instances. An Azure data factory can be linked to one or more storage or compute services (called Linked Services).
- 
-An Azure data factory may have one or more pipelines that process data in linked storages by using linked compute services such as Azure HDInsight and publish the result information into an enterprise data directory. An Azure data factory does not contain the data within it. The data is rather stored outside of the data factory, in a user’s existing storage system
-Linked Service
+### Data Factory
+Azure Data Factory is a a fully managed cloud service for developers to compose data movement, processing activities that span varied technologies into highly available, fault 
+tolerant data pipelines. 
 
-A linked service is a service that is linked to an Azure data factory. A linked service one of the following:
+The Data Factory service consumes, produces, manages and publishes **datasets**. An Azure subscription may have one or more Azure Data Factory instances. An Azure data factory can be linked to one or more storage or compute services (called Linked Services).
+ 
+An Azure data factory may have one or more pipelines that process data in linked storages by using linked compute services such as Azure HDInsight. An Azure data factory does not contain the data within it. The data is rather stored outside of the data factory, in a user’s existing storage system.
+
+
+### Linked Service
+A linked service is a service that is linked to an Azure data factory. A linked service can be one of the following:
 
 
 - A data store such as Azure Storage, Azure SQL Database and on-premises SQL Server database
@@ -112,8 +122,8 @@ A linked service is a service that is linked to an Azure data factory. A linked 
 
 A data store is a container of data or datasets and Azure HDInsight is the only compute service supported at this time. You first create a linked service to point to a data store and then define data sets to represent the data from that data store. 
 
-###Data Set
-A named view of data. The data being described can vary from simple bytes, semi-structured data like CSV files all the way up to relational tables or even models. A **table** is a data set that has a schedule and is rectangular.
+### Data Set
+A named view of data. The data being described can vary from simple bytes, semi-structured data like CSV files all the way up to relational tables or even models. A **table** is a data set that has a schema and is rectangular.
 
 ###Pipeline
 A **pipeline** in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performing a specific processing operation. For example, a Copy activity copies data from a source storage to a destination storage and Hive/Pig activities use a Azure HDInsight cluster to process data using Hive queries or Pig scripts.
@@ -126,7 +136,7 @@ Typical steps for creating an Azure Data Factory instance are:
 4. Create a pipeline 
 
 ###Activity
-A data processing step that takes 1…N input datasets and produces 1…N output datasets.  Activities run in an execution environment (for example: Azure HDInsight cluster) and read/write data to a data store associated with the Azure Data Factory instance.
+A data processing step in a pipeline that takes 1…N input datasets and produces 1…N output datasets.  Activities run in an execution environment (for example: Azure HDInsight cluster) and read/write data to a data store associated with the Azure Data Factory instance.
  
 ###Data Hub
 An Azure Data Hub is a container for data storage and compute services. For example, a Hadoop cluster with HDFS as storage and Hive/Pig/etc… as compute (processing) is a data hub. Similarly, an enterprise data warehouse (EDW) can be modelled as a data hub (database as storage, stored procedures and/or ETL tool as compute services). Only HDInsight hub is supported at this moment. Pipelines use data stores and run on compute resources in a data hub. 
@@ -148,6 +158,11 @@ Microsoft Data Management Gateway is software that connects on-premises data sou
 
 ##Next Steps
 [Get started with Data Factory][datafactory-getstarted]
+
+[Power-Query-Azure-Table]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx
+[Power-Query-Azure-Blob]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azure-blob-storage-HA104113447.aspx
+[Power-Query-Azure-SQL]: http://office.microsoft.com/en-001/excel-help/connect-to-a-microsoft-azure-sql-database-HA104019809.aspx
+[Power-Query-OnPrem-SQL]: http://office.microsoft.com/en-001/excel-help/connect-to-a-sql-server-database-HA104019808.aspx
 
 
 [datafactory-getstarted]: ../documentdb-get-started/
