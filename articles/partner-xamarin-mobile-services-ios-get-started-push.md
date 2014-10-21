@@ -14,9 +14,10 @@ This tutorial walks you through these basic steps to enable push notifications:
 2. [Register your app and enable push notifications]
 3. [Create a provisioning profile for the app]
 4. [Configure Mobile Services]
-5. [Add push notifications to the app]
-6. [Update scripts to send push notifications]
-7. [Insert data to receive notifications]
+5. [Configure the Xamarin.iOS App]
+6. [Add push notifications to the app]
+7. [Update scripts to send push notifications]
+8. [Insert data to receive notifications]
 
 This tutorial requires the following:
 
@@ -31,7 +32,7 @@ This tutorial requires the following:
 
 The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
 
-<h2><a name="certificates"></a><span class="short-header">Generate CSR file</span>Generate the Certificate Signing Request file</h2>
+## <a name="certificates"></a>Generate the Certificate Signing Request file
 
 First you must generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed certificate.
 
@@ -53,7 +54,7 @@ First you must generate the Certificate Signing Request (CSR) file, which is use
 
 Next, you will register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.
 
-<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
+## <a name="register"></a>Register your app for push notifications
 
 To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and register for push notifications. 
 
@@ -113,7 +114,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.
 
-<h2><a name="profile"></a><span class="short-header">Provision the app</span>Create a provisioning profile for the app</h2>
+## <a name="profile"></a>Create a provisioning profile for the app
  
 1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This launches the **Add iOS Provisiong Profile** Wizard.
 
@@ -141,26 +142,7 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
 
     ![][117]
 
-<a name="configure"></a><h2><span class="short-header">Configure the application </span>Configure your Xamarin.iOS application</h2>
-
-
-7. Open your Mobile Services quickstart project with Xamarin studio, double-click **Info.plist**, and update the **Bundle Identifier** with the ID you created earlier.
-
-    ![][121]
-
-8. Scroll down to **Background Modes** and check the **Enable Background Modes** box and the **Remote notifications** box. 
-
-    ![][122]
-
-9. Double click your project in the Solution Panel to open **Project Options**.
-
-10.  Choose **iOS Bundle Signing** under **Build**, and select the corresponding **Identity** and **Provisioning profile** you had just set up for this project. 
-
-    ![][120]
-
-    This ensures that the Xamarin project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
-
-<a name="configure"></a><h2><span class="short-header">Configure the service</span>Configure Mobile Services to send push requests</h2>
+## <a name="configure-mobileServices"></a>Configure Mobile Services to send push requests
 
 After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.
 
@@ -186,7 +168,25 @@ After you have registered your app with APNS and configured your project, you mu
 
 Your mobile service is now configured to work with APNS.
 
-<a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
+## <a name="configure-app"></a>Configure your Xamarin.iOS application
+
+1. In Xamarin.Studio, open **Info.plist**, and update the **Bundle Identifier** with the ID you created earlier.
+
+    ![][121]
+
+2. Scroll down to **Background Modes** and check the **Enable Background Modes** box and the **Remote notifications** box. 
+
+    ![][122]
+
+3. Double click your project in the Solution Panel to open **Project Options**.
+
+4.  Choose **iOS Bundle Signing** under **Build**, and select the corresponding **Identity** and **Provisioning profile** you had just set up for this project. 
+
+    ![][120]
+
+    This ensures that the Xamarin project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
+
+## <a name="add-push"></a>Add push notifications to your app
 
 1. In Xamarin.Studio, open the AppDelegate.cs file and add the following property:
 
@@ -272,7 +272,7 @@ Your mobile service is now configured to work with APNS.
 
 Your app is now updated to support push notifications.
 
-<h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
+## <a name="update-scripts"></a>Update the registered insert script in the Management Portal
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
@@ -306,7 +306,7 @@ Your app is now updated to support push notifications.
    <p>This script delays sending the notification to give you time to close the app to receive a toast notification.</p>
    </div> 
 
-<h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
+## <a name="test"></a>Test push notifications in your app
 
 1. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications
 
@@ -334,16 +334,13 @@ You have successfully completed this tutorial.
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
 [Create a provisioning profile for the app]: #profile
-[Configure Mobile Services]: #configure
+[Configure Mobile Services]: #configure-mobileServices
+[Configure the Xamarin.iOS App]: #configure-app
 [Update scripts to send push notifications]: #update-scripts
 [Add push notifications to the app]: #add-push
 [Insert data to receive notifications]: #test
-[Next Steps]:#next-steps
 
 <!-- Images. -->
-
-
-
 
 [5]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
 [6]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png
