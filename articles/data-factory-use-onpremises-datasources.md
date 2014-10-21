@@ -522,12 +522,12 @@ You can remove a gateway using the **Remove-AzureDataFactoryGateway** cmdlet and
 
 [image-data-factory-home-age]: ./media/data-factory-use-onpremises-datasources/DataFactoryHomePage.png
 
-[image-data-factory-linkedservices-blade-onprem]: ./media/data-factory-use-onpremises-datasources/LinkedServiceBladeWithOnPremSqlStore.png
+[image-data-factory-linkedservices-blade-onprem]: ./media/data-factory-use-onpremises-datasources/LinkedServiceBladeWithOnPremSql.png
 
-[image-data-factory-onprem-sqltable-slices]: ./media/data-factory-use-onpremises-datasources/OnPremSQLTableSlices.png
+[image-data-factory-onprem-sqltable-slices]: ./media/data-factory-use-onpremises-datasources/OnPremSQLTableSlicesBlade.png
 
-[image-data-factory-output-blobtable-slices]: ./media/data-factory-use-onpremises-datasources/OutputBlobTableSlices.png
+[image-data-factory-output-blobtable-slices]: ./media/data-factory-use-onpremises-datasources/OutputBlobTableSlicesBlade.png
 
-[image-data-factory-dataslice-blade]: ./media/data-factory-use-onpremises-datasources/DataSliceBlade.png
+[image-data-factory-dataslice-blade]: ./media/data-factory-use-onpremises-datasources/DataSlice.png
 
-[image-data-factory-activity-run-details]: ./media/data-factory-use-onpremises-datasources/ActivityRunDetails.png
+[image-data-factory-activity-run-details]: ./media/data-factory-use-onpremises-datasources/ActivityRunDetailsBlade.png
