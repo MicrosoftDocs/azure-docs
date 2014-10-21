@@ -1,6 +1,6 @@
-<properties linkid="media-services-release-notes" urlDisplayName="Media Services Release Notes" pageTitle="Media Services Release Notes" metaKeywords="Azure Media Services" description="Azure Media Services release notes." metaCanonical="" services="media-services" documentationCenter="Media" title="Media Services Release Notes" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Media Services Release Notes" metaKeywords="Azure Media Services" description="Media Services Release Notes" metaCanonical="" services="media-services" documentationCenter="Media" title="Media Services Release Notes" authors="juliako" solutions="media" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="media" ms.devlang="dotnet" ms.topic="article" ms.date="10/06/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="media" ms.devlang="dotnet" ms.topic="article" ms.date="10/15/2014" ms.author="juliako" />
 
 
 # Azure Media Services Release Notes
@@ -8,7 +8,6 @@
 These release notes summarize changes from previous releases and known issues.
 
 >[AZURE.NOTE] We want to hear from our customers and focus on fixing problems that affect you. To report a problem or ask questions, please post in the [Azure Media Services MSDN Forum].
-
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
@@ -27,6 +26,7 @@ These release notes summarize changes from previous releases and known issues.
 - [November 2012 Release](#november_changes_12)
 - [June 2012 Preview Release](#june_changes_12)
 
+
 ##<a id="issues"></a>Currently Known Issues
 
 ### <a id="general_issues"></a>Media Services General Issues
@@ -35,8 +35,7 @@ These release notes summarize changes from previous releases and known issues.
 <tr><th>Issue</th><th>Description</yt></tr>
 <tr><td>Several common HTTP headers are not provided in the REST API.</td><td>If you develop Media Services applications using the REST API, you find that some common HTTP header fields (including CLIENT-REQUEST-ID, REQUEST-ID, and RETURN-CLIENT-REQUEST-ID) are not supported. The headers will be added in a future update.</td></tr>
 <tr><td>Encoding an asset with a file name that contains escape characters (for example, %20) fails with “MediaProcessor : File not found.”</td><td>Names of files that are going to be added to an asset and then encoded should only contain alphanumeric characters and spaces. The issue will be fixed in a future update.</td></tr>
-<tr><td>The ListBlobs method that is part of the Azure Storage SDK version 3.x fails.</td><td>Media Services generates SAS URLs based on the <a href="http://msdn.microsoft.com/en-us/library/azure/dn592123.aspx
-">2012-02-12</a> version. If you want to use Azure Storage SDK to list blobs in a blob container, use the <a href="http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> method that is part of Azure Storage SDK version 2.x. The ListBlobs method that is part of the Azure Storage SDK version 3.x will fail.</td></tr>
+<tr><td>The ListBlobs method that is part of the Azure Storage SDK version 3.x fails.</td><td>Media Services generates SAS URLs based on the <a href="http://msdn.microsoft.com/en-us/library/azure/dn592123.aspx">2012-02-12</a> version. If you want to use Azure Storage SDK to list blobs in a blob container, use the <a href="http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> method that is part of Azure Storage SDK version 2.x. The ListBlobs method that is part of the Azure Storage SDK version 3.x will fail.</td></tr>
 <tr><td>Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code.</td><td>For more information, see the description of the 503 HTTP status code in the <a href="http://msdn.microsoft.com/en-us/library/azure/dn168949.aspx">Azure Media Services Error Codes</a> topic.</td></tr>
 </table><br/>
 
@@ -46,7 +45,6 @@ These release notes summarize changes from previous releases and known issues.
 <tr><th>Issue</th><th>Description</yt></tr>
 <tr><td>Media Services objects in the SDK cannot be serialized and as a result do not work with Azure Caching.</td><td>If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown.</td></tr>
 </table><br/>
-
 ##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
@@ -55,6 +53,12 @@ For information about the Media Services REST API version history, see [Azure Me
 ### <a id="new_encoder_release"></a>Media Services Encoder Release
 
 Announcing the new release of Media Services Azure Media Encoder. With the latest Azure Media Encoder you are only charged for output GBs, but otherwise the new encoder is feature compatible with Windows Azure Media Encoder. For more information [Media Services Pricing Details]).
+
+### <a id="oct_sdk"></a>Media Services .NET SDK 
+
+Media Services SDK for .NET is now version 3.0.0.8.
+
+Media Services SDK for .NET Extensions is now version 2.0.0.3.
 
 ##<a id="september_changes_14"></a>September 2014 Release
 
@@ -359,7 +363,6 @@ The following functionality was new in the November release of the SDK.
 	Asynchronous support has been added to all methods.
 
 <!-- Anchors. -->
-
 
 <!-- Images. -->
 

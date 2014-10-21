@@ -4,6 +4,8 @@
 
 #Normal Distribution Web Service Suite
 
+
+
 The Normal Distribution Suite is a set of sample web services ([Generator]( https://datamarket.azure.com/dataset/aml_labs/ndg7), [Quantile Calculator]( https://datamarket.azure.com/dataset/aml_labs/ndq5), [Probability Calculator]( https://datamarket.azure.com/dataset/aml_labs/ndp5)), specifically three services that help generating and handling normal distributions. The services allow generating a normal distribution sequence of any length, calculating quantiles out of given probability and calculating probability from a given quantile.  Each of the services emit different outputs based on the selected service (see description below). The Normal Distribution Suite is based on R functions qnorm, rnorm and pnorm that are included in R stats package.
 
 >While this web service could be consumed by users – potentially through a mobile app, website, or even on a local computer for example, the purpose of the web service is also to serve as an example of how Azure ML can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within the Azure ML Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure set-up by the author of the web service.  
@@ -85,7 +87,7 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 	}
 
 ##Creation of Web Service 
->This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and publishing web services, please see [azure.com/ml](http://azure.com/ml). 
+>This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). 
 
 Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
@@ -169,6 +171,9 @@ Experiment Flow
 ##Limitations 
 
 These are very simple examples surrounding the Normal distribution. As can be seen from the example code above, little error catching is implemented.
+
+##FAQ
+For Frequently Asked Questions on consumption of the web service or publishing to marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-normal-distribution/normal-img1.png
 [2]: ./media/machine-learning-r-csharp-normal-distribution/normal-img2.png

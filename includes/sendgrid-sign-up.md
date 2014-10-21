@@ -24,7 +24,7 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
 8. Click the right arrow.
 
-9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your SendGrid account will begin the provisioning process.
+9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your SendGrid account will begin the [SendGrid provisioning process].
 
 	![store-screen-3][store-screen-3]
 
@@ -73,5 +73,6 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 [SendGrid Features]: http://sendgrid.com/features
 [Azure Management Portal]: https://manage.windowsazure.com
 [SendGrid Getting Started]: http://sendgrid.com/docs
+[SendGrid Provisioning Process]: https://support.sendgrid.com/hc/en-us/articles/200181628-Why-is-my-account-being-provisioned-
 
 

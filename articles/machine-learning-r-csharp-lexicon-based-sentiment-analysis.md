@@ -7,6 +7,8 @@
 #Lexicon Based Sentiment Analysis 
 
  
+
+
 How can you measure user’s opinion and attitude towards brands or topics in online social network, such as Facebook posts, tweets, reviews, and etc. Sentiment analysis provides a method for analyzing such questions.
 
 In particular, there are general two methods for sentiment analysis, one is using supervised learning algorithm, and another can be treated as unsupervised learning. Supervised learning algorithm generally builds a classification model on large annotated corpus, and its accuracy is mainly based on the quality of the annotation and usually the training process will take a long time. Besides that, when we apply the algorithm to another domain, the result is usually not good. Compared to supervised learning, lexicon based unsupervised learning uses a sentiment dictionary, which doesn’t require storing large data corpus and training, which makes the whole process much faster. 
@@ -59,7 +61,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 The input is “Today is a good day.”, the output is “1” which indicates positive sentiment associated with the input sentence. 
 
 ##Creation of Web Service
->This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and publishing web services, please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 
 From within Azure ML, a new blank experiment was created. The figure below shows the experiment flow of lexicon based sentiment analysis. The “sent_dict.csv is the MPQA subjectivity lexicon, and is set as one of the input of “Execute R Script”. Another input is a sampled review from Amazon review dataset for test, where we performed selection, column name modification, split operations.  We uses hash package to store the subjectivity lexicon in the memory and accelerate the score computation process. The whole text will be tokenized by “tm” package and compared with the word in the sentiment dictionary. Finally, a score will be calculated by adding the weight of each subjective word in the text. 
@@ -126,7 +128,8 @@ From within Azure ML, a new blank experiment was created. The figure below shows
 
 From algorithm perspective, lexicon based sentiment analysis is a general sentiment analysis tool, which may not perform better than Classification method for specific fields. The negation problem is not well dealt with. We hardcode several negation words in our program, but a better way is using a negation dictionary and build some rules. The web service performs better on short and simple sentences such as tweets, Facebook post, than long and complex sentences such as Amazon Review. 
 
-
+##FAQ
+For Frequently Asked Questions on consumption of the web service or publishing to marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_1.png
 [2]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_2.png
