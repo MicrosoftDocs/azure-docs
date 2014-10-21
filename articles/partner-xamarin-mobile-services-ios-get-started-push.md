@@ -55,12 +55,13 @@ Next, you will register your app with Apple, enable push notifications, and uplo
 
 <h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
 
-To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and register for push notifications.  
-1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to create an app ID for your app.
+To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and register for push notifications. 
 
+1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to create an app ID for your app.
+    
     ![][102]
 
-2. Type a name for your app in **Description**, enter and remember an unique **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**. This example uses the ID **MobileServices.Quickstart** but you may not reuse this same ID, as app IDs must be unique across all users. As such, it is recommended that you append your full name or initials after the app name. 
+2. Type a name for your app in **Description**, enter and remember the unique **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**. This example uses the ID **MobileServices.Quickstart** but you may not reuse this same ID, as app IDs must be unique across all users. As such, it is recommended that you append your full name or initials after the app name. 
 
     ![][103]
    
@@ -86,8 +87,6 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
     This displays the "Add iOS Certificate" assistant.
    
-    ![][108] 
-
     Note: This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.
 
 5. Click **Choose File**, browse to the location where you saved the CSR file earlier, then click **Generate**. 
@@ -165,11 +164,11 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
 
 After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.
 
-1. In Keychain Access, right-click the new certificate, click **Export**, name your file QuickstartPusher, select the **.p12** format, then click **Save**.
+1. In Keychain Access, right-click the new certificate, click **Export**, name your file, select the **.p12** format, then click **Save**.
 
     ![][28]
 
-    Make a note of the file name and location of the exported certificate. Your file name can be different.
+    Make a note of the file name and location of the exported certificate.
 
 2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
@@ -181,7 +180,7 @@ After you have registered your app with APNS and configured your project, you mu
 
     This displays the Upload Certificate dialog.
 
-4. Click **File**, select the exported certificate QuickstartPusher.p12 file, enter the **Password**, make sure that the correct **Mode** is selected, click the check icon, then click **Save**.
+4. Click **File**, select the exported certificate .p12 file, enter the **Password**, make sure that the correct **Mode** is selected, click the check icon, then click **Save**.
 
     ![][20] 
 
