@@ -1,10 +1,10 @@
-<properties title="Tutorial - Getting Started with the Azure Batch Libraries for .NET" pageTitle="Tutorial - Getting Started with the Azure Batch Libraries for .NET" description="required" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="asutton" />
+<properties title="Tutorial - Getting Started with the Azure Batch Library for .NET" pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET" description="required" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="asutton" />
 
 <tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/02/2014" ms.author="yidingz, karran.batta" />
 
-#Getting Started with the Azure Batch Libraries for .NET  
+#Getting Started with the Azure Batch Library for .NET  
 
-This article contains the following two tutorials to help you get started developing with the .NET libraries for the Azure Batch service.  
+This article contains the following two tutorials to help you get started developing with the .NET library for the Azure Batch service.  
 
 -	[Tutorial 1: Azure Batch library for .NET](#tutorial1)
 -	[Tutorial 2: Azure Batch Apps library for .NET](#tutorial2)  

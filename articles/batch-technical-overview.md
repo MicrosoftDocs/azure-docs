@@ -4,9 +4,9 @@
 
 
 #Azure Batch technical overview
-Azure Batch provides job scheduling and autoscaling of compute resources as a platform service, making it easy to run large-scale parallel and high performance computing (HPC) applications in the cloud. By using the Batch SDK and Batch service, you can configure batch workloads to run on demand or on a schedule on a managed collection of virtual machines and not have to worry about the complexity of scheduling jobs and managing resources in the underlying platform.
+Azure Batch helps you run large-scale parallel and high performance computing (HPC) applications in the cloud by providing job scheduling and autoscaling of compute resources as a platform service. By using the Batch SDK and Batch service, you can configure batch workloads to run on demand or on a schedule on a managed collection of virtual machines and not have to worry about the complexity of scheduling jobs and managing resources in the underlying platform.
  
->[WACOM.NOTE]Azure Batch is in Preview. To use Batch, you need an Azure account, and you need to enable Batch Preview on your subscription. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/).
+>[WACOM.NOTE]Azure Batch is in Preview. To use Batch, you need an Azure account, and you need to enable Batch Preview on your subscription. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/)., 
 
 
 This article gives you an overview of:
@@ -15,16 +15,16 @@ This article gives you an overview of:
 * [Developer scenarios](#BKMK_Approaches)
 * [Batch concepts](#BKMK_Entities)
 * [Work item workflow](#BKMK_Workflow_workitems)
-* [Application integration workflow](#BKMK_Workflow_cloudappss)
+* [Workflow to publish and run applications](#BKMK_Workflow_cloudappss)
 * [Additional resources](#BKMK_Resources)
 
 <h2 id="BKMK_Scenarios">Use cases</h2>
 
-Azure Batch uses the elasticity and scale of the cloud to help you with *batch processing* or *batch computing* - running large volumes of similar tasks without manual intervention once started. Essentially, a command line program or script takes a set of data files as input, processes the data in a series of tasks, and produces a set of output files. The output files might be the final results or an intermediate step in a larger workflow.       
+Azure Batch uses the elasticity and scale of the cloud to help you with *batch processing* or *batch computing* - running large volumes of similar tasks programmatically. A command line program or script takes a set of data files as input, processes the data in a series of tasks, and produces a set of output files. The output files might be the final results or an intermediate step in a larger workflow.       
  
-Batch computing is a common pattern for organizations that process, transform, and analyze large amounts of data. It includes end-of-cycle processing such as a bank’s daily risk reporting or a payroll that must be done on schedule. It also includes large-scale business, science, and engineering applications that typically need the tools and resources of a compute cluster or grid, either on a schedule or on-demand. Applications include traditional HPC applications such as fluid dynamics simulations as well as specialized workloads in fields such as automotive design, oil and gas exploration, life sciences research, and digital content creation. 
+Batch computing is a common pattern for organizations that process, transform, and analyze large amounts of data, either on a schedule or on-demand. It includes end-of-cycle processing such as a bank’s daily risk reporting or a payroll that must be done on schedule. It also includes large-scale business, science, and engineering applications that typically need the tools and resources of a compute cluster or grid. Applications include traditional HPC applications such as fluid dynamics simulations as well as specialized workloads in fields such as automotive design, oil and gas exploration, life sciences research, and digital content creation. 
  
-Batch works well with intrinsically parallel (sometimes called "embarrassingly parallel") applications or workloads, so named because the problems they solve lend themselves to running as parallel tasks on multiple computers, such as the compute VMs managed by the Batch service. See Figure 1.  
+Batch works well with intrinsically parallel (sometimes called "embarrassingly parallel") applications or workloads, which lend themselves to running as parallel tasks on multiple computers, such as the compute VMs managed by the Batch service. See Figure 1.  
 
 ![Parallel tasks][parallel]
 
@@ -48,7 +48,7 @@ The REST-based Batch APIs support two developer scenarios to help you configure 
  
 1. **Distribute computations as work items** - Use the *Batch* APIs to create and manage a flexible pool of compute VMs and specify work items that run on them. This gives you full control over resources and requires the client to manage the task execution pipeline - for example, with a workflow manager or meta-scheduler, which can be implemented using the Batch REST APIs or optionally a job manager feature of the work item. Instead of having to set up a compute cluster or write code to queue and schedule your jobs, you automate the scheduling of compute jobs and scale a pool of compute VMs up and down to run them. As part of specifying work items, you define all dependencies and define the movement of input and output files. 
 
-2. **Publish and run applications with the Batch service** - The *Batch Apps* APIs provide a higher level of abstraction and job execution pipeline hosted by the Batch service. With Batch Apps you can create a batch workload as a service in the cloud from an application that typically runs on client workstations or a compute cluster. Batch Apps helps you wrap existing binaries and executables and publish them to run on pooled VMs that the Batch service creates and manages in the background. The Batch Apps framework handles movement of input and output files, job execution, job management, and data persistence. Batch Apps also allows you to model tasks for how data is partitioned and for multiple steps in a job. Included is a REST-based API and the Batch Apps portal, which can be accessed from the Azure Management Portal and helps you monitor the submitted jobs or workloads.
+2. **Publish and run applications with the Batch service** - The *Batch Apps* APIs provide a higher level of abstraction and job execution pipeline hosted by the Batch service. With Batch Apps you can create a batch workload as a service in the cloud from an application that runs today on client workstations or a compute cluster. Batch Apps helps you wrap existing binaries and executables and publish them to run on pooled VMs that the Batch service creates and manages in the background. The Batch Apps framework handles the movement of input and output files, job execution, job management, and data persistence. Batch Apps also allows you to model tasks for how data is partitioned and for multiple steps in a job. Included is a REST-based API and the Batch Apps portal, which can be accessed from the Azure Management Portal and helps you monitor the submitted jobs or workloads.
 
 
 <h2 id="BKMK_Entities">Batch concepts</h2>
@@ -71,7 +71,7 @@ To create a Batch account:
 2. Click **New**, click **Compute**, click **Batch Service**, and then click **Quick Create**.
 ![Create a Batch account][account_portal]
 
-3.  Enter the following information:
+3. Enter the following information:
 
 	* In **URL**, enter a unique subdomain name to use in the Batch account URL.
 	* In **Region**, select a region in which Batch is available.
@@ -94,7 +94,7 @@ Attributes of a pool include:
 * A [size](http://msdn.microsoft.com/library/azure/dn197896.aspx) for the TVMs 
 * The operating system that runs on the TVMs
 * The maximum number of TVMs
-* A scaling policy for the pool - a formula based on current workload and resource usage statistics that dynamically adjusts the number of TVMs that process tasks
+* A scaling policy for the pool - a formula based on current workload and resource usage that dynamically adjusts the number of TVMs that process tasks
 * Whether firewall ports are enabled on the TVMs to allow intrapool communication
 * A certificate that is installed on the TVMs - for example, to authenticate access to a storage account
 * A start task for TVMs, for one-time operations like installing applications or downloading data used by tasks
@@ -118,7 +118,7 @@ Depending on the APIs you use to develop with Batch, you will need to manage mor
 
 * If you develop an application with the lower level Batch APIs, you need to programmatically define all the work items, jobs, and tasks that the Batch service runs and configure the TVM pools that run the tasks.
 
-*  If you integrate a client application by using the Batch Apps APIs and tools, you can use components that automatically split a job into tasks, process the tasks, and merge the results of individual tasks to the final job results. The Batch Apps framework manages the jobs and executes the tasks on the underlying compute resources when you submit the workload to the Batch service. 
+* If you integrate a client application by using the Batch Apps APIs and tools, you can use components that automatically split a job into tasks, process the tasks, and merge the results of individual tasks to the final job results. When you submit the workload to the Batch service, the Batch Apps framework manages the jobs and executes the tasks on the underlying compute resources. 
 
 
 
@@ -128,7 +128,7 @@ A file is a piece of data used as an input to a job task. A task can have no, on
 
 Each task has a working directory under which it creates directories and files needed to store the program that is run by a task, the input data that is processed by a task, and the output of the processing performed by a task. These directories and files are available for use by other tasks while a job runs. All tasks, files, and directories on a TVM are owned by a single user account.
 
-Again, depending on the APIs you use to develop with Batch, you will need to manage more or fewer details about the locations and movement of input and output files for your jobs and tasks. If you are developing with the lower level Batch API, you need to specify these dependencies and file movements explicitly. With Batch Apps, the framework handles most of these details for you. 
+Again, depending on the APIs you use with Batch, you will need to manage more or fewer details about the locations and movement of input and output files for your jobs and tasks. If you are developing with the lower level Batch APIs, you specify these dependencies and file movements explicitly. With Batch Apps, the framework handles most of these details for you. 
 
 <h2 id="BKMK_Workflow_workitems">Work items workflow</h2>
 Figure 4 shows a typical workflow to distribute computations to a pool of TVMs by using the Batch API.
@@ -151,7 +151,7 @@ Figure 5 shows a basic workflow to publish an application by using the Batch App
 
 **Figure 5. Workflow to publish and run an application with Batch Apps**
 
-1.	Prepare an **application image** - a zip file of your existing application executables  and any support files they need. These might be the same executables you would run in a traditional server farm or cluster.
+1.	Prepare an **application image** - a zip file of your existing application executables  and any support files they need. These might be the same executables you run in a traditional server farm or cluster.
 2.	Create a zip file of the **cloud assembly** that will invoke and dispatch your workloads to the Batch service. This contains two components that are available via the SDK:
 
 	a. **Job splitter** – breaks a job down into tasks that can be processed independently. For example, in an animation scenario, the job splitter would take a movie rendering job and divide it into individual frames.
@@ -159,13 +159,15 @@ Figure 5 shows a basic workflow to publish an application by using the Batch App
 	b. **Task processor** – invokes the application executable for a given task. For example, in an animation scenario, the task processor would invoke a rendering program to render the single frame specified by the task. 
 
 3.	Use the Batch Apps APIs or developer tools to upload the zip files prepared in the previous two steps to an Azure storage account. These files must be in the storage account so that the Batch service can access them. This is typically done once per application, by a service administrator.
-4.	Provide a way to submit jobs to the enabled application service in Azure. This might be a plugin in your application UI, a web portal, or an unattended service as part of your  backend system. There are samples available with the SDK to demonstrate various options. To run a job:
+4.	Provide a way to submit jobs to the enabled application service in Azure. This might be a plugin in your application UI, a web portal, or an unattended service as part of your  backend system. There are samples available with the SDK to demonstrate various options. 
+
+	To run a job:
 
 	a. Upload the input files (such as source data or images) specific to the user's job. These files must be in the storage account so that the Batch service can access them.
 
 	b. Submit a job with the required parameters and list of files.
 	
-	c. Monitor job progress either by using the APIs or by using the Batch Apps portal.
+	c. Monitor job progress by using the APIs or the Batch Apps portal.
 	
 	d. Download outputs.
 	

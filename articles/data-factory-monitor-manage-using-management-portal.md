@@ -56,6 +56,6 @@ Either way, you will see the DATA FACTORY blade for the selected data factory as
 
 [image-data-factory-browse-datafactories]: ./media/data-factory-monitor-manage-using-management-portal/BrowseDataFactories.png
 
-[image-data-factory-datafactories-blade]: ./media/data-factory-monitor-manage-using-management-portal/DataFactoriesBlade.png
+[image-data-factory-datafactories-blade]: ./media/data-factory-monitor-manage-using-management-portal/DataFactories.png
 
 [image-data-factory-datafactory-from-startboard]: ./media/data-factory-monitor-manage-using-management-portal/DataFactoryFromStartboard.png

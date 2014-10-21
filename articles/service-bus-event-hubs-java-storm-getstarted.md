@@ -1,6 +1,6 @@
-<properties pageTitle="Get Started with Event Hubs" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs sending events with Java and receiving in C# using EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Get Started with Event Hubs" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs sending events with Java and receiving them in an Apache Storm cluster" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
+<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="java" ms.devlang="java" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
 # <a name="getting-started"> </a>Get started with Event Hubs
 
@@ -9,13 +9,11 @@
 Event Hubs is a highly scalable ingestion system that can intake millions of events per second enabling your application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs you can transform and store data using any real-time analytics provider or storage cluster.
 Please refer to [Event Hubs developer guide] for more information.
 
-In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in Java, and to retrieve them in parallel using the C# [Event Processor Host] library.
+In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in Java, and to retrieve them in parallel using Apache Storm.
 
 In order to complete this tutorial you will need:
 
-+ A Java development environment, we will assume [Eclipse](https://www.eclipse.org/)
-
-+ Microsoft Visual Studio Express 2013 for Windows
++ A Java development environment configured to run [Maven](http://maven.apache.org/), we will assume [Eclipse](https://www.eclipse.org/)
 
 + An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
@@ -43,32 +41,34 @@ In order to complete this tutorial you will need:
 
    	![][5]
 
-7. In the same page, take note of the generated keys for **SendRule**.
+7. In the same page, take note of the generated keys for **SendRule** and **ReceiveRule**.
 
-   	![][6b]
-
-8. Select the tab **Dashboard** at the top, and then click **Connection Information**. Take note of the two connection strings.
-
-   	![][6]
+   	![][6c]
 
 Your event hub is now created, and you have the connection strings to send and receive events.
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-java](../includes/service-bus-event-hubs-get-started-send-java.md)]
+[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-java.md)]
 
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
+[WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../includes/service-bus-event-hubs-get-started-receive-storm.md)]
 
 ## Run the applications
 
 Now you are ready to run your applications.
 
-1.	Run the **Receiver** project from Visual Studio, then wait for it to start the receivers for all the partitions.
-
-   	![][21]
+1.	Run the **LogTopology** class from Eclipse, then wait for it to start the receivers for all the partitions.
 
 2.	Run the **Sender** project, press **Enter** in the console window, and see the events appear in the receiver window.
 
    	![][22]
+
+> [AZURE.NOTE] In this tutorial only use Storm in local mode for development purposes. Refer to the [HDInsight Storm Overview] and the official [Apache Storm] documentation for more information of Storm deployments and patterns.
+
+## Next Steps
+The following resources are available for developing applications integrating Event Hubs and Storm.
+
+- [Analyzing sensor data with Storm and HDInsight] is a full scenario tutorial using Event Hubs, Storm, and HBase to ingest sensor data in an Hadoop cluster.
+- [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight] is a tutorial on how to write Storm pipelines using C#.
 
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
@@ -77,13 +77,16 @@ Now you are ready to run your applications.
 [4]: ./media/service-bus-event-hubs-getstarted/create-event-hub4.png
 [5]: ./media/service-bus-event-hubs-getstarted/create-event-hub5.png
 [6]: ./media/service-bus-event-hubs-getstarted/create-event-hub6.png
-[6b]: ./media/service-bus-event-hubs-getstarted/create-event-hub6b.png
+[6c]: ./media/service-bus-event-hubs-getstarted/create-event-hub6c.png
 
-
-[21]: ./media/service-bus-event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
-[22]: ./media/service-bus-event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
+[22]: ./media/service-bus-event-hubs-getstarted/receive-storm2.png
 
 <!-- Links -->
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs developer guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+
+[Apache Storm]: https://storm.incubator.apache.org
+[HDInsight Storm Overview]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-overview/
+[Analyzing sensor data with Storm and HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
