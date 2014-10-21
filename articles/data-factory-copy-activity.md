@@ -699,6 +699,21 @@ The data types specified in the Structure section of the Table definition is onl
 		</td>
 	</tr>
 
+	<tr>
+		<td>BlobSink</td>
+		<td>Data types defined in <b>Structure</b> section of input Table definition are ignored.  Data types defined on the underlying input data store will be used.  Columns will be specified as nullable for Avro serialization.</td>
+	</tr>
+
+	<tr>
+		<td>AzureTableSource</td>
+		<td>Data types defined in <b>Structure</b> section of Table definition are ignored.  Data types defined on the underlying Azure Table will be used.</td>
+	</tr>
+
+	<tr>
+		<td>AzureTableSink</td>
+		<td>Data types defined in <b>Structure</b> section of Table definition are ignored.  Data types defined on the underlying input data store will be used.</td>
+	</tr>
+
 </table>
 
 ## Walkthroughs
