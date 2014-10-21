@@ -67,6 +67,14 @@ The table also includes a link to the [Linux kernel compatibility patch](http://
  		
 	</tr>
 	<tr>
+		<th> CoreOS </th>
+		<td> 475.1.0 <i>Alpha</i><sup style="font-weight:bold">1</sup> </td>
+        <td> In Kernel </td>
+		<td> N/A </td>
+		<td> Source: <a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
+		
+	</tr>
+	<tr>
 		<th> Oracle Linux </th>
 		<td> 6.4+</td>
         <td>In Kernel</td>
@@ -74,7 +82,8 @@ The table also includes a link to the [Linux kernel compatibility patch](http://
 		<td>Package: In repo, name: WALinuxAgent<br />
 			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
-	</tr><tr>
+	</tr>
+	<tr>
 		<th> SUSE Linux Enterprise </th>
 		<td> SLES 11 SP3+</td>
         <td>In Kernel</td>
@@ -93,3 +102,6 @@ The table also includes a link to the [Linux kernel compatibility patch](http://
 		
 	</tr>
 </table>
+
+ <sup style="font-weight:bold">1</sup> **Note:** CoreOS on Azure is currently in developer preview (*alpha*).
+
