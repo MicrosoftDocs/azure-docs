@@ -2,9 +2,11 @@
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
-## Getting Started with Azure Storage
+> [AZURE.SELECTOR]
+> - [Getting Started](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
+> - [What Happened](/documentation/articles/vs-storage-aspnet-what-happened/)
 
-See details on what happened to your project [here](#whathappened).
+## Getting Started with Azure Storage
 
 > [AZURE.SELECTOR]
 > - [Blobs](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
@@ -23,8 +25,8 @@ Add the following code namespace declarations to the top of any C# file in which
 Before you can do anything with a queue, you need to get the connection string for the storage account the queues will live in. You can use the **CloudStorageAccount** type to represent your storage account information. For ASP.NET projects, you can you use the **ConfigurationManager** type to retrieve your storage connection string and storage account information from the Azure service configuration, as shown in the following code.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      ConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
+      ConfigurationManager.AppSettings["<storageAccountName>_AzureStorageConnectionString"]);
 
 [WACOM.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
-[WACOM.INCLUDE [vs-storage-aspnet-getting-started-intro](../includes/vs-storage-aspnet-getting-started-intro.md)]
+For more information, see [ASP.NET](http://www.asp.net).

@@ -2,9 +2,11 @@
 
 <tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
 
-## Getting Started with Mobile Services
+> [AZURE.SELECTOR]
+> - [Getting Started](/documentation/articles/vs-mobile-services-javascript-getting-started/)
+> - [What Happened](/documentation/articles/vs-mobile-services-javascript-what-happened/)
 
-See details on what happened to your project [here](#whathappened).
+## Getting Started with Mobile Services
 
 #####Get reference to a table
 
@@ -66,15 +68,6 @@ Delete a row in a data table. Call the [done]() method on the returned [Promise]
 	    todoItems.splice(todoItems.indexOf(item), 1);
     }
 
-###<span id="whathappened">What happened to my project?</id>
-
-#####References Added
-
-The Windows Azure Mobile Service library was added to your project in the form of a **MobileServices.js** file.
-  
-#####Connection string values for Mobile Services 
-
-In the `services\mobileServices\settings` folder, a new JavaScript (.js) file with a **MobileServiceClient** was generated that contains the selected mobile service's application URL and application key.  
 
 
 [Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)
