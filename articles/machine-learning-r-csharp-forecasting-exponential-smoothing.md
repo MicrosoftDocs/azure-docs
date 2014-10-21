@@ -6,6 +6,8 @@
 #Forecasting-Exponential Smoothing 
   
 
+
+
 This [web service]( https://datamarket.azure.com/dataset/aml_labs/ets) implements Exponential Smoothing model (ETS) to produce predictions based on the historical data provided by the user. Will the demand for a specific product increase this year? Can I predict my product sales for the Christmas season, so that I can effectively plan my inventory? Forecasting models are apt to address such questions. Given the past data, these models examine hidden trends and seasonality to predict future trends.  
  
 >While this web service could be consumed by users – potentially through a mobile app, website, or even on a local computer for example, the purpose of the web service is also to serve as an example of how Azure ML can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within the Azure ML Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure set-up by the author of the web service.
@@ -70,7 +72,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ##Creation of Web Service 
 
->This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and publishing web services, please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 From within Azure ML, a new blank experiment was created. A sample input data was uploaded with a pre-defined data schema. Linked to the data schema is an “Execute R Script” module which generates the ARIMA forecasting model using ‘ets’ and ‘forecast’ functions from R. 
 
@@ -102,6 +104,9 @@ From within Azure ML, a new blank experiment was created. A sample input data wa
 ##Limitations 
 
 This is a very simple example for ETS forecasting. As can be seen from the example code above, no error catching is implemented and the service assumes that all the variables are continuous/positive values and the frequency should be an integer greater than 1. The length of the date and value vectors should be the same. The date variable should adhere to the format ‘mm/dd/yyyy’.
+
+##FAQ
+For Frequently Asked Questions on consumption of the web service or publishing to marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img1.png
 [2]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img2.png
