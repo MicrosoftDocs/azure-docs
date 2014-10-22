@@ -30,7 +30,7 @@ A pipeline in an Azure data factory processes data in linked storage services by
 
 > [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema. 
 
-When defining Pig or Hive activity in a pipeline JSON, the **type** property should be set to: **HDInsightActivity**.
+When defining a Pig or Hive activity in a pipeline JSON, the **type** property should be set to: **HDInsightActivity**.
 
 ## Pig JSON example
 
@@ -79,7 +79,7 @@ You can store Pig/Hive scripts in an Azure blob storage associated with the HDIn
 * **scriptPath** – Path to the Pig or Hive script file
 * **scriptLinkedService** – Azure storage account that contains the script file
 
-The following JSON example for a sample pipeline uses a Hive activity that refers to **transformdata.hql** file stored in scripts folder in the **adfwalkthrough** container in the Azure blob storage represented by the **StorageLinkedService**.
+The following JSON example for a sample pipeline uses a Hive activity that refers to **transformdata.hql** file stored in **scripts** folder in the **adfwalkthrough** container in the Azure blob storage represented by the **StorageLinkedService**.
 
     {
     	"name": "AnalyzeMarketingCampaignPipeline",
@@ -163,7 +163,8 @@ See the following example for specifying parameters for a Hive script using **ex
 ## Walkthrough: Use Hive with Azure Data Factory
 ### Pre-requisites
 1. Complete the tutorial from [Get started with Azure Data Factory][adfgetstarted] article.
-2. Create **HiveQuery.hql** file in a subfolder named **Hive** under **C:\ADFGetStarted** with the following content.
+2. Upload **emp.txt** file you created in the above tutorial as **hiveinput\emp.txt** to the adftutorial container in the blob storage. The **hiveinput** folder is automatically created in the **adftutorial** container when you upload emp.txt file with this syntax. 
+2. Create **hivequery.hql** file in a subfolder named **Hive** under **C:\ADFGetStarted** with the following content.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -178,7 +179,8 @@ See the following example for specifying parameters for a Hive script using **ex
 		FROM hivesampletable 
 		group by country, state;
 		
-3.  Upload the **HiveQuery.hql** to the **adftutorial** container in your blob storage
+3.  Upload the **hivequery.hql** to the **adftutorial** container in your blob storage
+
 
 ### Walkthrough
 
@@ -192,7 +194,7 @@ See the following example for specifying parameters for a Hive script using **ex
         		"location": 
         		{
             		"type": "AzureBlobLocation",
-            		"blobPath": "adftutorial/hiveinput",
+            		"folderPath": "adftutorial/hiveinput",
             		"linkedServiceName": "MyBlobStore"
         		},
         		"availability": 
@@ -205,6 +207,8 @@ See the following example for specifying parameters for a Hive script using **ex
 		}
 
  
+	See [Data Factory Developer Reference][developer-reference] for descriptions of JSON properties.  
+
 2. Launch **Azure PowerShell** and switch to **AzureResourceManager** mode if needed.
     		
     	Switch-AzureMode AzureResourceManager
@@ -214,6 +218,7 @@ See the following example for specifying parameters for a Hive script using **ex
 
 		New-AzureDataFactoryTable –ResourceGroupName ADFTutorialResourceGroup –DataFactoryName ADFTutorialDataFactory -File .\HiveInputBlobTable.json
 
+	See [Data Factory Cmdlet Reference][cmdlet-reference] for detailed overview of Data Factory cmdlets. 
 #### Create output table
         
 1. Create a JSON file named **HiveOutputBlobTable.json** with the following content and save it in the **C:\ADFGetStarted\Hive** folder.
@@ -225,7 +230,7 @@ See the following example for specifying parameters for a Hive script using **ex
         		"location": 
         		{
             		"type": "AzureBlobLocation",
-	    			blobPath: "adftutorial/hiveoutput/",
+	    			folderPath: "adftutorial/hiveoutput/",
             		"linkedServiceName": "MyBlobStore"
         		},
         		"availability": 
@@ -241,8 +246,9 @@ See the following example for specifying parameters for a Hive script using **ex
 		New-AzureDataFactoryTable –ResourceGroupName ADFTutorialResourceGroup –DataFactoryName ADFTutorialDataFactory -File .\HiveOutputBlobTable.json
 
 ### Create a linked service for an HDInsight cluster
-The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
+The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
 
+#### To use an on-demand HDInsight cluster
 1. Create a JSON file named **HDInsightOnDemandCluster.json** with the following content and save it to **C:\ADFGetStarted\Hive** folder.
 
 
@@ -259,15 +265,21 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		}
 		}
 
-2. Execute the following command to create the linked service for the on-demand HDInsight cluster.
+2. Launch **Azure PowerShell** and execute the following command to switch the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
+
+         switch-azuremode AzureResourceManager
+		
+
+3. Switch to **C:\ADFGetstarted\Hive** folder.
+4. Execute the following command to create the linked service for the on-demand HDInsight cluster.
  
 		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\HDInsightOnDemandCluster.json
   
-3. You should see the tables and linked services on the **DATA FACTORY** blade in the **Azure Preview Portal**.    
+3. You should see the tables and linked services on the **Data Factory** blade in the **Azure Preview Portal**.    
    
-#### To use your own cluster: 
+#### To use your own HDInsight cluster: 
 
-1. Create a JSON file named **HDInsightOnDemandCluster.json** with the following content and save it to **C:\ADFGetStarted\Hive** folder. Replace clustername, username, and password with appropriate values before saving the JSON file.  
+1. Create a JSON file named **MyHDInsightCluster.json** with the following content and save it to **C:\ADFGetStarted\Hive** folder. Replace clustername, username, and password with appropriate values before saving the JSON file.  
 
 		{
    			Name: "MyHDInsightCluster",
@@ -281,13 +293,19 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		}
 		}
 
-2. Execute the following command to create the linked service for the on-demand HDInsight cluster.
+2. Launch **Azure PowerShell** and execute the following command to switch the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
+
+         switch-azuremode AzureResourceManager
+		
+
+3. Switch to **C:\ADFGetstarted\Hive** folder.
+4. Execute the following command to create the linked service for the on-demand HDInsight cluster.
  
 		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\MyHDInsightCluster.json
 
 ### Create and schedule pipeline
    
-1. Create a JSON file named **ADFTutorialHivePipeline.json** with the following content and save it in the **C:\ADFGetStarted\Hive** folder. If you want to use your own cluster and followed the steps to create the **MyHDInsightCluster** linked service, replaced **HDInsightOnDemandCluster** with **MyHDInsightCluster** in the following JSON. 
+1. Create a JSON file named **ADFTutorialHivePipeline.json** with the following content and save it in the **C:\ADFGetStarted\Hive** folder. If you want to use your own cluster and followed the steps to create the **MyHDInsightCluster** linked service, replace **HDInsightOnDemandCluster** with **MyHDInsightCluster** in the following JSON. 
 
 
     	{
@@ -338,16 +356,35 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-27 –EndDateTime 2014-09-30 –Name ADFTutorialHivePipeline 
 
 	> [WACOM.NOTE] Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime are UTC times and must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. 
+	> If you do not specify **EndDateTime**, it is calculated as "**StartDateTime + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the **EndDateTime**.
   	
+	The output table is scheduled to be produced every day, so there will be three slices produced. 
 
 4. See [Monitor datasets and pipeline][adfgetstartedmonitoring] section of [Get started with Data Factory][adfgetstarted] article.   
 
 ## See Also
 
+Article | Description
+------ | ---------------
+[Introduction to Azure Data Factory][data-factory-introduction] | This article introduces you to the Azure Data Factory service, concepts, the value it provides, and scenarios it supports.
+[Get started with Azure Data Factory][adf-getstarted] | This article provides an end-to-end tutorial that shows you how to create a sample Azure data factory that copies data from an Azure blob to an Azure SQL database.
+[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob.
+[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
+[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
+[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issues.  
+[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 
-- [Move and process log files using Data Factory][adftutorial]
-- [Developer Reference][Developer Reference] 
- 
+
+[adf-getstarted]: ../data-factory-get-started
+[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
+[adf-tutorial]: ../data-factory-tutorial
+[use-custom-activities]: ../data-factory-use-custom-activities
+[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
+[troubleshoot]: ../data-factory-troubleshoot
+[data-factory-introduction]: ../data-factory-introduction
+
+[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 
 [adfgetstarted]: ../data-factory-get-started

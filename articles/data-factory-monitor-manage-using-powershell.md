@@ -3,7 +3,9 @@
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 
 # Monitor and manage Azure Data Factory using Azure PowerShell
-The following table lists cmdlets you can use monitor and manage Azure data factories by using Azure PowerShell.
+The following table lists cmdlets you can use monitor and manage Azure data factories by using Azure PowerShell. 
+
+> [WACOM.NOTE] See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
 
 
 - [Get-AzureDataFactory](#get-azuredatafactory)
@@ -338,4 +340,4 @@ The Resume-AzureDataFactoryPipeline cmdlet resumes the specified pipeline that i
 This command resumes the pipeline ADFTutorialPipeline in the Azure data factory ADFTutorialDataFactory that was suspended before by using the Suspend-AzureDataFactoryPipeline command.
 
 
-
+[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
