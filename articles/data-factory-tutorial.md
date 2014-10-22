@@ -6,7 +6,7 @@
 This article provides an end-to-end walkthrough of a canonical scenario of log processing using Azure Data Factory to transform data from log files into insights. 
 
 ## Scenario
-Contoso is a gaming company and creates games for multiple platforms: game consoles, handheld devices, and personal computers (PCs). Each of these games produces tons of logs. Contoso’s goal is to collect and analyze the logs produced by these games to get usage information, identify upsell and cross-sell opportunities, develop new compelling features etc. to improve business and provide better experience to customers.
+Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). Each of these games produces tons of logs. Contoso’s goal is to collect and analyze the logs produced by these games to get usage information, identify up-sell and cross-sell opportunities, develop new compelling features etc. to improve business and provide better experience to customers.
  
 In this walkthrough, we will collect sample logs, process and enrich them with reference data, and transform the data to evaluate the effectiveness of a marketing campaign that Contoso has recently launched.
 
@@ -15,14 +15,15 @@ In this walkthrough, we will collect sample logs, process and enrich them with r
 2.	You must have an Azure subscription to perform this tutorial. For information about obtaining a subscription, see [Purchase Options] [azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 3.	You must download and install [Azure PowerShell][download-azure-powershell] on your computer. 
 2.	**(recommended)** Review and practice the tutorial in the [Get started with Azure Data Factory][adfgetstarted] article for a simple tutorial to get familiar with the portal and cmdlets.
+3.	**(recommended)** Review and practice the walkthrough in the [Use Pig and Hive with Azure Data Factory][usepigandhive] article for a walkthrough on creating a pipeline to move data from on-premises data source to an Azure blob store.
 3.	**(recommended)** Review and practice the walkthrough in the [Enable your pipeline to work with on-premises data][useonpremisesdatasources] article for a walkthrough on creating a pipeline to move data from on-premises data source to an Azure blob store.
-4.	Download [ADFWalkthrough.zip][adfwalkthrough-download] file and extract the files to **C:\ADFWalkthrough** folder. •	The ADFWalkthrough.zip contains the following structure:
-	- **Pipelines:** It includes the JSON files containing the definition of the pipelines.
-	- **Tables:** It includes the JSON files containing the definition of the Tables.
-	- **LinkedServices:** It includes the JSON files containing the definition of your storage and compute cluster 
-	- **Scripts:** It includes the Hive and Pig scripts that are used for processing the data and invoked from the pipelines
-	- **SampleData:** It includes the sample data for this walkthrough
-	- **OnPremises:** It includes the JSON files and script that are used for demonstrating accessing your on-premises data
+4.	Download [ADFWalkthrough.zip][adfwalkthrough-download] file and extract the files to **C:\ADFWalkthrough** folder. The ADFWalkthrough.zip contains the following structure:
+	- **Pipelines:** It includes  JSON files containing the definition of the pipelines.
+	- **Tables:** It includes  JSON files containing the definition of the Tables.
+	- **LinkedServices:** It includes JSON files containing the definition of your storage and compute (HDInsight) cluster 
+	- **Scripts:** It includes Hive and Pig scripts that are used for processing the data and invoked from the pipelines
+	- **SampleData:** It includes sample data for this walkthrough
+	- **OnPremises:** It includes JSON files and script that are used for demonstrating accessing your on-premises data
 	- **AzureEnvironmentSetup.ps1:** This is the PowerShell script for setting up the Azure environment
 	- **uploadSampleDataAndScripts.ps1:** This script uploads the sample data & scripts to Azure
 	- dd
@@ -31,9 +32,9 @@ In this walkthrough, we will collect sample logs, process and enrich them with r
 	- Azure SQL Database
 	- Azure HDInsight Cluster of version 3.1 or above	
 7. Once the Azure Resources are created, make sure you have the information needed to connect to each of these resources.
- 	- Azure Storage Account - Account name and account key 
-	- Azure SQL Database - Azure DB Server name, user name, and password
-	- Azure HDInsight Cluster - Name of the HDInsight cluster, user name, password, associated Azure storage account name and key  
+ 	- **Azure Storage Account** - Account name and account key.  
+	- **Azure SQL Database** - Server, database, user name, and password.
+	- **Azure HDInsight Cluster** - Name of the HDInsight cluster, user name, password, and account name and account key for the Azure storage associated with this cluster.  
  8. Launch **Azure PowerShell** and navigate to the folder where you have unzipped the ADFWalkthrough.zip files (C:\ADFWalkthrough) and run the preparation script .**\AzureEnvironmentSetup.ps1**.
  
 		You should have your subscription name and the Microsoft account associated with the subscription before running the script.
@@ -94,7 +95,7 @@ You will be creating the following four pipelines that form a connected graph.
 6. [Step 6: Monitor pipelines and data slices](#MainStep6). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Portal.
 
 ### <a name="MainStep1"></a> Step 1: Upload sample data and scripts
-In this step, you upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that are invoked by the workflows. The scripts you execute also create an Azure SQL database called MarketingCampaigns, tables, user-defined types, and stored procedures. 
+In this step, you upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that are invoked by the workflows. The scripts you execute also create an Azure SQL database called **MarketingCampaigns**, tables, user-defined types, and stored procedures. 
 
 The tables, user-defined types and stored procedures are used when moving the Marketing Campaign Effectiveness results from Azure blob storage to the Azure SQL database.
 
@@ -151,19 +152,28 @@ The tables, user-defined types and stored procedures are used when moving the Ma
 ### <a name="MainStep2"></a> Step 2: Create an Azure data factory
 In this step, you create an Azure data factory named **LogProcessingFactory**.
 
-1.	After logging into the [Azure Preview Portal][azure-preview-portal], click **NEW** from the bottom-left corner, and click **Everything** at the top.
+1.	After logging into the [Azure Preview Portal][azure-preview-portal], click **NEW** from the bottom-left corner, and click **Data Factory** on the **New** blade. 
 
-	![New Everything][image-data-factory-tutorial-portal-new-everything]
+	![New->DataFactory][image-data-factory-new-datafactory-menu] 
+	
+	If you do not see **Data Factory** on the **New** blade, scroll down. If you still don't see it, do the following: 
 
-2. Select **Data, storage, cache + backup** from **Gallery**, and click **See All** under **Data Services**.		
+	2.	After logging into the [Azure Preview Portal][azure-preview-portal], click **NEW** from the bottom-left corner, and click **Everything** at the top.
 
-	![Data Storage, Cache, Backup][image-data-factory-tutorial-datastorage-cache-backup]
+		![New Everything][image-data-factory-tutorial-portal-new-everything]
 
-3. Click **Data Factory (preview)** in the **Data Services** blade.
+	2. Select **Data, storage, cache + backup** from **Gallery**, and click **See All** under **Data Services**.		
 
-	![Data Services Blade][image-data-factory-tutorial-dataservices-blade]
+		![Data Storage, Cache, Backup][image-data-factory-tutorial-datastorage-cache-backup]
 
-4. In the **Data Factory (Preview)** blade, click **Create**.
+	3. Click **Data Factory (preview)** in the **Data Services** blade.
+
+		![Data Services Blade][image-data-factory-tutorial-dataservices-blade]
+
+	4. In the **Data Factory (Preview)** blade, click **Create**.
+
+		![Data Factory Create Button][image-data-factory-new-datafactory-create-button]
+
 5. In the **New data factory** blade, enter **LogProcessingFactory** for the **Name**.
 
 	![Data Factory Blade][image-data-factory-tutorial-new-datafactory-blade]
@@ -580,6 +590,7 @@ Congratulations! You have successfully gone through the walkthrough to use your 
 [adfgetstarted]: ../data-factory-get-started
 [adfintroduction]: ../data-factory-introduction
 [useonpremisesdatasources]: ../data-factory-use-onpremises-datasources
+[usepigandhive]: ../data-factory-pig-hive-activities
 
 [azure-preview-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
@@ -659,3 +670,7 @@ Congratulations! You have successfully gone through the walkthrough to use your 
 [image-data-factory-monitoring-activity-run-details]: ./media/data-factory-tutorial/MonitoringActivityRunDetails.png
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial/DataManagementGatewayConfigurationManager.png
+
+[image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
+
+[image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
