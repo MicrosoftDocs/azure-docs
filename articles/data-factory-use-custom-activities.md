@@ -296,7 +296,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		}
 		}
 
-2. Launch **Azure PowerShell** and execute the following command to switch the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
+2. Launch **Azure PowerShell** and execute the following command to switch to the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
 
          switch-azuremode AzureResourceManager
 		
@@ -323,7 +323,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		}
 		}
 
-2. Launch **Azure PowerShell** and execute the following command to switch the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
+2. Launch **Azure PowerShell** and execute the following command to switch to the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
 
          switch-azuremode AzureResourceManager
 		

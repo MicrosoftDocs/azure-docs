@@ -129,7 +129,7 @@ In the **DATA FACTORY** blade (or home page) for the data factory, click **Event
 
 [image-data-factory-filter]: ./media/data-factory-monitor-manage-using-management-portal/Filter.png
 
-[image-data-factory-dataslice]: ./media/data-factory-monitor-manage-using-management-portal/dataslice.png
+[image-data-factory-dataslice]: ./media/data-factory-monitor-manage-using-management-portal/DataSlice.png
 
 [image-data-factory-activity-run-details]: ./media/data-factory-monitor-manage-using-management-portal/ActivityRunDetails.png
 

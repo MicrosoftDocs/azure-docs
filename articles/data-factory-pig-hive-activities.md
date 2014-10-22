@@ -209,7 +209,7 @@ See the following example for specifying parameters for a Hive script using **ex
  
 	See [Data Factory Developer Reference][developer-reference] for descriptions of JSON properties.  
 
-2. Launch **Azure PowerShell** and switch to **AzureResourceManager** mode if needed.
+2. Launch **Azure PowerShell** and switch to the **AzureResourceManager** mode if needed.
     		
     	Switch-AzureMode AzureResourceManager
 
@@ -265,7 +265,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		}
 		}
 
-2. Launch **Azure PowerShell** and execute the following command to switch the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
+2. Launch **Azure PowerShell** and execute the following command to switch to the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
 
          switch-azuremode AzureResourceManager
 		
