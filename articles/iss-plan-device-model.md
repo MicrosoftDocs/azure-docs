@@ -1,8 +1,8 @@
-<properties title="Plan the ISS data model for your devices" pageTitle="Plan the ISS data model for your devices" description="Evaluate your device data to plan your ISS data model." metaKeywords="Intelligent Systems,ISS,IoT,data model,model definition" services="intelligent-systems" solutions="" documentationCenter="" authors="jdecker" manager="alanth" videoId="" scriptId="" />
+<properties title="Plan the ISS device model for your devices" pageTitle="Plan the ISS device model for your devices" description="Evaluate your device data to plan your ISS device model." metaKeywords="Intelligent Systems,ISS,IoT,device model,model definition" services="intelligent-systems" solutions="" documentationCenter="" authors="jdecker" manager="alanth" videoId="" scriptId="" />
 
 <tags ms.service="intelligent-systems" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="tbd" ms.date="11/13/2014" ms.author="jdecker" ms.prod="azure">
 
-#Plan the ISS data model for your devices
+#Plan the ISS device model for your devices
 To help you structure the data that your devices will send to Azure Intelligent Systems Service (ISS), you should look at how you need to use that data. You should review your current systems to see what data you need from your devices and what data is available from your devices.  
 
 ##Understand what you need
@@ -68,22 +68,22 @@ The Contoso development team will use the cooler temperature and inventory prope
 Some of Contoso's newer vending machines have a digital thermostat that controls the cooler temperature. The Contoso development team wants to set the cooler temperature remotely by sending commands from the ISS management portal. This will be defined as an action.
 </table>
 
-After you identify what you want to know and the information that is available from your devices, your next step is [Plan the data model for your devices]().  
+After you identify what you want to know and the information that is available from your devices, your next step is [Plan the device model for your devices]().  
 
 ##Separate your devices by feature and function
-If you have several different types of devices with different capabilities, you will probably need to create multiple data models to describe these different devices. First, separate your devices into categories based on their main features and functions. Then, review each category and determine which devices share most of the same properties, events, and actions. These devices can all use the same data model.  
+If you have several different types of devices with different capabilities, you will probably need to create multiple device models to describe these different devices. First, separate your devices into categories based on their main features and functions. Then, review each category and determine which devices share most of the same properties, events, and actions. These devices can all use the same device model.  
 
 <table>
 <tr>
 <th>Example scenario</th>
 </tr>
 <tr>
-<td>To build the data model, the Contoso development team separates machines that carry perishable drink SKUs and machines that don’t carry perishable drink SKUs. If a machine carries a drink SKU that could spoil if the temperature rose above 55 degrees F, the team wants that machine to trigger an alarm when the cooler temperature hit 56 degrees F. However, if a machine does not carry any perishable drink SKUs, they don't want to trigger an alarm until the temperature hit 65 degrees F.</td>
+<td>To build the device model, the Contoso development team separates machines that carry perishable drink SKUs and machines that don’t carry perishable drink SKUs. If a machine carries a drink SKU that could spoil if the temperature rose above 55 degrees F, the team wants that machine to trigger an alarm when the cooler temperature hit 56 degrees F. However, if a machine does not carry any perishable drink SKUs, they don't want to trigger an alarm until the temperature hit 65 degrees F.</td>
 </tr>
 </table>
 
-##Plan the data model for your devices
-The data model contains all the information about your devices, including information about the device state, the alarms and events the device can trigger, and the commands the device can accept. By planning out your data models before you start developing code for your devices, you can minimize the number of changes and updates you need to make.  
+##Plan the device model for your devices
+The device model contains all the information about your devices, including information about the device state, the alarms and events the device can trigger, and the commands the device can accept. By planning out your device models before you start developing code for your devices, you can minimize the number of changes and updates you need to make.  
 
 You should divide the information from your devices into the categories described in the following table: 
 
@@ -142,48 +142,7 @@ You can use complex data types to group two or more simple data types together i
 </tr>
 </table>
 
-###Represent complex data types with events  
 
-Each time an event trigger occurs, the device sends all the properties associated with that event to the service, and each event transmission creates a separate record in the output data. This means that you can use events to handle more complex data types such as collections and enumerations.   
-
-First, define a complex data type that contains all the properties that you want your device to send. Then, define an event that causes the device to send that complex data type each time the trigger occurs.
-
-<table>
-<tr>
-<th>Example scenario</th>
-</tr>
-<tr>
-<td>To handle the complex data from their machines, the Contoso development team decides to define an event to send the inventory report after each purchase. First, they define a complex type called <i>UnitSale</i> to represent the information the machines should send. 
-<table>
-<tr>
-<th>Property Name</th>	
-<th>Data type</th>
-</tr>
-<tr>
-<td>DrinkId</td>	
-<td>String</td>
-</tr>
-<tr>
-<td>DrinkName</td>	
-<td>String</td>
-</tr>
-<tr>
-<td>UnitCount</td>	
-<td>Int32</td>
-</tr>
-<tr>
-<td>UnitPrice</td>	
-<td>Double</td>
-</tr>
-<tr>
-<td>RemainingInventory</td>	
-<td>Int32</td>
-</tr>
-</table>
-
-When they define their events, they will create a <i>Sale</i> event that sends a UnitSale data type to the service.</td>
-</tr>
-</table>
 
 ###Mapping the output back to the data model
 When the service processes your data, it separates data from properties, events, and alarms. The service then converts the data into a format that you can use with standard analytics tools such as Microsoft Power Query for Excel and makes the data available at different OData feeds. The following diagram shows how the service outputs data from your devices:

@@ -12,14 +12,11 @@ For an end-to-end tutorial, see [Write a device application for ISS](./iss-write
 ##Links for the end-to-end workflow
 Use the links in this section to find more information about each task in the end-to-end workflow. This section shows the tasks in the same order they appear in the workflow.  
 
--	Create an ISS account
--	Structure your device data
--	Create a device application
+-	[Create an ISS account](./iss-get-started.md)
+-	[Structure your device data](./iss-plan-device-model.md)
+-	[Create a device application](./iss-libraries.md)
 -	Register the device
--	Manage your data
-	
-	a.	Retrieve your device data  
-	b.	Analyze your device data
+-	[Retrieve your device data](./iss-retrieve-odata-feed.md)
 -	Manage your devices  
 	a.	Manage and respond to alarms from your devices   
 	b.	Send commands to your devices
