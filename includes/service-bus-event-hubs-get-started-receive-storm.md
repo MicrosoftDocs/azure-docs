@@ -1,28 +1,28 @@
 ## Receive messages with Apache Storm
 
-[**Apache Storm**](https://storm.incubator.apache.org) is a distributed realtime computation system that simplifies reliable processing of unbounded streams of data. In this section we will see how to use an Event Hub Storm spout to receive events from Event Hubs. Using Apache Storm is possible to split events across multiple processes hosted in different nodes. The Event Hubs integration with Storm simplifies event consumption by transparently check-pointing its progress using Storm's Zookeeper installation. managing persistent checkpoints and parallel receives from Event Hubs.
+[**Apache Storm**](https://storm.incubator.apache.org) is a distributed real time computation system that simplifies reliable processing of unbounded streams of data. This section shows how to use an Event Hubs Storm spout to receive events from Event Hubs. Using Apache Storm, you can split events across multiple processes hosted in different nodes. The Event Hubs integration with Storm simplifies event consumption by transparently checkpointing its progress using Storm's Zookeeper installation, managing persistent checkpoints and parallel receives from Event Hubs.
 
-Refer to [Event Hubs developer guide] for more information about Event Hubs receive patterns.
+For more information about Event Hubs receive patterns, see the [Event Hubs Overview].
 
-In this tutorial, we will use an [HDInsight Storm] installation, which comes with the Event Hubs spout already available.
+This tutorial uses an [HDInsight Storm] installation, which comes with the Event Hubs spout already available.
 
-1. Follow the [HDInsight Storm - Get Started](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-getting-started/) to create a new HDInsight cluster, and connect to it via Remote Desktop.
+1. Follow the [HDInsight Storm - Get Started](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-getting-started/) procedure to create a new HDInsight cluster, and connect to it via Remote Desktop.
 
 2. Copy the `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` file to your local development environment. This contains the events-storm-spout.
 
-3. Use the following command to install the package into the local Maven store. This will allow us to easily add it as a reference in the Storm project in a later step.
+3. Use the following command to install the package into the local Maven store. This enables you to add it as a reference in the Storm project in a later step.
 
 		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
-4. In Eclipse, create a new Maven project (**File** -> **New** -> **Project**).
+4. In Eclipse, create a new Maven project (click **File**, then **New**, then **Project**).
 
    	![][12]
 
-5. Select **Use default Workspace location**, click **Next**
+5. Select **Use default Workspace location**, then click **Next**
 
-6. Select the **maven-archetype-quickstart** archetype, click **Next**
+6. Select the **maven-archetype-quickstart** archetype, then click **Next**
 
-7. Insert a **GroupId** and **ArtifactId**, click **Finish**
+7. Insert a **GroupId** and **ArtifactId**, then click **Finish**
 
 8. In **pom.xml**, add the following dependencies in the `<dependency>` node.
 		
@@ -54,7 +54,7 @@ In this tutorial, we will use an [HDInsight Storm] installation, which comes wit
 			<scope>provided</scope>
 		</dependency>
 
-9. In the **src** folder, create a file called **Config.properties** and copy the following content, substituting the 
+9. In the **src** folder, create a file called **Config.properties** and copy the following content, substituting the following values:
 
 		eventhubspout.username = ReceiveRule
 		
@@ -73,9 +73,9 @@ In this tutorial, we will use an [HDInsight Storm] installation, which comes wit
 		
 		eventhub.receiver.credits = 10
 
-	The value for **eventhub.receiver.credits** determines how many events are batched before releasing them to the Storm pipeline. For simplicity's sake, we are setting this value to 10. In production it should usually be set at higher values, e.g. 1024.
+	The value for **eventhub.receiver.credits** determines how many events are batched before releasing them to the Storm pipeline. For the sake of simplicity, this example sets this value to 10. In production, it should usually be set to higher values; for example, 1024.
 
-10. Create a new class **LoggerBolt** with the following content:
+10. Create a new class called **LoggerBolt** with the following code:
 
 		import java.util.Map;
 		import org.slf4j.Logger;
@@ -112,9 +112,9 @@ In this tutorial, we will use an [HDInsight Storm] installation, which comes wit
 		
 		}
 
-	This Storm bolt simply logs the content of the received events. This can easily be extended to store tuples in a storage service. The [HDInsight sensor analysis tutorial] uses this same approach to store data into HBase.
+	This Storm bolt logs the content of the received events. This can easily be extended to store tuples in a storage service. The [HDInsight sensor analysis tutorial] uses this same approach to store data into HBase.
 
-11. Create a class called **LogTopology** with the following content:
+11. Create a class called **LogTopology** with the following code:
 
 		import java.io.FileReader;
 		import java.util.Properties;
@@ -217,10 +217,10 @@ In this tutorial, we will use an [HDInsight Storm] installation, which comes wit
 		}
 
 
-	In this class, we create a new Event Hub spout, using the properties in the config file to instatiate it. It is important to note that we create as many spouts tasks as the number of partitions in the event hub, in order to use the maximum parallelism allowed by the event hub.
+	This class creates a new Event Hubs spout, using the properties in the configuration file to instatiate it. It is important to note that this example creates as many spouts tasks as the number of partitions in the Event Hub, in order to use the maximum parallelism allowed by that Event Hub.
 
 <!-- Links -->
-[Event Hubs developer guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+[Event Hubs Overview]: http://msdn.microsoft.com/en-us/library/azure/dn821413.aspx
 [HDInsight Storm]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-overview/
 [HDInsight sensor analysis tutorial]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
