@@ -51,7 +51,7 @@ The table also includes a link to the [Linux kernel compatibility patch](http://
 			</tr>
 	<tr>
 		<th>  Canonical Ubuntu </th>
-		<td> Ubuntu 12.04.1+, 13.10, & 14.04</td>
+		<td> Ubuntu 12.04.1+, 14.04 & 14.10 </td>
 		<td>In Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">Required for 12.04 or 12.04.01 only</a></td>
 		<td>Package: In package repo under walinuxagent <br />
