@@ -50,6 +50,7 @@ You can obtain the Latest Linux Agent directly from:
 
 
 ###Supported Linux Distributions
+* CoreOS
 * CentOS 6.2+
 * Debian 7.0+
 * Ubuntu 12.04+
