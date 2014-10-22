@@ -4,12 +4,12 @@
 
 #How to Detach a Data Disk from a Virtual Machine 
 
-- [How to: Find the disks that are attached to a virtual machine](#finddisks)
-- [How to: Detach a data disk](#detachdisk)
+- [Step 1: Find the disk](#finddisks)
+- [Step 2: Detach a data disk](#detachdisk)
 
-When you no longer need a data disk that is attached to a virtual machine, you can easily detach it. This process does not delete the disk from storage. If you want to use the existing data on the disk again, you can easily attach the disk again to the same virtual machine, or attach it to a new virtual machine.  
+When you no longer need a data disk that is attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.  
 
-A virtual machine in Azure uses different types of disks -- an operating system disk, a local temporary disk, and optional data disks. Data disks are the recommended way to store data for a virtual machine. For details about disks, see [About disks and images] []. For instructions on attaching a data disk, see [How to Attach a Data Disk to a Virtual Machine] [attachdisk].
+> [WACOM.NOTE] A virtual machine in Azure uses different types of disks -- an operating system disk, a local temporary disk, and optional data disks. Data disks are the recommended way to store data for a virtual machine. For details about disks, see [About disks and images] []. For instructions, see [How to Attach a Data Disk to a Virtual Machine] [attachdisk].
 
 ## <a id="finddisks"> </a>Step 1: Find the disk##
 
@@ -20,9 +20,9 @@ If you don't know or want to verify the name of the disk before you detach it, f
 
 1. If you haven't already done so, sign in to the Azure [Management Portal](http://manage.windowsazure.com). 
 
-2. Click **Virtual Machines**, and then select the appropriate virtual machine.
+2. Click **Virtual Machines**, and then select the appropriate virtual machine. The VM's dashboard opens.
 
-3. Click **Dashboard**. Under **Disks**, the table lists the name and type of all attached disks. For example, this screen shows a virtual machine with one operating system (OS) disk and one data disk:
+3. Under **Disks**, the table lists the name and type of all attached disks. For example, this screen shows a virtual machine with one operating system (OS) disk and one data disk:
 		
 	![Find data disk](./media/howto-detach-disk-windows-linux/FindDataDisks.png)	
 
@@ -32,7 +32,7 @@ If you don't know or want to verify the name of the disk before you detach it, f
 After you find the name of the disk, you're ready to detach the disk:
 
 1. Click **Virtual Machines**, select the virtual machine that has the data disk you want to detach.
-2. From the bottom bar, click **Detach the Disk**.
+2. From the command bar, click **Detach the Disk**.
 
 2. Select the data disk, and then click the check mark to detach it.
 
