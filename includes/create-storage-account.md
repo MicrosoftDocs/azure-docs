@@ -1,6 +1,6 @@
 To use Azure storage, you'll need a storage account. You 
 can create a storage account by following these steps. (You can also
-create a storage account [using the REST API].)
+create a storage account by using the Azure service management client library or the service management [REST API].)
 
 1.  Log into the [Azure Management Portal].
 
