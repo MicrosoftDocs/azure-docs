@@ -43,7 +43,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 5. Run the following commands to create a MapReduce job definition:
 
 		# Define the word count MapReduce job
-		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
 	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the wasb prefix, see [Use Azure Blob storage with HDInsight][hdinsight-storage].
 
