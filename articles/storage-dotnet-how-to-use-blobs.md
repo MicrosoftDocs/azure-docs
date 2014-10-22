@@ -24,18 +24,19 @@ more information on blobs, see the [Next steps][] section.
 -   [How to: List the blobs in a container][]
 -   [How to: Download blobs][]
 -   [How to: Delete blobs][]
+-   [How to: List blobs in pages asynchronously][]
 -   [Next steps][]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-##<a name="create-account"></a><span  class="short-header">Create an account</span>Create an Azure Storage account
+##<a name="create-account"></a><span  class="short-header">Create an Azure Storage account</span>
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-##<a name="setup-connection-string"></a><span  class="short-header">Setup a connection string</span>Setup a storage connection string
+##<a name="setup-connection-string"></a><span  class="short-header">Setup a storage connection string</span>
 
 [WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
-## <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access Blob storage
+## <a name="configure-access"> </a><span  class="short-header">How to: Programmatically access Blob storage</span>
 
 ###Obtaining the assembly
 We recommend that you use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
@@ -81,11 +82,9 @@ account object we retrieved above:
 ###ODataLib dependencies
 ODataLib dependencies in the Storage Client Library for .NET are resolved through the ODataLib (version 5.0.2) packages available through NuGet and not WCF Data Services.  The ODataLib libraries can be downloaded directly or referenced by your code project through NuGet.  The specific ODataLib packages are [OData], [Edm], and [Spatial].
 
-## <a name="create-container"> </a><span  class="short-header">Create a container</span>How to: Create a container
+## <a name="create-container"> </a><span  class="short-header">How to: Create a container</span>
 
-All storage blobs reside in a container. You can use a
-**CloudBlobClient** object to get a reference to the container you want
-to use. You can create the container if it doesn't exist:
+Every blob in Azure storage must reside in a container. This example shows how to create a container if it does not already exist:
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -113,7 +112,7 @@ code:
 Anyone on the Internet can see blobs in a public container, but you can
 modify or delete them only if you have the appropriate access key.
 
-<h2> <a name="upload-blob"> </a><span  class="short-header">Upload to a container</span>How to: Upload a blob into a container</h2>
+## <a name="upload-blob"> </a><span  class="short-header">How to: Upload a blob into a container</span>
 
 Azure Blob Storage supports block blobs and page blobs.  In the majority of cases, block blob is the recommended type to use.
 
@@ -141,7 +140,7 @@ or overwrite it if it does exist. The following example shows how to upload a bl
         blockBlob.UploadFromStream(fileStream);
     } 
 
-##<a name="list-blob"> </a><span  class="short-header">List blobs in a container</span>How to: List the blobs in a container
+##<a name="list-blob"> </a><span  class="short-header">How to: List the blobs in a container</span>
 
 To list the blobs in a container, first get a container reference. You
 can then use the container's **ListBlobs** method to retrieve the blobs and/or directories
@@ -233,7 +232,7 @@ and here would be the results:
 
 For more information, see [CloudBlobContainer.ListBlobs][].
 
-## <a name="download-blobs"> </a><span  class="short-header">Download blobs</span>How to: Download blobs
+## <a name="download-blobs"> </a><span  class="short-header">How to: Download blobs</span>
 
 To download blobs, first retrieve a blob reference and then call the **DownloadToStream** method. The following
 example uses the **DownloadToStream** method to transfer the blob
@@ -280,7 +279,7 @@ You can also use the **DownloadToStream** method to download the contents of a b
 		text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
 	}
 
-##<a name="delete-blobs"> </a><span  class="short-header">Delete blobs</span>How to: Delete blobs
+##<a name="delete-blobs"> </a><span  class="short-header">How to: Delete blobs</span>
 
 To delete a blob, first get a blob reference and then call the
 **Delete** method on it.
@@ -301,7 +300,68 @@ To delete a blob, first get a blob reference and then call the
     // Delete the blob.
     blockBlob.Delete(); 
 
-## <a name="next-steps"></a><span  class="short-header">Next steps</span>Next steps
+
+##<a name="list-blobs-async"> </a><span  class="short-header">How to: List blobs in pages asynchronously</span> 
+
+If you are listing a large number of blobs, or you want to control the number of results you return in one listing operation, you can list blobs in pages of results. This example shows how to return results in pages asynchronously, so that execution is not blocked while waiting to return a large set of results.
+
+This example shows a flat blob listing, but you can also perform a hierarchical listing, by setting the `useFlatBlobListing` parameter of the **ListBlobsSegmentedAsync** method to `false`.
+
+Because the sample method calls an asynchronous method, it must be prefaced with the `async` keyword, and it must return a **Task** object. The await keyword specified for the **ListBlobsSegmentedAsync** method suspends execution of the sample method until the listing task completes.
+
+    async public static Task ListBlobsSegmentedInFlatListing()
+    {
+        // Retrieve storage account from connection string.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+        // Create the blob client.
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        // Retrieve reference to a previously created container.
+        CloudBlobContainer container = blobClient.GetContainerReference("myblobs");
+
+        //List blobs in pages.
+        Console.WriteLine("List blobs in pages:");
+
+        //List blobs with a paging size of 10, for the purposes of the example. 
+		//The first call does not include the continuation token.
+        BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(
+                "", true, BlobListingDetails.All, 10, null, null, null);
+
+        //Enumerate the result segment returned.
+        int i = 0;
+        if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
+        foreach (var blobItem in resultSegment.Results)
+        {
+            Console.WriteLine("\t{0}", blobItem.StorageUri.PrimaryUri);
+        }
+        Console.WriteLine();
+
+        //Get the continuation token, if there are additional pages of results.
+        BlobContinuationToken continuationToken = resultSegment.ContinuationToken;
+
+        //Check whether there are more results and list them in pages of 10 while a continuation token is returned.
+        while (continuationToken != null)
+        {
+            //This overload allows control of the page size. 
+			//You can return all remaining results by passing null for the maxResults parameter, 
+            //or by calling a different overload.
+            resultSegment = await container.ListBlobsSegmentedAsync(
+					"", true, BlobListingDetails.All, 10, continuationToken, null, null);
+            if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
+            foreach (var blobItem in resultSegment.Results)
+            {
+                Console.WriteLine("\t{0}", blobItem.StorageUri.PrimaryUri);
+            }
+            Console.WriteLine();
+
+            //Get the next continuation token.
+            continuationToken = resultSegment.ContinuationToken;
+        }
+    }
+
+## <a name="next-steps"></a><span  class="short-header">Next steps</span>
 
 Now that you've learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
@@ -335,6 +395,7 @@ to learn how to do more complex storage tasks.
   [How To: List the Blobs in a Container]: #list-blob
   [How To: Download Blobs]: #download-blobs
   [How To: Delete blobs]: #delete-blobs
+  [How to: List blobs in pages asynchronously]: #list-blobs-async
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
   [Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
