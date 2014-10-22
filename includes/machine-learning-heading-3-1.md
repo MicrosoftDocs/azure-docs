@@ -1,1 +1,0 @@
-This is plain text with a para tag. A subset of the 1994 Census database, using working adults over the age of 16 with an adjusted income index of > 100.<p>**Usage**: Classify people using demographics to predict whether a person earns over 50K a year.

@@ -39,36 +39,35 @@ Step | Description
 [Step 5: Monitor data sets and pipeline](#MonitorDataSetsAndPipeline) | In this step, you will monitor the datasets and the pipeline using Azure Management Studio in this step.
  
 
-1. [Step 1: Create an Azure Data Factory](#CreateDataFactory). In this step, you will create an Azure data factory named **ADFTutorialDataFactory**.
-2. [Step 2: Create linked services](#CreateLinkedServices). In this step, you will create two linked services: **MyBlobStore** and **MyAzureSQLStore**. The MyBlobStore links an Azure storage and MyAzureSQLStore links an Azure SQL database to the ADFTutorialDataFactory.
-3. [Step 3: Create input and output datasets](#CreateInputAndOutputDataSets). In this step, you will define two data sets (**EmpTableFromBlob** and **EmpSQLTable**) that are used as input and output for the **Copy Activity** in the ADFTutorialPipeline that you will create in the next step.
-4. [Step 4: Create and run a pipeline](#CreateAndRunAPipeline). In this step, you will create a pipeline named **ADFTutorialPipeline**. The pipeline will have a **Copy Activity** that copies data from an Azure blob to an output Azure database table.
-5. [Step 5: Monitor data sets and pipeline](#MonitorDataSetsAndPipeline). In this step, you will monitor the datasets and the pipeline using Azure Management Studio in this step.
- 
-
 
 ## <a name="CreateDataFactory"></a>Step 1: Create an Azure Data Factory
 In this step, you use the Azure Preview Portal to create an Azure data factory named **ADFTutorialDataFactory**.
 
-1. After logging into the [Azure Preview Portal][azure-preview-portal], click **NEW** from the bottom-left corner, and click **Everything** at the top. 
+1.	After logging into the [Azure Preview Portal][azure-preview-portal], click **NEW** from the bottom-left corner, and click **Data Factory** on the **New** blade. 
+
+	![New->DataFactory][image-data-factory-new-datafactory-menu] 
+	
+	If you do not see **Data Factory** on the **New** blade, scroll down. If you still don't see it, do the following: 
+  
+	1. click **NEW** from the bottom-left corner, and click **Everything** at the top. 
      
-	![GetStartedEveverything][image-data-factory-getstarted-new-everything]
+		![GetStartedEveverything][image-data-factory-getstarted-new-everything]
 
-2. Click **Data, storage, cache, + backup** in **Gallery**.
+	2. Click **Data, storage, cache, + backup** in **Gallery**.
     
-	![Data, storage, cache, + backup in Gallery][image-data-factory-gallery-storagecachebackup]
+		![Data, storage, cache, + backup in Gallery][image-data-factory-gallery-storagecachebackup]
 
-3. In the **Data, storage, cache, + backup** blade, click **See All** as shown in the following image  
+	3. In the **Data, storage, cache, + backup** blade, click **See All** as shown in the following image  
 
-	![SeeAll][image-data-factory-gallery-storagecachebackup-seeall]
+		![SeeAll][image-data-factory-gallery-storagecachebackup-seeall]
 
-4. In the **Data Services** blade, click **Data Factory (preview)**.
+	4. In the **Data Services** blade, click **Data Factory (preview)**.
 
-	![Data services blade][image-data-factory-getstarted-data-services-data-factory-selected]
+		![Data services blade][image-data-factory-getstarted-data-services-data-factory-selected]
 
-5. In the **Data Factory (preview)** blade, click **Create**.
+	1. In the **Data Factory (preview)** blade, click **Create**.
 
-	![Data factory (preview) blade][image-data-factory-getstarted-data-factory-create-button]
+		![Data factory (preview) blade][image-data-factory-getstarted-data-factory-create-button]
 
 6. In the **New data factory** blade:
 	1. Enter **ADFTutorialDataFactory** for the **name**.
@@ -117,9 +116,9 @@ In this step, you will create two linked services: **MyBlobStore** and **MyAzure
 
     ![New data store blade][image-data-factory-get-started-new-data-store-with-storage]
 
-5. Enter the **ACCOUNT NAME** and **ACCOUNT KEY** for your Azure Storage Account, and click **OK**.
+5. Enter the **Account Name** and **Account Key** for your Azure Storage Account, and click **OK**.
   
-	**To get the Account Key for a storage in the **Azure Preview Portal**:**
+	**To get the Account Key for a storage in the Azure Preview Portal**:
 
     ![stroage-account-key][image-data-factory-preview-storage-key]
 
@@ -167,7 +166,7 @@ Creating datasets and pipelines is not supported by the Azure Preview Portal at 
 				
 2. Use tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) to create the **adftutorial** container and to upload the **emp.txt** file.
 
-    ![image-data-factory-get-started-storage-explorer]
+    ![Azure Storage Explorer][image-data-factory-get-started-storage-explorer]
 3. Use the following SQL script to create the **emp** table in your Azure SQL Database. You can use SQL Server Management Studio to connect to an Azure SQL Database and to run SQL script.
 
         CREATE TABLE dbo.emp 
@@ -201,7 +200,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
         		"location": 
         		{
             		"type": "AzureBlobLocation",
-            		"blobPath": "adftutorial/input",
+            		"folderPath": "adftutorial/input",
             		"format":
             		{
                 		"type": "TextFormat",
@@ -223,14 +222,14 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 	
 	- location **type** is set to **AzureBlobLocation**.
 	- **linkedServiceName** is set to **MyBlobStore**. You had created this linked service in Step 2).
-	- **blobPath** is set to the **input** folder in the **adftutorial** container. You can also specify the name of a blob within the folder. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
+	- **folderPath** is set to the **input** folder in the **adftutorial** container. You can also specify the name of a blob within the folder. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
 	- format **type** is set to **TextFormat**
 	- - There are two fields in the text file – **FirstName** and **ColumnName** – separated by a comma character (columDelimiter)	
 	- The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**). The Data Factory service will look for input data every hour in the **input** folder in the blob container (**adftutorial**) you specified.
 
 	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
-2. Launch **Azure PowerShell** and execute the following command to switch the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
+2. Launch **Azure PowerShell** and execute the following command to switch to the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
 
          switch-azuremode AzureResourceManager
 		
@@ -426,9 +425,9 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 Article | Description
 ------ | ---------------
 [Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob.
-[Enable your pipelines to work with on-premises data][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
-[Tutorial: Move and process log files using Data Factory][data-factory-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
-[Use custom activities in a Data Factory][data-factory-use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
+[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
+[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
+[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
 [Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to monitor an Azure Data Factory using Azure PowerShell cmdlets. You can try out the examples in the article on the ADFTutorialDataFactory.
 [Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
@@ -516,3 +515,5 @@ Article | Description
 [image-data-factory-preview-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
 [image-data-factory-database-connection-string]: ./media/data-factory-get-started/DatabaseConnectionString.png
+
+[image-data-factory-new-datafactory-menu]: ./media/data-factory-get-started/NewDataFactoryMenu.png

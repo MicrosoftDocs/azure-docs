@@ -5,12 +5,11 @@
 # Copy data with Azure Data Factory (Copy Activity)
 You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. The Copy Activity can be used in the following scenarios:
 
-- Ingress to Windows Azure. In this scenario, data is copied from an on-premises data source (ex: SQL Server) to a Windows Azure data store (ex: Azure blob, Azure table, or Azure SQL Database) for the following sub-scenarios:
+- Ingress to Azure. In this scenario, data is copied from an on-premises data source (ex: SQL Server) to a Azure data store (ex: Azure blob, Azure table, or Azure SQL Database) for the following sub-scenarios:
 	- Collect data in a centralized location on Azure for further processing.
 	- Migrate data from on-premises or non-Azure cloud platforms to Azure.
 	- Archive or back up data to Azure for cost-effective tiered storage.
-- Egress from Windows Azure. In this scenario, data is copied from Azure (ex: Azure blob, Azure table, or Azure SQL Database) to on-premises data marts and data 
-- warehouse (ex: SQL Server) for the following sub-scenarios:
+- Egress from Azure. In this scenario, data is copied from Azure (ex: Azure blob, Azure table, or Azure SQL Database) to on-premises data marts and data warehouse (ex: SQL Server) for the following sub-scenarios:
 	- Transfer data to on-premises due to lack of cloud data warehouse support.
 	- Transfer data to on-premises to take advantage of existing on-premises solution or reporting infrastructure.
 	- Archive or back up data to on-premises for tiered storage
@@ -22,18 +21,19 @@ See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that sho
 ## Copy Activity - components
 Copy activity contains the following components: 
 
-- **Input table**. A table is a dataset that has a schema and is rectangular. The input table component describes input data for the activity that include the following: name of the table, type of the table, and linked service that refers to a data source, which contains the input data.
+- **Input table**. A table is a dataset that has a schema and is rectangular. The input table component 
+- describes input data for the activity that include the following: name of the table, type of the table, and linked service that refers to a data source, which contains the input data.
 - **Output table**. The output table describes output data for the activity that include the following: name of the table, type of the table, and the linked service that refers to a data source, which holds the output data.
-- **Transformation rules**. The transformation rules specify query to extract data from source, and how data is moved to sink, batch size etc…
+- **Transformation rules**. The transformation rules specify how input data is extracted from the source and how output data is loaded into sink etc…
  
 A copy activity can have one **input table** and one **output table**.
 
 ## JSON for Copy Activity
-A pipeline consists of one or more activities. Each activity can have one or more tables as inputs and outputs. The JSON for a pipeline is as follows:
+A pipeline consists of one or more activities. Activities in the pipelines are defined with in the activities [] section. The JSON for a pipeline is as follows:
          
 	{
 		"name": "PipelineName”,
-    	"properties": 
+		"properties": 
     	{
         	"description" : "pipeline description",
         	"activities":
@@ -43,13 +43,13 @@ A pipeline consists of one or more activities. Each activity can have one or mor
 		}
 	}
 
-Activities in the pipelines are defined with in the **activities []** section. Each activity within the activities section has the following top-level structure. The **type** property should be set to **CopyActivity**.
+Each activity within the **activities** section has the following top-level structure. The **type** property should be set to **CopyActivity**. The Copy Activity can have only one input table and one output table.
          
 
 	{
 		"name": "ActivityName",
 		"description": "description", 
-		"type": CopyActivity
+		"type": "CopyActivity",
 		"inputs":  [],
 		"outputs":  [],
 		"transformation":
@@ -61,6 +61,8 @@ Activities in the pipelines are defined with in the **activities []** section. E
 		
 		}
 	}
+
+The following table describes the tags used with an activity section. 
 
 <table border="1">	
 	<tr>
@@ -89,25 +91,25 @@ Activities in the pipelines are defined with in the **activities []** section. E
 
 	<tr>
 		<td>inputs</td>
-		<td>Input tables used by the activity.</td>
+		<td>Input tables used by the activity.  Specify only one input table for the Copy Activity.</td>
 		<td>Y</td>
 	</tr>
 
 	<tr>
 		<td>outputs</td>
-		<td>Output tables used by the activity.</td>
+		<td>Output tables used by the activity.  Specify only one output table for the Copy Activity.</td>
 		<td>Y</td>
 	</tr>
 
 	<tr>
 		<td>transformation</td>
-		<td>Properties in the transformation is dependent on type.</td>
+		<td>Properties in the transformation is dependent on type.  The **Copy Activity** requires you to specify a **source** and a **sink** section within the **transformation** section. More details are provided later in this article. </td>
 		<td>Y</td>
 	</tr>
 
 	<tr>
 		<td>policy</td>
-		<td>Policies which affect the run-time behavior of the activity.If it is not specified, default values will be used.</td>
+		<td>Policies which affect the run-time behavior of the activity. If it is not specified, default values will be used.</td>
 		<td>N</td>
 	</tr>
 
@@ -152,6 +154,8 @@ The following sample Azure PowerShell command uses the **New-AzureDataFactoryTab
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF –Name MyOnPremTable –DataFactoryName CopyFactory –File <Filepath>\MyOnPremTable.json.
 
+See [Cmdlet Reference][cmdlet-reference] for details about Data Factory cmdlets. 
+
 ### Output table JSON
 The following JSON script defines an output table: **MyDemoBlob**, which refers to an Azure blob: **MyBlob** in the blob folder: **MySubFolder** in the blob container: **MyContainer**.
          
@@ -162,8 +166,8 @@ The following JSON script defines an output table: **MyDemoBlob**, which refers 
     		"location":
     		{
         		"type": "AzureBlobLocation",
-        		"blobPath": "MyContainer/MySubFolder",
-        		"blobName": "MyBlob"
+        		"folderPath": "MyContainer/MySubFolder",
+        		"fileName": "MyBlob"
         		“linkedServiceName”: " MyAzureStorage",
         		"format":
         		{
@@ -184,9 +188,8 @@ The following JSON script defines an output table: **MyDemoBlob**, which refers 
 
 The following sample Azure PowerShell command uses the **New-AzureDataFactoryTable** that uses a JSON file that contains the script above to create a table (**MyDemoBlob**) in an Azure data factory: **CopyFactory**.
          
-	New-AzureDataFactoryTable -ResourceGroupName ADF -Name MyDemoBlob -DataFactoryName CopyFactory –File <Filepath>
+	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory –File <Filepath>
 
-See [Cmdlet Reference][cmdlet-reference] for details about Data Factory cmdlets. 
 
 ### Pipeline (with Copy Activity) JSON
 In this example, a pipeline: **CopyActivityPipeline** is defined with the following properties: 
@@ -194,7 +197,7 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 - The **type** property is set to **CopyActivity**.
 - **MyOnPremTable** is specified as the input (**inputs** tag).
 - **MyAzureBlob** is specified as the output (**outputs** tag)
-- **Transformation** section contains two sub sections: **source** and **sink**. The type for source is set to **SqlSource** and the type for sink is set to **BlobSink**. The **sqlReaderQuery** defines the transformation (projection) to be performed on the source. For details about all the properties, see Developer Reference.
+- **Transformation** section contains two sub sections: **source** and **sink**. The type for source is set to **SqlSource** and the type for sink is set to **BlobSink**. The **sqlReaderQuery** defines the transformation (projection) to be performed on the source. For details about all the properties, see [JSON Scripting Reference][json-script-reference].
 
          
 		{
@@ -232,10 +235,10 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 
  The following sample Azure PowerShell command uses the **New-AzureDataFactoryPipeline** that uses a JSON file that contains the script above to create a pipeline (**CopyActivityPipeline**) in an Azure data factory: **CopyFactory**.
          
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name CopyactivityPipeline –DataFactoryName CopyFactory –File <Filepath>
+		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
 ## Supported inputs and outputs
-The following table lists the sources and sinks supported by the Copy Activity. 
+The above example used SqlSource as the source and BlobSink as the sink in the transformation section. The following table lists the sources and sinks supported by the Copy Activity. 
 
 <table border="1">	
 	<tr>
@@ -295,19 +298,7 @@ The following table lists the sources and sinks supported by the Copy Activity.
 
 </table>
 
-For SQL on Infrastructure-as-a-Service (IaaS), Azure and Amazon as IaaS providers are supported. The following network and VPN topologies are supported. Note that Data Management Gateway is required for case #2 and #3, while not needed for case #1. For details about Data Management Gateway, see [Enable your pipelines to access on-premises data][use-onpremises-datasources].
 
-1.	VM with public DNS name and static public port : private port mapping
-2.	VM with public DNS name without SQL endpoint exposed
-3.	Virtual network
-	<ol type='a'>
-	<li>Azure Cloud VPN with following topology at the end of the list. </li>	
-	<li>VM with onpremises-to-cloud site-to-site VPN using Azure Virtual Network.</li>
-	<li>Amazon VPC (Virutal Private Cloud).</li>
-	</ol>  
-	![Data Factory with Copy Activity][image-data-factory-copy-actvity]
-
-### Source and sink types
 The following table lists source types and sink types that can be used in a JSON file for a pipeline that contains a Copy Activity.
 
 
@@ -349,44 +340,38 @@ The following table lists source types and sink types that can be used in a JSON
 	</tr>
 </table>
 
-#### BlobSource
+The following table lists the properties supported by these sources and sinks.
 
-<table border="1">	
-	<tr>
-		<th align="left">Supported property</th>
-		<th align="left">Description</th>
-		<th align="left">Allowed values</th>
-		<th align="left">Required</th>
-	</tr>	
+<table border="1">
 
 	<tr>
+	<th align="left">Source/Sink</th>
+	<th align="left">Supported property</th>
+	<th align="left">Description</th>
+	<th align="left">Allowed values</th>
+	<th align="left">Required</th>
+	</tr>
+
+	<tr>
+		<tr>
+		<td><b>BlobSource</b></td>
 		<td>BlobSourceTreatEmptyAsNull</td>
 		<td>Specifies whether to treat null or empty string as null value.</td>
 		<td>TRUE<br/>FALSE</td>
 		<td>N</td>
+		</tr>
 	</tr>
 
 	<tr>
+		<td></td>
 		<td>BlobSourceSkipHeaderLineCount</td>
 		<td>Indicate how many lines need be skipped.</td>
 		<td>Integer from 0 to Max.</td>
 		<td>N</td>
 	</tr>
 
-</table>
-
-
-#### AzureTableSource
-
-<table border="1">	
 	<tr>
-		<th align="left">Supported property</th>
-		<th align="left">Description</th>
-		<th align="left">Allowed values</th>
-		<th align="left">Required</th>
-	</tr>	
-
-	<tr>
+		<td><b>AzureTableSource</b></td>
 		<td>AzureTableSourceQuery</td>
 		<td>Use the custom query to read data.</td>
 		<td>Azure table query string.<br/>Sample: “ColumnA eq ValueA”</td>
@@ -394,72 +379,25 @@ The following table lists source types and sink types that can be used in a JSON
 	</tr>
 
 	<tr>
+		<td></td>
 		<td>AzureTableSourceIgnoreTableNotFound</td>
-		<td>Indicate whether swallow the exception of table not exist.</td>
+		<td>Indicate whether to ignore the exception: “table does not exist”.</td>
 		<td>TRUE<br/>FALSE</td>
 		<td>N</td>
 	</tr>
 
-</table>
-
-#### AzureTableSource
-
-<table border="1">	
-	<tr>
-		<th align="left">Supported property</th>
-		<th align="left">Description</th>
-		<th align="left">Allowed values</th>
-		<th align="left">Required</th>
-	</tr>	
 
 	<tr>
-		<td>AzureTableSourceQuery</td>
-		<td>Use the custom query to read data.</td>
-		<td>Azure table query string.<br/>Sample: “ColumnA eq ValueA”</td>
-		<td>N</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSourceIgnoreTableNotFound</td>
-		<td>Indicate whether swallow the exception of table not exist.</td>
-		<td>TRUE<br/>FALSE</td>
-		<td>N</td>
-	</tr>
-
-</table>
-
-</table>
-
-#### SqlSource
-
-<table border="1">	
-	<tr>
-		<th align="left">Supported property</th>
-		<th align="left">Description</th>
-		<th align="left">Allowed values</th>
-		<th align="left">Required</th>
-	</tr>	
-
-	<tr>
+		<td><b>SqlSource</b></td>
 		<td>sqlReaderQuery</td>
 		<td>Use the custom query to read data.</td>
 		<td>SQL query string.<br/><br/> For example: “Select * from MyTable”.<br/><br/> If not specified, select <columns defined in structure> from MyTable” query.</td>
 		<td>N</td>
 	</tr>
 
-</table>
-
-#### AzureTableSink
-
-<table border="1">	
-	<tr>
-		<th align="left">Supported property</th>
-		<th align="left">Description</th>
-		<th align="left">Allowed values</th>
-		<th align="left">Required</th>
-	</tr>	
 
 	<tr>
+		<td><b>AzureTableSink</b></td>
 		<td>azureTableDefaultPartitionKeyValue</td>
 		<td>Default partition key value that can be used by the sink.</td>
 		<td>A string value.</td>
@@ -467,6 +405,7 @@ The following table lists source types and sink types that can be used in a JSON
 	</tr>
 
 	<tr>
+		<td></td>
 		<td>azureTablePartitionKeyName</td>
 		<td>User specified column name, whose column values are used as partition key.<br/><br/> If not specified, AzureTableDefaultPartitionKeyValue is used as the partition key.</td>
 		<td>A column name.</td>
@@ -474,13 +413,15 @@ The following table lists source types and sink types that can be used in a JSON
 	</tr>
 
 	<tr>
+		<td></td>
 		<td>azureTableRowKeyName</td>
-		<td>User specified column name, whose column values are used as row key.<br/><br/>If not specified, use a GUID for each row.</td>
+		<td>Column values of specified column name to be used as a row key.<br/><br/>If not specified, a GUID is used for each row.</td>
 		<td>A column name.</td>
 		<td>N</td>
 	</tr>
 
 	<tr>
+		<td></td>
 		<td>azureTableInsertType</td>
 		<td>The mode to insert data into Azure table.</td>
 		<td>“merge”<br/><br/>“replace”</td>
@@ -488,6 +429,7 @@ The following table lists source types and sink types that can be used in a JSON
 	</tr>
 
 	<tr>
+		<td></td>
 		<td>writeBatchSize</td>
 		<td>Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit.</td>
 		<td>Integer from 1 to 100 (unit = Row Count)</td>
@@ -495,42 +437,75 @@ The following table lists source types and sink types that can be used in a JSON
 	</tr>
 
 	<tr>
+		<td></td>
 		<td>writeBatchTimeout</td>
 		<td>Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit</td>
 		<td>(Unit = timespan)<br/><br/>Sample: “00:20:00” (20 minutes)</td>
 		<td>N<br/><br/>(Default to storage client default timeout value 90 sec)</td>
 	</tr>
 
-</table>
-
-#### SqlSink
-
-<table border="1">	
 	<tr>
-		<th align="left">Supported property</th>
-		<th align="left">Description</th>
-		<th align="left">Allowed values</th>
-		<th align="left">Required</th>
-	</tr>	
-
-	<tr>
+		<td><b>SqlSink</b></td>
 		<td>SqlWriterStoredProcedureName</td>
-		<td>User specified stored procedure name to upsert (update/insert) data into the target table.</td>
+		<td>Specifies the name of the stored procedure name to upsert (update/insert) data into the target table.</td>
 		<td>A stored procedure name.</td>
 		<td>N</td>
 	</tr>
 
 	<tr>
+		<td></td>
 		<td>SqlWriterTableType</td>
-		<td>User specified table type name to be used in the above stored procedure.</td>
+		<td>Specifies the table type to be used in the above stored procedure.</td>
 		<td>A table type name.</td>
 		<td>N</td>
 	</tr>
-
 </table>
 
-## Transformation rules
-###Column mapping
+### SQL on Infrastructure-as-a-Service (IaaS)
+For SQL on IaaS, Azure as IaaS provider is supported. The following network and VPN topologies are supported. Note that Data Management Gateway is required for case #2 and #3, while not needed for case #1. For details about Data Management Gateway, see [Enable your pipelines to access on-premises data][use-onpremises-datasources].
+
+1.	VM with public DNS name and static public port : private port mapping
+2.	VM with public DNS name without SQL endpoint exposed
+3.	Virtual network
+	<ol type='a'>
+	<li>Azure Cloud VPN with following topology at the end of the list. </li>	
+	<li>VM with onpremises-to-cloud site-to-site VPN using Azure Virtual Network.</li>	
+	</ol>  
+	![Data Factory with Copy Activity][image-data-factory-copy-actvity]
+
+## Column filtering using structure definition
+Depending on the type of Table, it is possible to specify a subset of the columns from the source by specifying fewer columns in the **Structure** definition of the table definition than the ones that exist in the underlying data source. The following table provides information about column filtering logic for different types of table. 
+
+<table>
+
+	<tr>
+		<th align="left">Type of the table</th>
+		<th align="left">Column filtering logic</th>
+	<tr>
+
+	<tr>
+		<td>AzureBlobLocation</td>
+		<td>The <b>Structure</b> definition in the table JSON must match the structure of the blob.  To select a subset of the columns, use the column mapping feature described in the next section: Transformation Rules – Column Mapping.</td>
+	<tr>
+
+	<tr>
+		<td>AzureSqlTableLocation and OnPremisesSqlServerTableLocation</td>
+		<td align="left">
+			<p>If the property <b>SqlReaderQuery</b> is specified as part of Copy Activity definition, <b>Structure</b> definition of the table should align with the columns selected in the query.</p>
+			<p>If the property <b>SqlReaderQuery</b> is not specified, the Copy Activity will automatically construct a SELECT query based on the columns specified in the <b>Structure</b> definition of the table definition.</p>
+		</td>
+	<tr>
+
+	<tr>
+		<td>AzureTableLocation</td>
+		<td>
+			The <b>Structure</b> section in the table definition can contain full set or a subset of the columns in the underlying Azure Table.
+		</td>
+	<tr>
+
+</table> 
+
+## Transformation rules - Column mapping
 Column mapping can be used to specify how columns in source table map to columns in the sink table. It supports the following scenarios:
 
 - Mapping all columns in source table “structure” to destination table “structure”.
@@ -581,8 +556,8 @@ In this sample, the **output table** is defined as follows. The output table has
 			"location":
     		{
     	    	"type": "AzureBlobLocation",
-		        "blobPath": "MyContainer/MySubFolder",
-				"blobName": "MyBlobName"
+		        "folderPath": "MyContainer/MySubFolder",
+				"fileName": "MyBlobName"
     	    	“linkedServiceName”: "MyLinkedService",
     	    	"format":
     	    	{

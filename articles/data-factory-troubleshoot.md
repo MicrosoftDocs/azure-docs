@@ -5,7 +5,12 @@
 # Troubleshoot Data Factory issues
 You can troubleshoot Azure Data Factory issues using Azure Portal (or) Azure PowerShell cmdlets. This topic has walkthroughs that show you how to use the Azure Portal to quickly troubleshoot errors that you encounter with Data Factory. 
 
-## Walkthrough: Troubleshooting an error with copying data
+## In This Article
+
+- [Walkthrough: Troubleshooting an error with copying data](#copywalkthrough)
+- [Walkthrough: Troubleshooting an error with Hive/Pig processing](#pighivewalkthrough)
+
+## <a name="copywalkthrough"></a> Walkthrough: Troubleshooting an error with copying data
 In this walkthrough, you will introduce an error in the tutorial from Get started with Data Factory article and learn how you can use Azure Portal to troubleshoot the error.
 
 ### Prerequisites
@@ -104,7 +109,7 @@ To resolve this issue, create the **emp** table using the SQL script from [Get s
 
  
 
-## Walkthrough: Troubleshooting an error with Hive/Pig processing
+## <a name="pighavewalkthrough"></a> Walkthrough: Troubleshooting an error with Hive/Pig processing
 This walkthrough provides steps to troubleshoot an error with Hive/Pig processing by using both Azure Preview Portal and Azure PowerShell. 
 
 
@@ -184,7 +189,23 @@ In this scenario, data set is in an error state due to a failure in Hive process
 		PipelineName        : EnrichGameLogsPipeline
 		Type                :
 
-6. You can run **Save-AzureDataFactoryLog** cmdlet with Id value you see from the above output and download the log files using the **-DownloadLogs** option for the cmdlet. 
+6. You can run **Save-AzureDataFactoryLog** cmdlet with Id value you see from the above output and download the log files using the **-DownloadLogs** option for the cmdlet.
+
+## Troubleshooting Tips
+
+### Fail to connect to on-premises SQL Server 
+Verify that the SQL Server is reachable from the machine where the gateway is installed.
+
+
+1. Ping the machine where the SQL Server is installed
+2. On the machine on which the gateway is installed, Try connecting to the SQL Server instance using the credentials you specified on the Azure Portal using SQL Server Management Studio (SSMS).
+
+### Copy operation fails
+1. Launch Data Management Gateway Configuraiton Manager on the machine on which gateway was installed. Verify that the **Gateway name** is set to the logical gateway name on the **Azure Portal**, **Gateway key status** is **registered** and **Service status** is **Started**. 
+2. Launch **Event Viewer**. Expand **Applications and Services Logs** and click **Data Management Gateway**. See if there are any errors related to Data Management Gateway. 
+
+
+  
 
 [adfgetstarted]: ../data-factory-get-started
 [azure-preview-portal]: https://portal.azure.com/
