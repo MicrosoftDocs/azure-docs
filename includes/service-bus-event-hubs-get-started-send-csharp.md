@@ -1,25 +1,25 @@
 ## Send messages to Event Hubs
-In this section we will write a Windows console app to send events to your event hub.
+In this section, you will write a Windows console app to send events to your Event Hub.
 
-1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** template. We will call it **Sender**.
+1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Sender**.
 
    	![][7]
 
-2. In the Solution Explorer, right-click the solution, then click **Manage NuGet Packages**. 
+2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages**. 
 
 	This displays the Manage NuGet Packages dialog box.
 
-3. Search for `Microsoft Azure Service Bus` and click **Install**, and accept the terms of use. 
+3. Search for `Microsoft Azure Service Bus`, click **Install**, and accept the terms of use. 
 
 	![][8]
 
-	This downloads, installs, and adds a reference <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Azure Service Bus library NuGet package</a>.
+	This downloads, installs, and adds a reference to the <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Azure Service Bus library NuGet package</a>.
 
-4. Add the following using statement in your **Program.cs** file:
+4. Add the following `using` statement at the top of the **Program.cs** file:
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. Add the following static fields in your **Program** class, and substitute the values with the name of the event hub you created in the previous section, and the connection string with send rights.
+5. Add the following `static` fields to the **Program** class, substituting the values with the name of the Event Hub you created in the previous section, and the connection string with **send** rights:
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
@@ -48,9 +48,9 @@ In this section we will write a Windows console app to send events to your event
             }
         }
 
-	This method will continuously send events to your event hub with a 200ms delay.
+	This method will continuously send events to your Event Hub with a 200ms delay.
 
-7. Finally, add the following lines to your **Main** method:
+7. Finally, add the following lines to the **Main** method:
 
 		Console.WriteLine("Press Ctrl-C to stop the sender process");
         Console.WriteLine("Press Enter to start now");
