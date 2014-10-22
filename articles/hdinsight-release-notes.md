@@ -22,7 +22,7 @@
 <tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (previously -Xmx819m)</td></tr>
 <tr><td>yarn.app.mapreduce.am.resource</td><td>768MB (previously 1024MB)</td></tr>
 <tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (previously -Xmx819m)</td></tr>
-<tr><td>mapreduce.task.io.sort</td><td>256MB (unchanged)</td></tr>
+<tr><td>mapreduce.task.io.sort</td><td>256MB (previously 200MB)</td></tr>
 <tr><td>tez.am.resource.memory</td><td>1536MB (unchanged)</td></tr>
 
 </table><br>

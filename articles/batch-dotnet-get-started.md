@@ -1,10 +1,10 @@
-<properties title="Tutorial - Getting Started with the Azure Batch Libraries for .NET" pageTitle="Tutorial - Getting Started with the Azure Batch Libraries for .NET" description="required" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="asutton" />
+<properties title="Tutorial - Getting Started with the Azure Batch Library for .NET" pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET" description="required" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="asutton" />
 
 <tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/02/2014" ms.author="yidingz, karran.batta" />
 
-#Getting Started with the Azure Batch Libraries for .NET  
+#Getting Started with the Azure Batch Library for .NET  
 
-This article contains the following two tutorials to help you get started developing with the .NET libraries for the Azure Batch service.  
+This article contains the following two tutorials to help you get started developing with the .NET library for the Azure Batch service.  
 
 -	[Tutorial 1: Azure Batch library for .NET](#tutorial1)
 -	[Tutorial 2: Azure Batch Apps library for .NET](#tutorial2)  
@@ -19,7 +19,7 @@ This tutorial will show you how to create a series of console applications that 
 >[WACOM.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/). You can use NuGet to obtain the Microsoft.WindowsAzure.Storage.dll assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. Search online for "WindowsAzure.Storage" and then click Install to install the Azure Storage package and dependencies.   
 Microsoft.WindowsAzure.Storage.dll is also included in the Azure SDK for .NET 2.0, which can be downloaded from the [.NET Developer Center](http://www.windowsazure.com/en-us/downloads/?sdk=net). The assembly is installed to the %Program Files%\Microsoft SDKs\Azure\.NET SDK\v2.0\ref\ directory.
 >
-You can also use NuGet to obtain the Microsoft.Azure.Batch.dll assembly. Search for "Azure.Batch" and then install the package and its dependencies. The assembly is installed to the %Program Files (x86)%\Microsoft SDKs\Azure\Batch Service SDK\v0.6\ref\ directory.  
+You can also use NuGet to obtain the **Microsoft.Azure.Batch.dll** assembly. Search for "Azure.Batch" and then install the package and its dependencies. 
 
 ###Concepts
 The Batch service is used for scheduling scalable and distributed computation. It enables you to run large scale workloads that are distributed among multiple virtual machines. These workloads provide efficient support for intensive computation. When you use the Batch service, you take advantage of the following resources:  

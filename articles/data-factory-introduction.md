@@ -157,7 +157,7 @@ Microsoft Data Management Gateway is software that connects on-premises data sou
 
 
 ##Next Steps
-[Get started with Data Factory][datafactory-getstarted]
+[Get started with Data Factory][datafactory-getstarted]. This article provides an end-to-end tutorial that shows you how to create a sample Azure data factory that copies data from an Azure blob to an Azure SQL database.
 
 [Power-Query-Azure-Table]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx
 [Power-Query-Azure-Blob]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azure-blob-storage-HA104113447.aspx
@@ -165,7 +165,7 @@ Microsoft Data Management Gateway is software that connects on-premises data sou
 [Power-Query-OnPrem-SQL]: http://office.microsoft.com/en-001/excel-help/connect-to-a-sql-server-database-HA104019808.aspx
 
 
-[datafactory-getstarted]: ../documentdb-get-started/
+[datafactory-getstarted]: ../data-factory-get-started/
 
 [image-data-factory-introduction-traditional-ETL]: ./media/data-factory-introduction/TraditionalETL.PNG
 

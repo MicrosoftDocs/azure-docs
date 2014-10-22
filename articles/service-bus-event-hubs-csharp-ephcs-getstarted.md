@@ -36,7 +36,7 @@ In order to complete this tutorial you will need the following:
 
    	![][4]
 
-6. Select the tab **Configure** at the top, add a rule called **SendRule** with *Send* rights, add another rule called **ReceiveRule** with *Listen* rights, then click **Save**.
+6. Select the tab **Configure** at the top, add a rule called **SendRule** with *Send* rights, add another rule called **ReceiveRule** with *Manage, Send, Listen* rights, then click **Save**.
 
    	![][5]
 
