@@ -198,7 +198,7 @@ Click **Create**.  This will create the virtual environment, and install depende
 
 The database included with the application does not have any superuser defined.  In order to use the sign-in functionality in the application, or the Django admin interface (if you decide to enable it), you'll need to create a superuser.
 
-Run this from the command-line from your application folder:
+Run this from the command-line from your project folder:
 
     env\scripts\python manage.py createsuperuser
 
@@ -279,7 +279,7 @@ Install any external packages required by your application. You can use the requ
 
 The database included with the application does not have any superuser defined.  In order to use the sign-in functionality in the application, or the Django admin interface (if you decide to enable it), you'll need to create a superuser.
 
-Run this from the command-line from your application folder:
+Run this from the command-line from your project folder:
 
     env\scripts\python manage.py createsuperuser
 
@@ -368,7 +368,7 @@ Install any external packages required by your application. You can use the requ
 
 The database included with the application does not have any superuser defined.  In order to use the sign-in functionality in the application, or the Django admin interface (if you decide to enable it), you'll need to create a superuser.
 
-Run this from the command-line from your application folder:
+Run this from the command-line from your project folder:
 
     env/bin/python manage.py createsuperuser
 
@@ -569,7 +569,7 @@ You can set environment variables through the Azure portal **CONFIGURE** page, i
 
 <h2><a name="using-a-database"></a>Using a Database</h2>
 
-The database that is included with the application is a sqlite database.  This is a convenient and useful default database to use for development, as it requires almost no setup.  The database is stored in the db.sqlite3 file in the application folder.
+The database that is included with the application is a sqlite database.  This is a convenient and useful default database to use for development, as it requires almost no setup.  The database is stored in the db.sqlite3 file in the project folder.
 
 Azure provides database services which are easy to use from a Django application.  Tutorials for using [SQL Database](../web-sites-python-ptvs-django-sql) and [MySQL](../web-sites-python-ptvs-django-mysql) from a Django application show the steps necessary to create the database service, change the database settings in `DjangoWebProject/settings.py`, and the libraries required to install.
 
