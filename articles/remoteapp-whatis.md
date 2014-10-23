@@ -12,7 +12,7 @@ Read on for more information about RemoteApp, or, if we have already convinced y
 
 Azure RemoteApp is part of the [Microsoft Virtual Desktop Infrastructure](http://www.microsoft.com/en-us/server-cloud/products/virtual-desktop-infrastructure/explore.aspx).
 
-**New!** Want to learn more about Azure RemoteApp? Or ready to validate RemoteApp at scale? Join our weekly [ask the experts webinar](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Email).
+**New!** Want to learn more about Azure RemoteApp? Or ready to validate RemoteApp at scale? Join our weekly [ask the experts webinar](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html).
 
 ##RemoteApp deployment options
 There are two kinds of RemoteApp deployment:
