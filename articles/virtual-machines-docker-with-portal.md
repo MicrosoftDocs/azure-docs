@@ -4,7 +4,7 @@
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Using the Docker VM Extension with the Azure Portal
 
-[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) to create a Docker VM that hosts any number of containers for your applications on Azure. 
+[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent] to create a Docker VM that hosts any number of containers for your applications on Azure. 
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 In this section
@@ -127,8 +127,8 @@ You are ready to go to the [Docker User Guide] and use your Docker VM. If you wa
 
 
 <!--Link references-->
-[How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]: ../virtual-machines-docker-with-xplat-cli/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
+[How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[Azure Linux Agent]: ../virtual-machines-linux-agent-user-guide/
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
 
 [Running Docker with https]: http://docs.docker.com/articles/https/

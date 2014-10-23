@@ -2,9 +2,11 @@
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
-## Getting Started with Azure Storage
+> [AZURE.SELECTOR]
+> - [Getting Started](/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs/)
+> - [What Happened](/documentation/articles/vs-storage-aspnet-vnext-what-happened/)
 
-See details on what happened to your project [here](#whathappened).
+## Getting Started with Azure Storage (ASP.NET vNext Projects)
 
 > [AZURE.SELECTOR]
 > - [Blobs](/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs/)
@@ -34,4 +36,4 @@ Before you can do anything with a blob, you need to get the connection string fo
 
 [WACOM.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
-[WACOM.INCLUDE [vs-storage-aspnet-vnext-getting-started-intro](../includes/vs-storage-aspnet-vnext-getting-started-intro.md)]
+For more information, see [ASP.NET vNext](http://www.asp.net/vnext).
