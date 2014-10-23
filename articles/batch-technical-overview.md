@@ -1,4 +1,4 @@
-<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Azure Batch technical overview" metaKeywords="" description="Learn about the concepts, workflows, and scenarios of the Azure Batch service" metaCanonical="" services="Batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
+<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Azure Batch technical overview" metaKeywords="" description="Learn about the concepts, workflows, and scenarios of the Azure Batch service" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="danlep" />
 
@@ -6,7 +6,7 @@
 #Azure Batch technical overview
 Azure Batch helps you run large-scale parallel and high performance computing (HPC) applications in the cloud by providing job scheduling and autoscaling of compute resources as a platform service. By using the Batch SDK and Batch service, you can configure batch workloads to run on demand or on a schedule on a managed collection of virtual machines and not have to worry about the complexity of scheduling jobs and managing resources in the underlying platform.
  
->[WACOM.NOTE]Azure Batch is in Preview. To use Batch, you need an Azure account, and you need to enable Batch Preview on your subscription. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/)., 
+>[WACOM.NOTE]Batch is in Preview. To use Batch, you need an Azure account, and you need to enable Batch Preview on your subscription. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
 
 
 This article gives you an overview of:
@@ -20,7 +20,7 @@ This article gives you an overview of:
 
 <h2 id="BKMK_Scenarios">Use cases</h2>
 
-Azure Batch uses the elasticity and scale of the cloud to help you with *batch processing* or *batch computing* - running large volumes of similar tasks programmatically. A command line program or script takes a set of data files as input, processes the data in a series of tasks, and produces a set of output files. The output files might be the final results or an intermediate step in a larger workflow.       
+Batch uses the elasticity and scale of the cloud to help you with *batch processing* or *batch computing* - running large volumes of similar tasks programmatically. A command line program or script takes a set of data files as input, processes the data in a series of tasks, and produces a set of output files. The output files might be the final results or an intermediate step in a larger workflow.       
  
 Batch computing is a common pattern for organizations that process, transform, and analyze large amounts of data, either on a schedule or on-demand. It includes end-of-cycle processing such as a bank’s daily risk reporting or a payroll that must be done on schedule. It also includes large-scale business, science, and engineering applications that typically need the tools and resources of a compute cluster or grid. Applications include traditional HPC applications such as fluid dynamics simulations as well as specialized workloads in fields such as automotive design, oil and gas exploration, life sciences research, and digital content creation. 
  
@@ -38,7 +38,7 @@ Examples include:
 * Genetic sequence analysis
 * Software testing
 
-You can also use Azure Batch to perform parallel calculations with a reduce step at the end, and other more complicated non-acyclic parallel workloads. 
+You can also use Batch to perform parallel calculations with a reduce step at the end, and other more complicated non-acyclic parallel workloads. 
 
 >[WACOM.NOTE]Batch Preview does not currently support message passing interface (MPI) applications.
 
@@ -48,7 +48,7 @@ The REST-based Batch APIs support two developer scenarios to help you configure 
  
 1. **Distribute computations as work items** - Use the *Batch* APIs to create and manage a flexible pool of compute VMs and specify work items that run on them. This gives you full control over resources and requires the client to manage the task execution pipeline - for example, with a workflow manager or meta-scheduler, which can be implemented using the Batch REST APIs or optionally a job manager feature of the work item. Instead of having to set up a compute cluster or write code to queue and schedule your jobs, you automate the scheduling of compute jobs and scale a pool of compute VMs up and down to run them. As part of specifying work items, you define all dependencies and define the movement of input and output files. 
 
-2. **Publish and run applications with the Batch service** - The *Batch Apps* APIs provide a higher level of abstraction and job execution pipeline hosted by the Batch service. With Batch Apps you can create a batch workload as a service in the cloud from an application that runs today on client workstations or a compute cluster. Batch Apps helps you wrap existing binaries and executables and publish them to run on pooled VMs that the Batch service creates and manages in the background. The Batch Apps framework handles the movement of input and output files, job execution, job management, and data persistence. Batch Apps also allows you to model tasks for how data is partitioned and for multiple steps in a job. Included is a REST-based API and the Batch Apps portal, which can be accessed from the Azure Management Portal and helps you monitor the submitted jobs or workloads.
+2. **Publish and run applications with the Batch service** - The *Batch Apps* APIs provide a higher level of abstraction and job execution pipeline hosted by the Batch service. With Batch Apps you can create a batch workload as a service in the cloud from an application that runs today on client workstations or a compute cluster. Batch Apps helps you wrap existing binaries and executables and publish them to run on pooled VMs that the Batch service creates and manages in the background. The Batch Apps framework handles the movement of input and output files, job execution, job management, and data persistence. Batch Apps also allows you to model tasks for how data is partitioned and for multiple steps in a job. Included is a REST-based API and the Batch Apps portal, which can be accessed from the Azure Management Portal and helps you monitor the jobs you submitted.
 
 
 <h2 id="BKMK_Entities">Batch concepts</h2>
@@ -114,7 +114,7 @@ A **work item** is a template that specifies how an application will run on TVMs
 
 **Figure 3. A work item, job, and tasks**
 
-Depending on the APIs you use to develop with Batch, you will need to manage more or fewer details for work items, jobs, and tasks.
+Depending on the APIs you use to develop with Batch, you will need to manage more or fewer details about work items, jobs, and tasks.
 
 * If you develop an application with the lower level Batch APIs, you need to programmatically define all the work items, jobs, and tasks that the Batch service runs and configure the TVM pools that run the tasks.
 
@@ -174,8 +174,8 @@ Figure 5 shows a basic workflow to publish an application by using the Batch App
 <h2 id="BKMK_Resources">Additional resources</h2>
 
 * [Get Started with the Azure Batch Library for .NET](http://azure.microsoft.com/en-us/documentation/batch-dotnet-get-started)
-* [Azure Batch REST API Reference](http://msdn.microsoft.com/library/azure/dn831874.aspx)
-* [Azure Batch Apps REST API Reference](http://msdn.microsoft.com/library/azure/dn832457.aspx)
+* [Azure Batch REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=517803)
+* [Azure Batch Apps REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 
 [parallel]: ./media/batch-technical-overview/parallel.png
 [TVM_pool]: ./media/batch-technical-overview/TVM_pool.png

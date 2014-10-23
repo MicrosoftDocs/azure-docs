@@ -43,7 +43,8 @@ In this walkthrough, you create a data factory with a pipeline that moves data f
 ### Step 1: Create an Azure data factory
 In this step, you use the Azure Management Portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**. You can also create a data factory by using Azure Data Factory cmdlets. 
 
-1.	After logging into the [Azure Preview Portal][azure-preview-portal], click **NEW** from the bottom-left corner, and click **Data Factory** on the **New** blade. 
+1.	After logging into the [Azure Preview Portal][
+2.	azure-preview-portal], click **NEW** from the bottom-left corner, and click **Data Factory** on the **New** blade. 
 
 	![New->DataFactory][image-data-factory-new-datafactory-menu] 
 	
@@ -64,10 +65,10 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 		![Data Services blade][image-data-factory-onprem-dataservices-blade]
 
-2. In the **Data Factory (preview)** blade, click **Create**.
+	1. In the **Data Factory (preview)** blade, click **Create**.
 
 
-	![Data Factory Preview Blade][image-data-factory-onprem-datafactory-preview-blade]
+		![Data Factory Preview Blade][image-data-factory-onprem-datafactory-preview-blade]
 
 6. In the **New data factory** blade:
 	1. Enter **ADFTutorialOnPremDF** for the **name**.
@@ -257,7 +258,7 @@ In this step, you will create input and output datasets that represent input and
 
 	See [JSON Scripting Reference][json-script-reference] for details about JSON properties.
 
-2. The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode. Launch **Azure PowerShell**, and execute the following command to switch the **AzureResourceManager** mode.     
+2. The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode. Launch **Azure PowerShell**, and execute the following command to switch to the **AzureResourceManager** mode.     
 
         switch-azuremode AzureResourceManager
 
@@ -440,7 +441,7 @@ This section describes how to create and register a gateway using Azure PowerShe
 		ExpiryTime      :
 
 
-3. Use the **New-AzureDataFactoryGatewayKey** cmdlet to generate a registration key for the newly created gateway as follows:
+3. Use the **New-AzureDataFactoryGatewayKey** cmdlet to generate a registration key for the newly created gateway, and store the key in a local variable **$Key**:
 
 		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName $df | Format-List
 
@@ -449,13 +450,12 @@ This section describes how to create and register a gateway using Azure PowerShe
 	**Example command output:**
 
 
-		PS C:\> New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df | Format-List
+		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df | Format-List
 
-		GatewayKey : ADF#ef7a9b8d-cda1-424d-9fb3-72cf1b3c9d7c@4c63dd4a-59ee-4e2e-9541-34524c85c4ca@317515fd-a26a-4a08-a2f5-c13fb49b3851@wu#6YHWunE6aRH7a1HrG5P5nww3tSjy5hdyVvHFWkm8HOM=
+	
+4. In Azure PowerShell, switch to the folder: **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript\** and Run **RegisterGateway.ps1** script associated with the local variable **$Key** as shown in the following command to register the client agent installed on your machine with the logical gateway you create earlier.
 
-4. In Azure PowerShell, switch to the folder: **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript\** and Run **RegisterGateway.ps1** script as shown in the following command to register the client agent installed on your machine with the logical gateway you create earlier.
-
-		PS C:\> .\RegisterGateway.ps1 ADF#ef7a9b8d-cda1-424d-9fb3-72cf1b3c9d7c@4c63dd4a-59ee-4e2e-9541-34524c85c4ca@317515fd-a26a-4a08-a2f5-c13fb49b3851@wu#6YHWunE6aRH7a1HrG5P5nww3tSjy5hdy VvHFWkm8HOM=
+		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 

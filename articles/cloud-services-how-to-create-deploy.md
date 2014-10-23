@@ -69,7 +69,7 @@ Three cloud service features require special configurations before you export a 
 
 4. Click **Create Cloud Service**.
 
-	![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Region.png)
+	![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
 
 	You can monitor the status of the process in the message area at the bottom of the window.
 

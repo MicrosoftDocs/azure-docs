@@ -65,9 +65,9 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 
 		![Data services blade][image-data-factory-getstarted-data-services-data-factory-selected]
 
-5. In the **Data Factory (preview)** blade, click **Create**.
+	1. In the **Data Factory (preview)** blade, click **Create**.
 
-	![Data factory (preview) blade][image-data-factory-getstarted-data-factory-create-button]
+		![Data factory (preview) blade][image-data-factory-getstarted-data-factory-create-button]
 
 6. In the **New data factory** blade:
 	1. Enter **ADFTutorialDataFactory** for the **name**.
@@ -229,7 +229,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 
 	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
-2. Launch **Azure PowerShell** and execute the following command to switch the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
+2. Launch **Azure PowerShell** and execute the following command to switch to the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
 
          switch-azuremode AzureResourceManager
 		

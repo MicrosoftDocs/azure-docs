@@ -3,32 +3,19 @@
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 
 # Use Pig and Hive with Data Factory
-A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. For example, a Copy activity copies data from a source storage to a destination storage and Hive/Pig activities use an Azure HDInsight cluster to process data using Hive queries or Pig scripts.
+A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. For example, a Copy activity copies data from a source storage to a destination storage and an HDInsight activity with Hive/Pig transformations use an Azure HDInsight cluster to process data using Hive/Pig scripts. The HDInsight Activity can consume 1 or more input and produce 1 or more outputs. 
 
-<table border="1">	
-	<tr>
-	<th>Activity</th>
-	<th>Descritpion</th>
-	<th>No. of inputs</th>
-	<th>No. of outputs</th>
-	</tr>	
+## In This Article
 
-	<tr>
-	<td>Pig</td>
-	<td>Specifies the Pig script used to process the data from input tables, and produces data to output tables. 	</td>
-	<td>>=1</td>
-	<td>>=1</td>
-	</tr>	
+Section | Description
+------- | -----------
+Pig JSON example | This section provides JSON schema for defining a HDInsight Activity that uses a Pig transformation. 
+Hive JSON example | This section provides JSON schema for defining a HDInsight Activity that uses a Hive transformation. 
+Using Pig and Hive scripts that are stored in Azure Blob storage | Describes how to refer to Pig/Hive scripts stored in an Azure blob storage from an HDInsight Activity using Pig/Hive transformation.
+Parameterized Pig and Hive Queries | Describes how to specify specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties** property in JSON.
+Walkthrough: Use Hive with Azure Data Factory | Provides step-by-step instructions to create a pipeline that use Hive to process data.  
 
-	<td>Hive</td>
-	<td>Specifies the Hive script used to process the data from the input tables, and produces data to output tables.	</td>
-	<td>>=1</td>
-	<td>>=1</td>
-	</tr>	
 
-</table>
-
-> [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema. 
 
 When defining a Pig or Hive activity in a pipeline JSON, the **type** property should be set to: **HDInsightActivity**.
 
@@ -52,6 +39,15 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 		}
 	}
 
+**Note the following:**
+	
+- Activity **type** is set to **HDInsightActivity**.
+- **linkedServiceName** is set to **MyHDInsightLinkedService**. 
+- The **type** of the **transformation** is set to **Pig**.
+- You can specify Pig script inline for the **script** property or store script files in an Azure blob storage and refer to the file using **scriptPath** property, which is explained later in this article. 
+- You specify parameters for the Pig script by using the **extendedProperties**. More details are provided later in this article. 
+
+
 ## Hive JSON example
 
 
@@ -73,7 +69,18 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 		}
 	}
 
-## Using Pig and Hive Queries that are stored in Azure Blob storage
+**Note the following:**
+	
+- Activity **type** is set to **HDInsightActivity**.
+- **linkedServiceName** is set to **MyHDInsightLinkedService**. 
+- The **type** of the **transformation** is set to **Hive**.
+- You can specify Hive script inline for the **script** property or store script files in an Azure blob storage and refer to the file using **scriptPath** property, which is explained later in this article. 
+- You specify parameters for the Hive script by using the **extendedProperties**. More details are provided later in this article. 
+
+> [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema. 
+
+
+## Using Pig and Hive scripts that are stored in Azure Blob storage
 You can store Pig/Hive scripts in an Azure blob storage associated with the HDInsight cluster and refer to them from Pig/Hive activities by using the following properties in the JSON: 
 
 * **scriptPath** – Path to the Pig or Hive script file
@@ -117,6 +124,8 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
       	}
 	}
 
+  
+
 > [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema.
 
 ## Parameterized Pig and Hive Queries
@@ -159,6 +168,9 @@ See the following example for specifying parameters for a Hive script using **ex
 			   	]
 			}
 		}
+
+
+-  
 
 ## Walkthrough: Use Hive with Azure Data Factory
 ### Pre-requisites
@@ -207,9 +219,18 @@ See the following example for specifying parameters for a Hive script using **ex
 		}
 
  
+	**Note the following:**
+	
+	- location **type** is set to **AzureBlobLocation**.
+	- **linkedServiceName** is set to **MyBlobStore** that defines an Azure storage account.
+	- **folderPath** specifies the blob container\folder for the input data. 
+	- **frequency=Day** and **interval=1** means the slices are available daily
+	- **waitOnExternal** means that this data is not produced by another pipeline, it is rather produced externally to the data factory. 
+	
+
 	See [Data Factory Developer Reference][developer-reference] for descriptions of JSON properties.  
 
-2. Launch **Azure PowerShell** and switch to **AzureResourceManager** mode if needed.
+2. Launch **Azure PowerShell** and switch to the **AzureResourceManager** mode if needed.
     		
     	Switch-AzureMode AzureResourceManager
 
@@ -246,7 +267,7 @@ See the following example for specifying parameters for a Hive script using **ex
 		New-AzureDataFactoryTable –ResourceGroupName ADFTutorialResourceGroup –DataFactoryName ADFTutorialDataFactory -File .\HiveOutputBlobTable.json
 
 ### Create a linked service for an HDInsight cluster
-The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
+The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, when you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
 
 #### To use an on-demand HDInsight cluster
 1. Create a JSON file named **HDInsightOnDemandCluster.json** with the following content and save it to **C:\ADFGetStarted\Hive** folder.
@@ -260,12 +281,11 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 				"clusterSize": 4,
         		"jobsContainer": "adftutorialjobscontainer",
         		"timeToLive": "00:05:00",
-        		"version": "3.1",
         		"linkedServiceName": "MyBlobStore"
     		}
 		}
 
-2. Launch **Azure PowerShell** and execute the following command to switch the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
+2. Launch **Azure PowerShell** and execute the following command to switch to the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
 
          switch-azuremode AzureResourceManager
 		
