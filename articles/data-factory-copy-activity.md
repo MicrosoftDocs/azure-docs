@@ -5,12 +5,11 @@
 # Copy data with Azure Data Factory (Copy Activity)
 You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. The Copy Activity can be used in the following scenarios:
 
-- Ingress to Windows Azure. In this scenario, data is copied from an on-premises data source (ex: SQL Server) to a Windows Azure data store (ex: Azure blob, Azure table, or Azure SQL Database) for the following sub-scenarios:
+- Ingress to Azure. In this scenario, data is copied from an on-premises data source (ex: SQL Server) to a Azure data store (ex: Azure blob, Azure table, or Azure SQL Database) for the following sub-scenarios:
 	- Collect data in a centralized location on Azure for further processing.
 	- Migrate data from on-premises or non-Azure cloud platforms to Azure.
 	- Archive or back up data to Azure for cost-effective tiered storage.
-- Egress from Windows Azure. In this scenario, data is copied from Azure (ex: Azure blob, Azure table, or Azure SQL Database) to on-premises data marts and data 
-- warehouse (ex: SQL Server) for the following sub-scenarios:
+- Egress from Azure. In this scenario, data is copied from Azure (ex: Azure blob, Azure table, or Azure SQL Database) to on-premises data marts and data warehouse (ex: SQL Server) for the following sub-scenarios:
 	- Transfer data to on-premises due to lack of cloud data warehouse support.
 	- Transfer data to on-premises to take advantage of existing on-premises solution or reporting infrastructure.
 	- Archive or back up data to on-premises for tiered storage
@@ -22,7 +21,8 @@ See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that sho
 ## Copy Activity - components
 Copy activity contains the following components: 
 
-- **Input table**. A table is a dataset that has a schema and is rectangular. The input table component describes input data for the activity that include the following: name of the table, type of the table, and linked service that refers to a data source, which contains the input data.
+- **Input table**. A table is a dataset that has a schema and is rectangular. The input table component 
+- describes input data for the activity that include the following: name of the table, type of the table, and linked service that refers to a data source, which contains the input data.
 - **Output table**. The output table describes output data for the activity that include the following: name of the table, type of the table, and the linked service that refers to a data source, which holds the output data.
 - **Transformation rules**. The transformation rules specify how input data is extracted from the source and how output data is loaded into sink etc…
  
@@ -33,7 +33,7 @@ A pipeline consists of one or more activities. Activities in the pipelines are d
          
 	{
 		"name": "PipelineName”,
-    	"properties": 
+		"properties": 
     	{
         	"description" : "pipeline description",
         	"activities":
@@ -188,7 +188,7 @@ The following JSON script defines an output table: **MyDemoBlob**, which refers 
 
 The following sample Azure PowerShell command uses the **New-AzureDataFactoryTable** that uses a JSON file that contains the script above to create a table (**MyDemoBlob**) in an Azure data factory: **CopyFactory**.
          
-	New-AzureDataFactoryTable -ResourceGroupName ADF -Name MyDemoBlob -DataFactoryName CopyFactory –File <Filepath>
+	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory –File <Filepath>
 
 
 ### Pipeline (with Copy Activity) JSON
@@ -235,7 +235,7 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 
  The following sample Azure PowerShell command uses the **New-AzureDataFactoryPipeline** that uses a JSON file that contains the script above to create a pipeline (**CopyActivityPipeline**) in an Azure data factory: **CopyFactory**.
          
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name CopyactivityPipeline –DataFactoryName CopyFactory –File <Filepath>
+		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
 ## Supported inputs and outputs
 The above example used SqlSource as the source and BlobSink as the sink in the transformation section. The following table lists the sources and sinks supported by the Copy Activity. 
@@ -462,15 +462,14 @@ The following table lists the properties supported by these sources and sinks.
 </table>
 
 ### SQL on Infrastructure-as-a-Service (IaaS)
-For SQL on IaaS, Azure and Amazon as IaaS providers are supported. The following network and VPN topologies are supported. Note that Data Management Gateway is required for case #2 and #3, while not needed for case #1. For details about Data Management Gateway, see [Enable your pipelines to access on-premises data][use-onpremises-datasources].
+For SQL on IaaS, Azure as IaaS provider is supported. The following network and VPN topologies are supported. Note that Data Management Gateway is required for case #2 and #3, while not needed for case #1. For details about Data Management Gateway, see [Enable your pipelines to access on-premises data][use-onpremises-datasources].
 
 1.	VM with public DNS name and static public port : private port mapping
 2.	VM with public DNS name without SQL endpoint exposed
 3.	Virtual network
 	<ol type='a'>
 	<li>Azure Cloud VPN with following topology at the end of the list. </li>	
-	<li>VM with onpremises-to-cloud site-to-site VPN using Azure Virtual Network.</li>
-	<li>Amazon VPC (Virutal Private Cloud).</li>
+	<li>VM with onpremises-to-cloud site-to-site VPN using Azure Virtual Network.</li>	
 	</ol>  
 	![Data Factory with Copy Activity][image-data-factory-copy-actvity]
 
