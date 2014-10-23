@@ -1,8 +1,8 @@
-<properties title="Azure Machine Learning Recommendations – Quick Start Guide" pageTitle="Azure Machine Learning Recommendations – Quick Start Guide | Azure" description="Azure Machine Learning Recommendations – Quick Start Guide" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Quick start guide for the Machine Learning Recommendations API" pageTitle="Quick start guide for the Machine Learning Recommendations API | Azure" description="Azure Machine Learning Recommendations – Quick Start Guide" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
 
-#Azure Machine Learning Recommendations – Quick Start Guide
+# Quick start guide for the Machine Learning Recommendations API
 
 This document depicts how to onboard your service or application to use Azure ML Recommendations. 
 
