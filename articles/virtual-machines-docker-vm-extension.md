@@ -55,8 +55,8 @@ The Docker VM extension for Azure is just one of several VM extension that provi
 For a complete list, see [Azure VM Extensions](http://msdn.microsoft.com/en-us/library/azure/dn606311.aspx).
 
 <!--Anchors-->
-[How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]: #../virtual-machines-docker-with-xplat-cli/
-[How to use the Docker VM Extension with the Azure Portal]: #../virtual-machines-docker-with-portal/
+[How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[How to use the Docker VM Extension with the Azure Portal]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-portal/
 [Docker and Linux Containers]: #Docker-and-Linux-Containers
 [How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
