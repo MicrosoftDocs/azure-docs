@@ -5,15 +5,15 @@
 # Copy data with Azure Data Factory (Copy Activity)
 You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. The Copy Activity can be used in the following scenarios:
 
-- Ingress to Azure. In this scenario, data is copied from an on-premises data source (ex: SQL Server) to a Azure data store (ex: Azure blob, Azure table, or Azure SQL Database) for the following sub-scenarios:
+- **Ingress to Azure**. In this scenario, data is copied from an on-premises data source (ex: SQL Server) to a Azure data store (ex: Azure blob, Azure table, or Azure SQL Database) for the following sub-scenarios:
 	- Collect data in a centralized location on Azure for further processing.
 	- Migrate data from on-premises or non-Azure cloud platforms to Azure.
 	- Archive or back up data to Azure for cost-effective tiered storage.
-- Egress from Azure. In this scenario, data is copied from Azure (ex: Azure blob, Azure table, or Azure SQL Database) to on-premises data marts and data warehouse (ex: SQL Server) for the following sub-scenarios:
+- **Egress from Azure**. In this scenario, data is copied from Azure (ex: Azure blob, Azure table, or Azure SQL Database) to on-premises data marts and data warehouse (ex: SQL Server) for the following sub-scenarios:
 	- Transfer data to on-premises due to lack of cloud data warehouse support.
 	- Transfer data to on-premises to take advantage of existing on-premises solution or reporting infrastructure.
 	- Archive or back up data to on-premises for tiered storage
-- Azure-to-Azure copy. In this scenario, the data distributed across Azure data sources is aggregated into a centralized Azure data store. Examples: Azure table to Azure blob, Azure blob to Azure table, Azure Table to Azure SQL, Azure blob to Azure SQL.
+- **Azure-to-Azure copy**. In this scenario, the data distributed across Azure data sources is aggregated into a centralized Azure data store. Examples: Azure table to Azure blob, Azure blob to Azure table, Azure Table to Azure SQL, Azure blob to Azure SQL.
 
 See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity. See [Enable your pipelines to work with on-premises data][use-onpremises-datasources] for a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob storage using the Copy Activity.
 
@@ -29,10 +29,10 @@ Copy activity contains the following components:
 A copy activity can have one **input table** and one **output table**.
 
 ## JSON for Copy Activity
-A pipeline consists of one or more activities. Activities in the pipelines are defined with in the activities [] section. The JSON for a pipeline is as follows:
+A pipeline consists of one or more activities. Activities in the pipelines are defined with in the **activities []** section. The JSON for a pipeline is as follows:
          
 	{
-		"name": "PipelineName”,
+		"name": "PipelineName",
 		"properties": 
     	{
         	"description" : "pipeline description",
@@ -56,7 +56,7 @@ Each activity within the **activities** section has the following top-level stru
 		{
 
 		},
-		policy:
+		"policy":
 		{
 		
 		}
@@ -66,9 +66,9 @@ The following table describes the tags used with an activity section.
 
 <table border="1">	
 	<tr>
-		<th>Tag</th>
-		<th>Descritpion</th>
-		<th>Required</th>
+		<th align="left">Tag</th>
+		<th align="left">Descritpion</th>
+		<th align="left">Required</th>
 	</tr>	
 
 	<tr>
@@ -103,7 +103,7 @@ The following table describes the tags used with an activity section.
 
 	<tr>
 		<td>transformation</td>
-		<td>Properties in the transformation is dependent on type.  The **Copy Activity** requires you to specify a **source** and a **sink** section within the **transformation** section. More details are provided later in this article. </td>
+		<td>Properties in the transformation is dependent on type.  The <b>Copy Activity</b> requires you to specify a <b>source</b> and a <b>sink</b> section within the <b>transformation</b> section. More details are provided later in this article. </td>
 		<td>Y</td>
 	</tr>
 
@@ -123,6 +123,7 @@ In this example, an input table and an output table are defined and the tables a
 
 **Assumptions**
 The following Azure Data Factory artifacts are referenced in sample JSON scripts that follows:
+
 * Resource group named **ADF**.
 * An Azure data factory named **CopyFactory**.
 * A linked service named **MyOnPremisesSQLDB** that points to an on-premises SQL Server database.
@@ -140,7 +141,7 @@ The following JSON script defines an input table that refers to a SQL table: **M
     		{
     			"type": "OnPremisesSqlServerTableLocation",
     			"tableName": "MyTable",
-    			“linkedServiceName”: "MyOnPremisesSQLDB"
+    			"linkedServiceName": "MyOnPremisesSQLDB"
     		},
     		"availability":
    			{
@@ -168,7 +169,7 @@ The following JSON script defines an output table: **MyDemoBlob**, which refers 
         		"type": "AzureBlobLocation",
         		"folderPath": "MyContainer/MySubFolder",
         		"fileName": "MyBlob"
-        		“linkedServiceName”: " MyAzureStorage",
+        		"linkedServiceName": "MyAzureStorage",
         		"format":
         		{
             		"type": "TextFormat",
@@ -212,7 +213,7 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 						"description": "description", 
 						"type": "CopyActivity",
 						"inputs":  [ { "name": "MyOnPremTable"  } ],
-						"outputs":  [ { "name": “MyAzureBlob” } ],
+						"outputs":  [ { "name": "MyAzureBlob" } ],
 						"transformation":
 	    				{
 							"source":
@@ -222,9 +223,7 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 							},
 							"sink":
 							{
-                        		"type": "BlobSink",
-                        		"writeBatchSize": 1000000,
-                        		"writeBatchTimeout": “01:00:00”
+                        		"type": "BlobSink"
 							}
 	    				},
       				}
@@ -524,15 +523,15 @@ In this sample, the **input table** is defined as follows. The input table has a
 		    "name": "MyOnPremTable",
     		"properties":
     		{
-				“structure”:
-            		{ name: "userid", type: "String"},
-            		{ name: "name", type: "String"},
-            		{ name: "group", type: "Decimal"}
+				"structure":
+            		{ "name": "userid", "type": "String"},
+            		{ "name": "name", "type": "String"},
+            		{ "name": "group", "type": "Decimal"}
 				"location":
 				{
-  					"type": "OnPremisesSqlServerTableLocation",
-  					"tableName": "MyTable",
-  					“linkedServiceName”: "MyOnPremisesSQLDB"
+					"type": "OnPremisesSqlServerTableLocation",
+					"tableName": "MyTable",
+					"linkedServiceName": "MyOnPremisesSQLDB"
 				},
 				"availability":	
 				{
@@ -549,16 +548,16 @@ In this sample, the **output table** is defined as follows. The output table has
 		"name": "MyDemoBlob",
 		"properties":
 		{
-    		“structure”:
-        	    { name: "myuserid", type: "String"},
-        	    { name: "mygroup", type: "String"},
-        	    { name: "myname", type: "Decimal"}
+    		"structure":
+        	    { "name": "myuserid", "type": "String"},
+        	    { "name": "mygroup", "type": "String"},
+        	    { "name": "myname", "type": "Decimal"}
 			"location":
     		{
     	    	"type": "AzureBlobLocation",
 		        "folderPath": "MyContainer/MySubFolder",
 				"fileName": "MyBlobName"
-    	    	“linkedServiceName”: "MyLinkedService",
+    	    	"linkedServiceName": "MyLinkedService",
     	    	"format":
     	    	{
     	        	"type": "TextFormat",
@@ -585,7 +584,7 @@ In this sample, an activity in a pipeline is defined as follows. The columns fro
 		"description": "description", 
 		"type": "CopyActivity",
 		"inputs":  [ { "name": "MyOnPremTable"  } ],
-		"outputs":  [ { "name": “MyDemoBlob” } ],
+		"outputs":  [ { "name": "MyDemoBlob" } ],
 		"transformation":
 		{
 			"source":
@@ -594,9 +593,7 @@ In this sample, an activity in a pipeline is defined as follows. The columns fro
     		},
 			"sink":
 			{
-            	"type": "BlobSink",
-                "writeBatchSize": 1000000,
-                "writeBatchTimeout": “01:00:00”
+            	"type": "BlobSink"
 			}
 			"Translator": 
 			{
@@ -616,19 +613,17 @@ In this sample, a SQL query (vs. table in the previous sample) is used to extrac
 		"description": "description", 
 		"type": "CopyActivity",
 		"inputs":  [ { "name": "InputSqlDA"  } ],
-		"outputs":  [ { "name": “OutputBlobDA” } ],
+		"outputs":  [ { "name": "OutputBlobDA" } ],
 		"transformation":
 		{
 			"source":
 			{
 				"type": "SqlSource",
-    			"sqlReaderQuery": " Select * from Person where $$creationDate > ‘MM/dd/yyyy HH:mm:ss.fffffff zzz’"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', Time.AddHours(SliceStart, 0))"
 			},
 			"sink":
 			{
-            	"type": "BlobSink",
-                "writeBatchSize": 1000000,
-                "writeBatchTimeout": “01:00:00”
+            	"type": "BlobSink"
 			}
 			"Translator": 
 			{

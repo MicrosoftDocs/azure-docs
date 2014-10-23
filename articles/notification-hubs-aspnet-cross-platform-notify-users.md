@@ -32,11 +32,11 @@ Complete the following steps to send cross-platform notifications using template
                 registration = new WindowsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
                 break;
             case "apns":
-                var alertTemplate = "{\"aps\":\"alert\":\"$(message)\"}";
+                var alertTemplate = "{\"aps\":{\"alert\":\"$(message)\"}}";
                 registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
                 break;
             case "gcm":
-                var messageTemplate = "{\"data\":\"msg\":\"$(message)\"}";
+                var messageTemplate = "{\"data\":{\"msg\":\"$(message)\"}}";
                 registration = new GcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
                 break;
             default:

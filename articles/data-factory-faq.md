@@ -24,11 +24,19 @@ Azure Data Factory bridges the customer requirements of being more agile in usin
 	- Must manage compute and storage resources to balance cost and scale across on-premises and cloud
 	- Must quickly add diverse sources and processing to address new business needs, while maintaining visibility across all compute and storage assets
 
+**Q: Where can I find pricing details for Azure Data Factory?**
+See [Data Factory Pricing Details page][adf-pricing-details] for the pricing details for the Azure Data Factory.  
 
-**Q: What is the data connectivity and list of services available at public preview?**
+**Q. How do I get started with Azure Data Factory?**
 
-- At public preview, data sources will include: SQL Server, SQL Server in Azure Virtual Machines (IaaS), Azure SQL Database, Azure Blobs, and Azure Tables. 
-- At public preview, services include: Pig and Hive scripts on HDInsight, custom C# code in SQL databases.
+- For an overview of Azure Data Factory, see [Introduction to Azure Data Factory][adf-introduction].
+- For a quick tutorial, see [Get started with Azure Data Factory][adfgetstarted].
+- For comprehensive documentation, see [Azure Data Factory documentation][adf-documentation-landingpage].
+ 
+**Q: What are the supported data sources and activities?**
+
+- **Supported data sources:** Azure Storage (Blob and Tables), SQL Server, Azure SQL Database. 
+- **Supported activities:** : Copy Activity, HDInsight Activity (Pig and Hive transformations), and custom C# activities.
   
 **Q: How do customers access Data Factory?**
 
@@ -45,13 +53,11 @@ At public preview, Data Factory will only be available in US West.  The compute 
 - Number of activities within a pipeline: 10
 - Number of datasets with in a data factory: 100
 
-**Q. Where can I get more information about Azure Data Factory?**
 
-- For concepts, see [Introduction to Azure Data Factory][adf-introduction]
-- For comprehensive documentation, see [Azure Data Factory documentation][adf-documentation-landingpage]. 
-
+[adfgetstarted]: ../data-factory-get-started
 
 [adf-introduction]: ../data-factory-introduction
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-preview-portal]: http://portal.azure.com
 
+[adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
