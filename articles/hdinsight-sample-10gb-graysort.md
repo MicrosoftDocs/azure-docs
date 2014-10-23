@@ -40,7 +40,7 @@ This topic shows you how to run the series of MapReduce programs that make up th
 
 <h2><a id="run-sample"></a>Run the sample with Azure PowerShell</h2>
 
-Three tasks are required by the sample, each corresponding to one of the MapReduce programs decribed in the introduction:	
+Three tasks are required by the sample, each corresponding to one of the MapReduce programs described in the introduction:	
 
 1. Generate the data for sorting by running the **TeraGen** MapReduce job.	
 2. Sort the data by running the **TeraSort** MapReduce job.		
