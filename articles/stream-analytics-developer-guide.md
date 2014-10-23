@@ -84,9 +84,9 @@ The output source is where the results of the Stream Analytics job will be writt
 
 ##<a name="Scale jobs"></a>Scale jobs
 
-A Stream Analytics job can be scaled through configuring Streaming Units, which define the amount of processing power a job receives. Each Streaming Unit corresponds to roughly 1 MB/second of throughput.   Each subscription has a quota of 30 Streaming Units per region to be allocated across jobs in that region, and the number of Streaming Units that can be provided to a job depend on how the input is partitioned and how the job query is written.
+A Stream Analytics job can be scaled through configuring Streaming Units, which define the amount of processing power a job receives. Each Streaming Unit corresponds to roughly 1 MB/second of throughput. Each subscription has a quota of 12 Streaming Units per region to be allocated across jobs in that region.
 
-For details on scaling Stream Analytics jobs, see [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs].
+For details, see [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs].
 
 
 ##<a name="monitor"></a>Monitoring and troubleshooting jobs
@@ -115,9 +115,10 @@ This is a temporary limitation and enabling job start and stop without data loss
 ###Configure jobs
 You can adjust the following top-level settings for a Stream Analytics job:
 
-- Start output: Use this setting to specify when the job should start outputting data from.  This setting is useful for specifying how much historical input to consume and for restarting a stopped job back up from approximately when it was last stopped.
-- Out of order policy: Settings for handling events that do not arrive to the Stream Analytics job sequentially.  You can designate a time threshold to reorder events within and also determine whether to drop or adjust the timestamp of events that can’t be resolved in this time window.
-- Locale: Use this setting to specify the internationalization preference for the stream analytics job.  While timestamps of data are locale neutral, settings here impact how the job will parse, compare, and sort data.  For the preview release, only en-US is supported.
+- Start output: Specifies when this job will start producing resulting output. If the associated query includes a window, the job will begin picking up input from the input sources at the start of the window duration required, in order to produce the first output event at the specified time. There are two options, Job Start Time and Custom. The default setting is Job Start Time. For the Custom option, you must specify a date and time. This setting is useful for specifying how much historical data in the input sources to consume or for picking up data ingestion from a specific time, such as when a job was last stopped. 
+- Out of order policy: Settings for handling events that do not arrive to the Stream Analytics job sequentially. You can designate a time threshold to reorder events within by specifying a Tolerance Window and also determine an action to take on events outside this window: Drop or Adjust.  Drop will drop all events received out of order and Adjust will change the System.Timestamp of out of order events to the timestamp of the most recently received ordered event.  
+- Locale: Use this setting to specify the internationalization preference for the stream analytics job. While timestamps of data are locale neutral, settings here impact how the job will parse, compare, and sort data. For the preview release, only en-US is supported.
+
 
 ##<a name="support"></a>Get support
 For additional support, see [Azure Stream Analytics forum][stream.analytics.forum]. 
@@ -130,7 +131,7 @@ For additional support, see [Azure Stream Analytics forum][stream.analytics.foru
 - [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs]
 - [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]
 - [Azure Stream Analytics query language reference][stream.analytics.query.language.reference]
-- [Azure Stream Analytics REST API reference][stream.analytics.rest.api.reference] 
+- [Azure Stream Analytics management REST API reference][stream.analytics.rest.api.reference] 
 
 
 

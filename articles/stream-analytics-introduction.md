@@ -103,7 +103,7 @@ The expectations for fast and agile execution in businesses continue to grow. Bu
 - [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs]
 - [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]
 - [Azure Stream Analytics query language reference][stream.analytics.query.language.reference]
-- [Azure Stream Analytics REST API reference][stream.analytics.rest.api.reference] 
+- [Azure Stream Analytics management REST API reference][stream.analytics.rest.api.reference] 
 
 
 

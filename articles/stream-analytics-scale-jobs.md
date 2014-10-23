@@ -33,7 +33,7 @@ A query can have one or many steps. Each step is a sub-query defined using the W
 
 	SELECT COUNT(*), TollBoothId
 	FROM Step1 
-	GROUP BY TumblingWindow(3, minute), TollBoothId
+	GROUP BY TumblingWindow(minute,3), TollBoothId
 
 The previous query has totally 2 steps. 
 
@@ -97,13 +97,13 @@ All non-partitioned steps can scale up to 6 streaming units for a Stream Analyti
 
 The following query calculates the number of cars going through a toll station with three tollbooths within a 3-minute window. This query can be scaled up to 6 streaming units.
 
-	SELECT COUNT(*), TollBoothId
+	SELECT COUNT(*) AS Count, TollBoothId
 	FROM Input1 
 	GROUP BY TumblingWindow(minute, 3), TollBoothId
 
 To use more streaming units for the query, Both the data stream input and the query must be partitioned. Given the data stream partition set to 3, the following modified query can be scaled up to 18 streaming units.
 
-	SELECT COUNT(*), TollBoothId
+	SELECT COUNT(*) AS Count, TollBoothId
 	FROM Input1 Partition By PartitionId
 	GROUP BY TumblingWindow(minute, 3), TollBoothId
 
@@ -117,6 +117,7 @@ When a query is partitioned, the input events are processed and aggregated in se
 
 	SELECT COUNT(*) AS Count, TollBoothId
 	FROM Step1 
+	GROUP BY TumblingWindow(minute, 3), TollBoothId
 
 This query can be scaled to 24 streaming units. 
 
@@ -151,7 +152,7 @@ In this article, you have learned how to calculate streaming units and how to sc
 - [Azure Stream Analytics developer guide][stream.analytics.developer.guide]
 - [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]
 - [Azure Stream Analytics query language reference][stream.analytics.query.language.reference]
-- [Azure Stream Analytics REST API reference][stream.analytics.rest.api.reference]
+- [Azure Stream Analytics management REST API reference][stream.analytics.rest.api.reference]
 
 <!--Image references-->
 
