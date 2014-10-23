@@ -242,7 +242,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [hdinsight-emulator]: ../hdinsight-get-started-emulator/
 [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
-[hadoop-hdinsight-intro]: ../hdinsight-introduction/
+[hadoop-hdinsight-intro]: ../hdinsight-hadoop-introduction/
 [hdinsight-weblogs-sample]: ../hdinsight-hive-analyze-website-log/
 [hdinsight-sensor-data-sample]: ../hdinsight-hive-analyze-sensor-data/
 
