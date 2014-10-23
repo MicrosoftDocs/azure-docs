@@ -5,7 +5,7 @@ In this section, you will write a Windows console app to send events to your Eve
 
    	![][7]
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages**. 
+2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**. 
 
 	This displays the Manage NuGet Packages dialog box.
 
