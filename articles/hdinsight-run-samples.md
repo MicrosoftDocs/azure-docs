@@ -57,7 +57,7 @@ From this article and the articles on each of the samples, you learned how to ru
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-introduction]: ../hdinsight-introduction/
+[hdinsight-introduction]: ../hdinsight-hadoop-introduction/
 
 
 
