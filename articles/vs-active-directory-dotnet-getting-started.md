@@ -7,10 +7,6 @@
 > - [What Happened](/documentation/articles/vs-active-directory-dotnet-what-happened/)
 
 ## Getting Started with Azure Active Directory (.NET Projects)
-
-See details on what happened to your project [here](#whathappened).
-
-Here is what you can do with the code that was added.
  
 #####Requiring authentication to access controllers 
 

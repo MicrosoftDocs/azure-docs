@@ -6,7 +6,7 @@
 > - [Getting Started](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
 > - [What Happened](/documentation/articles/vs-storage-cloud-services-what-happened/)
 
-##Getting Started with Azure Storage
+##Getting Started with Azure Storage (Cloud Service projects)
 
 > [AZURE.SELECTOR]
 > - [Blobs](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)

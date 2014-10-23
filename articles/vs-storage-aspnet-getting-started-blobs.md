@@ -6,7 +6,7 @@
 > - [Getting Started](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
 > - [What Happened](/documentation/articles/vs-storage-aspnet-what-happened/)
 
-## Getting Started with Azure Storage
+## Getting Started with Azure Storage (ASP.NET Projects)
 
 > [AZURE.SELECTOR]
 > - [Blobs](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
