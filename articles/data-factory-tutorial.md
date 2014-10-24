@@ -156,7 +156,7 @@ In this step, you create an Azure data factory named **LogProcessingFactory**.
 
 		![New Everything][image-data-factory-tutorial-portal-new-everything]
 
-	2. Select **Data, storage, cache + backup** from **Gallery**, and click **See All** under **Data Services**.		
+	2. Select **Data, storage, cache + backup** from **Gallery**. In the **Data, storage, cache, + backup** blade, click **Data Factory** tile and skip the next two steps. If you don't see the **Data Factory** tile, click **More** as shown in the following image and continue with the next step.		
 
 		![Data Storage, Cache, Backup][image-data-factory-tutorial-datastorage-cache-backup]
 

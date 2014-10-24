@@ -57,7 +57,7 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 		![Datstorage, cache, backup][image-data-factory-onprem-datastorage-cache-backup]
 
-	3. In the **Data, storage, cache, + backup** blade, click **See All** as shown in the following image.
+	3. In the **Data, storage, cache, + backup** blade, click **Data Factory** tile and skip the next two steps. If you don't see the **Data Factory** tile, click **More** as shown in the following image and continue with the next step.
 
 		![Data Storage - See All][image-data-factory-onprem-datastorage-see-all]
 

@@ -53,11 +53,11 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
      
 		![GetStartedEveverything][image-data-factory-getstarted-new-everything]
 
-	2. Click **Data, storage, cache, + backup** in **Gallery**.
+	2. Click **Data, storage, cache, + backup** in **Marketplace**.
     
 		![Data, storage, cache, + backup in Gallery][image-data-factory-gallery-storagecachebackup]
 
-	3. In the **Data, storage, cache, + backup** blade, click **See All** as shown in the following image  
+	3. In the **Data, storage, cache, + backup** blade, click **Data Factory** tile and skip the next two steps. If you don't see the **Data Factory** tile, click **More** as shown in the following image and continue with the next step.   
 
 		![SeeAll][image-data-factory-gallery-storagecachebackup-seeall]
 
