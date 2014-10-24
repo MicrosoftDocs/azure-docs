@@ -204,7 +204,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
             		"format":
             		{
                 		"type": "TextFormat",
-                		"columnDelimiter": ",",
+                		"columnDelimiter": ","
             		},
             		"linkedServiceName": "MyBlobStore"
         		},
@@ -226,6 +226,24 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 	- format **type** is set to **TextFormat**
 	- - There are two fields in the text file – **FirstName** and **ColumnName** – separated by a comma character (columDelimiter)	
 	- The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**). The Data Factory service will look for input data every hour in the **input** folder in the blob container (**adftutorial**) you specified.
+
+	if you don't specify a **fileName** for an **input table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. See the sample files in the [tutorial][adf-tutorial] for examples.
+ 
+	If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+
+	To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the partitionedBy property. In the following example, folderPath uses Year, Month, and Day from from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
+
+	  	folderPath: "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+        fileName: "{Hour}.csv",
+        partitionedBy: 
+        [
+        	{ name: "Year", value: { type: "DateTime", date: "SliceStart", format: "yyyy" } },
+            { name: "Month", value: { type: "DateTime", date: "SliceStart", format: "MM" } }, 
+            { name: "Day", value: { type: "DateTime", date: "SliceStart", format: "dd" } }, 
+            { name: "Hour", value: { type: "DateTime", date: "SliceStart", format: "hh" } } 
+        ],
+
+ 
 
 	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
@@ -267,7 +285,7 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
         		{
             		"frequency": "Hour",
             		"interval": 1            
-        		},
+        		}
     		}
 		}
 
@@ -296,7 +314,6 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 1. Create a JSON file for the pipeline. Launch Notepad, copy the following JSON script, and save it as **ADFTutorialPipeline.json** in the **C:\ADFGetStarted** folder.
 
 
-
          {
 			"name": "ADFTutorialPipeline",
 			"properties":
@@ -320,7 +337,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 							},
 							"sink":
 							{
-								"type": "SqlSink",
+								"type": "SqlSink"
 							}	
 						},
 						"Policy":
@@ -331,7 +348,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 							"retry": 0,
 							"timeout": "01:00:00"
 						}		
-					},
+					}
         		]
       		}
 		} 
