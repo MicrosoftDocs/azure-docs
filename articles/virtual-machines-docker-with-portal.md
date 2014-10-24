@@ -53,7 +53,7 @@ To add the Docker VM Extension, locate the VM instance you created and scroll do
 Click the **+ Add** to display the possible VM Extensions you can add to this VM. 
 
 ![](./media/virtual-machines-docker-with-portal/ClickAdd.png)
-### In Extensions Add widget, click Docker.
+### Select the Docker VM Extension
 Choose the Docker VM Extension, which brings up the Docker description and important links, and then click **Create** at the bottom to begin the installation procedure.
 
 ![](./media/virtual-machines-docker-with-portal/ChooseDockerExtension.png)

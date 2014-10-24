@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to create and deploy" pageTitle="How to create and deploy a cloud service - Azure" metaKeywords="Azure creating cloud service, deleting cloud service" description="Learn how to create and deploy a cloud service using the Quick Create method in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="How to create and deploy" pageTitle="How to create and deploy a cloud service - Azure" metaKeywords="Azure creating cloud service, deleting cloud service" description="Learn how to create and deploy a cloud service using the Quick Create method in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 
 
@@ -104,10 +104,10 @@ Three cloud service features require special configurations before you export a 
 1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Dashboard**.
 
 	The dashboard opens in the Production environment, you could at this point select Staging to deploy your application in the staging environment. For more information, see [Manage Deployments in Azure](http://msdn.microsoft.com/en-us/library/gg433027.aspx).
-	 
 
+	 
 2. Click either **Upload a new production deployment** or **Upload**.
- 
+
 3. In **Deployment label**, enter a name for the new deployment - for example, MyCloudServicev4.
 
 3. In **Package**, use **Browse** to select the service package file (.cspkg) to use.
@@ -121,7 +121,7 @@ Three cloud service features require special configurations before you export a 
 6. Click **OK** (checkmark) to begin the cloud service deployment.
 
 	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
-
+ 
 
 	You can monitor the status of the deployment in the message area. Click OK to hide the message.
 
@@ -130,7 +130,7 @@ Three cloud service features require special configurations before you export a 
 ###To verify that your deployment completed successfully###
 
 1. Click **Dashboard**.
-	
+
 	The status should show that the service is **Running**.
 
 2. Under **quick glance**, click the site URL to open your cloud service in a web browser.
