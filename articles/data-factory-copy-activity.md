@@ -585,14 +585,14 @@ If you do not specify a **fileName** for an **output table**, the generated file
 
 To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the **partitionedBy** property. In the following example, **folderPath** uses Year, Month, and Day from from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
 
-  	folderPath: "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-    fileName: "{Hour}.csv",
-    partitionedBy: 
+  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy": 
     [
-    	{ name: "Year", value: { type: "DateTime", date: "SliceStart", format: "yyyy" } },
-        { name: "Month", value: { type: "DateTime", date: "SliceStart", format: "MM" } }, 
-        { name: "Day", value: { type: "DateTime", date: "SliceStart", format: "dd" } }, 
-        { name: "Hour", value: { type: "DateTime", date: "SliceStart", format: "hh" } } 
+    	{ "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
     ],
 
 In this sample, an activity in a pipeline is defined as follows. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
