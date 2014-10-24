@@ -1,6 +1,6 @@
-<properties title="Introduction to Azure Stream Analytics" pageTitle="Introduction to Stream Analytics | Azure" description="Understand Azure Stream Analytics" metaKeywords="" services="" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties title="Introduction to Azure Stream Analytics" pageTitle="Introduction to Stream Analytics | Azure" description="Understand Azure Stream Analytics" metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="09/31/2014" ms.author="jgao" />
+<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
 
 
 # Introduction to Azure Stream Analytics (preview)
