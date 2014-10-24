@@ -2,15 +2,15 @@
 
 <tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
 
-# Scale Azure Stream Analytics (preview) jobs 
+# Scale Azure Stream Analytics jobs 
 
-Learn how to calculate streaming units for a Stream Analytics job, and how to scale Stream Analytics jobs by configuring input partition, tuning the query definition, and setting job streaming unit.
+Learn how to calculate *Streaming Units* for a Stream Analytics job, and how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
 
-An Azure Stream Analytics job definition includes Inputs, Query and output. Inputs are where the job reads data stream from, the output is where the job send the job results to, and the query is used to transform the input stream.  A job requires at least one data stream input source. The data stream input source can be either an Azure Service Bus Event Hub or an Azure Blob storage. For more information, see [Introduction to Azure Stream Analytics][stream.analytics.introduction], [Get started using Azure Stream Analytics][stream.analytics.get.started], and [Azure Stream Analytics developer guide][stream.analytics.developer.guide]. 
+An Azure Stream Analytics job definition includes Inputs, Query and Output. Inputs are where the job reads data stream from, the output is where the job send the job results to, and the query is used to transform the input stream.  A job requires at least one data stream input source. The data stream input source can be either an Azure Service Bus Event Hub or an Azure Blob storage. For more information, see [Introduction to Azure Stream Analytics][stream.analytics.introduction], [Get started using Azure Stream Analytics][stream.analytics.get.started], and [Azure Stream Analytics developer guide][stream.analytics.developer.guide]. 
 
-The resource available for processing Stream Analytics jobs is measured by *Streaming Unit*. Each streaming unit can provide up to 1 MB/second throughput. Each job needs a minimum of one streaming unit, which is the default for all jobs. You can set up to 12 streaming units for a Stream Analytics job using the Azure Management portal. Each Azure subscription can have only up to 12 streaming units for all Jobs in a specific region. For increasing streaming units for your subscription up to 100 units, contact [Microsoft Support][microsoft.support].
+The resource available for processing Stream Analytics jobs is measured by a streaming unit. Each streaming unit can provide up to 1 MB/second throughput. Each job needs a minimum of one streaming unit, which is the default for all jobs. You can set up to 12 streaming units for a Stream Analytics job using the Azure Management portal. Each Azure subscription can have only up to 12 streaming units for all Jobs in a specific region. For increasing streaming units for your subscription up to 100 units, contact [Microsoft Support][microsoft.support].
 
-The number of streaming units that a job can consume limited by the partition configure of the inputs, and the query defined for the job. The article will show you how to calculate and tune the query to increase throughput.
+The number of streaming units that a job can utilize depends on the partition configuration on the inputs, and the query defined for the job. The article will show you how to calculate and tune the query to increase throughput.
 
 ##In this article
 + [Calculate the maximum streaming units for a job](#calculate)
@@ -31,11 +31,11 @@ A query can have one or many steps. Each step is a sub-query defined using the W
 		GROUP BY TumblingWindow(minute, 3), TollBoothId
 	) 
 
-	SELECT COUNT(*), TollBoothId
+	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1 
 	GROUP BY TumblingWindow(minute,3), TollBoothId
 
-The previous query has totally 2 steps. 
+The previous query has 2 steps. 
 
 > [WACOM.NOTE] This sample query will be explained later in the article.
 
@@ -53,7 +53,7 @@ The preview release of Azure Stream Analytics doesn't support partitioning by co
 
 ### Calculate the max streaming units for a job
 
-All non-partitioned steps can scale up to 6 streaming units for a Stream Analytics job. To add additional streaming units, a step must be partitioned. Each partition can have 6 streaming units.
+All non-partitioned steps together can scale up to 6 streaming units for a Stream Analytics job. To add additional streaming units, a step must be partitioned. Each partition can have 6 streaming units.
 
 <table border="1">
 <tr><th>Query of a job</th><th>Max streaming units for the job</th></td>
@@ -95,6 +95,7 @@ All non-partitioned steps can scale up to 6 streaming units for a Stream Analyti
 <td>24 (18 for partitioned step + 6 for non partitioned step)</td></tr>
 </table>
 
+###Example of scale
 The following query calculates the number of cars going through a toll station with three tollbooths within a 3-minute window. This query can be scaled up to 6 streaming units.
 
 	SELECT COUNT(*) AS Count, TollBoothId
@@ -115,20 +116,20 @@ When a query is partitioned, the input events are processed and aggregated in se
 		GROUP BY TumblingWindow(minute, 3), TollBoothId
 	) 
 
-	SELECT COUNT(*) AS Count, TollBoothId
+	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1 
 	GROUP BY TumblingWindow(minute, 3), TollBoothId
 
 This query can be scaled to 24 streaming units. 
 
-Please note: if you are joining two streams, please ensure that the streams are partitioned by the partition key of the column that you do the joins, and you have the same number of partitions in both streams.
+>[WACOM.NOTE] If you are joining two streams, please ensure that the streams are partitioned by the partition key of the column that you do the joins, and you have the same number of partitions in both streams.
 
 
 ##<a name="configure"></a>Configure Stream Analytics job partition
 
 **To adjust streaming unit for a job**
 
-1. Sign in the [Management portal][azure.management.portal].
+1. Sign in to the [Management portal][azure.management.portal].
 2. Click **Stream Analytics** on the left.
 3. Click the Stream Analytics job that you want to scale.
 4. Click **SCALE** from the top of the page.
