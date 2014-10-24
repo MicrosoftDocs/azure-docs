@@ -311,8 +311,8 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 1. Create a JSON file named **MyHDInsightCluster.json** with the following content and save it to **C:\ADFGetStarted\Custom** folder. Replace clustername, username, and password with appropriate values before saving the JSON file.  
 
 		{
-   			Name: "MyHDInsightCluster",
-    		Properties: 
+   			"Name": "MyHDInsightCluster",
+    		"Properties": 
 			{
         		"Type": "HDInsightBYOCLinkedService",
 	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
@@ -375,7 +375,7 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
                             "Timeout": "00:30:00",
                             "Delay": "00:00:00"		
 						}
-					},
+					}
 				]
 			}
 		}
@@ -413,14 +413,14 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
 					"format":
 					{
                 		"type": "TextFormat",
-		                "columnDelimiter": ",",
+		                "columnDelimiter": ","
 					},
 					"linkedServiceName": "MyBlobStore"
         		},
         		"availability": 
         		{
             		"frequency": "hour",
-            		"interval": 1,
+            		"interval": 1
         		}   
     		}
 		}

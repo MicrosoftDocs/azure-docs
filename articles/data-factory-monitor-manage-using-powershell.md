@@ -155,7 +155,7 @@ The following table lists all the statuses of a slice and their descriptions.
 
 </table>
 
-For each of the slices, you can drill-down deeper, and see more information about the run that is producing the slice by using Get-AzureDataFactoryRun and Save-AzureDataFactoryRunLog cmdlets.
+For each of the slices, you can drill-down deeper, and see more information about the run that is producing the slice by using Get-AzureDataFactoryRun and Save-AzureDataFactoryLog cmdlets.
 
 ### Example
 
@@ -187,10 +187,34 @@ For example, to get a run for the following slice, you use 2015-04-02T20:00:00.
 This command gets all runs for slices of the table EmpSQLTable in the Azure data factory ADFTutorialDataFactory starting from 4 PM GMT on 05/21/2014.
 
 ## <a name="save-azuredatafactorylog"></a> Save-AzureDataFactoryLog
-The Save-AzureDataFactoryRunLog cmdlet saves HDInsight logs corresponding to the run for a data slice. You pass the the run ID from the output of the Get-AzureDataFactoryRun cmdlet to the Save-AzureDataFactoryRunLog.
+The Save-AzureDataFactoryLog cmdlet downloads log files associated with Azure HDInsight processing of Pig or Hive projects or for custom activities to your local hard drive. You first run the Get-AzureDataFactoryRun cmdlet to get an ID for an activity run for a data slice, and then use that ID to retrieve log files from the binary large object (BLOB) storage associated with the HDInsight cluster. 
 
-###Example
-Save-AzureDataFactoryRunLog -DataFactoryName ADFTutorialDataFactory -ResourceGroupName ADFTutorialResourceGroup -Id a7c4913c-9623-49b3-ae1e-3e45e2b68819
+If you do not specify **–DownloadLogs** parameter, the cmdlet just returns the location of log files. 
+
+If you specify **–DownloadLogs** parameter without specifying an output directory (**-Output **parameter), the log files are downloaded to the default **Documents** folder. 
+
+If you specify **–DownloadLogs** parameter along with an output folder (**-Output**), the log files are downloaded to the specified folder. 
+
+
+### Example 1
+This command saves log files for the activity run with the ID of 841b77c9-d56c-48d1-99a3-8c16c3e77d39 where the activity belongs to a pipeline in the data factory named LogProcessingFactory in the resource group named ADF. The log files are saved to the C:\Test folder. 
+
+	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+ 
+
+### Example 2
+This command saves log files to Documents folder (default).
+
+
+	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs
+ 
+
+### Example 3
+This command returns the location of log files. Note that –DownloadLogs parameter is not specified. 
+  
+	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39"
+ 
+
 
 
 ## <a name="get-azuredatafactorygateway"></a> Get-AzureDataFactoryGateway
@@ -338,6 +362,19 @@ The Resume-AzureDataFactoryPipeline cmdlet resumes the specified pipeline that i
     Resume-AzureDataFactoryPipeline ADFTutorialPipeline -DataFactoryName ADFTutorialDataFactory -ResourceGroupName ADFTutorialResourceGroup
 
 This command resumes the pipeline ADFTutorialPipeline in the Azure data factory ADFTutorialDataFactory that was suspended before by using the Suspend-AzureDataFactoryPipeline command.
+
+## See Also
+
+Article | Description
+------ | ---------------
+[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob.
+[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
+[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
+[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
+[Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to monitor an Azure Data Factory using Azure PowerShell cmdlets. You can try out the examples in the article on the ADFTutorialDataFactory.
+[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure 
+Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
+[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 
 
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
