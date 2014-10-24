@@ -1,14 +1,13 @@
 <properties title="Azure Machine Learning Sample: Credit risk prediction" pageTitle="Machine Learning Sample: Credit risk prediction | Azure" description="A sample Azure Machine Learning experiment to develop a binary classification model that predicts if an applicant is a low credit risk or a high credit risk." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
 
 
 # Azure Machine Learning Sample: Credit risk prediction 
 
->[AZURE.NOTE]
->The [Sample Experiment] and [Sample Dataset] associated with this model are available in ML Studio. See below for more details.
-[Sample Experiment]: #sample-experiment
-[Sample Dataset]: #sample-dataset
+*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+
+	Sample Experiment - German Credit - Development
 
 *For a detailed walkthrough of how to create and use a simplified version of this experiment, see [Develop a predictive solution with Azure Machine Learning](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).*
 
@@ -107,22 +106,6 @@ When the service is ready to go live, go to the **CONFIGURATION** tab on the **W
 
 ![Web service ready for production][screen4] 
 -->
-
-## Sample Experiment
-
-The following sample experiment associated with this model is available in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab.
-
-> **Sample Experiment - German Credit - Development**
-
-
-## Sample Dataset
-
-The following sample dataset used by this experiment is available in ML Studio in the module palette under **Saved Datasets**.
-
-###German Credit Card UCI dataset
-[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
-
-
 
 [screen1]:./media/machine-learning-sample-credit-risk-prediction/screen1.jpg
 [screen2]:./media/machine-learning-sample-credit-risk-prediction/screen2.jpg

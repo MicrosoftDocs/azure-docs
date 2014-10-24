@@ -1,1 +1,0 @@
-Labels from the KDD Cup 2009 customer relationship prediction challenge ([http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)).
