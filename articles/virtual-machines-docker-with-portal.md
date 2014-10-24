@@ -15,7 +15,7 @@ In this section
 + [Test Docker Client and Azure Docker Host]
 + [Next steps]
 
-> [WACOM.NOTE] This topic describes how to create a Docker VM in the Azure Portal. To see how to create a Docker VM at the command line, see [How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]. 
+> [WACOM.NOTE] This topic describes how to create a Docker VM in the Azure Portal. To see how to create a Docker VM at the command line, see [How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard). 
 
 ## <a id='createvm'>Create a new VM from the Image Gallery</a>
 The first step requires an Azure VM from a Linux image that supports the Docker VM Extension, using an Ubuntu 14.04 LTS image from the Image Gallery as an example server image and Ubuntu 14.04 Desktop as a client. In the portal, click **+ New** in the bottom left corner to create a new VM instance and select an Ubuntu 14.04 LTS image from the selections available or from the complete Image Gallery, as shown below. 
