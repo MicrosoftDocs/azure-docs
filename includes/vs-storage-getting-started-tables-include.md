@@ -3,10 +3,6 @@ A **CloudTableClient** object lets you get reference objects for tables and enti
 
 **NOTE:** All code in this guide assumes that the application being built is an Azure Cloud Service project and uses a storage connection string stored in the Azure application's service configuration.
 
-	// Get the storage account from the connection string.
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-	  CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 	
@@ -34,13 +30,6 @@ To add an entity to a table you create a class that defines the properties of yo
 
 Table operations involving entities are done using the **CloudTable** object you created earlier in "Create a Table." The **TableOperation** object represents the operation to be done. The following code example shows how to create a **CloudTable** object and a **CustomerEntity** object. To prepare the operation, a **TableOperation** is created to insert the customer entity into the table. Finally, the operation is executed by calling CloudTable.Execute.
 
-	// Get the storage account from the connection string.
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-	  CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
-	// Create the table client.
-	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-	
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
 	
@@ -58,13 +47,6 @@ Table operations involving entities are done using the **CloudTable** object you
 #####Insert a batch of entities
 You can insert multiple entities into a table in a single write operation. The following code example creates two entity objects ("Jeff Smith" and "Ben Smith"), adds them to a **TableBatchOperation** object using the Insert method, and then starts the operation by calling CloudTable.Execute.
 
-	// Get the storage account from the connection string.
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-	  CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
-	// Create the table client.
-	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-	
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
 	
@@ -91,13 +73,6 @@ You can insert multiple entities into a table in a single write operation. The f
 #####Get all of the entities in a partition
 To query a table for all of the entities in a partition, use a **TableQuery** object. The following code example specifies a filter for entities where 'Smith' is the partition key. This example prints the fields of each entity in the query results to the console.
 
-	// Get the storage account from the connection string.
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
-	// Create the table client.
-	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-	
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
 	
@@ -114,13 +89,6 @@ To query a table for all of the entities in a partition, use a **TableQuery** ob
 #####Get a single entity
 You can write a query to get a single, specific entity. The following code uses a **TableOperation** object to specify a customer named 'Ben Smith'. This method returns just one entity, rather than a collection, and the returned value in TableResult.Result is a **CustomerEntity** object. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the **Table** service.
 
-	// Get the storage account from the connection string.
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
-	// Create the table client.
-	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-	
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
 	
@@ -139,13 +107,6 @@ You can write a query to get a single, specific entity. The following code uses 
 #####Delete an entity
 You can delete an entity after you find it. The following code looks for a customer entity named "Ben Smith" and if it finds it, it deletes it.
 
-	// Get the storage account from the connection string.
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-	  CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
-	// Create the table client.
-	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-	
 	// Create the CloudTable that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
 	

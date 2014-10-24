@@ -1,6 +1,6 @@
-<properties title="Scale Azure Stream Analytics jobs" pageTitle="Scale Stream Analytics jobs | Azure" description="Learn how to scale Stream Analytics jobs" metaKeywords="" services="" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties title="Scale Azure Stream Analytics jobs" pageTitle="Scale Stream Analytics jobs | Azure" description="Learn how to scale Stream Analytics jobs" metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="09/31/2014" ms.author="jgao" />
+<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
 
 # Scale Azure Stream Analytics jobs 
 

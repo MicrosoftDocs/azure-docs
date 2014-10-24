@@ -505,11 +505,11 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 
 		namespace SendEvents
 		{
-			[DataMember]
-        	public DateTime TimeStamp { get; set; }
 		    [DataContract]
 		    public class Event
 		    {
+		    	[DataMember]
+		    	public DateTime TimeStamp { get; set; }
 		        [DataMember]
 		        public int DeviceId { get; set; }
 		        [DataMember]
