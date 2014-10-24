@@ -78,7 +78,7 @@ The following Walkthrough provides you with step-by-step instructions for creati
 - Tutorial from [Get started with Azure Data Factory][adfgetstarted]. You must complete the tutorial from this article before continuing further with this walkthrough.
 - Visual Studio 2012 or 2013
 - Download and install [Windows Azure .NET SDK][azure-developer-center]
-- Download [NuGet package for Azure Data Factory][nuget-package].
+- Download [NuGet packages for Azure Data Factory][nuget-package].
 - Download and install NuGet package for Azure Storage. Instructions are in the walkthrough, so you can skip this step.
 
 ### Step 1: Create a custom activity
@@ -94,9 +94,13 @@ The following Walkthrough provides you with step-by-step instructions for creati
 		<li>Click <b>OK</b> to create the project.</li>
 	</ol>
 2.  Click <b>Tools</b>, point to <b>NuGet Package Manager</b>, and click <b>Package Manager Console</b>.
-3.	In the <b>Package Manager Console</b>, execute the following command to import the <b>Azure Data Factory NuGet package</b> you downloaded earlier. Replace the folder to the location that contains the downloaded Data Factory NuGet package.
+3.	In the <b>Package Manager Console</b>, execute the following command to import the <b>Microsoft.Azure.Management.DataFactories</b> you downloaded earlier. Replace the folder with the location that contains the downloaded Data Factory NuGet package.
 
 		Install-Package Microsoft.Azure.Management.DataFactories -Source d:\packages –Pre
+
+3.	In the <b>Package Manager Console</b>, execute the following command to import the <b>Microsoft.DataFactories.Runtime</b>. Replace the folder with the location that contains the downloaded Data Factory NuGet package.
+
+		Install-Package Microsoft.DataFactories.Runtime -Source d:\packages –Pre
 
 4. Import the Windows Azure Storage NuGet package in to the project.
 
@@ -108,7 +112,7 @@ The following Walkthrough provides you with step-by-step instructions for creati
 		using System.Globalization;
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
-		using Microsoft.DataFactories.ActivitySdk; 
+		using Microsoft.DataFactories.Runtime; 
 	
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
