@@ -1,6 +1,6 @@
-<properties pageTitle="Get Started with Event Hubs" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs sending events with Java and receiving them in an Apache Storm cluster" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Get Started with Event Hubs" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs sending events with C and receiving them in an Apache Storm cluster" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="java" ms.devlang="java" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
+<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="c" ms.devlang="java" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
 # <a name="getting-started"> </a>Get started with Event Hubs
 
@@ -10,9 +10,11 @@ Event Hubs is a highly scalable ingestion system that can intake millions of eve
 
 For more information, please see [Event Hubs Overview].
 
-In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in Java, and to retrieve them in parallel using Apache Storm.
+In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in C, and to retrieve them in parallel using Apache Storm.
 
 In order to complete this tutorial you will need the following:
+
++ A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial/) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
 
 + A Java development environment configured to run [Maven](http://maven.apache.org/). For this tutorial, we will assume [Eclipse](https://www.eclipse.org/).
 
@@ -48,7 +50,7 @@ In order to complete this tutorial you will need the following:
 
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-java](../includes/service-bus-event-hubs-get-started-send-java.md)]
+[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-c](../includes/service-bus-event-hubs-get-started-send-c.md)]
 
 
 [WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../includes/service-bus-event-hubs-get-started-receive-storm.md)]
@@ -59,9 +61,9 @@ Now you are ready to run the applications.
 
 1.	Run the **LogTopology** class from Eclipse, then wait for it to start the receivers for all the partitions.
 
-2.	Run the **Sender** project, press **Enter** in the console window, and see the events appear in the receiver window.
+2.	Run the **sender** program, and see the events appear in the receiver window.
 
-   	![][22]
+   	![][23]
 
 > [AZURE.NOTE] In this tutorial only use Storm in local mode for development purposes. Refer to the [HDInsight Storm Overview] and the official [Apache Storm] documentation for more information of Storm deployments and patterns.
 
@@ -80,7 +82,7 @@ The following resources are available for developing applications integrating Ev
 [6]: ./media/service-bus-event-hubs-getstarted/create-event-hub6.png
 [6c]: ./media/service-bus-event-hubs-getstarted/create-event-hub6c.png
 
-[22]: ./media/service-bus-event-hubs-getstarted/receive-storm2.png
+[23]: ./media/service-bus-event-hubs-getstarted/receive-storm3.png
 
 <!-- Links -->
 [Azure Management Portal]: https://manage.windowsazure.com/
