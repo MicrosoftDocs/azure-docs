@@ -3,7 +3,9 @@
 <tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="09/31/2014" ms.author="jgao" />
 
 
-# Azure Stream Analytics (preview) developer guide 
+# Azure Stream Analytics developer guide 
+
+[This is prerelease documentation and is subject to change in future releases.] 
 
 Azure Stream Analytics is a fully managed service providing low latency, highly available, scalable complex event processing over streaming data in the cloud. In the preview release,  Stream Analytics enables customers to setup streaming jobs to analyze data streams, and allows customers to drive near real-time analytics.  
 
@@ -25,7 +27,7 @@ Stream Analytics jobs are defined as one or more input sources, a query over the
 + [Query](#query)
 + [Output](#output)
 + [Scale jobs](#scale)
-+ [Monitor and troubleshot jobs](#monitor)
++ [Monitor and troubleshoot jobs](#monitor)
 + [Manage jobs](#manage)
 + [Next steps](#nextsteps)
 
@@ -43,6 +45,49 @@ Stream Analytics also supports a second type of input source: reference data.  T
 
 ### Serialization
 To ensure correct behavior of queries, Stream Analytics must be aware of the serialization format being used on incoming data streams. Currently supported formats are JSON, CSV, and Avro for Streaming Data and CSV for Reference Data.
+
+### Generated Properties
+Depending on the input type used in the job, some additional fields with event metadata will be generated.  These fields can be queried against just like other input columns.  If an existing event has a field that has the same name as one of the properties below, it will be overwritten with the input metadata.
+
+<table border="1">
+	<tr>
+		<th></th>
+		<th>Property</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td rowspan="4" valign="top"><strong>Blob</strong></td>
+		<td>BlobName</td>
+		<td>The name of the input blob that the event came from</td>
+	</tr>
+	<tr>
+		<td>EventProcessedUtcTime</td>
+		<td>The date and time that the blob record was processed</td>
+	</tr>
+	<tr>
+		<td>BlobLastModifiedUtcTime</td>
+		<td>The date and time that the blob was last modified</td>
+	</tr>
+	<tr>
+		<td>PartitionId</td>
+		<td>The zero-based partition ID for the input adapter</td>
+	</tr>
+	<tr>
+		<td rowspan="3" valign="top"><b>Event Hub</b></td>
+		<td>EventProcessedUtcTime</td>
+		<td>The date and time that the event was processed</td>
+	</tr>
+	<tr>
+		<td>EventEnqueuedUtcTime</td>
+		<td>The date and time that the event was received by Event Hub</td>
+	</tr>
+	<tr>
+		<td>PartitionId</td>
+		<td>The zero-based partition ID for the input adapter</td>
+	</tr>
+</table>
+
+
 
 ###Additional resources
 For details on creating input sources, see [Azure Event Hubs developer guide][azure.event.hubs.developer.guide] and [Use Azure Blob Storage][azure.blob.storage.use].  
@@ -82,14 +127,14 @@ The output source is where the results of the Stream Analytics job will be writt
 - Azure SQL Database: This output source is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
 
-##<a name="Scale jobs"></a>Scale jobs
+##<a name="scale"></a>Scale jobs
 
 A Stream Analytics job can be scaled through configuring Streaming Units, which define the amount of processing power a job receives. Each Streaming Unit corresponds to roughly 1 MB/second of throughput. Each subscription has a quota of 12 Streaming Units per region to be allocated across jobs in that region.
 
 For details, see [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs].
 
 
-##<a name="monitor"></a>Monitoring and troubleshooting jobs
+##<a name="monitor"></a>Monitor and troubleshoot jobs
 
 ###Regional monitoring storage account
 
@@ -154,7 +199,7 @@ For additional support, see [Azure Stream Analytics forum][stream.analytics.foru
 [stream.analytics.introduction]: ../stream-analytics-introduction/
 [stream.analytics.get.started]: ../stream-analytics-get-started/
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
-[stream.analytics.scale.jobs]: ./stream-analytics-scale-jobs/
+[stream.analytics.scale.jobs]: ../stream-analytics-scale-jobs/
 [stream.analytics.limitations]: ../stream-analytics-limitations/
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlinks/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
