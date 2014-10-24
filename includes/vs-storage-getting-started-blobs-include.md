@@ -1,13 +1,7 @@
 #####Create a container
-Just as files live in folders, storage blobs live in containers.
+Just as files live in folders, storage blobs live in containers. You can use a **CloudBlobClient** object to reference an existing container, or you can call the CreateCloudBlobClient() method to create a new container.
 
-
-- You can use a **CloudBlobClient** object to get a reference to the container you want to use.
-
-
-- You can call the CreateCloudBlobClient() method to create a container if you need one.
-
-The following code shows how to create a blob storage container. The code creates a **BlobClient** object so that you can access the object's functions, such as creating a storage container. Then the code tries to reference a storage container named “mycontainer.” If it can’t find a container with that name, it creates one.
+The following code shows how to create a new blob storage container. The code first creates a **BlobClient** object so that you can access the object's functions, such as creating a storage container. Then, the code tries to reference a storage container named “mycontainer.” If it can’t find a container with that name, it creates one.
 
 	// Create a blob client.
 	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -18,11 +12,21 @@ The following code shows how to create a blob storage container. The code create
 	// If “mycontainer” doesn’t exist, create it.
 	container.CreateIfNotExists();
 
+By default, the new container is private and you must specify your storage access key to download blobs from this container. If you want to make the files within the container available to everyone, you can set the container to be public by using the following code.
+
+	container.SetPermissions(
+    	new BlobContainerPermissions { PublicAccess = 
+	    BlobContainerPublicAccessType.Blob }); 
+
+
 **NOTE:** Use this code block in front of the code in the following sections.
 
 #####Upload a blob into a container
 To upload a blob file into a container, get a container reference and use it to get a blob reference. Once you have a blob reference, you can upload any stream of data to it by calling the **UploadFromStream()** method. This operation will create the blob if it’s not already there, or overwrite it if it does exist. The following example shows how to upload a blob into a container and assumes that the container was already created.
 
+	// Get a reference to a blob named "myblob".
+	CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
+	
 	// Create or overwrite the "myblob" blob with the contents of a local file
 	// named “myfile”.
 	using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))

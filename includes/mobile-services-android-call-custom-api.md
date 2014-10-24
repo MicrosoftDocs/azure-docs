@@ -61,31 +61,37 @@
 
 	This class is used to hold the row count value returned by the custom API. 
 
-6. Locate the **refreshItemsFromTable** method in the **ToDoActivity.java** file, and make sure that the first line of code starts out like this:
+6. Locate the **refreshItemsFromTable** method in the **ToDoActivity.java** file, and make sure that the first line of code in the `try` block looks like this:
 
-        mToDoTable.where().field("complete").eq(false)
+        final MobileServiceList<ToDoItem> result = mToDoTable.where().field("complete").eq(false).execute().get();
 
 	This filters the items so that completed items are not returned by the query.
 
-7. Make sure that **ToDoActivity.java** is importing ApiOperationCallback in the block of imports at the beginning of the file:
+7. Make sure that **ToDoActivity.java** contains the following imports at the beginning of the file:
 
-	import com.microsoft.windowsazure.mobileservices.ApiOperationCallback;
+		import com.google.common.util.concurrent.FutureCallback;
+		import com.google.common.util.concurrent.Futures;
+		import com.google.common.util.concurrent.ListenableFuture;
 
 8. In the **ToDoActivity.java** file, add the following method:
 
-		public void completeItem(View view) {
-			mClient.invokeApi("completeAll", MarkAllResult.class, new ApiOperationCallback<MarkAllResult>() {
-		        @Override
-		        public void onCompleted(MarkAllResult result, Exception error, ServiceFilterResponse response) {
-		            if (error != null) {
-						createAndShowDialog(error, "Error");
-		            } else {
-						createAndShowDialog(result.getCount() + " item(s) marked as complete.", "Completed Items");
-						refreshItemsFromTable();
-		            }
-		        }
-		    });
-		}
+	public void completeItem(View view) {
+	    
+	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll2", MarkAllResult.class ); 
+	    	
+	    	Futures.addCallback(result, new FutureCallback<MarkAllResult>() {
+	    		@Override
+	    		public void onFailure(Throwable exc) {
+	    			createAndShowDialog((Exception) exc, "Error");
+	    		}
+	    		
+	    		@Override
+	    		public void onSuccess(MarkAllResult result) {
+	    			createAndShowDialog(result.getCount() + " item(s) marked as complete.", "Completed Items");
+	                refreshItemsFromTable();	
+	    		}
+	    	});
+	    }
 	
 	This method handles the **Click** event for the new button. The **invokeApi** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors.
 
