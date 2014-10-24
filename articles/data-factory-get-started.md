@@ -118,10 +118,11 @@ In this step, you will create two linked services: **MyBlobStore** and **MyAzure
 
 5. Enter the **Account Name** and **Account Key** for your Azure Storage Account, and click **OK**.
   
-	**To get the Account Key for a storage in the Azure Preview Portal**:
+	**To get the Account Key for a storage in the Azure Preview Portal**: (You will need to switch to **Storage** blade to see this screen.) 
 
     ![stroage-account-key][image-data-factory-preview-storage-key]
 
+	 
 
 6. After you click **OK** on the **New data store** blade, you should see **myblobstore** in the list of **DATA STORES** on the **Linked Services** blade. Check **NOTIFICATIONS** Hub (on the left) for any messages.
 
@@ -137,10 +138,11 @@ In this step, you will create two linked services: **MyBlobStore** and **MyAzure
 
     ![Azure SQL properties][image-data-factory-get-started-linked-azure-sql-properties]
 
-    **To get the database connection string in Azure Preview Portal:**
+    **To get the database connection string in Azure Preview Portal:**(You will need to switch to **SQL Database** blade to see this screen.)
 	
 	![Database Connection String][image-data-factory-database-connection-string]	
 
+	
 4. After you click **OK** on the **New data store** blade, You should see both the stores in the **Linked Services** blade
 
     ![Linked services with two stores][image-data-factory-get-started-linked-services-list-two-stores]
