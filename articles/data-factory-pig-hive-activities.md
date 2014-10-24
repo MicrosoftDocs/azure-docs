@@ -3,44 +3,31 @@
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 
 # Use Pig and Hive with Data Factory
-A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. For example, a Copy activity copies data from a source storage to a destination storage and Hive/Pig activities use an Azure HDInsight cluster to process data using Hive queries or Pig scripts.
+A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. For example, a Copy activity copies data from a source storage to a destination storage and an HDInsight activity with Hive/Pig transformations use an Azure HDInsight cluster to process data using Hive/Pig scripts. The HDInsight Activity can consume 1 or more input and produce 1 or more outputs. 
 
-<table border="1">	
-	<tr>
-	<th>Activity</th>
-	<th>Descritpion</th>
-	<th>No. of inputs</th>
-	<th>No. of outputs</th>
-	</tr>	
+## In This Article
 
-	<tr>
-	<td>Pig</td>
-	<td>Specifies the Pig script used to process the data from input tables, and produces data to output tables. 	</td>
-	<td>>=1</td>
-	<td>>=1</td>
-	</tr>	
+Section | Description
+------- | -----------
+[Pig JSON example](#PigJSON) | This section provides JSON schema for defining a HDInsight Activity that uses a Pig transformation. 
+[Hive JSON example](#HiveJSON) | This section provides JSON schema for defining a HDInsight Activity that uses a Hive transformation. 
+[Using Pig and Hive scripts that are stored in Azure Blob storage](#ScriptInBlob) | Describes how to refer to Pig/Hive scripts stored in an Azure blob storage from an HDInsight Activity using Pig/Hive transformation.
+[Parameterized Pig and Hive Queries](#ParameterizeQueries) | Describes how to specify specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties** property in JSON.
+[Walkthrough: Use Hive with Azure Data Factory](#Waltkthrough) | Provides step-by-step instructions to create a pipeline that use Hive to process data.  
 
-	<td>Hive</td>
-	<td>Specifies the Hive script used to process the data from the input tables, and produces data to output tables.	</td>
-	<td>>=1</td>
-	<td>>=1</td>
-	</tr>	
 
-</table>
-
-> [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema. 
 
 When defining a Pig or Hive activity in a pipeline JSON, the **type** property should be set to: **HDInsightActivity**.
 
-## Pig JSON example
+## <a href="PigJSON"></a> Pig JSON example
 
     {
 		"name": "Pig Activity",
 		"description": "description", 
 		"type": "HDInsightActivity",
 		"inputs":  [ { "name": "InputSqlDA"  } ],
-		"outputs":  [ { "name": “OutputBlobDA” } ],
-		“linkedServiceName”: "MyHDInsightLinkedService",
+		"outputs":  [ { "name": "OutputBlobDA" } ],
+		"linkedServiceName": "MyHDInsightLinkedService",
 		"transformation":
 		{
 			"type": "Pig",
@@ -52,7 +39,16 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 		}
 	}
 
-## Hive JSON example
+**Note the following:**
+	
+- Activity **type** is set to **HDInsightActivity**.
+- **linkedServiceName** is set to **MyHDInsightLinkedService**. 
+- The **type** of the **transformation** is set to **Pig**.
+- You can specify Pig script inline for the **script** property or store script files in an Azure blob storage and refer to the file using **scriptPath** property, which is explained later in this article. 
+- You specify parameters for the Pig script by using the **extendedProperties**. More details are provided later in this article. 
+
+
+## <a href="HiveJSON"></a> ## Hive JSON example
 
 
     {
@@ -60,8 +56,8 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 		"description": "description", 
 		"type": "HDInsightActivity",
 		"inputs":  [ { "name": "InputSqlDA"  } ],
-		"outputs":  [ { "name": “OutputBlobDA” } ],
-		“linkedServiceName”: "MyHDInsightLinkedService",
+		"outputs":  [ { "name": "OutputBlobDA" } ],
+		"linkedServiceName": "MyHDInsightLinkedService",
 		"transformation":
 		{
 			"type": "Hive",
@@ -73,7 +69,18 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 		}
 	}
 
-## Using Pig and Hive Queries that are stored in Azure Blob storage
+**Note the following:**
+	
+- Activity **type** is set to **HDInsightActivity**.
+- **linkedServiceName** is set to **MyHDInsightLinkedService**. 
+- The **type** of the **transformation** is set to **Hive**.
+- You can specify Hive script inline for the **script** property or store script files in an Azure blob storage and refer to the file using **scriptPath** property, which is explained later in this article. 
+- You specify parameters for the Hive script by using the **extendedProperties**. More details are provided later in this article. 
+
+> [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema. 
+
+
+## <a href="ScriptInBlob"></a> Using Pig and Hive scripts that are stored in Azure Blob storage
 You can store Pig/Hive scripts in an Azure blob storage associated with the HDInsight cluster and refer to them from Pig/Hive activities by using the following properties in the JSON: 
 
 * **scriptPath** – Path to the Pig or Hive script file
@@ -103,7 +110,7 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
 						"scriptLinkedService": "StorageLinkedService", 
 						"extendedProperties":
 						{
-						},		
+						}		
 					},
 					"policy":
 					{
@@ -117,9 +124,11 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
       	}
 	}
 
+  
+
 > [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema.
 
-## Parameterized Pig and Hive Queries
+## <a href="ParameterizeQueries"></a>Parameterized Pig and Hive Queries
 The Data Factory Pig and Hive activities enable you to specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties**. The extendedProperties section consists of the name of the parameter, and value of the parameter.
 
 See the following example for specifying parameters for a Hive script using **extendedProperties**. To use parameterized Hive  scripts, do the following:
@@ -140,25 +149,25 @@ See the following example for specifying parameters for a Hive script using **ex
 						"name": "ProcessLog",
 					  	"type": "HDInsightActivity",
 					  	"inputs": [{"Name": "DA_Input"}],
-						"outputs": [{"Name": "DA_Output1"}, {"Name": "DA_Output2"},],
-				  		“linkedServiceName”: "MyHDInsightLinkedService",
+						"outputs": [{"Name": "DA_Output1"}, {"Name": "DA_Output2"}],
+				  		"linkedServiceName": "MyHDInsightLinkedService",
 				  		"transformation":
 				  		{
 							"type": "Hive", 
 							"extendedProperties":
 							{
 								"Param1": "$$Text.Format('{0:yyyy-MM-dd}', SliceStart)",
-								"Param2": "value",
+								"Param2": "value"
 						  	},
-    						"script": "
-								ADD FILE ${hiveconf:Param1}://${hiveconf:Param2}/MyFile.DLL;
-								-- Hive script
-    	            		"
-    					},
+    						"script": "ADD FILE ${hiveconf:Param1}://${hiveconf:Param2}/MyFile.DLL;"
+    					}
 					}
 			   	]
 			}
 		}
+
+
+-  
 
 ## Walkthrough: Use Hive with Azure Data Factory
 ### Pre-requisites
@@ -182,7 +191,7 @@ See the following example for specifying parameters for a Hive script using **ex
 3.  Upload the **hivequery.hql** to the **adftutorial** container in your blob storage
 
 
-### Walkthrough
+### <a href="Waltkthrough"></a>Walkthrough
 
 #### Create input table
 1. Create a JSON file named **HiveInputBlobTable.json** in **C:\ADFGetStarted\Hive** folder with the following content.
@@ -207,6 +216,15 @@ See the following example for specifying parameters for a Hive script using **ex
 		}
 
  
+	**Note the following:**
+	
+	- location **type** is set to **AzureBlobLocation**.
+	- **linkedServiceName** is set to **MyBlobStore** that defines an Azure storage account.
+	- **folderPath** specifies the blob container\folder for the input data. 
+	- **frequency=Day** and **interval=1** means the slices are available daily
+	- **waitOnExternal** means that this data is not produced by another pipeline, it is rather produced externally to the data factory. 
+	
+
 	See [Data Factory Developer Reference][developer-reference] for descriptions of JSON properties.  
 
 2. Launch **Azure PowerShell** and switch to the **AzureResourceManager** mode if needed.
@@ -230,13 +248,13 @@ See the following example for specifying parameters for a Hive script using **ex
         		"location": 
         		{
             		"type": "AzureBlobLocation",
-	    			folderPath: "adftutorial/hiveoutput/",
+	    			"folderPath": "adftutorial/hiveoutput/",
             		"linkedServiceName": "MyBlobStore"
         		},
         		"availability": 
         		{
             		"frequency": "Day",
-            		"interval": 1,
+            		"interval": 1
         		}
     		}
 		}
@@ -246,7 +264,7 @@ See the following example for specifying parameters for a Hive script using **ex
 		New-AzureDataFactoryTable –ResourceGroupName ADFTutorialResourceGroup –DataFactoryName ADFTutorialDataFactory -File .\HiveOutputBlobTable.json
 
 ### Create a linked service for an HDInsight cluster
-The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
+The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, when you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
 
 #### To use an on-demand HDInsight cluster
 1. Create a JSON file named **HDInsightOnDemandCluster.json** with the following content and save it to **C:\ADFGetStarted\Hive** folder.
@@ -257,10 +275,9 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		"properties": 
     		{
         		"type": "HDInsightOnDemandLinkedService",
-				"clusterSize": 4,
+				"clusterSize": "4",
         		"jobsContainer": "adftutorialjobscontainer",
         		"timeToLive": "00:05:00",
-        		"version": "3.1",
         		"linkedServiceName": "MyBlobStore"
     		}
 		}
@@ -282,8 +299,8 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 1. Create a JSON file named **MyHDInsightCluster.json** with the following content and save it to **C:\ADFGetStarted\Hive** folder. Replace clustername, username, and password with appropriate values before saving the JSON file.  
 
 		{
-   			Name: "MyHDInsightCluster",
-    		Properties: 
+   			"Name": "MyHDInsightCluster",
+    		"Properties": 
 			{
         		"Type": "HDInsightBYOCLinkedService",
 	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",

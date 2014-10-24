@@ -1,9 +1,11 @@
-<properties title="Azure Stream Analytics developer guide" pageTitle="Stream Analytics developer guide | Azure" description="Learn how to develop Azure Stream Analytics applications" metaKeywords="" services="" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties title="Azure Stream Analytics developer guide" pageTitle="Stream Analytics developer guide | Azure" description="Learn how to develop Azure Stream Analytics applications" metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="09/31/2014" ms.author="jgao" />
+<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
 
 
-# Azure Stream Analytics (preview) developer guide 
+# Azure Stream Analytics developer guide 
+
+[This is prerelease documentation and is subject to change in future releases.] 
 
 Azure Stream Analytics is a fully managed service providing low latency, highly available, scalable complex event processing over streaming data in the cloud. In the preview release,  Stream Analytics enables customers to setup streaming jobs to analyze data streams, and allows customers to drive near real-time analytics.  
 
@@ -25,7 +27,7 @@ Stream Analytics jobs are defined as one or more input sources, a query over the
 + [Query](#query)
 + [Output](#output)
 + [Scale jobs](#scale)
-+ [Monitor and troubleshot jobs](#monitor)
++ [Monitor and troubleshoot jobs](#monitor)
 + [Manage jobs](#manage)
 + [Next steps](#nextsteps)
 
@@ -43,6 +45,49 @@ Stream Analytics also supports a second type of input source: reference data.  T
 
 ### Serialization
 To ensure correct behavior of queries, Stream Analytics must be aware of the serialization format being used on incoming data streams. Currently supported formats are JSON, CSV, and Avro for Streaming Data and CSV for Reference Data.
+
+### Generated Properties
+Depending on the input type used in the job, some additional fields with event metadata will be generated.  These fields can be queried against just like other input columns.  If an existing event has a field that has the same name as one of the properties below, it will be overwritten with the input metadata.
+
+<table border="1">
+	<tr>
+		<th></th>
+		<th>Property</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td rowspan="4" valign="top"><strong>Blob</strong></td>
+		<td>BlobName</td>
+		<td>The name of the input blob that the event came from</td>
+	</tr>
+	<tr>
+		<td>EventProcessedUtcTime</td>
+		<td>The date and time that the blob record was processed</td>
+	</tr>
+	<tr>
+		<td>BlobLastModifiedUtcTime</td>
+		<td>The date and time that the blob was last modified</td>
+	</tr>
+	<tr>
+		<td>PartitionId</td>
+		<td>The zero-based partition ID for the input adapter</td>
+	</tr>
+	<tr>
+		<td rowspan="3" valign="top"><b>Event Hub</b></td>
+		<td>EventProcessedUtcTime</td>
+		<td>The date and time that the event was processed</td>
+	</tr>
+	<tr>
+		<td>EventEnqueuedUtcTime</td>
+		<td>The date and time that the event was received by Event Hub</td>
+	</tr>
+	<tr>
+		<td>PartitionId</td>
+		<td>The zero-based partition ID for the input adapter</td>
+	</tr>
+</table>
+
+
 
 ###Additional resources
 For details on creating input sources, see [Azure Event Hubs developer guide][azure.event.hubs.developer.guide] and [Use Azure Blob Storage][azure.blob.storage.use].  
@@ -82,14 +127,14 @@ The output source is where the results of the Stream Analytics job will be writt
 - Azure SQL Database: This output source is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
 
-##<a name="Scale jobs"></a>Scale jobs
+##<a name="scale"></a>Scale jobs
 
-A Stream Analytics job can be scaled through configuring Streaming Units, which define the amount of processing power a job receives. Each Streaming Unit corresponds to roughly 1 MB/second of throughput.   Each subscription has a quota of 30 Streaming Units per region to be allocated across jobs in that region, and the number of Streaming Units that can be provided to a job depend on how the input is partitioned and how the job query is written.
+A Stream Analytics job can be scaled through configuring Streaming Units, which define the amount of processing power a job receives. Each Streaming Unit corresponds to roughly 1 MB/second of throughput. Each subscription has a quota of 12 Streaming Units per region to be allocated across jobs in that region.
 
-For details on scaling Stream Analytics jobs, see [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs].
+For details, see [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs].
 
 
-##<a name="monitor"></a>Monitoring and troubleshooting jobs
+##<a name="monitor"></a>Monitor and troubleshoot jobs
 
 ###Regional monitoring storage account
 
@@ -115,9 +160,10 @@ This is a temporary limitation and enabling job start and stop without data loss
 ###Configure jobs
 You can adjust the following top-level settings for a Stream Analytics job:
 
-- Start output: Use this setting to specify when the job should start outputting data from.  This setting is useful for specifying how much historical input to consume and for restarting a stopped job back up from approximately when it was last stopped.
-- Out of order policy: Settings for handling events that do not arrive to the Stream Analytics job sequentially.  You can designate a time threshold to reorder events within and also determine whether to drop or adjust the timestamp of events that can’t be resolved in this time window.
-- Locale: Use this setting to specify the internationalization preference for the stream analytics job.  While timestamps of data are locale neutral, settings here impact how the job will parse, compare, and sort data.  For the preview release, only en-US is supported.
+- Start output: Specifies when this job will start producing resulting output. If the associated query includes a window, the job will begin picking up input from the input sources at the start of the window duration required, in order to produce the first output event at the specified time. There are two options, Job Start Time and Custom. The default setting is Job Start Time. For the Custom option, you must specify a date and time. This setting is useful for specifying how much historical data in the input sources to consume or for picking up data ingestion from a specific time, such as when a job was last stopped. 
+- Out of order policy: Settings for handling events that do not arrive to the Stream Analytics job sequentially. You can designate a time threshold to reorder events within by specifying a Tolerance Window and also determine an action to take on events outside this window: Drop or Adjust.  Drop will drop all events received out of order and Adjust will change the System.Timestamp of out of order events to the timestamp of the most recently received ordered event.  
+- Locale: Use this setting to specify the internationalization preference for the stream analytics job. While timestamps of data are locale neutral, settings here impact how the job will parse, compare, and sort data. For the preview release, only en-US is supported.
+
 
 ##<a name="support"></a>Get support
 For additional support, see [Azure Stream Analytics forum][stream.analytics.forum]. 
@@ -130,7 +176,7 @@ For additional support, see [Azure Stream Analytics forum][stream.analytics.foru
 - [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs]
 - [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]
 - [Azure Stream Analytics query language reference][stream.analytics.query.language.reference]
-- [Azure Stream Analytics REST API reference][stream.analytics.rest.api.reference] 
+- [Azure Stream Analytics management REST API reference][stream.analytics.rest.api.reference] 
 
 
 
@@ -153,7 +199,7 @@ For additional support, see [Azure Stream Analytics forum][stream.analytics.foru
 [stream.analytics.introduction]: ../stream-analytics-introduction/
 [stream.analytics.get.started]: ../stream-analytics-get-started/
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
-[stream.analytics.scale.jobs]: ./stream-analytics-scale-jobs/
+[stream.analytics.scale.jobs]: ../stream-analytics-scale-jobs/
 [stream.analytics.limitations]: ../stream-analytics-limitations/
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlinks/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301

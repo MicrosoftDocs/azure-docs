@@ -204,7 +204,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
             		"format":
             		{
                 		"type": "TextFormat",
-                		"columnDelimiter": ",",
+                		"columnDelimiter": ","
             		},
             		"linkedServiceName": "MyBlobStore"
         		},
@@ -226,6 +226,24 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 	- format **type** is set to **TextFormat**
 	- - There are two fields in the text file – **FirstName** and **ColumnName** – separated by a comma character (columDelimiter)	
 	- The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**). The Data Factory service will look for input data every hour in the **input** folder in the blob container (**adftutorial**) you specified.
+
+	if you don't specify a **fileName** for an **input table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. See the sample files in the [tutorial][adf-tutorial] for examples.
+ 
+	If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+
+	To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the partitionedBy property. In the following example, folderPath uses Year, Month, and Day from from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
+
+	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+        "fileName": "{Hour}.csv",
+        "partitionedBy": 
+        [
+        	{ "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+            { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+            { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+        ],
+
+ 
 
 	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
@@ -267,7 +285,7 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
         		{
             		"frequency": "Hour",
             		"interval": 1            
-        		},
+        		}
     		}
 		}
 
@@ -296,7 +314,6 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 1. Create a JSON file for the pipeline. Launch Notepad, copy the following JSON script, and save it as **ADFTutorialPipeline.json** in the **C:\ADFGetStarted** folder.
 
 
-
          {
 			"name": "ADFTutorialPipeline",
 			"properties":
@@ -320,7 +337,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 							},
 							"sink":
 							{
-								"type": "SqlSink",
+								"type": "SqlSink"
 							}	
 						},
 						"Policy":
@@ -331,7 +348,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 							"retry": 0,
 							"timeout": "01:00:00"
 						}		
-					},
+					}
         		]
       		}
 		} 
@@ -363,7 +380,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 
 	![Diagram link][image-data-factory-get-started-diagram-link]
   
-5. You should see the diagram similar to the following:
+5. You should see the diagram similar to the following: (Double-click on a title to see details about the artifact that the blade represents).
 
 	![Diagram view][image-data-factory-get-started-diagram-blade]
 
@@ -424,13 +441,16 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 
 Article | Description
 ------ | ---------------
-[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob.
-[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
-[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
-[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
-[Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to monitor an Azure Data Factory using Azure PowerShell cmdlets. You can try out the examples in the article on the ADFTutorialDataFactory.
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
+[Copy data with Azure Data Factory - Copy Activity][copy-activity] | This article provides detailed description of the **Copy Activity** you used in this tutorial. 
+[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an **on-premises SQL Server database** to an Azure blob.
+[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use **HDInsight Activity** to run a **hive/pig** script to process input data to produce output data. 
+[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an **end-to-end walkthrough** that shows how to implement a **real world scenario** using Azure Data Factory to transform data from log files into insights.
+[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a **custom activity** and using it in a pipeline. 
+[Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to **monitor and manage** an Azure Data Factory using **Azure PowerShell cmdlets**. You can try out the examples in the article on the ADFTutorialDataFactory.
+[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to **troubleshoot** Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
+[Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the **Data Factory cmdlets**.
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
+
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
@@ -445,6 +465,7 @@ Article | Description
 [adf-tutorial]: ../data-factory-tutorial
 [use-custom-activities]: ../data-factory-use-custom-activities
 [use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
+[copy-activity]: ../data-factory-copy-activity/
 [troubleshoot]: ../data-factory-troubleshoot
 [data-factory-introduction]: ../data-factory-introduction
 

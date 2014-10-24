@@ -1,19 +1,19 @@
-<properties title="Introduction to Azure Stream Analytics" pageTitle="Introduction to Stream Analytics | Azure" description="Understand Azure Stream Analytics" metaKeywords="" services="" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties title="Introduction to Azure Stream Analytics" pageTitle="Introduction to Stream Analytics | Azure" description="Understand Azure Stream Analytics" metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="09/31/2014" ms.author="jgao" />
+<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
 
 
-# Introduction to Azure Stream Analytics (preview)
+# Introduction to Azure Stream Analytics
 
 Azure Stream Analytics is a fully managed service providing low latency, highly available, scalable complex event processing over streaming data in the cloud.
 
 # In this article
 
 + [Motivation & overview](#motivation) 
-+ [Key capabilities](capabilities)
-+ [Business motivations with choosing Azure Stream Analytics](decision)
-+ [Scenarios & use cases](scenarios)
-+ [Next steps](neststeps)
++ [Key capabilities](#capabilities)
++ [Business motivations with choosing Azure Stream Analytics](#decision)
++ [Scenarios & use cases](#scenarios)
++ [Next steps](#neststeps)
 
 
 ##<a name="motivation"></a>Motivation & overview
@@ -103,7 +103,7 @@ The expectations for fast and agile execution in businesses continue to grow. Bu
 - [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs]
 - [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]
 - [Azure Stream Analytics query language reference][stream.analytics.query.language.reference]
-- [Azure Stream Analytics REST API reference][stream.analytics.rest.api.reference] 
+- [Azure Stream Analytics management REST API reference][stream.analytics.rest.api.reference] 
 
 
 
