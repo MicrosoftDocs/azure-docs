@@ -32,6 +32,8 @@ The following table describes at a very high level the kind of feature differenc
 | Time taken to start up | Substantially Longer: Boot of OS plus app loading | Substantially shorter: Only apps need to start because kernel is already running  |
 | Container Automation | Varies widely depending on OS and apps | [Docker image gallery](https://registry.hub.docker.com/); others 
 
+To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+
 For more information about what Docker is and how it really works, see [What is Docker?](https://www.docker.com/whatisdocker/)
 
 #### Docker and Linux Container Security Best Practices
