@@ -26,8 +26,8 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 		"description": "description", 
 		"type": "HDInsightActivity",
 		"inputs":  [ { "name": "InputSqlDA"  } ],
-		"outputs":  [ { "name": “OutputBlobDA” } ],
-		“linkedServiceName”: "MyHDInsightLinkedService",
+		"outputs":  [ { "name": "OutputBlobDA" } ],
+		"linkedServiceName": "MyHDInsightLinkedService",
 		"transformation":
 		{
 			"type": "Pig",
@@ -56,8 +56,8 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 		"description": "description", 
 		"type": "HDInsightActivity",
 		"inputs":  [ { "name": "InputSqlDA"  } ],
-		"outputs":  [ { "name": “OutputBlobDA” } ],
-		“linkedServiceName”: "MyHDInsightLinkedService",
+		"outputs":  [ { "name": "OutputBlobDA" } ],
+		"linkedServiceName": "MyHDInsightLinkedService",
 		"transformation":
 		{
 			"type": "Hive",
@@ -110,7 +110,7 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
 						"scriptLinkedService": "StorageLinkedService", 
 						"extendedProperties":
 						{
-						},		
+						}		
 					},
 					"policy":
 					{
@@ -149,21 +149,18 @@ See the following example for specifying parameters for a Hive script using **ex
 						"name": "ProcessLog",
 					  	"type": "HDInsightActivity",
 					  	"inputs": [{"Name": "DA_Input"}],
-						"outputs": [{"Name": "DA_Output1"}, {"Name": "DA_Output2"},],
-				  		“linkedServiceName”: "MyHDInsightLinkedService",
+						"outputs": [{"Name": "DA_Output1"}, {"Name": "DA_Output2"}],
+				  		"linkedServiceName": "MyHDInsightLinkedService",
 				  		"transformation":
 				  		{
 							"type": "Hive", 
 							"extendedProperties":
 							{
 								"Param1": "$$Text.Format('{0:yyyy-MM-dd}', SliceStart)",
-								"Param2": "value",
+								"Param2": "value"
 						  	},
-    						"script": "
-								ADD FILE ${hiveconf:Param1}://${hiveconf:Param2}/MyFile.DLL;
-								-- Hive script
-    	            		"
-    					},
+    						"script": "ADD FILE ${hiveconf:Param1}://${hiveconf:Param2}/MyFile.DLL;"
+    					}
 					}
 			   	]
 			}
@@ -251,13 +248,13 @@ See the following example for specifying parameters for a Hive script using **ex
         		"location": 
         		{
             		"type": "AzureBlobLocation",
-	    			folderPath: "adftutorial/hiveoutput/",
+	    			"folderPath": "adftutorial/hiveoutput/",
             		"linkedServiceName": "MyBlobStore"
         		},
         		"availability": 
         		{
             		"frequency": "Day",
-            		"interval": 1,
+            		"interval": 1
         		}
     		}
 		}
@@ -278,7 +275,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		"properties": 
     		{
         		"type": "HDInsightOnDemandLinkedService",
-				"clusterSize": 4,
+				"clusterSize": "4",
         		"jobsContainer": "adftutorialjobscontainer",
         		"timeToLive": "00:05:00",
         		"linkedServiceName": "MyBlobStore"
@@ -302,8 +299,8 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 1. Create a JSON file named **MyHDInsightCluster.json** with the following content and save it to **C:\ADFGetStarted\Hive** folder. Replace clustername, username, and password with appropriate values before saving the JSON file.  
 
 		{
-   			Name: "MyHDInsightCluster",
-    		Properties: 
+   			"Name": "MyHDInsightCluster",
+    		"Properties": 
 			{
         		"Type": "HDInsightBYOCLinkedService",
 	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",

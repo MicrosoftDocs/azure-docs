@@ -39,7 +39,7 @@ A pipeline consists of one or more activities. Activities in the pipelines are d
         	"activities":
         	[
 	
-    		],
+    		]
 		}
 	}
 
@@ -168,7 +168,7 @@ The following JSON script defines an output table: **MyDemoBlob**, which refers 
     		{
         		"type": "AzureBlobLocation",
         		"folderPath": "MyContainer/MySubFolder",
-        		"fileName": "MyBlob"
+        		"fileName": "MyBlob",
         		"linkedServiceName": "MyAzureStorage",
         		"format":
         		{
@@ -225,7 +225,7 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 							{
                         		"type": "BlobSink"
 							}
-	    				},
+	    				}
       				}
         		]
     		}
@@ -523,10 +523,12 @@ In this sample, the **input table** is defined as follows. The input table has a
 		    "name": "MyOnPremTable",
     		"properties":
     		{
-				"structure":
+				"structure": 
+				[
             		{ "name": "userid", "type": "String"},
             		{ "name": "name", "type": "String"},
             		{ "name": "group", "type": "Decimal"}
+				],
 				"location":
 				{
 					"type": "OnPremisesSqlServerTableLocation",
@@ -549,14 +551,16 @@ In this sample, the **output table** is defined as follows. The output table has
 		"properties":
 		{
     		"structure":
+			[
         	    { "name": "myuserid", "type": "String"},
         	    { "name": "mygroup", "type": "String"},
         	    { "name": "myname", "type": "Decimal"}
+			],
 			"location":
     		{
     	    	"type": "AzureBlobLocation",
 		        "folderPath": "MyContainer/MySubFolder",
-				"fileName": "MyBlobName"
+				"fileName": "MyBlobName",
     	    	"linkedServiceName": "MyLinkedService",
     	    	"format":
     	    	{
@@ -575,6 +579,22 @@ In this sample, the **output table** is defined as follows. The output table has
 		}
 	}	
 
+if you don't specify a **fileName** for an **input table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. See the sample files in the [tutorial][adf-tutorial] for examples.
+
+If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+
+To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the **partitionedBy** property. In the following example, **folderPath** uses Year, Month, and Day from from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
+
+  	folderPath: "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    fileName: "{Hour}.csv",
+    partitionedBy: 
+    [
+    	{ name: "Year", value: { type: "DateTime", date: "SliceStart", format: "yyyy" } },
+        { name: "Month", value: { type: "DateTime", date: "SliceStart", format: "MM" } }, 
+        { name: "Day", value: { type: "DateTime", date: "SliceStart", format: "dd" } }, 
+        { name: "Hour", value: { type: "DateTime", date: "SliceStart", format: "hh" } } 
+    ],
+
 In this sample, an activity in a pipeline is defined as follows. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
 
 ##### Sample – Define Column mapping
@@ -589,18 +609,18 @@ In this sample, an activity in a pipeline is defined as follows. The columns fro
 		{
 			"source":
 			{
-				"type": "SqlSource",
+				"type": "SqlSource"
     		},
 			"sink":
 			{
             	"type": "BlobSink"
-			}
+			},
 			"Translator": 
 			{
       			"type": "TabularTranslator",
       			"ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
     		}
-		},
+		}
 	}
 
 ![Column Mapping][image-data-factory-column-mapping-1]
@@ -624,13 +644,13 @@ In this sample, a SQL query (vs. table in the previous sample) is used to extrac
 			"sink":
 			{
             	"type": "BlobSink"
-			}
+			},
 			"Translator": 
 			{
       			"type": "TabularTranslator",
       			"ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
     		}
-		},
+		}
 	}
 
 ![Column Mapping 2][image-data-factory-column-mapping-2]
@@ -685,6 +705,12 @@ The data types specified in the Structure section of the Table definition is onl
 	</tr>
 
 </table>
+
+## Limitations
+
+> [WACOM.NOTE] When a pipeline is suspended or deleted, or when a data factory is deleted, the ongoing copy operation is not suspended. It will continue to execute until completion. However, the copy operation that involves an on-premises data source can be stopped by restarting the Data Management Gateway service by using the Data Management Gateway configuration manager or the Services applet. 
+
+
 
 ## Walkthroughs
 See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity.
