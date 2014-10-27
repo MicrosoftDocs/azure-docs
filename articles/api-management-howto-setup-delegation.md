@@ -30,7 +30,7 @@ To begin, let's first set-up API Management to route requests via your delegatio
 
 * Decide what the URL of your special delegation endpoint will be and enter it in the **Delegation endpoint URL** field.
 
-* Within the **Delegation authentication key** field enter a secret that will be used to compute a signature provided to you for verification to ensure that the request is indeed coming from Azure API Management.
+* Within the **Delegation authentication key** field enter a secret that will be used to compute a signature provided to you for verification to ensure that the request is indeed coming from Azure API Management. You can click the **generate** button to have API Managemnet randomly generate a key for you.
 
 Now you need to create the **delegation endpoint**. It has to perform a number of actions:
 
