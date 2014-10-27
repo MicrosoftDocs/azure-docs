@@ -46,8 +46,8 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
 
-	* Compute an HMAC-SHA512 hash of a string based on the **redirectUrl** and **salt** query parameters:
-           > HMAC(**redirectUrl** + '\n' + **salt**)
+	* Compute an HMAC-SHA512 hash of a string based on the **redirectUrl** and **salt** query parameters ([example code provided below]):
+        > HMAC(**salt** + '\n' + **redirectUrl**)
 		 
 	* Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
 
@@ -99,7 +99,7 @@ Then ensure the delegation endpoint performs the following actions:
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
 
 	* Compute an HMAC-SHA512 of a string based on the **productId**, **userId** and **salt** query parameters:
-		> HMAC(**productId** + '\n' + **userId** + '\n' + **salt**)
+		> HMAC(**salt** + '\n' + **userId** + '\n' + **productId**)
 		 
 	* Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
 	
@@ -109,7 +109,37 @@ Then ensure the delegation endpoint performs the following actions:
 
 5. Redirect the user back to the **redirectUrl** provided when receiving the request.
 
+## <a name="delegate-example-code"> </a> Example Code ##
 
+These code samples show how to take the *delegation validation key*, which is set in the Delegation screen of the API Management portal, to create a HMAC which is then used to validate the signature, proving the validity of the passed redirectUrl. The same code works for the productId and userId with slight modification.
+
+**C# code to generate hash of redirectUrl**
+
+	using System.Security.Cryptography;
+
+	string key = "delegation validation key";
+	string redirectUrl = "redirectUrl query parameter";
+	string salt = "salt query parameter";
+	string signature;
+	using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
+	{
+		signature = encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + redirectUrl));
+		// change to (salt + "\n" + userId + "\n" + productId) for point 2 above
+	}
+
+**NodeJS code to generate hash of redirectUrl**
+
+	var crypto = require('crypto');
+	
+	var key = 'delegation validation key'; 
+	var redirectUrl = 'redirectUrl query parameter';
+	var salt = 'salt query parameter';
+	
+	var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
+	var digest = hmac.update(salt + '\n' + redirectUrl).digest();
+	// change to (salt + '\n' + userId + '\n' + productId) for point 2 above
+	
+	var signature = digest.toString('base64');
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
@@ -117,5 +147,6 @@ Then ensure the delegation endpoint performs the following actions:
 [create a user]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
 [calling the REST API for product subscription]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
+[example code provided below]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
