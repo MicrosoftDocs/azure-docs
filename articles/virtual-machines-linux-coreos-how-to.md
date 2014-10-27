@@ -22,7 +22,7 @@ This topic contains the following sections:
 + [Next steps]
 
 
-## <a id='intro'>CoreOS, Clusters, and Linux Containers</ a>
+## <a id='intro'>CoreOS, Clusters, and Linux Containers</a>
 
 CoreOS is a lightweight version of Linux designed to support rapid creation of potentially very large clusters of VMs that use Linux containers as the only packaging mechanism, including [Docker] containers. CoreOS is intended to support:
 
@@ -38,10 +38,10 @@ At a high level, the CoreOS features that support these goals are:
 
 This is a very general description of CoreOS and its features. For more complete information about CoreOS, see the [CoreOS Overview].
 
-## <a id='security'>Security Considerations</ a>
+## <a id='security'>Security Considerations</a>
 Currently, CoreOS assumes that those who can SSH into the cluster have permission to manage it. The result is that without modification, CoreOS clusters are outstanding for test and development environments, but you should apply further security measures in any production environment. 
 
-## <a id='usingcoreos'>How to use CoreOS on Azure</ a>
+## <a id='usingcoreos'>How to use CoreOS on Azure</a>
 
 This section describes how to create an Azure Cloud Service with three CoreOS virtual machines in it using the [Azure Cross-Platform Interface (xplat-cli)]. The basic steps are as follows
 
