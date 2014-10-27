@@ -1,9 +1,18 @@
-### What just happened?
+###<span id="whathappened">What happened to my project?</span>
 
 ##### References Added
 
 The Azure Storage NuGet package was added to your Visual Studio project.  
-This package adds the following .NET references: `Microsoft.Data.Edm`, `Microsoft.Data.OData`, `Microsoft.Data.Services.Client`, `Microsoft.WindowsAzure.Configuration`, `Microsoft.WindowsAzure.Storage`, `Newtonsoft.Json`, `System.Data`, `System.Spatial
+This package adds the following .NET references:
+
+- `Microsoft.Data.Edm`
+- `Microsoft.Data.OData`
+- `Microsoft.Data.Services.Client`
+- `Microsoft.WindowsAzure.Configuration`
+- `Microsoft.WindowsAzure.Storage`
+- `Newtonsoft.Json`
+- `System.Data`
+- `System.Spatial`
 
 Also, the NuGet package **Microsoft.Framework.ConfigurationModel.Json** was added.
 
