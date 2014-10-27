@@ -51,7 +51,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 
 ##<a name="debug"></a>Testing and debugging WebJobs
 
-* [Troubleshooting Azure Web Sites in Visual Studio](../web-sites-dotnet-troubleshoot-visual-studio/). Includes a section on remote debugging WebJobs.
+* [Troubleshooting Azure Web Sites in Visual Studio](../web-sites-dotnet-troubleshoot-visual-studio/).
 * [Who wrote that blob?](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [Hosting interactive code in the Cloud](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Getting a dashboard for local development with the WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)
