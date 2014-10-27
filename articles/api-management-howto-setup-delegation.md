@@ -99,7 +99,7 @@ Then ensure the delegation endpoint performs the following actions:
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
 
 	* Compute an HMAC-SHA512 of a string based on the **productId**, **userId** and **salt** query parameters:
-		> HMAC(**salt** + '\n' + **userId** + '\n' + **productId**)
+		> HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
 		 
 	* Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
 	
@@ -124,7 +124,7 @@ These code samples show how to take the *delegation validation key*, which is se
 	using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
 	{
 		signature = encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + redirectUrl));
-		// change to (salt + "\n" + userId + "\n" + productId) for point 2 above
+		// change to (salt + "\n" + productId + "\n" + userId) for point 2 above
 	}
 
 **NodeJS code to generate hash of redirectUrl**
@@ -137,7 +137,7 @@ These code samples show how to take the *delegation validation key*, which is se
 	
 	var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
 	var digest = hmac.update(salt + '\n' + redirectUrl).digest();
-	// change to (salt + '\n' + userId + '\n' + productId) for point 2 above
+	// change to (salt + '\n' + productId + '\n' + userId) for point 2 above
 	
 	var signature = digest.toString('base64');
 
