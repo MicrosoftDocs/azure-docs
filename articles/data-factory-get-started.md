@@ -53,11 +53,11 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
      
 		![GetStartedEveverything][image-data-factory-getstarted-new-everything]
 
-	2. Click **Data, storage, cache, + backup** in **Gallery**.
+	2. Click **Data, storage, cache, + backup** in **Marketplace**.
     
 		![Data, storage, cache, + backup in Gallery][image-data-factory-gallery-storagecachebackup]
 
-	3. In the **Data, storage, cache, + backup** blade, click **See All** as shown in the following image  
+	3. In the **Data, storage, cache, + backup** blade, click **Data Factory** tile and skip the next two steps. If you don't see the **Data Factory** tile, click **More** as shown in the following image and continue with the next step.   
 
 		![SeeAll][image-data-factory-gallery-storagecachebackup-seeall]
 
@@ -118,10 +118,11 @@ In this step, you will create two linked services: **MyBlobStore** and **MyAzure
 
 5. Enter the **Account Name** and **Account Key** for your Azure Storage Account, and click **OK**.
   
-	**To get the Account Key for a storage in the Azure Preview Portal**:
+	**To get the Account Key for a storage in the Azure Preview Portal**: (You will need to switch to **Storage** blade to see this screen.) 
 
     ![stroage-account-key][image-data-factory-preview-storage-key]
 
+	 
 
 6. After you click **OK** on the **New data store** blade, you should see **myblobstore** in the list of **DATA STORES** on the **Linked Services** blade. Check **NOTIFICATIONS** Hub (on the left) for any messages.
 
@@ -137,10 +138,11 @@ In this step, you will create two linked services: **MyBlobStore** and **MyAzure
 
     ![Azure SQL properties][image-data-factory-get-started-linked-azure-sql-properties]
 
-    **To get the database connection string in Azure Preview Portal:**
+    **To get the database connection string in Azure Preview Portal:**(You will need to switch to **SQL Database** blade to see this screen.)
 	
 	![Database Connection String][image-data-factory-database-connection-string]	
 
+	
 4. After you click **OK** on the **New data store** blade, You should see both the stores in the **Linked Services** blade
 
     ![Linked services with two stores][image-data-factory-get-started-linked-services-list-two-stores]
@@ -233,14 +235,14 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 
 	To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the partitionedBy property. In the following example, folderPath uses Year, Month, and Day from from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
 
-	  	folderPath: "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-        fileName: "{Hour}.csv",
-        partitionedBy: 
+	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+        "fileName": "{Hour}.csv",
+        "partitionedBy": 
         [
-        	{ name: "Year", value: { type: "DateTime", date: "SliceStart", format: "yyyy" } },
-            { name: "Month", value: { type: "DateTime", date: "SliceStart", format: "MM" } }, 
-            { name: "Day", value: { type: "DateTime", date: "SliceStart", format: "dd" } }, 
-            { name: "Hour", value: { type: "DateTime", date: "SliceStart", format: "hh" } } 
+        	{ "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+            { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+            { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
         ],
 
  
@@ -380,7 +382,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 
 	![Diagram link][image-data-factory-get-started-diagram-link]
   
-5. You should see the diagram similar to the following:
+5. You should see the diagram similar to the following: (Double-click on a title to see details about the artifact that the blade represents).
 
 	![Diagram view][image-data-factory-get-started-diagram-blade]
 
@@ -441,13 +443,16 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 
 Article | Description
 ------ | ---------------
-[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob.
-[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
-[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
-[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
-[Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to monitor an Azure Data Factory using Azure PowerShell cmdlets. You can try out the examples in the article on the ADFTutorialDataFactory.
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
+[Copy data with Azure Data Factory - Copy Activity][copy-activity] | This article provides detailed description of the **Copy Activity** you used in this tutorial. 
+[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an **on-premises SQL Server database** to an Azure blob.
+[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use **HDInsight Activity** to run a **hive/pig** script to process input data to produce output data. 
+[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an **end-to-end walkthrough** that shows how to implement a **real world scenario** using Azure Data Factory to transform data from log files into insights.
+[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a **custom activity** and using it in a pipeline. 
+[Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to **monitor and manage** an Azure Data Factory using **Azure PowerShell cmdlets**. You can try out the examples in the article on the ADFTutorialDataFactory.
+[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to **troubleshoot** Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
+[Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the **Data Factory cmdlets**.
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
+
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
@@ -462,6 +467,7 @@ Article | Description
 [adf-tutorial]: ../data-factory-tutorial
 [use-custom-activities]: ../data-factory-use-custom-activities
 [use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
+[copy-activity]: ../data-factory-copy-activity/
 [troubleshoot]: ../data-factory-troubleshoot
 [data-factory-introduction]: ../data-factory-introduction
 
