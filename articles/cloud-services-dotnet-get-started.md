@@ -88,7 +88,7 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 2. Click  **Create an Ad**.
 
-2. Enter some test data and select an image to upload, and then click **Create**.
+2. Enter some test data and select a *.jpg* image to upload, and then click **Create**.
 
 	![Create page](./media/cloud-services-dotnet-get-started/create.png)
 
@@ -162,6 +162,16 @@ When the app runs in the cloud, it will use a cloud-based database.
 1. Click **Create SQL Database**.
 
 	![New SQL Database](./media/cloud-services-dotnet-get-started/newdb.png)	
+
+1. After Azure finishes creating the database, click the **SQL Databases** tab in the left pane of the portal, and then click the name of the new database.
+
+2. Click the **Dashboard** tab.
+
+3. Click **Manage allowed IP addresses**.
+
+4. Under **Allowed Services**, change **Azure Services** to **Yes**.
+
+5. Click **Save**.
 
 ### Create an Azure storage account
 
@@ -242,7 +252,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 Azure storage account connection strings for both the web role project and the worker role project are stored in environment settings in the cloud service project. For each project there is a separate set of settings to be used when the application runs locally and when it runs in the cloud. You'll update the cloud environment settings for both web and worker role projects. 
 
-4. In **Solution Explorer**, right-click **MvcWebRole** under **Roles** in the **ContosoAdsCloudService** project, and click **Properties**.
+4. In **Solution Explorer**, right-click **ContosoAdsWeb** under **Roles** in the **ContosoAdsCloudService** project, and click **Properties**.
 
 	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)	
 
@@ -305,7 +315,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 3. In the **Settings** step of the wizard, click **Next**.
 
-	![Settings step](./media/cloud-services-dotnet-get-started/pubsignin.png)	
+	![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)	
 
 	The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](http://msdn.microsoft.com/library/windowsazure/hh535756.aspx).
 
