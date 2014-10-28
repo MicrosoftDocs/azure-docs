@@ -1,8 +1,9 @@
-<properties title="Azure Machine Learning Sample: Color quantization using K-Means clustering" pageTitle="Machine Learning Sample: Color quantization using K-Means clustering | Azure" description="A sample Azure Machine Learning experiment that evaluates using different K-Means clustering values for quantizing a color image." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Azure Machine Learning Sample: Color quantization using K-Means clustering" pageTitle="Machine Learning Sample: Color quantization using K-Means clustering | Azure" description="A sample Azure Machine Learning experiment that evaluates using different K-Means clustering values for quantizing a color image." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/19/2014" ms.author="garye" />
 
-#Azure Machine Learning Sample: Color quantization using K-Means clustering
+
+# Azure Machine Learning Sample: Color quantization using K-Means clustering
 
 *You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
 
@@ -27,28 +28,17 @@ Finally, we associated each pixel with the aggregated cluster color and sent the
 
 ##Results
 
-We tested the outcome on different number of clusters (colors) as shown on the experiment model below. As it's visible the more clustering create higher quality images with less compression:
+We tested the outcome on different number of clusters (colors) as shown on the experiment model below. As you can see below, more clustering creates higher quality images with less compression:
 
-<table>
-<tr><th>Original</th>
-<td><img alt="Original" src="./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2a.jpg"></td>
-</tr>
-<tr><th>K=10</th>
-<td><img alt="K=10" src="./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2b.png"></td>
-</tr>
-<tr><th>K=20</th>
-<td><img alt="K=20" src="./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2c.png"></td>
-</tr>
-<tr><th>K=50</th>
-<td><img alt="K=50" src="./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2d.png"></td>
-</tr>
-<tr><th>K=100</th>
-<td><img alt="K=100" src="./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2e.png"></td>
-</tr>
-<tr><th>K=500</th>
-<td><img alt="K=500" src="./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2f.png"></td>
-</tr>
-</table>
+||
+------------ | ---------
+**Original** | ![Original][image2a]
+**K=10**     | ![K=10][image2b]
+**K=20**     | ![K=20][image2c]
+**K=50**     | ![K=50][image2d]
+**K=100**    | ![K=100][image2e]
+**K=500**    | ![K=500][image2f]
+
 
 We have also measured the accuracy using Root Mean Squared Difference to the Original Image Colors which can be seen from the second output port of the "Execute R Script" Module:
 

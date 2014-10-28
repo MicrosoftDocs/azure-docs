@@ -1,15 +1,15 @@
-<properties title="Azure Notification Hubs Secure Push" pageTitle="Azure Notification Hubs Secure Push" metaKeywords="Azure push notifications, Azure notification hubs, secure push" description="Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
+<properties title="Azure Notification Hubs Secure Push" pageTitle="Azure Notification Hubs Secure Push" metaKeywords="Azure push notifications, Azure notification hubs, secure push" description="Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="kirillg" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 
 #Azure Notification Hubs Secure Push
 
-<div class="dev-center-tutorial-selector sublanding"> 
+<div class="dev-center-tutorial-selector sublanding">
     	<a href="/en-us/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
 		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
 
-Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. 
+Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
 
 Due to regulatory or security constraints, sometimes an application might want to include something in the notification that cannot be transmitted through the standard push notification infrastructure. This tutorial describes how to achieve the same experience by sending sensitive information through a secure, authenticated connection between the client device and the app backend.
 
@@ -56,28 +56,28 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 		    ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
 		    NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
 		    if (!authenticationHeader) return;
-		    
-		    
+
+
 		    NSURLSession* session = [NSURLSession
 		                             sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
 		                             delegate:nil
 		                             delegateQueue:nil];
-		    
-		    
+
+
 		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%d", GetNotificationEndpoint, payloadId]];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
-		    [request setHTTPMethod:@"GET"];    
+		    [request setHTTPMethod:@"GET"];
 		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
-		    
+
 		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (!error && httpResponse.statusCode == 200)
 		        {
 		            NSLog(@"Received secure payload: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-		            
+
 		            NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
-		            
+
 		            completion([json objectForKey:@"Payload"], nil);
 		        }
 		        else
@@ -94,7 +94,7 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 		}
 
 	This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
-	
+
 4. Now we have to handle the incoming notification and use the method above to retrieve the content to display. First, we have to enable your iOS app to run in the background when receiving a push notification. In **XCode**, select your app project on the left panel, then click your main app target in the **Targets** section from the central pane.
 
 5. Then click your **Capabilities** tab at the top of your central pane, and check the **Remote Notifications** checkbox.
@@ -107,7 +107,7 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 		-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 		{
 		    NSLog(@"%@", userInfo);
-		    
+
 		    [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
 		        if (!error) {
 		            // show local notification
@@ -116,13 +116,13 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 		            localNotification.alertBody = payload;
 		            localNotification.timeZone = [NSTimeZone defaultTimeZone];
 		            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-		            
+
 		            completionHandler(UIBackgroundFetchResultNewData);
 		        } else {
 		            completionHandler(UIBackgroundFetchResultFailed);
 		        }
 		    }];
-		    
+
 		}
 
 	Note that it is preferable to handle the cases of missing authentication header property or rejection by the back-end. The specific handling of these cases depend mostly on your target user experience. One option is to display a notification with a generic prompt for the user to authenticate to retrieve the actual notification.

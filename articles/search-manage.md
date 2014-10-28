@@ -1,4 +1,6 @@
-<properties title="Manage your Search service on Microsoft Azure" pageTitle="Manage your Search service on Microsoft Azure" description="Manage your Search service on Microsoft Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="heidist" videoId="" scriptId="" />
+<properties title="Manage your Search service on Microsoft Azure" pageTitle="Manage your Search service on Microsoft Azure" description="Manage your Search service on Microsoft Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+
+<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
 
 # Manage your Search service on Microsoft Azure
 
@@ -20,6 +22,7 @@ As noted, the new Preview portal is required for administrative tasks. Azure Sea
 + [Monitor resource usage](#sub-5)
 + [Scale up or down](#sub-6)
 + [Start or Stop the Service](#sub-7)
++ [Set roles to control administrative access](#sub-8)
 
 <h2 id="sub-1">Add search service to your subscription</h2>
 
@@ -34,7 +37,7 @@ To plan for capacity and understand the billing impact, we recommend these links
 +	[Limits and constraints](http://msdn.microsoft.com/en-us/library/dn798934.aspx)
 +	[Pricing Details](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-When you are ready to sign up, see [Configure Search in the Azure Preview portal](../search-configure/).
+When you are ready to sign up, see [Get started with Azure Search](../search-get-started/).
 
 
 <h2 id="sub-2">Administrative tasks</h2>
@@ -47,6 +50,7 @@ Besides adding Search to the subscription, an administrator is responsible for t
 +	Monitor resource usage
 +	Scale up or down (applies to standard search only)
 +	Start or stop the service
++	Set roles to control administrative access
 
 <h2 id="sub-3">Service URL</h2>
 
@@ -150,6 +154,41 @@ You can start, stop, or even delete the service using commands in the service da
 
 Stopping or starting the service does not turn off billing. You must delete the service to avoid charges altogether. Any data associated with your service is deleted when your service is decommissioned.
 
+<!---->
+<h2 id="sub-8">Set roles on administrative access</h2>
+
+Azure provides a global role-based authorization model for all services managed through the Preview Portal, or in the Azure Resource Manager API if you're using a custom administration tool. Owner, Contributor, and Reader roles set the level of service administration for the Active Directory users, groups, and security principals you assign to each role. See [Role-based access control in Azure Preview Portal](http://azure.microsoft.com/en-us/updates/role-based-access-control-in-azure-preview-portal/) for details about role membership.
+
+In terms of Azure Search, role-based access controls determine the following administrative tasks:
+
+<table>
+<tr>
+<td>Owner</td>
+<td>
+Start, stop, or delete the service.</br>
+Generate and view admin keys and query keys.</br>
+View service status, including index count, index names, document count, and storage size.</br>
+Add or delete role membership (only an Owner can manage role membership).</br>
+</br>
+Subscription and service administrators have automatic membership in the Owners role.
+</td>
+</tr>
+<tr>
+<td>Contributor</td>	
+<td>Has the same level of access as Owner, except for role management. For example, a Contributor can view and regenerate `api-key`, but he or she cannot modify role memberships.
+</td>
+</tr>
+<tr>
+<td>Reader</td>
+<td>View service status and query keys. Members of this role cannot start or stop a service, nor can they view admin keys.
+</td>
+</tr>
+</table>
+
+Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [Role-based access control in Azure Preview Portal](http://azure.microsoft.com/en-us/updates/role-based-access-control-in-azure-preview-portal/) for more information.
+
+Roles provide access control after the service is created. Only subscription managers can add a Search service to a subscription.
+
 
 <!--Anchors-->
 [Add search service to your subscription]: #sub-1
@@ -159,6 +198,7 @@ Stopping or starting the service does not turn off billing. You must delete the 
 [Monitor resource usage]: #sub-5
 [Scale up or down]: #sub-6
 [Start or Stop the Service]: #sub-7
+[Set roles to control administrative access]: #sub-8
 
 
 <!--Image references-->
@@ -169,7 +209,7 @@ Stopping or starting the service does not turn off billing. You must delete the 
 
 
 <!--Link references-->
-[Configure search in the Azure Preview Portal]: ../search-configure/
+[Get started with Azure Search]: ../search-get-started/
 [Azure Search development workflow]: ../search-workflow/
 [Create your first azure search solution]: ../search-create-first-solution/
 

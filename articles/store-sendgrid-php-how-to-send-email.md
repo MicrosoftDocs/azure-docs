@@ -1,6 +1,6 @@
 <properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="How to use the SendGrid email service (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
 # How to Use the SendGrid Email Service from PHP
 
@@ -33,7 +33,7 @@ include:
 -   Forwarding customer inquiries
 - Email notifications from your application
 
-For more information, see [http://sendgrid.com][].
+For more information, see [https://sendgrid.com][].
 
 ## <a name="bkmk_CreateSendGrid"> </a>Create a SendGrid Account
 
@@ -132,7 +132,7 @@ Use PHP's [curl function][] to send email using the SendGrid Web API.
 
     <?php
 
-     $url = 'http://sendgrid.com/';
+     $url = 'https://api.sendgrid.com/';
      $user = 'USERNAME';
      $pass = 'PASSWORD'; 
 
@@ -143,7 +143,7 @@ Use PHP's [curl function][] to send email using the SendGrid Web API.
           'subject' => 'testing from curl',
           'html' => 'testing body',
           'text' => 'testing body',
-          'from' => 'anna@sendgrid.com',
+          'from' => 'anna@contoso.com',
        );
        
      $request = $url.'api/mail.send.json';
@@ -264,7 +264,7 @@ the parameter array must contain this element:
 
     <?php
 
-     $url = 'http://sendgrid.com/';
+     $url = 'https://api.sendgrid.com/';
      $user = 'USERNAME';
      $pass = 'PASSWORD';
      
@@ -278,7 +278,7 @@ the parameter array must contain this element:
          'subject' => 'test of file sends',
          'html' => '<p> the HTML </p>',
          'text' => 'the plain text',
-         'from' => 'anna@sendgrid.com',
+         'from' => 'anna@contoso.com',
          'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
      );
      
@@ -407,8 +407,7 @@ that will be appended to the bottom of the email message:
      
      // add SMTPAPI header to the message
      // *****IMPORTANT NOTE*****
-     // SendGrid's asJSON function escapes characters. If you are using Swift 
-     Mailer's
+     // SendGrid's asJSON function escapes characters. If you are using Swift Mailer's
      // PHP Mailer functions, the getTextHeader function will also escape characters.
      // This can cause the filter to be dropped.
      $headers = $message->getHeaders();
@@ -441,7 +440,7 @@ Now that you've learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 -   SendGrid documentation: <https://sendgrid.com/docs>
--   SendGrid special offer for Azure customers: <http://sendgrid.com/azure.html>
+-   SendGrid special offer for Azure customers: <https://sendgrid.com/windowsazure.html>
 
   [Next Steps]: #bkmk_NextSteps
   [What is the SendGrid Email Service]: #bkmk_WhatIsSendGrid
@@ -451,11 +450,11 @@ these links to learn more.
   [How To: Add an Attachment]: #bkmk_HowToAddAttachment
   [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #bkmk_HowToUseFilters
   [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
-  [http://sendgrid.com]: http://sendgrid.com
-  [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
-  [special offer]: http://www.sendgrid.com/azure.html
+  [https://sendgrid.com]: https://sendgrid.com
+  [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
+  [special offer]: https://www.sendgrid.com/windowsazure.html
   [Packaging and Deploying PHP Applications for Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh674499(v=VS.103).aspx
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
   [curl function]: http://php.net/curl
-  [cloud-based email service]: http://sendgrid.com/solutions
-  [transactional email delivery]: http://sendgrid.com/transactional-email
+  [cloud-based email service]: https://sendgrid.com/email-solutions
+  [transactional email delivery]: https://sendgrid.com/transactional-email

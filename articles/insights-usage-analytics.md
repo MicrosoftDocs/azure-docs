@@ -1,10 +1,12 @@
-<properties title="How to use end user analytics" pageTitle="How to use end user analytics" description="Learn about end user analytics in Azure." authors="vladj"  />
+<properties title="How to use end user analytics in Azure" pageTitle="How to use end user analytics" description="End user analytics for Microsoft Azure websites." authors="awills" manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="vladj" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-02" ms.author="awills" />
 
-# Analytics for Websites
+# Analytics for Microsoft Azure websites
 
 Wonder how many users have visited you site?  Wonder what the average page load time is or what browsers are being used?  By inserting a few lines of script in your web pages, you can collect data about how your website is used by your customers. 
+
+*You can do this for non-Azure websites too: [Monitor web app usage with Application Insights](../app-insights-web-track-usage/).*
 
 ![End User Analytics](./media/insights-usage-analytics/Insights_ConfiguredExperience.png)
 

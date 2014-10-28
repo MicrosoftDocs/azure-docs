@@ -1,19 +1,12 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal"  solutions="" writer="ricksal" manager="" editor=""   />
+<properties urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services " authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""   />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal" />
 
+# Add push notifications to your Mobile Services app
 
-# <a name="getting-started-with-push"> </a>Get started with push notifications in Mobile Services
+[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android" class="current">Android</a>
-<!-- <a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>-->
-</div>
-
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title=".NET backend" >.NET backend</a> | 	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/" title="JavaScript backend" class="current">JavaScript backend</a></div>
-
-This topic shows how to use Azure Mobile Services to send push notifications to your Android app. In this tutorial you add push notifications using Google Cloud Messaging (GCM) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
-
->[WACOM.NOTE]This tutorial demonstrates Mobile Services integration with Notification Hubs, which is how you send push notifications from your mobile service. If you are using an older mobile service that is using legacy push and has not yet been upgraded to use Notification Hubs, <em>we recommend that you upgrade</em> as part of this tutorial. If you choose not to upgrade now, you should follow this version of the tutorial: [Get started with push notifications (legacy)](/en-us/documentation/articles/mobile-services-android-get-started-push/).
+This topic shows how to use Azure Mobile Services to send push notifications to your Android app using Google Cloud Messaging (GCM). In this tutorial, you enable push notifications using Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -24,6 +17,9 @@ This tutorial walks you through these basic steps to enable push notifications:
 5. [Insert data to receive notifications](#test)
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service.  
+
+>[AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithPush/Android">here</a>.
+
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
@@ -87,9 +83,11 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 		function insert(item, user, request) {
 		// Define a payload for the Google Cloud Messaging toast notification.
-		var payload = 
-		    '{"data":{"message" : ' + item.text + ' }}';
-		
+		var payload = {
+		    data: {
+		        message: item.text 
+		    }
+		};		
 		request.execute({
 		    success: function() {
 		        // If the insert succeeds, send a notification.
@@ -175,6 +173,9 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 * [What are Notification Hubs?]
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
+
+* [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>Get guidance troubleshooting and debugging Notification Hubs solutions. 
 
 * [How to use the Android client library for Mobile Services]
   <br/>Learn more about how to use Mobile Services with Android.

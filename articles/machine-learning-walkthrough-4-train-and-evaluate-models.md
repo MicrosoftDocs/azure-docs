@@ -1,6 +1,7 @@
-<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Step 4: Train and evaluate the predictive analytic models | Azure" description="Step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Step 4: Train and evaluate the predictive analytic models | Azure" description="Step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="garye" />
+
 
 This is the fourth step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
@@ -22,7 +23,8 @@ This is the fourth step of the walkthrough, [Developing a Predictive Solution wi
 
 ----------
 
-#Step 4: Train and evaluate the predictive analytic models
+# Step 4: Train and evaluate the predictive analytic models
+
 
 In this experiment we want to try different algorithms for our predictive model. We'll create two different types of models and then compare their scoring results to decide which algorithm we want to use in our final experiment.  
 
@@ -31,13 +33,15 @@ There are a number of models we could choose from. To see the models available, 
 ##Train the models
 First, let's set up the boosted decision tree model:  
 
-1.	Find the T**wo-Class Boosted Decision Tree** module in the module palette and drag it onto the canvas.
+1.	Find the **Two-Class Boosted Decision Tree** module in the module palette and drag it onto the canvas.
 2.	Find the **Train Model** module, drag it onto the canvas, and then connect the output of the boosted decision tree module to the left input port ("Untrained model") of the **Train Model** module.
 3.	Connect the output of the left **Execute R Script** module to the right input port ("Dataset") of the **Train Model** module.
 
 	>Tip - We don't need two of the inputs and one of the outputs of the **Execute R Script** module for this experiment, so we'll just leave them unattached. This is not uncommon for some modules.
 
-4.	Select the **Train Model** module. In the **Properties** pane, click **Launch column selector**, select "Column indices" in the first dropdown, and enter "21" in the text field (you can also select "Column name" and enter "Credit risk"). This identifies column 21, the credit risk value, as the column for the model to predict.  
+
+4.	Select the **Train Model** module. In the **Properties** pane, click **Launch column selector**, select "Include" in the first dropdown, select "column indices" in the second dropdown, and enter "21" in the text field (you can also select "Column name" and enter "Credit risk"). This identifies column 21, the credit risk value, as the column for the model to predict.
+
 
 This portion of the experiment now looks something like this:  
 
@@ -54,8 +58,8 @@ Boosted Decision Trees work well with features of any type. However, since the S
 5.	Connect the input of this transform module to the output of the left **Execute R Script** module.
 6.	Connect the left output port ("Transformed Dataset") of the transform module to the right input port ("Dataset") of the **Train Model** module.
 7.	In the **Properties** pane for the transform module, select "Tanh" for the **Transformation method** parameter.
-8.	Click **Launch column selector**. In the first dropdown select "Column types", and in the second dropdown select "Numeric" (leave the third dropdown with "All" selected). This specifies that all the numeric columns (and only numeric) will be transformed.
-9.	Click the plus sign (+), which creates a new row of dropdowns. Select "Exclude column indices" in the first dropdown, and enter "21" in the text field. This specifies that column 21 (the "Credit risk" column) will be ignored.
+8.	Click **Launch column selector**, select "Include" in the first dropdown, select "column type" in the second dropdown, and select "Numeric" in the third dropdown. This specifies that all the numeric columns (and only numeric) will be transformed.
+9.	Click the plus sign (+), which creates a new row of dropdowns. Select "Exclude" in the first dropdown, select "column indices" in the second dropdown, and enter "21" in the text field. This specifies that column 21 (the "Credit risk" column) will be ignored.
 10.	Click **OK**.  
 
 
@@ -103,6 +107,7 @@ By examining these values you can decide which model is closest to giving you th
 You can also make a copy of any iteration of your experiment by clicking **SAVE AS** below the canvas. This makes a duplicate of the experiment, creating a new Run History to track your iterations of this version. The new copy is displayed in the **EXPERIMENTS** list alongside the original. This can be helpful if you want to start a new branch of experiment iterations.  
 
 As an additional help to track the changes you make to module parameters, you can add comments to any module on the experiment canvas. Just double-click the module or right-click and select **Edit Comment**. These comments are saved with the experiment iterations and can help you annotate your work.
+
 
 ----------
 

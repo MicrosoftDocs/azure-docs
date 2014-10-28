@@ -1,6 +1,6 @@
-<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Introduction to Microsoft Azure DocumentDB | Azure" description="Learn about Azure DocumentDB and its value to cloud and mobile applications. Also, learn about how it manages data, and how you can use it in application development." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" " manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Introduction to Microsoft Azure DocumentDB | Azure" description="Learn about Azure DocumentDB and its value to cloud and mobile applications. Also, learn about how it manages data, and how you can use it in application development." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 #Introduction to Microsoft Azure DocumentDB
 
@@ -72,7 +72,7 @@ JavaScript execution within DocumentDB is modeled after the concepts supported b
 
 ##Next Steps
 To get started with Azure DocumentDB, explore these resources:
-
+- [Try DocumentDB now](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
 -	[Understand DocumentDB concepts](/documentation/articles/documentdb-resources/)
 -	[Interact with DocumentDB](/documentation/articles/documentdb-interactions-with-resources/)
 -	[Create a database account](/documentation/articles/documentdb-create-account/)

@@ -5,6 +5,50 @@
 
 #Microsoft HDInsight release notes
 
+## Notes for 10/15/2014 release ##
+
+This hotfix release fixed a memory leak in Templeton that affected the heavy users of Templeton. In some cases users who exercised Templeton heavily would see errors manifested as 500 error codes because the requests would not have enough memory to execute. The workaround for this problem was to restart the Templeton service. This issue has now been fixed.
+
+
+## Notes for 10/7/2014 release ##
+
+* When using Ambari endpoint, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", the *host_name* field now returns the fully qualified domain name (FQDN) of the node instead of just the host name. For example, instead of returning "**headnode0**", you get the FQDN “**headnode0.{ClusterDNS}.azurehdinsight.net**”. This change was required to facilitate scenarios where multiple cluster types such as HBase and Hadoop can be deployed in one Virtual Network (VNET). This happens, for example, when using HBase as a back-end platform for Hadoop.
+
+* We have provided new memory settings for the default deployment of the HDInsight cluster. Previous default memory settings did not take adequate account of the guidance for the number of CPU cores being deployed. The new memory settings used by the default 4 CPU core (8 container) HDInsight cluster are itemized in the following table. (The values used prior to this release are also provided parenthetically). 
+ 
+<table border="1">
+<tr><th>Component</th><th>Memory Allocation</th></tr>
+<tr><td> yarn.scheduler.minimum-allocation</td><td>768MB (previously 512MB)</td></tr>
+<tr><td> yarn.scheduler.maximum-allocation</td><td>6144MB (unchanged)</td></tr>
+<tr><td>yarn.nodemanager.resource.memory</td><td>6144MB (unchanged)</td></tr>
+<tr><td>mapreduce.map.memory</td><td>768MB (previously 512MB)</td></tr>
+<tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (previously -Xmx410m)</td></tr>
+<tr><td>mapreduce.reduce.memory</td><td>1536MB (previously 1024MB)</td></tr>
+<tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (previously -Xmx819m)</td></tr>
+<tr><td>yarn.app.mapreduce.am.resource</td><td>768MB (previously 1024MB)</td></tr>
+<tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (previously -Xmx819m)</td></tr>
+<tr><td>mapreduce.task.io.sort</td><td>256MB (previously 200MB)</td></tr>
+<tr><td>tez.am.resource.memory</td><td>1536MB (unchanged)</td></tr>
+
+</table><br>
+
+For more information on the memory configuration settings used by YARN and MapReduce on the Hortonworks Data Platform used by HDInsight, see [Determine HDP Memory Configuration Settings](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html). Hortonworks has also provide a tool to calculate proper memory settings.
+
+HDInsight PowerShell/SDK Error: "*Cluster is not configured for Http Services access*":
+
+* This error is a known [compatibility issue](https://social.msdn.microsoft.com/Forums/azure/en-US/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) that may occur due to a difference in the version of SDK/PowerShell and the version of the cluster. Clusters created on 8/15 or later have support for new provisioning capability into Virtual Networks. But this capability is not correctly interpreted by older versions of the SDK/PowerShell. The result is a failure in some job submission operations. If you use SDK APIs or PowerShell cmdlets to submit jobs (**Use-AzureHDInsightCluster**, **Invoke-Hive**), those operations may fail with the error message “*Cluster <clustername> is not configured for Http Services access*” or, depending on the operation, other error messages such as “*Cannot connect to cluster*”.
+
+* Those compatibility issues are resolved in the latest versions of the HDInsight SDK and Azure PowerShell. We recommend updating the HDInsight SDK to the version 1.3.1.6 or later and Azure PowerShell Tools to the version 0.8.8 or later. You can get access to the latest HDInsight SDK from [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) and the Azure PowerShell Tools at [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/).
+
+* You can expect that SDK and PowerShell will continue to work with new updates to clusters as long as the version of the cluster remains the same. For example, clusters version 3.1 will always be compatible with current version of the SDK/PowerShell 1.3.1.6 and 0.8.8.
+
+
+## Notes for 9/12/2014 release of HDinsight 3.1##
+
+* This release is based on Hortonworks Data Platform (HDP) 2.1.5. For a list of the bugs fixed in this release, see the [Fixed in this Release](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) page on the Hortonworks site.
+* In the pig libraries folder, the file “avro-mapred-1.7.4.jar” has been changed to avro-mapred-1.7.4-hadoop2.jar. The contents of these file contain a minor bug fix that is non-breaking. It is recommended that customers do not take a direct dependency on the name of the JAR file itself to avoid breaks when files are renamed.
+
+
 ## Notes for 8/21/2014 release ##
 
 * We are adding the following new WebHCat configuration (HIVE-7155) that sets the default memory limit for a Templeton controller job to 1GB (the previous default value was 512MB):
@@ -21,6 +65,15 @@
 	* zookeeper1 
 	* zookeeper2 
 * HBase version support matrix is updated. Only version HDInsight 3.1 (HBase version 0.98) is supported for production HBase workloads. Version 3.0 that was available for preview will not be supported moving forward. During transition period customers can still create clusters of 3.0 version. 
+
+## Notes on clusters created prior to 8/15/2014 ##
+
+An HDInsight PowerShell/SDK error with the message "Cluster <clustername> is not configured for Http Services access" (or, depending on the operation other error messages like: "Cannot connect to cluster") may be encountered due to a version difference between SDK/PowerShell and a cluster. Clusters created on 8/15 or later have support for new provisioning capability into Virtual Networks. This capability isn’t correctly interpreted by older versions of the SDK/PowerShell, which results in failures of job submission operations. If you use SDK APIs or PowerShell cmdlets to submit jobs, such as Use-AzureHDInsightCluster or Invoke-AzureHDInsightHiveJob, those operations may fail with one of the error message described above.
+
+These compatibility issues are resolved in the latest versions of SDK and Azure PowerShell. We recommend updating HDInsight SDK to the version 1.3.1.6 or later and Azure PowerShell Tools to the version 0.8.8 or later. You can get access to the latest HDInsight SDK from [nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/) and the Azure PowerShell Tools using [Microsoft Web PI](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+
+You can expect that SDK and PowerShell will continue to work with new updates to clusters as long as the version of the cluster remains the same. For example, clusters version 3.1 will always be compatible with current version of the SDK/PowerShell 1.3.1.6 and 0.8.8.
+
 
 ## Notes for 7/28/2014 release ##
 
@@ -77,7 +130,18 @@ For more details on using Hive with Tez, check out the [Hive on Tez wiki page](h
 ###Global Availability
 With the release of Azure HDInsight on Hadoop 2.2, Microsoft has made HDInsight available in all major Azure geographies. Specifically, west Europe and southeast Asia data centers have been brought online. This enables customers to locate clusters in a data center that is close and potentially in a zone of similar compliance requirements. 
 
+
+###Dos & Dont's between Cluster Versions
+
+**Oozie metastores used with an HDInsight 3.1 cluster are not backward compatible with HDInsight 2.1 clusters and cannot be used with this previous version**
+
+A custom Oozie metastore database deployed with an HDInsight 3.1 cluster cannot be reused with an HDInsight 2.1 cluster. This is the case even if the metastore originated with a 2.1 cluster. This scenario is not supported as the metastore schema gets upgraded when used with a 3.1 cluster and so is no longer compatible with the metastore required by the 2.1 clusters. Any attempt to reuse an Oozie metastore that has been used with an HDInsight 3.1 cluster will render the 2.1 cluster useless. 
+
+**Oozie metastores cannot be shared across clusters**
+On a more general and somewhat orthogonal note, Oozie metastores are attached to specific clusters and cannot be shared across clusters.
+
 ###Breaking Changes
+
 **Prefix syntax**:
 Only the "wasb://" syntax is supported in HDInsight 3.0  and 3.1 clusters. The older "asv://" syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters or later versions. This means that any jobs submitted to an HDInsight 3.0  or 3.1 cluster that explicitly use the “asv://” syntax will fail. The wasb:// syntax should be used instead. Also, jobs submitted to any HDInsight 3.0 or 3.1 clusters that are created with an existing metastore that contains explicit references to resources using the asv:// syntax will fail. These metastores will need to be recreated using the wasb:// to address resources. 
 
