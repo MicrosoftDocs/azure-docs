@@ -170,7 +170,7 @@ In this article, you have learned how to calculate streaming units and how to sc
 [stream.analytics.limitations]: ../stream-analytics-limitations/
 [stream.analytics.introduction]: ../stream-analytics-introduction/
 [stream.analytics.get.started]: ../stream-analytics-get-started/
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlinks/?LinkID=513299
+[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 
