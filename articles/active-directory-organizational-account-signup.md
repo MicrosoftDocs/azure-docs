@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="How To Configure Cloud Services" metaKeywords="Azure cloud services, cloud service, configure cloud service" description="Learn how to configure Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Sign up for Azure as an organization" authors="terrylan" manager="terrylan" />
+<properties umbracoNaviHide="0" pageTitle="How To Configure Cloud Services" metaKeywords="Azure cloud services, cloud service, configure cloud service" description="Learn how to configure Azure cloud services." urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Sign up for Azure as an organization" authors="terrylan" manager="terrylan" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
 
@@ -10,7 +10,7 @@
 
 Until recently, you could only sign up for a new Azure subscription using your Microsoft account (Windows Live ID). Azure now supports using either of the following two account methods to sign up:
 
-* **Microsoft accounts** (created by you for personal use) - Provide access to all consumer-oriented Microsoft products and cloud services, such as Outlook (Hotmail), Messenger, SkyDrive, MSN, Xbox LIVE, or Office Live. Signing up for Outlook automatically creates a Microsoft account with an @Outlook.com address. Once created, a Microsoft account can be used to access consumer-related Microsoft cloud services and/or Azure. [Learn more](http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account)
+* **Microsoft accounts** (created by you for personal use) - Provide access to all consumer-oriented Microsoft products and cloud services, such as Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE, or Office Live. Signing up for Outlook automatically creates a Microsoft account with an @Outlook.com address. Once created, a Microsoft account can be used to access consumer-related Microsoft cloud services and/or Azure. [Learn more](http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account)
 
 * **Organizational accounts** (issued by an admin for business/academic use) - Provide access to all small, middle and enterprise business-level Microsoft cloud services, such as Azure, Windows Intune, or Office 365. When you sign up to either one of these services as an organization, a cloud based tenant is automatically provisioned in Azure Active Directory to represent your organization. [Learn more](http://technet.microsoft.com/en-us/library/jj573650) 
 

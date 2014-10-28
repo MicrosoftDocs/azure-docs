@@ -99,6 +99,9 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 * [What are Notification Hubs?]
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
 
+* [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>Get guidance troubleshooting and debugging Notification Hubs solutions. 
+
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.
 
@@ -110,9 +113,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 <!-- Images. -->
 
 
-[13]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push1.png
-[14]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push2.png
-[2]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-app-enable-toast-win8.png
+[2]: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/mobile-app-enable-toast-win8.png
 
 
 <!-- URLs. -->

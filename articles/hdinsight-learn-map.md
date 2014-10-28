@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-learning-map" urlDisplayName="Learn HDInsight" pageTitle="Learning Map for HDInsight | Azure" metaKeywords="" description="Get a suggested flow of resources to go through for learning all you need to know about HDInsight" metaCanonical="" services="hdinsight" documentationCenter="" title="Learning map for HDInsight" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Learn HDInsight" pageTitle="Learning Map for HDInsight | Azure" metaKeywords="" description="Get a suggested flow of resources to go through for learning all you need to know about HDInsight" metaCanonical="" services="hdinsight" documentationCenter="" title="Learning map for HDInsight" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="nitinme" />
 
@@ -13,7 +13,7 @@ HDInsight provides ability to work with "big data" on Azure by enabling you to p
 
 <!--center><img src = "https://mysstorage.blob.core.windows.net/picture/HDI.ContentFlow.png" title = "" usemap="#imagemap">
 	<map name="imagemap">
-	  <area shape="rect" alt="What is Hadoop on HDInsight" title="What is Hadoop on HDInsight" coords="591,70,717,99" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-introduction/" target="_blank" />
+	  <area shape="rect" alt="What is Hadoop on HDInsight" title="What is Hadoop on HDInsight" coords="591,70,717,99" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-introduction/" target="_blank" />
 	  <area shape="rect" alt="What is HBase on HDInsight" title="What is HBase on HDInsight" coords="591,107,718,136" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-overview/" target="_blank" />
 	  <area shape="rect" alt="How is the data stored in HDInsight" title="How is the data stored in HDInsight" coords="591,144,717,174" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-blob-storage/" target="_blank" />
 	  <area shape="rect" alt="Get started with HDInsight" title="Get started with HDInsight" coords="591,204,717,233" href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-get-started/" target="_blank" />
@@ -59,7 +59,7 @@ HDInsight provides ability to work with "big data" on Azure by enabling you to p
 </img></center-->
 
 
-[hadoop-hdinsight-intro]: ../hdinsight-introduction/
+[hadoop-hdinsight-intro]: ../hdinsight-hadoop-introduction/
 
 [azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
 

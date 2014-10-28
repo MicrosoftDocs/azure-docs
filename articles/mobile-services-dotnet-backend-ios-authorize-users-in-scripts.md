@@ -1,6 +1,6 @@
-<properties pageTitle="Service-side authorization (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the .NET backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="krisragh" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Service-side authorization (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the .NET backend of Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/29/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
 # Service-side authorization of Mobile Services users
 
@@ -12,14 +12,14 @@ This tutorial is based on the Mobile Services quickstart and builds on the previ
 
 ## <a name="register-scripts"></a>Modify the data access methods
 
-[WACOM.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)] 
+[WACOM.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)]
 
 
 ## Test the app
 
 1. In Xcode, open the project that you modified when you completed the tutorial [Get started with authentication].
 
-2. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider. 
+2. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
 
    	Notice that this time, although there are items already in the TodoItem table from previous tutorials, no items are returned. This happens because previous items were inserted without the userId column and now have null values.
 
@@ -40,9 +40,9 @@ This concludes the tutorials that demonstrate the basics of working with authent
 * [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* [Get started with push notifications] 
+* [Get started with push notifications]
   <br/>Learn how to send a very basic push notification to your app.
-  
+
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.
 -->

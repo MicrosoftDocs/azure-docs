@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-how-to-guides-register-for-active-directory-authentication" urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="Register for Azure Active Directory authentication - Mobile Services" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="Learn how to register for Azure Active Directory authentication in your Mobile Services application." title="Register your account to use an Azure Active Directory account login" authors="wesmc" services="mobile-services" documentationCenter="Mobile" manager="dwrede" />
+<properties urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="Register for Azure Active Directory authentication - Mobile Services" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="Learn how to register for Azure Active Directory authentication in your Mobile Services application." title="Register your account to use an Azure Active Directory account login" authors="wesmc" services="mobile-services" documentationCenter="Mobile" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -6,7 +6,9 @@
 
 This topic shows you how to register your apps to be able to use Azure Active Directory as an authentication provider for Azure Mobile Services. 
 
-> [WACOM.NOTE] If you want to provide client-driven authentication for single sign-on (SSO) with Azure Active Directory, see the <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/">Authenticate your app with Active Directory Authentication Library Single Sign-On</a> tutorial. 
+
+>[AZURE.NOTE] The steps outlined in this topic are intended to be used with [Add Authentication to your Mobile Services app](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) tutorial when you want to use [Service-directed login operations](http://msdn.microsoft.com/en-us/library/azure/dn283952.aspx) with your app. Alternatively, if your app has a requirement for [client-directed login operations](http://msdn.microsoft.com/en-us/library/azure/jj710106.aspx) for Azure Active Directory and a .NET backend mobile service you should start with the [Authenticate your app with Active Directory Authentication Library Single Sign-On](/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/) tutorial.
+
 
 1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 

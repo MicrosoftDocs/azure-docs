@@ -1,4 +1,4 @@
-<properties linkid="azure-subscription-service-limits" urlDisplayName="Azure Subscription and Service Limits, Quotas, and Constraints" pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" metaKeywords="Cloud Services, Virtual Machines, Web Sites, Virtual Network, SQL Database, Subscription, Storage" description="Provides a list of common Azure subscription and service limits along with maximum values." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Azure Subscription and Service Limits, Quotas, and Constraints" pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" metaKeywords="Cloud Services, Virtual Machines, Web Sites, Virtual Network, SQL Database, Subscription, Storage" description="Provides a list of common Azure subscription and service limits along with maximum values." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
@@ -7,12 +7,15 @@
 The following document specifies some of the most common Microsoft Azure limits. Note that this document does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
 
 - [Subscription Limits](#subscription)
-- [Web Worker Limits](#webworkerlimits)
+- [Cloud Service Limits](#webworkerlimits)
 - [Virtual Machine Limits](#vmlimits)
+- [Websites Limits](#websiteslimits)
 - [Networking Limits](#networkinglimits)
 - [Storage Limits](#storagelimits)
 - [DocumentDB Preview Limits](#documentdblimits)
 - [SQL Database Limits](#sqldblimits)
+- [Media Services Limits](#mediaserviceslimits)
+- [Service Bus Limits](#servicebuslimits)
 
 > [WACOM.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge][azurelimitsblogpost]. The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
@@ -36,8 +39,8 @@ The following document specifies some of the most common Microsoft Azure limits.
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/">Storage accounts</a> per subscription</p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>50</p></td>
+   <td valign="middle"><p>100</p></td>
+   <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Cloud services</a> per subscription</p></td>
@@ -90,7 +93,7 @@ The following document specifies some of the most common Microsoft Azure limits.
 
 <sup>2</sup>Each virtual network supports a single virtual network gateway.
 
-##<a name="webworkerlimits"></a>Web/Worker Limits
+##<a name="webworkerlimits"></a>Cloud Service Limits
 
 <table cellspacing="0" border="1">
 <tr>
@@ -145,6 +148,10 @@ The following document specifies some of the most common Microsoft Azure limits.
 <sup>1</sup>When you create a virtual machine, a cloud service is automatically created to contain the machine. You can then add multiple virtual machines in that same Cloud Service.
 
 <sup>2</sup>Input endpoints are used to allow communication to the virtual machines that is external to the containing cloud service. Virtual machines within the same cloud service automatically allow communication between all UDP and TCP ports for internal communication.
+
+##<a name="websiteslimits"></a>Websites Limits
+
+[WACOM.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
 ##<a name="networkinglimits"></a>Networking Limits
 
@@ -269,6 +276,14 @@ For SQL Database Limits, please see the following topics:
  - [Azure SQL Database Service Tiers and Performance Levels][sqltiersperflevels]
  - [Database Throughput Unit (DTU) Quotas][sqlDTU]
  - [SQL Database Resource Limits][sqldblimits]
+
+##<a name="mediaserviceslimits"></a>Media Services Limits
+
+[WACOM.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
+
+##<a name="servicebuslimits"></a>Service Bus Limits
+
+[WACOM.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
 
 ##<a name="seealso"></a>See Also
 

@@ -32,7 +32,7 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 <ol start="6">
 <li><p>In Visual Studio, right-click the Windows Store project for the TodoList app and click <strong>Set as StartUp Project</strong>.</p></li>
 <li><p>In the shared project, open the App.xaml.cs project file, locate the definition for the <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>, and make sure that it is configured to connect to the mobile service running in Azure.</p>
-<div class="dev-callout"><strong>Note</strong><p>When you use Visual Studio tools to connect your app to a Mobile Service, the tool generate two sets of <strong>MobileServiceClient</strong> definitions, one for each client platform. This is a good time to simplify the generated code by unifying the <code>#if...#endif</code> wrapped <strong>MobileServiceClient</strong> definitions into a single unwrapped definition used by both versions of the app.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>When you use Visual Studio tools to connect your app to a Mobile Service, the tool generate two sets of <strong>MobileServiceClient</strong> definitions, one for each client platform. This is a good time to simplify the generated code by unifying the <code>#if...#endif</code> wrapped <strong>MobileServiceClient</strong> definitions into a single unwrapped definition used by both versions of the app. You won't need to do this when you downloaded the quickstart app from the Azure Management portal.</p></div>
 </li> 
 <li><p>Press the F5 key to run the Windows store app, and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
    
@@ -45,9 +45,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
 [WACOM.INCLUDE [mobile-services-windows-universal-dotnet-authenticate-app](../includes/mobile-services-windows-universal-dotnet-authenticate-app.md)] 
 
-<!-- Currently not supported
-[WACOM.NOTE]If you registered your Windows Store app package information with Mobile Services, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will still be	` presented with a login prompt every time that the login method is called.
--->
+[WACOM.NOTE]If you registered your Windows Store app package information with Mobile Services, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will continue to be presented with a login prompt every time that the login method is called.
 
 ##<a name="tokens"></a>Store the authorization tokens on the client
 

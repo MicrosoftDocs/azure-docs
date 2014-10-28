@@ -1,17 +1,18 @@
-<properties linkid="develop-notificationhubs-tutorials-get-started-ios" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/24/2014" ms.author="krisragh" />
+<properties urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="yuaxu" solutions="" manager="kirillg" editor="" />
+
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 
 # Get started with Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS" class="current">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>	
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS" class="current">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
-This topic shows you how to use Azure Notification Hubs to send push notifications to an iOS application. 
+This topic shows you how to use Azure Notification Hubs to send push notifications to an iOS application.
 In this tutorial you create a blank iOS app that receives push notifications using the Apple Push Notification service (APNs). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Generate the certificate signing request] 
+1. [Generate the certificate signing request]
 2. [Register your app and enable push notifications]
 3. [Create a provisioning profile for the app]
 4. [Configure your notification hub]
@@ -21,7 +22,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 This tutorial demonstrates the simple broadcast scenario using notification hubs. Be sure to follow along with the next tutorial to learn how to use notification hubs to address specific users and groups of devices. This tutorial requires the following prerequisites:
 
 + [Mobile Services iOS SDK]
-+ [XCode 4.5][Install Xcode] 
++ [XCode 4.5][Install Xcode]
 + An iOS 5.0 (or later version) capable device
 + iOS Developer Program membership
 
@@ -29,7 +30,7 @@ This tutorial demonstrates the simple broadcast scenario using notification hubs
    <p>Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.</p>
    </div>
 
-Completing this tutorial is a prerequisite for all other notification hub tutorials for iOS apps. 
+Completing this tutorial is a prerequisite for all other notification hub tutorials for iOS apps.
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.</p></div>
 
@@ -79,7 +80,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
    	![][31]
 
-2. Under **Targets**, click your project name, then  expand **Code Signing Identity**, then under **Debug** select the code-signing identity profile. Additionally, if using a newer version of XCode, toggle **Levels** from **Basic** to **All** and set the **Provisioning Profile** line item to the provisioning profile. 
+2. Under **Targets**, click your project name, then  expand **Code Signing Identity**, then under **Debug** select the code-signing identity profile. Additionally, if using a newer version of XCode, toggle **Levels** from **Basic** to **All** and set the **Provisioning Profile** line item to the provisioning profile.
 
    	![][32]
 
@@ -97,10 +98,10 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
 6. In the same file, add the following method:
 
-	    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {    
+	    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
 		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:
 		                              @"<connection string>" notificationHubPath:@"mynh"];
-		    
+
 		    [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
 		        if (error != nil) {
 		            NSLog(@"Error registering for notifications: %@", error);
@@ -118,7 +119,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 		    @"OK" otherButtonTitles:nil, nil];
 		    [alert show];
 		}
-	
+
 8. Run the app on your device.
 
 ##<a name="send"></a>Send notification from your backend
@@ -138,8 +139,8 @@ You can send notifications using Notification Hubs from any back-end using the <
 6. In the console window, execute the following command:
 
         Install-Package WindowsAzure.ServiceBus
-    
-	This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. 
+
+	This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>.
 
 5. Open the file Program.cs and add the following `using` statement:
 
@@ -154,7 +155,7 @@ You can send notifications using Notification Hubs from any back-end using the <
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 
-	Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub." 
+	Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub."
 
 	>[WACOM.NOTE]Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
 
@@ -163,11 +164,11 @@ You can send notifications using Notification Hubs from any back-end using the <
          SendNotificationAsync();
 		 Console.ReadLine();
 
-5. Press the F5 key to run the console application. 
- 
+5. Press the F5 key to run the console application.
+
 	You should receive an alert on your device. If you are using Wi-fi, make sure your connection is working.
 
-You can find all the possible payloads in the Apple [Local and Push Notification Programming Guide].   
+You can find all the possible payloads in the Apple [Local and Push Notification Programming Guide].
 
 ## <a name="next-steps"> </a>Next steps
 

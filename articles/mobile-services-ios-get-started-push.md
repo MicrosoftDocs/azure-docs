@@ -1,6 +1,6 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app (legacy push)." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app (legacy push)." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/15/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
 # Add push notifications to your Mobile Services app (legacy push)
 
@@ -24,7 +24,7 @@ This topic shows you how to use Azure Mobile Services to send push notifications
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Generate the certificate signing request] 
+1. [Generate the certificate signing request]
 2. [Register your app and enable push notifications]
 3. [Create a provisioning profile for the app]
 3. [Configure Mobile Services]
@@ -35,13 +35,13 @@ This tutorial walks you through these basic steps to enable push notifications:
 This tutorial requires the following:
 
 + [Mobile Services iOS SDK]
-+ [Xcode 4.5][Install Xcode] 
++ [Xcode 4.5][Install Xcode]
 + An iOS 5.0 (or later version) capable device
 + iOS Developer Program membership
 
    > [WACOM.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
 
 [WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
@@ -57,7 +57,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
     > [WACOM.NOTE] When dynamic schema is enabled on your mobile service, a new 'deviceToken' column is automatically added to the **TodoItem** table when a new item that contains this property is inserted.
 
-2. In QSAppDelegate.m, replace the following handler method inside the implementation: 
+2. In QSAppDelegate.m, replace the following handler method inside the implementation:
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
         (NSDictionary *)launchOptions
@@ -68,7 +68,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             return YES;
         }
 
-3. In QSAppDelegate.m, add the following handler method inside the implementation: 
+3. In QSAppDelegate.m, add the following handler method inside the implementation:
 
         // We are registered, so now store the device token (as a string) on the AppDelegate instance
         // taking care to remove the angle brackets first.
@@ -78,7 +78,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             self.deviceToken = [[deviceToken description] stringByTrimmingCharactersInSet:angleBrackets];
         }
 
-4. In QSAppDelegate.m, add the following handler method inside the implementation: 
+4. In QSAppDelegate.m, add the following handler method inside the implementation:
 
         // Handle any failure to register. In this case we set the deviceToken to an empty
         // string to prevent the insert from failing.
@@ -101,19 +101,19 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             [alert show];
         }
 
-5. In QSTodoListViewController.m, import the QSAppDelegate.h file so that you can use the delegate to obtain the device token: 
+5. In QSTodoListViewController.m, import the QSAppDelegate.h file so that you can use the delegate to obtain the device token:
 
         #import "QSAppDelegate.h"
 
-6. In QSTodoListViewController.m, modify the **(IBAction)onAdd** action by locating the following line: 
+6. In QSTodoListViewController.m, modify the **(IBAction)onAdd** action by locating the following line:
 
-        NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) }; 
- 
+        NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) };
+
    Replace this with the following code:
 
         // Get a reference to the AppDelegate to easily retrieve the deviceToken
         QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    
+
         NSDictionary *item = @{
             @"text" : itemText.text,
             @"complete" : @(NO),
@@ -129,12 +129,12 @@ Your app is now updated to support push notifications.
 
 ## Update the registered insert script in the Management Portal
 
-1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
+1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table.
 
    	![][21]
 
 2. In **todoitem**, click the **Script** tab and select **Insert**.
-   
+
   	![][22]
 
    	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
@@ -143,7 +143,7 @@ Your app is now updated to support push notifications.
 
         function insert(item, user, request) {
             request.execute();
-            // Set timeout to delay the notification, to provide time for the 
+            // Set timeout to delay the notification, to provide time for the
             // app to be closed on the device to demonstrate toast notifications
             setTimeout(function() {
                 push.apns.send(item.deviceToken, {
@@ -155,7 +155,7 @@ Your app is now updated to support push notifications.
             }, 2500);
         }
 
-   	This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. 
+   	This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request.
 
 
    	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a toast notification.
@@ -184,7 +184,7 @@ You have successfully completed this tutorial.
 
 ## Next steps
 
-In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
+In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs.
 
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
@@ -246,4 +246,3 @@ In this simple example a user receives a push notification with the data that wa
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
-

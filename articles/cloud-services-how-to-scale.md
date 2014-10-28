@@ -1,14 +1,12 @@
-<properties linkid="manage-services-how-to-scale-a-cloud-service" urlDisplayName="How to scale" pageTitle="How to scale a cloud service - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Learn how to scale a cloud service and linked resources in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="How to scale" pageTitle="How to scale a cloud service - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Learn how to scale a cloud service and linked resources in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
 
 
 
 
 
 #How to Scale an Application
-
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 
 On the Scale page of the Azure Management Portal, you can manually scale your application or you can set parameters to automatically scale it. You can scale applications that are running Web Roles, Worker Roles, or Virtual Machines. To scale an application that is running instances of Web Roles or Worker Roles, you add or remove role instances to accommodate the work load.

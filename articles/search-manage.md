@@ -37,7 +37,7 @@ To plan for capacity and understand the billing impact, we recommend these links
 +	[Limits and constraints](http://msdn.microsoft.com/en-us/library/dn798934.aspx)
 +	[Pricing Details](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-When you are ready to sign up, see [Configure Search in the Azure Preview portal](../search-configure/).
+When you are ready to sign up, see [Get started with Azure Search](../search-get-started/).
 
 
 <h2 id="sub-2">Administrative tasks</h2>
@@ -209,7 +209,7 @@ Roles provide access control after the service is created. Only subscription man
 
 
 <!--Link references-->
-[Configure search in the Azure Preview Portal]: ../search-configure/
+[Get started with Azure Search]: ../search-get-started/
 [Azure Search development workflow]: ../search-workflow/
 [Create your first azure search solution]: ../search-create-first-solution/
 

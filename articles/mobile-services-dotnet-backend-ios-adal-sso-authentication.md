@@ -1,12 +1,12 @@
-<properties linkid="develop-mobile-tutorials-sso-with-adal-ios" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your iOS application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" manager="dwrede" />
+<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your iOS application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc,mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="wesmc,mahender" />
 
 # Authenticate your app with Active Directory Authentication Library Single Sign-On
 
 [WACOM.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library. 
+In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library.
 
 To be able to authenticate users, you must register your application with the Azure Active Directory (AAD). This is done in two steps. First, you must register your mobile service and expose permissions on it. Second, you must register your iOS app and grant it access to those permissions
 
@@ -16,14 +16,14 @@ To be able to authenticate users, you must register your application with the Az
 This tutorial walks you through these basic steps:
 
 1. [Register your mobile service with the Azure Active Directory]
-2. [Register your app with the Azure Active Directory] 
+2. [Register your app with the Azure Active Directory]
 3. [Configure the mobile service to require authentication]
 4. [Add authentication code to the client app]
 5. [Test the client using authentication]
 
 This tutorial requires the following:
 
-* XCode 4.5 and iOS 6.0 (or later versions) 
+* XCode 4.5 and iOS 6.0 (or later versions)
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
 * Microsoft Azure Mobile Services SDK
 * The [Active Directory Authentication Library for iOS]
@@ -41,27 +41,27 @@ This tutorial requires the following:
 1. Download the [Active Directory Authentication Library for iOS] and include it in your project. Be sure to also add the storyboards from the ADAL source.
 
 2. In the QSTodoListViewController, include ADAL with the following:
-        
+
         #import "ADALiOS/ADAuthenticationContext.h"
 
-2. Then add the following method: 
+2. Then add the following method:
 
         - (void) loginAndGetData
-        {    
+        {
             MSClient *client = self.todoService.client;
             if (client.currentUser != nil) {
                 return;
             }
-    
+
             NSString *authority = @"<INSERT-AUTHORITY-HERE>";
             NSString *resourceURI = @"<INSERT-RESOURCE-URI-HERE>";
             NSString *clientID = @"<INSERT-CLIENT-ID-HERE>";
             NSString *redirectURI = @"<INSERT-REDIRECT-URI-HERE>";
 
             ADAuthenticationError *error;
-            ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];   
+            ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
             NSURL *redirectUri = [[NSURL alloc]initWithString:redirectURI];
- 
+
             [authContext acquireTokenWithResource:resourceURI clientId:clientID redirectUri:redirectUri completionBlock:^(ADAuthenticationResult *result) {
                 if (result.tokenCacheStoreItem == nil)
                 {
@@ -95,7 +95,7 @@ This tutorial requires the following:
 
 ## <a name="test-client"></a>Test the client using authentication
 
-1. From the Product menu, click Run to start the app 
+1. From the Product menu, click Run to start the app
 2. You will receive a prompt to login against your Azure Active Directory.  
 3. The app authenticates and returns the todo items.
 

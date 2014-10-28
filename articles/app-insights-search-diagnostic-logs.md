@@ -11,6 +11,7 @@ Your search results can also include the regular page view and request events th
 
 2. [Capture log events](#capture)
 + [Insert diagnostic log calls](#pepper)
++ [Exceptions](#exceptions)
 + [View log data](#view)
 + [Search log data](#search)
 + [Troubleshooting](#questions)
@@ -45,8 +46,8 @@ Insert event logging calls using your chosen logging framework.
 
 For example, if you use the simple Application Insights SDK, you might insert:
 
-    var tc = new Microsoft.ApplicationInsights.TelemetryContext();
-    tc.TrackTrace("Slow response - database01");
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow response - database01");
 
 Or if you use System.Diagnostics.Trace:
 
@@ -57,6 +58,62 @@ If you prefer log4net or NLog:
     logger.Warn("Slow response - database01");
 
 Run your app in debug mode, or deploy it to your web server.
+
+### <a name="exceptions"></a>Exceptions
+
+To send exceptions to the log:
+
+JavaScript at client
+
+    try 
+    { ...
+    }
+    catch (ex)
+    {
+      appInsights.TrackException(ex, "handler loc",
+        {Game: currentGame.Name, 
+         State: currentGame.State.ToString()});
+    }
+
+C# at server
+
+    var telemetry = new TelemetryClient();
+    ...
+    try 
+    { ...
+    }
+    catch (Exception ex)
+    {
+       // Set up some properties:
+       var properties = new Dictionary <string, string> 
+         {{"Game", currentGame.Name}};
+
+       var measurements = new Dictionary <string, double>
+         {{"Users", currentGame.Users.Count}};
+
+       // Send the exception telemetry:
+       telemetry.TrackException(ex, properties, measurements);
+    }
+
+VB at server
+
+    Dim telemetry = New TelemetryClient
+    ...
+    Try
+      ...
+    Catch ex as Exception
+      ' Set up some properties:
+      Dim properties = New Dictionary (Of String, String)
+      properties.Add("Game", currentGame.Name)
+
+      Dim measurements = New Dictionary (Of String, Double)
+      measurements.Add("Users", currentGame.Users.Count)
+  
+      ' Send the exception telemetry:
+      telemetry.TrackException(ex, properties, measurements)
+    End Try
+
+The properties and measurements parameters are optional, but are useful for filtering and adding extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you like to each dictionary.
 
 ## <a name="view"></a>4. View log data
 
@@ -227,6 +284,13 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 
 Up to 500 events per second from each application. Events are retained for seven days.
 
+### <a name="cani"></a>Can I...?
+
+- Set alerts on events and exceptions
+- Export logs for further analysis
+- Search on specific properties
+
+Not just yet, but all these features are on the backlog.
 
 ## <a name="add"></a>Next steps
 
@@ -235,7 +299,7 @@ Up to 500 events per second from each application. Events are retained for seven
 
 
 
-## Learn more
+## Application Insights - learn more
 
 * [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
@@ -243,6 +307,7 @@ Up to 500 events per second from each application. Events are retained for seven
 * [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
 * [Track usage][usage]
+* [Track custom events and metrics][track]
 * [Q & A and troubleshooting][qna]
 
 <!--Link references-->
@@ -254,5 +319,7 @@ Up to 500 events per second from each application. Events are retained for seven
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
 [usage]: ../app-insights-web-track-usage/
+[track]: ../app-insights-web-track-usage-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/
 [webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+

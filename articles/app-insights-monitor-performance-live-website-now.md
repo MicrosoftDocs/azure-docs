@@ -92,7 +92,7 @@ You'll see data under Application Health.
 [Troubleshooting][qna]
 
 
-## Learn more
+## Application Insights - learn more
 
 * [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
@@ -100,6 +100,7 @@ You'll see data under Application Health.
 * [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
 * [Track usage][usage]
+* [Track custom events and metrics][track]
 * [Q & A and troubleshooting][qna]
 
 <!--Link references-->
@@ -111,5 +112,7 @@ You'll see data under Application Health.
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
 [usage]: ../app-insights-web-track-usage/
+[track]: ../app-insights-web-track-usage-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/
+[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
 

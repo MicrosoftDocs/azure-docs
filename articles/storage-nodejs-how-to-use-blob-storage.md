@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -177,7 +177,7 @@ To upload data to a page blob, use the following:
 
 * **createPageBlob** - creates a new page blob of a specific length.
 
-* **createPageBlobFromFile** - creates a new page blob and uploads the contents of a file.
+* **createPageBlobFromLocalFile** - creates a new page blob and uploads the contents of a file.
 
 * **createPageBlobFromStream** - creates a new page blob and uploads the contents of a stream.
 
@@ -187,7 +187,7 @@ To upload data to a page blob, use the following:
 
 The following example uploads the contents of the **test.txt** file into **mypageblob**.
 
-	blobSvc.createPageBlobFromFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
+	blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
 	  if(!error){
 	    // file uploaded
 	  }

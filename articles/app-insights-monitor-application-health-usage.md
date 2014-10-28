@@ -7,25 +7,26 @@
 Sorry - this article has been merged with [another][start].
 
 ## Learn more
-
-* [Application Insights][start]
+* [Application Insights - get started][start]
 * [Monitor a live web server now][redfield]
-* [Explore metrics in Application Insights][explore]
-* [Diagnostic log search][diagnostic]
+* [Monitor performance in web applications][perf]
+* [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
 * [Track usage][usage]
+* [Track custom events and metrics][track]
 * [Q & A and troubleshooting][qna]
-
 
 <!--Link references-->
 
 
-[start]: ../app-insights-get-started/
+[start]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
-[explore]: ../app-insights-web-monitor-performance-web-applications/
+[perf]: ../app-insights-web-monitor-performance/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
 [availability]: ../app-insights-monitor-web-app-availability/
 [usage]: ../app-insights-web-track-usage/
+[track]: ../app-insights-web-track-usage-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/
+[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
 
 

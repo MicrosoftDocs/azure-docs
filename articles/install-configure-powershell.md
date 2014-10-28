@@ -1,4 +1,4 @@
-<properties linkid="Install-Config-Windows-Azure-PowerShell" urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="stevenka" title="How to install and configure Azure PowerShell" />
+<properties urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="stevenka" title="How to install and configure Azure PowerShell" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb" />
 
@@ -48,11 +48,11 @@ The method you use to open either console depends on the version of Windows you'
 
 Use of Azure requires a subscription. If you don't have a subscription, see [Get Started with Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
-The cmdlets need your subscription so they can manage your services. There are two ways to provide your subscription information to Windows PowerShell. You can use a management certificate that contains the information or you can sign in to Azure using your Microsoft account or an organizational account. When you sign in, Azure Active Directory (Azure AD) authenticates the credentials and returns an access token that lets Azure PowerShell manage your account. 
+The cmdlets need your subscription so they can manage your services. There are two ways to provide your subscription information to Windows PowerShell. You can use a management certificate that contains the information or you can sign in to Azure using your Microsoft account or a work or school account. When you sign in, Azure Active Directory (Azure AD) authenticates the credentials and returns an access token that lets Azure PowerShell manage your account. 
 
 To help you choose the authentication method that's appropriate for your needs, consider the following:
 
-- Azure AD is the recommended authentication method since it makes it easier to manage access to a subscription. With the update in version 0.8.6, it enables automation scenario with Azure AD authentication as well if Organizational account is used. It works with Azure Resource Manager API as well.
+- Azure AD is the recommended authentication method since it makes it easier to manage access to a subscription. With the update in version 0.8.6, it enables an automation scenario with Azure AD authentication as well if a work or school account is used. It works with Azure Resource Manager API as well.
 - When you use the certificate method, the subscription information is available as long as the subscription and the certificate are valid. However, this method makes it harder to manage access to a shared subscription, such as when more than one person is authorized to access the account. Also, Azure Resource Manager API doesn't accept certificate authentication.
 
 For more information about authentication and subscription management in Azure, see [Manage Accounts, Subscriptions, and Administrative Roles](http://go.microsoft.com/fwlink/?LinkId=324796).
@@ -69,33 +69,33 @@ For more information about authentication and subscription management in Azure, 
 
 4. Azure authenticates and saves the credential information, and then closes the window.
 
-5. Staring from 0.8.6, if you have an organizational account, you can type the following command to bypass the pop up window. This will pop up the standard Windows PowerShell credential window for you to enter your organizational account user name and password.
+5. Staring from 0.8.6, if you sign in using a work or school account, you can type the following command to bypass the pop up window. This will pop up the standard Windows PowerShell credential window for you to enter your work or school account user name and password.
 
         $cred = Get-Credential
         Add-AzureAccount -Credential $cred
 
 6. If you are using this in an automation script and want to avoid any pop up window, use the following snippet
 
-        $userName = "<your organizational account user name>"
-        $securePassword = ConvertTo-SecureString -String "<your organizational account password>" -AsPlainText -Force
+        $userName = "<your work or school account user name>"
+        $securePassword = ConvertTo-SecureString -String "<your work or school account password>" -AsPlainText -Force
         $cred = New-Object System.Management.Automation.PSCredential($userName, $securePassword)
         Add-AzureAccount -Credential $cred 
 
-	> [WACOM.NOTE] This non-interactive login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+	> [WACOM.NOTE] This non-interactive login method only works with a work or school account.  A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 	> 
 	> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
 	> 
 	> 2. If no directory exists, select **Create your directory** and provide the requested information.
 	> 
-	> 3. Select your directory and add a new user. This new user is an organizational account.
+	> 3. Select your directory and add a new user. This new user can sign in using a work or school account.
 	> 
 	>     During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
 	> 
-	> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the organizational account to manage your Azure subscription.
+	> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the work or school account to manage your Azure subscription.
 	> 
-	> 5. Finally, log out of the Azure portal and then log back in using the new organizational account. If this is the first time logging in with this account, you will be prompted to change the password.
+	> 5. Finally, log out of the Azure portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
 	>
-	>For more information on organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization](http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/).
+	>For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/).
 
 <h3>Use the certificate method</h3>
 

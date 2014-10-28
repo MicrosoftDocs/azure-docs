@@ -1,6 +1,6 @@
-<properties linkid="develop-mobile-tutorials-twilio-for-voice-and-sms" pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+<properties pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/03/2014" ms.author="MicrosoftHelp@twilio.com" />
 
 
 <h1>How to use Twilio for voice and SMS capabilities from Mobile Services</h1>
@@ -63,38 +63,46 @@ Various phone numbers need to be verified with Twilio for your account. For exam
 As an alternative to using an existing number for your applications, you can purchase a Twilio phone number. For information about purchasing a Twilio phone number, see [Twilio Phone Numbers Help](https://www.twilio.com/help/faq/phone-numbers).
 
 <h2><a id="create_app"></a>Create a Mobile Service</h2>
-A Mobile Service that hosts a Twilio enabled application is no different from any other Mobile Service. You simply add the Twilio node.js library in order to reference it from your Mobile Service Custom API scripts. For information on creating an initial mobile service, see [Getting Started with Mobile Services](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/).
+A Mobile Service that hosts a Twilio enabled application is no different from any other Mobile Service. You simply add the Twilio node.js library in order to reference it from your Mobile Service Custom API scripts. For information on creating an initial mobile service, see [Getting Started with Mobile Services](/en-us/documentation/articles/mobile-services-ios-get-started/).
 
-<h2><a id="VerifyPhoneNumbers"></a>Configure Your Mobile Service to use the Twilio Node.js Library</h2>
+<h2><a id="ConfigureMobileService"></a>Configure Your Mobile Service to use the Twilio Node.js Library</h2>
 Twilio provides a Node.js library that wraps various aspects of Twilio to provide simple and easy ways to interact with the Twilio REST API and Twilio Client to generate TwiML responses.
 
-To use the Twilio node.js library in your Mobile Service, you need leverage Mobile Services npm module support, which you can do by storing your scripts in source control. The tutorial [Store Scripts in Source Control](http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/) will walk you through setting up source control for the first time in your Mobile Services and storing your server scripts in a Git repository.
+To use the Twilio node.js library in your Mobile Service, you need leverage Mobile Services npm module support, which you can do by storing your scripts in source control. 
 
-Once you have set up source control for your Mobile Service, open Configure tab on your Mobile Service dashboard, locate and copy the Git URL
+1. Complete the tutorial [Store Scripts in Source Control](/en-us/documentation/articles/mobile-services-store-scripts-source-control/). This walks you through setting-up source control for your Mobile Services and storing your server scripts in a Git repository.
 
-Paste this URL into a browser and replace the repository name with */DebugConsole/index.html*
+2. After you have set up source control for your Mobile Service, open the repository on your local computer, browse to the `\services` subfolder, open the package.json file in a text editor, and add the following field to the **dependencies** object:
 
-For example, change:
+		"twilio": "~1.7.0"
+ 
+3. After you have added the Twilio package reference to the **dependencies** object, the package.json file should look like the following:
 
-    https://twilioSample.scm.azure-mobile.net/twilioSample.git
+		{
+		  "name": "todolist",
+		  "version": "1.0.0",
+		  "description": "todolist - hosted on Windows Azure Mobile Services",
+		  "main": "server.js",
+		  "engines": {
+		    "node": ">= 0.8.19"
+		  },
+		  "dependencies": {
+			"twilio": "~1.7.0" 
+		  },
+		  "devDependencies": {},
+		  "scripts": {},
+		  "author": "unknown",
+		  "licenses": [],
+		  "keywords":[]
+		}
 
-to:
+	>[WACOM.NOTE]The dependency for Twilio should be added as `"twilio": "~1.7.0"`, with a (~). A reference with a caret (^) is not supported. 
 
-    https://twilioSample.scm.azure-mobile.net/DebugConsole
+4. Commit this file update and push the update back to the mobile service.
 
-When prompted, enter the credentials you used when setting up the source control for the service.  Once logged in you will see the Azure Mobile Service console.  
-
-![Mobile Service Console](./media/partner-twilio-mobile-services-how-to-use-voice-sms/twilio-kuduconsole.png)
-
-In the console, change the directory to the scripts folder:
-
-    cd site\wwwroot\App_Data\config\scripts
-
-Once in the api folder you can install the Twilio node module be executing the following command:
-
-    npm install twilio
-
-Now you can reference and use the Twilio library in your custom API and table scripts.
+	This update to the package.json file will restart your mobile service.
+	
+The mobile service now installs and loads the Twilio package so you can reference and use the Twilio library in your custom API and table scripts.
 
 <h2><a id="howto_make_call"></a>How to: Make an outgoing call</h2>
 The following script shows how to initiate an outgoing call from your Mobile Service using the **makeCall** function. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **From** and **To** phone numbers, and ensure that you verify the **From** phone number for your Twilio account prior to running the code.
