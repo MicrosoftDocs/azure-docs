@@ -43,7 +43,7 @@ For more information about a dataset and its associated experiment, see the mode
   <td>Sample Experiment - Flight Delay Prediction - Development</td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-airport-codes](../includes/machine-learning-sample-dataset-airport-codes.md)]
-</td>
+  </td>
 </tr>
 <tr>
   <td><b>Flight Delays Data</b></td>
@@ -59,7 +59,7 @@ For more information about a dataset and its associated experiment, see the mode
   <td><i>same</i></td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-weather-dataset](../includes/machine-learning-sample-dataset-weather-dataset.md)]
-</td>
+  </td>
 </tr>
 
 <tr>
@@ -68,7 +68,7 @@ For more information about a dataset and its associated experiment, see the mode
   <td>Sample Experiment - Demand Forecasting of Bikes</td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-bike-rental-uci-dataset](../includes/machine-learning-sample-dataset-bike-rental-uci-dataset.md)]
-</td>
+  </td>
 </tr>
 
 <tr>
@@ -77,7 +77,7 @@ For more information about a dataset and its associated experiment, see the mode
   <td>Sample Experiment - Color Based Image Compression using K-Means Clustering - Development</td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-bill-gates-rgb-image](../includes/machine-learning-sample-dataset-bill-gates-rgb-image.md)]
-</td>
+  </td>
 </tr>
 
 <tr>
@@ -86,7 +86,7 @@ For more information about a dataset and its associated experiment, see the mode
   <td>Sample Experiment - Sentiment Classification - Development</td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-book-reviews-from-amazon](../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]
-</td>
+  </td>
 </tr>
 
 <tr>
@@ -95,7 +95,7 @@ For more information about a dataset and its associated experiment, see the mode
   <td>Sample Experiments - CRM - Development</td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-crm-dataset-shared](../includes/machine-learning-sample-dataset-crm-dataset-shared.md)]
-</td>
+  </td>
 </tr>
 <tr>
   <td><b>CRM Appetency Labels Shared</b></td>
@@ -103,7 +103,7 @@ For more information about a dataset and its associated experiment, see the mode
   <td><i>same</i></td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-crm-appetency-labels-shared](../includes/machine-learning-sample-dataset-crm-appetency-labels-shared.md)]
-</td>
+  </td>
 </tr>
 <tr>
   <td><b>CRM Churn Labels Shared</b></td>
@@ -111,7 +111,7 @@ For more information about a dataset and its associated experiment, see the mode
   <td><i>same</i></td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-crm-churn-labels-shared](../includes/machine-learning-sample-dataset-crm-churn-labels-shared.md)]
-</td>
+  </td>
 </tr>
 <tr>
   <td><b>CRM Upselling Labels Shared</b></td>
@@ -119,7 +119,7 @@ For more information about a dataset and its associated experiment, see the mode
   <td><i>same</i></td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-crm-upselling-labels-shared](../includes/machine-learning-sample-dataset-crm-upselling-labels-shared.md)]
-</td>
+  </td>
 </tr>
 
 <tr>
@@ -128,7 +128,7 @@ For more information about a dataset and its associated experiment, see the mode
   <td>Sample Experiment - German Credit - Development</td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
-</td>
+  </td>
 </tr>
 
 <tr>
@@ -137,7 +137,7 @@ For more information about a dataset and its associated experiment, see the mode
   <td>Sample Experiment - S & P 500 Company Clustering - Development</td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-wikipedia-sp-500](../includes/machine-learning-sample-dataset-wikipedia-sp-500.md)]
-</td>
+  </td>
 </tr>
 
 <tr>
@@ -146,7 +146,7 @@ For more information about a dataset and its associated experiment, see the mode
   <td>Sample Experiment - Network Intrusion Detection - Development</td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-network-intrusion](../includes/machine-learning-sample-dataset-network-intrusion.md)]
-</td>
+  </td>
 </tr>
 
 <tr>
@@ -155,22 +155,10 @@ For more information about a dataset and its associated experiment, see the mode
   <td>Sample Experiment - Student Performance - Development</td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-student-performance](../includes/machine-learning-sample-dataset-student-performance.md)]
-</td>
+  </td>
 </tr>
 
 </table>
-
-| Dataset name | Associated model | Associated experiment |
-|:------------ |:---------------- |:--------------------- |
-| **Airport Codes Dataset** <p> **Flight Delays Data** <p> **Weather Dataset** | [Flight delay prediction](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-flight-delay-prediction/) | Sample Experiment - Flight Delay Prediction - Development |
-| **Bike Rental UCI dataset** | [Prediction of the number of bike rentals](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/) | Sample Experiment - Demand Forecasting of Bikes |
-| **Bil Gates RGB Image** | [Color quantization using K-Means clustering](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/) | Sample Experiment - Color Based Image Compression using K-Means Clustering - Development |
-| **Book Reviews from Amazon** | [Sentiment analysis](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-sentiment-analysis/) | Sample Experiment - Sentiment Classification - Development |
-| **CRM Dataset Shared** <p> **CRM Appetency Labels Shared** <p> **CRM Churn Labels Shared** <p> **CRM Upselling Labels Shared** | [CRM task](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-crm-task/) | Sample Experiments - CRM - Development |
-| **German Credit Card UCI dataset** | [Credit risk prediction](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-credit-risk-prediction/) | Sample Experiment - German Credit - Development |
-| **Wikipedia SP 500 Dataset** | [Finding similar companies](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-finding-similar-companies/) | Sample Experiment - S & P 500 Company Clustering - Development |
-| [**network_intrusion_detection.csv**](https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv) |  [Network intrusion detection](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-network-intrusion-detection/) | Sample Experiment - Network Intrusion Detection - Development |
-| [**student_performance.txt**](https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt) | [Prediction of student performance](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-student-performance/) | Sample Experiment - Student Performance - Development |
 
 
 ## Miscellaneous sample datasets
@@ -178,7 +166,7 @@ For more information about a dataset and its associated experiment, see the mode
 The following datasets are examples of the various types of data used in machine learning.
 
 | Dataset name | Dataset description | Related research |
-|:- |:- |:- |
+|:------------ |:------------------- |:---------------- |
 | **Adult Census Income Binary Classification dataset** | A subset of the 1994 Census database, using working adults over the age of 16 with an adjusted income index of > 100.<p>**Usage**: Classify people using demographics to predict whether a person earns over 50K a year. | Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml](http://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science |
 | **Automobile price data (Raw)** | Information about automobiles by make and model, including the price, features such as the number of cylinders and MPG, as well as an insurance risk score.<p>The risk score is initially associated with auto price and then adjusted for actual risk in a process known to actuaries as symboling. A value of +3 indicates that the auto is risky, and a value of -3 that it is probably pretty safe.<p>**Usage**: Predict the risk score by features, using regression or multivariate classification. | Schlimmer, J.C. (1987). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml](http://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science |
 | **Blood donation data** | A subset of data from the blood donor database of the Blood Transfusion Service Center of Hsin-Chu City, Taiwan.<p>Donor data includes the months since last donation), and frequency, or the total number of donations, time since last donation, and amount of blood donated.<p>**Usage**: The goal is to predict via classification whether the donor donated blood in March 2007, where 1 indicates a donor during the target period, and 0 a non-donor. | Yeh, I.C., (2008). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml](http://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science <p>Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, [http://dx.doi.org/10.1016/j.eswa.2008.07.018](http://dx.doi.org/10.1016/j.eswa.2008.07.018) |
