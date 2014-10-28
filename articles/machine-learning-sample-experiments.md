@@ -27,7 +27,7 @@ For a list of all the sample datasets available in ML Studio, see [Machine Learn
 ## Experiments associated with sample models
 
 The following experiments are associated with sample models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/en-us/documentation/services/machine-learning/models/).
-For more information about an experiment and its associated dataset, see the model details.
+For more information about an experiment and its associated datasets, see the model details.
 
 
 | Experiment name | Associated model | Associated datasets |
@@ -37,10 +37,10 @@ For more information about an experiment and its associated dataset, see the mod
 | **Sample Experiment - Demand Forecasting of Bikes** | [Prediction of the number of bike rentals](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/) | Bike Rental UCI dataset |
 | **Sample Experiment - Flight Delay Prediction - Development** | [Flight delay prediction](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-flight-delay-prediction/) | Airport Codes Dataset <p> Flight Delays Data <p> Weather Dataset |
 | **Sample Experiment - German Credit - Development** | [Credit risk prediction](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-credit-risk-prediction/) | German Credit Card UCI dataset |
-| **Sample Experiment - Network Intrusion Detection - Development** | [Network intrusion detection](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-network-intrusion-detection/) | [network_intrusion_detection.csv](https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv) |
+| **Sample Experiment - Network Intrusion Detection - Development** | [Network intrusion detection](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-network-intrusion-detection/) | network_intrusion_detection.csv |
 | **Sample Experiment - S & P 500 Company Clustering - Development** | [Finding similar companies](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-finding-similar-companies/) | Wikipedia SP 500 Dataset |
 | **Sample Experiment - Sentiment Classification - Development** | [Sentiment analysis](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-sentiment-analysis/) | Book Reviews from Amazon |
-| **Sample Experiment - Student Performance - Development** | [Prediction of student performance](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-student-performance/) | [student_performance.txt](https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt) |
+| **Sample Experiment - Student Performance - Development** | [Prediction of student performance](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-student-performance/) | student_performance.txt |
 
 
 
