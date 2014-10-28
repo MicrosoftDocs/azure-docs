@@ -137,6 +137,9 @@ With the release of Azure HDInsight on Hadoop 2.2, Microsoft has made HDInsight 
 
 A custom Oozie metastore database deployed with an HDInsight 3.1 cluster cannot be reused with an HDInsight 2.1 cluster. This is the case even if the metastore originated with a 2.1 cluster. This scenario is not supported as the metastore schema gets upgraded when used with a 3.1 cluster and so is no longer compatible with the metastore required by the 2.1 clusters. Any attempt to reuse an Oozie metastore that has been used with an HDInsight 3.1 cluster will render the 2.1 cluster useless. 
 
+**Oozie metastores cannot be shared across clusters**
+On a more general and somewhat orthogonal note, Oozie metastores are attached to specific clusters and cannot be shared across clusters.
+
 ###Breaking Changes
 
 **Prefix syntax**:
