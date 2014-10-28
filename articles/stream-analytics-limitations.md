@@ -126,7 +126,7 @@ The LEFT OUTER JOIN operation is enabled in the Stream Analytics Query Language 
 [stream.analytics.limitations]: ../stream-analytics-limitations/
 
 
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlinks/?LinkID=513299
+[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 

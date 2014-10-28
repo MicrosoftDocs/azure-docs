@@ -276,7 +276,7 @@ In this tutorial, you have learned how to use Stream Analytics to process the we
 [stream.analytics.introduction]: ../stream-analytics-introduction/
 [stream.analytics.limitations]: ../stream-analytics-limitations/
 [stream.analytics.scale]: ../stream-analytics-scale-jobs/
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlinks/?LinkID=513299
+[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
 [stream.analytics.documentation]: http://go.microsoft.com/fwlink/?LinkId=512093
