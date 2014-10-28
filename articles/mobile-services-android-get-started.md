@@ -48,15 +48,16 @@ In this section you will create a new Android app that is connected to your mobi
 
 4. Click **Create TodoItem table** to create a table to store app data.
 
-5. Under **Download and run your app**, click **Download**. 
 
-  	This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
+5. Now download your app:
+	- The latest app version uses the Mobile Services Android SDK 2.0. You can download that version from <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">here</a>. Click **Download Zip**, unzip it, and the project is in GettingStarted under the Android folder.
+	 
+	- An earlier versio uses the prior version of the SDK. To use it, under **Download and run your app**, click **Download**. This downloads the project for the sample _To do list_ application that is connected to your mobile service. The project files are compressed, so browse to their location and expand the files on your computer.
+
 
 ## Run your Android app
 
 The final stage of this tutorial is to build and run your new app.
-
-1. Browse to the location where you saved the compressed project files and expand the files on your computer.
 
 2. In Eclipse, click **File** then **Import**, expand **Android**, click **Existing Android Code into Workspace**, and then click **Next.** 
 
@@ -69,6 +70,14 @@ The final stage of this tutorial is to build and run your new app.
 	This imports the project files into the current workspace.
 
    	![][8]
+
+4. If you downloaded version 2.0 of the SDK, you need to update the code with the Url and key of your mobile service:
+	- 	Find the **OnCreate** method in **TodoActivity.java** and locate the code that instantiates the mobile services client. The code is visible in the preceding image.
+	- 	Replace "MobileServiceUrl" with the actual Url of your mobile service.
+	- 	Replace "AppKey" with the key of your mobile service.
+	- 	For more details consult the tutorial <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-android-get-started-data/">Add Mobile Services to an existing app</a>. 
+
+
 
 4. From the **Run** menu, click **Run** to start the project in the Android emulator.
 
