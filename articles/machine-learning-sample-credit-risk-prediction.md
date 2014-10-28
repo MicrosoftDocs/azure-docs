@@ -23,6 +23,7 @@ This example is divided into 3 sample experiments:
 - Scoring Experiment – to set up a web service using the trained model
 -->
 
+<!-- Removed because we added a section at the bottom describing the dataset
 ##Dataset Description
 
 The experiment uses the UCI Statlog (German Credit Card) dataset which can be found here: 
@@ -30,6 +31,7 @@ The experiment uses the UCI Statlog (German Credit Card) dataset which can be fo
 We are using the german.data file from this website.
 
 The dataset classifies people, described by a set of attributes, as low or high credit risks. Each example represents a person. There are 20 features, both numerical and categorical, and a binary label (the credit risk value). High credit risk entries have label = 2, low credit risk entries have label = 1. The cost of misclassifying a low risk example as high is 1, whereas the cost of misclassifying a high risk example as low is 5.
+-->
 
 ##Development Experiment
 
