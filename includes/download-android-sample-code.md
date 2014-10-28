@@ -1,7 +1,7 @@
 This tutorial is built on **GetStartedWithData**, which is an Android app. The UI for this app is identical to the one in the Mobile Services Android quickstart, except that items that are added to the list are stored locally in memory. You will add the code needed to persist the data to storage.
 
 
-1. Download the `mobile-services-samples` repository from gitHub by clicking <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">here</a> and then Click **Download ZIP**.
+1. Download the `mobile-services-samples` repository from gitHub by clicking <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures" target="blank">here</a> and then Click **Download ZIP**.
 
 3. Unzip the downloaded file and make a note of its location.
 
