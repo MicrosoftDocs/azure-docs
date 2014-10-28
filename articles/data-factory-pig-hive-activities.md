@@ -9,17 +9,17 @@ A pipeline in an Azure data factory processes data in linked storage services by
 
 Section | Description
 ------- | -----------
-Pig JSON example | This section provides JSON schema for defining a HDInsight Activity that uses a Pig transformation. 
-Hive JSON example | This section provides JSON schema for defining a HDInsight Activity that uses a Hive transformation. 
-Using Pig and Hive scripts that are stored in Azure Blob storage | Describes how to refer to Pig/Hive scripts stored in an Azure blob storage from an HDInsight Activity using Pig/Hive transformation.
-Parameterized Pig and Hive Queries | Describes how to specify specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties** property in JSON.
-Walkthrough: Use Hive with Azure Data Factory | Provides step-by-step instructions to create a pipeline that use Hive to process data.  
+[Pig JSON example](#PigJSON) | This section provides JSON schema for defining a HDInsight Activity that uses a Pig transformation. 
+[Hive JSON example](#HiveJSON) | This section provides JSON schema for defining a HDInsight Activity that uses a Hive transformation. 
+[Using Pig and Hive scripts that are stored in Azure Blob storage](#ScriptInBlob) | Describes how to refer to Pig/Hive scripts stored in an Azure blob storage from an HDInsight Activity using Pig/Hive transformation.
+[Parameterized Pig and Hive Queries](#ParameterizeQueries) | Describes how to specify specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties** property in JSON.
+[Walkthrough: Use Hive with Azure Data Factory](#Waltkthrough) | Provides step-by-step instructions to create a pipeline that use Hive to process data.  
 
 
 
 When defining a Pig or Hive activity in a pipeline JSON, the **type** property should be set to: **HDInsightActivity**.
 
-## Pig JSON example
+## <a name="PigJSON"></a> Pig JSON example
 
     {
 		"name": "Pig Activity",
@@ -48,7 +48,7 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 - You specify parameters for the Pig script by using the **extendedProperties**. More details are provided later in this article. 
 
 
-## Hive JSON example
+## <a name="HiveJSON"></a> ## Hive JSON example
 
 
     {
@@ -80,7 +80,7 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 > [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema. 
 
 
-## Using Pig and Hive scripts that are stored in Azure Blob storage
+## <a name="ScriptInBlob"></a>Using Pig and Hive scripts that are stored in Azure Blob storage
 You can store Pig/Hive scripts in an Azure blob storage associated with the HDInsight cluster and refer to them from Pig/Hive activities by using the following properties in the JSON: 
 
 * **scriptPath** – Path to the Pig or Hive script file
@@ -128,7 +128,7 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
 
 > [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema.
 
-## Parameterized Pig and Hive Queries
+## <a name="ParameterizeQueries"></a>Parameterized Pig and Hive Queries
 The Data Factory Pig and Hive activities enable you to specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties**. The extendedProperties section consists of the name of the parameter, and value of the parameter.
 
 See the following example for specifying parameters for a Hive script using **extendedProperties**. To use parameterized Hive  scripts, do the following:
@@ -169,7 +169,7 @@ See the following example for specifying parameters for a Hive script using **ex
 
 -  
 
-## Walkthrough: Use Hive with Azure Data Factory
+## <a name="Walkthrough"></a>Walkthrough: Use Hive with Azure Data Factory
 ### Pre-requisites
 1. Complete the tutorial from [Get started with Azure Data Factory][adfgetstarted] article.
 2. Upload **emp.txt** file you created in the above tutorial as **hiveinput\emp.txt** to the adftutorial container in the blob storage. The **hiveinput** folder is automatically created in the **adftutorial** container when you upload emp.txt file with this syntax. 

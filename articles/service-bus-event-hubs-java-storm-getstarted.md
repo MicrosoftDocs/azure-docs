@@ -48,7 +48,7 @@ In order to complete this tutorial you will need the following:
 
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-java.md)]
+[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-java](../includes/service-bus-event-hubs-get-started-send-java.md)]
 
 
 [WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../includes/service-bus-event-hubs-get-started-receive-storm.md)]

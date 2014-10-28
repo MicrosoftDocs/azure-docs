@@ -46,11 +46,26 @@ The Get-AzureDataFactoryLinkedService cmdlet gets information about a specific l
  
 This command returns information about all linked services in the Azure data factory ADFTutorialDataFactory.
 
+
+You can use the -DataFactory parameter instead of using DataFactoryName and ResourceGroupName parameters. This helps you with entering the resource group and factory names only once and use the Data Factory object as parameter for all the cmdlets that take both ResourceGroupName and DataFactoryName as parameters.
+
+    $df = Get-AzureDataFactory -ResourceGroup ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
+	
+	Get-AzureDataFactoryLinkedService -DataFactory $df 
+
 ### Example 2
 
     Get-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name MyBlobStore
 
-This command returns information about the linked service MyBlobStore in the Azure data factoryADFTutorialDataFactory.
+This command returns information about the linked service MyBlobStore in the Azure data factoryADFTutorialDataFactory. 
+
+You can use the -DataFactory parameter instead of using -ResourceGroup and -DataFactoryName parameters as shown below: 
+
+
+    $df = Get-AzureDataFactory -ResourceGroup ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
+	
+	Get-AzureDataFactoryLinkedService -DataFactory $df -Name MyBlobStore
+
 
 ## <a name="get-azuredatafactorytable"></a> Get-AzureDataFactoryTable
 The Get-AzureDataFactoryTable cmdlet gets information about a specific table or all tables in an Azure data factory. 
@@ -61,11 +76,20 @@ The Get-AzureDataFactoryTable cmdlet gets information about a specific table or 
 
 This command returns information about all tables in the Azure data factory ADFTutorialDataFactory.
 
+You can use the -DataFactory parameter instead of using -ResourceGroup and -DataFactoryName parameters as shown below: 
+
+
+    $df = Get-AzureDataFactory -ResourceGroup ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
+	
+	Get-AzureDataFactoryTable -DataFactory $df
+
 ### Example 2
 
     Get-AzureDataFactoryTable -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name EmpTableFromBlob
 
 This command returns information about the table EmpTableFromBlob in the Azure data factory ADFTutorialDataFactory.
+
+
 
 ## <a name="get-azuredatafactorypipeline"></a>Get-AzureDataFactoryPipeline
 The Get-AzureDataFactoryPipeline cmdlet gets information about a specific pipeline or all pipelines in an Azure data factory.
@@ -367,14 +391,21 @@ This command resumes the pipeline ADFTutorialPipeline in the Azure data factory 
 
 Article | Description
 ------ | ---------------
+[Monitor and manage Azure Data Factory using Azure Preview Portal][monitor-manage-using-portal] | This article describes how to monitor and manage an Azure data factory using Azure Preview Portal.
 [Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob.
 [Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
 [Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
 [Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
-[Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to monitor an Azure Data Factory using Azure PowerShell cmdlets. You can try out the examples in the article on the ADFTutorialDataFactory.
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure 
-Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
+[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issue.
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
+[Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the **Data Factory cmdlets**.
 
+[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
+[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
+[adf-tutorial]: ../data-factory-tutorial
+[use-custom-activities]: ../data-factory-use-custom-activities
+[monitor-manage-using-portal]: ../data-factory-monitor-manage-using-management-portal
 
+[troubleshoot]: ../data-factory-troubleshoot
+[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456

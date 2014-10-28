@@ -2,8 +2,8 @@
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 
-# Introduction to Azure Data Factory
-**Azure Data Factory** is a fully managed service for composing data storage, processing, and movement services into streamlined, scalable, and reliable data production pipelines.  Developers can use Data Factory to transform semi-structured, unstructured and structured data from on-premises and cloud sources into trusted information. Developers build data-driven workflows (pipelines) that join, aggregate and transform data sourced from their on-premises, cloud-based and internet services, and set up complex data processing through simple JSON scripting. The Azure Data Factory service provides monitoring and management of these pipelines at a glance with a rich visual experience offered through the Azure Preview Portal. The information produced by pipelines can be easily consumed using BI and analytics tools, and other applications to reliably drive key business insights and decisions.
+# Introduction to Azure Data Factory Service
+The **Azure Data Factory** service is a fully managed service for composing data storage, processing, and movement services into streamlined, scalable, and reliable data production pipelines.  Developers can use Data Factory to transform semi-structured, unstructured and structured data from on-premises and cloud sources into trusted information. Developers build data-driven workflows (pipelines) that join, aggregate and transform data sourced from their on-premises, cloud-based and internet services, and set up complex data processing through simple JSON scripting. The Azure Data Factory service provides monitoring and management of these pipelines at a glance with a rich visual experience offered through the Azure Preview Portal. The information produced by pipelines can be easily consumed using BI and analytics tools, and other applications to reliably drive key business insights and decisions.
 
 This article provides an overview of the Azure Data Factory service, the value it provides, and the scenarios it supports. 
 
@@ -49,7 +49,6 @@ Without Data Factory, enterprises must build custom data movement components or 
 With Azure Data Factory data storage and processing services are collected into a Hub container which facilitates and optimizes computation and storage activities, enables unified resource consumption management, and provides services for data movement as-needed.
 
 ###Scenario #2: Operationalize Information Production
-![Operationalize Information Production][image-data-factory-introduction-secenario2-operationalize-infoproduction]
 
 Operationalization scenarios are the next logical step after data sourcing scenarios. Once data is present in a Hub, you want to author and operationalize data pipelines to reliably produce transformed data on a maintainable and controlled schedule to feed production environments with trusted data.  Data transformation in Azure Data Factory is through Hive, Pig and custom C# processing running on Hadoop (Azure HDInsight).  These transformations can be used to clean data, mask critical data fields, and perform other operations on the data in a wide variety of complex ways.  Ordinarily, operationalization is achieved with complex and hard to maintain infrastructure and custom services, and poses a number of challenges for implementation, management, scaling, troubleshooting, and versioning such a solution.
   
