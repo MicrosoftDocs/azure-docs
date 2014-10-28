@@ -201,5 +201,5 @@ For additional support, see [Azure Stream Analytics forum][stream.analytics.foru
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
 [stream.analytics.scale.jobs]: ../stream-analytics-scale-jobs/
 [stream.analytics.limitations]: ../stream-analytics-limitations/
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlinks/?LinkID=513299
+[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
