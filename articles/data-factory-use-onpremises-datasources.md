@@ -53,15 +53,15 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 		![New Everything][image-data-factory-onprem-new-everything]
 
-	2. Click **Data, storage, cache, + backup** in **Gallery**.	
+	2. Click **Data + analytics** in **Marketplace**.	
 
 		![Datstorage, cache, backup][image-data-factory-onprem-datastorage-cache-backup]
 
-	3. In the **Data, storage, cache, + backup** blade, click **Data Factory** tile and skip the next two steps. If you don't see the **Data Factory** tile, click **More** as shown in the following image and continue with the next step.
+	3. In the **Data + analytics** blade, click **Data Factory** tile and skip the next step. If you don't see the **Data Factory** tile, click **More** as shown in the following image and continue with the next step.
 
 		![Data Storage - See All][image-data-factory-onprem-datastorage-see-all]
 
-	4. In the **Data Services** blade, click **Data Factory (preview)**.
+	4. In the **Data Services** blade, click **Data Factory**.
 
 		![Data Services blade][image-data-factory-onprem-dataservices-blade]
 
@@ -178,11 +178,7 @@ In this step, you will create two linked services: **MyBlobStore** and **OnPremS
 
 5. Enter the **Account Name** and **Account Key** for your Azure Storage Account, and click **OK**.
 
-	
-	- **To get the Account Key for a storage in the Azure Preview Portal**:  
-
-		![Get Storage Key][image-data-factory-preview-portal-storage-key]
-   
+  
 6. After you click **OK** on the **New data store** blade, you should see **MyBlobStore** in the list of **DATA STORES** on the **Linked Services** blade. Check **NOTIFICATIONS** Hub (on the left) for any messages.
 
 	![Linked Services blade with MyBlobStore][image-data-factory-linkedservices-with-storage]
