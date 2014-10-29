@@ -41,33 +41,43 @@ For more information about a dataset and its associated experiment, see the mode
   <th>Dataset description</th>
 </tr>
 
-<tr>
-  <td><p ID=airport-codes-dataset></p><b>Airport Codes Dataset</b></td>
+<!-- trying ID in the tr tag -->
+
+<tr ID=airport-codes-dataset>
+  <td><b>Airport Codes Dataset</b></td>
   <td><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-flight-delay-prediction/">Flight delay prediction</a></td>
   <td>Sample Experiment - Flight Delay Prediction - Development</td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-airport-codes](../includes/machine-learning-sample-dataset-airport-codes.md)]
   </td>
 </tr>
-<tr>
-  <td><p ID=flight-delays-data></p><b>Flight Delays Data</b></td>
+
+<!-- trying ID in the tr tag -->
+
+<tr ID=flight-delays-data>
+  <td><b>Flight Delays Data</b></td>
   <td><i>same</i></td>
   <td><i>same</i></td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-flight-delays-data](../includes/machine-learning-sample-dataset-flight-delays-data.md)]
 </td>
-</tr>
+</tr ID=weather-dataset>
+
+<!-- trying ID in the previous row's end tr tag -->
+
 <tr>
-  <td><p ID=weather-dataset></p><b>Weather Dataset</b></td>
+  <td><b>Weather Dataset</b></td>
   <td><i>same</i></td>
   <td><i>same</i></td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-weather-dataset](../includes/machine-learning-sample-dataset-weather-dataset.md)]
   </td>
-</tr>
+</tr ID=bike-rental-uci-dataset>
+
+<!-- trying ID in the previous row's end tr tag -->
 
 <tr>
-  <td><p ID=bike-rental-uci-dataset></p><b>Bike Rental UCI dataset</b></td>
+  <td><b>Bike Rental UCI dataset</b></td>
   <td><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/">Prediction of the number of bike rentals</a></td>
   <td>Sample Experiment - Demand Forecasting of Bikes</td>
   <td>
@@ -75,8 +85,10 @@ For more information about a dataset and its associated experiment, see the mode
   </td>
 </tr>
 
+<!-- trying ID in a td tag -->
+
 <tr>
-  <td><p ID=bill-gates-rgb-image></p><b>Bil Gates RGB Image</b></td>
+  <td ID=bill-gates-rgb-image><b>Bil Gates RGB Image</b></td>
   <td><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/">Color quantization using K-Means clustering</a></td>
   <td>Sample Experiment - Color Based Image Compression using K-Means Clustering - Development</td>
   <td>
