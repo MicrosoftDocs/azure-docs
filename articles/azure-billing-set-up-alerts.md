@@ -19,6 +19,7 @@ Next, click **Add Alert** to create your first one - you can set up a total of f
 ![][Image2]
 
 When you add an alert, you give it a unique name, choose a spending threshold, and choose the email addresses where alerts will be sent. When setting up the threshold, you can choose either a **Billing Total** or a **Monetary Credit** from the **Alert For** list. For a billing total, an alert is sent when subscription spending exceeds the threshold. For a monetary credit, an alert is sent when monetary credits drop below the limit. Monetary credits usually apply to free trials and subscriptions associated with MSDN accounts.
+
 ![][Image3]
 
 Azure supports any email address but doesn’t verify that the email address works, so double-check for typos.
