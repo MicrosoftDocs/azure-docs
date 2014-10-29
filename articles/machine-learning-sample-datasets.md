@@ -34,16 +34,21 @@ The following datasets are used by sample models in the [Azure Machine Learning 
 For more information about a dataset and its associated experiment, see the model details.
 
 <table>
-<tr>
+
+<!-- Try putting the ID for the NEXT row into THIS row
+
+<!-- ...in the initial tr tag
+
+<tr ID=airport-codes-dataset>
   <th>Dataset name</th>
   <th>Associated model</th>
   <th>Associated experiment</th>
   <th>Dataset description</th>
 </tr>
 
-<!-- trying ID in the tr tag -->
+<!-- ...again in the initial tr tag -->
 
-<tr ID=airport-codes-dataset>
+<tr ID=flight-delays-data>
   <td><b>Airport Codes Dataset</b></td>
   <td><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-flight-delay-prediction/">Flight delay prediction</a></td>
   <td>Sample Experiment - Flight Delay Prediction - Development</td>
@@ -52,29 +57,29 @@ For more information about a dataset and its associated experiment, see the mode
   </td>
 </tr>
 
-<!-- trying ID in the tr tag -->
+<!-- ...in the first cell's initial td tag -->
 
-<tr ID=flight-delays-data>
-  <td><b>Flight Delays Data</b></td>
+<tr>
+  <td ID=weather-dataset><b>Flight Delays Data</b></td>
   <td><i>same</i></td>
   <td><i>same</i></td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-flight-delays-data](../includes/machine-learning-sample-dataset-flight-delays-data.md)]
 </td>
-</tr ID=weather-dataset>
+</tr>
 
-<!-- trying ID in the previous row's end tr tag -->
+<!-- ...in the last cell's initial td tag -->
 
 <tr>
   <td><b>Weather Dataset</b></td>
   <td><i>same</i></td>
   <td><i>same</i></td>
-  <td>
+  <td ID=bike-rental-uci-dataset>
 [AZURE.INCLUDE [machine-learning-sample-dataset-weather-dataset](../includes/machine-learning-sample-dataset-weather-dataset.md)]
   </td>
-</tr ID=bike-rental-uci-dataset>
+</tr>
 
-<!-- trying ID in the previous row's end tr tag -->
+<!-- ...in the last cell's final td tag -->
 
 <tr>
   <td><b>Bike Rental UCI dataset</b></td>
@@ -82,22 +87,22 @@ For more information about a dataset and its associated experiment, see the mode
   <td>Sample Experiment - Demand Forecasting of Bikes</td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-bike-rental-uci-dataset](../includes/machine-learning-sample-dataset-bike-rental-uci-dataset.md)]
-  </td>
+  </td ID=bill-gates-rgb-image>
 </tr>
 
-<!-- trying ID in a td tag -->
+<!-- ...in the final tr tag -->
 
 <tr>
-  <td ID=bill-gates-rgb-image><b>Bil Gates RGB Image</b></td>
+  <td><b>Bil Gates RGB Image</b></td>
   <td><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/">Color quantization using K-Means clustering</a></td>
   <td>Sample Experiment - Color Based Image Compression using K-Means Clustering - Development</td>
   <td>
 [AZURE.INCLUDE [machine-learning-sample-dataset-bill-gates-rgb-image](../includes/machine-learning-sample-dataset-bill-gates-rgb-image.md)]
   </td>
-</tr>
+</tr ID=book-reviews-from-amazon>
 
 <tr>
-  <td><p ID=book-reviews-from-amazon></p><b>Book Reviews from Amazon</b></td>
+  <td><b>Book Reviews from Amazon</b></td>
   <td><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-sentiment-analysis/">Sentiment analysis</a></td>
   <td>Sample Experiment - Sentiment Classification - Development</td>
   <td>
@@ -105,8 +110,10 @@ For more information about a dataset and its associated experiment, see the mode
   </td>
 </tr>
 
+<!-- back to putting the ID in the first cell's initial td tag -->
+
 <tr>
-  <td><p ID=crm-dataset-shared></p><b>CRM Dataset Shared</b></td>
+  <td ID=crm-dataset-shared><b>CRM Dataset Shared</b></td>
   <td><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-crm-task/">CRM task</a></td>
   <td>Sample Experiments - CRM - Development</td>
   <td>
@@ -114,7 +121,7 @@ For more information about a dataset and its associated experiment, see the mode
   </td>
 </tr>
 <tr>
-  <td><p ID=crm-appetency-labels-shared></p><b>CRM Appetency Labels Shared</b></td>
+  <td ID=crm-appetency-labels-shared><b>CRM Appetency Labels Shared</b></td>
   <td><i>same</i></td>
   <td><i>same</i></td>
   <td>
@@ -122,7 +129,7 @@ For more information about a dataset and its associated experiment, see the mode
   </td>
 </tr>
 <tr>
-  <td><p ID=crm-churn-labels-shared></p><b>CRM Churn Labels Shared</b></td>
+  <td ID=crm-churn-labels-shared><b>CRM Churn Labels Shared</b></td>
   <td><i>same</i></td>
   <td><i>same</i></td>
   <td>
@@ -130,7 +137,7 @@ For more information about a dataset and its associated experiment, see the mode
   </td>
 </tr>
 <tr>
-  <td><p ID=crm-upselling-labels-shared></p><b>CRM Upselling Labels Shared</b></td>
+  <td ID=crm-upselling-labels-shared><b>CRM Upselling Labels Shared</b></td>
   <td><i>same</i></td>
   <td><i>same</i></td>
   <td>
@@ -139,7 +146,7 @@ For more information about a dataset and its associated experiment, see the mode
 </tr>
 
 <tr>
-  <td><p ID=german-credit-card-uci-dataset></p><b>German Credit Card UCI dataset</b></td>
+  <td ID=german-credit-card-uci-dataset><b>German Credit Card UCI dataset</b></td>
   <td><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-credit-risk-prediction/">Credit risk prediction</a></td>
   <td>Sample Experiment - German Credit - Development</td>
   <td>
@@ -148,7 +155,7 @@ For more information about a dataset and its associated experiment, see the mode
 </tr>
 
 <tr>
-  <td><p ID=wikipedia-sp-500-dataset></p><b>Wikipedia SP 500 Dataset</b></td>
+  <td ID=wikipedia-sp-500-dataset><b>Wikipedia SP 500 Dataset</b></td>
   <td><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-finding-similar-companies/">Finding similar companies</a></td>
   <td>Sample Experiment - S & P 500 Company Clustering - Development</td>
   <td>
@@ -157,7 +164,7 @@ For more information about a dataset and its associated experiment, see the mode
 </tr>
 
 <tr>
-  <td><p ID=intrusion-detection></p><b><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a></b></td>
+  <td ID=intrusion-detection><b><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a></b></td>
   <td> <a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-network-intrusion-detection/">Network intrusion detection</a></td>
   <td>Sample Experiment - Network Intrusion Detection - Development</td>
   <td>
@@ -166,7 +173,7 @@ For more information about a dataset and its associated experiment, see the mode
 </tr>
 
 <tr>
-  <td><p ID=student-performance></p><b><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></b></td>
+  <td ID=student-performance><b><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></b></td>
   <td><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-student-performance/">Prediction of student performance</a></td>
   <td>Sample Experiment - Student Performance - Development</td>
   <td>
