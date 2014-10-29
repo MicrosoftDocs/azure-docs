@@ -10,7 +10,7 @@ This service is a preview service, so the first thing you have to do is sign up 
 
 ## Set the alert threshold and email recipients
 
-After you receive the email confirmation that the billing service is turned on for your subscription, visit <a href="https://account.windowsazure.com/Subscriptions">the Subscriptions page</a> in the account portal. Click the subscription you want to monitor, and then click Alerts.
+After you receive the email confirmation that the billing service is turned on for your subscription, visit <a href="https://account.windowsazure.com/Subscriptions">the Subscriptions page</a> in the account portal. Click the subscription you want to monitor, and then click **Alerts**.
 
 ![][Image1]
 
