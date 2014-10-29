@@ -1,8 +1,8 @@
-<properties title="Set up billing alerts in Azure" pageTitle="Set up billing alerts in Azure" description="Steps to set up email alerts when a subscription reaches a spending threshold that you specify." metaKeywords="" services="" solutions="" documentationCenter="" authors="" manager="carolz" videoId="" scriptId="" />
+<properties title="Set up billing alerts for your Microsoft Azure subscriptions" pageTitle="Set up billing alerts for your Microsoft Azure subscriptions" description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises." metaKeywords="" services="" solutions="" documentationCenter="" authors="" manager="carolz" videoId="" scriptId="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="" ms.devlang="" ms.topic="article" ms.date="10/30/2013" ms.author="stehol" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="" ms.devlang="" ms.topic="article" ms.date="10/29/2014" ms.author="vikdesai; tysonn" />
 
-# What is the Billing Alerts Service and how can it help you?
+# Set up billing alerts for your Microsoft Azure subscriptions
 
 Are you concerned about how much you're spending each month for your Azure subscription? If you’re the account administrator for an Azure subscription, you can use the Azure Billing Alert Service to create customized billing alerts that help you monitor and manage billing activity for your Azure accounts.
 
