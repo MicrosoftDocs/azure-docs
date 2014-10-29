@@ -14,7 +14,7 @@ The first step in working with API Management is to create a service instance. L
 
 For **URL**, specify a unique sub-domain name to use for the service URL.
 
-Choose the desired **Pricing Tier**, **Subscription**, and **Region** for your service instance. All pricing tiers can be used for this tutorial. After making your selections, click the next button.
+Choose the desired **Subscription** and **Region** for your service instance. After making your selections, click the next button.
 
 ![New API Management service][api-management-create-instance-step1]
 
@@ -22,9 +22,13 @@ Enter **Contoso Ltd.** for the **Organization Name**, and enter your email addre
 
 >This email address is used for notifications from the API Management system. For more information, see [Configure Notifications][].
 
-Click the check box to create your service instance.
-
 ![New API Management service][api-management-create-instance-step2]
+
+API Management service instances are available in two tiers: Developer and Standard. By default, new API Management service instances are created using the Developer tier. To select the Standard tier, check the **Advanced settings** checkbox and select the Standard tier on the following screen.
+
+>Microsoft Azure offers two tiers in which you can run your API Management service: Developer and Standard. The Developer Tier is for development, testing and pilot API programs where high availability is not a concern. In the Standard tier, you can scale your reserved unit count to handle more traffic. The Standard tier provides your API Management service with the most processing power and performance. This tutorial can be completed using either tier. For more information about API Management tiers, see [API Management pricing][].
+
+Click the check box to create your service instance.
 
 ![New API Management service][api-management-instance-created]
 
@@ -167,7 +171,7 @@ After an operation is invoked, the developer portal displays the **Requested URL
 [Responses]: ../api-management-howto-add-operations/#responses
 [How create and publish a product]: ../api-management-howto-add-products
 [Get started with advanced API configuration]: ../api-management-get-started-advanced
-
+[API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 [Management Portal]: https://manage.windowsazure.com/
 
 [Configure policies]: ../api-management-howto-policies
