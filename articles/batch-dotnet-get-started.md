@@ -617,6 +617,7 @@ Your RunExternalTaskProcess method returns a TaskProcessResult, which includes a
 Each file must be identified with the type of output it contains: output (that is, part of the eventual job output), preview, log or intermediate.  These values come from the TaskOutputFileKind enumeration. The following fragment returns a single task output, and no preview or log. The TaskProcessResult.FromExternalProcessResult method simplifies the common scenario of capturing exit code, processor output and output files from a command line program:
 
 The following code demonstrates a simple implementation of ParallelTaskProcessor.RunExternalTaskProcess.
+
 	protected override TaskProcessResult RunExternalTaskProcess(
 	    ITask task,
 	    TaskExecutionSettings settings)
