@@ -44,32 +44,11 @@ In this walkthrough, you create a data factory with a pipeline that moves data f
 In this step, you use the Azure Management Portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**. You can also create a data factory by using Azure Data Factory cmdlets. 
 
 1.	After logging into the [Azure Preview Portal][
-2.	azure-preview-portal], click **NEW** from the bottom-left corner, and click **Data Factory** on the **New** blade. 
+2.	azure-preview-portal], click **NEW** from the bottom-left corner, and click **Data Factory** on the **New** blade.
 
 	![New->DataFactory][image-data-factory-new-datafactory-menu] 
 	
-	If you do not see **Data Factory** on the **New** blade, scroll down. If you still don't see it, do the following: 
-	1.	click **NEW** from the bottom-left corner, and click **Everything** at the top.
-
-		![New Everything][image-data-factory-onprem-new-everything]
-
-	2. Click **Data + analytics** in **Marketplace**.	
-
-		![Datstorage, cache, backup][image-data-factory-onprem-datastorage-cache-backup]
-
-	3. In the **Data + analytics** blade, click **Data Factory** tile and skip the next step. If you don't see the **Data Factory** tile, click **More** as shown in the following image and continue with the next step.
-
-		![Data Storage - See All][image-data-factory-onprem-datastorage-see-all]
-
-	4. In the **Data Services** blade, click **Data Factory**.
-
-		![Data Services blade][image-data-factory-onprem-dataservices-blade]
-
-	1. In the **Data Factory (preview)** blade, click **Create**.
-
-
-		![Data Factory Preview Blade][image-data-factory-onprem-datafactory-preview-blade]
-
+	If you do not see **Data Factory** on the **New** blade, scroll down.  
 6. In the **New data factory** blade:
 	1. Enter **ADFTutorialOnPremDF** for the **name**.
 	2. Click **RESOURCE GROUP NAME** and select **ADFTutorialResourceGroup** (if you had done the tutorial from [Get started with Azure Data Factory][adfgetstarted]. You can select an existing resource group or create a new one. To create a new resource group:
