@@ -32,8 +32,8 @@ For more information about an experiment and its associated datasets, see the mo
 
 | Experiment name | Associated model | Associated datasets |
 |:--------------- |:---------------- |:------------------- |
-| **Sample Experiment - Color Based Image Compression using K-Means Clustering - Development** | [Color quantization using K-Means clustering](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/) | Bil Gates RGB Image |
-| **Sample Experiments - CRM - Development** | [CRM task](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-crm-task/) | CRM Dataset Shared <p> CRM Appetency Labels Shared <p> CRM Churn Labels Shared <p> CRM Upselling Labels Shared |
+| **Sample Experiment - Color Based Image Compression using K-Means Clustering - Development** | [Color quantization using K-Means clustering](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/) | [Bill Gates RGB Image](../machine-learning-sample-datasets/#bill-gates-rgb-image) |
+| **Sample Experiments - CRM - Development** | [CRM task](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-crm-task/) | [CRM Dataset Shared](../machine-learning-sample-datasets/#crm-dataset-shared) <p> [CRM Appetency Labels Shared](../machine-learning-sample-datasets/#crm-appetency-labels-shared) <p> [CRM Churn Labels Shared](../machine-learning-sample-datasets/#crm-churn-labels-shared) <p> [CRM Upselling Labels Shared](../machine-learning-sample-datasets/#crm-upselling-labels-shared) |
 | **Sample Experiment - Demand Forecasting of Bikes** | [Prediction of the number of bike rentals](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/) | Bike Rental UCI dataset |
 | **Sample Experiment - Flight Delay Prediction - Development** | [Flight delay prediction](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-flight-delay-prediction/) | Airport Codes Dataset <p> Flight Delays Data <p> Weather Dataset |
 | **Sample Experiment - German Credit - Development** | [Credit risk prediction](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-credit-risk-prediction/) | German Credit Card UCI dataset |
@@ -42,7 +42,7 @@ For more information about an experiment and its associated datasets, see the mo
 | **Sample Experiment - Sentiment Classification - Development** | [Sentiment analysis](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-sentiment-analysis/) | Book Reviews from Amazon |
 | **Sample Experiment - Student Performance - Development** | [Prediction of student performance](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-student-performance/) | student_performance.txt |
 
-
+[Bill Gates RGB Image](../machine-learning-sample-datasets/#bill-gates-rgb-image)
 
 ## Miscellaneous sample experiments
 
