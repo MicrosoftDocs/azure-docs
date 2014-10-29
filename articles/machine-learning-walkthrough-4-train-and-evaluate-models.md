@@ -49,12 +49,12 @@ This portion of the experiment now looks something like this:
  
 Next, we'll set up the SVM model.  
 
-Boosted Decision Trees work well with features of any type. However, since the SVM module generates a linear classifier, the model that it generates has the best test error when all numeric features have the same scale. To convert all numeric features to the same scale we use the **Transform Data by Scaling** module with a Tanh transformation, which transforms features into the [0,1] range. Note that string features are converted by the SVM module to categorical features and then to binary 0/1 features, so we don't need to manually transform string features. Also, we don't want to transform the Credit Risk column (column 21) - it's numeric, but it's the value we're training the model to predict so we need to leave it alone.  
+Boosted Decision Trees work well with features of any type. However, since the SVM module generates a linear classifier, the model that it generates has the best test error when all numeric features have the same scale. To convert all numeric features to the same scale we use the **Normalize Data** module with a Tanh transformation, which transforms features into the [0,1] range. Note that string features are converted by the SVM module to categorical features and then to binary 0/1 features, so we don't need to manually transform string features. Also, we don't want to transform the Credit Risk column (column 21) - it's numeric, but it's the value we're training the model to predict so we need to leave it alone.  
 
 1.	Find the **Two-Class Support Vector Machine** module in the module palette and drag it onto the canvas.
 2.	Right-click the **Train Model** module, select **Copy**, then right-click the canvas and select **Paste**. Note that the copy of the **Train Model** module has the same column selection as the original.
 3.	Connect the output of the SVM module to the left input port ("Untrained model") of the **Train Model** module.
-4.	Find the **Transform Data by Scaling** module and drag it onto the canvas.
+4.	Find the **Normalize Data** module and drag it onto the canvas.
 5.	Connect the input of this transform module to the output of the left **Execute R Script** module.
 6.	Connect the left output port ("Transformed Dataset") of the transform module to the right input port ("Dataset") of the **Train Model** module.
 7.	In the **Properties** pane for the transform module, select "Tanh" for the **Transformation method** parameter.
@@ -63,7 +63,7 @@ Boosted Decision Trees work well with features of any type. However, since the S
 10.	Click **OK**.  
 
 
-The **Transform Data by Scaling** module is now set to perform a tanh transform on all numeric columns except for the Credit Risk column.  
+The **Normalize Data** module is now set to perform a tanh transform on all numeric columns except for the Credit Risk column.  
 
 This portion of our experiment should now look something like this:  
 
@@ -77,8 +77,8 @@ We'll use the scoring data that was separated out by the **Split** module to sco
 3.	Connect the right input port of the **Score Model** module to the output of the right **Execute R Script** module. Note that it's okay to have the output of a module go to multiple places.
 4.	Copy and paste the **Score Model** module to create a second copy, or drag a new module onto the canvas.
 5.	Connect the left input port of this module to the SVM model (that is, connect to the output port of the **Train Model** module that's connected to the **Two-Class Support Vector Machine** module).
-6.	For the SVM model, we have to do the same transform to the test data as we did to the training data. So copy and paste the **Transform Data by Scaling** module to create a second copy and connect it to the output of the right **Execute R Script** module.
-7.	Connect the right input port of the **Score Model** module to the output of the **Transform Data by Scaling** module.  
+6.	For the SVM model, we have to do the same transform to the test data as we did to the training data. So copy and paste the **Normalize Data** module to create a second copy and connect it to the output of the right **Execute R Script** module.
+7.	Connect the right input port of the **Score Model** module to the output of the **Normalize Data** module.  
 
 To evaluate the two scoring results we'll use the **Evaluate Model** module.  
 
