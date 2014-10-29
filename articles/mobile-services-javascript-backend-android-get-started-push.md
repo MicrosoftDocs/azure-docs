@@ -18,7 +18,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service.  
 
->[AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithPush/Android">here</a>.
+>[AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithPush/Android" target="_blank">here</a>.
 
 
 ##<a id="register"></a>Enable Google Cloud Messaging
