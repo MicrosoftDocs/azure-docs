@@ -245,7 +245,7 @@ If you don’t know the name of an existing pool, you can get a list of them in 
 
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]";
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-	**[name-of-batch-account]** - The name of the Batch account.
 	-	**[key-of-batch-account]** - The key that was provided to you for the Batch account.
