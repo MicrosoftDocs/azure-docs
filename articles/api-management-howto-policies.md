@@ -67,9 +67,9 @@ A policy is a series of statements that execute in order for a request and a res
 		<inbound>
 			<!-- statements to be applied to the request go here -->
 		</inbound>
-		<outboud>
-			<!-- statements to be applied to the response go here -->
 		<outbound>
+			<!-- statements to be applied to the response go here -->
+		</outbound>
 	</policies>
 
 Since policies can be specified at different levels (global, product, api and operation) then the configuration provides a way for you to specify the order in which this definition's statements execute with respect to the parent policy. 
@@ -86,7 +86,7 @@ For example, if you have a policy at the global level and a policy configured fo
 
 In the example policy definition above, the cross-domain statement would execute before any higher policies which would in turn, be followed by the find-and-replace policy.
 
-Note: A global policy has no higher policy to the the *base* element is always a *no-op*, or has no effect.
+Note: A global policy has no parent policy and using the `<base>` element in it has no effect. 
 
 [Policy Reference]: ../api-management-policy-reference
 [Product]: ../api-management-howto-add-products
