@@ -16,7 +16,7 @@ To create a custom activity:
 3. Add the following using statements at the top of the source file in the class library.
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
-		using Microsoft.DataFactories.ActivitySdk; 
+		using Microsoft.DataFactories.Runtime; 
 
 4. Update the class to implement the **ICustomActivity** interface.
 	<ol type='a'>
@@ -127,14 +127,14 @@ The following Walkthrough provides you with step-by-step instructions for creati
 
 8. Implement (Add) the **Execute** method of the **ICustomActivity** interface to the **MyCustomActivity** class and copy the following sample code to the method. 
 
-	The **inputTables** and **outputTables** parameters represent input and output tables for the activity as the names suggest. You can see messages you log using the **logger** object in the log file that you can download from the Azure portal or using cmdlets. The **extendedproperties** dictionary contains list of extended properties you specify in the JSON file for the activity and their values. 
+	The **inputTables** and **outputTables** parameters represent input and output tables for the activity as the names suggest. You can see messages you log using the **logger** object in the log file that you can download from the Azure portal or using cmdlets. The **extendedProperties** dictionary contains list of extended properties you specify in the JSON file for the activity and their values. 
 
 	The following sample code counts the number of lines in the input blob and produces the following content in the output blob: path to the blob, number of lines in the blob, the machine on which the activity ran, current date-time.
 
         public IDictionary<string, string> Execute(
                     IEnumerable<ResolvedTable> inputTables, 
                     IEnumerable<ResolvedTable> outputTables, 
-                    IDictionary<string, string> extendedproperties, 
+                    IDictionary<string, string> extendedProperties, 
                     IActivityLogger logger)
         {
             string output = string.Empty;
@@ -142,7 +142,7 @@ The following Walkthrough provides you with step-by-step instructions for creati
             logger.Write(TraceEventType.Information, "Before anything...");
 
             logger.Write(TraceEventType.Information, "Printing dictionary entities if any...");
-            foreach (KeyValuePair<string, string> entry in extendedproperties)
+            foreach (KeyValuePair<string, string> entry in extendedProperties)
             {
                 logger.Write(TraceEventType.Information, "<key:{0}> <value:{1}>", entry.Key, entry.Value);
             }
@@ -478,8 +478,7 @@ Article | Description
 [Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
 [Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
 [Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to monitor an Azure Data Factory using Azure PowerShell cmdlets. You can try out the examples in the article on the ADFTutorialDataFactory.
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure 
-Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
+[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 
 
