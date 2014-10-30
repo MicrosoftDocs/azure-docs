@@ -19,7 +19,7 @@ This tutorial shows you how to:
 
 ##Attach a data disk
 
-After the virtual machine is created, attach a data disk. This disk provides data storage you'll need when you install MySQL. See H[ow to Attach a Data Disk to a Windows Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/storage-windows-attach-disk/) and follow the instructions for attaching an empty disk.
+After the virtual machine is created, attach a data disk. This disk provides data storage you'll need when you install MySQL. See [How to Attach a Data Disk to a Windows Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/storage-windows-attach-disk/) and follow the instructions for attaching an empty disk.
 
 ##Log on to the virtual machine
 Next, you'll log on to the virtual machine so you can install MySQL.
