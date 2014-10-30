@@ -520,20 +520,20 @@ Batch is designed to work with existing compute-intensive applications. It lever
 
 
 
-###Resources of Batch Apps 
-When you use Batch Apps, you take advantage of the following resources:
+###Batch Apps Key Concepts
+The Batch Apps programming and usage model revolves around the following key concepts:
 
 ####Jobs
-A Job is a piece of work submitted by the user. When a job is submitted, the user specifies the type of job, any settings for that job, and the data required for the job. Either the enabled implementation can work out these details on the user’ behalf or in some cases the user can provide this information explicitly via the client. A job has results that are returned. Each job has a primary output and optionally a preview output. Jobs can also return extra outputs if desired.
+A **job** is a piece of work submitted by the user. When a job is submitted, the user specifies the type of job, any settings for that job, and the data required for the job. Either the enabled implementation can work out these details on the user’ behalf or in some cases the user can provide this information explicitly via the client. A job has results that are returned. Each job has a primary output and optionally a preview output. Jobs can also return extra outputs if desired.
 
 ####Tasks
-A task is a piece of work to be done as part of a job. When a user submits a job, it is broken up into smaller tasks. The service then processes these individual tasks, then assemblies the task results into an overall job output. The nature of tasks depends on the kind of job. The Job Splitter defines how a job is broken down into tasks, guided by the knowledge of what chunks of work the application is designed to process. Task outputs can also be download individually and might be useful in some cases, e.g. when a user may want to download individual tasks from an animation job.
+A **task** is a piece of work to be done as part of a job. When a user submits a job, it is broken up into smaller tasks. The service then processes these individual tasks, then assemblies the task results into an overall job output. The nature of tasks depends on the kind of job. The Job Splitter defines how a job is broken down into tasks, guided by the knowledge of what chunks of work the application is designed to process. Task outputs can also be download individually and might be useful in some cases, e.g. when a user may want to download individual tasks from an animation job.
 
 ####Merge Tasks
-A merge task is a special kind of task that assembles the results of individual tasks into the final job results. For a movie rending job, the merge task might assemble the rendered frames into a movie or to zip all the rendered frames into a single file. Every job has a merge task even if no actual ‘merging’ is needed.
+A **merge task** is a special kind of task that assembles the results of individual tasks into the final job results. For a movie rending job, the merge task might assemble the rendered frames into a movie or to zip all the rendered frames into a single file. Every job has a merge task even if no actual 'merging' is needed.
 
 ####Files
-A file is a piece of data used as an input to a job. A job can have no input file associated with it or have one or many. The same file can be used in multiple jobs as well, e.g. for a movie rendering job, the files might be textures, models, etc. For a data analysis job, the files might be a set of observations or measurements.
+A **file** is a piece of data used as an input to a job. A job can have no input file associated with it or have one or many. The same file can be used in multiple jobs as well, e.g. for a movie rendering job, the files might be textures, models, etc. For a data analysis job, the files might be a set of observations or measurements.
 
 ###Enabling the Cloud Application
 Your Application must contain a static field or property containing all the details of your application. It specifies the name of the application and the job type or job types handled by the application. This is provided when using the template in the SDK that can be downloaded via Visual Studio Gallery. 
