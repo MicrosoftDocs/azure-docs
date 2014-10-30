@@ -208,10 +208,7 @@ To review the values in the trace, download the trace file from the **ocp-apim-t
 [api-management-developer-key]: ./media/api-management-howto-api-inspector/api-management-developer-key.png
 [api-management-open-console]: ./media/api-management-howto-api-inspector/api-management-open-console.png
 [api-management-http-get]: ./media/api-management-howto-api-inspector/api-management-http-get.png
-[api-management-]: ./media/api-management-howto-api-inspector/api-management-.png
-[api-management-]: ./media/api-management-howto-api-inspector/api-management-.png
-[api-management-]: ./media/api-management-howto-api-inspector/api-management-.png
-[api-management-]: ./media/api-management-howto-api-inspector/api-management-.png
+
 
 
 
