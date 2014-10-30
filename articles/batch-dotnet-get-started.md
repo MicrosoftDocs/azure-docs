@@ -510,13 +510,13 @@ In the Batch Apps scenario, you write code using the Batch Apps Cloud SDK to par
 >
 
 ###Fundamentals of Azure Batch Apps 
-Batch Apps is designed to work with existing application that have compute intensive workloads. Batch Apps leverages the workload and extends it to a dynamic, virtualized, general-purpose environment. To enable an application to work with Batch Apps there are a couple of things that need to be done – 
+Batch is designed to work with existing compute-intensive applications. It leverages your existing application code and runs it in a dynamic, virtualized, general-purpose environment. To enable an application to work with Batch Apps there are a couple of things that need to be done:
 
-1.	Prepare a zip file of your existing application executables – the same executables that would be run in a traditional server farm or cluster – and any support files it needs. This is then uploaded to an Azure Storage account. 
-2.	Create a zip file of the Cloud Assemblies that will invoke and dispatch your workloads to the application. This contains two components that will be available via the SDK:
-	1.	Job Splitter – which breaks down into tasks that can be processed independently. For example, in an animation scenario, the job splitter would take a movie job and break it down into individual frames. 
+1.	Prepare a zip file of your existing application executables – the same executables that would be run in a traditional server farm or cluster – and any support files it needs. This zip file is then uploaded to your Batch account using the management portal or REST API.
+2.	Create a zip file of the "cloud assemblies" that dispatch your workloads to the application, and upload it via the management portal or REST API. A cloud assembly contains two components which are built against the Cloud SDK:
+	1.	Job Splitter – which breaks the job down into tasks that can be processed independently. For example, in an animation scenario, the job splitter would take a movie job and break it down into individual frames. 
 	2.	Task Processor – which invokes the application executable for a given task. For example, in an animation scenario, the task processor would invoke a rendering program to render the single frame specified by the task at hand. 
-3.	Provide a way to submit jobs to the enabled application in Azure. This might be a plugin in your application UI or a web portal or even an unattended service as part of your execution pipeline. There are samples available on MSDN using the SDK to demonstrate a few options.
+3.	Provide a way to submit jobs to the enabled application in Azure. This might be a plugin in your application UI or a web portal or even an unattended service as part of your execution pipeline. See the <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">samples</a> on MSDN for examples.
 
 
 
