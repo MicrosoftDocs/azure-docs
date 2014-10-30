@@ -72,6 +72,7 @@ JavaScript execution within DocumentDB is modeled after the concepts supported b
 
 ##Next Steps
 To get started with Azure DocumentDB, explore these resources:
+
 - [Try DocumentDB now](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
 -	[Understand DocumentDB concepts](/documentation/articles/documentdb-resources/)
 -	[Interact with DocumentDB](/documentation/articles/documentdb-interactions-with-resources/)

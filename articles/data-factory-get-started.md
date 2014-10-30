@@ -129,10 +129,11 @@ Creating datasets and pipelines is not supported by the Azure Preview Portal at 
 
 * Create a blob container named **adftutorial** in the Azure blob storage that MyBlobStore points to. 
 * Create and upload a text file, **emp.txt**, as a blob to the **input** folder in the **adftutorial** container (**input/emp.txt**). 
-* Create a table named **emp** in the Azure SQL Database in the Azuer SQL database that MyAzureSQLStore points to.
+* Create a table named **emp** in the Azure SQL Database in the Azure SQL database that MyAzureSQLStore points to.
+* Create a folder named **ADFGetStarted** on your hard drive.  
 
 ### Prepare Azure Blob Storage and Azure SQL Database for the tutorial
-1. Launch Notepad, paste the following text, and save it as **emp.txt** to **C:\ADFGetStarted** folder on your hard drive.
+1. Launch Notepad, paste the following text, and save it as **emp.txt** to **C:\ADFGetStarted** folder on your hard drive. 
 
         John, Doe
 		Jane, Doe
