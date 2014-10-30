@@ -20,6 +20,8 @@ This tutorial will show you how to create a series of console applications that 
 Microsoft.WindowsAzure.Storage.dll is also included in the Azure SDK for .NET 2.0, which can be downloaded from the [.NET Developer Center](http://www.windowsazure.com/en-us/downloads/?sdk=net). The assembly is installed to the %Program Files%\Microsoft SDKs\Azure\.NET SDK\v2.0\ref\ directory.
 >
 You can also use NuGet to obtain the **Microsoft.Azure.Batch.dll** assembly. Search for "Azure.Batch" and then install the package and its dependencies. 
+>
+Also, you can refer to the [Azure Batch Hello World sample](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) on msdn for the code discussed here.
 
 ###Concepts
 The Batch service is used for scheduling scalable and distributed computation. It enables you to run large scale workloads that are distributed among multiple virtual machines. These workloads provide efficient support for intensive computation. When you use the Batch service, you take advantage of the following resources:  
@@ -199,7 +201,7 @@ A pool of task virtual machines is the first set of resources that you must crea
 		private const int NumOfMachines = 3;
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]";
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-	**[name-of-pool]** - The name that you want to use for the pool.
 	-	**[name-of-batch-account]** - The name of the Batch account.
@@ -210,7 +212,6 @@ A pool of task virtual machines is the first set of resources that you must crea
 5.	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
 6.	Add the following code to Main that creates the pool if it doesn’t exist:
 
 		using (IPoolManager pm = client.OpenPoolManager())
@@ -255,7 +256,7 @@ If you don’t know the name of an existing pool, you can get a list of them in 
 5.	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
+
 6.	Add the following code to Main that writes the names and states of all pools in the account:
 
 		using (IPoolManager pm = client.OpenPoolManager())
@@ -286,7 +287,7 @@ You must create a workitem to define how the tasks will run in the pool.
 		private const string PoolName = "[name-of-pool]";
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]"; 
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-	**[name-of-workitem]** - The name that you want to use for the workitem.
 	-	**[name-of-pool]** - The name of the pool that you previously created. A workitem must be associated with a pool.
@@ -299,14 +300,14 @@ You must create a workitem to define how the tasks will run in the pool.
 	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
+
 5.	When a workitem is created, a job is also created. You can assign a name to the workitem, but the job is always assigned the name of **job-0000000001**. Add the following code to Main that adds the workitem and its associated job:
 
 		using (IWorkItemManager wm = client.OpenWorkItemManager())
 		{
-		   ICloudJob job = wm.CreateJob(PoolName);
-		   job.WorkItemName = WorkItemName;
-		   job.Commit();
+		   ICloudWorkItem cloudWorkItem = wm.CreateWorkItem(WorkItemName);
+           cloudWorkItem.JobExecutionEnvironment = new JobExecutionEnvironment() {PoolName = PoolName};
+		   cloudWorkItem.Commit();
 		}
 		Console.WriteLine("Workitem successfully added.");
 		Console.ReadLine();
@@ -326,7 +327,7 @@ If you don’t know the name of an existing workitem, you can get a list of them
 
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]";
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-	**[name-of-batch-account]** - The name of the Batch account.
 	-	**[key-of-batch-account]** - The key that was provided to you for the Batch account.
@@ -336,7 +337,7 @@ If you don’t know the name of an existing workitem, you can get a list of them
 5.	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
+
 6.	Add the following code to Main that writes the names and states of all workitems in the account:
 
 		using (IPoolManager pm = client.OpenPoolManager())
@@ -370,7 +371,7 @@ After you create the workitem and the job is created, you can add tasks to the j
 		private const string JobName = "job-0000000001";
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]"; 
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-•	**[path-of-blob-in-storage]** – The path to the blob in storage. For example: http://mystorage1.blob.core.windows.net/batchfiles/.
 	-	**[name-of-workitem]** - The name of the workitem that you previously created.
@@ -382,7 +383,7 @@ After you create the workitem and the job is created, you can add tasks to the j
 	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
+
 5.	Add the following code to Main that adds tasks to a job, waits for them to run, and reports the results:
 
 		using (IWorkItemManager wm = client.OpenWorkItemManager())
@@ -443,7 +444,7 @@ After your data has been processed you can release resources by deleting the poo
 		private const string PoolName = "[name-of-pool]";
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]"; 
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-	**[name-of-pool]** - The name of the pool that you previously created.
 	-	**[name-of-batch-account]** - The name of the Batch account.
@@ -454,7 +455,7 @@ After your data has been processed you can release resources by deleting the poo
 5.	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
+
 6.	Add the following code to Main that deletes the pool:
 
 		using (IPoolManager pm = client.OpenPoolManager())
@@ -479,7 +480,7 @@ After your data has been processed you can release resources by deleting the poo
 		private const string WorkItemName = "[name-of-workitem]";
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]"; 
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-	**[name-of-workitem]** - The name of the workitem that you previously added.
 	-	**[name-of-batch-account]** - The name of the Batch account.
@@ -490,7 +491,7 @@ After your data has been processed you can release resources by deleting the poo
 5.	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
+
 6.	Add the following code to Main that deletes the workitem:
 
 		using (IWorkItemManager wm = client.OpenWorkItemManager())
