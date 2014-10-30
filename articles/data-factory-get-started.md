@@ -47,30 +47,11 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 
 	![New->DataFactory][image-data-factory-new-datafactory-menu] 
 	
-	If you do not see **Data Factory** on the **New** blade, scroll down. If you still don't see it, do the following: 
-  
-	1. click **NEW** from the bottom-left corner, and click **Everything** at the top. 
-     
-		![GetStartedEveverything][image-data-factory-getstarted-new-everything]
+	If you do not see **Data Factory** on the **New** blade, scroll down.  
 
-	2. Click **Data + analytics** in **Marketplace**.
-    
-		![Data, storage, cache, + backup in Gallery][image-data-factory-gallery-storagecachebackup]
-
-	3. In the **Data + analytics** blade, click **Data Factory** tile and skip the next step. If you don't see the **Data Factory** tile, click **More** as shown in the following image and continue with the next step.   
-
-		![SeeAll][image-data-factory-gallery-storagecachebackup-seeall]
-
-	4. In the **Data Services** blade, click **Data Factory**.
-
-		![Data services blade][image-data-factory-getstarted-data-services-data-factory-selected]
-
-	1. In the **Data Factory** blade, click **Create**.
-
-		![Data factory (preview) blade][image-data-factory-getstarted-data-factory-create-button]
 
 6. In the **New data factory** blade:
-	1. Enter **ADFTutorialDataFactory** for the **name**.
+	1. Enter **ADFTutorialDataFactory** for the **name**. 
 	
   		![New data factory blade][image-data-factory-getstarted-new-data-factory-blade]
 	2. Click **RESOURCE GROUP NAME** and do the following:
