@@ -429,7 +429,7 @@ To run your application on your development computer, select **Start Debugging**
 
 ![My Task List Application][TaskListAppBlank]
 
-<h2><span class="short-header">Deploy the application to an Azure website</span>Deploy the ASP.NET application to an Azure website</h2>
+<h2>Deploy the ASP.NET application to an Azure website</h2>
 
 In this section you will create a website and deploy the My Task List ASP.NET application using Git.
 

@@ -54,12 +54,12 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
    	Notice that the text for each `TodoItem` is displayed below the refresh button along with a check box that allows you to mark the item completed.
 
-<h2><a name="create-service"></a><span class="short-header">Create a new mobile service</span>Create a new mobile service</h2>
+<h2><a name="create-service"></a>Create a new mobile service</h2>
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 
-<h2><a name="download-the-service-locally"></a><span class="short-header">Download the service locally</span>Download the mobile service project and add it to the solution</h2>
+<h2><a name="download-the-service-locally"></a>Download the mobile service project and add it to the solution</h2>
 
 1. In the [Azure Management Portal], click your new Mobile Service or its cloud icon tab to go to the overview page.
 
