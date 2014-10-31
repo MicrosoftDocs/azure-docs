@@ -1,10 +1,10 @@
-<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Introduction to Microsoft Azure DocumentDB | Azure" description="Learn about Azure DocumentDB and its value to cloud and mobile applications. Also, learn about how it manages data, and how you can use it in application development." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Introduction to Microsoft Azure DocumentDB | Azure" description="Learn about Azure DocumentDB nosql document database and its value to cloud and mobile applications. Learn how it manages data, and how you can use it in application development." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 #Introduction to Microsoft Azure DocumentDB
 
-This article provides an introduction to Microsoft Azure DocumentDB for developers, IT Pros, and business decision makers. By reading it, you learn:  
+This article provides an introduction to Microsoft Azure no sql document database service DocumentDB for developers, IT Pros, and business decision makers. By reading it, you learn:  
 
 -	What Azure DocumentDB is and the value it provides to your cloud and mobile applications
 -	How your data is managed in Azure DocumentDB
@@ -13,9 +13,9 @@ This article provides an introduction to Microsoft Azure DocumentDB for develope
 
 ##What is Azure DocumentDB?  
 
-Modern applications produce, consume and respond quickly to very large volumes of data. These applications evolve very rapidly and so does the underlying data schema. In response to this, developers have increasingly chosen schema-free NoSQL databases as simple, fast, elastic solutions to store and process data while preserving the ability to quickly iterate over application data models and unstructured data feeds. However, many schema-free databases do not allow non-trivial queries and transactional processing, making advanced data management hard. Microsoft developed Azure DocumentDB to provide these capabilities when managing schema-free data.
+Modern applications produce, consume and respond quickly to very large volumes of data. These applications evolve very rapidly and so does the underlying data schema. In response to this, developers have increasingly chosen schema-free NoSQL document databases as simple, fast, elastic solutions to store and process data while preserving the ability to quickly iterate over application data models and unstructured data feeds. However, many schema-free databases do not allow non-trivial queries and transactional processing, making advanced data management hard. Microsoft developed Azure DocumentDB to provide these capabilities when managing schema-free data.
 
-Microsoft Azure DocumentDB is a document-oriented, NoSQL database service designed for modern mobile and web applications.  DocumentDB delivers consistently fast reads and writes, schema flexibility and the ability to easily scale a database up and down on demand. DocumentDB enables complex ad hoc queries using the SQL dialect, supports well defined consistency levels, and offers JavaScript language integrated, multi-document transaction processing using the familiar programming model of stored procedures, triggers and UDFs. 
+Microsoft Azure DocumentDB is a NoSQL document database service designed for modern mobile and web applications.  DocumentDB delivers consistently fast reads and writes, schema flexibility and the ability to easily scale a database up and down on demand. DocumentDB enables complex ad hoc queries using the SQL dialect, supports well defined consistency levels, and offers JavaScript language integrated, multi-document transaction processing using the familiar programming model of stored procedures, triggers and UDFs. 
 
 Azure DocumentDB natively supports JSON documents enabling easy iteration of application schema. It embraces the ubiquity of JSON and JavaScript, eliminating mismatch between the application type system and database schema. Deep integration of JavaScript also allows developers to execute application logic efficiently directly within the database engine within a database transaction. 
 
