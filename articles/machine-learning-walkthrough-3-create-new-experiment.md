@@ -94,6 +94,9 @@ Our experiment now looks something like this:
  
 ![Adding Split module and R scripts][3]
 
+**Next: [Train and evaluate the models][train-models]**
+
+
 [1]: ./media/machine-learning-walkthrough-3-create-new-experiment/create1.png
 [2]: ./media/machine-learning-walkthrough-3-create-new-experiment/create2.png
 [3]: ./media/machine-learning-walkthrough-3-create-new-experiment/create3.png

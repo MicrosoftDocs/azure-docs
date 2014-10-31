@@ -20,6 +20,8 @@ This tutorial will show you how to create a series of console applications that 
 Microsoft.WindowsAzure.Storage.dll is also included in the Azure SDK for .NET 2.0, which can be downloaded from the [.NET Developer Center](http://www.windowsazure.com/en-us/downloads/?sdk=net). The assembly is installed to the %Program Files%\Microsoft SDKs\Azure\.NET SDK\v2.0\ref\ directory.
 >
 You can also use NuGet to obtain the **Microsoft.Azure.Batch.dll** assembly. Search for "Azure.Batch" and then install the package and its dependencies. 
+>
+Also, you can refer to the [Azure Batch Hello World sample](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) on msdn for the code discussed here.
 
 ###Concepts
 The Batch service is used for scheduling scalable and distributed computation. It enables you to run large scale workloads that are distributed among multiple virtual machines. These workloads provide efficient support for intensive computation. When you use the Batch service, you take advantage of the following resources:  
@@ -199,7 +201,7 @@ A pool of task virtual machines is the first set of resources that you must crea
 		private const int NumOfMachines = 3;
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]";
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-	**[name-of-pool]** - The name that you want to use for the pool.
 	-	**[name-of-batch-account]** - The name of the Batch account.
@@ -210,7 +212,6 @@ A pool of task virtual machines is the first set of resources that you must crea
 5.	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
 6.	Add the following code to Main that creates the pool if it doesn’t exist:
 
 		using (IPoolManager pm = client.OpenPoolManager())
@@ -245,7 +246,7 @@ If you don’t know the name of an existing pool, you can get a list of them in 
 
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]";
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-	**[name-of-batch-account]** - The name of the Batch account.
 	-	**[key-of-batch-account]** - The key that was provided to you for the Batch account.
@@ -255,7 +256,7 @@ If you don’t know the name of an existing pool, you can get a list of them in 
 5.	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
+
 6.	Add the following code to Main that writes the names and states of all pools in the account:
 
 		using (IPoolManager pm = client.OpenPoolManager())
@@ -286,7 +287,7 @@ You must create a workitem to define how the tasks will run in the pool.
 		private const string PoolName = "[name-of-pool]";
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]"; 
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-	**[name-of-workitem]** - The name that you want to use for the workitem.
 	-	**[name-of-pool]** - The name of the pool that you previously created. A workitem must be associated with a pool.
@@ -299,14 +300,14 @@ You must create a workitem to define how the tasks will run in the pool.
 	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
+
 5.	When a workitem is created, a job is also created. You can assign a name to the workitem, but the job is always assigned the name of **job-0000000001**. Add the following code to Main that adds the workitem and its associated job:
 
 		using (IWorkItemManager wm = client.OpenWorkItemManager())
 		{
-		   ICloudJob job = wm.CreateJob(PoolName);
-		   job.WorkItemName = WorkItemName;
-		   job.Commit();
+		   ICloudWorkItem cloudWorkItem = wm.CreateWorkItem(WorkItemName);
+           cloudWorkItem.JobExecutionEnvironment = new JobExecutionEnvironment() {PoolName = PoolName};
+		   cloudWorkItem.Commit();
 		}
 		Console.WriteLine("Workitem successfully added.");
 		Console.ReadLine();
@@ -326,7 +327,7 @@ If you don’t know the name of an existing workitem, you can get a list of them
 
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]";
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-	**[name-of-batch-account]** - The name of the Batch account.
 	-	**[key-of-batch-account]** - The key that was provided to you for the Batch account.
@@ -336,7 +337,7 @@ If you don’t know the name of an existing workitem, you can get a list of them
 5.	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
+
 6.	Add the following code to Main that writes the names and states of all workitems in the account:
 
 		using (IPoolManager pm = client.OpenPoolManager())
@@ -370,7 +371,7 @@ After you create the workitem and the job is created, you can add tasks to the j
 		private const string JobName = "job-0000000001";
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]"; 
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-•	**[path-of-blob-in-storage]** – The path to the blob in storage. For example: http://mystorage1.blob.core.windows.net/batchfiles/.
 	-	**[name-of-workitem]** - The name of the workitem that you previously created.
@@ -382,7 +383,7 @@ After you create the workitem and the job is created, you can add tasks to the j
 	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
+
 5.	Add the following code to Main that adds tasks to a job, waits for them to run, and reports the results:
 
 		using (IWorkItemManager wm = client.OpenWorkItemManager())
@@ -443,7 +444,7 @@ After your data has been processed you can release resources by deleting the poo
 		private const string PoolName = "[name-of-pool]";
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]"; 
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-	**[name-of-pool]** - The name of the pool that you previously created.
 	-	**[name-of-batch-account]** - The name of the Batch account.
@@ -454,7 +455,7 @@ After your data has been processed you can release resources by deleting the poo
 5.	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
+
 6.	Add the following code to Main that deletes the pool:
 
 		using (IPoolManager pm = client.OpenPoolManager())
@@ -479,7 +480,7 @@ After your data has been processed you can release resources by deleting the poo
 		private const string WorkItemName = "[name-of-workitem]";
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]"; 
-		private const string Uri = "http://batch.core.windows.net";
+		private const string Uri = "https://batch.core.windows.net";
 	Replace the following values:
 	-	**[name-of-workitem]** - The name of the workitem that you previously added.
 	-	**[name-of-batch-account]** - The name of the Batch account.
@@ -490,7 +491,7 @@ After your data has been processed you can release resources by deleting the poo
 5.	Add the following code to Main to create the client that is used to perform operations:
 
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		client.CustomBehaviors.Add(new SetRetryPolicy(new Microsoft.Azure.Batch.Protocol.NoRetry()));
+
 6.	Add the following code to Main that deletes the workitem:
 
 		using (IWorkItemManager wm = client.OpenWorkItemManager())
@@ -502,32 +503,40 @@ After your data has been processed you can release resources by deleting the poo
 7.	Save and run the program.
 
 ##<a name="tutorial2"></a>Tutorial 2: Azure Batch Apps Library for .NET
-Batch Apps enables embarrassingly parallel compute workloads to run in Azure and is also capable of handling more complicated non-acyclic parallel workloads. The Batch Apps SDK enables you to wrap existing binaries and executables and publish them to run workloads on Azure spanning across multiple Virtual Machines using Azure Batch. The SDK also allows you to model and partition the data so that the parallel tasks run with equal computational complexity and complete at roughly the same time. Included is also a REST-based API, a management console that can be used via Azure portal that provides visibility into the jobs or workloads submitting. The samples using Batch Apps can be found on MSDN.
+This tutorial shows you how to run parallel compute workloads on Azure Batch using the Batch Apps service.
+
+Batch Apps is a feature of Azure Batch that provides an application-centric way of managing and executing Batch workloads.  Using the Batch Apps SDK, you can create packages to Batch-enable an application, and deploy them in your own account or make them available to other Batch users.  Batch also provides data management, job monitoring, built-in diagnostics and logging, and support for inter task dependencies.  It additionally includes a management portal where you can manage jobs, view logs, and download outputs without having to write your own client.
+
+In the Batch Apps scenario, you write code using the Batch Apps Cloud SDK to partition jobs into parallel tasks, describe any dependencies between these tasks, and specify how to execute each task.  This code is deployed to the Batch account.  Clients can then execute jobs simply by specifying the kind of job and the input files to a REST API.
+
+>[WACOM.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/). You can use NuGet to obtain both the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Batch Apps Cloud</a> assembly and the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Batch Apps Client</a> assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. You can also download the Visual Studio Extension for Batch Apps which includes a project template to cloud-enable applications and ability to deploy an application <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">here</a> or via searching for **Batch Apps** in Visual Studio via the Extensions and Updates menu item.  You can also find <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">end-to-end samples on MSDN.</a>
+>
+
 ###Fundamentals of Azure Batch Apps 
-Batch Apps is designed to work with existing application that have compute intensive workloads. Batch Apps leverages the workload and extends it to a dynamic, virtualized, general-purpose environment. To enable an application to work with Batch Apps there are a couple of things that need to be done – 
+Batch is designed to work with existing compute-intensive applications. It leverages your existing application code and runs it in a dynamic, virtualized, general-purpose environment. To enable an application to work with Batch Apps there are a couple of things that need to be done:
 
-1.	Prepare a zip file of your existing application executables – the same executables that would be run in a traditional server farm or cluster – and any support files it needs. This is then uploaded to an Azure Storage account. 
-2.	Create a zip file of the Cloud Assemblies that will invoke and dispatch your workloads to the application. This contains two components that will be available via the SDK:
-	1.	Job Splitter – which breaks down into tasks that can be processed independently. For example, in an animation scenario, the job splitter would take a movie job and break it down into individual frames. 
+1.	Prepare a zip file of your existing application executables – the same executables that would be run in a traditional server farm or cluster – and any support files it needs. This zip file is then uploaded to your Batch account using the management portal or REST API.
+2.	Create a zip file of the "cloud assemblies" that dispatch your workloads to the application, and upload it via the management portal or REST API. A cloud assembly contains two components which are built against the Cloud SDK:
+	1.	Job Splitter – which breaks the job down into tasks that can be processed independently. For example, in an animation scenario, the job splitter would take a movie job and break it down into individual frames. 
 	2.	Task Processor – which invokes the application executable for a given task. For example, in an animation scenario, the task processor would invoke a rendering program to render the single frame specified by the task at hand. 
-3.	Provide a way to submit jobs to the enabled application in Azure. This might be a plugin in your application UI or a web portal or even an unattended service as part of your execution pipeline. There are samples available on MSDN using the SDK to demonstrate a few options.
+3.	Provide a way to submit jobs to the enabled application in Azure. This might be a plugin in your application UI or a web portal or even an unattended service as part of your execution pipeline. See the <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">samples</a> on MSDN for examples.
 
 
 
-###Resources of Batch Apps 
-When you use Batch Apps, you take advantage of the following resources:
+###Batch Apps Key Concepts
+The Batch Apps programming and usage model revolves around the following key concepts:
 
 ####Jobs
-A Job is a piece of work submitted by the user. When a job is submitted, the user specifies the type of job, any settings for that job, and the data required for the job. Either the enabled implementation can work out these details on the user’ behalf or in some cases the user can provide this information explicitly via the client. A job has results that are returned. Each job has a primary output and optionally a preview output. Jobs can also return extra outputs if desired.
+A **job** is a piece of work submitted by the user. When a job is submitted, the user specifies the type of job, any settings for that job, and the data required for the job. Either the enabled implementation can work out these details on the user’ behalf or in some cases the user can provide this information explicitly via the client. A job has results that are returned. Each job has a primary output and optionally a preview output. Jobs can also return extra outputs if desired.
 
 ####Tasks
-A task is a piece of work to be done as part of a job. When a user submits a job, it is broken up into smaller tasks. The service then processes these individual tasks, then assemblies the task results into an overall job output. The nature of tasks depends on the kind of job. The Job Splitter defines how a job is broken down into tasks, guided by the knowledge of what chunks of work the application is designed to process. Task outputs can also be download individually and might be useful in some cases, e.g. when a user may want to download individual tasks from an animation job.
+A **task** is a piece of work to be done as part of a job. When a user submits a job, it is broken up into smaller tasks. The service then processes these individual tasks, then assemblies the task results into an overall job output. The nature of tasks depends on the kind of job. The Job Splitter defines how a job is broken down into tasks, guided by the knowledge of what chunks of work the application is designed to process. Task outputs can also be download individually and might be useful in some cases, e.g. when a user may want to download individual tasks from an animation job.
 
 ####Merge Tasks
-A merge task is a special kind of task that assembles the results of individual tasks into the final job results. For a movie rending job, the merge task might assemble the rendered frames into a movie or to zip all the rendered frames into a single file. Every job has a merge task even if no actual ‘merging’ is needed.
+A **merge task** is a special kind of task that assembles the results of individual tasks into the final job results. For a movie rending job, the merge task might assemble the rendered frames into a movie or to zip all the rendered frames into a single file. Every job has a merge task even if no actual 'merging' is needed.
 
 ####Files
-A file is a piece of data used as an input to a job. A job can have no input file associated with it or have one or many. The same file can be used in multiple jobs as well, e.g. for a movie rendering job, the files might be textures, models, etc. For a data analysis job, the files might be a set of observations or measurements.
+A **file** is a piece of data used as an input to a job. A job can have no input file associated with it or have one or many. The same file can be used in multiple jobs as well, e.g. for a movie rendering job, the files might be textures, models, etc. For a data analysis job, the files might be a set of observations or measurements.
 
 ###Enabling the Cloud Application
 Your Application must contain a static field or property containing all the details of your application. It specifies the name of the application and the job type or job types handled by the application. This is provided when using the template in the SDK that can be downloaded via Visual Studio Gallery. 
@@ -613,6 +622,7 @@ Your RunExternalTaskProcess method returns a TaskProcessResult, which includes a
 Each file must be identified with the type of output it contains: output (that is, part of the eventual job output), preview, log or intermediate.  These values come from the TaskOutputFileKind enumeration. The following fragment returns a single task output, and no preview or log. The TaskProcessResult.FromExternalProcessResult method simplifies the common scenario of capturing exit code, processor output and output files from a command line program:
 
 The following code demonstrates a simple implementation of ParallelTaskProcessor.RunExternalTaskProcess.
+
 	protected override TaskProcessResult RunExternalTaskProcess(
 	    ITask task,
 	    TaskExecutionSettings settings)
