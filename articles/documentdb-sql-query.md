@@ -14,7 +14,7 @@ We believe that these capabilities are key to reducing the friction between the 
 In this tutorial, we introduce the DocumentDB query language capabilities and grammar through examples. We also look at how one can query DocumentDB using the REST API and SDKs (including LINQ).
 
 #Getting Started
-To see DocumentDB SQL at work, we'll begin with a few simple JSON documents and walk through some simple queries against it. Consider these two JSON documents about two families. Note that with DocumentDB, we do not need to create any schemas or secondary indices explicitly. We simply need to insert the JSON documents to a DocumentDB collection and subsequently query. 
+To see DocumentDB SQL at work, let's begin with a few simple JSON documents and walk through some simple queries against it. Consider these two JSON documents about two families. Note that with DocumentDB, we do not need to create any schemas or secondary indices explicitly. We simply need to insert the JSON documents to a DocumentDB collection and subsequently query. 
 Here we have a simple JSON document for the Andersen family, the parents, children (and their pets), address and registration information. The document has strings, numbers, Booleans, arrays and nested properties. 
 
 **Document**  

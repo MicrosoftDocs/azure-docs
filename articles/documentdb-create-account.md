@@ -40,7 +40,7 @@ To use DocumentDB, you must create a DocumentDB account in an available geograph
 
 	For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account.
 
-	*If your account has only one subscription, it will be automatically selected.*
+	*If your account has only one subscription, that account will be selected automatically.*
  
 	Use **Location** to specify the geographic location in which your DocumentDB account will be hosted. 
 
