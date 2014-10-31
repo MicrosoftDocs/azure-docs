@@ -89,12 +89,12 @@ Click **Preview** or **Send a test** to see how the email will look or send a te
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
 [api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png
 [api-management-email-addresses]: ./media/api-management-howto-configure-notifications/api-management-email-addresses.png
-[api-management-add-recipient]: ./media/api-management-howto-configure-notifications/api-management-add-recipient.png
-[api-management-recipient-list]: ./media/api-management-howto-configure-notifications/api-management-recipient-list.png
+
+
 [api-management-email-templates]: ./media/api-management-howto-configure-notifications/api-management-email-templates.png
 [api-management-email-templates-list]: ./media/api-management-howto-configure-notifications/api-management-email-templates-list.png
 [api-management-email-template]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
-[api-management-publisher-notifications-save]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications-save.png
+
 
 [Configure publisher notifications]: #publisher-notifications
 [Configure email templates]: #email-templates
