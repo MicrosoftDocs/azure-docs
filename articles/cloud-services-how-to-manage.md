@@ -70,7 +70,7 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 <h2><a id="linkresources"></a>How to: Link a resource to a cloud service</h2>
 
-To show your cloud service's dependencies on other resources, you can link an Azure SQL Database instance or a storage account to the cloud service. You an link and unlink resources on the **Linked Resources** page. Then monitor their usage on the cloud service dashboard. If a linked storage account has monitoring turned on, you can monitor Total Requests on the cloud service dashboard.
+To show your cloud service's dependencies on other resources, you can link an Azure SQL Database instance or a storage account to the cloud service. You can link and unlink resources on the **Linked Resources** page, and then monitor their usage on the cloud service dashboard. If a linked storage account has monitoring turned on, you can monitor Total Requests on the cloud service dashboard.
 
 Use **Link** to link a new or existing SQL Database instance or storage account to your cloud service. You can then scale the database along with the cloud service role that is using it on the **Scale** page. (A storage account scales automatically as usage increases.) For more information, see [How to Scale a Cloud Service and Linked Resources](../cloud-services-how-to-scale/). 
 
