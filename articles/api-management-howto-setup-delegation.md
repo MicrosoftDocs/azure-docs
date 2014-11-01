@@ -24,11 +24,11 @@ The final workflow will be as follows:
 4. On success, the user is redirected back to the API Management developer portal page they started from
 
 
-To begin, let's first set-up API Management to route requests via your delegation endpoint. In the API Management publisher portal, under the **Developer Portal** heading in the menu on the left, click on **Delegation** and then click **Delegate sign-in and sign-up**.
+To begin, let's first set-up API Management to route requests via your delegation endpoint. In the API Management publisher portal, click on **Security** and then click the **Delegation** tab. Click the checkbox to enable 'Delegate sign-in & sign-up'.
 
 ![Delegation page][api-management-delegation-signin-up]
 
-* Decide what the URL of your special delegation endpoint will be and enter it in the **Delegation endpoint URL** field.
+* Decide what the URL of your special delegation endpoint will be and enter it in the **Delegation endpoint URL** field. 
 
 * Within the **Delegation authentication key** field enter a secret that will be used to compute a signature provided to you for verification to ensure that the request is indeed coming from Azure API Management. You can click the **generate** button to have API Managemnet randomly generate a key for you.
 
