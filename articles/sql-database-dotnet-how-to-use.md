@@ -38,7 +38,7 @@ SQL Database provides relational data storage, access, and management services o
 2. Your account is now created. You are ready to get started.
 
 
-<h2><a name="PreReq2"></a><span class="short-header">Create and configure SQL Database</span></h2>
+<h2><a name="PreReq2"></a>Create and configure SQL Database</h2>
 
 Next, you'll create and configure a database and server. In the Azure Management Portal, revised workflows let you create the database first, and follow up with server provisioning. 
 
@@ -122,7 +122,7 @@ In the next step, you will configure the firewall so that connections from appli
 You now have a database instance, logical server, a firewall rule that allows inbound connections from your IP address, and an administrator login. You are now ready to connect to the database programmatically.
 
 
-<h2><a name="Connect-DB"></a><span class="short-header">Connect to SQL Database</span></h2>
+<h2><a name="Connect-DB"></a>Connect to SQL Database</h2>
 
 This section shows how to connect to SQL Database instance using different
 .NET Framework data providers.

@@ -17,11 +17,11 @@ This tutorial walks you through these basic steps to enable email functionality:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-<h2><a name="sign-up"></a><span class="short-header">Create a new SendGrid account</span></h2>
+<h2><a name="sign-up"></a>Create a new SendGrid account</h2>
 
 [WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-<h2><a name="add-script"></a><span class="short-header">Register a new script that sends emails</span></h2>
+<h2><a name="add-script"></a>Register a new script that sends emails</h2>
 
 1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
@@ -80,7 +80,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 6. Click the **Save** button. You have now configured a script to send an email each time a record is inserted into the **TodoItem** table.
 
-<h2><a name="insert-data"></a><span class="short-header">Insert test data to receive email</span></h2>
+<h2><a name="insert-data"></a>Insert test data to receive email</h2>
 
 1. In the client app project, run the quickstart application. 
 
