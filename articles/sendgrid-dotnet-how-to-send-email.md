@@ -1,6 +1,6 @@
-<properties urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." metaCanonical="" services="" documentationCenter=".NET" title="How to Send Email Using SendGrid with Azure" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." metaCanonical="" services="" documentationCenter=".NET" title="How to Send Email Using SendGrid with Azure" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="wpickett" editor="erikre" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/24/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
 
 
@@ -8,7 +8,7 @@
 
 # How to Send Email Using SendGrid with Azure
 
-Last Update: August 21, 2014
+Last Update: October 24, 2014
 
 This guide demonstrates how to perform common programming tasks with the
 SendGrid email service on Azure. The samples are written in C\#
@@ -50,7 +50,7 @@ For more information, see [https://sendgrid.com](https://sendgrid.com).
 
 [WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-<h2><a name="reference"></a><span  class="short-header">Reference the SendGrid .NET class library</span>Reference the SendGrid .NET class library</h2>
+<h2><a name="reference"></a><span  class="short-header">Reference the SendGrid .NET class library</span></h2>
 
 The [SendGrid NuGet package](https://www.nuget.org/packages/Sendgrid) is the easiest way to get the SendGrid API
 and to configure your application with all dependencies. NuGet is a
@@ -97,7 +97,7 @@ the SendGrid APIs.
     using System.Net.Mail;
     using SendGrid;
 
-<h2><a name="createemail"></a><span  class="short-header">How to: Create an email</span>How to: Create an email</h2>
+<h2><a name="createemail"></a><span  class="short-header">How to: Create an email</span></h2>
 
 Use the static **SendGrid.GetInstance** method to create an email
 message that is of type **SendGrid**. Once the message is created, you
@@ -175,7 +175,7 @@ The following examples show how to send a message using the Web API.
     // You can also use the **DeliverAsync** method, which returns an awaitable task.
     transportWeb.Deliver(myMessage);
 
-<h2><a name="addattachment"></a><span  class="short-header">How to: Add an attachment</span>How to: Add an attachment</h2>
+<h2><a name="addattachment"></a><span  class="short-header">How to: Add an attachment</span></h2>
 
 Attachments can be added to a message by calling the **AddAttachment**
 method and specifying the name and path of the file you want to attach.
@@ -250,7 +250,7 @@ SendGrid offers web-based APIs that you can use to leverage additional
 SendGrid functionality from your Azure application. For full
 details, see the [SendGrid API documentation][].
 
-<h2><a name="nextsteps"></a><span  class="short-header">Next steps</span>Next steps</h2>
+<h2><a name="nextsteps"></a><span  class="short-header">Next steps</span></h2>
 
 Now that you've learned the basics of the SendGrid Email service, follow
 these links to learn more.
