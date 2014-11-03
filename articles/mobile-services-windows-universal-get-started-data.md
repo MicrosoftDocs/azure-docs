@@ -41,7 +41,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
    	Notice that the saved text is displayed in the second column under **Query and update data**.
 
-<h2><a name="create-service"></a><span class="short-header">Create the mobile service</span>Create a new mobile service from Visual Studio</h2>
+<h2><a name="create-service"></a>Create a new mobile service from Visual Studio</h2>
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
@@ -57,7 +57,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 </li>
 </ol>
 
-<h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service and update the app</h2>
+<h2><a name="add-table"></a>Add a new table to the mobile service and update the app</h2>
 
 [WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
@@ -112,7 +112,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
 
-<h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against your new mobile service</h2>
+<h2><a name="test-app"></a>Test the app against your new mobile service</h2>
 
 1. In Visual Studio, press the F5 key to run the app.
 

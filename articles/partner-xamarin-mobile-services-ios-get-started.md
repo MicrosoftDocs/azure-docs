@@ -30,7 +30,7 @@ Completing this tutorial requires XCode 4.5 and iOS 5.0 or later versions as wel
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-<h2><span class="short-header">Create a new app</span>Create a new Xamarin.iOS app</h2>
+<h2>Create a new Xamarin.iOS app</h2>
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
@@ -54,7 +54,7 @@ In this section you will create a new Xamarin.iOS app that is connected to your 
 
 	This downloads the project for the sample _To do list_ application that is connected to your mobile service and references the Azure Mobile Services component for Xamarin.iOS. Save the compressed project file to your local computer, and make a note of where you saved it.
 
-<h2><span class="short-header">Run your app</span>Run your new Xamarin.iOS app</h2>
+<h2>Run your new Xamarin.iOS app</h2>
 
 The final stage of this tutorial is to build and run your new app.
 

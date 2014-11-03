@@ -38,7 +38,7 @@ This tutorial requires the following
 
  
 
-<h2><a name="uiupdate"></a><span class="short-header">Update the UI</span>Update the application to allow updates</h2>
+<h2><a name="uiupdate"></a>Update the application to allow updates</h2>
 
 In this section you will update the TodoList user interface to allow updating the text of each item in a ListBox control. The ListBox will contain a CheckBox and TextBox control for each item in the database table. You will be able to update the text field of the TodoItem. The application will handle the `LostFocus` event from that TextBox to update the item in the database.
 
@@ -95,7 +95,7 @@ In this section you will update the TodoList user interface to allow updating th
 
 The application now writes the text changes to each item back to the database when the TextBox loses focus.
 
-<h2><a name="enableOC"></a><span class="short-header">Enable Optimistic Concurrency</span>Enable Conflict Detection in your application</h2>
+<h2><a name="enableOC"></a>Enable Conflict Detection in your application</h2>
 
 Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. [Optimistic Concurrency Control] assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back. Azure Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is added to each table. In this section, we will enable the application to detect these write conflicts through the `__version` system property. The application will be notified by a `MobileServicePreconditionFailedException` during an update attempt if the record has changed since the last query. It will then be able to make a choice of whether to commit its change to the database or leave the last change to the database intact. For more information on the System Properties for Mobile Services, see [System Properties].
 
@@ -187,7 +187,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
 
-<h2><a name="test-app"></a><span class="short-header">Test the app</span>Test database write conflicts in the application</h2>
+<h2><a name="test-app"></a>Test database write conflicts in the application</h2>
 
 In this section you will test the code that handles write conflicts by running the app in two different Windows Phone 8 emulators (WVGA and WVGA 512M). Both client apps will attempt to update the same item's `text` property requiring the user to resolve the conflict.
 
@@ -226,7 +226,7 @@ In this section you will test the code that handles write conflicts by running t
 
 
 
-<h2><a name="scriptsexample"></a><span class="short-header">Handling conflicts with scripts</span>Automatically handling conflict resolution in server scripts</h2>
+<h2><a name="scriptsexample"></a>Automatically handling conflict resolution in server scripts</h2>
 
 You can detect and resolve write conflicts in server scripts. This is a good idea when you can use scripted logic instead of user interaction to resolve the conflict. In this section, you will add a server side script to the TodoItem table for the application. The logic this script will use to resolve conflicts is as follows:
 

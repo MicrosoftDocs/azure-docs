@@ -18,11 +18,11 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 Completing this tutorial requires [Xamarin.iOS], XCode 5.0 and iOS 5.0 or later versions.
 
-<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
+<h2><a name="register"></a>Register your app for authentication and configure Mobile Services</h2>
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-<h2><a name="permissions"></a><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
+<h2><a name="permissions"></a>Restrict permissions to authenticated users</h2>
 
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
@@ -36,7 +36,7 @@ Completing this tutorial requires [Xamarin.iOS], XCode 5.0 and iOS 5.0 or later 
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
-<h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
+<h2><a name="add-authentication"></a>Add authentication to the app</h2>
 
 1. Open the **TodoService** project file and add the following variables
 
