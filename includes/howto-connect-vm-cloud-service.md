@@ -1,61 +1,28 @@
-<properties authors="kathydav" editor="tysonn" manager="donaldg" /> 
+<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
 
 
 #How to Connect Virtual Machines in a Cloud Service
 
+When you create a virtual machine, a cloud service is automatically created to contain the machine. You can create multiple virtual machines within the same cloud service so virtual machines can communicate with each other. 
+
+> [WACOM.NOTE] When VMs are in the same cloud service, you also can load balance them and manage their availability, which both require additional steps. For details, see [Load balancing virtual machines](../../articles/load-balance-virtual-machines/) and [Manage the availability of virtual machines](../../articles/manage-availability-virtual-machines/). 
+
+First, you'll need to create a virtual machine with a new cloud service. Then you'll create additional virtual machines in the same cloud service. This 'connects' them. 
+
+1. Create the first virtual machine using the steps in [How to create a custom virtual machine](../../articles/virtual-machines-create-custom/).
+
+2. Follow the same basic process to create the other virtual machines, except you'll add them to the cloud service instead of creating a cloud service. For example, if you created a cloud service named *EndpointTest*, choose that service. The follow graphic shows this:
+
+	![Add a virtual machine to an existing cloud service](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
+
+14. Complete the rest of the fields on this page and the next, then click the check mark to create the connected virtual machine.
+
+#Resources
+
+After you create a virtual machine, it's a good idea to add a data disk so your services and workloads have a location to store data. See one of the following:
+
+[How to Attach a Data Disk to a Linux Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-how-to-attach-disk/)
+
+[How to Attach a Data Disk to a Windows Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/storage-windows-attach-disk/)
 
 
-When you create a virtual machine, a cloud service is automatically created to contain the machine. You can create multiple virtual machines under the same cloud service to enable the virtual machines to communicate with each other, to load-balance between virtual machines, and to maintain high availability of the machines. 
-
-For more information about load-balancing virtual machines, see [Load balancing virtual machines](../../articles/load-balance-virtual-machines/). For more information about managing the availability of your application, see [Manage the availability of virtual machines](../../articles/manage-availability-virtual-machines/). 
-
-
-First, you'll need to create a virtual machine with a new cloud service, and then you can connect additional virtual machines to the first virtual machine under the same cloud service. 
-
-
-
-1. Create a virtual machine using the steps in [How to create a custom virtual machine](../../articles/virtual-machines-create-custom/).
-
-
-2. After you create the first custom virtual machine, on the [Management Portal](http://manage.windowsazure.com) command bar, click **New**.
-
-
-	![Create a new virtual machine](./media/howto-connect-vm-cloud-service/Create.png)
-
-3. Click **Virtual Machine**, and then click **From Gallery**.
-
-	
-	![Create a custom virtual machine](./media/howto-connect-vm-cloud-service/CreateNew.png)
-
-	The **Select the virtual machine operating system** dialog box appears. 
-
-
-4. From the **Choose an image** page, select an image, and then click the arrow to continue.
-
-
-	The first **Virtual machine configuration** page appears.
-
-
-5. In **Virtual Machine Name**, type the name that you want to use for the virtual machine.
-
-6. In **Size**, select the size that you want to use for the virtual machine. The size that you select depends on the number of cores that are needed for your application.
-
-7. In **New User Name**, type a name for the administrative account that you want to use to manage the server.
-
-
-8. In **New Password**, type a strong password for the administrative account. In **Confirm Password**, retype the password.
-
-
-9. For a virtual machine running the Linux operating system, you can select to secure the machine with an SSH Key.
-
-
-10. In **Cloud Service**, select the cloud service that will contain the new virtual machine.
-
-11. In **Storage Account**, select a storage account to store the .vhd file, or leave the field set at the default to create the storage account automatically. Only one storage account is automatically created. All other virtual machines that you create with this setting are located in this storage account. You are limited to 20 storage accounts.
-
-
-12. To use an availability set, select the one was created when you created the first virtual machine.
-
-13. Review the default endpoint configuration, and modify if necessary. 
-
-14. Click the check mark to create the connected virtual machine.
