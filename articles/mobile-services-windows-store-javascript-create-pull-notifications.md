@@ -91,7 +91,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 Next, you will modify the quickstart app to start periodic notifications that update the live tile by requesting the new custom API.
 
-<h2><a name="update-app"></a><span class="short-header">Update the app </span>Update the app to turn on period notifications</h2>
+<h2><a name="update-app"></a>Update the app to turn on period notifications</h2>
 
 1. In Visual Studio, press the F5 key to run the quickstart app from the previous tutorial.
 

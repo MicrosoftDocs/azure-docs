@@ -19,7 +19,7 @@ Azure Diagnostics 1.2 enables you to collect diagnostic data from a worker role,
 -   [Comparing Azure Diagnostics 1.0 and 1.2][]
 -   [Additional Resources][]
 
-<h2><a name="overview"></a><span class="short-header">Overview</span>Overview</h2>
+<h2><a name="overview"></a>Overview</h2>
 
 Azure Diagnostics 1.2 is an Azure extension that enables you to collect diagnostic telemetry data from a worker role, web role, or virtual machine running in Azure. The telemetry data is stored in an Azure storage account and can be used for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing. 
 
@@ -79,7 +79,7 @@ Azure Diagnostics can collect the following types of telemetry:
 </tbody>
 </table>
 
-<h2><a name="worker-role"></a><span class="short-header">Enable Diagnostics in a Worker Role</span>How to Enable Diagnostics in a Worker Role</h2>
+<h2><a name="worker-role"></a>How to Enable Diagnostics in a Worker Role</h2>
 
 This walk through describes how to implement an Azure worker role that emits telemetry data using the .NET EventSource class. Azure Diagnostics is used to collect the telemetry data and store it in an Azure storage account. When creating a worker role Visual Studio automatically enables Diagnostics 1.0 as part of the solution. The following instructions describe the process for creating the worker role, disabling  Diagnostics 1.0 from the solution, and deploying Diagnostics 1.2 to your worker role.
 
@@ -236,7 +236,7 @@ The PowerShell cmdlets for managing Diagnostics on a web or worker role are: Set
 In the Visual Studio **Server Explorer** navigate to the wadexample storage account. After the cloud service has been running about 5 minutes you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click on one of the tables to view the telemetry that has been collected.
 	![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
-<h2><a name="virtual-machine"></a><span class="short-header">Enable Diagnostics in a Virtual Machine</span>How to Enable Diagnostics in a Virtual Machine</h2>
+<h2><a name="virtual-machine"></a>How to Enable Diagnostics in a Virtual Machine</h2>
 
 This walk through describes how to remotely install Diagnostics to an Azure virtual machine from a development computer. You also learn how to implement an application that runs on that Azure virtual machine and emits telemetry data using the .NET [EventSource Class][]. Azure Diagnostics is used to collect the telemetry and store it in an Azure storage account.
 
@@ -386,11 +386,11 @@ The PowerShell cmdlets for managing Diagnostics on a VM are: Set-AzureVMDiagnost
 In the Visual Studio **Server Explorer** navigate to the wadexample storage account. After the VM has been running about 5 minutes you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click on one of the tables to view the telemetry that has been collected.
 	![CloudServices_diag_wadexamplevm_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
 
-<h2><a name="configuration-file-schema"></a><span class="short-header">Sample Configuration File and Schema</span>Configuration File Schema</h2>
+<h2><a name="configuration-file-schema"></a>Configuration File Schema</h2>
 
 The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics monitor starts. A sample configuration file and detailed documentation on it's schema is located here: [Azure Diagnostics 1.2 Configuration Schema][].
 
-<h2><a name="troubleshooting"></a><span class="short-header">Troubleshooting</span>Troubleshooting</h2>
+<h2><a name="troubleshooting"></a>Troubleshooting</h2>
 
 <h3>Azure Diagnostics is not Starting</h3>
 Diagnostics is comprised of two components: A guest agent plugin and the monitoring agent. Log files for the guest agent plugin are located in the file: 
@@ -525,7 +525,7 @@ The Monitoring Agent logs any errors it experiences in the file MaEventTable.tsf
 The tool generates a file named maeventtable.csv that you may open and inspect the logs for failures.
 
 
-<h2><a name="faq"></a><span class="short-header">FAQ</span>Frequently Asked Questions</h2>
+<h2><a name="faq"></a>Frequently Asked Questions</h2>
 The following are some frequently asked questions and their answers:
 
 **Q.** How do I upgrade my Visual Studio solution from Azure Diagnostics 1.0 to Azure Diagnostics 1.1?
@@ -592,7 +592,7 @@ That will generate 4 tables:
 </table>
 </tbody>
 
-<h2><a name="comparing"></a><span class="short-header">Azure Diagnostics 1.0 vs 1.2</span>Comparing Azure Diagnostics 1.0 and 1.2</h2>
+<h2><a name="comparing"></a>Comparing Azure Diagnostics 1.0 and 1.2</h2>
 
 The following table compare the features supported by Azure Diagnostics versions 1.0 and 1.1/1.2:
 
@@ -737,7 +737,7 @@ The following table compare the features supported by Azure Diagnostics versions
 </tbody>
 </table>
 
-<h2><a name="additional"></a><span class="short-header">Additional Resources</span>Additional Resources</h2>
+<h2><a name="additional"></a>Additional Resources</h2>
 
 - [Troubleshooting Best Practices for Developing Azure Applications][]
 - [Collect Logging Data by Using Azure Diagnostics][]
