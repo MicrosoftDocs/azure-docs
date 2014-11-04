@@ -48,24 +48,24 @@ There are multiple ways of consuming the service in an automated fashion (an exa
     }
 
 	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-        {
-            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-        }
+    {
+         byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+         return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+    }
 
        
 	void Main()
 	{
-  	var input = new Input() { frequency = TextBox1.Text, horizon = TextBox2.Text, date = TextBox3.Text, value = TextBox4.Text;
-	var json = JsonConvert.SerializeObject(input);
-	var acitionUri =  "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-       
-  	var httpClient = new HttpClient();
-   	httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere","ChangeToAPIKey");
-   	httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-  	var query = httpClient.PostAsync(acitionUri,new StringContent(json));
-  	var result = query.Result.Content;
-  	var scoreResult = result.ReadAsStringAsync().Result;
+  		var input = new Input() { frequency = TextBox1.Text, horizon = TextBox2.Text, date = TextBox3.Text, value = TextBox4.Text };
+		var json = JsonConvert.SerializeObject(input);
+		var acitionUri =  "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	       
+	  	var httpClient = new HttpClient();
+	   	httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere","ChangeToAPIKey");
+	   	httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	  	var query = httpClient.PostAsync(acitionUri,new StringContent(json));
+	  	var result = query.Result.Content;
+	  	var scoreResult = result.ReadAsStringAsync().Result;
   	}
 
 ##Creation of Web Service 
@@ -87,7 +87,7 @@ From within Azure ML, a new blank experiment was created. A sample input data wa
 	# data input
 	data <- maml.mapInputPort(1) # class: data.frame
 	library(forecast)
-
+	
 	# preprocessing
 	colnames(data) <- c("frequency", "horizon", "dates", "values")
 	dates <- strsplit(data$dates, ";")[[1]]
@@ -97,18 +97,19 @@ From within Azure ML, a new blank experiment was created. A sample input data wa
 	values <- as.numeric(values)
 	
 	# fit a time-series model
-	train_ts<- ts(values, frequency=frequency)
+	train_ts<- ts(values, frequency=data$frequency)
 	fit1 <- auto.arima(train_ts)
-	train_model <- forecast(fit1, h = horizon)
+	train_model <- forecast(fit1, h = data$horizon)
 	plot(train_model)
 	
 	# produce forcasting
 	train_pred <- round(train_model$mean,2)
 	data.forecast <- as.data.frame(t(train_pred))
-	colnames(data.forecast) <- paste("Forecast", 1:horizon, sep="")
+	colnames(data.forecast) <- paste("Forecast", 1:data$horizon, sep="")
 	
 	# data output
 	maml.mapOutputPort("data.forecast");
+
 
 ##Limitations 
 
