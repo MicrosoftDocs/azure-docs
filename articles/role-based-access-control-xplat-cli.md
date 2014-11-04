@@ -1,6 +1,6 @@
 <properties pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" metaKeywords="ResourceManager, Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli, RBAC" description="Managing role-based access control with cross-platform command-line interface" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
 
 # Managing Role-Based Access Control with Cross-Platform Command-Line Interface #
 
@@ -63,7 +63,7 @@ This will return all the role assignments in the subscription. Two things to not
 
 You can also check existing role assignments for a particular role definition, at a particular scope for a particular user. Type:
 
-    azure role assignment list -g group1 --upn <user's email> -o Owner
+    azure role assignment list -g group1 --upn <user email> -o Owner
 
 This will return all the role assignments for a particular user in your Azure AD directory, who has a role assignment of "Owner" for resource group "group1". The role assignment can come from two places:
 

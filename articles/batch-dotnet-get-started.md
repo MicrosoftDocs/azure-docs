@@ -158,6 +158,7 @@ This tutorial uses three simple text files to demonstrate using tasks to process
 		Quickly deploy and manage powerful applications and services with Azure Cloud Services. Simply upload your application and Azure handles the deployment details - from provisioning and load balancing to health monitoring for continuous availability. Your application is backed by an industry leading 99.95% monthly SLA. You just focus on the application and not the infrastructure.
 		
 		Azure Web Sites provide a scalable, reliable, and easy-to-use environment for hosting web applications. Select from a range of frameworks and templates to create a web site in seconds. Use any tool or OS to develop your site with .NET, PHP, Node.js or Python. Choose from a variety of source control options including TFS, GitHub, and BitBucket to set up continuous integration and develop as a team. Expand your site functionality over time by leveraging additional Azure managed services like storage, CDN, and SQL Database.
+
 ####Upload the files
 1.	Add the following namespace declarations to the top of Program.cs in the **UploadData** project:
 
@@ -340,7 +341,7 @@ If you don’t know the name of an existing workitem, you can get a list of them
 
 6.	Add the following code to Main that writes the names and states of all workitems in the account:
 
-		using (IPoolManager pm = client.OpenPoolManager())
+		using (IWorkItemManager wm = client.OpenWorkItemManager())
 		{
 		   Console.WriteLine("Listing Workitems\n=================");
 		   IEnumerable<ICloudWorkItem> workitems = wm.ListWorkItems();

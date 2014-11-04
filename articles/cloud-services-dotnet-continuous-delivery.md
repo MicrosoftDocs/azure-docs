@@ -31,7 +31,7 @@ This task includes the following steps:
 -   [Step 4: Publish a Package using a PowerShell Script][]
 -   [Step 5: Publish a Package using TFS Team Build (Optional)][]
 
-<h2> <a name="step1"> </a><span class="short-header">Configure the Build Server</span>Step 1: Configure the Build Server</h2>
+<h2> <a name="step1"> </a>Step 1: Configure the Build Server</h2>
 
 Before you can create an Azure package by using MSBuild, you must
 install the required software and tools on the build server.
@@ -56,7 +56,7 @@ documentation.
 5.  Install the [Azure Tools for Visual Studio][].
     Look for WindowsAzureTools.VS110.exe to build Visual Studio 2012 projects, and WindowsAzureTools.VS120.exe to build Visual Studio 2013 projects.
 
-<h2><a name="step2"> </a><span class="short-header">Build a Package Using MSBuild</span>Step 2: Build a Package using MSBuild Commands</h2>
+<h2><a name="step2"> </a>Step 2: Build a Package using MSBuild Commands</h2>
 
 This section describes how to construct an MSBuild command that builds a
 Azure package. Run this step on the build server to verify that
@@ -139,7 +139,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     build environment, then you can follow the instructions in the next
     step to add the Azure package build to your build process.
 
-<h2> <a name="step3"> </a><span class="short-header">Build a Package Using TFS </span>Step 3: Build a Package using TFS Team Build (Optional)</h2>
+<h2> <a name="step3"> </a>Step 3: Build a Package using TFS Team Build (Optional)</h2>
 
 If you have Team Foundation Server (TFS) set up as a build controller
 and the build server set up as a TFS build machine, then you can set up
@@ -189,7 +189,7 @@ steps:
     Team Explorer, right-click **All Build Definitions,** and then
     choose **Queue New Build**.
 
-<h2> <a name="step4"> </a><span class="short-header">Publish Using Powershell</span>Step 4: Publish a Package using a Powershell Script</h2>
+<h2> <a name="step4"> </a>Step 4: Publish a Package using a Powershell Script</h2>
 
 This section describes how to construct a Windows PowerShell script that
 will publish the Cloud app package output to Azure using
@@ -327,7 +327,7 @@ Template workflow activities in Visual Studio TFS Team Build.
     enable continuous delivery from automation where no user/operator
     prompting is possible.
 
-<h2><a name="step5"> </a><span class="short-header">Publish Using TFS </span>Step 5: Publish a Package using TFS Team Build (Optional)</h2>
+<h2><a name="step5"> </a>Step 5: Publish a Package using TFS Team Build (Optional)</h2>
 
 This step will wire up TFS Team Build to the script created in step 4,
 which handles publishing of the package build to Azure. This

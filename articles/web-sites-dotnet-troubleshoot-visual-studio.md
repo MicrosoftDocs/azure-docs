@@ -280,7 +280,7 @@ If your function [wrote logs](../websites-dotnet-webjobs-sdk-storage-queues-how-
 
 * You can manually attach the debugger to any process, not only the website process (w3wp.exe). For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](http://msdn.microsoft.com/en-us/library/vstudio/sc65sadd.aspx).
 
-<h2><a name="logsoverview"></a><span class="short-header">Logs overview</span>Diagnostic logs overview</h2>
+<h2><a name="logsoverview"></a>Diagnostic logs overview</h2>
 
 An ASP.NET application that runs in an Azure Website can create the following kinds of logs:
 
@@ -463,7 +463,7 @@ These perform the following functions:
 
 If you enter a search string or regular expression, Visual Studio filters logging information at the client. That means you can enter the criteria after the logs are displayed in the **Output** window and you can change filtering criteria without having to regenerate the logs.
 
-<h2><a name="webserverlogs"></a><span class="short-header">Web server logs</span>View web server logs</h2>
+<h2><a name="webserverlogs"></a>View web server logs</h2>
 
 Web server logs record all HTTP activity on the site. In order to see them in the **Output** window you have to enable them on the site and tell Visual Studio that you want to monitor them. 
 
@@ -490,7 +490,7 @@ By default, when you first enable web server logs by using Visual Studio, Azure 
 
 If you use the management portal to enable web server logging to an Azure storage account, and then disable logging in Visual Studio, when you re-enable logging in Visual Studio your storage account settings are restored. 
 
-<h2><a name="detailederrorlogs"></a><span class="short-header">Error logs</span>View detailed error message logs</h2>
+<h2><a name="detailederrorlogs"></a>View detailed error message logs</h2>
 
 Detailed error logs provide some additional information about HTTP requests that result in error response codes (400 or above). In order to see them in the **Output** window, you have to enable them on the site and tell Visual Studio that you want to monitor them.
 
@@ -514,7 +514,7 @@ Detailed error logs provide some additional information about HTTP requests that
 
 	![Detailed error log in browser window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
 
-<h2><a name="downloadlogs"></a><span class="short-header">Download logs</span>Download file system logs</h2>
+<h2><a name="downloadlogs"></a>Download file system logs</h2>
 
 Any logs that you can monitor in the **Output** window can also be downloaded as a *.zip* file. 
 

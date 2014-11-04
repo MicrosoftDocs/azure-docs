@@ -26,7 +26,7 @@ The downloaded quickstart project contains the Azure Mobile services component f
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-## <h2><span class="short-header">Create a new app</span>Create a new Xamarin.Android app</h2>
+## <h2>Create a new Xamarin.Android app</h2>
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 

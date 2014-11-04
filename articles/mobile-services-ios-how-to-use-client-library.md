@@ -53,7 +53,7 @@ In addition, you must add the following reference in the appropriate files or in
 
 	#import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
-<h2><a name="create-client"></a><span class="short-header">Create the client</span>How to: Create the Mobile Services client</h2>
+<h2><a name="create-client"></a>How to: Create the Mobile Services client</h2>
 
 The following code creates the mobile service client object that is used to access your mobile service.
 
@@ -65,14 +65,14 @@ You can also create your client from an **NSURL** object that is the URL of the 
 
 	MSClient *client = [MSClient clientWithApplicationURL:[NSURL URLWithString:@"MobileServiceUrl"] applicationKey:@"AppKey"];
 
-<h2><a name="table-reference"></a><span class="short-header">Create table reference</span>How to: Create a table reference</h2>
+<h2><a name="table-reference"></a>How to: Create a table reference</h2>
 
 Before you can access data from your mobile service, you must get a reference to the table from which you want to query, update, or delete items. In the following example, `ToDoItem` is the table name:
 
 	MSTable *table = [client tableWithName:@"ToDoItem"];
 
 
-<h2><a name="querying"></a><span class="short-header">Query data</span>How to: Query data from a mobile service</h2>
+<h2><a name="querying"></a>How to: Query data from a mobile service</h2>
 
 Once you have a MSTable object you can then create your query.  The following simple query gets all the items in our ToDoItem table.
 
@@ -207,7 +207,7 @@ The client library makes it possible to include additional querystring parameter
 These parameters are appended to query URI as `myKey1=value1&myKey2=value2`.
 For more information, see [How to: access custom parameters].
 
-<h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
+<h2><a name="inserting"></a>How to: Insert data into a mobile service</h2>
 
 To insert a new row into the table, you create a new [NSDictionary object] and pass that to the insert function. The following code inserts a new todo item into the table:
 
@@ -261,7 +261,7 @@ You can alternatively use integer Ids for your tables. In order to use an intege
 
 When dynamic schema is enabled, Mobile Services automatically generates new columns based on the fields of the object in the insert or update request. For more information, see [Dynamic schema].
 
-<h2><a name="modifying"></a><span class="short-header">Modifying data</span>How to: Modify data in a mobile service</h2>
+<h2><a name="modifying"></a>How to: Modify data in a mobile service</h2>
 
 Update an existing object by modifying an item returned from a previous query and then calling the **update** function.
 
@@ -292,7 +292,7 @@ You can also just delete a record using its id directly, as in the following exa
 
 Note that, at minimum, the `id` attribute must be set when making updates and deletes.
 
-<h2><a name="authentication"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
+<h2><a name="authentication"></a>How to: Authenticate users</h2>
 
 Mobile Services enables you to use the following identity providers to authenticate users:
 
@@ -428,7 +428,7 @@ To prevent users from having to authenticate every time they use run your applic
 
 When using a cached token, a user will not have to login again until the token expires. When a user tries to login with an expired token, a 401 unauthorized response is returned. At this point, the user must log in again to obtain a new token, which can again be cached. You can use filters to avoid having to write code that handles expired tokens wherever your app calls the mobile service.  Filters allow you to intercept calls to and responses from your mobile service. The code in the filter tests the response for a 401, triggers the login process if the token is expired, and then retries the request that generated the 401. For details, see [Handling Expired Tokens].
 
-<h2><a name="errors"></a><span class="short-header">Error handling</span>How to: Handle errors</h2>
+<h2><a name="errors"></a>How to: Handle errors</h2>
 
 When a call is made to the mobile service, the completion block contains an `NSError *error` parameter. When an error occurs, this parameter is returned a non-null value. In your code, you should check this parameter and handle the error as needed.
 
@@ -446,11 +446,11 @@ In addition, a constant is defined for each error code. An explanation of these 
 For an example of performing validation and handling any, see [Validate and modify data in Mobile Services by using server scripts]. In this topic, server-side validation is implemented by using server scripts. When invalid data is submitted, and error response is returned and this response is handled by the client.
 
 <!--
-<h2><a name="#unit-testing"></a><span class="short-header">Designing tests</span>How to: Design unit tests</h2>
+<h2><a name="#unit-testing"></a>How to: Design unit tests</h2>
 
 _(Optional) This section shows how to write unit test when using the client library (info from Yavor)._
 
-<h2><a name="#customizing"></a><span class="short-header">Customizing the client</span>How to: Customize the client</h2>
+<h2><a name="#customizing"></a>How to: Customize the client</h2>
 
 _(Optional) This section shows how to send customize client behaviors._
 
