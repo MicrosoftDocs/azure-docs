@@ -1,16 +1,17 @@
-<properties urlDisplayName="Get Started" pageTitle="Get started using HBase with Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using HBase with Hadoop in HDInsight. learn how to created HBase tables and query them with Hive." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using HBase with Hadoop in HDInsight" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Get Started" pageTitle="Set up and query HBase tables using Hive in HDInsight | Azure" metaKeywords="" description="Get started using HBase with Hadoop in HDInsight. Learn how to create HBase tables and query them using Hive." metaCanonical="" services="hdinsight" documentationCenter="" title="Set up HBase clusters and query them using Hive on Hadoop in HDInsight" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev" />
 
 
 
-# Get started using HBase with Hadoop in HDInsight
-In this tutorial, you learn how to create and query HBase tables with Hadoop in HDInsight. The following **procedures** are described:
+# Set up HBase clusters and query them using Hive on Hadoop in HDInsight
+
+In this tutorial, you'll learn how to create and query HBase tables using Hive on Hadoop in HDInsight. The following **procedures** are described:
 
 - How to **provision an HBase cluster** using the Azure portal.
 - How to enable and use RDP to access the HBase shell and use the HBase shell to **create an HBase sample table**, add rows, and then list the rows in the table.
 - How to **create a Hive table** that maps to an existing HBase table and use HiveQL to **query the data** in the HBase table.
-- How to **use the ****Microsoft HBase REST Client Library for .NET** to create a new HBase table, list the HBase tables in your account, and how to add and retrieve the rows from your tables.
+- How to **use the Microsoft HBase REST Client Library for .NET** to create a new HBase table, list the HBase tables in your account, and how to add and retrieve the rows from your tables.
 
 
 **What is HBase?**
@@ -53,11 +54,11 @@ This section describes how to provision an HBase cluster using the Azure portal.
 
 2. Click **HDInsight** on the left to list the status of the clusters in your account and then the **+NEW** icon on the lower left. 
 
-	![](http://i.imgur.com/PmGynKZ.jpg)
+	![Creating an HBase cluster in HDInsight in the Azure portal.](http://i.imgur.com/PmGynKZ.jpg)
 
 3. Click on the HDInsight icon in the second column from the left and then the HBase option in the next column. Specify the values for the CLUSTERNAME and CLUSTER SIZE, the name of the Storage Account, and a password for the new HBase cluster.
  
-	![](http://i.imgur.com/ecxbB9K.jpg)
+	![Choosing and HBase cluster type and entering cluster login credentials.](http://i.imgur.com/ecxbB9K.jpg)
 
 4. Click on the check icon on the lower left to create the HBase cluster.
 
@@ -113,7 +114,7 @@ Now you have an HBase cluster provisioned and have created a table, you can quer
 4. Click **MANAGE CLUSTER** from the bottom of the page to open cluster dashboard. It opens a Web page on a different browser tab.   
 5. Enter the Hadoop User account username and password.  The default username is **admin**, the password is what you entered during the provision process.  The dashboard looks like :
 
-	![](http://i.imgur.com/tMwXlj9.jpg)
+	![HDInsight cluster dashboard.](http://i.imgur.com/tMwXlj9.jpg)
 
 
 **To run an Hive query**
