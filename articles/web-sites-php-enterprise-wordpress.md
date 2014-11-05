@@ -2,7 +2,7 @@
 
 <tags ms.service="web-sites" ms.devlang="php" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="01/01/1900" ms.author="cephalin" />
 
-##Enterprise Class WordPress on Azure Websites
+#Enterprise Class WordPress on Azure Websites
 
 Azure Websites provides a scalable, secure and easy to use environment for mission critical, large scale [WordPress][wordpress] sites. Microsoft itself runs enterprise class sites such as the [Office][officeblog] and [Bing][bingblog] blogs. This document shows you how you can use Azure Websites to establish and maintain an enterprise class, cloud-based WordPress site that can handle a large volume of visitors.
 
