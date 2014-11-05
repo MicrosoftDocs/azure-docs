@@ -24,7 +24,7 @@ In conjunction with the general availability of Azure HDInsight, Microsoft also 
 
 Assume you have a large unstructured data set and you want to run queries on it to extract some meaningful information. That's exactly what we are going to do in this tutorial. Here's how we achieve this:
 
-   !["Get started using Hadoop with Hive in HDInsight" tutorial steps illustrated: create and account; provision a cluster; query data; and analyze in Excel.][image-hdi-getstarted-flow]
+   ![Get started using Hadoop with Hive in HDInsight tutorial steps illustrated: create and account; provision a cluster; query data; and analyze in Excel.][image-hdi-getstarted-flow]
 
 You can also watch a demo video of this tutorial:
 
