@@ -316,7 +316,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 		
 
 3. Switch to **C:\ADFGetstarted\Hive** folder.
-4. Execute the following command to create the linked service for the on-demand HDInsight cluster.
+4. Execute the following command to create the linked service for your own HDInsight cluster.
  
 		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\MyHDInsightCluster.json
 
