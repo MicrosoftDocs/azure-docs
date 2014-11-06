@@ -178,6 +178,7 @@ If your web service is running in an Azure VM, you can also [get diagnostics][az
 ## Application Insights - learn more
 
 * [Application Insights - get started][start]
+* [Start monitoring web app health and usage][greenbrown]
 * [Monitor a live web server now][redfield]
 * [Monitor performance in web applications][perf]
 * [Search diagnostic logs][diagnostic]
@@ -189,7 +190,8 @@ If your web service is running in an Azure VM, you can also [get diagnostics][az
 <!--Link references-->
 
 
-[start]: ../app-insights-start-monitoring-app-health-usage/
+[start]: ../app-insights-get-started/
+[greenbrown]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
 [perf]: ../app-insights-web-monitor-performance/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
