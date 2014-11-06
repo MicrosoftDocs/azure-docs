@@ -5,6 +5,23 @@
 
 #Microsoft HDInsight release notes
 
+## Notes for 11/07/2014 release of HDInsight ##
+
+<table border="1">
+<tr><th>Title</th><th>Description</a><th>Component</th></th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
+
+<tr><td>HDP 2.1.7</td><td>This release is based on Hortonworks Data Platform (HDP) 2.1.7. The release notes for HDP 2.1.7 are available on the Hortonworks site at http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html.</td><td>HDP</td><td>All</td><td></td></tr>
+
+<tr><td>YARN Timeline Server</td><td>The YARN Timeline Server (also known as the Generic Application History Server) has been enabled by default. The Timeline Server provides generic information about completed applications such as application ID, application name, application status, application submission time, and application completion time. <p>This application information can be retrieved from the head node either by accessing the URI http://headnodehost:8188 or by running the YARN command: yarn application –list –appStates ALL. <p>This information can also be retrieved remotely though REST API at https://{ClusterDnsName}. azurehdinsight.net/ws/v1/applicationhistory/. <p>More detailed information on the Timeline Server is available at http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html.</td><td>Service, YARN</td><td>Hadoop, HBase</td><td></td></tr>
+
+<tr><td>Storm Dashboard</td><td>We have enabled the native Storm dashboard for HDINSIGHT Storm clusters. The dashboard may be accessed from the Azure UX portal.</td><td>Azure UX</td><td>Storm</td><td></td>
+</tr>
+
+<tr><td>Cluster Deployment ID</td><td>Starting with latest SDK version [TBF], users can access HdInsight issued unique id for each cluster. This will enable customers to figure out unique instances of clusters when a dnsname is being reused across create/drop scenarios.</td><td>SDK</td><td>All</td><td></td></tr>
+</table><br>
+
+* Note that the bug that prevented the full version # from showing up in the portal or from being returned by the SDK or by PowerShell has been fixed in this release. 
+
 ## Notes for 10/15/2014 release ##
 
 This hotfix release fixed a memory leak in Templeton that affected the heavy users of Templeton. In some cases users who exercised Templeton heavily would see errors manifested as 500 error codes because the requests would not have enough memory to execute. The workaround for this problem was to restart the Templeton service. This issue has now been fixed.
@@ -289,7 +306,7 @@ With this release, we have refreshed the following HDInsight  (Hortonworks Data 
 
 Release notes for the HDPs that are used by the versions of HDInsight cluster are available at the following locations.
 
-* HDInsight cluster version 3.1 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.1][hdp-2-1-1].(This is the default Hadoop cluster created when using the Azure HDInsight portal.)
+* HDInsight cluster version 3.1 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.1.7][hdp-2-1-7].This is the default Hadoop cluster created when using the Azure HDInsight portal after 11/7/2014. HDInsight 3.1 clusters created before 11/7/2014 were based on the [Hortonworks Data Platform 2.1.1][hdp-2-1-1] 
 
 * HDInsight cluster version 3.0 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.0][hdp-2-0-8].
 
@@ -297,8 +314,7 @@ Release notes for the HDPs that are used by the versions of HDInsight cluster ar
 
 * HDInsight cluster version 1.6 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 1.1][hdp-1-1-0]. 
 
-
-
+[hdp-2-1-7]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
 
 [hdp-2-1-1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
 
