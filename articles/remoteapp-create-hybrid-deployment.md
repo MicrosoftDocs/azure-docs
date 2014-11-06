@@ -15,7 +15,7 @@ This tutorial walks you through the process of creating a hybrid deployment. The
 2.	Create a RemoteApp service.
 2.	Link to a virtual network.
 3.	Link a template image.
-4.	Configure directory synchronization. RemoteApp requires this to synchronize users, groups, contacts, and passwords from your on-premises Active Directory to your Azure Active Directory tenant.
+4.	Configure directory synchronization. RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring DirSync with the Password Sync option, or 2) configuring DirSync without the Password Sync option but using a domain that is federated to AD FS.
 5.	Publish RemoteApp programs.
 6.	Configure user access.
 
@@ -84,7 +84,7 @@ If you are linking to an existing template image, simply specify the image name,
 
 ## **Step 4: Configure Active Directory directory synchronization** ##
 
-RemoteApp requires directory synchronization between Azure Active Directory and your on-premise Active Directory to synchronize users, groups, contacts, and passwords to your Azure Active Directory tenant. See [Directory synchronization roadmap](http://msdn.microsoft.com//library/azure/hh967642.aspx) for planning information and detailed steps.
+RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring DirSync with the Password Sync option, or 2) configuring DirSync without the Password Sync option but using a domain that is federated to AD FS. See [Directory synchronization roadmap](http://msdn.microsoft.com//library/azure/hh967642.aspx) for planning information and detailed steps.
 
 ## **Step 5: Publish RemoteApp programs** ##
 

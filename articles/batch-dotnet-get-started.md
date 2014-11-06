@@ -422,7 +422,7 @@ After you create the workitem and the job is created, you can add tasks to the j
 		   wm.GetWorkItem(WorkitemName).Terminate();
 		   foreach (ICloudTask task in listjob.ListTasks())
 		   {
-		      Console.WriteLine("Task " + task.Name + " says:\n" + task.StdOut);
+		      Console.WriteLine("Task " + task.Name + " says:\n" + task.GetTaskFile(Constants.StandardOutFileName).ReadAsString());
 		   }
 		   Console.ReadLine();
 		}

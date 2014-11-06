@@ -26,7 +26,7 @@ You just install an agent in the server and see performance data on Application 
 
 - This method instruments the web app as it stands. You don't insert trace or log code. (But you can do that later if you want.)
 
-If you want to insert logging or diagnostic traces, don't continue here - instead, [add Application Insights to your project][start] and redeploy it.
+If you want to insert logging or diagnostic traces, don't continue here - instead, [add Application Insights to your project][greenbrown] and redeploy it. For the full range of options, read [Application Insights - getting started][start].
 
 ## Install the Application Insights agent on your web server
 
@@ -95,6 +95,7 @@ You'll see data under Application Health.
 ## Application Insights - learn more
 
 * [Application Insights - get started][start]
+* [Start monitoring web app health and usage][greenbrown]
 * [Monitor a live web server now][redfield]
 * [Monitor performance in web applications][perf]
 * [Search diagnostic logs][diagnostic]
@@ -106,7 +107,8 @@ You'll see data under Application Health.
 <!--Link references-->
 
 
-[start]: ../app-insights-start-monitoring-app-health-usage/
+[start]: ../app-insights-get-started/
+[greenbrown]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
 [perf]: ../app-insights-web-monitor-performance/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 
