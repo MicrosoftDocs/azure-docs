@@ -33,6 +33,10 @@ Determine the service tier that provides you the minimum level of feature capabi
 Azure SQL Database service provides Web/Business database resource consumption in the sys.resource_stats view [(see MSDN documentation),](http://msdn.microsoft.com/library/azure/dn269979.aspx) in the master database of the logical server where your current database is located. It displays resource consumption data in percentages of the limit of the performance level. This view provides data for up to the last 14 days, at 5 minute intervals. Since Web/Business databases do not have any guaranteed DTUs/resource limits associated with them, we normalize the percentage values in terms of the amount of resources available to a database in S2 performance level. The average DTU percentage consumption of a database at any specific interval can be calculated as the highest percentage value among CPU, IO and Log usage at that interval. Run the following query on the master database to retrieve the average DTU consumption for a database:
 
  
+                   
+        SELECT start_time, end_time
+	 , (SELECT Max(v)
+         FROM (VALUES (avg_cpu_percent)
                     , (avg_physical_data_read_percent)
                     , (avg_log_write_percent)
     	   ) AS value(v)) AS [avg_DTU_percent]
