@@ -22,7 +22,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 [WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
-<h2><a name="update-app"></a><span class="short-header">Update the app </span>Update the app to call the custom API</h2>
+<h2><a name="update-app"></a>Update the app to call the custom API</h2>
 
 1. Using your text editor, open the index.html file, locate the **button** element named `buttonRefresh`, and add the following new element right after it: 
 

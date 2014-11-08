@@ -47,30 +47,11 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 
 	![New->DataFactory][image-data-factory-new-datafactory-menu] 
 	
-	If you do not see **Data Factory** on the **New** blade, scroll down. If you still don't see it, do the following: 
-  
-	1. click **NEW** from the bottom-left corner, and click **Everything** at the top. 
-     
-		![GetStartedEveverything][image-data-factory-getstarted-new-everything]
+	If you do not see **Data Factory** on the **New** blade, scroll down.  
 
-	2. Click **Data, storage, cache, + backup** in **Marketplace**.
-    
-		![Data, storage, cache, + backup in Gallery][image-data-factory-gallery-storagecachebackup]
-
-	3. In the **Data, storage, cache, + backup** blade, click **Data Factory** tile and skip the next two steps. If you don't see the **Data Factory** tile, click **More** as shown in the following image and continue with the next step.   
-
-		![SeeAll][image-data-factory-gallery-storagecachebackup-seeall]
-
-	4. In the **Data Services** blade, click **Data Factory (preview)**.
-
-		![Data services blade][image-data-factory-getstarted-data-services-data-factory-selected]
-
-	1. In the **Data Factory (preview)** blade, click **Create**.
-
-		![Data factory (preview) blade][image-data-factory-getstarted-data-factory-create-button]
 
 6. In the **New data factory** blade:
-	1. Enter **ADFTutorialDataFactory** for the **name**.
+	1. Enter **ADFTutorialDataFactory** for the **name**. 
 	
   		![New data factory blade][image-data-factory-getstarted-new-data-factory-blade]
 	2. Click **RESOURCE GROUP NAME** and do the following:
@@ -116,13 +97,7 @@ In this step, you will create two linked services: **MyBlobStore** and **MyAzure
 
     ![New data store blade][image-data-factory-get-started-new-data-store-with-storage]
 
-5. Enter the **Account Name** and **Account Key** for your Azure Storage Account, and click **OK**.
-  
-	**To get the Account Key for a storage in the Azure Preview Portal**: (You will need to switch to **Storage** blade to see this screen.) 
-
-    ![stroage-account-key][image-data-factory-preview-storage-key]
-
-	 
+5. Enter the **Account Name** and **Account Key** for your Azure Storage Account, and click **OK**.   
 
 6. After you click **OK** on the **New data store** blade, you should see **myblobstore** in the list of **DATA STORES** on the **Linked Services** blade. Check **NOTIFICATIONS** Hub (on the left) for any messages.
 
@@ -137,10 +112,6 @@ In this step, you will create two linked services: **MyBlobStore** and **MyAzure
 3. Enter **Server**, **Database**, **User Name**, and **Password** for the Azure SQL Database, and click **OK**.
 
     ![Azure SQL properties][image-data-factory-get-started-linked-azure-sql-properties]
-
-    **To get the database connection string in Azure Preview Portal:**(You will need to switch to **SQL Database** blade to see this screen.)
-	
-	![Database Connection String][image-data-factory-database-connection-string]	
 
 	
 4. After you click **OK** on the **New data store** blade, You should see both the stores in the **Linked Services** blade
@@ -157,16 +128,17 @@ A table is a rectangular dataset and it is the only type of dataset that is supp
 Creating datasets and pipelines is not supported by the Azure Preview Portal at this time, so you will use Azure PowerShell cmdlets to create tables and pipelines. Before creating tables, first you need to do the following (detailed steps follows the list).
 
 * Create a blob container named **adftutorial** in the Azure blob storage that MyBlobStore points to. 
-* Create and upload a text file, **emp.txt**, as a blob to the **adftutorial** container. 
-* Create a table named **emp** in the Azure SQL Database in the Azuer SQL database that MyAzureSQLStore points to.
+* Create and upload a text file, **emp.txt**, as a blob to the **input** folder in the **adftutorial** container (**input/emp.txt**). 
+* Create a table named **emp** in the Azure SQL Database in the Azure SQL database that MyAzureSQLStore points to.
+* Create a folder named **ADFGetStarted** on your hard drive.  
 
 ### Prepare Azure Blob Storage and Azure SQL Database for the tutorial
-1. Launch Notepad, paste the following text, and save it as **emp.txt** to **C:\ADFGetStarted** folder on your hard drive.
+1. Launch Notepad, paste the following text, and save it as **emp.txt** to **C:\ADFGetStarted** folder on your hard drive. 
 
         John, Doe
 		Jane, Doe
 				
-2. Use tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) to create the **adftutorial** container and to upload the **emp.txt** file.
+2. Use tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the **input** folder within the container (**input/emp.txt**).
 
     ![Azure Storage Explorer][image-data-factory-get-started-storage-explorer]
 3. Use the following SQL script to create the **emp** table in your Azure SQL Database. You can use SQL Server Management Studio to connect to an Azure SQL Database and to run SQL script.
@@ -274,8 +246,8 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
     		{
         		"structure":
         		[
-                	{ "name": "FirstName", "position": 0, "type": "String"},
-                	{ "name": "LastName", "position": 1, "type": "String"}
+                	{ "name": "FirstName", "type": "String"},
+                	{ "name": "LastName", "type": "String"}
         		],
         		"location":
         		{
@@ -333,9 +305,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 						{
 							"source":
 							{                               
-								"type": "BlobSource",
-								"blobColumnSeparators": ",",
-								"NullValues": "\\N"
+								"type": "BlobSource"
 							},
 							"sink":
 							{

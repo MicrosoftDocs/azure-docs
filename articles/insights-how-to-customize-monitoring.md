@@ -1,10 +1,10 @@
-<properties title="How to customize monitoring" pageTitle="How to customize monitoring" description="Learn how to customize monitoring charts in Azure." authors="stepsic" manager="kamrani" />
+<properties title="How to customize monitoring" pageTitle="How to customize monitoring" description="Learn how to customize monitoring charts in Azure." authors="awills" manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stepsic" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="awills" />
 
 # Customizing monitoring
 
-In the Azure Portal Preview, you can now view your monitoring data in more ways than you could before, including customizing the time range and choosing more metrics.
+Your Azure application has a variety of metrics you can monitor, and you can chart them over a time period you choose.
 
 1. In the [Azure Portal Preview](https://portal.azure.com/), click **Browse**, then a resource you're interested in monitoring.
 2. The **Monitoring** lens contains the most important metrics for each Azure resource. For example, Web sites has Requests, Errors, [Web tests](http://go.microsoft.com/fwlink/?LinkID=394528&clcid=0x409), and [Analytics](http://go.microsoft.com/fwlink/?LinkID=394529&clcid=0x409). Clicking on the **Requests and errors today** part will show you the **Metric** blade.  

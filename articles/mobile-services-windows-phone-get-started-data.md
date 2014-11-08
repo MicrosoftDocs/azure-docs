@@ -47,15 +47,15 @@ This tutorial is built on the [GetStartedWithData app][Developer Code Samples si
 
    	Notice that the saved text is displayed in the list below.
 
-<h2><a name="create-service"></a><span class="short-header">Create mobile service</span>Create a new mobile service in the Management Portal</h2>
+<h2><a name="create-service"></a>Create a new mobile service in the Management Portal</h2>
 
 [WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
-<h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service</h2>
+<h2><a name="add-table"></a>Add a new table to the mobile service</h2>
 
 [WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
-<h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to use the mobile service for data access</h2>
+<h2><a name="update-app"></a>Update the app to use the mobile service for data access</h2>
 
 Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection. 
 
@@ -134,7 +134,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
 
-<h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against your new mobile service</h2>
+<h2><a name="test-app"></a>Test the app against your new mobile service</h2>
 
 1. In Visual Studio, press the F5 key to run the app.
 
