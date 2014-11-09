@@ -43,7 +43,7 @@ There are a number of sample datasets included with ML Studio, and you can impor
 
 	![Dataset][screen1]
 
-To see what this data looks like, double-click the output port at the bottom of the automobile dataset and select **Visualize**. The variables in the dataset appear as columns, and each instance of an automobile appears as a row. The right-most column "price" (column 26) is the target variable we're going to try to predict. 
+To see what this data looks like, click the output port at the bottom of the automobile dataset and select **Visualize**. The variables in the dataset appear as columns, and each instance of an automobile appears as a row. The right-most column "price" (column 26) is the target variable we're going to try to predict. 
 
 ![Dataset visualization][screen1b]
 
