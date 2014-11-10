@@ -42,7 +42,7 @@ You can deploy a project as a WebJob by itself, or link it to a web project so t
 
 ## Prerequisites
 
-WebJobs deployment features are available in Visual Studio 2013 when you install Azure SDK version 2.4 or later:
+WebJobs deployment features are available in Visual Studio 2013 when you install Azure SDK version 2.4 or later versions:
 
 * [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
 
