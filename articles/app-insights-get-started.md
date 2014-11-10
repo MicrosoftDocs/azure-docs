@@ -34,11 +34,6 @@ You'll need an account in [Microsoft Azure](http://azure.com) (unless you use th
 <tr valign="top"><td>Get perf and usage analytics for Windows Phone apps, Windows Store apps, or Java websites</td><td colspan="2"><a href="http://msdn.microsoft.com/library/dn481095.aspx">For now, use the older VSO version of Application Insights</a></td><td>Usage and performance analytics. <a href="http://msdn.microsoft.com/library/dn793604.aspx">We're gradually building up features in the Azure version.</a></td></tr>
 </table>
 
-#### Route map
-Here's a graphical version:
-
-![Follow any combination of routes into Application Insights](./media/appinsights/appinsights-90startmap.png)
-
 
 ## <a name="video"></a>Videos
 
