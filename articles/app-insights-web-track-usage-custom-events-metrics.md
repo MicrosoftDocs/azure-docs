@@ -40,17 +40,15 @@ In a typical ASP.NET web application, you have the default JavaScript call to tr
 
 ## <a name="prep"></a>Before you start
 
-* If you haven't yet [added Application Insights to your project][start], do that now.
-* Make sure you see data in the **Usage analytics** section. If not, take another look at [Set up web usage analytics][webclient]. The JavaScript initialization code should be included in every web page where you want to write monitoring code, or in a master page.
-* To send telemetry from the server, you have to include:
+If you haven't done these yet:
 
-C# at server
-
-    using Microsoft.ApplicationInsights; 
-
-VB at server
-
-    Imports Microsoft.ApplicationInsights
+* To get telemetry from an ASP.NET web app:
+    [Add Application Insights to your project][greenbrown]
+    In your web server code, include:
+    (C#) `using Microsoft.ApplicationInsights;`
+	(VB) `Imports Microsoft.ApplicationInsights`
+* [Set up web usage analytics][webclient]. The JavaScript initialization code should be included in every web page where you want to write monitoring code, or in a master page. 
+    If it's working, you should see data in on the Overview blade under Usage Analytics.
 
 When you run your app on your development machine in debug mode, results will appear in Application Insights within seconds. When you deploy the app, data takes longer to move through the pipeline from your server and clients.
 
@@ -254,6 +252,7 @@ If you want to switch between groups of default property values, set up multiple
 ## Application Insights - learn more
 
 * [Application Insights - get started][start]
+* [Start monitoring web app health and usage][greenbrown]
 * [Monitor a live web server now][redfield]
 * [Monitor performance in web applications][perf]
 * [Search diagnostic logs][diagnostic]
@@ -265,7 +264,8 @@ If you want to switch between groups of default property values, set up multiple
 <!--Link references-->
 
 
-[start]: ../app-insights-start-monitoring-app-health-usage/
+[start]: ../app-insights-get-started/
+[greenbrown]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
 [perf]: ../app-insights-web-monitor-performance/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 

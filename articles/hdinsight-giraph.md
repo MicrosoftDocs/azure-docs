@@ -2,7 +2,7 @@
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/14/2014" ms.author="larryfr" />
 
-##Learn how to use Apache Giraph with Azure HDInsight (Hadoop)
+#Learn how to use Apache Giraph with Azure HDInsight (Hadoop)
 
 [Apache Giraph][giraph] allows you to perform graph processing using Hadoop, and can be used with Azure HDInsight. 
 

@@ -10,9 +10,11 @@
 
 #Upgrade SQL Database Web/Business Databases to New Service Tiers
 
-<p> Azure Web and Business SQL databases run in a shared, multi-tenant environment without any reserved resource capacity for the database, which means the activity of other databases in your cluster can impact your performance. The resource availability at any given point is highly dependent on other concurrent workloads running in the system. This can result in highly varying and unpredictable performance for the database application. Customer feedback to Microsoft has been consistent that this unpredictable performance is very hard to deal with, and that most customers would prefer more performance predictability. As a result, Azure SQL Database service has introduced new database service tiers [(Basic,Standard and Premium)](http://azure.microsoft.com/blog/2014/08/26/new-azure-sql-database-service-tiers-generally-available-in-september-with-reduced-pricing-and-enhanced-sla/ )  which offer predictable performance and a wealth of new features across business continuity and security. The new service tiers are designed to provide a specified level of resources for a database workload, regardless of other customer workloads running in that environment. This results in highly predictable performance behavior. As part of this release, the Web and Business service tiers are being deprecated and retired in September 2015. 
+<p> Azure Web and Business SQL databases run in a shared, multi-tenant environment without any reserved resource capacity for the database. The activity of other databases in your cluster can impact your performance. Resource availability at any given point dependends heavily on other concurrent workloads running in the system. This can result in highly varying and unpredictable database application performance. Customer feedback is that this unpredictable performance is difficult to manage, and they prefer more predictable performance. 
 
-With these changes, there have been many questions from customers on how to evaluate and decide which new service tier is best fit for their current Web and Business (W/B) databases as well as on the actual upgrade process itself. This paper provides a guided methodology for upgrading Web/Business database to the new service tiers/performance levels.
+To address this feedback, Azure SQL Database service  introduced new database service tiers [(Basic,Standard and Premium)](http://azure.microsoft.com/blog/2014/08/26/new-azure-sql-database-service-tiers-generally-available-in-september-with-reduced-pricing-and-enhanced-sla/ ),  which offer predictable performance and a wealth of new features for business continuity and security. These new service tiers are designed to provide a specified level of resources for a database workload, regardless of other customer workloads running in that environment. This results in highly predictable performance behavior. As part of this release, the Web and Business service tiers are being deprecated and retired in September 2015. 
+
+With these changes come questions about how to evaluate and decide which new service tier is the best fit for their current Web and Business (W/B) databases and about the actual upgrade process itself. This paper provides a guided methodology for upgrading Web/Business database to the new service tiers/performance levels.
 
 Upgrade of a Web/Business database to the new service tier involves the following steps:
 
@@ -21,25 +23,28 @@ Upgrade of a Web/Business database to the new service tier involves the followin
 3.	Upgrade to the chosen service tier/performance level
 4.	Monitor the database post-upgrade and adjust service tier/performance level as needed
 
-## Determine service tier based on feature capability
+## 1. Determine service tier based on feature capability
 
-Determine the service tier that provides you the minimum level of feature capability required for your application or business requirements For example, requirements like how long backups are retained OR if Standard or Active Geo-Replication features are needed OR overall maximum database size needed etc. should be taken into consideration and these will impact your minimum service tier (Refer to the [service tier announcement blog). ](http://azure.microsoft.com/blog/2014/08/26/new-azure-sql-database-service-tiers-generally-available-in-september-with-reduced-pricing-and-enhanced-sla/ ) 
+Determine the service tier that provides you the minimum level of feature capability required for your application or business requirements For example, consider yout requirements like how long backups are retained OR if Standard or Active Geo-Replication features are needed OR overall maximum database size needed etc. These requirement will impact your minimum service tier choice (Refer to the [service tier announcement blog). ](http://azure.microsoft.com/blog/2014/08/26/new-azure-sql-database-service-tiers-generally-available-in-september-with-reduced-pricing-and-enhanced-sla/ ) 
 
-‘Basic’ tier is primarily used for very small, low activity databases. So, for an upgrade you should usually start with ‘Standard’ or ‘Premium’ tier based on the feature requirements. Make sure that you are taking into consideration your application’s maximum concurrent requests/concurrent sessions requirement are met by the service tier that you choose. Refer to the [Azure documentation](http://msdn.microsoft.com/en-us/library/azure/dn741336.aspx) for the service tier/performance level specific limits for the concurrent requests/sessions.
+‘Basic’ tier is primarily used for very small, low activity databases. So, for an upgrade you should usually start with the ‘Standard’ or ‘Premium’ tier based on your feature when choosing your service tier. Refer to the [Azure documentation](http://msdn.microsoft.com/en-us/library/azure/dn741336.aspx) for the service tier/performance level-specific limits for the concurrent requests/sessions.
 
-##Determine performance level based on resource usage 
-Azure SQL Database service provides the resource consumption of a Web/Business database in a view called sys.resource_stats [(see MSDN documentation)](http://msdn.microsoft.com/library/azure/dn269979.aspx) in the master database of the logical server where your current database is located. It has the resource consumption data in terms of percentages of the limit of the performance level. Also, this view provides data for up to last 14 days at 5 minute granularity. Since Web/Business databases do not have any guaranteed DTUs/resource limits associated with them, we normalize the percentage values in terms of the amount of resources available to a database in S2 performance level. The average DTU percentage consumption of a database at any specific interval can be calculated as the highest percentage value among CPU, IO and Log usage at that interval. The following query on master database can be used to retrieve the average DTU consumption for a database:
+##2. Determine performance level based on resource usage 
+Azure SQL Database service provides Web/Business database resource consumption in the sys.resource_stats view [(see MSDN documentation),](http://msdn.microsoft.com/library/azure/dn269979.aspx) in the master database of the logical server where your current database is located. It displays resource consumption data in percentages of the limit of the performance level. This view provides data for up to the last 14 days, at 5 minute intervals. Since Web/Business databases do not have any guaranteed DTUs/resource limits associated with them, we normalize the percentage values in terms of the amount of resources available to a database in S2 performance level. The average DTU percentage consumption of a database at any specific interval can be calculated as the highest percentage value among CPU, IO and Log usage at that interval. Run the following query on the master database to retrieve the average DTU consumption for a database:
 
-    SELECT start_time, end_time
-    	 , (SELECT Max(v)
+ 
+                   
+        SELECT start_time, end_time
+	 , (SELECT Max(v)
          FROM (VALUES (avg_cpu_percent)
                     , (avg_physical_data_read_percent)
                     , (avg_log_write_percent)
+    	   ) AS value(v)) AS [avg_DTU_percent]
     FROM sys.resource_stats
     WHERE database_name = '<your db name>'
     ORDER BY end_time DESC;
 
-DTU consumption information in terms of an S2 database level will allow you to normalize the current consumption of your Web/Business databases in terms of new tier databases and see where they fit better. For example, if your average DTU percentage consumption shows a value of 80%, it indicates that the database is consuming DTU at the rate of 80% of the limit of a database at S2 performance level. If you see values greater than 100% in the sys.resource_stats view it means that you need a performance tier larger than S2. As an example, let’s say you see a peak DTU percentage value of 300%.  This tells you that you are using three times more resources than would be available in an S2.  To determine a reasonable starting size, compare the DTUs available in an S2 (50 DTUs) with the next higher sizes (P1 = 100 DTUs, or 200% of S2, P2 = 200 DTUs or 400% of S2).  Because you are at 300% of S2 you would want to start with a P2 and re-test.
+DTU consumption information in terms of an S2 database level allows you to normalize the current consumption of your Web/Business databases in terms of new tier databases and see where they fit better. For example, if your average DTU percentage consumption shows a value of 80%, it indicates that the database is consuming DTU at the rate of 80% of the limit of a database at S2 performance level. If you see values greater than 100% in the sys.resource_stats view, it means that you need a performance tier larger than S2. As an example, let’s say you see a peak DTU percentage value of 300%.  This tells you that you are using three times more resources than would be available in an S2.  To determine a reasonable starting size, compare the DTUs available in an S2 (50 DTUs) with the next higher sizes (P1 = 100 DTUs, or 200% of S2, P2 = 200 DTUs or 400% of S2).  Because you are at 300% of S2 you would want to start with a P2 and re-test.
 
 Based on the DTU usage percent and the largest edition that was required to fit your workload, you can determine which service tier and performance level is best suited for your database workload(as indicated through DTU percentage and relative DTU powers of various [performance levels).](http://msdn.microsoft.com/library/azure/dn741336.aspx) Here is a table that provides a mapping of the Web/Business resource consumption percentage to equivalent new tier performance levels: 
 
@@ -62,8 +67,8 @@ Here is a query on the master database that performs the calculation for your We
     ( SELECT start_time, end_time
            , (SELECT Max(v)
                 FROM (VALUES (avg_cpu_percent)
-                       , (avg_physical_data_read_percent)
-                       , (avg_log_write_percent)
+                       		, (avg_physical_data_read_percent)
+                       		, (avg_log_write_percent)
                    ) AS value(v)) as [avg_DTU_percent]
         FROM sys.resource_stats	
        WHERE database_name = 'WebDB'
@@ -75,7 +80,7 @@ Here is a query on the master database that performs the calculation for your We
              ORDER BY t.percent_of_S2) as target_edition
     FROM rc;
 
-Sample result:
+**Sample result:**
 
 ![Sample Result](http://i.imgur.com/CTnjv26.png)
 
@@ -83,8 +88,8 @@ Graphed you can see the trend of average DTU percentage consumption over time. H
 
 ![DTU Usage](http://i.imgur.com/e4N4ay5.png)
 
-##Upgrade to the new service tier/performance level
-After the service tier/performance level is determined for your Web/Business database, there are multiple ways to upgrade the database to the new tier:
+##3. Upgrade to the new service tier/performance level
+After you determine your service tier/performance level for your Web/Business database, there are multiple ways to upgrade the database to the new tier:
 
 
 - Azure Management Portal
@@ -97,7 +102,7 @@ For ad-hoc migration of Web/Business databases, use the [Azure Management Portal
 To perform the operation on multiple databases in a server/subscription or to automate the process, use PowerShell or Transact-SQL commands.
 
 ##Upgrade using Azure PowerShell
-An end-to-end sample that can be used to upgrade a Web/Business database using Azure PowerShell is provided below. The steps to upgrade a database is as follows:
+You can use the end-to-end sample to upgrade a Web/Business database using Azure PowerShell below. The steps to upgrade a database is as follows:
 
 1. Set the server context with the **New-AzureSqlDatabaseServerContext** cmdlet 
 2. Get the database to be upgraded with the **Get-AzureSqlDatabase** cmdlet
@@ -119,11 +124,14 @@ A sample script to upgrade a server and database to the desired service tier/per
 
 ## Upgrade using Transact-SQL
 
-To upgrade an existing Web/Business database using Transact-SQL you can use the [ALTER DATABASE statement](http://msdn.microsoft.com/library/azure/ms174269.aspx). The ALTER DATABASE command to upgrade a database to the new service tier/performance level is shown below:
-    ALTER DATABASE <db_name> MODIFY (EDITION = '<service_tier>', SERVICE_OBJECTIVE =  	 
+To upgrade an existing Web/Business database using Transact-SQL you can use the 
+[ALTER DATABASE statement](http://msdn.microsoft.com/library/azure/ms174269.aspx). The ALTER DATABASE command to upgrade a database to the new service tier/performance level is shown below:
 
-## Monitoring the upgrade of the new service tier/performance level
-Azure SQL Database provides progress information on management operations (like CREATE, ALTER, DROP) performed on a database in the sys.dm_operation_status dynamic management view in the master database of the logical server where your current database is located [see sys.dm _operation _status documentation.](http://msdn.microsoft.com/library/azure/dn270022.aspx) The operation status DMV can be used to determine progress of the upgrade operation for a database. This sample query shows all of the management operations performed on a database:
+    ALTER DATABASE <db_name> MODIFY (EDITION = '<service_tier>', SERVICE_OBJECTIVE = '<performance_level>');
+      	 
+
+##4.	Monitoring the upgrade of the new service tier/performance level
+Azure SQL Database provides progress information on management operations (like CREATE, ALTER, DROP) performed on a database in the sys.dm_operation_status dynamic management view in the master database of the logical server where your current database is located [see sys.dm _operation _status documentation.](http://msdn.microsoft.com/library/azure/dn270022.aspx) Use the operation status DMV to determine progress of the upgrade operation for a database. This sample query shows all of the management operations performed on a database:
 
     SELECT o.operation, o.state_desc, o.percent_complete
     , o.error_code, o.error_desc, o.error_severity, o.error_state
@@ -133,10 +141,10 @@ Azure SQL Database provides progress information on management operations (like 
     and o.major_resource_id = '<database_name>'
     ORDER BY o.last_modify_time DESC;
 
-If the upgrade was performed using the management portal then notification is also available from within the portal for the operation.
+If you used the management portal for the upgrade, a notification is also available from within the portal for the operation.
 
 ## Impact of the upgrade
-Upgrade of Web/Business database to the new service tier/performance level is online operation. Your database will continue to work through the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for very small duration (in seconds). If an application has transient fault handling for connection terminations then it is sufficient to protect against dropped connections at the end of the upgrade. For best practices on handling connection terminations, refer to [Azure SQL Database Best Practices to Prevent Request Denials or Connection Termination.](http://msdn.microsoft.com/library/azure/dn338082.aspx)
+Upgrading Web/Business databases to the new service tier/performance levels is an online operation. Your database will continue to work through the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for very small duration (in seconds). If an application has transient fault handling for connection terminations then it is sufficient to protect against dropped connections at the end of the upgrade. For best practices on handling connection terminations, refer to [Azure SQL Database Best Practices to Prevent Request Denials or Connection Termination.](http://msdn.microsoft.com/library/azure/dn338082.aspx)
 
 For more details on how to estimate the latency of the upgrade operation, see “Understanding and Estimating Latency in Database Changes” section of [Changing Database Service Tiers and Performance Levels.](http://msdn.microsoft.com/library/azure/dn369872.aspx)
 
@@ -147,48 +155,32 @@ Performance levels are calibrated and governed to provide the needed resources t
 After upgrade of the Web/Business database into the new tier, it is recommended to monitor the database actively to ensure applications are running at the desired performance and optimize usage as needed. The following additional steps are recommended for monitoring the database.
 
 
+**Resource consumption data:** For Basic, Standard, and Premium databases more granular resource consumption data is available through a new DMV called [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) in the user database. This DMV provides near real time resource consumption information at 15 second granularity for the previous hour of operation. The DTU percentage consumption for an interval is computed as the maximum percentage consumption of the CPU, IO & log dimensions. Here is a query to compute the average DTU percentage consumption over the last hour:
 
-
--  **Resource consumption data:** For Basic, Standard, and Premium databases more granular resource consumption data is available through a new DMV called [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) in the user database. This DMV provides near real time resource consumption information at 15 second granularity for the previous hour of operation. The DTU percentage consumption for an interval is computed as the maximum percentage consumption of the CPU, IO & log dimensions. Here is a query to compute the average DTU percentage consumption over the last hour:
-
-    SELECT
-    , (SELECT Max(v)
-    FROM (VALUES (avg_cpu_percent)
-                        , (avg_data_io_percent)
-                        , (avg_log_write_percent)
+    SELECT end_time
+    	 , (SELECT Max(v)
+             FROM (VALUES (avg_cpu_percent)
+                         , (avg_data_io_percent)
+                         , (avg_log_write_percent)
     	   ) AS value(v)) AS [avg_DTU_percent]
     FROM sys.dm_db_resource_stats
     ORDER BY end_time DESC;
 
-	Additional [documentation](http://msdn.microsoft.com/en-us/library/dn800981.aspx) contains details of how to use this DMV. In addition to this, the Azure SQL Database performance guidance whitepaper http://msdn.microsoft.com/en-us/library/azure/dn369873.aspx contains details on how to monitor and tune your application.
+ 
+Additional [documentation](http://msdn.microsoft.com/en-us/library/dn800981.aspx) contains details of how to use this DMV.  [Azure SQL Database Performance Guidance](http://msdn.microsoft.com/en-us/library/azure/dn369873.aspx) covers how to monitor and tune your application.
 
-	**Memory impact on performance:** Although memory is one of the resource dimensions that contributes to the DTU rating, SQL Database is designed to utilize all available memory for database operations. For this reason memory consumption is not included in the average DTU consumption in the above query. On the other hand, if you are downsizing to a lower performance level then available memory for database is reduced and as a result this can result in higher IO consumption affecting DTU consumed. So when downsizing to a lower performance level, make sure that you have enough headroom in the IO percentage. This can be monitored by the [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV mentioned above.
+**Memory impact on performance:** Although memory is one of the resource dimensions that contributes to the DTU rating, SQL Database is designed to use all available memory for database operations. For this reason memory consumption is not included in the average DTU consumption in the above query. On the other hand, if you are downsizing to a lower performance level, then available memory for the database is reduced. This can result in higher IO consumption affecting DTU consumed. So, when downsizing to a lower performance level, make sure that you have enough headroom in the IO percentage. Use [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV mentioned above to monitor this.
 
 
 
 - **Alerts:** Set up 'Alerts' in the Azure Management Portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure Management Portal for various performance metrics like DTU, CPU, IO, and Log. 
 
-	For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://msdn.microsoft.com/en-us/library/azure/dn306638.aspx) to read more about how to configure alert notifications.
-
-
-
+	For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://msdn.microsoft.com/en-us/library/azure/dn306638.aspx) to learn more about how to configure alert notifications.
 
 
 - **Scheduled performance level upgrade/downgrade:** If your application has specific scenarios that require more performance only at certain times of the day/week, you can use [Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx) to upsize/downsize your database to a higher/lower performance level as a planned operation.
 
-For example, upgrade the database to a higher performance level for the duration of a weekly batch/maintenance job and downsize it after the job completes. This kind of scheduling is also useful for any large resource-intensive operations like data loading, index rebuilding etc.  Note that the Azure SQL Database billing model is based on hourly usage of a service tier/performance level. This flexibility allows you to plan for scheduled or planned upgrades more cost efficiently.
+	For example, upgrade the database to a higher performance level for the duration of a weekly batch/maintenance job and downsize it after the job completes. This kind of scheduling is also useful for any large resource-intensive operations like data loading, index rebuilding etc.  Note that the Azure SQL Database billing model is based on hourly usage of a service tier/performance level. This flexibility allows you to plan for scheduled or planned upgrades more cost efficiently.
 
 ##Summary
-Azure SQL database service provides telemetry data and tools to evaluate your Web/Business database workloads and determine the best service tier fit for upgrade. The upgrade process is quite simple and can be done without taking database offline and with no data loss. Upgraded databases benefit from the predictable performance and additional features provided by the new service tiers.
-
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-
-
-<!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
-
+Azure SQL Database service provides telemetry data and tools to evaluate your Web/Business database workloads and determine the best service tier fit for upgrade. The upgrade process is quite simple and can be done without taking the database offline and with no data loss. Upgraded databases benefit from the predictable performance and additional features provided by the new service tiers.

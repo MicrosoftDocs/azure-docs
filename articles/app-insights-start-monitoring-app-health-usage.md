@@ -12,21 +12,11 @@ Application Insights lets you monitor your live application for:
 * **Performance**  - Detect and diagnose perf issues and exceptions.
 * **Usage** - Find out what users are doing with your app, so that you can make it better for them.
 
-Configuration is very easy, and you'll see results in minutes. We currently support ASP.NET web apps (on your own servers or on Azure).
-
-You'll need an account in [Microsoft Azure](http://azure.com) (there's a free trial period).
-
-There are two ways to get started with Application Insights:
-
-* (Recommended) [Add Application Insights to your project in Visual Studio](#add) to monitor application performance and usage.
-* [Install an agent on your server without redeploying][redfield] - Monitor a live website without redeploying it or touching your source code. This gives you performance and exception monitoring. You can add usage monitoring later.
-
->[WACOM.NOTE] There's an [older version of Application Insights](http://msdn.microsoft.com/en-us/library/dn481095.aspx) in Visual Studio Online, which supports a broader range of application types. We're rebuilding it from the ground up as part of Microsoft Azure, and it's the new version that you're reading about here.
-
+For alternative ways in, read [Get Started with Application Insights][start].
 
 ## <a name="add"></a>Add Application Insights to your project
 
-You need [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (or later).
+You'll need [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (or later) and an account in [Microsoft Azure](http://azure.com).
 
 ### If it's a new project...
 
@@ -72,23 +62,7 @@ Look for data in the **Application health** tiles. At first, you'll just see one
 Click any tile to see more detail. You can change what you see in the reports. [Learn more about configuring Application Health reports.][perf]
 
 
-### <a name="webclient"></a>4. Set up web usage analytics
-
-If you added Application Insights to an *existing* web project, you won't see anything yet in the Usage analytics tiles. There's one more step you need.
-
-In Application Insights, choose Quick start, Instrument your website. 
-
-![In your project in Application Insights, click Quick start, Instrument your website, and copy the code](./media/appinsights/appinsights-06webcode.png)
-
-Copy the JavaScript code into the web pages that you want to monitor, just before the closing &lt;/head&gt; tag. In an ASP.NET project, a good way to monitor all the pages is to put the code in the master page, usually called `_SiteLayout` or `Views\Shared\_Layout`. Notice that the code contains the Application Insights key of your application.
-
-Run your application again and you'll see data in **Usage analytics**.
-
-![Click through to more data](./media/appinsights/appinsights-05-usageTiles.png)
-
-[Click through charts to see more detail.][usage]
-
-### <a name="deploy"></a>5. Deploy your application
+### <a name="deploy"></a>4. Deploy your application
 
 Deploy your application and watch the data accumulate.
 
@@ -108,13 +82,7 @@ In Solution Explorer, right-click ApplicationInsights.config, and choose **Updat
 
 Afterwards, go back to the portal and delete the old resource.
 
-## <a name="video"></a>Videos
-
-### Introduction
-
-> [AZURE.VIDEO application-insights-introduction]
-
-### Get started
+## <a name="video"></a>Video
 
 > [AZURE.VIDEO getting-started-with-application-insights]
 
@@ -133,7 +101,6 @@ Afterwards, go back to the portal and delete the old resource.
 ## Application Insights - learn more
 
 * [Application Insights - get started][start]
-* [Monitor a live web server now][redfield]
 * [Monitor performance in web applications][perf]
 * [Search diagnostic logs][diagnostic]
 * [Availability tracking with web tests][availability]
@@ -143,8 +110,8 @@ Afterwards, go back to the portal and delete the old resource.
 
 <!--Link references-->
 
-
-[start]: ../app-insights-start-monitoring-app-health-usage/
+[start]: ../app-insights-get-started/
+[greenbrown]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
 [perf]: ../app-insights-web-monitor-performance/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 

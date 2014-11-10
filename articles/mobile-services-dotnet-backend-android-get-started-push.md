@@ -46,11 +46,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 Your mobile service is now configured to work with GCM and Notification Hubs.
 
 
-<h2><a name="download-the-service"></a><span class="short-header">Download the service</span>Download the service to your local computer</h2>
+<h2><a name="download-the-service"></a>Download the service to your local computer</h2>
 
 [WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
-<h2><a name="test-the-service"></a><span class="short-header">Test the service</span>Test the mobile service</h2>
+<h2><a name="test-the-service"></a>Test the mobile service</h2>
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
@@ -89,7 +89,7 @@ Your mobile service is now configured to work with GCM and Notification Hubs.
     This code will send a push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
 
 
-<h2><a name="publish-the-service"></a><span class="short-header">Publish the service</span>Publish the mobile service to Azure</h2>
+<h2><a name="publish-the-service"></a>Publish the mobile service to Azure</h2>
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -113,7 +113,7 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 [WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
-<h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against the published mobile service</h2>
+<h2><a name="test-app"></a>Test the app against the published mobile service</h2>
 
 You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
 

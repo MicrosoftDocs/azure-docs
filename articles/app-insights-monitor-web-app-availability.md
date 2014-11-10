@@ -1,6 +1,6 @@
 <properties title="Monitor any web site's availability and responsiveness" pageTitle="Monitor any web site's availability and responsiveness" description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly." metaKeywords="analytics web test availability" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-02" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-30" ms.author="awills" />
  
 # Monitor any web site's availability and responsiveness
 
@@ -72,6 +72,14 @@ After 1-2 minutes, click Refresh on the overview blade. (In this release, it doe
 
 The chart on the overview blade combines results for all the web tests of this application.
 
+#### Page components
+
+Images, style sheets and scripts and other static components are requested as part of the test.  
+
+The recorded response time is the time taken for all the components to complete loading.
+
+If any component fails to load, the test is marked failed.
+
 ## <a name="failures"></a>If you see failures...
 
 Click through to the webtests blade to see separate results for each test.
@@ -89,6 +97,8 @@ The result shows the reason for failure.
 ![Webtest run result](./media/appinsights/appinsights-18-availDetails.png)
 
 For more detail, download the result file and inspect it in Visual Studio.
+
+
 
 ##<a name="multistep"></a>Multi-step web tests
 
@@ -131,11 +141,11 @@ A common reason for failure is that the test runs too long. It mustn't run longe
 
 ### Plugging time and random numbers into your multi-step test
 
-Suppose you’re testing a tool that gets time-dependent data such as stocks from an external feed. When you record your web test, you have to use specific times, but you set them as parameters of the test, StartTime and EndTime.
+Suppose youâ€™re testing a tool that gets time-dependent data such as stocks from an external feed. When you record your web test, you have to use specific times, but you set them as parameters of the test, StartTime and EndTime.
 
 ![A web test with parameters.](./media/appinsights/appinsights-72webtest-parameters.png)
 
-When you run the test, you’d like EndTime always to be the present time, and StartTime should be 15 minutes ago.
+When you run the test, youâ€™d like EndTime always to be the present time, and StartTime should be 15 minutes ago.
 
 Web Test Plug-ins provide the way to do this.
 
@@ -143,7 +153,7 @@ Web Test Plug-ins provide the way to do this.
 
     ![Choose Add Web Test Plugin and select a type.](./media/appinsights/appinsights-72webtest-plugins.png)
 
-    In this example, we’ll use two instances of the Date Time Plug-in. One instance is for "15 minutes ago" and another for "now". 
+    In this example, weâ€™ll use two instances of the Date Time Plug-in. One instance is for "15 minutes ago" and another for "now". 
 
 2. Open the properties of each plug-in. Give it a name and set it to use the current time. For one of them, set Add Minutes = -15.
 
@@ -177,6 +187,7 @@ You might want to disable web tests while you are performing maintenance on your
 ## Application Insights - learn more
 
 * [Application Insights - get started][start]
+* [Start monitoring web app health and usage][greenbrown]
 * [Monitor a live web server now][redfield]
 * [Monitor performance in web applications][perf]
 * [Search diagnostic logs][diagnostic]
@@ -191,7 +202,8 @@ You might want to disable web tests while you are performing maintenance on your
 <!--Link references-->
 
 
-[start]: ../app-insights-start-monitoring-app-health-usage/
+[start]: ../app-insights-get-started/
+[greenbrown]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
 [perf]: ../app-insights-web-monitor-performance/
 [diagnostic]: ../app-insights-search-diagnostic-logs/ 

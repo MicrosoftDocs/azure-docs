@@ -39,7 +39,7 @@ Completing this tutorial is a prerequisite for all other Mobile Services tutoria
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-## <h2><span class="short-header">Create a new app</span>Create a new HTML app</h2>
+## <h2>Create a new HTML app</h2>
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
