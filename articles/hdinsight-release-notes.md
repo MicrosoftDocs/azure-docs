@@ -1,12 +1,23 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 
 
 #Microsoft HDInsight release notes
 
 ## Notes for 11/07/2014 release of HDInsight ##
 
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight 2.1	2.1.9.374.1153876
+
+
+* HDInsight 3.0	3.0.5.374.1153876
+
+
+* HDInsight 3.1	3.1.1.374.1153876
+
+This release contains the following component updates.
 <table border="1">
 <tr><th>Title</th><th>Description</a><th>Component</th></th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
 
@@ -17,7 +28,7 @@
 <tr><td>Storm Dashboard</td><td>We have enabled the native Storm dashboard for HDINSIGHT Storm clusters. The dashboard may be accessed from the Azure UX portal.</td><td>Azure UX</td><td>Storm</td><td></td>
 </tr>
 
-<tr><td>Cluster Deployment ID</td><td>Starting with latest SDK version [TBF], users can access HdInsight issued unique id for each cluster. This will enable customers to figure out unique instances of clusters when a dnsname is being reused across create/drop scenarios.</td><td>SDK</td><td>All</td><td></td></tr>
+<tr><td>Cluster Deployment ID</td><td>Starting with latest SDK version 1.3.3.1.5426.29232, users can access HDInsight issued unique id for each cluster. This will enable customers to figure out unique instances of clusters when a dnsname is being reused across create/drop scenarios.</td><td>SDK</td><td>All</td><td></td></tr>
 </table><br>
 
 * Note that the bug that prevented the full version # from showing up in the portal or from being returned by the SDK or by PowerShell has been fixed in this release. 
@@ -60,7 +71,7 @@ HDInsight PowerShell/SDK Error: "*Cluster is not configured for Http Services ac
 * You can expect that SDK and PowerShell will continue to work with new updates to clusters as long as the version of the cluster remains the same. For example, clusters version 3.1 will always be compatible with current version of the SDK/PowerShell 1.3.1.6 and 0.8.8.
 
 
-## Notes for 9/12/2014 release of HDinsight 3.1##
+## Notes for 9/12/2014 release of HDInsight 3.1##
 
 * This release is based on Hortonworks Data Platform (HDP) 2.1.5. For a list of the bugs fixed in this release, see the [Fixed in this Release](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) page on the Hortonworks site.
 * In the pig libraries folder, the file “avro-mapred-1.7.4.jar” has been changed to avro-mapred-1.7.4-hadoop2.jar. The contents of these file contain a minor bug fix that is non-breaking. It is recommended that customers do not take a direct dependency on the name of the JAR file itself to avoid breaks when files are renamed.
@@ -81,7 +92,7 @@ HDInsight PowerShell/SDK Error: "*Cluster is not configured for Http Services ac
 	* zookeeper0 
 	* zookeeper1 
 	* zookeeper2 
-* HBase version support matrix is updated. Only version HDInsight 3.1 (HBase version 0.98) is supported for production HBase workloads. Version 3.0 that was available for preview will not be supported moving forward. During transition period customers can still create clusters of 3.0 version. 
+* HBase version support matrix is updated. Only version HDInsight 3.1 (HBase version 0.98) is supported for production HBase workloads. Version 3.0 that was available for preview will not be supported moving forward. During transition period customers can still create clusters of version 3.0. 
 
 ## Notes on clusters created prior to 8/15/2014 ##
 
@@ -132,7 +143,7 @@ With HBase, you can build a variety of real-time workloads on HDInsight, from in
 For a more complete explanation of this procedure, see the documentation of the [Breiman Example](https://mahout.apache.org/users/classification/breiman-example.html) on the Apache Mahout website. 
 
 
-### Hive Queries can use Tez in HDinsight 3.1 ###
+### Hive Queries can use Tez in HDInsight 3.1 ###
 
 Hive 0.13 is now available in HDInsight 3.1 and is capable of running queries using Tez, which can be leveraged for substantial performance improvements. 
 Tez is not enable by default for Hive queries. To use it, you must opt in. You can enable Tez by running the following code snippet:
