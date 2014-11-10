@@ -1,6 +1,6 @@
 <properties urlDisplayName="Deploy Azure WebJobs to Azure Websites" pageTitle="Deploy Azure WebJobs to Azure Websites" metaKeywords="Azure Websites, WebJobs, background tasks" description="Learn how to deploy Azure WebJobs to Azure Websites using Visual Studio." metaCanonical="" services="web-sites" documentationCenter="" title="Deploy Azure WebJobs to Azure Websites" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="01/01/1900" ms.author="tdykstra" />
+<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/12/2014" ms.author="tdykstra" />
 
 # How to Deploy Azure WebJobs to Azure Websites
 
@@ -42,11 +42,11 @@ You can deploy a project as a WebJob by itself, or link it to a web project so t
 
 ## Prerequisites
 
-WebJobs deployment features are available in Visual Studio 2013 when you install Azure SDK version 2.4 or later:
+WebJobs deployment features are available in Visual Studio 2013 when you install Azure SDK version 2.4 or later versions:
 
 * [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
 
-The WebJobs deployment features are also included in [Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409). 
+The WebJobs deployment features are also included in [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) and later updates.
 
 ## <a id="convert"></a>Enable WebJobs deployment for an existing Console Application project
 

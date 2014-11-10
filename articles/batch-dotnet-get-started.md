@@ -1,4 +1,4 @@
-<properties title="Tutorial - Getting Started with the Azure Batch Library for .NET" pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET" description="required" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="asutton" />
+<properties title="Tutorial - Getting Started with the Azure Batch Library for .NET" pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET" description="required" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
 
 <tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/02/2014" ms.author="yidingz, karran.batta" />
 
@@ -16,11 +16,16 @@ For background information and scenarios for Azure Batch, see [Azure Batch techn
   	
 This tutorial will show you how to create a console application that sets up distributed computation among a pool of virtual machines by using the Azure Batch service. The tasks that are created in this tutorial evaluate text from files in Azure storage and return the words that are most commonly used. The samples are written in C# code and use the Azure Batch Library for .NET.
 
+
 >[WACOM.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/). 
 >
->You need to use NuGet to obtain the **Microsoft.Azure.Batch.dll** assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. Search online for **Azure.Batch** and then click Install to install the Azure Storage package and dependencies. 
+>You need to use NuGet to obtain the **Microsoft.Azure.Batch.dll** assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. Search online for **Azure.Batch** and then click Install to install the Azure Storage package and dependencies.
 >
-Also, you can refer to the [Azure Batch Hello World sample](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) on msdn for a sample simliar to the code discussed here.
+>Please make sure your Nuget Package Manager version is 2.8 or later. You can find the version number from Visual Studio -> "Help" -> "About Microsoft Visual Studio" dialog. If you have an older version of Nuget Package Manager, you need to update your Visual Studio or you might have issue download the correct version of Nuget dependencies.
+> 
+>Also, you can refer to the [Azure Batch Hello World sample](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) on msdn for a sample simliar to the code discussed here.
+
+
 
 ###Concepts
 The Batch service is used for scheduling scalable and distributed computation. It enables you to run large scale workloads that are distributed among multiple virtual machines. These workloads provide efficient support for intensive computation. When you use the Batch service, you take advantage of the following resources:  
@@ -287,8 +292,6 @@ You will need a storage account to continue complete the rest of this tutorial. 
 
 1. Create a container called "gettingstarted" in your Azure Storage account. This can be done in Azure Portal. Make sure you set "ACCESS" field to "Public Container".
 
->[WACOM.NOTE] In a production environment, it is recommended that you use a shared access signature.
-
 2. Upload "ProcessTaskData.exe" to the container.
 
 3. Create three text files (taskdata1.txt, taskdata2.txt, taskdata3.txt) with each one containing one of the following paragraphs and upload them to the container:
@@ -299,7 +302,12 @@ You will need a storage account to continue complete the rest of this tutorial. 
 		
 		Azure Web Sites provide a scalable, reliable, and easy-to-use environment for hosting web applications. Select from a range of frameworks and templates to create a web site in seconds. Use any tool or OS to develop your site with .NET, PHP, Node.js or Python. Choose from a variety of source control options including TFS, GitHub, and BitBucket to set up continuous integration and develop as a team. Expand your site functionality over time by leveraging additional Azure managed services like storage, CDN, and SQL Database.
 
+
+>[WACOM.NOTE] In a production environment, it is recommended that you use a shared access signature.
+
+
 >[WACOM.NOTE] Azure Storage team has a [blog post](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) listing Azure Storage explorers that can help uploading files.
+
 
 
 ###Update task submission code
