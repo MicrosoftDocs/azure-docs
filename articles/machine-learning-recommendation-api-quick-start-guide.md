@@ -549,7 +549,7 @@ HTTP Status code: 200
 
 ###Update Model
 You can update the model description or the active build id.
-Active Build Id – Every build for every model has a “build id”. The active “build id” is the first successfully build of every new model. Once you have an active build Id and you do additional builds for the same model you need to explicit set it as the default build id if you want to. When you consume recommendations, if you do not specify the build id that you want to use the default one will be used automatically.
+Active Build Id – Every build for every model has a “build id”. The active “build id” is the first successfully build of every new model. Once you have an active build Id and you do additional builds for the same model you need to explicitly set it as the default build id if you want to. When you consume recommendations, if you do not specify the build id that you want to use - the default one will be used automatically.
 
 This mechanism enables you once you have a recommendation model in production to build new models and test them before you promote them to production.
 
