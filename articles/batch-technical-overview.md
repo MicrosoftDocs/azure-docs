@@ -173,7 +173,7 @@ Figure 5 shows a basic workflow to publish an application by using the Batch App
 	
 <h2 id="BKMK_Resources">Additional resources</h2>
 
-* [Get Started with the Azure Batch Library for .NET](http://azure.microsoft.com/en-us/documentation/batch-dotnet-get-started)
+* [Get Started with the Azure Batch Library for .NET](http://azure.microsoft.com/en-us/documentation/articles/batch-dotnet-get-started/)
 * [Azure Batch REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=517803)
 * [Azure Batch Apps REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 
