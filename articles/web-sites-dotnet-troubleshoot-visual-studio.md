@@ -41,7 +41,7 @@ This tutorial works with the development environment, web project, and Azure Web
 
 The code samples shown in this tutorial are for a C# MVC web application, but the troubleshooting procedures are the same for Visual Basic and Web Forms applications.
 
-Remote debugging requires Visual Studio 2013 or Visual Studio 2012 with Update 4. The remote debugging and **Server Explorer** features for WebJobs require [Visual Studio 2013 Update 4 RC](http://go.microsoft.com/fwlink/?LinkID=510314) or later. The other features shown in the tutorial also work in Visual Studio 2013 Express for Web, and Visual Studio 2012 Express for Web. 
+Remote debugging requires Visual Studio 2013 or Visual Studio 2012 with Update 4. The remote debugging and **Server Explorer** features for WebJobs require [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkID=510314) or later. The other features shown in the tutorial also work in Visual Studio 2013 Express for Web, and Visual Studio 2012 Express for Web. 
 
 The streaming logs feature only works for applications that target .NET Framework 4 or later.
 
@@ -201,7 +201,7 @@ This section shows how to debug remotely using the project you create in [Gettin
 
 ### <a name="remotedebugwj"></a> Remote debugging WebJobs
 
-This section shows how to debug remotely using the project and website you create in [Get Started with the Azure WebJobs SDK](../websites-dotnet-webjobs-sdk). The features shown on in this section are available only in Visual Studio 2013 with Update 4 RC.
+This section shows how to debug remotely using the project and website you create in [Get Started with the Azure WebJobs SDK](../websites-dotnet-webjobs-sdk). The features shown on in this section are available only in Visual Studio 2013 with Update 4.
 
 1. Open the web project that you created in [Get Started with the Azure WebJobs SDK][GetStartedWJ].
 
