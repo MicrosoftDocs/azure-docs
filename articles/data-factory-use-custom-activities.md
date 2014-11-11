@@ -274,7 +274,7 @@ The following Walkthrough provides you with step-by-step instructions for creati
 11. Launch **Windows Explorer**, and navigate to **bin\debug** or **bin\release** folder depending type of build.
 12. Create a zip file **MyCustomActivity.zip** that contain all the binaries in the <project folder>\bin\Debug folder.
 	![zip output binaries][image-data-factory-zip-output-binaries]
-13. Upload **MyCustomActivity.zip** as a blob to the blob conatainer: **blobcustomactvitycontainer** in the Azure blob storage that the **MyBlobStore** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **blobcustomactivitycontainer** if it does not already exist. 
+13. Upload **MyCustomActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **MyBlobStore** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **blobcustomactivitycontainer** if it does not already exist. 
     ![upload zip to blob][image-data-factory-upload-zip-to-blob]
 
 ### Create a linked service for  HDInsight cluster that will be used to run the custom activity
@@ -403,22 +403,12 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
     		"name": "OutputTableForCustom",
     		"properties":
     		{
-         		"structure":  
-        		[ 
-            		{ "name": "FirstName", "type": "String"},
-            		{ "name": "LastName", "type": "String"}
-        		],
         		"location": 
         		{
 					"type": "AzureBlobLocation",
 					"folderPath": "adftutorial/customactivityoutput/{Slice}",
 					"partitionedBy": [ { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }],
 
-					"format":
-					{
-                		"type": "TextFormat",
-		                "columnDelimiter": ","
-					},
 					"linkedServiceName": "MyBlobStore"
         		},
         		"availability": 
