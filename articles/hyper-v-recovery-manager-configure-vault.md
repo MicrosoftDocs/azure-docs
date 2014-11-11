@@ -1,22 +1,20 @@
-<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Getting Started with Azure Site Recovery: On-Premises to On-Premises Protection" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in on-premises VMM clouds to another on-premises site." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to On-Premises Protection" editor="jimbe" manager="johndaw" authors="raynew" />
+<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Getting Started with Azure Site Recovery: On-Premises to On-Premises Protection" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in on-premises VMM clouds to another on-premises site." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery:  On-Premises to On-Premises VMM Site Protection with Hyper-V Replication" editor="jimbe" manager="johndaw" authors="raynew" />
 
 <tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
 
 
-# Getting Started with Azure Site Recovery:  On-Premises to On-Premises Protection
+# Getting Started with Azure Site Recovery:  On-Premises to On-Premises VMM Site Protection with Hyper-V Replication
 
 
 <div class="dev-callout"> 
 
-<p>Use Azure Site Recovery to orchestrate protection for virtual machines on on-premises Hyper-V host servers located in VMM clouds. You can configure:</p>
-
-<ul>
-<li><b>On-premises to on-premises protection</b>—Replicate on-premise virtual machines to another on-premises site. You configure and enable protection settings in Azure Site Recovery vaults. Virtual machine data replicates from one on-premises Hyper-V server to another.
-Learn about this scenario in <a href="http://go.microsoft.com/fwlink/?LinkId=398765">Getting Started with Azure Site Recovery: On-Premises to On-Premises Protection</a>.</li><li><b>On-premises to Azure protection</b>—Replicate on-premise virtual machines to Azure. You configure and enable protection settings in Azure Site Recovery vaults. Virtual machine data replicates from an on-premises Hyper-V server to Azure storage. Learn about this scenario in <a href="http://go.microsoft.com/fwlink/?LinkId=398764">Getting Started with Azure Site Recovery: On-Premises to Azure Protection</a></li>
-
-</ul>
-
-
+<p>Deploy Azure Site Recovery to protect virtual machines and business continuity with replication, failover, and recovery. This guide describes how to deploy Azure Site Recovery for protection between two on-premises VMM sites with Hyper-V replication. In this scenario:</p>
+	<ul>
+	<li>Virtual machines located on Hyper-V host servers in the on-premises source site replicate to virtual machines in the target on-premises site using Hyper-V replication . You can reverse replicate virtual machines back to the source site.</li>
+	<li>You configure and enable protection settings in the VMM and Azure Site Recovery vaults.</li>
+	<li>Virtual machine data replicates from one on-premises Hyper-V server to another. Azure Site Recovery automates replication and orchestrates failover. </li>
+	</ul>
+<p>You can read about additional Azure Site Recovery deployment scenarios in <a href="http://go.microsoft.com/fwlink/?LinkId=518690">Azure Site Recovery Overview</a>.</p>
 
 
 <h2><a id="about"></a>About this tutorial</h2>
