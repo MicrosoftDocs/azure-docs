@@ -313,6 +313,7 @@ With this release, we have refreshed the following HDInsight  (Hortonworks Data 
 * HDInsight 3.0 (HDP 2.0)
 * HDInsight 3.1 (HDP 2.1)
 
+
 ## Hortonworks Release Notes ##
 
 Release notes for the HDPs that are used by the versions of HDInsight cluster are available at the following locations.
