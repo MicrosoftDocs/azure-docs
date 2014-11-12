@@ -1,6 +1,6 @@
 <properties urlDisplayName="" pageTitle="Get started with Notification Hubs for Xamarin.Android apps" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications to a Xamarin Android application." metaCanonical="" authors="donnam" solutions="" manager="dwrede" editor="" services="mobile-services,notification-hubs" documentationCenter="" title="Get started with Notification Hubs" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 
 # Get started with Notification Hubs
 
@@ -28,7 +28,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-android%2F" target="_blank">Azure Free Trial</a>.</p></div>
 
-<h2><a name="register"></a><span class="short-header">Enable Google Cloud Messaging</span>Enable Google Cloud Messaging</h2>
+<h2><a name="register"></a>Enable Google Cloud Messaging</h2>
 
 <p></p>
 
@@ -64,7 +64,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 Next, you will use this API key value to enable your notification hub to authenticate with GCM and send push notifications on behalf of your application.
 
-<h2><a name="configure-hub"></a><span class="short-header">Configure your Notification Hub</span>Configure your Notification Hub</h2>
+<h2><a name="configure-hub"></a>Configure your Notification Hub</h2>
 
 1. Log on to the [Azure Management Portal], and then click **+NEW** at the bottom of the screen.
 
@@ -94,7 +94,7 @@ Next, you will use this API key value to enable your notification hub to authent
 
 Your notification hub is now configured to work with GCM, and you have the connection strings to register your app and send push notifications.
 
-<h2><a name="connecting-app"></a><span class="short-header">Connecting your app</span>Connecting your app to the Notification Hub</h2>
+<h2><a name="connecting-app"></a>Connecting your app to the Notification Hub</h2>
 
 ### Create a new project
 
@@ -310,7 +310,7 @@ This assembly provides an easy way to register with Azure Notification Hubs. It 
 12. Override abstract members **OnUnRegistered()**, **OnRecoverableError()**, and **OnError()** so that your code compiles.
 
 
-<h2><a name="run-app"></a><span class="short-header">Run your app</span>Run your app in the emulator</h2>
+<h2><a name="run-app"></a>Run your app in the emulator</h2>
 
 When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
 
@@ -330,7 +330,7 @@ When you run this app in the emulator, make sure that you use an Android Virtual
     <p>In order to receive push notifications, you must set up a Google account on your Android Virtual Device (in the emulator, navigate to **Settings** and click **Add Account**). Also, make sure that the emulator is connected to the Internet.</p>
     </div> 
 
-<h2><a name="send"></a><span class="short-header">Send notification</span>Send notification from your back-end</h2>
+<h2><a name="send"></a>Send notification from your back-end</h2>
 
 You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we will send notifications with a .NET console app, and with a Mobile Service using a node script.
 

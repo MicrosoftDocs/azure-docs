@@ -15,22 +15,27 @@ Telemetry is gathered from both the client and the server. Client data is collec
 * [Detailed tracking with custom events and metrics](#custom)
 * [Video](#video)
 
+## <a name="webclient"></a> Setting up web client analytics
 
-## <a name="webclient"></a>Set up web usage analytics
+#### Get an Application Insights resource in Azure
 
-**If you're developing an ASP.NET app** and you haven't done this yet, [add Application Insights to your web project][start]. This lets you get telemetry from both client and server.
+**If you're developing an ASP.NET app** and you haven't done this yet, [add Application Insights to your web project][start]. 
 
-**For any other type of app,** you can still get telemetry from the web client. Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and add an Application Insights resource.
+**If your website platform isn't ASP.NET:** Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and add an Application Insights resource.
 
 ![](./media/appinsights/appinsights-11newApp.png)
 
 (You can get back to it later with the Browse button.)
 
+
+
+#### Add our script to your web pages
+
 In Quick Start, get the script for web pages.
 
 ![](./media/appinsights/appinsights-06webcode.png)
 
-Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there.
+Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example, in an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml
 
 ## <a name="usage"></a>Usage analytics
 
@@ -42,17 +47,17 @@ In the application overview blade, you'll see these usage tiles:
 
 *No data yet? Click **Refresh** at the top of the page.*
 
-### Sessions per browser
+* **Sessions per browser**
 
-A *session* is a period that starts when a user opens any page on your website, and ends after the user has not sent any web request for a timeout period of 30 minutes. 
+    A *session* is a period that starts when a user opens any page on your website, and ends after the user has not sent any web request for a timeout period of 30 minutes. 
 
-Click through to zoom into the chart.
+    Click through to zoom into the chart.
 
-### Top page views
+* **Top page views**
 
-Shows total counts in the last 24 hours.
+    Shows total counts in the last 24 hours.
 
-Click the page views tile to get a more detailed history.
+    Click the page views tile to get a more detailed history.
 
 ![](./media/appinsights/appinsights-49usage.png)
 
@@ -61,6 +66,10 @@ Click Time Range to see a longer history up to seven days.
 Click a graph to see other metrics that you can display.
 
 ![](./media/appinsights/appinsights-63usermetrics.png)
+
+> [AZURE.NOTE] Uncheck *all* the metrics to enable them all. Metrics can only be displayed in some combinations. When you select a metric, the incompatible ones are disabled.
+
+
 
 ## <a name="spa"></a> Custom page counts for single-page apps
 
@@ -102,29 +111,10 @@ Want to find out what your users do with your app? By inserting calls in your cl
 [Track usage with custom events and metrics][track]
 
 
-## Application Insights - learn more
-
-* [Application Insights - get started][start]
-* [Monitor a live web server now][redfield]
-* [Monitor performance in web applications][perf]
-* [Search diagnostic logs][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Track usage][usage]
-* [Track custom events and metrics][track]
-* [Q & A and troubleshooting][qna]
-
-<!--Link references-->
 
 
-[start]: ../app-insights-start-monitoring-app-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[perf]: ../app-insights-web-monitor-performance/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
-[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+
 
 
 

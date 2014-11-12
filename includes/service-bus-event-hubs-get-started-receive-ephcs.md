@@ -112,7 +112,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
         Console.WriteLine("Receiving. Press enter key to stop worker.");
         Console.ReadLine();
 
-> [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost], as shown in the [Scaled out event processing sample]. In those cases, the various instances  automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost] instances based on the machines (or roles) in which they are deployed. For more information about these topics, refer to the [Event Hubs Overview].
+> [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost], as shown in the [Scaled out event processing sample]. In those cases, the various instances  automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost] instances based on the machines (or roles) in which they are deployed. For more information about these topics, refer to the [Event Hubs Overview] and [Event Hubs Programming Guide].
 
 <!-- Links -->
 [Event Hubs Overview]: http://msdn.microsoft.com/en-us/library/azure/dn821413.aspx
@@ -126,3 +126,5 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+
+[Event Hubs Programming Guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx

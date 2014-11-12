@@ -23,6 +23,15 @@ To detect Windows Authentication in an MVC project, the wizard looks for the `au
 	&lt;/configuration&gt;
 </pre>
 
+In addition, in an MVC project, the wizard checks for any of the following settings, which result from previous use of the wizard:
+
+<PRE class="prettyprint">
+	&lt;add key="ida:ClientId" value="" /&gt;
+	&lt;add key="ida:Tenant" value="" /&gt;
+	&lt;add key="ida:AADInstance" value="" /&gt;
+	&lt;add key="ida:PostLogoutRedirectUri" value="" /&gt;
+</pre>
+
 To detect Windows Authentication in a Web API project, the wizard looks for the `IISExpressWindowsAuthentication` element from your project's **.csproj** file:
 
 <PRE class="prettyprint">
@@ -31,6 +40,14 @@ To detect Windows Authentication in a Web API project, the wizard looks for the 
 	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
 	    &lt;/PropertyGroup>
 	&lt;/Project&gt;
+</PRE>
+
+In addition, the wizard checks for any of the following settings in a Web API project, which result from previous use of the wizard:
+
+<PRE class="prettyprint">
+	&lt;add key="ida:ClientId" value="" /&gt;
+	&lt;add key="ida:Tenant" value="" /&gt;
+	&lt;add key="ida:Audience" value="" /&gt;
 </PRE>
 
 To detect Individual User Accounts authentication, the wizard looks for the package element from your **Packages.config** file.

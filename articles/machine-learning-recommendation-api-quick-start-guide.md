@@ -75,18 +75,18 @@ OData XML
 	
 	feed/entry/content/properties/id – contains the model id
 
-	<feed xmlns:base="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/CreateModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
 	  <subtitle type="text">Create A New Model</subtitle>
-	  <id>https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'</id>
+	  <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'</id>
 	  <rights type="text" />	
 	  <updated>2014-10-05T06:35:21Z</updated>
- 	 <link rel="self" href="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'" />
+ 	 <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'" />
 	  <entry>
-    <id>https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">CreateANewModelEntity2</title>
     <updated>2014-10-05T06:35:21Z</updated>
-    <link rel="self" href="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">a658c626-2baa-43a7-ac98-f6ee26120a12</d:Id>
@@ -119,18 +119,18 @@ OData XML
 	Feed\entry\content\properties\LineCount – number of lines accepted
 	Feed\entry\content\properties\ErrorCount – number of lines that were not inserted due to an error
 
-	<feed xmlns:base="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ImportCatalogFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportCatalogFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
   		<subtitle type="text">Import catalog file</subtitle>
-  		<id>https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'</id>
+  		<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'</id>
   	<rights type="text" />
   	<updated>2014-10-05T06:58:04Z</updated>
-  	<link rel="self" href="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'" />
+  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'" />
   	<entry>
-    <id>https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">ImportCatalogFileEntity2</title>
     <updated>2014-10-05T06:58:04Z</updated>
-    <link rel="self" href="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:LineCount m:type="Edm.String">4</d:LineCount>
@@ -160,18 +160,18 @@ OData XML
 	Feed\entry\content\properties\FileId – the file identifier
 
 
-	<feed xmlns:base="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ImportUsageFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
   	<subtitle type="text">Add bulk usage data (usage file)</subtitle>
-  	<id>https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'</id>
+  	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'</id>
   	<rights type="text" />
   	<updated>2014-10-05T07:21:44Z</updated>
-  	<link rel="self" href="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'" />
+  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'" />
   	<entry>
-    <id>https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">AddBulkUsageDataUsageFileEntity2</title>
     <updated>2014-10-05T07:21:44Z</updated>
-    <link rel="self" href="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:LineCount m:type="Edm.String">33</d:LineCount>
@@ -291,7 +291,7 @@ Response:
 HTTP Status code: 200
 
 	OData XML	
-	This is asynchronous API. You will get a Build Id, you must use this build Id for calling “Get Build Status” API to know when the build has ended. Note that a build can take from minutes to hours depending on the size of the data.
+	This is an asynchronous API. You will get a Build Id as a response. To know when the build has ended, you should call the “Get Builds Status of a Model” API and locate this build Id in the response. Note that a build can take from minutes to hours depending on the size of the data.
 	You cannot consume recommendations till the build ends.
 
 	Valid build status:
@@ -306,18 +306,18 @@ HTTP Status code: 200
 
 	Feed\entry\content\properties\Id – contains the build id
 
-	<feed xmlns:base="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
   	<subtitle type="text">Build a Model with RequestBody</subtitle>
-  	<id>https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id>
+  	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id>
   	<rights type="text" />
   	<updated>2014-10-05T08:56:34Z</updated>
-  	<link rel="self" href="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" />
+  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" />
   	<entry>
-    <id>https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">BuildAModelEntity2</title>
     <updated>2014-10-05T08:56:34Z</updated>
-    <link rel="self" href="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">1000272</d:Id>
@@ -343,7 +343,7 @@ HTTP Status code: 200
   	</entry>
 	</feed>
 
-###Get Build Status
+###Get Build Status of a Model
 ![Table6][7]
 
 Response:
@@ -361,30 +361,38 @@ HTTP Status code: 200
 
 	Feed\entry\content\properties\Status –contains the build status
 
-	<feed xmlns:base="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ListBuildsForModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
-  	<title type="text" />
-  	<subtitle type="text">List builds for model</subtitle>
-  	<id>https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ListBuildsForModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;apiVersion='1.0'</id>
-  	<rights type="text" />
-  	<updated>2014-10-05T11:12:17Z</updated>
-  	<link rel="self" href="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ListBuildsForModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;apiVersion='1.0'" />
-  	<entry>
-    <id>https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ListBuildsForModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
-    <title type="text">ListBuildsForModelEntity</title>
-    <updated>2014-10-05T11:12:17Z</updated>
-    <link rel="self" href="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/ListBuildsForModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<title type="text" />
+	<subtitle type="text">Get builds status of a model</subtitle>
+	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'</id>
+	<rights type="text" />
+	<updated>2014-11-05T17:51:10Z</updated>
+	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'" />
+	<entry>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <title type="text">GetBuildsStatusEntity</title>
+    <updated>2014-11-05T17:51:10Z</updated>
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
+        <d:UserName m:type="Edm.String">b-434e-b2c9-84935664ff20@dm.com</d:UserName>
+        <d:ModelName m:type="Edm.String">ModelName</d:ModelName>
+        <d:ModelId m:type="Edm.String">1d20c34f-dca1-4eac-8e5d-f299e4e4ad66</d:ModelId>
+        <d:IsDeployed m:type="Edm.String">true</d:IsDeployed>
         <d:BuildId m:type="Edm.String">1000272</d:BuildId>
-        <d:Status m:type="Edm.String">Error</d:Status>
-        <d:UserDescription m:type="Edm.String"></d:UserDescription>
-        <d:StartTime m:type="Edm.String">2014-10-05T08:56:36</d:StartTime>
-        <d:EndTime m:type="Edm.String">2014-10-05T08:58:37</d:EndTime>
-        <d:Duration m:type="Edm.String">00:02:01</d:Duration>
+        <d:Status m:type="Edm.String">Success</d:Status>
+        <d:StatusMessage m:type="Edm.String"></d:StatusMessage>
+        <d:Progress m:type="Edm.String">0</d:Progress>
+        <d:StartTime m:type="Edm.String">2014-11-02T13:43:51</d:StartTime>
+        <d:EndTime m:type="Edm.String">2014-11-02T13:45:10</d:EndTime>
+        <d:ExecutionTime m:type="Edm.String">00:01:19</d:ExecutionTime>
+        <d:IsExecutionStarted m:type="Edm.String">false</d:IsExecutionStarted>
+        <d:ProgressStep m:type="Edm.String"></d:ProgressStep>
       </m:properties>
-    </content>
-  	</entry>
-	</feed>
+     </content>
+    </entry>
+    </feed>
+
 
 ###Get Recommendations
 ![Table7][8]
@@ -549,7 +557,7 @@ HTTP Status code: 200
 
 ###Update Model
 You can update the model description or the active build id.
-Active Build Id – Every build for every model has a “build id”. The active “build id” is the first successfully build of every new model. Once you have an active build Id and you do additional builds for the same model you need to explicit set it as the default build id if you want to. When you consume recommendations, if you do not specify the build id that you want to use the default one will be used automatically.
+Active Build Id – Every build for every model has a “build id”. The active “build id” is the first successfully build of every new model. Once you have an active build Id and you do additional builds for the same model you need to explicitly set it as the default build id if you want to. When you consume recommendations, if you do not specify the build id that you want to use - the default one will be used automatically.
 
 This mechanism enables you once you have a recommendation model in production to build new models and test them before you promote them to production.
 
@@ -560,13 +568,13 @@ Response:
 HTTP Status code: 200
 
 	OData XML
-	<feed xmlns:base="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/UpdateModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/UpdateModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
   	<subtitle type="text">Update an Existing Model</subtitle>
-  	<id>https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/UpdateModel?id='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;apiVersion='1.0'</id>
+  	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/UpdateModel?id='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;apiVersion='1.0'</id>
   	<rights type="text" />
  	 <updated>2014-10-05T10:27:17Z</updated>
- 	 <link rel="self" href="https://api.sqlazureservices-test2.com/Data.ashx/amla/recommendations-preview/v2/UpdateModel?id='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;apiVersion='1.0'" />
+ 	 <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/UpdateModel?id='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;apiVersion='1.0'" />
 	</feed>
 
 ##Legal
@@ -585,3 +593,4 @@ This document does not provide you with any legal rights to any intellectual pro
 [7]: ./media/machine-learning-recommendation-api-quick-start-guide/Table06.png
 [8]: ./media/machine-learning-recommendation-api-quick-start-guide/Table07.png
 [9]: ./media/machine-learning-recommendation-api-quick-start-guide/Table08.png
+

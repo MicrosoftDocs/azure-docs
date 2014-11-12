@@ -18,7 +18,7 @@ You will add this functionality to the app that you created when you completed e
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Get started with data]. 
 
->[AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android">here</a>.
+>[AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank">here</a>.
 >
 ## <a name="define-custom-api"></a>Define the custom API
 

@@ -61,7 +61,7 @@ The following sections summarize key concepts for working with the Batch service
 * [Files and directories](#BKMK_Files)
 
 <h3 id="BKMK_Account">Batch account</h3>
-You need a unique **Batch account** to work with the Batch service. When performing API  operations with the Batch service, you authenticate your requests with the name of the account and an associated access key. You also need a Batch account to access the Batch Apps portal.
+You need a unique **Batch account** to work with the Batch service. When performing API  operations with the Batch service, you authenticate your requests with the URL of the account and an associated access key. You also need a Batch account to access the Batch Apps portal.
  
 You can create a Batch account and manage access keys for the account in the Azure Management Portal.
 
@@ -73,7 +73,7 @@ To create a Batch account:
 
 3. Enter the following information:
 
-	* In **URL**, enter a unique subdomain name to use in the Batch account URL.
+	* In **Account Name**, enter a unique name to use in the Batch account URL.
 	* In **Region**, select a region in which Batch is available.
 	* If you have more than one subscription, in **Subscription**, select an available subscription that will be billed for your use of Batch.
 
@@ -173,7 +173,7 @@ Figure 5 shows a basic workflow to publish an application by using the Batch App
 	
 <h2 id="BKMK_Resources">Additional resources</h2>
 
-* [Get Started with the Azure Batch Library for .NET](http://azure.microsoft.com/en-us/documentation/batch-dotnet-get-started)
+* [Get Started with the Azure Batch Library for .NET](http://azure.microsoft.com/en-us/documentation/articles/batch-dotnet-get-started/)
 * [Azure Batch REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=517803)
 * [Azure Batch Apps REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 

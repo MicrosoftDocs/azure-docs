@@ -1,15 +1,48 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 
 
 #Microsoft HDInsight release notes
+
+## Notes for 11/07/2014 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight 2.1	2.1.9.374.1153876
+
+
+* HDInsight 3.0	3.0.5.374.1153876
+
+
+* HDInsight 3.1	3.1.1.374.1153876
+
+This release contains the following component updates.
+<table border="1">
+<tr><th>Title</th><th>Description</a><th>Component</th></th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
+
+<tr><td>HDP 2.1.7</td><td>This release is based on Hortonworks Data Platform (HDP) 2.1.7. The release notes for HDP 2.1.7 are available on the Hortonworks site at http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html.</td><td>HDP</td><td>All</td><td></td></tr>
+
+<tr><td>YARN Timeline Server</td><td>The YARN Timeline Server (also known as the Generic Application History Server) has been enabled by default. The Timeline Server provides generic information about completed applications such as application ID, application name, application status, application submission time, and application completion time. <p>This application information can be retrieved from the head node either by accessing the URI http://headnodehost:8188 or by running the YARN command: yarn application –list –appStates ALL. <p>This information can also be retrieved remotely though REST API at https://{ClusterDnsName}. azurehdinsight.net/ws/v1/applicationhistory/. <p>More detailed information on the Timeline Server is available at http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html.</td><td>Service, YARN</td><td>Hadoop, HBase</td><td></td></tr>
+
+<tr><td>Storm Dashboard</td><td>We have enabled the native Storm dashboard for HDINSIGHT Storm clusters. The dashboard may be accessed from the Azure UX portal.</td><td>Azure UX</td><td>Storm</td><td></td>
+</tr>
+
+<tr><td>Cluster Deployment ID</td><td>Starting with latest SDK version 1.3.3.1.5426.29232, users can access HDInsight issued unique id for each cluster. This will enable customers to figure out unique instances of clusters when a dnsname is being reused across create/drop scenarios.</td><td>SDK</td><td>All</td><td></td></tr>
+</table><br>
+
+* Note that the bug that prevented the full version # from showing up in the portal or from being returned by the SDK or by PowerShell has been fixed in this release. 
+
+## Notes for 10/15/2014 release ##
+
+This hotfix release fixed a memory leak in Templeton that affected the heavy users of Templeton. In some cases users who exercised Templeton heavily would see errors manifested as 500 error codes because the requests would not have enough memory to execute. The workaround for this problem was to restart the Templeton service. This issue has now been fixed.
+
 
 ## Notes for 10/7/2014 release ##
 
 * When using Ambari endpoint, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", the *host_name* field now returns the fully qualified domain name (FQDN) of the node instead of just the host name. For example, instead of returning "**headnode0**", you get the FQDN “**headnode0.{ClusterDNS}.azurehdinsight.net**”. This change was required to facilitate scenarios where multiple cluster types such as HBase and Hadoop can be deployed in one Virtual Network (VNET). This happens, for example, when using HBase as a back-end platform for Hadoop.
 
-* We have provided new memory settings for the default deployment of the HDInsight cluster. Previous default memory settings did not take adequate account of the guidance for the number of CPU cores being deployed. The new memory settings used by the default 4 CPU core (8 container) HDInsight cluster are itemized in the following table. (The values used prior to this release are also provided parenthetically). 
+* We have provided new memory settings for the default deployment of the HDInsight cluster. Previous default memory settings did not take adequate account of the guidance for the number of CPU cores being deployed. These new memory settings should provide better defaults, as per Hortonworks recommendations. For changing these, please refer to SDK reference documentation on changing cluster configuration. The new memory settings used by the default 4 CPU core (8 container) HDInsight cluster are itemized in the following table. (The values used prior to this release are also provided parenthetically). 
  
 <table border="1">
 <tr><th>Component</th><th>Memory Allocation</th></tr>
@@ -29,8 +62,16 @@
 
 For more information on the memory configuration settings used by YARN and MapReduce on the Hortonworks Data Platform used by HDInsight, see [Determine HDP Memory Configuration Settings](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html). Hortonworks has also provide a tool to calculate proper memory settings.
 
+HDInsight PowerShell/SDK Error: "*Cluster is not configured for Http Services access*":
 
-## Notes for 9/12/2014 release of HDinsight 3.1##
+* This error is a known [compatibility issue](https://social.msdn.microsoft.com/Forums/azure/en-US/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) that may occur due to a difference in the version of SDK/PowerShell and the version of the cluster. Clusters created on 8/15 or later have support for new provisioning capability into Virtual Networks. But this capability is not correctly interpreted by older versions of the SDK/PowerShell. The result is a failure in some job submission operations. If you use SDK APIs or PowerShell cmdlets to submit jobs (**Use-AzureHDInsightCluster**, **Invoke-Hive**), those operations may fail with the error message “*Cluster <clustername> is not configured for Http Services access*” or, depending on the operation, other error messages such as “*Cannot connect to cluster*”.
+
+* Those compatibility issues are resolved in the latest versions of the HDInsight SDK and Azure PowerShell. We recommend updating the HDInsight SDK to the version 1.3.1.6 or later and Azure PowerShell Tools to the version 0.8.8 or later. You can get access to the latest HDInsight SDK from [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) and the Azure PowerShell Tools at [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/).
+
+* You can expect that SDK and PowerShell will continue to work with new updates to clusters as long as the version of the cluster remains the same. For example, clusters version 3.1 will always be compatible with current version of the SDK/PowerShell 1.3.1.6 and 0.8.8.
+
+
+## Notes for 9/12/2014 release of HDInsight 3.1##
 
 * This release is based on Hortonworks Data Platform (HDP) 2.1.5. For a list of the bugs fixed in this release, see the [Fixed in this Release](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) page on the Hortonworks site.
 * In the pig libraries folder, the file “avro-mapred-1.7.4.jar” has been changed to avro-mapred-1.7.4-hadoop2.jar. The contents of these file contain a minor bug fix that is non-breaking. It is recommended that customers do not take a direct dependency on the name of the JAR file itself to avoid breaks when files are renamed.
@@ -51,7 +92,7 @@ For more information on the memory configuration settings used by YARN and MapRe
 	* zookeeper0 
 	* zookeeper1 
 	* zookeeper2 
-* HBase version support matrix is updated. Only version HDInsight 3.1 (HBase version 0.98) is supported for production HBase workloads. Version 3.0 that was available for preview will not be supported moving forward. During transition period customers can still create clusters of 3.0 version. 
+* HBase version support matrix is updated. Only version HDInsight 3.1 (HBase version 0.98) is supported for production HBase workloads. Version 3.0 that was available for preview will not be supported moving forward. During transition period customers can still create clusters of version 3.0. 
 
 ## Notes on clusters created prior to 8/15/2014 ##
 
@@ -102,7 +143,7 @@ With HBase, you can build a variety of real-time workloads on HDInsight, from in
 For a more complete explanation of this procedure, see the documentation of the [Breiman Example](https://mahout.apache.org/users/classification/breiman-example.html) on the Apache Mahout website. 
 
 
-### Hive Queries can use Tez in HDinsight 3.1 ###
+### Hive Queries can use Tez in HDInsight 3.1 ###
 
 Hive 0.13 is now available in HDInsight 3.1 and is capable of running queries using Tez, which can be leveraged for substantial performance improvements. 
 Tez is not enable by default for Hive queries. To use it, you must opt in. You can enable Tez by running the following code snippet:
@@ -117,7 +158,18 @@ For more details on using Hive with Tez, check out the [Hive on Tez wiki page](h
 ###Global Availability
 With the release of Azure HDInsight on Hadoop 2.2, Microsoft has made HDInsight available in all major Azure geographies. Specifically, west Europe and southeast Asia data centers have been brought online. This enables customers to locate clusters in a data center that is close and potentially in a zone of similar compliance requirements. 
 
+
+###Dos & Dont's between Cluster Versions
+
+**Oozie metastores used with an HDInsight 3.1 cluster are not backward compatible with HDInsight 2.1 clusters and cannot be used with this previous version**
+
+A custom Oozie metastore database deployed with an HDInsight 3.1 cluster cannot be reused with an HDInsight 2.1 cluster. This is the case even if the metastore originated with a 2.1 cluster. This scenario is not supported as the metastore schema gets upgraded when used with a 3.1 cluster and so is no longer compatible with the metastore required by the 2.1 clusters. Any attempt to reuse an Oozie metastore that has been used with an HDInsight 3.1 cluster will render the 2.1 cluster useless. 
+
+**Oozie metastores cannot be shared across clusters**
+On a more general and somewhat orthogonal note, Oozie metastores are attached to specific clusters and cannot be shared across clusters.
+
 ###Breaking Changes
+
 **Prefix syntax**:
 Only the "wasb://" syntax is supported in HDInsight 3.0  and 3.1 clusters. The older "asv://" syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters or later versions. This means that any jobs submitted to an HDInsight 3.0  or 3.1 cluster that explicitly use the “asv://” syntax will fail. The wasb:// syntax should be used instead. Also, jobs submitted to any HDInsight 3.0 or 3.1 clusters that are created with an existing metastore that contains explicit references to resources using the asv:// syntax will fail. These metastores will need to be recreated using the wasb:// to address resources. 
 
@@ -265,7 +317,7 @@ With this release, we have refreshed the following HDInsight  (Hortonworks Data 
 
 Release notes for the HDPs that are used by the versions of HDInsight cluster are available at the following locations.
 
-* HDInsight cluster version 3.1 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.1][hdp-2-1-1].(This is the default Hadoop cluster created when using the Azure HDInsight portal.)
+* HDInsight cluster version 3.1 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.1.7][hdp-2-1-7].This is the default Hadoop cluster created when using the Azure HDInsight portal after 11/7/2014. HDInsight 3.1 clusters created before 11/7/2014 were based on the [Hortonworks Data Platform 2.1.1][hdp-2-1-1] 
 
 * HDInsight cluster version 3.0 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.0][hdp-2-0-8].
 
@@ -273,8 +325,7 @@ Release notes for the HDPs that are used by the versions of HDInsight cluster ar
 
 * HDInsight cluster version 1.6 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 1.1][hdp-1-1-0]. 
 
-
-
+[hdp-2-1-7]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
 
 [hdp-2-1-1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
 

@@ -2,7 +2,7 @@
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
-## Installing the Azure SDK 2.4 for Visual Studio "14" CTP
+# Installing the Azure SDK 2.4 for Visual Studio "14" CTP
 
 To install the Azure SDK 2.4 for .NET with Visual Studio "14" CTPs, follow these steps. This procedure installs SDKs, basic tools, and extended tools for Azure development with Visual Studio "14" CTPs and is not intended to be used with any other version of Visual Studio.
 

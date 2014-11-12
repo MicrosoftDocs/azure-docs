@@ -48,7 +48,7 @@ In order to complete this tutorial you will need the following:
 
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-java.md)]
+[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-java](../includes/service-bus-event-hubs-get-started-send-java.md)]
 
 
 [WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../includes/service-bus-event-hubs-get-started-receive-storm.md)]
@@ -85,7 +85,7 @@ The following resources are available for developing applications integrating Ev
 <!-- Links -->
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs Overview]: http://msdn.microsoft.com/en-us/library/azure/dn821413.aspx
+[Event Hubs Overview]: http://msdn.microsoft.com/en-us/library/azure/dn836025.aspx
 
 [Apache Storm]: https://storm.incubator.apache.org
 [HDInsight Storm Overview]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-overview/

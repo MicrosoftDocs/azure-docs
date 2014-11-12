@@ -44,32 +44,11 @@ In this walkthrough, you create a data factory with a pipeline that moves data f
 In this step, you use the Azure Management Portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**. You can also create a data factory by using Azure Data Factory cmdlets. 
 
 1.	After logging into the [Azure Preview Portal][
-2.	azure-preview-portal], click **NEW** from the bottom-left corner, and click **Data Factory** on the **New** blade. 
+2.	azure-preview-portal], click **NEW** from the bottom-left corner, and click **Data Factory** on the **New** blade.
 
 	![New->DataFactory][image-data-factory-new-datafactory-menu] 
 	
-	If you do not see **Data Factory** on the **New** blade, scroll down. If you still don't see it, do the following: 
-	1.	click **NEW** from the bottom-left corner, and click **Everything** at the top.
-
-		![New Everything][image-data-factory-onprem-new-everything]
-
-	2. Click **Data, storage, cache, + backup** in **Gallery**.	
-
-		![Datstorage, cache, backup][image-data-factory-onprem-datastorage-cache-backup]
-
-	3. In the **Data, storage, cache, + backup** blade, click **See All** as shown in the following image.
-
-		![Data Storage - See All][image-data-factory-onprem-datastorage-see-all]
-
-	4. In the **Data Services** blade, click **Data Factory (preview)**.
-
-		![Data Services blade][image-data-factory-onprem-dataservices-blade]
-
-	1. In the **Data Factory (preview)** blade, click **Create**.
-
-
-		![Data Factory Preview Blade][image-data-factory-onprem-datafactory-preview-blade]
-
+	If you do not see **Data Factory** on the **New** blade, scroll down.  
 6. In the **New data factory** blade:
 	1. Enter **ADFTutorialOnPremDF** for the **name**.
 	2. Click **RESOURCE GROUP NAME** and select **ADFTutorialResourceGroup** (if you had done the tutorial from [Get started with Azure Data Factory][adfgetstarted]. You can select an existing resource group or create a new one. To create a new resource group:
@@ -115,10 +94,8 @@ In this step, you will create two linked services: **MyBlobStore** and **OnPremS
 
 	This is the easiest way (one-click) to download, install, configure, and register the gateway in one single step. You can see the **Microsoft Data Management Gateway Configuration Manager** application is installed on your computer. You can also find the executable **ConfigManager.exe** in the folder: **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**.
 
-	To download and install manually,  click Download and install manually and register it using the key shown in the **REGISTER WITH KEY** text box.
-
-	You can also download Data Management Gateway directly from one of these locations: [64-bit Data Management Gateway][64bit-download-link] or [32-bit Data Management Gateway][32bit-download-link] 
-
+	You can also download and install gateway manually by using the links in this blade and register it using the key shown in the **REGISTER WITH KEY** text box.
+	
 	See [Data Management Gateway](#DMG) section for details about the gateway including best practices and important considerations. 
 
 4. Click **OK** on the **New data gateway** blade.
@@ -180,11 +157,7 @@ In this step, you will create two linked services: **MyBlobStore** and **OnPremS
 
 5. Enter the **Account Name** and **Account Key** for your Azure Storage Account, and click **OK**.
 
-	
-	- **To get the Account Key for a storage in the Azure Preview Portal**:  
-
-		![Get Storage Key][image-data-factory-preview-portal-storage-key]
-   
+  
 6. After you click **OK** on the **New data store** blade, you should see **MyBlobStore** in the list of **DATA STORES** on the **Linked Services** blade. Check **NOTIFICATIONS** Hub (on the left) for any messages.
 
 	![Linked Services blade with MyBlobStore][image-data-factory-linkedservices-with-storage]
@@ -245,7 +218,7 @@ In this step, you will create input and output datasets that represent input and
 	        			"maximumRetry": 3
 	    			}
 		  
-        		},
+        		}
     		}
 		}
 
@@ -284,14 +257,14 @@ In this step, you will create input and output datasets that represent input and
             		"format":
             		{
                 		"type": "TextFormat",
-                		"columnDelimiter": ",",
+                		"columnDelimiter": ","
             		},
             		"linkedServiceName": "MyBlobStore"
         		},
         		"availability": 
         		{
             		"frequency": "Hour",
-            		"interval": 1,
+            		"interval": 1
         		}
     		}
 		}
@@ -302,6 +275,24 @@ In this step, you will create input and output datasets that represent input and
 	- **linkedServiceName** is set to **MyBlobStore** (you had created this linked service in Step 2).
 	- **folderPath** is set to **adftutorial/outfromonpremdf** where outfromonpremdf is the folder in the adftutorial container. You just need to create the **adftutorial** container.
 	- The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service will generate an output data slice every hour in the **emp** table in the Azure SQL Database. 
+
+	if you don't specify a **fileName** for an **input table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. See the sample files in the [tutorial][adf-tutorial] for examples.
+ 
+	If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+
+	To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the partitionedBy property. In the following example, folderPath uses Year, Month, and Day from from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
+
+	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+        "fileName": "{Hour}.csv",
+        "partitionedBy": 
+        [
+        	{ "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+            { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+            { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+        ],
+
+ 
 
 	See [JSON Scripting Reference][json-script-reference] for details about JSON properties.
 
@@ -349,7 +340,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 							"timeout": "01:00:00"
 						}		
 
-				     },
+				     }
 	        	]
 			}
 		}
@@ -420,6 +411,11 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 This section describes how to create and register a gateway using Azure PowerShell cmdlets. 
 
 1. Launch **Azure PowerShell** in administrator mode. 
+2. The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode. Execute the following command to switch to the **AzureResourceManager** mode.     
+
+        switch-azuremode AzureResourceManager
+
+
 2. Use the **New-AzureDataFactoryGateway** cmdlet to create a logical gateway as follows:
 
 		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName $df -Location “West US” -ResourceGroupName ADF –Description <desc>
@@ -443,14 +439,13 @@ This section describes how to create and register a gateway using Azure PowerShe
 
 3. Use the **New-AzureDataFactoryGatewayKey** cmdlet to generate a registration key for the newly created gateway, and store the key in a local variable **$Key**:
 
-		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName $df | Format-List
+		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName $df 
 
-	> [WACOM.NOTE] Use the **Format-List** parameter to see the full gateway key. Copy the gateway key to Notepad and remove any spaces or line break so that so that the entire key is in a single line.
-
+	
 	**Example command output:**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df | Format-List
+		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
 4. In Azure PowerShell, switch to the folder: **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript\** and Run **RegisterGateway.ps1** script associated with the local variable **$Key** as shown in the following command to register the client agent installed on your machine with the logical gateway you create earlier.
@@ -464,6 +459,9 @@ This section describes how to create and register a gateway using Azure PowerShe
 		Get-AzureDataFactoryGateway -DataFactoryName $df -ResourceGroupName ADF
 
 You can remove a gateway using the **Remove-AzureDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzureDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
+
+
+
 
 ## See Also
 

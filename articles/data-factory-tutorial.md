@@ -150,24 +150,8 @@ In this step, you create an Azure data factory named **LogProcessingFactory**.
 
 	![New->DataFactory][image-data-factory-new-datafactory-menu] 
 	
-	If you do not see **Data Factory** on the **New** blade, scroll down. If you still don't see it, do the following: 
-
-	2.	After logging into the [Azure Preview Portal][azure-preview-portal], click **NEW** from the bottom-left corner, and click **Everything** at the top.
-
-		![New Everything][image-data-factory-tutorial-portal-new-everything]
-
-	2. Select **Data, storage, cache + backup** from **Gallery**, and click **See All** under **Data Services**.		
-
-		![Data Storage, Cache, Backup][image-data-factory-tutorial-datastorage-cache-backup]
-
-	3. Click **Data Factory (preview)** in the **Data Services** blade.
-
-		![Data Services Blade][image-data-factory-tutorial-dataservices-blade]
-
-	4. In the **Data Factory (Preview)** blade, click **Create**.
-
-		![Data Factory Create Button][image-data-factory-new-datafactory-create-button]
-
+	If you do not see **Data Factory** on the **New** blade, scroll down. 
+	
 5. In the **New data factory** blade, enter **LogProcessingFactory** for the **Name**.
 
 	![Data Factory Blade][image-data-factory-tutorial-new-datafactory-blade]
@@ -401,7 +385,7 @@ To specify the active period for the pipeline, you can use the cmdlet Set-AzureD
 
 	![Diagram Link][image-data-factory-tutorial-diagram-link]
 
-13. You can rearrange the diagram you see and here is a rearranged diagram that shows direct inputs at the top and outputs at the bottom. You can see that the output of the **PartitionGameLogsPipeline** is passed in as an input to the EnrichGameLogsPipeline and output of the **EnrichGameLogsPipeline** is passed to the **AnalyzeMarketingCampaignPipeline**.
+13. You can rearrange the diagram you see and here is a rearranged diagram that shows direct inputs at the top and outputs at the bottom. You can see that the output of the **PartitionGameLogsPipeline** is passed in as an input to the EnrichGameLogsPipeline and output of the **EnrichGameLogsPipeline** is passed to the **AnalyzeMarketingCampaignPipeline**. Double-click on a title to see details about the artifact that the blade represents.
 
 	![Diagram View][image-data-factory-tutorial-diagram-view]
 
@@ -581,6 +565,22 @@ When you see the status of a slice of the table **MarketingCampaignEffectiveness
  
 Congratulations! You have successfully gone through the walkthrough to use your on-premises data. 
  
+## See Also
+
+Article | Description
+------ | ---------------
+[Enable your pipelines to work with on-premises data][useonpremisesdatasources] | This article has a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob.
+[Use Pig and Hive with Data Factory][usepigandhive] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
+[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
+[Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to monitor an Azure Data Factory using Azure PowerShell cmdlets. You can try out the examples in the article on the ADFTutorialDataFactory.
+[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
+[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc…
+[Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the Data Factory cmdlets. 
+
+[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
+[use-custom-activities]: ../data-factory-use-custom-activities
+[troubleshoot]: ../data-factory-troubleshoot
+[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 
 [adfgetstarted]: ../data-factory-get-started

@@ -16,7 +16,7 @@ To create a custom activity:
 3. Add the following using statements at the top of the source file in the class library.
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
-		using Microsoft.DataFactories.ActivitySdk; 
+		using Microsoft.DataFactories.Runtime; 
 
 4. Update the class to implement the **ICustomActivity** interface.
 	<ol type='a'>
@@ -78,7 +78,7 @@ The following Walkthrough provides you with step-by-step instructions for creati
 - Tutorial from [Get started with Azure Data Factory][adfgetstarted]. You must complete the tutorial from this article before continuing further with this walkthrough.
 - Visual Studio 2012 or 2013
 - Download and install [Windows Azure .NET SDK][azure-developer-center]
-- Download [NuGet package for Azure Data Factory][nuget-package].
+- Download [NuGet packages for Azure Data Factory][nuget-package].
 - Download and install NuGet package for Azure Storage. Instructions are in the walkthrough, so you can skip this step.
 
 ### Step 1: Create a custom activity
@@ -94,9 +94,13 @@ The following Walkthrough provides you with step-by-step instructions for creati
 		<li>Click <b>OK</b> to create the project.</li>
 	</ol>
 2.  Click <b>Tools</b>, point to <b>NuGet Package Manager</b>, and click <b>Package Manager Console</b>.
-3.	In the <b>Package Manager Console</b>, execute the following command to import the <b>Azure Data Factory NuGet package</b> you downloaded earlier. Replace the folder to the location that contains the downloaded Data Factory NuGet package.
+3.	In the <b>Package Manager Console</b>, execute the following command to import the <b>Microsoft.Azure.Management.DataFactories</b> you downloaded earlier. Replace the folder with the location that contains the downloaded Data Factory NuGet package.
 
 		Install-Package Microsoft.Azure.Management.DataFactories -Source d:\packages –Pre
+
+3.	In the <b>Package Manager Console</b>, execute the following command to import the <b>Microsoft.DataFactories.Runtime</b>. Replace the folder with the location that contains the downloaded Data Factory NuGet package.
+
+		Install-Package Microsoft.DataFactories.Runtime -Source d:\packages –Pre
 
 4. Import the Windows Azure Storage NuGet package in to the project.
 
@@ -108,7 +112,7 @@ The following Walkthrough provides you with step-by-step instructions for creati
 		using System.Globalization;
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
-		using Microsoft.DataFactories.ActivitySdk; 
+		using Microsoft.DataFactories.Runtime; 
 	
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
@@ -123,14 +127,14 @@ The following Walkthrough provides you with step-by-step instructions for creati
 
 8. Implement (Add) the **Execute** method of the **ICustomActivity** interface to the **MyCustomActivity** class and copy the following sample code to the method. 
 
-	The **inputTables** and **outputTables** parameters represent input and output tables for the activity as the names suggest. You can see messages you log using the **logger** object in the log file that you can download from the Azure portal or using cmdlets. The **extendedproperties** dictionary contains list of extended properties you specify in the JSON file for the activity and their values. 
+	The **inputTables** and **outputTables** parameters represent input and output tables for the activity as the names suggest. You can see messages you log using the **logger** object in the log file that you can download from the Azure portal or using cmdlets. The **extendedProperties** dictionary contains list of extended properties you specify in the JSON file for the activity and their values. 
 
 	The following sample code counts the number of lines in the input blob and produces the following content in the output blob: path to the blob, number of lines in the blob, the machine on which the activity ran, current date-time.
 
         public IDictionary<string, string> Execute(
                     IEnumerable<ResolvedTable> inputTables, 
                     IEnumerable<ResolvedTable> outputTables, 
-                    IDictionary<string, string> extendedproperties, 
+                    IDictionary<string, string> extendedProperties, 
                     IActivityLogger logger)
         {
             string output = string.Empty;
@@ -138,7 +142,7 @@ The following Walkthrough provides you with step-by-step instructions for creati
             logger.Write(TraceEventType.Information, "Before anything...");
 
             logger.Write(TraceEventType.Information, "Printing dictionary entities if any...");
-            foreach (KeyValuePair<string, string> entry in extendedproperties)
+            foreach (KeyValuePair<string, string> entry in extendedProperties)
             {
                 logger.Write(TraceEventType.Information, "<key:{0}> <value:{1}>", entry.Key, entry.Value);
             }
@@ -270,7 +274,7 @@ The following Walkthrough provides you with step-by-step instructions for creati
 11. Launch **Windows Explorer**, and navigate to **bin\debug** or **bin\release** folder depending type of build.
 12. Create a zip file **MyCustomActivity.zip** that contain all the binaries in the <project folder>\bin\Debug folder.
 	![zip output binaries][image-data-factory-zip-output-binaries]
-13. Upload **MyCustomActivity.zip** as a blob to the blob conatainer: **blobcustomactvitycontainer** in the Azure blob storage that the **MyBlobStore** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **blobcustomactivitycontainer** if it does not already exist. 
+13. Upload **MyCustomActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **MyBlobStore** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **blobcustomactivitycontainer** if it does not already exist. 
     ![upload zip to blob][image-data-factory-upload-zip-to-blob]
 
 ### Create a linked service for  HDInsight cluster that will be used to run the custom activity
@@ -311,8 +315,8 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 1. Create a JSON file named **MyHDInsightCluster.json** with the following content and save it to **C:\ADFGetStarted\Custom** folder. Replace clustername, username, and password with appropriate values before saving the JSON file.  
 
 		{
-   			Name: "MyHDInsightCluster",
-    		Properties: 
+   			"Name": "MyHDInsightCluster",
+    		"Properties": 
 			{
         		"Type": "HDInsightBYOCLinkedService",
 	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
@@ -375,7 +379,7 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
                             "Timeout": "00:30:00",
                             "Delay": "00:00:00"		
 						}
-					},
+					}
 				]
 			}
 		}
@@ -399,28 +403,18 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
     		"name": "OutputTableForCustom",
     		"properties":
     		{
-         		"structure":  
-        		[ 
-            		{ "name": "FirstName", "type": "String"},
-            		{ "name": "LastName", "type": "String"}
-        		],
         		"location": 
         		{
 					"type": "AzureBlobLocation",
 					"folderPath": "adftutorial/customactivityoutput/{Slice}",
 					"partitionedBy": [ { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }],
 
-					"format":
-					{
-                		"type": "TextFormat",
-		                "columnDelimiter": ",",
-					},
 					"linkedServiceName": "MyBlobStore"
         		},
         		"availability": 
         		{
             		"frequency": "hour",
-            		"interval": 1,
+            		"interval": 1
         		}   
     		}
 		}
@@ -474,8 +468,7 @@ Article | Description
 [Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
 [Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
 [Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to monitor an Azure Data Factory using Azure PowerShell cmdlets. You can try out the examples in the article on the ADFTutorialDataFactory.
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure 
-Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
+[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 
 

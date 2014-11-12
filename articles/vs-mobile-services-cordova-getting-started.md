@@ -7,7 +7,15 @@
 > - [What Happened](/documentation/articles/vs-mobile-services-cordova-what-happened/)
 
 ## Getting Started with Mobile Services (Cordova Projects)
+
+The first step you need to do in order to follow the code in these examples depends on what type of mobile service you connected to.
+
+For a JavaScript backend mobile service, create a table called TodoItem.  To create a table,  locate the mobile service under the Azure node in Server Explorer, right-click the mobile service's node to open the context menu, and choose **Create Table**. Enter "TodoItem" as the table name.
+
+If instead you have a .NET backend mobile service, there's already a TodoItem table in the default project template that Visual Studio created for you, but you need to publish it to Azure. To publish it, open the context menu for the mobile service project in Solution Explorer, and choose **Publish Web**. Accept the defaults, and choose the **Publish** button.
   
+>[WACOM.NOTE]**Please apply this [workaround](http://go.microsoft.com/fwlink/?LinkId=518765) to work with Azure Mobile Services in Cordova projects.**
+
 #####Get reference to a table
 
 The following code gets a reference to a table that contains data for a TodoItem, which you can use in subsequent operations to read and update the data table. The TodoItem table is created automatically when you create a mobile service.

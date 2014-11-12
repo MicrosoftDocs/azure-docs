@@ -1,4 +1,4 @@
-<properties title="Analyzing sensor data using Hive with HDInsight" pageTitle="Analyzing sensor data using Hive and Microsoft Azure HDInsight (Hadoop)" description="Learn how to use Hive and Excel to analyze and visualize sensor data with HDInsight (Hadoop)" metaKeywords="Azure hdinsight hive, Azure hdinsight hive sensor, azure hadoop hive, azure hadoop sensor, azure hadoop excel, azure hdinsight excel" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" />
+<properties title="Analyzing sensor data using Hive with HDInsight" pageTitle="Analyzing sensor data using Hive and Microsoft Azure HDInsight (Hadoop)" description="Learn how to use Hive and Excel to analyze and visualize sensor data with HDInsight (Hadoop)" metaKeywords="Azure hdinsight hive, Azure hdinsight hive sensor, azure hadoop hive, azure hadoop sensor, azure hadoop excel, azure hdinsight excel" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
@@ -36,5 +36,3 @@ In this sample, you'll use Hive to process historical data produced by heating, 
 2. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Samples** category, click the **Website Log Analysis** sample.
 
 3. Follow the instructions provided on the web page to finish the sample.
-
-
