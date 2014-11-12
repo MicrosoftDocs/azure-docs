@@ -13,15 +13,15 @@ You'll learn:
 * How to make a change to the web project and redeploy the application.
 * How to use the Azure Management Portal to monitor and manage your website.
 
-The following illustration shows the completed application:
-
-![Web site home page](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
-
 You need an Azure account to complete this tutorial:
 * You can [open an Azure account for free](/en-us/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.
 * You can [activate MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
 
 If you want to get started with Azure Websites without opening an account, see [https://trywebsites.azurewebsites.net](https://trywebsites.azurewebsites.net).
+
+The following illustration shows the completed application:
+
+![Web site home page](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
 ### Tutorial segments
 
