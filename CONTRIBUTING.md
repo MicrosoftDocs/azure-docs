@@ -3,7 +3,7 @@
 Thank you for your interest in Azure documentation!
 
 * [Ways to contribute](#ways-to-contribute)
-* [Before we can accept your pull request](#before-we-can-accept-your-pull-request)
+* [About your contributions to Azure content](#about-your-contributions)
 * [Repository organization](#repository-organization)
 * [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
 * [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
@@ -18,7 +18,7 @@ You can contribute to [Azure documentation](http://azure.microsoft.com/en-us/doc
 * Submit Disqus comments at the bottom of articles.
 * Contribute to articles via the public Azure repo.
 
-##Before we can accept your pull request
+##About your contributions to Azure content
 
 ###Minor corrections
 
@@ -27,12 +27,14 @@ Minor corrections or clarifications you submit for documentation and code exampl
 
 ###Larger submissions
 
-If you submit new or significant changes to documentation and code examples, you need to send a signed Contribution License Agreement (CLA) before we can accept your pull request if you are in one of these groups:
+If you submit a pull request with new or significant changes to documentation and code examples, we'll send a comment in GitHub asking you to submit an online Contribution License Agreement (CLA) if you are in one of these groups:
 
 * Members of the Microsoft Open Technologies group.
 * Contributors who don't work for Microsoft.
 
-Full details are available at [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
+We need you to complete the online form before we can accept your pull request.
+
+Full details are available at [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla). 
 
 ## Repository organization
 
@@ -54,7 +56,7 @@ Content authors can create reusable content sections to be included into one or 
 
 ## Use GitHub, Git, and this repository
 
-**Note:** Most of the information in this section can be found in [GitHub Help] [] articles.  If you are familiar with Git and GitHub, skip to the "Contribut and edit content" section for the particulars of the code/content flow of this repository.
+**Note:** Most of the information in this section can be found in [GitHub Help] [] articles.  If you are familiar with Git and GitHub, skip to the "Contribute and edit content" section for the particulars of the code/content flow of this repository.
 
 ### Setting up your fork of the repository
 
@@ -156,7 +158,7 @@ Congratulations, you have successfully contributed to the project.
 
 ### Article template
 
-The [markdown template](/articles/0-markdown-template-for-new-articles.md) contains the basic markdown for a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, see the following sections, or find a published topic and copy the markdown or HTML you want.
+The [markdown template](/markdown templates/markdown-template-for-new-articles.md) contains the basic markdown for a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, see the following sections, or find a published topic and copy the markdown or HTML you want.
 
 ### *include* files
 
@@ -181,7 +183,7 @@ If you want to add a Note section to your article, use the following:
 
 You can add [Channel 9](http://channel9.msdn.com/) videos to articles with the following syntax:
  
-    > [WACOM.VIDEO video-id-string]
+    > [AZURE.VIDEO video-id-string]
     
 
 1. Make sure that the video is on the [Azure Video Center](http://azure.microsoft.com/en-us/documentation/videos/home/). 
@@ -245,4 +247,4 @@ By using references grouped at the bottom of your file, you can easily find, edi
 [Set Up Git]: http://help.github.com/win-set-up-git/
 [Markdown Home]: http://daringfireball.net/projects/markdown/
 [Markdown Pad]: http://markdownpad.com/
-Azure/Azure-Content issue]: https://github.com/Azure/azure-content/issues
+[Azure/Azure-Content issues]: https://github.com/Azure/azure-content/issues

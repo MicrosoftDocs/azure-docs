@@ -1,4 +1,6 @@
-<properties linkid="manage-services-biztalk-services-dashboard-monitor-scale-tabs" urlDisplayName="Dashboard, Monitor and Scale tabs" pageTitle="Dashboard, Monitor, and Scale in BizTalk Services | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale" description="Learn about the controls on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, and Scale." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Dashboard, Monitor, Scale, Configure and Hybrid Connections tabs" pageTitle="Dashboard, Monitor, and Scale in BizTalk Services | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale, wabs, mabs" description="Learn about the controls on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, and Scale." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 
 
@@ -9,7 +11,7 @@ The first time you open the Azure Management Portal, you are automatically place
 
 This opens a new window with the following tabs. This topic describes these tabs.
 
-- [Quick Start](#QuickStart)
+- ![Quick Start][QuickStart]  [Quick Start](#QuickStart)
 
 - [Dashboard](#Dashboard)
 
@@ -22,13 +24,13 @@ This opens a new window with the following tabs. This topic describes these tabs
 - [Hybrid Connections](#HybridConnections)
 
 
-##<a name="QuickStart"></a>Quick Start
+##<a name="QuickStart"></a>Quick Start (![Quick Start][QuickStart])
 Depending on the BizTalk Services Edition, all options listed may not be available. 
 <table border="1">
     <tr>
         <td><strong>Get the tools</strong></td>
 
-        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premise development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
+        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
 		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
         </td>
@@ -37,7 +39,7 @@ Depending on the BizTalk Services Edition, all options listed may not be availab
     <tr>
         <td><strong>Create partner agreements</strong></td>
 
-        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12 and AS2 EDI agreements.
+        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
         <br/><br/>
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
         </td>
@@ -45,7 +47,7 @@ Depending on the BizTalk Services Edition, all options listed may not be availab
 
 <tr>
         <td><strong>Learn more about BizTalk Services</strong></td>
-        <td>Go to the learning center to learn more about Azure BizTalk Services.</td>
+        <td>Go to the <a HREF="http://azure.microsoft.com/en-us/documentation/services/biztalk-services/">learning center</a> to learn more about Azure BizTalk Services.</td>
 </tr>
 </table>
 
@@ -55,8 +57,8 @@ In the task bar at the bottom, you can:
 <table border="1">
 
 <tr>
-<td><strong>Manage</strong></td>
-<td>Opens the Azure BizTalk Services portal. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating AS2 and X12 agreements.
+<td><strong>Manage</strong> your application deployment</td>
+<td>Opens the Azure BizTalk Services portal. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating X12, AS2, and EDIFACT agreements.
 <br/><br/>
 This is the same as <strong>Create partner agreements</strong> on the <strong>Quick Start</strong> tab.
 <br/><br/>
@@ -64,17 +66,17 @@ This is the same as <strong>Create partner agreements</strong> on the <strong>Qu
 </tr>
 
 <tr>
-<td><strong>Connection Information</strong></td>
-<td>When you select Connection Information, the Access Control Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
+<td><strong>Connection Information</strong> of the Access Control Namespace</td>
+<td>When you select Connection Information, then the Access Control Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
 <br/><br/>
-You can also open the Access Control Management Portal. This Access Control Mangement Portal is the same as using the <strong>Active Directory</strong> option in the left navigation pane.
+You can also open the Access Control Management Portal. This Access Control Management Portal is the same as using the <strong>Active Directory</strong> option in the left navigation pane.
 <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Management Portal.</td>
 </tr>
 
 <tr>
-<td><strong>Sync Keys</strong></td>
-<td>When you create a Storage account, a Primary Key and Secondary Key are automatically created. These Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. <strong>Sync Keys</strong> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
+<td><strong>Sync Keys</strong> in the Storage Account</td>
+<td>When you create a Storage account, a Primary Key and Secondary Key are automatically created. These encryption Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. <strong>Sync Keys</strong> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
 <br/><br/>
 For example, you want the BizTalk Service to use a new Primary Key for the Storage Account. To do this:
 <br/><br/>
@@ -89,27 +91,27 @@ This process is called "rollover keys". The purpose is to enable users to switch
 </tr>
 
 <tr>
-<td><strong>Delete</strong></td>
+<td><strong>Delete</strong> your application</td>
 <td>When you select Delete, your BizTalk Service and all items deployed to it are removed.</td>
 </tr>
 </table>
 
 
 ##<a name="Dashboard"></a>Dashboard
-When you select your BizTalk Service name, the Dashboard tab is displayed. Depending on the BizTalk Services Edition, all options listed may not be available. 
+Depending on the BizTalk Services Edition, all options listed may not be available. 
 
-The Dashboard displays the following:
+When you select your BizTalk Service name, the Dashboard tab is displayed. Dashboard displays the following:
 
 ##### Usage Overview: Shows the number of used Hybrid Connections
 Also displays the data usage in GB. 
 
-##### Metric Graph: Shows a fixed list of performance metrics. 
+##### Metric Graph: Shows a fixed list of performance metrics
 These metrics provide real-time values regarding the health of the BizTalk Service. You can also specify the **Relative** or **Absolute** values and the time range **Interval** of the metrics that are displayed in the graph. 
 
 For a description of these performance metrics, go to [Available Metrics](#Metrics) in this topic.
 
 
-#####Quick Glance: Lists your BizTalk Service properties:
+#####Quick Glance: Lists your BizTalk Service properties
 
 <table border="1">
 
@@ -155,11 +157,15 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 <tr>
 <td><strong>Tracking Database</strong></td>
-<td>The Azure SQL Database name that stores the tracking tables used by your BizTalk Service.</td>
+<td>The Azure SQL Database name that stores the tracking tables used by your BizTalk Service. 
+<br/><br/>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requirements Explained</a>  provides details on the Tracking Database.</td>
 </tr>
 <tr>
 <td><strong>Monitoring/Archiving Storage</strong></td>
-<td>The Azure Storage account name that stores the monitoring output of your BizTalk Service.</td>
+<td>The Azure Storage account name that stores the monitoring output of your BizTalk Service.
+<br/><br/>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requirements Explained</a>  provides details on the Storage account.</td>
 </tr>
 <tr>
 <td><strong>Subscription Name</strong></td>
@@ -179,24 +185,24 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 <table border="1">
 
 <tr>
-<td><strong>Manage</strong></td>
-<td>Opens the Azure BizTalk Services Portal. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating AS2 and X12 agreements.
+<td><strong>Manage</strong> your application deployment</td>
+<td>Opens the Azure BizTalk Services Portal. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating X12, AS2, and EDIFACT agreements.
 <br/><br/>
 This is the same as <strong>Create partner agreements</strong> on the <strong>Quick Start</strong> tab.
 <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
 </tr>
 <tr>
-<td><strong>Connection Information</strong></td>
+<td><strong>Connection Information</strong> of the Access Control Namespace</td>
 <td>Displays the Access Control Namespace, Default Issuer, and Default Key values; which can be copied.
 <br/><br/>
-You can also open the Access Control Management Portal. This Access Control Mangement Portal is the same as using the Active Directory option in the left navigation pane.
+You can also open the Access Control Management Portal. This Access Control Management Portal is the same as using the Active Directory option in the left navigation pane.
 <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Management Portal.</td>
 </tr>
 <tr>
-<td><strong>Sync Keys</strong></td>
-<td>When you create a Storage account, a Primary Key and Secondary Key are automatically created. These Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. <strong>Sync Keys</strong> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
+<td><strong>Sync Keys</strong> in the Storage Account</td>
+<td>When you create a Storage account, a Primary Key and Secondary Key are automatically created. These encryption Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. <strong>Sync Keys</strong> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
 <br/><br/>
 For example, you want the BizTalk Service to use a new Primary Key for the Storage Account. To do this:
 <br/><br/>
@@ -211,17 +217,18 @@ This process is called "rollover keys". The purpose is to enable users to switch
 </tr>
 
 <tr>
-<td><strong>Delete</strong></td>
+<td><strong>Delete</strong> your application</td>
 <td>Your BizTalk Service and all items deployed to it are removed.</td>
 </tr>
 </table>
 
 
 ##<a name="Monitor"></a>Monitor
+Does not apply to the Free Edition.
 
-When you select your BizTalk Service name, the Monitor tab is available and displays the following. Does not apply to the Free Edition.
+When you select your BizTalk Service name, the Monitor tab is available and displays the following:
 
-##### Metric Graph: Displays the selected performance metrics. 
+##### Metric Graph: Displays the selected performance metrics
 These metrics provide real-time values regarding the health of the BizTalk Service. You choose which performance metrics are displayed. A maximum of six performance metrics can be displayed simultaneously. 
 
 You can also specify the **Relative** or **Absolute** values and the time range **Interval** of the metrics that are displayed. 
@@ -318,19 +325,21 @@ Some BizTalk editions do not offer a scale option. In this situation, one Unit i
 
 Increasing the number of units may impact pricing. If you increase the Units, selecting **Save** displays a message that tells you if billing is impacted. You then choose to continue. When you increase the number of Units, the BizTalk Service status changes from Active to Updating. In the Updating state, your BizTalk Service continues to run.
 
+[BizTalk Services: Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279) defines a "Unit".
+
 
 ##<a name="Configure"></a>Configure
+Does not apply to Hybrid Connections.
+
 Sets the Backup Status to None or Automatic. When set to None, no backups are automatically created. When set to Automatic, you configure the backup location, the frequency of the backup, and how long to keep the backup files. 
 
 [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873) provides the details. 
 
-**Note** Backup and Restore is not available for Hybrid Connections. 
-
 
 ##<a name="HybridConnections"></a>Hybrid Connections
-Hybrid Connections are used to connect an Azure application, like Web Sites or Mobile Services, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services. Hybrid Connections are managed in  BizTalk Services in the Azure Management Portal.
+Hybrid Connections connect an Azure application, like Websites or Mobile Services, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services. Hybrid Connections are managed in  BizTalk Services in the Azure Management Portal.
 
-To create Hybrid Connections in Azure Web Sites, see [Hybrid Connection: Connect an Azure Web Site to an On-Premises Resource](http://go.microsoft.com/fwlink/p/?LinkId=397538).
+To create Hybrid Connections in Azure Websites, see [Hybrid Connection: Connect an Azure Web Site to an On-Premises Resource](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
 To use Hybrid Connections in Azure Mobile Services, see [Azure Mobile Services and Hybrid Connections](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
 
@@ -352,6 +361,7 @@ Now that you're familiar with the different tabs, you can learn more about the A
 - [BizTalk Services: BizTalk Service State Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 - [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
+[QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png

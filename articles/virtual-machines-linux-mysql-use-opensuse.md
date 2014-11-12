@@ -1,4 +1,6 @@
-<properties linkid="virtual-machines-linux-mysql-use-opensuse" urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Install MongoDB" pageTitle="Install MySQL on a virtual machine running OpenSUSE Linux in Azure" metaKeywords="Azure, MySQL" description="Learn to install MySQL on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="kathydav" solutions="" manager="timlt" editor="" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="5/28/2014" ms.author="kathydav" />
 
 # Install MySQL on a virtual machine running OpenSUSE Linux in Azure
 
@@ -10,9 +12,9 @@ In this tutorial, you will learn:
 - How to connect to the virtual machine using SSH or PuTTY.
 - How to install MySQL on the virtual machine.
 
-## Sign up for the Virtual Machines preview feature
+## Create an Azure subscription
 
-You will need to sign up for the Azure Virtual Machines preview feature in order to create a virtual machine. You can also sign up for a free trial account if you do not have an Azure account.
+If you do not already have an Azure subscription, you can sign up [for free]. After signing up, follow these steps to continue this tutorial.
 
 [WACOM.INCLUDE [antares-iaas-signup-iaas](../includes/antares-iaas-signup-iaas.md)]
 
@@ -30,3 +32,4 @@ In this tutorial you learned how to create a virtual machine running OpenSUSE Li
 [MySQLDocs]: http://dev.mysql.com/doc/
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
+[for free]: http://azure.microsoft.com

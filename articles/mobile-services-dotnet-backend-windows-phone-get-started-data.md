@@ -1,13 +1,14 @@
-<properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-wp8" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Phone app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Phone app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
-# Get started with data in Mobile Services
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc" />
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone" class="current">Windows Phone</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/"  title="JavaScript backend">JavaScript backend</a></div>
+# Add Mobile Services to an existing app
 
-This topic shows you how to use Azure Mobile Services as a backend datasource for a Windows Phone 8 app. In this tutorial, you will download a Visual Studio 2012 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
+[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-The mobile service that you will create in this tutorial will support the .NET runtime in the Mobile Service. This will allow you to use .NET languages and Visual Studio for server-side business logic in the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.
+This topic shows you how to add Azure Mobile Services as a backend data source for a Windows Phone 8.0 or Windows Phone 8.1 Silverlight app. In this tutorial, you will download a Visual Studio project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
+
+The mobile service that you create in this tutorial supports the .NET runtime in the Mobile Service. This will allow you to use .NET languages and Visual Studio for server-side business logic in the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.
 
 
 This tutorial walks you through these basic steps:
@@ -20,13 +21,14 @@ This tutorial walks you through these basic steps:
 6. [Publish the mobile service to Azure]
 7. [Test the Windows Phone App against the service hosted in Azure]
 
-This tutorial requires Visual Studio 2012 and the [Windows Phone 8 SDK] running on Windows 8. To complete this tutorial to create a Windows Phone 8.1 app, you must use Visual Studio 2013 Update 2, or a later version.
+This tutorial requires the following:
 
->[WACOM.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure Free Trial</a>.</p></div> 
++ Visual Studio 2013 and the [Windows Phone 8 SDK] running on Windows 8. To complete this tutorial to create a Windows Phone 8.1 Silverlight app, you must use Visual Studio 2013 Update 2, or a later version.
++ A Microsoft Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure Free Trial</a>.</p></div> 
 
 ##<a name="download-app"></a>Download the GetStartedWithData project
 
-This tutorial is built on the [GetStartedWithMobileServices app][Developer Code Samples site], which is a Windows Phone Silverlight 8 app project. The UI for this app is similar to the app generated by the Mobile Services quickstart, except that added items are stored locally in memory. 
+This tutorial is built on the [GetStartedWithMobileServices app][Developer Code Samples site], which is a Windows Phone Silverlight 8 app project.  
 
 1. Download the C# version of the GetStartedWithMobileServices sample app from the [Developer Code Samples site]. 
 
@@ -52,12 +54,12 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
    	Notice that the text for each `TodoItem` is displayed below the refresh button along with a check box that allows you to mark the item completed.
 
-<h2><a name="create-service"></a><span class="short-header">Create a new mobile service</span>Create a new mobile service</h2>
+<h2><a name="create-service"></a>Create a new mobile service</h2>
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 
-<h2><a name="download-the-service-locally"></a><span class="short-header">Download the service locally</span>Download the mobile service project and add it to the solution</h2>
+<h2><a name="download-the-service-locally"></a>Download the mobile service project and add it to the solution</h2>
 
 1. In the [Azure Management Portal], click your new Mobile Service or its cloud icon tab to go to the overview page.
 
@@ -104,7 +106,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
     ![][23]
 
 
-<h2><a name="update-app"></a><span class="short-header">Update the Windows Phone app</span>Update the Windows Phone app to use the mobile service</h2>
+##<a name="update-app"></a>Update the Windows Phone app to use the mobile service
 
 In this section you will update the Windows Phone app to use the mobile service as a backend service for the application.
 
@@ -185,7 +187,7 @@ In this section you will update the Windows Phone app to use the mobile service 
 
 
 
-<h2><a name="test-locally-hosted"></a><span class="short-header">Test the Windows Phone app locally</span>Test the Windows Phone app with the service hosted locally</h2>
+##<a name="test-locally-hosted"></a>Test the Windows Phone app with the service hosted locally</h2>
 
 In this section you will use Visual Studio to test the app and mobile service locally on your development workstation. In order to test the mobile service hosted locally in IIS Express from a Windows Phone device or one of the Windows Phone emulators, you have to configure IIS Express and the workstation to allow connections to the workstation's IP address and port. Windows Phone devices and emulators connect as non-local network clients.
 
@@ -198,10 +200,10 @@ In this section you will use Visual Studio to test the app and mobile service lo
 6. In Visual Studio open the App.xaml.cs file and comment out the `MobileService` definition you recently pasted to the file. Add a new definition to make the connection based on the IP address and port that you configured on the workstation. Then save the file. Your code should look similar to the following...
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "http://192.168.137.72:58203");
+            "http://192.168.111.11:54321");
 
         //public static MobileServiceClient MobileService = new MobileServiceClient(
-        //    "https://todolist.preview.azure-mobile-preview.net/",
+        //    "https://todolist.azure-mobile.net/",
         //    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
         //);        
 
@@ -228,34 +230,30 @@ In this section you will use Visual Studio to test the app and mobile service lo
 11. Once you are finished with your testing with the mobile service hosted locally, delete the Windows Firewall rule you created that opened the port on your workstation.
 
 
-
-<h2><a name="publish-mobile-service"></a><span class="short-header">Publish the mobile service to Azure</span>Publish the mobile service to Azure</h2>
-
+##<a name="publish-mobile-service"></a>Publish the mobile service to Azure
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 
-<h2><a name="test-azure-hosted"></a><span class="short-header">Test the mobile service on Azure</span>Test the mobile service published to Azure</h2>
+##<a name="test-azure-hosted"></a>Test the mobile service published to Azure
 
 1. In Visual Studio, open App.xaml.cs.  Comment out the code that creates the `MobileServiceClient` that connects to the locally hosted mobile service. Uncomment the code that creates the `MobileServiceClient` that connects to your service in Azure. Save your changes to the file.
 
         sealed partial class App : Application
         {
             //public static MobileServiceClient MobileService = new MobileServiceClient(
-            //          "http://192.168.137.72:58203");
+            //          "http://192.168.111.11:54321");
 
             // Use this constructor instead after publishing to the cloud
             public static MobileServiceClient MobileService = new MobileServiceClient(
-                 "https://todolist.preview.azure-mobile-preview.net/",
+                 "https://todolist.azure-mobile.net/",
                  "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
             );        
             ....
 
-
 2. In Visual Studio, press the F5 key or click **Start Debugging** from the Debug menu. This will cause the app to be rebuilt with the previous change before running the app to connect to the mobile service hosted remotely in Azure. 
 
     ![][12]
-
 
 3. Enter some new todoitems and click **Save** for each one. Click the checkbox to complete some of the new items. Each new todoItem will be stored and updated in the SQL database you previously configured for your mobile service in the Azure Management Portal. 
 
@@ -357,3 +355,4 @@ Once you have completed the data series, try one of these other tutorials:
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 [How to add a new Windows Firewall port rule]:  http://go.microsoft.com/fwlink/?LinkId=392240
+  

@@ -1,8 +1,10 @@
-<properties linkid="develop-php-how-to-guides-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (PHP) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues PHP" description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (PHP) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues PHP" description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="" />
+
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm" />
 
 # How to Use Service Bus Queues
 
-This guide will show you how to use Service Bus queues with PHP. The samples are
+This guide shows you how to use Service Bus queues with PHP. The samples are
 written in PHP and use the [Azure SDK for PHP][download-sdk]. The
 scenarios covered include **creating queues**, **sending and receiving
 messages**, and **deleting queues**.
@@ -30,7 +32,7 @@ The only requirement for creating a PHP application that accesses the Azure Blob
 > [WACOM.NOTE]
 > Your PHP installation must also have the <a href="http://php.net/openssl">OpenSSL extension</a> installed and enabled.
 
-In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or web site.
+In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ##<a id="GetClientLibrary"></a>Get the Azure Client Libraries
 

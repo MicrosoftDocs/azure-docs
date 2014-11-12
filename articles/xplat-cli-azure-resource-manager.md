@@ -1,4 +1,6 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="larryfr" services="" />
+
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 #Using the Azure Cross-Platform Command-Line Interface with the Resource Manager
 
@@ -6,15 +8,15 @@
 
 We recently introduced a preview of Resource Manager, which is a new way to manage Microsoft Azure. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
 
->[WACOM.NOTE] The Resource Manager is currently in preview, and does not provide the same  level of management capabilities as Azure Service Management.
+>[WACOM.NOTE] The Resource Manager is currently in preview, and does not provide the same level of management capabilities as Azure Service Management.
 
->[WACOM.NOTE] If you have not already installed and configured xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
+>[WACOM.NOTE] If you have not already installed and configured the xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
 
 ##Resource Manager
 
-The Resource Manager allows you to managing a group of _resources_ (user-managed entities such as a database server, database, or web site,) as a single logical unit, or _resource group_. For example, a resource group might contain a Web Site and SQL Database resources.
+The Resource Manager allows you to manage a group of _resources_ (user-managed entities such as a database server, database, or website,) as a single logical unit, or _resource group_. For example, a resource group might contain a Website and SQL Database resources.
 
-To support a more declarative way of describing changes to resources within a resource group, Resource Manager uses *templates*, which are JSON documents. The template language also allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the the region the Web Site will be located in, and other common parameters.
+To support a more declarative way of describing changes to resources within a resource group, Resource Manager uses *templates*, which are JSON documents. The template language also allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Website will have parameters for the site name, the the region the Website will be located in, and other common parameters.
 
 >[WACOM.NOTE] The specifics of the template language are not documented at this time. Once documentation is available, this topic will be updated to provide a link to the reference documentation.
 >
@@ -50,7 +52,7 @@ For more information on authenticating using an organizational account, see [Ins
 		data:    Microsoft               Microsoft.ASPNETEmptySite.0.1.0-preview1
 		data:    Microsoft               Microsoft.WebSiteMySQLDatabase.0.1.0-preview1
 
-3. To view details of a template that will create an Azure Web Site, use the following command.
+3. To view details of a template that will create an Azure Website, use the following command.
 
 		azure group template show Microsoft.WebSiteSQLDatabase.0.1.0-preview1
 
@@ -129,13 +131,13 @@ While templates allow you to declare group-wide changes in configuration, someti
 
 		azure resource list MyGroupName
 
-1. To view individual resources, such as the Web Site, within the group, use the following command.
+1. To view individual resources, such as the Website, within the group, use the following command.
 
 		azure resource show MyGroupName MyWebSiteName Microsoft.Web/sites -o "2014-04-01"
 
-	Notice the **Microsoft.Web/sites** parameter. This indicates the type of the resource you are requesting information on. If you look at the template file downloaded earlier, you will notice that this same value is used to define the type of the Web Site resource described in the template.
+	Notice the **Microsoft.Web/sites** parameter. This indicates the type of the resource you are requesting information on. If you look at the template file downloaded earlier, you will notice that this same value is used to define the type of the Website resource described in the template.
 
-	This command returns information related to the web site. For example, the **hostNames** field should contain the URL for the web site. Use this with your browser to verify that the web site is running.
+	This command returns information related to the website. For example, the **hostNames** field should contain the URL for the website. Use this with your browser to verify that the website is running.
 
 2. When viewing details on a resource, it is often useful to use the `--json` parameter, as this makes the output more readable as some values are nested structures, or collections. The following demonstrates returning the results of the show command as a JSON document.
 

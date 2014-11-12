@@ -1,4 +1,6 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Getting started with SQL Server on an Azure virtual machine" authors="selcint" solutions="" manager="clairt" editor="tyson" />
+<properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Getting started with SQL Server on an Azure virtual machine" authors="selcint" solutions="" manager="adinah" editor="tyson" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="selcint" />
 
 
 

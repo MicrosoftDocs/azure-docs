@@ -1,9 +1,20 @@
-<properties pageTitle="Get started with push notifications (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Phone app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties pageTitle="Get started with push notifications (legacy push) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Phone app (legacy push)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" authors="glenga" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="glenga" />
 
 
-# Get started with push notifications in Mobile Services
+# Get started with push notifications in Mobile Services (legacy push)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#" >Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding">
+    <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#" >Windows Store C#</a>
+    <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
+    <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a>
+    <a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
+    <a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
+<!--    <a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a>    -->
+	<a href="/en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
+</div>
 
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a>
 </div>
@@ -11,7 +22,9 @@
 This topic shows you how to use Azure Mobile Services to send push notifications to a Windows Phone 8 app. 
 In this tutorial you add push notifications using the Microsoft Push Notification Service (MPNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE]Mobile Services now integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and scale. This integrated functionality is currently in preview. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
+>[WACOM.NOTE]This topic supports <em>existing</em> mobile services that have <em>not yet been upgraded</em> to use Notification Hubs integration. When you create a <em>new</em> mobile service, this integrated functionality is automatically enabled. For new mobile services, see [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
+>
+>Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. <em>You should upgrade your existing mobile services to use Notification Hubs when possible</em>. Once you have upgraded, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -30,7 +43,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 [WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
-<h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
+<h2><a name="add-push"></a>Add push notifications to your app</h2>
 		
 1. In Visual Studio, open the project file MainPage.xaml.cs and add the following code that creates a new **Registrations** class:
 
@@ -52,7 +65,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 	
         public static HttpNotificationChannel CurrentChannel { get; private set; }
 
-		private void AcquirePushChannel()
+		private async void AcquirePushChannel()
         {
             CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
 
@@ -64,7 +77,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             }
                   
 	       IMobileServiceTable<Registrations> registrationsTable = App.MobileService.GetTable<Registrations>();
-	       var registration = new Registrations { Handle = CurrentChannel.Uri };
+	       var registration = new Registrations { Handle = CurrentChannel.ChannelUri.AbsoluteUri };
 	       await registrationsTable.InsertAsync(registration);
         }
 
@@ -87,7 +100,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
    	This makes sure that your app can receive push notifications.
 
-<h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert scripts in the Management Portal</h2>
+<h2><a name="update-scripts"></a>Update the registered insert scripts in the Management Portal</h2>
 
 [WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
@@ -110,7 +123,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
         	    registrationsTable.read({
             	    success: function(registrations) {
                 	    registrations.forEach(function(registration) {
-                    	    push.mpns.sendFlipTile(registration.uri, {
+                    	    push.mpns.sendFlipTile(registration.handle, {
                         	    title: item.text
                     	    }, {
                         	    success: function(pushResponse) {
@@ -125,7 +138,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
     This insert script sends a push notification (with the text of the inserted item) to all channels stored in the **Registrations** table.
 
-<h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
+<h2><a name="test"></a>Test push notifications in your app</h2>
 
 1. In Visual Studio, select **Deploy Solution** on the **Build**  menu.
 

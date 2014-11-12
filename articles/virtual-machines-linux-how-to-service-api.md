@@ -1,4 +1,6 @@
-<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Azure" metaKeywords="" description="Learn how to use the Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Azure" metaKeywords="" description="Learn how to use the Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors="timlt" solutions="" manager="timlt" editor="" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 
 
@@ -100,7 +102,7 @@ Note that in some cases completion may only indicate that the request was accept
 - serviceOptions is an optional object. It may contain these properties
 	- Description - default to 'Service host'
 	- Label - default to serviceName if not set.
-	- Location - default to 'Azure Preview' -TODO change when released.
+	- Location - the region to create the service in
 -	callback is required.
 
 **iaasClient.GetStorageAccountKeys(serviceName, callback)**

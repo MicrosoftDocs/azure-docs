@@ -1,8 +1,10 @@
-<properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="timamm" writer="timamm" editor="mollybos" manager="paulettm" title="Transform and extend your site"/>
+<properties urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="cephalin" writer="cephalin" editor="mollybos" manager="wpickett" title="Transform and extend your site"/>
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Transform and extend your site
 
-By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Windows Azure web sites. You can also use XDT declarations to add private site extensions to enable custom site administration actions. This article includes a sample PHP Manager site extension that enables management of PHP settings through a web interface.
+By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Windows Azure websites. You can also use XDT declarations to add private site extensions to enable custom site administration actions. This article includes a sample PHP Manager site extension that enables management of PHP settings through a web interface.
 
 
 <!-- MINI TOC -->
@@ -16,7 +18,7 @@ By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/d
 	* [Site extension deployment](#deploy)
 
 <h2><a id="transform"></a>Transform the Site Configuration in ApplicationHost.config</h2>
-The Azure Web Sites platform provides flexibility and control for site configuration. Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in Windows Azure Web Sites, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
+The Azure Websites platform provides flexibility and control for site configuration. Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in Windows Azure Websites, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
 
 To leverage this transform functionality, you create an ApplicationHost.xdt file with XDT content and place under the site root. Then, on the **Configure** page in the Windows Azure Portal, you set the `WEBSITE_PRIVATE_EXTENSIONS` app setting to 1 (you may need to restart the site). 
 
@@ -46,9 +48,9 @@ Elements from the list of modules under `system.webServer` cannot be removed or 
 
 <h2><a id="extend"></a>Extend your Site</h2>
 <h3><a id="overview"></a>Overview of private site extensions</h3>
-Azure Web Sites supports site extensions as an extensibility point for site administrative actions. In fact, some Azure Web Sites platform features are implemented as pre-installed site extensions. While the pre-installed platform extensions cannot be modified, you can create and configure private extensions for your own sites. This functionality also relies on XDT declarations. The key steps for creating a private site extension are the following:
+Azure Websites supports site extensions as an extensibility point for site administrative actions. In fact, some Azure Websites platform features are implemented as pre-installed site extensions. While the pre-installed platform extensions cannot be modified, you can create and configure private extensions for your own sites. This functionality also relies on XDT declarations. The key steps for creating a private site extension are the following:
 
-1. Site extension **content**: create any web application supported by Azure Web Sites
+1. Site extension **content**: create any web application supported by Azure Websites
 2. Site extension **declaration**: create an ApplicationHost.xdt file
 3. Site extension **deployment**: place content in the SiteExtensions folder under `root`
 4.  Site extension **enablement**: set the `WEBSITE_PRIVATE_EXTENSIONS` app setting to 1
@@ -59,11 +61,11 @@ Internal links for the web application should point to a path relative to the ap
 
 <h3><a id="SiteSample"></a>Site extension example: PHP Manager</h3>
 
-PHP Manager is a site extension that allows site administrators to easily view and configure their PHP settings using a web interface instead of having to modify PHP .ini files directly. Common configuration files for PHP include the php.ini file located under Program Files and the .user.ini file located in the root folder of your site. Since the php.ini file is not directly editable on the Azure Web Sites platform, the PHP Manager extension uses the .user.ini file to apply setting changes.
+PHP Manager is a site extension that allows site administrators to easily view and configure their PHP settings using a web interface instead of having to modify PHP .ini files directly. Common configuration files for PHP include the php.ini file located under Program Files and the .user.ini file located in the root folder of your site. Since the php.ini file is not directly editable on the Azure Websites platform, the PHP Manager extension uses the .user.ini file to apply setting changes.
 
 <h4><a id="PHPwebapp"></a>The PHP Manager web app</h4>
 	
-The following is the home page of the PHP Manager web site:
+The following is the home page of the PHP Manager website:
 
 ![TransformSitePHPUI][TransformSitePHPUI]
 
@@ -101,7 +103,7 @@ When the link is part of a site extension, the link must be in the following for
 
 `"<a href="/[your-site-name]/Home/Settings">Settings</a>"` 
 
-You can work around this requirement by either using only relative paths within your web site, or in the case of ASP.NET web sites, by using the `@Html.ActionLink` method which creates the appropriate links for you.
+You can work around this requirement by either using only relative paths within your website, or in the case of ASP.NET websites, by using the `@Html.ActionLink` method which creates the appropriate links for you.
 
 <h4><a id="XDT"></a>The applicationHost.xdt file</h4>
 
@@ -154,11 +156,11 @@ This has the effect of adding a new application path to the `system.applicationH
 
 To install your site extension, you can use FTP to copy all the files of your web app to the `\SiteExtensions\[your-extension-name]` folder of the site on which you want to install the extension.  Be sure to copy the ApplicationHost.xdt file to this location as well.
 
-Next, in the Windows Azure Web Sites Portal, go to the **Configure** tab for the web site that has your extension. In the **app settings** section, add the key `WEBSITE_PRIVATE_EXTENSIONS` and give it a value of `1`.
+Next, in the Windows Azure Websites Portal, go to the **Configure** tab for the website that has your extension. In the **app settings** section, add the key `WEBSITE_PRIVATE_EXTENSIONS` and give it a value of `1`.
 
 ![TransformSiteappSettings][TransformSiteappSettings]
 
-Finally, in the Windows Azure Portal, restart your web site to enable your extension.
+Finally, in the Windows Azure Portal, restart your website to enable your extension.
 
 ![TransformSiteRestart][TransformSiteRestart]
 

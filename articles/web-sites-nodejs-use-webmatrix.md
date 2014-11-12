@@ -1,11 +1,13 @@
-<properties linkid="web-site-with-webmatrix" urlDisplayName="Web site with WebMatrix" pageTitle="Node.js web site with WebMatrix - Azure tutorial" metaKeywords="" description="A tutorial that teaches you how to WebMatrix to develop and deploy a Node.js application to an Azure web site." metaCanonical="" services="web-sites" documentationCenter="Node.js" title="Build and deploy a Node.js web site to Azure using WebMatrix" authors="larryf" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Website with WebMatrix" pageTitle="Node.js website with WebMatrix - Azure tutorial" metaKeywords="" description="A tutorial that teaches you how to WebMatrix to develop and deploy a Node.js application to an Azure website." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure using WebMatrix" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 
-# Build and deploy a Node.js web site to Azure using WebMatrix
+# Build and deploy a Node.js website to Azure using WebMatrix
 
-This tutorial shows you how to use WebMatrix to develop and deploy a Node.js application to an Azure Web site. WebMatrix is a free web development tool from Microsoft that includes everything you need for web site development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
+This tutorial shows you how to use WebMatrix to develop and deploy a Node.js application to an Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
 
-Upon completing this guide, you will have a Node.js web site running in Azure.
+Upon completing this guide, you will have a Node.js website running in Azure.
  
 A screenshot of the completed application is below:
 
@@ -15,10 +17,10 @@ A screenshot of the completed application is below:
 
 ## Sign into Azure
 
-Follow these steps to create an Azure Web Site.
+Follow these steps to create an Azure Website.
 
 <div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need an Azure account that has the Azure Web Sites feature enabled.</p>
+<p>To complete this tutorial, you need an Azure account that has the Azure Websites feature enabled.</p>
 <p>If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.</p>
 </div>
 <br />
@@ -43,25 +45,25 @@ Follow these steps to create an Azure Web Site.
 
 	![select express template][webmatrix-templates]
 
-3. If you are signed into Azure, you now have the option to create an Azure Web Site for your local site.  Choose a unique name, and select the data cetner where you would like your site to be created: 
+3. If you are signed into Azure, you now have the option to create an Azure Website for your local site.  Choose a unique name, and select the data cetner where you would like your site to be created: 
 
 	![Create site on Azure][nodesitefromtemplateazure]
 	
-4. After WebMatrix finishes building the web site, the WebMatrix IDE is displayed.
+4. After WebMatrix finishes building the website, the WebMatrix IDE is displayed.
 
 	![webmatrix ide][webmatrix-ide]
 
 ##Publish your application to Azure
 
-1. In WebMatrix, click **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the web site.
+1. In WebMatrix, click **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the website.
 
 	![publish preview][webmatrix-node-publishpreview]
 
-2. Click **Continue**. When publishing is complete, the URL for the web site on Azure is displayed at the bottom of the WebMatrix IDE
+2. Click **Continue**. When publishing is complete, the URL for the website on Azure is displayed at the bottom of the WebMatrix IDE
 
 	![publish complete][webmatrix-publish-complete]
 
-3. Click the link to open the web site in your browser.
+3. Click the link to open the website in your browser.
 
 	![Express web site][webmatrix-node-express-site]
 

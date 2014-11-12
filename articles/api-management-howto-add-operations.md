@@ -1,8 +1,10 @@
-<properties pageTitle="How to add operations to an API in Azure API Management" metaKeywords="" description="Learn how to add operations to an API in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to add operations to an API in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="How to add operations to an API in Azure API Management" metaKeywords="" description="Learn how to add operations to an API in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to add operations to an API in Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # How to add operations to an API in Azure API Management
 
-Before an API in API Management (Preview) can be used, operations must be added. This guide shows how to add and configure different types of operations to an API in API Management.
+Before an API in API Management can be used, operations must be added. This guide shows how to add and configure different types of operations to an API in API Management.
 
 ## In this topic
 

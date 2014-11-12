@@ -1,4 +1,6 @@
-<properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
+
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
 # Best Practices for Performance in Azure Applications  #
 
@@ -68,7 +70,7 @@ Since specifics vary, we will discuss how to do these in terms of the following 
 
 * Azure Cloud Service using a SQL database 
 * Azure Cloud Service heavily using storage queues 
-* Azure Web Site using MySQL as a backend database 
+* Azure Website using MySQL as a backend database 
 * "Big Data" applications 
 * Applications using a MySQL backend database 
 
@@ -233,7 +235,7 @@ Serialization is not an obvious part of performance optimization, but reducing n
 If the amount of data being moved is a performance issue, then use the smallest available serialization available. In the event that serialization performance isn't sufficient, consider using custom or non-Microsoft third party serialization formats. As always, proof of concept testing is key. 
 
 
-### Azure Web Sites using mySQL ###
+### Azure Websites using mySQL ###
 
 The following links provide performance advice for MySQL: 
 

@@ -1,4 +1,6 @@
-<properties linkid="store-mongodb-virtual-machines-linux-centos" urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="bbenz, MSOpenTech" solutions="" manager="timlt" editor="" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="" ms.topic="article" ms.date="01/01/1900" ms.author="bbenz, MSOpenTech" />
 
 # Install MongoDB on a virtual machine running CentOS Linux in Azure
 
@@ -9,12 +11,6 @@ You will learn:
 - How to use the Management Portal to create a virtual machine running CentOS Linux from the gallery.
 - How to connect to the virtual machine using SSH or PuTTY.
 - How to install MongoDB on the virtual machine.
-
-## Sign up for the Virtual Machines preview feature
-
-You will need to sign up for the Azure Virtual Machines preview feature in order to create a virtual machine. You can also sign up for a free trial account if you do not have an Azure account.
-
-[WACOM.INCLUDE [antares-iaas-signup-iaas](../includes/antares-iaas-signup-iaas.md)]
 
 ## Create a virtual machine running CentOS Linux
 

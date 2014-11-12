@@ -1,4 +1,6 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="What is Azure Multi-Factor Authentication?" authors="billmath" solutions="" manager="terrylan" editor="lisatoft" />
+<properties urlDisplayName="" pageTitle="What is Azure Multi-Factor Authentication?" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="What is Azure Multi-Factor Authentication?" authors="billmath" solutions="" manager="terrylan" editor="lisatoft" />
+
+<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="billmath" />
 
 
 
@@ -34,7 +36,7 @@ Multi-Factor Authentication for Office 365, powered by Azure Multi-Factor Authen
 
 <h3>Multi-Factor Authentication for Azure Administrators</h3>
 
-The same subset of Multi-Factor Authentication capabilities for Office 365 will be available at no cost to all Azure administrators. Every administrative account of Azure subscription can now get additional protection by enabling this core multi-factor authentication functionality. So an administrator that wants to access Azure portal to create a VM, a web site, manage storage, mobile services or any other Azure Service can add multi-factor authentication to his administrator account.  [Learn more](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
+The same subset of Multi-Factor Authentication capabilities for Office 365 will be available at no cost to all Azure administrators. Every administrative account of Azure subscription can now get additional protection by enabling this core multi-factor authentication functionality. So an administrator that wants to access Azure portal to create a VM, a website, manage storage, mobile services or any other Azure Service can add multi-factor authentication to his administrator account.  [Learn more](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
 
 <h3>Multi-Factor Authentication feature comparison</h3>
 

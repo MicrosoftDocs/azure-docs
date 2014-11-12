@@ -1,10 +1,15 @@
-<properties linkid="develop-media-services-how-to-guides-encode-an-asset" urlDisplayName="How to Encode an Asset" pageTitle="How to Encode an Asset for Media Services - Azure" metaKeywords="" description="Learn how to use the Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="How to Encode an Asset" pageTitle="How to Encode an Asset for Media Services - Azure" metaKeywords="" description="Learn how to use the Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="juliako" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
 
 #How to: Encode an Asset
-This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Get a Media Processor](http://go.microsoft.com/fwlink/?LinkID=301732&ampclcid=0x409).
+This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Get a Media Processor](../media-services-get-media-processor/).
 
 For media content on the server, you can encode the content with a number of media encodings and formats using Azure Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the [Azure Marketplace][]. You can specify the details of encoding tasks by using [Encoder Preset][] strings, or by using configuration files. 
+
+##Encoding to MP4 adaptive bitrate set
+It is recommended to encode your to mezzanine file to MP4 adaptive bitrate sets and then use Dynamic packaging to deliver your content. For more information, see [Creating an Encoding Job with the Media Services SDK for .NET](http://msdn.microsoft.com/en-us/library/azure/dn282273.aspx), [Dynamic packaging](http://msdn.microsoft.com/en-us/library/azure/jj889436.aspx), and [Delivering Content](http://msdn.microsoft.com/en-us/library/azure/hh973618.aspx).
 
 ##Encoding to MP4
 The following method uploads a single asset and creates a job to encode the asset to MP4 using the "H264 Broadband 720p" preset which will create a single MP4 using H264 encoding at 720p resolution:
@@ -151,10 +156,10 @@ For more information about processing assets, see:
 </ul>
 
 ##Next Steps
-Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](http://go.microsoft.com/fwlink/?LinkID=301737&ampclcid=0x409) topic.
+Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](../media-services-check-job-progress/) topic.
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Encoder Preset]: http://msdn.microsoft.com/en-us/library/hh973610.aspx
+[Encoder Preset]: http://msdn.microsoft.com/en-us/library/dn619392.aspx
 [How to: Get a Media Processor Instance]:http://go.microsoft.com/fwlink/?LinkId=301732
 [How to: Upload an Encrypted Asset]:http://go.microsoft.com/fwlink/?LinkId=301733
 [How to: Deliver an Asset by Download]:http://go.microsoft.com/fwlink/?LinkId=301734

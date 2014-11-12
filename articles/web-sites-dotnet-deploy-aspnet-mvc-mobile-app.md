@@ -1,9 +1,9 @@
-<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile web site - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure web site using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Web Sites" authors="tdykstra" solutions="" manager="" editor="" />
+<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
 
-# Deploy an ASP.NET MVC 5 Mobile Web Application on Azure Web Sites
-
-***By [Cephas Lin](https://twitter.com/Cephas_MSFT) Updated 21 May 2014.***
+# Deploy an ASP.NET MVC 5 Mobile Web Application on Azure Websites
 
 This tutorial will teach you the basics of how to build an ASP.NET MVC 5
 Web application that is mobile-friendly and deploy it into Windows Azure. For this tutorial, you need 
@@ -92,31 +92,31 @@ unzip the file.
 
 	![][DeployClickPublish]
 
-7.	In Publish Web, click **Import**.
+7.	In Publish Web, click **Windows Azure Websites**.
 
-	![][DeployClickImport]
+	![][DeployClickWebSites]
 
-8.	Select **Import from a Windows Azure web site**, then click **Add Windows Azure subscription**.
+8.	Click **Sign in**.
 
-	![][DeployAddSubscription]
+	![][DeploySignIn]
 
-9.	Click **Download subscription file**. You will be directed to the browser to log into windowsazure.com. Log in with your subscription username and password, then save the downloaded .publishsettings file to a local directory.
+9.	Type your Windows Azure username and click **Continue**.
 
-	![][DeployDownloadSubscription]
+	![][DeployUsername]
 
-10.	Click **Browse** to locate the .publishsettings file, then click **Import**.
+10.	Type your password and click **Sign in**.
 
-	![][DeployImportSettings]
+	![][DeployPassword]
 
-11. Back in **Import Publish Profile**, click **New** to create a new Windows Azure Website.
+11. The Select Existing Website dialog should now show you as signed in. Click **New**.
 
 	![][DeployNewWebsite]  
 
-12. In the **Site name** field, specify a unique site name prefix. Your fully-qualified site name will be *&lt;prefix>*.azurewebsites.net. Then, click **Create**.
+12. In the **Site name** field, specify a unique site name prefix. Your fully-qualified site name will be *&lt;prefix>*.azurewebsites.net. Also, in the **Region** field, select a region. Then, click **Create**.
 
 	![][DeploySiteSettings]
 
-13.	Back in **Import Publish Profile**, click **OK**. The Publish Web dialog will be filled with the site settings for your new Website. Click **Publish**.
+13.	The Publish Web dialog will be filled with the site settings for your new Website. Click **Publish**.
 
 	![][DeployPublishSite]
 
@@ -524,11 +524,11 @@ following code:
                 @dategroup.Key.ToString("ddd, MMM dd")
             </div>
             <div class="panel-body list-group">
-                @foreach (var time in dategroup)
+                @foreach (var date in dategroup)
                 {
-                    @Html.ActionLink(time.ToString("h:mm tt"), 
+                    @Html.ActionLink(date.ToString("h:mm tt"), 
                                      "SessionsByDate", 
-                                     new { time }, 
+                                     new { date }, 
                                      new { @class = "list-group-item" })
                 }
             </div>
@@ -754,10 +754,10 @@ See Also
 
 <!-- Images -->
 [DeployClickPublish]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-1.png
-[DeployClickImport]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-2.png
-[DeployAddSubscription]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-3.png
-[DeployDownloadSubscription]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-4.png
-[DeployImportSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-5.png
+[DeployClickWebSites]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-2.png
+[DeploySignIn]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-3.png
+[DeployUsername]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-4.png
+[DeployPassword]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-5.png
 [DeployNewWebsite]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-6.png
 [DeploySiteSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7.png
 [DeployPublishSite]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-8.png

@@ -1,4 +1,6 @@
-<properties linkid="manage-linux-other-resources-command-line-tools" urlDisplayName="Command-Line Tools" pageTitle="Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Command-Line Tools" pageTitle="Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="need to identify contact" editor="" />
+
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
 #Azure command-line tool for Mac and Linux
 
@@ -27,11 +29,12 @@ In addition to command-specific optional parameters documented here, there are t
 * [Commands to manage Azure Mobile Services](#Commands_to_manage_mobile_services)
 * [Manage tool local settings](#Manage_tool_local_settings)
 * [Commands to manage Service Bus](#Commands_to_manage_service_bus)
+* [Commands to manage your Storage Objects](#Commands_to_manage_your_Storage_objects)
 * [Commands to manage SQL Databases](#Commands_to_manage_sql)
 * [Commands to manage your Virtual Networks](#Commands_to_manage_vnet)
 
 ##<a name="Manage_your_account_information_and_publish_settings"></a>Manage your account information and publish settings
-Your Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Azure portal in a publish settings file as described here. The publish settings file can then be imported as a persistent local config setting that the tool will use for subsequent operations. You only need to import your publish settings once.
+Your Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Azure portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the tool will use for subsequent operations. You only need to import your publish settings once.
 
 **account download [options]**
 
@@ -45,6 +48,7 @@ This command launches a browser to download your .publishsettings file from the 
 	info:   account download command OK
 
 **account import [options] &lt;file>**
+
 
 This command imports a publishsettings file or certificate so that it can be used by the tool going forward.
 
@@ -187,9 +191,9 @@ The following diagram shows how Azure virtual machines are hosted in the product
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
-This command creates a new Azure virtual machine. By default, each virtual machine is created in its own cloud service; however, you can specify that a virtual machine should be added to an existing cloud service through use of the -c option as documented here.
+This command creates a new Azure virtual machine. By default, each virtual machine (vm) is created in its own cloud service; however, you can specify that a virtual machine should be added to an existing cloud service through use of the -c option as documented here.
 
-Note that the vm create command, like the Azure portal, only creates virtual machines in the production deployment environment. There is currently no option for creating a virtual machine in the staging deployment environment of a cloud service. Note that an Azure storage account is created by this command if one does not already exist for your subscription.
+The vm create command, like the Azure portal, only creates virtual machines in the production deployment environment. There is no option to create a virtual machine in the staging deployment environment of a cloud service. If your subscription does not have an existing Azure storage account, the command creates one.
 
 You can specify a location through the --location parameter, or you can specify an affinity group through the --affinity-group parameter. If neither is provided, you are prompted to provide one from a list of valid locations.
 
@@ -207,13 +211,13 @@ The following optional parameters are supported for this command:
 **-z, --vm-size** Specify the size of the virtual machine. Valid values are "extrasmall", "small", "medium", "large", "extralarge". The default value is "small". <br />
 **-r** Adds RDP connectivity to a Windows virtual machine. <br />
 **-e, --ssh** Adds SSH connectivity to a Windows virtual machine. <br />
-**-t, --ssh-cert** Specifies the SSh certificate. <br />
+**-t, --ssh-cert** Specifies the SSH certificate. <br />
 **-s** The subscription <br />
 **-o, --community** The specified image is a community image <br />
 **-w** The virtual network name <br/>
 **-l, --location** specifies the location (for example, "North Central US"). <br />
 **-a, --affinity-group** specifies the affinity group.<br />
-**-w, --virtual-network-name** Specify the virtual network on which to add the new vitual machine. Virtual networks can be set up and managed from the Azure portal.<br />
+**-w, --virtual-network-name** Specify the virtual network on which to add the new virtual machine. Virtual networks can be set up and managed from the Azure portal.<br />
 **-b, --subnet-names** Specifies the subnet names to assign the virtual machine.
 
 In this example, MSFT__Win2K8R2SP1-120514-1520-141205-01-en-us-30GB is an image provided by the platform. For more information about operating system images, see vm image list.
@@ -284,7 +288,7 @@ This command shows details about an Azure virtual machine. The -json option spec
 
 **vm delete [options] &lt;name>**
 
-This command deletes an Azure virtual machine. By default, this command does not delete the Azure blob from which the the operating system disk and the data disk are created. To delete the blob as well as the virtual machine on which it is based, specify the -b option.
+This command deletes an Azure virtual machine. By default, this command does not delete the Azure blob from which the operating system disk and the data disk are created. To delete the blob as well as the virtual machine on which it is based, specify the -b option.
 
 	~$ azure vm delete my-vm 
 	info:   Executing command vm delete
@@ -320,7 +324,7 @@ info:   vm shutdown command OK
 
 This command captures an Azure virtual machine image.
 
-A virtual machine image cannot be captured while the virtual machine state unless the virtual machine state is Stopped .
+A virtual machine image cannot be captured while the virtual machine state unless the virtual machine state is **Stopped**.
 
 	~$ azure.cmd vm capture my-vm mycaptureimagename --delete
 	info:   Executing command vm capture
@@ -387,8 +391,8 @@ This command lists all virtual machine endpoints. The -json option specifies tha
 This command updates a vm endpoint to new values using these options.
 
     -n, --endpoint-name <name>          the new endpoint name
-    -t, --lb-port <port>                the new load balancer port
-    -t, --vm-port <port>                the new local port port
+    -lo, --lb-port <port>                the new load balancer port
+    -t, --vm-port <port>                the new local port
     -o, --endpoint-protocol <protocol>  the new transport layer protocol for port (tcp or udp) 
 
 **vm endpoint show [options] &lt;vm-name>**
@@ -443,7 +447,7 @@ The -json option specifies that the results are returned in raw JSON format.
 
 **vm image show [options] &lt;name>**
 
-This command shows the details of of a virtual machine image.
+This command shows the details of a virtual machine image.
 
 	~$ azure vm image show MSFT__Windows-Server-2008-R2-SP1.11-29-2011
 	+ Fetching VM image
@@ -515,7 +519,7 @@ This command shows details about an Azure disk.
 
 **vm disk list [options] [vm-name]**
 
-This command lists Azure disks, or disks attached to a specified virtual machine. if it is run with a virtual machine name parameter, it returns all disks attached to the virtual machine. Lun 1 is created with the virtual machine, and any other listed disks are attached separately.
+This command lists Azure disks, or disks attached to a specified virtual machine. If it is run with a virtual machine name parameter, it returns all disks attached to the virtual machine. Lun 1 is created with the virtual machine, and any other listed disks are attached separately.
 
 	~$ azure vm disk list mycentos
 	info:   Executing command vm disk list
@@ -646,14 +650,16 @@ This command lists Azure cloud services.
 
 This command deletes an Azure cloud service.
 
-	~$ azure cloud-service delete myservice
-	info:   Executing command cloud-service delete myservice 
+	~$ azure service delete myservice
+	info:   Executing command service delete myservice 
 	info:   cloud-service delete command OK
+
+To force the deletion, use the `-q` parameter.
 
 
 ##<a name="Commands_to_manage_your_Azure_certificates"></a>Commands to manage your Azure certificates
 
-Azure certificates are cerificates (that is, SSL certificates) connected to your Azure account.
+Azure service certificates are SSL certificates connected to your Azure account. For more information about Azure certificates, see [Manage Certificates](http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx).
 
 **service cert list [options]**
 
@@ -689,13 +695,13 @@ This command deletes a certificate.
 	info:   service cert delete command OK
 
 
-##<a name="Commands_to_manage_your_web_sites"></a>Commands to manage your web sites
+##<a name="Commands_to_manage_your_web_sites"></a>Commands to manage your websites
 
-An Azure web site is a web configuration accessible by URI. Web sites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Azure.
+An Azure website is a web configuration accessible by URI. Websites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Azure.
 
 **site list [options]**
 
-This command lists your web sites.
+This command lists your websites.
 
 	~$ azure site list
 	info:   Executing command site list
@@ -708,7 +714,7 @@ This command lists your web sites.
 
 **site set [options] [name]**
 
-This command will set configuration options for your web site [name]
+This command will set configuration options for your website [name]
 
 	~$ azure site set
 	info:    Executing command site set
@@ -729,7 +735,7 @@ This command will generate a custom deployment script
 
 **site create [options] [name]**
 
-This command creates a new web site and local directory. 
+This command creates a new website and local directory. 
 
 	~$ azure site create mysite
 	info:   Executing command site create
@@ -744,18 +750,9 @@ This command creates a new web site and local directory.
    <p>The site name must be unique. You cannot create a site with the same DNS name as an existing site.</p>
 </div>
 
-**site portal [options] [name]**
-
-This command opens the portal in a browser so you can manage your web sites.
-
-	~$ azure site portal mysite
-	info:   Executing command site portal
-	info:   Launching browser to https://windows.azure.net/#Workspaces/WebsiteExtension/Website/mysite/dashboard
-	info:   site portal command OK
-
 **site browse [options] [name]**
 
-This command opens your web site in a browser.
+This command opens your website in a browser.
 
 	~$ azure site browse mysite
 	info:   Executing command site browse
@@ -764,7 +761,7 @@ This command opens your web site in a browser.
 
 **site show [options] [name]**
 
-This command shows details for a web site.
+This command shows details for a website.
 
 	~$ azure site show mysite
 	info:   Executing command site show
@@ -794,7 +791,7 @@ This command shows details for a web site.
 
 **site delete [options] [name]**
 
-This command deletes a web site.
+This command deletes a website.
 
 	~$ azure site delete mysite
 	info:   Executing command site delete
@@ -802,9 +799,18 @@ This command deletes a web site.
 	info:   Site mysite has been deleted
 	info:   site delete command OK
 
+ **site swap [options] [name]**
+ 
+This command swaps two website slots.
+
+This command supports the following additional option:
+
+**-q or **--quiet**: Do not prompt for confirmation. Use this option in automated scripts.
+
+
 **site start [options] [name]**
 
-This command starts a web site.
+This command starts a website.
 
 	~$ azure site start mysite
 	info:   Executing command site start
@@ -814,7 +820,7 @@ This command starts a web site.
 
 **site stop [options] [name]**
 
-This command stops a web site.
+This command stops a website.
 
 	~$ azure site stop mysite
 	info:   Executing command site stop
@@ -822,9 +828,18 @@ This command stops a web site.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
+**site restart [options] [name]
+
+This command stops and then starts a specified website.
+
+This command supports the following additional option:
+
+**--slot** &lt;slot>: The name of the slot to restart.
+
+
 **site location list [options]**
 
-This command lists your Web Site locations
+This command lists your Website locations.
 
 	~$ azure site location list
 	info:    Executing command site location list
@@ -839,11 +854,11 @@ This command lists your Web Site locations
 	data:    East US
 	info:    site location list command OK
 
-###Commands to manage your Web Site application settings
+###Commands to manage your Website application settings
 
 **site appsetting list [options] [name]**
 
-This command lists the app setting added to the website
+This command lists the app setting added to the website.
 
 	~$ azure site appsetting list
 	info:    Executing command site appsetting list
@@ -857,7 +872,7 @@ This command lists the app setting added to the website
 
 **site appsetting add [options] &lt;keyvaluepair> [name]**
 
-This command adds an app setting to your website as a key value pair
+This command adds an app setting to your website as a key value pair.
 
 	~$ azure site appsetting add test=value
 	info:    Executing command site appsetting add
@@ -869,7 +884,7 @@ This command adds an app setting to your website as a key value pair
 
 **site appsetting delete [options] &lt;key> [name]**
 
-This command delete the specified app setting from the website
+This command deletes the specified app setting from the website.
 
 	~$ azure site appsetting delete test
 	info:    Executing command site appsetting delete
@@ -892,11 +907,11 @@ This command displays details of the specified app setting
 	data:    Value:  value
 	info:    site appsetting show command OK
 
-###Commands to manage your Web Site certificates
+###Commands to manage your Website certificates
 
 **site cert list [options] [name]**
 
-This command displays a list of the website certs
+This command displays a list of the website certs.
 
 	~$ azure site cert list
 	info:    Executing command site cert list
@@ -932,7 +947,7 @@ This command shows the cert details
 	data:    Certificate thumbprint CE1CD65852B38DC32001C2E0E8F7A526A29B541F
 	info:    site cert show command OK
 
-###Commands to manage your Web Site connection strings
+###Commands to manage your Website connection strings
 
 **site connectionstring list [options] [name]**
 
@@ -942,7 +957,7 @@ This command shows the cert details
 
 **site connectionstring show [options] &lt;connectionname> [name]**
 
-###Commands to manage your Web Site default documents
+###Commands to manage your Website default documents
 
 **site defaultdocument list [options] [name]**
 
@@ -950,7 +965,7 @@ This command shows the cert details
 
 **site defaultdocument delete [options] &lt;document> [name]**
 
-###Commands to manage your Web Site deployments
+###Commands to manage your Website deployments
 
 **site deployment list [options] [name]**
 
@@ -962,7 +977,7 @@ This command shows the cert details
 
 **site deployment user set [options] [username] [pass]**
 
-###Commands to manage your Web Site domains
+###Commands to manage your Website domains
 
 **site domain list [options] [name]**
 
@@ -970,7 +985,7 @@ This command shows the cert details
 
 **site domain delete [options] &lt;dn> [name]**
 
-###Commands to manage your Web Site handler mappings
+###Commands to manage your Website handler mappings
 
 **site handler list [options] [name]**
 
@@ -978,11 +993,95 @@ This command shows the cert details
 
 **site handler delete [options] &lt;extension> [name]**
 
-###Commands to manage your Web Site diagnostics
+###Commands to manage your Website Web Jobs
+
+**site job list [options] [name]**
+
+This command list all the web jobs under a website.
+
+This command supports the following additional options:
+
++ **--job-type** &lt;job-type>: Optional. The type of the webjob. Valid value is "triggered" or "continuous". By default return
+webjobs of all types.
++ **--slot** &lt;slot>: The name of the slot to restart.
+
+**site job show [options] &lt;jobName> &lt;jobType> [name]**
+
+This command shows the details of a specific web job.
+
+This command supports the following additional options:
+
++ **--job-name** &lt;job-name>: Required. The name of the webjob.
++ **--job-type** &lt;job-type>: Required. The type of the webjob. Valid value is "triggered" or "continuous".
++ **--slot** &lt;slot>: The name of the slot to restart.
+
+**site job delete [options] &lt;jobName> &lt;jobType> [name]**
+
+This command deletes the specified web job.
+
+This command supports the following additional options:
+
++ **--job-name** &lt;job-name>    required. The name of the webjob.
++ **--job-type** &lt;job-type>    required. The type of the webjob. Valid value is "triggered" or "continuous".
++ **-q** or **--quiet**: Do not prompt for confirmation. Use this option in automated scripts.
++ **--slot** &lt;slot>: The name of the slot to restart.
+
+**site job upload [options] &lt;jobName> &lt;jobType> <jobFile> [name]**
+
+This command deletes the specified web job.
+
+This command supports the following additional options:
+
++ **--job-name** &lt;job-name>: Required. The name of the webjob.
++ **--job-type** &lt;job-type>: Required. The type of the webjob. Valid value is "triggered" or "continuous".
++ **--job-file** &lt;job-file>: Required. The job file.
++ **--slot** &lt;slot>: The name of the slot to restart.
+
+**site job start [options] &lt;jobName> &lt;jobType> [name]**
+
+This command starts the specified web job.
+
+This command supports the following additional options:
+
++ **--job-name** &lt;job-name>: Required. The name of the webjob.
++ **--job-type** &lt;job-type>: Required. The type of the webjob. Valid value is "triggered" or "continuous".
++ **--slot** &lt;slot>: The name of the slot to restart.
+
+**site job stop [options] &lt;jobName> &lt;jobType> [name]**
+
+This command stops the specified web job. Only continuous jobs can  be stopped.
+
+This command supports the following additional options:
+
++ **--job-name** &lt;job-name>: Required. The name of the webjob.
++ **--slot** &lt;slot>: The name of the slot to restart.
+
+###Commands to manage your Website Web Jobs History
+
+**site job history list [options] [jobName] [name]**
+
+This command displays a history of the runs of the specified web job.
+
+This command supports the following additional options:
+
++ **--job-name** &lt;job-name>: Required. The name of the webjob.
++ **--slot** &lt;slot>: The name of the slot to restart.
+
+**site job history show [options] [jobName] [runId] [name]**
+
+This command gets the details of the job run for the specified web job.
+
+This command supports the following additional options:
+
++ **--job-name** &lt;job-name>: Required. The name of the webjob.
++ **--run-id** &lt;run-id>: Optional. The id of the run history. If not specified, show the latest run.
++ **--slot** &lt;slot>: The name of the slot to restart.
+
+###Commands to manage your Website diagnostics
 
 **site log download [options] [name]**
 
-Download a .zip file of your website diagnostics
+Download a .zip file that contains your website's diagnostics.
 
 	~$ azure site log download
 	info:    Executing command site log download
@@ -994,7 +1093,7 @@ Download a .zip file of your website diagnostics
 
 **site log tail [options] [name]**
 
-This command connects your terminal to the log-streaming service
+This command connects your terminal to the log-streaming service.
 
 	~$ azure site log tail
 	info:    Executing command site log tail
@@ -1005,7 +1104,7 @@ This command connects your terminal to the log-streaming service
 
 **site log set [options] [name]**
 
-This command configures the diagnistic options
+This command configures the diagnostic options for your website.
 
 	~$ azure site log set -a
 	info:    Executing command site log set
@@ -1022,7 +1121,7 @@ This command configures the diagnistic options
 	+ Updating diagnostic settings
 	info:    site log set command OK
 
-###Commands to manage your Web Site repositories
+###Commands to manage your Website repositories
 
 **site repository branch [options] &lt;branch> [name]**
 
@@ -1030,7 +1129,7 @@ This command configures the diagnistic options
 
 **site repository sync [options] [name]**
 
-###Commands to manage your Web Site scaling
+###Commands to manage your Website scaling
 
 **site scale mode [options] &lt;mode> [name]**
 
@@ -1108,7 +1207,7 @@ This command supports the following additional options:
 
 + **-d** or **--deleteData**: Delete all data from this mobile service from the database.
 + **-a** or **--deleteAll**: Delete the SQL Database and server.
-+ **-q or **--quiet**: Do not prompt for confirmation. Use this option in automated scripts.
++ **-q** or **--quiet**: Do not prompt for confirmation. Use this option in automated scripts.
 
 **mobile list [options]**
 
@@ -1180,8 +1279,16 @@ This command supports the following additional options:
 + **-p `<top>`** or **--top `<top>`**: Returns a specific number of rows, specified by `<top>`.
 
 <div class="dev-callout"><b>Note</b>
-   <p>The **--query** parameter takes precedence over **--type**, **--skip**, and **--top**.</p>
+   <p>The <b>--query</b> parameter takes precedence over <b>--type</b>, <b>--skip</b>, and <b>--top</b>.</p>
 </div>
+
+**mobile recover [options] [unhealthyservicename] [healthyservicename]**
+
+This command recovers an unhealthy mobile service by moving it to a healthy mobile service in a different region.
+
+This command supports the following additional option:
+
+**-q** or **--quiet**: Suppress the prompt for confirmation of recovery.
 
 **mobile key regenerate [options] [servicename] [type]**
 
@@ -1197,6 +1304,11 @@ Key types are `master` and `application`.
 <div class="dev-callout"><b>Note</b>
    <p>When you regenerate keys, clients that use the old key may be unable to access your mobile service. When you regenerate the application key, you should update your app with the new key value. </p>
 </div> 
+
+**mobile key set [options] [servicename] [type] [value]**
+
+This command sets the mobile service key to a specific value.
+
 
 ###<a name="Mobile_Configuration"></a>Commands to manage mobile service configuration
 
@@ -1289,8 +1401,7 @@ This command creates a table.
 
 This command supports the following additional option:
 
-+ **-p `<permissions>`** or **--permissions `<permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs, where `<operation>` is `insert`, `read`, `update`, or `delete` and `<permissions>` is `public`, `application` (default), `user`, or `admin`.
-+ **--integerId**: Create a table with an integer id column.
++ **-p `&lt;permissions>`** or **--permissions `&lt;permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs, where `<operation>` is `insert`, `read`, `update`, or `delete` and `&lt;permissions>` is `public`, `application` (default), `user`, or `admin`.
 
 **mobile data read [options] [servicename] [tablename] [query]**
 
@@ -1324,7 +1435,7 @@ This command changes delete permissions on a table to administrators only.
 
 This command supports the following additional options:
 
-+ **-p `<permissions>`** or **--permissions `<permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs, where `<operation>` is `insert`, `read`, `update`, or `delete` and `<permissions>` is `public`, `application` (default), `user`, or `admin`.
++ **-p `&lt;permissions>`** or **--permissions `&lt;permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs, where `<operation>` is `insert`, `read`, `update`, or `delete` and `&lt;permissions>` is `public`, `application` (default), `user`, or `admin`.
 + **--deleteColumn `<columns>`**: Comma-delimited list of columns to delete, as `<columns>`.
 + **-q** or **--quiet**: Deletes columns without prompting for confirmation.
 + **--addIndex `<columns>`**: Comma-delimited list of columns to include in the index.
@@ -1378,16 +1489,6 @@ This command lists registered scripts, including both table and scheduler script
 	data:    scheduler/undefined  undefined  undefined  undefined  undefined
 	info:    mobile script list command OK
 
-**mobile script upload [options] [servicename] [scriptname]**
-
-This command uploads a new script named `todoitem.insert.js` from the `table` subfolder.
-
-	~$azure mobile script upload todolist table/todoitem.insert.js
-	info:    Executing command mobile script upload
-	info:    mobile script upload command OK
-
-The name of the file must be composed from the table and operation names, and it must be located in the table subfolder relative to the location where the command is executed. You can also use the **-f `<file>`** or **--file `<file>`** parameter to specify a different filename and path to the file that contains the script to register.
-
 **mobile script download [options] [servicename] [scriptname]**
 
 This command downloads the insert script from the TodoItem table to a file named `todoitem.insert.js` in the `table` subfolder.
@@ -1403,6 +1504,17 @@ This command supports the following additional options:
 + **-f `<file>`** or **--file `<file>`**: The name of the file in which to save the script.
 + **-o** or **--override**: Overwrite an existing file.
 + **-c** or **--console**: Write the script to the console instead of to a file.
+
+**mobile script upload [options] [servicename] [scriptname]**
+
+This command uploads a new script named `todoitem.insert.js` from the `table` subfolder.
+
+	~$azure mobile script upload todolist table/todoitem.insert.js
+	info:    Executing command mobile script upload
+	info:    mobile script upload command OK
+
+The name of the file must be composed from the table and operation names, and it must be located in the table subfolder relative to the location where the command is executed. You can also use the **-f `<file>`** or **--file `<file>`** parameter to specify a different filename and path to the file that contains the script to register.
+
 
 **mobile script delete [options] [servicename] [scriptname]**
 
@@ -1513,11 +1625,126 @@ This command changes the scale of the mobile service from free to premium mode.
 This command supports the following additional options:
 
 + **-c `<mode>`** or **--computeMode `<mode>`**: The compute mode must be either `Free` or `Reserved`.
-+ **-i `<count>` or **--numberOfInstances `<count>`**: The number of instances used when running in reserved mode.
++ **-i `<count>`** or **--numberOfInstances `<count>`**: The number of instances used when running in reserved mode.
 
 <div class="dev-callout"><b>Note</b>
    <p>When you set compute mode to `Reserved`, all of your mobile services in the same region run in premium mode.</p>
 </div>  
+
+
+###Commands to enable preview features for your Mobile Service
+
+**mobile preview list [options] [servicename]**
+
+This command displays the preview features available on the specified service and whether they are enabled.
+
+	~$ azure mobile preview list mysite
+	info:    Executing command mobile preview list
+	+ Getting preview features
+	data:    Preview feature  Enabled
+	data:    ---------------  -------
+	data:    SourceControl    No
+	data:    Users            No
+	info:    You can enable preview features using the 'azure mobile preview enable' command.
+	info:    mobile preview list command OK
+
+**mobile preview enable [options] [servicename] [featurename]**
+
+This command enables the specified preview feature for a mobile service. Note that once enabled, preview features cannot be disabled for a mobile service.
+
+###Commands to manage your mobile service APIs
+
+**mobile api list [options] [servicename]**
+
+This command displays a list mobile service custom APIs that you have created for your mobile service.
+
+	~$ azure mobile api list mysite
+	info:    Executing command mobile api list
+	+ Retrieving list of APIs
+	info:    APIs
+	data:    Name                  Get          Put          Post         Patch        Delete
+	data:    --------------------  -----------  -----------  -----------  -----------  -----------
+	data:    myCustomRetrieveAPI   application  application  application  application  application
+	info:    You can manipulate API scripts using the 'azure mobile script' command.
+	info:    mobile api list command OK
+
+**mobile api create [options] [servicename] [apiname]**
+
+Creates a mobile service custom API
+
+	~$ azure mobile api create mysite myCustomRetrieveAPI
+	info:    Executing command mobile api create
+	+ Creating custom API: 'myCustomRetrieveAPI'
+	info:    API was created successfully. You can modify the API using the 'azure mobile script' command.
+	info:    mobile api create command OK
+
+This command supports the following additional option:
+
+**-p** or **--permissions** &lt;permissions>:  A comma delimited list of &lt;method>=&lt;permission> pairs.
+
+**mobile api update [options] [servicename] [apiname]**
+
+This command updates the specified mobile service custom API.
+
+This command supports the following additional option:
+
+This command supports the following additional options:
+
++ **-p** or **--permissions** &lt;permissions>: A comma delimited list of &lt;method>=&lt;permission>  pairs.
++ **-f** or **--force**: Overrides any custom changes to the permissions metadata file.
+
+**mobile api delete [options] [servicename] [apiname]**
+
+	~$ azure mobile api delete mysite myCustomRetrieveAPI
+	info:    Executing command mobile api delete
+	+ Deleting API: 'myCustomRetrieveAPI'
+	info:    mobile api delete command OK
+
+This command deletes the specified mobile service custom API.
+
+###Commands to manage your mobile application app settings
+
+**mobile appsetting list [options] [servicename]**
+
+This command displays the mobile application app settings for the specified service.
+
+	~$ azure mobile appsetting list mysite
+	info:    Executing command mobile appsetting list
+	+ Retrieving app settings
+	data:    Name               Value
+	data:    -----------------  -----
+	data:    enablebetacontent  true
+	info:    mobile appsetting list command OK
+
+**mobile appsetting add [options] [servicename] [name] [value]**
+
+This command adds a custom application setting for your mobile service.
+
+	~$ azure mobile appsetting add mysite enablebetacontent true
+	info:    Executing command mobile appsetting add
+	+ Retrieving app settings
+	+ Adding app setting
+	info:    mobile appsetting add command OK
+
+**mobile appsetting delete [options] [servicename] [name]**
+
+This command removes the specified application setting for your mobile service.
+
+	~$ azure mobile appsetting delete mysite enablebetacontent
+	info:    Executing command mobile appsetting delete
+	+ Retrieving app settings
+	+ Removing app setting 'enablebetacontent'
+	info:    mobile appsetting delete command OK
+
+**mobile appsetting show [options] [servicename] [name]**
+
+This command removes the specified application setting for your mobile service.
+
+	~$ azure mobile appsetting show mysite enablebetacontent
+	info:    Executing command mobile appsetting show
+	+ Retrieving app settings
+	info:    enablebetacontent: true
+	info:    mobile appsetting show command OK
 
 ##<a name="Manage_tool_local_settings"></a>Manage tool local settings
 
@@ -1546,9 +1773,13 @@ This command changes a config setting.
 
 Use these commands to manage your Service Bus account
 
+**sb namespace check [options] &lt;name>**
+
+Check that a service bus namespace is legal and available.
+
 **sb namespace create &lt;name> &lt;location>**
 
-Creates a new Service Bus namespace
+Creates a new Service Bus namespace.
 
 	~$ azure sb namespace create mysbnamespacea-test "West US"
 	info:    Executing command sb namespace create
@@ -1569,9 +1800,52 @@ Creates a new Service Bus namespace
 	data:    _: [object Object]
 	info:    sb namespace create command OK
 
+
+**sb namespace delete &lt;name>**
+
+Remove a namespace.
+
+	~$ azure sb namespace delete mysbnamespacea-test
+	info:    Executing command sb namespace delete
+	Delete namespace mysbnamespacea-test? [y/n] y
+	+ Deleting namespace mysbnamespacea-test
+	info:    sb namespace delete command OK
+
+**sb namespace list**
+
+List all namespaces created for your account.
+
+	~$ azure sb namespace list
+	info:    Executing command sb namespace list
+	+ Getting namespaces
+	data:    Name                 Region   Status
+	data:    -------------------  -------  ------
+	data:    mysbnamespacea-test  West US  Active
+	info:    sb namespace list command OK
+
+
+**sb namespace location list**
+
+Display a list of all available namespace locations.
+
+	~$ azure sb namespace location list
+	info:    Executing command sb namespace location list
+	+ Getting locations
+	data:    Name              Code
+	data:    ----------------  ----------------
+	data:    East Asia         East Asia
+	data:    West Europe       West Europe
+	data:    North Europe      North Europe
+	data:    East US           East US
+	data:    Southeast Asia    Southeast Asia
+	data:    North Central US  North Central US
+	data:    West US           West US
+	data:    South Central US  South Central US
+	info:    sb namespace location list command OK
+
 **sb namespace show &lt;name>**
 
-Display details about a specific namespace
+Display details about a specific namespace.
 
 	~$ azure sb namespace show mysbnamespacea-test
 	info:    Executing command sb namespace show
@@ -1592,56 +1866,215 @@ Display details about a specific namespace
 	data:    UpdatedAt: 2013-11-14T16:25:37.85Z
 	info:    sb namespace show command OK
 
-**sb namespace list**
-
-List all namespaces created for your account
-
-	~$ azure sb namespace list
-	info:    Executing command sb namespace list
-	+ Getting namespaces
-	data:    Name                 Region   Status
-	data:    -------------------  -------  ------
-	data:    mysbnamespacea-test  West US  Active
-	info:    sb namespace list command OK
-
-**sb namespace delete &lt;name>**
-
-Remove a namespace
-
-	~$ azure sb namespace delete mysbnamespacea-test
-	info:    Executing command sb namespace delete
-	Delete namespace mysbnamespacea-test? [y/n] y
-	+ Deleting namespace mysbnamespacea-test
-	info:    sb namespace delete command OK
-
-**sb namespace location list**
-
-Display a list of all available namespace locations
-
-	~$ azure sb namespace location list
-	info:    Executing command sb namespace location list
-	+ Getting locations
-	data:    Name              Code
-	data:    ----------------  ----------------
-	data:    East Asia         East Asia
-	data:    West Europe       West Europe
-	data:    North Europe      North Europe
-	data:    East US           East US
-	data:    Southeast Asia    Southeast Asia
-	data:    North Central US  North Central US
-	data:    West US           West US
-	data:    South Central US  South Central US
-	info:    sb namespace location list command OK
-
 **sb namespace verify &lt;name>**
 
-Check whether the namespace is available
+Check whether the namespace is available.
+
+##<a name="Commands_to_manage_your_Storage_objects"></a>Commands to manage your Storage objects
+
+###Commands to manage your Storage accounts
+
+**storage account list [options]**
+
+This command displays the storage accounts on your subscription.
+
+	~$ azure storage account list
+	info:    Executing command storage account list
+	+ Getting storage accounts
+	data:    Name             Label  Location
+	data:    ---------------  -----  --------
+	data:    mybasestorage           West US
+	info:    storage account list command OK
+
+**storage account show [options] <name>**
+
+This command displays information about the specified storage account including the URI and account properties.
+
+**storage account create [options] <name>**
+
+This command creates a storage account based on the supplied options.
+
+	~$ azure storage account create mybasestorage --label PrimaryStorage --location "West US"
+	info:    Executing command storage account create
+	+ Creating storage account
+	info:    storage account create command OK
+
+This command supports the following additional options:
+
++ **-e** or **--label** &lt;label>: The label for the storage account.
++ **-d** or **--description** &lt;description>:  The description storage account.
++ **-l** or **--location** &lt;name>: The geographic region in which to create the storage account.
++ **-a** or **--affinity-group** &lt;name>: The affinity group with which to associate the storage account.
++ **--geoReplication**:  Indicates if geo-replication is enabled.
++ **--disable-geoReplication**: Indicates if geo-replication is disabled.
+
+**storage account set [options] <name>**
+
+This command updates the specified storage account.
+
+	~$ azure storage account set mybasestorage --geoReplication
+	info:    Executing command storage account set
+	+ Updating storage account
+	info:    storage account set command OK
+
+This command supports the following additional options:
+
++ **-e** or **--label** &lt;label>: The label for the storage account.
++ **-d** or **--description** &lt;description>:  The description storage account.
++ **-l** or **--location** &lt;name>: The geographic region in which to create the storage account.
++ **--geoReplication**:  Indicates if geo-replication is enabled.
++ **--disable-geoReplication**: Indicates if geo-replication is disabled.
+
+**storage account delete [options] <name>**
+
+This command deletes the specified storage account.
+
+This command supports the following additional option:
+
+**-q** or **--quiet**: Do not prompt for confirmation. Use this option in automated scripts.
+
+###Commands to manage your Storage account keys
+
+**storage account keys list [options] <name>**
+
+This command lists the primary and secondary keys for the specified storage account.
+
+**storage account keys renew [options] <name>**
+
+###Commands to manage your Storage container
+
+**storage container list [options] [prefix]**
+
+This command displays the storage container list for a specified storage account. The storage account is specified by either the connection string or the storage account name and account key.
+
+This command supports the following additional options:
+
++ **-p** or **-prefix** &lt;prefix>: The storage container name prefix.
++ **-a** or **--account-name** &lt;accountName>: The storage account name.
++ **-k** or **--account-key** &lt;accountKey>: The storage account key.
++ **-c** or **--connection-string** &lt;connectionString>: The storage connection string.
++ **--debug**: Runs the storage command in debug mode.
+
+**storage container show [options] [container]**
+**storage container create [options] [container]**
+
+This command creates a storage container for the specified storage account. The storage account is specified by either the connection string or the storage account name and account key.
+
+This command supports the following additional options:
+
++ **--container** &lt;container>: The name of the storage container to create.
++ **-p** or **-prefix** &lt;prefix>: The storage container name prefix.
++ **-a** or **--account-name** &lt;accountName>: The storage account name
++ **-k** or **--account-key** &lt;accountKey>: The storage account key
++ **-c** or **--connection-string** &lt;connectionString>: The storage connection string
++ **--debug**: Runs the storage command in debug mode.
+
+**storage container delete [options] [container]**
+
+This command deletes the specified storage container. The storage account is specified by either the connection string or the storage account name and account key.
+
+This command supports the following additional options:
+
++ **--container** &lt;container>: The name of the storage container to create.
++ **-p** or **-prefix** &lt;prefix>: The storage container name prefix.
++ **-a** or **--account-name** &lt;accountName>: The storage account name.
++ **-k** or **--account-key** &lt;accountKey>: The storage account key.
++ **-c** or **--connection-string** &lt;connectionString>: The storage connection string.
++ **--debug**: Runs the storage command in debug mode.
+
+**storage container set [options] [container]**
+
+This command sets access control list for the storage container. The storage account is specified by either the connection string or the storage account name and account key.
+
+This command supports the following additional options:
+
++ **--container** &lt;container>: The name of the storage container to create.
++ **-p** or **-prefix** &lt;prefix>: The storage container name prefix.
++ **-a** or **--account-name** &lt;accountName>: The storage account name.
++ **-k** or **--account-key** &lt;accountKey>: The storage account key.
++ **-c** or **--connection-string** &lt;connectionString>: The storage connection string.
++ **--debug**: Runs the storage command in debug mode.
+
+###Commands to manage your Storage blob
+
+**storage blob list [options] [container] [prefix]**
+
+This command returns a list of the storage blobs in the specified storage container.
+
+This command supports the following additional options:
+
++ **--container** &lt;container>: The name of the storage container to create.
++ **-p** or **-prefix** &lt;prefix>: The storage container name prefix.
++ **-a** or **--account-name** &lt;accountName>: The storage account name.
++ **-k** or **--account-key** &lt;accountKey>: The storage account key.
++ **-c** or **--connection-string** &lt;connectionString>: The storage connection string.
++ **--debug**: Runs the storage command in debug mode.
+
+**storage blob show [options] [container] [blob]**
+
+This command displays the details of the specified storage blob.
+
+This command supports the following additional options:
+
++ **--container** &lt;container>: The name of the storage container to create.
++ **-p** or **-prefix** &lt;prefix>: The storage container name prefix.
++ **-a** or **--account-name** &lt;accountName>: The storage account name.
++ **-k** or **--account-key** &lt;accountKey>: The storage account key.
++ **-c** or **--connection-string** &lt;connectionString>: The storage connection string.
++ **--debug**: Runs the storage command in debug.
+
+**storage blob delete [options] [container] [blob]**
+
+This command supports the following additional options:
+
++ **--container** &lt;container>: The name of the storage container to create.
++ **-b** or **--blob** &lt;blobName>: The name of the storage blob to delete.
++ **-q** or **--quiet**: Remove the specified Storage blob without confirmation.
++ **-a** or **--account-name** &lt;accountName>: The storage account name.
++ **-k** or **--account-key** &lt;accountKey>: The storage account key.
++ **-c** or **--connection-string** &lt;connectionString>: The storage connection string.
++ **--debug**: Runs the storage command in debug.
+
+**storage blob upload [options] [file] [container] [blob]**
+
+This command upload the specified file to the specified\ storage blob.
+
+This command supports the following additional options:
+
++ **--container** &lt;container>: The name of the storage container to create.
++ **-b** or **--blob** &lt;blobName>: The name of the storage blob to upload.
++ **-t** or **--blobtype** &lt;blobtype>: The storage blob type: Page or Block.
++ **-p** or **--properties** &lt;properties>: The storage blob properties for uploaded file. Properties are key=value pair s and separated with semicolon(;). Available properties are contentType, contentEncoding, contentLanguage, and cacheControl.
++ **-m** or **--metadata** &lt;metadata>: The storage blob metadata for uploaded file. Metadata are key=value pairs an d separated with semicolon (;).
++ **--concurrenttaskcount** &lt;concurrenttaskcount>: The maximum number of concurrent upload requests.
++ **-q** or **--quiet**: Overwrite the specified Storage blob without confirmation.
++ **-a** or **--account-name** &lt;accountName>: The storage account name.
++ **-k** or **--account-key** &lt;accountKey>: The storage account key.
++ **-c** or **--connection-string** &lt;connectionString>: The storage connection string.
++ **--debug**: Runs the storage command in debug.
+
+**storage blob download [options] [container] [blob] [destination]**
+
+This command downloads the specified storage blob.
+
+This command supports the following additional options:
+
++ **--container** &lt;container>: The name of the storage container to create.
++ **-b** or **--blob** &lt;blobName>: The storage blob name.
++ **-d** or **--destination** [destination]: The download destination file or directory path.
++ **-m** or **--checkmd5**: The check md5sum for the downloaded file.
++ **--concurrenttaskcount** &lt;concurrenttaskcount>  the maximum number of concurrent upload requests
++ **-q** or **--quiet**: Overwrite the destination file without confirmation.
++ **-a** or **--account-name** &lt;accountName>: The storage account name.
++ **-k** or **--account-key** &lt;accountKey>: The storage account key.
++ **-c** or **--connection-string** &lt;connectionString>: The storage connection string.
++ **--debug**: Runs the storage command in debug.
 
 ##<a name ="Commands_to_manage_sql"></a>Commands to manage SQL Databases
 
 Use these commands to manage your Azure SQL Databases
 
-###Commands to manage SQL Servers
+###Commands to manage SQL Servers.
 
 Use these commands to manage your SQL Servers
 
@@ -1657,7 +2090,7 @@ Create a new database server
 
 **sql server show &lt;name>**
 
-Display server details
+Display server details.
 
 	~$ azure sql server show xclfgcndfg
 	info:    Executing command sql server show
@@ -1670,7 +2103,7 @@ Display server details
 
 **sql server list**
 
-Get the list of servers
+Get the list of servers.
 
 	~$ azure sql server list
 	info:    Executing command sql server list
@@ -1692,7 +2125,7 @@ Deletes a server
 
 ###Commands to manage SQL Databases
 
-Use these commands to manage your SQL Databases
+Use these commands to manage your SQL Databases.
 
 **sql db create [options] &lt;serverName> &lt;databaseName> &lt;administratorPassword>**
 
@@ -1706,7 +2139,7 @@ Creates a new database instance
 
 **sql db show [options] &lt;serverName> &lt;databaseName> &lt;administratorPassword>**
 
-Display database details
+Display database details.
 
 	C:\windows\system32>azure sql db show fr8aelne00 newdb test
 	info:    Executing command sql db show
@@ -1759,7 +2192,7 @@ Display database details
 
 **sql db list [options] &lt;serverName> &lt;administratorPassword>**
 
-List the databases
+List the databases.
 
 	~$ azure sql db list fr8aelne00 test
 	info:    Executing command sql db list
@@ -1772,7 +2205,7 @@ List the databases
 
 **sql db delete [options] &lt;serverName> &lt;databaseName> &lt;administratorPassword>**
 
-Deletes a database 
+Deletes a database.
 
 	~$ azure sql db delete fr8aelne00 newdb test
 	info:    Executing command sql db delete
@@ -1788,7 +2221,7 @@ Use these commands to manage your SQL Server firewall rules
 
 **sql firewallrule create [options] &lt;serverName> &lt;ruleName> &lt;startIPAddress> &lt;endIPAddress>**
 
-Create a new firewall rule for a SQL Server
+Create a new firewall rule for a SQL Server.
 
 	~$ azure sql firewallrule create fr8aelne00 allowed 131.107.0.0 131.107.255.255
 	info:    Executing command sql firewallrule create
@@ -1797,7 +2230,7 @@ Create a new firewall rule for a SQL Server
 
 **sql firewallrule show [options] &lt;serverName> &lt;ruleName>**
 
-Show firewall rule details
+Show firewall rule details.
 
 	~$ azure sql firewallrule show fr8aelne00 allowed
 	info:    Executing command sql firewallrule show
@@ -1815,7 +2248,7 @@ Show firewall rule details
 
 **sql firewallrule list [options] &lt;serverName>**
 
-List the firewall rules
+List the firewall rules.
 
 	~$ azure sql firewallrule list fr8aelne00
 	info:    Executing command sql firewallrule list
@@ -1827,7 +2260,7 @@ List the firewall rules
 
 **sql firewallrule delete [options] &lt;serverName> &lt;ruleName>**
 
-This command will delete a firewall rule
+This command will delete a firewall rule.
 
 	~$ azure sql firewallrule delete fr8aelne00 allowed
 	info:    Executing command sql firewallrule delete
@@ -1841,7 +2274,7 @@ Use these commands to manage your Virtual Networks
 
 **network vnet create [options] &lt;location>**
 
-Create a new Virtual Network
+Create a new Virtual Network.
 
 	~$ azure network vnet create vnet1 --location "West US" -v
 	info:    Executing command network vnet create
@@ -1862,7 +2295,7 @@ Create a new Virtual Network
 
 **network vnet show &lt;name>**
 
-Show details of a Virtual Network
+Show details of a Virtual Network.
 
 	~$ azure network vnet show vnet1
 	info:    Executing command network vnet show
@@ -1878,7 +2311,7 @@ Show details of a Virtual Network
 
 **vnet list**
 
-List all existing Virtual Networks
+List all existing Virtual Networks.
 
 	~$ azure network vnet list
 	info:    Executing command network vnet list
@@ -1891,25 +2324,10 @@ List all existing Virtual Networks
 	data:    vnet4      Created  AG1
 	info:    network vnet list command OK
 
-**network vnet show &lt;name>**
-
-Show details of the specified Virtual Network
-
-	~$ azure network vnet show opentechvn1
-	info:    Executing command network vnet show
-	+ Fetching Virtual Networks
-	data:    Name "opentechvn1"
-	data:    Id "cab41cb0-396a-413b-83a1-302f0f1c867d"
-	data:    AffinityGroup "AG-CLI-456f89eaa7fae2b3"
-	data:    State "Created"
-	data:    AddressSpace AddressPrefixes 0 "10.100.23.255/27"
-	data:    Subnets 0 Name "frontend"
-	data:    Subnets 0 AddressPrefix "10.100.23.224/29"
-	info:    network vnet show command OK
 
 **network vnet delete &lt;name>**
 
-Deletes the specified Virtual Network
+Deletes the specified Virtual Network.
 
 	~$ azure network vnet delete opentechvn1
 	info:    Executing command network vnet delete
@@ -1928,7 +2346,7 @@ Import a local network configuration.
 
 **network dnsserver register [options] &lt;dnsIP>**
 
-Register a DNS server that you plan to use for name resolution in your network configuration
+Register a DNS server that you plan to use for name resolution in your network configuration.
 
 	~$ azure network dnsserver register 98.138.253.109 --dns-id FrontEndDnsServer
 	info:    Executing command network dnsserver register
@@ -1938,7 +2356,7 @@ Register a DNS server that you plan to use for name resolution in your network c
 
 **network dnsserver list**
 
-List all the DNS servers registered in your network configuration
+List all the DNS servers registered in your network configuration.
 
 	~$ azure network dnsserver list
 	info:    Executing command network dnsserver list
@@ -1951,7 +2369,7 @@ List all the DNS servers registered in your network configuration
 
 **network dnsserver unregister [options] &lt;dnsIP>**
 
-Removes a DNS server entry from the network configuration
+Removes a DNS server entry from the network configuration.
 
 	~$ azure network dnsserver unregister 77.88.99.11
 	info:    Executing command network dnsserver unregister
@@ -1959,4 +2377,3 @@ Removes a DNS server entry from the network configuration
 	Delete the DNS server entry dns-4 ( 77.88.99.11 ) %s ? (y/n) y
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
-

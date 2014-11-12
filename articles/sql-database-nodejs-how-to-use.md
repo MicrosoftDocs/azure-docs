@@ -1,4 +1,6 @@
-<properties linkid="develop-node-how-to-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (Node.js) - Azure feature guide" metaKeywords="" description="Learn how to use Azure SQL Database from Node.js." metaCanonical="" services="sql-database" documentationCenter="Node.js" title="How to Access Azure SQL Database from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="SQL Database" pageTitle="How to use SQL Database (Node.js) - Azure feature guide" metaKeywords="" description="Learn how to use Azure SQL Database from Node.js." metaCanonical="" services="sql-database" documentationCenter="nodejs" title="How to Access Azure SQL Database from Node.js" authors="wpickett" solutions="" manager="wpickett" editor="" />
+
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
 
 
@@ -6,7 +8,7 @@
 
 #How to Access Azure SQL Database from Node.js
 
-This guide will show you the basics of using the Microsoft Driver for Node.JS for SQL Server to access an Azure SQL Database. The scenarios covered include **creating a SQL Database** and **connecting to a SQL Database**. This guide covers creating a SQL Database from the [Preview Management Portal][preview-portal].
+This guide will show you the basics of using the Microsoft Driver for Node.JS for SQL Server to access an Azure SQL Database. The scenarios covered include **creating a SQL Database** and **connecting to a SQL Database**. This guide covers creating a SQL Database from the [Azure Management Portal][management-portal].
 
 ##Table of contents
 
@@ -52,7 +54,7 @@ Node.js can be installed from [http://nodejs.org/#download](http://nodejs.org/#d
 
 Follow these steps to create an Azure SQL Database:
 
-1. Login to the [Preview Management Portal][preview-portal].
+1. Login to the [Management Portal][management-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Azure Website][new-website]
@@ -69,7 +71,7 @@ Follow these steps to create an Azure SQL Database:
 
 	![Create new SQL Database server][create-server]
 
-To see server and database information, click **SQL Databases** in the Preview Management Portal. You can then click on **DATABASES** or **SERVERS** to see relevant information.
+To see server and database information, click **SQL Databases** in the Azure Management Portal. You can then click on **DATABASES** or **SERVERS** to see relevant information.
 
 ![View server and database information][sql-dbs-servers]
 
@@ -171,7 +173,7 @@ For more information on deploying a Node.js application to Azure, see [Create an
 [Wiki]: https://github.com/WindowsAzure/node-sqlserver/wiki
 [Installing Python and the SDK]: /en-us/develop/python/common-tasks/install-python/
 [Microsoft SQL Server 2012 Feature Pack]: http://www.microsoft.com/en-us/download/details.aspx?id=29065
-[preview-portal]: https://manage.windowsazure.com
+[management-portal]: https://manage.windowsazure.com
 [download center]: http://www.microsoft.com/en-us/download/details.aspx?id=29995
 
 [new-website]: ./media/sql-database-nodejs-how-to-use/new_website.jpg

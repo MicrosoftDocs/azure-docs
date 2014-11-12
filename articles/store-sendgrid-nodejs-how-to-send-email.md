@@ -1,4 +1,6 @@
-<properties linkid="dev-nodejs-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Node.js) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Node.js, Azure email Node.js" description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." metaCanonical="" services="" documentationCenter="Node.js" title="How to Send Email Using SendGrid from Node.js" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Node.js) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Node.js, Azure email Node.js" description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." metaCanonical="" services="" documentationCenter="nodejs" title="How to Send Email Using SendGrid from Node.js" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" solutions="" manager="wpickett" editor="" />
+
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
 
 
@@ -42,7 +44,7 @@ include:
 -   Forwarding customer inquiries
 -   Email notifications from your application
 
-For more information, see [http://sendgrid.com](http://sendgrid.com).
+For more information, see [https://sendgrid.com](https://sendgrid.com).
 
 ## <a name="createaccount"> </a>Create a SendGrid Account
 
@@ -257,9 +259,9 @@ these links to learn more.
 
 -   SendGrid Node.js module repository: [sendgrid-nodejs][]
 -   SendGrid API documentation:
-    <http://docs.sendgrid.com/documentation/api/>
+    <https://sendgrid.com/docs>
 -   SendGrid special offer for Azure customers:
-    [http://sendgrid.com/azure.html](http://sendgrid.com/azure.html)
+    [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
   [Next Steps]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/blob-storage/#next-steps
   [What is the SendGrid Email Service?]: #whatis
@@ -275,13 +277,13 @@ these links to learn more.
 
   
   
-  [special offer]: http://www.sendgrid.com/azure.html
+  [special offer]: https://sendgrid.com/windowsazure.html
   
   
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
-  [SMTP vs. Web API]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
+  [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
   
-  [Filter Settings]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/
-  [SendGrid API documentation]: http://docs.sendgrid.com/documentation/api/
-  [cloud-based email service]: http://sendgrid.com/solutions
-  [transactional email delivery]: http://sendgrid.com/transactional-email
+  [Filter Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [SendGrid API documentation]: https://sendgrid.com/docs
+  [cloud-based email service]: https://sendgrid.com/email-solutions
+  [transactional email delivery]: https://sendgrid.com/transactional-email

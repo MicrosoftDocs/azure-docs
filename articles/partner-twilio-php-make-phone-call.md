@@ -1,4 +1,6 @@
-<properties title="How to make a phone call from Twilio (PHP) - Azure" pageTitle="How to make a phone call from Twilio (PHP) - Azure" metaKeywords="Azure PHP Twilio, Azure Twilio, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages, PHP twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Samples are for PHP application." documentationCenter="PHP" services="" solutions="" videoId="" scriptId="" authors="robmcm" manager="wpickett" editor="mollybos" />
+<properties title="How to make a phone call from Twilio (PHP) - Azure" pageTitle="How to make a phone call from Twilio (PHP) - Azure" metaKeywords="Azure PHP Twilio, Azure Twilio, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages, PHP twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Samples are for PHP application." documentationCenter="PHP" services="" solutions="" videoId="" scriptId="" authors="MicrosoftHelp@twilio.com; robmcm" manager="twilio" editor="mollybos" />
+
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # How to Make a Phone Call Using Twilio in a PHP Application on Azure 
 
@@ -85,7 +87,7 @@ In addition to making the call, **makecall.php** displays some call metadata (ex
 ![Azure Call Response Using Twilio and PHP][twilio_php_response]
 
 ## Run the application
-The next step is to deploy your application to Azure Web Sites. The following articles contain the information for creating a web site and deploying your code with Git, FTP, or WebMatrix (though not all information in each article is relevant):
+The next step is to deploy your application to Azure Websites. The following articles contain the information for creating a website and deploying your code with Git, FTP, or WebMatrix (though not all information in each article is relevant):
 
 * [Create a PHP-MySQL Azure Web Site and deploy using Git][website-git]
 * [Create a PHP-MySQL Azure Web Site and Deploy Using FTP][website-ftp]
@@ -115,8 +117,8 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twilio_api_service]: http://api.twilio.com
 [build_php_azure_app]: http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application
 [howto_twilio_voice_sms_php]: ../partner-twilio-php-how-to-use-voice-sms
-[howto_blob_storage_php]: http://msdn.microsoft.com/en-us/library/windowsazure/hh674502(v=vs.103).aspx
-[howto_sql_azure_php]: http://msdn.microsoft.com/en-us/library/windowsazure/hh674500(v=vs.103).aspx
+[howto_blob_storage_php]: http://azure.microsoft.com/en-us/documentation/articles/storage-php-how-to-use-blobs/
+[howto_sql_azure_php]: http://azure.microsoft.com/en-us/documentation/articles/sql-database-php-how-to-use/
 [twilio_call_properties]: https://www.twilio.com/docs/api/rest/call#instance-properties
 [twilio_docs_security]: http://www.twilio.com/docs/security
 [twilio_docs]: http://www.twilio.com/docs
