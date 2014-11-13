@@ -315,7 +315,7 @@ Filters can be applied to a message by using the filters property. Each
 filter is specified by a hash containing filter-specific settings. The
 following example enables the footer filter and specifies a text message
 that will be appended to the bottom of the email message.
-For this example we will use [sendgrid-php library]
+For this example we will use [sendgrid-php library].
 Use [Composer] to install library:
     
     php composer.phar require sendgrid/sendgrid 2.1.1
@@ -421,6 +421,7 @@ Now that you've learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 -   SendGrid documentation: <https://sendgrid.com/docs>
+-   SendGrid PHP library: <https://github.com/sendgrid/sendgrid-php>
 -   SendGrid special offer for Azure customers: <https://sendgrid.com/windowsazure.html>
 
   [Next Steps]: #bkmk_NextSteps
