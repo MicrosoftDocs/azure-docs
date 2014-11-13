@@ -1,6 +1,6 @@
 <properties title="Monitor and manage Azure Data Factory using Azure Preview Portal" pageTitle="Monitor and manage Azure Data Factory using Azure Preview Portal" description="Learn how to use Azure Management Portal to monitor and manage Azure data factories you have created." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Monitor Azure Data Factory using Azure Preview Portal
 
@@ -79,7 +79,31 @@ In the **TABLE** blade above, you see **Recent slices** as well as **Problem sli
 
 ![All Slices of a Table][image-data-factory-all-slices]
 
-On the **Data Slices** blade, you can use a filter to see the specific slices that you want to review.
+On the **Data Slices** blade, you can use a **filter** to see the specific slices that you want to review.
+
+![Filter Blade][image-data-factory-filter-blade]
+
+
+- Select the **From** date by clicking the **Calendar** button. The **To** date is set to 7 days after the **From** date.
+- Click **Previous**/**Next** to view slices for the previous 7 days or next 7 days.
+- For **Slice status**, select **All** to see all the slices.
+
+You can also filter slices based on slice status. The following table describes all slice statuses and their description.
+
+Slice status | Description
+------------ | ------------
+PendingExecution | Data processing has not started yet.
+InProgress | Data processing is in-progress.
+Ready | Data processing has completed and the data slice is ready.
+Failed | Execution of the run that produces the slice failed.
+Skip | Skip processing of the slice.
+Retry | Retrying the run that produces the slice.
+Timed Out | Data processing of the slice has timed out.
+PendingValidation | Data slice is waiting for validation against validation policies before being processed.
+RetryValidation | Retrying the validation of the slice.
+FailedValidation | Validation of the slice failed.
+LongRetry | A slice will be in this status if LongRetry is specified in the table JSON, and regular retries for the slice have failed.
+ValidationInProgress | Validation of the slice (based on the policies defined in the table JSON) is being performed.
 
 
 ## <a name="DataFactorySlice"></a> View details about a slice
@@ -126,6 +150,8 @@ Article | Description
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 [azure-preview-portal]: http://portal.azure.com/
+
+[image-data-factory-filter-blade]: ./media/data-factory-monitor-manage-using-management-portal/FilterBlade.png
 
 [image-data-factory-browse-everything]: ./media/data-factory-monitor-manage-using-management-portal/BrowseEverything.png
 
