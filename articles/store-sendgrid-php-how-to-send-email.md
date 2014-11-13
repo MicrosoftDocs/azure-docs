@@ -56,7 +56,7 @@ SendGrid.
 To send email using the SendGrid SMTP API, use *Swift Mailer*, a
 component-based library for sending emails from PHP applications. You
 can download the *Swift Mailer* library from
-[http://swiftmailer.org/download][] v5.3.0 (use Composer to install Swift Mailer). Sending email with the library
+[http://swiftmailer.org/download][] v5.3.0 (use [Composer] to install Swift Mailer). Sending email with the library
 involves creating instances of the
 <span class="auto-style2">Swift\_SmtpTransport</span>,
 <span class="auto-style2">Swift\_Mailer</span>, and
@@ -315,8 +315,8 @@ Filters can be applied to a message by using the filters property. Each
 filter is specified by a hash containing filter-specific settings. The
 following example enables the footer filter and specifies a text message
 that will be appended to the bottom of the email message.
-For this example we will use [https://github.com/sendgrid/sendgrid-php/tree/v2.1.1][sendgrid-php library]
-Use Composer to install library:
+For this example we will use [sendgrid-php library]
+Use [Composer] to install library:
     
     php composer.phar require sendgrid/sendgrid 2.1.1
 
@@ -439,3 +439,5 @@ these links to learn more.
   [curl function]: http://php.net/curl
   [cloud-based email service]: https://sendgrid.com/email-solutions
   [transactional email delivery]: https://sendgrid.com/transactional-email
+  [sendgrid-php library]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
+  [Composer]: https://getcomposer.org/download/
