@@ -1,4 +1,6 @@
-<properties linkid="notification-hubs-how-to-guides-howto-register-user-with-mobile-service-ios" urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="krisragh" solutions="" manager="" editor="" />
+<properties urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 
 # Register the current user for push notifications by using a mobile service
 
@@ -14,7 +16,7 @@ This topic shows you how to request push notification registration with Azure No
 
  	This property stores the device token.
 
-2. In the QSTodoService.m file, add the following **getDeviceTokenInHex** method: 
+2. In the QSTodoService.m file, add the following **getDeviceTokenInHex** method:
 
 			- (NSString*)getDeviceTokenInHex {
 			    const unsigned *tokenBytes = [[self deviceToken] bytes];
@@ -33,8 +35,8 @@ This topic shows you how to request push notification registration with Azure No
 
 	This enables push notifications in your app.
 
-4. 	In the QSAppDelegate.m file, add the following method: 
-	
+4. 	In the QSAppDelegate.m file, add the following method:
+
 			- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 			    [QSTodoService defaultService].deviceToken = deviceToken;
 			}
@@ -44,9 +46,9 @@ This topic shows you how to request push notification registration with Azure No
 	<div class="dev-callout"><b>Note</b>
 	<p>At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">Get Started with Notification Hubs</a> tutorial, you must comment-out or remove that call.</p>
 	</div>
-	
-5.  (Optional) In the QSAppDelegate.m file, add the following handler method: 
-	
+
+5.  (Optional) In the QSAppDelegate.m file, add the following handler method:
+
 			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 			    NSLog(@"%@", userInfo);
 			    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
@@ -59,9 +61,9 @@ This topic shows you how to request push notification registration with Azure No
 
 6. In the QSTodoListViewController.m file, add the **registerForNotificationsWithBackEnd** method:
 
-			- (void)registerForNotificationsWithBackEnd {    
+			- (void)registerForNotificationsWithBackEnd {
 			    NSString* json = [NSString  stringWithFormat:@"{\"platform\":\"ios\", \"deviceToken\":\"%@\"}", [self.todoService getDeviceTokenInHex] ];
-			    
+
 			    [self.todoService.client invokeAPI:@"register_notifications" data:[json dataUsingEncoding:NSUTF8StringEncoding] HTTPMethod:@"POST" parameters:nil headers:nil completion:^(id result, NSHTTPURLResponse *response, NSError *error) {
 			        if (error != nil) {
 			            NSLog(@"Registration failed: %@", error);
@@ -76,21 +78,21 @@ This topic shows you how to request push notification registration with Azure No
 	This method constructs a json payload that contains the device token. It then calls the custom API in your Mobile Service to register for notification. This method creates a device token for push notifications and sends it, along with the device type, to the custom API method that creates a registration in Notification Hubs. This custom API was defined in [Notify users with Notification Hubs].
 
 7.	Finally, in the **viewDidAppear** method, add a call to this the new **registerForNotificationsWithBackEnd** method after the user successfully authenticates, as in the following example:
-	
+
 			- (void)viewDidAppear:(BOOL)animated
 			{
 			    MSClient *client = self.todoService.client;
-			
+
 			    if (client.currentUser != nil) {
 			        return;
 			    }
-			    
+
 			    [client loginWithProvider:@"microsoftaccount" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
 			        [self refresh];
 			        [self registerForNotificationsWithBackEnd];
 			    }];
 			}
-	
+
 	<div class="dev-callout"><b>Note</b>
 	<p>This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current.</p>
 	</div>

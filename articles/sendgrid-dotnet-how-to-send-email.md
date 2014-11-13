@@ -1,10 +1,14 @@
-<properties linkid="dev-net-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." metaCanonical="" services="" documentationCenter=".NET" title="How to Send Email Using SendGrid with Azure" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." metaCanonical="" services="" documentationCenter=".NET" title="How to Send Email Using SendGrid with Azure" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="wpickett" editor="erikre" />
+
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/24/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
 
 
 
 
 # How to Send Email Using SendGrid with Azure
+
+Last Update: October 24, 2014
 
 This guide demonstrates how to perform common programming tasks with the
 SendGrid email service on Azure. The samples are written in C\#
@@ -25,7 +29,7 @@ filters**. For more information on SendGrid and sending email, see the
 [How to: Use additional SendGrid services][]   
 [Next steps][]
 
-<h2><a name="whatis"></a><span  class="short-header">What is the SendGrid Email Service?</span>What is the SendGrid Email Service?</h2>
+<h2><a name="whatis"></a>What is the SendGrid Email Service?</h2>
 
 SendGrid is a [cloud-based email service] that provides reliable
 [transactional email delivery], scalability, and real-time analytics along with flexible APIs
@@ -40,15 +44,15 @@ include:
 -   Generating reports to help identify trends.
 -   Forwarding customer inquiries.
 
-For more information, see [http://sendgrid.com](http://sendgrid.com).
+For more information, see [https://sendgrid.com](https://sendgrid.com).
 
-<h2><a name="createaccount"></a><span  class="short-header">Create a SendGrid account</span>Create a SendGrid account</h2>
+<h2><a name="createaccount"></a>Create a SendGrid account</h2>
 
 [WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-<h2><a name="reference"></a><span  class="short-header">Reference the SendGrid .NET class library</span>Reference the SendGrid .NET class library</h2>
+<h2><a name="reference"></a>Reference the SendGrid .NET class library</h2>
 
-The SendGrid NuGet package is the easiest way to get the SendGrid API
+The [SendGrid NuGet package](https://www.nuget.org/packages/Sendgrid) is the easiest way to get the SendGrid API
 and to configure your application with all dependencies. NuGet is a
 Visual Studio extension included with Microsoft Visual Studio 2012 that makes it easy to install and update
 libraries and tools. 
@@ -88,12 +92,12 @@ in which you want to programmatically access the SendGrid email service.
 that are included because they include types you will commonly use with
 the SendGrid APIs.
 
+    using System;
     using System.Net;
     using System.Net.Mail;
-    using SendGridMail;
-    using SendGridMail.Transport;
+    using SendGrid;
 
-<h2><a name="createemail"></a><span  class="short-header">How to: Create an email</span>How to: Create an email</h2>
+<h2><a name="createemail"></a>How to: Create an email</h2>
 
 Use the static **SendGrid.GetInstance** method to create an email
 message that is of type **SendGrid**. Once the message is created, you
@@ -104,110 +108,74 @@ email.
 The following example demonstrates how to create a fully populated email
 object:
 
-    // Setup the email properties.
-    var from = new MailAddress("john@contoso.com");
-    var to   = new MailAddress[] { new MailAddress("jeff@contoso.com") };
-    var cc   = new MailAddress[] { new MailAddress("anna@contoso.com") };
-    var bcc  = new MailAddress[] { new MailAddress("peter@contoso.com") };
-    var subject = "Testing the SendGrid Library";
-    var html    = "<p>Hello World!</p>";
-    var text = "Hello World plain text!";
-    var transport = SendGridMail.TransportType.SMTP;
-
-    // Create an email, passing in the the eight properties as arguments.
-    SendGrid myMessage = SendGrid.GetInstance(from, to, cc, bcc, subject, html, text, transport);
-
-The following example demonstrates how to create an empty email object:
-
     // Create the email object first, then add the properties.
-    SendGrid myMessage = SendGrid.GetInstance();
-     
+    var myMessage = new SendGridMessage();
+
     // Add the message properties.
-    MailAddress sender = new MailAddress(@"John Smith <john@contoso.com>");
-    myMessage.From = sender;
-     
+    myMessage.From = new MailAddress("john@example.com");
+
     // Add multiple addresses to the To field.
     List<String> recipients = new List<String>
     {
-        @"Jeff Smith <jeff@contoso.com>",
-        @"Anna Lidman <anna@contoso.com>",
-        @"Peter Saddow <peter@contoso.com>"
+        @"Jeff Smith <jeff@example.com>",
+        @"Anna Lidman <anna@example.com>",
+        @"Peter Saddow <peter@example.com>"
     };
-     
-    foreach (string recipient in recipients)
-    {
-        myMessage.AddTo(recipient);
-    }
-     
-    // Add a message body in HTML format.
-    myMessage.Html = "<p>Hello World!</p>";
 
-    // Add the subject.
+    myMessage.AddTo(recipients);
+
     myMessage.Subject = "Testing the SendGrid Library";
+
+    //Add the HTML and Text bodies
+    myMessage.Html = "<p>Hello World!</p>";
+    myMessage.Text = "Hello World plain text!";
 
 For more information on all properties and methods supported by the
 **SendGrid** type, see [sendgrid-csharp][] on GitHub.
 
-<h2><a name="sendemail"></a><span  class="short-header">How to: Send an email</span>How to: Send an email</h2>
+<h2><a name="sendemail"></a>How to: Send an email</h2>
 
-After creating an email message, you can send it using either SMTP or
-the Web API provided by SendGrid. For details about the benefits and
-drawbacks of each API, see [SMTP vs. Web API][] in the SendGrid
-documentation.
+After creating an email message, you can send it using
+the Web API provided by SendGrid. Alternatively, you may [use .NET's built in library](https://sendgrid.com/docs/Code_Examples/csharp.html).
 
-Sending email with either protocol requires that you supply your
+Sending email requires that you supply your
 SendGrid account credentials (username and password). The following code
 demonstrates how to wrap your credentials in a **NetworkCredential**
 object:
-
-    // Create network credentials to access your SendGrid account.
+    
+    // Create network credentials to access your SendGrid account
     var username = "your_sendgrid_username";
     var pswd = "your_sendgrid_password";
 
+    /* Alternatively, you may store these credentials via your Azure portal
+       by clicking CONFIGURE and adding the key/value pairs under "app settings".
+       Then, you may access them as follows: 
+       var username = System.Environment.GetEnvironmentVariable("SENDGRID_USER"); 
+       var pswd = System.Environment.GetEnvironmentVariable("SENDGRID_PASS");
+       assuming you named your keys SENDGRID_USER and SENDGRID_PASS */
+
     var credentials = new NetworkCredential(username, pswd);
 
-To send an email message, use the **Deliver** method on either the
-**SMTP** class, which uses the SMTP protocol, or the **REST** transport
-class, which calls the SendGrid Web API. The following examples show how
-to send a message using both SMTP and the Web API.
-
-### SMTP
+The following examples show how to send a message using the Web API.
 
     // Create the email object first, then add the properties.
-    SendGrid myMessage = SendGrid.GetInstance();
-    myMessage.AddTo("anna@contoso.com");
-    myMessage.From = new MailAddress("john@contoso.com", "John Smith");
+    SendGridMessage myMessage = new SendGridMessage();
+    myMessage.AddTo("anna@example.com");
+    myMessage.From = new MailAddress("john@example.com", "John Smith");
     myMessage.Subject = "Testing the SendGrid Library";
     myMessage.Text = "Hello World!";
 
     // Create credentials, specifying your user name and password.
     var credentials = new NetworkCredential("username", "password");
 
-    // Create an SMTP transport for sending email.
-    var transportSMTP = SMTP.GetInstance(credentials);
+    // Create an Web transport for sending email.
+    var transportWeb = new Web(credentials);
 
     // Send the email.
-    transportSMTP.Deliver(myMessage);
+    // You can also use the **DeliverAsync** method, which returns an awaitable task.
+    transportWeb.Deliver(myMessage);
 
-### Web API
-
-    // Create the email object first, then add the properties.
-    SendGrid myMessage = SendGrid.GetInstance();
-    myMessage.AddTo("anna@contoso.com");
-    myMessage.From = new MailAddress("john@contoso.com", "John Smith");
-    myMessage.Subject = "Testing the SendGrid Library";
-    myMessage.Text = "Hello World!";
-
-    // Create credentials, specifying your user name and password.
-    var credentials = new NetworkCredential("username", "password");
-
-    // Create a REST transport for sending email.
-    var transportREST = Web.GetInstance(credentials);
-
-    // Send the email.
-    transportREST.Deliver(myMessage);
-
-<h2><a name="addattachment"></a><span  class="short-header">How to: Add an attachment</span>How to: Add an attachment</h2>
+<h2><a name="addattachment"></a>How to: Add an attachment</h2>
 
 Attachments can be added to a message by calling the **AddAttachment**
 method and specifying the name and path of the file you want to attach.
@@ -215,15 +183,28 @@ You can include multiple attachments by calling this method once for
 each file you wish to attach. The following example demonstrates adding
 an attachment to a message:
 
-    SendGrid myMessage = SendGrid.GetInstance();
-    myMessage.AddTo("anna@contoso.com");
-    myMessage.From = new MailAddress("john@contoso.com", "John Smith");
+    SendGridMessage myMessage = new SendGridMessage();
+    myMessage.AddTo("anna@example.com");
+    myMessage.From = new MailAddress("john@example.com", "John Smith");
     myMessage.Subject = "Testing the SendGrid Library";
     myMessage.Text = "Hello World!";
 
     myMessage.AddAttachment(@"C:\file1.txt");
+    
+You can also add attachments from the data's **Stream**. It can be done by calling the same method as above, **AddAttachment**, but by passing in the Stream of the data, and the filename you want it to show as in the message.
 
-<h2><a name="usefilters"></a><span  class="short-header">How to: Use filters to enable footers, tracking, and analytics</span>How to: Use filters to enable footers, tracking, and analytics</h2>
+    SendGridMessage myMessage = new SendGridMessage();
+    myMessage.AddTo("anna@example.com");
+    myMessage.From = new MailAddress("john@example.com", "John Smith");
+    myMessage.Subject = "Testing the SendGrid Library";
+    myMessage.Text = "Hello World!";
+
+    using (var attachmentFileStream = new FileStream(@"C:\file.txt", FileMode.Open))
+    {
+        myMessage.AddAttachment(attachmentFileStream, "My Cool File.txt");
+    }
+
+<h2><a name="usefilters"></a>How to: Use filters to enable footers, tracking, and analytics</h2>
 
 SendGrid provides additional email functionality through the use of
 filters. These are settings that can be added to an email message to
@@ -232,9 +213,7 @@ subscription tracking, and so on. For a full list of filters, see
 [Filter Settings][].
 
 Filters can be applied to **SendGrid** email messages using methods
-implemented as part of the **SendGrid** class. Before you can enable
-filters on an email message, you must first initialize the list of
-available filters by calling the **InitalizeFilters** method.
+implemented as part of the **SendGrid** class.
 
 The following examples demonstrate the footer and click tracking
 filters:
@@ -242,45 +221,43 @@ filters:
 ### Footer
 
     // Create the email object first, then add the properties.
-    SendGrid myMessage = SendGrid.GetInstance();
-    myMessage.AddTo("anna@contoso.com");
-    myMessage.From = new MailAddress("john@contoso.com", "John Smith");
+    SendGridMessage myMessage = new SendGridMessage();
+    myMessage.AddTo("anna@example.com");
+    myMessage.From = new MailAddress("john@example.com", "John Smith");
     myMessage.Subject = "Testing the SendGrid Library";
     myMessage.Text = "Hello World!";
 
-    myMessage.InitializeFilters();
     // Add a footer to the message.
     myMessage.EnableFooter("PLAIN TEXT FOOTER", "<p><em>HTML FOOTER</em></p>");
 
 ### Click tracking
 
     // Create the email object first, then add the properties.
-    SendGrid myMessage = SendGrid.GetInstance();
-    myMessage.AddTo("anna@contoso.com");
-    myMessage.From = new MailAddress("john@contoso.com", "John Smith");
+    SendGridMessage myMessage = new SendGridMessage();
+    myMessage.AddTo("anna@example.com");
+    myMessage.From = new MailAddress("john@example.com", "John Smith");
     myMessage.Subject = "Testing the SendGrid Library";
-    myMessage.Html = "<p><a href=\"http://www.windowsazure.com\">Hello World Link!</a></p>";
+    myMessage.Html = "<p><a href=\"http://www.example.com\">Hello World Link!</a></p>";
     myMessage.Text = "Hello World!";
-
-    myMessage.InitializeFilters();
+    
     // true indicates that links in plain text portions of the email 
     // should also be overwritten for link tracking purposes. 
     myMessage.EnableClickTracking(true);
 
-<h2><a name="useservices"></a><span  class="short-header">How to: Use additional SendGrid services</span>How to: Use additional SendGrid services</h2>
+<h2><a name="useservices"></a>How to: Use additional SendGrid services</h2>
 
 SendGrid offers web-based APIs that you can use to leverage additional
 SendGrid functionality from your Azure application. For full
 details, see the [SendGrid API documentation][].
 
-<h2><a name="nextsteps"></a><span  class="short-header">Next steps</span>Next steps</h2>
+<h2><a name="nextsteps"></a>Next steps</h2>
 
 Now that you've learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 * SendGrid C\# library repo: [sendgrid-csharp][]
-*   SendGrid API documentation: <http://docs.sendgrid.com/documentation/api/>
-*   SendGrid special offer for Azure customers: [http://sendgrid.com](http://sendgrid.com)
+*   SendGrid API documentation: <https://sendgrid.com/docs>
+*   SendGrid special offer for Azure customers: [https://sendgrid.com](https://sendgrid.com)
 
   [Next steps]: #nextsteps
   [What is the SendGrid Email Service?]: #whatis
@@ -293,15 +270,15 @@ these links to learn more.
   [How to: Use Additional SendGrid Services]: #useservices
   
   
-  [special offer]: http://www.sendgrid.com/azure.html
+  [special offer]: https://www.sendgrid.com/windowsazure.html
   
   
   
   [SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
-  [SMTP vs. Web API]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
-  [Filter Settings]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/
-  [SendGrid API documentation]: http://docs.sendgrid.com/documentation/api/
+  [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
+  [Filter Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [SendGrid API documentation]: https://sendgrid.com/docs
   
-  [cloud-based email service]: http://sendgrid.com/solutions
-  [transactional email delivery]: http://sendgrid.com/transactional-email
+  [cloud-based email service]: https://sendgrid.com/email-solutions
+  [transactional email delivery]: https://sendgrid.com/transactional-email

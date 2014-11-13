@@ -1,4 +1,6 @@
-<properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="juliako" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
 
 
@@ -21,12 +23,13 @@ This tutorial walks you through these basic steps:
 The following prerequisites are required for the walkthrough and for development based on the Azure Media Services SDK.
 
 - A Media Services account in a new or existing Azure subscription. For details, see [How to Create a Media Services Account](http://go.microsoft.com/fwlink/?LinkId=256662).
-- Operating Systems: Windows 7, Windows 2008 R2, or Windows 8.
+- Operating Systems: Windows 7, Windows 2008 R2, Windows 8 or later.
 - .NET Framework 4.5 or .NET Framework 4.
-- Visual Studio 2012 or Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).
+- Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express), or later.
 - Install **Azure SDK for .NET.**, **Azure Media Services SDK for .NET**, and **WCF Data Services 5.0 for OData V3 libraries** and add references to your project using the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package. The following section demonstrates how to install and add these references.
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.</p></div>
+>[WACOM.NOTE]
+> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
 
 <h2><a id="Step1"></a>Setting up your project</h2>
 
@@ -43,7 +46,7 @@ The following prerequisites are required for the walkthrough and for development
 4. Add an *appSettings* section to the **app.config** file, and set the values for your Azure Media Services account name and account key. You obtained the Media Services account name and account key during the account setup process. Add these values to the value attribute for each setting in the app.config file in the Visual Studio project.
 
 	> [WACOM.NOTE]
-	>In Visual Studio 2012, the App.config file is added by default. In Visual Studio 2010, you have to manually add the Application Configuration file.
+	> In Visual Studio 2012, the App.config file is added by default. In Visual Studio 2010, you have to manually add the Application Configuration file.
 
 	<pre><code>
 	&lt;configuration&gt;
@@ -316,15 +319,15 @@ CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
 Add the following helper methods to the class. These are required to support the <strong>CreateEncodingJob</strong> method. Following is a summary of the helper methods.
 <ul>
 <li>
-The <strong>GetLatestMediaProcessorByName</strong> method returns an appropriate media processor to handle an encoding, encryption, or other related processing task. You create a media processor using the appropriate string name of the processor you want to create. The possible strings that can be passed into the method for the mediaProcessor parameter are: <strong>Azure Media Encoder</strong>, <strong>Azure Media Packager</strong>, <strong>Azure Media Encryptor</strong>, <strong>Storage Decryption</strong>.
+The <strong>GetLatestMediaProcessorByName</strong> method returns an appropriate media processor to handle an encoding, encryption, or other related processing task. You create a media processor using the appropriate string name of the processor you want to create. The possible strings that can be passed into the method for the mediaProcessor parameter are: <strong>Azure Media Encoder</strong>, <strong>Windows Azure Media Packager</strong>, <strong>Windows Azure Media Encryptor</strong>, <strong>Storage Decryption</strong>.
 <pre><code>
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 {
     // The possible strings that can be passed into the 
     // method for the mediaProcessor parameter:
     //   Azure Media Encoder
-    //   Azure Media Packager
-    //   Azure Media Encryptor
+    //   Windows Azure Media Packager
+    //   Windows Azure Media Encryptor
     //   Storage Decryption
 
     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
@@ -662,15 +665,13 @@ File download path:  C:\supportFiles\outputfiles\interview2_metadata.xml
 
 5. The .mp4 media file and the _metadata.xml file are downloaded into the outputFiles folder.
 
-<div class="dev-callout"> 
-<strong>Note</strong> 
-<p>In the Media Services object model, an asset is a Media Services content collection object that represents one to many files. The locator path provides an Azure blob URL which is the base path to this asset in Azure Storage. To access specific files within the asset, add a file name to the base locator path.</p> 
-</div>
+>[WACOM.NOTE]
+> In the Media Services object model, an asset is a Media Services content collection object that represents one to many files. The locator path provides an Azure blob URL which is the base path to this asset in Azure Storage. To access specific files within the asset, add a file name to the base locator path.
 
 <h2>Next Steps</h2>
 This walkthrough has demonstrated a sequence of programming tasks to build a simple Media Services application. You learned the fundamental Media Services programming tasks including getting the server context, creating assets, encoding assets, and downloading or accessing assets on the server. For next steps and more advanced development tasks, see the following:
 
-- <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/">How to Use Media Services</a>
+- <a href="http://azure.microsoft.com/en-us/develop/media-services/resources/">How to Use Media Services</a>
 - <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx">Building Applications with the Media Services REST API</a>
 
 

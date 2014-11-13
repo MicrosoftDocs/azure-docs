@@ -1,4 +1,6 @@
-<properties linkid="manage-linux-other-resources-partners" urlDisplayName="Partner solutions" pageTitle="Linux partners for Azure" metaKeywords="" description="Learn about the endorsed Linux images available for Azure virtual machines, including Ubuntu, OpenLogic, and SUSE." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Partner solutions for Linux in Azure" authors="" />
+<properties urlDisplayName="Partner solutions" pageTitle="Linux partners for Azure" metaKeywords="" description="Learn about the endorsed Linux images available for Azure virtual machines, including Ubuntu, OpenLogic, and SUSE." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Partner solutions for Linux in Azure" authors="kathydav, szarkos" manager="timlt" />
+
+<tags ms.service="cloud-services" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="04/17/2014" ms.author="kathydav" />
 
 
 #Partner solutions for Linux in Azure
@@ -12,7 +14,7 @@ Contact the partners listed on this page for assistance in delivering your Linux
 
 [http://bitnami.org/azure/get-started](http://bitnami.org/azure/get-started)
 
-BitNami provides fully configured images of popular web applications that can be deployed to Azure in one click. The BitNami WebPack and DevPack images for Azure provide fully configured and ready-to-run environments for web and application developers, free of charge. BitNami WebPack bundles Wordpress, Drupal and Joomla! to give developers a choice of the best platforms for developing web sites and blogs. BitNami DevPack provides a development environment complete with Ruby on Rails, PHP, Django and Java language runtimes and all of their dependencies, everything developers need to build web applications in the cloud.
+BitNami provides fully configured images of popular web applications that can be deployed to Azure in one click. The BitNami WebPack and DevPack images for Azure provide fully configured and ready-to-run environments for web and application developers, free of charge. BitNami WebPack bundles Wordpress, Drupal and Joomla! to give developers a choice of the best platforms for developing websites and blogs. BitNami DevPack provides a development environment complete with Ruby on Rails, PHP, Django and Java language runtimes and all of their dependencies, everything developers need to build web applications in the cloud.
 
 
 ##Opscode Chef

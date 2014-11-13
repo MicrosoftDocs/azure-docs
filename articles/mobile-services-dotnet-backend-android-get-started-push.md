@@ -1,13 +1,10 @@
-<properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-push-android" urlDisplayName="Get Started with Push" pageTitle="Get started with push (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android .Net app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Push" pageTitle="Get started with push (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android .Net app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/26/2014" ms.author="ricksal" />
 
-# Get started with push notifications in Mobile Services
+# Add push notifications to your Mobile Services app
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title="Android" class="current">Android</a>
-<!---<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a>-->
-</div>
-
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/"  title="JavaScript backend">JavaScript backend</a></div>
+[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 This topic shows how to use Azure Mobile Services to send push notifications to your Android app. In this tutorial you add push notifications using Google Cloud Messaging (GCM) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted. 
 
@@ -16,7 +13,7 @@ This tutorial walks you through these steps:
 1. [Enable Google Cloud Messaging](#register)
 2. [Configure mobile service to send push requests](#configure)
 5. [Update the server to send push notifications](#update-server)
-7. [Add push notifications to your app](#update)
+7. [Add push notifications to your app](#update-app)
 8. [Enable push notifications for local testing](#local-testing)
 9. [Test the app against the published mobile service]
 
@@ -49,11 +46,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 Your mobile service is now configured to work with GCM and Notification Hubs.
 
 
-<h2><a name="download-the-service"></a><span class="short-header">Download the service</span>Download the service to your local computer</h2>
+<h2><a name="download-the-service"></a>Download the service to your local computer</h2>
 
 [WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
-<h2><a name="test-the-service"></a><span class="short-header">Test the service</span>Test the mobile service</h2>
+<h2><a name="test-the-service"></a>Test the mobile service</h2>
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
@@ -73,7 +70,7 @@ Your mobile service is now configured to work with GCM and Notification Hubs.
 
             Dictionary<string, string> data = new Dictionary<string, string>()
             {
-                { "message", "Hello from Mobile Services"}
+                { "message", item.Text}
             };
             GooglePushMessage message = new GooglePushMessage(data, TimeSpan.FromHours(1));
 
@@ -92,7 +89,7 @@ Your mobile service is now configured to work with GCM and Notification Hubs.
     This code will send a push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
 
 
-<h2><a name="publish-the-service"></a><span class="short-header">Publish the service</span>Publish the mobile service to Azure</h2>
+<h2><a name="publish-the-service"></a>Publish the mobile service to Azure</h2>
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -116,7 +113,7 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 [WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
-<h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against the published mobile service</h2>
+<h2><a name="test-app"></a>Test the app against the published mobile service</h2>
 
 You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
 
@@ -176,6 +173,9 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 * [What are Notification Hubs?]
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
+
+* [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>Get guidance troubleshooting and debugging Notification Hubs solutions. 
 
 * [How to use the Android client library for Mobile Services]
   <br/>Learn more about how to use Mobile Services with Android.  

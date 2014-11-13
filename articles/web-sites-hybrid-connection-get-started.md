@@ -1,10 +1,12 @@
-<properties linkid="web-sites-hybrid-connection" title="Hybrid Connection: Connect an Azure Web Site to an On-Premises Resource" pageTitle="Hybrid Connection: Connect an Azure Web Site to an On-Premises Resource" description="Create a connection between an Azure web site and an on-premises resource that uses a static TCP port" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
+<properties title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" description="Create a connection between an Azure website and an on-premises resource that uses a static TCP port" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-#Connect an Azure web site to an on-premises resource using Hybrid Connections
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
-You can connect a web site on Microsoft Azure to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. This article shows you how to create a hybrid connection between an Azure web site and an on-premises SQL Server database.
+#Connect an Azure website to an on-premises resource using Hybrid Connections
 
-> [WACOM.NOTE] The Web Sites portion of the Hybrid Connections feature is available only in the [Azure Preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+You can connect a website on Microsoft Azure to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. This article shows you how to create a hybrid connection between an Azure website and an on-premises SQL Server database.
+
+> [WACOM.NOTE] The Websites portion of the Hybrid Connections feature is available only in the [Azure Preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ##Prerequisites
 - An Azure subscription. For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/). 

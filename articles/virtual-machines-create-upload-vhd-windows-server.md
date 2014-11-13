@@ -1,9 +1,11 @@
-<properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Azure" metaKeywords="Azure VHD, uploading VHD" description="Learn how to create and upload a virtual hard disk (VHD) in Azure that has the Windows Server operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Azure" metaKeywords="Azure VHD, uploading VHD" description="Learn to create and upload a virtual hard disk (VHD) in Azure that has the Windows Server operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Create and upload a Windows Server VHD to Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="kathydav" />
 
 
 #Create and upload a Windows Server VHD to Azure#
 
-A virtual machine in Microsoft Azure runs the operating system that you choose when you create the virtual machine. Microsoft Azure stores a virtual machine's operating system in a virtual hard disk in VHD format (a .vhd file). A VHD of an operating system that has been prepared for duplication is called an image. This article shows you how to create your own image by uploading a .vhd file with an operating system you've installed and generalized. For more information about disks and images in Microsoft Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
+This article shows you how to upload a virtual hard disk (VHD) with an operating system so you can use it as an image to create virtual machines based on that image. For more information about disks and images in Microsoft Azure, see [About Disks and Images in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
 
 **Note**: When you create a virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-windows-tutorial/).
 
@@ -130,13 +132,16 @@ A storage account represents the highest level of the namespace for accessing th
 
 ## <a id="PrepAzure"> </a>Step 3: Prepare the connection to Microsoft Azure ##
 
-Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Microsoft Azure. You can use the Microsoft Azure Active Directory or the certificate method for doing this.
+Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Microsoft Azure. You can use the Microsoft Azure Active Directory method or the certificate method to do this.
 
 <h3>Use the Microsoft Azure AD method</h3>
 
 1. Open the Microsoft Azure PowerShell console, as instructed in [How to: Install Microsoft Azure PowerShell](#Install).
 
-2. Type the following command:    `Add-AzureAccount`. A window opens up where you can sign into Azure with your Microsoft account.
+2. Type the following command:  
+	`Add-AzureAccount`
+	
+	This command opens a sign-in window so you can sign with your work or school account.
 
 	![PowerShell Window](./media/virtual-machines-create-upload-vhd-windows-server/add_azureaccount.png)
 

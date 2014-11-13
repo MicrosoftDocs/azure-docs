@@ -1,4 +1,7 @@
-<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="larryf" solutions="" manager="" editor="" />
+<properties urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on MongoLab - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com" solutions="" manager="mongolab; partners@mongolab.com" editor="" />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="chris@mongolab.com" />
+
 
 
 
@@ -11,15 +14,15 @@
 Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you will:
 
 1. [Provision the database][provision] - The Azure Store [MongoLab](http://mongolab.com) add-on will provide you with a MongoDB database hosted in the Azure cloud and managed by MongoLab's cloud database platform.
-1. [Create the app][create] - It'll be a simple Node.js app for maintaining a list of tasks.
-1. [Deploy the app][deploy] - By tying a few configuration hooks together, we'll make pushing our code a breeze.
-1. [Manage the database][manage] - Finally, we'll show you MongoLab's web-based database management portal where you can search, visualize, and modify data with ease.
+2. [Create the app][create] - It'll be a simple Node.js app for maintaining a list of tasks.
+3. [Deploy the app][deploy] - By tying a few configuration hooks together, we'll make pushing our code a breeze.
+4. [Manage the database][manage] - Finally, we'll show you MongoLab's web-based database management portal where you can search, visualize, and modify data with ease.
 
 At any time throughout this tutorial, feel free to kick off an email to [support@mongolab.com](mailto:support@mongolab.com) if you have any questions.
 
 Before continuing, ensure that you have the following installed:
 
-* [Node.js] version 0.8.14+
+* [Node.js] version 0.10.29+
 
 * [Git]
 
@@ -30,20 +33,20 @@ If you have some familiarity with the Azure Store, use this section to get a qui
  
 1. Open the Azure Store.  
 ![Store][button-store]
-1. Click the MongoLab Add-On.  
+2. Click the MongoLab Add-On.  
 ![MongoLab][entry-mongolab]
-1. Click your MongoLab Add-On in the Add-Ons list, and click **Connection Info**.  
+3. Click your MongoLab Add-On in the Add-Ons list, and click **Connection Info**.  
 ![ConnectionInfoButton][button-connectioninfo]  
-1. Copy the MONGOLAB_URI to your clipboard.  
+4. Copy the MONGOLAB_URI to your clipboard.  
 ![ConnectionInfoScreen][screen-connectioninfo]  
 **This URI contains your database user name and password.  Treat it as sensitive information and do not share it.**
-1. Add the value to the Connection Strings list in the Configuration menu of your Azure Web application:  
+5. Add the value to the Connection Strings list in the Configuration menu of your Azure Web application:  
 ![WebSiteConnectionStrings][focus-website-connectinfo]
-1. For **Name**, enter MONGOLAB\_URI.
-1. For **Value**, paste the connection string we obtained in the previous section.
-1. Select **Custom** in the Type drop-down (instead of the default **SQLAzure**).
-1. Run `npm install mongoose` to obtain M		ongoose, a MongoDB node driver.
-1. Set up a hook in your code to obtain your MongoLab connection URI from an environment variable and connect:
+6. For **Name**, enter MONGOLAB\_URI.
+7. For **Value**, paste the connection string we obtained in the previous section.
+8. Select **Custom** in the Type drop-down (instead of the default **SQLAzure**).
+9. Run `npm install mongoose` to obtain Mongoose, a MongoDB node driver.
+10. Set up a hook in your code to obtain your MongoLab connection URI from an environment variable and connect:
 
         var mongoose = require('mongoose');  
  		...
@@ -76,41 +79,66 @@ In this section you will set up your development environment and lay the code fo
 
     The output of this command should appear similar to the following:
 
-		express@3.3.4 C:\Users\larryfr\AppData\Roaming\npm\node_modules\express
-		├── methods@0.0.1
-		├── fresh@0.1.0
-		├── cookie-signature@1.0.1
-		├── range-parser@0.0.4
-		├── buffer-crc32@0.2.1
-		├── cookie@0.1.0
-		├── debug@0.7.2
-		├── mkdirp@0.3.5
-		├── commander@1.2.0 (keypress@0.1.0)
-		├── send@0.1.3 (mime@1.2.9)
-		└── connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14)
+		express@4.9.1 C:\Users\mongolab\AppData\Roaming\npm\node_modules\express
+		├── merge-descriptors@0.0.2
+		├── utils-merge@1.0.0
+		├── fresh@0.2.4
+		├── cookie@0.1.2
+		├── range-parser@1.0.2
+		├── escape-html@1.0.1
+		├── cookie-signature@1.0.5
+		├── finalhandler@0.2.0
+		├── vary@1.0.0
+		├── media-typer@0.3.0
+		├── parseurl@1.3.0
+		├── serve-static@1.6.2
+		├── methods@1.1.0
+		├── path-to-regexp@0.1.3
+		├── depd@0.4.5
+		├── qs@2.2.3
+		├── on-finished@2.1.0 (ee-first@1.0.5)
+		├── debug@2.0.0 (ms@0.6.2)
+		├── proxy-addr@1.0.1 (ipaddr.js@0.1.2)
+		├── etag@1.3.1 (crc@3.0.0)
+		├── send@0.9.2 (destroy@1.0.3, ms@0.6.2, mime@1.2.11)
+		├── accepts@1.1.0 (negotiator@0.4.7, mime-types@2.0.1)
+		└── type-is@1.5.1 (mime-types@2.0.1)
  
 3. To create the scaffolding which will be used for this application, use the **express** command:
 
     express
 
-	The output of this command should appear similar to the following:
+    Note that this tutorial is using Express v4.x.x. If you already have the Express 3 app generator installed on your system, you should first uninstall it:
+
+    npm uninstall -g express
+
+    Now install the new generator for version 4.x.x:
+
+    npm install -g express-generator
+
+	Once the **express** command runs, the output should appear similar to the following:
 
 		create : .
-   		create : ./package.json
-   		create : ./app.js
-   		create : ./public
-   		create : ./public/javascripts
-   		create : ./public/images
-   		create : ./public/stylesheets
-   		create : ./public/stylesheets/style.css
-   		create : ./routes
-   		create : ./routes/index.js
-   		create : ./views
-   		create : ./views/layout.jade
-   		create : ./views/index.jade
-		
-   		dont forget to install dependencies:
-   		$ cd . && npm install
+		create : ./package.json
+		create : ./app.js
+		create : ./public
+		create : ./public/javascripts
+		create : ./public/images
+		create : ./public/stylesheets
+		create : ./public/stylesheets/style.css
+		create : ./routes
+		create : ./routes/index.js
+		create : ./routes/users.js
+		create : ./views
+		create : ./views/index.jade
+		create : ./views/layout.jade
+		create : ./views/error.jade
+		create : ./bin
+		create : ./bin/www
+
+		install dependencies:
+		$ cd . && npm install
+
 
 	After this command completes, you should have several new directories and files in the **tasklist** directory.
 	
@@ -120,29 +148,68 @@ In this section you will set up your development environment and lay the code fo
 
     The output of this command should appear similar to the following:
 
-		express@3.3.4 node_modules\express
-		├── methods@0.0.1
-		├── fresh@0.1.0
-		├── range-parser@0.0.4
-		├── cookie-signature@1.0.1
-		├── buffer-crc32@0.2.1
-		├── cookie@0.1.0
-		├── debug@0.7.2
-		├── mkdirp@0.3.5
-		├── commander@1.2.0 (keypress@0.1.0)
-		├── send@0.1.3 (mime@1.2.9)
-		└── connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14)
+		cookie-parser@1.3.3 node_modules/cookie-parser
+		├── cookie@0.1.2
+		└── cookie-signature@1.0.5
 
-		jade@0.33.0 node_modules\jade
-		├── character-parser@1.0.2
-		├── mkdirp@0.3.5
-		├── commander@1.2.0 (keypress@0.1.0)
-		├── with@1.1.0 (uglify-js@2.3.6)
-		├── constantinople@1.0.1 (uglify-js@2.3.6)
-		├── transformers@2.0.1 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
-		└── monocle@0.1.48 (readdirp@0.2.5)
+		debug@2.0.0 node_modules/debug
+		└── ms@0.6.2
 
-	The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to an Azure Web Site, this file will be used to determine which modules need to be installed on Azure to support your application.
+		serve-favicon@2.1.4 node_modules/serve-favicon
+		├── ms@0.6.2
+		├── fresh@0.2.4
+		└── etag@1.3.1 (crc@3.0.0)
+
+		morgan@1.3.1 node_modules/morgan
+		├── basic-auth@1.0.0
+		├── depd@0.4.5
+		└── on-finished@2.1.0 (ee-first@1.0.5)
+
+		express@4.9.1 node_modules/express
+		├── utils-merge@1.0.0
+		├── merge-descriptors@0.0.2
+		├── cookie@0.1.2
+		├── fresh@0.2.4
+		├── escape-html@1.0.1
+		├── range-parser@1.0.2
+		├── cookie-signature@1.0.5
+		├── finalhandler@0.2.0
+		├── vary@1.0.0
+		├── media-typer@0.3.0
+		├── serve-static@1.6.2
+		├── parseurl@1.3.0
+		├── methods@1.1.0
+		├── path-to-regexp@0.1.3
+		├── depd@0.4.5
+		├── qs@2.2.3
+		├── etag@1.3.1 (crc@3.0.0)
+		├── on-finished@2.1.0 (ee-first@1.0.5)
+		├── proxy-addr@1.0.1 (ipaddr.js@0.1.2)
+		├── send@0.9.2 (destroy@1.0.3, ms@0.6.2, mime@1.2.11)
+		├── type-is@1.5.1 (mime-types@2.0.1)
+		└── accepts@1.1.0 (negotiator@0.4.7, mime-types@2.0.1)
+
+		body-parser@1.8.2 node_modules/body-parser
+		├── media-typer@0.3.0
+		├── raw-body@1.3.0
+		├── bytes@1.0.0
+		├── depd@0.4.5
+		├── on-finished@2.1.0 (ee-first@1.0.5)
+		├── qs@2.2.3
+		├── iconv-lite@0.4.4
+		└── type-is@1.5.1 (mime-types@2.0.1)
+
+		jade@1.6.0 node_modules/jade
+		├── character-parser@1.2.0
+		├── commander@2.1.0
+		├── void-elements@1.0.0
+		├── mkdirp@0.5.0 (minimist@0.0.8)
+		├── monocle@1.1.51 (readdirp@0.2.5)
+		├── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
+		├── constantinople@2.0.1 (uglify-js@2.4.15)
+		└── with@3.0.1 (uglify-js@2.4.15)
+
+	The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to an Azure Website, this file will be used to determine which modules need to be installed on Azure to support your application.
 
 5. Next, enter the following command to install the Mongoose module locally as well as to save an entry for it to the **package.json** file:
 
@@ -150,17 +217,16 @@ In this section you will set up your development environment and lay the code fo
 
 	The output of this command should appear similar to the following:
 
-		mongoose@3.6.15 node_modules\mongoose
+		mongoose@3.8.16 node_modules/mongoose
 		├── regexp-clone@0.0.1
-		├── sliced@0.0.3
 		├── muri@0.3.1
+		├── sliced@0.0.5
 		├── hooks@0.2.1
 		├── mpath@0.1.1
+		├── mpromise@0.4.3
 		├── ms@0.1.0
-		├── mpromise@0.2.1 (sliced@0.0.4)
-		└── mongodb@1.3.11 (bson@0.1.9, kerberos@0.0.3)
-
-    You can safely ignore any message about installing the C++ bson parser.
+		├── mquery@0.8.0 (debug@0.7.4)
+		└── mongodb@1.4.9 (readable-stream@1.0.31, kerberos@0.0.3, bson@0.2.12)
 	
 ### The Code
 
@@ -174,14 +240,14 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 
 3. Add the following code to the **task.js** file:
 
-        var mongoose = require('mongoose')
-	      , Schema = mongoose.Schema;
+        var mongoose = require('mongoose'), 
+          Schema = mongoose.Schema;
 
         var TaskSchema = new Schema({
-	        itemName      : String
-	      , itemCategory  : String
-	      , itemCompleted : { type: Boolean, default: false }
-	      , itemDate      : { type: Date, default: Date.now }
+	      itemName      : String, 
+	      itemCategory  : String, 
+	      itemCompleted : { type: Boolean, default: false },
+	      itemDate      : { type: Date, default: Date.now }
         });
 
         module.exports = mongoose.model('TaskModel', TaskSchema);
@@ -194,51 +260,51 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 
 2. Add the following code to **tasklist.js**. This loads the mongoose module and the task model defined in **task.js**. The TaskList function is used to create the connection to the MongoDB server based on the **connection** value, and provides the methods **showTasks**, **addTask**, and **completeTasks**:
 
-		var mongoose = require('mongoose')
-	      , task = require('../models/task.js');
+		var mongoose = require('mongoose'), 
+ 		  task = require('../models/task.js');
 
 		module.exports = TaskList;
 
 		function TaskList(connection) {
-  		  mongoose.connect(connection);
+		  mongoose.connect(connection);
 		}
 
 		TaskList.prototype = {
-  		  showTasks: function(req, res) {
-      	    task.find({itemCompleted: false}, function foundTasks(err, items) {
-      		  res.render('index',{title: 'My ToDo List ', tasks: items})
-    		});
-  		  },
+		  showTasks: function(req, res) {
+		    task.find({ itemCompleted : false }, function foundTasks(err, items) {
+		    res.render('index', { title: 'My ToDo List', tasks: items })
+		    });
+		  },
 
-  		  addTask: function(req,res) {
-    		var item = req.body.item;
-    		newTask = new task();
-    		newTask.itemName = item.name;
-    		newTask.itemCategory = item.category;
-    		newTask.save(function savedTask(err){
-      		  if(err) {
-      		    throw err;
-      		  }
-    	    });
-    	  	res.redirect('/');
-  		  },
-  
+		  addTask: function(req,res) {
+		    var item = req.body;
+		    var newTask = new task();
+		    newTask.itemName = item.itemName;
+		    newTask.itemCategory = item.itemCategory;
+		    newTask.save(function savedTask(err) {
+		      if(err) {
+		        throw err;
+		      }
+		    });
+		    res.redirect('/');
+		  },
 
-  		  completeTask: function(req,res) {
-    		var completedTasks = req.body;
-    		for(taskId in completedTasks) {
-      		  if(completedTasks[taskId]=='true') {
-        		var conditions = { _id: taskId };
-        		var updates = { itemCompleted: completedTasks[taskId] };
-        		task.update(conditions, updates, function updatedTask(err) {
-          		  if(err) {
-          		    throw err;
-          		  }
-        		});
-      		  }
-    		}
-    		res.redirect('/');
-  		  }
+
+		  completeTask: function(req,res) {
+		    var completedTasks = req.body;
+		    for(taskId in completedTasks) {
+		      if(completedTasks[taskId]=='true') {
+		        var conditions = { _id: taskId };
+		        var updates = { itemCompleted: completedTasks[taskId] };
+		        task.update(conditions, updates, function updatedTask(err) {
+		          if(err) {
+		            throw err;
+		          }
+		        });
+		      }
+		    }
+		    res.redirect('/');
+		  }
 		}
 
 3. Save the **tasklist.js** file.
@@ -274,11 +340,11 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 		    tr
 		      td Item Name: 
 		      td 
-		        input(name="item[name]", type="textbox")
+		        input(name="itemName", type="textbox")
 		    tr
 		      td Item Category: 
 		      td 
-		        input(name="item[category]", type="textbox")
+		        input(name="itemCategory", type="textbox")
 		  input(type="submit", value="Add item")
 
 3. Save and close **index.jade** file.
@@ -286,14 +352,19 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 #### Replace app.js
 
 1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command.
-1. Add the following code to the beginning of the **app.js** file. This will initialize **TaskList** with the connection string for the MongoDB server:
+2. Add the following code to the beginning of the **app.js** file. This will initialize **TaskList** with the connection string for the MongoDB server:
 
 		var TaskList = require('./routes/tasklist');
 		var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
 
  	Note the second line; you access an environment variable that you'll configure later, which contains the connection information for your mongo instance. If you have a local mongo instance running for development purposes, you may want to temporarily set this value to "localhost" instead of `process.env.CUSTOMCONNSTR_MONGOLAB_URI`.
 
-2. Find the lines beginning with `app.get` and replace them with the following lines:
+3. Find these lines:
+		
+		app.use('/', routes);
+		app.use('/users', users);
+
+	And replace them with:
 
 		app.get('/', taskList.showTasks.bind(taskList));
 		app.post('/addtask', taskList.addTask.bind(taskList));
@@ -301,13 +372,18 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 
 	This adds the functions defined in **tasklist.js** as routes.
 
-4. Save the **app.js** file.
+4. To initialize your app, go to the bottom of your **app.js** file and add the following line:
+
+		app.listen(3000); // Listen on port 3000
+		module.exports = app;
+
+5. Save the **app.js** file.
 
 <h2><a name="deploy"></a>Deploy the app</h2>
 
-Now that the application has been developed, it's time to create an Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web site with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
+Now that the application has been developed, it's time to create an Azure Website to host it, configure that website, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your website with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
 
-The steps in this section use the Azure command-line tools to create a new Azure Web Site, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
+The steps in this section use the Azure command-line tools to create a new Azure Website, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
 ### Install the Azure command-line tool for Mac and Linux
 
@@ -331,7 +407,7 @@ Before using the command-line tools with Azure, you must first download a file c
 	
 	The file download should begin automatically; if it does not, you can click the link at the beginning of the page to manually download the file.
 
-3. After the file download has completed, use the following command to import the settings:
+2. After the file download has completed, use the following command to import the settings:
 
 		azure account import <path-to-file>
 		
@@ -340,31 +416,31 @@ Before using the command-line tools with Azure, you must first download a file c
 		info:   Executing command account import
 		info:   Found subscription: subscriptionname
 		info:   Setting default subscription to: subscriptionname
-		warn:   The '/Users/user1/.azure/publishSettings.xml' file contains sensitive information.
+		warn:   The '/Users/mongolab/.azure/publishSettings.xml' file contains sensitive information.
 		warn:   Remember to delete it now that it has been imported.
 		info:   Account publish settings imported successfully
 		info:   account import command OK
 
 
-4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Azure subscription.
+3. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Azure subscription.
 
-### Create a new web site and push your code
+### Create a new website and push your code
 
-Creating a web site in Azure is very easy. If this is your first Azure web site, you must use the portal. If you already have at least one, then skip to step 7.
+Creating a website in Azure is very easy. If this is your first Azure website, you must use the portal. If you already have at least one, then skip to step 7.
 
 1. In the Azure portal, click **New**.    
 ![New][button-new]
-1. Select **Compute > Web Site > Quick Create**. 
+2. Select **Compute > Website > Quick Create**. 
 ![CreateSite][screen-mongolab-newwebsite]
-1. Enter a URL prefix. Choose a name you prefer, but keep in mind this must be unique ('mymongoapp' will likely not be available).
-1. Click **Create Web Site**.
-1. When the web site creation completes, click the web site name in the web site list. The web site dashboard displays.  
+3. Enter a URL prefix. Choose a name you prefer, but keep in mind this must be unique ('mymongoapp' will likely not be available).
+4. Click **Create Website**.
+5. When the website creation completes, click the website name in the website list. The website dashboard displays.  
 ![WebSiteDashboard][screen-mongolab-websitedashboard]
-1. Click **Set up Git publishing** under **quick glance**, and enter your desired git user name and password. You will use this password when pushing to your web site (in step 9).  
-1. If you created your web site using the steps above, the following command will complete the process. However, if you already have more than one Azure web site, you can skip the above steps and create a new web site using this same command. From your **tasklist** project directory: 
+6. Click **Set up deployment from source control** under **quick glance**, select GitHub, and enter your desired git user name and password. You will use this password when pushing to your website (in step 9).  
+7. If you created your website using the steps above, the following command will complete the process. However, if you already have more than one Azure website, you can skip the above steps and create a new website using this same command. From your **tasklist** project directory: 
 
 		azure site create myuniquesitename --git  
-	Replace 'myuniquesitename' with the unique site name for your web site. If the web site is created as part of this command, you will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your MongoLab database.
+	Replace 'myuniquesitename' with the unique site name for your website. If the website is created as part of this command, you will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your MongoLab database.
 	
 	The `--git` parameter will create:
 	A. a local git repository in the **tasklist** folder, if none exists.
@@ -372,7 +448,7 @@ Creating a web site in Azure is very easy. If this is your first Azure web site,
 	A. an [iisnode.yml] file, which contains settings used by Azure to host node applications.
 	A. a .gitignore file to prevent the node-modules folder from being published to .git.  
 	  
-	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created web site at** contains the URL for the web site.
+	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the website.
 
 		info:   Executing command site create
 		info:   Using location southcentraluswebspace
@@ -385,15 +461,15 @@ Creating a web site in Azure is very easy. If this is your first Azure web site,
 		info:   Executing `git remote add azure http://gitusername@myuniquesitename.azurewebsites.net/mongodbtasklist.git`
 		info:   site create command OK
 
-1. Use the following commands to add, and then commit files to your local Git repository:
+8. Use the following commands to add, and then commit files to your local Git repository:
 
 		git add .
 		git commit -m "adding files"
 
-1. Push your code:
+9. Push your code:
 
 		git push azure master  
-	When pushing the latest Git repository changes to the Azure Web Site, you must specify that the target branch is **master** as this is used for the web site content. If prompted for a password, enter the password you created when you set up git publishing for your webs site above.
+	When pushing the latest Git repository changes to the Azure Website, you must specify that the target branch is **master** as this is used for the website content. If prompted for a password, enter the password you created when you set up git publishing for your webs site above.
 	
 	You will see output similar to the following. As the deployment takes place Azure will download all npm modules. 
 
@@ -422,13 +498,13 @@ Remember process.env.CUSTOMCONNSTR\_MONGOLAB\_URI in the code? We want to popula
 
 [WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
 
-#### Add the connection string to the web site's environment variables
+#### Add the connection string to the website's environment variables
 
 [WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
 ## Success!
 
-Run `azure site browse` from your project directory to automatically open a browser, or open a browser and manually navigate to your web site URL (myuniquesite.azurewebsites.net):
+Run `azure site browse` from your project directory to automatically open a browser, or open a browser and manually navigate to your website URL (myuniquesite.azurewebsites.net):
 
 ![A webpage displaying an empty tasklist][node-mongo-finished]
 

@@ -1,12 +1,14 @@
-<properties linkid="video-center-detail" urlDisplayName="details" pageTitle="Video Center Details" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use ASP.NET Web Forms Output Caching with Azure Web Sites" authors="sdanie" solutions="" manager="" editor="" />
+<properties urlDisplayName="details" pageTitle="Video Center Details" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use ASP.NET Web Forms Output Caching with Azure Websites" authors="sdanie" solutions="" manager="wpickett" editor="" />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 
 
-# How to Use ASP.NET Web Forms Output Caching with Azure Web Sites
+# How to Use ASP.NET Web Forms Output Caching with Azure Websites
 
 This topic explains how to use the Azure Cache Service (Preview) to support ASP.NET page output caching for ASP.NET Web Forms. Page output caching is an optimization that directly returns a cached rendering page for a specific duration of time. This is useful in situations where a page is accessed more frequently than it typically changes. It is important to note that page output caching is not supported for ASP.NET MVC applications.
 
-The Cache Service (Preview) provides a distributed caching service that is external to the web site. This enables all instances of the web site to access the same cached rendering of a page.
+The Cache Service (Preview) provides a distributed caching service that is external to the website. This enables all instances of the website to access the same cached rendering of a page.
 
 The basic steps to use the Cache Service (Preview) for page output caching include:
 

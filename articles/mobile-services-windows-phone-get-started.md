@@ -1,13 +1,10 @@
-<properties pageTitle="Get Started with Azure Mobile Services for Windows Phone apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Phone development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties pageTitle="Get Started with Azure Mobile Services for Windows Phone apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Phone development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store">Windows Store</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-android-get-started" title="Android">Android</a><a href="/en-us/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
-	<a href="/en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started" title="Appcelerator">Appcelerator</a>
-</div>
-
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
-
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -23,13 +20,13 @@ A screenshot from the completed app is below:
 
 ![][0]
 
->[WACOM.NOTE]To complete this tutorial, you need an Azure account that has the Azure Mobile Services feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F" target="_blank">Azure Free Trial</a>. To create a new Windows Phone 8.1 app, you must have Visual Studio 2013 Update 2, or a later version.
+>[WACOM.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F" target="_blank">Azure Free Trial</a>. To create a new Windows Phone 8.1 app, you must have Visual Studio 2013 Update 2, or a later version.
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-## <h2><span class="short-header">Create a new app</span>Create a new Windows Phone app</h2>
+## <h2>Create a new Windows Phone app</h2>
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
@@ -87,6 +84,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
 
+* [Get started with offline data sync]
+  <br/>Learn how to use offline data sync to make your app responsive and robust.
+
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
@@ -116,9 +116,10 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 
 <!-- URLs. -->
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
+[Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
+[Get started with offline data sync]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-users/
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 

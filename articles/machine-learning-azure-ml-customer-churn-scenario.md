@@ -1,7 +1,9 @@
-<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure"description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="" solutions="" documentationCenter="" authors="barga" videoId="" scriptId="" />
+<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure" description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="barga" />
 
-#Analyzing Customer Churn using Microsoft Azure Machine Learning
+# Analyzing Customer Churn using Microsoft Azure Machine Learning
+
 
 This paper presents a reference implementation of a customer churn analysis project built using Azure Machine Learning Studio, and discusses associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models built using Azure Machine Learning, and assess directions for further development.  
 

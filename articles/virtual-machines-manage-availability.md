@@ -1,4 +1,6 @@
-<properties linkid="manage-windows-common-tasks-vm-availability" urlDisplayName="Manage Availability of VMs" pageTitle="Manage the availability of virtual machines - Azure" metaKeywords="" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Manage Availability of VMs" pageTitle="Manage the availability of virtual machines - Azure" metaKeywords="" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk" />
 
 #Manage the availability of virtual machines
 
@@ -18,7 +20,7 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 * [Avoid single instance virtual machines in Availability Sets] 
 
 ### Configure multiple virtual machines in an Availability Set for redundancy 
-To provide redundancy to your application, we recommend that you group two or more virtual machines in an Availability Set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information about service level agreements, see the “Cloud Services, Virtual Machines, and Virtual Network” section in [Service Level Agreements](../support/legal/sla/). 
+To provide redundancy to your application, we recommend that you group two or more virtual machines in an Availability Set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information about service level agreements, see the “Cloud Services, Virtual Machines, and Virtual Network” section in [Service Level Agreements](../../../support/legal/sla/). 
 
 Each virtual machine in your Availability Set is assigned an Update Domain (UD) and a Fault Domain (FD) by the underlying Azure platform. For a given Availability Set, five non-user-configurable UDs are assigned to indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. When more than five virtual machines are configured within a single Availability Set, the sixth virtual machine will be placed into the same UD as the first virtual machine, the seventh in the same UD as the second virtual machine, and so on. The order of UDs being rebooted may not proceed sequentially during planned maintenance, but only one UD will be rebooted at a time.
 
@@ -26,6 +28,8 @@ FDs define the group of virtual machines that share a common power source and ne
 
 <!--Image reference-->
    ![UD FD configuration](./media/virtual-machines-manage-availability/ud-fd-configuration.png)
+
+>[WACOM.NOTE] For instructions, see [How to Configure an Availability Set for Virtual Machines] [].
 
 ### Configure each application tier into separate Availability Sets
 If the virtual machines in your availability set are all nearly identical and serve the same purpose for your application, we recommend that you configure an Availability Set for each tier of your application.  If you place two different tiers in the same Availability Set, all virtual machines in the same application tier could be rebooted at once. By configuring at least two virtual machines in an Availability Set for each tier, you guarantee that at least one virtual machine in each tier will be available.   
@@ -50,7 +54,7 @@ Avoid leaving a single instance virtual machine in an Availability Set by itself
 [Avoid single instance virtual machines in Availability Sets]: #avoid-single-instance-virtual-machines-in-availability-sets 
 
  
-
-
+<!-- Link references -->
+[How to Configure An Availability Set for Virtual Machines]: ../virtual-machines-how-to-configure-availability
 
 

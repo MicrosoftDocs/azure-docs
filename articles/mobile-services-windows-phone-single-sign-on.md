@@ -1,7 +1,6 @@
-<properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-wp8" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your app with Live Connect (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Phone application." metaCanonical="" services="" documentationCenter="Mobile" title="Authenticate your Windows Phone 8 app with Live Connect single sign-on" authors="glenga" solutions="" manager="" editor="" />
+<properties urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your app with Live Connect (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Phone application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Phone 8 app with Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-
-
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Authenticate your Windows Phone 8 app with Live Connect single sign-on
 
@@ -28,7 +27,7 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services].
 
-<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app with Live Connect</h2>
+<h2><a name="register"></a>Register your app with Live Connect</h2>
 
 To be able to authenticate users, you must register your app at the Live Connect Developer Center. You must then register the client secret to integrate Live Connect with Mobile Services.
 
@@ -66,7 +65,7 @@ To be able to authenticate users, you must register your app at the Live Connect
 
 Both your mobile service and your app are now configured to work with Live Connect.
 
-<h2><a name="permissions"></a><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
+<h2><a name="permissions"></a>Restrict permissions to authenticated users</h2>
 
 1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
 
@@ -84,7 +83,7 @@ Both your mobile service and your app are now configured to work with Live Conne
 
 Next, you will update the app to authenticate users with Live Connect before requesting resources from the mobile service.
 
-<h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
+<h2><a name="add-authentication"></a>Add authentication to the app</h2>
 
 1. Download and install the [Live SDK for Windows and Windows Phone].
 

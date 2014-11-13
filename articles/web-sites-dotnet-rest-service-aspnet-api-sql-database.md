@@ -1,4 +1,6 @@
-<properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure web site by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="" editor="" />
+<properties urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="06/06/2014" ms.author="riande" />
 
 
 
@@ -7,7 +9,7 @@
 
 ***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated  March 2014.***
 
-This tutorial shows how to deploy an ASP.NET web application to an Azure Web Site by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 for Web Express. (If you prefer to use Visual Studio 2012, see [the previous version of this tutorial](/en-us/develop/net/tutorials/get-started-vs2012/).)
+This tutorial shows how to deploy an ASP.NET web application to an Azure Website by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 for Web Express. (If you prefer to use Visual Studio 2012, see [the previous version of this tutorial](/en-us/develop/net/tutorials/get-started-vs2012/).)
 
 You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
 
@@ -16,7 +18,7 @@ This tutorial assumes that you have no prior experience using Azure. On completi
 You'll learn:
 
 * How to enable your machine for Azure development by installing the Azure SDK.
-* How to create a Visual Studio ASP.NET MVC 5 project and publish it to an Azure Web Site.
+* How to create a Visual Studio ASP.NET MVC 5 project and publish it to an Azure Website.
 * How to use the ASP.NET Web API to enable Restful API calls.
 * How to use a SQL database to store data in Azure.
 * How to publish application updates to Azure.
@@ -42,31 +44,31 @@ In this tutorial:
 
 <h2><a name="bkmk_setupwindowsazure"></a>Set up the Azure environment</h2>
 
-Next, set up the Azure environment by creating an Azure Web Site and a SQL database.
+Next, set up the Azure environment by creating an Azure Website and a SQL database.
 
-### Create a web site and a SQL database in Azure
+### Create a website and a SQL database in Azure
 
-The next step is to create the Azure web site and the SQL database that your application will use.
+The next step is to create the Azure website and the SQL database that your application will use.
 
-Your Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
+Your Azure Website will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
 SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
-1. In the [Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.
+1. In the [Azure Management Portal](https://manage.windowsazure.com), click **Websites** in the left tab, and then click  **New**.
 
 2. Click **CUSTOM CREATE**.
 
 	![Create with Database link in Management Portal](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG)
 
-	The **New Web Site - Custom Create** wizard opens. 
+	The **New Website - Custom Create** wizard opens. 
 
-3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr11", but that URL is probably taken so you'll have to choose a different one.
+3. In the **New Website** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr11", but that URL is probably taken so you'll have to choose a different one.
 
 1. In the **Region** drop-down list, choose the region that is closest to you.
 
 1. In the **Database** drop-down list, choose **Create a free 20 MB SQL database**.
 
-	![Create a New Web Site step of New Web Site - Create with Database wizard](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png)
+	![Create a New Website step of New Website - Create with Database wizard](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png)
 
 6. Click the arrow that points to the right at the bottom of the box.
 
@@ -82,19 +84,19 @@ SQL Database is a cloud-based relational database service that is built on SQL S
 
 11. Click the check mark at the bottom of the box to indicate you're finished.
 
-	![Database Settings step of New Web Site - Create with Database wizard][setup007]
+	![Database Settings step of New Website - Create with Database wizard][setup007]
 
 	 The following image shows using an existing SQL Server and Login.
 	
-	![Database Settings step of New Web Site - Create with Database wizard][rxPrevDB]
+	![Database Settings step of New Website - Create with Database wizard][rxPrevDB]
 
-	The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.
+	The Management Portal returns to the Websites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Websites** icon, and the number of databases appears next to the **SQL Databases** icon.
 
-<!-- [Web Sites page of Management Portal, web site created][setup009] -->
+<!-- [Websites page of Management Portal, website created][setup009] -->
 
 <h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 5 application</h2>
 
-You have created an Azure Web Site, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Azure.
+You have created an Azure Website, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Azure.
 
 ### Create the project
 
@@ -186,11 +188,11 @@ This is all you need to do for now to create the application that you'll deploy 
 
 	The **Import Publish Profile** dialog box appears.
 
- 3.	Select Import from an Azure Web Site. You must first sign in if you have not previously done so. Click **Sign In**. Enter the user associated with your subscription and follow the steps to sign in.
+ 3.	Select Import from an Azure Website. You must first sign in if you have not previously done so. Click **Sign In**. Enter the user associated with your subscription and follow the steps to sign in.
 
 	![sign in](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr7.png)
 
-	Select your web site from the drop-down list, and then click **OK**.
+	Select your website from the drop-down list, and then click **OK**.
 
 	![Import Publish Profile](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr8.png)
 
@@ -622,11 +624,11 @@ To:
 
 	**Security Warning**: At this point, your application is insecure and vulnerable to CSRF attack. Later in the tutorial we will remove this vulnerability. For more information see [Preventing Cross-Site Request Forgery (CSRF) Attacks][prevent-csrf-attacks].
 
-<h2><a name="xsrf"></a><span class="short-header">XSRF</span>Add XSRF Protection</h2>
+<h2><a name="xsrf"></a>Add XSRF Protection</h2>
 
-Cross-site request forgery (also known as XSRF or CSRF) is an attack against web-hosted applications whereby a malicious web site can influence the interaction between a client browser and a web site trusted by that browser. These attacks are made possible because web browsers will send authentication tokens automatically with every request to a web site. The canonical example is an authentication cookie, such as ASP.NET's Forms Authentication ticket. However, web sites which use any persistent authentication mechanism (such as Windows Authentication, Basic, and so forth) can be targeted by these attacks.
+Cross-site request forgery (also known as XSRF or CSRF) is an attack against web-hosted applications whereby a malicious website can influence the interaction between a client browser and a website trusted by that browser. These attacks are made possible because web browsers will send authentication tokens automatically with every request to a website. The canonical example is an authentication cookie, such as ASP.NET's Forms Authentication ticket. However, websites which use any persistent authentication mechanism (such as Windows Authentication, Basic, and so forth) can be targeted by these attacks.
 
-An XSRF attack is distinct from a phishing attack. Phishing attacks require interaction from the victim. In a phishing attack, a malicious web site will mimic the target web site, and the victim is fooled into providing sensitive information to the attacker. In an XSRF attack, there is often no interaction necessary from the victim. Rather, the attacker is relying on the browser automatically sending all relevant cookies to the destination web site.
+An XSRF attack is distinct from a phishing attack. Phishing attacks require interaction from the victim. In a phishing attack, a malicious website will mimic the target website, and the victim is fooled into providing sensitive information to the attacker. In an XSRF attack, there is often no interaction necessary from the victim. Rather, the attacker is relying on the browser automatically sending all relevant cookies to the destination website.
 
 For more information, see the [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 

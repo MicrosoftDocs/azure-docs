@@ -1,6 +1,9 @@
-<properties title="Manage an Azure Machine Learning workspace" pageTitle="Manage a Machine Learning workspace | Azure" description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="derrickv" videoId="" scriptId="" />
+<properties title="Manage an Azure Machine Learning workspace" pageTitle="Manage a Machine Learning workspace | Azure" description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-# Manage an Azure Machine Learning workspace #
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+
+
+# Manage an Azure Machine Learning workspace 
 You can manage your Microsoft Azure Machine Learning Workspaces (Azure ML) to manage access, deploy production web services, and manage your Azure ML web services. In addition, the dashboard tab shows you overview workspace usage and a quick glance of workspace information.  
 
 In the **WEB SERVICES** tab, you can Add, Update, or Delete an Azure ML web service.  

@@ -1,13 +1,15 @@
-<properties linkid="Deploy_a_Secure_ASP.NET_Web_Forms_App_with_Membership_OAuth_and_SQL_Database_to_an_Azure_Web_Site" pageTitle="Deploy a Secure ASP.NET Web Forms App with Membership, OAuth, and SQL Database to an Azure Web Site" metaKeywords="Azure WebForms Hello World Tutorial, Azure Getting Started with WebForms Tutorial, Azure C# WebForms Hello World Tutorial, SQL Azure C# WebForms Tutorial" description="This tutorial shows you how to build a secure ASP.NET 4.5 Web Forms web app that incorporates a SQL Database and deploy the application to Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy a secure ASP.NET 4.5 Web Forms app to an Azure Web Site" authors="erikre"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Deploy a Secure ASP.NET Web Forms App with Membership, OAuth, and SQL Database to an Azure Website" metaKeywords="Azure WebForms Hello World Tutorial, Azure Getting Started with WebForms Tutorial, Azure C# WebForms Hello World Tutorial, SQL Azure C# WebForms Tutorial" description="This tutorial shows you how to build a secure ASP.NET 4.5 Web Forms web app that incorporates a SQL Database and deploy the application to Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy a secure ASP.NET 4.5 Web Forms app to an Azure Website" authors="erikre"  solutions="" manager="wpickett" editor="mollybos"  />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="erikre" />
 
 
-# Deploy a Secure ASP.NET Web Forms App with Membership, OAuth, and SQL Database to an Azure Web Site
+# Deploy a Secure ASP.NET Web Forms App with Membership, OAuth, and SQL Database to an Azure Website
 
 
 This tutorial shows you how to build a secure ASP.NET 4.5 Web Forms web app that incorporates a SQL Database and deploy the application to Azure. 
 
 >[WACOM.NOTE] 
-For an MVC version of this tutorial, see [Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Web Site](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+For an MVC version of this tutorial, see [Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Website](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 
 You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. You can start developing for Azure for free.
 
@@ -15,7 +17,7 @@ This tutorial assumes that you have no prior experience using Microsoft Azure. O
 
 You'll learn:
 
-- How to create an ASP.NET 4.5 Web Forms project and publish it to an Azure Web Site.
+- How to create an ASP.NET 4.5 Web Forms project and publish it to an Azure Website.
 - How to use OAuth and the ASP.NET membership to secure your application.
 - How to use a single database for both membership and application data.
 - How to use Web Forms Scaffolding to create web pages that allow you to modify data.
@@ -66,20 +68,20 @@ To start, set up your development environment by installing the Visual Studio 20
 When the installation is complete, you have everything necessary to start developing.
 
 ##Set up the Azure Environment
-In this section you'll set up the Azure environment by creating an Azure Web Site and a SQL database in Azure.
+In this section you'll set up the Azure environment by creating an Azure Website and a SQL database in Azure.
 
-###Create a Web Site and a SQL Database in Azure 
-In this tutorial your Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure web sites. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs. 
+###Create a Website and a SQL Database in Azure 
+In this tutorial your Azure Website will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure websites. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs. 
 
 Azure SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
-1. In the [Azure Management Portal](https://manage.windowsazure.com/), click **Web Sites** in the left tab, and then click **New**.  
+1. In the [Azure Management Portal](https://manage.windowsazure.com/), click **Websites** in the left tab, and then click **New**.  
 	![Web Platform Installer](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-02.png)
-2. Click **Web Site**, and then click **Custom Create**.  
+2. Click **Website**, and then click **Custom Create**.  
 	![Custom Create](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-03.png)  
-	The **New Web Site - Custom Create** wizard opens.  
+	The **New Website - Custom Create** wizard opens.  
 
-3. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows a URL that is probably taken so **you must choose a different URL**.  
+3. In the **Create Website** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows a URL that is probably taken so **you must choose a different URL**.  
 	![Contacts - Create New Web Site](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-04.png)  
 4. In the Web Hosting Plan drop-down list, choose a region that is closest to your location. This setting specifies which data center where your VM will run.
 5. In the **Database** drop-down list, choose **Create a free 20 MB SQL database**.
@@ -90,14 +92,14 @@ The wizard advances to the **Specify database settings** step.
 	![Database Settings](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-05.png)  
 9. In the **Server** box, select **New SQL Database** server.
 Alternatively, if you previously created a SQL Server database, you can select that SQL Server from the dropdown control.
-10. Set the **Region** to the same area you created the Web Site.
+10. Set the **Region** to the same area you created the Website.
 11. Enter an administrator **Login Name** and **Password**. 
 If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you've created previously, you'll be prompted for the password to the previous SQL Server account name you created. For this tutorial, you won't check the **Advanced** box.
 12. Click the check mark at the bottom right of the box to indicate you're finished.
 
-The **Azure Management Portal** returns to the **Web Sites** page, and the **Status** column shows that the site is being created. Shortly after (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.
+The **Azure Management Portal** returns to the **Websites** page, and the **Status** column shows that the site is being created. Shortly after (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Websites** icon, and the number of databases appears next to the **SQL Databases** icon.
 ##Create an ASP.NET Web Forms Application 
-You have created an Azure Web Site, but there is no content in it yet. Your next step is to create the Visual Studio web app that you'll publish to Azure.
+You have created an Azure Website, but there is no content in it yet. Your next step is to create the Visual Studio web app that you'll publish to Azure.
 ###Create the Project 
 1. Select **New Project** from the **File** menu in Visual Studio.  
 	![File Menu - New Project](./media/web-sites-dotnet-web-forms-secure/SecureWebForms01.png)  
@@ -224,9 +226,9 @@ Now that you have created and ran your application locally, it is time to deploy
 	![Select Publish](./media/web-sites-dotnet-web-forms-secure/SecureWebForms05.png)  
 	The **Publish Web** dialog box is displayed.  
 
-2. In the **Profile** tab of the **Publish Web** dialog box, click **Azure Web Sites**.  
+2. In the **Profile** tab of the **Publish Web** dialog box, click **Azure Websites**.  
 	![Publish Web dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms06.png)  
-3. If you are not already signed in, click the **Sign In** button in the **Select Existing Web Site** dialog box. Once you've finished signing in, select the web site you created in the first part of this tutorial. Click **OK** to continue.  
+3. If you are not already signed in, click the **Sign In** button in the **Select Existing Website** dialog box. Once you've finished signing in, select the website you created in the first part of this tutorial. Click **OK** to continue.  
 	![Select Existing Web Site dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms07.png)  
 Visual Studio will download your publishing settings.
 4. In the **Publish Web** dialog box, click **Publish**.  
@@ -238,7 +240,7 @@ The application you created is now running in the cloud. The next time you deplo
 	![App in Browser](./media/web-sites-dotnet-web-forms-secure/SecureWebForms10.png)  
 
 >[WACOM.NOTE] 
-If you run into an error while publishing to an already established Web site, you can clear the location before adding your new files.  
+If you run into an error while publishing to an already established Website, you can clear the location before adding your new files.  
 Publish your application again, however in the **Publish Web** dialog box, select the **Settings** tab. Then, set the configuration to **Debug** and select the option to **Remove additional files at destination**. Select **Publish** to deploy your application again.  
 	![Publish Web dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms11.png)  
 
@@ -403,7 +405,7 @@ Secure Sockets Layer (SSL) is a protocol defined to allow Web servers and Web cl
 1. In **Solution Explorer**, click the **ContactManager** project, then press **F4** to display the **Properties** window. 
 2. Change **SSL Enabled** to `true`. 
 3. Copy the **SSL URL** so you can use it later.  
-	The SSL URL will be `https://localhost:44300/` unless you've previously created SSL Web Sites (as shown below).
+	The SSL URL will be `https://localhost:44300/` unless you've previously created SSL Websites (as shown below).
 	![Project Properties](./media/web-sites-dotnet-web-forms-secure/SecureWebForms18.png)  
 4. In **Solution Explorer**, right click the **Contact Manager** project and click **Properties**.
 5. In the left tab, click **Web**.
@@ -705,10 +707,10 @@ Now that the web application is complete, you can publish it to Azure.
 	![Publish menu option](./media/web-sites-dotnet-web-forms-secure/SecureWebForms22.png)  
 	The **Publish Web** dialog box is displayed.  
 	![Publish Web dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms22a.png)  
-3. From the **Profile** tab, select **Azure Web Sites** as the publish target if it is not already selected.  
+3. From the **Profile** tab, select **Azure Websites** as the publish target if it is not already selected.  
 	![Publish Web dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms23.png)  
 4. Click **Sign In** if you are not already signed in.
-5. Select the existing web site that you created earlier in this tutorial from the **Existing Web Sites** dropdown box and click the **OK** button.  
+5. Select the existing website that you created earlier in this tutorial from the **Existing Websites** dropdown box and click the **OK** button.  
 	![Select Existing Web Site dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms25.png)  
 	If you are asked to save changes make to the profile, select **Yes**.
 6. Click the **Settings** tab.  
@@ -747,14 +749,14 @@ If you closed and re-opened Visual Studio after you created the publish profile,
 5. Select the **Log off** link.
 
 ###Stop the Application 
-In order to prevent other people from registering and using your sample application, you will stop the web site.
+In order to prevent other people from registering and using your sample application, you will stop the website.
 
 1. In Visual Studio from the **View Menu**, select **Server Explorer**. 
-2. In **Server Explorer**, navigate to **Web Sites**.
-3. Right click on each Web Site instance and select **Stop Web Site**.  
+2. In **Server Explorer**, navigate to **Websites**.
+3. Right click on each Website instance and select **Stop Website**.  
 	![Stop Web Site menu item](./media/web-sites-dotnet-web-forms-secure/SecureWebForms26a.png)  
 
-	Alternatively, from the Microsoft Azure management portal, you can select the web site, then click the **stop** icon at the bottom of the page.  
+	Alternatively, from the Microsoft Azure management portal, you can select the website, then click the **stop** icon at the bottom of the page.  
 	![Add New Contact Page](./media/web-sites-dotnet-web-forms-secure/SecureWebForms26b.png)  
 
 ##Review the Database 
@@ -793,7 +795,7 @@ Earlier in the tutorial you used code to add users to the canEdit role. An alter
 We are working on a tool that will make managing users and roles much easier.  
 
 ##Next steps
-For more information about ASP.NET Web Forms, see [Learn About ASP.NET Web Forms](http://www.asp.net/web-forms) on the ASP.NET web site and [Microsoft Azure Tutorials and Guides](http://azure.microsoft.com/en-us/documentation/services/web-sites/#net).
+For more information about ASP.NET Web Forms, see [Learn About ASP.NET Web Forms](http://www.asp.net/web-forms) on the ASP.NET website and [Microsoft Azure Tutorials and Guides](http://azure.microsoft.com/en-us/documentation/services/web-sites/#net).
 
 This tutorial was based on the MVC tutorial [Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Web Site](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) written by Rick Anderson (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 

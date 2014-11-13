@@ -1,13 +1,13 @@
-<properties pageTitle="Connect Millions of Things to the Cloud" metaKeywords="Service Bus, internet of things" description="Learn how to connect millions of things to the cloud using Microsoft Azure." services="service-bus" documentationCenter=".NET" title="Connect Millions of Things to the Cloud" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties pageTitle="Connect Millions of Things to the Cloud" metaKeywords="Service Bus, internet of things" description="Learn how to connect millions of things to the cloud using Microsoft Azure." services="service-bus" documentationCenter=".NET" title="Connect Millions of Things to the Cloud" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Connect millions of "things" to the cloud
  
-Smart and connected "things" increasingly proliferate in modern technology ecosystems.  Sensors in cars, homes, infrastructure, and appliances are producing new opportunities to provide improved product quality, expanded services, and new customer engagement models.  Azure Service Bus can help you connect this emerging Internet of "things".
+Smart and connected "things" increasingly proliferate in modern technology ecosystems. Sensors in cars, homes, infrastructure, and appliances produce new opportunities to provide improved product quality, expanded services, and new customer engagement models. Azure Service Bus can help you connect this emerging "Internet of things."
 
-[Connect Millions of Things to the Cloud](http://go.microsoft.com/fwlink/?LinkID=40396)
- 
 ## Explore
-- [Event Hubs](http://msdn.microsoft.com/en-us/library/azure/dn687575.aspx)
+- [Event Hubs](http://msdn.microsoft.com/en-us/library/dn789973.aspx)
 - [Sharding Pattern](http://msdn.microsoft.com/en-us/library/dn589797.aspx)
 - [Service Bus and AMQP 1.0](http://msdn.microsoft.com/en-us/library/azure/jj841071.aspx)
 - [Introduction to Service Bus](http://azure.microsoft.com/en-us/documentation/services/service-bus/)

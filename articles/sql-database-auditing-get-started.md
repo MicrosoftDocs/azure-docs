@@ -1,7 +1,9 @@
-<properties title="Get started with SQL database auditing" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId=""  />
+<properties title="Get started with SQL database auditing" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
+
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
  
 # Get started with SQL database auditing 
-<p> Azure SQL Database Auditing tracks database events and writes audited events to an audit log in your Azure Storage account. Auditing is available in preview for Basic, Standard, and Premium service tiers. To use auditing, <a href="http://go.microsoft.com/fwlink/?LinkId=404163" target="_blank">sign up for the preview</a>.
+<p> Azure SQL Database Auditing tracks database events and writes audited events to an audit log in your Azure Storage account. Auditing is available in preview for Basic, Standard, and Premium service tiers.
 
 Auditing can help you maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. 
 
@@ -11,7 +13,7 @@ Auditing tools enable and facilitate adherence to compliance standards but don't
 + [Set up auditing for your database]
 + [Analyze audit logs and reports]
 
-##Azure SQL Database Auditing basics
+##<a id="subheading-1">Azure SQL Database Auditing basics</a>
 
 You set up auditing in the Azure Preview Portal, but it makes no difference whether you created the database using the Azure Portal or the Azure Preview Portal. SQL Database auditing enables you to:
 
@@ -39,15 +41,14 @@ Traditional connection string format: <*server name*>.database.windows.net
 Security-enabled connection string: <*server name*>.database.**secure**.windows.net
 
 
-##Set up auditing for your database
+##<a id="subheading-2"></a>Set up auditing for your database
 
-1. <a href="http://go.microsoft.com/fwlink/?LinkId=404163" target="_blank">Sign up for the Auditing preview</a>.
-2. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com.
-3. Click the database you want to audit, and then click **Auditing Preview** to enable the auditing preview and launch the auditing configuration blade.
+1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com. Alternatively, you can also luanch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. Refer to detials below.
+2. Click the database you want to audit, and then click **Auditing Preview** to enable the auditing preview and launch the auditing configuration blade.
 
 	![][1]
 
-4. In the auditing configuration blade, select the Azure storage account where logs will be saved. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
+3. In the auditing configuration blade, select the Azure storage account where logs will be saved. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
 
 	![][2]
 
@@ -66,7 +67,8 @@ Security-enabled connection string: <*server name*>.database.**secure**.windows.
 7. Click **OK**.
 
 
-##Analyze audit logs and reports
+
+##<a id="subheading-3">Analyze audit logs and reports</a>
 
 Audit logs are aggregated in a single Azure Store Table named **AuditLogs** in the Azure storage account you chose during setup. You can view log files using a tool such as <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Explorer</a>.
 
@@ -79,10 +81,29 @@ For more detailed instructions on working with the report template, read the <a 
 ![][6]
 
 
+##<a id="subheading-4"></a>Set up auditing for your database using the classic azure portal
+
+1. Launch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. 
+2. Click the database you want to audit, and then click the **Auditing & Secuirity Preview** tab.
+3. At the auditing section click "Enable".
+
+![][7]
+
+4. Edit the **EVENT TYPE** as needed.
+
+![][8]
+
+5. Select a **STORAGE ACCOUNT**.
+6. Click **SAVE**.
+7. Click **Show secured connection string** for the connection string.
+
+
+
 <!--Anchors-->
 [Azure SQL Database Auditing basics]: #subheading-1
 [Set up auditing for your database]: #subheading-2
 [Analyze audit logs and reports]: #subheading-3
+[Set up auditing for your database using the classic azure portal]: #subheading-4
 
 
 <!--Image references-->
@@ -92,6 +113,8 @@ For more detailed instructions on working with the report template, read the <a 
 [4]: ./media/sql-database-auditing-get-started/sql-database-get-started-saveconfigasdefault.png
 [5]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
 [6]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png
+[7]: ./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-enable.png
+[8]: ./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-configure.png
 
 
 

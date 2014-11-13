@@ -1,6 +1,14 @@
-<properties title="Azure Machine Learning Sample: Prediction of student performance" pageTitle="Machine Learning Sample: Predict student performance | Azure" description="A sample Azure Machine Learning experiment to develop a model that predicts student performance on tests." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Azure Machine Learning Sample: Prediction of student performance" pageTitle="Machine Learning Sample: Predict student performance | Azure" description="A sample Azure Machine Learning experiment to develop a model that predicts student performance on tests." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-#Azure Machine Learning sample: Prediction of student performance
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
+
+
+# Azure Machine Learning sample: Prediction of student performance
+
+>[AZURE.NOTE]
+>The [Sample Experiment] and [Sample Dataset] associated with this model are available in ML Studio. See below for more details.
+[Sample Experiment]: #sample-experiment
+[Sample Dataset]: #sample-dataset
 
 
 ##Dataset and problem description
@@ -26,7 +34,7 @@ The parameters of **Reader** module are shown above. In this example storage acc
  
 ![][2]
  
-In the next steps, shown above, we do a number of transformations to get dataset into format that will fit our learning algorithms. We use **Metadata Editor** to convert the timestamp column “First Transaction Time” into string format. This is needed for generating train/test split. Then, using **Project Columns**, we remove a number of columns that won’t be used in experiment. We use Missing Value Scrubber to replace all missing values with 0. At the next step we split “Unit Name, Section Name” column into two columns, “Unit Name” and “Section Name”. This is done using the following R code in **Execute R** module:  
+In the next steps, shown above, we do a number of transformations to get dataset into format that will fit our learning algorithms. We use **Metadata Editor** to convert the timestamp column “First Transaction Time” into string format. This is needed for generating train/test split. Then, using **Project Columns**, we remove a number of columns that won't be used in experiment. We use Missing Value Scrubber to replace all missing values with 0. At the next step we split “Unit Name, Section Name” column into two columns, “Unit Name” and “Section Name”. This is done using the following R code in **Execute R** module:  
 
 	dataset <- maml.mapInputPort(1)
 	b <- data.frame(do.call(rbind,strsplit(as.vector(dataset[,3]),",")))
@@ -54,7 +62,7 @@ In the next sequence of **Apply Math Operation** and **Elementary Statistics** m
 ![][9] 
  
  
-In the second branch, shown above, we also leverage time dimension. In addition to the features from the first branch we use names of the last two steps of the problem that is currently solved by the user along with their description. In the supplied dataset all user’s activities are stored in the ascending order of timestamp. Also in the supplied dataset users’ activities are not interleaved, namely initially there are all rows of first user, then there are all rows of second user and so on. Thus to find the last steps of the user we leverage RowID column. For a fixed user this column serves as a time axis. By adding 1 to this column, using Apply Math Operation****, we shift each row one time unit forwards. Then we use **Join** module to join the original dataset with the shifted one using RowID, StudentID and ProblemName as keys. As a result we get an expanded dataset where each row has a record from times t and t-1 for the same StudentID and ProblemName. We use *Left Outer Join* to keep rows that don’t have previous steps with the same StudentID and ProblemID. We apply the combination of **Apply Math Operation** and **Join** one more time to get features two steps ago. The exact parameters of **Apply Math Operation** and **Join** are shown below.  
+In the second branch, shown above, we also leverage time dimension. In addition to the features from the first branch we use names of the last two steps of the problem that is currently solved by the user along with their description. In the supplied dataset all user's activities are stored in the ascending order of timestamp. Also in the supplied dataset users' activities are not interleaved, namely initially there are all rows of first user, then there are all rows of second user and so on. Thus to find the last steps of the user we leverage RowID column. For a fixed user this column serves as a time axis. By adding 1 to this column, using Apply Math Operation****, we shift each row one time unit forwards. Then we use **Join** module to join the original dataset with the shifted one using RowID, StudentID and ProblemName as keys. As a result we get an expanded dataset where each row has a record from times t and t-1 for the same StudentID and ProblemName. We use *Left Outer Join* to keep rows that don't have previous steps with the same StudentID and ProblemID. We apply the combination of **Apply Math Operation** and **Join** one more time to get features two steps ago. The exact parameters of **Apply Math Operation** and **Join** are shown below.  
 
 ![][10]  
 ![][11]  
@@ -93,6 +101,22 @@ We conclude the fourth set of features gives the lowest RMSE.
 
 ##References
 H.-F. Yu et al. Feature Engineering and Classifier Ensemble for KDD Cup 2010. KDD Cup 2010 Workshop, 2010.
+
+
+
+## Sample Experiment
+
+The following sample experiment associated with this model is available in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab.
+
+> **Sample Experiment - Student Performance - Development**
+
+
+## Sample Dataset
+
+The following sample dataset used by this experiment is available in ML Studio in the module palette under **Saved Datasets**.
+
+###student_performance.txt
+[AZURE.INCLUDE [machine-learning-sample-dataset-student-performance](../includes/machine-learning-sample-dataset-student-performance.md)]
 
 
 

@@ -1,6 +1,6 @@
-<properties linkid="manage-services-cache-net-how-to-cache-service" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="" editor="" />
+<properties urlDisplayName="" pageTitle="How to Use Azure Managed Cache Service" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-
+<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # How to Use Azure Managed Cache Service
 
@@ -10,6 +10,8 @@ use the .NET API. The scenarios covered include **creating and configuring a cac
 objects from the cache, storing ASP.NET session state in the cache**,
 and **enabling ASP.NET page output caching using the cache**. For more
 information on using Azure Cache, refer to the [Next Steps][] section.
+
+>For guidance on choosing the right Azure Cache offering for your application, see [Which Azure Cache offering is right for me?][].
 
 ## Table of Contents
 
@@ -42,7 +44,7 @@ features:
 -   Consistent development model across both Azure and Windows
     Server AppFabric.
 
-Managed Cache Service gives you access to a secure, dedicated cache that is managed by Microsoft. A cache created using the Managed Cache Service is accessible from applications within Azure running on Azure Web Sites, Web & Worker Roles and Virtual Machines.
+Managed Cache Service gives you access to a secure, dedicated cache that is managed by Microsoft. A cache created using the Managed Cache Service is accessible from applications within Azure running on Azure Websites, Web & Worker Roles and Virtual Machines.
 
 Managed Cache Service is available in three tiers:
 
@@ -179,7 +181,7 @@ Once the cache is configured, you can configure the cache clients to allow acces
 <a name="NuGet"></a>
 ## Configure the cache clients
 
-A cache created using the Managed Cache Service is accessible from Azure applications running on Azure Web Sites, Web & Worker Roles and Virtual Machines. A NuGet package is provided that simplifies the configuration of cache client applications. 
+A cache created using the Managed Cache Service is accessible from Azure applications running on Azure Websites, Web & Worker Roles and Virtual Machines. A NuGet package is provided that simplifies the configuration of cache client applications. 
 
 To configure a client application using the Cache NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
@@ -518,3 +520,5 @@ follow these links to learn how to do more complex caching tasks.
 [How to install and configure Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
 [Add-AzureAccount]: http://msdn.microsoft.com/en-us/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/en-us/library/dn495203.aspx
+
+[Which Azure Cache offering is right for me?]: http://msdn.microsoft.com/en-us/library/azure/dn766201.aspx

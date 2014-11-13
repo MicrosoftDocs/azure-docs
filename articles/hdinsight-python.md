@@ -1,10 +1,12 @@
-<properties linkid="python-hdinsight" urlDisplayName="Python with HDInsight" pageTitle="Use Python with Hive and Pig in Azure HDInsight" metaKeywords="" description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Python with Hive and Pig in HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Python with HDInsight" pageTitle="Use Python with Hive and Pig in Azure HDInsight" metaKeywords="" description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Python with Hive and Pig in HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
+
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 #Use Python with Hive and Pig in HDInsight
 
 Hive and Pig are great for working with data in HDInsight, but sometimes you need a more general purpose language. Both Hive and Pig allow you to create User Defined Functions (UDF) using a variety of programming languages. In this article, you will learn how to use a Python UDF from Hive and Pig.
 
-> [WACOM.NOTE] The steps in this article apply to HDInsight cluster versions 2.1, 3.0, and 3.1 preview.
+> [WACOM.NOTE] The steps in this article apply to HDInsight cluster versions 2.1, 3.0, and 3.1.
 
 ##Table of contents
 

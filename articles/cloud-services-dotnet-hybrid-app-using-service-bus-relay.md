@@ -1,4 +1,6 @@
-<properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
 
 
@@ -7,7 +9,7 @@
 
 # .NET On-Premises/Cloud Hybrid Application Using Service Bus Relay
 
-<h2><span class="short-header">INTRODUCTION</span>INTRODUCTION</h2>
+<h2>INTRODUCTION</h2>
 
 Developing hybrid cloud applications with Azure is easy using
 Visual Studio 2013 and the free Azure SDK for .NET. This guide
@@ -51,7 +53,7 @@ using Azure Active Directory Access Control.
 
 ### THE SOLUTION SCENARIO
 
-In this tutorial, you will create an ASP.NET MVC 4 web site that will
+In this tutorial, you will create an ASP.NET MVC 4 website that will
 allow you to see a list of products on the product inventory page.
 
 ![][0]
@@ -71,7 +73,7 @@ The following is a screen shot of the start page of the completed web applicatio
 
 ![][1]
 
-<h2><span class="short-header">SET UP THE ENVIRONMENT</span>SET UP THE DEVELOPMENT ENVIRONMENT</h2>
+<h2>SET UP THE DEVELOPMENT ENVIRONMENT</h2>
 
 Before you can begin developing your Azure application, you need
 to get the tools and set-up your development environment.
@@ -101,7 +103,7 @@ to get the tools and set-up your development environment.
     do not have Visual Studio installed, it also installs the free
     Visual Studio Express.
 
-<h2><span class="short-header">CREATE A NAMESPACE</span>CREATE A SERVICE NAMESPACE</h2>
+<h2>CREATE A SERVICE NAMESPACE</h2>
 
 To begin using Service Bus features in Azure, you must first
 create a service namespace. A service namespace provides a scoping
@@ -141,7 +143,7 @@ The namespace you created will then appear in the Management Portal and
 takes a moment to activate. Wait until the status is **Active** before
 moving on.
 
-<h2><span class="short-header">OBTAIN MANAGEMENT CREDENTIALS</span>OBTAIN THE DEFAULT MANAGEMENT CREDENTIALS FOR THE NAMESPACE</h2>
+<h2>OBTAIN THE DEFAULT MANAGEMENT CREDENTIALS FOR THE NAMESPACE</h2>
 
 In order to perform management operations, such as creating a queue, on
 the new namespace, you must obtain the management credentials for the
@@ -171,7 +173,7 @@ To manage a namespace and obtain connection information using Visual Studio inst
 Make a note of the **SharedAccessKey** value, or copy it to the clipboard.
 
 
-<h2><span class="short-header">CREATE AN ON-PREMISES SERVER</span>CREATE AN ON-PREMISES SERVER</h2>
+<h2>CREATE AN ON-PREMISES SERVER</h2>
 
 First, you will build a (mock) on-premises product catalog system. It
 will be fairly simple; you can see this as representing an actual
@@ -286,7 +288,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
             class ProductsService : IProducts
             {
                 
-                // Populate array of products for display on Web site
+                // Populate array of products for display on Website
                 ProductData[] products = 
                     new []
                         {
@@ -363,7 +365,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 
 14. Press **F6** or from the **Build** menu, click **Build Solution** to build the application to verify the accuracy of your work so far.
 
-<h2><span class="short-header">CREATE AN ASP.NET MVC APPLICATION</span>CREATE AN ASP.NET MVC APPLICATION</h2>
+<h2>CREATE AN ASP.NET MVC APPLICATION</h2>
 
 In this section you will build a simple ASP.NET application that will
 display data retrieved from your product service.
@@ -501,9 +503,9 @@ Run the application to verify that it works.
 
     ![][21]
 
-    <h2><span class="short-header">DEPLOY TO AZURE</span>MAKE YOUR APPLICATION READY TO DEPLOY TO AZURE</h2>
+    <h2>MAKE YOUR APPLICATION READY TO DEPLOY TO AZURE</h2>
 
-    You can deploy your application to an Azure Cloud Service or to an Azure Web Site. To learn more about the difference between web sites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Web Site, see [Deploying an ASP.NET Web Application to an Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure Cloud Service.
+    You can deploy your application to an Azure Cloud Service or to an Azure Website. To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure Cloud Service.
 
     To deploy your application to a cloud service, you'll add a cloud service project deployment project to the solution.
     The deployment project contains configuration
@@ -528,7 +530,7 @@ Run the application to verify that it works.
         and it will look and function the same way it did when you ran
         it earlier as a regular ASP.NET MVC 4 application.
 
-    <h2><span class="short-header">PUT THE PIECES TOGETHER</span>PUT THE PIECES TOGETHER</h2>
+    <h2>PUT THE PIECES TOGETHER</h2>
 
     The next step is to hook up the on-premises products server with the
     ASP.NET MVC application.
@@ -629,7 +631,7 @@ Run the application to verify that it works.
 
         ![][26]
 
-    <h2><span class="short-header">RUN THE APPLICATION</span>RUN THE APPLICATION</h2>
+    <h2>RUN THE APPLICATION</h2>
 
     1.  From the **File** menu in Visual Studio, click **Save All**.
 
@@ -642,7 +644,7 @@ Run the application to verify that it works.
 
         ![][1]
 
-    <h2><span class="short-header">DEPLOY THE APPLICATION</span>DEPLOY YOUR APPLICATION TO AZURE</h2>
+    <h2>DEPLOY YOUR APPLICATION TO AZURE</h2>
 
     1.  Right-click on the **ProductsPortal** project in **Solution
         Explorer** and click **Publish to Azure**.
@@ -691,13 +693,13 @@ Run the application to verify that it works.
 
         ![][35]
 
-    12. When deployment is complete, you can view your Web site by
-        clicking the **Web site URL** link in the monitoring window.
+    12. When deployment is complete, you can view your Website by
+        clicking the **Website URL** link in the monitoring window.
 
         ![][36]
 
-        Your Web site depends on your on-premises server, so you must
-        run the **ProductsServer** application locally for the Web site
+        Your Website depends on your on-premises server, so you must
+        run the **ProductsServer** application locally for the Website
         to function properly. As you perform requests on the cloud Web
         site, you will see requests coming into your on-premises console
         application, as indicated by the "GetProducts called" output
@@ -705,9 +707,9 @@ Run the application to verify that it works.
 
         ![][37]
 
-To learn more about the difference between web sites and cloud services, see [Azure Execution Models][executionmodels].
+To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels].
 
-<h2><span class="short-header">DELETE THE APPLICATION</span>STOP AND DELETE YOUR APPLICATION</h2>
+<h2>STOP AND DELETE YOUR APPLICATION</h2>
 
 After deploying your application, you may want to disable it so you
 can build and deploy other applications within the free 750
@@ -731,7 +733,7 @@ application.
 
 	![][43]
 
-<h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>  
+<h2><a name="nextsteps"></a>Next steps</h2>  
 
 To learn more about Service Bus, see the following resources:  
   

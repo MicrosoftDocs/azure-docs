@@ -1,14 +1,10 @@
-<properties linkid="develop-mobile-tutorials-get-started-offline-data-ios" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="donnam,wesmc" editor="wesmc" />
+<properties urlDisplayName="Using Offline Data" pageTitle="Using offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data in Mobile Services" authors="donnam" editor="wesmc" manager="dwrede"/>
 
-# Get started with offline data sync in Mobile Services
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="donnam" />
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows Store C#">Windows Store C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone">Windows Phone</a>
-<a href="/en-us/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS">iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS" class="current">iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
-</div>
+# Using offline data sync in Mobile Services
+
+[WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
 This topic shows you how to use use the offline capabilities of Azure Mobile Services. These features allow you to interact with a local database when you are in an offline scenario with your Mobile Service. The offline features allow you to sync your local changes with the mobile service when you are online again. 
 
@@ -16,7 +12,7 @@ In this tutorial, you will update the app from the [Get started with Mobile Serv
 
 >[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].
 >
->To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+>To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 
 This tutorial walks you through these basic steps:
 
@@ -28,14 +24,16 @@ This tutorial requires the following:
 * XCode 4.5 and iOS 6.0 (or later versions) 
 * Visual Studio with the [Xamarin extension] **or** [Xamarin Studio] on OS X
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial
-* [Azure Mobile Services SDK version 1.3.0-alpha3 (or later)][Mobile Services SDK Nuget]
-* [Azure Mobile Services SQLite Store version 1.0.0-alpha2 (or later)][SQLite store nuget]
+* [Azure Mobile Services SDK version 1.3.0-beta2 (or later)][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0-beta2 (or later)][SQLite store nuget]
 
->[WACOM.NOTE] The instructions below assume you are using Visual Studio 2012 or higher with the Xamarin extension. If you are using Xamarin Studio on OS X, most of the instructions are the same, but you should also install the [NuGet Addin for Xamarin] so that you can easily add the pre-release Mobile Services NuGet packages to your project.
+>[WACOM.NOTE] The instructions below assume you are using Visual Studio 2012 or higher with the Xamarin extension. If you are using Xamarin Studio on OS X, use the built-in NuGet package manager support.
 
 ## <a name="enable-offline-app"></a>Update the app to support offline features
 
-Azure Mobile Services offline features allow you to interact with a local database when you are in an offline scenario with your Mobile Service. To use these features in your app, you initialize `MobileServiceClient.SyncContext` to a local store. Then reference your table through the `IMobileServiceSyncTable` interface.
+Azure Mobile Services offline sync allows end users to interact with a local database when the network is not accessible. To use these features in your app, you initialize `MobileServiceClient.SyncContext` to a local store. Then reference your table through the `IMobileServiceSyncTable` interface.
+
+A project with the completed state of this tutorial is available [here](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.iOS).
 
 1. In Visual Studio open the project that you completed in the [Get started with Mobile Services] or [Get Started with Data] tutorial. In Solution Explorer, remove the reference to **Azure Mobile Services SDK** in **Components**.
 
@@ -96,7 +94,7 @@ Edit the class `QSTodoService` to enable use of the Mobile Services offline feat
 		    try
 		    {
 		        await this.client.SyncContext.PushAsync();
-		        await this.todoTable.PullAsync();
+                await this.todoTable.PullAsync("todoItems", todoTable.CreateQuery());
 		    }
 		    catch (MobileServiceInvalidOperationException e)
 		    {
@@ -106,12 +104,12 @@ Edit the class `QSTodoService` to enable use of the Mobile Services offline feat
 
 ### Edit ToDoItem.cs 
 
-- Add the using statement: 
+1. Add the using statement: 
 
         using Microsoft.WindowsAzure.MobileServices; 
 
 
-- Add the following members to the class `ToDoItem`:
+2. Add the following members to the class `ToDoItem`:
  
 		[Version]
 		public string Version { get; set; }
@@ -216,9 +214,12 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 
     A pull always issues a push first.  
 
-    There are also overloads of **PullAsync()** that allow a query to be specified. Note that in the preview release of offline support for Mobile Services, **PullAsync** will read all rows in the corresponding table (or query)--it does not attempt to read only rows newer than the last sync, for instance. If the rows already exist in the local sync table, they will remain unchanged.
+    This sample uses an overload of **PullAsync()** that allows specifying a query key and a query. The query key is used for incremental sync. The Mobile Services SDK tracks the last updated timestamp after each successful pull operation. On the next pull, only newer records will be retrieved. If no query key is specified, a full sync will be performed for the sync table.
 
 ## Next steps
+
+You can download the completed version of this tutorial in our [GitHub samples repository](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.iOS).
+
 
 <!--* [Handling conflicts with offline support for Mobile Services]
 -->
@@ -242,8 +243,8 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [Get started with Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
 [How to use the Xamarin Component client for Azure Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
 
-[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha3
-[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha2
+[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
+[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin

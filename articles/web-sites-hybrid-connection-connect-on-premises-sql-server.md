@@ -1,13 +1,15 @@
-<properties linkid="web-sites-hybrid-connection-getting-started" title="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure web site" pageTitle="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure web site" description="Create a a web site on Microsoft Azure and connect it to an on-premises SQL Server database" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
+<properties title="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" pageTitle="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" description="Create a a website on Microsoft Azure and connect it to an on-premises SQL Server database" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-#Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+
+#Connect to an on-premises SQL Server from an Azure website using Hybrid Connections
 
 ##Introduction##
-Hybrid Connections can connect Microsoft Azure web sites to on-premises resources that use a static TCP port. Supported resources include Microsoft SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. 
+Hybrid Connections can connect Microsoft Azure websites to on-premises resources that use a static TCP port. Supported resources include Microsoft SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. 
 
-In this tutorial, you will learn how to create a web site in the Azure Preview Portal, connect the web site to your local on-premises SQL Server database using the new Hybrid Connection feature, create a simple ASP.NET web application that will use the hybrid connection, and deploy the application to the Azure Web Site. The completed web site on Azure stores user credentials in a membership database that is on-premises. The tutorial assumes no prior experience using Azure or ASP.NET.
+In this tutorial, you will learn how to create a website in the Azure Preview Portal, connect the website to your local on-premises SQL Server database using the new Hybrid Connection feature, create a simple ASP.NET web application that will use the hybrid connection, and deploy the application to the Azure Website. The completed website on Azure stores user credentials in a membership database that is on-premises. The tutorial assumes no prior experience using Azure or ASP.NET.
 
-> [WACOM.NOTE] The Web Sites portion of the Hybrid Connections feature is available only in the [Azure Preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+> [WACOM.NOTE] The Websites portion of the Hybrid Connections feature is available only in the [Azure Preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ##Prerequisites##
 To complete this tutorial, you'll need the following products. All are available in free versions, so you can start developing for Azure entirely for free.
@@ -29,7 +31,27 @@ To use an on-premises SQL Server or SQL Server Express database with a hybrid co
 
 The computer on which you install the on-premises Hybrid Connection Manager agent:
 
-- Must be able to connect to Azure over port 5671
+- Must have outbound connectivity to Azure over:
+
+> <table border="1">
+    <tr>
+       <th><strong>Port</strong></th>
+        <th>Why</th>
+    </tr>
+    <tr>
+        <td>80</td>
+        <td><strong>Required</strong> for HTTP port for certificate validation and optionally for data connectivity.</td>
+    </tr>
+    <tr>
+        <td>443</td>
+        <td><strong>Optional</strong> for data connectivity. If outbound connectivity to 443 is unavailable, TCP port 80 is used.</td>
+    </tr>
+	<tr>
+        <td>5671 and 9352</td>
+        <td><strong>Recommended</strong> but Optional for data connectivity. Note this mode usually yields higher throughput. If outbound connectivity to these ports is unavailable, TCP port 443 is used.</td>
+	</tr>
+</table>
+
 - Must be able to reach the *hostname*:*portnumber* of your on-premises resource. 
 
 The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.
@@ -277,7 +299,7 @@ In this step, you edit the connection string that tells your application where t
 	
 	![Enter user name and password][HCVSCreateNewAccount]
 	
-	This automatically creates a database on your local SQL Server that holds the membership information for your application. One of the tables (**dbo.AspNetUsers**) holds web site user credentials like the ones that you just entered. You will see this table later in the tutorial.
+	This automatically creates a database on your local SQL Server that holds the membership information for your application. One of the tables (**dbo.AspNetUsers**) holds website user credentials like the ones that you just entered. You will see this table later in the tutorial.
 	
 4. Close the browser window of the default web page. This stops the application in Visual Studio.
 
@@ -286,11 +308,11 @@ You are now ready for the next step, which is to publish the application to Azur
 <a name="PubNTest"></a>
 ## F. Publish the web application to Azure and test it ##
 
-Now, you'll publish your application to your web site on Azure and then test it to see how the hybrid connection you configured earlier is being used to connect your web site application to the database on your local machine. 
+Now, you'll publish your application to your website on Azure and then test it to see how the hybrid connection you configured earlier is being used to connect your website application to the database on your local machine. 
 
 ###Publish the web application###
 
-1. You can download your publishing profile for the web site in the Azure portal. On the blade for your web site, choose **Download publish profile**, and then save the file to your computer.
+1. You can download your publishing profile for the website in the Azure portal. On the blade for your website, choose **Download publish profile**, and then save the file to your computer.
 	
 	![Download publish profile][PortalDownloadPublishProfile]
 	
@@ -316,7 +338,7 @@ Now, you'll publish your application to your web site on Azure and then test it 
 	
 	Click **Publish**.
 	
-	When publishing completes, your browser will launch and show your now familiar web site -- except that now it is live in the Azure cloud!
+	When publishing completes, your browser will launch and show your now familiar website -- except that now it is live in the Azure cloud!
 
 Next, you will use your live web application to see its Hybrid Connection in action.
 
@@ -325,7 +347,7 @@ Next, you will use your live web application to see its Hybrid Connection in act
 	
 	![Test log in][HCTestLogIn]
 	
-2. Your Azure web site is now connected to your web application's membership database on your local machine. To verify this, log in with the same credentials that you entered in the local database earlier.
+2. Your Azure website is now connected to your web application's membership database on your local machine. To verify this, log in with the same credentials that you entered in the local database earlier.
 	
 	![Hello greeting][HCTestHelloContoso]
 	

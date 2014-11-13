@@ -1,4 +1,6 @@
-<properties title="SharePoint Server Farm Configuration Details" pageTitle="SharePoint Server Farm Configuration Details" description="Describes the default configuration of SharePoint farms" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" />
+<properties title="SharePoint Server Farm Configuration Details" pageTitle="SharePoint Server Farm Configuration Details" description="Describes the default configuration of SharePoint farms" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
 
 #SharePoint Server Farm Configuration Details#
@@ -21,7 +23,7 @@ The basic SharePoint farm consists of three virtual machines in the following co
 Here are the configuration details:
 
 -	Azure Subscription: Specified during the initial configuration.
--	Azure Domain Names (also known as cloud services): Separate Domain Name automatically created for each virtual machine automatically.
+-	Azure Domain Names (also known as cloud services): Separate Domain Names are automatically created for each virtual machine.
 -	Storage account: Specified during the initial configuration.
 -	Virtual network 	
 	-   Type: Cloud-only	
@@ -64,7 +66,7 @@ The high-availability SharePoint farm consists of nine virtual machines in the f
 Here are the configuration details:
 
 -	Azure Subscription: Specified during the initial configuration.
--	Azure Domain Names (also known as cloud services): Separate Domain Name automatically created for each virtual machine.
+-	Azure Domain Names (also known as cloud services): Separate Domain Names are automatically created for each virtual machine.
 -	Storage account: Specified during the initial configuration.
 -	Virtual network	
 	-	Type: Cloud-only

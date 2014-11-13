@@ -1,20 +1,19 @@
-<properties linkid="develop-net-tutorials-get-started-vs2013" pageTitle="Get started with Azure Web Sites for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Web Site. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Web Sites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Get started with Azure Websites for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="09/24/2014" ms.author="tdykstra" />
 
-# Get started with Azure Web Sites and ASP.NET
+# Get started with Azure Websites and ASP.NET
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
-
-This tutorial shows how to create an ASP.NET web application and deploy it to an Azure Web Site by using Visual Studio 2013 or Visual Studio 2013 for Web Express. The tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
+This tutorial shows how to create an ASP.NET web application and deploy it to an Azure Website by using Visual Studio 2013 or Visual Studio 2013 for Web Express. The tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
 
 You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
  
 You'll learn:
 
 * How to enable your machine for Azure development by installing the Azure SDK.
-* How to create a Visual Studio ASP.NET web project and deploy it to an Azure Web Site.
+* How to create a Visual Studio ASP.NET web project and deploy it to an Azure Website.
 * How to make a change to the web project and redeploy the application.
-* How to use the Azure Management Portal to monitor and manage your web site.
+* How to use the Azure Management Portal to monitor and manage your website.
 
 The following illustration shows the completed application:
 
@@ -24,7 +23,7 @@ The following illustration shows the completed application:
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
   <ul>
-    <li>You can <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Sites.</li>
+    <li>You can <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.</li>
     <li>You can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
   <ul>
 </div>
@@ -43,7 +42,7 @@ The following illustration shows the completed application:
 
 ## Create an ASP.NET web application
 
-Your first step is to create a web application project. Visual Studio will automatically create the Azure Web Site that you'll deploy your project to later. The following diagram illustrates what's happening in these two steps.
+Your first step is to create a web application project. Visual Studio will automatically create the Azure Website that you'll deploy your project to later. The following diagram illustrates what's happening in these two steps.
 
 ![Diagram showing project creation and deployment steps](./media/web-sites-dotnet-get-started-vs2013/createdeploydiagram.png)
 
@@ -61,7 +60,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 5. In the **New ASP.NET Project** dialog box, select the **MVC** template. If you prefer to work with ASP.NET Web Forms, you can select the **Web Forms** template. 
 
-	[MVC and Web Forms](http://www.asp.net/get-started/websites) are ASP.NET frameworks for developing web sites. For this tutorial you can choose either one, but if you choose Web Forms, you'll have to edit *Default.aspx* later where the tutorial instructs you to edit *Index.cshtml*.
+	[MVC and Web Forms](http://www.asp.net/get-started/websites) are ASP.NET frameworks for developing websites. For this tutorial you can choose either one, but if you choose Web Forms, you'll have to edit *Default.aspx* later where the tutorial instructs you to edit *Index.cshtml*.
 
 7. Click **Change Authentication**. 
 
@@ -77,7 +76,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
 
-	The default settings specify that Visual Studio will create an Azure Web Site for your web project. In the next section of the tutorial you'll deploy the web project to the newly created web site.
+	The default settings specify that Visual Studio will create an Azure Website for your web project. In the next section of the tutorial you'll deploy the web project to the newly created website.
 
 	(The check box caption might be **Host in the cloud** or **Create remote resources**. In either case the effect is the same.)
 	
@@ -97,7 +96,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 4. In the **Region** drop-down list, choose the location that is closest to you.
 
-	This setting specifies which Azure data center your web site will run in. For this tutorial you can select any region and it won't make a noticeable difference, but for a production site you want your web server to be as close as possible to the browsers accessing your site in order to minimize [latency](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
+	This setting specifies which Azure data center your website will run in. For this tutorial you can select any region and it won't make a noticeable difference, but for a production site you want your web server to be as close as possible to the browsers accessing your site in order to minimize [latency](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 
 5. Leave the database fields unchanged.
 
@@ -105,7 +104,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 6. Click **OK**.
 
-	In a few seconds, Visual Studio creates the web project in the folder you specified, and it creates the web site in the Azure region you specified.  
+	In a few seconds, Visual Studio creates the web project in the folder you specified, and it creates the website in the Azure region you specified.  
 
 	The **Solution Explorer** window shows the files and folders in the new project.
 
@@ -179,7 +178,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	![Output window reporting successful deployment](./media/web-sites-dotnet-get-started-vs2013/PublishOutput.png)
 
-	Upon successful deployment, the default browser automatically opens to the URL of the deployed web site, and
+	Upon successful deployment, the default browser automatically opens to the URL of the deployed website, and
 	the application that you created is now running in the cloud. The URL in the browser address bar shows that the site is being loaded from the Internet.
 
 	![Web site running in Azure](./media/web-sites-dotnet-get-started-vs2013/GS13deployedsite.png)
@@ -225,13 +224,13 @@ In this section of the tutorial, you change the **h1** heading of the home page,
 
 ## Monitor and manage the site in the management portal
 
-The [Azure Management Portal](/en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the web site you just created. In this section of the tutorial you look at some of what you can do in the portal.
+The [Azure Management Portal](/en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the website you just created. In this section of the tutorial you look at some of what you can do in the portal.
 
 1. In your browser, go to [http://manage.windowsazure.com](), and sign in with your Azure credentials.
 
 	The portal displays a list of your Azure services.
 
-2. Click the name of your web site.
+2. Click the name of your website.
 
 	![Portal home page with new web site called out](./media/web-sites-dotnet-get-started-vs2013/portalhome.png)
   
@@ -251,53 +250,53 @@ The [Azure Management Portal](/en-us/services/management-portal/) is a web inter
   
 5. Click the **Scale** tab.
 
-	For the paid tiers of the Web Sites service, the [Scale](/en-us/documentation/articles/web-sites-scale/) tab enables you to control the size and number of machines that service your web application in order to handle variations in traffic.
+	For the paid tiers of the Websites service, the [Scale](/en-us/documentation/articles/web-sites-scale/) tab enables you to control the size and number of machines that service your web application in order to handle variations in traffic.
 
 	You can scale manually or configure criteria or schedules for automatic scaling.
 
-	![Portal web site scale tab](./media/web-sites-dotnet-get-started-vs2013/portalscale.png)
+	![Portal website scale tab](./media/web-sites-dotnet-get-started-vs2013/portalscale.png)
 
-These are just a few of the management portal's features. You can also create new web sites, delete existing sites, stop and restart sites, and manage other kinds of Azure services, such as databases and virtual machines.  
+These are just a few of the management portal's features. You can also create new websites, delete existing sites, stop and restart sites, and manage other kinds of Azure services, such as databases and virtual machines.  
 
 **Tip:** There is a new management portal in preview which will eventually replace the one you've been using. For more information, see [Azure Preview Portal](/en-us/overview/preview-portal/).
 
 ## Next steps
 
-In this tutorial you've seen how to create a simple web application and deploy it to an Azure Web Site. Here are some related topics and resources for learning more about them.
+In this tutorial you've seen how to create a simple web application and deploy it to an Azure Website. Here are some related topics and resources for learning more about them.
 
 * Other ways to deploy a web project
 
-	In this tutorial you saw the quickest way to create a site and deploy it all in one operation. For an overview of other ways to deploy, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to Deploy an Azure Web Site](/en-us/documentation/articles/web-sites-deploy/"). 
+	In this tutorial you saw the quickest way to create a site and deploy it all in one operation. For an overview of other ways to deploy, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to Deploy an Azure Website](/en-us/documentation/articles/web-sites-deploy/"). 
 
 	Visual Studio can also generate Windows PowerShell scripts that enable you to automate deployment. For more information, see [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
-* How to manage a web site in Visual Studio
+* How to manage a website in Visual Studio
 
-	For information about site management functions that you can do in **Server Explorer**, see [Troubleshooting Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+	For information about site management functions that you can do in **Server Explorer**, see [Troubleshooting Azure Websites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
-* How to troubleshoot a web site
+* How to troubleshoot a website
 
-	Visual Studio provides features that make it easy to view Azure logs as they are generated in real time. You can also run in debug mode remotely in Azure. For more information, see [Troubleshooting Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+	Visual Studio provides features that make it easy to view Azure logs as they are generated in real time. You can also run in debug mode remotely in Azure. For more information, see [Troubleshooting Azure Websites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 * How to add database and authorization functionality
 
-	For a tutorial that shows how to access a database and restrict some site functions to authorized users, see [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site](/en-us/develop/net/tutorials/web-site-with-sql-database/).
+	For a tutorial that shows how to access a database and restrict some site functions to authorized users, see [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Website](/en-us/develop/net/tutorials/web-site-with-sql-database/).
 
 * How to add a custom domain name and SSL
 
 	For information about how to use SSL and your own domain (for example www.contoso.com instead of contoso.azurewebsites.net), see the following resources:
 
-	* [Configuring a custom domain name for an Azure Web Site](/en-us/documentation/articles/web-sites-custom-domain-name/). 
-	* [Enable HTTPS for an Azure web site](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)
+	* [Configuring a custom domain name for an Azure Website](/en-us/documentation/articles/web-sites-custom-domain-name/). 
+	* [Enable HTTPS for an Azure website](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)
 
 * How to avoid wake-up wait time after idle time-outs 
 
-	By default, web sites are unloaded if they have been idle for some period of time. The first request after that has to wait for the site to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to Configure Web Sites](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure/).
+	By default, websites are unloaded if they have been idle for some period of time. The first request after that has to wait for the site to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to Configure Websites](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure/).
 
 * How to add real-time features such as chat
 
-	If your web site will include real-time features (such as a chat service, a game, a stock ticker, and so forth), you can get the best performance by using [ASP.NET SignalR](http://www.asp.net/signalr) with the [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) transport method. For more information, see [Using SignalR with Windows Azure Web Sites](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites). 
+	If your website will include real-time features (such as a chat service, a game, a stock ticker, and so forth), you can get the best performance by using [ASP.NET SignalR](http://www.asp.net/signalr) with the [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) transport method. For more information, see [Using SignalR with Windows Azure Websites](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites). 
 
-* How to choose between Azure Web Sites, Cloud Services, and VMs for web applications
+* How to choose between Azure Websites, Cloud Services, and VMs for web applications
 
-	In Azure you can run web applications in Web Sites as shown in this tutorial, or in Cloud Services or in Virtual Machines. For more information, see [Azure Execution Models](/en-us/develop/net/fundamentals/compute/) and [Azure Web Sites, Cloud Services, and VMs: When to use which?](/en-us/manage/services/web-sites/choose-web-app-service/).
+	In Azure you can run web applications in Websites as shown in this tutorial, or in Cloud Services or in Virtual Machines. For more information, see [Azure Execution Models](/en-us/develop/net/fundamentals/compute/) and [Azure Websites, Cloud Services, and VMs: When to use which?](/en-us/manage/services/web-sites/choose-web-app-service/).

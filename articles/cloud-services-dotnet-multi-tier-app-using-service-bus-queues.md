@@ -1,4 +1,6 @@
-<properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" services="cloud-services,service-bus" documentationCenter=".NET" title=".NET Multi-Tier Application Using Service Bus Queues" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" services="cloud-services,service-bus" documentationCenter=".NET" title=".NET Multi-Tier Application Using Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
 
 
@@ -25,7 +27,7 @@ You will learn:
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-In this tutorial you'll build and run the multi-tier application in an Azure Cloud Service. The front end will be an ASP.NET MVC web role and the back end will be a worker-role. You could create the same multi-tier application with the front end as a web project that would be deployed to an Azure Web Site instead of a cloud service. For instructions about what to do differently an Azure Web Site front end, see the [Next steps](#nextsteps) section.
+In this tutorial you'll build and run the multi-tier application in an Azure Cloud Service. The front end will be an ASP.NET MVC web role and the back end will be a worker-role. You could create the same multi-tier application with the front end as a web project that would be deployed to an Azure Website instead of a cloud service. For instructions about what to do differently an Azure Website front end, see the [Next steps](#nextsteps) section.
 
 A screenshot of the completed application is shown below:
 
@@ -33,7 +35,7 @@ A screenshot of the completed application is shown below:
 
 **Note** Azure also provides storage queue functionality. For more information about Azure storage queues and Service Bus queues, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison].  
 
-<h2><span class="short-header">Inter-role communication</span>Scenario overview: inter-role communication</h2>
+<h2>Scenario overview: inter-role communication</h2>
 
 To submit an order for processing, the front end UI component, running
 in the web role, needs to interact with the middle tier logic running in
@@ -92,7 +94,7 @@ messaging, namely:
 The following sections discuss the code that implements this
 architecture.
 
-<h2><span class="short-header">Set up environment</span>Set up the development environment</h2>
+<h2>Set up the development environment</h2>
 
 Before you can begin developing your Azure application, you need
 to get the tools and set-up your development environment.
@@ -122,7 +124,7 @@ to get the tools and set-up your development environment.
     do not have Visual Studio installed, it also installs the free
     Visual Studio Express for Web.
 
-<h2><span class="short-header">Set up the namespace</span>Set up the Service Bus namespace</h2>
+<h2>Set up the Service Bus namespace</h2>
 
 The next step is to create a service namespace, and to obtain a shared
 secret key. A service namespace provides an application boundary for
@@ -183,7 +185,7 @@ Make a note of the **SharedAccessKey** value, or copy it to the clipboard:
 
 ![][34]
 
-<h2><span class="short-header">Create a web role</span>Create a web role</h2>
+<h2>Create a web role</h2>
 
 In this section, you will build the front end of your application. You
 will first create the various pages that your application displays.
@@ -501,9 +503,9 @@ Service Bus Queue.
 
     ![][18]
 
-<h2><span class="short-header">Configuration manager</span>Cloud configuration manager</h2>
+<h2>Cloud configuration manager</h2>
 
-Azure supports a set of managed APIs that provides a consistent way to create new instances of Azure service clients (such as the Service Bus) across Microsoft cloud services. These APIs enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in web sites, or in a persistent VM Role. You can also use these APIs to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The APIs are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
+Azure supports a set of managed APIs that provides a consistent way to create new instances of Azure service clients (such as the Service Bus) across Microsoft cloud services. These APIs enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these APIs to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The APIs are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
 
 ### Connection string
 
@@ -534,7 +536,7 @@ The following code retrieves the connection string, creates a queue, and initial
 
 The code in the following section uses these configuration management APIs.
 
-<h2><span class="short-header">Create worker role</span>Create the worker role</h2>
+<h2>Create the worker role</h2>
 
 You will now create the worker role that processes the order
 submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, you will use Server Explorer in Visual Studio to obtain the required credentials.
@@ -605,7 +607,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
     ![][20]
 
-<h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>  
+<h2><a name="nextsteps"></a>Next steps</h2>  
 
 To learn more about Service Bus, see the following resources:  
   
@@ -617,7 +619,7 @@ To learn more about multi-tier scenarios, or to learn how to deploy an applicati
 
 * [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage]  
 
-You might want to implement the front-end of a multi-tier application in an Azure Web Site instead of an Azure Cloud Service. To learn more about the difference between web sites and cloud services, see [Azure Execution Models][executionmodels].
+You might want to implement the front-end of a multi-tier application in an Azure Website instead of an Azure Cloud Service. To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels].
 
 To implement the application you create in this tutorial as a standard web project instead of as a cloud service web role, follow the steps in this tutorial with the following differences:
 
@@ -627,7 +629,7 @@ To implement the application you create in this tutorial as a standard web proje
 
 3. You can test the front-end and back-end separately, or you can run both simultaneously in separate Visual Studio instances.
 
-To learn how to deploy the front end to an Azure Web Site, see [Deploying an ASP.NET Web Application to an Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). To learn how to deploy the back end to an Azure Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage].
+To learn how to deploy the front end to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). To learn how to deploy the back end to an Azure Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage].
 
 
   [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png

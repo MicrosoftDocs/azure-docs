@@ -1,10 +1,19 @@
-<properties title="Azure Machine Learning Sample: Credit risk prediction" pageTitle="Machine Learning Sample: Credit risk prediction | Azure" description="A sample Azure Machine Learning experiment to develop a binary classification model that predicts if an applicant is a low credit risk or a high credit risk." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Azure Machine Learning Sample: Credit risk prediction" pageTitle="Machine Learning Sample: Credit risk prediction | Azure" description="A sample Azure Machine Learning experiment to develop a binary classification model that predicts if an applicant is a low credit risk or a high credit risk." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-#Azure Machine Learning Sample: Credit risk prediction 
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
+
+
+# Azure Machine Learning Sample: Credit risk prediction 
+
+>[AZURE.NOTE]
+>The [Sample Experiment] and [Sample Dataset] associated with this model are available in ML Studio. See below for more details.
+[Sample Experiment]: #sample-experiment
+[Sample Dataset]: #sample-dataset
+
+*For a detailed walkthrough of how to create and use a simplified version of this experiment, see [Develop a predictive solution with Azure Machine Learning](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).*
 
 The purpose of this experiment is to predict credit risk based on information given on a credit application. The prediction is a binary value: low risk or high risk. 
 
-For a detailed walkthrough of how to create and use a simplified version of this experiment, see **Developing a Predictive Solution with Azure ML**.
 
 <!-- Removed until the Training and Scoring parts are fixed
 This example is divided into 3 sample experiments:
@@ -14,6 +23,7 @@ This example is divided into 3 sample experiments:
 - Scoring Experiment – to set up a web service using the trained model
 -->
 
+<!-- Removed because we added a section at the bottom describing the dataset
 ##Dataset Description
 
 The experiment uses the UCI Statlog (German Credit Card) dataset which can be found here: 
@@ -21,6 +31,7 @@ The experiment uses the UCI Statlog (German Credit Card) dataset which can be fo
 We are using the german.data file from this website.
 
 The dataset classifies people, described by a set of attributes, as low or high credit risks. Each example represents a person. There are 20 features, both numerical and categorical, and a binary label (the credit risk value). High credit risk entries have label = 2, low credit risk entries have label = 1. The cost of misclassifying a low risk example as high is 1, whereas the cost of misclassifying a high risk example as low is 5.
+-->
 
 ##Development Experiment
 
@@ -57,7 +68,7 @@ In addition to checking the effect of replication of examples in the training se
 - Boosted Decision Tree, trained with original data
 - Boosted Decision Tree, trained with replicated data
 
-Boosted decision trees work well with features of any type. However, since the SVM module generates a linear classifier, the model that it generates has the best test error when all features have the same scale. To convert all features to the same scale we use **Transform Data by Scaling** module with a tanh transformation. This transformation transforms all numeric features to [0,1] range. Note that string features are converted by the SVM module to categorical features and then to binary 0/1 features, so we don’t need to manually transform string features. 
+Boosted decision trees work well with features of any type. However, since the SVM module generates a linear classifier, the model that it generates has the best test error when all features have the same scale. To convert all features to the same scale we use **Transform Data by Scaling** module with a tanh transformation. This transformation transforms all numeric features to [0,1] range. Note that string features are converted by the SVM module to categorical features and then to binary 0/1 features, so we don't need to manually transform string features. 
 
 We initialize the learning algorithm using the **Two-Class Support Vector Machine** module or the **Two-Class Boosted Decision Tree** module and then use the **Train Mode**l module to create the actual model. These models are used by **Score Model** modules to produce scores of test examples. An example workflow that combines these modules and uses SVM and the replicated training set is depicted below. Note that **Train Model** is connected to the training set, whereas **Score Model** is connected to the test set.
 
@@ -69,7 +80,7 @@ In the evaluation stage of the experiment we compute the accuracy of each of the
 
 where *n+* and *n-* are the numbers of positive and negative examples in the original dataset, and *e+* and *e-* are the numbers of misclassified positive and negative examples in the original dataset.
 
-The **Evaluate Model** module compares 2 scored models, so we use one **Evaluate Model** module to compare the 2 SVM models, and one to compare the 2 boosted decision tree models. We’ll combine these into a table to view all 4 results. **Evaluate Model** produces a table with a single row that contains various metrics. We use the **Add Rows** module to combine all the results into a single table. We then annotate the table with the accuracies of the 4 modules using an R script in the **Execute R Script** module, where we manually enter the names of the rows of the final table. Finally we remove the columns with non-relevant metrics using the **Project Columns** module. 
+The **Evaluate Model** module compares 2 scored models, so we use one **Evaluate Model** module to compare the 2 SVM models, and one to compare the 2 boosted decision tree models. We'll combine these into a table to view all 4 results. **Evaluate Model** produces a table with a single row that contains various metrics. We use the **Add Rows** module to combine all the results into a single table. We then annotate the table with the accuracies of the 4 modules using an R script in the **Execute R Script** module, where we manually enter the names of the rows of the final table. Finally we remove the columns with non-relevant metrics using the **Project Columns** module. 
 
 The final results of the experiment, obtained by right-clicking the **Results dataset** output of **Project Columns** are:
 
@@ -98,6 +109,22 @@ When the service is ready to go live, go to the **CONFIGURATION** tab on the **W
 
 ![Web service ready for production][screen4] 
 -->
+
+## Sample Experiment
+
+The following sample experiment associated with this model is available in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab.
+
+> **Sample Experiment - German Credit - Development**
+
+
+## Sample Dataset
+
+The following sample dataset used by this experiment is available in ML Studio in the module palette under **Saved Datasets**.
+
+###German Credit Card UCI dataset
+[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
+
+
 
 [screen1]:./media/machine-learning-sample-credit-risk-prediction/screen1.jpg
 [screen2]:./media/machine-learning-sample-credit-risk-prediction/screen2.jpg

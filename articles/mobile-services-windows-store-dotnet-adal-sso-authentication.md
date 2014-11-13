@@ -1,19 +1,17 @@
-<properties linkid="develop-mobile-tutorials-sso-with-adal" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc" />
+<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc" manager="dwrede" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
 
 # Authenticate your app with Active Directory Authentication Library Single Sign-On
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="Windows Store C#" class="current">Windows Store C#</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS" >iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library. 
+In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library to support [client-directed login operations](http://msdn.microsoft.com/en-us/library/azure/jj710106.aspx) with Azure Active Directory. To support [service-directed login operations](http://msdn.microsoft.com/en-us/library/azure/dn283952.aspx) with Azure Active Directory, start with the [Add authentication to your Mobile Services app](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) tutorial.
 
 To be able to authenticate users, you must register your application with the Azure Active Directory (AAD). This is done in two steps. First, you must register your mobile service and expose permissions on it. Second, you must register your Windows Store app and grant it access to those permissions
 
 
->[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to do single sign-on Azure Active Directory authentication for Windows Store apps. If this is your first experience with Mobile Services, complete the tutorial [Get started with Mobile Services].
+>[AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to do single sign-on Azure Active Directory authentication for Windows Store apps using a [client-directed login operation](http://msdn.microsoft.com/en-us/library/azure/jj710106.aspx). If this is your first experience with Mobile Services, complete the tutorial [Get started with Mobile Services].
 
 This tutorial walks you through these basic steps:
 
@@ -137,7 +135,7 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
                 try
                 {
                   AuthenticationContext ac = new AuthenticationContext(authority);
-                  AuthenticationResult ar = await ac.AcquireTokenAsync(resourceURI, clientID);
+                  AuthenticationResult ar = await ac.AcquireTokenAsync(resourceURI, clientID, (Uri) null);
                   JObject payload = new JObject();
                   payload["access_token"] = ar.AccessToken;
                   user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
@@ -167,10 +165,8 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (user == null)
-                await AuthenticateAsync();
-
-            RefreshTodoItems();
+            await AuthenticateAsync();
+            await RefreshTodoItems();
         }
 
 

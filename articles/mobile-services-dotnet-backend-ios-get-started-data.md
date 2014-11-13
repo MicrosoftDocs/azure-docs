@@ -1,26 +1,22 @@
-<properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (iOS) | Mobile Dev Center" metaKeywords="Azure iOS data, Azure mobile services data, " description="Learn how to get started using Mobile Services to leverage data in your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-# Get started with data in Mobile Services
+<properties urlDisplayName="Get Started with Data" pageTitle="Get started with data (iOS) | Mobile Dev Center" metaKeywords="Azure iOS data, Azure mobile services data, " description="Learn how to get started using Mobile Services to leverage data in your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS" class="current">iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android">Android</a></div>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios/"  title="JavaScript backend">JavaScript backend</a></div>
+# Add Mobile Services to an existing app
+
+[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 This topic shows you how to use a Azure Mobile Services to leverage data in an iOS app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
 
 The mobile service that you create in this tutorial supports the .NET runtime in the Mobile Service. This allows you to use .NET languages and Visual Studio for server-side business logic in the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.
 
-<div class="dev-callout"><b>Note</b>
-<p>This tutorial requires Visual Studio 2013.</p>
-</div>
-
-<div class="dev-callout"><b>Note</b>
-<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an iOS app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-ios">Get started with Mobile Services</a>.</p>
+>[WACOM.NOTE]This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an iOS app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].
 </div>
 
 This tutorial walks you through these basic steps:
 
-1. [Download the iOS app project] 
+1. [Download the iOS app project]
 2. [Create the mobile service]
 3. [Download the service locally]
 4. [Test the mobile service]
@@ -31,14 +27,14 @@ This tutorial walks you through these basic steps:
 This tutorial requires the following:
 
 + [Mobile Services iOS SDK] and [XCode 4.5][Install Xcode] and iOS 5.0 or later versions.
-+ Visual Studio 2013 (you can get [Visual Studio Express for Web](http://go.microsoft.com/p/?linkid=9832232) for free). 
-+ A Microsoft Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Azure Free Trial</a>. 
++ Visual Studio 2013 (you can get [Visual Studio Express for Web](http://go.microsoft.com/p/?linkid=9832232) for free).
++ A Microsoft Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Azure Free Trial</a>.
 
 ##<a name="download-app"></a>Download the GetStartedWithData project
- 
-This tutorial is built on the [GetStartedWithData app][GitHub], which is an iOS app. The UI for this app is identical to the app generated by the Mobile Services iOS quickstart, except that added items are stored locally in memory. 
 
-1. Download the GetStartedWithData [sample app][GitHub]. 
+This tutorial is built on the [GetStartedWithData app][GitHub], which is an iOS app. The UI for this app is identical to the app generated by the Mobile Services iOS quickstart, except that added items are stored locally in memory.
+
+1. Download the GetStartedWithData [sample app][GitHub].
 
 2. In Xcode, open the downloaded project and examine the TodoService.m file.
 
@@ -80,10 +76,10 @@ This tutorial is built on the [GetStartedWithData app][GitHub], which is an iOS 
 
 2. As before, type text in the textbox, and then click the **+** button..
 
-   	This sends a new item as an insert to the mobile service. Each new todoItem is stored and updated in the SQL database you previously configured for your mobile service in the Azure Management Portal. 
+   	This sends a new item as an insert to the mobile service. Each new todoItem is stored and updated in the SQL database you previously configured for your mobile service in the Azure Management Portal.
 
-3. Stop and restart the app to see that the changes were persisted to the database in Azure. 
- 
+3. Stop and restart the app to see that the changes were persisted to the database in Azure.
+
 	You can also examine the database using the Azure Management portal or Visual Studio's SQL Server Object Explorer. The next two steps use the [Azure Management portal] to view the changes in your database.
 
 4. In the Azure Management Portal, click manage for the database associated with your mobile service.
@@ -100,7 +96,7 @@ This concludes the **Get started with data** tutorial.
 
 ##<a name="next-steps"></a>Next steps
 
-This tutorial demonstrated the basics of enabling an iOS app to work with data in Mobile Services. 
+This tutorial demonstrated the basics of enabling an iOS app to work with data in Mobile Services.
 
 Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
 
@@ -112,10 +108,10 @@ Next, consider completing one of the following tutorials that is based on the Ge
 
 Once you have completed the data series, try these other iOS tutorials:
 
-* [Get started with authentication] 
+* [Get started with authentication]
 	<br/>Learn how to authenticate users of your app.
 
-* [Get started with push notifications] 
+* [Get started with push notifications]
   <br/>Learn how to send a very basic push notification to your app with Mobile Services.
 
 <!-- Anchors. -->
@@ -153,4 +149,3 @@ Once you have completed the data series, try these other iOS tutorials:
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=268622
 [GitHub repo]: http://go.microsoft.com/fwlink/p/?LinkId=268784
-  

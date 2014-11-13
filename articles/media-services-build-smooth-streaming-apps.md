@@ -1,4 +1,6 @@
-<properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="Michael Greenn" solutions="" manager="" editor="" />
+<properties urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="juliako" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
 
 
@@ -37,7 +39,7 @@ This lesson contains the following procedures:
 
 **To create a Windows Store project**
 
-1.	Run Visual Studio 2012
+1.	Run Visual Studio 2012 or later.
 2.	From the **FILE** menu, click **New**, and then click **Project**.
 3.	From the New Project dialog, type or select  the following values:
 

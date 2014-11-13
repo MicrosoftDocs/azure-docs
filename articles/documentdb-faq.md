@@ -1,79 +1,89 @@
-<properties title="DocumentDB fundamentals" pageTitle="DocumentDB fundamentals | Azure" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" />
+<properties title="Frequently asked questions about DocumentDB" pageTitle="Frequently asked questions about DocumentDB | Azure" description="Answers to frequently asked questions about Azure DocumentDB nosql document database service. Learn about capacity and request units, and understand how to scale to your application needs." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, faq"   services="documentdb" solutions="data-management"   authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
 
-#Microsoft Azure DocumentDB fundamentals
-##What is Microsoft Azure DocumentDB? 
-Microsoft Azure DocumentDB is a highly-scalable NoSQL document database-as-a-service that offers rich query over schema-free data, helps deliver configurable and reliable performance, and enables rapid development -- all through a managed platform backed by the power and reach of Microsoft Azure. DocumentDB is the right solution for web and mobile applications when predictable throughput, low latency, and a schema-free data model are key.  DocumentDB delivers schema flexibility and rich indexing via a native JSON data model, and includes multi-document transactional support with integrated JavaScript.  
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+
+
+#Frequently asked questions about DocumentDB
+
+- [Azure DocumentDB fundamentals](#fundamentals)
+- [Set up Azure DocumentDB](#setup)
+- [Develop against Azure DocumentDB](#develop)
+
+## <a id="fundamentals"></a> Microsoft Azure DocumentDB fundamentals
+
+###What is Microsoft Azure DocumentDB? 
+Microsoft Azure DocumentDB is a highly-scalable NoSQL document database-as-a-service that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development--all through a managed platform backed by the power and reach of Microsoft Azure. DocumentDB is the right solution for web and mobile applications when predictable throughput, low latency, and a schema-free data model are key. DocumentDB delivers schema flexibility and rich indexing via a native JSON data model, and includes multi-document transactional support with integrated JavaScript.  
   
-For more information on DocumentDB, please visit the DocumentDB Documentation Center.
-##What kind of database is DocumentDB?
-DocumentDB is a NoSQL Document store that stores data in JSON format.  DocumentDB database supports nested, self-contained-data structures that can be queried.
-##Do DocumentDB databases have tables?
-No, data in DocumentDB databases are stored in collections of JSON documents. Unlike a table, there is no predefined schema with a collection of documents. 
-##Do DocumentDB databases have schemas?
-No, DocumentDB is designed to efficiently store, query and process data represented as JSON.  JSON documents have a schema free design to enable the customer to query over their entire database without secondary indexing or providing index hints.
-##Does DocumentDB support ACID transactions?
-DocumentDB supports multi-document transactions expressed as JavaScript application logic. Transactions are scoped to a single collection and executed with ACID semantics as all or nothing isolated from other concurrently executing code and user requests. Within a single document, DocumentDB supports full ACID transactions for updated scoped to an entity. Each entity is stored with a logical commit version which is provided with update requests to deal with concurrency control.
-##What are the typical use cases for DocumentDB?  
+For instructions on deploying and using this service, see the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319).
 
-**Enterprise Content Delivery**  
+###What kind of database is DocumentDB?
+DocumentDB is a NoSQL document oriented database that stores data in JSON format.  DocumentDB supports nested, self-contained-data structures that can be queried through a rich DocumentDB SQL query grammar. DocumentDB provides high performance transactional processing of server side JavaScript through stored procedures, triggers and user defined functions. The database also supports developer tunable consistency levels with associated performance levels.
+ 
+###Do DocumentDB databases have tables like an RDBMS?
+No, DocumentDB  stores data in collections of JSON documents.  For more information on DocumentDB's resources, please refer to DocumentDB Resource Model and Concepts article. 
 
-There has been an increasing demand in serving enterprise content with personalized and interactive views across many devices.  The enterprise content delivery system is typically read heavy.  While content is typically created less frequently, the content delivery system must adapt to facilitate new views and personalized experiences for each user.  Hence, the content is typically stored as schema-less or semi-schema’d document.  
+###Do DocumentDB databases support schema-free data?
+Yes, DocumentDB allows applications to store arbitrary JSON documents without schema definition or hints. Data is immediately available for query through the DocumentDB SQL query interface.   
 
-**Active Application Exhaust**  
+###Does DocumentDB support ACID transactions?
+Yes, DocumentDB supports cross-document transactions expressed as JavaScript stored procedures and triggers. Transactions are scoped to a single collection and executed with ACID semantics as all or nothing isolated from other concurrently executing code and user requests.  If exceptions are thrown through the server side execution of JavaScript application code, the entire transaction is rolled back. 
 
-Smart device applications especially games are increasing leveraging telemetry and behavioral data to adjust application level experiences in real time.  These applications are not just emitting telemetry data for post-processing but also storing and serving the data to other applications or using the data to adjust experience in real time.  This data may be used to determine trending content that should be offered to more users, effectiveness of in-app marketing or queried to provide real-time application analytics  
+###What are the typical use cases for DocumentDB?  
+DocumentDB is a good choice for new web and mobile applications where scale, performance and query over schema-free data is important. DocumentDB lends itself well to rapid development and supporting the continuous iteration of application data models. Applications that manage user generated content and data are common use cases for DocumentDB.  
 
-**User Generated Data**
-
-Social centric applications create, store and query high volume of user generated data.   These social applications integrate with one or more social network and need to keep pace with the changing demands of an active user base. In many cases the user data stored represents either content or activity events for common media types such as photos, books or videos. An extension of this pattern is managing and serving information about users including metadata, profile data, user state and preferences.
+###What are the scale and capacity limits?
+Each Azure DocumentDB account supports a maximum number of capacity units which can be configured through the Azure portal. If you require additional capacity units, please contact support to have your account quota increased.  For more information on resource quotas, please see [DocumentDB Limits for the Preview Release.](http://azure.microsoft.com/en-us/documentation/articles/documentdb-limits/) 
 
 
-##What are the resource limits?
-An Azure DocumentDB account supports up to 5 capacity units.  You are allowed to create up to 10 database entities or persist up to a total of 50 GB of data per account.  For more information on resource quotas, please see General Guidelines and Limitations.
-##How do I sign-up for Microsoft Azure DocumentDB?
-Microsoft Azure DocumentDB (Preview) is only available in the Azure Management Preview portal.  First you must purchase a Microsoft Azure subscription.  Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB account to your Azure subscription via the Gallery.  
-##How much does Microsoft Azure DocumentDB cost?
-Please refer to the DocumentDB Pricing section.
-#Does DocumentDB provide a free tier?
+###How much does Microsoft Azure DocumentDB cost?
+Please refer to the [DocumentDB pricing details](http://go.microsoft.com/fwlink/p/?LinkID=402317) article for details.
 
-#Setting up Microsoft Azure DocumentDB
-##How do I create a database account?
-Microsoft Azure DocumentDB (Preview) is only available in the new Azure Preview portal.  First you must sign up for a Microsoft Azure subscription.  Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB account to your Azure subscription via the Gallery. 
-##What is a master key?
-A master key is a security token to access all resources for an account.   Individuals with the key will have read and write access to the all resources in the database account. Please use caution when distributing master keys.  For more information on Master Key, please see Security and Authorization.
+## <a id="setup"></a> Set up Microsoft Azure DocumentDB
 
-##How do I create a database?
-You can create databases using the SDKs we support.  Please refer to the Development section for information on how to program with the SDKs we provide.
-##What is a collection?
-A collection is like a table in a relational database but free of the schema enforcement of relational tables.  It is a logical container consisting of documents sharing the same attributes or behaviors.   
+###How do I sign-up for Microsoft Azure DocumentDB?
+Microsoft Azure DocumentDB (Preview) is available in the new Azure Preview portal.  First you must sign up for a Microsoft Azure subscription.  Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB account to your Azure subscription via the Gallery.   
 
-##Are there any restrictions on naming databases and collections?
-Strings for database and collection names are UTC-8 encoded.  The max size for the string is 256 bytes.
-##How do I set up users and permissions?
-You can leverage our programming model to set up users and permissions. For details, please see the Development section.  
+###What is a master key?
+A master key is a security token to access all resources for an account. Individuals with the key have read and write access to the all resources in the database account. Use caution when distributing master keys. 
 
+###How do I create a database?
+You can create databases using one of the DocumentDB SDKs or through the REST APIs.  See the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319) page for information on how to develop applications. 
 
-##How can I insert documents in bulk into DocumentDB? 
-You can write a simple load program by leverage our SDKs.  For details on our programming model, please see the Development section.   
+###What is a collection?
+A collection is a container of JSON documents and associated JavaScript application logic. Queries and transactions are scoped to collections. You can store a set of heterogeneous JSON documents within a single collection, all which are automatically indexed.   
 
-#Developing against Microsoft Azure DocumentDB
-##How to do I start developing against DocumentDB?
-At Public Preview, we provide 4 flavors of SDKs: .NET, Python, Node.js and JavaScript.  Develops can also leverage our RESTful APIs to interact with the resources under a database account. For details on how to use these SDKs, please see the Development section.
-##Does DocumentDB support SQL?
-We provide a SQL query language to enable querying ofresources within a database account..   For details on how to use our SQL grammar, please refer to the Query DocumentDB – SQL section.
+###Are there any limits on databases and collections?
+Each purchased capacity unit comes with an allocation of database storage and provisioned throughput. Quotas are also in place for each resource managed by the service. Please refer to the DocumentDB Service Limits for more information.  
 
-##What are the data types supported by DocumentDB?
-The primitive data types supported in DocumentDB are the same as JSON. JSON has a simple type system that consists of Strings, Numbers (IEEE754 double precision), Booleans – true and false and Nulls.  More complex data types like DateTime, Guid, Int64, and Geometry can be represented both in JSON and DocumentDB through the creation of nested objects using the { } operator and arrays using the [ ] operator. 
-
-##How does DocumentDB provide concurrency?
-DocumentDB supports optimistic concurrency control (OCC) through HTTP entity tags or ETags. Every DocumentDB resource has an ETag, and DocumentDB clients include their latest read version in write requests.  
-
--	If the ETag is current, the change is committed. 
--	If the value has been changed externally, the server rejects the write with a “HTTP 412 Precondition failure” response code. Clients must read the latest version of the resource and retry the request.
+###How do I set up users and permissions?
+You can create users and permissions using one of the DocumentDB SDKs or through the REST APIs. For details, see the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319)  for information on how to develop applications.   .  
 
 
-##How do I perform transactions in DocumentDB?
-DocumentDB supports language-integrated transactions via JavaScript stored procedures and triggers.  All database operations inside scripts are executed under snapshot isolation scoped to the collection. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back.
+## <a id="develop"></a>Develop against Microsoft Azure DocumentDB
 
-##Does DocumentDB support caching?
-Yes, because DocumentDB is a RESTful service, resource links are immutable and can be cached. DocumentDB clients can specify an “If-None-Match” header for reads against any resource like document or collection and update their local copies only when the server version has change.
+###How to do I start developing against DocumentDB?
+At preview, SDKs are available for .NET, Python, Node.js and JavaScript.  Develops can also leverage the RESTful HTTP APIs to interact with DocumentDB resources from a variety of platforms and languages. For details on how to use these SDKs, see the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319).
+
+###Does DocumentDB support SQL?
+DocumentDB's SQL query language which provides rich hierarchical and relational operators and extensibility via JavaScript based user defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes - this fact is exploited both by the DocumentDB's automatic indexing techniques as well as, the SQL query dialect of DocumentDB.  For details on how to use our SQL grammar, please see the [Query using DocumentDB SQL][query] article.
+
+###What are the data types supported by DocumentDB?
+The primitive data types supported in DocumentDB are the same as JSON. JSON has a simple type system that consists of Strings, Numbers (IEEE754 double precision), Booleans - true and false and Nulls.  More complex data types like DateTime, Guid, Int64, and Geometry can be represented both in JSON and DocumentDB through the creation of nested objects using the { } operator and arrays using the [ ] operator. 
+
+###How does DocumentDB provide concurrency?
+DocumentDB supports optimistic concurrency control (OCC) through HTTP entity tags or ETags. Every DocumentDB resource has an ETag, and DocumentDB clients include their latest read version in write requests. If the ETag is current, the change is committed. If the value has been changed externally, the server rejects the write with a "HTTP 412 Precondition failure" response code. Clients must read the latest version of the resource and retry the request. 
+
+###How do I perform transactions in DocumentDB?
+DocumentDB supports language-integrated transactions via JavaScript stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation scoped to the collection. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back.
+
+###How can I bulk insert documents into DocumentDB? 
+DocumentDB's support for stored procedures provides an efficient means to batch inserts. By developing a simple JavaScript stored procedure that accepts and inserts documents, you can perform bulk inserts. This has the added benefit that the bulk insert will be performed as a transaction, leaving the collection in a consistent state. For details on the programming model, see the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319).
+
+###Does DocumentDB support resource link caching?
+Yes, because DocumentDB is a RESTful service, resource links are immutable and can be cached. DocumentDB clients can specify an "If-None-Match" header for reads against any resource like document or collection and update their local copies only when the server version has change. 
+
+
+
+
+[preview-portal]: https://portal.azure.com
+[query]: ../documentdb-sql-query/

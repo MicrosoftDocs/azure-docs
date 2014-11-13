@@ -1,4 +1,6 @@
-<properties linkid="dev-nodejs-enablessl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service (Node.js) - Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter="Node.js" title="Configuring SSL for a Node.js Application in an Azure Web Role" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service (Node.js) - Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Web Role" authors="larryfr" solutions="" manager="wpickett" editor="" />
+
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 
 
@@ -11,7 +13,7 @@ to specify an HTTPS endpoint for a Node.js application hosted as an Azure Cloud 
 SSL certificate to secure your application.
 
 <div class="dev-callout">Note
-<p>The steps in this article only apply to node applications hosted as an Azure Cloud Service in a web role; for Web Sites, see <a href="../web-sites-configure-ssl-certificate/">Configuring an SSL certificate for an Azure web site</a>.</p>
+<p>The steps in this article only apply to node applications hosted as an Azure Cloud Service in a web role; for Websites, see <a href="../web-sites-configure-ssl-certificate/">Configuring an SSL certificate for an Azure website</a>.</p>
 </div>
 
 This task includes the following steps:
@@ -54,7 +56,7 @@ world' service using the Azure PowerShell using these steps:
 	<p>If you have not previously imported publish settings for your Azure subscription, you will receive an error when trying to publish. For information on downloading and importing the publish settings for your subscription, see <a href="https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">How to Use the Azure PowerShell for Node.js</a></p>
 	</div>
 
-The **Created Web Site URL** value returned by the **Publish-AzureServiceProject** cmdlet contains the fully qualified domain name for your hosted application. You will need to obtain an SSL certificate for this specific fully qualified domain name and deploy it to Azure.
+The **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet contains the fully qualified domain name for your hosted application. You will need to obtain an SSL certificate for this specific fully qualified domain name and deploy it to Azure.
 
 ## <a name="step2"> </a>Step 2: Get an SSL Certificate
 
@@ -178,7 +180,7 @@ connect to it using HTTPS.
 	<p>If the Site URL displayed in the portal does not specify HTTPS, then you must manually enter the URL in the browser using HTTPS instead of HTTP.</p>
 	</div>
 
-3.  A new browser will open and display your web site.
+3.  A new browser will open and display your website.
 
     Your browser will display a lock icon to indicate that it is
     using an HTTPS connection. This also indicates that your application

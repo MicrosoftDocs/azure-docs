@@ -1,4 +1,6 @@
-<properties linkid="develop-net-tutorials-website-with-mongodb-mongolab" urlDisplayName="Web Site with MongoDB on MongoLab" pageTitle="Create a Web Site that uses MongoDB on MongoLab (.NET)" metaKeywords="" description="Learn how to create an Azure web site that stores data in MongoDB hosted by MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="eric@mongolab.com" solutions="" manager="" editor="mollybos" />
+<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="Create a Website that uses MongoDB on MongoLab (.NET)" metaKeywords="" description="Learn how to create an Azure website that stores data in MongoDB hosted by MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="eric@mongolab.com" />
 
 
 
@@ -16,7 +18,7 @@ Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial, you w
 At any time throughout this tutorial, feel free to kick off an email to [support@mongolab.com](mailto:support@mongolab.com) if you have any questions.
 
 ## Quick start
-If you've already got an Azure application and web site that you want to work with or you have some familiarity with the Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] below.
+If you've already got an Azure application and website that you want to work with or you have some familiarity with the Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] below.
  
 1. Open the Azure Store.  
 ![Store][button-store]
@@ -51,7 +53,7 @@ Now, on to the full tutorial...
 
 <h2><a name="create"></a>Create the app</h2>
 
-In this section, you'll cover the creation of a C# ASP.NET Visual Studio project and walk through the use of the C# MongoDB driver to create a simple Note app. You want to be able to visit your web site, write a note, and view all the notes that have left.
+In this section, you'll cover the creation of a C# ASP.NET Visual Studio project and walk through the use of the C# MongoDB driver to create a simple Note app. You want to be able to visit your website, write a note, and view all the notes that have left.
 
 You'll perform this development in Visual Studio Express 2012 for Web.
 
@@ -268,7 +270,7 @@ Now you'll add a view for creating a new note.
         }
 
 ### Modify index.cshtml
-Next, drop in a simple layout for viewing and creating notes on your web site.
+Next, drop in a simple layout for viewing and creating notes on your website.
 
 1. Open **Index.cshtml** under **Views > Home** and replace its contents with the following:  
 
@@ -386,18 +388,18 @@ Finally, your HomeController needs to instantiate your data access layer and app
     
 <h2><a name="deploy"></a>Deploy the app</h2>
 
-Now that the application has been developed, it's time to create an Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web site with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
+Now that the application has been developed, it's time to create an Azure Website to host it, configure that website, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your website with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
 
-### Create a New Web Site and Obtain the Publish Settings File
-Creating a web site in Azure is very easy, especially as Azure auto-generates a publish profile for Visual Studio.
+### Create a New Website and Obtain the Publish Settings File
+Creating a website in Azure is very easy, especially as Azure auto-generates a publish profile for Visual Studio.
 
 1. In the Azure portal, click **New**.  
 ![New][button-new]
-1. Select **Compute > Web Site > Quick Create**.  
+1. Select **Compute > Website > Quick Create**.  
 ![CreateSite][screen-mongolab-newwebsite]
 1. Enter a URL prefix. Choose a name you prefer, but keep in mind this must be unique ('mongoNotes' will likely not be available).
-1. Click **Create Web Site**.
-1. When the web site creation completes, click the web site name in the web site list. The web site dashboard displays.  
+1. Click **Create Website**.
+1. When the website creation completes, click the website name in the website list. The website dashboard displays.  
 ![WebSiteDashboard][screen-mongolab-websitedashboard]
 1. Click **Download publish profile** under **quick glance**, and save the .PublishSettings file to a directory of your chice.  
 ![DownloadPublishProfile][button-website-downloadpublishprofile]
@@ -406,16 +408,16 @@ Creating a web site in Azure is very easy, especially as Azure auto-generates a 
 
 [WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
 
-### Add the connection string to the web site's environment variables
+### Add the connection string to the website's environment variables
 
 [WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
-### Publish the web site
+### Publish the website
 1. In Visual Studio, right-click the **mongoNotes** project in the Solution Explorer and select **Publish**. The Publish dialog displays:  
 ![Publish][dialog-mongolab-vspublish]
 1. Click **Import** and select the .PublishSettings file from your chosen download directory. This file automatically populates the values in the Publish dialog.
 1. Click **Validate Connection** to test the file.
-1. Once the validation succeeds, click **Publish**. Once publishing is complete, a new browser tab opens and the web site displays.
+1. Once the validation succeeds, click **Publish**. Once publishing is complete, a new browser tab opens and the website displays.
 1. Enter some note text, click **Create** and see the results!  
 ![HelloMongoAzure][screen-mongolab-sampleapp]
 

@@ -1,4 +1,6 @@
-<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
+
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 
 
@@ -64,8 +66,8 @@ The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT**
 for information required to connect to your Azure storage account. If these environment variables are not set, 
 you must specify the account information before using **Azure::QueueService** with the following code:
 
-	Azure.config.account_name = "<your azure storage account>"
-	Azure.config.access_key = "<your Azure storage access key>"
+	Azure.config.storage_account_name = "<your azure storage account>"
+	Azure.config.storage_access_key = "<your Azure storage access key>"
 
 To obtain these values:
 

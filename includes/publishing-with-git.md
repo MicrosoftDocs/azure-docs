@@ -1,10 +1,10 @@
-# Publishing from Source Control to Azure Web Sites
+# Publishing to Azure Websites with Git
 
-Azure Web Sites supports continuous deployment from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your web site, and then quickly and easily push changes to your site when you want.
+Azure Websites supports continuous deployment from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your website, and then quickly and easily push changes to your site when you want.
 
-In this article, you will learn how to use Git to publish directly from your local computer to an Azure Web Site (in Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository web sites like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Azure using Visual Studio Online].
+In this article, you will learn how to use Git to publish directly from your local computer to an Azure Website (in Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository websites like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Azure using Visual Studio Online].
 
-> [WACOM.NOTE] Many of the Git commands described in this article are performed automatically when creating a Web Site using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Azure Command-Line Tools for Mac and Linux</a>.
+> [WACOM.NOTE] Many of the Git commands described in this article are performed automatically when creating a Website using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Azure Command-Line Tools for Mac and Linux</a>.
 
 The task includes the following steps:
 
@@ -15,6 +15,7 @@ The task includes the following steps:
 * [Deploy your project](#Step5)
 	* [Pushing local files to Azure (Local Git)](#Step6)
 	* [Deploy files from a repository web site like BitBucket, CodePlex, Dropbox, GitHub, or  Mercurial](#Step7)
+	* [Deploy a Visual Studio solution from BitBucket, CodePlex, Dropbox, GitHub, or  Mercurial](#Step75)
 * [Troubleshooting](#Step8)
 
 <h2><a id="Step2"></a>Installing Git</h2>
@@ -27,7 +28,7 @@ The steps required to install Git vary between operating systems. See [Installin
 
 Perform the following tasks to create a new Git repository.
 
-1. Create a directory named MyGitRepository to contain your Git repository and web site files.
+1. Create a directory named MyGitRepository to contain your Git repository and website files.
 
 2. Open a command-line, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
 
@@ -43,7 +44,7 @@ Perform the following tasks to create a new Git repository.
 
 <h2><a id="Step3"></a>Add a web page</h2>
 
-Azure Web Sites support applications created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing web sites in other programming languages to Azure, see the [Azure Developer Center].
+Azure Websites support applications created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing websites in other programming languages to Azure, see the [Azure Developer Center].
 
 1. Using a text editor, create a new file named **index.html** in the root of the Git repository (the MyGitRepository directory that you created earlier).
 
@@ -55,7 +56,7 @@ Azure Web Sites support applications created in a variety of programming languag
 
 		git add index.html 
 
-	> [WACOM.NOTE] You can find help for any git command by typing -help or --help after the command. For example, for parameter options for the add command, type ‘git add -help’ for command-line help or ‘git add --help' for more detailed help.
+	> [WACOM.NOTE] You can find help for any git command by typing -help or --help after the command. For example, for parameter options for the add command, type 'git add -help' for command-line help or 'git add --help' for more detailed help.
 
 4. Next, commit the changes to the repository by using the following command:
 
@@ -67,13 +68,15 @@ Azure Web Sites support applications created in a variety of programming languag
 		 1 file changed, 1 insertion(+)
 		 create mode 100644 index.html
 
-<h2><a id="Step4"></a>Enable the web site repository</h2>
+<h2><a id="Step4"></a>Enable the website repository</h2>
 
-Perform the following steps to enable a Git repository for your web site by using the Azure portal:
+Perform the following steps to enable a Git repository for your website by using the Azure portal:
 
 1. Login to the [Azure portal].
 
-2. On the left of the page, select **Web Sites**, and then select the web site for which you want to enable a repository.
+2. Click the NEW button to create a new website for which you will enable a repository.
+
+2. Wait until the website creation process is finished in the **Websites** view, and then select the website.
 
 	![An image displaying a selected web site][portal-select-website]
 
@@ -85,6 +88,9 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 4. Choose **Local Git**, and then click the **Next** arrow.
 
+4. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You will use them to log into the Azure repository and push changes from your local Git repository. 
+
+	![](./media/publishing-with-git/git_credentials.png)
 	
 5. After a short delay, you should be presented with a message that your repository is ready. 
 
@@ -94,9 +100,9 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 <h3><a id="Step6"></a>Pushing local files to Azure (Local Git)</h3>
 
-At this point, the portal displays instructions for initializing a local repository and adding files. You have already done this in the previous steps in this topic. However, if you have not set up your deployment credentials, you must follow step 3 in the instructions. This directs you follow a link labeled **Reset your deployment credentials**.
+At this point, the portal displays instructions for initializing a local repository and adding files. You have already done this in the previous steps in this topic. However, if you have not set up your deployment credentials, you must go back to the **DASHBOARD** tab in the portal and click **Reset your deployment credentials**.
 
-Use the following steps to publish your web site to Azure using Local Git:
+Use the following steps to publish your website to Azure using Local Git:
 
 1. Using the command-line, verify that you are in the root of your local Git repository that contains the previously created index.html file.
 
@@ -104,7 +110,7 @@ Use the following steps to publish your web site to Azure using Local Git:
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
-    > [WACOM.NOTE] The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your Azure Web Site repository.
+    > [WACOM.NOTE] The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your Azure Website repository.
 
 1. Use the following from the command-line to push the current repository contents from the local repository to the 'azure' remote:
 
@@ -124,7 +130,7 @@ Use the following steps to publish your web site to Azure using Local Git:
 		To https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 		* [new branch]		master -> master
 
-	> [WACOM.NOTE] The repository created for your Azure web site expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the web site.
+	> [WACOM.NOTE] The repository created for your Azure website expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the website.
 
 2. In the portal, click the **BROWSE** link at the bottom of the portal to verify that the **index.html** has been deployed. A page containing 'Hello Git!' will appear.
 
@@ -142,17 +148,17 @@ Use the following steps to publish your web site to Azure using Local Git:
 
 	![A webpage containing 'Yay!'][yay]
 
-<h3><a id="Step7"></a>Deploy files from a repository web site like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial</h3>
+<h3><a id="Step7"></a>Deploy files from a repository website like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial</h3>
 
-Pushing local files to Azure by using Local Git allows you to manually push updates from a local project to your Azure Web Site, while deploying from BitBucket, CodePlex, Dropbox, GitHub, or  Mercurial results in a continuous deployment process where Azure will pull in the most recent updates from your project.
+Pushing local files to Azure by using Local Git allows you to manually push updates from a local project to your Azure Website, while deploying from BitBucket, CodePlex, Dropbox, GitHub, or  Mercurial results in a continuous deployment process where Azure will pull in the most recent updates from your project.
 
-While both methods result in your project being deployed to an Azure Web Site, continuous deployment is useful when you have multiple people working on a project and want to ensure that the latest version is always published regardless of who made the most recent update. Continuous deployment is also useful if you are using one of the above mentioned tools as the central repository for your application.
+While both methods result in your project being deployed to an Azure Website, continuous deployment is useful when you have multiple people working on a project and want to ensure that the latest version is always published regardless of who made the most recent update. Continuous deployment is also useful if you are using one of the above mentioned tools as the central repository for your application.
 
 Deploying files from either GitHub, CodePlex, or BitBucket requires that you have published your local project to one of these services. For more information on publishing your project to these services, see [Create a Repo (GitHub)], [Using Git with CodePlex], [Create a Repo (BitBucket)], [Using Dropbox to Share Git Repositories], or [Quick Start - Mercurial].
 
-1. First put your web site files into the selected repository that will be used for continuous deployment.
+1. First put your website files into the selected repository that will be used for continuous deployment.
 
-2. In the Azure Portal for your web site,  go to the **DASHBOARD** tab. In the **quick glance** section, select **Set up deployment from source control**.  The **Set Up Deployment dialog** appears that asks **Where is your source code?**. 
+2. In the Azure Portal for your website,  go to the **DASHBOARD** tab. In the **quick glance** section, select **Set up deployment from source control**.  The **Set Up Deployment dialog** appears that asks **Where is your source code?**. 
 
 2. Choose the source control method that you want to use for continuous deployment.
 	
@@ -162,7 +168,7 @@ Deploying files from either GitHub, CodePlex, or BitBucket requires that you hav
 
 	![git-ChooseARepositoryToDeploy][git-ChooseARepositoryToDeploy]
   
-5. Select the repository that you want to associate with your Azure Web Site. Click the checkmark to continue.
+5. Select the repository that you want to associate with your Azure Website. Click the checkmark to continue.
 
 	> [WACOM.NOTE] When enabling continuous deployment with GitHub or BitBucket, both public and private projects will be displayed.
 
@@ -170,25 +176,58 @@ Deploying files from either GitHub, CodePlex, or BitBucket requires that you hav
 
 	![git-githubdeployed][git-githubdeployed]
 
-7. At this point your project has been deployed from your repository of choice to your Azure web site. To verify that the site is active, click the **Browse** link at the bottom of the portal. The browser should navigate to the web site.
+7. At this point your project has been deployed from your repository of choice to your Azure website. To verify that the site is active, click the **Browse** link at the bottom of the portal. The browser should navigate to the website.
 
-8. To verify that continuous deployment is occurring, make a change to your project and then push the update to the repository you have associated with this web site. Your web site should update to reflect the changes shortly after the push to the repository completes. You can verify that it has pulled in the update on the **Deployments** page of your Web Site.
+8. To verify that continuous deployment is occurring, make a change to your project and then push the update to the repository you have associated with this website. Your website should update to reflect the changes shortly after the push to the repository completes. You can verify that it has pulled in the update on the **Deployments** page of your Website.
 
 	![git-GitHubDeployed-Updated][git-GitHubDeployed-Updated]
 
+<h3><a id="Step75"></a>Deploy a Visual Studio solution from BitBucket, CodePlex, Dropbox, GitHub, or Mercurial</h3>
+
+Pushing a Visual Studio solution to an Azure Website is just as easy as pushing a simple index.html file. The Azure Websites deployment process streamlines all the details, including restore NuGet dependencies and building the application binaries. You can follow the source control best practices of maintaining code only in your Git repository, and let Azure Website deployment take care of the rest.
+
+The steps for pushing your Visual Studio solution to an Azure Website is the same as in the [previous section](#Step7), provided that you configure your solution and repository as follows:
+
+-	In your repository root, add a `.gitignore` file, then specify all files and folders that you want to exclude from your repository, such as the `Obj`, `Bin`, and `packages` folders (see [gitignore documentation](http://git-scm.com/docs/gitignore) for formatting information). For example:
+
+		[Oo]bj/
+		[Bb]in/
+		*.user
+		/TestResults
+		*.vspscc
+		*.vssscc
+		*.suo
+		*.cache
+		*.csproj.user
+		packages/*
+		App_Data/
+		/apps
+		msbuild.log
+		_app/
+		nuget.exe
+
+	>[WACOM.NOTE] If you use GitHub, you can optionally generate a Visual Studio specific .gitignore file when you create your repository, which includes all the common temporary files, build results, etc. You can then customize it to suit your specific needs.
+
+-	Add the entire solution's directory tree to your repository, with the .sln file in the repository root.
+
+-	In your Visual Studio solution, [enable NuGet Package Restore](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages) to make Visual Studio automatically restore missing packages.
+
+Once you have set up your repository as described, and configured your Azure Website for continuous publishing from one of the online Git repositories, you can develop your ASP.NET application locally in Visual Studio and continuously deploy your code simply by pushing your changes to your online Git repository.
 
 <h4>How continuous deployment works</h4>
 Continuous deployment works by providing the **DEPLOYMENT TRIGGER URL** found in the **deployments** section of your site's **Configure** tab.
 
 ![git-DeploymentTrigger][git-DeploymentTrigger]
 
-When updates are made to your repository, a POST request is sent to this URL, which notifies your Azure Web Site that the repository has been updated. At this point it retrieves the update and deploys it to your web site.
+When updates are made to your repository, a POST request is sent to this URL, which notifies your Azure Website that the repository has been updated. At this point it retrieves the update and deploys it to your website.
+
+For more information on the engine behind the Git deployment process for Azure Websites, see [Project Kudu](https://github.com/projectkudu/kudu/wiki).
 
 <h4>Specifying the branch to use</h4>
 
 When you enable continuous deployment, it will default to the **master** branch of the repository. If you want to use a different branch, perform the following steps:
 
-1. In the portal, select your web site and then select **CONFIGURE**.
+1. In the portal, select your website and then select **CONFIGURE**.
 
 2. In the **deployments** section of the page, enter the branch you wish to use in the **BRANCH TO DEPLOY** field, and then hit enter. Finally, click **SAVE**.
 
@@ -204,15 +243,15 @@ After answering **Yes** to the confirmation message, you can return to **quick g
 
 <h2><a id="Step8"></a>Troubleshooting</h2>
 
-The following are errors or problems commonly encountered when using Git to publish to an Azure web site:
+The following are errors or problems commonly encountered when using Git to publish to an Azure website:
 
 ****
 
 **Symptom**: Unable to access '[siteURL]': Failed to connect to [scmAddress]
 
-**Cause**: This error can occur if the web site is not up and running.
+**Cause**: This error can occur if the website is not up and running.
 
-**Resolution**: Start the web site in the Azure portal. Git deployment will not work unless the web site is running. 
+**Resolution**: Start the website in the Azure portal. Git deployment will not work unless the website is running. 
 
 
 ****
@@ -245,7 +284,7 @@ The following are errors or problems commonly encountered when using Git to publ
 
 ****
 
-**Symptom**: Error - Changes commited to remote repository but your web site not updated.
+**Symptom**: Error - Changes commited to remote repository but your website not updated.
 
 **Cause**: This error can occur if you are deploying a Node.js application containing a package.json file that specifies additional required modules.
 
@@ -267,6 +306,7 @@ The following are errors or problems commonly encountered when using Git to publ
 * [How to use PowerShell for Azure]
 * [How to use the Azure Command-Line Tools for Mac and Linux]
 * [Git Documentation]
+* [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
 [Azure portal]: http://manage.windowsazure.com

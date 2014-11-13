@@ -1,4 +1,7 @@
-<properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="Step 6: Access the Machine Learning web service | Azure" description="Step 6: Access an active Azure Machine Learning API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />  
+<properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="Step 6: Access the Machine Learning web service | Azure" description="Step 6: Access an active Azure Machine Learning API web service" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+
 
 This is the last step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
@@ -21,7 +24,7 @@ This is the last step of the walkthrough, [Developing a Predictive Solution with
 
 ----------
 
-#Step 6: Access the Azure Machine Learning web service
+# Step 6: Access the Azure Machine Learning web service
 
 To be useful as a web service, users need to be able to send data to the service and receive results. The web service is an Azure web service which can receive and return data in one of two ways:  
 

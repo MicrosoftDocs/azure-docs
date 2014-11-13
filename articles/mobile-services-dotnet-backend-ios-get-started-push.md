@@ -1,20 +1,18 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
- 
-# Get started with push notifications in Mobile Services
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="iOS" class="current">iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title="Android">Android</a>
-<!-- <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-</div>
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/"  title="JavaScript backend">JavaScript backend</a></div>
+# Add push notifications to your Mobile Services app
+
+[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 This topic shows you how to use Azure Mobile Services to send push notifications to an iOS app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Generate the certificate signing request] 
+1. [Generate the certificate signing request]
 2. [Register your app and enable push notifications]
 3. [Create a provisioning profile for the app]
 4. [Download the service locally]
@@ -29,13 +27,13 @@ This tutorial walks you through these basic steps to enable push notifications:
 This tutorial requires the following:
 
 + [Mobile Services iOS SDK]
-+ [XCode 4.5][Install Xcode] 
++ [XCode 4.5][Install Xcode]
 + An iOS 6.0 (or later version) capable device
 + iOS Developer Program membership
 
    > [WACOM.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
 
 
 [WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
@@ -45,11 +43,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 [WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
-<h2><a name="download-the-service"></a><span class="short-header">Download the service</span>Download the service to your local computer</h2>
+<h2><a name="download-the-service"></a>Download the service to your local computer</h2>
 
 [WACOM.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
 
-<h2><a name="test-the-service"></a><span class="short-header">Test the service</span>Test the mobile service</h2>
+<h2><a name="test-the-service"></a>Test the mobile service</h2>
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
@@ -67,7 +65,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
         {
             TodoItem current = await InsertAsync(item);
 
-            ApplePushMessage message = new ApplePushMessage("Hello from Mobile Services!", TimeSpan.FromHours(1));
+            ApplePushMessage message = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));
 
             try
             {
@@ -84,13 +82,17 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
     This code will send a push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
 
 
-<h2><a name="publish-the-service"></a><span class="short-header">Publish the service</span>Publish the mobile service to Azure</h2>
+<h2><a name="publish-the-service"></a>Publish the mobile service to Azure</h2>
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## Add push notifications to your app
 
-1. In QSAppDelegate.m, replace the following handler method inside the implementation: 
+1. In QSAppDelegate.m, insert the following snippet to import the Mobile Services iOS SDK:
+
+        #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
+
+2. In QSAppDelegate.m, replace the following handler method inside the implementation:
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
         (NSDictionary *)launchOptions
@@ -101,16 +103,24 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             return YES;
         }
 
-2. In QSAppDelegate.m, add the following handler method inside the implementation: 
+3. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you copy the Mobile Service Url and Application Key values and switch them in for the placeholders:
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
-			client.push.registerNative(deviceToken, @”uniqueTag”);
+
+            // TODO: update @"MobileServiceUrl" and @"AppKey" placeholders
+            MSClient *client = [MSClient clientWithApplicationURLString:@"MobileServiceUrl" applicationKey:@"AppKey"]
+
+            [client.push registerNativeWithDeviceToken:deviceToken tags:@[@"uniqueTag"] completion:^(NSError *error) {
+                if (error != nil) {
+                    NSLog(@"Error registering for notifications: %@", error);
+                }
+            }];
         }
 
-4. In QSAppDelegate.m, add the following handler method inside the implementation: 
+4. In QSAppDelegate.m, add the following handler method inside the implementation:
 
-        // Handle any failure to register. 
+        // Handle any failure to register.
         - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
         (NSError *)error {
             NSLog(@"Failed to register for remote notifications: %@", error);
@@ -129,29 +139,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             [alert show];
         }
 
-5. In QSTodoListViewController.m, import the QSAppDelegate.h file so that you can use the delegate to obtain the device token: 
-
-        #import "QSAppDelegate.h"
-
-6. In QSTodoListViewController.m, modify the **(IBAction)onAdd** action by locating the following line: 
-
-        NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) }; 
- 
-   Replace this with the following code:
-
-        // Get a reference to the AppDelegate to easily retrieve the deviceToken
-        QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    
-        NSDictionary *item = @{
-            @"text" : itemText.text,
-            @"complete" : @(NO),
-            // add the device token property to our todo item payload
-            @"deviceToken" : [[NSString alloc] initWithData:delegate.deviceToken encoding:NSUTF8StringEncoding]
-        };
-
-   This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
-
-   > [WACOM.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
+   > [WACOM.NOTE] You must add this code before calling the <strong>addItem</strong> method.
 
 Your app is now updated to support push notifications.
 
@@ -205,6 +193,9 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 * [What are Notification Hubs?]
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
 
+* [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>Get guidance troubleshooting and debugging Notification Hubs solutions. 
+
 <!-- Anchors.  -->
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
@@ -218,7 +209,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Download the service locally]: #download-the-service-locally
 [Test the mobile service]: #test-the-service
 [Publish the mobile service to Azure]: #publish-mobile-service
-   
+
 <!-- Images. -->
 [5]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
 [6]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png

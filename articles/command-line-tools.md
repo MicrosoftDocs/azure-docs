@@ -1,8 +1,10 @@
-<properties linkid="manage-linux-other-resources-command-line-tools" urlDisplayName="Command-Line Tools" pageTitle="Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Command-Line Tools" pageTitle="Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="need to identify contact" editor="" />
+
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
 #Azure command-line tool for Mac and Linux
 
-This tool provides functionality for creating, deploying, and managing virtual machines, web sites and Azure Mobile Services from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
+This tool provides functionality for creating, deploying, and managing virtual machines, websites and Azure Mobile Services from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
 
 To install the tool on a Mac, download and run the [Azure SDK installer](http://go.microsoft.com/fwlink/?LinkId=252249).
 
@@ -648,9 +650,11 @@ This command lists Azure cloud services.
 
 This command deletes an Azure cloud service.
 
-	~$ azure cloud-service delete myservice
-	info:   Executing command cloud-service delete myservice 
+	~$ azure service delete myservice
+	info:   Executing command service delete myservice 
 	info:   cloud-service delete command OK
+
+To force the deletion, use the `-q` parameter.
 
 
 ##<a name="Commands_to_manage_your_Azure_certificates"></a>Commands to manage your Azure certificates
@@ -691,13 +695,13 @@ This command deletes a certificate.
 	info:   service cert delete command OK
 
 
-##<a name="Commands_to_manage_your_web_sites"></a>Commands to manage your web sites
+##<a name="Commands_to_manage_your_web_sites"></a>Commands to manage your websites
 
-An Azure web site is a web configuration accessible by URI. Web sites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Azure.
+An Azure website is a web configuration accessible by URI. Websites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Azure.
 
 **site list [options]**
 
-This command lists your web sites.
+This command lists your websites.
 
 	~$ azure site list
 	info:   Executing command site list
@@ -710,7 +714,7 @@ This command lists your web sites.
 
 **site set [options] [name]**
 
-This command will set configuration options for your web site [name]
+This command will set configuration options for your website [name]
 
 	~$ azure site set
 	info:    Executing command site set
@@ -731,7 +735,7 @@ This command will generate a custom deployment script
 
 **site create [options] [name]**
 
-This command creates a new web site and local directory. 
+This command creates a new website and local directory. 
 
 	~$ azure site create mysite
 	info:   Executing command site create
@@ -748,7 +752,7 @@ This command creates a new web site and local directory.
 
 **site browse [options] [name]**
 
-This command opens your web site in a browser.
+This command opens your website in a browser.
 
 	~$ azure site browse mysite
 	info:   Executing command site browse
@@ -757,7 +761,7 @@ This command opens your web site in a browser.
 
 **site show [options] [name]**
 
-This command shows details for a web site.
+This command shows details for a website.
 
 	~$ azure site show mysite
 	info:   Executing command site show
@@ -787,7 +791,7 @@ This command shows details for a web site.
 
 **site delete [options] [name]**
 
-This command deletes a web site.
+This command deletes a website.
 
 	~$ azure site delete mysite
 	info:   Executing command site delete
@@ -797,7 +801,7 @@ This command deletes a web site.
 
  **site swap [options] [name]**
  
-This command swaps two web site slots.
+This command swaps two website slots.
 
 This command supports the following additional option:
 
@@ -806,7 +810,7 @@ This command supports the following additional option:
 
 **site start [options] [name]**
 
-This command starts a web site.
+This command starts a website.
 
 	~$ azure site start mysite
 	info:   Executing command site start
@@ -816,7 +820,7 @@ This command starts a web site.
 
 **site stop [options] [name]**
 
-This command stops a web site.
+This command stops a website.
 
 	~$ azure site stop mysite
 	info:   Executing command site stop
@@ -826,7 +830,7 @@ This command stops a web site.
 
 **site restart [options] [name]
 
-This command stops and then starts a specified web site.
+This command stops and then starts a specified website.
 
 This command supports the following additional option:
 
@@ -835,7 +839,7 @@ This command supports the following additional option:
 
 **site location list [options]**
 
-This command lists your Web Site locations.
+This command lists your Website locations.
 
 	~$ azure site location list
 	info:    Executing command site location list
@@ -850,11 +854,11 @@ This command lists your Web Site locations.
 	data:    East US
 	info:    site location list command OK
 
-###Commands to manage your Web Site application settings
+###Commands to manage your Website application settings
 
 **site appsetting list [options] [name]**
 
-This command lists the app setting added to the web site.
+This command lists the app setting added to the website.
 
 	~$ azure site appsetting list
 	info:    Executing command site appsetting list
@@ -868,7 +872,7 @@ This command lists the app setting added to the web site.
 
 **site appsetting add [options] &lt;keyvaluepair> [name]**
 
-This command adds an app setting to your web site as a key value pair.
+This command adds an app setting to your website as a key value pair.
 
 	~$ azure site appsetting add test=value
 	info:    Executing command site appsetting add
@@ -880,7 +884,7 @@ This command adds an app setting to your web site as a key value pair.
 
 **site appsetting delete [options] &lt;key> [name]**
 
-This command deletes the specified app setting from the web site.
+This command deletes the specified app setting from the website.
 
 	~$ azure site appsetting delete test
 	info:    Executing command site appsetting delete
@@ -903,11 +907,11 @@ This command displays details of the specified app setting
 	data:    Value:  value
 	info:    site appsetting show command OK
 
-###Commands to manage your Web Site certificates
+###Commands to manage your Website certificates
 
 **site cert list [options] [name]**
 
-This command displays a list of the web site certs.
+This command displays a list of the website certs.
 
 	~$ azure site cert list
 	info:    Executing command site cert list
@@ -943,7 +947,7 @@ This command shows the cert details
 	data:    Certificate thumbprint CE1CD65852B38DC32001C2E0E8F7A526A29B541F
 	info:    site cert show command OK
 
-###Commands to manage your Web Site connection strings
+###Commands to manage your Website connection strings
 
 **site connectionstring list [options] [name]**
 
@@ -953,7 +957,7 @@ This command shows the cert details
 
 **site connectionstring show [options] &lt;connectionname> [name]**
 
-###Commands to manage your Web Site default documents
+###Commands to manage your Website default documents
 
 **site defaultdocument list [options] [name]**
 
@@ -961,7 +965,7 @@ This command shows the cert details
 
 **site defaultdocument delete [options] &lt;document> [name]**
 
-###Commands to manage your Web Site deployments
+###Commands to manage your Website deployments
 
 **site deployment list [options] [name]**
 
@@ -973,7 +977,7 @@ This command shows the cert details
 
 **site deployment user set [options] [username] [pass]**
 
-###Commands to manage your Web Site domains
+###Commands to manage your Website domains
 
 **site domain list [options] [name]**
 
@@ -981,7 +985,7 @@ This command shows the cert details
 
 **site domain delete [options] &lt;dn> [name]**
 
-###Commands to manage your Web Site handler mappings
+###Commands to manage your Website handler mappings
 
 **site handler list [options] [name]**
 
@@ -989,11 +993,11 @@ This command shows the cert details
 
 **site handler delete [options] &lt;extension> [name]**
 
-###Commands to manage your Web Site Web Jobs
+###Commands to manage your Website Web Jobs
 
 **site job list [options] [name]**
 
-This command list all the web jobs under a web site.
+This command list all the web jobs under a website.
 
 This command supports the following additional options:
 
@@ -1052,7 +1056,7 @@ This command supports the following additional options:
 + **--job-name** &lt;job-name>: Required. The name of the webjob.
 + **--slot** &lt;slot>: The name of the slot to restart.
 
-###Commands to manage your Web Site Web Jobs History
+###Commands to manage your Website Web Jobs History
 
 **site job history list [options] [jobName] [name]**
 
@@ -1073,11 +1077,11 @@ This command supports the following additional options:
 + **--run-id** &lt;run-id>: Optional. The id of the run history. If not specified, show the latest run.
 + **--slot** &lt;slot>: The name of the slot to restart.
 
-###Commands to manage your Web Site diagnostics
+###Commands to manage your Website diagnostics
 
 **site log download [options] [name]**
 
-Download a .zip file that contains your web site's diagnostics.
+Download a .zip file that contains your website's diagnostics.
 
 	~$ azure site log download
 	info:    Executing command site log download
@@ -1100,7 +1104,7 @@ This command connects your terminal to the log-streaming service.
 
 **site log set [options] [name]**
 
-This command configures the diagnostic options for your web site.
+This command configures the diagnostic options for your website.
 
 	~$ azure site log set -a
 	info:    Executing command site log set
@@ -1117,7 +1121,7 @@ This command configures the diagnostic options for your web site.
 	+ Updating diagnostic settings
 	info:    site log set command OK
 
-###Commands to manage your Web Site repositories
+###Commands to manage your Website repositories
 
 **site repository branch [options] &lt;branch> [name]**
 
@@ -1125,7 +1129,7 @@ This command configures the diagnostic options for your web site.
 
 **site repository sync [options] [name]**
 
-###Commands to manage your Web Site scaling
+###Commands to manage your Website scaling
 
 **site scale mode [options] &lt;mode> [name]**
 

@@ -1,4 +1,6 @@
-<properties title="SharePoint Server Farm" pageTitle="SharePoint Server Farm" description="Describes the new SharePoint farm feature available in the Azure Preview Portal" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" />
+<properties title="SharePoint Server Farm" pageTitle="SharePoint Server Farm" description="Describes the new SharePoint Server Farm feature available in the Azure Preview Portal" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
 #SharePoint Server Farm#
 
@@ -14,30 +16,29 @@ The high-availability SharePoint farm consists of nine virtual machines in the f
 
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-azure-preview/SPFarm_HighAvail.png)
 
-You can use this farm configuration to test higher client loads, high-availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm. You can also use this configuration for SharePoint app development in a highly available environment.
+You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
  
 For the configuration details of both of these farms, see [SharePoint Server Farm Configuration Details](../virtual-machines-sharepoint-farm-config-azure-preview/).
 
-These farms have a pre-configured endpoint to allow authenticated web traffic (TCP port 80) to the SharePoint web server through an Internet-connected client computer. This endpoint is to a pre-configured team site. To access this team site, you must first obtain the domain name of the SharePoint farm web server:
+These farms have a pre-configured endpoint to allow authenticated web traffic (TCP port 80) to the SharePoint web server through an Internet-connected client computer. This endpoint is to a pre-configured team site. To access this team site, do the following:
 
-1.	From the Azure Preview Portal, click **Browse**, and then click **Virtual Machines**. 
-2.	In the list of virtual machines, click the name of your web server (ends in SP, WEB1, or WEB2).
-3.	In the pane for your web server virtual machine, click **Properties**. 
-4.	Note the FQDN in **Domain Name**. 
-5.	From your Internet browser, access the URL **http://[FQDN]**. For example, for the domain name spfarm1-web1-contoso.cloudpapp.net, the URL is **http://spfarm1-web1-contoso.cloudpapp.net**.
-6.	When prompted, enter the user account credentials that you specified when you created the farm.
+1.	From the Azure Preview Portal, click **Browse**, and then click **Resource Groups**. 
+2.	In the list of resource groups, click the name of your SharePoint farm resource group.
+3.	In the pane for your SharePoint farm resource group, click **Deployment history**. 
+4.	In the **Deployment history** pane, click **Microsoft.SharePointFarm**.
+5.	In the **Microsoft.SharePointFarm** pane, select the URL in the SHAREPOINTSITEURL field and copy it. 
+6.	From your Internet browser, paste the URL into the address field.
+7.	When prompted, enter the user account credentials that you specified when you created the farm.
 
-From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality. For more information, see [Configure SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).  To access the Central Administration SharePoint site, you must first obtain its external port number.
+From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality. For more information, see [Configure SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).  To access the Central Administration SharePoint site, do the following:
 
-1.	From the Azure Preview Portal, click **Browse**, and then click **Virtual Machines**. 
-2.	In the list of virtual machines, click the name of the name of the SharePoint server for the basic configuration (ends in SP) or the name of the application servers for the high-availability configuration (ends in APP1 or APP2).
-3.	In the pane for the virtual machine, click **Properties**. 
-4.	Note the FQDN in **Domain Name**. 
-5.	Close the **Properties** pane.
-6.	In the pane for the virtual machine, scroll down to the list of **Endpoints**.
-7.	Note the port number for the endpoint named SPCentralAdmin.
-8.	From your Internet browser, access the URL **http://[FQDN]:[port number]**. For example, for the domain name spfarm1-app1-contoso.cloudpapp.net and the external port number 54398, the URL is **http://spfarm1-app1-contoso.cloudpapp.net:54398**.
-9.	When prompted, enter the user account credentials that you specified when you created the farm.
+1.	From the Azure Preview Portal, click **Browse**, and then click **Resource Groups**. 
+2.	In the list of resource groups, click the name of your SharePoint farm resource group.
+3.	In the pane for your SharePoint farm resource group, click **Deployment history**. 
+4.	In the **Deployment history** pane, click **Microsoft.SharePointFarm**.
+5.	In the **Microsoft.SharePointFarm** pane, select the URL in the SHAREPOINTCENTRALADMINURL field and copy it. 
+6.	From your Internet browser, paste the URL into the address field.
+7.	When prompted, enter the user account credentials that you specified when you created the farm.
 
 
 Notes:
@@ -56,7 +57,7 @@ To create your SharePoint farm with SharePoint Farm, do the following:
 4. If you want the high-availability farm, click **Enable high availability**.
 5. To configure your domain controllers, click the arrow. You can specify a host name prefix (the default is the resource group name), forest root domain name (default is contoso.com), and the size of your domain controllers (default is A1).
 6. To configure your SQL servers, click the arrow. You can specify a host name prefix (the default is the resource group name), the size of your SQL servers (default is A5), a database access account name and password (the default is to use the administrator account), and a SQL server service account name (the default is sqlservice) and password (the default is to use the same password as the administrator account).
-7. To configure your SharePoint servers, click the arrow. You can specify a host name prefix (the default is the resource group name), the size of your SharePoint servers (default is A23), a SharePoint user account (the default is sp_setup) and password, a SharePoint farm account name (the default is sp_farm) and password, and a SharePoint farm passphrase. The default is to use the administrator password for the SharePoint user account, farm account, and passphrase.
+7. To configure your SharePoint servers, click the arrow. You can specify a host name prefix (the default is the resource group name), the size of your SharePoint servers (default is A3), a SharePoint user account (the default is sp_setup) and password, a SharePoint farm account name (the default is sp_farm) and password, and a SharePoint farm passphrase. The default is to use the administrator password for the SharePoint user account, farm account, and passphrase.
 8. To configure optional configuration (your virtual network or, storage account, diagnostics), click the arrow.
 9. To specify the subscription, click the arrow.
 10. To specify the location (region), click the arrow.

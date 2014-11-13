@@ -1,9 +1,12 @@
 # Configuring a custom domain name for an Azure cloud service
 
+> [WACOM.NOTE]
+> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
+
 When you create an application in Azure, Azure provides a subdomain on the cloudapp.net domain so your users can access your application on a URL like http://&lt;*myapp*>.cloudapp.net. However, you can also expose your application on your own domain name, such as contoso.com.
 
 > [WACOM.NOTE] 
-> The procedures in this task apply to Azure Cloud Services. For storage accounts, see [Configuring a Custom Domain Name for an Azure Storage Account](../storage-custom-domain-name/). For Web Sites, see [Configuring a Custom Domain Name for an Azure Web Site](../web-sites-custom-domain-name/).
+> The procedures in this task apply to Azure Cloud Services. For storage accounts, see [Configuring a Custom Domain Name for an Azure Storage Account](../storage-custom-domain-name/). For Websites, see [Configuring a Custom Domain Name for an Azure Web Site](../web-sites-custom-domain-name/).
 
 In this article:
 
@@ -48,7 +51,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 
   Save the domain name used in the URL returned by either method, as you will need it when creating a CNAME record.
 
-1.  Log on to your DNS registrar's web site and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
+1.  Log on to your DNS registrar's website and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
 
 2.  Now find where you can select or enter CNAME's. You may have to select the record type from a drop down, or go to an advanced settings page. You should look for the words **CNAME**, **Alias**, or **Subdomains**.
 
@@ -95,7 +98,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
 
   Save the IP address, as you will need it when creating an A record.
 
-1.  Log on to your DNS registrar's web site and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
+1.  Log on to your DNS registrar's website and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
 
 2.  Now find where you can select or enter A record's. You may have to select the record type from a drop down, or go to an advanced settings page.
 

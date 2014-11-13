@@ -1,19 +1,10 @@
-<properties pageTitle="Get started with authentication (Android) | Mobile Dev Center" metaKeywords="authentication, Facebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="mahender" solutions="" manager="" editor="" />
+<properties pageTitle="Get started with authentication (Android) | Mobile Dev Center" metaKeywords="authentication, Facebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="mahender" solutions="" manager="dwrede" editor="" />
 
-# Get started with authentication in Mobile Services
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/27/2014" ms.author="mahender" />
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users" title="Windows Store C#">Windows Store C#</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users" title="Windows Store JavaScript">Windows Store JavaScript</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users" title="Windows Phone">Windows Phone</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users" title="iOS" >iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users" title="Android" class="current">Android</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users" title="Xamarin.Android">Xamarin.Android</a>
-</div>
+# Add authentication to your Mobile Services app
 
-<div class="dev-center-tutorial-subselector">
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-android-get-started-users/"  title="JavaScript backend">JavaScript backend</a></div>
+[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 This topic shows you how to authenticate users in Azure Mobile Services from your app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 
@@ -22,7 +13,9 @@ This tutorial walks you through these basic steps to enable authentication in yo
 1. [Register your app for authentication and configure Mobile Services]
 2. [Restrict table permissions to authenticated users]
 3. [Add authentication to the app]
-<!--4. [Storing authentication tokens in your app]-->
+4. [Store authentication tokens on the client]
+5. [Refresh expired tokens]
+
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
@@ -48,6 +41,13 @@ Next, you will update the app to authenticate users before requesting resources 
 
 [WACOM.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
+## <a name="cache-tokens"></a>Cache authentication tokens on the client
+
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)] 
+
+## <a name="refresh-tokens"></a>Refresh the token cache
+
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
 
 ##<a name="next-steps"></a>Next steps
 
@@ -58,8 +58,9 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Register your app for authentication and configure Mobile Services]: #register
 [Restrict table permissions to authenticated users]: #permissions
 [Add authentication to the app]: #add-authentication
+[Store authentication tokens on the client]: #cache-tokens
+[Refresh expired tokens]: #refresh-tokens
 [Next Steps]:#next-steps
-[Storing authentication tokens in your app]:#store-authentication
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started/

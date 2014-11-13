@@ -1,4 +1,6 @@
-<properties linkid="develop-media-services-how-to-guides-encrypt-assets" urlDisplayName="Encrypt Assets in Media Services" pageTitle="How to Encrypt Assets in Media Services - Azure" metaKeywords="" description="Learn how to use Microsoft PlayReady Protection to encrypt an asset in Media Services. Code samples are written in C# and use the Media Services SDK for .NET. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="How to Encrypt Assets in Media Services - Azure" metaKeywords="" description="Learn how to use Microsoft PlayReady Protection to encrypt an asset in Media Services. Code samples are written in C# and use the Media Services SDK for .NET. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="juliako" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
 
 
@@ -6,7 +8,7 @@
 
 <h1><a name="playready"></a>How to: Protect an Asset with PlayReady Protection</h1>
 
-This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Check Job Progress](http://go.microsoft.com/fwlink/?LinkID=301737&clcid=0x409).
+This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Check Job Progress](../media-services-check-job-progress/).
 
 In Azure Media Services you can submit a job that integrates with Microsoft PlayReady Protection to encrypt an asset. The code in this section takes several streaming files from an input folder, creates a task and encrypts them with PlayReady Protection. 
 
@@ -35,7 +37,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
     string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml"));
 
     // Get a media processor instance
-    IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager");
+    IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Packager");
 
     // Create a task with the conversion details, using the configuration data 
     ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
@@ -58,7 +60,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
     string configPlayReady = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaEncryptor_PlayReadyProtection.xml"));
 
     // Get a media processor instance
-    IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Azure Media Encryptor");
+    IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Windows Azure Media Encryptor");
 
     // Create a second task, specifying a task name, the media processor, and configuration
     ITask playreadyTask = job.Tasks.AddNew("My PlayReady Task",
@@ -112,4 +114,4 @@ For more information on PlayReady protection, see:
 </ul>
 
 <h2>Next Steps</h2>
-Now that you know how to protect asssets with Media services, go to the [How To Manage Assets](http://go.microsoft.com/fwlink/?LinkID=301943&clcid=0x409) topic.
+Now that you know how to protect asssets with Media services, go to the [How To Manage Assets](../media-services-manage-assets/) topic.

@@ -1,4 +1,6 @@
-<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="wpickett" editor="" />
+
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 
 
@@ -98,8 +100,7 @@ The example below demonstrates how messages can be received and processed using 
     message = azure_service_bus_service.receive_queue_message("test-queue", 
 	  { :peek_lock => false })
     message = azure_service_bus_service.receive_queue_message("test-queue")
-    azure_service_bus_service.delete_queue_message("test-queue",
-	  message.sequence_number, message.lock_token)
+    azure_service_bus_service.delete_queue_message(message)
 
 ## <a id="how-to-handle-application-crashes-and-unreadable-messages"></a>How to Handle Application Crashes and Unreadable Messages
 

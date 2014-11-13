@@ -1,4 +1,6 @@
-<properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
+
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
 
 <div>
@@ -58,8 +60,8 @@ Azure provides many features that allow you to address the key problems encounte
 
 **Isolation** 
 
-- Segment Web site Tenants by Host Headers with or without SSL communication
-- Segment Web site Tenants by Query Parameters
+- Segment Website Tenants by Host Headers with or without SSL communication
+- Segment Website Tenants by Query Parameters
 - Web Services in Worker Roles
 	- Worker Roles. that typically process data on the backend of an application.
 	- Web Roles that typically act as the frontend for applications.
