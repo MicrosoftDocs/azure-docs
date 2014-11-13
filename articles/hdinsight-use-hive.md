@@ -4,11 +4,8 @@
 
 # Use Hive with Hadoop in HDInsight
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/hdinsight-selector-use-hive.md)]
-
 [Apache Hive][apache-hive] provides a means of running MapReduce job through an SQL-like scripting language, called *HiveQL*. Hive is a data warehouse system for Hadoop, which enables data summarization, querying, and analysis of large volumes of data. In this article, you use HiveQL to query a sample data file that is provided as part of HDInsight cluster provisioning.
 
-> [AZURE.NOTE] The steps in this article connect to an HDInsight cluster using PowerShell. PowerShell is only available on Windows systems. If you are connecting to your cluster from a non-Windows system, such as Mac OS X or Linux, use the tabs at the top to view information on using **SSH** or **Curl** to run Hive jobs.
 
 **Prerequisites:**
 

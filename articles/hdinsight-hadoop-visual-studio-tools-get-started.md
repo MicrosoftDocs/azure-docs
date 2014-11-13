@@ -126,6 +126,7 @@ There are two ways to create and run Hive queries:
 You can view job query, job output, and job log for all Hive jobs.
 
 **To view Hive jobs**
+
 1. From **Server Explorer**, expand **Azure**, and then expand **HDInsight**. 
 2. Right click an HDInsight cluster, and then click **View Hive Jobs**. You will see a list of the Hive jobs ran on the cluster. 
 3. Click a job in the job list to select it, and then use the **Hive Job Summary** window to open **Job Query**, **Job Output**, or **Job Log**.
