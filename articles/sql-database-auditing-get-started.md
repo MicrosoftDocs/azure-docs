@@ -43,29 +43,28 @@ Security-enabled connection string: <*server name*>.database.**secure**.windows.
 
 ##<a id="subheading-2"></a>Set up auditing for your database
 
-1. <a href="http://go.microsoft.com/fwlink/?LinkId=404163" target="_blank">Sign up for the Auditing preview</a>.
-2. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com. Alternatively, you can also luanch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. Refer to detials below.
-3. Click the database you want to audit, and then click **Auditing Preview** to enable the auditing preview and launch the auditing configuration blade.
+1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com. Alternatively, you can also luanch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. Refer to detials below.
+2. Click the database you want to audit, and then click **Auditing Preview** to enable the auditing preview and launch the auditing configuration blade.
 
 	![][1]
 
-5. In the auditing configuration blade, select the Azure storage account where logs will be saved. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
+3. In the auditing configuration blade, select the Azure storage account where logs will be saved. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
 
 	![][2]
 
-6. Under **Auditing Options**, click **All** to log all events, or choose individual event types.
+4. Under **Auditing Options**, click **All** to log all events, or choose individual event types.
 
 	![][3]
 
-7. Check **Save this Configuration as Default** if you want these settings to apply to all future databases on the server, and any that don't already have auditing set up. You can override the settings later for each database by following these same steps.
+5. Check **Save this Configuration as Default** if you want these settings to apply to all future databases on the server, and any that don't already have auditing set up. You can override the settings later for each database by following these same steps.
 
 	![][4]
 
-8. Click **Show database connection strings** and then copy or make a note of the appropriate security enabled connection string for your application. Use this string for any client applications whose activity you want to audit.
+6. Click **Show database connection strings** and then copy or make a note of the appropriate security enabled connection string for your application. Use this string for any client applications whose activity you want to audit.
 
 	![][5]
 
-9. Click **OK**.
+7. Click **OK**.
 
 
 
@@ -84,20 +83,19 @@ For more detailed instructions on working with the report template, read the <a 
 
 ##<a id="subheading-4"></a>Set up auditing for your database using the classic azure portal
 
-1. <a href="http://go.microsoft.com/fwlink/?LinkId=404163" target="_blank">Sign up for the Auditing preview</a>.
-2. Launch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. 
-3. Click the database you want to audit, and then click the **Auditing & Secuirity Preview** tab.
-4. At the auditing section click "Enable".
+1. Launch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. 
+2. Click the database you want to audit, and then click the **Auditing & Secuirity Preview** tab.
+3. At the auditing section click "Enable".
 
 ![][7]
 
-5. Edit the **EVENT TYPE** as needed.
+4. Edit the **EVENT TYPE** as needed.
 
 ![][8]
 
-6. Select a **STORAGE ACCOUNT**.
-7. Click **SAVE**.
-8. Click **Show secured connection string** for the connection string.
+5. Select a **STORAGE ACCOUNT**.
+6. Click **SAVE**.
+7. Click **Show secured connection string** for the connection string.
 
 
 

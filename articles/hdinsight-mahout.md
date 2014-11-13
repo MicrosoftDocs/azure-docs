@@ -51,13 +51,13 @@ Conveniently, GroupLens Research provides [rating data for movies][movielens] in
 
 2. Extract the archive. It should contain an __ml-100k__ directory, which contains many data files prefixed with __u.__. The file that will be analyzed by Mahout is __u.data__. The data structure of this file is `userID`, `movieID`, `userRating`, and `timestamp`. Here is an example of the data.
 
-	
+
 		196	242	3	881250949
 		186	302	3	891717742
 		22	377	1	878887116
 		244	51	2	880606923
 		166	346	1	886397596
-	
+
 
 3. Upload the __u.data__ file to __example/data/u.data__ on your HDInsight cluster. If you have [Azure PowerShell][aps], you can use the [HDInsight-Tools][tools] PowerShell module to upload the file. For other ways to upload files, see [Upload data for Hadoop Jobs in HDInsight][upload]. The following demonstrates using `Add-HDInsightFile` to upload the file
 
@@ -71,24 +71,19 @@ Use the following PowerShell script to run a job using the Mahout recommendation
 
 	# The HDInsight cluster name.
 	$clusterName = "the cluster name"
-	
-	# The location of the Mahout jar file.
-	$jarFile = "file:///c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
+
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
-	# Use the following to find the location and name
-	# of the Mahout jar on HDInsight 3.1, and modify
-	# the $jarFile= line to point to it.
-	#
-	# Use-AzureHDInsightCluster -Name $clusterName
-	# $jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
-	#
+	# So dynamically grab it using Hive.
+	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar' | where {$_.startswith("C:\apps\dist")}
+	$jarFile = "file:///$mahoutPath"
+    #
 	# If you are using an earlier version of HDInsight,
 	# set $jarFile to the jar file you
 	# uploaded.
 	# For example,
 	# $jarFile = "wasb:///example/jars/mahout-core-0.9-job.jar"
-	
+
 	# The arguments for this job
 	# * input - the path to the data uploaded to HDInsight
 	# * output - the path to store output data
@@ -97,20 +92,20 @@ Use the following PowerShell script to run a job using the Mahout recommendation
 	                "--input", "wasb:///example/data/u.data",
 	                "--output", "wasb:///example/out",
 	                "--tempDir", "wasb:///temp/mahout"
-	
+
 	# Create the job definition
 	$jobDefinition = New-AzureHDInsightMapReduceJobDefinition `
 	  -JarFile $jarFile `
 	  -ClassName "org.apache.mahout.cf.taste.hadoop.item.RecommenderJob" `
 	  -Arguments $jobArguments
-	
+
 	# Start the job
 	$job = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $jobDefinition
-	
+
 	# Wait on the job to complete
 	Write-Host "Wait for the job to complete ..." -ForegroundColor Green
 	Wait-AzureHDInsightJob -Job $job
-	
+
 	# Write out any error information
 	Write-Host "STDERR"
 	Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $job.JobId -StandardError
@@ -148,19 +143,19 @@ While the generated output might be OK for use in an application, it's not very 
 	        -movieFile "u.item"
 	        -recommendationFile "output.txt"
 	#>
-	
+
 	[CmdletBinding(SupportsShouldProcess = $true)]
 	param(
 	    #The user ID
 	    [Parameter(Mandatory = $true)]
 	    [String]$userId,
-	
+
 	    [Parameter(Mandatory = $true)]
 	    [String]$userDataFile,
-	
+
 	    [Parameter(Mandatory = $true)]
 	    [String]$movieFile,
-	
+
 	    [Parameter(Mandatory = $true)]
 	    [String]$recommendationFile
 	)
@@ -204,14 +199,14 @@ While the generated output might be OK for use in an application, it's not very 
 	        break
 	    }
 	}
-	
+
 	Write-Host "Rated movies" -ForegroundColor Green
 	Write-Host "---------------------------" -ForegroundColor Green
 	$ratedFormat = @{Expression={$_.Name};Label="Movie";Width=40}, `
 	               @{Expression={$_.Value};Label="Rating"}
 	$ratedMovieIds | format-table $ratedFormat
 	Write-Host "---------------------------" -ForegroundColor Green
-	
+
 	write-host "Recommended movies" -ForegroundColor Green
 	Write-Host "---------------------------" -ForegroundColor Green
 	$recommendationFormat = @{Expression={$_.Name};Label="Movie";Width=40}, `
@@ -238,11 +233,11 @@ The output should appear similar to the following.
 	Alien: Resurrection (1997)               3
 	187 (1997)                               2
 	(lines ommitted)
-	
+
 	---------------------------
 	Recommended movies
 	---------------------------
-	
+
 	Movie                                    Score
 	-----                                    -----
 	Good Will Hunting (1997)                 4.6504064
@@ -316,14 +311,14 @@ The current Mahout implementation is compatible with the University of Californi
 	    Correctly Classified Instances          :      17560       77.8921%
 	    Incorrectly Classified Instances        :       4984       22.1079%
 	    Total Classified Instances              :      22544
-	
+
 	    =======================================================
 	    Confusion Matrix
 	    -------------------------------------------------------
 	    a       b       <--Classified as
 	    9437    274      |  9711        a     = normal
 	    4710    8123     |  12833       b     = anomaly
-	
+
 	    =======================================================
 	    Statistics
 	    -------------------------------------------------------
