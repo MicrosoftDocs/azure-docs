@@ -8,24 +8,24 @@ This document depicts how to onboard your service or application to use Azure ML
 
 ##Contents
 
-* General Overview	
-* Limitations	        
-* Integration	        
-  * Authentication	
-  *	Service URI	    
-  *	API Version	    
-  *	Create a model	
-  *	Import catalog data	
-  *	Import usage data	
-     * Uploading file	
-	 * Using data acquisition	
-* Build a recommendation model	
-* Get Build Status	
-* Get Recommendations	
-* Update Model	
-* Legal	
+- [General Overview](#general-overview)
+- [Limitations](#limitations)
+- [Integration](#integration)
+	- [Authentication](#authentication)
+	- [Service URI](#service-uri)
+	- [API Version](#api-version)
+	- [Create a model](#create-a-model)
+	- [Import catalog data](#import-catalog-data)
+	- [Import usage data](#import-usage-data)
+		- [Uploading file](#uploading-file)
+		- [Using data acquisition](#using-data-acquisition)
+	- [Build a recommendation model](#build-a-recommendation-model)
+	- [Get Builds Status of a Model](#get-builds-status-of-a-model)
+	- [Get Recommendations](#get-recommendations)
+	- [Update Model](#update-model)
+- [Legal](#legal)
 
- 
+
 ##General Overview
 
 To use Azure ML Recommendations you need to do the following steps:
@@ -65,9 +65,19 @@ Each API call will have at the end query parameter called apiVersion that should
 ###Create a model
 Creating a “create model” request:
 
-![Table1][1]
+| HTTP Method | URI |
+|:--------|:--------|
+|POST     |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-Response:
+|	Parameter Name	|	Valid Values						|
+|:--------			|:--------								|
+|	modelName	|	Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.<br>Max length: 20 |
+|	apiVersion		| 1.0 |
+|||
+| Request Body | NONE |
+
+
+**Response**:
 
 HTTP Status code: 200
 
@@ -108,9 +118,20 @@ OData XML
 
 If you upload several catalog files to the same model with several calls we will insert only the new catalog items. Existing items will remain with the original values.
 
-![Table2][2]
+| HTTP Method | URI |
+|:--------|:--------|
+|POST     |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-Response:
+|	Parameter Name	|	Valid Values						|
+|:--------			|:--------								|
+|	modelId	|	The unique identifier of the model.  |
+| filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed<br>Max length: 50 |
+|	apiVersion		| 1.0 |
+|||
+| Request Body | The catalog data. Format:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, Max Length 50</td><td>Unique identifier of an Item</td></tr><tr><td>Item Name</td><td>Yes</td><td>Alphanumeric, Max Length 255</td><td>The Item Name</td></tr><tr><td>Item Category</td><td>Yes</td><td>Alphanumeric, Max Length 255</td><td>The category to which this item belongs (e.g. Cooking Books, Drama…)</td></tr><tr><td>Description</td><td>No</td><td>Alphanumeric, Max Length 4000</td><td>A description of this item</td></tr></table><br>Maximum file size 200MB<br><br>Example:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+
+
+**Response**:
 
 HTTP Status code: 200
 
@@ -149,7 +170,7 @@ This sections shows how to upload usage data using a file. You can call this API
 ![Table3a][3]
 ![Table3b][4]
 
-Response:
+**Response**:
 
 HTTP Status code: 200
 
@@ -186,7 +207,13 @@ OData XML
 ####Using data acquisition
 This section shows how to send events in real time to Azure ML Recommendations usually from your web site.
 
-![Table4][5]
+| HTTP Method | URI |
+|:--------|:--------|
+|POST     |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+
+|	Parameter Name	|	Valid Values						|
+|:--------			|:--------								|
+|	apiVersion		| 1.0 |
 
 Request body
 
@@ -279,14 +306,14 @@ Request body
   	</EventData>
 	</Event>
 
-Response:
+**Response**:
 HTTP Status code: 200
 
 ###Build a recommendation model
 
 ![Table5][6]
 
-Response:
+**Response**:
 
 HTTP Status code: 200
 
@@ -343,10 +370,22 @@ HTTP Status code: 200
   	</entry>
 	</feed>
 
-###Get Build Status of a Model
-![Table6][7]
+###Get Builds Status of a Model
 
-Response:
+| HTTP Method | URI |
+|:--------|:--------|
+|GET     |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
+
+
+
+|	Parameter Name	|	Valid Values						|
+|:--------			|:--------								|
+|	modelId			|	The unique identifier of the model.	|
+|	onlyLastBuild	|	Indicates whether to return all the build history of the model or only the status of the most recent build.	|
+|	apiVersion		|	1.0									|
+
+
+**Response**:
 
 HTTP Status code: 200
 
@@ -396,6 +435,8 @@ HTTP Status code: 200
 
 ###Get Recommendations
 ![Table7][8]
+
+**Response:**
 
 HTTP Status code: 200
 
@@ -563,7 +604,7 @@ This mechanism enables you once you have a recommendation model in production to
 
 ![Table8][9]
 
-Response:
+**Response**:
 
 HTTP Status code: 200
 
@@ -593,4 +634,3 @@ This document does not provide you with any legal rights to any intellectual pro
 [7]: ./media/machine-learning-recommendation-api-quick-start-guide/Table06.png
 [8]: ./media/machine-learning-recommendation-api-quick-start-guide/Table07.png
 [9]: ./media/machine-learning-recommendation-api-quick-start-guide/Table08.png
-
