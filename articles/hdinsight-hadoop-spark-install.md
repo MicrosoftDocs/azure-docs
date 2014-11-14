@@ -2,7 +2,7 @@
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="nitinme" />
 
-# Install and use Spark 1.0 on HDInsight clusters
+# Install and use Spark 1.0 on HDInsight clusters (Preview)
 
 You can install Spark on an HDInsight cluster, while it is being deployed, using **Script Action** cluster customization. Script action lets you run scripts to customize a cluster, as the cluster is being created. For more information, see [Customize HDInsight cluster using script action][hdinsight-cluster-customize].
 
@@ -131,6 +131,7 @@ Perform the following steps to run Spark queries from an interactive Spark shell
 		
 
 7. Enter :q to exit the Scala prompt.
+
 		:q
 
 ### <a name="standalone"></a>Using a standalone Scala program
