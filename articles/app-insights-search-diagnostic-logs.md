@@ -131,8 +131,8 @@ The event types are:
 
 * **Trace** - Search diagnostic logs that you've captured from your web server. This includes log4Net, NLog, System.Diagnostic.Trace, and ApplicationInsights TrackTrace calls.
 * **Request** - Search HTTP requests received by the server component of your web app, including page requests, data requests, images, and so on. The events you'll see are the telemetry sent by the Application Insights server SDK, which are used to create the request count report.
-* **Page View** - Search page view events. These events are sent by the web client and are used to create page view reports. (If you don't see anything here, set up [web client monitoring][webclient].)
-* **Custom Event** - If you inserted calls to TrackEvent() and TrackMetric() to [monitor usage][usage], you can search them here.
+* **Page View** - Search page view events. These events are sent by the web client and are used to create page view reports. (If you don't see anything here, set up [web client monitoring][usage].)
+* **Custom Event** - If you inserted calls to TrackEvent() and TrackMetric() to [monitor usage][track], you can search them here.
 
 Select any log event to see its detail. 
 
@@ -299,29 +299,10 @@ Not just yet, but all these features are on the backlog.
 
 
 
-## Application Insights - learn more
-
-* [Application Insights - get started][start]
-* [Start monitoring web app health and usage][greenbrown]
-* [Monitor a live web server now][redfield]
-* [Monitor performance in web applications][perf]
-* [Search diagnostic logs][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Track usage][usage]
-* [Track custom events and metrics][track]
-* [Q & A and troubleshooting][qna]
-
-<!--Link references-->
 
 
-[start]: ../app-insights-get-started/
-[greenbrown]: ../app-insights-start-monitoring-app-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[perf]: ../app-insights-web-monitor-performance/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
-[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+
+
+
 

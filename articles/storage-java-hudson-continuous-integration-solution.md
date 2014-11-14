@@ -22,12 +22,12 @@ In this tutorial you will be using the Azure Storage Plugin for Hudson CI made a
 -   [How to create a build step that downloads from Azure blob storage][]
 -   [Components used by the Blob service][]
 
-<h2><a id="overview"></a><span class="short header">Overview</span>Overview of Hudson</h2>
+## <a id="overview"></a>Overview of Hudson ##
 Hudson enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This topic will show how to use Azure blob storage as the repository of the build artifacts. It will also show how to download dependencies from Azure blob storage.
 
 More information about Hudson can be found at [Meet Hudson][].
 
-<h2><a id="benefits"></a><span class="short header">Benefits</span>Benefits of using the Blob service</h2>
+## <a id="benefits"></a>Benefits of using the Blob service ##
 
 Benefits of using the Blob service to host your agile development build artifacts include:
 
@@ -36,7 +36,7 @@ Benefits of using the Blob service to host your agile development build artifact
 - Performance when your customers and partners download your build artifacts.
 - Control over user access policies, with a choice between anonymous access, expiration-based shared access signature access, private access, etc.
 
-<h2><a id="prerequisites"></a><span class="short header">Prequisites</span>Prequisites</h2>
+## <a id="prerequisites"></a>Prequisites ##
 
 You will need the following to use the Blob service with your Hudson CI solution:
 
@@ -63,11 +63,11 @@ You will need the following to use the Blob service with your Hudson CI solution
 
 - Familiarity with the Hudson CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Hudson CI build artifacts.
 
-<h2><a id="howtouse"></a><span class="short header">How to use Blob service</span>How to use the Blob service with Hudson CI</h2>
+## <a id="howtouse"></a>How to use the Blob service with Hudson CI ##
 
 To use the Blob service with Hudson, you'll need to install the Azure Storage plugin, configure the plugin to use your storage account, and then create a post-build action that uploads your build artifacts to your storage account. These steps are described in the following sections.
 
-<h2><a id="howtoinstall"></a><span class="short header">How to install</span>How to install the Azure Storage plugin</h2>
+## <a id="howtoinstall"></a>How to install the Azure Storage plugin ##
 
 1. Within the Hudson dashboard, click **Manage Hudson**.
 2. In the **Manage Hudson** page, click **Manage Plugins**.
@@ -77,7 +77,7 @@ To use the Blob service with Hudson, you'll need to install the Azure Storage pl
 6. Click **Install**.
 7. After the installation is complete, restart Hudson.
 
-<h2><a id="howtoconfigure"></a><span class="short header">How to configure</span>How to configure the Azure Storage plugin to use your storage account</h2>
+## <a id="howtoconfigure"></a>How to configure the Azure Storage plugin to use your storage account ##
 
 1. Within the Hudson dashboard, click **Manage Hudson**.
 2. In the **Manage Hudson** page, click **Configure System**.
@@ -89,7 +89,7 @@ To use the Blob service with Hudson, you'll need to install the Azure Storage pl
     5. [Optional] If you have additional storage accounts that you want made available to your Hudson CI, click **Add more storage accounts**.
     6. Click **Save** to save your settings.
 
-<h2><a id="howtocreatepostbuild"></a><span class="short header">How to create post-build action</span>How to create a post-build action that uploads your build artifacts to your storage account</h2>
+## <a id="howtocreatepostbuild"></a>How to create a post-build action that uploads your build artifacts to your storage account ##
 
 For instruction purposes, first we'll need to create a job that will create several files, and then add in the post-build action to upload the files to your storage account.
 
@@ -127,7 +127,7 @@ For instruction purposes, first we'll need to create a job that will create seve
 
 Only one post-build action that uploads artifacts to Azure blob storage can be created per job. Note that the single post-build action to upload artifacts to Azure blob storage can specify different files (including wildcards) and paths to files within **List of Artifacts to upload** using a semi-colon as a separator. For example, if your Hudson build produces JAR files and TXT files in your workspace's **build** folder, and you want to upload both to Azure blob storage, use the following for the **List of Artifacts to upload** value: **build/\*.jar;build/\*.txt**. You can also use double-colon syntax to specify a path to use within the blob name. For example, if you want the JARs to get uploaded using **binaries** in the blob path and the TXT files to get uploaded using **notices** in the blob path, use the following for the **List of Artifacts to upload** value: **build/\*.jar::binaries;build/\*.txt::notices**.
 
-<h2><a name="howtocreatebuildstep"></a><span class="short header">How to create build step</span>How to create a build step that downloads from Azure blob storage</h2>
+## <a name="howtocreatebuildstep"></a>How to create a build step that downloads from Azure blob storage ##
 
 The following steps show how to configure a build step to download items from Azure blob storage. This would be useful if you want to include items in your build, for example, JARs that you keep in Azure blob storage.
 
@@ -141,7 +141,7 @@ If you have additional items you want to download from Azure blob storage, you c
 
 After you run a build, you can check the build history console output, or look at your download location, to see whether the blobs you expected were successfully downloaded. 
 
-<h2><a id="components"></a><span class="short header">Blob service components</span>Components used by the Blob service</h2>
+## <a id="components"></a>Components used by the Blob service ##
 
 The following provides an overview of the Blob service components.
 

@@ -170,7 +170,7 @@ This will change the default subscription to Azure-sub-2.
 
 If you wish to use a non-default subscription with the xplat-cli, but don't want to change the current default, you can use the `--subscription` option and provide the name of the subscription you wish to use for the operation.
 
-<h2><a id="use"></a>How use the Azure Cross-Platform Command-Line Interface</h2>
+<h2><a id="use"></a>How to use the Azure Cross-Platform Command-Line Interface</h2>
 
 The xplat-cli is accessed using the `azure` command. To see a list of commands available, use the `azure` command with no parameters. You should see help information similar to the following:
 
