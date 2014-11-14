@@ -319,7 +319,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
           "Install Spark", // Name of the config action
           new ClusterNodeType[] { ClusterNodeType.HeadNode }, // List of nodes to install Spark on
           new Uri("https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv01/spark-installer-v01.ps1"), // Location of the script to install Spark
-		  "" //empty string because the script used does not require any parameters.
+		  null //because the script used does not require any parameters.
         ));
 
 11. Finally, create the cluster.

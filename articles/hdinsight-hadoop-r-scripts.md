@@ -235,7 +235,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
         clusterInfo.ConfigActions.Add(new ScriptAction(
             "Install R",
             new ClusterNodeType[] { ClusterNodeType.HeadNode, ClusterNodeType.DataNode },
-            new Uri("https://hdiconfigactions.blob.core.windows.net/rconfigactionv01/r-installer-v01.ps1"),
+            new Uri("https://hdiconfigactions.blob.core.windows.net/rconfigactionv01/r-installer-v01.ps1"), null
             ));
 
 11. Finally, create the cluster.
