@@ -13,7 +13,8 @@ This release contains the following new features, component updates and bug fixe
 <table border="1">
 <tr><th>Title</th><th>Description</a><th>Component</th></th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
 
-<tr><td>Cluster customization</td><td>Enables the customization your Azure HDInsight clusters with projects available from the Apache Hadoop ecosystem. With this new feature, you can now experiment with and deploy Hadoop projects to Azure HDInsight clusters. This is enabled through the Script Action feature that can modify Hadoop clusters in arbitrary ways using custom scripts.  This customization is available on all types of HDInsight clusters including Hadoop, HBase and Storm. To demonstrate the power of this new capability, the procedures to install Spark and R modules on a cluster has been documented.</td><td>New feature</td><td>All</td><td>N/A</td></tr>
+<tr><td>Script Action (Preview)</td><td>Preview of the cluster customization feature that enables modification of Hadoop clusters in arbitrary ways using custom scripts. With this new feature, users can experiment with and deploy projects available from the Apache Hadoop ecosystem to Azure HDInsight clusters. This customization feature is available on all types of HDInsight clusters including Hadoop, HBase and Storm. 
+</td><td>New feature</td><td>All</td><td>N/A</td></tr>
 
 <tr><td>Pre-built jobs for Azure websites & Storage logs analysis</td><td>The HDInsight Query Console has a getting started gallery that supports solutions that work on either your data or on sample data.
 
@@ -25,6 +26,11 @@ Learn how to work with HDInsight by walking through some basic scenarios such as
 
 <tr><td>Memory leak fix in Templeton</td><td>A memory leak in Templeton has been addressed that affected customers who had long running cluster or were submitting 100s of job requests a second. The issue manifested as Templeton 5xx errors and the workaround was to restart the service. The workaround is no longer needed.</td><td>Templeton</td><td>All</td><td>https://issues.apache.org/jira/browse/HADOOP-11248</td></tr>
 </table><br>
+
+Note: To demonstrate the new capabilities made available by cluster customization, the procedures using Script Actions to install Spark and R modules on a cluster have been documented. For further information, see:
+
+* [Install and use Spark on HDInsight clusters][hdinsight-hadoop-spark-install] 
+* [Install and use R on HDInsight clusters][hdinsight-hadoop-r-script]  
 
 ## Notes for 11/07/2014 release of HDInsight ##
 
@@ -352,6 +358,8 @@ Release notes for the HDPs that are used by the versions of HDInsight cluster ar
 
 [hdp-1-1-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html
 
+[hdinsight-hadoop-spark-install]: ../hdinsight-hadoop-spark-install/
+[hdinsight-hadoop-r-script]: ../hdinsight-hadoop-r-script/
 
 
 

@@ -28,7 +28,7 @@ R scripts can be run on Hadoop clusters in HDInsight that were customized using 
 
 In this section, we show how to install R on an HDInsight Hadoop cluster using Azure HDInsight Powershell. Azure HDInsight provides a cmdlet **Add-AzureHDInsightScriptAction** to specify the script used to customize the cluster.
 
-A sample script to install R on an HDInsight cluster is available from a read-only Azure storage blob at https://hdiconfigactions.blob.core.windows.net/rconfigaction/r-installer.ps1. This topic uses that sample script.
+A sample script to install R on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/rconfigactionv01/r-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv01/r-installer-v01.ps1). This topic uses that sample script.
 
 Before performing the instructions in this section, make sure you have installed and configured PowerShell. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure].
 
@@ -129,22 +129,23 @@ The HDInsight .NET SDK provides .NET client libraries that makes it easier to wo
 
 The following procedures must be performed to provision an HDInsight cluster using the SDK:
 
-- Install HDInsight .NET SDK
-- Create a self-signed certificate
-- Create a console application
-- Run the application
+- [Install the HDInsight .NET SDK](#installSDK)
+- [Create a self-signed certificate](#createCert)
+- [Create a .NET application in Visual Studio](#createApp)
+- [Run the application](#runApp)
 
+The following sections show how to perform these procedures.
 
-**To install HDInsight .NET SDK**
+### <a name="installSDK"></a>To install the HDInsight .NET SDK
 
 You can install latest published build of the SDK from [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). The instructions will be shown in the next procedure.
 
-**To create a self-signed certificate**
+### <a name="createCert"></a>To create a self-signed certificate
 
 Create a self-signed certificate, install it on your workstation, and upload it to your Azure subscription. For instructions, see [Create a self-signed certificate](http://go.microsoft.com/fwlink/?LinkId=511138). 
 
 
-**To create a Visual Studio application**
+### <a name="createApp"></a>To create a .NET application in Visual Studio
 
 1. Open Visual Studio 2013.
 
@@ -243,7 +244,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 
 11. Save changes to the application and build the solution. 
 
-**To run the application**
+### <a name="runApp"></a>To run the application
 
 Open a PowerShell console, navigate to the location where you saved the project, navigate to the \bin\debug directory within the project, and then run the following command:
 
