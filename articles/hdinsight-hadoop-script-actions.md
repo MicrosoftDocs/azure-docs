@@ -2,9 +2,9 @@
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="bradsev" />
 
-# Script Action Development with HDInsight 
+# Script Action (Preview) Development with HDInsight 
 
-Script Action is an Azure HDInsight functionality that is used to install additional software or to change the configuration of applications running on an Hadoop cluster using PowerShell scripts. Script Actions are scripts that run on the cluster nodes when HDInsight clusters are deployed and they are executed once nodes in the cluster complete HDInsight configuration. The script action is executed under system admin account privileges and provide full access rights to the cluster nodes. Each cluster can be provided with a list of script actions to execute that will be executed in the order in which they are specified.
+The Script Action preview provides Azure HDInsight functionality that is used to install additional software or to change the configuration of applications running on an Hadoop cluster using PowerShell scripts. Script Actions are scripts that run on the cluster nodes when HDInsight clusters are deployed and they are executed once nodes in the cluster complete HDInsight configuration. The script action is executed under system admin account privileges and provide full access rights to the cluster nodes. Each cluster can be provided with a list of script actions to execute that will be executed in the order in which they are specified.
 
 Script Action can be deployed from Azure PowerShell or by using the HDInsight .NET SDK.  For more information, see [Customize HDInsight cluster using script action][hdinsight-cluster-customize].
 
@@ -12,7 +12,7 @@ Script Action can be deployed from Azure PowerShell or by using the HDInsight .N
 ## In this article
 
 - [Best practices for script development](#bestPracticeScripting)
-- [Checklist for deploying a Script Action](#deployScrip)
+- [Checklist for deploying a Script Action](#deployScript)
 - [How to test your custom script](#testScript)
 - [How to run a Script Action](#runScriptAction)
 - [Custom script samples](#sampleScripts)
@@ -26,7 +26,7 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 
 ### Provide stable links to script resources 
 Users should make sure that all of the scripts and other artifacts used in the customization of a cluster remain available throughout the lifetime of the cluster and that the versions of these files do not change for the duration. These resources are be required if re-imaging of nodes in the cluster is required. The best practice is to download and archive everything in a storage account that the user controls. This can be the default storage account or any of the additional storage accounts specified at the deployment of cluster.
-In our Spark and cluster customization samples provided, for example, we have made a local copy of the resources in this storage account: [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/).
+In our Spark and cluster customization samples provided, for example, we have made a local copy of the resources in this storage account: https://hdiconfigactions.blob.core.windows.net/.
 
 ### The cluster customization script must be idempotent
 You must expect that the nodes of an HDInsight cluster will be re-imaged during the cluster lifetime. The cluster customization script is run whenever a cluster is re-imaged. This script must be designed to be idempotent in the sense that upon re-imaging the script should ensure that the cluster is returned to the same customized state that it was in after the script ran for the first time when the cluster was created. For example, if a custom script installed an application at D:\AppLocation on its first run, then on each subsequent run, when re-imaging, the script should check whether the application exists at the D:\AppLocation location before proceeding with other steps in the script.
@@ -88,6 +88,7 @@ The inputs for HDInsight script action command **Add-AzureHDInsightScriptAction*
 <tr><td>Accept Wildcard Characters?</td><td>False</td></tr>
 </table>
 
+
 <table border="1">
 <tr><th>-Name</th><td>The name of the script action.</td></tr>
 <tr><td>Aliases</td><td>None</td></tr>
@@ -97,6 +98,7 @@ The inputs for HDInsight script action command **Add-AzureHDInsightScriptAction*
 <tr><td>Accept Pipeline Input?</td><td>False</td></tr>
 <tr><td>Accept Wildcard Characters?</td><td>False</td></tr>
 </table>
+
 
 <table border="1">
 <tr><th>-ClusterRoleCollection</th><td>The list of cluster nodes on which the script will be executed.</td></tr>
@@ -108,6 +110,7 @@ The inputs for HDInsight script action command **Add-AzureHDInsightScriptAction*
 <tr><td>Accept Wildcard Characters?</td><td>False</td></tr>
 </table>
 
+
 <table border="1">
 <tr><th>-Uri</th><td>The URI to the script that will be executed.</td></tr>
 <tr><td>Aliases</td><td>None</td></tr>
@@ -117,6 +120,7 @@ The inputs for HDInsight script action command **Add-AzureHDInsightScriptAction*
 <tr><td>Accept Pipeline Input?</td><td>False</td></tr>
 <tr><td>Accept Wildcard Characters?</td><td>False</td></tr>
 </table>
+
 
 <table border="1">
 <tr><th>-Parameters</th><td>The input parameters to the script that will be executed.</td></tr>
@@ -186,8 +190,8 @@ Microsoft provides sample scripts to install Spark and R on HDInsight. The sampl
 
 The topics describing how to used these scripts to install Spark and R on HDInsight clusters are provided here:
 
-* [Install and use Spark on HDInsight clusters][hdinsight-hadoop-spark-install] 
-* [Install and use R on HDInsight clusters][hdinsight-hadoop-r-script]  
+- [Install and use Spark 1.0 on HDInsight clusters][hdinsight-install-spark]
+- [Install and use R on HDInsight Hadoop clusters][hdinsight-r-scripts]  
 
 > [WACOM.NOTE] The sample script works only with HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
 
@@ -197,6 +201,7 @@ The topics describing how to used these scripts to install Spark and R on HDInsi
 
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-cluster-customize]: ../hdinsight-customize-cluster
-[hdinsight-hadoop-spark-install]: ../hdinsight-hadoop-spark-install/
-[hdinsight-hadoop-r-script]: ../hdinsight-hadoop-r-script/
+[hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
+[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+[hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
+[powershell-install-configure]: ../install-configure-powershell/

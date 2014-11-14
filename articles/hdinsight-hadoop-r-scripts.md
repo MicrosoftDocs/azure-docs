@@ -2,7 +2,7 @@
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="bradsev" />
 
-# Install and use R on HDInsight Hadoop clusters
+# Install and use R on HDInsight Hadoop clusters (Preview)
 
 This topic shows how to install R on an HDInsight Hadoop cluster using Script Action cluster customization. This enables data scientists and analysts to use R to deploy the powerful MapReduce/YARN programming framework for processing large amounts of data on Hadoop clusters deployed in HDInsight.
 
@@ -259,4 +259,5 @@ Provide a cluster name and press ENTER to provision a cluster with R installed.
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-customize-cluster
-[hdinsight-install-spark]: ../hdinsight-install-spark/
+[hdinsight-install-spark]: ../hdinsight-hadoop-install-spark/
+[powershell-install-configure]: ../install-configure-powershell/
