@@ -12,9 +12,9 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
 	![sendgrid-store][sendgrid-store]
 
-4. In the **Choose an Add-on** dialog, select **SendGrid** and click the right arrow.
+4. In the **Choose an Application and Service** dialog, select **SendGrid** and click the right arrow.
 
-5. In the **Personalize Add-on** dialog select the **SendGrid** plan you want to sign up for.
+5. In the **Personalize Application and Service** dialog select the **SendGrid** plan you want to sign up for.
 
 6. Enter a name to identify your **SendGrid** service in your Azure settings, or use the default value of **SendGrid**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
 
