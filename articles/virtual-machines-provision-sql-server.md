@@ -100,7 +100,7 @@ Before you can connect to the instance of SQL Server from the internet, you must
 - [Create SQL Server authentication logins](#Logins)
 - [Determine the DNS name of the virtual machine](#DNS)
 - [Connect to the Database Engine from another computer](#cde)
-- [Connecting to the Database Engine from your application] (#cdea)
+- [Connecting to the Database Engine from your application](#cdea)
 
 The connection path is summarized by the following diagram:
 
@@ -363,7 +363,7 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
 [Image5b]: ./media/virtual-machines-provision-sql-server/5VM-Connect.png
 [Image6]: ./media/virtual-machines-provision-sql-server/6VM-Options.png
-[Image8b]: ./media/virtual-machines-provision-sql-server/SQLVMConnectionsOnAzure.GIF
+[Image8b]: ./media/virtual-machines-provision-sql-server/SQLServerinVMConnectionMap.png
 [Image9]: ./media/virtual-machines-provision-sql-server/9Click-SSCM.png
 [Image10]: ./media/virtual-machines-provision-sql-server/10Enable-TCP.png
 [Image11]: ./media/virtual-machines-provision-sql-server/11Restart.png
