@@ -347,5 +347,6 @@ Provide a cluster name and press ENTER to provision a cluster with Spark install
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
+[powershell-install-configure]: ../install-configure-powershell/
 
 [img-hdi-scala-interactive]: ./media/hdinsight-hadoop-spark-install/hdi-scala-interactive.png "Output from running Scala interactive shell in an HDInsight cluster"

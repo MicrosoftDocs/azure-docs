@@ -1,6 +1,6 @@
 <properties urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="bradsev" />
 
 
 #What's new in the Hadoop cluster versions provided by HDInsight?
@@ -46,6 +46,8 @@ If you use the **Quick Create** option, you will get the version 3.1 of HDInsigh
 
 ##Feature highlights
 Azure HDInsight now supports Hadoop 2.4 with HDInsight cluster version 3.1 (using Hortonworks Data Platform 2.1.7) by default. It takes full advantage of the platform to provide a range of significant benefits to customers. These include, most notably:
+
+- **Script Action (Preview)**: The preview of this cluster customization feature enables the modification of Hadoop clusters in arbitrary ways using custom scripts. With this new feature, users can experiment with and deploy projects available from the Apache Hadoop ecosystem to Azure HDInsight clusters. This customization feature is available on all types of HDInsight clusters including Hadoop, HBase and Storm.
 
 - **HBase**: HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs.
 
