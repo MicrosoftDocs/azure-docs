@@ -706,11 +706,6 @@ The data types specified in the Structure section of the Table definition is onl
 
 </table>
 
-## Limitations
-
-> [WACOM.NOTE] When a pipeline is suspended or deleted, or when a data factory is deleted, the ongoing copy operation is not suspended. It will continue to execute until completion. However, the copy operation that involves an on-premises data source can be stopped by restarting the Data Management Gateway service by using the Data Management Gateway configuration manager or the Services applet. 
-
-
 
 ## Walkthroughs
 See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity.
