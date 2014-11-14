@@ -12,11 +12,12 @@ Script Action can be deployed from Azure PowerShell or by using the HDInsight .N
 ## In this article
 
 - [Best practices for script development](#bestPracticeScripting)
+- [Checklist for deploying a Script Action](#deployScrip)
 - [How to test your custom script](#testScript)
 - [How to run a Script Action](#runScriptAction)
 - [Custom script samples](#sampleScripts)
 - [How to debug your custom script](#debugScript) 
-
+- [See also](#seeAlso)
 
 
 ## <a name="bestPracticeScripting"></a>Best practices for script development
@@ -36,6 +37,16 @@ When cluster nodes are re-imaged, the C:\ (resource drive) and D:\ (system drive
 
 ###Cluster Architecture
 To ensure high availability, HDInsight has, by default, two headnodes: one in active mode (in which HDInsight services  are running) and the other in standby mode (in which HDInsight services are not running). They will switch mode if HDInsight services are interrupted. HDInsight script action command runs on both headnodes when the headnode role is specified in the *ClusterRoleCollection* parameter (documented above). So when you design your custom scripts, make sure that your script is aware of this setup. For instance, you should not run into problems where same services are installed and started on both of the headnodes and they end up competing with each other. Also, data will be lost during re-images and so software installed using Script Actions has to be resilient such events. Applications should be designed to work with highly available data that is distributed across many nodes and so be able to recover all of the data. Note that as many as 1/5 of the nodes in a cluster can be re-imaged at the same time.
+
+## <a name="deployScript"></a>Checklist for deploying a Script Action
+Here are the steps we took when preparing to deploy these scripts:
+
+1. Put files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment.
+2. Add checks into scripts to make sure that they execute idempotently, so that the script can be executed multiple times on the same node.
+3. Use Write-Output Powershell function to print to STDOUT as well as STDERR.
+4. Use a temporary file folder, such as $env:TEMP to keep the downloaded file used by the scripts and then clean them up after scripts have executed.
+5. Install custom software only at following locations: D:, C:/apps. Other locations on the C: drive should not be used as they are reserved for system use. Note that installing files on the C: drive outside of C:/apps folder may result in setup failures during re-images of the node.
+6. In case OS level settings or Hadoop service configuration files were changed, you may want to restart HDInsight services so they can pick up any OS level settings, such as the environment variables set in the scripts.
 
 ## <a name="testScript"></a>How to test your custom script
 
@@ -118,32 +129,9 @@ The inputs for HDInsight script action command **Add-AzureHDInsightScriptAction*
 </table>
 
 
-
-## <a name="sampleScripts"></a>Custom script samples
-
-Microsoft provides sample scripts to install Spark and R on HDInsight. The sample scripts for Spark and R are located at:
-
-* https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv01/spark-installer-v01.ps1
-* https://hdiconfigactions.blob.core.windows.net/rconfigactionv01/r-installer-v01.ps1
-
-The topics describing how to used these scripts to install Spark and R on HDInsight clusters are provided here:
-
-* [Install and use Spark on HDInsight clusters][hdinsight-hadoop-spark-install] 
-* [Install and use R on HDInsight clusters][hdinsight-hadoop-r-script]  
-
-> [WACOM.NOTE] The sample script works only with HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
-> 
-Here are the steps we took when building and preparing to deploy these scripts:
-
-1. Put files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment.
-2. Add checks into scripts to make sure that they execute idempotently, so that the script can be executed multiple times on the same node.
-3. Use Write-Output Powershell function to print to STDOUT as well as STDERR.
-4. Use a temporary file folder, such as $env:TEMP to keep the downloaded file used by the scripts and then clean them up after scripts have executed.
-5. Install custom software only at following locations: D:, C:/apps. Other locations on the C: drive should not be used as they are reserved for system use. Note that installing files on the C: drive outside of C:/apps folder may result in setup failures during re-images of the node.
-6. In case OS level settings or Hadoop service configuration files were changed, you may want to restart HDInsight services so they can pick up any OS level settings, such as the environment variables set in the scripts.
-
-
 ## <a name="debugScript"></a>How to debug your custom script
+
+The script error logs are stored, along with other output, in the default storage account that you specified for the cluster at its creation. The logs are stored in a table with the name *u<\cluster-name-fragment><\time-stamp>setuplog*. These are aggregated logs that have records from all of the nodes (headnode and worker nodes) on which the script runs in the cluster.
 
 Both the STDOUT and STDERR of custom scripts are logged into C:\HDInsightLogs\DeploymentAgent.log on the node where custom scripts were executed. An example log snippet for a Spark Script Action looks like this:
 
@@ -189,7 +177,23 @@ In this log, it is clear that the Spark script action has been executed on the V
 
 In the event that an execution failure occurs, the output describing it will also be contained in this log file. The information provided in these logs should be helpful when debugging script problems that may arise.
 
+## <a name="sampleScripts"></a>Custom script samples
 
+Microsoft provides sample scripts to install Spark and R on HDInsight. The sample scripts for Spark and R are located at:
+
+* https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv01/spark-installer-v01.ps1
+* https://hdiconfigactions.blob.core.windows.net/rconfigactionv01/r-installer-v01.ps1
+
+The topics describing how to used these scripts to install Spark and R on HDInsight clusters are provided here:
+
+* [Install and use Spark on HDInsight clusters][hdinsight-hadoop-spark-install] 
+* [Install and use R on HDInsight clusters][hdinsight-hadoop-r-script]  
+
+> [WACOM.NOTE] The sample script works only with HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
+
+## <a name="seeAlso"></a>See also
+
+[Customize HDInsight clusters using Script Action][hdinsight-cluster-customize] 
 
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
