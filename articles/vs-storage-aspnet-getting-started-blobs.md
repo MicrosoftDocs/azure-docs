@@ -27,7 +27,7 @@ Add the following code namespace declarations to the top of any C# file in which
 Before you can do anything with a blob, you need to get the connection string for the storage account the blobs will live in. You can use the **CloudStorageAccount** type to represent your storage account information. For ASP.NET projects, you can you use the **ConfigurationManager** type to retrieve your storage connection string and storage account information from the Azure service configuration, as shown in the following code.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      ConfigurationManager.AppSettings["<storageAccountName>_AzureStorageConnectionString"]);
+      ConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
 [WACOM.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
