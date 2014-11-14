@@ -7,7 +7,7 @@
 
 # Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio 
 
-In this tutorial, we'll create a simple polls application using one of the PTVS sample templates.
+In this tutorial, we'll create a simple polls application using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=qUtZWtPwbTk).
 
 The polls application defines an abstraction for its repository, so you can easily switch between different types of repositories (In-Memory, Azure Table Storage, MongoDB).
 
