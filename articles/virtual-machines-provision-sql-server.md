@@ -1,6 +1,6 @@
 <properties urlDisplayName="Install SQL Server" pageTitle="Provision a SQL Server virtual machine in Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="jeffreyg" editor="tyson" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="selcint" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="selcint" />
 
 
 
@@ -100,7 +100,7 @@ Before you can connect to the instance of SQL Server from the internet, you must
 - [Create SQL Server authentication logins](#Logins)
 - [Determine the DNS name of the virtual machine](#DNS)
 - [Connect to the Database Engine from another computer](#cde)
-- [Connecting to the Database Engine from your application] (#cdea)
+- [Connecting to the Database Engine from your application](#cdea)
 
 The connection path is summarized by the following diagram:
 
@@ -363,7 +363,7 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
 [Image5b]: ./media/virtual-machines-provision-sql-server/5VM-Connect.png
 [Image6]: ./media/virtual-machines-provision-sql-server/6VM-Options.png
-[Image8b]: ./media/virtual-machines-provision-sql-server/SQLVMConnectionsOnAzure.GIF
+[Image8b]: ./media/virtual-machines-provision-sql-server/SQLServerinVMConnectionMap.png
 [Image9]: ./media/virtual-machines-provision-sql-server/9Click-SSCM.png
 [Image10]: ./media/virtual-machines-provision-sql-server/10Enable-TCP.png
 [Image11]: ./media/virtual-machines-provision-sql-server/11Restart.png
