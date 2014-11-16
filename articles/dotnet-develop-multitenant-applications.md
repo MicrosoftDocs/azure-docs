@@ -10,7 +10,7 @@
 <li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
 <li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
 <li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-<li><a href="/en-us/develop/net/reference/">Reference</a></li>
+<li><a href="/en-us/documentation/api">Reference</a></li>
 <li><a href="/en-us/develop/net/guidance/">Guidance</a></li>
 <li><a href="/en-us/develop/net/architecture/">Architecture</a></li>
 <li><a href="/en-us/develop/net/samples/">Samples</a></li>
