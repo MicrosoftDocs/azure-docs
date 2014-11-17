@@ -14,8 +14,9 @@ The full version numbers for HDInsight clusters deployed with this release are:
 * HDInsight 3.1.1.382.1169709
 
 This release contains the following new features, component updates and bug fixes.
+
 <table border="1">
-<tr><th>Title</th><th>Description</a><th>Component</th></th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
+<tr><th>Title</th><th>Description</th><th>Component</th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
 
 <tr><td>Script Action (Preview)</td><td>Preview of the cluster customization feature that enables modification of Hadoop clusters in arbitrary ways using custom scripts. With this new feature, users can experiment with and deploy projects available from the Apache Hadoop ecosystem to Azure HDInsight clusters. This customization feature is available on all types of HDInsight clusters including Hadoop, HBase and Storm. 
 </td><td>New feature</td><td>All</td><td>N/A</td></tr>
@@ -48,8 +49,9 @@ The full version numbers for HDInsight clusters deployed with this release are:
 * HDInsight 3.1	3.1.1.374.1153876
 
 This release contains the following component updates.
+
 <table border="1">
-<tr><th>Title</th><th>Description</a><th>Component</th></th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
+<tr><th>Title</th><th>Description</th><th>Component</th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
 
 <tr><td>HDP 2.1.7</td><td>This release is based on Hortonworks Data Platform (HDP) 2.1.7. The release notes for HDP 2.1.7 are available on the Hortonworks site at http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html.</td><td>HDP</td><td>All</td><td>N/A</td></tr>
 
@@ -57,7 +59,7 @@ This release contains the following component updates.
 <p>This information can also be retrieved remotely though REST API at https://{ClusterDnsName}. azurehdinsight.net/ws/v1/applicationhistory/.</p> 
 <p>More detailed information on the Timeline Server is available at http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html.</p></td><td>Service, YARN</td><td>Hadoop, HBase</td><td>N/A</td></tr>
 
-<tr><td>Cluster Deployment ID</td><td>Starting with latest SDK version 1.3.3.1.5426.29232, users can access HDInsight issued unique id for each cluster. This will enable customers to figure out unique instances of clusters when a dnsname is being reused across create/drop scenarios.</td><td>SDK</td><td>All</td><td>N/A</td></tr>
+<tr><td>Cluster Deployment ID</td><td>Starting with latest SDK version 1.3.3.1.5426.29232, users can access HDInsight issued unique ID for each cluster. This will enable customers to figure out unique instances of clusters when a dnsname is being reused across create/drop scenarios.</td><td>SDK</td><td>All</td><td>N/A</td></tr>
 </table><br>
 
 * Note that the bug that prevented the full version # from showing up in the portal or from being returned by the SDK or by PowerShell has been fixed in this release. 
