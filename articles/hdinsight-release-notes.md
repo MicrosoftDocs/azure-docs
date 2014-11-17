@@ -16,7 +16,7 @@ The full version numbers for HDInsight clusters deployed with this release are:
 This release contains the following new features, component updates and bug fixes.
 
 <table border="1">
-<tr><th>Title</th><th>Description<th>Component</th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
+<tr><th>Title</th><th>Description</th><th>Component</th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
 
 <tr><td>Script Action (Preview)</td><td>Preview of the cluster customization feature that enables modification of Hadoop clusters in arbitrary ways using custom scripts. With this new feature, users can experiment with and deploy projects available from the Apache Hadoop ecosystem to Azure HDInsight clusters. This customization feature is available on all types of HDInsight clusters including Hadoop, HBase and Storm. 
 </td><td>New feature</td><td>All</td><td>N/A</td></tr>
