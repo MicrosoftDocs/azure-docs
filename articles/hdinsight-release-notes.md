@@ -7,7 +7,11 @@
 
 ## Notes for 11/14/2014 release of HDInsight ##
 
-The full version numbers for HDInsight clusters deployed with this release are unchanged from the 11/7/2014 release.
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight 2.1.9.382.1169709
+* HDInsight 3.0.5.382.1169709
+* HDInsight 3.1.1.382.1169709
 
 This release contains the following new features, component updates and bug fixes.
 <table border="1">
@@ -29,9 +33,10 @@ Learn how to work with HDInsight by walking through some basic scenarios such as
 
 Note: To demonstrate the new capabilities made available by cluster customization, the procedures using Script Actions to install Spark and R modules on a cluster have been documented. For further information, see:
 
-
 - [Install and use Spark 1.0 on HDInsight clusters][hdinsight-install-spark]
 - [Install and use R on HDInsight Hadoop clusters][hdinsight-r-scripts]
+
+
 
 
 ## Notes for 11/07/2014 release of HDInsight ##
