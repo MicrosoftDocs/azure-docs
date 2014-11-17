@@ -258,6 +258,6 @@ Provide a cluster name and press ENTER to provision a cluster with R installed.
 
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-cluster-customize]: ../hdinsight-customize-cluster
-[hdinsight-install-spark]: ../hdinsight-hadoop-install-spark/
+[hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
+[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [powershell-install-configure]: ../install-configure-powershell/
