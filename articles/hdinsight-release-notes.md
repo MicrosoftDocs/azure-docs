@@ -29,8 +29,10 @@ Learn how to work with HDInsight by walking through some basic scenarios such as
 
 Note: To demonstrate the new capabilities made available by cluster customization, the procedures using Script Actions to install Spark and R modules on a cluster have been documented. For further information, see:
 
-* [Install and use Spark on HDInsight clusters][hdinsight-hadoop-spark-install] 
-* [Install and use R on HDInsight clusters][hdinsight-hadoop-r-script]  
+
+- [Install and use Spark 1.0 on HDInsight clusters][hdinsight-install-spark]
+- [Install and use R on HDInsight Hadoop clusters][hdinsight-r-scripts]
+
 
 ## Notes for 11/07/2014 release of HDInsight ##
 
@@ -358,8 +360,9 @@ Release notes for the HDPs that are used by the versions of HDInsight cluster ar
 
 [hdp-1-1-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html
 
-[hdinsight-hadoop-spark-install]: ../hdinsight-hadoop-spark-install/
-[hdinsight-hadoop-r-script]: ../hdinsight-hadoop-r-script/
+
+[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+[hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 
 
 
