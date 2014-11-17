@@ -39,15 +39,15 @@ To use Azure ML Recommendations you need to do the following steps:
 * Build a recommendation model – this is an asynchronous operation in which the recommendation system takes all the usage data and creates a recommendation model. This operation can take several minutes or several hours depending on the size of the data and the build configuration parameters. When triggering the build you will get a build id, use it to check when the build process has ended before starting to consume recommendations. 
 * Recommendations consumption – get recommendations for a specific item or list of items.
 
-All the steps above are done through Azure ML Recommendations API
+All the steps above are done through Azure ML Recommendations API.
 
 ##Limitations
 
 * Maximum number of models per subscription: 10
 * Maximum number of items that a catalog can hold: 100,000
 * The maximum amount of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
-* Maximum size of data can be sent in POST (e.g. Import catalog data, import usage data) is 200MB
-* The number of transactions per second for a recommendation model build that is not active is ~2TPS, only recommendation model build that is active can hold up to 20TPS
+* Maximum size of data can be sent in POST (e.g. Import catalog data, import usage data) is 200MB.
+* The number of transactions per second for a recommendation model build that is not active is ~2TPS, only recommendation model build that is active can hold up to 20TPS.
 
 ##Integration
 
@@ -60,7 +60,7 @@ The service root URIs for each of the Azure ML Recommendations APIs is [here.](h
 The full service URI is expressed using elements of the OData specification.  
 
 ###API Version
-Each API call will have at the end query parameter called apiVersion that should be set to 1.0
+Each API call will have at the end query parameter called apiVersion that should be set to "1.0".
 
 ###Create a model
 Creating a “create model” request:
