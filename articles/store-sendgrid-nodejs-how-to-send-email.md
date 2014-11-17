@@ -60,7 +60,7 @@ package manager (npm) by using the following command:
 After installation, you can require the module in your application by
 using the following code:
 
-    var sendgrid   = require('sendgrid')(sendgrid_username, sendgrid_password);
+    var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
 
 The SendGrid module exports the **SendGrid** and **Email** functions.
 **SendGrid** is responsible for sending email through Web API, 
@@ -156,8 +156,7 @@ see [Filter Settings][].
 
 Filters can be applied to a message by using the **filters** property.
 Each filter is specified by a hash containing filter-specific settings.
-The following examples demonstrate the footer, click tracking, and
-Twitter filters:
+The following examples demonstrate the footer and click tracking filters:
 
 ### Footer
 
