@@ -15,8 +15,8 @@ Script Action can be deployed from Azure PowerShell or by using the HDInsight .N
 - [Checklist for deploying a Script Action](#deployScript)
 - [How to test your custom script](#testScript)
 - [How to run a Script Action](#runScriptAction)
-- [Custom script samples](#sampleScripts)
-- [How to debug your custom script](#debugScript) 
+- [How to debug your custom script](#debugScript)
+- [Custom script samples](#sampleScripts) 
 - [See also](#seeAlso)
 
 
