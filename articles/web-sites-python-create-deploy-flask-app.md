@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-site-with-flask" urlDisplayName="Websites with Flask" pageTitle="Python Websites with Flask - Azure tutorial" metaKeywords="Azure flask, flask website" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="Python" title="Creating Websites with Flask" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/20/2014" ms.author="huvalo" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/18/2014" ms.author="huvalo" />
 
 
 
@@ -41,7 +41,7 @@ You will create an application using the Flask web framework (see alternate vers
 
 If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7](http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409) or [Azure SDK for Python 3.4](http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409) using Web Platform Installer.  This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines).  Alternatively, you can get Python from [python.org](http://www.python.org/).
 
-For Git, we recommend [Git for Windows](http://msysgit.github.io/). This tutorial uses the Git Shell from Git for Windows.
+For Git, we recommend [Git for Windows](http://msysgit.github.io/). This tutorial uses the Git Shell from Git for Windows.  If you use Visual Studio, you can use the integrated Git support.
 
 We also recommend installing [Python Tools for Visual Studio](http://pytools.codeplex.com).  This is optional, but if you have [Visual Studio](http://www.visualstudio.com/), including the free Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
 
@@ -112,17 +112,6 @@ Project files for use with [Python Tools for Visual Studio](http://pytools.codep
 
 IIS proxy for virtual environments and PTVS remote debugging support.
 
-    \.deployment
-    \deploy.cmd
-
-Custom git deployment support. This provides additional functionality over the default git deployment steps, such as:
-
-- Automatic management of virtual environment
-- Installation of packages listed in requirements.txt using pip
-- Creation of the appropriate web.config based on the selected Python version.
-
-The deployment script defaults to Python 2.7, but you can change it to use Python 3.4 by editing the default value of `PYTHON_VER` variable in `deploy.cmd`.  
-
     \requirements.txt
 
 External packages needed by this application. The deployment script will pip install the packages listed in this file.
@@ -131,6 +120,60 @@ External packages needed by this application. The deployment script will pip ins
     \web.3.4.config
 
 IIS configuration files.  The deployment script will use the appropriate web.x.y.config and copy it as web.config.
+
+### Optional files - Customizing deployment
+
+Azure will determine that your application uses Python **if both of these conditions are true**:
+
+- requirements.txt file in the root folder
+- any .py file in the root folder OR a runtime.txt that specifies python
+
+When that's the case, it will use a Python specific deployment script, which performs the standard synchronization of files, as well as additional Python operations such as:
+
+- Automatic management of virtual environment
+- Installation of packages listed in requirements.txt using pip
+- Creation of the appropriate web.config based on the selected Python version.
+- Collect static files for Django applications
+
+You can control certain aspects of the default deployment steps without having to customize the script.
+
+If you want to skip all Python specific deployment steps, you can create this empty file:
+
+    \.skipPythonDeployment
+
+If you want to skip collection of static files for your Django application:
+
+    \.skipDjango 
+
+For more control over deployment, you can override the default deployment script by creating the following files:
+
+    \.deployment
+    \deploy.cmd
+
+You can use the [Azure command-line interface][] to create the files.  Use this command from your project folder:
+
+    azure site deploymentscript --python
+
+When these files don't exist, Azure creates a temporary deployment script and runs it.  It is identical to the one you create with the command above.
+
+### Optional files - Python runtime
+
+Azure will determine the version of Python to use for its virtual environment with the following priority:
+
+1. version specified in runtime.txt in the root folder
+1. version specified by Python setting in the website configuration
+1. python-2.7 is the default if none of the above are specified
+
+Valid values for the contents of 
+
+    \runtime.txt
+
+are:
+
+- python-2.7
+- python-3.4
+
+If the micro version (third digit) is specified, it is ignored.
 
 ### Additional files on server
 
@@ -169,7 +212,7 @@ Now we'll create a virtual environment for local development.  Right-click on **
 
 - Make sure the name of the environment is `env`.
 
-- Select the base interpreter.  Make sure to use the same version of Python that is specified by the PYTHON_VER variable in the deploy.cmd file.
+- Select the base interpreter.  Make sure to use the same version of Python that is selected for your site (in runtime.txt or the site configuration page).
 
 - Make sure the option to download and install packages is checked.
 
@@ -234,7 +277,7 @@ First, clone the repository using the url provided on the Azure portal, and add 
 
 We'll create a new virtual environment for development purposes (do not add it to the repository).  Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.
 
-Make sure to use the same version of Python that is specified by the PYTHON_VER variable in the deploy.cmd file.
+Make sure to use the same version of Python that is selected for your site (in runtime.txt or the site configuration page)
 
 For Python 2.7:
 
@@ -313,7 +356,7 @@ First, clone the repository using the url provided on the Azure portal, and add 
 
 We'll create a new virtual environment for development purposes (do not add it to the repository).  Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.
 
-Make sure to use the same version of Python that is specified by the PYTHON_VER variable in the deploy.cmd file.
+Make sure to use the same version of Python that is selected for your site (in runtime.txt or the site configuration page).
 
 For Python 2.7:
 
@@ -452,28 +495,37 @@ Add this to the deployment script:
 
 Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the Azure website (Windows/32-bit/2.7 or 3.4).
 
-If you include the virtual environment in the repository, you can edit deploy.cmd to prevent it from doing virtual environment management on Azure.
+If you include the virtual environment in the repository, you can prevent the deployment script from doing virtual environment management on Azure by creating an empty file:
 
-Change the following line:
-
-    SET AUTO_MANAGE_ENV=1
-
-to:
-
-    SET AUTO_MANAGE_ENV=0
+    .skipPythonDeployment
 
 We recommend that you delete the existing virtual environment on the site, to prevent leftover files from when the virtual environment was managed automatically.  See the section below for how to do this.
 
 
 <h2><a name="troubleshooting-virtual-environment"></a>Troubleshooting - Virtual Environment</h2>
 
-The git deployment script will skip creation of the virtual environment on Azure if it detects that a compatible virtual environment already exists.  This can speed up deployment considerably.  Packages that are already installed will be skipped by pip.
+The deployment script will skip creation of the virtual environment on Azure if it detects that a compatible virtual environment already exists.  This can speed up deployment considerably.  Packages that are already installed will be skipped by pip.
 
 In certain situations, you may want to force delete that virtual environment.  You'll want to do this if you decide to include a virtual environment as part of your repository.  You may also want to do this if you need to get rid of certain packages, or test changes to requirements.txt.
 
-An easy way to delete the virtual environment on Azure is to connect using FTP.  With an FTP client, connect to the server and delete the env folder.  Note that some FTP clients (such as web browsers) may be read-only and won't allow you to delete folders, so you'll want to make sure to use an FTP client with that capability.  The FTP host name and user are displayed in the dashboard page for your website on the Azure portal.
+There are a few options to delete the existing virtual environment on Azure:
 
-Another solution is to modify the git deployment script to delete the virtual environment if one is found.  However, if you only want to do the deletion once, FTP may be more convenient.
+### Option 1: Use FTP
+
+With an FTP client, connect to the server and delete the env folder.  Note that some FTP clients (such as web browsers) may be read-only and won't allow you to delete folders, so you'll want to make sure to use an FTP client with that capability.  The FTP host name and user are displayed in the dashboard page for your website on the Azure portal.
+
+### Option 2: Toggle runtime
+
+Here's an alternative that takes advantage of the fact that the deployment script will delete the env folder when it doesn't match the desired version of Python:
+
+1. Switch to a different version of Python (via runtime.txt or website configure page)
+1. git push some changes (ignore any pip install errors if any)
+1. Switch back to initial version of Python
+1. git push some changes again
+
+### Option 3: Customize deployment script
+
+If you've customized the deployment script, you can change the code in deploy.cmd to force it to delete the env folder.
 
 
 <h2><a name="next-steps"></a>Next Steps</h2>
@@ -497,3 +549,4 @@ For information on using Azure Table Storage and MongoDB:
 [Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation 
 [Flask Documentation]: http://flask.pocoo.org/ 
 [Create a Virtual Machine Running Windows]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/
+[Azure command-line interface]: http://azure.microsoft.com/en-us/downloads/
