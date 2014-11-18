@@ -149,4 +149,4 @@ To download the Azure SDK for .NET or a client library, see the [Azure Downloads
 
 For the Azure SDK for .NET source code, including client libraries, see [GitHub.com/Azure](https://github.com/azure/).
 
-For Azure client library reference documentation, see [Azure .NET Reference](/en-us/develop/net/reference/). 
+For Azure client library reference documentation, see [Azure .NET Reference](/en-us/documentation/api/). 

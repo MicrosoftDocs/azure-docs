@@ -47,4 +47,4 @@ In order to use Azure Mobile Services in Cordova projects in Visual Studio 2015 
                     "<your application key>");
 		});
 
-[1]: ./media/vs-mobile-services-cordova-vs2015/AzureMobileServicesPlugin.png 
+[1]: ./media/vs-mobile-services-cordova-vs2015/AzureMobileServicesPlugIn.png 

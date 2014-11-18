@@ -7,7 +7,7 @@
 
 # Django and MySQL on Azure with Python Tools 2.1 for Visual Studio 
 
-In this tutorial, we'll create a simple polls application using one of the PTVS sample templates.
+In this tutorial, we'll create a simple polls application using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=oKCApIrS0Lo).
 
 We'll learn how to use a MySQL service hosted on Azure, how to configure the application to use MySQL, and how to publish the application to an Azure Website.
 

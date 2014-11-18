@@ -1,6 +1,6 @@
 <properties title="Use custom activities in an Azure Data Factory pipeline" pageTitle="Use custom activities in an Azure Data Factory pipeline" description="Learn how to create custom activities and use them in an Azure Data Factory pipeline." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Use custom activities in an Azure Data Factory pipeline
 Azure Data Factory supports built-in activities such as **Copy Activity** and **HDInsight Activity** to be used in pipelines to move and process data. You can also create a custom activity with your own transformation/processing logic and use the activity in a pipeline. The custom activity runs as a map-only job on an HDInsight cluster, so you will need to link an HDInsight cluster for the custom activity in your pipeline.
@@ -274,7 +274,7 @@ The following Walkthrough provides you with step-by-step instructions for creati
 11. Launch **Windows Explorer**, and navigate to **bin\debug** or **bin\release** folder depending type of build.
 12. Create a zip file **MyCustomActivity.zip** that contain all the binaries in the <project folder>\bin\Debug folder.
 	![zip output binaries][image-data-factory-zip-output-binaries]
-13. Upload **MyCustomActivity.zip** as a blob to the blob conatainer: **blobcustomactvitycontainer** in the Azure blob storage that the **MyBlobStore** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **blobcustomactivitycontainer** if it does not already exist. 
+13. Upload **MyCustomActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **MyBlobStore** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **blobcustomactivitycontainer** if it does not already exist. 
     ![upload zip to blob][image-data-factory-upload-zip-to-blob]
 
 ### Create a linked service for  HDInsight cluster that will be used to run the custom activity
@@ -293,7 +293,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		{
         		"type": "HDInsightOnDemandLinkedService",
 				"clusterSize": 4,
-        		"jobsContainer": "adftutorialjobscontainer",
+        		"jobsContainer": "adfjobs",
         		"timeToLive": "00:05:00",
         		"linkedServiceName": "MyBlobStore"
     		}
@@ -403,22 +403,12 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
     		"name": "OutputTableForCustom",
     		"properties":
     		{
-         		"structure":  
-        		[ 
-            		{ "name": "FirstName", "type": "String"},
-            		{ "name": "LastName", "type": "String"}
-        		],
         		"location": 
         		{
 					"type": "AzureBlobLocation",
 					"folderPath": "adftutorial/customactivityoutput/{Slice}",
 					"partitionedBy": [ { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }],
 
-					"format":
-					{
-                		"type": "TextFormat",
-		                "columnDelimiter": ","
-					},
 					"linkedServiceName": "MyBlobStore"
         		},
         		"availability": 
