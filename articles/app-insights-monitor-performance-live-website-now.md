@@ -1,8 +1,7 @@
-<properties title="Diagnose performance issues on a running website" pageTitle="Diagnose performance issues on a running website" description="Monitor a website's performance without re-deploying it." metaKeywords="analytics monitoring application insights" authors="awills"  />
+<properties title="Diagnose performance issues on a running website" pageTitle="Diagnose performance issues on a running website" description="Monitor a website's performance without re-deploying it." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  
-<!-- Required end of Sprint 69 - AUX48 -->
 
 # Monitor performance on a live website now
 
@@ -27,7 +26,7 @@ You just install an agent in the server and see performance data on Application 
 
 - This method instruments the web app as it stands. You don't insert trace or log code. (But you can do that later if you want.)
 
-If you want to insert logging or diagnostic traces, don't continue here - instead, [add Application Insights to your project][existing] and redeploy it.
+If you want to insert logging or diagnostic traces, don't continue here - instead, [add Application Insights to your project][greenbrown] and redeploy it. For the full range of options, read [Application Insights - getting started][start].
 
 ## Install the Application Insights agent on your web server
 
@@ -76,11 +75,13 @@ You'll see data under Application Health.
   * Wait a few minutes to let the data arrive.
   * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com 
 
+#### What can I do with the Application Health reports?
+ * [Understand the data and configure the tiles][perf]
 
 ## <a name="next"></a>Next steps
 
 
-[View data][explore]
+[View data][perf]
 
 [Search diagnostic logs][diagnostic]
 
@@ -91,25 +92,9 @@ You'll see data under Application Health.
 [Troubleshooting][qna]
 
 
-## Learn more
-
-* [Application Insights][root]
-* [Add Application Insights to your project][start]
-* [Monitor a live web server now][redfield]
-* [Explore metrics in Application Insights][explore]
-* [Diagnostic log search][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Usage tracking with events and metrics][usage]
-* [Q & A and troubleshooting][qna]
 
 
-<!--Link references-->
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
-[root]: ../app-insights-get-started/
-[start]: ../app-insights-monitor-application-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[explore]: ../app-insights-explore-metrics/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
+
+

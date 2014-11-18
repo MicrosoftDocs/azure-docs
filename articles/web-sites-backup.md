@@ -1,6 +1,6 @@
-<properties linkid="web-sites-backup" urlDisplayName="Azure Websites Backups" pageTitle="Azure Websites Backups" metaKeywords="Azure Web Sites, Backups" description="Learn how to create backups of your Azure websites." metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Backups" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Azure Websites Backups" pageTitle="Azure Websites Backups" metaKeywords="Azure Web Sites, Backups" description="Learn how to create backups of your Azure websites." metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Backups" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 #Azure Websites Backups
 
@@ -11,6 +11,7 @@ For information on restoring an Azure website from backup, see [Restore an Azure
 
 ##In this article
 
+- [Automatic and Easy Backup (Video)](#video)
 - [What Gets Backed Up](#whatsbackedup)
 - [Requirements and Restrictions](#requirements)
 - [To Create a Manual Backup](#manualbackup)
@@ -19,6 +20,13 @@ For information on restoring an Azure website from backup, see [Restore an Azure
 - [Notes](#notes)
 - [Next Steps](#nextsteps)
 	- [More about storage accounts](#moreaboutstorage)
+
+<a name="video"></a>
+##Automatic and Easy Backup (Video)
+
+In this video, Eduardo Laureano and Scott Hanselman introduce Azure websites backups. (Duration: 11:43)  
+
+> [AZURE.VIDEO azure-websites-automatic-and-easy-backup]
 
 <a name="whatsbackedup"></a>
 ##What Gets Backed Up 

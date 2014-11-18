@@ -1,6 +1,6 @@
-<properties linkid="develop-python-ipython-notebook" urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Azure tutorial" metaKeywords="" description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook on Azure" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Azure tutorial" metaKeywords="" description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook on Azure" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
 
 
 
@@ -24,7 +24,7 @@ recording:
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png)
 
-This document will show you how to deploy the IPython Notebook on Windows
+This document will show you how to deploy the IPython Notebook on Microsoft
 Azure, using Linux or Windows virtual machines (VMs).  By using the IPython
 Notebook on Azure, you can easily provide a web-accessible interface to
 scalable computational resources with all the power of Python and its many
@@ -43,11 +43,11 @@ virtual machines, and we will cover the setup of IPython on both types of virtua
 
 ### Linux VM
 
-Follow the instructions given [here][portal-vm-linux] to create a virtual machine of the *OpenSUSE* or *Ubuntu* distribution. This tutorial uses OpenSUSE 12.3 and Ubuntu Server 13.04. We'll assume the default user name *azureuser*.
+Follow the instructions given [here][portal-vm-linux] to create a virtual machine of the *OpenSUSE* or *Ubuntu* distribution. This tutorial uses OpenSUSE 13.1 and Ubuntu Server 14.04 LTS. We'll assume the default user name *azureuser*.
 
 ### Windows VM
 
-Follow the instructions given [here][portal-vm-windows] to create a virtual machine of the *Windows Server 2012 Datacenter* distribution. In this tutorial, we'll assume that the user name is *azureuser*.
+Follow the instructions given [here][portal-vm-windows] to create a virtual machine of the *Windows Server 2012 R2 Datacenter* distribution. In this tutorial, we'll assume that the user name is *azureuser*.
 
 ## Create an Endpoint for the IPython Notebook
 
@@ -81,6 +81,7 @@ Install [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] and other I
 
     sudo zypper install python-matplotlib
     sudo zypper install python-tornado
+    sudo zypper install python-jinja2
     sudo zypper install ipython
 
 ### Linux (Ubuntu)
@@ -102,26 +103,30 @@ using the Windows PowerShell to run all command line actions.
 
 **Note**: In order to download anything using Internet Explorer, you'll need to change some security settings.  From **Server Manager**, click on **Local Server**, then on **IE Enhanced Security Configuration** and turn it off for administrators.  You can enable it again once you're done installing IPython.
 
-1.  Install Python 2.7.5 (32 bit) from [python.org](http://www.python.org/download). 
+1.  Install Python 2.7.8 (32 bit) from [python.org](http://www.python.org/download). 
     You will also need to add `C:\Python27` and `C:\Python27\Scripts` to your `PATH` 
     environment variable.
 
-1.  Install distribute by downloading the file **distribute_setup.py**
-    from [python-distribute.org](http://python-distribute.org/) and then running the
+1.  Install pip and setuptools by downloading the file **get-pip.py**
+    from [https://pip.pypa.io/en/latest/installing.html](https://pip.pypa.io/en/latest/installing.html) and then running the
     command:
 
-        python distribute_setup.py
+        python get-pip.py
 
-1.  Install [Tornado][tornado] and [PyZMQ][pyzmq] by running the commands:
+1.  Install [Tornado][tornado] and [PyZMQ][pyzmq] and other IPython's dependencies by doing:
 
         easy_install tornado
         easy_install pyzmq
+        easy_install jinja2
+        easy_install six
+        easy_install python-dateutil
+        easy_install pyparsing
 
 1.  Download and install [NumPy][numpy] using the
-    `.exe` binary installer available on their website.  As of this writing, the latest version is **numpy-1.7.1-win32-superpack-python2.7.exe**.
+    `.exe` binary installer available on their website.  As of this writing, the latest version is **numpy-1.9.0-win32-superpack-python2.7.exe**.
 
 1.  Download and install [Matplotlib][matplotlib] using the
-    `.exe` binary installer available on their website.  As of this writing, the latest version is **matplotlib-1.2.1.win32-py2.7.exe**.
+    `.exe` binary installer available on their website.  As of this writing, the latest version is **matplotlib-1.4.0.win32-py2.7.exe**.
 
 1.  Download and install OpenSSL. You can find Windows versions of OpenSSL at [http://slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html).
 
@@ -196,7 +201,7 @@ password as follows:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
     
 Next, we will edit the profile's configuration file, which is the
-`ipython_notebook_config.py` file in the profile directory you are in.  This
+`ipython_notebook_config.py` file in the profile directory you are in.  Note that this file may not exist -- just create it.  This
 file has a number of fields and by default all are commented out.  You can open
 this file with any text editor of your liking, and you should ensure that it
 has at least the following content:

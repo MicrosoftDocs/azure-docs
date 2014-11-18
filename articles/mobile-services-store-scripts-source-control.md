@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-store-scripts-in-source-control" urlDisplayName="Store server scripts in source control" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="" documentationCenter="Mobile" title="Store server scripts in source control" authors="glenga" solutions="" manager="" editor="" />
+<properties urlDisplayName="Store server scripts in source control" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="" documentationCenter="Mobile" title="Store server scripts in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
@@ -16,7 +16,7 @@ The tutorial guides you through the following steps:
 
 To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Get started with data] tutorial.
 
-<h2><a name="enable-source-control"></a><span class="short-header">Enable source control</span>Enable source control in your mobile service</h2>
+<h2><a name="enable-source-control"></a>Enable source control in your mobile service</h2>
 
 1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
@@ -43,7 +43,7 @@ To complete this tutorial, you must have already created a mobile service by com
 
 Now that you have enabled source control in your mobile service, it's time to use Git to clone the repo to your local computer.
 
-<h2><a name="clone-repo"></a><span class="short-header">Clone the repo</span>Install Git and create the local repository</h2>
+<h2><a name="clone-repo"></a>Install Git and create the local repository</h2>
 
 1. Install Git on your local computer. 
 
@@ -79,7 +79,7 @@ Now that you have enabled source control in your mobile service, it's time to us
 
 Now that you have created your local repository, you can make changes to server scripts and push the changes back to the mobile service.
 
-<h2><a name="deploy-scripts"></a><span class="short-header">Deploy scripts</span>Deploy updated script files to your mobile service</h2>
+<h2><a name="deploy-scripts"></a>Deploy updated script files to your mobile service</h2>
 
 1. Browse to the .\service\table subfolder, and if a file todoitem.insert.js files doesn't already exist, create it now.
 
@@ -117,7 +117,7 @@ Now that you have created your local repository, you can make changes to server 
 
 	Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
 
-<h2><a name="use-npm"></a><span class="short-header">Shared code and modules</span>Leverage shared code and Node.js modules in your server scripts</h2>
+<h2><a name="use-npm"></a>Leverage shared code and Node.js modules in your server scripts</h2>
 Mobile Services provides access to the full set of core Node.js modules, which you can use in your code by using the **require** function. Your mobile service can also use Node.js modules that are not part of the core Node.js package, and you can even define your own shared code as Node.js modules. For more information about creating modules, see [Modules][Node.js API Documentation: Modules] in the Node.js API reference documentation.
 
 Next, you will add the [node-uuid] Node.js module to your mobile service by using source control and the Node.js package manager (NPM). This module is then used to generate a new GUID value for the **uuid** property on inserted items. 

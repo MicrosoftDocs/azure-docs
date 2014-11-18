@@ -1,8 +1,6 @@
-<properties linkid="develop-mobile-tutorials-send-email-with-sendgrid" urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Azure Mobile Services" metaKeywords="Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Azure Mobile Services" metaKeywords="Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="" />
-
-
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/27/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
 
 # Send email from Mobile Services with SendGrid
@@ -19,11 +17,11 @@ This tutorial walks you through these basic steps to enable email functionality:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-<h2><a name="sign-up"></a><span class="short-header">Create a new account</span>Create a new SendGrid account</h2>
+<h2><a name="sign-up"></a>Create a new SendGrid account</h2>
 
 [WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-<h2><a name="add-script"></a><span class="short-header">Register a script</span>Register a new script that sends emails</h2>
+<h2><a name="add-script"></a>Register a new script that sends emails</h2>
 
 1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
@@ -82,7 +80,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 6. Click the **Save** button. You have now configured a script to send an email each time a record is inserted into the **TodoItem** table.
 
-<h2><a name="insert-data"></a><span class="short-header">Insert test data</span>Insert test data to receive email</h2>
+<h2><a name="insert-data"></a>Insert test data to receive email</h2>
 
 1. In the client app project, run the quickstart application. 
 
@@ -104,9 +102,9 @@ Now that you've seen how easy it is to use the SendGrid email service with Mobil
 these links to learn more about SendGrid.
 
 -   SendGrid API documentation:
-    <http://docs.sendgrid.com/documentation/api/>
+    <https://sendgrid.com/docs>
 -   SendGrid special offer for Azure customers:
-    <http://sendgrid.com/azure.html>
+    <https://sendgrid.com/windowsazure.html>
 
 <!-- Anchors. -->
 [Create a SendGrid account]: #sign-up
@@ -121,9 +119,9 @@ these links to learn more about SendGrid.
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[sign up page]: http://sendgrid.com/azure.html
-[Multiple User Credentials page]: http://sendgrid.com/credentials
+[sign up page]: https://sendgrid.com/windowsazure.html
+[Multiple User Credentials page]: https://sendgrid.com/credentials
 [Azure Management Portal]: https://manage.windowsazure.com/
-[cloud-based email service]: http://sendgrid.com/solutions
-[transactional email delivery]: http://sendgrid.com/transactional-email
+[cloud-based email service]: https://sendgrid.com/email-solutions
+[transactional email delivery]: https://sendgrid.com/transactional-email
 

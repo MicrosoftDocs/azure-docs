@@ -1,6 +1,6 @@
-<properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
 
 <div>
@@ -10,7 +10,7 @@
 <li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
 <li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
 <li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-<li><a href="/en-us/develop/net/reference/">Reference</a></li>
+<li><a href="/en-us/documentation/api">Reference</a></li>
 <li><a href="/en-us/develop/net/guidance/">Guidance</a></li>
 <li><a href="/en-us/develop/net/architecture/">Architecture</a></li>
 <li><a href="/en-us/develop/net/samples/">Samples</a></li>

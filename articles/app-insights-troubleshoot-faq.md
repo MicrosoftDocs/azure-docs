@@ -1,6 +1,6 @@
-<properties title="Troubleshooting and Q & A about Application Insights" pageTitle="Troubleshooting and Q & A about Application Insights" description="Tips and troubleshooting" metaKeywords="analytics monitoring" authors="awills"  />
+<properties title="Troubleshooting and Q & A about Application Insights" pageTitle="Troubleshooting and Q & A about Application Insights" description="Tips and troubleshooting" metaKeywords="analytics monitoring" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  
 # Troubleshooting and Q&A - Application Insights on Microsoft Azure Preview
 
@@ -9,6 +9,8 @@
 + [I added Application Insights successfully and ran my app, but I've never seen data in the portal.](#q03)
 + [I see no data under Usage Analytics](#q04)
 + [I'm looking at the Microsoft Azure Preview start board. How do I find my data in Application Insights?](#q05)
++ [How can I change the Azure resource my data appears under?](#update)
++ [I get an error "Instrumentation key cannot be empty"](#emptykey)
 + [On the Microsoft Azure Preview home screen, does that map show the status of my application?](#q06)
 + [When I use add Application Insights to my application and open the Application Insights portal, it all looks completely different from your screenshots.](#q07)
 + [Can I use Application Insights to monitor an intranet web server?](#q08)
@@ -18,6 +20,8 @@
 + [How do I get back all the features I had in the Visual Studio Online version of Application Insights?](#q13)
 + [What does Application Insights modify in my project?](#q14)
 + [How do I find my results in Application Insights?](#q15)
++ [What ports should I open in my firewall?](#q16)
++ [Have I enabled everything in Application Insights?](#q17)
 + [Learn more](#next)
 
 
@@ -42,7 +46,7 @@ This can happen if communication with the Application Insights portal failed, or
 
 + You have to close and open any blade where you are waiting for data. In the current version, the content of a blade doesn't refresh automatically.
 + In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
-+ In your web server's firewall, you might have to open port 443 for outgoing traffic. 
++ In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 
 ## <a name="q04"></a>I see no data under Usage Analytics
 
@@ -57,6 +61,16 @@ Either:
 
 * In Visual Studio Solution Explorer, right-click your web project and choose Open Application Insights Portal.
 
+## <a name="update"></a>How can I change which Azure resource my project sends data to?
+
+In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
+
+## <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
+
+Looks like something went wrong while you were installing Application Insights or maybe a logging adapter.
+
+In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one.
+
 ## <a name="q06"></a>On the Microsoft Azure Preview home screen, does that map show the status of my application?
 
 No! It shows the status of the Azure service. To see your web test results, choose Browse > Application Insights > (your application) and then look at the web test results. 
@@ -64,9 +78,9 @@ No! It shows the status of the Azure service. To see your web test results, choo
 
 ## <a name="q07"></a>When I use add Application Insights to my application and open the Application Insights portal, it all looks completely different from your screenshots.
 
-You might be using the older version of the Application Insights Tools, which connect to the Visual Studio Online version.
+You might be using [the older version of the Application Insights Tools](http://msdn.microsoft.com/library/dn793604.aspx), which connect to the Visual Studio Online version.
 
-The help pages you're looking at refer to Application Insights for Microsoft Azure Preview, which comes already switched on in Visual Studio Update 3. 
+The help pages you're looking at refer to [Application Insights for Microsoft Azure Preview][start], which comes already switched on in Visual Studio Update 3. 
 
 ## <a name="q08"></a>Can I use Application Insights to monitor an intranet web server?
 
@@ -137,31 +151,37 @@ The details depend on the type of project. For a web application:+
 
 2. Choose Browse, Application Insights, then select your project.
 
+## <a name="q16"></a>There's a firewall between my server or dev machine and the public internet. What traffic should I allow to enable Application Insights?
+
+Performance and usage data are sent to TCP ports 80 and 443 at dc.services.visualstudio.com and f5.services.visualstudio.com.
+
+Web availability tests depend on incoming access to your web server on port 80.
+
+## <a name="q17"></a> Have I enabled everything in Application Insights?
+
+<table border="1">
+<tr><th>What you should see</th><th>How to get it</th><th>Why you want it</th></tr>
+<tr><td>Availability charts</td><td><a href="../app-insights-monitor-web-app-availability/">Web tests</a></td><td>Know your web app is up</td></tr>
+<tr><td>Server app perf: response times, ...
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights to your project</a><br/>or <br/><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Detect perf issues</td></tr>
+<!-- ####future#### <tr><td>Dependency telemetry</td><td><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Diagnose issues with databases or other external components</td></tr> -->
+<!-- #####74.1#### <tr><td>Server globals: CPU, memory, ...</td><td><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Diagnose capacity issues</td></tr> --> 
+<tr><td>Search log traces</td><td><a href="../app-insights-search-diagnostic-logs/">Add a logging adapter</a></td><td>Diagnose exceptions, perf issues</td></tr>
+<tr><td>Client usage basics: page views, returns, ...</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">JavaScript initializer in web pages</a></td><td>Usage analytics</td></tr>
+<tr><td>Client custom metrics</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tracking calls in web pages</a></td><td>Enhance user experience</td></tr>
+<tr><td>Server custom metrics</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tracking calls in server code</a></td><td>Business intelligence</td></tr>
+</table>
+
+If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
 
 
-## <a name="next"></a>Learn more
 
-* [Application Insights][root]
-* [Add Application Insights to your project][start]
-* [Monitor a live web server now][redfield]
-* [Explore metrics in Application Insights][explore]
-* [Diagnostic log search][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Usage tracking with events and metrics][usage]
-* [Q & A and troubleshooting][qna]
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
 
-<!--Link references-->
 
 
-[root]: ../app-insights-get-started/
-[start]: ../app-insights-monitor-application-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[explore]: ../app-insights-explore-metrics/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
+[azurediagnostic]: ../insights-how-to-use-diagnostics/
 
 [older]: http://www.visualstudio.com/get-started/get-usage-data-vs
 

@@ -1,6 +1,6 @@
-<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="" editor="" />
+<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 
 
@@ -11,9 +11,16 @@ You can use Visual Studio Online team projects to host a Git repository for your
 
 You'll need Visual Studio 2013 and the Azure SDK installed. If you don't already have Visual Studio 2013, download it by choosing the **Get started for free** link at [www.visualstudio.com](http://www.visualstudio.com). Install the Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
+
+<div class="wa-note">
+  <span class="wa-icon-bulb"></span>
+  <h5><a name="note"></a>You need an Visual Studio online account to complete this tutorial:</h5>
+<p>You can <a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">open a Visual Studio Online account for free</a>.</p>
+</div>
+
 To set up a cloud service to automatically build and deploy to Azure by using Visual Studio Online, follow these steps:
 
--   [Step 1: Sign up for Visual Studio Online and create a Git repository.][]
+-   [Step 1: Create a Git repository.][]
 
 -   [Step 2: Create a project and push it to your Git repository.][]
 
@@ -27,7 +34,7 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 
 -	[Step 7: Deploy from a working branch][]
 
-<h2> <a name="step1"></a><span class="short-header">Step 1: Sign up for Visual Studio Online and create a Git repository.</span>Step 1: Sign up for Visual Studio Online and create a Git repository</h2>
+<h2> <a name="step1"></a>Step 1: Create a Git repository</h2>
 
 
 1. If you don’t yet have a Visual Studio Online account, follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=397665). When you create your team project, choose Git as your source control system. Follow the instructions to connect Visual Studio to your team project.
@@ -37,7 +44,7 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 
 3. Specify the location of the local copy, and choose the **Clone** button.
  
-<h2><a name="step2"> </a><span class="short-header">Create a project and commit it to the repository.</span>Step 2: Create a project and commit it to the repository</h2>
+<h2><a name="step2"> </a>Step 2: Create a project and commit it to the repository</h2>
 
 1. In Team Explorer, in the Solutions section, choose the New link to create a new project in the local repository.<br/>
 ![][4]
@@ -57,7 +64,7 @@ If you want to create a website, choose the ASP.NET Web Application project temp
 
 6. You've now committed the changes in your local copy of the repository. Next, sync those changes with the server. Choose the **Sync** link.
 
-<h2> <a name="step3"> </a><span class="short-header">Connect the project to Azure</span>Step 3: Connect the project to Azure</h2>
+<h2> <a name="step3"> </a>Step 3: Connect the project to Azure</h2>
 
 1. Now that you have a Git repository in Visual Studio Online with some source code in it, you are ready to connect your git repository to Azure.  In the [Azure Portal](http://manage.windowsazure.com), select your cloud service or website, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Website** and then **Quick Create**.<br.>
 ![][9]
@@ -77,7 +84,7 @@ If you want to create a website, choose the ASP.NET Web Application project temp
 The next time you push a commit to your repository, Visual Studio Online will build and deploy your project to Azure.<br/>
 
 
-<h2><a name="step4"> </a><span class="short-header">Trigger a rebuild</span>Step 4: Trigger a rebuild and redeploy your project</h2>
+<h2><a name="step4"> </a>Step 4: Trigger a rebuild and redeploy your project</h2>
 
 1. In Visual Studio, open up a file and change it. For example, change the file _Layout.cshtml under the Views\Shared folder in an MVC web role.<br/>
 ![][17]
@@ -147,17 +154,17 @@ A new browser tab will open to reveal your running site.<br/>
 15.	If you make other changes to your project, you trigger more builds, and you will accumulate multiple deployments. The latest one is marked as Active.<br/>
 ![][33]
 
-<h2> <a name="step5"> </a><span class="short-header">Redeploy an earlier build</span>Step 5: Redeploy an earlier build</h2>
+<h2> <a name="step5"> </a>Step 5: Redeploy an earlier build</h2>
 
 This step is optional. In the management portal, select an earlier deployment and click **Redeploy** to rewind your site to an earlier check-in.  Note that this will trigger a new build in TFS, and create a new entry in your deployment history.<br/>
 ![][34]
 
-<h2> <a name="step6"> </a><span class="short-header">Change the Production deployment</span>Step 6: Change the Production deployment</h2>
+<h2> <a name="step6"> </a>Step 6: Change the Production deployment</h2>
 
  When you are ready, you can promote the Staging environment to the production environment by choosing **Swap** in the management portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.<br/>
 ![][35]
 
-<h2> <a name="step7"> </a><span class="short-header">Deploy from a working branch</span>Step 6: Deploy from a working branch.</h2>
+<h2> <a name="step7"> </a>Step 6: Deploy from a working branch.</h2>
 
 When you use Git, you usually make changes in a working branch and integrate into the master branch when your development reaches a finished state. During the development phase of a project, you'll want to build and deploy the working branch to Azure.
 
@@ -191,7 +198,7 @@ When you use Git, you usually make changes in a working branch and integrate int
 
 For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). For additional tips on using Git with Visual Studio Online, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and for information about using a Git repository that's not managed by Visual Studio Online to publish to Azure, see [Publishing from Source Control to Azure Websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control).
 
-[Step 1: Sign up for Visual Studio Online and create a Git repository.]: #step1
+[Step 1: Create a Git repository.]: #step1
 [Step 2: Create a project and push it to your Git repository.]: #step2
 [Step 3: Connect the project to Azure.]: #step3
 [Step 4: Make changes and trigger a rebuild and redeployment.]: #step4

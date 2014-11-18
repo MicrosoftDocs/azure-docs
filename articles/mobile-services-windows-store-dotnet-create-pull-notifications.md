@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-create-pull-notifications-dotnet" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Azure Mobile Services" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="" editor="" />
+<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Azure Mobile Services" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
@@ -91,7 +91,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 Next, you will modify the quickstart app to start periodic notifications that update the live tile by requesting the new custom API.
 
-<h2><a name="update-app"></a><span class="short-header">Update the app </span>Update the app to turn on period notifications</h2>
+<h2><a name="update-app"></a>Update the app to turn on period notifications</h2>
 
 1. In Visual Studio, press the F5 key to run the quickstart app from the previous tutorial.
 

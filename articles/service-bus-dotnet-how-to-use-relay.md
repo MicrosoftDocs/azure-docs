@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-service-bus-relay" urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C# " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C# " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 
 
@@ -19,7 +19,7 @@ section.
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-<h2><span class="short-header">What is the Service Bus Relay</span>What is the Service Bus Relay</h2>
+<h2>What is the Service Bus Relay</h2>
 
 The Service Bus **Relay** service enables you to build **hybrid
 applications** that run in both an Azure datacenter and your
@@ -46,7 +46,7 @@ This guide demonstrates how to use the Service Bus relay to create a WCF
 web service, exposed using a TCP channel binding, that implements a
 secured conversation between two parties.
 
-<h2><span class="short-header">Create a Service Namespace</span>Create a Service Namespace</h2>
+<h2>Create a Service Namespace</h2>
 
 To begin using the Service Bus relay in Azure, you must first
 create a service namespace. A service namespace provides a scoping
@@ -82,7 +82,7 @@ To create a service namespace:
 
 	The namespace you created will then appear in the Management Portal and takes a moment to activate. Wait until the status is **Active** before continuing.
 
-<h2><span class="short-header">Obtain Management Credentials</span>Obtain the Default Management Credentials for the Namespace</h2>
+<h2>Obtain the Default Management Credentials for the Namespace</h2>
 
 In order to perform management operations, such as creating a relay connection, on the new namespace, you must obtain the management credentials for the namespace.
 
@@ -100,7 +100,7 @@ In order to perform management operations, such as creating a relay connection, 
  
 4.  In the **Access connection information** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.
 
-<h2><span class="short-header">Get the NuGet Package</span>Get the Service Bus NuGet Package</h2>
+<h2>Get the Service Bus NuGet Package</h2>
 
 The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
@@ -118,7 +118,7 @@ To install the NuGet package in your application, do the following:
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
   
 
-<h2><span class="short-header">Expose and Consume a SOAP Web Service</span>How to Use Service Bus to Expose and Consume a SOAP Web Service with TCP</h2>
+<h2>How to Use Service Bus to Expose and Consume a SOAP Web Service with TCP</h2>
 
 To expose an existing WCF SOAP web service for external
 consumption, you must make changes to the service bindings and
@@ -335,7 +335,7 @@ and key.
         </endpointBehaviors>
     </behaviors>
 
-<h2><span class="short-header">Next Steps</span>Next Steps</h2>
+<h2>Next Steps</h2>
 
 Now that you've learned the basics of the Service Bus **Relay** service,
 follow these links to learn more.
