@@ -10,7 +10,7 @@
 This topic shows you how to use Azure Mobile Services to send push notifications to a universal Windows app. 
 In this tutorial you enable push notifications using Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
 
->[WACOM.NOTE]This topic shows you how to use to manually configure push notifications using Mobile Services in a Windows Store project. You can use Visual Studio 2013 to add the same push notifications to a Windows Store app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data) of this tutorial. 
+>[WACOM.NOTE]This topic shows you how to use to manually configure push notifications using Mobile Services in a Windows Store project. You can use Visual Studio 2013 to add the same push notifications to a Windows Store app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) of this tutorial. 
 
 This tutorial walks you through these basic steps to enable push notifications:
 
