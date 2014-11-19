@@ -37,8 +37,8 @@ The Azure gallery contains templates for the Bottle, Django and Flask frameworks
 
 <h2><a name="website-creation-on-portal"></a>Website Creation on Portal</h2>
 
-This tutorial assumes an existing Azure subscription and access to the Azure Management Portal. Detailed guidance on creating a website is available at [http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites).
- 
+This tutorial assumes an existing Azure subscription and access to the Azure Management Portal.
+
 If you do not have an existing website, you can create one from the Azure Management Portal.  Click the NEW button in the bottom left corner. A window will appear. Click COMPUTE, WEB SITE, then QUICK CREATE.
 
 ![](./media/web-sites-python-configure/configure-python-create-website.png)
@@ -55,15 +55,13 @@ Once Git publishing is set up, a Git repository will be created and associated w
 
 <h2><a name="application-overview"></a>Application Overview</h2>
 
-In this tutorial, the following files are created.  They should be placed in the root of the Git repository.
+In the next sections, the following files are created.  They should be placed in the root of the Git repository.
 
     app.py
     requirements.txt
     runtime.txt
     web.config
     ptvs_virtualenv_proxy.py
-
-The following sections describe the contents of each file.
 
 
 <h2><a name="wsgi-handler"></a>WSGI Handler</h2>
@@ -85,7 +83,7 @@ Here's an example of an `app.py` that defines a custom handler:
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
-You can also run this application locally with `python app.py`, then browse to `http://localhost:5555` in your web browser.
+You can run this application locally with `python app.py`, then browse to `http://localhost:5555` in your web browser.
 
 
 <h2><a name="virtual-environment"></a>Virtual Environment</h2>
@@ -221,7 +219,7 @@ Example `web.config` for Python 3.4:
     </configuration>
 
 
-Static files will be handled by the web server directly, for improved performance.
+Static files will be handled by the web server directly, without going through Python code, for improved performance.
 
 In the above examples, the location of the static files on disk should match the location in the URL.  This means that a request for `http://pythonapp.azurewebsites.net/static/site.css` will serve the file on disk at `\static\site.css`.
 
