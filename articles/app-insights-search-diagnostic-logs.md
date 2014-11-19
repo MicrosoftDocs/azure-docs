@@ -1,6 +1,6 @@
 <properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-19" ms.author="awills" />
  
 # Diagnostic search in Application Insights
 
@@ -32,14 +32,14 @@ Select any telemetry item to see key fields and related items. If you want to se
 
 To filter the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
 
-## Filter the telemetry
+## Filter event types
 
-Open the Filter blade and choose the telemetry types you want to see.
+Open the Filter blade and choose the event types you want to see.
 
 
 ![Open diagnostic search](./media/appinsights/appinsights-321filter.png)
 
-The telemetry types are:
+The event types are:
 
 * **[Trace](#trace)** - Diagnostic logs including TrackTrace,  log4Net, NLog, and System.Diagnostic.Trace calls.
 * **[Request](#requests)** - HTTP requests received by your server application, including pages, scripts, images, style files and data. These events are used to create the request and response overview charts.
@@ -47,13 +47,15 @@ The telemetry types are:
 * **[Custom Event](#events)** - If you inserted calls to TrackEvent() in order to [monitor usage][track], you can search them here.
 * **[Exception](#exceptions)** - Uncaught exceptions in the server, and those that you log by using TrackException().
 
-### Facets
+### Filter on property values
 
-Also on the Filter blade, select specific values of *facets* or telemetry properties. The available properties depend on the telemetry types you selected. For example, pick out a specific type of exception.
+You can filter events on the values of their properties. The available properties depend on the event types you selected. 
+
+For example, pick out a specific type of exception.
 
 ![Select facet values](./media/appinsights/appinsights-333facets.png)
 
-Choosing no values of a particular facet has the same effect of choosing all values; it switches off filtering on that facet.
+Choosing no values of a particular property has the same effect as choosing all values; it switches off filtering on that property.
 
 
 ## <a name="search"></a>Search the data
