@@ -285,7 +285,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 5. Save the __SearchByEmail.java__ file.
 
-5. In the __hbaseapp\com\microsoft\examples__ directory, create a new file named __DeleteTable.java__. Use the following as the contents of this file.
+6. In the __hbaseapp\com\microsoft\examples__ directory, create a new file named __DeleteTable.java__. Use the following as the contents of this file.
 
 		package com.microsoft.examples;
 		import java.io.IOException;
@@ -309,7 +309,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 	This class is just for cleaning up this example by first disabling, and then dropping the table created by the __CreateTable__ class.
 
-7. Save the __CreateTable.java__ file.
+7. Save the __DeleteTable.java__ file.
 
 ##Build and package the application
 
