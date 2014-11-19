@@ -1,6 +1,6 @@
 <properties urlDisplayName="How to create and provision" pageTitle="Getting started with SQL Database - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="loclar"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg" />
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar" />
 
 
 
@@ -75,9 +75,9 @@ Choosing this option lets you create a new server and a SQL database at the same
 
 * Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Azure application and database in the same region saves you on egress bandwidth cost and data latency.
 
-* Be sure to keep the **Allow Azure Services to access this server**  check box selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Azure SQL Reporting.
+* Be sure to keep the **Allow Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Azure SQL Reporting.
 
-* Click the check mark at the bottom of the page when you are finished.
+* Click the checkmark at the bottom of the page when you are finished.
 
 Notice that you did not specify a server name. Because the SQL Database server must be accessible worldwide, SQL Database configures the appropriate DNS entries when the server is created. The generated name ensures that there are no name collisions with other DNS entries. You cannot change the name of your SQL Database server.
 
@@ -106,7 +106,7 @@ To configure the firewall so that connections are allowed through, you'll enter 
 
 7. To save your changes, click **SAVE** at the bottom of the page.
 
-6. After you save the rule, your page will look similar to the following screen shot.
+6. After you save the rule, your page will look similar to the following screenshot.
 
 	![Navigation pane][Image7]
 
@@ -565,32 +565,85 @@ You now have a new SQL Server authentication login that has read-only permission
 
 <h2 id="ClientConnection">Step 9: Connect from other applications</h2>
 
-Now that you have an operational database, you can connect to it from an Excel workbook.
+You can use ADO.NET to connect to Microsoft Azure SQL Database. Unlike an on-premises connection, you need to account for throttling or other service faults that could terminate a connection or temporarily block new connections. This condition is called a transient fault. To manage transient faults, you implement a retry strategy. When connecting to Azure SQL Database, the [Transient Fault Handling Application Block](http://msdn.microsoft.com/en-us/library/dn440719(v=pandp.60).aspx), part of Enterprise Library 6 – April 2013, has detection strategies that identify a transient fault condition.
 
-<h4>Connect from Excel</h4>
+<h4>Sample C# Console Application</h4>
 
 
-If Microsoft Excel is installed on your computer, you can use the following steps to connect to your sample database.
+	static void Main(string[] args)
+    {
+        //NOTE: Use appropriate exception handling in a production application.
 
-1. In Excel, on the Data tab, click **From Other Sources**, and then click **From SQL Server**.
+        //Replace
+        //  builder["Server"]: {servername} = Your Azure SQL Database server name
+        //  builder["User ID"]: {username}@{servername} = Your Azure SQL Database user name and server name
+        //  builder["Password"]: {password} = Your Azure SQL Database password
 
-2. In the Data Connection wizard, enter the fully-qualified domain name of your SQL Database server, followed by a SQL Server authentication login that has permission to access the database. 
+        System.Data.SqlClient.SqlConnectionStringBuilder builder = new System.Data.SqlClient.SqlConnectionStringBuilder();
+        builder["Server"] = "{servername}";
+        builder["User ID"] = "{username}@{servername}";
+        builder["Password"] = "{password}";
 
-  The server name can be found on the Azure management portal, on SQL Database, on Server page, on the Dashboard, in **Manage URL**. The server name consists of a series of letters and numbers, followed by '.database.windows.net'. Specify this name in the Database Connection wizard. Do not include the http:// or https:// prefix when specifying the name.
+        builder["Database"] = "AdventureWorks2012";
+        builder["Trusted_Connection"] = false;
+        builder["Integrated Security"] = false;
+        builder["Encrypt"] = true;
 
-  Enter a SQL Server authentication login. For testing purposes, you can use the administrator login that you created when you set up the server. For regular data access, use a database user login similar to the one you just created.
+        //1. Define an Exponential Backoff retry strategy for Azure SQL Database throttling (ExponentialBackoff Class). An exponential back-off strategy will gracefully back off the load on the service.
+        int retryCount = 4;
+        int minBackoffDelayMilliseconds = 2000;
+        int maxBackoffDelayMilliseconds = 8000;
+        int deltaBackoffMilliseconds = 2000;
 
-![Navigation pane][Image16]
+        ExponentialBackoff exponentialBackoffStrategy = 
+          new ExponentialBackoff("exponentialBackoffStrategy",
+              retryCount,
+              TimeSpan.FromMilliseconds(minBackoffDelayMilliseconds), 
+              TimeSpan.FromMilliseconds(maxBackoffDelayMilliseconds),
+              TimeSpan.FromMilliseconds(deltaBackoffMilliseconds));
 
-3.  On the next page, choose the **School** database, and then choose **Person**. Click **Finish**. If you are prompted for login details, type them in and then click **OK**.
+        //2. Set a default strategy to Exponential Backoff.
+        RetryManager manager = new RetryManager(new List<RetryStrategy>
+        {  
+            exponentialBackoffStrategy 
+        }, "exponentialBackoffStrategy");
 
-4. The Import Data dialog box appears that prompts you to select how and where to import your data. With the default options selected, click **OK**.
+        //3. Set a default Retry Manager. A RetryManager provides retry functionality, or if you are using declarative configuration, you can invoke the RetryPolicyFactory.CreateDefault
+            RetryManager.SetDefault(manager);
 
-	![Navigation pane][Image19]
+        //4. Define a default SQL Connection retry policy and SQL Command retry policy. A policy provides a retry mechanism for unreliable actions and transient conditions.
+        RetryPolicy retryConnectionPolicy = manager.GetDefaultSqlConnectionRetryPolicy();
+        RetryPolicy retryCommandPolicy = manager.GetDefaultSqlCommandRetryPolicy();
 
-5. In the worksheet, you should see a table with a result set that includes 34 rows from the person table, including PersonID, LastName, FirstName, HireDate, and EnrollmentDate, just like the query results from Step 7. 
+        //5. Create a function that will retry the connection using a ReliableSqlConnection.
+        retryConnectionPolicy.ExecuteAction(() =>
+        {
+            using (ReliableSqlConnection connection = new ReliableSqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
 
-Using just Excel, you can import only one table at a time. A better approach is to use the PowerPivot for Excel add-in, which lets you import and work with multiple tables as a single data set. Working with PowerPivot is beyond the scope of this tutorial, but you can get more information in this topic about [PowerPivot for Excel](http://go.microsoft.com/fwlink/?LinkId=396969).
+                IDbCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT Name FROM Production.Product";
+
+                //6. Create a function that will retry the command calling ExecuteCommand() from the ReliableSqlConnection
+                retryCommandPolicy.ExecuteAction(() =>
+                {
+                    using (IDataReader reader = connection.ExecuteCommand<IDataReader>(command))
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(0);
+
+                            Console.WriteLine(name);
+                        }
+                    }
+                });                  
+            }
+        });
+
+        Console.ReadLine();
+    }
+
 
 
 <h2 id="NextSteps">Next steps</h2>
