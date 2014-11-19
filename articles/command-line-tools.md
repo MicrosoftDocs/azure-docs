@@ -258,7 +258,7 @@ This command lists all available Azure account locations.
 
 **vm show [options] &lt;name>**
 
-This command shows details about an Azure virtual machine. The -json option specifies that the results are returned in raw JSON format. 
+This command shows details about an Azure virtual machine. The --json option specifies that the results are returned in raw JSON format. 
 
 	~$ azure vm show my-vm
 	info:   Executing command vm show
