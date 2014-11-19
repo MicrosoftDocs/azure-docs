@@ -140,57 +140,11 @@ IIS configuration files.  The deployment script will use the appropriate web.x.y
 
 ### Optional files - Customizing deployment
 
-Azure will determine that your application uses Python **if both of these conditions are true**:
-
-- requirements.txt file in the root folder
-- any .py file in the root folder OR a runtime.txt that specifies python
-
-When that's the case, it will use a Python specific deployment script, which performs the standard synchronization of files, as well as additional Python operations such as:
-
-- Automatic management of virtual environment
-- Installation of packages listed in requirements.txt using pip
-- Creation of the appropriate web.config based on the selected Python version.
-- Collect static files for Django applications
-
-You can control certain aspects of the default deployment steps without having to customize the script.
-
-If you want to skip all Python specific deployment steps, you can create this empty file:
-
-    \.skipPythonDeployment
-
-If you want to skip collection of static files for your Django application:
-
-    \.skipDjango 
-
-For more control over deployment, you can override the default deployment script by creating the following files:
-
-    \.deployment
-    \deploy.cmd
-
-You can use the [Azure command-line interface][] to create the files.  Use this command from your project folder:
-
-    azure site deploymentscript --python
-
-When these files don't exist, Azure creates a temporary deployment script and runs it.  It is identical to the one you create with the command above.
+[WACOM.INCLUDE [web-sites-python-customizing-deployment](../includes/web-sites-python-customizing-deployment.md)]
 
 ### Optional files - Python runtime
 
-Azure will determine the version of Python to use for its virtual environment with the following priority:
-
-1. version specified in runtime.txt in the root folder
-1. version specified by Python setting in the website configuration
-1. python-2.7 is the default if none of the above are specified
-
-Valid values for the contents of 
-
-    \runtime.txt
-
-are:
-
-- python-2.7
-- python-3.4
-
-If the micro version (third digit) is specified, it is ignored.
+[WACOM.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-runtime.md)]
 
 ### Additional files on server
 
@@ -470,109 +424,17 @@ Browse to the Azure URL to view your changes.
 
 <h2><a name="troubleshooting-deployment"></a>Troubleshooting - Deployment</h2>
 
-If you need to review the deployment output, including the custom deployment script output, navigate to the  **DEPLOYMENTS** page on the Azure portal.
-
-Expand the desired deployment:
-
-![](./media/web-sites-python-create-deploy-django-app/portal-deployment-history.png)
-
-Click on **View Log** to see the output of the custom deployment script:
-
-![](./media/web-sites-python-create-deploy-django-app/portal-deployment-log.png)
+[WACOM.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
 
 
 <h2><a name="troubleshooting-package-installation"></a>Troubleshooting - Package Installation</h2>
 
-Some packages may not install using pip when run on Azure.  It may simply be that the package is not available on the Python Package Index.  It could be that a compiler is required (a compiler is not available on the machine running the Azure website).
-
-In this section, we'll look at ways to deal with this issue.
-
-### Request wheels
-
-If the package installation requires a compiler, you should try contacting the package owner to request that wheels be made available for the package.
-
-With the recent availability of [Microsoft Visual C++ Compiler for Python 2.7](http:://aka.ms/vcpython27), it is now easier to build packages that have native code for Python 2.7.
-
-### Build wheels (requires Windows)
-
-Note: When using this option, make sure to compile the package using a Python environment that matches the platform/architecture/version that is used on the Azure website (Windows/32-bit/2.7 or 3.4).
-
-If the package doesn't install because it requires a compiler, you can install the compiler on your local machine and build a wheel for the package, which you will then include in your repository.
-
-Mac/Linux Users: If you don't have access to a Windows machine, see [Create a Virtual Machine Running Windows][] for how to create a VM on Azure.  You can use it to build the wheels, add them to the repository, and discard the VM if you like. 
-
-For Python 2.7, you can install [Microsoft Visual C++ Compiler for Python 2.7](http:://aka.ms/vcpython27).
-
-For Python 3.4, you can install [Microsoft Visual C++ 2010 Express](http://go.microsoft.com/?linkid=9709949).
-
-To build wheels, you'll need the wheel package:
-
-    env\scripts\pip install wheel
-
-You'll use `pip wheel` to compile a dependency:
-
-    env\scripts\pip wheel azure==0.8.4
-
-This creates a .whl file in the \wheelhouse folder.  Add the \wheelhouse folder and wheel files to your repository.
-
-Edit your requirements.txt to add the `--find-links` option at the top. This tells pip to look for an exact match in the local folder before going to the python package index.
-
-    --find-links wheelhouse
-    azure==0.8.4
-
-If you want to include all your dependencies in the \wheelhouse folder and not use the python package index at all, you can force pip to ignore the package index by adding `--no-index` to the top of your requirements.txt.
-
-    --no-index
-
-### Customize installation
-
-You can customize the deployment script to install a package in the virtual environment using an alternate installer, such as easy\_install.  See deploy.cmd for an example that is commented out.  Make sure that such packages aren't listed in requirements.txt, to prevent pip from installing them.
-
-Add this to the deployment script:
-
-    env\scripts\easy_install somepackage
-
-You may also be able to use easy\_install to install from an exe installer (some are zip compatible, so easy\_install supports them).  Add the installer to your repository, and invoke easy\_install by passing the path to the executable.
-
-Add this to the deployment script:
-
-    env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
-
-### Include the virtual environment in the repository (requires Windows)
-
-Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the Azure website (Windows/32-bit/2.7 or 3.4).
-
-If you include the virtual environment in the repository, you can prevent the deployment script from doing virtual environment management on Azure by creating an empty file:
-
-    .skipPythonDeployment
-
-We recommend that you delete the existing virtual environment on the site, to prevent leftover files from when the virtual environment was managed automatically.  See the section below for how to do this.
+[WACOM.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 
 <h2><a name="troubleshooting-virtual-environment"></a>Troubleshooting - Virtual Environment</h2>
 
-The deployment script will skip creation of the virtual environment on Azure if it detects that a compatible virtual environment already exists.  This can speed up deployment considerably.  Packages that are already installed will be skipped by pip.
-
-In certain situations, you may want to force delete that virtual environment.  You'll want to do this if you decide to include a virtual environment as part of your repository.  You may also want to do this if you need to get rid of certain packages, or test changes to requirements.txt.
-
-There are a few options to delete the existing virtual environment on Azure:
-
-### Option 1: Use FTP
-
-With an FTP client, connect to the server and delete the env folder.  Note that some FTP clients (such as web browsers) may be read-only and won't allow you to delete folders, so you'll want to make sure to use an FTP client with that capability.  The FTP host name and user are displayed in the dashboard page for your website on the Azure portal.
-
-### Option 2: Toggle runtime
-
-Here's an alternative that takes advantage of the fact that the deployment script will delete the env folder when it doesn't match the desired version of Python:
-
-1. Switch to a different version of Python (via runtime.txt or website configure page)
-1. git push some changes (ignore any pip install errors if any)
-1. Switch back to initial version of Python
-1. git push some changes again
-
-### Option 3: Customize deployment script
-
-If you've customized the deployment script, you can change the code in deploy.cmd to force it to delete the env folder.
+[WACOM.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 
 <h2><a name="troubleshooting-static-files"></a>Troubleshooting - Static Files</h2>
@@ -663,6 +525,4 @@ For information on using SQL Database and MySQL:
 <!--External Link references-->
 [Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation 
 [Django Documentation]: https://www.djangoproject.com/
-[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/
-[Azure command-line interface]: http://azure.microsoft.com/en-us/downloads/
 
