@@ -1,0 +1,2 @@
+
+>[WACOM.NOTE]You can also use source control to publish your mobile service. With the Mobile Services Git repository enabled for your Azure subscription, you can just upload your .NET backend project and Mobile Services will update and restart the service. For more information, see [Store project code in source control](/en-us/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/).
