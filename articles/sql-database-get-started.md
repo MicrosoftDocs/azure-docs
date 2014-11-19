@@ -1,6 +1,6 @@
 <properties urlDisplayName="How to create and provision" pageTitle="Getting started with SQL Database - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="loclar"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar" />
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg" />
 
 
 
@@ -75,9 +75,9 @@ Choosing this option lets you create a new server and a SQL database at the same
 
 * Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Azure application and database in the same region saves you on egress bandwidth cost and data latency.
 
-* Be sure to keep the **Allow Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Azure SQL Reporting.
+* Be sure to keep the **Allow Azure Services to access this server**  check box selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Azure SQL Reporting.
 
-* Click the checkmark at the bottom of the page when you are finished.
+* Click the check mark at the bottom of the page when you are finished.
 
 Notice that you did not specify a server name. Because the SQL Database server must be accessible worldwide, SQL Database configures the appropriate DNS entries when the server is created. The generated name ensures that there are no name collisions with other DNS entries. You cannot change the name of your SQL Database server.
 
@@ -106,7 +106,7 @@ To configure the firewall so that connections are allowed through, you'll enter 
 
 7. To save your changes, click **SAVE** at the bottom of the page.
 
-6. After you save the rule, your page will look similar to the following screenshot.
+6. After you save the rule, your page will look similar to the following screen shot.
 
 	![Navigation pane][Image7]
 

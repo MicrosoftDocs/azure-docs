@@ -1,14 +1,12 @@
 <properties urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/04/2014" ms.author="szark" />
-
-
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark" />
 
 
 
 #Selecting User Names for Linux on Azure#
 
-When you create a Linux virtual machine, you can pick a name for the user name, or accept the default, *azureuser*. In most cases this new user doesn't exist on the base image and is created during the provisioning process. (If the user exists on the base VM image, then the Azure Linux agent simply configures the password (and/or SSH key) for that user based on the information you specified when creating the VM.)
+When you create a Linux virtual machine, you can pick a name for the user name, or accept the default, *azureuser*. In most cases this new user doesn't exist on the base image and is created during the provisioning process. If the user exists on the base VM image, then the Azure Linux agent simply configures the password (and/or SSH key) for that user based on the information you specified when creating the VM.
 
 **However**, Linux defines a set of user names that should not be used. The provisioning process will **fail** if you try to provision a Linux VM using an existing system user, which is defined as a user with UID 0-99. A typical example is the `root` user, which has UID 0.
 

@@ -1,10 +1,10 @@
 <properties title="How to Configure An Availability Set for Virtual Machines" pageTitle="How to Configure An Availability Set for Virtual Machines" description="Gives the steps to configure an availability set for a VM in Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav" />
 
 #How to Configure An Availability Set for Virtual Machines#
 
-An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For more details, see [Manage the Availability of Virtual Machines] []. 
+An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For details about how this works, see [Manage the Availability of Virtual Machines] []. 
 
 It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For details about load-balanced endpoints, see [Load Balancing for Azure Infrastructure Services] [].
 
@@ -51,11 +51,11 @@ To use Azure cmdlets:
 
 1.	Open an Azure PowerShell session and run commands similar to the following examples. Note that these examples assume you're creating the virtual machine, the cloud service, and the availability set.
 
-2.	Get the name of the image that you want to use to create the virtual machine, and store it in a variable. The command uses the index number and the ImageName property of the image object:<br>
+2.	Get the name of the image that you want to use to create the virtual machine, and store it in a variable. The following example command uses the index number to get the ImageName property of the image object. It assumes you know the current index number of the image you want, and that you'll substitute that number for &lt;index_number&gt;. <br>
 
-	`C:\PS> $image = (Get-AzureVMImage)[4].ImageName`
+	`C:\PS> $image = (Get-AzureVMImage)[<index_number>].ImageName`
 
-	>[WACOM.NOTE] To get a list of all images that apply to your subscription, run `Get-AzureVMImage` without parameters.
+	>[WACOM.NOTE] Run `Get-AzureVMImage` without parameters to get a list of all images that apply to your subscription. This might return a large list. To shorten the list, use properties such as the image family name. For tips and examples that show you how to do this to find a specific image, see [Manage Images using Windows PowerShell](http://msdn.microsoft.com/en-us/library/azure/dn790330.aspx).
 
 3.	Specify the configuration for the new virtual machine, and then use the pipeline to pass a configuration object to the cmdlet that creates the VM. Be sure to substitute your own values for the placeholders, such as  &lt;VmName&gt; and &lt;VmSize&gt;.
 

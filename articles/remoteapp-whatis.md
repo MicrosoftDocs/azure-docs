@@ -10,6 +10,8 @@ When you move RemoteApp to Azure, you get to take advantage of the storage, scal
 
 Read on for more information about RemoteApp, or, if we have already convinced you, [try it out now](http://azure.microsoft.com/en-us/services/remoteapp/).
 
+Have questions about Azure RemoteApp? Check out our [FAQ](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-faq/).
+
 Azure RemoteApp is part of the [Microsoft Virtual Desktop Infrastructure](http://www.microsoft.com/en-us/server-cloud/products/virtual-desktop-infrastructure/explore.aspx).
 
 **New!** Want to learn more about Azure RemoteApp? Or ready to validate RemoteApp at scale? Join our weekly [ask the experts webinar](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html).
@@ -54,3 +56,5 @@ Go! Try it out! These articles help get you started with RemoteApp:
 - [How to create a custom template image for RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/)
 - [How to create a cloud deployment of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-cloud-deployment/)
 - [How to create a hybrid deployment of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-hybrid-deployment/)
+- [Best practices for using Azure RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-bestpractices/)
+- [Azure RemoteApp FAQ](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-faq/)

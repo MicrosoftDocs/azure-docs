@@ -1,6 +1,6 @@
 <properties title="Data retention and storage in Application Insights" pageTitle="Data retention and storage in Application Insights" description="Retention and privacy policy statement" metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-11" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-14" ms.author="awills" />
 
 # Data retention and storage in Application Insights 
 
@@ -74,7 +74,7 @@ There are several components you can install. (Refer to [Application Insights - 
 <tr><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Track custom events and metrics</a></td>
   <td>Events with properties attached by your code</td>
   <td>Yes, if your code sends PII in properties or titles</td></tr>
-<tr><td>Log and trace telemetry</td><td>Log and trace messages</td><td>Log messages could contain PII</td></tr>
+<tr><td><a href="../app-insights-search-diagnostic-logs/#trace">Log and trace telemetry</a></td><td>Log and trace messages</td><td>Log messages could contain PII</td></tr>
 <tr><td><a href="../app-insights-web-track-usage/">Insert the AI script in your web pages</a></td>
   <td>Anonymized user and account id</td><td>No</td></tr>
 <tr><td></td><td>Anonymous user session start and end</td><td>No</td></tr>
