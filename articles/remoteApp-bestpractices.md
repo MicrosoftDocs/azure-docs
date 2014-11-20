@@ -10,7 +10,7 @@ The following information can help you configure and use Azure RemoteApp product
 
 
 - Always use the latest client version. Using older clients might result in connectivity issues and other degraded experiences. Enabling automatic application updates for your device will ensure that the latest client is always installed.
-- Always use the most stable and reliable internet connection available to you.  
+- Always use the most stable and reliable Internet connection available to you.  
 - Use only supported proxy connections for optimal connectivity performance.  The SOCKS proxy is not supported.
  
 ##Applications
