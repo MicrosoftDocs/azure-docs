@@ -751,7 +751,8 @@ Import-Module Azure
 #configure powershell with publishsettings for your subscription
 $pubsettings = $subscriptionDataFile
 Import-AzurePublishSettingsFile $pubsettings
-Set-AzureSubscription -CurrentStorageAccount $storageAccountName -SubscriptionName $selectedsubscription
+Set-AzureSubscription -CurrentStorageAccountName $storageAccountName -SubscriptionName $selectedsubscription
+Select-AzureSubscription $selectedsubscription
 
 #set remaining environment variables for Azure cmdlets
 $subscription = Get-AzureSubscription $selectedsubscription
