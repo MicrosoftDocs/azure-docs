@@ -7,7 +7,7 @@
 In order to use Azure Mobile Services in Cordova projects in Visual Studio 2015 Preview, you need to apply the following workaround.
 
 1. In your Visual Studio 2015 Preview Cordova project, open Config.xml, and under the **Plugins** tab, enable the **Windows Azure Mobile Services** plugin.<br/>
-![1][]
+![][1]
 
 2. In index.html, delete the lines that references **MobileServices.Web-1.2.2.min.js**.<br/>
 

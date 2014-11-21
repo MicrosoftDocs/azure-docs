@@ -1,6 +1,6 @@
 <properties title="Build an HBase application using Maven" pageTitle="Build an HBase application using Maven" description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" metaKeywords="Maven hbase hadoop, hbase hadoop, maven java hbase, maven java hbase hadoop, maven java hadoop, hbase hdinsight, hbase java hdinsight, maven hdinsight, maven java hdinsight, hadoop database, hdinsight database" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="larryfr" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2014" ms.author="larryfr" />
 
 ##Use Maven to build Java applications that use HBase with HDInsight (Hadoop)
 
@@ -138,7 +138,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 ##Create the application
 
-1. Go to the __hbaseapp\src\com\microsoft\examples__ directory and rename the app.java__ file to __CreateTable.java__.
+1. Go to the __hbaseapp\src\main\java\com\microsoft\examples__ directory and rename the app.java__ file to __CreateTable.java__.
 
 2. Open the __CreateTable.java__ file and replace the existing contents with the following.
 
@@ -208,7 +208,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 3. Save the __CreateTable.java__ file.
 
-4. In the __hbaseapp\com\microsoft\examples__ directory, create a new file named __SearchByEmail.java__. Use the following as the contents of this file.
+4. In the __hbaseapp\src\main\java\com\microsoft\examples__ directory, create a new file named __SearchByEmail.java__. Use the following as the contents of this file.
 
 		package com.microsoft.examples;
 		import java.io.IOException;
@@ -285,7 +285,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 5. Save the __SearchByEmail.java__ file.
 
-5. In the __hbaseapp\com\microsoft\examples__ directory, create a new file named __DeleteTable.java__. Use the following as the contents of this file.
+6. In the __hbaseapp\src\main\hava\com\microsoft\examples__ directory, create a new file named __DeleteTable.java__. Use the following as the contents of this file.
 
 		package com.microsoft.examples;
 		import java.io.IOException;
@@ -309,7 +309,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 	This class is just for cleaning up this example by first disabling, and then dropping the table created by the __CreateTable__ class.
 
-7. Save the __CreateTable.java__ file.
+7. Save the __DeleteTable.java__ file.
 
 ##Build and package the application
 
@@ -529,13 +529,13 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 	Replace __hdinsightclustername__ with the name of your HDInsight cluster. The command will then upload the __hbaseapp-1.0-SNAPSHOT.jar__ to the __example/jars__ location in primary storage for your HDInsight cluster.
 
-3. After the files have been uploaded, use the following to create a new table using the __hbaseapp__
+3. After the files have been uploaded, use the following to create a new table using the __hbaseapp__.
 
 		Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
 
 	Replace __hdinsightclustername__ with the name of your HDInsight cluster.
 
-	This command will create a new table named __people__ on your HDInsight cluster.
+	This command will create a new table named __people__ on your HDInsight cluster. This command does not show any output on the console window.
 
 2. To search for entries in the table, use the following command.
 
@@ -545,9 +545,12 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 	This will use the SearchByEmail class to search for any rows where the column family __contactinformation__, column __email__, contains the string __contoso.com__. You should receive the following results:
 
-		Rae Schroeder - rae@contoso.com - ID: 032439814
-		Franklin Holtz - franklin@contoso.com - ID: 229772110
-		Gabriela Ingram - gabriela@contoso.com - ID: 655336201
+		Franklin Holtz - ID: 2
+		Franklin Holtz - franklin@contoso.com - ID: 2
+		Rae Schroeder - ID: 4
+		Rae Schroeder - rae@contoso.com - ID: 4
+		Gabriela Ingram - ID: 6
+		Gabriela Ingram - gabriela@contoso.com - ID: 6
 
 	Using __fabrikam.com__ for the `-emailRegex` value will return the users that have __fabrikam.com__ in the email field. Since this search is implemented using a regular expression based filter, you can also enter regular expressions such as __^r__, which will return entries where the email begins with the letter 'r'.
 
@@ -561,6 +564,6 @@ Replace __hdinsightclustername__ with the name of your HDInsight cluster.
 
 ##Troubleshooting
 
-###No results or unexpected results when using __Start-HBaseExample__
+###No results or unexpected results when using Start-HBaseExample
 
 Use the `-showErr` parameter to view the STDERR produced while running the job.
