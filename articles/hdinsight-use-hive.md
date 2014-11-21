@@ -4,7 +4,6 @@
 
 # Use Hive with Hadoop in HDInsight
 
-
 [Apache Hive][apache-hive] provides a means of running MapReduce job through an SQL-like scripting language, called *HiveQL*. Hive is a data warehouse system for Hadoop, which enables data summarization, querying, and analysis of large volumes of data. In this article, you use HiveQL to query a sample data file that is provided as part of HDInsight cluster provisioning.
 
 
