@@ -5,6 +5,52 @@
 
 #Microsoft HDInsight release notes
 
+## Notes for 11/021/2014 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight 2.1.9.382.1169709 (no change from 11/14/2014)
+* HDInsight 3.0.5.382.1169709 (no change from 11/14/2014)
+* HDInsight 3.1.1.382.1169709 (no change from 11/14/2014)
+* HDINsight SDK 1.4.0
+
+This release contains the following component updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+<tr>
+<td>Accessing Application Logs</td>
+<td>Ability to programmatically enumerate applications that have been run on your clusters and to download relevant application or container specific logs to help debug problematic applications.</td>
+<td>SDK</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Ability to specify region name in IHdInsightClient.DeleteCluster </td>
+<td>The Azure HDInsight SDK now provides the ability to specify a region name when using **DeleteCluster**. This helps unblock customers who had 2 resources with same name in different regions and had been unable to delete either of them.</td>
+<td>SDK</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>ClusterDetails.DeploymentId</td>
+<td>The **ClusterDetails** object now returns a **DeploymentID** field that represents a unique identifier of the cluster. It is guaranteed to be unique across cluster create attempts with same names.</td>
+<td>SDK</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+</table>
+<br>
+
 ## Notes for 11/14/2014 release of HDInsight ##
 
 The full version numbers for HDInsight clusters deployed with this release are:
