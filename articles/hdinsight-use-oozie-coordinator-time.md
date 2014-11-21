@@ -1,15 +1,11 @@
 <properties urlDisplayName="Use time-based Hadoop Oozie Coordinator in HDInsight" pageTitle="Use time-based Hadoop Oozie Coordinator in HDInsight | Azure" metaKeywords="" description="Use time-based Hadoop Oozie Coordinator in HDInsight, a big data solution. Learn how to define Oozie workflows and coordinators, and submit coordinator jobs." metaCanonical="" services="hdinsight" documentationCenter="" title="Use time-based Hadoop Oozie Coordinator in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 
 
 # Use time-based Oozie Coordinator with Hadoop in HDInsight
 
 Learn how to define workflows and coordinators, and how to trigger the coordinator jobs based on time. It is helpful to go through [Use Oozie with HDInsight][hdinsight-use-oozie] before this article. 
-
-
-
-**Estimated time to complete:** 40 minutes
 
 ##In this article
 
