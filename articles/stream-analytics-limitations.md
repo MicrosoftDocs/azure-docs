@@ -95,6 +95,9 @@ Consuming large files from Blob Storage may cause Stream Analytics jobs to crash
 ###LEFT OUTER JOIN not supported
 The LEFT OUTER JOIN operation is enabled in the Stream Analytics Query Language but not supported.  Running a query with a LEFT OUTER JOIN for more than a few minutes will result in memory consumption issues.  We do not recommend using this operation for any scenarios beyond short-lived query experimentation.  This limitation will be addressed in an upcoming release.
 
+###Whitespace in column headers causes null output entries
+Stream Analytics does not trim whitespace on column headers. Including whitespace at the beginning or end or a column name will result in null entries in the job output.   
+
 
 ##<a name="nextsteps"></a>Next steps
 

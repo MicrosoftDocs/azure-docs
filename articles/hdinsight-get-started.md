@@ -220,6 +220,7 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 ##<a name="nextsteps"></a>Next steps
 In this tutorial, you have learned how to provision a cluster with HDInsight, run a MapReduce job on it, and import the results into Excel where they can be further processed and graphically displayed using BI tools. To learn more, see the following articles:
 
+- [Get started using HDInsight Hadoop Tools for Visual Studio][1]
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
