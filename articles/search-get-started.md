@@ -177,7 +177,7 @@ The following procedure works for both shared and standard search. In the steps 
 
 6.	Click **Execute**.
 
-In a few seconds, you should see an HTTP 204 response in the session list, indicating the index was created successfully. 
+In a few seconds, you should see an HTTP 201 response in the session list, indicating the index was created successfully. 
 
 If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the api-key (either an invalid key or a syntax problem with how the api-key is specified).
 

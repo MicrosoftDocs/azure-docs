@@ -1,155 +1,70 @@
 <properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-19" ms.author="awills" />
  
 # Diagnostic search in Application Insights
 
-One of the most traditional debugging methods is to insert lines of code that emit a trace log. [Application Insights][start] can capture your web server logs and help you search and filter them. If you already use log4Net, NLog or System.Diagnostics.Trace, you can capture those logs with our adapter. Or you can use the TrackTrace and TrackException methods built into the Application Insights SDK.
-
-Your search results can also include the regular page view and request events that are used to build the [usage][usage] and [performance][perf] reports, together with any [custom TrackEvent calls][track] that you have written.
+Diagnostic Search provides a powerful mechanism for filtering and searching trace, event, and exception telemetry sent by your application. And if you already use log4net, NLog, or System.Diagnostics.Trace, you can capture those logs and include them in the search.
 
 
-2. [Install an adaptor for your logging framework?](#capture)
-+ [Insert diagnostic log calls](#pepper)
-+ [Exceptions](#exceptions)
-+ [View log data](#view)
-+ [Search log data](#search)
-+ [Troubleshooting](#questions)
-+ [Next steps](#next)
+## <a name="send"></a>Send telemetry from your application
+
+If you haven't yet [set up Application Insights for your project][start], do that now.
 
 
-
-## <a name="capture"></a> Install an adapter for your logging framework?
-
-If you haven't yet [installed Application Insights in your project][start], do that now.
-
-If you'll use the built-in Application Insights SDK Track*() calls, you don't need an adapter - [skip to the next section](#pepper).
-
-To search logs generated with log4Net, NLog, or System.Diagnostics.Trace, install the appropriate adapter:
-
-1. If you plan to use log4Net or NLog, install it in your project. 
-2. In Solution Explorer, right-click your project and choose **Manage NuGet Packages**.
-3. Select Online > All, select **Include Prerelease** and search for "Microsoft.ApplicationInsights"
-
-    ![Get the prerelease version of the appropriate adapter](./media/appinsights/appinsights-36nuget.png)
-
-4. Select the appropriate package - one of:
-  + Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
-  + Microsoft.ApplicationInsights.NLogTarget
-  + Microsoft.ApplicationInsights.Log4NetAppender
-
-The NuGet package installs the necessary assemblies, and also modifies web.config or app.config.
-
-## <a name="pepper"></a>3. Insert diagnostic log calls
-
-Insert event logging calls using your chosen logging framework. 
-
-For example, if you use the Application Insights SDK, you might insert:
-
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow response - database01");
-
-Or if you use System.Diagnostics.Trace:
-
-    System.Diagnostics.Trace.TraceWarning("Slow response - database01");
-
-If you prefer log4net or NLog:
-
-    logger.Warn("Slow response - database01");
-
-Run your app in debug mode, or deploy it to your web server.
-
-### <a name="exceptions"></a>Exceptions
-
-To send exceptions to the log:
-
-JavaScript at client
-
-    try 
-    { ...
-    }
-    catch (ex)
-    {
-      appInsights.TrackException(ex, "handler loc",
-        {Game: currentGame.Name, 
-         State: currentGame.State.ToString()});
-    }
-
-C# at server
-
-    var telemetry = new TelemetryClient();
-    ...
-    try 
-    { ...
-    }
-    catch (Exception ex)
-    {
-       // Set up some properties:
-       var properties = new Dictionary <string, string> 
-         {{"Game", currentGame.Name}};
-
-       var measurements = new Dictionary <string, double>
-         {{"Users", currentGame.Users.Count}};
-
-       // Send the exception telemetry:
-       telemetry.TrackException(ex, properties, measurements);
-    }
-
-VB at server
-
-    Dim telemetry = New TelemetryClient
-    ...
-    Try
-      ...
-    Catch ex as Exception
-      ' Set up some properties:
-      Dim properties = New Dictionary (Of String, String)
-      properties.Add("Game", currentGame.Name)
-
-      Dim measurements = New Dictionary (Of String, Double)
-      measurements.Add("Users", currentGame.Users.Count)
-  
-      ' Send the exception telemetry:
-      telemetry.TrackException(ex, properties, measurements)
-    End Try
-
-The properties and measurements parameters are optional, but are useful for filtering and adding extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you like to each dictionary.
-
-## <a name="view"></a>4. View log data
+When you run your application, it will send some telemetry that will show up in Diagnostic Search, including requests received by the server, page views logged at the client, and uncaught exceptions.
 
 
-1. In Application Insights, open diagnostic search.
+## <a name="view"></a>View the telemetry from your application
 
-    ![Open diagnostic search](./media/appinsights/appinsights-30openDiagnostics.png)
+
+In Application Insights, open Diagnostic Search.
+
+![Open diagnostic search](./media/appinsights/appinsights-30openDiagnostics.png)
    
-2. Set the filter for the event types you'd like to see.
+The report lists telemetry over the time range and filters you choose. 
 
-    ![Open diagnostic search](./media/appinsights/appinsights-331filterTrace.png)
+![Open diagnostic search](./media/appinsights/appinsights-331filterTrace.png)
 
-
-The event types are:
-
-* **Trace** - Search diagnostic logs that you've captured from your web server. This includes log4Net, NLog, System.Diagnostic.Trace, and ApplicationInsights TrackTrace calls.
-* **Request** - Search HTTP requests received by the server component of your web app, including page requests, data requests, images, and so on. The events you'll see are the telemetry sent by the Application Insights server SDK, which are used to create the request count report.
-* **Page View** - Search page view events. These events are sent by the web client and are used to create page view reports. (If you don't see anything here, set up [web client monitoring][webclient].)
-* **Custom Event** - If you inserted calls to TrackEvent() and TrackMetric() to [monitor usage][usage], you can search them here.
-
-Select any log event to see its detail. 
+Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
 
 ![Open diagnostic search](./media/appinsights/appinsights-32detail.png)
 
-You can use plain strings (without wildcards) to filter the field data within an item.
+To filter the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
 
-The available fields depend on the logging framework and the parameters you used in the call.
+## Filter event types
+
+Open the Filter blade and choose the event types you want to see.
 
 
-## <a name="search"></a>5. Search the data
+![Open diagnostic search](./media/appinsights/appinsights-321filter.png)
+
+The event types are:
+
+* **[Trace](#trace)** - Diagnostic logs including TrackTrace,  log4Net, NLog, and System.Diagnostic.Trace calls.
+* **[Request](#requests)** - HTTP requests received by your server application, including pages, scripts, images, style files and data. These events are used to create the request and response overview charts.
+* **[Page View](#pages)** - Telemetry sent by the web client, used to create page view reports. 
+* **[Custom Event](#events)** - If you inserted calls to TrackEvent() in order to [monitor usage][track], you can search them here.
+* **[Exception](#exceptions)** - Uncaught exceptions in the server, and those that you log by using TrackException().
+
+### Filter on property values
+
+You can filter events on the values of their properties. The available properties depend on the event types you selected. 
+
+For example, pick out a specific type of exception.
+
+![Select facet values](./media/appinsights/appinsights-333facets.png)
+
+Choosing no values of a particular property has the same effect as choosing all values; it switches off filtering on that property.
+
+
+## <a name="search"></a>Search the data
 
 Set a time range and search for terms. Searches over a shorter range are faster. 
 
 ![Open diagnostic search](./media/appinsights/appinsights-311search.png)
 
-Notice that you search for terms, not substrings. Terms are alphanumeric strings including some punctuation such as '.' and '_'. For example:
+Search for terms, not substrings. Terms are alphanumeric strings including some punctuation such as '.' and '_'. For example:
 
 <table>
   <tr><th>term</th><th>is NOT matched by</th><th>but these do match</th></tr>
@@ -271,6 +186,173 @@ Here are the search expressions you can use:
  -->
 </table>
 
+## Send telemetry to Diagnostic Search
+
+###<a name="requests"></a>Requests
+
+Request telemetry is sent automatically when you [install Status Monitor on your server][redfield], or when you [add Application Insights to your web project][greenbrown]. It also feeds into the request and response time charts in Metric Explorer and on the Overview page.
+
+###<a name="pages"></a> Page views
+
+Page view telemetry is sent by the trackPageView() call in [the JavaScript snippet you insert in your web pages][usage]. Its main purpose is to contribute to the counts of page views that you see on the overview page.
+
+Usually it is called once in each HTML page, but you can insert more calls - for example, if you have a single-page app and you want to log a new page whenever the user gets more data.
+
+    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm"); 
+
+It's sometimes useful to attach properties that you can use as filters in diagnostic search:
+
+    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm",
+     {Game: currentGame.name, Difficulty: currentGame.difficulty});
+
+###<a name="events"></a>Custom events
+
+Custom events show up both in Diagnostic Search and in Metric Explorer. You can send them both from the web client and the server application. They are typically used to [understand patterns of use][track], but it's also useful to correlate them with exceptions and traces.
+
+A custom event has a name, and can also carry properties that you can filter on, together with numeric measurements.
+
+JavaScript at client
+
+    appInsights.trackEvent("EndOfGame",
+         // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric measurements:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+
+C# at server
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+    var measurements = new Dictionary <string, double>
+       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+
+    // Send the event:
+    telemetry.TrackEvent("endOfGame", properties, measurements);
+
+
+VB at server
+
+    ' Set up some properties:
+    Dim properties = New Dictionary (Of String, String)
+    properties.Add("game", currentGame.Name)
+    properties.Add("difficulty", currentGame.Difficulty)
+
+    Dim measurements = New Dictionary (Of String, Double)
+    measurements.Add("Score", currentGame.Score)
+    measurements.Add("Opponents", currentGame.OpponentCount)
+
+    ' Send the event:
+    telemetry.TrackEvent("endOfGame", properties, measurements)
+
+
+
+###<a name="trace"></a> Trace telemetry
+
+Trace telemetry is code that you insert specifically to create diagnostic logs. 
+
+* If you want to use a logging framework - log4Net, NLog or System.Diagnostics.Trace, you can capture their logs by adding our adapter to your project.
+
+* You can also use TrackTrace(), which is built in to Application Insights SDK.
+
+####  Install an adapter for your logging framework
+
+
+
+To search logs generated with log4Net, NLog, or System.Diagnostics.Trace, install the appropriate adapter. (If you only use the built-in Application Insights SDK Track*() calls, you don't need an adapter - [skip to the next section](#pepper).)
+
+1. If you plan to use log4Net or NLog, install it in your project. 
+2. In Solution Explorer, right-click your project and choose **Manage NuGet Packages**.
+3. Select Online > All, select **Include Prerelease** and search for "Microsoft.ApplicationInsights"
+
+    ![Get the prerelease version of the appropriate adapter](./media/appinsights/appinsights-36nuget.png)
+
+4. Select the appropriate package - one of:
+  + Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
+  + Microsoft.ApplicationInsights.NLogTarget
+  + Microsoft.ApplicationInsights.Log4NetAppender
+
+The NuGet package installs the necessary assemblies, and also modifies web.config or app.config.
+
+#### <a name="pepper"></a>Insert diagnostic log calls
+
+Insert event logging calls using your chosen logging framework. 
+
+For example, if you use the Application Insights SDK, you might insert:
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow response - database01");
+
+Or if you use System.Diagnostics.Trace:
+
+    System.Diagnostics.Trace.TraceWarning("Slow response - database01");
+
+If you prefer log4net or NLog:
+
+    logger.Warn("Slow response - database01");
+
+Run your app in debug mode, or deploy it to your web server.
+
+You'll see the messages in Diagnostic Search when you select the Trace filter.
+
+### <a name="exceptions"></a>Exceptions
+
+Exceptions observed by [Status Monitor][redfield] or [Application Insights SDK][greenbrown] are automatically sent to diagnostic search.
+
+You can also write your own code to send exception telemetry:
+
+JavaScript at client
+
+    try 
+    { ...
+    }
+    catch (ex)
+    {
+      appInsights.TrackException(ex, "handler loc",
+        {Game: currentGame.Name, 
+         State: currentGame.State.ToString()});
+    }
+
+C# at server
+
+    var telemetry = new TelemetryClient();
+    ...
+    try 
+    { ...
+    }
+    catch (Exception ex)
+    {
+       // Set up some properties:
+       var properties = new Dictionary <string, string> 
+         {{"Game", currentGame.Name}};
+
+       var measurements = new Dictionary <string, double>
+         {{"Users", currentGame.Users.Count}};
+
+       // Send the exception telemetry:
+       telemetry.TrackException(ex, properties, measurements);
+    }
+
+VB at server
+
+    Dim telemetry = New TelemetryClient
+    ...
+    Try
+      ...
+    Catch ex as Exception
+      ' Set up some properties:
+      Dim properties = New Dictionary (Of String, String)
+      properties.Add("Game", currentGame.Name)
+
+      Dim measurements = New Dictionary (Of String, Double)
+      measurements.Add("Users", currentGame.Users.Count)
+  
+      ' Send the exception telemetry:
+      telemetry.TrackException(ex, properties, measurements)
+    End Try
+
+The properties and measurements parameters are optional, but are useful for filtering and adding extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you like to each dictionary.
 
 ## <a name="questions"></a>Q & A
 
@@ -284,14 +366,6 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 
 Up to 500 events per second from each application. Events are retained for seven days.
 
-### <a name="cani"></a>Can I...?
-
-- Set alerts on events and exceptions
-- Export logs for further analysis
-- Search on specific properties
-
-Not just yet, but all these features are on the backlog.
-
 ## <a name="add"></a>Next steps
 
 * [Set up availability and responsiveness tests][availability]
@@ -299,29 +373,10 @@ Not just yet, but all these features are on the backlog.
 
 
 
-## Application Insights - learn more
-
-* [Application Insights - get started][start]
-* [Start monitoring web app health and usage][greenbrown]
-* [Monitor a live web server now][redfield]
-* [Monitor performance in web applications][perf]
-* [Search diagnostic logs][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Track usage][usage]
-* [Track custom events and metrics][track]
-* [Q & A and troubleshooting][qna]
-
-<!--Link references-->
 
 
-[start]: ../app-insights-get-started/
-[greenbrown]: ../app-insights-start-monitoring-app-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[perf]: ../app-insights-web-monitor-performance/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
-[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+
+
+
 

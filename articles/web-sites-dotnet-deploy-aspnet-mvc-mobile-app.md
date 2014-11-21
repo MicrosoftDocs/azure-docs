@@ -711,6 +711,7 @@ mobile-friendly Web applications. These include:
 See Also
 --------
 
+-   [9 basic principles of responsive web design][http://blog.froont.com/9-basic-principles-of-responsive-web-design/]
 -   [Bootstrap][BootstrapSite] site
 -   [Official Bootstrap Blog][]
 -   [Twitter Bootstrap Tutorial from Tutorial Republic][]

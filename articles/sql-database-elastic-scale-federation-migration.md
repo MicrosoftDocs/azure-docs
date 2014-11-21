@@ -1,6 +1,6 @@
-<properties title="Federations Migration" pageTitle="Federations Migration" description="Outlines the steps to migrate an existing app built with Federations feature to Elastic Scale model." metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties title="Federations Migration" pageTitle="Federations Migration" description="Outlines the steps to migrate an existing app built with Federations feature to Elastic Scale model." metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh"/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
+<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="sidneyh" />
 
 #Federations Migration 
 
@@ -74,7 +74,7 @@ The steps in this section are necessary but may not address all migration scenar
 
 ![Switch out the federation members for the shards][3]
 
-Once the application has been modified with the inclusion of the Elastic Scale APIs, the last step in the migration of a Federations application is to **SWITCH OUT** the federation members (for more information, please see the MSDN reference for [ALTER FEDERATION (Azure SQL Database](http://msdn.microsoft.com/en-us/library/azure/hh597475.aspx)). The end result of issuing a **SWITCH OUT** against a particular federation member is the removal of all federation constraints and metadata rendering the federation member as a regular Azure SQL Database, no different than any other Azure SQL Database. 
+Once the application has been modified with the inclusion of the Elastic Scale APIs, the last step in the migration of a Federations application is to **SWITCH OUT** the federation members (for more information, please see the MSDN reference for [ALTER FEDERATION (Azure SQL Database](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx)). The end result of issuing a **SWITCH OUT** against a particular federation member is the removal of all federation constraints and metadata rendering the federation member as a regular Azure SQL Database, no different than any other Azure SQL Database.  
 
 Note that issuing a **SWITCH OUT** against a federation member is a one-way operation and cannot be undone. Once performed, the resulting database cannot be added back to a federation, and the USE FEDERATION commands will no longer work for this database. 
 

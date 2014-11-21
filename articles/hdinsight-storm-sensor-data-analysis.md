@@ -838,7 +838,7 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 		eventhubspout.password = <the key of the 'storm' policy>
 
 		eventhubspout.namespace = <the event hub namespace>
-
+		# The name of the event hub
 		eventhubspout.entitypath = temperature
 
 		eventhubspout.partitions.count = <the number of partitions for the event hub>
@@ -972,15 +972,22 @@ Bolts do the main processing in a topology. For this topology there are three bo
 		    //Should only be one tuple, which is the JSON message from the spout
 		    String value = tuple.getString(0);
 
-		    //Convert it from JSON to an object
-		    EventHubMessage evMessage = gson.fromJson(value, EventHubMessage.class);
+			//Deal with cases where we get multiple
+			//EventHub messages in one tuple
+			String[] arr = value.split("}");
+			for (String ehm : arr)
+			{
 
-		    //Pull out the values and emit as a stream
-		    String timestamp = evMessage.TimeStamp;
-		    int deviceid = evMessage.DeviceId;
-		    int temperature = evMessage.Temperature;
-		    collector.emit("hbasestream", new Values(timestamp, deviceid, temperature));
-		    collector.emit("dashstream", new Values(deviceid, temperature));
+			    //Convert it from JSON to an object
+				EventHubMessage msg = new Gson().fromJson(ehm.concat("}"),EventHubMessage.class);
+
+			    //Pull out the values and emit as a stream
+			    String timestamp = msg.TimeStamp;
+			    int deviceid = msg.DeviceId;
+			    int temperature = msg.Temperature;
+			    collector.emit("hbasestream", new Values(timestamp, deviceid, temperature));
+			    collector.emit("dashstream", new Values(deviceid, temperature));
+			}
 		  }
 		}
 
