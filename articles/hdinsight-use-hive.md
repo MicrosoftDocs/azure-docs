@@ -192,6 +192,7 @@ The [Hive on Tez design documents][hive-on-tez-wiki] contain a number of details
 
 While Hive makes it easy to query data using a SQL-like query language, other components available with HDInsight provide complementary functionality such as data movement and transformation. To learn more, see the following articles:
 
+* [Get started using HDInsight Hadoop Tools for Visual Studio][1]
 * [Use Oozie with HDInsight][hdinsight-use-oozie]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Using Pig with HDInsight](../hdinsight-use-pig/)
@@ -199,7 +200,6 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Get started with Azure HDInsight](../hdinsight-get-started/)
-
 
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
