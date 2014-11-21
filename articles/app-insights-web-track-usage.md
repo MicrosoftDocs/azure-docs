@@ -1,6 +1,6 @@
 <properties title="Track usage in web applications with Application Insights" pageTitle="Track usage in web applications" description="Log user activities." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
  
 # Track usage of web applications
 
@@ -57,13 +57,12 @@ In the application overview blade, you'll see these usage tiles:
 
     Shows total counts in the last 24 hours.
 
-    Click the page views tile to get a more detailed history.
+    Click the page views tile to get a more detailed history. To get a longer history, you can change the time range of the report.
 
 ![](./media/appinsights/appinsights-49usage.png)
 
-Click Time Range to see a longer history up to seven days.
 
-Click a graph to see other metrics that you can display.
+Click a chart to see other metrics that you can display, or add a new chart and select the metrics it displays.
 
 ![](./media/appinsights/appinsights-63usermetrics.png)
 
