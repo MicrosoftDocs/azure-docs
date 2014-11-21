@@ -60,7 +60,7 @@ Application logs (and the associated container logs) are critical in debugging p
 
 where, "*user*" is the name of the user who started the application, and "*applicationId*" is the unique identifier of an application as assigned by the YARN Resource Manager.
 
-The aggregated logs are not directly readable as they are written in the [TFile][T-file], [binary format][binary-format] indexed by Container (it is quite useful to access per container logs). But YARN provides CLI tools to dump these logs as plain text for applications or containers of interest. You can view these logs as plain text by running one of the following YARN commands directly on the cluster nodes (after connecting to it through RDP):
+The aggregated logs are not directly readable as they are written in a [TFile][T-file], [binary format][binary-format] indexed by Container. YARN provides CLI tools to dump these logs as plain text for applications or containers of interest. You can view these logs as plain text by running one of the following YARN commands directly on the cluster nodes (after connecting to it through RDP):
 
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address> 
