@@ -4,8 +4,6 @@
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
-
 This topic is no longer supported; a Windows Phone 8.0 quickstart project is no longer available for download from the portal. To add Mobile Services to an existing Windows Phone 8.0 or Windows Phone 8.1 Silverlight app, see the topic [Add Mobile Services to an existing app ](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/). 
 
-A quickstart project download is available for Windows Phone Store 8.1 apps as part of an universal Windows project. For more information, see [Get started with Mobile Services](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/).
+A quickstart project download is available for Windows Phone Store 8.1 apps as part of an universal Windows project. For more information, see [Get started with Mobile Services](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
