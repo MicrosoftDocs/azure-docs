@@ -73,7 +73,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 	            {
 	                string data = Encoding.UTF8.GetString(eventData.GetBytes());
 	                
-	                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{2}'",
+	                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
 	                    context.Lease.PartitionId, data));
 	            }
 	
