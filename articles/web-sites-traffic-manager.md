@@ -1,6 +1,6 @@
 <properties urlDisplayName="Controlling Windows Azure Websites Traffic with Azure Traffic Manager" pageTitle="Controlling Azure Websites Traffic with Azure Traffic Manager" metaKeywords="Azure Web Sites, Traffic Manager, request routing, round robin, failover, performance" description="This article provides summary information for  Azure Traffic Manager as it relates to Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Controlling Azure Websites Traffic with Azure Traffic Manager" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
 # Controlling Azure Websites Traffic with Azure Traffic Manager
 
@@ -48,4 +48,4 @@ For information on how to configure Azure Traffic Manager, including for Azure W
 For detailed information about load balancing in Azure Traffic Manager, see [About Traffic Manager Load Balancing Methods](http://msdn.microsoft.com/en-us/library/windowsazure/dn339010.aspx).
 
 For more information about using Traffic Manager with Azure Websites, see the blog posts 
-[Using Windows Azure Traffic Manager with WAWS](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) and [Azure Traffic Manager can now integrate with Azure Web sites](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+[Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) and [Azure Traffic Manager can now integrate with Azure Web sites](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
