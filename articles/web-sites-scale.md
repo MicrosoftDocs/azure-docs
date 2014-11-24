@@ -142,7 +142,7 @@ If you have one or more SQL Server databases linked to your website (regardless 
 	
 	![Scale your SQL Server database][ScaleDatabase]
 	
-	For **Edition**, choose **Web** or **Business** depending on the storage capacity that you require. The **Web** edition offers a range of smaller capacities, while the **Business** edition offers a range of larger capacities. 
+	For **Edition**, choose **BASIC**, **STANDARD**, or **PREMIUM** depending on the storage capacity that you require. For the future of the **Web** and **BUSINESS** editions, see [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx).
 	
 	The value you choose for **Max Size** specifies an upper limit for the database. Database charges are based on the amount of data that you actually store, so changing the **Max Size** property does not by itself affect your database charges. For more information, see [Accounts and Billing in Microsoft Azure SQL Database][SQLaccountsbilling].
 
