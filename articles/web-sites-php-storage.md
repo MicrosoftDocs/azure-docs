@@ -1,6 +1,6 @@
-<properties urlDisplayName="Web w/ Storage" pageTitle="PHP website with table storage - Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="This tutorial shows you how to create a PHP website and use the Azure Tables storage service in the back-end." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="cephalin" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web w/ Storage" pageTitle="PHP website with table storage - Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="This tutorial shows you how to create a PHP website and use the Azure Tables storage service in the back-end." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
 
 #Create a PHP Website using Azure Storage
 
@@ -325,7 +325,7 @@ To make your application store data into the cloud you need to first create a st
 
 4. Ensure the **Storage** tab is selected and then select the storage account you just created from the list.
 
-5. Click on **Manage Keys** from the app bar on the bottom.
+5. Click on **Manage Access Keys** from the app bar on the bottom.
 
 	![Select Manage Keys][storage-manage-keys]
 
@@ -436,14 +436,14 @@ To publish changes to application, follow these steps:
 [management-portal]: https://manage.windowsazure.com
 [new-website]: ./media/web-sites-php-storage/new_website.jpg
 
-[website-quick-create]: ./media/web-sites-php-storage/website-quick-create.png
-[website-quick-create-details]: ./media/web-sites-php-storage/website-quick-create-details.png
-[storage-quick-create]: ./media/web-sites-php-storage/storage-quick-create.png
-[storage-quick-create-details]: ./media/web-sites-php-storage/storage-quick-create-details.png
-[storage-manage-keys]: ./media/web-sites-php-storage/storage-manage-keys.png
-[storage-access-keys]: ./media/web-sites-php-storage/storage-access-keys.png
+[website-quick-create]: ./media/web-sites-php-storage/createsite.png
+[website-quick-create-details]: ./media/web-sites-php-storage/sitedetails.png
+[storage-quick-create]: ./media/web-sites-php-storage/createstorage.png
+[storage-quick-create-details]: ./media/web-sites-php-storage/provideurl.png
+[storage-manage-keys]: ./media/web-sites-php-storage/accesskeys.png
+[storage-access-keys]: ./media/web-sites-php-storage/keydetails.png
 
-[go-to-dashboard]: ./media/web-sites-php-storage/go_to_dashboard.png
+[go-to-dashboard]: ./media/web-sites-php-storage/selectsite.png
 [setup-git-publishing]: ./media/web-sites-php-storage/setup_git_publishing.png
 [credentials]: ./media/web-sites-php-storage/git-deployment-credentials.png
 
