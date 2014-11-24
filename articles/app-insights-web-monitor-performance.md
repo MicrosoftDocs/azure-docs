@@ -118,7 +118,7 @@ Selecting any metric will disable the others that can't appear on the same chart
 
 To be notified by email of unusual values of any metric, add an alert. You can choose either to send the email to the account administrators, or to specific email addresses.
 
-![](./media/appinsights/appinsights-412setMetricAlert.png)
+![](./media/appinsights/appinsights-413setMetricAlert.png)
 
 Set the resource before the other properties. Don't choose the webtest resources if you want to set alerts on performance or usage metrics.
 

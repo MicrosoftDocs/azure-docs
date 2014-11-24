@@ -35,14 +35,15 @@ The HDInsight Tools for Visual Studio allows you to connect to your HDInsight cl
 
 **To connect to Azure subscription**
 
-1.	Run Visual Studio 2013.
+1.	Run Visual Studio.
 2.	From the **View** menu, click **Server Explorer** to open the Server Explorer window.
 3.	Expand **Azure**, and then click **HDInsight** Clusters. 
+
 	>[WACOM.NOTE]Notice the **HDInsight Task List** window is opened. If you do not see it, you can open it by clicking **Other Windows** from the **VIEW** menu, and then click **HDInsight Task List Window**.  
 4.	Enter your azure subscription credentials, and then click **Sign In**. This is only required if you haven’t never connected to the Azure subscription from the Visual Studio on this workstation.
 5.	In Server Explorer, you will see a list of existing HDInsight clusters. If you do not have any clusters, you can provision one using the Management portal, Azure PowerShell, or HDInsight SDK.  For more information, see [Provision HDInsight clusters][hdinsight-provision].
 
-	![HDInsight tools for visual studio server explorer cluster list][5]
+	![HDInsight Tools for visual studio server explorer cluster list][5]
 6.	Expand an HDInsight cluster. You will see **Hive Databases**, default Storage account, and linked storage accounts. You can further expand the entities. 
 
 After you have connected to your Azure subscription, you will be able to perform the following:
@@ -59,10 +60,10 @@ After you have connected to your Azure subscription, you will be able to perform
 
 From Server Explorer, you can see the default storage account, and any linked storage accounts. Expand the default storage account, you can see the containers on the storage account. Both default storage account and default container are marked. You can also right-click any of the containers to view the container.
 
-![HDInsight tools for visual studio server explorer cluster list][2]
+![HDInsight Tools for visual studio server explorer cluster list][2]
 
 ## Run Hive queries
-[Apache Hive][apache.hive] is a data warehouse infrastructure built on top of Hadoop for providing data summarization, query, and analysis. HDInsight tools for Visual Studio supports running Hive queries from Visual Studio. For more information about Hive, see [Use Hive with HDInsight][hdinsight.hive].
+[Apache Hive][apache.hive] is a data warehouse infrastructure built on top of Hadoop for providing data summarization, query, and analysis. HDInsight Tools for Visual Studio supports running Hive queries from Visual Studio. For more information about Hive, see [Use Hive with HDInsight][hdinsight.hive].
 
 ###View the hivesampletable Hive table
 All HDInsight clusters come with a sample Hive table called *hivesampletable*. We will use this table to show you how to list Hive tables, view the table schemas, and list the rows in the Hive table.
@@ -126,6 +127,7 @@ There are two ways to create and run Hive queries:
 You can view job query, job output, and job log for all Hive jobs.
 
 **To view Hive jobs**
+
 1. From **Server Explorer**, expand **Azure**, and then expand **HDInsight**. 
 2. Right click an HDInsight cluster, and then click **View Hive Jobs**. You will see a list of the Hive jobs ran on the cluster. 
 3. Click a job in the job list to select it, and then use the **Hive Job Summary** window to open **Job Query**, **Job Output**, or **Job Log**.
