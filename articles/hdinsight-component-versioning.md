@@ -1,6 +1,6 @@
 <properties urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/06/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="bradsev" />
 
 
 #What's new in the Hadoop cluster versions provided by HDInsight?
@@ -25,6 +25,7 @@ HDInsight supports multiple Hadoop cluster versions that can be deployed at any 
 <tr><td>Zookeeper</td><td>3.4.5</td><td>3.4.5</td><td></td><td></td></tr>
 <tr><td>Storm</td><td>0.9.1</td><td></td><td></td><td></td></tr>
 <tr><td>Mahout</td><td>0.9.0</td><td></td><td></td><td></td></tr>
+<tr><td>Phoenix</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td><td></td></tr>
 </table>
 
 
@@ -46,7 +47,11 @@ If you use the **Quick Create** option, you will get the version 3.1 of HDInsigh
 ##Feature highlights
 Azure HDInsight now supports Hadoop 2.4 with HDInsight cluster version 3.1 (using Hortonworks Data Platform 2.1.7) by default. It takes full advantage of the platform to provide a range of significant benefits to customers. These include, most notably:
 
+- **Script Action (Preview)**: The preview of this cluster customization feature enables the modification of Hadoop clusters in arbitrary ways using custom scripts. With this new feature, users can experiment with and deploy projects available from the Apache Hadoop ecosystem to Azure HDInsight clusters. This customization feature is available on all types of HDInsight clusters including Hadoop, HBase and Storm.
+
 - **HBase**: HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs.
+
+- **Apache Phoenix**: Apache Phoenix is a SQL query layer over HBase. It supports limited subset of SQL query language specification including secondary indexes support. It is delivered as a client-embedded JDBC driver that targets low latency queries over HBase data. Apache Phoenix takes your SQL query, compiles it into a series of HBase scans and coprocessors calls, and produces regular JDBC result sets.Apache Phoenix is a relational database layer over HBase. It is delivered as a client-embedded JDBC driver that targets low latency queries over HBase data. Apache Phoenix takes your SQL query, compiles it into a series of HBase scans, and orchestrates the running of those scans to produce regular JDBC result sets.
 
 - **Cluster Dashboard**: A new web application that is deployed to your HDInsight cluster.  Use it to run Hive Queries, check job logs, and browse Azure Blob storage. The URL used to access the web application is <*ClusterName*>.azurehdinsight.net.
 

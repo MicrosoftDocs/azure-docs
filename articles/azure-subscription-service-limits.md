@@ -1,6 +1,6 @@
-<properties urlDisplayName="Azure Subscription and Service Limits, Quotas, and Constraints" pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" metaKeywords="Cloud Services, Virtual Machines, Web Sites, Virtual Network, SQL Database, Subscription, Storage" description="Provides a list of common Azure subscription and service limits along with maximum values." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Azure Subscription and Service Limits, Quotas, and Constraints" pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" metaKeywords="Cloud Services, Virtual Machines, Web Sites, Virtual Network, SQL Database, Subscription, Storage" description="Provides a list of common Azure subscription and service limits along with maximum values." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="" authors="jroth" solutions="" manager="jeffreyg" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jroth" />
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
 
@@ -16,6 +16,7 @@ The following document specifies some of the most common Microsoft Azure limits.
 - [SQL Database Limits](#sqldblimits)
 - [Media Services Limits](#mediaserviceslimits)
 - [Service Bus Limits](#servicebuslimits)
+- [Active Directory Limits](#adlimits)
 
 > [WACOM.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge][azurelimitsblogpost]. The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
@@ -58,14 +59,14 @@ The following document specifies some of the most common Microsoft Azure limits.
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>SQL Databases per subscription</p></td>
-   <td valign="middle"><p>150</p></td>
-   <td valign="middle"><p>500</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Logical SQL Database servers per subscription</p></td>
+   <td valign="middle"><p>SQL Database servers per subscription</p></td>
    <td valign="middle"><p>6</p></td>
    <td valign="middle"><p>150</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>SQL Databases per server</p></td>
+   <td valign="middle"><p>150</p></td>
+   <td valign="middle"><p>500</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>DNS servers per subscription</p></td>
@@ -285,6 +286,12 @@ For SQL Database Limits, please see the following topics:
 
 [WACOM.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
 
+##<a name="adlimits"></a>Active Directory Limits
+
+For Azure Active Directory (AD), please see the following topic:
+
+ - [Azure Active Directory service limits and restrictions][adlimitsandrestrictions]
+
 ##<a name="seealso"></a>See Also
 
 [Understanding Azure Limits and Increases][azurelimitsblogpost]
@@ -303,3 +310,4 @@ For SQL Database Limits, please see the following topics:
   [vmsizes]: http://msdn.microsoft.com/en-us/library/azure/dn197896.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
+  [adlimitsandrestrictions]: http://msdn.microsoft.com/en-us/library/azure/dn764971.aspx

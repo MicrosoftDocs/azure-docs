@@ -1,4 +1,4 @@
-<properties title="Azure Stream Analytics limitations in the preview release" pageTitle=" Stream Analytics limitations in the preview release | Azure" description="Learn the limitations in the public preview release of Azure Stream Analytics jobs" metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties title="Azure Stream Analytics limitations in the preview release" pageTitle=" Stream Analytics limitations in the preview release | Azure" description="Learn the limitations in the public preview release of Azure Stream Analytics jobs" metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
 
@@ -94,6 +94,9 @@ Consuming large files from Blob Storage may cause Stream Analytics jobs to crash
 
 ###LEFT OUTER JOIN not supported
 The LEFT OUTER JOIN operation is enabled in the Stream Analytics Query Language but not supported.  Running a query with a LEFT OUTER JOIN for more than a few minutes will result in memory consumption issues.  We do not recommend using this operation for any scenarios beyond short-lived query experimentation.  This limitation will be addressed in an upcoming release.
+
+###Whitespace in column headers causes null output entries
+Stream Analytics does not trim whitespace on column headers. Including whitespace at the beginning or end or a column name will result in null entries in the job output.   
 
 
 ##<a name="nextsteps"></a>Next steps

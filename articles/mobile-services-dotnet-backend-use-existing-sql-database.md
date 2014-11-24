@@ -2,6 +2,7 @@
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 
+
 # Build a service using an existing SQL database with the Mobile Services .NET backend
 
 The Mobile Services .NET backend makes it easy to take advantage of existing assets in building a mobile service. One particularly interesting scenario is using an existing SQL database (either on-premises or in the cloud), that may already be used by other applications, to make existing data available to mobile clients. In this case it's a requirement that database model (or *schema*) remain unchanged, in order for existing solutions to continue working.
@@ -146,7 +147,7 @@ The data model you would like to use with your mobile service may be arbitrarily
     Then, add these extra properties to each of the classes:
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Index(IsClustered = true)]
+        [Index]
         [TableColumn(TableColumnType.CreatedAt)]
         public DateTimeOffset? CreatedAt { get; set; }
 

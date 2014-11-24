@@ -138,6 +138,8 @@ Sample | What does it do?
 ##<a name="hivequery"></a>Run a HIVE query from the portal
 Now that you have an HDInsight cluster provisioned, the next step is to run a Hive job to query a sample Hive table, *hivesampletable*, which comes with HDInsight clusters. The table contains data on mobile device manufacturer, platforms, and models. We query this table to retrieve data for mobile devices by a specific manufacturer.
 
+> [WACOM.NOTE] HDInsight Tools for Visual Studio comes with Azure SDK for .NET version 2.5 or later.  Using the tools from Visual Studio, you can connect to HDInsight cluster, create Hive tables, and run Hive queries.  For more information see [Get started using HDInsight Hadoop Tools for Visual Studio][1].
+
 **To run a Hive job from cluster dashboard**
 
 1. Sign in to the [Azure Management Portal][azure-management-portal]. 
@@ -218,6 +220,7 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 ##<a name="nextsteps"></a>Next steps
 In this tutorial, you have learned how to provision a cluster with HDInsight, run a MapReduce job on it, and import the results into Excel where they can be further processed and graphically displayed using BI tools. To learn more, see the following articles:
 
+- [Get started using HDInsight Hadoop Tools for Visual Studio][1]
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
@@ -228,6 +231,9 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 - [Use Oozie with HDInsight][hdinsight-use-oozie]
 - [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
+
+
+[1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
 

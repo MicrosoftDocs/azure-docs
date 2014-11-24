@@ -1,6 +1,6 @@
 <properties title="Tutorial: Move and process log files using Azure Data Factory" pageTitle="Move and process log files using Azure Data Factory" description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Tutorial: Move and process log files using Data Factory
 This article provides an end-to-end walkthrough of a canonical scenario of log processing using Azure Data Factory to transform data from log files into insights. 
@@ -28,11 +28,11 @@ In this walkthrough, we will collect sample logs, process and enrich them with r
 5. Make sure you have created the following Azure Resources:			
 	- Azure Storage Account.
 	- Azure SQL Database
-	- Azure HDInsight Cluster of version 3.1 or above	
+	- Azure HDInsight Cluster of version 3.1 or above (or use an on-demand HDInsight cluster that the Data Factory service will create automatically)	
 7. Once the Azure Resources are created, make sure you have the information needed to connect to each of these resources.
  	- **Azure Storage Account** - Account name and account key.  
 	- **Azure SQL Database** - Server, database, user name, and password.
-	- **Azure HDInsight Cluster** - Name of the HDInsight cluster, user name, password, and account name and account key for the Azure storage associated with this cluster.  
+	- **Azure HDInsight Cluster**. - Name of the HDInsight cluster, user name, password, and account name and account key for the Azure storage associated with this cluster. If you want to use an on-demand HDInsight cluster instead of your own HDInsight cluster you can skip this step.  
  8. Launch **Azure PowerShell** and navigate to **C:\ADFWalkthrough** and run the preparation script .**\AzureEnvironmentSetup.ps1**.
  
 		You should have your subscription name and the Microsoft account associated with the subscription before running the script.
@@ -185,6 +185,7 @@ In this step, you create an Azure data factory named **LogProcessingFactory**.
 
 In this step, you will create the following linked services: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService, and HDInsightLinkedService.
 
+
 1.	In the **LogProcessingFactory** blade, click **Linked Services** tile.
 
 	![Linked Services Tile][image-data-factory-tutorial-linkedservice-tile]
@@ -231,12 +232,21 @@ In this step, you will create the following linked services: StorageLinkedServic
 		Switch-AzureMode AzureResourceManager
 
 16. Navigate to the **LinkedServices** subfolder in **C:\ADFWalkthrough** (or) from the folder from the location where you have extracted the files.
-17. Open **HDInsightLinkedService.json** in your favorite editor, replace the highlighted with your cluster information and save the file.
+17. Open **HDInsightLinkedService.json** in your favorite editor and notice that the type is set to **HDInsightOnDemandLinkedService**.
 
-        "clusterUri": "https://<hdinsightclustername>.azurehdinsight.net/",
-        "userName": "<hdiusername>",
-        "location": "<hdiregion>",
-        "password": "<hdipassword>",
+
+	> [WACOM.NOTE] The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, when you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
+	> The HDInsightLinkedService links an on-demand HDInsight cluster to the data factory. To use your own HDInsight cluster, update the Properties section of the HDInsightLinkedService.json file as shown below (replace clustername, username, and password with appropriate values): 
+	> 
+			"Properties": 
+			{
+        		"Type": "HDInsightBYOCLinkedService",
+	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
+    	    	"UserName": "<username>",
+    	    	"Password": "<password>",
+    	    	"LinkedServiceName": "MyBlobStore"
+    		}
+		
 
 18. Use the following command to set $df variable to the name of the data factory.
 

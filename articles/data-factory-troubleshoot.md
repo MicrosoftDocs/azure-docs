@@ -1,11 +1,25 @@
 <properties title="Troubleshoot Azure Data Factory issues" pageTitle="Troubleshoot Azure Data Factory issues" description="Learn how to troubleshoot issues with using Azure Data Factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Troubleshoot Data Factory issues
 You can troubleshoot Azure Data Factory issues using Azure Portal (or) Azure PowerShell cmdlets. This topic has walkthroughs that show you how to use the Azure Portal to quickly troubleshoot errors that you encounter with Data Factory. 
 
-## In This Article
+## Problem: Not able to run Data Factory cmdlets
+To resolve this issue, switch Azure mode to **AzureResourceManager**: 
+
+Launch **Azure PowerShell** and execute the following command to switch to the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
+
+         switch-azuremode AzureResourceManager
+
+## Problem: Unauthorized error when running a Data Factory cmdlet
+You are probably not using the right Azure account or subscription with the Azure PowerShell. Use the following cmdlets to select the right Azure account and subscription to use with the Azure PowerShell. 
+
+1. Add-AzureAccount - Use the right user ID and password
+2. Get-AzureSubscription - View all the subscriptions for the account. 
+3. Select-AzureSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Preview Portal.
+
+## Walkthroughs 
 
 - [Walkthrough: Troubleshooting an error with copying data](#copywalkthrough)
 - [Walkthrough: Troubleshooting an error with Hive/Pig processing](#pighivewalkthrough)

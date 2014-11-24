@@ -1,6 +1,6 @@
 <properties title="Monitor your app's health and usage with Application Insights" pageTitle="Monitor your app's health and usage with Application Insights" description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
  
 # Monitor performance in web applications
 
@@ -55,7 +55,7 @@ Click any tile to see more detail, and to see results for a longer period. For e
 
 ![Click through to more data and select a time range](./media/appinsights/appinsights-48metrics.png)
 
-Click a graph to choose which metrics it displays:
+Click a chart to choose which metrics it displays, or add a new chart and select its metrics:
 
 ![Click a graph to choose metrics](./media/appinsights/appinsights-61perfchoices.png)
 
@@ -112,8 +112,19 @@ To see what other metrics you can display, click a graph, and then deselect all 
 ![Deselect all metrics to see the whole set](./media/appinsights/appinsights-62allchoices.png)
 
 
-Selecting any metric will hide the others that can't appear on the same chart.
+Selecting any metric will disable the others that can't appear on the same chart.
 
+## Set alerts
+
+To be notified by email of unusual values of any metric, add an alert. You can choose either to send the email to the account administrators, or to specific email addresses.
+
+![](./media/appinsights/appinsights-413setMetricAlert.png)
+
+Set the resource before the other properties. Don't choose the webtest resources if you want to set alerts on performance or usage metrics.
+
+Be careful to note the units in which you're asked to enter the threshold value.
+
+*I don't see the Add Alert button.* - That's probably because you have read-only access. 
 
 ## <a name="diagnosis"></a>Diagnosing issues
 
@@ -135,29 +146,7 @@ Here are a few tips for finding and diagnosing performance issues:
 
 
 
-## Application Insights - learn more
-
-* [Application Insights - get started][start]
-* [Start monitoring web app health and usage][greenbrown]
-* [Monitor a live web server now][redfield]
-* [Monitor performance in web applications][perf]
-* [Search diagnostic logs][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Track usage][usage]
-* [Track custom events and metrics][track]
-* [Q & A and troubleshooting][qna]
-
-<!--Link references-->
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
 
-[start]: ../app-insights-get-started/
-[greenbrown]: ../app-insights-start-monitoring-app-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[perf]: ../app-insights-web-monitor-performance/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
-[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
 

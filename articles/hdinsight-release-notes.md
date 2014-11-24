@@ -1,24 +1,160 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 
 
 #Microsoft HDInsight release notes
 
-## Notes for 11/07/2014 release of HDInsight ##
+## Notes for 11/021/2014 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight 2.1.9.382.1169709 (no change from 11/14/2014)
+* HDInsight 3.0.5.382.1169709 (no change from 11/14/2014)
+* HDInsight 3.1.1.382.1169709 (no change from 11/14/2014)
+* HDINsight SDK 1.4.0
+
+This release contains the following component updates.
 
 <table border="1">
-<tr><th>Title</th><th>Description</a><th>Component</th></th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
-
-<tr><td>HDP 2.1.7</td><td>This release is based on Hortonworks Data Platform (HDP) 2.1.7. The release notes for HDP 2.1.7 are available on the Hortonworks site at http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html.</td><td>HDP</td><td>All</td><td></td></tr>
-
-<tr><td>YARN Timeline Server</td><td>The YARN Timeline Server (also known as the Generic Application History Server) has been enabled by default. The Timeline Server provides generic information about completed applications such as application ID, application name, application status, application submission time, and application completion time. <p>This application information can be retrieved from the head node either by accessing the URI http://headnodehost:8188 or by running the YARN command: yarn application –list –appStates ALL. <p>This information can also be retrieved remotely though REST API at https://{ClusterDnsName}. azurehdinsight.net/ws/v1/applicationhistory/. <p>More detailed information on the Timeline Server is available at http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html.</td><td>Service, YARN</td><td>Hadoop, HBase</td><td></td></tr>
-
-<tr><td>Storm Dashboard</td><td>We have enabled the native Storm dashboard for HDINSIGHT Storm clusters. The dashboard may be accessed from the Azure UX portal.</td><td>Azure UX</td><td>Storm</td><td></td>
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
 </tr>
 
-<tr><td>Cluster Deployment ID</td><td>Starting with latest SDK version [TBF], users can access HdInsight issued unique id for each cluster. This will enable customers to figure out unique instances of clusters when a dnsname is being reused across create/drop scenarios.</td><td>SDK</td><td>All</td><td></td></tr>
-</table><br>
+<tr>
+<td>Accessing Application Logs</td>
+<td>Ability to programmatically enumerate applications that have been run on your clusters and to download relevant application or container specific logs to help debug problematic applications.</td>
+<td>SDK</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Ability to specify region name in IHdInsightClient.DeleteCluster </td>
+<td>The Azure HDInsight SDK now provides the ability to specify a region name when using **DeleteCluster**. This helps unblock customers who had 2 resources with same name in different regions and had been unable to delete either of them.</td>
+<td>SDK</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>ClusterDetails.DeploymentId</td>
+<td>The **ClusterDetails** object now returns a **DeploymentID** field that represents a unique identifier of the cluster. It is guaranteed to be unique across cluster create attempts with same names.</td>
+<td>SDK</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+</table>
+<br>
+
+## Notes for 11/14/2014 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight 2.1.9.382.1169709
+* HDInsight 3.0.5.382.1169709
+* HDInsight 3.1.1.382.1169709
+
+This release contains the following new features, component updates and bug fixes.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+<tr>
+<td>Script Action (Preview)</td>
+<td>Preview of the cluster customization feature that enables modification of Hadoop clusters in arbitrary ways using custom scripts. With this new feature, users can experiment with and deploy projects available from the Apache Hadoop ecosystem to Azure HDInsight clusters. This customization feature is available on all types of HDInsight clusters including Hadoop, HBase and Storm.</td>
+<td>New feature</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Pre-built jobs for Azure websites & Storage logs analysis</td>
+<td>The HDInsight Query Console has a getting started gallery that supports solutions that work on either your data or on sample data.
+<p>Solutions that work on your data:<br>
+We’ve created jobs for some of the most common data analysis scenarios, to provide a starting point for creating your own solutions. You can use your own data with the job to see how it works. Then, when you are ready, use what you have learned to create your own solution modeled after the pre-built job.</p>
+<p>Solutions that work on sample data:<br>
+Learn how to work with HDInsight by walking through some basic scenarios such as analyzing web logs and sensor data. You will learn not only how to use HDInsight to analyze such data, but how you can connect other applications and services to this data. Visualizing data by connecting to Microsoft Excel provides an example of the power of this approach.</p></td>
+<td>Query console</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Memory leak fix in Templeton</td>
+<td>A memory leak in Templeton has been addressed that affected customers who had long running cluster or were submitting 100s of job requests a second. The issue manifested as Templeton 5xx errors and the workaround was to restart the service. The workaround is no longer needed.</td>
+<td>Templeton</td>
+<td>All</td>
+<td>https://issues.apache.org/jira/browse/HADOOP-11248</td>
+</tr>
+</table>
+<br>
+
+
+Note: To demonstrate the new capabilities made available by cluster customization, the procedures using Script Actions to install Spark and R modules on a cluster have been documented. For further information, see:
+
+* [Install and use Spark 1.0 on HDInsight clusters][hdinsight-install-spark]
+* [Install and use R on HDInsight Hadoop clusters][hdinsight-r-scripts]
+
+
+
+
+## Notes for 11/07/2014 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight 2.1	2.1.9.374.1153876
+* HDInsight 3.0	3.0.5.374.1153876
+* HDInsight 3.1	3.1.1.374.1153876
+
+This release contains the following component updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+<tr>
+<td>HDP 2.1.7</td>
+<td>This release is based on Hortonworks Data Platform (HDP) 2.1.7. The release notes for HDP 2.1.7 are available on the Hortonworks site at http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html.</td>
+<td>HDP</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>YARN Timeline Server</td>
+<td>The YARN Timeline Server (also known as the Generic Application History Server) has been enabled by default. The Timeline Server provides generic information about completed applications such as application ID, application name, application status, application submission time, and application completion time. <p>This application information can be retrieved from the head node either by accessing the URI http://headnodehost:8188 or by running the YARN command: yarn application –list –appStates ALL.</p> 
+<p>This information can also be retrieved remotely though REST API at https://{ClusterDnsName}. azurehdinsight.net/ws/v1/applicationhistory/.</p> 
+<p>More detailed information on the Timeline Server is available at http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html.</p></td>
+<td>Service, YARN</td>
+<td>Hadoop, HBase</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Cluster Deployment ID</td>
+<td>Starting with latest SDK version 1.3.3.1.5426.29232, users can access HDInsight issued unique ID for each cluster. This will enable customers to figure out unique instances of clusters when a dnsname is being reused across create/drop scenarios.</td>
+<td>SDK</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+</table>
+<br>
 
 * Note that the bug that prevented the full version # from showing up in the portal or from being returned by the SDK or by PowerShell has been fixed in this release. 
 
@@ -60,7 +196,7 @@ HDInsight PowerShell/SDK Error: "*Cluster is not configured for Http Services ac
 * You can expect that SDK and PowerShell will continue to work with new updates to clusters as long as the version of the cluster remains the same. For example, clusters version 3.1 will always be compatible with current version of the SDK/PowerShell 1.3.1.6 and 0.8.8.
 
 
-## Notes for 9/12/2014 release of HDinsight 3.1##
+## Notes for 9/12/2014 release of HDInsight 3.1##
 
 * This release is based on Hortonworks Data Platform (HDP) 2.1.5. For a list of the bugs fixed in this release, see the [Fixed in this Release](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) page on the Hortonworks site.
 * In the pig libraries folder, the file “avro-mapred-1.7.4.jar” has been changed to avro-mapred-1.7.4-hadoop2.jar. The contents of these file contain a minor bug fix that is non-breaking. It is recommended that customers do not take a direct dependency on the name of the JAR file itself to avoid breaks when files are renamed.
@@ -81,7 +217,7 @@ HDInsight PowerShell/SDK Error: "*Cluster is not configured for Http Services ac
 	* zookeeper0 
 	* zookeeper1 
 	* zookeeper2 
-* HBase version support matrix is updated. Only version HDInsight 3.1 (HBase version 0.98) is supported for production HBase workloads. Version 3.0 that was available for preview will not be supported moving forward. During transition period customers can still create clusters of 3.0 version. 
+* HBase version support matrix is updated. Only version HDInsight 3.1 (HBase version 0.98) is supported for production HBase workloads. Version 3.0 that was available for preview will not be supported moving forward. During transition period customers can still create clusters of version 3.0. 
 
 ## Notes on clusters created prior to 8/15/2014 ##
 
@@ -132,7 +268,7 @@ With HBase, you can build a variety of real-time workloads on HDInsight, from in
 For a more complete explanation of this procedure, see the documentation of the [Breiman Example](https://mahout.apache.org/users/classification/breiman-example.html) on the Apache Mahout website. 
 
 
-### Hive Queries can use Tez in HDinsight 3.1 ###
+### Hive Queries can use Tez in HDInsight 3.1 ###
 
 Hive 0.13 is now available in HDInsight 3.1 and is capable of running queries using Tez, which can be leveraged for substantial performance improvements. 
 Tez is not enable by default for Hive queries. To use it, you must opt in. You can enable Tez by running the following code snippet:
@@ -302,6 +438,7 @@ With this release, we have refreshed the following HDInsight  (Hortonworks Data 
 * HDInsight 3.0 (HDP 2.0)
 * HDInsight 3.1 (HDP 2.1)
 
+
 ## Hortonworks Release Notes ##
 
 Release notes for the HDPs that are used by the versions of HDInsight cluster are available at the following locations.
@@ -324,6 +461,9 @@ Release notes for the HDPs that are used by the versions of HDInsight cluster ar
 
 [hdp-1-1-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html
 
+
+[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+[hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 
 
 

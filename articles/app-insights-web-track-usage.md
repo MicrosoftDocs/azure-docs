@@ -1,6 +1,6 @@
 <properties title="Track usage in web applications with Application Insights" pageTitle="Track usage in web applications" description="Log user activities." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
  
 # Track usage of web applications
 
@@ -57,13 +57,12 @@ In the application overview blade, you'll see these usage tiles:
 
     Shows total counts in the last 24 hours.
 
-    Click the page views tile to get a more detailed history.
+    Click the page views tile to get a more detailed history. To get a longer history, you can change the time range of the report.
 
 ![](./media/appinsights/appinsights-49usage.png)
 
-Click Time Range to see a longer history up to seven days.
 
-Click a graph to see other metrics that you can display.
+Click a chart to see other metrics that you can display, or add a new chart and select the metrics it displays.
 
 ![](./media/appinsights/appinsights-63usermetrics.png)
 
@@ -111,29 +110,10 @@ Want to find out what your users do with your app? By inserting calls in your cl
 [Track usage with custom events and metrics][track]
 
 
-## Application Insights - learn more
-
-* [Application Insights - get started][start]
-* [Monitor a live web server now][redfield]
-* [Monitor performance in web applications][perf]
-* [Search diagnostic logs][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Track usage][usage]
-* [Track custom events and metrics][track]
-* [Q & A and troubleshooting][qna]
-
-<!--Link references-->
 
 
-[start]: ../app-insights-start-monitoring-app-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[perf]: ../app-insights-web-monitor-performance/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
-[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+
 
 
 
