@@ -1,11 +1,14 @@
-<properties urlDisplayName="Store server scripts in source control" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="" documentationCenter="Mobile" title="Store server scripts in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="Store project code in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Store project code in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">JavaScript backend</a>
+</div>
 
-# Store server scripts in source control
+# Store project code in source control
 
-This topic shows you how to set up source control for the first time in Azure Mobile Services to store your server scripts in a Git repository. Scripts and other JavaScript code files can be promoted from your local repository to your production mobile service. It also shows how to define shared code that can be reqiured by multiple scripts and how to upload Node.js modules. 
+This topic shows you how to use the source control provided by Azure Mobile Services to store your server scripts. Scripts and other JavaScript backend code files can be promoted from your local Git repository to your production mobile service. It also shows how to define shared code that can be required by multiple scripts and how to use the package.json file to add Node.js modules to your mobile service. 
 
 The tutorial guides you through the following steps:
 
@@ -14,36 +17,13 @@ The tutorial guides you through the following steps:
 3. [Deploy updated script files to your mobile service].
 4. [Leverage shared code and Node.js modules in your server scripts].
 
-To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Get started with data] tutorial.
+To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Add Mobile Services to an existing app] tutorial.
 
-<h2><a name="enable-source-control"></a>Enable source control in your mobile service</h2>
+##<a name="enable-source-control"></a>Enable source control in your mobile service
 
-1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+[WACOM.INCLUDE [mobile-services-enable-source-control](../includes/mobile-services-enable-source-control.md)]
 
-	![][0]
-
-2. Click the **Dashboard** tab, then under **Quick glance**, click **Set up source control**, and click **Yes** to confirm.
-
-	![][1]
-
-	> [WACOM.NOTE]
-	> Source control is a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.
-
-3. Supply a **User name**, **New password**, confirm the password, then click the check button. 
-
-	![][2]
-
-	The Git repository is created in your mobile service. Make a note of the credentials you just supplied; you will use them to access this repository.
-
-4. Click the Configure tab and notice the new **Source control** fields.
-
-	![][3]
-
-	The URL of the Git repository is displayed. You will use this URL to clone the repository to your local computer.
-
-Now that you have enabled source control in your mobile service, it's time to use Git to clone the repo to your local computer.
-
-<h2><a name="clone-repo"></a>Install Git and create the local repository</h2>
+##<a name="clone-repo"></a>Install Git and create the local repository
 
 1. Install Git on your local computer. 
 
@@ -79,7 +59,7 @@ Now that you have enabled source control in your mobile service, it's time to us
 
 Now that you have created your local repository, you can make changes to server scripts and push the changes back to the mobile service.
 
-<h2><a name="deploy-scripts"></a>Deploy updated script files to your mobile service</h2>
+##<a name="deploy-scripts"></a>Deploy updated script files to your mobile service
 
 1. Browse to the .\service\table subfolder, and if a file todoitem.insert.js files doesn't already exist, create it now.
 
@@ -117,14 +97,15 @@ Now that you have created your local repository, you can make changes to server 
 
 	Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
 
-<h2><a name="use-npm"></a>Leverage shared code and Node.js modules in your server scripts</h2>
+##<a name="use-npm"></a>Leverage shared code and Node.js modules in your server scripts
+
 Mobile Services provides access to the full set of core Node.js modules, which you can use in your code by using the **require** function. Your mobile service can also use Node.js modules that are not part of the core Node.js package, and you can even define your own shared code as Node.js modules. For more information about creating modules, see [Modules][Node.js API Documentation: Modules] in the Node.js API reference documentation.
 
-Next, you will add the [node-uuid] Node.js module to your mobile service by using source control and the Node.js package manager (NPM). This module is then used to generate a new GUID value for the **uuid** property on inserted items. 
+The recommended way to add Node.js modules to your mobile service is by adding references to the service's package.json file. Next, you will add the [node-uuid] Node.js module to your mobile service by updating the package.json file. When the update is pushed to Azure, the mobile service is restarted and the module is installed. This module is then used to generate a new GUID value for the **uuid** property on inserted items. 
 
-1. If you haven't already done so, install Node.js on your local computer by following the steps at the <a href="http://nodejs.org/" target="_blank">Node.js website</a>. 
+2. Navigate to the `.\service` folder of your local Git repository, and open the package.json file in a text editor.
 
-2. Navigate to the `.\service` folder of your local Git repository, then from the command prompt run the following command:
+3. Locate the  
 
 		npm install node-uuid
 
@@ -161,8 +142,8 @@ Now that you have completed this tutorial you know how to store your scripts in 
 + [Work with server scripts in Mobile Services]
 	<br/>Shows how to work with server scripts, job scheduler, and custom APIs.
 
-+ [Define a custom API that supports pull notifications] 
-	<br/> Shows how to use custom APIs to support periodic notifications that update live tiles in a Windows Store app.
++ [Call a custom API from the client] 
+	<br/> Shows how to create custom APIs that can be called from the client.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -171,10 +152,6 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Leverage shared code and Node.js modules in your server scripts]: #use-npm
 
 <!-- Images. -->
-[0]: ./media/mobile-services-store-scripts-source-control/mobile-services-selection.png
-[1]: ./media/mobile-services-store-scripts-source-control/mobile-setup-source-control.png
-[2]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-credentials.png
-[3]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-configure.png
 [4]: ./media/mobile-services-store-scripts-source-control/mobile-source-local-repo.png
 [5]: ./media/mobile-services-store-scripts-source-control/mobile-portal-data-tables.png
 [6]: ./media/mobile-services-store-scripts-source-control/mobile-insert-script-source-control.png
@@ -183,15 +160,10 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Git website]: http://git-scm.com
 [Source control]: http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[Work with server scripts in Mobile Services]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-[WindowsAzure.com]: http://www.windowsazure.com/
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started/
+[Add Mobile Services to an existing app]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
+[Work with server scripts in Mobile Services]: /en-us/documentation/articles/mobile-services-how-to-use-server-scripts/
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Define a custom API that supports pull notifications]: /en-us/develop/mobile/tutorials/create-pull-notifications-dotnet
+[Call a custom API from the client]: /en-us/documentation/articles/mobile-services-ios-call-custom-api/
 [Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
