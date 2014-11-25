@@ -1,6 +1,6 @@
-<properties urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 
 # How to use Blob Storage from .NET
 
@@ -29,14 +29,14 @@ more information on blobs, see the [Next steps][] section.
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-##<a name="create-account"></a><span  class="short-header">Create an Azure Storage account</span>
+##<a name="create-account"></a>Create an Azure Storage account
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-##<a name="setup-connection-string"></a><span  class="short-header">Setup a storage connection string</span>
+##<a name="setup-connection-string"></a>Setup a storage connection string
 
 [WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
-## <a name="configure-access"> </a><span  class="short-header">How to: Programmatically access Blob storage</span>
+## <a name="configure-access"> </a>How to: Programmatically access Blob storage
 
 ###Obtaining the assembly
 We recommend that you use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
@@ -82,7 +82,7 @@ account object we retrieved above:
 ###ODataLib dependencies
 ODataLib dependencies in the Storage Client Library for .NET are resolved through the ODataLib (version 5.0.2) packages available through NuGet and not WCF Data Services.  The ODataLib libraries can be downloaded directly or referenced by your code project through NuGet.  The specific ODataLib packages are [OData], [Edm], and [Spatial].
 
-## <a name="create-container"> </a><span  class="short-header">How to: Create a container</span>
+## <a name="create-container"> </a>How to: Create a container
 
 Every blob in Azure storage must reside in a container. This example shows how to create a container if it does not already exist:
 
@@ -112,7 +112,7 @@ code:
 Anyone on the Internet can see blobs in a public container, but you can
 modify or delete them only if you have the appropriate access key.
 
-## <a name="upload-blob"> </a><span  class="short-header">How to: Upload a blob into a container</span>
+## <a name="upload-blob"> </a>How to: Upload a blob into a container
 
 Azure Blob Storage supports block blobs and page blobs.  In the majority of cases, block blob is the recommended type to use.
 
@@ -140,7 +140,7 @@ or overwrite it if it does exist. The following example shows how to upload a bl
         blockBlob.UploadFromStream(fileStream);
     } 
 
-##<a name="list-blob"> </a><span  class="short-header">How to: List the blobs in a container</span>
+##<a name="list-blob"> </a>How to: List the blobs in a container
 
 To list the blobs in a container, first get a container reference. You
 can then use the container's **ListBlobs** method to retrieve the blobs and/or directories
@@ -232,7 +232,7 @@ and here would be the results:
 
 For more information, see [CloudBlobContainer.ListBlobs][].
 
-## <a name="download-blobs"> </a><span  class="short-header">How to: Download blobs</span>
+## <a name="download-blobs"> </a>How to: Download blobs
 
 To download blobs, first retrieve a blob reference and then call the **DownloadToStream** method. The following
 example uses the **DownloadToStream** method to transfer the blob
@@ -279,7 +279,7 @@ You can also use the **DownloadToStream** method to download the contents of a b
 		text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
 	}
 
-##<a name="delete-blobs"> </a><span  class="short-header">How to: Delete blobs</span>
+##<a name="delete-blobs"> </a>How to: Delete blobs
 
 To delete a blob, first get a blob reference and then call the
 **Delete** method on it.
@@ -301,7 +301,7 @@ To delete a blob, first get a blob reference and then call the
     blockBlob.Delete(); 
 
 
-##<a name="list-blobs-async"> </a><span  class="short-header">How to: List blobs in pages asynchronously</span> 
+##<a name="list-blobs-async"> </a>How to: List blobs in pages asynchronously
 
 If you are listing a large number of blobs, or you want to control the number of results you return in one listing operation, you can list blobs in pages of results. This example shows how to return results in pages asynchronously, so that execution is not blocked while waiting to return a large set of results.
 
@@ -361,7 +361,7 @@ Because the sample method calls an asynchronous method, it must be prefaced with
         }
     }
 
-## <a name="next-steps"></a><span  class="short-header">Next steps</span>
+## <a name="next-steps"></a>Next steps
 
 Now that you've learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.

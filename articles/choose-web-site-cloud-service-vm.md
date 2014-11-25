@@ -1,4 +1,4 @@
-<properties pageTitle="Azure Websites, Cloud Services and Virtual Machines comparison" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title=" Cloud Services" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+<properties pageTitle="Azure Websites, Cloud Services and Virtual Machines comparison" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
 
@@ -8,7 +8,7 @@
 
 Azure offers several ways to host web sites: [Azure Websites][], [Cloud Services][], and [Virtual Machines][]. This article helps you understand the options and make the right choice for your web application.
 
-Azure Websites is the best choice for most web apps. Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability. You can move existing sites to Azure Websites easily with an [online migration tool](https://www.migratetoazure.net/), use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice. The [WebJobs][] feature (currently in preview) makes it easy to add background job processing to your app. 
+Azure Websites is the best choice for most web apps. Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability. You can move existing sites to Azure Websites easily with an [online migration tool](https://www.migratetoazure.net/), use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice. The [WebJobs][] feature makes it easy to add background job processing to your app. 
 
 If you need more control over the web server environment, such as the ability to remote into your server or configure server startup tasks, Azure Cloud Services is typically the best option.
 
@@ -90,7 +90,7 @@ For web developers and designers, Azure Websites integrates easily with a variet
 
 ### <a id="multitier"></a>I'm migrating my multi-tier application with a web front-end to the Cloud
 
-If you’re running a multi-tier application, such as a web server that connects to a database, Azure Websites is a good option that offers tight integration with Azure SQL Database. And you can use the new WebJobs (in preview) feature for running backend processes.
+If you’re running a multi-tier application, such as a web server that connects to a database, Azure Websites is a good option that offers tight integration with Azure SQL Database. And you can use the WebJobs feature for running backend processes.
 
 Choose Cloud Service for one or more of your tiers if you need more control over the server environment, such as the ability to remote into your server or configure server startup tasks.
 
@@ -220,7 +220,7 @@ The following table compares the capabilities of Websites, Cloud Services, and V
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">Websites can easily host a REST API middle tier, and the <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> feature of Websites (currently in Preview) can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier.</td>
+   <td valign="middle">Websites can easily host a REST API middle tier, and the <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> feature of Websites can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier.</td>
 </tr>
 <tr>
    <td valign="middle"><p>Integrated MySQL-as-a-service support</p></td>
@@ -314,7 +314,7 @@ The following table compares the capabilities of Websites, Cloud Services, and V
    <td valign="middle"></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Can use custom ETW events for tracing and debugging</p></td>
+   <td valign="middle"><p>Can listen to ETW events</p></td>
    <td valign="middle"></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>

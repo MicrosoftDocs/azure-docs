@@ -1,9 +1,6 @@
-<properties urlDisplayName="Command Line Administration" pageTitle="Administering a Mobile Service at the command line - Azure tutorial" metaKeywords="" description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." metaCanonical="" services="" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Command Line Administration" pageTitle="Administering a Mobile Service at the command line - Azure tutorial" metaKeywords="" description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
-
-
-
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
 # Automate mobile services with command-line tools 
 
@@ -31,7 +28,7 @@ This topic covers a selection of common administration tasks supported by the Az
 
 + (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
-<h2><a name="install"></a><span class="short-header">Install the tools</span>Install the Azure Command-Line Tools</h2>
+<h2><a name="install"></a>Install the Azure Command-Line Tools</h2>
 
 The following list contains information for installing the command-line tools, depending on your operating system:
 
@@ -44,7 +41,7 @@ The following list contains information for installing the command-line tools, d
 		npm install azure-cli -g
 
 To test the installation, type `azure` at the command prompt. When the installation is successful, you will see a list of all the available `azure` commands.
-<h2><a name="import-account"></a><span class="short-header">Import settings</span>How to download and import publish settings</h2>
+<h2><a name="import-account"></a>How to download and import publish settings</h2>
 
 To get started, you must first download and import your publish settings. Then you can use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
 
@@ -66,7 +63,7 @@ To see a list of options for `account` commands, use the `-help` option:
 
 After importing your publish settings, you should delete the `.publishsettings` file for security reasons. For more information, see [How to install the Azure Command-Line Tools for Mac and Linux]. You are now ready to begin creating and managing Azure Mobile Services from the command line or in batch files.  
 
-<h2><a name="create-service"></a><span class="short-header">Create service</span>How to create a mobile service</h2>
+<h2><a name="create-service"></a>How to create a mobile service</h2>
 
 You can use the command-line tools to create a new mobile service instance. While creating the mobile service, you also create a SQL Database instance in a new server. 
 
@@ -76,7 +73,7 @@ The following command creates a new mobile service instance in your subscription
 
 The `mobile create` command fails when the specified mobile service exists. In your automation scripts, you should attempt to delete a mobile service before attempting to recreate it.
 
-<h2><a name="list-services"></a><span class="short-header">List services</span>How to list existing mobile services in a subscription</h2>
+<h2><a name="list-services"></a>How to list existing mobile services in a subscription</h2>
 
 The following command returns a list of all the mobile services in an Azure subscription:
 
@@ -84,7 +81,7 @@ The following command returns a list of all the mobile services in an Azure subs
 
 This command also shows the current state and URL of each mobile service.
 
-<h2><a name="delete-service"></a><span class="short-header">Delete service</span>How to delete an existing mobile service</h2>
+<h2><a name="delete-service"></a>How to delete an existing mobile service</h2>
 
 You can use the command-line tools to delete an existing mobile service, along with the related SQL Database and server. The following command deletes the mobile service, where `<service-name>` is the name of the mobile service to delete:
 
@@ -96,7 +93,7 @@ By including `-a` and `-q` parameters, this command also deletes the SQL Databas
    <p>If you do not specify the <code>-q</code> parameter along with <code>-a</code> or <code>-d</code>, execution is paused and you are prompted to select delete options for your SQL Database. Only use the <code>-a</code> parameter when no other service uses the database or server; otherwise use the <code>-d</code> parameter to only delete data that belongs to the mobile service being deleted.</p>
 </div>
 
-<h2><a name="create-table"></a><span class="short-header">Create table</span>How to create a table in the mobile service</h2>
+<h2><a name="create-table"></a>How to create a table in the mobile service</h2>
 
 The following command creates a table in the specified mobile service, where `<service-name>` is the name of the mobile service and `<table-name>` is the name of the table to create:
 
@@ -118,7 +115,7 @@ The following table shows the script permission value compared to the permission
 
 The `mobile table create` command fails when the specified table already exists. In your automation scripts, you should attempt to delete a table before attempting to recreate it.
 
-<h2><a name="list-tables"></a><span class="short-header">List tables</span>How to list existing tables in a mobile service</h2>
+<h2><a name="list-tables"></a>How to list existing tables in a mobile service</h2>
 
 The following command returns a list of all of the tables in a mobile service, where `<service-name>` is the name of the mobile service:
 
@@ -126,7 +123,7 @@ The following command returns a list of all of the tables in a mobile service, w
 
 This command also shows the number of indexes on each table and the number of data rows currently in the table.
 
-<h2><a name="delete-table"></a><span class="short-header">Delete table</span>How to delete an existing table from the mobile service</h2>
+<h2><a name="delete-table"></a>How to delete an existing table from the mobile service</h2>
 
 The following command deletes a table from the mobile service, where `<service-name>` is the name of the mobile service and `<table-name>` is the name of the table to delete:
 
@@ -134,7 +131,7 @@ The following command deletes a table from the mobile service, where `<service-n
 
 In automation scripts, use the `-q` parameter to delete the table without displaying a confirmation prompt that blocks execution.
 
-<h2><a name="register-script"></a><span class="short-header">Register a script</span>How to register a script to a table operation</h2>
+<h2><a name="register-script"></a>How to register a script to a table operation</h2>
 
 The following command uploads and registers a function to an operation on a table, where `<service-name>` is the name of the mobile service, `<table-name>` is the name of the table, and `<operation>` is the table operation, which can be `read`, `insert`, `update`, or `delete`:
 
@@ -152,7 +149,7 @@ The function declaration in the script file must also match the registered table
 
 For more information about registering scripts, see [Mobile Services server script reference].
 
-<!--<h2><a name="test-service"></a><span class="short-header">Test the service</span>Test the new mobile service</h2>
+<!--<h2><a name="test-service"></a>Test the new mobile service</h2>
 
 When you are automating the creation of your mobile service, you can optionally use cURL or another command-line request generator to 
 

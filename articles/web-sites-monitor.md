@@ -1,6 +1,6 @@
 <properties urlDisplayName="How to monitor" pageTitle="How to monitor websites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
 
 
@@ -12,8 +12,7 @@ Websites provide monitoring functionality via the Monitor management page. The M
 - [How to: Add web site metrics](#websitemetrics)
 - [How to: Receive alerts from web site metrics](#howtoreceivealerts)
 - [How to: View usage quotas for a web site](#howtoviewusage)
-- [How to: Reduce resource usage](#resourceusage)
-- [What happens when a resource usage quota is exceeded](#exceeded)
+- [How to: Avoid exceeding your quotas](#resourceusage)
 - [How to: Configure diagnostics and download logs for a web site](#howtoconfigdiagnostics)
 - [How to: Monitor web endpoint status](#webendpointstatus)
 
@@ -24,26 +23,11 @@ Websites provide monitoring functionality via the Monitor management page. The M
 
 3. Click to select additional metrics for display on the **Monitor** page. 
 
-4. After selecting the metrics that you want to add to the **Monitor** page, click **Ok**. 
+4. After selecting the metrics that you want to add to the **Monitor** page, click the check mark at the bottom. 
 
-5. After adding metrics to the **Monitor** page, click to enable / disable the option box next to each metric to add / remove the metric from the chart at the top of the page.
+5. After adding metrics to the **Monitor** page, click to enable / disable the round checkbox next to each metric to add / remove the metric from the chart at the top of the page.
 
 6. To remove metrics from the **Monitor** page, select the metric that you want to remove and then click the **Delete Metric** icon at the bottom of the page.
-
-The following list describes the metrics that you can view in the chart on the **Monitor** page:
-
-- **CPUTime** - A measure of the website's CPU usage.
-- **Requests** - A count of client requests to the website.
-- **Data Out** - A measure of data sent by the website to clients.
-- **Data In** - A measure of data received by the website from clients.
-- **Http Client Errors** - Number of Http "4xx Client Error" messages sent.
-- **Http Server Errors** - Number of Http "5xx Server Error" messages sent.
-- **Http Successes** - Number of Http "2xx Success" messages sent.
-- **Http Redirects** - Number of Http "3xx Redirection" messages sent.
-- **Http 401 errors** - Number of Http "401 Unauthorized" messages sent.
-- **Http 403 errors** - Number of Http "403 Forbidden" messages sent.
-- **Http 404 errors** - Number of Http "404 Not Found" messages sent.
-- **Http 406 errors** - Number of Http "406 Not Acceptable" messages sent.
 
 ##<a name="howtoreceivealerts"></a>How to: Receive alerts from website metrics
 In **Standard** website mode, you can receive alerts based on your website monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. On the **Settings** page of the Azure Management Portal, you can then create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
@@ -52,45 +36,26 @@ In **Standard** website mode, you can receive alerts based on your website monit
 
 Websites can be configured to run in either **Shared** or **Standard** website mode from the website's **Scale** management page. Each Azure subscription has access to a pool of resources provided for the purpose of running up to 100 websites per region in **Shared** website mode. The pool of resources available to each Website subscription for this purpose is shared by other websites in the same geo-region that are configured to run in **Shared** mode. Because these resources are shared for use by other websites, all subscriptions are limited in their use of these resources. Limits applied to a subscription's use of these resources are expressed as usage quotas listed under the usage overview section of each website's **Dashboard** management page.
 
-**Note**  
-When a website is configured to run in **Standard** mode, it is allocated dedicated resources equivalent to the **Small** (default), **Medium** or **Large** virtual machine sizes in the table at [Virtual Machine and Cloud Service Sizes for Azure][vmsizes]. There are no limits to the resources a subscription can use for running websites in **Standard** mode. However, the number of **Standard** mode websites that can be created per region is 500.
+>[WACOM.NOTE] When a website is configured to run in **Standard** mode, it is allocated dedicated resources equivalent to the **Small** (default), **Medium** or **Large** virtual machine sizes in the table at [Virtual Machine and Cloud Service Sizes for Azure][vmsizes]. There are no limits to the resources a subscription can use for running websites in **Standard** mode. However, the number of **Standard** mode websites that can be created per region is 500.
  
-### Viewing usage quotas for websites configured for Shared website mode ###
+### How to: View usage quotas for websites configured for Shared website mode ###
 To determine the extent that a website is impacting resource usage quotas, follow these steps:
 
 1. Open the website's **Dashboard** management page.
-2. Under the **usage overview** section the usage quotas for **Data Out**, **CPU Time** and **File System Storage** are displayed. The green bar displayed for each resource indicates how much of a subscription's resource usage quota is being consumed by the current website and the grey bar displayed for each resource indicates how much of a subscription's resource usage quota is being consumed by all other shared mode websites associated with your Website subscription.
+2. Under the **usage overview** section the usage quotas for your respective Web hosting plan are displayed, which is a subset of the following:
+	-	**Data Out**, **CPU Time**, and **Memory** - when the quota is exceeded, Azure stops the website for the remainder of the current quota interval. Azure will start the website at the beginning of the next quota interval.
+	-	**File System Storage** - when this quota is reached, file system storage remains accessible for read operations, but all write operations, including those required for normal website activity, are blocked. Write operations will resume when you reduce file usage or move the website to a Web hosting plan with a higher quota.
+	-	**Linked Resources** - quotas for any linked resources of the website, such as database or storage, are displayed here as well.   
 
-Resource usage quotas help prevent overuse of the following resources:
-
-- **Data Out** - a measure of the amount of data sent from websites running in **Shared** mode to their clients in the current quota interval (24 hours).
-- **CPU Time** - the amount of CPU time used by websites running in **Shared** mode for the current quota interval.
-- **File System Storage** - The amount of file system storage in use by websites running in **Shared** mode.
-
-When a subscription's usage quotas are exceeded, Azure takes action to stop overuse of resources. This is done to prevent any subscriber from exhausting resources to the detriment of other subscribers.
+	Some quotas can be applied per web hosting plan, while others can be applied per site. For detailed information on usage quotas for each Web hosting plan, see [Websites Limits](http://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#websiteslimits).
 
 
-##<a name="resourceusage"></a>How to: Reduce resource usage
+##<a name="resourceusage"></a>How to: Avoid exceeding your quotas
 
-Since Azure calculates resource usage quotas by measuring the resources used by a subscription's shared mode websites during a 24 hour quota interval, consider the following:
+Quotas are not a matter of performance or cost, but it's the way Azure governs resource usage in a multitenant environment by preventing tenants from overusing shared resources. Since exceeding your quotas means downtime or reduced functionality for your website, consider the following if you want to keep your site running when quotas are about to be reached:
 
-- As the number of websites configured to run in Shared mode is increased, so is the likelihood of exceeding shared mode resource usage quotas.
-Consider reducing the number of websites that are configured to run in Shared mode if resource usage quotas are being exceeded.
-- Similarly, as the number of instances of any website running in Shared mode is increased, so is the likelihood of exceeding shared mode resource usage quotas.
-Consider scaling back additional instances of shared mode websites if resource usage quotas are being exceeded.
-
-
-##<a name="exceeded"></a>What happens when a resource usage quota is exceeded
-
-Azure takes the following actions if a subscription's resource usage quotas are exceeded in a quota interval (24 hours):
-
- - **Data Out** - when this quota is exceeded, Azure stops all websites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Azure will start the websites at the beginning of the next quota interval.
-
- - **CPU Time** - when this quota is exceeded, Azure stops all websites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Azure will start the websites at the beginning of the next quota interval.
-
- - **File System Storage** - Azure prevents deployment of any websites for a subscription which are configured to run in Shared mode if the deployment will cause the File System Storage usage quota to be exceeded. When the File System Storage resource has grown to the maximum size allowed by its quota, file system storage remains accessible for read operations, but all write operations, including those required for normal website activity, are blocked. When this occurs, you can configure one or more websites running in Shared website mode to run in Standard website mode, or reduce usage of file system storage below the File System Storage usage quota.
-
-
+- Move your website(s) to a higher-tier Web hosting plan to take advantage of a larger quota. For example, the only quota for **Basic** and **Standard** plans is File System Storage. 
+- As the number of instances of a website is increased, so is the likelihood of exceeding shared resource quotas. If appropriate, consider scaling back additional instances of a website when shared resource quotas are being exceeded.
 
 
 ##<a name="howtoconfigdiagnostics"></a>How to: Configure diagnostics and download logs for a website
@@ -119,7 +84,7 @@ You can enable or disable the following application diagnostics:
 
 For more information about Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
-<div class="dev-callout"> 
+<div class="dev-callout"on> 
 <b>Note</b> 
 <p>Application logging to table or blob storage is only supported for .NET applications.</p> </div>
 
@@ -287,7 +252,7 @@ Endpoint monitoring configures web tests from geo-distributed locations that tes
 
 Uptime is monitored using HTTP response codes, and response time is measured in milliseconds. Uptime is considered 100% when the response time is less than 30 seconds and the HTTP status code is lower than 400. Uptime is 0% when the response time is greater than 30 seconds or the HTTP status code is greater than 400.
 
-After you configure endpoint monitoring, you can drill down into the individual endpoints to view details response time and uptime status over the monitoring interval from each of the test locations.
+After you configure endpoint monitoring, you can drill down into the individual endpoints to view details response time and uptime status over the monitoring interval from each of the test locations. You can also set up an alert rule when the endpoint takes too long to respond, for example. 
 
 **To configure endpoint monitoring:**
 
@@ -295,10 +260,20 @@ After you configure endpoint monitoring, you can drill down into the individual 
 2.	Click the **Configure** tab. 
 3.     Go to the **Monitoring** section to enter your endpoint settings.
 4.	Enter a name for the endpoint.
-5.	Enter the URL for the service that you want to monitor. For example, [http://contoso.cloudapp.net](http://contoso.cloudapp.net). 
+5.	Enter the URL for a part of your website that you want to monitor. For example, [http://contoso.azurewebsites.net/archive](http://contoso.azurewebsites.net/archive). 
 6.	Select one or more geographic locations from the list.
 7.	Optionally, repeat the previous steps to create a second endpoint.
 8.	Click **Save**. It may take some time for the web endpoint monitoring data to be available on the **Dashboard** and **Monitor** tabs.
+
+	To create an email rule, do the following:
+
+9.	In the service bar at the far left, click **Management Services**.
+10.	Click **Add Rule** at the bottom.
+11.	In **Service Type**, select **Website**, then select the website for which you configured endpoint monitoring earlier. Click **Next**.
+12.	In **Metric**, you can now select additional metrics for the endpoint you configured. For example: **Response Time (homepage/US: IL-Chicago)**. Select the Response Time metric and type 3 in **Threshold Value** to specify a 3-second threshold.
+13.	Select **Send an email to the service administrator and co-administrators**. Click **Complete**.
+
+	Azure will now actively monitor the endpoint and send an email alert when it takes more than 3 seconds to reply.
 
 
 For more on website endpoint monitoring, see the following videos:

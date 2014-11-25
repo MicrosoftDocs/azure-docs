@@ -1,6 +1,6 @@
 <properties pageTitle="How to configure notifications and email templates in Azure API Management" metaKeywords="" description="Learn how to configure notifications and email templates in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to configure notifications and email templates in Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
 # How to configure notifications and email templates in Azure API Management
 
@@ -89,12 +89,12 @@ Click **Preview** or **Send a test** to see how the email will look or send a te
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
 [api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png
 [api-management-email-addresses]: ./media/api-management-howto-configure-notifications/api-management-email-addresses.png
-[api-management-add-recipient]: ./media/api-management-howto-configure-notifications/api-management-add-recipient.png
-[api-management-recipient-list]: ./media/api-management-howto-configure-notifications/api-management-recipient-list.png
+
+
 [api-management-email-templates]: ./media/api-management-howto-configure-notifications/api-management-email-templates.png
 [api-management-email-templates-list]: ./media/api-management-howto-configure-notifications/api-management-email-templates-list.png
 [api-management-email-template]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
-[api-management-publisher-notifications-save]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications-save.png
+
 
 [Configure publisher notifications]: #publisher-notifications
 [Configure email templates]: #email-templates

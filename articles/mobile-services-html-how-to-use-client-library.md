@@ -1,6 +1,6 @@
-<properties urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
 
 # How to use an HTML/JavaScript client for Azure Mobile Services
@@ -268,7 +268,7 @@ Mobile Services uses the OData query URI conventions for composing and executing
 
 >[WACOM.NOTE]When you provide a raw OData query option string into the `read` function, you cannot also use the query builder methods in the same query. In this case, you must compose your whole query as an OData query string. For more information on OData system query options, see the [OData system query options reference].
 
-<h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
+<h2><a name="inserting"></a>How to: Insert data into a mobile service</h2>
 
 The following code illustrates how to insert new rows into a table. The client requests that a row of data be inserted by sending a POST request to the mobile service. The request body contains the data to be inserted, as a JSON object.
 
@@ -330,7 +330,7 @@ The value for the `id` must be unique and it must not include characters from th
 You can alternatively use integer Ids for your tables. In order to use an integer Id you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
 
 
-<h2><a name="modifying"></a><span class="short-header">Modifying data</span>How to: Modify data in a mobile service</h2>
+<h2><a name="modifying"></a>How to: Modify data in a mobile service</h2>
 
 The following code illustrates how to update data in a table. The client requests that a row of data be updated by sending a PATCH request to the mobile service. The request body contains the specific fields to be updated, as a JSON object. It updates an existing item in the table `todoItemTable`.
 
@@ -352,7 +352,7 @@ You can also specify a callback function to be invoked when the update is comple
 			   alert("Error: " + err);
 			});
 
-<h2><a name="deleting"></a><span class="short-header">Deleting data</span>How to: Delete data in a mobile service</h2>
+<h2><a name="deleting"></a>How to: Delete data in a mobile service</h2>
 
 The following code illustrates how to delete data from a table. The client requests that a row of data be deleted by sending a DELETE request to the mobile service. It deletes an existing item in the table todoItemTable.
 
@@ -372,7 +372,7 @@ You can also specify a callback function to be invoked when the delete is comple
 			   alert("Error: " + err);
 			});
 
-<h2><a name="binding"></a><span class="short-header">Displaying data</span>How to: Display data in the user interface</h2>
+<h2><a name="binding"></a>How to: Display data in the user interface</h2>
 
 This section shows how to display returned data objects using UI elements. To query items in `todoItemTable` and display it in a very simple list, you can run the following example code. No selection, filtering or sorting of any kind is done.
 
@@ -396,7 +396,7 @@ This section shows how to display returned data objects using UI elements. To qu
 
 In a Windows Store app, the results of a query can be used to create a [WinJS.Binding.List] object, which can be bound as the data source for a [ListView] object. For more information, see [Data binding (Windows Store apps using JavaScript and HTML)].
 
-<h2><a name="caching"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
+<h2><a name="caching"></a>How to: Authenticate users</h2>
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the [Get started with authentication] tutorial.
 
@@ -473,7 +473,7 @@ In some cases, the call to the login method can be avoided after the first time 
         sessionStorage.loggedInUser = null;
 
 
-<h2><a name="errors"></a><span class="short-header">Error handling</span>How to: Handle errors</h2>
+<h2><a name="errors"></a>How to: Handle errors</h2>
 
 There are several ways to encounter, validate, and work around errors in Mobile Services.
 
@@ -512,7 +512,7 @@ To tease this out even further, you pass in the error handler as the second argu
 
 			client.getTable("tablename").read().then(function (data) { /* do something */ }, handleError);
 
-<h2><a name="promises"></a><span class="short-header">Promises</span>How to: Use promises</h2>
+<h2><a name="promises"></a>How to: Use promises</h2>
 
 Promises provide a mechanism to schedule work to be done on a value that has not yet been computed. It is an abstraction for managing interactions with asynchronous APIs.
 
@@ -553,7 +553,7 @@ You can use promises in a number of different ways. You can chain promise operat
  			   alert(JSON.stringify(insertedAndUpdated));
  			})
 
-<h2><a name="customizing"></a><span class="short-header">Customize request headers</span>How to: Customize client request headers</h2>
+<h2><a name="customizing"></a>How to: Customize client request headers</h2>
 
 You can send custom request headers using the `withFilter` function, reading and writing arbitrary properties of the request about to be sent within the filter. You may want to add such a custom HTTP header if a server-side script needs it or may be enhanced by it.
 
@@ -565,7 +565,7 @@ You can send custom request headers using the `withFilter` function, reading and
 
 Filters are used for a lot more than customizing request headers. They can be used to examine or change requests, examine or change  responses, bypass networking calls, send multiple calls, etc.
 
-<h2><a name="hostnames"></a><span class="short-header">Use CORS</span>How to: Use cross-origin resource sharing</h2>
+<h2><a name="hostnames"></a>How to: Use cross-origin resource sharing</h2>
 
 To control which websites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist using the Configure tab. You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications.
 

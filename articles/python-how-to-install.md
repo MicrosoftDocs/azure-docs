@@ -1,6 +1,6 @@
 <properties urlDisplayName="Install Python" pageTitle="Install Python and the SDK - Azure" metaKeywords="Azure Python SDK" description="Learn how to install Python and the SDK to use with Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo" />
 
 
 
@@ -48,11 +48,12 @@ Unless you have a specific need, we recommend the first two options, as describe
 
 ## Installation on Windows
 
-For Windows you can use the provided [WebPI installer] from the main Python Developer Center to streamline the installation (it will grab CPython from www.python.org).
+For Windows, you can use the Web Platform Installer to streamline the installation. These include CPython from www.python.org.
+
+* [Microsoft Azure SDK for Python 2.7][]
+* [Microsoft Azure SDK for Python 3.4][]
 
 **Note:** On Windows Server, in order to download the WebPI installer you may have to configure IE ESC settings (Start/Administrative Tools/Server Manager/Local Server, then click **IE Enhanced Security Configuration**, set to Off)
-
-You can choose to install Python 2.7 and/or Python 3.4 using WebPI.  
 
 
 ### Python 2.7
@@ -176,7 +177,8 @@ For information on how to setup a Linux VM, please see the [Linux Management sec
 [Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com 
 [Python Package Index (PyPI)]: http://pypi.python.org/pypi
 [Virtualenv]: http://pypi.python.org/pypi/virtualenv 
-[WebPI installer]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
+[Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
+[Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409
 [Setting up a Linux VM via the Azure portal]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
 [How to use the Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools
 

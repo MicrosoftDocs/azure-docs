@@ -1,12 +1,12 @@
-<properties urlDisplayName="Recover your mobile service in the event of a disaster" pageTitle="Recover your mobile service in the event of a disaster - Azure Mobile Services" metaKeywords="" description="Learn how to recover your mobile service in the event of a disaster." metaCanonical="" services="" documentationCenter="Mobile" title="Recover your mobile service in the event of a disaster" authors="yavorg" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Recover your mobile service in the event of a disaster" pageTitle="Recover your mobile service in the event of a disaster - Azure Mobile Services" metaKeywords="" description="Learn how to recover your mobile service in the event of a disaster." metaCanonical="" services="" documentationCenter="Mobile" title="Recover your mobile service in the event of a disaster" authors="brettsam" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="brettsam" />
 
 # Recover your mobile service in the event of a disaster
 
 When you use Azure Mobile Services to deploy an app, you can use its built-in features to ensure business continuity in the event of availability problems, such as server failures, network disruptions, data loss, and widespread facilities loss. By deploying your app using Azure Mobile Services you are taking advantage of many fault tolerance and infrastructure capabilities that you would have to design, implement, and manage if you were to deploy a traditional on-premise solution. Azure mitigates a large fraction of potential failures at a fraction of the cost.
 
-<h2><a name="prepare"></a><span class="short-header">Prepare</span>Prepare for possible disasters</h2>
+<h2><a name="prepare"></a>Prepare for possible disasters</h2>
 
 To make recovery easier in case of an availability problem, you can prepare for it in advance: 
 
@@ -18,7 +18,7 @@ To make recovery easier in case of an availability problem, you can prepare for 
 	<br/>In the event of an availability problem with your mobile service, you may have to redeploy it to an alternate Azure region. To ensure capacity is available (for example under rare circumstances such as the loss of an entire region), we recommend that you create a secondary mobile service in your alternate region and set its mode the same as or higher than the mode of your primary service. (If your primary service is in shared mode, you can make the secondary service either shared or reserved. But if the primary is reserved, then the secondary must also be reserved.)
 
 
-<h2><a name="watch"></a><span class="short-header">Watch</span>Watch for signs of a problem</h2>
+<h2><a name="watch"></a>Watch for signs of a problem</h2>
 
 These circumstances indicate a problem that might require a recovery operation:
 
@@ -27,7 +27,7 @@ These circumstances indicate a problem that might require a recovery operation:
 + An **Unhealthy** banner appears at the top of every tab for your mobile service in the Azure portal, and management operations produce error messages.
 + The [Azure Service Dashboard] indicates an availability problem.
 
-<h2><a name="recover"></a><span class="short-header">Recover</span>Recover from a disaster</h2>
+<h2><a name="recover"></a>Recover from a disaster</h2>
 
 When a problem occurs, use the Service Dashboard to get guidance and updates.
  

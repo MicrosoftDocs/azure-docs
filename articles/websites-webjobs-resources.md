@@ -1,6 +1,6 @@
 <properties pageTitle="Azure WebJobs Recommended Resources" metaKeywords="Azure WebJobs, Azure WebJobs SDK, Azure storage, Azure queues, Azure tables, Azure Service Bus" description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Azure WebJobs Recommended Resources" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="tdykstra" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="tdykstra" />
 
 #Azure WebJobs Recommended Resources
 
@@ -25,9 +25,10 @@ The WebJobs dashboard in the Azure management portal provides powerful managemen
 
 ##<a name="getstarted"></a>Getting started with WebJobs
 
-* [Overview of Azure WebJobs](/blog/2014/10/22/webjobs-goes-into-full-production/)
-* [Putting WebJobs into Perspective](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
+* [Introduction to Azure WebJobs](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
+* [Azure WebJobs Features](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [What is the WebJobs SDK](../websites-dotnet-webjobs-sdk/)
+* [Announcing the 1.0.0 RTM of Microsoft Azure WebJobs SDK](/blog/2014/10/25/announcing-the-1-0-0-rtm-of-microsoft-azure-webjobs-sdk/)
 * [Get Started with the Azure WebJobs SDK](../websites-dotnet-webjobs-sdk-get-started/)
 * [How to work with Azure queue storage using the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
 * Videos
@@ -50,7 +51,8 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 
 ##<a name="debug"></a>Testing and debugging WebJobs
 
-* [Troubleshooting Azure Web Sites in Visual Studio](../web-sites-dotnet-troubleshoot-visual-studio/). Includes a section on remote debugging WebJobs.
+* [New Developer and Debugging Features for Azure WebJobs in Visual Studio](http://blogs.msdn.com/b/webdev/archive/2014/11/12/new-developer-and-debugging-features-for-azure-webjobs-in-visual-studio.aspx)
+* [Troubleshooting Azure Web Sites in Visual Studio](../web-sites-dotnet-troubleshoot-visual-studio/)
 * [Who wrote that blob?](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [Hosting interactive code in the Cloud](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Getting a dashboard for local development with the WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)

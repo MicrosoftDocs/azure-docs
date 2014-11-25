@@ -1,6 +1,6 @@
 <properties urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" metaKeywords="Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 
 # How to use the Xamarin Component client for Azure Mobile Services
 
@@ -36,7 +36,7 @@ This guide shows you how to perform common scenarios using the Xamarin Component
 	
 [WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
-<h2><a name="setup"></a><span class="short-header">Setup</span>Setup and Prerequisites</h2>
+<h2><a name="setup"></a>Setup and Prerequisites</h2>
 
 We assume that you have created a mobile service and a table. For more information see [Create a table](http://go.microsoft.com/fwlink/?LinkId=298592). In the code used in this topic, the table is named `TodoItem` and it will have the following columns: `id`, `Text`, and `Complete`.
 
@@ -56,7 +56,7 @@ The corresponding typed client-side .NET type is the following:
 	
 When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in insert or update requests. For more information, see [Dynamic schema](http://go.microsoft.com/fwlink/?LinkId=296271).
 
-<h2><a name="create-client"></a><span class="short-header">Create the Mobile Services client</span>How to: Create the Mobile Services client</h2>
+<h2><a name="create-client"></a>How to: Create the Mobile Services client</h2>
 
 The following code creates the `MobileServiceClient` object that is used to access your mobile service. 
 			
@@ -67,7 +67,7 @@ The following code creates the `MobileServiceClient` object that is used to acce
 
 In the code above, replace `AppUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".
 
-<h2><a name="instantiating"></a><span class="short-header">Creating a table reference</span>How to: Create a table reference</h2>
+<h2><a name="instantiating"></a>How to: Create a table reference</h2>
 
 All of the code that accesses or modifies data in the Mobile Services table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the [GetTable](http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx) function on an instance of the `MobileServiceClient`. 
 
@@ -76,7 +76,7 @@ All of the code that accesses or modifies data in the Mobile Services table call
 
 This is the typed serialization model; see discussion of <a href="#untyped">the untyped serialization model</a> below.
 			
-<h2><a name="querying"></a><span class="short-header">Querying data</span>How to: Query data from a mobile service</h2>
+<h2><a name="querying"></a>How to: Query data from a mobile service</h2>
 
 This section describes how to issue queries to the mobile service. Subsections describe different aspects such as sorting, filtering, and paging. 
 			
@@ -199,7 +199,7 @@ The `LookupAsync` function can be used to look up objects from the database with
 	// This query filters out the item with the ID of 25
 	TodoItem item25 = await todoTable.LookupAsync(25);
 
-<h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
+<h2><a name="inserting"></a>How to: Insert data into a mobile service</h2>
 
 <div class="dev-callout"><strong>Note</strong> <p>If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <strong>Id</strong> (regardless of case). This is why the example class <strong>TodoItem</strong> has a member of name <strong>Id</strong>. An ID value must not be set to anything other than the default value during insert operations; by contrast, the ID value should always be set to a non-default value and present in update and delete operations.</p> </div>
 
@@ -218,7 +218,7 @@ To insert untyped data, you may take advantage of Json.NET as shown below. Again
 
 If you attempt to insert an item with the "Id" field already set, you will get back a `MobileServiceInvalidOperationException` from the service. 
 
-<h2><a name="modifying"></a><span class="short-header">Modifying data</span>How to: Modify data in a mobile service</h2>
+<h2><a name="modifying"></a>How to: Modify data in a mobile service</h2>
 
 The following code illustrates how to update an existing instance with the same ID with new information. The parameter contains the data to be updated as a .NET object.
 
@@ -236,7 +236,7 @@ To insert untyped data, you may take advantage of Json.NET like so. Note that wh
 If you attempt to update an item without the "Id" field already set, there is no way for the service to tell which instance to update, so you will get back a `MobileServiceInvalidOperationException` from the service. Similarly, if you attempt to update an untyped item without the "Id" field already set, you will again get back a `MobileServiceInvalidOperationException` from the service. 
 			
 			
-<h2><a name="deleting"></a><span class="short-header">Deleting data</span>How to: Delete data in a mobile service</h2>
+<h2><a name="deleting"></a>How to: Delete data in a mobile service</h2>
 
 The following code illustrates how to delete an existing instance. The instance is identified by the "Id" field set on the `todoItem`.
 
@@ -252,7 +252,7 @@ If you attempt to delete an item without the "Id" field already set, there is no
 		
 
 
-<h2><a name="authentication"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
+<h2><a name="authentication"></a>How to: Authenticate users</h2>
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the "Get started with authentication" tutorial ([Xamarin.iOS][Xamarin.iOS authentication]/[Xamarin.Android][Xamarin.Android authentication]).
 
@@ -362,7 +362,7 @@ In some cases, the call to the login method can be avoided after the first time 
 	accountStore.Delete(account, "Facebook");
 
 
-<h2><a name="errors"></a><span class="short-header">Error handling</span>How to: Handle errors</h2>
+<h2><a name="errors"></a>How to: Handle errors</h2>
 
 There are several ways to encounter, validate, and work around errors in Mobile Services. 
 
@@ -396,7 +396,7 @@ Now that the mobile service is validating data and sending error responses on th
 		}
 	}
 
-<h2><a name="untyped"></a><span class="short-header">Working with untyped data</span>How to: Work with untyped data</h2>
+<h2><a name="untyped"></a>How to: Work with untyped data</h2>
 
 The Xamarin Component client is designed for strongly typed scenarios. However, sometimes, a more loosely typed experience is convenient; for example, this could be when dealing with objects with open schema. That scenario is enabled as follows. In queries, you forego LINQ and use the wire format.
 
@@ -408,7 +408,7 @@ The Xamarin Component client is designed for strongly typed scenarios. However, 
 
 You get back JSON values that you can use like a property bag. For more information on JToken and Json.NET, see [Json.NET](http://json.codeplex.com/)
 
-<h2><a name="unit-testing"></a><span class="short-header">Designing tests</span>How to: Design unit tests</h2>
+<h2><a name="unit-testing"></a>How to: Design unit tests</h2>
 
 The value returned by `MobileServiceClient.GetTable` and the queries are interfaces. That makes them easily "mockable" for testing purposes, so you could create a `MyMockTable : IMobileServiceTable<TodoItem>` that implements your testing logic.
 

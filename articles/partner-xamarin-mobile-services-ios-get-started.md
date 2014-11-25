@@ -1,12 +1,10 @@
-<properties pageTitle="Get Started with Mobile Services for Xamarin iOS apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get Started with Mobile Services for Xamarin iOS apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="craigd" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="craig.dunn@xamarin.com" />
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 [WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
-
-
 
 This tutorial shows you how to add a cloud-based backend service to a Xamarin.iOS app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple <em>To do list</em> app that stores app data in the new mobile service.
 
@@ -22,7 +20,7 @@ A screenshot from the completed app is below:
 
 ![][0]
 
-Completing this tutorial requires XCode 4.5 and iOS 5.0 or later versions as well as [Xamarin Studio] for OS X or the Xamarin Visual Studio plug-in for Visual Studio on Windows.
+Completing this tutorial requires XCode and [Xamarin Studio] for OS X or the Xamarin Visual Studio plug-in for Visual Studio on Windows. The sample will run on iOS 5.0 and newer.
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">Azure Free Trial</a>.</p></div>
 
@@ -30,7 +28,7 @@ Completing this tutorial requires XCode 4.5 and iOS 5.0 or later versions as wel
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-<h2><span class="short-header">Create a new app</span>Create a new Xamarin.iOS app</h2>
+<h2>Create a new Xamarin.iOS app</h2>
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
@@ -46,7 +44,7 @@ In this section you will create a new Xamarin.iOS app that is connected to your 
 
   	![][7]
 
-3. If you haven't already done so, download and install [Xcode] v4.4 or a later version and [Xamarin Studio].
+3. If you haven't already done so, download and install Xcode (we recommend the latest version, Xcode 6.0, or newer) and [Xamarin Studio].
 
 4. Click **Create TodoItems table** to create a table to store app data.
 
@@ -54,7 +52,7 @@ In this section you will create a new Xamarin.iOS app that is connected to your 
 
 	This downloads the project for the sample _To do list_ application that is connected to your mobile service and references the Azure Mobile Services component for Xamarin.iOS. Save the compressed project file to your local computer, and make a note of where you saved it.
 
-<h2><span class="short-header">Run your app</span>Run your new Xamarin.iOS app</h2>
+<h2>Run your new Xamarin.iOS app</h2>
 
 The final stage of this tutorial is to build and run your new app.
 

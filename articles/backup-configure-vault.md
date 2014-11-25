@@ -1,6 +1,6 @@
-<properties urlDisplayName="Configure a Backup Vault" pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
+<properties urlDisplayName="Configure a Backup Vault" pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="markgal" solutions="" manager="johndaw" editor="tysonn" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="markgal" />
 
 
 
@@ -27,12 +27,12 @@
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
-2. Click **New**, then point to **Data Services**, then point to **Recovery Services**, then click **Backup Vault**, and then click **Quick Create**.
+2. Click **New**, then click **Data Services**, then click **Recovery Services**, then click **Backup Vault**, and then click **Quick Create**.
 
 3. In **Name**, enter a friendly name to identify the backup vault.
 
-4. In **Region**, select the geographic region for the backup vault.
- ![New backup vault](http://i.imgur.com/506c7ch.png)   
+4. In **Region**, select the geographic region for the backup vault.  
+![New backup vault](http://i.imgur.com/8ptgjuo.png)
 
 5. Click **Create Vault**.
 
