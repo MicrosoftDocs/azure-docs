@@ -1,6 +1,6 @@
 <properties urlDisplayName="How to create" pageTitle="How to create websites - Azure service management" metaKeywords="Azure creating website, Azure deleting website" description="Learn how to create a website using the Azure Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Website" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
 #How to Create a Website
 
@@ -31,31 +31,15 @@ Follow these steps to create a website in Azure.
 
 6. On the **Quick Start** page, you are provided with options to get website development tools, set up publishing for your website, or set up deployment from a source control provider like TFS or Git. FTP publishing is set up by default for websites and the FTP Host name is displayed in the **Quick Glance** section of the **Dashboard** page under **FTP Host Name**. Before publishing with FTP or Git, choose the option to **Reset deployment credentials** on the **Dashboard** page so that you can authenticate against the FTP Host or the Git Repository when deploying content to your website.
 
-7. The **Configure** management page exposes settings for your website in the following categories:
+7. The **Configure** management page exposes settings for your website, such as:
 
- - **General**: Set the version of .NET framework or PHP required by your web application. For sites in Standard mode, the **Platform** option lets you choose either a 32-bit or 64-bit environment.
-
-- **Certificates**: In Standard mode, you can upload SSL certificates for custom domains. 
-
-- **Domain Names**: In Shared and Standard modes, you can view and manage custom domain names for your website.
-
-- **SSL Bindings**: In Standard mode, you can assign SSL certificates to your custom domain names using either IP-based or SNI-based SSL.
-
- - **Deployments**: When you set up deployment from source control, you can configure your deployments here.
-
- - **Application Diagnostics**:  Set options for gathering diagnostic traces from a web application that has been instrumented with traces. 
-
-- **Site Diagnostics**: Set logging options for gathering diagnostic information for your website. Options include Web Server Logging, Detailed Error Messages, and Failed Request Tracing.
-
-- **Monitoring**: For websites in Standard mode, you can use this feature to test the availability of HTTP or HTTPS endpoints. 
-
-- **App Settings**: Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into your .NET configuration **AppSettings** at runtime, overriding existing settings. For PHP and Node sites these settings will be available as environment variables at runtime.
-
- - **Connection Strings**: View and edit connection strings. For .NET sites, these connection strings will be injected into your .NET configuration **connectionStrings** settings at runtime, overriding existing entries where the key equals the linked database name. For PHP and Node sites, these settings will be available as environment variables at runtime.
-
- - **Default Documents**: A website's default document is the page that is displayed by default when a user navigates to a website. Add your web application's default document to this list if it is not already present.  Your website's default document should be at the top of the list.
-
-- **Handler Mappings**: Specify script processors that will handle requests for specific file extensions like *.php.
+	- The version of .NET framework or PHP for your web application
+	- SSL bindings
+	- custom domain names
+	- logging options
+	- app settings for the Azure environment (overriding <appSettings> in your development environment's Web.config, for example)
+	- connection strings (overriding <connectionStrings> in your development environment's Web.config, for example)
+	- script processors for specific file extensions like *.php
 
 ##<a name="howtocreatefromgallery"></a>How to: Create a Website from the Gallery
 

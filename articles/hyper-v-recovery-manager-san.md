@@ -1,6 +1,6 @@
-<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Getting Started with Azure Site Recovery: On-Premises to On-Premises Protection with SAN" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery, SAN" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises sites using SAN replication." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to On-Premises VMM Site Protection with SAN replication" editor="jimbe" manager="cfreeman" authors="raynew" />
+<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Getting Started with Azure Site Recovery: On-Premises to On-Premises VMM Site Protection with SAN" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery, SAN" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises sites using SAN replication." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to On-Premises VMM Site Protection with SAN replication" editor="jimbe" manager="cfreeman" authors="raynew" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
 
 
 # Getting Started with Azure Site Recovery:  On-Premises to On-Premises VMM Site Protection with SAN replication
@@ -8,33 +8,36 @@
 
 <div class="dev-callout"> 
 
+<p>Azure Site Recovery contributes to your business and workload continuity strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios.<p>
+
 <p>Deploy Azure Site Recovery to protect virtual machines and business continuity with replication, failover, and recovery. This guide describes how to deploy Azure Site Recovery for protection between two on-premises VMM sites using storage array-based (SAN) replication. In this scenario:</p>
-	<ul>
+	
+
+<P>This tutorial describes how to deploy Azure Site Recovery to orchestrate protection between twp on-premises VMM sites using SAN replication. In this scenario:</P> 
+
+<ul>
 	<li>You leverage your existing SAN infrastructure to protect mission-critical applications deployed in Hyper-V clusters.</li>
 	<li>SAN replication provides support for guest clusters, and ensures replication consistency across different tiers of an application with synchronized and asynchronized replication, depending on storage array capabilities.</li>
 	<li>You configure and enable replication in VMM and the Azure Site Recovery vault. You'll discover and classify SAN storage in VMM, provision LUNs, and allocate storage to Hyper-V clusters. Azure Site Recovery automates replication and orchestrates failover. </li>
 	</ul>
-<p>You can read about additional Azure Site Recovery deployment scenarios in <a href="http://go.microsoft.com/fwlink/?LinkId=518690">Azure Site Recovery Overview</a>.</p>
 
+<P>The tutorial uses the quickest deployment path and default settings where possible.</P>
+<UL>
+<LI>If you want more information for a full deployment read the <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Planning</a> and <a href="http://go.microsoft.com/fwlink/?LinkId=519251">Deployment</a> guides.</LI>
+<LI>You can read about additional Azure Site Recovery deployment scenarios in <a href="http://go.microsoft.com/fwlink/?LinkId=518690">Azure Site Recovery Overview</a>.</LI>
+<LI>f you run into problems during this tutorial, review the wiki article <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: Common Error Scenarios and Resolutions</a>, or post your questions on the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI>
+</UL>
 
-<h2><a id="about"></a>About this tutorial</h2>
-
-<P>Use this tutorial to set up a quick proof-of-concept for Azure Site Recovery with SAN replication. This walkthrough uses the quickest path and default settings where possible.</P>
-
-
-<P>If you run into problems during this tutorial, review the wiki article <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: Common Error Scenarios and Resolutions</a>, or post your questions on the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</P>
 
 </div>
 
 
-<h2><a id="before"></a>Before you begin</h2> 
+<h2><a id="before"></a>Prerequisites</h2> 
 <div class="dev-callout"> 
-<P>Before you start this tutorial check the prerequisites.</P>
-
-<h3><a id="HVRMPrereq"></a>Prerequisites</h3>
+<P>Make sure you have everything in place before you begin the tutorial.</P>
 
 <UL>
-<LI><b>Azure account</b>—You'll need an Azure account. If you don't have one, see <a href="http://aka.ms/try-azure">Azure free trial</a>. Get pricing information at <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Azure Site Recovery Manager Pricing Details</a>.</LI>
+<LI><b>Azure account</b>—You'll need an Azure account. If you don't have one, see <a href="http://aka.ms/try-azure">Azure free trial</a>. Get subscription pricing information at <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Azure Site Recovery Manager Pricing Details</a>.</LI>
 <LI>If you want to know what information is collected, processed, or transmitted during Azure Site Recovery operations, read <a href="http://go.microsoft.com/fwlink/?LinkId=513016">Privacy Requirements</a> on MSDN.</LI>
 <LI><b>VMM server</b>—You'll need a VMM server in each on-premises site, deployed as a physical or virtual standalone server, or as a virtual cluster, running on System Center 2012 R2 with <a href="http://go.microsoft.com/fwlink/?LinkId=517707">VMM update rollup 5.0 preview.</a>.</LI>
 <LI>You'll need a Hyper-V host cluster deployed in the primary and secondary sites, running at least Windows Server 2012 with the latest updates.</LI>
@@ -74,7 +77,7 @@ After verifying the prerequisites, do the following:
 	<li>Create replication groups for LUNs that should replicate together.</li>
 	</ul>
 <LI><a href="#vault">Step 2: Create a vault</a>—Create an Azure Site Recovery vault.</LI>
-<LI><a href="#download">Step 3: Install the Provider</a>—Generate a registration key, and setup the Microsoft Azure Site Recovery Provider on VMM servers to install it and register the VMM server in the vault.</LI>
+<LI><a href="#download">Step 3: Install the Provider on the VMM servers</a>—Generate a registration key in the vault, and download the Provider setup file. You run setup on the VMM servers to install the Provider and register the servers in the vault.</LI>
 
 <LI><a href="#storage">Step 4: Map storage arrays and pools</a>—Map arrays to specify which secondary storage pool receives replication data from the primary pool. Map storage before you configure cloud protection because the mapping information is used when  you enable protection for replication groups.</LI>
 <LI><a href="#clouds">Step 5: Configure cloud protection</a>—Configure protection settings for VMM clouds.</LI>
