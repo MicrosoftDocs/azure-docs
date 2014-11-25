@@ -55,7 +55,7 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 	
 	![Windows Firewall][Image2]
 
-	Select **TCP** and then **Specific local ports**.  Specify a port of "27107" (the port MongoDB listens on) and click **Next**.
+	Select **TCP** and then **Specific local ports**.  Specify a port of "27017" (the port MongoDB listens on) and click **Next**.
 
 	![Windows Firewall][Image3]
 
