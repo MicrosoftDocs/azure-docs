@@ -67,11 +67,11 @@ To use the custom activity in a pipeline:
     	    "PackageFile": "customactivitycontainer/MyCustomActivity.zip",
 
 ## To update custom activity
-If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage, you need to override the existing pipeline that uses the custom activity by running the **New-AzureDataFactoryPipeline**. When you create a pipeline that uses the custom activity, the zip file is copied from the blob storage you specified to an Azure Data Factory container on the blob storage attached to the HDInsight cluster. This is done only at the creation of the pipeline. Therefore, you need to recreate the pipeline when you update the custom activity. 
-
-The following Walkthrough provides you with step-by-step instructions for creating a custom activity and using the activity in an Azure Data Factory pipeline. This walkthrough extends the tutorial from the [Get started with Azure Data Factory][adfgetstarted]. If you want to see the custom activity working, you need to go through the Get started tutorial first and then do this walkthrough. 
+If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage. 
 
 ## Walkthrough
+This Walkthrough provides you with step-by-step instructions for creating a custom activity and using the activity in an Azure Data Factory pipeline. This walkthrough extends the tutorial from the [Get started with Azure Data Factory][adfgetstarted]. If you want to see the custom activity working, you need to go through the Get started tutorial first and then do this walkthrough. 
+
 **Prerequisites:**
 
 
