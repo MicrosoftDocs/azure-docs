@@ -88,7 +88,7 @@ For more information about Azure Storage Accounts, see [How to Manage Storage Ac
 <b>Note</b> 
 <p>Application logging to table or blob storage is only supported for .NET applications.</p> </div>
 
-Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this secti.
+Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
 
 <div class="dev-callout"> 
 	<b>Note</b> 
