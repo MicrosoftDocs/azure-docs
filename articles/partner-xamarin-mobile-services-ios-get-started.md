@@ -20,7 +20,7 @@ A screenshot from the completed app is below:
 
 ![][0]
 
-Completing this tutorial requires XCode 4.5 and iOS 5.0 or later versions as well as [Xamarin Studio] for OS X or the Xamarin Visual Studio plug-in for Visual Studio on Windows.
+Completing this tutorial requires XCode and [Xamarin Studio] for OS X or the Xamarin Visual Studio plug-in for Visual Studio on Windows. The sample will run on iOS 5.0 and newer.
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">Azure Free Trial</a>.</p></div>
 
@@ -44,7 +44,7 @@ In this section you will create a new Xamarin.iOS app that is connected to your 
 
   	![][7]
 
-3. If you haven't already done so, download and install [Xcode] v4.4 or a later version and [Xamarin Studio].
+3. If you haven't already done so, download and install Xcode (we recommend the latest version, Xcode 6.0, or newer) and [Xamarin Studio].
 
 4. Click **Create TodoItems table** to create a table to store app data.
 
