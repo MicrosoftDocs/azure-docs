@@ -24,8 +24,8 @@ This tutorial requires the following:
 * XCode 4.5 and iOS 6.0 (or later versions) 
 * Visual Studio with the [Xamarin extension] **or** [Xamarin Studio] on OS X
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial
-* [Azure Mobile Services SDK version 1.3.0-beta2 (or later)][Mobile Services SDK Nuget]
-* [Azure Mobile Services SQLite Store version 1.0.0-beta2 (or later)][SQLite store nuget]
+* [Azure Mobile Services SDK version 1.3.0 (or later)][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0 (or later)][SQLite store nuget]
 
 >[WACOM.NOTE] The instructions below assume you are using Visual Studio 2012 or higher with the Xamarin extension. If you are using Xamarin Studio on OS X, use the built-in NuGet package manager support.
 
@@ -214,7 +214,7 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 
     A pull always issues a push first.  
 
-    This sample uses an overload of **PullAsync()** that allows specifying a query key and a query. The query key is used for incremental sync. The Mobile Services SDK tracks the last updated timestamp after each successful pull operation. On the next pull, only newer records will be retrieved. If no query key is specified, a full sync will be performed for the sync table.
+    The method **PullAsync()** requires a query ID and a query. The query ID is used for incremental sync, and you should use a different query ID for each unique query in your app. The Mobile Services SDK tracks the last updated timestamp after each successful pull operation. On the next pull, only newer records will be retrieved. If null is specified as the query ID, a full sync will be performed for the sync table.
 
 ## Next steps
 
@@ -243,8 +243,8 @@ You can download the completed version of this tutorial in our [GitHub samples r
 [Get started with Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
 [How to use the Xamarin Component client for Azure Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
 
-[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
-[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
+[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
+[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
