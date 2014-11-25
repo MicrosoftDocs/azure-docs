@@ -1,6 +1,6 @@
 <properties urlDisplayName="Twilio Phone Call" pageTitle="How to make a phone call from Twilio (.NET) - Azure" metaKeywords="Azure .NET Twilio, Azure Twilio, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages, ASP.NET twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to make a phone call using Twilio in a web role on Azure" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; larryf" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com; larryf" />
 
 
 
@@ -26,9 +26,7 @@ This guide demonstrates how to use Twilio to make a call from a web page hosted 
 You will need to do the following to use the code in this topic:
 
 1. Acquire a Twilio account and authentication token. To get started with Twilio, sign up at [https://www.twilio.com/try-twilio][try_twilio]. You can evaluate pricing at [http://www.twilio.com/pricing][twilio_pricing]. For information about the API provided by Twilio, see [http://www.twilio.com/voice/api][twilio_api].
-2. Verify your phone number with Twilio. For information on how to verify your phone number, see [https://www.twilio.com/user/account/phone-numbers/verified#][verify_phone]. As an alternative to using an existing number, you can purchase a Twilio phone number.<br/>
-For the purposes of this example you will use the Twilio sandbox phone number to send a message to the verified phone number. You can only use the sandbox phone number to send to verified phone numbers.
-3. Add the Twilio .NET libary to your web role. See "To add the Twilio libraries to your web role project," later in this topic.
+2. Add the Twilio .NET libary to your web role. See "To add the Twilio libraries to your web role project," later in this topic.
 
 You should be familiar with creating a basic web role on Azure.
 
@@ -123,8 +121,8 @@ The following code, which is called when the user completes the form, creates th
                     String Url = "http://twimlets.com/message?Message%5B0%5D="
                             + myMessage.Replace(" ", "%20");
 
-                    // Diplay the enpoint, API version, and the URL for the message.
-                    this.varDisplay.Items.Add("Using Tilio endpoint "
+                    // Display the endpoint, API version, and the URL for the message.
+                    this.varDisplay.Items.Add("Using Twilio endpoint "
                         + TwilioBaseURL);
                     this.varDisplay.Items.Add("Twilioclient API Version is "
                         + APIversuion);
@@ -134,9 +132,7 @@ The following code, which is called when the user completes the form, creates th
                     // to the outbound call.
                     CallOptions options = new CallOptions();
 
-                    // Set the call From, To, and URL values into a hash map.
-                    // This sample uses the sandbox number provided by Twilio
-                    // to make the call.
+                    // Set the call From, To, and URL values.                    
                     options.From = "+14155992671";
                     options.To = to;
                     options.Url = Url;
