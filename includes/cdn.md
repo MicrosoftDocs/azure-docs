@@ -27,9 +27,7 @@ Use the following procedure to create a new storage account for a
 Azure subscription. A storage account gives access to 
 Azure storage services. The storage account represents the highest level
 of the namespace for accessing each of the Azure storage service
-components: Blob services, Queue services, and Table services. For more
-information about the Azure storage services, see [Using the
-Azure Storage Services].
+components: Blob services, Queue services, and Table services. 
 
 To create a storage account, you must be either the service
 administrator or a co-administrator for the associated subscription.
