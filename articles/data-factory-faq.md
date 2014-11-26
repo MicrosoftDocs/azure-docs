@@ -80,9 +80,15 @@ See the Geographic Availability section in the following article: or [HDInsight 
 
 The on-demand HDInsight cluster is created in the same region where the storage you specified to be used with the cluster exists.    
 
-[adfgetstarted]: ../data-factory-get-started
+## See Also
+[Introduction to Azure Data Factory][adf-introduction]
+[Get started with Azure Data Factory][adfgetstarted]
+[Troubleshooting Guide for Data Factory][adf-troubleshoot]
 
+
+[adfgetstarted]: ../data-factory-get-started
 [adf-introduction]: ../data-factory-introduction
+[adf-troubleshoot]: ../data-factory-troubleshoot
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-preview-portal]: http://portal.azure.com
 

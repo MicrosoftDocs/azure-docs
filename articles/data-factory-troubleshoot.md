@@ -19,6 +19,47 @@ You are probably not using the right Azure account or subscription with the Azur
 2. Get-AzureSubscription - View all the subscriptions for the account. 
 3. Select-AzureSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Preview Portal.
 
+## Problem: Input slices are in PendingExecution or PendingValidation state for ever
+
+The slices could be in **PendingExecution** or **PendingValidation** state due to a number of reasons and one of the common reasons is that the **waitOnExternal** property is not specified in the **availability** section of the first table/dataset in the pipeline. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **waitOnExternal** property under **availability** section. This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
+
+See the following example for the usage of the **waitOnExternal** property. You can specify **waitOnExternal{}** without setting values for properties in the section so that the default values are used. 
+
+See Tables topic in [JSON Scripting Reference][json-scripting-reference] for more details about this property.
+	
+	{
+	    "name": "CustomerTable",
+	    "properties":
+	    {
+	        "location":
+	        {
+	            "type": "AzureBlobLocation",
+	            "folderPath": "MyContainer/MySubFolder/",
+	            "linkedServiceName": "MyLinkedService",
+	            "format":
+	            {
+	                "type": "TextFormat",
+	                "columnDelimiter": ",",
+	                "rowDelimiter": ";"
+	            }
+	        },
+	        "availability":
+	        {
+	            "frequency": "Hour",
+	            "interval": 1,
+	            "waitOnExternal":
+	            {
+	                "dataDelay": "00:10:00",
+	                "retryInterval": "00:01:00",
+	                "retryTimeout": "00:10:00",
+	                "maximumRetry": 3
+	            }
+	        }
+	    }
+	}
+
+ To resolve the error, add the **waitOnExternal** section to the JSON definition of the input table and recreate the table. 
+
 ## Walkthroughs 
 
 - [Walkthrough: Troubleshooting an error with copying data](#copywalkthrough)
@@ -242,6 +283,7 @@ Article | Description
 [troubleshoot]: ../data-factory-troubleshoot
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 
 [azure-preview-portal]: https://portal.azure.com/
 
