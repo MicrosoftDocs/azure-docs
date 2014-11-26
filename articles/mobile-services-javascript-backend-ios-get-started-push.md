@@ -10,13 +10,13 @@ This topic shows you how to use Azure Mobile Services to send push notifications
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Generate the certificate signing request]
-2. [Register your app and enable push notifications]
-3. [Create a provisioning profile for the app]
-4. [Configure Mobile Services]
-5. [Add push notifications to the app]
-6. [Update scripts to send push notifications]
-7. [Insert data to receive notifications]
+1. [Generate the certificate signing request](#certificates)
+2. [Register your app and enable push notifications](#register)
+3. [Create a provisioning profile for the app](#profile)
+4. [Configure Mobile Services](#configure)
+5. [Add push notifications to the app](#add-push)
+6. [Update scripts to send push notifications](#update-scripts)
+7. [Insert data to receive notifications](#test)
 
 This tutorial requires the following:
 
@@ -33,11 +33,44 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 [WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 
-## Configure Mobile Services to send push requests
+## <a id="configure"></a>Configure Mobile Services to send push requests
 
 [WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
-## Add push notifications to your app
+## <a id="update-scripts"></a>Update the registered insert script in the Management Portal
+
+1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table.
+
+   	![][21]
+
+2. In **todoitem**, click the **Script** tab and select **Insert**.
+
+  	![][22]
+
+   	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+
+3. Replace the insert function with the following code, and then click **Save**:
+
+        function insert(item, user, request) {
+            request.execute();
+            // Set timeout to delay the notification, to provide time for the
+            // app to be closed on the device to demonstrate push notifications
+            setTimeout(function() {
+                push.apns.send(null, {
+                    alert: "Alert: " + item.text,
+                    payload: {
+                        inAppMessage: "Hey, a new item arrived: '" + item.text + "'"
+                    }
+                });
+            }, 2500);
+        }
+
+   	This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request.
+
+
+   	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.
+
+## <a id="add-push"></a>Add push notifications to your app
 
 1. In QSAppDelegate.m, insert the following snippet to import the Mobile Services iOS SDK:
 
@@ -91,40 +124,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 Your app is now updated to support push notifications.
 
-## Update the registered insert script in the Management Portal
-
-1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table.
-
-   	![][21]
-
-2. In **todoitem**, click the **Script** tab and select **Insert**.
-
-  	![][22]
-
-   	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
-
-3. Replace the insert function with the following code, and then click **Save**:
-
-        function insert(item, user, request) {
-            request.execute();
-            // Set timeout to delay the notification, to provide time for the
-            // app to be closed on the device to demonstrate push notifications
-            setTimeout(function() {
-                push.apns.send(null, {
-                    alert: "Alert: " + item.text,
-                    payload: {
-                        inAppMessage: "Hey, a new item arrived: '" + item.text + "'"
-                    }
-                });
-            }, 2500);
-        }
-
-   	This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request.
-
-
-   	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.
-
-## Test push notifications in your app
+## <a id="test"></a>Test push notifications in your app
 
 1. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications
 
@@ -146,7 +146,7 @@ Your app is now updated to support push notifications.
 
 You have successfully completed this tutorial.
 
-## Next steps
+## <a id="next-steps"></a>Next steps
 
 This tutorial demonstrated the basics of enabling an iOS app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorials:
 
@@ -180,14 +180,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
   <br/>Learn more about how to implement business logic in your mobile service.
 
 <!-- Anchors. -->
-[Generate the certificate signing request]: #certificates
-[Register your app and enable push notifications]: #register
-[Create a provisioning profile for the app]: #profile
-[Configure Mobile Services]: #configure
-[Update scripts to send push notifications]: #update-scripts
-[Add push notifications to the app]: #add-push
-[Insert data to receive notifications]: #test
-[Next Steps]:#next-steps
+
 
 <!-- Images. -->
 [5]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
