@@ -1,12 +1,12 @@
-<properties linkid="mobile-services-how-to-ios-client" urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
 
 
 
 # How to use the iOS client library for Mobile Services
-<div class="dev-center-tutorial-selector sublanding"> 
+<div class="dev-center-tutorial-selector sublanding">
   <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
@@ -53,26 +53,26 @@ In addition, you must add the following reference in the appropriate files or in
 
 	#import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
-<h2><a name="create-client"></a><span class="short-header">Create the client</span>How to: Create the Mobile Services client</h2>
+<h2><a name="create-client"></a>How to: Create the Mobile Services client</h2>
 
-The following code creates the mobile service client object that is used to access your mobile service. 
+The following code creates the mobile service client object that is used to access your mobile service.
 
 	MSClient *client = [MSClient clientWithApplicationURLString:@"MobileServiceUrl" applicationKey:@"AppKey"]
-	
+
 In the code above, replace `MobileServiceUrl` and `AppKey` with the mobile service URL and application key of your mobile service. To determine these settings for your mobile service, in the Azure Management Portal select your mobile service, then click **Dashboard**.
 
 You can also create your client from an **NSURL** object that is the URL of the service, as follows:
 
-	MSClient *client = [MSClient clientWithApplicationURL:[NSURL URLWithString:@"MobileServiceUrl"] applicationKey:@"AppKey"];		
+	MSClient *client = [MSClient clientWithApplicationURL:[NSURL URLWithString:@"MobileServiceUrl"] applicationKey:@"AppKey"];
 
-<h2><a name="table-reference"></a><span class="short-header">Create table reference</span>How to: Create a table reference</h2>
+<h2><a name="table-reference"></a>How to: Create a table reference</h2>
 
 Before you can access data from your mobile service, you must get a reference to the table from which you want to query, update, or delete items. In the following example, `ToDoItem` is the table name:
 
-	MSTable *table = [client tableWithName:@"ToDoItem"]; 
+	MSTable *table = [client tableWithName:@"ToDoItem"];
 
 
-<h2><a name="querying"></a><span class="short-header">Query data</span>How to: Query data from a mobile service</h2>
+<h2><a name="querying"></a>How to: Query data from a mobile service</h2>
 
 Once you have a MSTable object you can then create your query.  The following simple query gets all the items in our ToDoItem table.
 
@@ -96,12 +96,12 @@ The following parameters are supplied in the callback:
 
 ### <a name="filtering"></a>How to: Filter returned data
 
-When you want to filter your results, you have a number of options available to you. 
+When you want to filter your results, you have a number of options available to you.
 
 The most common case is to use an NSPredicate to filter the results.
 
 	[table readWithPredicate:(NSPredicate *)predicate completion:(MSReadQueryBlock)completion];
-	
+
 The following predicate returns only the incomplete items in our ToDoItem table:
 
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
@@ -114,7 +114,7 @@ The following predicate returns only the incomplete items in our ToDoItem table:
 			}
 		}
 	}];
-	
+
 A single record can be retrieved by using its Id.
 
 	[table readWithId:[@"37BBF396-11F0-4B39-85C8-B319C729AF6D"] completion:^(NSDictionary *item, NSError *error) {
@@ -131,10 +131,10 @@ Note that in this case the callback parameters are slightly different.  Instead 
 
 Use the **MSQuery** object when you need a query that is more complex than just filtering rows, such as changing the sort order on your results or limiting the number of data records you get back. The following two examples show how to create an MSQuery object instance:
 
-    MSQuery *query = [table query];	
-    
+    MSQuery *query = [table query];
+
     MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
-    
+
 The MSQuery object enables you to control the following query behaviors:
 
 * Specify the order results are returned.
@@ -151,16 +151,16 @@ The following functions are used to specify the fields used for sorting:
 
 	-(void) orderByAscending:(NSString *)field
 	-(void) orderByDescending:(NSString *)field
-	
+
 This query sorts the results first by duration and then by whether the task is complete:
 
 	[query orderByAscending:@"duration"];
 	[query orderByAscending:@"complete"];
 	[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
 		//code to parse results here
-	}];	
+	}];
 
-#### <a name="paging"></a>Returning data in pages 
+#### <a name="paging"></a>Returning data in pages
 
 Mobile Services limits the amount of records that are returned in a single response. To control the number of records displayed to your users you must implement a paging system.  Paging is performed by using the following three properties of the **MSQuery** object:
 
@@ -181,7 +181,7 @@ In the following example, a simple function requests 20 records from the server 
 		[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
 			if(!error) {
 				// Add the items to our local copy
-				[self.loadedItems addObjectsFromArray:items];		
+				[self.loadedItems addObjectsFromArray:items];
 
 				// Set a flag to keep track if there are any additional records we need to load
 				self.moreResults = (self.loadedItems.count < totalCount);
@@ -190,42 +190,42 @@ In the following example, a simple function requests 20 records from the server 
 	}
 
 #### <a name="selecting"></a>Limiting the returned fields
- 
+
 To limit which field are returned from your query, simply specify the names of the fields you want in the **selectFields** property. The following example returns only the text and completed fields:
 
 	query.selectFields = @[@"text", @"completed"];
 
 #### <a name="parameters"></a>Specifying additional querystring parameters
 
-The client library makes it possible to include additional querystring parameters in the request to the server. These parameters might be required by your server side scripts. The following example adds two querystring parameters to the request:   
+The client library makes it possible to include additional querystring parameters in the request to the server. These parameters might be required by your server side scripts. The following example adds two querystring parameters to the request:
 
 	query.parameters = @{
 		@"myKey1" : @"value1",
 		@"myKey2" : @"value2",
 	};
 
-These parameters are appended to query URI as `myKey1=value1&myKey2=value2`. 
+These parameters are appended to query URI as `myKey1=value1&myKey2=value2`.
 For more information, see [How to: access custom parameters].
 
-<h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
+<h2><a name="inserting"></a>How to: Insert data into a mobile service</h2>
 
 To insert a new row into the table, you create a new [NSDictionary object] and pass that to the insert function. The following code inserts a new todo item into the table:
 
 	NSDictionary *newItem = @{@"text": @"my new item", @"complete" : @NO};
 	[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
 		// The result contains the new item that was inserted,
-		// depending on your server scripts it may have additional or modified 
+		// depending on your server scripts it may have additional or modified
 		// data compared to what was passed to the server.
-	}];	
+	}];
 
 Mobile Services supports unique custom string values for the table id. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
 
 	NSDictionary *newItem = @{@"id": @"myemail@emaildomain.com", @"text": @"my new item", @"complete" : @NO};
 	[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
 		// The result contains the new item that was inserted,
-		// depending on your server scripts it may have additional or modified 
+		// depending on your server scripts it may have additional or modified
 		// data compared to what was passed to the server.
-	}];	
+	}];
 
 If a string id value is not provided when inserting new records into a table, Mobile Services will generate a unique value for the id.
 
@@ -261,7 +261,7 @@ You can alternatively use integer Ids for your tables. In order to use an intege
 
 When dynamic schema is enabled, Mobile Services automatically generates new columns based on the fields of the object in the insert or update request. For more information, see [Dynamic schema].
 
-<h2><a name="modifying"></a><span class="short-header">Modifying data</span>How to: Modify data in a mobile service</h2>
+<h2><a name="modifying"></a>How to: Modify data in a mobile service</h2>
 
 Update an existing object by modifying an item returned from a previous query and then calling the **update** function.
 
@@ -276,8 +276,8 @@ When making updates, you only need to supply the field being updated, along with
 	[table update:@{@"id" : @"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete": @YES} completion:^(NSDictionary *item, NSError *error) {
 		//handle errors or any additional logic as needed
 	}];
-	
-	
+
+
 To delete an item from the table, simply pass the item to the delete method, as follows:
 
 	[table delete:item completion:^(id itemId, NSError *error) {
@@ -288,21 +288,21 @@ You can also just delete a record using its id directly, as in the following exa
 
 	[table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
 		//handle errors or any additional logic as needed
-	}];	
+	}];
 
 Note that, at minimum, the `id` attribute must be set when making updates and deletes.
 
-<h2><a name="authentication"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
+<h2><a name="authentication"></a>How to: Authenticate users</h2>
 
 Mobile Services enables you to use the following identity providers to authenticate users:
 
 - Facebook
-- Google 
+- Google
 - Microsoft Account
 - Twitter
 - Azure Active Directory
 
-For more information about configuring an identity provider, see [Get started with authentication]. 
+For more information about configuring an identity provider, see [Get started with authentication].
 
 Mobile Services supports the following two authentication workflows:
 
@@ -310,7 +310,7 @@ Mobile Services supports the following two authentication workflows:
 
 - In a client-managed login, the app must request a token from the identity provider and then present this token to Mobile Services for authentication.
 
-When authentication succeeds, a user object is returned that contains the assigned user ID value and the authentication token. You can use this user ID in server scripts to validate or modify requests. For more information, see [Use scripts to authorize users]. The token itself can be securely cached to use in subsequent logins. 
+When authentication succeeds, a user object is returned that contains the assigned user ID value and the authentication token. You can use this user ID in server scripts to validate or modify requests. For more information, see [Use scripts to authorize users]. The token itself can be securely cached to use in subsequent logins.
 
 You can also set permissions on tables to restrict access for specific operations to only authenticated users. For more information, see [Permissions].
 
@@ -326,14 +326,14 @@ Here is an example of how to login using a Microsoft Account. This code could be
 			} else {
 				msg = [@"You are logged in as " stringByAppendingString:user.userId];
 			}
-		
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login" 
-								  message:msg 
-								  delegate:nil 
-								  cancelButtonTitle:@"OK" 
+
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login"
+								  message:msg
+								  delegate:nil
+								  cancelButtonTitle:@"OK"
 								  otherButtonTitles: nil];
 			[alert show];
-	}];	
+	}];
 
 Note: if you are using an identity provider other than the one for a Microsoft Account, change the value passed to the login method above to one of the following: `facebook`, `twitter`, `google`, or `windowsazureactivedirectory`.
 
@@ -345,17 +345,17 @@ You can also get a reference to the MSLoginController and display it yourself us
 
 There are cases when the login process is done outside of the Mobile Services client. You might do this to enable a single sign-on functionality or when your app must contact the identity provider directly to obtain user information. In these cases, you can login to Mobile Services by providing a token obtained independently from a supported identity provider.
 
-The following example uses the [Live Connect SDK] to enable single sign-on for iOS apps. 
-	
-	[client loginWithProvider:@"microsoftaccount" 
+The following example uses the [Live Connect SDK] to enable single sign-on for iOS apps.
+
+	[client loginWithProvider:@"microsoftaccount"
 		token:@{@"authenticationToken" : self.liveClient.session.authenticationToken}
 		completion:^(MSUser *user, NSError *error) {
 			self.loggedInUser = user;
 			NSString *msg = [@"You are logged in as " stringByAppendingString:user.userId];
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login" 
-				message:msg 
-				delegate:nil 
-				cancelButtonTitle:@"OK" 
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login"
+				message:msg
+				delegate:nil
+				cancelButtonTitle:@"OK"
 				otherButtonTitles: nil];
 			[alert show];
 	}];
@@ -371,14 +371,14 @@ To prevent users from having to authenticate every time they use run your applic
 		NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
 		[query setObject:(__bridge id)kSecClassInternetPassword forKey:(__bridge id)(kSecClass)];
 		[query setObject:client.applicationURL.absoluteString forKey:(__bridge id)(kSecAttrServer)];
-    	
+
 		if(isSearch) {
 			// Use the proper search constants, return only the attributes of the first match.
 			[query setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
 			[query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnAttributes];
 			[query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
 		}
-    
+
 		return query;
 	}
 
@@ -389,38 +389,38 @@ To prevent users from having to authenticate every time they use run your applic
 		OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&cfresult);
 		if (status == noErr) {
 			NSDictionary * result = (__bridge_transfer NSDictionary*) cfresult;
-			
+
 			//create an MSUser object
 			MSUser *user = [[MSUser alloc] initWithUserId:[result objectForKey:(__bridge id)(kSecAttrAccount)]];
 			NSData *data = [result objectForKey:(__bridge id)(kSecValueData)];
 			user.mobileServiceAuthenticationToken = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 			[self.todoService.client setCurrentUser:user];
-			
+
 		} else if (status == errSecItemNotFound) {
 			//we need to log the user in
 			[self.todoService.client loginWithProvider:@"MicrosoftAccount" controller:self animated:YES
 				completion:^(MSUser *user, NSError *error) {
 					NSString *msg = [@"You are logged in as " stringByAppendingString:user.userId];
-					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login" 
-											message:msg delegate:nil 
-											cancelButtonTitle:@"OK" 
+					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login"
+											message:msg delegate:nil
+											cancelButtonTitle:@"OK"
 											otherButtonTitles: nil];
 					[alert show];
-                
+
 					//save the user id and token to the KeyChain
-					NSMutableDictionary *newItem = [self createKeyChainQueryWithClient:self.todoService.client 
+					NSMutableDictionary *newItem = [self createKeyChainQueryWithClient:self.todoService.client
 															andIsSearch:NO];
 					[newItem setObject:user.userId forKey:(__bridge id)kSecAttrAccount];
-					[newItem setObject:[user.mobileServiceAuthenticationToken dataUsingEncoding:NSUTF8StringEncoding] 
+					[newItem setObject:[user.mobileServiceAuthenticationToken dataUsingEncoding:NSUTF8StringEncoding]
                                                     forKey:(__bridge id)kSecValueData];
-                 
+
 					OSStatus status = SecItemAdd((__bridge CFDictionaryRef)newItem, NULL);
 					if(status != errSecSuccess) {
 						//handle error as needed
 						NSAssert(NO, @"Error caching password.");
 					}
 			}];
-		}	
+		}
 
 <div class="dev-callout"><strong>Note</strong>
 <p>Tokens are sensitive data and must be stored encrypted in case the device is lost or stolen.</p>
@@ -428,7 +428,7 @@ To prevent users from having to authenticate every time they use run your applic
 
 When using a cached token, a user will not have to login again until the token expires. When a user tries to login with an expired token, a 401 unauthorized response is returned. At this point, the user must log in again to obtain a new token, which can again be cached. You can use filters to avoid having to write code that handles expired tokens wherever your app calls the mobile service.  Filters allow you to intercept calls to and responses from your mobile service. The code in the filter tests the response for a 401, triggers the login process if the token is expired, and then retries the request that generated the 401. For details, see [Handling Expired Tokens].
 
-<h2><a name="errors"></a><span class="short-header">Error handling</span>How to: Handle errors</h2>
+<h2><a name="errors"></a>How to: Handle errors</h2>
 
 When a call is made to the mobile service, the completion block contains an `NSError *error` parameter. When an error occurs, this parameter is returned a non-null value. In your code, you should check this parameter and handle the error as needed.
 
@@ -446,11 +446,11 @@ In addition, a constant is defined for each error code. An explanation of these 
 For an example of performing validation and handling any, see [Validate and modify data in Mobile Services by using server scripts]. In this topic, server-side validation is implemented by using server scripts. When invalid data is submitted, and error response is returned and this response is handled by the client.
 
 <!--
-<h2><a name="#unit-testing"></a><span class="short-header">Designing tests</span>How to: Design unit tests</h2>
+<h2><a name="#unit-testing"></a>How to: Design unit tests</h2>
 
 _(Optional) This section shows how to write unit test when using the client library (info from Yavor)._
 
-<h2><a name="#customizing"></a><span class="short-header">Customizing the client</span>How to: Customize the client</h2>
+<h2><a name="#customizing"></a>How to: Customize the client</h2>
 
 _(Optional) This section shows how to send customize client behaviors._
 
@@ -488,7 +488,7 @@ For more information see, New topic about processing headers in the server-side.
 [Cache authentication tokens]: #caching-tokens
 [How to: Upload images and large files]: #blobs
 [How to: Handle errors]: #errors
-[How to: Design unit tests]: #unit-testing 
+[How to: Design unit tests]: #unit-testing
 [How to: Customize the client]: #customizing
 [Customize request headers]: #custom-headers
 [Customize data type serialization]: #custom-serialization

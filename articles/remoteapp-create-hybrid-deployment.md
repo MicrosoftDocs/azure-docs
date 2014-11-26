@@ -1,6 +1,6 @@
-<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="How to create a hybrid deployment of RemoteApp" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo"  />
+<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="How to create a hybrid deployment of RemoteApp" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/05/2014" ms.author="elizapo" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="elizapo" ms.manager="kathyw" />
 
 #How to create a hybrid deployment of RemoteApp
 
@@ -15,7 +15,7 @@ This tutorial walks you through the process of creating a hybrid deployment. The
 2.	Create a RemoteApp service.
 2.	Link to a virtual network.
 3.	Link a template image.
-4.	Configure directory synchronization. RemoteApp requires this to synchronize users, groups, contacts, and passwords from your on-premises Active Directory to your Azure Active Directory tenant.
+4.	Configure directory synchronization. RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring DirSync with the Password Sync option, or 2) configuring DirSync without the Password Sync option but using a domain that is federated to AD FS.
 5.	Publish RemoteApp programs.
 6.	Configure user access.
 
@@ -76,7 +76,7 @@ A virtual network lets your users access data on your local network through Remo
 
 A RemoteApp template image contains the programs that you want to share with users. You can either upload the new template image you created (from the instructions in [How to create a custom template image for RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/)) or link to an existing image (one already uploaded to Azure).
 
-If you are uploading the new image, you need to enter the name and choose the location for the image. On the next page of the wizard, you'll see a set of PowerShell cmdlets - copy and run these cmdlets from an elevated Azure PowerShell prompt to upload the specified image.
+If you are uploading the new image, you need to enter the name and choose the location for the image. On the next page of the wizard, you'll see a set of PowerShell cmdlets - copy and run these cmdlets from an elevated Windows PowerShell prompt to upload the specified image.
 
 If you are linking to an existing template image, simply specify the image name, location, and associated Azure subscription.
 
@@ -84,7 +84,7 @@ If you are linking to an existing template image, simply specify the image name,
 
 ## **Step 4: Configure Active Directory directory synchronization** ##
 
-RemoteApp requires directory synchronization between Azure Active Directory and your on-premise Active Directory to synchronize users, groups, contacts, and passwords to your Azure Active Directory tenant. See [Directory synchronization roadmap](http://msdn.microsoft.com//library/azure/hh967642.aspx) for planning information and detailed steps.
+RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring DirSync with the Password Sync option, or 2) configuring DirSync without the Password Sync option but using a domain that is federated to AD FS. See [Directory synchronization roadmap](http://msdn.microsoft.com//library/azure/hh967642.aspx) for planning information and detailed steps.
 
 ## **Step 5: Publish RemoteApp programs** ##
 

@@ -1,6 +1,6 @@
-<properties linkid="manage-windows-commontask-install-sql-server" urlDisplayName="Install SQL Server" pageTitle="Provision a SQL Server virtual machine in Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="clairt" editor="tyson" />
+<properties urlDisplayName="Install SQL Server" pageTitle="Provision a SQL Server virtual machine in Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="jhubbard" editor="tyson" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="selcint" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="" />
 
 
 
@@ -32,7 +32,7 @@ In this tutorial, you will:
     > - You can upgrade an existing instance of SQL Server Evaluation edition to a different edition of SQL Server under the [License Mobility through Software Assurance on Azure](http://www.windowsazure.com/en-us/pricing/license-mobility/) agreement by following the steps at [Upgrade to a Different Edition of SQL Server 2014](http://go.microsoft.com/fwlink/?LinkId=396915). For information on how to purchase the licensed copy of SQL Server, see [How to Buy SQL Server](http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx).
    
 
-4. On the **Virtual Machine Configuration** page, provide the following information:
+4. On the first **Virtual Machine Configuration** page, provide the following information:
 	- Provide a **VIRTUAL MACHINE NAME**.
 	- In the **NEW USER NAME** box, type unique user name for the VM local administrator account.
 	- In the **NEW PASSWORD** box, type a strong password. For more information, see [Strong Passwords](http://msdn.microsoft.com/library/ms161962.aspx).
@@ -42,9 +42,9 @@ In this tutorial, you will:
 	>[WACOM.NOTE] The size of the virtual machine is specified during provisioning:
  	> A2 is the smallest size recommended for production workloads. 
     > The minimum recommended size for a virtual machine is A3 when using SQL Server Enterprise Edition.
-    > Select A3 or higher when using SQL Server Enterprise Edition. 
-   	> Select A6 when using SQL Server 2012 Enterprise for Data Warehousing image. 
-   	> Select A7 when using SQL Server 2014 for Data Warehousing image. 
+    > Select A3 or higher when using SQL Server Enterprise Edition.
+   	> Select A4 when using SQL Server 2012 or 2014 Enterprise Optimized for Transactional Workloads images.  
+   	> Select A7 when using SQL Server 2012 or 2014 Enterprise Optimized for Data Warehousing Workloads images. 
    	> The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](http://msdn.microsoft.com/en-us/library/azure/dn197896.aspx).
 
 	Click the next arrow on the bottom right to continue.
@@ -52,21 +52,17 @@ In this tutorial, you will:
 	![VM Configuration](./media/virtual-machines-provision-sql-server/4VM-Config.png)
 
 
-
-5. On the **Virtual machine mode** page, provide the following information:
-	- Select **Standalone Virtual Machine**.
-	- In the **DNS NAME** box, provide the first portion of a DNS name of your choice, so that it completes a name in the format **TESTNAME.cloudapp.net** 
+5. On the second **Virtual machine configuration** page, configure resources for networking, storage, and availability:
+	- In the **Cloud Service** box, choose **Create a new cloud service**.
+	- In the **Cloud Service DNS Name** box, provide the first portion of a DNS name of your choice, so that it completes a name in the format **TESTNAME.cloudapp.net** 
 	- In the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** box, select a region where this virtual image will be hosted.
-
-	Click the next arrow to continue.
-
-	![VM Mode][Image5]
-
-6. On the **Virtual machine options** page:
-	- In the **AVAILABILITY SET** box, select **(none)**. 
+	- In the **Storage Account**, select an existing storage account or select an automatically generated one.
+	- In the **AVAILABILITY SET** box, select **(none)**.
 	- Read and accept the legal terms.
+	
 
-	![VM Options][Image6]
+6. Click the next arrow to continue.
+
 
 7. Click the check mark in the bottom right corner to continue.
 
@@ -83,7 +79,7 @@ In this tutorial, you will:
 
 1. When provisioning completes, click on the name of your virtual machine to go to the DASHBOARD page. At the bottom of the page, click **Connect**.
 
-	![Select Dashboard Page][Image5b]
+	
 2. Choose to open the rpd file using the Windows Remote Desktop program (`%windir%\system32\mstsc.exe`).
 
 	
@@ -104,7 +100,7 @@ Before you can connect to the instance of SQL Server from the internet, you must
 - [Create SQL Server authentication logins](#Logins)
 - [Determine the DNS name of the virtual machine](#DNS)
 - [Connect to the Database Engine from another computer](#cde)
-- [Connecting to the Database Engine from your application] (#cdea)
+- [Connecting to the Database Engine from your application](#cdea)
 
 The connection path is summarized by the following diagram:
 
@@ -120,25 +116,20 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 2. Click on your newly created virtual machine. Information about your virtual machine is presented.
 	
 
-3. Near the top of the page, select the **ENDPOINTS** page, and then at the bottom of the page, click **ADD ENDPOINT**.
+3. Near the top of the page, select the **ENDPOINTS** page, and then at the bottom of the page, click **ADD**.
+	
 
-	![Click ADD ENDPOINT][Image28]
+4. On the **Add an Endpoint to a Virtual Machine** page, click **Add a Stand-alone Endpoint**, and then click the Next arrow to continue.
 
-4. On the **Add Endpoint to Virtual Machine** page, click **Add Endpoint**, and then click the Next arrow to continue.
-
-	![Click Add endpoint][Image29]
-
+	
 5. On the **Specify the details of the endpoint** page, provide the following information.
 
 	- In the **NAME** box, provide a name for the endpoint.
-	- In the **PROTOCOL** box, select **TCP**. You may type SQL Server's default listening port **1433** in the **Private Port** box. Similarly, you may type **57500** in the **PUBLIC PORT** box. Note that many organizations select different port numbers to avoid malicious security attacks.
+	- In the **PROTOCOL** box, select **TCP**. You may type **57500** in the **PUBLIC PORT** box. Similarly, you may type SQL Server's default listening port **1433** in the **Private Port** box. Note that many organizations select different port numbers to avoid malicious security attacks. 
 
-
-	![Endpoint screen][Image30]
 
 6. Click the check mark to continue. The endpoint is created.
-
-	![VM with Endpoint][Image31]
+	
 
 ###<a id="FW">Open TCP ports in the Windows firewall for the default instance of the Database Engine</a>
 
@@ -277,8 +268,7 @@ To connect to the SQL Server Database Engine from another computer, you must kno
 1. In the Azure Management Portal (or from the previous step), select **VIRTUAL MACHINES**. 
 
 2. On the **VIRTUAL MACHINE INSTANCES** page, in the **DNS NAME** column, find and copy the DNS name for the virtual machine which appears preceded by **http://**. (The user interface might not display the entire name, but you can right-click on it, and select copy.)
-
-	![DNS Name][Image32]
+	
 
 ### <a id="cde">Connect to the Database Engine from another computer</a>
  
@@ -340,9 +330,8 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 
 - Tutorial: AlwaysOn Availability Groups in Azure (GUI)
 - Tutorial: AlwaysOn Availability Groups in Azure (PowerShell)
-- Tutorial: AlwaysOn Availability Groups in Hybrid IT (PowerShell)
-- Tutorial: Listener Configuration for AlwaysOn Availability Groups in Azure
-- Tutorial: Listener Configuration for AlwaysOn Availability Groups in HybridIT
+- Tutorial: Listener Configuration for AlwaysOn Availability Groups
+- Tutorial: Add Azure Replica Wizard
 - Tutorial: Database Mirroring for Disaster Recovery in Azure
 - Tutorial: Database Mirroring for Disaster Recovery in Hybrid IT 
 - Tutorial: Database Mirroring for High Availability in Azure
@@ -361,16 +350,20 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 
 [Technical Articles for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/azure/dn248435.aspx)
 
+- [White paper: Understand Azure SQL Database and SQL Server in Azure Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas/)
+
 - [White paper: Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/azure/dn574746.aspx)
 
 - [White paper: Deploy SQL Server Business Intelligence in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
 
 - [White paper: Performance Guidance for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn248436.aspx)
 
+- [White paper: Reporting Services report viewer control and Microsoft Azure virtual machine based report servers](http://msdn.microsoft.com/library/azure/dn753698.aspx)
+
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
 [Image5b]: ./media/virtual-machines-provision-sql-server/5VM-Connect.png
 [Image6]: ./media/virtual-machines-provision-sql-server/6VM-Options.png
-[Image8b]: ./media/virtual-machines-provision-sql-server/SQLVMConnectionsOnAzure.GIF
+[Image8b]: ./media/virtual-machines-provision-sql-server/SQLServerinVMConnectionMap.png
 [Image9]: ./media/virtual-machines-provision-sql-server/9Click-SSCM.png
 [Image10]: ./media/virtual-machines-provision-sql-server/10Enable-TCP.png
 [Image11]: ./media/virtual-machines-provision-sql-server/11Restart.png

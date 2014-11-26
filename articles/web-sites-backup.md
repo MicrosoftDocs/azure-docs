@@ -1,6 +1,6 @@
-<properties linkid="web-sites-backup" urlDisplayName="Azure Websites Backups" pageTitle="Azure Websites Backups" metaKeywords="Azure Web Sites, Backups" description="Learn how to create backups of your Azure websites." metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Backups" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Azure Websites Backups" pageTitle="Azure Websites Backups" metaKeywords="Azure Web Sites, Backups" description="Learn how to create backups of your Azure websites." metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Backups" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/19/2014" ms.author="cephalin" />
 
 #Azure Websites Backups
 
@@ -26,7 +26,7 @@ For information on restoring an Azure website from backup, see [Restore an Azure
 
 In this video, Eduardo Laureano and Scott Hanselman introduce Azure websites backups. (Duration: 11:43)  
 
-> [WACOM.VIDEO azure-websites-automatic-and-easy-backup]
+> [AZURE.VIDEO azure-websites-automatic-and-easy-backup]
 
 <a name="whatsbackedup"></a>
 ##What Gets Backed Up 

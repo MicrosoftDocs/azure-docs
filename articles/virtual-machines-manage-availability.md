@@ -1,13 +1,13 @@
-<properties linkid="manage-windows-common-tasks-vm-availability" urlDisplayName="Manage Availability of VMs" pageTitle="Manage the availability of virtual machines - Azure" metaKeywords="" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Manage Availability of VMs" pageTitle="Manage the availability of virtual machines - Azure" metaKeywords="" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk" />
 
 #Manage the availability of virtual machines
 
 ## Understand planned versus unplanned maintenance
-There are two types of Azure platform events that can impact the availability of your virtual machines: planned maintenance and unplanned maintenance.
+There are two types of Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
 
-- **Planned maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. The majority of these updates are performed without any impact to your virtual machines or cloud services. However, there are instances where these updates require a reboot to your virtual machine to apply the required updates to the platform infrastructure. 
+- **Planned maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. The majority of these updates are performed without any impact upon your virtual machines or cloud services. However, there are instances where these updates require a reboot of your virtual machine to apply the required updates to the platform infrastructure. 
 
 - **Unplanned maintenance events** occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical machine hosting your virtual machine to a healthy physical machine. Such events are rare, but may also cause your virtual machine to reboot. 
 
@@ -29,6 +29,8 @@ FDs define the group of virtual machines that share a common power source and ne
 <!--Image reference-->
    ![UD FD configuration](./media/virtual-machines-manage-availability/ud-fd-configuration.png)
 
+>[WACOM.NOTE] For instructions, see [How to Configure an Availability Set for Virtual Machines] [].
+
 ### Configure each application tier into separate Availability Sets
 If the virtual machines in your availability set are all nearly identical and serve the same purpose for your application, we recommend that you configure an Availability Set for each tier of your application.  If you place two different tiers in the same Availability Set, all virtual machines in the same application tier could be rebooted at once. By configuring at least two virtual machines in an Availability Set for each tier, you guarantee that at least one virtual machine in each tier will be available.   
 
@@ -41,7 +43,7 @@ For example, you could put all the VMs in the front-end of your application runn
 ### Combine the Load Balancer with Availability Sets
 Combine the Azure Load Balancer with an Availability Set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Note that not all Virtual Machine tiers include the Azure Load Balancer. For more information on load balancing your virtual machines, please read [Load Balancing Virtual Machines](../load-balance-virtual-machines/). 
 
-If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event will impact the only traffic-serving virtual machine causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and Availability Set enables traffic to be continuously served by at least one instance. 
+If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event will affect the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and Availability Set enables traffic to be continuously served by at least one instance. 
 
 ### Avoid single instance virtual machines in Availability Sets
 Avoid leaving a single instance virtual machine in an Availability Set by itself. Virtual machines in this configuration do not qualify for SLA guarantee and will face downtime during Azure planned maintenance events.  Furthermore, if you deploy a single VM instance within an availability set, you will receive no advanced warning or notification of platform maintenance. In this configuration, your single virtual machine instance can and will be rebooted with no advanced warning when platform maintenance occurs.
@@ -52,7 +54,7 @@ Avoid leaving a single instance virtual machine in an Availability Set by itself
 [Avoid single instance virtual machines in Availability Sets]: #avoid-single-instance-virtual-machines-in-availability-sets 
 
  
-
-
+<!-- Link references -->
+[How to Configure An Availability Set for Virtual Machines]: ../virtual-machines-how-to-configure-availability
 
 

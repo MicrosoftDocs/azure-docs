@@ -1,12 +1,14 @@
-<properties title="Azure Machine Learning Sample: Credit risk prediction" pageTitle="Machine Learning Sample: Credit risk prediction | Azure" description="A sample Azure Machine Learning experiment to develop a binary classification model that predicts if an applicant is a low credit risk or a high credit risk." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties title="Azure Machine Learning Sample: Credit risk prediction" pageTitle="Machine Learning Sample: Credit risk prediction | Azure" description="A sample Azure Machine Learning experiment to develop a binary classification model that predicts if an applicant is a low credit risk or a high credit risk." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
 
-#Azure Machine Learning Sample: Credit risk prediction 
 
-*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+# Azure Machine Learning Sample: Credit risk prediction 
 
-	Sample Experiment - German Credit - Development
+>[AZURE.NOTE]
+>The [Sample Experiment] and [Sample Dataset] associated with this model are available in ML Studio. See below for more details.
+[Sample Experiment]: #sample-experiment
+[Sample Dataset]: #sample-dataset
 
 *For a detailed walkthrough of how to create and use a simplified version of this experiment, see [Develop a predictive solution with Azure Machine Learning](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).*
 
@@ -21,6 +23,7 @@ This example is divided into 3 sample experiments:
 - Scoring Experiment – to set up a web service using the trained model
 -->
 
+<!-- Removed because we added a section at the bottom describing the dataset
 ##Dataset Description
 
 The experiment uses the UCI Statlog (German Credit Card) dataset which can be found here: 
@@ -28,6 +31,7 @@ The experiment uses the UCI Statlog (German Credit Card) dataset which can be fo
 We are using the german.data file from this website.
 
 The dataset classifies people, described by a set of attributes, as low or high credit risks. Each example represents a person. There are 20 features, both numerical and categorical, and a binary label (the credit risk value). High credit risk entries have label = 2, low credit risk entries have label = 1. The cost of misclassifying a low risk example as high is 1, whereas the cost of misclassifying a high risk example as low is 5.
+-->
 
 ##Development Experiment
 
@@ -105,6 +109,22 @@ When the service is ready to go live, go to the **CONFIGURATION** tab on the **W
 
 ![Web service ready for production][screen4] 
 -->
+
+## Sample Experiment
+
+The following sample experiment associated with this model is available in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab.
+
+> **Sample Experiment - German Credit - Development**
+
+
+## Sample Dataset
+
+The following sample dataset used by this experiment is available in ML Studio in the module palette under **Saved Datasets**.
+
+###German Credit Card UCI dataset
+[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
+
+
 
 [screen1]:./media/machine-learning-sample-credit-risk-prediction/screen1.jpg
 [screen2]:./media/machine-learning-sample-credit-risk-prediction/screen2.jpg

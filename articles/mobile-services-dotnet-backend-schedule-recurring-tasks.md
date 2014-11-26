@@ -1,7 +1,6 @@
-<properties  pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="" editor=""  />
+<properties  pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="dwrede" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
-
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
 # Schedule recurring jobs in Mobile Services 
 
@@ -250,11 +249,11 @@ The job must be registered in the **Scheduler** tab so that Mobile Services can 
 
     >[WACOM.NOTE]When you run your mobile service in <em>Free</em> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.
 
-3. In the scheduler dialog, enter _SampleJob_ for the **Job Name**, set the schedule interval and units, then click the check button. 
+3. In the scheduler dialog, enter _Sample_ for the **Job Name**, set the schedule interval and units, then click the check button. 
    
    	![][4]
 
-   	This creates a new job named **SampleJob**. 
+   	This creates a new job named **Sample**. 
 
 4. Click the new job you just created, then click **Run Once** to test the script. 
 

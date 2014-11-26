@@ -1,66 +1,53 @@
-<properties title="Application Insights" pageTitle="Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
+<properties title="Application Insights" pageTitle="Application Insights - start monitoring your app's health and usage" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
 
-# Application Insights - Get Started
+# Application Insights - Start monitoring your app's health and usage
 
 *Application Insights is in preview.*
 
-Application Insights lets you monitor the availability, performance, and usage of your live application. (It doesn't have to be a Microsoft Azure application.) Configuration is very easy, and you'll see results in minutes.
+Application Insights lets you monitor your live application for:
 
-* **Availability** - Make sure your web app is available and responsive. We'll test your URLs every few minutes from locations around the globe, and let you know if there's a problem.
-* **Performance** - Diagnose any performance issues or exceptions in your web service. See how your response times vary with the request count, find out if CPU or other resources are being stretched, get stack traces from exceptions, and easily search through log traces. 
-* **Usage** - Find out what users are doing with your app, so that you can focus your development work where it's most useful. Currently, you can monitor web apps, Windows Store, and Windows Phone apps.
+* **Availability** - We'll test your URLs every few minutes from around the world.
+* **Performance**  - Detect and diagnose perf issues and exceptions.
+* **Usage** - Find out what users are doing with your app, so that you can make it better for them.
+
+Configuration is very easy, and you'll see results in minutes. We currently support ASP.NET web apps (on your own servers or on Azure).
+
 
 ## Get started
 
-There are two ways to get started:
+Start with any combination, in any order, of the entry points on the left of this chart. Pick the routes that work for you. If you're developing an ASP.NET web app, start by adding Application Insights to your web project - it's easy to add the other bits later.
 
-* [Add Application Insights to your project in Visual Studio][start]
+You'll need an account in [Microsoft Azure](http://azure.com) (unless you use the VSO version).
 
-    Add Application Insights to your projects to track usage, performance and availability, and to analyse diagnostic logs. You can see data within minutes in debug mode, and then deploy your project to get live data.
-
-    Use this option if you're updating or creating a project. 
-    
-    [Get started by adding Application Insights to your project.][start]
-
-* [Diagnose issues in a live web service now][redfield]
-
-    Install the Application Insights agent on your IIS server and see performance data in minutes. Watch  request count, response times, resource load, and get exception traces. 
-
-    Use this option if you need to understand what's going on in your web server right now. It doesn't involve redeploying your code. But you do need administrative access to your server, and a Microsoft Azure account.
-
-    You can add availability monitoring at any time. 
-
-	Later, you can use the other option to add Application Insights to your project to analyse diagnostic logs and track usage.
-
-    [Get started by installing Application Insights on your web server.][redfield]
-
->[WACOM.NOTE] There's an [older version of Application Insights](http://msdn.microsoft.com/en-us/library/dn481095.aspx) in Visual Studio Online. We're rebuilding it from the ground up as part of Microsoft Azure, and it's the new version that you're reading about here.
-
-![Example application monitor in Application Insights](./media/appinsights/appinsights-00-appblade.png)
-
-[WACOM.VIDEO application-insights-introduction]
-
-## Learn more
-
-* [Application Insights][root]
-* [Add Application Insights to your project][start]
-* [Monitor a live web server now][redfield]
-* [Explore metrics in Application Insights][explore]
-* [Diagnostic log search][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Usage tracking with events and metrics][usage]
-* [Q & A and troubleshooting][qna]
+<table >
+<tr valign="top"><th>What you need</th><th colspan="2">What to do</th><th>What you get</th></tr>
+<tr valign="top"><td>Get perf and usage analytics for my ASP.NET app</td><td colspan="2"><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights to your web project</a></td><td>Performance metrics: load counts, response times, ...</td></tr>
+<tr valign="top"><td></td><td></td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Send events and metric from your server code</a></td><td>Custom business analytics</td></tr>
+<tr valign="top"><td></td><td></td><td><a href="../app-insights-search-diagnostic-logs/">Send trace and exception telemetry from your server, or capture 3rd party log data.</td><td>Server app diagnostics. Search and filter log data.</a></td></tr>
+<tr valign="top"><td>Get usage analytics for my web pages (on any platform)</td><td colspan="2"><a href="../app-insights-web-track-usage/">Insert the AI script in your web pages</a></td><td>Usage analytics: page views, returning users, session counts</td></tr>
+<tr valign="top"><td></td><td>&nbsp;&nbsp;</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Write event and metric calls in your web page scripts</a></td><td>Custom user experience analytics</td></tr>
+<tr valign="top"><td></td><td></td><td><a href="../app-insights-search-diagnostic-logs/">Write trace and diagnostic calls in your web page scripts</a></td><td>Search and filter log data.</td></tr>
+<tr valign="top"><td>Diagnose issues in an ASP.NET app already running on my web server</td><td colspan="2"><a href="../app-insights-monitor-performance-live-website-now/">Install Status Monitor on your web server</a></td><td>Dependency call durations and counts; CPU, mem and network counters; load counts, response times</td></tr>
+<tr valign="top"><td>Monitor the availability of any web pages</td><td colspan="2"><a href="../app-insights-monitor-web-app-availability/">Set up web tests on Application Insights</a></td><td>Availability monitor and alerts</td></tr>
+<tr valign="top"><td>Get perf and usage analytics for Windows Phone apps, Windows Store apps, or Java websites</td><td colspan="2"><a href="http://msdn.microsoft.com/library/dn481095.aspx">For now, use the older VSO version of Application Insights</a></td><td>Usage and performance analytics. <a href="http://msdn.microsoft.com/library/dn793604.aspx">We're gradually building up features in the Azure version.</a></td></tr>
+</table>
 
 
-<!--Link references-->
+## <a name="video"></a>Videos
 
-[root]: ../app-insights-get-started/
-[start]: ../app-insights-monitor-application-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[explore]: ../app-insights-explore-metrics/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
+#### Introduction
+
+> [AZURE.VIDEO application-insights-introduction]
+
+#### Get started
+
+> [AZURE.VIDEO getting-started-with-application-insights]
+
+
+
+
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+
+

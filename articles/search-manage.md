@@ -1,15 +1,17 @@
-<properties title="Manage your Search service on Microsoft Azure" pageTitle="Manage your Search service on Microsoft Azure" description="Manage your Search service on Microsoft Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="heidist" videoId="" scriptId="" />
+<properties title="Manage your Search service on Microsoft Azure" pageTitle="Manage your Search service on Microsoft Azure" description="Manage your Search service on Microsoft Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+
+<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
 
 # Manage your Search service on Microsoft Azure
 
 
 [WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
-Azure Search is a cloud-based service and HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, storage, and a query command syntax. 
+Azure Search is a cloud-based service and HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, search data storage, and a query command syntax. 
 
-This article explains how to administer a Search service in Microsoft Azure.
+This article explains how to administer a Search service in the new [Azure Preview portal](https://portal.azure.com).
 
-As noted, the new Preview portal is required for administrative tasks. Azure Search is not available on earlier versions of the portal. A management API will be available soon to allow for scripting of common management tasks.  
+Alternatively, you can use the Management REST API. See [Get started with Azure Search Management REST API](http://azure.microsoft.com/en-us/documentation/articles/search-get-started-management-api/) and [Azure Search Management REST API reference](http://msdn.microsoft.com/en-us/library/azure/dn832684.aspx) for details.
 
 <!--TOC-->
 
@@ -20,12 +22,13 @@ As noted, the new Preview portal is required for administrative tasks. Azure Sea
 + [Monitor resource usage](#sub-5)
 + [Scale up or down](#sub-6)
 + [Start or Stop the Service](#sub-7)
++ [Set roles to control administrative access](#sub-8)
 
 <h2 id="sub-1">Add search service to your subscription</h2>
 
-As the administrator, you can add Search to your existing Azure subscription using the new [Azure Preview portal](https://portal.azure.com). Only administrators can add features to a subscription. When setting up your service, there are two pricing tiers to choose from.
+As the administrator setting up a Search service, one of your first decisions is choosing a pricing tier. Options include the Free and Standard pricing tiers.
 
-At no charge to existing subscribers, you can use a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects. The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed. There are no performance guarantees with the shared service, so if you're building a production search application, consider standard search instead.
+At no charge to existing subscribers, you can opt for a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects. The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed. There are no performance guarantees with the Shared service, so if you're building a production search application, consider Standard search instead.
 
 Standard search is billable because you are signing up for dedicated resources and infrastructure used only by your subscription. Standard search is allocated in user-defined bundles of partitions (storage) and replicas (service workloads), and priced by search unit. You can scale up on partitions or replicas independently, adding more of whatever resource is needed.
 
@@ -34,7 +37,7 @@ To plan for capacity and understand the billing impact, we recommend these links
 +	[Limits and constraints](http://msdn.microsoft.com/en-us/library/dn798934.aspx)
 +	[Pricing Details](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-When you are ready to sign up, see [Configure Search in the Azure Preview portal](../search-configure/).
+When you are ready to sign up, see [Get started with Azure Search](../search-get-started/).
 
 
 <h2 id="sub-2">Administrative tasks</h2>
@@ -47,6 +50,7 @@ Besides adding Search to the subscription, an administrator is responsible for t
 +	Monitor resource usage
 +	Scale up or down (applies to standard search only)
 +	Start or stop the service
++	Set roles to control administrative access
 
 <h2 id="sub-3">Service URL</h2>
 
@@ -150,6 +154,41 @@ You can start, stop, or even delete the service using commands in the service da
 
 Stopping or starting the service does not turn off billing. You must delete the service to avoid charges altogether. Any data associated with your service is deleted when your service is decommissioned.
 
+<!---->
+<h2 id="sub-8">Set roles on administrative access</h2>
+
+Azure provides a global role-based authorization model for all services managed through the Preview Portal, or in the Azure Resource Manager API if you're using a custom administration tool. Owner, Contributor, and Reader roles set the level of service administration for the Active Directory users, groups, and security principals you assign to each role. See [Role-based access control in Azure Preview Portal](http://azure.microsoft.com/en-us/updates/role-based-access-control-in-azure-preview-portal/) for details about role membership.
+
+In terms of Azure Search, role-based access controls determine the following administrative tasks:
+
+<table>
+<tr>
+<td>Owner</td>
+<td>
+Start, stop, or delete the service.</br>
+Generate and view admin keys and query keys.</br>
+View service status, including index count, index names, document count, and storage size.</br>
+Add or delete role membership (only an Owner can manage role membership).</br>
+</br>
+Subscription and service administrators have automatic membership in the Owners role.
+</td>
+</tr>
+<tr>
+<td>Contributor</td>	
+<td>Has the same level of access as Owner, except for role management. For example, a Contributor can view and regenerate `api-key`, but he or she cannot modify role memberships.
+</td>
+</tr>
+<tr>
+<td>Reader</td>
+<td>View service status and query keys. Members of this role cannot start or stop a service, nor can they view admin keys.
+</td>
+</tr>
+</table>
+
+Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [Role-based access control in Azure Preview Portal](http://azure.microsoft.com/en-us/updates/role-based-access-control-in-azure-preview-portal/) for more information.
+
+Roles provide access control after the service is created. Only subscription managers can add a Search service to a subscription.
+
 
 <!--Anchors-->
 [Add search service to your subscription]: #sub-1
@@ -159,6 +198,7 @@ Stopping or starting the service does not turn off billing. You must delete the 
 [Monitor resource usage]: #sub-5
 [Scale up or down]: #sub-6
 [Start or Stop the Service]: #sub-7
+[Set roles to control administrative access]: #sub-8
 
 
 <!--Image references-->
@@ -169,7 +209,7 @@ Stopping or starting the service does not turn off billing. You must delete the 
 
 
 <!--Link references-->
-[Configure search in the Azure Preview Portal]: ../search-configure/
+[Get started with Azure Search]: ../search-get-started/
 [Azure Search development workflow]: ../search-workflow/
 [Create your first azure search solution]: ../search-create-first-solution/
 

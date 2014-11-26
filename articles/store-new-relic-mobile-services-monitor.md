@@ -1,6 +1,7 @@
-<properties linkid="mobile-services-monitor-new-relic" urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to use the New Relic add-on to monitor your mobile service." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="" />
+<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to use the New Relic add-on to monitor your mobile service." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
+
 # Use New Relic to monitor Mobile Services
 
 This topic shows you how to configure the third-party New Relic add-on to work with Azure Mobile Services to provide enhanced monitoring of your mobile service. 
@@ -107,6 +108,7 @@ Next, you will enable New Relic monitoring of your mobile service in the [Manage
 
 ##<a name="next-steps"> </a>Next steps
 
++ To optimzie your **iOS**/**Android** mobile app performance, see [New Relic Mobile].
 + For pricing information see the [New Relic page in the Azure Store].
 + For more information about using New Relic, see [Applications Overview] in the New Relic documentation. 
 
@@ -137,4 +139,5 @@ Next, you will enable New Relic monitoring of your mobile service in the [Manage
 [Applications Overview]: https://docs.newrelic.com/docs/applications-dashboards/applications-overview
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+[New Relic Mobile]: http://newrelic.com/mobile-monitoring
 

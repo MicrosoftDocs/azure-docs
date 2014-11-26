@@ -1,6 +1,6 @@
-<properties pageTitle="Get started with push notifications (legacy push) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Phone app (legacy push)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" authors="glenga" solutions="" manager="" editor="" />
+<properties pageTitle="Get started with push notifications (legacy push) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Phone app (legacy push)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="glenga" />
 
 
 # Get started with push notifications in Mobile Services (legacy push)
@@ -43,7 +43,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 [WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
-<h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
+<h2><a name="add-push"></a>Add push notifications to your app</h2>
 		
 1. In Visual Studio, open the project file MainPage.xaml.cs and add the following code that creates a new **Registrations** class:
 
@@ -100,7 +100,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
    	This makes sure that your app can receive push notifications.
 
-<h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert scripts in the Management Portal</h2>
+<h2><a name="update-scripts"></a>Update the registered insert scripts in the Management Portal</h2>
 
 [WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
@@ -138,7 +138,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
     This insert script sends a push notification (with the text of the inserted item) to all channels stored in the **Registrations** table.
 
-<h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
+<h2><a name="test"></a>Test push notifications in your app</h2>
 
 1. In Visual Studio, select **Deploy Solution** on the **Build**  menu.
 

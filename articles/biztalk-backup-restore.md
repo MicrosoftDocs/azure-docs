@@ -1,6 +1,6 @@
-<properties linkid="biztalk-backup-restore" urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk Services: Backup and Restore | Azure" metaKeywords="" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
+<properties urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk Services: Backup and Restore | Azure" metaKeywords="" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="mandia" />
 
 
 # BizTalk Services: Backup and Restore
@@ -22,7 +22,7 @@ You can also back up BizTalk Services using the [BizTalk Services REST API](http
 
 - Using the Azure Management Portal, you can create an On Demand backup or create a scheduled backup. 
 
-- Backup content can be restored to the same BizTalk Service or to a new BizTalk Service. To restore the BizTalk Service using the same name, the existing BizTalk Service must be deleted. Otherwise, the restore fails.
+- Backup content can be restored to the same BizTalk Service or to a new BizTalk Service. To restore the BizTalk Service using the same name, the existing BizTalk Service must be deleted and the name must be available. After you delete a BizTalk Service, it can take longer time than wanted for the same name to be available. If you cannot wait for the same name to be available, then restore to a new BizTalk Service.
 
 - BizTalk Services can be restored to the same edition or a higher edition. Restoring BizTalk Services to a lower edition, from when the backup was taken, is not supported.
 
@@ -84,8 +84,6 @@ You can restore backups from the Azure Management Portal or from the [Restore Bi
 ####Before restoring a backup
 
 - New tracking, archiving, and monitoring stores can be specified while restoring a BizTalk Service.
-
-- To restore the BizTalk Service using the same name, delete the existing BizTalk Service before you start with the restore. Otherwise, the restore fails.
 
 - The same EDI Runtime data is restored. The EDI Runtime backup stores the control numbers. The restored control numbers are in sequence from the time of the backup. If messages are processed after the last backup, restoring this backup content can cause duplicate control numbers.
 

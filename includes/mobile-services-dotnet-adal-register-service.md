@@ -15,29 +15,22 @@ In this section you will register your mobile service with the Azure Active Dire
 
 5. Open the application manifest file with Visual Studio. At the top of the file find the app permissions line that looks as follows:
 
-        "appPermissions": [],
+        "oauth2Permissions": [],
 
     Replace that line with the following app permissions and save the file.
 
-        "appPermissions": [
-	        {
-        		"claimValue": "user_impersonation",
-		        "description": "Allow the application access to the mobile service",
-        		"directAccessGrantTypes": [],
-	        	"displayName": "Have full access to the mobile service",
-	        	"impersonationAccessGrantTypes": [
-	        		{
-	        			"impersonated": "User",
-	        			"impersonator": "Application"
-	        		}
-	        	],
-	        	"isDisabled": false,
-	        	"origin": "Application",
-	        	"permissionId": "b69ee3c9-c40d-4f2a-ac80-961cd1534e40",
-	        	"resourceScopeType": "Personal",
-	        	"userConsentDescription": "Allow the application full access to the mobile service on your behalf",
-	        	"userConsentDisplayName": "Have full access to the mobile service"
-        	}
+        "oauth2Permissions": [
+            {
+                "adminConsentDescription": "Allow the application access to the mobile service",
+                "adminConsentDisplayName": "Have full access to the mobile service",
+                "id": "b69ee3c9-c40d-4f2a-ac80-961cd1534e40",
+                "isEnabled": true,
+                "origin": "Application",
+                "type": "User",
+                "userConsentDescription": "Allow the application full access to the mobile service on your behalf",
+                "userConsentDisplayName": "Have full access to the mobile service",
+                "value": "user_impersonation"
+            }
         ],
 
 6. In the Azure Management portal, click **Manage Manifest** for the application again and click **Upload Manifest**.  Browse to the location of the application manifest that you just updated and upload the manifest.

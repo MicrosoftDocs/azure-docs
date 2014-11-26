@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 
 
@@ -17,13 +17,13 @@ include **creating queues, sending and receiving messages**, and
 
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-<h2><span class="short-header">Configure the Application</span>Configure the Application to Use Service Bus</h2>
+##Configure the Application to Use Service Bus
 
 When you create an application that uses Service Bus, you must
 add a reference to the Service Bus assembly and include the
 corresponding namespaces.
 
-<h2><span class="short-header">Get the NuGet Package</span>Get the Service Bus NuGet Package</h2>
+##Get the Service Bus NuGet Package
 
 The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
@@ -43,7 +43,8 @@ To install the NuGet package in your application, do the following:
 
 You are now ready to write code against Service Bus.
 
-<h2><span class="short-header">Set Up the Connection String</span>How to Set Up a Service Bus Connection String</h2>
+
+##How to Set Up a Service Bus Connection String
 
 The Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
 
@@ -99,7 +100,7 @@ When using Websites or Virtual Machines, it is recommended you use the .NET conf
 Use the issuer and key values retrieved from the Management Portal as
 described in the previous section.
 
-<h2><span class="short-header">How to Create a Queue</span>How to Create a Queue</h2>
+##How to Create a Queue
 
 You can perform management operations for Service Bus queues via the **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
@@ -150,7 +151,7 @@ maximum size of 5GB and a default message time-to-live of 1 minute:
 objects to check if a queue with a specified name already exists within
 a service namespace.
 
-<h2><span class="short-header">Send Messages to a Queue</span>How to Send Messages to a Queue</h2>
+##How to Send Messages to a Queue
 
 To send a message to a Service Bus queue, your application creates a
 **QueueClient** object using the connection string.
@@ -199,7 +200,7 @@ held in a queue but there is a cap on the total size of the messages
 held by a queue. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
-<h2><span class="short-header">Receive Messages from a Queue</span>How to Receive Messages from a Queue</h2>
+##How to Receive Messages from a Queue
 
 The easiest way to receive messages from a queue is to use a
 **QueueClient** object. These objects can work in two
@@ -257,7 +258,7 @@ processed using the default **PeekLock** mode. To specify a different **ReceiveM
        }
     } 
 
-<h2><span class="short-header">Application Crashes and Unreadable Messages</span>How to Handle Application Crashes and Unreadable Messages</h2>
+##How to Handle Application Crashes and Unreadable Messages
 
 The Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -285,7 +286,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-<h2><span class="short-header">Next Steps</span>Next Steps</h2>
+##Next Steps
 
 Now that you've learned the basics of Service Bus queues, follow these
 links to learn more.
