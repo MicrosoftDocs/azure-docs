@@ -44,7 +44,7 @@ Security-enabled connection string: <*server name*>.database.**secure**.windows.
 ##<a id="subheading-2"></a>Set up auditing for your database
 
 1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com. Alternatively, you can also luanch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. Refer to detials below.
-2. Click the database you want to audit, and then click **Auditing Preview** to enable the auditing preview and launch the auditing configuration blade.
+2. Navigate to the configuration blade of the database you want to audit. Scroll down to the **Operations** section, and then click **Auditing** to enable the auditing and launch the auditing configuration blade.
 
 	![][1]
 
@@ -56,9 +56,7 @@ Security-enabled connection string: <*server name*>.database.**secure**.windows.
 
 	![][3]
 
-5. Check **Save this Configuration as Default** if you want these settings to apply to all future databases on the server, and any that don't already have auditing set up. You can override the settings later for each database by following these same steps.
-
-	![][4]
+5. Check **Save these settings as server default** if you want these settings to apply to all future databases on the server, and any that don't already have auditing set up. You can override the settings later for each database by following these same steps. 
 
 6. Click **Show database connection strings** and then copy or make a note of the appropriate security enabled connection string for your application. Use this string for any client applications whose activity you want to audit.
 
@@ -97,6 +95,28 @@ For more detailed instructions on working with the report template, read the <a 
 6. Click **SAVE**.
 7. Click **Show secured connection string** for the connection string.
 
+
+##<a id="subheading-3">Practices for usage in production</a>
+The description in this section refers to screen captures above. either <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> or <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> may be used.
+ 
+
+##<a id="subheading-4"></a>Security Enabled Access
+
+In production you are likely to require that all traffic to the database from all applications and tools is auditing. For that modify **Security Enabled Access** from *Optional* to *Required* and save the policy.
+
+##<a id="subheading-4"></a>Storage Key Regeneration
+
+In production you are likely to refresh your storage keys periodically. The Auditing Service does not persist your storage account keys. Upon Save, a write only Shared Access Signature (SAS) key is produced for the auditing table (Only the customer can read the audit logs). For this purpose When refresh your keys you need to re-save the policy. The process is as follows:.
+
+
+1. In the auditing UI, switch the **Storage Access Key** from *Primary* to *Secondary* and **SAVE**.
+
+2. Go to the storage UI and **regenerate** the *Primary Access Key*.
+
+3. Go back to the auditing UI, switch the **Storage Access Key** from *Secondary* to *Primary* and pres **SAVE**.
+
+4. Go back to the storage UI and **regenerate** the *Secondary Access Key* (as preparation for the next keys refresh cycle.
+  
 
 
 <!--Anchors-->
