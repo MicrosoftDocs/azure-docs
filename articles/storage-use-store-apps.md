@@ -30,7 +30,7 @@ Next, add a reference to the Azure Storage Client Library by right clicking on *
 
 <h3>Using the library with the Blob and Queue services</h3>
 
-At this point, your app is ready call the Blob and Queue services. Add the following **using** statements so that Azure Storage types can be referenced directly:
+At this point, your app is ready to call the Blob and Queue services. Add the following **using** statements so that Azure Storage types can be referenced directly:
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
