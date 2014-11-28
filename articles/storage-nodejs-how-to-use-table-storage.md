@@ -284,7 +284,7 @@ Since **select** is not used, all fields will be returned. To perform the query 
 	  }
 	});
 
-If successful, `result.entries` will contain an array of entities that match the query. If the query was unable to return all entities, `result.continuationToken` can be used as the third parameter of **queryEntities** to retrieve more results. For the initial query, the second parameter should be *null*.
+If successful, `result.entries` will contain an array of entities that match the query. If the query was unable to return all entities, `result.continuationToken` will be non-*null* and can be used as the third parameter of **queryEntities** to retrieve more results. For the initial query, the third parameter should be *null*.
 
 ###How to Query a Subset of Entity Properties
 
