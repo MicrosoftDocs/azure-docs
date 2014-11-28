@@ -97,26 +97,32 @@ For more detailed instructions on working with the report template, read the <a 
 
 
 ##<a id="subheading-3">Practices for usage in production</a>
-The description in this section refers to screen captures above. either <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> or <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> may be used.
+The description in this section refers to screen captures above. Either <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> or <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> may be used.
  
 
 ##<a id="subheading-4"></a>Security Enabled Access
 
-In production you are likely to require that all traffic to the database from all applications and tools is auditing. For that modify **Security Enabled Access** from *Optional* to *Required* and save the policy.
+In production you are likely to require that all traffic to the database from all applications and tools is audited. For that modify **Security Enabled Access** from *Optional* to *Required* and save the policy. Once *Required* is configured there is no option to access the Database through the original connection string but only through the security enabled connection string.
+
+
+![][9]
+
 
 ##<a id="subheading-4"></a>Storage Key Regeneration
 
 In production you are likely to refresh your storage keys periodically. The Auditing Service does not persist your storage account keys. Upon Save, a write only Shared Access Signature (SAS) key is produced for the auditing table (Only the customer can read the audit logs). For this purpose When refresh your keys you need to re-save the policy. The process is as follows:.
 
 
-1. In the auditing UI, switch the **Storage Access Key** from *Primary* to *Secondary* and **SAVE**.
+1. In the auditing configuration blade (described above in the set up auditing section) switch the **Storage Access Key** from *Primary* to *Secondary* and **SAVE**.
+![][10]
+2. Go to the storage configuration blade and **regenerate** the *Primary Access Key*.
 
-2. Go to the storage UI and **regenerate** the *Primary Access Key*.
-
-3. Go back to the auditing UI, switch the **Storage Access Key** from *Secondary* to *Primary* and pres **SAVE**.
+3. Go back to the auditing configuration blade, switch the **Storage Access Key** from *Secondary* to *Primary* and pres **SAVE**.
 
 4. Go back to the storage UI and **regenerate** the *Secondary Access Key* (as preparation for the next keys refresh cycle.
   
+##<a id="subheading-4"></a>Automation
+For PowerShell refer to the <a href="https://github.com/Azure/azure-powershell" target="_blank">PowerShell SDK</a>.
 
 
 <!--Anchors-->
@@ -130,11 +136,15 @@ In production you are likely to refresh your storage keys periodically. The Audi
 [1]: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
 [2]: ./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png
 [3]: ./media/sql-database-auditing-get-started/sql-database-auditing-eventtype.png
-[4]: ./media/sql-database-auditing-get-started/sql-database-get-started-saveconfigasdefault.png
 [5]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
 [6]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png
 [7]: ./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-enable.png
 [8]: ./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-configure.png
+[9]: ./media/sql-database-auditing-get-started/sql-database-auditing-security-enabled-access.png
+[10]: ./media/sql-database-auditing-get-started/sql-database-auditing-storage-account.png
+
+
+
 
 
 
