@@ -124,6 +124,11 @@ In production you are likely to refresh your storage keys periodically. The Audi
 ##<a id="subheading-4"></a>Automation
 For PowerShell refer to the <a href="https://github.com/Azure/azure-powershell" target="_blank">PowerShell SDK</a>.
 
+For REST API Refer to <a href="http://download.microsoft.com/download/D/8/D/D8D90BA1-977F-466B-A839-7823FF37FD02/04-Azure SQL DB Auditing REST API.docx">Azure SQL Database REST API</a>
+
+
+
+
 
 <!--Anchors-->
 [Azure SQL Database Auditing basics]: #subheading-1
