@@ -9,7 +9,7 @@ While detecting previous authentication code, the wizard detected an incompatibl
 
 ####Project Types
 
-The wizard checks which type of project you’re developing so it can inject the right authentication logic into the project.  If there is any controller that derives from `ApiController` in the project, it will be considered a WebAPI project.  If there are only controllers that derive from `MVC.Controller` in the project, it will be considered an MVC project.  Anything else is considered not supported by the wizard.  WebForms projects are not currently supported.
+The wizard checks which type of project youâ€™re developing so it can inject the right authentication logic into the project.  If there is any controller that derives from `ApiController` in the project, it will be considered a WebAPI project.  If there are only controllers that derive from `MVC.Controller` in the project, it will be considered an MVC project.  Anything else is considered not supported by the wizard.  WebForms projects are not currently supported.
 
 #####Compatible Authentication Code
 
