@@ -41,24 +41,15 @@ you want to use Team Foundation Build Service to manage your build
 server, follow the instructions in the [Team Foundation Build Service][]
 documentation.
 
-1.  On the build server, install the [.NET Framework 4][] or [.NET Framework 4.5][], which
-    includes MSBuild.
-2.  Install the [Azure Authoring Tools][] (look for
-    WindowsAzureAuthoringTools-x86.msi or WindowsAzureAuthoringTools-x64.msi,
-    depending on your build server's processor).
-3. Install the [Windows Azure Libraries][] (look for WindowsAzureLibsForNet-x86.msi or WindowsAzureLibsForNet-x64.msi).
-4.  Copy the Microsoft.WebApplication.targets file from a Visual Studio
-    installation to the build server.On a computer with Visual Studio
-    installed, the file is located in the directory C:\\Program Files
-    (x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (v12.0
-    for Visual Studio 2013). You
-    should copy it to the same directory on the build server.
-5.  Install the [Azure Tools for Visual Studio][].
-    Look for WindowsAzureTools.VS110.exe to build Visual Studio 2012 projects, and WindowsAzureTools.VS120.exe to build Visual Studio 2013 projects.
+1.  On the build server, install the [.NET Framework 4][], [.NET Framework 4.5][], or [.NET Framework 4.5.2][], which include MSBuild.
+2.  Install the [Azure Authoring Tools][] (look for MicrosoftAzureAuthoringTools-x86.msi or MicrosoftAzureAuthoringTools-x64.msi, depending on your build server's processor). Older versions of the files might have WindowsAzure in the filename.
+3. Install the [Azure Libraries][] (look for MicrosoftAzureLibsForNet-x86.msi or MicrosoftAzureLibsForNet-x64.msi).
+4.  Copy the Microsoft.WebApplication.targets file from a Visual Studio installation to the build server.On a computer with Visual Studio installed, the file is located in the directory C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (v12.0 for Visual Studio 2013). You should copy it to the same directory on the build server.
+5.  Install the [Azure Tools for Visual Studio][]. Look for MicrosoftAzureTools.VS110.exe to build Visual Studio 2012 projects, and MicrosoftAzureTools.VS120.exe to build Visual Studio 2013 projects, and MicrosoftAzureTools.VS140.exe to build Visual Studio 2015 Preview projects.
 
 <h2><a name="step2"> </a>Step 2: Build a Package using MSBuild Commands</h2>
 
-This section describes how to construct an MSBuild command that builds a
+This section describes how to construct an MSBuild command that builds an
 Azure package. Run this step on the build server to verify that
 everything is configured correctly and that the MSBuild command does
 what you want it to do. You can either add this command line to existing
@@ -79,7 +70,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     Framework 4 installed, type the following command at the command
     prompt:
 
-        set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\4.0"
+        set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
 2.  At the command prompt, navigate to the folder containing the Windows
     Azure project file that you want to build.
@@ -135,7 +126,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     line to build your projects and combine them into an Azure package,
     you can add this command line to your build scripts. If your build
     server uses custom scripts, this process will depend on the
-    specifics of your build custom process. If you are using TFS as a
+    specifics of your custom build process. If you are using TFS as a
     build environment, then you can follow the instructions in the next
     step to add the Azure package build to your build process.
 
@@ -147,23 +138,37 @@ an automated build for your Azure package. For information on
 how to set up and use Team Foundation server as a build system, see
 [Understanding the Team Foundation Build System][]. In particular, the
 following procedure assumes that you have configured your build server
-as described in [Configure a Build Machine][].
+as described in [Configure a Build Machine][], and that you have created
+a team project, created a cloud service project in the team project.
 
 To configure TFS to build Azure packages, perform the following
 steps:
 
 1.  In Visual Studio on your development computer, on the View
     menu, choose **Team Explorer**, or choose Ctrl+\\, Ctrl+M. In the
-    Team Explorer window, expand the **Builds** node, right-click **All
-    Build Definitions**, and then click **New Build Definition**:
+    Team Explorer window, expand the **Builds** node or choose the **Builds**
+    page, and choose **New Build Definition**.
 
     ![][0]
 
-2.  Click the **Process** tab. On the Process tab, choose the default
-    template, under Items to Build, choose the project,
-    and expand the **Advanced** section in the grid. 
+2.  Click the **Trigger** tab, and specify the desired conditions for
+    when you want the package to be built. For example, specify
+    **Continuous Integration** to build the package whenever a source
+    control check-in occurs.
 
-3.  Choose **MSBuild Arguments**, and set the appropriate MSBuild
+3.	Choose the **Source Settings** tab, and make sure your project folder is listed
+	in the **Source Control Folder** column, and the status is **Active**.
+
+4.  Choose the **Build Defaults** tab, and under Build controller, verify
+    the name of the build server.  Also, choose the option **Copy build 
+    output to the following drop folder** and specify the desired drop
+    location.
+
+5.  Click the **Process** tab. On the Process tab, choose the default
+    template, under **Build**, choose the project if it is not already selected,
+    and expand the **Advanced** section in the **Build** section of the grid. 
+
+6.  Choose **MSBuild Arguments**, and set the appropriate MSBuild
     command line arguments as described in Step 2 above. For example,
     enter **/t:Publish /p:PublishDir=\\\\myserver\\drops\\** to build a
     package and copy the package files to the location
@@ -174,22 +179,12 @@ steps:
     **Note:** Copying the files to a public share makes it easier to
     manually deploy the packages from your development computer.
 
-4.  Click the **Trigger** tab, and specify the desired conditions for
-    when you want the package to be built. For example, specify
-    **Continuous Integration** to build the package whenever a source
-    control check-in occurs.
-
-5.  Choose the **Build Defaults** tab, and under Build controller, verify
-    the name of the build server.  Also, choose the option **Copy build 
-    output to the following drop folder** and specify the desired drop
-    location.
-
 5.  Test the success of your build step by checking in a change to your
     project, or queue up a new build. To queue up a new build, in the
     Team Explorer, right-click **All Build Definitions,** and then
     choose **Queue New Build**.
 
-<h2> <a name="step4"> </a>Step 4: Publish a Package using a Powershell Script</h2>
+<h2> <a name="step4"> </a>Step 4: Publish a Package using a PowerShell Script</h2>
 
 This section describes how to construct a Windows PowerShell script that
 will publish the Cloud app package output to Azure using
@@ -202,14 +197,14 @@ Template workflow activities in Visual Studio TFS Team Build.
     that this officially supported version replaces the older version
     offered through CodePlex, although the previous versions were numbered 2.x.x.
 
-2.  Start Azure PowerShell using the Start menu. If you start in this way,
+2.  Start Azure PowerShell using the Start menu or Start page. If you start in this way,
     the Azure PowerShell cmdlets will be loaded.
 
 3.  At the PowerShell prompt, verify that the PowerShell cmdlets are loaded
     by typing the partial command Get-Azure and then pressing tab for statement
     completion.
 
-    You should see various Azure PowerShell commands.
+    If you press tab repeatedly, you should see various Azure PowerShell commands.
 
 4.  Verify that you can connect to your Azure subscription by
     importing your subscription information from the .publishsettings file.
@@ -341,12 +336,14 @@ piped into the standard build output.
 
 2.  Select the **Process** tab.
 
-3.  Create a new process template by clicking on the New... button in
-    the Process Template Selection area of the tab. The New Build
-    Process Template dialog will be loaded. In this dialog ensure Copy
-    an Existing XAML file is selected, and browse to the ProcessTemplate
-    to copy if you want to change the basis from the default. Provide
-    the new template with a name such as DefaultTemplateAzure.
+3.	Follow [these instructions)(http://msdn.microsoft.com/library/dd647551.aspx) to add an
+    Activity project for the build process template, download the default template, add it to
+	the project and check it in. Give the build process template a new name, such as
+	AzureBuildProcessTemplate.
+
+3.  Return to the **Process** tab, and use **Show Details** to show a list of available
+	build process templates. Choose the **New...** button, and navigate to the project you
+	just added and checked in. Locate the template you just created and choose **OK**.
 
 4.  Open the selected Process Template for editing. You can open
     directly in the Workflow designer or in the XML editor to work with
@@ -566,7 +563,7 @@ piped into the standard build output.
 10. Save the changes to the Build Definition.
 
 11. Queue a Build to execute both the package build and publish. If you
-    have a trigger set to Continuous Deploy, you will execute this
+    have a trigger set to Continuous Integration, you will execute this
     behavior on every check-in.
 
 ### <a name="script"> </a>PublishCloudService.ps1 script template
@@ -786,8 +783,9 @@ To enable remote debugging when using continuous delivery, see [these instructio
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
+  [.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
-[Windows Azure Libraries]: http://go.microsoft.com/fwlink/?LinkId=257862
+  [Azure Libraries]: http://go.microsoft.com/fwlink/?LinkId=257862
   [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
   [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
