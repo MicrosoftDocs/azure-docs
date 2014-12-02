@@ -12,7 +12,7 @@
 This tutorial shows you how to create a [Node] [nodejs.org] application and deploy it to an Azure Website using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
 
 If you prefer to watch this tutorial as a video, the following clip shows similiar steps:
-> [AZURE.VIDEO create-a-nodejs-site-deploy-from-github]
+[AZURE.VIDEO create-a-nodejs-site-deploy-from-github]
  
 A screenshot of the completed application is below:
 
