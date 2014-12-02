@@ -1,31 +1,29 @@
 <properties urlDisplayName="Understand NoSQL technologies" pageTitle="Understanding NoSQL Technologies on Azure | Azure" metaKeywords="" description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="dchappell" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/01/2014" ms.author="dchappell" />
 
 # Data management: Understanding NoSQL technologies on Azure
 
-**Summary:** Azure offers a broad array of options for your NoSQL workloads, but it can be challenging to determine which one is right for you.  This document explains NoSQL technologies on Azure and how to choose the right service to manage your non-relational data, which includes unstructured or particularly large data sets often referred to as "big data." 
+**Summary:** Azure offers a broad array of options for your NoSQL workloads, but it can be challenging to determine the differences between all of the options available. This document explains NoSQL technologies on Azure and how they differ in managing from relational models of managing your data.
 
-Relational technology has long been the dominant approach for working with data. However, when you work with very large amounts of different types of data, scaling across many servers is challenging. Also, relational technology is not the best fit for managing some kinds of data, such as JSON documents or graphs. This guide walks through the options, explaining what each one provides and why you might want to use it.
+Relational technology has long been the dominant approach for working with data. However, when you work with large amounts of different types of data, as is increasingly the case today, you are faced with new challenges for managing this data. Relational technology is sometimes the best fit and sometimes not the best fit for managing this data. This guide walks through the options, explaining what each one provides and why you might want to use it.
+
 
 **Contents:**
 
 * Data on Azure: The Big Picture	
-* Azure Relational Technologies: A Quick Look	
-* Azure NoSQL Technologies: Operational Data	
-	* Key/Value Stores	
-	* Column Family Stores	
-	* Document Stores	
-	* Graph Databases	
-* Azure NoSQL Technologies: Analytical Data	
-	* Hadoop MapReduce	
-	* HDInsight	
+* Azure Relational Technologies: A Quick Review	
+* Azure NoSQL Technologies
+	* Document Stores: DocumentDB
+	* Key/Value Stores: Tables
+	* Column Family Stores: HBase
+	* Big Data Analtyics: HDInsight 
+
 
 **Author:** David Chappell, Principal of Chappell & Associates
 
-**Published:** November 2013
+**Published:** November 2014
 
-**Revision:** 1.0
+**Revision:** 2.0
 
-**Download:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">Understanding NoSQL technologies on Azure PDF file</a>
-
+**Download:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">"Understanding NoSQL on Microsoft Azure" PDF file</a>

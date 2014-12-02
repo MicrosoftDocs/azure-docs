@@ -1,6 +1,6 @@
 <properties title="How to Create a DocumentDB Account" pageTitle="How to create a DocumentDB account | Azure" description="Create a DocumentDB nosql document database account and choose account settings in the Azure Preview portal."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="spelluru" />
 
 #How to create a DocumentDB account
 To use DocumentDB, you must create a DocumentDB account in an available geographic region.  This topic describes how to create a DocumentDB account in the Azure Preview portal.  
@@ -10,7 +10,7 @@ To use DocumentDB, you must create a DocumentDB account in an available geograph
 -	[Next steps][]
 
 ##<a id="HowTo"></a>How to: Create a DocumentDB account
-1.	Sign in to the [Azure management preview portal](https://portal.azure.com/)
+1.	Sign in to the [Azure management preview portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
 2.	Click New -> DocumentDB Account.  
 	![][1]  
 
@@ -30,7 +30,7 @@ To use DocumentDB, you must create a DocumentDB account in an available geograph
 
 	*For more information, see the [DocumentDB pricing details](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409)*
 
-	The **Optional configuration** lens is used to specify the initial capacity allocated to your DocumentDB account.  DocumentDB leverages capacity units to allow you to scale your DocumentDB account, where each capacity unit includes reserved database storage and throughput.  By default, 1 capacity unit is provisioned.  You can adjust the number of capacity units available to your DocumentDB account at any time via the [Azure management preview portal](https://portal.azure.com/).
+	The **Optional configuration** lens is used to specify the initial capacity allocated to your DocumentDB account.  DocumentDB leverages capacity units to allow you to scale your DocumentDB account, where each capacity unit includes reserved database storage and throughput.  By default, 1 capacity unit is provisioned.  You can adjust the number of capacity units available to your DocumentDB account at any time via the [Azure management preview portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).
 
 	*For details about DocumentDB account capacity and throughput,please see the [Manage DocumentDB Capacity and Performance][documentdb-manage] article.*
 
@@ -55,7 +55,7 @@ To use DocumentDB, you must create a DocumentDB account in an available geograph
 
 4.	After the DocumentDB account has been created, it is ready for use with the default settings.
 
-	*Note that the default consistency of the DocumentDB account will be set to Session.  You can adjust the default consistency setting via the [Azure management preview portal](https://portal.azure.com/).*  
+	*Note that the default consistency of the DocumentDB account will be set to Session.  You can adjust the default consistency setting via the [Azure management preview portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).*  
 	![][7]  
 
 5.	You may also access your existing DocumentDB accounts from the **Browse** blade.  
@@ -63,6 +63,13 @@ To use DocumentDB, you must create a DocumentDB account in an available geograph
 
 ##<a id="NextSteps"></a>Next steps
 
+##Next Steps
+To get started with Azure DocumentDB, explore these resources:
+
+-	[Understand DocumentDB concepts](/documentation/articles/documentdb-resources/)
+-	[Interact with DocumentDB](/documentation/articles/documentdb-interactions-with-resources/)
+-	[Create a database account](/documentation/articles/documentdb-create-account/)
+-	[Get started with DocumentDB](/documentation/articles/documentdb-get-started/)
 -	To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/p/?LinkID=402319)
 
 [How to: Create a DocumentDB account]: #Howto

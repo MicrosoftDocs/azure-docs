@@ -314,7 +314,7 @@ The following table compares the capabilities of Websites, Cloud Services, and V
    <td valign="middle"></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Can use custom ETW events for tracing and debugging</p></td>
+   <td valign="middle"><p>Can listen to ETW events</p></td>
    <td valign="middle"></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Command-Line Tools" pageTitle="Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="need to identify contact" editor="" />
+<properties urlDisplayName="Command-Line Tools" pageTitle="Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="rasquill" />
 
 #Azure command-line tool for Mac and Linux
 
@@ -258,7 +258,7 @@ This command lists all available Azure account locations.
 
 **vm show [options] &lt;name>**
 
-This command shows details about an Azure virtual machine. The -json option specifies that the results are returned in raw JSON format. 
+This command shows details about an Azure virtual machine. The --json option specifies that the results are returned in raw JSON format. 
 
 	~$ azure vm show my-vm
 	info:   Executing command vm show

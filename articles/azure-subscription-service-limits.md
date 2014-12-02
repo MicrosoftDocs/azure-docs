@@ -1,6 +1,6 @@
-<properties urlDisplayName="Azure Subscription and Service Limits, Quotas, and Constraints" pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" metaKeywords="Cloud Services, Virtual Machines, Web Sites, Virtual Network, SQL Database, Subscription, Storage" description="Provides a list of common Azure subscription and service limits along with maximum values." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Azure Subscription and Service Limits, Quotas, and Constraints" pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" metaKeywords="Cloud Services, Virtual Machines, Web Sites, Virtual Network, SQL Database, Subscription, Storage" description="Provides a list of common Azure subscription and service limits along with maximum values." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="" authors="jroth" solutions="" manager="jeffreyg" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jroth" />
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
 
@@ -12,6 +12,7 @@ The following document specifies some of the most common Microsoft Azure limits.
 - [Websites Limits](#websiteslimits)
 - [Networking Limits](#networkinglimits)
 - [Storage Limits](#storagelimits)
+- [Batch Preview Limits](#batchlimits)
 - [DocumentDB Preview Limits](#documentdblimits)
 - [SQL Database Limits](#sqldblimits)
 - [Media Services Limits](#mediaserviceslimits)
@@ -87,6 +88,11 @@ The following document specifies some of the most common Microsoft Azure limits.
    <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/azure/jj156085.aspx">Affinity groups</a> per subscription</p></td>
    <td valign="middle"><p>256</p></td>
    <td valign="middle"><p>256</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/services/batch/">Batch Preview</a> accounts per region per subscription</p></td>
+   <td valign="middle"><p>1</p></td>
+   <td valign="middle"><p>50</p></td>   
 </tr>
 </table>
 
@@ -264,6 +270,10 @@ The following document specifies some of the most common Microsoft Azure limits.
 <sup>2</sup>For virtual machines in the Basic Tier, do not place more than 66 highly used VHDs in a storage account to avoid the 20,000 total request rate limit (20,000/300). For virtual machines in the Standard Tier, do not place more than 40 highly used VHDs in a storage account (20,000/500). For more information, see [Virtual Machine and Cloud Service Sizes for Azure][vmsizes]. 
 
 <sup>3</sup>GRS is [Geo Redundant Storage][georedundantstorage]. LRS is [Locally Redundant Storage][locallyredundantstorage]. Note that GRS is also locally redundant.
+
+##<a name="batchlimits"></a>Batch Preview Limits
+
+[WACOM.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 ##<a name="documentdblimits"></a>DocumentDB Preview Limits
 

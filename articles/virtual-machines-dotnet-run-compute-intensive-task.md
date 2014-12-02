@@ -1,6 +1,6 @@
 <properties urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="wpickett" />
 
 # How to run a compute-intensive task in .NET on an Azure virtual machine
 
@@ -95,8 +95,8 @@ namespace.
 <h2>How to create a .NET application that performs a compute-intensive task</h2>
 
 1. On your development machine (which does not have to be the virtual machine that you created), download the [Azure SDK for .NET](http://www.windowsazure.com/en-us/develop/net/).
-2. Create a .NET console application with the project named **TSPSolver**. Ensure the traget framework is set for .**NET Framework 4** (not **.NET Framework 4 Client Profile**). The target framework can be set after you create a project by the following: In Visual Studio's menu, click **Projects**, click **Properties**, click the **Application** tab, and then set the value for **Target framework**.
-3. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **Browse** tab, browse to **C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-06\ref** and select **Microsoft.ServiceBus.dll** as a reference.
+2. Create a .NET console application with the project named **TSPSolver**. Ensure the traget framework is set for .**NET Framework 4** or later (not **.NET Framework 4 Client Profile**). The target framework can be set after you create a project by the following: In Visual Studio's menu, click **Projects**, click **Properties**, click the **Application** tab, and then set the value for **Target framework**.
+3. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **Browse** tab, browse to the Azure .NET SDK (for instance at the location **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) and select **Microsoft.ServiceBus.dll** as a reference.
 4. Add in the System Runtime Serialization library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **.NET** tab, and select **System.Runtime.Serialization** as a reference.
 5. Use the example code at the end of this section for the contents of **Program.cs**.
 6. Modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.
@@ -327,8 +327,8 @@ namespace.
 
 <h2>How to create a .NET application that monitors the progress of the compute-intensive task</h2>
 
-1. On your development machine, create a .NET console application using **TSPClient** as the project name. Ensure the traget framework is set for .**NET Framework 4** (not **.NET Framework 4 Client Profile**). The target framework can be set after you create a project by the following: In Visual Studio's menu, click **Projects**, click **Properties**, click the **Application** tab, and then set the value for **Target framework**.
-2. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **Browse** tab, browse to **C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-06\ref** and select **Microsoft.ServiceBus.dll** as a reference.
+1. On your development machine, create a .NET console application using **TSPClient** as the project name. Ensure the traget framework is set for .**NET Framework 4** or later (not **.NET Framework 4 Client Profile**). The target framework can be set after you create a project by the following: In Visual Studio's menu, click **Projects**, click **Properties**, click the **Application** tab, and then set the value for **Target framework**.
+2. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **Browse** tab, browse to the Azure .NET SDK (for instance at the location **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) and select **Microsoft.ServiceBus.dll** as a reference.
 3. Add in the System Runtime Serialization library. In Visual Studio Solution Explorer, right-click **TSPClient**, click **Add Reference**, click the **.NET** tab, and select **System.Runtime.Serialization** as a reference.
 4. Use the example code at the end of this section for the contents of **Program.cs**.
 5. Modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.

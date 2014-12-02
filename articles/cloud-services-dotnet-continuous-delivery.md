@@ -1,6 +1,6 @@
 <properties urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/31/2014" ms.author="ghogen" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="5/27/2014" ms.author="ghogen" />
 
 # Continuous Delivery for Cloud Services in Azure
 
@@ -751,7 +751,8 @@ Import-Module Azure
 #configure powershell with publishsettings for your subscription
 $pubsettings = $subscriptionDataFile
 Import-AzurePublishSettingsFile $pubsettings
-Set-AzureSubscription -CurrentStorageAccount $storageAccountName -SubscriptionName $selectedsubscription
+Set-AzureSubscription -CurrentStorageAccountName $storageAccountName -SubscriptionName $selectedsubscription
+Select-AzureSubscription $selectedsubscription
 
 #set remaining environment variables for Azure cmdlets
 $subscription = Get-AzureSubscription $selectedsubscription

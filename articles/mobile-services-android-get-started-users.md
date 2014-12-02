@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-users-android" urlDisplayName="Get Started with Authentication" pageTitle="Get started with authentication (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="11/17/2014" ms.author="ricksal" />
 
 # Add authentication to your Mobile Services app
 
@@ -23,11 +23,13 @@ This tutorial walks you through these basic steps to enable authentication in yo
 4. [Store authentication tokens on the client]
 5. [Refresh expired tokens]
 
-This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
+ 
 
 >[AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithAuth/Android" target="_blank">here</a>.
 
-Completing this tutorial requires Eclipse and Android 4.2 or a later version. 
+##Prerequisites
+
+[WACOM.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
 <h2><a name="register"></a>Register your app for authentication and configure Mobile Services</h2>
 
@@ -97,7 +99,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Single sign-on for Windows Store apps by using Live Connect]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-android
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-android
+[Add Mobile Services to an existing app]: /en-us/develop/mobile/tutorials/get-started-with-data-android
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-android
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-android

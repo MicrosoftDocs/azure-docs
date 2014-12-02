@@ -1,31 +1,31 @@
 <properties urlDisplayName="Azure Site Recovery Overview" pageTitle="Azure Site Recovery Overview" metaKeywords="Azure Site Recovery, on-premises, clouds, Azure, VMM, Hyper-V" description="Deploy Azure Site Recovery to protect virtual machines on Hyper-V host servers that are located in VMM clouds. You can deploy from one on-premises site to another, or from an on-premises site to Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Azure Site Recovery Overview" editor="jimbe" manager="johndaw" authors="raynew" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
 
 # Azure Site Recovery Overview
 
 <div class="dev-callout"> 
-<p>Deploy Azure Site Recovery to protect virtual machines with replication and failover. You can deploy Azure Site Recovery in a number of scenarios:</p>
+<p>Azure Site Recovery orchestrates replication and failover in a number of scenarios:</p>
 
 
 <ul>
-<li><b>Protection between two on-premises VMM sites with Hyper-V replication</b>—Replicate virtual machines from one on-premises site to another with Hyper-V replication. You configure and enable protection settings in Azure Site Recovery vaults and VMM. Virtual machine data is replicated from a source Hyper-V host server to a target host server. A tutorial for this scenario is available in <a href="http://go.microsoft.com/fwlink/?LinkId=398765">Getting started with Azure Site Recovery: Protection Between Two On-Premises VMM Sites with Hyper-V Replication</a>.</li>
+<li>**On-premises VMM site to on-premises VMM site protection with Hyper-V replication** — Orchestrate replication, failover, and recovery between on-premises VMM sites. Virtual machine data is replicated from a source Hyper-V host server to a target host server. Read <a href="http://go.microsoft.com/fwlink/?LinkId=398765">Getting started with Azure Site Recovery: Protection Between Two On-Premises VMM Sites with Hyper-V Replication</a>.</li>
 
-<li><b>Protection between two on-premises VMM sites with SAN replication</b>—Configure end-to-end storage array-based replication between SAN devices that host virtual machine data on source and target sites. You configure and enable protection settings in Azure Site Recovery vaults and VMM.  A tutorial for this scenario is available in <a href="http://go.microsoft.com/fwlink/?LinkId=518683">Getting started with Azure Site Recovery: : Protection Between Two On-Premises VMM Sites with SAN replication</a>.</li>
+<li>**On-premises VMM site to on-premises VMM site protection with SAN replication** — Orchestrates end-to-end replication, failover, and recovery using storage array-based replication between SAN devices that host virtual machine data in source and target on-premises sites. Read <a href="http://go.microsoft.com/fwlink/?LinkId=518683">Getting started with Azure Site Recovery: : Protection Between Two On-Premises VMM Sites with SAN replication</a>.</li>
 
-<li><b>On-premises to Azure protection</b>—Replicate virtual machines from an on-premises site to Microsoft Azure. You configure and enable protection settings in Azure Site Recovery vaults, VMM, and Azure.  Azure Site Recovery orchestrates the process and replicated virtual machine data is stored in Azure storage. A tutorial for this scenario is available in <a href="http://go.microsoft.com/fwlink/?LinkId=398764">Getting Started with Azure Site Recovery: Protection between an On-Premises VMM Site and Azure</a>.</li>
+<li>**On-premises VMM site to Azure protection** — Orchestrate replication, failover, and recovery between an on-premises VMM site and Azure. Replicated virtual machine data is stored in Azure storage. Read <a href="http://go.microsoft.com/fwlink/?LinkId=398764">Getting Started with Azure Site Recovery: Protection between an On-Premises VMM Site and Azure.</a></li>
 
-<li><b>Protection between two on-premises VMWare sites with InMage</b>—InMage Scout is a recent Microsoft acquisition that provides real-time replication. Right now InMage is available as a separate product that's obtained via a subscription to the Azure Site Recovery service. It provides replication of virtual machines running VMWare on a primary site to virtual machines running on another VMWare server in a secondary site. See <a href="http://go.microsoft.com/fwlink/?LinkId=518684">Getting Started with Azure Site Recovery: Protection between an On-Premises VMWare Sites with InMage</a>.</li>
+<li>**On-premises VMWare site to on-premises VMWare site with InMage** — InMage Scout is a recent Microsoft acquisition that provides real-time replication between on-premises VMWare sites. Right now InMage is available as a separate product that's obtained via a subscription to the Azure Site Recovery service. Read <a href="http://go.microsoft.com/fwlink/?LinkId=518684">Getting Started with Azure Site Recovery: Protection between an On-Premises VMWare Sites with InMage</a>.</li>
 </ul>
 
-<p>The following table summarizes and compares the VMM on-premises and Azure deployment options.</p>
+<p>The feature matrix summarizes these scenarios.</p>
 
 <table border="1">
 <thead>
 <tr>
 	<th>Feature</th><th>On-Premises to Azure</th>
-	<th>On-Premises to On-Premises (Hyper-V replication)</th>
-	<th>On-Premises to On-Premises (SAN replication)</th>
+	<th>On-Premises to On-Premises (Hyper-V)</th>
+	<th>On-Premises to On-Premises (SAN)</th>
 </tr>
 </thead>
 

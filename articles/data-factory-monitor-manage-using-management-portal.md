@@ -1,6 +1,6 @@
 <properties title="Monitor and manage Azure Data Factory using Azure Preview Portal" pageTitle="Monitor and manage Azure Data Factory using Azure Preview Portal" description="Learn how to use Azure Management Portal to monitor and manage Azure data factories you have created." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Monitor Azure Data Factory using Azure Preview Portal
 
@@ -79,7 +79,51 @@ In the **TABLE** blade above, you see **Recent slices** as well as **Problem sli
 
 ![All Slices of a Table][image-data-factory-all-slices]
 
-On the **Data Slices** blade, you can use a filter to see the specific slices that you want to review.
+On the **Data Slices** blade, click the Filter button to see the Filter blade that lets you **filter** slices to see the specific slices that you want to review.
+
+![Filter Blade][image-data-factory-filter-blade]
+
+
+When you launch the **Filter** blade, the **To** field is automatically set to the most recent time (rounded) to limit the number of records returned. The **From** field is automatically set as well. You can change the **From** date by clicking the **Calendar** button. The **To** date is automatically changed when you change the **From** date. 
+
+You can click **Previous**/**Next** buttons to view slices in the previous period/next period. The time range for **Previous** and **Next** buttons is set based on the slice frequency and interval as shown in the following table.
+
+Frequency | Interval Value Range | Resulting Time Chunk
+----------| -------------------- | --------------------
+Minute | 1-4 | 6 hours
+Minute | 5-29 | 1 day
+Minute | 30-180 | 7 days
+Minute | 180+ | 28 days (approximate. calendar month)
+Hour | 1-3 | 7 days
+Hour | 4-11 | 28 days (approximate. calendar month)
+Hour | 12-72 | 182 days (approximate. 6 months)
+Hour | 73+ | 1 year
+Day | 1-6 | 1 year
+Day | 7-20 | 5 years
+Day | 21+ | 10 years
+Week | 1-3 | 5 years
+Week | 4+ | 10 years
+Month | any | 10 years
+ 
+For example, if you define **frequency** as **Hour** and **interval** of **2**, clicking the **Next**/**Previous** buttons move the time range **7 days** in either direction. This logic applies to the Filter blade whether you are viewing all slices/recent slices/problem slices.
+
+The **Filter** blade allows you to filter slices based on their **statuses**.The following table describes all slice statuses and their description.
+ 
+Slice status | Description
+------------ | ------------
+PendingExecution | Data processing has not started yet.
+InProgress | Data processing is in-progress.
+Ready | Data processing has completed and the data slice is ready.
+Failed | Execution of the run that produces the slice failed.
+Skip | Skip processing of the slice.
+Retry | Retrying the run that produces the slice.
+Timed Out | Data processing of the slice has timed out.
+PendingValidation | Data slice is waiting for validation against validation policies before being processed.
+RetryValidation | Retrying the validation of the slice.
+FailedValidation | Validation of the slice failed.
+LongRetry | A slice will be in this status if LongRetry is specified in the table JSON, and regular retries for the slice have failed.
+ValidationInProgress | Validation of the slice (based on the policies defined in the table JSON) is being performed.
+
 
 
 ## <a name="DataFactorySlice"></a> View details about a slice
@@ -126,6 +170,8 @@ Article | Description
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 [azure-preview-portal]: http://portal.azure.com/
+
+[image-data-factory-filter-blade]: ./media/data-factory-monitor-manage-using-management-portal/FilterBlade.png
 
 [image-data-factory-browse-everything]: ./media/data-factory-monitor-manage-using-management-portal/BrowseEverything.png
 

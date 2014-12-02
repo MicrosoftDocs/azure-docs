@@ -674,6 +674,9 @@ This walkthrough has demonstrated a sequence of programming tasks to build a sim
 - <a href="http://azure.microsoft.com/en-us/develop/media-services/resources/">How to Use Media Services</a>
 - <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx">Building Applications with the Media Services REST API</a>
 
+<h2>Additional Resources</h2>
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic Packaging and Mobile Devices</a>
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started

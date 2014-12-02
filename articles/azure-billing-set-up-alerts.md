@@ -1,6 +1,6 @@
-<properties title="Set up billing alerts for your Microsoft Azure subscriptions" pageTitle="Set up billing alerts for your Microsoft Azure subscriptions" description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises." metaKeywords="" services="" solutions="" documentationCenter="" authors="" manager="carolz" videoId="" scriptId="" />
+<properties title="Set up billing alerts for your Microsoft Azure subscriptions" pageTitle="Set up billing alerts for your Microsoft Azure subscriptions" description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises." metaKeywords="" services="" solutions="" documentationCenter="" authors="" manager="terrylan" videoId="" scriptId="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="" ms.devlang="" ms.topic="article" ms.date="10/29/2014" ms.author="vikdesai; tysonn" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="" ms.devlang="" ms.topic="article" ms.date="10/29/2014" ms.author="cabailey" />
 
 # Set up billing alerts for your Microsoft Azure subscriptions
 

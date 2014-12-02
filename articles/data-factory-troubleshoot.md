@@ -1,11 +1,66 @@
 <properties title="Troubleshoot Azure Data Factory issues" pageTitle="Troubleshoot Azure Data Factory issues" description="Learn how to troubleshoot issues with using Azure Data Factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Troubleshoot Data Factory issues
 You can troubleshoot Azure Data Factory issues using Azure Portal (or) Azure PowerShell cmdlets. This topic has walkthroughs that show you how to use the Azure Portal to quickly troubleshoot errors that you encounter with Data Factory. 
 
-## In This Article
+## Problem: Not able to run Data Factory cmdlets
+To resolve this issue, switch Azure mode to **AzureResourceManager**: 
+
+Launch **Azure PowerShell** and execute the following command to switch to the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
+
+         switch-azuremode AzureResourceManager
+
+## Problem: Unauthorized error when running a Data Factory cmdlet
+You are probably not using the right Azure account or subscription with the Azure PowerShell. Use the following cmdlets to select the right Azure account and subscription to use with the Azure PowerShell. 
+
+1. Add-AzureAccount - Use the right user ID and password
+2. Get-AzureSubscription - View all the subscriptions for the account. 
+3. Select-AzureSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Preview Portal.
+
+## Problem: Input slices are in PendingExecution or PendingValidation state for ever
+
+The slices could be in **PendingExecution** or **PendingValidation** state due to a number of reasons and one of the common reasons is that the **waitOnExternal** property is not specified in the **availability** section of the first table/dataset in the pipeline. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **waitOnExternal** property under **availability** section. This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
+
+See the following example for the usage of the **waitOnExternal** property. You can specify **waitOnExternal{}** without setting values for properties in the section so that the default values are used. 
+
+See Tables topic in [JSON Scripting Reference][json-scripting-reference] for more details about this property.
+	
+	{
+	    "name": "CustomerTable",
+	    "properties":
+	    {
+	        "location":
+	        {
+	            "type": "AzureBlobLocation",
+	            "folderPath": "MyContainer/MySubFolder/",
+	            "linkedServiceName": "MyLinkedService",
+	            "format":
+	            {
+	                "type": "TextFormat",
+	                "columnDelimiter": ",",
+	                "rowDelimiter": ";"
+	            }
+	        },
+	        "availability":
+	        {
+	            "frequency": "Hour",
+	            "interval": 1,
+	            "waitOnExternal":
+	            {
+	                "dataDelay": "00:10:00",
+	                "retryInterval": "00:01:00",
+	                "retryTimeout": "00:10:00",
+	                "maximumRetry": 3
+	            }
+	        }
+	    }
+	}
+
+ To resolve the error, add the **waitOnExternal** section to the JSON definition of the input table and recreate the table. 
+
+## Walkthroughs 
 
 - [Walkthrough: Troubleshooting an error with copying data](#copywalkthrough)
 - [Walkthrough: Troubleshooting an error with Hive/Pig processing](#pighivewalkthrough)
@@ -228,6 +283,7 @@ Article | Description
 [troubleshoot]: ../data-factory-troubleshoot
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 
 [azure-preview-portal]: https://portal.azure.com/
 

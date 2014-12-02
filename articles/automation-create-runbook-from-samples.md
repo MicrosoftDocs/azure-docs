@@ -1,6 +1,6 @@
 <properties urlDisplayName="Get Started with Azure Automation" pageTitle="Get Started with Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="bwren" solutions="" manager="stevenka" editor="" />
 
-<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bwren" />
+<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bwren" />
 
 
 # Get started with Azure Automation
@@ -31,18 +31,10 @@ Runbooks from the community and from other Microsoft teams are also published on
 
 ## High-level steps for this tutorial
 
-1. [Sign up for Automation preview](#automationaccount)
+1. [Create Automation Account](#automationaccount)
 2. [Import Runbook from Runbook Gallery](#importrunbook)
 3. [Publish Runbook](#publishrunbook)
 4. [Start Runbook](#startrunbook)
-
-## <a name="preview"></a>Sign up for the Azure Automation Preview
-
-To start using Automation, you’ll need an active Azure subscription with the Microsoft Azure Automation preview feature enabled. 
-
-- On the **Preview Features** page, click **try it now**. 
-
-	![Enable Preview](./media/automation/automation_00_EnablePreview.png)
 
 
 ## <a name="automationaccount"></a>Create an Automation Account

@@ -1,7 +1,7 @@
 
 The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584).
 
-## Generate the Certificate Signing Request file
+## <a id="certificates"></a>Generate the Certificate Signing Request file
 
 First you must generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed certificate.
 
@@ -23,7 +23,7 @@ First you must generate the Certificate Signing Request (CSR) file, which is use
 
 Next, you will register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.
 
-## Register your app for push notifications
+## <a id="register"></a>Register your app for push notifications
 
 To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and also register for push notifications.  
 
@@ -92,7 +92,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.
 
-## Create a provisioning profile for the app
+## <a id="profile"></a>Create a provisioning profile for the app
 
 1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This launches the **Add iOS Provisiong Profile** Wizard
 

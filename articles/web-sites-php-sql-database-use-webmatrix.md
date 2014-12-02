@@ -1,6 +1,6 @@
-<properties urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="PHP website with SQL Database and WebMatrix - Azure" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in SQL Database." metaCanonical="" services="" documentationCenter="" title="Create and Deploy a PHP Website and SQL Database using WebMatrix" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="PHP website with SQL Database and WebMatrix - Azure" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in SQL Database." metaCanonical="" services="" documentationCenter="" title="Create and Deploy a PHP Website and SQL Database using WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz" />
 
 
 
@@ -30,13 +30,13 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 1. [Download][tasklist-sqlazure-download] the Tasklist application files. The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a SQL Database (SQL Server Express for local testing). The application consists of these files:
 
-* **index.php**: Displays tasks and provides a form for adding an item to the list.
-* **additem.php**: Adds an item to the list.
-* **getitems.php**: Gets all items in the database.
-* **markitemcomplete.php**: Changes the status of an item to complete.
-* **deleteitem.php**: Deletes an item.
-* **taskmodel.php**: Contains functions that add, get, update, and delete items from the database.
-* **createtable.php**: Creates the SQL Database table for the application. This file will only be called once.
+	* **index.php**: Displays tasks and provides a form for adding an item to the list.
+	* **additem.php**: Adds an item to the list.
+	* **getitems.php**: Gets all items in the database.
+	* **markitemcomplete.php**: Changes the status of an item to complete.
+	* **deleteitem.php**: Deletes an item.
+	* **taskmodel.php**: Contains functions that add, get, update, and delete items from the database.
+	* **createtable.php**: Creates the SQL Database table for the application. This file will only be called once.
 
 2. Create a SQL Server database called `tasklist`. You can do this from the `sqlcmd` command prompt with these commands:
 

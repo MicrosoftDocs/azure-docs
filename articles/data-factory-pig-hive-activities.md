@@ -1,9 +1,14 @@
 <properties title="Use Pig and Hive with Azure Data Factory" pageTitle="Use Pig and Hive with Azure Data Factory" description="Learn how to process data by running Pig and Hive scripts on an Azure HDInsight cluster from an Azure data factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Use Pig and Hive with Data Factory
-A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. For example, a Copy activity copies data from a source storage to a destination storage and an HDInsight activity with Hive/Pig transformations use an Azure HDInsight cluster to process data using Hive/Pig scripts. The HDInsight Activity can consume 1 or more input and produce 1 or more outputs. 
+A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. 
+
+- **Copy Activity** copies data from a source storage to a destination storage. To learn more about the Copy Activity, see [Copy data with Data Factory][data-factory-copy-activity]. 
+- **HDInsight Activity** processes data by running Hive/Pig scripts or MapReduce programs on an HDInsight cluster. The HDInsight Activity supports three transformation: **Hive**, **Pig**, and **MapReduce**. The HDInsight Activity can consume 1 or more input and produce 1 or more outputs.
+ 
+See [Invoke MapReduce Programs from Data Factory][data-factory-map-reduce] for details about running MapReduce programs on an HDInsight cluster from an Azure data factory pipeline by using MapReduce transformations of the HDInsight Activity. This article describes using Pig/Hive transformation of the HDInsight Activity.
 
 ## In This Article
 
@@ -276,7 +281,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		{
         		"type": "HDInsightOnDemandLinkedService",
 				"clusterSize": "4",
-        		"jobsContainer": "adftutorialjobscontainer",
+        		"jobsContainer": "adfjobs",
         		"timeToLive": "00:05:00",
         		"linkedServiceName": "MyBlobStore"
     		}
@@ -391,6 +396,8 @@ Article | Description
 [Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issues.  
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 
+[data-factory-copy-activity]: ..//data-factory-copy-activity
+[data-factory-map-reduce]: ..//data-factory-map-reduce
 
 [adf-getstarted]: ../data-factory-get-started
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources

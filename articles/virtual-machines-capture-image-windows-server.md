@@ -1,12 +1,12 @@
 <properties urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Windows Server" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav" />
 
 #How to Capture a Windows Virtual Machine to Use as a Template#
 
-This article shows you how to capture a Windows virtual machine so you can use it as template to create other virtual machines. This virtual machine template includes the OS disk and any data disks attached the virtual machine. It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines that use the template.
+This article shows you how to capture an Azure virtual machine running Windows so you can use it like a template to create other virtual machines. This template includes the OS disk and any data disks attached the virtual machine. It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines that use the template.
 
-After you capture the virtual machine, it's available under **My Images** when you create a virtual machine. The image file is stored as a VHD in your storage account. For more information about images, see [Manage Disks and Images] [].
+Azure treats this template as an image and stores it under **My Images**. This is also where any images you've uploaded are stored. For more information about images, see [About Virtual Machine Images in Azure] [].
 
 ##Before You Begin##
 
@@ -61,7 +61,7 @@ These steps assume that you've already created an Azure virtual machine and conf
 The image is ready to be used as a template to create virtual machines. To do this, you'll create a custom virtual machine by using the **From Gallery** method and select the image you just created. For instructions, see [How to Create a Custom Virtual Machine] [].
 
 	
-[Manage Disks and Images]:http://go.microsoft.com/fwlink/p/?LinkId=397536
+[About Virtual Machine Images in Azure]: http://msdn.microsoft.com/en-us/library/azure/dn790290.aspx
 [How to Create a Custom Virtual Machine]: ../virtual-machines-create-custom/
 [How to Attach a Data Disk to a Virtual Machine]: ../storage-windows-attach-disk/
 [How to Log on to a Virtual Machine Running Windows Server]:http://www.windowsazure.com/en-us/manage/windows/how-to-guides/log-on-a-windows-vm/

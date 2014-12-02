@@ -1,6 +1,6 @@
 <properties title="Copy data with Azure Data Factory" pageTitle="Copy data with Azure Data Factory" description="Learn how to use Copy Activity in Azure Data Factory to copy data from a data source to another data source." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Copy data with Azure Data Factory (Copy Activity)
 You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. The Copy Activity can be used in the following scenarios:
@@ -705,11 +705,6 @@ The data types specified in the Structure section of the Table definition is onl
 	</tr>
 
 </table>
-
-## Limitations
-
-> [WACOM.NOTE] When a pipeline is suspended or deleted, or when a data factory is deleted, the ongoing copy operation is not suspended. It will continue to execute until completion. However, the copy operation that involves an on-premises data source can be stopped by restarting the Data Management Gateway service by using the Data Management Gateway configuration manager or the Services applet. 
-
 
 
 ## Walkthroughs

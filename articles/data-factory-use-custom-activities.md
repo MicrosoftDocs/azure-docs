@@ -1,6 +1,6 @@
 <properties title="Use custom activities in an Azure Data Factory pipeline" pageTitle="Use custom activities in an Azure Data Factory pipeline" description="Learn how to create custom activities and use them in an Azure Data Factory pipeline." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Use custom activities in an Azure Data Factory pipeline
 Azure Data Factory supports built-in activities such as **Copy Activity** and **HDInsight Activity** to be used in pipelines to move and process data. You can also create a custom activity with your own transformation/processing logic and use the activity in a pipeline. The custom activity runs as a map-only job on an HDInsight cluster, so you will need to link an HDInsight cluster for the custom activity in your pipeline.
@@ -67,11 +67,11 @@ To use the custom activity in a pipeline:
     	    "PackageFile": "customactivitycontainer/MyCustomActivity.zip",
 
 ## To update custom activity
-If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage, you need to override the existing pipeline that uses the custom activity by running the **New-AzureDataFactoryPipeline**. When you create a pipeline that uses the custom activity, the zip file is copied from the blob storage you specified to an Azure Data Factory container on the blob storage attached to the HDInsight cluster. This is done only at the creation of the pipeline. Therefore, you need to recreate the pipeline when you update the custom activity. 
-
-The following Walkthrough provides you with step-by-step instructions for creating a custom activity and using the activity in an Azure Data Factory pipeline. This walkthrough extends the tutorial from the [Get started with Azure Data Factory][adfgetstarted]. If you want to see the custom activity working, you need to go through the Get started tutorial first and then do this walkthrough. 
+If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage. 
 
 ## Walkthrough
+This Walkthrough provides you with step-by-step instructions for creating a custom activity and using the activity in an Azure Data Factory pipeline. This walkthrough extends the tutorial from the [Get started with Azure Data Factory][adfgetstarted]. If you want to see the custom activity working, you need to go through the Get started tutorial first and then do this walkthrough. 
+
 **Prerequisites:**
 
 
@@ -293,7 +293,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		{
         		"type": "HDInsightOnDemandLinkedService",
 				"clusterSize": 4,
-        		"jobsContainer": "adftutorialjobscontainer",
+        		"jobsContainer": "adfjobs",
         		"timeToLive": "00:05:00",
         		"linkedServiceName": "MyBlobStore"
     		}

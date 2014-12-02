@@ -1,6 +1,8 @@
-<properties urlDisplayName="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections - Azure Mobile Services" metaKeywords="" description="Learn how to connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" metaCanonical="" services="" documentationCenter="Mobile" title="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" authors="yavorg" solutions="" manager="dwrede" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
+<properties urlDisplayName="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections - Azure Mobile Services" metaKeywords="" description="Learn how to connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" metaCanonical="" services="" documentationCenter="Mobile" title="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" authors="glenga" solutions="" manager="dwrede" editor="mollybos" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
+
   
 # Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections 
 
@@ -115,13 +117,13 @@ The mobile service is now associated with the new hybrid connection.
 ### Update the service to use the on-premises connection string
 Finally, we need to create an app setting to store the value of the connection string to our on-premises SQL Server. We then need to modify the mobile service to use the new connection string. 
 
-1. On the **Configure** tab in **App Settings**, add an new app setting named `onPremisesDatabase` with a value like `Server=onPremisesServer,1433;Database=OnPremisesDB;User ID=sa;Password={password}`.
+1. On the **Configure** tab in **Connection Strings**, add an new connection string named `OnPremisesDatabase` with a value like `Server=onPremisesServer,1433;Database=OnPremisesDB;User ID=sa;Password={password}`.
 
-	![App setting for connection string][AppSetting]
+	![Connection string for on-premises database][ConnectionString]
 
 	Replace `{password}` with the secure password for your on-premises database.
 
-2. Press **Save** to save the hybrid connection and app setting we just created.
+2. Press **Save** to save the hybrid connection and connection string we just created.
 
 3. In Visual Studio 2013, open the project that defines your .NET-based mobile service. 
 
@@ -134,14 +136,14 @@ Finally, we need to create an app setting to store the value of the connection s
         public class hybridService1Context : DbContext
         {
             public hybridService1Context()
-                : base(ConfigurationManager.AppSettings["onPremisesDatabase"])
+                : base("OnPremisesDatabase")
             {
             }
         
             // snipped
         }
 
-	The service will now use the new hybrid connection string defines in the app settings in Azure.
+	The service will now use the new hybrid connection string defined in Azure.
 
 5. Publish your changes and use a client app connected to your mobile service to invoke some operations to generate database changes.
 
@@ -171,6 +173,6 @@ Changes generated in your app have been pushed by your mobile service to your on
 [HCConnected]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/8.png
 [AssociateHC]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/9.png
 [PickHC]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/10.png
-[AppSetting]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png
+[ConnectionString]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png
 [SMS]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/12.png
 [DownloadHCM]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/5-1.png

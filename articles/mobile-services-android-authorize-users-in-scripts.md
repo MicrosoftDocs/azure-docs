@@ -8,7 +8,9 @@
 
 This topic shows you how to use server scripts to authorize authenticated users for accessing data in Azure Mobile Services from an Android app.  In this tutorial you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.
 
-This tutorial is based on the Mobile Services quickstart and builds on the previous tutorial [Get started with authentication]. Before you start this tutorial, you must first complete [Get started with authentication].  
+##Prerequisites
+
+[WACOM.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]  
 
 ## <a name="register-scripts"></a>Register scripts
 Because the quickstart app reads and inserts data, you need to register scripts for these operations against the TodoItem table.

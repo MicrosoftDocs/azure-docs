@@ -1,6 +1,6 @@
 <properties urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." metaCanonical="" services="" documentationCenter=".NET" title="How to Send Email Using SendGrid with Azure" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="wpickett" editor="erikre" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/24/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/29/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
 
 
@@ -8,7 +8,7 @@
 
 # How to Send Email Using SendGrid with Azure
 
-Last Update: October 24, 2014
+Last Update: October 27, 2014
 
 This guide demonstrates how to perform common programming tasks with the
 SendGrid email service on Azure. The samples are written in C\#
@@ -19,17 +19,17 @@ filters**. For more information on SendGrid and sending email, see the
 
 <h2><a name="toc"></a>Table of contents</h2>
 
-[What is the SendGrid Email Service?][]   
+[What is the SendGrid email service?][]   
 [Create a SendGrid account][]   
 [Reference the SendGrid .NET class library][]   
 [How to: Create an email][]   
 [How to: Send an email][]   
 [How to: Add an attachment][]   
-[How to: Use filters to enable footers, tracking, and analytics][]   
+[How to: Use apps to enable footers, tracking, and analytics][]   
 [How to: Use additional SendGrid services][]   
 [Next steps][]
 
-<h2><a name="whatis"></a>What is the SendGrid Email Service?</h2>
+<h2><a name="whatis"></a><span  class="short-header">What is the SendGrid email service?</span></h2>
 
 SendGrid is a [cloud-based email service] that provides reliable
 [transactional email delivery], scalability, and real-time analytics along with flexible APIs
@@ -39,10 +39,11 @@ include:
 -   Automatically sending receipts to customers.
 -   Administering distribution lists for sending customers monthly
     e-fliers and special offers.
--   Collecting real-time metrics for things like blocked e-mail, and
+-   Collecting real-time metrics for things like blocked email, and
     customer responsiveness.
 -   Generating reports to help identify trends.
 -   Forwarding customer inquiries.
+-   Processing incoming emails.
 
 For more information, see [https://sendgrid.com](https://sendgrid.com).
 
@@ -72,7 +73,7 @@ To install the SendGrid NuGet package in your application, do the following:
 2.  In the left-hand pane of the **Manage NuGet Packages** dialog, click **Online**.
 
 3.  Search for **SendGrid** and select the **SendGrid** item in the
-    results list.
+    results list (the current version is 5.0.0).
 
     ![SendGrid NuGet package][SendGrid-NuGet-package]
 
@@ -191,7 +192,7 @@ an attachment to a message:
 
     myMessage.AddAttachment(@"C:\file1.txt");
     
-You can also add attachments from the data's **Stream**. It can be done by calling the same method as above, **AddAttachment**, but by passing in the Stream of the data, and the filename you want it to show as in the message.
+You can also add attachments from the data's **Stream**. It can be done by calling the same method as above, **AddAttachment**, but by passing in the Stream of the data, and the filename you want it to show as in the message. In this case you will need to add the System.IO library.
 
     SendGridMessage myMessage = new SendGridMessage();
     myMessage.AddTo("anna@example.com");
@@ -204,15 +205,16 @@ You can also add attachments from the data's **Stream**. It can be done by calli
         myMessage.AddAttachment(attachmentFileStream, "My Cool File.txt");
     }
 
-<h2><a name="usefilters"></a>How to: Use filters to enable footers, tracking, and analytics</h2>
+
+<h2><a name="usefilters"></a><span  class="short-header">How to: Use apps to enable footers, tracking, and analytics</span></h2>
 
 SendGrid provides additional email functionality through the use of
-filters. These are settings that can be added to an email message to
+apps. These are settings that can be added to an email message to
 enable specific functionality such as click tracking, Google analytics,
-subscription tracking, and so on. For a full list of filters, see
-[Filter Settings][].
+subscription tracking, and so on. For a full list of apps, see
+[App Settings][].
 
-Filters can be applied to **SendGrid** email messages using methods
+Apps can be applied to **SendGrid** email messages using methods
 implemented as part of the **SendGrid** class.
 
 The following examples demonstrate the footer and click tracking
@@ -246,7 +248,7 @@ filters:
 
 <h2><a name="useservices"></a>How to: Use additional SendGrid services</h2>
 
-SendGrid offers web-based APIs that you can use to leverage additional
+SendGrid offers web-based APIs and webhooks that you can use to leverage additional
 SendGrid functionality from your Azure application. For full
 details, see the [SendGrid API documentation][].
 
@@ -277,7 +279,7 @@ these links to learn more.
   [SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
   [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
-  [Filter Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [App Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
   [SendGrid API documentation]: https://sendgrid.com/docs
   
   [cloud-based email service]: https://sendgrid.com/email-solutions

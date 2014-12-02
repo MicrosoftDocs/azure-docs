@@ -6,13 +6,13 @@
 
 [WACOM.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
 
-Event Hubs is a highly scalable ingestion system that can intake millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster.
+Event Hubs is a highly scalable ingestion system that can process millions of events per second, enabling your application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster. For more information about Event Hubs, see the [Event Hubs developer guide]. 
 
 For more information, please see [Event Hubs Overview].
 
 In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in C#, and to retrieve them in parallel using the C# [Event Processor Host] library.
 
-In order to complete this tutorial, you will need the following:
+In order to complete this tutorial you will need the following:
 
 + Microsoft Visual Studio Express 2013 for Windows
 

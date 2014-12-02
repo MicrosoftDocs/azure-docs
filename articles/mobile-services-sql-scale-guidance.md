@@ -1,6 +1,6 @@
-<properties urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="Scale mobile services backed by Azure SQL Database - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" metaCanonical="" services="" documentationCenter="Mobile" title="Scale mobile services backed by Azure SQL Database" authors="yavorg" solutions="" manager="dwrede" editor="mollybos" />
+<properties urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="Scale mobile services backed by Azure SQL Database - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" metaCanonical="" services="" documentationCenter="Mobile" title="Scale mobile services backed by Azure SQL Database" authors="donnam" solutions="" manager="dwrede" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 # Scale mobile services backed by Azure SQL Database
 
 Azure Mobile Services makes it very easy to get started and build an app that connects to a cloud-hosted backend that stores data in a SQL database. As your app grows, scaling your service instances is as simple as adjusting scale settings in the portal to add more computational and networking capacity. However, scaling the SQL database backing your service requires some proactive planning and monitoring as the service receives more load. This document will walk you through a set of best practices to ensure continued great performance of your SQL-backed mobile services.
@@ -28,30 +28,18 @@ If any of the above is not true, consider adjusting your scale settings on the *
 
 It is important to understand the different database tiers you have at your disposal to ensure you've picked the right tier given your app's needs. Azure SQL Database offers two different database editions with different tiers:
 
-- Web and Business Edition
-- Basic, Standard, and Premium Edition (currently in preview)
+- Web and Business Edition (retired)
+- Basic, Standard, and Premium Edition 
 
-While the Web and Business Edition is fully supported, it is being sunset by April 24, 2015 as discussed in [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/en-US/library/azure/dn741330.aspx). We encourage new customers to start using the Basic, Standard, and Premium preview in preparation for this change, if their application requirements allow it. 
+While the Web and Business Edition is fully supported, it is being sunset by April 24, 2015 as discussed in [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/en-US/library/azure/dn741330.aspx). We encourage new customers to start using the Basic, Standard, and Premium Edition in preparation for this change. This new edition provides a variety of new tiers and monitoring capabilities that make it even easier to understand and troubleshoot database performance. All new mobile services are created using the new Edition.
 
-#### Web and Business Edition
+To convert a mobile service using the Web and Business Edition to the Basic, Standard, and Premium Edition, follow these steps.
 
-Currently this is the default edition used by Mobile Services. Here are some recommendations in selecting the tier for your database:
-
-- **Free 20 MB database** - use for development purposes only 
-- **Web and Business** - use for development and production services. The two tiers provide the same level of performance, though the Web tier only supports databases up to 5GB in size. For larger databases, use the Business tier. 
-
-#### Basic, Standard, and Premium Edition
-
-This new edition provides a variety of new tiers and monitoring capabilities that make it even easier to understand and troubleshoot database performance. To use this edition with your mobile service:
-
-1. Navigate to the [Preview Features](https://account.windowsazure.com/previewfeatures) page and sign up for **New Service Tiers for SQL Databases**
-2. Once the preview feature is active, launch the [Azure Management Portal][].
-3. Select **+NEW** in the toolbar and then pick **Data Services**, **SQL Database**, **Quick Create**.
-4. Enter a database name and then select **New SQL database server** in the **Server** field. This will create a server that is using the new Basic, Standard, and Premium Edition. 
-5. Fill out the rest of the fields and select **Create SQL Database**. This will create a 100MB database using the Basic tier.
-6. Configure your mobile service to use the database you just created
-    - If you are creating a new mobile service, select **+NEW**, **Compute**, **Mobile Service**, **Create**. On the next screen, fill out the values, select **Use an existing SQL database** in the **Database** field, and then select **Next**. On the next screen be sure to pick the database you created in step 5, then select **OK**.
-    - If you already have a mobile service, navigate to the **Configure** tab for that service and select **Change Database** in the toolbar. On the next screen, select **Use an existing SQL database** in the **SQL Database** field and then select **Next**. On the next screen be sure to pick the database you created in step 5, then select **OK**.
+1. Launch the [Azure Management Portal][].
+2. Select **+NEW** in the toolbar and then pick **Data Services**, **SQL Database**, **Quick Create**.
+3. Enter a database name and then select **New SQL database server** in the **Server** field. This will create a server that is using the new Basic, Standard, and Premium Edition. 
+4. Fill out the rest of the fields and select **Create SQL Database**. This will create a 100MB database using the Basic tier.
+5. Configure your mobile service to use the database you just created. Navigate to the **Configure** tab for that service and select **Change Database** in the toolbar. On the next screen, select **Use an existing SQL database** in the **SQL Database** field and then select **Next**. On the next screen be sure to pick the database you created in step 5, then select **OK**.
 
 Here are some recommendations on selecting the right tier for your database:
 

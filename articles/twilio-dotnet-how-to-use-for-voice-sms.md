@@ -1,6 +1,6 @@
 <properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (.NET) - Azure" metaKeywords="Azure Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to use Twilio for voice and SMS capabilities from Azure" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="MicrosoftHelp@twilio.com" />
 
 
 
@@ -74,13 +74,8 @@ When you're ready to get a Twilio account, sign up at [Try Twilio] [try_twilio].
 
 When you sign up for a Twilio account, you'll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page] [twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
 
-<h2><a id="VerifyPhoneNumbers"></a>Verify Phone Numbers</h2>
-Various phone numbers need to be verified with Twilio for your account. For example, if you want to place outbound phone calls, the phone number must be verified as an outbound caller ID with Twilio. Similarly, if you want a phone number to receive SMS messages, the receiving phone number must be verified with Twilio. For information on how to verify a phone number, see [Manage numbers] [verify_phone]. Some of the code below relies on phone numbers that you will need to verify with Twilio.
-
-As an alternative to using an existing number for your applications, you can purchase a Twilio phone number. For information about purchasing a Twilio phone number, see [Twilio Phone Numbers Help](https://www.twilio.com/help/faq/phone-numbers).
-
 <h2><a id="create_app"></a>Create an Azure Application</h2>
-An Azure application that hosts a Twilio enabled application is no different from any other Azure application. You simply add the Twilio .NET library and configure the role to use the Twilio .NET libraries.
+An Azure application that hosts a Twilio enabled application is no different from any other Azure application. You add the Twilio .NET library and configure the role to use the Twilio .NET libraries.
 For information on creating an initial Azure project, see [Creating an Azure project with Visual Studio][vs_project].
 
 <h2><a id="configure_app"></a>Configure Your Application to use Twilio Libraries</h2>
@@ -184,7 +179,7 @@ The following screenshot shows how to send an SMS message using the **TwilioRest
         client = new TwilioRestClient(accountSID, authToken);
 
         // Send an SMS message.
-        SMSMessage result = client.SendSmsMessage(
+        Message result = client.SendMessage(
             "+14155992671", "+12069419717", "This is my SMS message.");
 
         if (result.RestException != null)

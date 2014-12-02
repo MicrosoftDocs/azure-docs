@@ -1,6 +1,6 @@
 <properties title="Azure Data Factory - Frequently Asked Questions" pageTitle="Azure Data Factory - Frequently Asked Questions" description="Frequently asked questions about Azure Data Factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Azure Data Factory - Frequently Asked Questions
 
@@ -80,9 +80,15 @@ See the Geographic Availability section in the following article: or [HDInsight 
 
 The on-demand HDInsight cluster is created in the same region where the storage you specified to be used with the cluster exists.    
 
-[adfgetstarted]: ../data-factory-get-started
+## See Also
+[Introduction to Azure Data Factory][adf-introduction]
+[Get started with Azure Data Factory][adfgetstarted]
+[Troubleshooting Guide for Data Factory][adf-troubleshoot]
 
+
+[adfgetstarted]: ../data-factory-get-started
 [adf-introduction]: ../data-factory-introduction
+[adf-troubleshoot]: ../data-factory-troubleshoot
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-preview-portal]: http://portal.azure.com
 

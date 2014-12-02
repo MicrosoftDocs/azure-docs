@@ -1,6 +1,6 @@
-<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="carolz" services="" />
+<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="timlt" documentationCenter="" solutions="" authors="rasquill" services="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="rasquill" />
 
 #Install and Configure the Azure Cross-Platform Command-Line Interface
 
@@ -106,7 +106,13 @@ If you don't have an account, you can create a free trial account in just a coup
 
 To log in using an organizational account, use the following command:
 
-	azure login [username] [password]
+	azure login -u username -p password
+
+If you want to log in by typing interactively (for example, if you want your password masked on the screen), use the following command:
+
+	azure login
+
+and you will be prompted for your credentials and your password characters will be masked.
 
 > [WACOM.NOTE] If this is the first time you have logged in with these credentials, you will receive a prompt asking you to verify that you wish to cache an authentication token. This prompt will also occur if you have previously used the `azure logout` command described below. To bypass this prompt for automation scenarios, use the `-q` parameter with the `azure login` command.
 >
@@ -114,7 +120,7 @@ To log in using an organizational account, use the following command:
 
 To log out, use the following command:
 
-	azure logout [username]
+	azure logout -u <username>
 
 > [WACOM.NOTE] If the subscriptions associated with the account were only authenticated with Active Directory, logging out will delete the subscription information from the local profile. However, if the a publish settings file has also been imported for the subscriptions, logging out will only delete the Active Directory related information from the local profile.
 
@@ -170,7 +176,7 @@ This will change the default subscription to Azure-sub-2.
 
 If you wish to use a non-default subscription with the xplat-cli, but don't want to change the current default, you can use the `--subscription` option and provide the name of the subscription you wish to use for the operation.
 
-<h2><a id="use"></a>How use the Azure Cross-Platform Command-Line Interface</h2>
+<h2><a id="use"></a>How to use the Azure Cross-Platform Command-Line Interface</h2>
 
 The xplat-cli is accessed using the `azure` command. To see a list of commands available, use the `azure` command with no parameters. You should see help information similar to the following:
 
