@@ -55,6 +55,11 @@ to send email using SMTP is to do the following:
 
 1.  Specify the SMTP values, including the SMTP server, which for
     SendGrid is smtp.sendgrid.net.
+    
+        import java.util.Properties;
+        import javax.activation.*;
+        import javax.mail.*;
+        import javax.mail.internet.*;
 
         public class MyEmailer {
 	       private static final String SMTP_HOST_NAME = "smtp.sendgrid.net";
@@ -129,7 +134,7 @@ The following shows how to send an email.
     // Connect the transport object.
     transport.connect();
     // Send the message.
-    transport.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
+    transport.sendMessage(message, message.getAllRecipients());
     // Close the connection.
     transport.close();
 
