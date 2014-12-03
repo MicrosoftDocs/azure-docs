@@ -17,7 +17,7 @@
 <UL>
 <LI>If you want more information for a full deployment read the <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Planning</a> and <a href="http://go.microsoft.com/fwlink/?LinkId=402679">Deployment</a> guides.</LI>
 <LI>You can read about additional Azure Site Recovery deployment scenarios in <a href="http://go.microsoft.com/fwlink/?LinkId=518690">Azure Site Recovery Overview</a>.</LI>
-<LI>f you run into problems during this tutorial, review the wiki article <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: Common Error Scenarios and Resolutions</a>, or post your questions on the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI>
+<LI>If you run into problems during this tutorial, review the wiki article <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: Common Error Scenarios and Resolutions</a>, or post your questions on the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI>
 </UL>
 </div>
 
