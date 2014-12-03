@@ -13,8 +13,7 @@ Storing data in Blob storage enables the HDInsight clusters used for computation
 
 > [WACOM.NOTE] HDInsight currently only supports block blobs.
 
-> [WACOM.NOTE]
-> Most HDFS commands such as <b>ls</b>, <b>copyFromLocal</b>, <b>mkdir</b>, and so on, still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as <b>fschk</b> and <b>dfsadmin</b> will show different behavior on Azure Blob storage.
+> [WACOM.NOTE] Most HDFS commands such as <b>ls</b>, <b>copyFromLocal</b>, <b>mkdir</b>, and so on, still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as <b>fschk</b> and <b>dfsadmin</b> will show different behavior on Azure Blob storage.
 
 For information on provisioning an HDInsight cluster, see [Get Started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
 
