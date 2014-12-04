@@ -1,6 +1,6 @@
 <properties title="Tutorial - Getting Started with the Azure Batch Library for .NET" pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET" description="required" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
 
-<tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/02/2014" ms.author="yidingz, karran.batta" />
+<tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="12/03/2014" ms.author="yidingz, karran.batta" />
 
 #Getting Started with the Azure Batch Library for .NET  
 
@@ -19,11 +19,11 @@ This tutorial will show you how to create a console application that sets up dis
 
 >[WACOM.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/). 
 >
->You need to use NuGet to obtain the **Microsoft.Azure.Batch.dll** assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. Search online for **Azure.Batch** and then click Install to install the Azure Storage package and dependencies.
+>You need to use NuGet to obtain the **Microsoft.Azure.Batch.dll** assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. Search online for **Azure.Batch** and then click Install to install the Azure Batch package and dependencies.
 >
->Please make sure your Nuget Package Manager version is 2.8 or later. You can find the version number from Visual Studio -> "Help" -> "About Microsoft Visual Studio" dialog. If you have an older version of Nuget Package Manager, you need to update your Visual Studio or you might have issue download the correct version of Nuget dependencies.
+>Please make sure your Nuget Package Manager version is 2.8 or later. You can find the version number from Visual Studio -> "Help" -> "About Microsoft Visual Studio" dialog. If you have an older version of Nuget Package Manager, you need to update your Visual Studio or you might have problems downloading the correct version of Nuget dependencies.
 > 
->Also, you can refer to the [Azure Batch Hello World sample](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) on msdn for a sample simliar to the code discussed here.
+>Also, you can refer to the [Azure Batch Hello World sample](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) on MSDN for a sample similar to the code discussed here.
 
 
 

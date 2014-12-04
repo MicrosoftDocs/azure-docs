@@ -138,8 +138,8 @@ The following example writes all of this metadata to an INFO application log. In
 		    TextWriter logger)
 		{
 		    logger.WriteLine(
-		        "logMessage={0}\n"
-				nexpirationTime={1}\ninsertionTime={2}\n" +
+		        "logMessage={0}\n" +
+			"expirationTime={1}\ninsertionTime={2}\n" +
 		        "nextVisibleTime={3}\n" +
 		        "id={4}\npopReceipt={5}\ndequeueCount={6}\n" +
 		        "queue endpoint={7} queueTrigger={8}",
