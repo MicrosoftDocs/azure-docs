@@ -60,7 +60,7 @@ Choosing this option lets you create a new server and a SQL database at the same
 
 * Choose **New SQL Database Server**. Selecting a new server adds a second page that we'll use to set the administrator account and region. 
 
-* When you are through, click the arrow to go to next page.
+* When you are done, click the arrow to go to next page.
 
 
 7. Fill out the Server Settings as follows: 
