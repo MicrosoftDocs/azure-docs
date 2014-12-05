@@ -1,6 +1,6 @@
-<properties urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="ghogen" manager="douge" />
+<properties urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="kempb" manager="douge" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="5/27/2014" ms.author="ghogen" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/3/2014" ms.author="kempb" />
 
 # Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
 
@@ -54,7 +54,7 @@ a lot of time and demonstrates some obvious performance problem. For example, ad
 	    public static string Concatenate(int number)
 	    {
 	        int count;
-	        string s = ""
+	        string s = "";
 	        for (count = 0; count < number; count++)
 	        {
 	            s += "\n" + count.ToString();
@@ -63,18 +63,19 @@ a lot of time and demonstrates some obvious performance problem. For example, ad
 	    }
 	}
 
-Call this code from the Run method in the worker role's RoleEntryPoint-derived class.
+Call this code from the RunAsync method in the worker role's RoleEntryPoint-derived class. (Ignore the warning about the method running synchronously.)
 
-	public override void Run()
-	{
-	    while (true)
-	    {
-	        Concatenator.Concatenate(10000);
-	    }
-	}
+        private async Task RunAsync(CancellationToken cancellationToken)
+        {
+            // TODO: Replace the following with your own logic.
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                Trace.TraceInformation("Working");
+                Concatenator.Concatenate(10000);
+            }
+        }
 
-Build and run your cloud service locally with the solution configuration set to **Release**. This ensures that all files and folders are 
-created for running the application locally, and ensures that all the emulators are started.
+Build and run your cloud service locally without debugging (Ctrl+F5), with the solution configuration set to **Release**. This ensures that all files and folders are created for running the application locally, and ensures that all the emulators are started. Start the Compute Emulator UI from the taskbar to verify that your worker role is running.
 
 ## <a name="step2"> </a> Step 2: Attach to a Process
 
@@ -129,13 +130,13 @@ of the execution time.
 
 ![][12]
 
-If you added the string concatenation code in this article, you should see a warning in the Task List for this. You may also see a warning that there is an excessive amount of garbage collection, which is due to the number of strings that are disposed.
+If you added the string concatenation code in this article, you should see a warning in the Task List for this. You may also see a warning that there is an excessive amount of garbage collection, which is due to the number of strings that are created and disposed.
 
 ![][14]
 
 ## <a name="step4"> </a> Step 4: Make Changes and Compare Performance
 
-You can also compare the performance before and after a code change.  Edit the code to replace the string concatenation operation with the use of StringBuilder:
+You can also compare the performance before and after a code change.  Stop the running process, and edit the code to replace the string concatenation operation with the use of StringBuilder:
 
 	public static string Concatenate(int number)
 	{
@@ -160,7 +161,7 @@ Congratulations! You've gotten started with the profiler.
 
 ## <a name="troubleshooting"> </a> Troubleshooting
 
-- Make sure you are profiling a Release build.
+- Make sure you are profiling a Release build and start without debugging.
 
 - If the Attach/Detach option is not enabled on the Profiler menu, run the Performance Wizard.
 
@@ -175,7 +176,7 @@ command line, especially the global settings, make sure that VSPerfClrEnv /globa
 
 ## <a name="nextSteps"> </a> Next Steps
 
-Instrumenting Azure binaries in the emulator is not supported in the Visual Studio 2010 profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
+Instrumenting Azure binaries in the emulator is not supported in the Visual Studio profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
 
 
 [Step 1: Configure Visual Studio for Profiling]: #step1
@@ -185,8 +186,8 @@ Instrumenting Azure binaries in the emulator is not supported in the Visual Stud
 [Troubleshooting]: #troubleshooting
 [Next Steps]: #nextSteps
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx
-[2]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling
+[1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
+[2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
 [3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
