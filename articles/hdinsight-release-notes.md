@@ -1,11 +1,68 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="bradsev" />
 
 
 #Microsoft HDInsight release notes
 
-## Notes for 11/021/2014 release of HDInsight ##
+## Notes for 12/05/2014 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight 	2.1.9.402.1213163	(HDP 1.3.9.0-01351 )
+* HDInsight 	3.0.5.402.1213163	(HDP 2.0.9.0-2097)
+* HDInsight 	3.1.1.402.1213163	(HDP 2.1.9.0-2196)
+* HDInsight SDK N/A
+
+This release contains the following component updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+<tr>
+<td>Bug Fix: Intermittent error while adding large number of partitions to a table in a Hive DDL. </td>
+<td><p>If there is an intermittent connection error with the Hive metastore database when adding a lot partitions to a Hive table, the Hive DDL can fail. The following statement will be seen in the hive error log if this failure occurs: </p><p>"ERROR [main]: ql.Driver (SessionState.java:printError(547)) - FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:java.lang.RuntimeException: commitTransaction was called but openTransactionCalls = 0. This probably indicates that there are unbalanced calls to openTransaction/commitTransaction)"</p></td>
+<td>Hive</td>
+<td>Hadoop, Hbase</td>
+<td>HIVE-482 (This is an internal JIRA, so it cannot be quoted externally. Noted here for reference.)</td>
+</tr>
+
+<tr>
+<td>Bug Fix: Occasional hang in the HDInsight Query  Query Console</td>
+<td>When this happens, the following statement can be seen in the WebHCat log for the WebHCat launcher job: <p>"org.apache.hive.hcatalog.templeton.CatchallExceptionMapper | org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.yarn.exceptions.YarnRuntimeException): Could not load history file {wasb url to the history file}"</p></td>
+<td>WebHCat</td>
+<td>Hadoop</td>
+<td>HIVE-482 (This is an internal JIRA, so it cannot be quoted externally. Noted here for reference.)</td>
+</tr>
+
+<tr>
+<td>Bug Fix: Occasional spike in latency of Hbase queries</td>
+<td>If this happened, users would notice an occasional spike of 3 seconds in the latency of Hbase queries. </td>
+<td>HDInsight Cluster Gateway</td>
+<td>HBase</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>HDP Jar File Name Changes</td>
+<td>For HDI cluster version 3.0, there a couple of changes to internal jar files installed by HDP. jetty-6.1.26.jar
+ has been replaced with jetty-6.1.26.hwx.jar. jetty-util-6.1.26.jar has been replaced with jetty-util-6.1.26.hwx.jar. These changes apply to Hadoop, Mahout, WebHCat and Oozie projects.**</td>
+<td>Hadoop, Mahout, WebHCat, Oozie</td>
+<td>Hadoop, HBase</td>
+<td>N/A</td>
+</tr>
+
+</table>
+<br>
+
+
+## Notes for 11/21/2014 release of HDInsight ##
 
 The full version numbers for HDInsight clusters deployed with this release are:
 
