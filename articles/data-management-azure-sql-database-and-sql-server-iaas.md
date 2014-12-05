@@ -11,7 +11,7 @@ Microsoft Azure provides you two options when hosting your SQL Server-based data
 - [Business motivations when choosing Azure SQL Database or SQL Server in Azure VM](#business)	
 	- [Cost](#cost)
 		- [Billing and licensing basics](#billing)	
-		- [Calculating the total application cost](appcost)	
+		- [Calculating the total application cost](#appcost)	
 	- [Administration](#admin)	
 	- [Service level agreement (SLA)](#sla)	
 	- [Time to market](#market)	
@@ -130,7 +130,7 @@ With **Azure SQL Database**, the database software is automatically configured, 
 
 With **SQL Server in Azure VM**, you utilize traditional SQL Server licensing. You can either use the platform-provided SQL Server image or bring your SQL Server license to Azure. When using the SQL Server platform provided images, the cost depends on the VM size as well as the version of SQL Server you choose. Basically, you pay per minute licensing cost of SQL Server, the per-minute licensing of Windows Server, and the Azure storage cost. The per-minute billing option allows you to use SQL Server for as long as you need it without buying full SQL Server license. If you bring your own SQL Server license to Azure, you are charged for Azure compute and storage costs only. For more information, see [License Mobility through Software Assurance on Azure](http://azure.microsoft.com/pricing/license-mobility/).
 
-####<a name="cost"></a>Calculating the total application cost
+####<a name="appcost"></a>Calculating the total application cost
 
 When you start using a cloud platform, the cost of running your application mainly includes the development and administration costs; and also the service costs that the public cloud platform requires.
 
