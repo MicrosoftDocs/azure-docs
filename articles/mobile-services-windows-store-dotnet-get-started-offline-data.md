@@ -38,8 +38,8 @@ This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1.
 * Completion of the [Get started with Mobile Services].
-* [Azure Mobile Services SDK version 1.3.0-beta2 (or later)][Mobile Services SDK Nuget]
-* [Azure Mobile Services SQLite Store version 1.0.0-beta2 (or later)][SQLite store nuget]
+* [Azure Mobile Services SDK version 1.3.0 (or later)][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0 (or later)][SQLite store Nuget]
 * SQLite for Windows 8.1
 
 >[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
@@ -135,7 +135,7 @@ Azure Mobile Services offline features allow you to interact with a local databa
                 <Button Margin="10,0,0,0" Name="ButtonPull" Click="ButtonPull_Click">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Margin="5">Pull</TextBlock>
-                        <SymbolIcon Symbol="Sync"/>
+                        <SymbolIcon Symbol="Download"/>
                     </StackPanel>
                 </Button>
                 <Button Margin="10,0,0,0" Name="ButtonPush" Click="ButtonPush_Click">
@@ -155,7 +155,7 @@ Azure Mobile Services offline features allow you to interact with a local databa
                 <Button Name="ButtonPull" Click="ButtonPull_Click" Margin="10,0,0,0">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Margin="5">Pull</TextBlock>
-                        <SymbolIcon Symbol="Sync"/>
+                        <SymbolIcon Symbol="Download"/>
                     </StackPanel>
                 </Button>
                 <Button Name="ButtonPush" Click="ButtonPush_Click" Margin="10,0,0,0">
@@ -187,11 +187,10 @@ Azure Mobile Services offline features allow you to interact with a local databa
 
             try
             {
-                // In this example scenario we are demonstrating incremental sync. We only want to 
-                // sync the uncomplete todoitems. If another client updated the text or any other 
-                // field after completing the item, it doesn't concern us. So we pass a query to the 
-                // PullAsync() method to pull uncomplete todoitems instead of the entire table.
-                await todoTable.PullAsync(todoTable.Where(todoItem => todoItem.Complete == false));
+                // All items should be synced since other clients might mark an item as complete
+                // The first parameter is a query ID that uniquely identifies the query.
+                // This is used in incremental sync to get only newer items the next time PullAsync is called
+                await todoTable.PullAsync("allTodoItems", todoTable.CreateQuery());
 
                 await RefreshTodoItems();
             }
@@ -378,5 +377,5 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [Windows Phone 8 Tutorial for Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data/
 
 
-[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
-[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
+[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
+[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
