@@ -26,6 +26,7 @@
 + Guidance for Developers
 + Features currently available in Microsoft Azure Government
 + Endpoint Mapping
++ Next Steps
 
 
 ## Overview
@@ -90,7 +91,7 @@ Table Storage</td><td>	*.table.core.windows.net	</td><td>*.table.core.usgovcloud
 </td></tr><tr><td>
 SQL Database</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net
 </td></tr><tr><td>
-Service Management</td><td>	https://management.core.windows.net</td><td>	https://management.core.usgovcloudapi.net
+Service Management</td><td>	management.core.windows.net</td><td>	management.core.usgovcloudapi.net
 </td></tr></table>
 
 
@@ -102,7 +103,7 @@ Service Management</td><td>	https://management.core.windows.net</td><td>	https:/
 If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to <A href="http://azure.microsoft.com/gov">http://azure.microsoft.com/gov</a>
 
 <!--Anchors-->
-[Subheading 1]: #subheading-1
+[Overview]: ##Overview
 [Subheading 2]: #subheading-2
 [Subheading 3]: #subheading-3
 [Next steps]: #next-steps
