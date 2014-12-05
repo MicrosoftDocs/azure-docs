@@ -15,10 +15,6 @@ You will learn:
 * How to create a site using a built in template with WebMatrix 
 * How to deploy the customized website directly from WebMatrix to Azure.
 
-> [WACOM.NOTE]
-> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites. The bakery site shown in this topic is one of the options.
-
-
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
