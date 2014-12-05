@@ -35,6 +35,7 @@ The following three fields are used to configure the new API.
 -	**Web API title** provides a unique and descriptive name for the API. It is displayed in the developer and management portals.
 -	**Web service URL** references the HTTP service implementing the API. API management forwards requests to this address.
 -	**Web API URL suffix** is appended to the base URL for the API management service. The base URL is common for all APIs hosted by an API Management service instance. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API for a given publisher.
+-	**Web API URL scheme** determines which protocols can be used to access the API. HTTPs is specified by default.
 
 Once the three values are configured, click **Save**. Once the new API is created, the summary page for the API is displayed in the management portal.
 
@@ -42,11 +43,13 @@ Once the three values are configured, click **Save**. Once the new API is create
 
 ## <a name="configure-api-settings"> </a>Configure API settings
 
-You can use the **Settings** tab to verify and edit the configuration for an API. **Web API title**, **Web service URL**, and **Web API URL suffix** are initially set when the API is created and can be modified here. **Description** provides an optional description, and **With credentials** allows you to configure Basic HTTP authentication.
+You can use the **Settings** tab to verify and edit the configuration for an API. **Web API title**, **Web service URL**, and **Web API URL suffix** are initially set when the API is created and can be modified here. **Description** provides an optional description, and **Web API URL scheme** determines which protocols can be used to access the API.
 
 ![API settings][api-management-api-settings]
 
-To configure HTTP Basic Authentication for the web service implementing the API, select **Basic** from the **With credentials** drop-down and enter the desired credentials.
+To configure **Proxy authentication** for the web service implementing the API, select the **Security** tab. The **With credentials** drop-down can be used to configure **Basic authentication** or **Mutual certificates** authentication. To use basic authentication, simply enter the desired credentials. For information on using mutual certificate authentication, see [How to secure back-end services using mutual certificate authentication in Azure API Management][].
+
+The **Security** tab can also be used to configure **User authorization** using OAuth 2.0. For more information, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management][].
 
 ![Basic authentication settings][api-management-api-settings-credentials]
 
@@ -82,3 +85,5 @@ Once an API is created and the settings configured, the next steps are to add th
 
 [Get started with Azure API Management]: ../api-management-get-started
 [Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[How to secure back-end services using mutual certificate authentication in Azure API Management]: ../api-management-howto-mutual-certificates
+[How to authorize developer accounts using OAuth 2.0 in Azure API Management]: ../api-management-howto-oauth2
