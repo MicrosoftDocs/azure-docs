@@ -13,6 +13,9 @@ This tutorial shows you how to deploy an application built using the Django web 
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
+> [WACOM.NOTE]
+> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
+
 This tutorial uses Python 2.7 and Django 1.4.  You can either get these on your own, or you can quickly and easily install these by using the Windows Installer link on [http://www.windowsazure.com/en-us/develop/python/](http://www.windowsazure.com/en-us/develop/python/).  
 
 **Note**: Azure websites now come with Python (2.7.3 or 3.4.0, your choice) and wfastcgi handler pre-installed.  However, web frameworks such as Django are not included.  You can still use a different Python interpreter if you prefer.  You just need to include it in the Git repository and configure the website to use that interpreter instead of the Python 2.7 interpreter already installed.
