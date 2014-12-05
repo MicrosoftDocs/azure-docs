@@ -5,14 +5,53 @@
 
 #Microsoft HDInsight release notes
 
-## Notes for 11/021/2014 release of HDInsight ##
+## Notes for 12/05/2014 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight 	2.1.9.402.1213163
+* HDInsight 	3.0.5.402.1213163
+* HDInsight 	3.1.1.402.1213163
+* HDInsight SDK N/A
+
+This release contains the following component updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+<tr>
+<td>Bug Fix: Intermittent error while adding large number of partitions to a table in a Hive DDL. </td>
+<td><p>If there is an intermittent connection error with the Hive metastore database when adding a lot partitions to a Hive table, the Hive DDL can fail. The following statement will be seen in the hive error log if this failure occurs: </p><p>"ERROR [main]: ql.Driver (SessionState.java:printError(547)) - FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:java.lang.RuntimeException: commitTransaction was called but openTransactionCalls = 0. This probably indicates that there are unbalanced calls to openTransaction/commitTransaction)"</p></td>
+<td>Hive</td>
+<td>Hadoop, Hbase</td>
+<td>HIVE-482 (This is an internal JIRA, so it cannot be quoted externally. Noted here for reference.)</td>
+</tr>
+
+<tr>
+<td>Bug Fix: Gateway latency improvement</td>
+<td>Fixes a 3 second latency that was introduced in some intermediate API calls when used with HBase APIs. </td>
+<td>Gateway</td>
+<td>HBase</td>
+<td>N/A</td>
+</tr>
+
+</table>
+<br>
+
+## Notes for 11/21/2014 release of HDInsight ##
 
 The full version numbers for HDInsight clusters deployed with this release are:
 
 * HDInsight 2.1.9.382.1169709 (no change from 11/14/2014)
 * HDInsight 3.0.5.382.1169709 (no change from 11/14/2014)
 * HDInsight 3.1.1.382.1169709 (no change from 11/14/2014)
-* HDINsight SDK 1.4.0
+* HDInsight SDK 1.4.0
 
 This release contains the following component updates.
 
