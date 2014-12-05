@@ -30,14 +30,15 @@
 
 ## Overview
 
-Microsoft Azure Government is a separate instance of the Microsoft Azure service addressing the security and compliance needs of U.S. federal agencies including the Department of Defense, state and local governments and their solutions providers. Azure Government offers physical and network isolation from non-U.S. government deployments and provides specialized personnel screening. 
+Microsoft Azure Government is a separate instance of the Microsoft Azure service addressing the security and compliance needs of U.S. federal agencies, state and local governments and their solutions providers. Azure Government offers physical and network isolation from non-U.S. government deployments and provides screened U.S. personnel. 
 
 Microsoft provides a number of tools to create and deploy cloud applications to Microsoft’s global Microsoft Azure service (“Global Service”) and Microsoft Azure Government services.
 
-When creating and deploying applications to the Azure Government Services, as opposed to the Global Service, developers need to know the key differences of the two services.  Specifically around setting up and configuring their programming environment, writing applications, and deploying them as services to Azure Government.
+When creating and deploying applications to the Azure Government Services, as opposed to the Global Service, developers need to know the key differences of the two services.  Specifically around setting up and configuring their programming environment, configuring endpoints, writing applications, and deploying them as services to Azure Government.
 
-The information in this document summarizes those differences and supplements the information available on the [Azure Government](http://www.azure.com/gov "Azure Government") site and the [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN. Official information may also be available in many other locations such as the [Microsoft Azure Trust Center](http://azure.microsoft.com/en-us/support/trust-center/ "Microsoft Azure Trust Center"), [Azure Documentation Center](http://azure.microsoft.com/en-us/documentation/) and in various blog posts by Microsoft employees. This content is intended for partners and developers who are deploying to Microsoft Azure Government.
-For the latest update on services and feature availability for Microsoft Azure Government, please visit the Microsoft Azure Government portal. For a list of the current developer content for Microsoft Azure and Azure Government, please see the Appendix at the end of this document.
+The information in this document summarizes those differences and supplements the information available on the [Azure Government](http://www.azure.com/gov "Azure Government") site and the [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN. Official information may also be available in many other locations such as the [Microsoft Azure Trust Center](http://azure.microsoft.com/en-us/support/trust-center/ "Microsoft Azure Trust Center"), [Azure Documentation Center](http://azure.microsoft.com/en-us/documentation/) and in [Azure Blogs](http://azure.microsoft.com/blog/ "Azure Blogs"). 
+
+This content is intended for partners and developers who are deploying to Microsoft Azure Government.
 
 
 
@@ -59,7 +60,9 @@ Azure Government currently has the following services available in both US GOV I
 - Scheduler
 - Virtual Networking
 
-Other services are available, for example Azure SQL DB is currently in Preview, and more services will be added on a continuous basis.  For the most current list of services, please see the <a href="http://azure.microsoft.com/en-us/regions/#services" target="_new">regions page</a> which will highlight each available region and their services.  Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure Government.  More may be added so refer to the regions page above for current data centers and services available.
+Other services are available, for example Azure SQL DB is currently in Preview, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](http://azure.microsoft.com/en-us/regions/#services) which will highlight each available region and their services.  
+
+Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure Government.  Please refer to the regions page above for current data centers and services available.
 
 ## Endpoint Mapping
 
@@ -72,8 +75,6 @@ Service Type</td><td>	Azure Public</td><td>	Azure Government
 Azure Government Home</td><td>	windowsazure.com	</td><td>microsoftazure.us
 </td></tr><tr><td>
 Management Portal</td><td>	manage.windowsazure.com</td><td>	manage.windowsazure.us
-</td></tr><tr><td>
-Account Management	</td><td>account.windowsazure.com	</td><td>account.windowsazure.us
 </td></tr><tr><td>
 General</td><td>	*.windows.net	</td><td>*.usgovcloudapi.net
 </td></tr><tr><td>
@@ -98,7 +99,7 @@ Service Management</td><td>	https://management.core.windows.net</td><td>	https:/
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to <A href="http://azure.microsoft.com/gov">http://azure.microsoft.com/gov</a>  and the <A href="http://azure.microsoft.com/en-us/support/trust-center/">Azure Trust Center</a>.
+If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to <A href="http://azure.microsoft.com/gov">http://azure.microsoft.com/gov</a>
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
