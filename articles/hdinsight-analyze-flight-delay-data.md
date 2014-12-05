@@ -1,6 +1,6 @@
 <properties urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="Analyze flight delay data using Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to  use one PowerShell script to provision HDInsight cluster, run Hive job, run Sqool job, and delete the cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using Hadoop in HDInsight " authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="jgao" />
 
 #Analyze flight delay data using Hadoop in HDInsight
 
@@ -113,7 +113,7 @@ Hadoop MapReduce is batch processing. The most cost-effective way to run an Hive
 
 **To run the Hive queries using PowerShell**
 
-1. Create an Azure SQL database and the table using the instructions in [Appendix C](#appendix-c).
+1. If you don't have an Azure SQL database, create one using the instructions in [Appendix C](#appendix-c).
 2. Prepare the parameters:
 
 	<table border="1">
@@ -488,7 +488,7 @@ If you choose to use a different method for uploading the files, please make sur
 
 >[WACOM.NOTE] You must update the Hive query to read from the new location.
 
->[WACOM.NOTE] You must either configure the container access permission to be public or bind the storage account to the HDInsight cluster.  Otherwise, the Hive query string will not be able to access the data files. 
+> You must either configure the container access permission to be public or bind the storage account to the HDInsight cluster.  Otherwise, the Hive query string will not be able to access the data files. 
 
 ---
 ##<a id="appendix-b"></a>Appendix B - Create and upload HiveQL script
