@@ -9,9 +9,9 @@
 
 The full version numbers for HDInsight clusters deployed with this release are:
 
-* HDInsight 	2.1.9.402.1213163
-* HDInsight 	3.0.5.402.1213163
-* HDInsight 	3.1.1.402.1213163
+* HDInsight 	2.1.9.402.1213163	(HDP 1.3.9.0-01351 )
+* HDInsight 	3.0.5.402.1213163	(HDP 2.0.9.0-2097)
+* HDInsight 	3.1.1.402.1213163	(HDP 2.1.9.0-2196)
 * HDInsight SDK N/A
 
 This release contains the following component updates.
@@ -34,15 +34,33 @@ This release contains the following component updates.
 </tr>
 
 <tr>
-<td>Bug Fix: Gateway latency improvement</td>
-<td>Fixes a 3 second latency that was introduced in some intermediate API calls when used with HBase APIs. </td>
-<td>Gateway</td>
+<td>Bug Fix: Occasional hang in the HDInsight Query  Query Console</td>
+<td>When this happens, the following statement can be seen in the WebHCat log for the WebHCat launcher job: <p>"org.apache.hive.hcatalog.templeton.CatchallExceptionMapper | org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.yarn.exceptions.YarnRuntimeException): Could not load history file {wasb url to the history file}"</p></td>
+<td>WebHCat</td>
+<td>Hadoop</td>
+<td>HIVE-482 (This is an internal JIRA, so it cannot be quoted externally. Noted here for reference.)</td>
+</tr>
+
+<tr>
+<td>Bug Fix: Occasional spike in latency of Hbase queries</td>
+<td>If this happened, users would notice an occasional spike of 3 seconds in the latency of Hbase queries. </td>
+<td>HDInsight Cluster Gateway</td>
 <td>HBase</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>HDP Jar File Name Changes</td>
+<td>For HDI cluster version 3.0, there a couple of changes to internal jar files installed by HDP. jetty-6.1.26.jar
+ has been replaced with jetty-6.1.26.hwx.jar. jetty-util-6.1.26.jar has been replaced with jetty-util-6.1.26.hwx.jar. These changes apply to Hadoop, Mahout, WebHCat and Oozie projects.**</td>
+<td>Hadoop, Mahout, WebHCat, Oozie</td>
+<td>Hadoop, HBase</td>
 <td>N/A</td>
 </tr>
 
 </table>
 <br>
+
 
 ## Notes for 11/21/2014 release of HDInsight ##
 
