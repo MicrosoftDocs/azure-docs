@@ -24,6 +24,7 @@ Follow these steps to create an Azure Website, and then enable Git publishing fo
 
 <div class="dev-callout"><strong>Note</strong>
 <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.</p>
+<p>If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=nodejs">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.</p>
 </div>
 
 1. Login to the [Azure Management Portal].
