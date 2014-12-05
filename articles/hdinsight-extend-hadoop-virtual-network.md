@@ -1,3 +1,9 @@
+<properties urlDisplayName="Extend HDInsight capabilities with Virtual Network" pageTitle="Extend HDInsight with Azure Virtual Network" metaKeywords="" description="Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter" metaCanonical="" services="hdinsight" documentationCenter="hdinsight" title="Extend HDInsight with Azure Virtual Network" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="larryfr" />
+
+#Extend HDInsight capabilities using Azure Virtual Network
+
 Azure Virtual Network allows you to extend your Hadoop solutions to incorporate on premise resources such as SQL Server, or to create secure private networks between resources in the cloud.
 
 > [AZURE.NOTE] Currently HDInsight does not support affinity-based Azure Virtual Networks. When using HDInsight, you must use location-based Virtual networks.
