@@ -7,6 +7,9 @@ This guide provides a technical overview of how to use Azure Websites to create 
 
 [Azure Web Sites][websitesoverview] is a good match for both scenarios. It provides fast creation, supports multiple frameworks and languages, scales to meet user demand, and accommodates many deployment and source control systems. By using Azure, you also have access to other Azure services, such as Media Services, which can enhance a marketing campaign.
 
+> [WACOM.NOTE]
+> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
+
 Although it is possible to use [Azure Cloud Services][csoverview] or [Azure Virtual Machines][vmoverview] to host websites, it is not the ideal choice for this scenario unless there is a required feature that Azure Websites does not provide. To understand the options, see [Azure Web Sites, Cloud Services, and VMs: When to use which?][chooseservice].
 
 The following areas are addressed in this guide:
