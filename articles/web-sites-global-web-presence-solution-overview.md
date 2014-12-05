@@ -23,9 +23,6 @@ The following areas are addressed in this guide:
 <p>This guide presents some of the most common areas and tasks that are aligned with public-facing .COM site development. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">Digital Marketing Campaigns</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview">Business Applications</a>.</p>
 </div>
 
-> [WACOM.NOTE]
-> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
-
 ##<a name="createwebsite"></a>Create an Azure Website
 Using the Azure Management Portal, you can create a new Azure Website in several ways. When you click the **New** button on the bottom of the portal, you are presented with the following dialog:
 
