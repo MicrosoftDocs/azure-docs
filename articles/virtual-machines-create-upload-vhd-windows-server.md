@@ -74,7 +74,6 @@ In the virtual machine that you just created, complete the following procedure:
 	![Open Command Prompt window](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
 3.	The **System Preparation Tool** dialog box appears.
-4.	
 
 	![Start Sysprep](./media/virtual-machines-create-upload-vhd-windows-server/sysprepgeneral.png)
 
