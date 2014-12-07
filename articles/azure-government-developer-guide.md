@@ -99,7 +99,7 @@ Service Management</td><td>	management.core.windows.net</td><td>	management.core
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next"></a>Next steps
 
-If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to <A href="http://azure.microsoft.com/gov">http://azure.microsoft.com/gov</a>
+If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to <A href="http://azure.com/gov">http://www.azure.com/gov</a>
 
 <!--Anchors-->
 [Overview]: ##Overview
