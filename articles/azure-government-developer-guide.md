@@ -91,7 +91,7 @@ Table Storage</td><td>	*.table.core.windows.net	</td><td>*.table.core.usgovcloud
 SQL Database</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net
 </td></tr><tr><td>
 Service Management</td><td>	management.core.windows.net</td><td>	management.core.usgovcloudapi.net
-</td></tr></table>
+</td></tr></table> 
 
 
 
