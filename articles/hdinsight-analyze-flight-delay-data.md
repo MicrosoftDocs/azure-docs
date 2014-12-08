@@ -736,7 +736,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 		Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
 
 
-	> WACOM.NOTE The script uses a REST service, http://bot.whatismyipaddress.com, to retrieve your external IP address. The IP address is used for creating a firewall rule for your SQL Database server.  
+	>WACOM.NOTE The script uses a REST service, http://bot.whatismyipaddress.com, to retrieve your external IP address. The IP address is used for creating a firewall rule for your SQL Database server.  
 
 	Here are some constants used in the script:
 
