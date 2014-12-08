@@ -1,6 +1,6 @@
 <properties title="What is RemoteApp?" pageTitle="What is RemoteApp?" description="Learn about Azure RemoteApp." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/05/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="elizapo" ms.manager="mbaldwin" />
 
 #What is Azure RemoteApp?
 
@@ -27,9 +27,9 @@ There are two kinds of RemoteApp deployment:
 
 The [cloud RemoteApp deployment](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-cloud-deployment/) offers a standalone way to host applications in the cloud. A cloud deployment exists only in the Azure cloud, as opposed to connecting to your local network.
 
-As part of the RemoteApp preview, we provide you with the Office 2013 apps preinstalled and ready to share with your users. If you choose to leverage the available software, you can provision your service quickly.
+As part of the RemoteApp trial, we provide you with the Office 365 ProPlus or Office 2013 apps preinstalled and ready to share with your users. If you choose to leverage the available software, you can provision your service quickly.
 
-An additional advantage of using the cloud deployment with the Office 2013 apps is that the apps and operating system (upon which your service is built) are always kept up to date through regular updates, and Microsoft Anti-Malware endpoint protection provides continuous defense. Your end users use their Microsoft accounts or corporate credentials to access the apps. All that you, the administrator, need to worry about is figuring out who should have access to which apps.
+An additional advantage of using the cloud deployment with the Office apps is that the apps and operating system (upon which your service is built) are always kept up to date through regular updates, and Microsoft Anti-Malware endpoint protection provides continuous defense. Your end users use their Microsoft accounts or corporate credentials to access the apps. All that you, the administrator, need to worry about is figuring out who should have access to which apps.
 
 You can also create a cloud deployment to share a custom application or set of applications for your users. To do this, you need to [create a custom template image](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/) (which is how we publish apps to RemoteApp) and simply choose that image (instead of the Office 2013 image) when you create your deployment. 
 
@@ -41,14 +41,14 @@ By integrating Active Directory with Azure Active Directory (using DirSync), you
 As long as you build your template image on Windows Server 2012 R2 with the RD Session Host role service, there are few limits on the apps you can publish for your users. If the apps function properly in that template image environment, your end users can access them through RemoteApp. 
 
 ###Updating your deployment
-One of the key differences between the hybrid and cloud deployments is how software updates are handled. With a cloud deployment that uses the preinstalled Office 2013 image, you do not have to worry about any updates. The service maintains itself and rolls out updates on an ongoing basis, to both apps and the operating system.
+One of the key differences between the hybrid and cloud deployments is how software updates are handled. With a cloud deployment that uses the preinstalled Office 365 ProPlus or Office 2013 image, you do not have to worry about any updates. The service maintains itself and rolls out updates on an ongoing basis, to both apps and the operating system.
 
 For hybrid deployments, as well as cloud deployments that use a custom template image, you are in charge of maintaining the image and apps. For domain-joined images, you can control updates by using tools such as Windows Update, Group Policy, or System Center.
 
 After you update your custom template image, you upload the new image to the Azure cloud and then update the deployment to use the new image. (You can do this from the RemoteApp Quick Start page or the Dashboard.)
 
 ##Supported RemoteApp clients
-As part of the Preview release of Azure RemoteApp, we released a new Microsoft RemoteApp client app for Windows and Windows RT, as well as updates to the Microsoft Remote Desktop apps for iOS and Android. Your users can use these apps on their mobile or compute devices to access the new RemoteApp programs.
+Azure RemoteApp is supported on the RemoteApp client apps for Windows and Windows RT, as well as the Microsoft Remote Desktop apps for Mac, iOS and Android. Your users can use these apps on their mobile or compute devices to access the new RemoteApp programs.
 
 ##Next steps
 Go! Try it out! These articles help get you started with RemoteApp:
@@ -56,5 +56,6 @@ Go! Try it out! These articles help get you started with RemoteApp:
 - [How to create a custom template image for RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/)
 - [How to create a cloud deployment of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-cloud-deployment/)
 - [How to create a hybrid deployment of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-hybrid-deployment/)
+- [How does licensing work in RemoteApp?](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-licensing/)
 - [Best practices for using Azure RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-bestpractices/)
 - [Azure RemoteApp FAQ](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-faq/)
