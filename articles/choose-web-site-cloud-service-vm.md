@@ -322,6 +322,9 @@ The following table compares the capabilities of Websites, Cloud Services, and V
 </tr>
 </table>
 
+> [WACOM.NOTE]
+> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
+
 ## <a id="nextsteps"></a> Next Steps
 
 For more information about the three web hosting options, see the following resources:

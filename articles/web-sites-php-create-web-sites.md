@@ -10,6 +10,9 @@ In general, creating a PHP website is no different that creating *any* website i
 
 Each option described below shows you how to create a website in a shared hosting environment at no cost, but with some limitations on CPU usage and bandwidth usage. For more information, see [Azure Web Sites Pricing][websites-pricing]. For information about how to upgrade and scale your website, see [How to scale Web Sites][scale-websites].
 
+> [WACOM.NOTE]
+> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
+
 ##Table of Contents
 * [Create a web site using the Azure Management Portal](#portal)
 * [Create a web site using the Azure Command Line Tools for Mac and Linux](#XplatTools)
