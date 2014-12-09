@@ -50,7 +50,7 @@ Notice that if you created a new server you did not specify a server name. SQL D
 
 In the next step, you will configure the firewall so that connections from applications running on your network are allowed access.
 
-##How to: Configure the firewall for the logical server
+##<a id="configFWLogical"></a>How to: Configure the firewall for the logical server
 
 1. In the [Management Portal](http://manage.windowsazure.com), click **SQL Databases**, then click **Servers**
 
