@@ -1,6 +1,6 @@
 <properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Azure Batch technical overview" metaKeywords="" description="Learn about the concepts, workflows, and scenarios of the Azure Batch service" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="danlep" />
+<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="danlep" />
 
 
 #Azure Batch technical overview
@@ -174,6 +174,7 @@ Figure 5 shows a basic workflow to publish an application by using the Batch App
 <h2 id="BKMK_Resources">Additional resources</h2>
 
 * [Get Started with the Azure Batch Library for .NET](http://azure.microsoft.com/en-us/documentation/articles/batch-dotnet-get-started/)
+* [Azure Batch development libraries and tools](http://azure.microsoft.com/en-us/documentation/articles/batch-development-libraries-tools/)
 * [Azure Batch REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=517803)
 * [Azure Batch Apps REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 

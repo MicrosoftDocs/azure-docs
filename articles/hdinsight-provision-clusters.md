@@ -389,7 +389,7 @@ HDInsight uses an Azure Blob Storage container as the default file system. An Az
 
 	When prompted for a location, select a location where an HDINsight cluster can be provisioned. The storage must be in the same location as the HDInsight cluster. Currently, only the **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, **West US**, **North Central US**, and **South Central US** regions can host HDInsight clusters.  
 
-For information on creating an Azure storage account using Azure Management portal, see [How to Create a Storage Account][azure-create-storageaccount].
+For information on creating an Azure storage account using Azure Management portal, see [Create, manage, or delete a storage account][azure-create-storageaccount].
 
 If you already have a storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
@@ -402,7 +402,7 @@ If you already have a storage account but do not know the account name and accou
 	-- Lists the keys for a storage account
 	azure storage account keys list <StorageAccountName>
 
-For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts][azure-manage-storageaccount].
+For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [Create, manage, or delete a storage account][azure-create-storageaccount].
 
 An HDInsight cluster also requires a container within a storage account. If the storage account you provide does not already have a containder, the *azure hdinsight cluster create* prompts you for a container name and creates it as well. However, if you want to create the container beforehand, you can use the following command:
 
@@ -609,12 +609,11 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
 
-[azure-create-storageaccount]: ../storage-create-storage-account/
 [azure-management-portal]: https://manage.windowsazure.com/
 
 [azure-command-line-tools]: ../xplat-cli/
 [azure-command-line-tool]: ../command-line-tools/
-[azure-manage-storageaccount]: ../storage-manage-storage-account/
+[azure-create-storageaccount]: ../storage-create-storage-account/
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
 [azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/

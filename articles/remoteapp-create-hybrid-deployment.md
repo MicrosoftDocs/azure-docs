@@ -1,6 +1,6 @@
-<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="How to create a hybrid deployment of RemoteApp" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="How to create a hybrid deployment of RemoteApp" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="elizapo" ms.manager="mbaldwin" />
 
 #How to create a hybrid deployment of RemoteApp
 
@@ -15,7 +15,7 @@ This tutorial walks you through the process of creating a hybrid deployment. The
 2.	Create a RemoteApp service.
 2.	Link to a virtual network.
 3.	Link a template image.
-4.	Configure directory synchronization. RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring DirSync with the Password Sync option, or 2) configuring DirSync without the Password Sync option but using a domain that is federated to AD FS.
+4.	Configure directory synchronization. RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring DirSync with the Password Sync option, or 2) configuring DirSync without the Password Sync option but using a domain that is federated to AD FS. Check out the [configuration info for Active Directory with RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/).
 5.	Publish RemoteApp programs.
 6.	Configure user access.
 
@@ -23,12 +23,13 @@ This tutorial walks you through the process of creating a hybrid deployment. The
 
 You need to do the following before creating the service:
 
-- Sign up for the preview of RemoteApp. You can do that at [http://azure.microsoft.com/en-us/services/remoteapp/](http://azure.microsoft.com/en-us/services/remoteapp/).
+- Sign up for RemoteApp. You can do that at [http://azure.microsoft.com/en-us/services/remoteapp/](http://azure.microsoft.com/en-us/services/remoteapp/).
 - Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain.
 - Gather information about your on-premises network: IP address information and VPN device details.
 - Install the [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) module.
-- Gather information about the users and groups that you want to grant access to. This can be either Microsoft account information or Active Directory work account information for users or groups.
+- Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information.
 - Create your template image. A RemoteApp template image contains the apps and programs that you want to publish for your users. See [How to create a custom template image for RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/) for detailed steps. 
+- [Configure Active Directory for RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-ad/).
 
 
 
@@ -69,12 +70,14 @@ A virtual network lets your users access data on your local network through Remo
 
 	**Note:** After you run this script, the virtual network will move to the Ready state - this may take 5-7 minutes. Until the network is ready, you won't be able to use it.
 
-5. Finally, again on the Quick Start page, click **join local domain**. Add the RemoteApp service account to your local Active Directory domain. You will need the domain name, organizational unit, service account user name and password.
+5. Finally, again on the Quick Start page, click **join local domain**. Add the RemoteApp service account to your local Active Directory domain. You will need the domain name, organizational unit, service account user name and password. 
+
+	This is the information you gathered if you followed the steps in [Configure Active Directory for Azure RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-AD/).
 
 
 ## **Step 3: Link to a RemoteApp template image** ##
 
-A RemoteApp template image contains the programs that you want to share with users. You can either upload the new template image you created (from the instructions in [How to create a custom template image for RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/)) or link to an existing image (one already uploaded to Azure).
+A RemoteApp template image contains the programs that you want to share with users. You can either upload the new template image you created (from the instructions in [How to create a custom template image for RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/)) or link to an existing image (one already uploaded to Azure). You can also link to [one of the images included with your subscription](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-images/).
 
 If you are uploading the new image, you need to enter the name and choose the location for the image. On the next page of the wizard, you'll see a set of PowerShell cmdlets - copy and run these cmdlets from an elevated Windows PowerShell prompt to upload the specified image.
 

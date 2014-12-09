@@ -4,9 +4,9 @@
 
 <h1><a id="configLogical"></a>How to Create and Configure an Azure SQL Database</h1>
 
-In this topic, you'll create and configure a new Azure SQL database using the Azure Management Portal's **QUICK CREATE** option. This process shows you how to create a SQL database using an existing server, and also shows how to create a a new server if needed.
+In this topic, you'll create and configure a new Azure SQL database using the Azure Management Portal's **QUICK CREATE** option. This process shows you how to create a SQL database using an existing server, and also shows how to create a new server if needed.
 
-> [WACOM.NOTE] Creating a SQL Database with **QUICK CREATE** provisions a Standard (S0) tier database. To create a SQL Database at a service tier and performance level other than Standard (S0) use **CUSTOM CREATE**. For details on creating an Azure SQL Database using **CUSTOM CREATE**, see [Getting Started with Microsoft Azure SQL Database](http://azure.microsoft.com/en-us/documentation/articles/sql-database-get-started/).
+> [WACOM.NOTE] Creating a SQL Database with **QUICK CREATE** provisions a Standard (S0) database. To create a SQL Database at a service tier and performance level other than Standard (S0) use **CUSTOM CREATE**. For details on creating an Azure SQL Database using **CUSTOM CREATE**, see [Getting Started with Microsoft Azure SQL Database](http://azure.microsoft.com/en-us/documentation/articles/sql-database-get-started/).
 
 ##Table of Contents##
 * [How to: Create an Azure SQL Database](#createDatabase)
@@ -50,7 +50,7 @@ Notice that if you created a new server you did not specify a server name. SQL D
 
 In the next step, you will configure the firewall so that connections from applications running on your network are allowed access.
 
-##How to: Configure the firewall for the logical server
+##<a id="configFWLogical"></a>How to: Configure the firewall for the logical server
 
 1. In the [Management Portal](http://manage.windowsazure.com), click **SQL Databases**, then click **Servers**
 
