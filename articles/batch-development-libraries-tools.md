@@ -1,6 +1,6 @@
 <properties linkid="batch-development-libraries-tools" urlDisplayName="" pageTitle="Azure Batch development libraries and tools" metaKeywords="" description="Get the libraries and tools you need to develop Azure Batch and Batch Apps applications" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch development libraries and tools" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="danlep" />
+<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="danlep" />
 
 
 # Azure Batch development libraries and tools 
@@ -25,7 +25,7 @@
 
 ## Additional resources
 
-+ [Code samples](https://go.microsoft.com/p/fwLink/?LinkID=512183) (MSDN)
++ [Code samples](https://code.msdn.microsoft.com/site/search?f[0].Type=Topic&f[0].Value=Azure%20Batch&f[0].Text=Azure%20Batch) (MSDN)
 + [Azure Batch forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch)
 + [Get started with the Azure Batch Library for .NET](http://azure.microsoft.com/en-us/documentation/articles/batch-dotnet-get-started/)  
 
