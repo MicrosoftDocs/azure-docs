@@ -1,6 +1,6 @@
-<properties title="MariaDB (MySQL) cluster - Azure tutorial" pageTitle="Running a MariaDB (MySQL) cluster on Azure" description="Create a MariaDB + Galera MySQL cluster on Azure Virtual Machines" metaKeywords="mysql,mariadb,galera,cluster,azure virtual machines" services="virtual-machines" solutions="infrastructure,data-management" documentationCenter="infrastructure" authors="sabbour" videoId="" scriptId="" manager="required" />
+<properties title="MariaDB (MySQL) cluster - Azure tutorial" pageTitle="Running a MariaDB (MySQL) cluster on Azure" description="Create a MariaDB + Galera MySQL cluster on Azure Virtual Machines" metaKeywords="mysql,mariadb,galera,cluster,azure virtual machines" services="virtual-machines" solutions="infrastructure,data-management" documentationCenter="infrastructure" authors="sabbour, rasquill" videoId="" scriptId="" manager="timlt" />
 
-<tags ms.service="virtual-machines" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="09/31/2014" ms.author="v-ahsab" />
+<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="12/3/2014" ms.author="v-ahsab" ms.prod="azure" />
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # MariaDB (MySQL) cluster - Azure tutorial
@@ -18,24 +18,24 @@
 
 ## Architecture overview
 
-Below is what we are ulitmatley want to achieve. Key points being:
+This topic performs the following steps:
 
-1. 3 node cluster to ensure we don't have split brain
-2. Separate Data Disks from the OS Disk
+1. Create A 3-node cluster
+2. Separate the Data Disks from the OS Disk
 3. Create the Data Disks in RAID-0/striped setting to increase IOPS
-4. The 3 nodes are load balanced using the Azure Load Balancer
-5. I want to minimize repetetive work, so I'll create a VM image containing MariaDB+Galera and use it to create the other cluster VMs.
+4. Use the Azure Load Balancer to balance the load for the 3 nodes
+5. To minimize repetitive work, create a VM image containing MariaDB+Galera and use it to create the other cluster VMs.
 
 ![Architecture](./media/virtual-machines-mariadb-cluster/Setup.png)
 
-> [WACOM.NOTE]  We're going to use the [Azure CLI] tools, so make sure to download them and follow the connecting them to your Azure subscription instructions. If you need a reference to the commands available in the Azure CLI, check out this link for the [Azure CLI command reference]. You will also need to [create an SSH key for authentication] and make note of the **.pem file location**.
+> [WACOM.NOTE]  This topic uses the [Azure CLI] tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, check out this link for the [Azure CLI command reference]. You will also need to [create an SSH key for authentication] and make note of the **.pem file location**.
 
 
 ## Creating the template
 
 ### Infrastructure
 
-1. Create an Affinity Group to hold our resources together
+1. Create an Affinity Group to hold the resources together
 
 		azure account affinity-group create mariadbcluster --location "North Europe" --label "MariaDB Cluster"
         
@@ -43,7 +43,7 @@ Below is what we are ulitmatley want to achieve. Key points being:
 
 		azure network vnet create --address-space 10.0.0.0 --cidr 8 --subnet-name mariadb --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --affinity-group mariadbcluster mariadbvnet
 
-3. Create a Storage Account to host all our disks. Note that you shouldn't be placing more than 40 heavily used disks on the same Storage Account to avoid hitting the 20,000 IOPS Storage Account limit. In this case, we're far off from this number so we'll store everyhing on the same account for simplicity
+3. Create a Storage Account to host all our disks. Note that you shouldn't be placing more than 40 heavily used disks on the same Storage Account to avoid hitting the 20,000 IOPS storage account limit. In this case, we're far off from this number so we'll store everything on the same account for simplicity
 
 		azure storage account create mariadbstorage --label mariadbstorage --affinity-group mariadbcluster
 
@@ -102,11 +102,11 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
             
 3. Install MariaDB:    
 		
-     - Creating the MariaDB.repo file: 
+     - Create the MariaDB.repo file: 
         
               	vi /etc/yum.repos.d/MariaDB.repo
         
-     - Filling it with the below content      
+     - Fill it with the below content      
         
 				[mariadb]
 				name = MariaDB
@@ -137,7 +137,7 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
     
     		ln -s /mnt/data/mysql /var/lib/mysql   
 
-5. [SELinux will interfere with the cluster operations](http://galeracluster.com/documentation-webpages/configuration.html#selinux), so until it is made compatible, it is necessary to disable it for the current session theb edit `/etc/selinux/config` to disable it for subsequent restarts
+5. Because [SELinux will interfere with the cluster operations](http://galeracluster.com/documentation-webpages/configuration.html#selinux), it is necessary to disable it for the current session (until a compatible version appears). Edit `/etc/selinux/config` to disable it for subsequent restarts:
     	
 	        setenforce 0
     
@@ -165,7 +165,7 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
             
 7. Create configuration placeholder
 
-	- Edit the MySQL configuration to create a placeholder for the cluster settings. Do not replace the **`<Vairables>`** or uncomment now. We'll do it once we create a VM from this template.
+	- Edit the MySQL configuration to create a placeholder for the cluster settings. Do not replace the **`<Vairables>`** or uncomment now. That will happen after we create a VM from this template.
 	
 			vi /etc/my.cnf.d/server.cnf
 			
@@ -212,13 +212,13 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
             innodb_flush_log_at_trx_commit = 2 # The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster
 			query_cache_size = 0
 			
-10. Stop MySQL and Deprovision the machine and disable MySQL service from running on startup to avoid messing up the cluster when adding a new node
+10. Stop MySQL, disable MySQL service from running on startup to avoid messing up the cluster when adding a new node, and deprovision the machine.
 
 		service mysql stop
         chkconfig mysql off
 		waagent -deprovision	
 		
-11. Capture the VM through the portal because of [issue #1268 in the Azure CLI] tools that leads to images captured not capturing the attached data disks.
+11. Capture the VM through the portal. (Currently, [issue #1268 in the Azure CLI] tools describes the fact that images captured by the xplat-cli tools do not capture the attached data disks.)
 
 	- Shutdown the machine through the portal
     - Click on Capture and specify the image name as **mariadb-galera-image** and provide a  description and check "I have run waagent".
@@ -227,7 +227,7 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
 	
 ## Creating the cluster
  
-Now that you've created the template VM with MariaDB installed and optimized, create 3 VMs out of this template then configure and start the cluster.
+Create 3 VMs out of the template you just created and then configure and start the cluster.
 
 1. Create the first CentOS 7 VM from the **mariadb-galera-image** image you created, providing the virtual network name **mariadbvnet** and the subnet **mariadb**, machine size **Medium**, passing in the Cloud Service name to be **mariadbha** (or whatever name you want to be accessed through mariadbha.cloudapp.net), setting the name of this machine to be **mariadb1**  and the username to be **azureuser**,  and enabling SSH access and passing the SSH certificate .pem file and replacing **/path/to/key.pem** with the path where you stored the generated .pem SSH key.
 
@@ -291,9 +291,9 @@ and for MariaDB3
         chkconfig mysql on
 		
 ## Load balancing the cluster
-When we created the clustered VMs, we already added them into an Availablity Set called **clusteravset** to ensure they are put on different fault and update domains and that Azure never does maintenance on all machines at once. Doing so will also give us the SLA.
+When you created the clustered VMs, you added them into an Availablity Set called **clusteravset** to ensure they are put on different fault and update domains and that Azure never does maintenance on all machines at once. This configuration meets the requirements to be supported by that Azure Service Level Agreement (SLA).
 
-Now we need to load balance requests between our 3 nodes, and for that we will use the built-in Azure Loadbalancer.
+Now you use the Azure Load Balancer to balance requests between our 3 nodes.
 
 Run the below commands on your machine using the Azure CLI.
 The command parameters structure is: `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
@@ -302,7 +302,8 @@ The command parameters structure is: `azure vm endpoint create-multiple <Machine
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb3 3306:3306:tcp:false:MySQL:tcp:3306
 	
-Finally, since the CLI sets the probe interval to 15 seconds which is a bit too long, we have to change it on the portal under Endpoints for any of the VMs
+Finally, since the CLI sets the load-balancer probe interval to 15 seconds (which may be a bit too long), change it in the portal under **Endpoints** for any of the VMs
+
 ![Edit endpoint](./media/virtual-machines-mariadb-cluster/Endpoint.PNG)
 
 then click on Reconfigure The Load-Balanced Set and go next
@@ -315,9 +316,9 @@ then change the Probe Interval to 5 seconds and save
 
 ## Validating the cluster
 
-We're done with the hardwork. Our cluster should be now accessible at `mariadbha.cloudapp.net:3306` which will hit the load balancer and route requests between out 3 VMs.
+The hard work is done. The cluster should be now accessible at `mariadbha.cloudapp.net:3306` which will hit the load balancer and route requests between the 3 VMs smoothly and efficiently.
 
-Use your favorite MySQL client to connect (I'll just connect from one of the VMs)
+Use your favorite MySQL client to connect or just connect from one of the VMs to verify this cluster is working.
 
 	 mysql -u cluster -h mariadbha.cloudapp.net -p
 	 
@@ -343,9 +344,9 @@ Will result in the table below
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-In this article, we've created a 3 node MariaDB Galera highly available cluster on Azure Virtual Machines running CentOS 7. The machines are load balanced with the Azure Load Balancer.
+In this article, you created a 3 node MariaDB + Galera highly-available cluster on Azure Virtual Machines running CentOS 7. The VMs are load balanced with the Azure Load Balancer.
 
-You may want to take a look at [another way to clusterize MySQL on Linux] and ways to [optimize and test MySQL performance on Azure Linux VMs].
+You may want to take a look at [another way to cluster MySQL on Linux] and ways to [optimize and test MySQL performance on Azure Linux VMs].
 
 <!--Anchors-->
 [Architecture overview]: #architecture-overview
@@ -364,4 +365,4 @@ You may want to take a look at [another way to clusterize MySQL on Linux] and wa
 [performance tuning strategy]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [optimize and test MySQL performance on Azure Linux VMs]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
-[another way to clusterize MySQL on Linux]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-cluster/
+[another way to cluster MySQL on Linux]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-cluster/

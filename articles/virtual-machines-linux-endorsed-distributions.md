@@ -1,6 +1,6 @@
 <properties urlDisplayName="Endorsed distributions" pageTitle="Endorsed distributions of Linux in Azure" metaKeywords="" description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Azure-Endorsed Distributions" authors="szark" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="szark" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="szark" />
 
 
 
@@ -67,8 +67,8 @@ The table also includes a link to the [Linux kernel compatibility patch](http://
  		
 	</tr>
 	<tr>
-		<th> CoreOS </th>
-		<td> 475.1.0 <i>Alpha</i><sup style="font-weight:bold">1</sup> </td>
+		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
+		<td> 494.4.0+ </td>
         <td> In Kernel </td>
 		<td> N/A </td>
 		<td> Source: <a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
@@ -102,6 +102,4 @@ The table also includes a link to the [Linux kernel compatibility patch](http://
 		
 	</tr>
 </table>
-
- <sup style="font-weight:bold">1</sup> **Note:** CoreOS on Azure is currently in developer preview (*alpha*).
 

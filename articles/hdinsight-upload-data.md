@@ -88,7 +88,7 @@ Using Azure Explorer tools, you may notice some 0 byte files. These files serve 
 
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-Before using the tool, you must know your Azure storage account name and account key. For instructions on getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Manage storage accounts][azure-storage-account].  
+Before using the tool, you must know your Azure storage account name and account key. For instructions on getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storageaccount].  
 
 1. Run Azure Storage Explorer.
 
@@ -269,7 +269,7 @@ Now that you understand how to get data into HDInsight, use the following articl
 [azure-powershell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /en-us/develop/net/how-to-guides/blob-storage/
-[azure-storage-account]: ../storage-manage-storage-account/
+[azure-create-storage-account]: ../storage-create-storage-account/
 [azure-azcopy-download]: http://aka.ms/WaCopy
 [azure-azcopy]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
 

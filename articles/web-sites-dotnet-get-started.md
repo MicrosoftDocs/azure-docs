@@ -27,12 +27,19 @@ The following illustration shows the completed application:
 
 ### Tutorial segments
 
+* [Sign up for Microsoft Azure (Video)](#video)
 * [Set up the development environment](#set-up-the-development-environment)
 * [Create an ASP.NET web application in Visual Studio](#create-an-aspnet-web-application)
 * [Deploy the application to Azure](#deploy-the-application-to-azure)
 * [Make a change and redeploy](#make-a-change-and-redeploy)
 * [Monitor and manage the site in the management portal](#monitor-and-manage-the-site-in-the-management-portal)
 * [Next steps](#next-steps)
+
+##<a name="video"></a>Sign up for Microsoft Azure (Video)
+
+In this video, Scott Hanselman presents how easy it is to sign-up for a free trial of Microsoft Azure. (Duration: 1:58)
+
+> [AZURE.VIDEO sign-up-for-microsoft-azure]
 
 [WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 

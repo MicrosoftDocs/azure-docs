@@ -11,7 +11,7 @@ Microsoft Azure provides you two options when hosting your SQL Server-based data
 - [Business motivations when choosing Azure SQL Database or SQL Server in Azure VM](#business)	
 	- [Cost](#cost)
 		- [Billing and licensing basics](#billing)	
-		- [Calculating the total application cost](appcost)	
+		- [Calculating the total application cost](#appcost)	
 	- [Administration](#admin)	
 	- [Service level agreement (SLA)](#sla)	
 	- [Time to market](#market)	
@@ -130,7 +130,7 @@ With **Azure SQL Database**, the database software is automatically configured, 
 
 With **SQL Server in Azure VM**, you utilize traditional SQL Server licensing. You can either use the platform-provided SQL Server image or bring your SQL Server license to Azure. When using the SQL Server platform provided images, the cost depends on the VM size as well as the version of SQL Server you choose. Basically, you pay per minute licensing cost of SQL Server, the per-minute licensing of Windows Server, and the Azure storage cost. The per-minute billing option allows you to use SQL Server for as long as you need it without buying full SQL Server license. If you bring your own SQL Server license to Azure, you are charged for Azure compute and storage costs only. For more information, see [License Mobility through Software Assurance on Azure](http://azure.microsoft.com/pricing/license-mobility/).
 
-####<a name="cost"></a>Calculating the total application cost
+####<a name="appcost"></a>Calculating the total application cost
 
 When you start using a cloud platform, the cost of running your application mainly includes the development and administration costs; and also the service costs that the public cloud platform requires.
 
@@ -138,13 +138,13 @@ Here is the detailed cost calculation for your application running in Azure SQL 
 
 **When using Azure SQL Database:**
 
-*Total cost of application =Highly minimized administration costs + software development costs + Azure SQL Database service costs*
+*Total cost of application = Highly minimized administration costs + software development costs + Azure SQL Database service costs*
 
 **When using SQL Server in Azure VM:**
 
 *Total cost of application = Minimized software development/modification costs + administration costs +  SQL Server & Windows Server licensing costs + Azure Storage costs* 
 
-**Important note:** Currently, Azure SQL Database does not support all the features of SQL Server. For a detailed comparison information, see [Azure SQL Database Guidelines and Limitations](http://msdn.microsoft.com/library/azure/ff394102.aspx). Be aware of this when you want to move an existing database to Azure SQL Database as you might need some additional budget on database redesign. Azure SQL Database is Microsoft’s platform as-a-service offering. When you migrate an existing on-premises SQL Server application to Azure SQL Database, we recommend that you update the application to take all advantages of the platform-as-a-service offering. For example, start using [Azure Web Sites](http://azure.microsoft.com/documentation/services/websites/) or [Azure Cloud Services](http://azure.microsoft.com/services/cloud-services/) on the application layer to increase cost benefits. In addition, validate your application against different Azure SQL Database service tiers and check which one fits best to your application’s needs. This process helps you achieve better performance results and minimized costs. For more information, see [Basic, Standard, and Premium Preview for Azure SQL Database](http://msdn.microsoft.com/library/azure/dn369873.aspx).
+**Important note:** Currently, Azure SQL Database does not support all the features of SQL Server. For a detailed comparison information, see [Azure SQL Database Guidelines and Limitations](http://msdn.microsoft.com/library/azure/ff394102.aspx). Be aware of this when you want to move an existing database to Azure SQL Database as you might need some additional budget on database redesign. Azure SQL Database is Microsoft’s platform as-a-service offering. When you migrate an existing on-premises SQL Server application to Azure SQL Database, we recommend that you update the application to take all advantages of the platform-as-a-service offering. For example, start using [Azure Web Sites](http://azure.microsoft.com/documentation/services/websites/) or [Azure Cloud Services](http://azure.microsoft.com/services/cloud-services/) on the application layer to increase cost benefits. In addition, validate your application against different Azure SQL Database service tiers and check which one fits best to your application’s needs. This process helps you achieve better performance results and minimized costs. For more information, see [Azure SQL Database Service Tiers and Performance Levels](http://msdn.microsoft.com/library/azure/dn741336.aspx).
 
 For a detailed cost estimate, use the [Azure Pricing Calculator](http://azure.microsoft.com/pricing/calculator/). 
 
@@ -172,7 +172,7 @@ For **Virtual Machines hosted in Azure**, Microsoft provides an availability SLA
 
 ###<a name="market"></a>Time to market
 
-**Azure SQL Database** is the right solution for cloud-designed applications when developer productivity and fast time-to-market are critical. With programmatic DBA-like functionality, it is perfect for cloud architects and developers as it lowers the need for managing the underlying operating system and database. It helps developers understand and configure database-related tasks. For example, you can use the [REST API](http://msdn.microsoft.com/library/gg715283.aspx) and [PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn546726.aspx) to automate and manage administrative operations for thousands of databases. With elastic scale in the cloud, you can easily focus on the application layer and deliver your application to the market faster. 
+**Azure SQL Database** is the right solution for cloud-designed applications when developer productivity and fast time-to-market are critical. With programmatic DBA-like functionality, it is perfect for cloud architects and developers as it lowers the need for managing the underlying operating system and database. It helps developers understand and configure database-related tasks. For example, you can use the [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) and [PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn546726.aspx) to automate and manage administrative operations for thousands of databases. With elastic scale in the cloud, you can easily focus on the application layer and deliver your application to the market faster. 
 
 **SQL Server running in Azure VM** is perfect if your existing and new applications require access and control to all features of a SQL Server instance, and when you want to migrate existing on-premises applications and databases to the cloud as-is. Since you do not need to change the presentation, application, and data layers, you save time and budget on rearchitecting your existing solution. Instead, you can focus on migrating all your solution packages to the VMs and doing some performance optimizations required by the Azure platform. For information, see [Performance Best Practices for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/azure/dn133149.aspx).
 
@@ -184,7 +184,7 @@ The following is a summary of suggestions for you to consider when to use one or
 
 Choose **Azure SQL Database**, if:
 
-- You are building brand new, cloud-based applications; or you want to migrate your existing SQL Server database to Azure and your database is not using one of the unsupported functionalities in Azure SQL Database. For more information, see [Unsupported Transact-SQL Statements](http://msdn.microsoft.com/library/azure/ee336253.aspx). This approach provides the benefits of a fully managed cloud service and ensures the fast time-to-market.
+- You are building brand new, cloud-based applications; or you want to migrate your existing SQL Server database to Azure and your database is not using one of the unsupported functionalities in Azure SQL Database. For more information, see [Azure SQL Database Transact-SQL Reference](http://msdn.microsoft.com/library/azure/ee336281.aspx). This approach provides the benefits of a fully managed cloud service and ensures the fast time-to-market.
 
 - You want to have Microsoft perform common management operations on your databases and require stronger availability SLAs for databases. This approach can minimize the administration costs and at the same time provides a guaranteed availability for the database. 
 

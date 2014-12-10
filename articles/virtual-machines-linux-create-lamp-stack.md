@@ -16,6 +16,10 @@ You will learn:
 
 It is assumed that the reader already has an Azure subscription.  If not you can sign up for a free trial at [http://azure.microsoft.com](http://azure.microsoft.com). If you have an MSDN subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits/?c=14-39). To learn more about Azure, see [What is Azure?](http://azure.microsoft.com/en-us/overview/what-is-azure/).
 
+In addition to this topic, the following video presents details about using the LAMP stack on Microsoft Azure:  
+
+> [AZURE.VIDEO lamp-stack-on-azure-vms-with-guy-bowerman]
+
 ##Phase 1: Create an image
 In this phase, you will create virtual machine using a Linux image in Azure.  
 

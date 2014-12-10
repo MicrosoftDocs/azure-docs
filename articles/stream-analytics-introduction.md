@@ -9,12 +9,19 @@ Azure Stream Analytics is a fully managed service providing low latency, highly 
 
 # In this article
 
++ [Introduction to Azure Stream Analytics (Video)](#video) 
 + [Motivation & overview](#motivation) 
 + [Key capabilities](#capabilities)
 + [Business motivations with choosing Azure Stream Analytics](#decision)
 + [Scenarios & use cases](#scenarios)
 + [Next steps](#neststeps)
 
+
+##<a name="video"></a>Introduction to Azure Stream Analytics (Video)
+
+In this video, Santosh Balasubramanian and Scott Hanselman introduce Azure Stream Analytics. (Duration: 11:22)  
+
+> [AZURE.VIDEO introduction-to-azure-stream-analytics-with-santosh-balasubramanian]
 
 ##<a name="motivation"></a>Motivation & overview
 

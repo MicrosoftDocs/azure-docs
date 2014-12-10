@@ -1,6 +1,6 @@
-<properties urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="douge" editor="" />
+<properties urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="kempb" solutions="" manager="douge" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="5/27/2014" ms.author="ghogen" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/3/2014" ms.author="kempb" />
 
 # Continuous Delivery for Cloud Services in Azure
 
@@ -336,7 +336,7 @@ piped into the standard build output.
 
 2.  Select the **Process** tab.
 
-3.	Follow [these instructions)(http://msdn.microsoft.com/library/dd647551.aspx) to add an
+3.	Follow [these instructions](http://msdn.microsoft.com/library/dd647551.aspx) to add an
     Activity project for the build process template, download the default template, add it to
 	the project and check it in. Give the build process template a new name, such as
 	AzureBuildProcessTemplate.
@@ -425,17 +425,17 @@ piped into the standard build output.
 
             ![][4]
 
-    4.  Add a ConvertWorkspaceItem activity at the beginning of the new
-        Sequence. Direction=ServerToLocal, DisplayName='Convert publish
+    4.  If you are using TFS 2012 or earlier, add a ConvertWorkspaceItem activity at the beginning of the new
+        Sequence. If you are using TFS 2013 or later, add a GetLocalPath activity at the beginning of the new sequence. For a ConvertWorkspaceItem, set the properties as follows: Direction=ServerToLocal, DisplayName='Convert publish
         script filename', Input=' PublishScriptLocation',
-        Result='PublishScriptFilePath', Workspace='Workspace'. This
+        Result='PublishScriptFilePath', Workspace='Workspace'. For a GetLocalPath activity, set the property IncomingPath to 'PublishScriptLocation', and the Result to 'PublishScriptFilePath'. This
         activity converts the path to the publish script from TFS server
         locations (if applicable) to a standard local disk path.
 
-    5.  Add another ConvertWorkspaceItem activity at the end of the new
+    5.  If you are using TFS 2012 or earlier, add another ConvertWorkspaceItem activity at the end of the new
         Sequence. Direction=ServerToLocal, DisplayName='Convert
         subscription filename', Input=' SubscriptionDataFileLocation',
-        Result= 'SubscriptionDataFilePath', Workspace='Workspace'.
+        Result= 'SubscriptionDataFilePath', Workspace='Workspace'. If you are using TFS 2013 or later, add another GetLocalPath. IncomingPath='SubscriptionDataFileLocation', and Result='SubscriptionDataFilePath.'
 
     6.  Add an InvokeProcess activity at the end of the new Sequence.
         This activity calls PowerShell.exe with the arguments passed in
@@ -449,30 +449,34 @@ piped into the standard build output.
             PackageLocation, CloudConfigLocation,
             SubscriptionDataFilePath, SubscriptionName, Environment)
 
-        2.  DisplayName ='Execute publish script'
+        2.  DisplayName = Execute publish script
 
-        3.  FileName = "PowerShell"
+        3.  FileName = "PowerShell" (include the quotes)
 
         4.  OutputEncoding=
-            'System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.InstalledUICulture.TextInfo.OEMCodePage)'
+            System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.InstalledUICulture.TextInfo.OEMCodePage)
 
-    7.  In the Handle Standard Output section textbox of the
+    7.  In the **Handle Standard Output** section textbox of the
         InvokeProcess, set the textbox value to 'data'. This is a
         variable to store the standard output data.
 
-    8.  Add a WriteBuildMessage activity just below the standard output
+    8.  Add a WriteBuildMessage activity just below the **Handle Standard Output**
         section. Set the Importance =
         'Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High'
         and the Message='data'. This ensures the standard output of the
         script will get written to the build output.
 
-    9.  In the Handle Standard Error section textbox of the
+    9.  In the **Handle Error Output** section textbox of the
         InvokeProcess, set the textbox value to 'data'. This is a
         variable to store the standard error data.
 
-    10. Add a WriteBuildError activity just below the standard output
+    10. Add a WriteBuildError activity just below the **Handle Error Output**
         section. Set the Message='data'. This ensures the standard
         errors of the script will get written to the build error output.
+
+	11. Correct any errors, indicated by blue exclamation marks. Hover over the
+		exclamation marks to get a hint about the error. Save the workflow to 
+		clear errors.
 
     The final result of the publish workflow activities will look like
     this in the designer:
@@ -482,68 +486,54 @@ piped into the standard build output.
     The final result of the publish workflow activities will look like
     this in XAML:
 
-        	</TryCatch>
-              <If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap:VirtualizedContainerService.HintSize="1539,552">
-                <If.Then>
-                  <Sequence DisplayName="Start publish" sap:VirtualizedContainerService.HintSize="297,446">
-                    <Sequence.Variables>
-                      <Variable x:TypeArguments="x:String" Name="PublishScriptFilePath" />
-                      <Variable x:TypeArguments="x:String" Name="SubscriptionDataFilePath" />
-                    </Sequence.Variables>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap:VirtualizedContainerService.HintSize="234,22" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
-                    <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription data file filename" sap:VirtualizedContainerService.HintSize="234,22" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
-                    <mtbwa:InvokeProcess Arguments="[String.Format(" -File ""{0}"" -serviceName {1} -storageAccountName {2} -packageLocation ""{3}"" -cloudConfigLocation ""{4}"" -subscriptionDataFile ""{5}"" -selectedSubscription {6} -environment ""{7}""", PublishScriptFilePath, ServiceName, StorageAccountName, PackageLocation, CloudConfigLocation, SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="Execute publish script" FileName="PowerShell" sap:VirtualizedContainerService.HintSize="234,198">
-                      <mtbwa:InvokeProcess.ErrorDataReceived>
-                        <ActivityAction x:TypeArguments="x:String">
-                          <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="x:String" Name="data" />
-                          </ActivityAction.Argument>
-                          <mtbwa:WriteBuildError sap:VirtualizedContainerService.HintSize="200,22" Message="[data]" />
-                        </ActivityAction>
-                      </mtbwa:InvokeProcess.ErrorDataReceived>
-                      <mtbwa:InvokeProcess.OutputDataReceived>
-                        <ActivityAction x:TypeArguments="x:String">
-                          <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="x:String" Name="data" />
-                          </ActivityAction.Argument>
-                          <mtbwa:WriteBuildMessage sap:VirtualizedContainerService.HintSize="200,22" Importance="[Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High]" Message="[data]" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
-                        </ActivityAction>
-                      </mtbwa:InvokeProcess.OutputDataReceived>
-                    </mtbwa:InvokeProcess>
-                  </Sequence>
-                </If.Then>
-              </If>
-            </mtbwa:AgentScope>
-            <mtbwa:InvokeForReason DisplayName="Check In Gated Changes for CheckInShelveset Builds" sap:VirtualizedContainerService.HintSize="1370,146" Reason="CheckInShelveset">
-              <mtbwa:CheckInGatedChanges DisplayName="Check In Gated Changes" sap:VirtualizedContainerService.HintSize="200,22" />
-            </mtbwa:InvokeForReason>
-          </Sequence>
-        </Activity>
+		<If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap2010:WorkflowViewState.IdRef="If_1">
+	        <If.Then>
+	          <Sequence DisplayName="Start Publish" sap2010:WorkflowViewState.IdRef="Sequence_4">
+	            <Sequence.Variables>
+	              <Variable x:TypeArguments="x:String" Name="SubscriptionDataFilePath" />
+	              <Variable x:TypeArguments="x:String" Name="PublishScriptFilePath" />
+	            </Sequence.Variables>
+	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_1" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
+	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_2" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
+	            <mtbwa:InvokeProcess Arguments="[String.Format(&quot; -File &quot;&quot;{0}&quot;&quot; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation &quot;&quot;{3}&quot;&quot;&#xD;&#xA;            -cloudConfigLocation &quot;&quot;{4}&quot;&quot; -subscriptionDataFile &quot;&quot;{5}&quot;&quot;&#xD;&#xA;            -selectedSubscription {6} -environment &quot;&quot;{7}&quot;&quot;&quot;,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
+	              <mtbwa:InvokeProcess.ErrorDataReceived>
+	                <ActivityAction x:TypeArguments="x:String">
+	                  <ActivityAction.Argument>
+	                    <DelegateInArgument x:TypeArguments="x:String" Name="data" />
+	                  </ActivityAction.Argument>
+	                  <mtbwa:WriteBuildError Message="{x:Null}" sap2010:WorkflowViewState.IdRef="WriteBuildError_1" />
+	                </ActivityAction>
+	              </mtbwa:InvokeProcess.ErrorDataReceived>
+	              <mtbwa:InvokeProcess.OutputDataReceived>
+	                <ActivityAction x:TypeArguments="x:String">
+	                  <ActivityAction.Argument>
+	                    <DelegateInArgument x:TypeArguments="x:String" Name="data" />
+	                  </ActivityAction.Argument>
+	                  <mtbwa:WriteBuildMessage sap2010:WorkflowViewState.IdRef="WriteBuildMessage_2" Importance="[Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High]" Message="[data]" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
+	                </ActivityAction>
+	              </mtbwa:InvokeProcess.OutputDataReceived>
+	            </mtbwa:InvokeProcess>
+	          </Sequence>
+	        </If.Then>
+	      </If>
+	    </Sequence>
 
-7.  Save the DefaultTemplateAzure workflow and Check In this file.
 
-8.  Select the DefaultTemplateAzure process template in your build
-    definition. Click Refresh or select the New button if you do not yet
-    see this file in the list of Process Templates.
+7.  Save the build process template workflow and Check In this file.
+
+8.  Edit the build definition (close it if it is already open), and select
+	the **New** button if you do not yet see the new template in the list of Process Templates.
 
 9.  Set the parameter property values in the Misc section as follows:
 
-    1.  CloudConfigLocation =
-        'c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg'   
+    1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg'   
         *This value is derived from:
         ($PublishDir)ServiceConfiguration.Cloud.cscfg*
 
-    2.  PackageLocation =
-        'c:\\drops\\app.publish\\ContactManager.Azure.cspkg'   
+    2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg'   
         *This value is derived from: ($PublishDir)($ProjectName).cspkg*
 
-    3.  PublishScriptLocation =
-        'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
+    3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
     4.  ServiceName = 'mycloudservicename'   
         *Use the appropriate cloud service name here*
