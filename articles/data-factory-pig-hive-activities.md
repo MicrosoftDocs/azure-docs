@@ -281,7 +281,6 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		{
         		"type": "HDInsightOnDemandLinkedService",
 				"clusterSize": "4",
-        		"jobsContainer": "adfjobs",
         		"timeToLive": "00:05:00",
         		"linkedServiceName": "MyBlobStore"
     		}
