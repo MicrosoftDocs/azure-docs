@@ -5,7 +5,7 @@
 <a name="intro"></a>
 # Integrate a cloud service with Azure CDN #
 
-A cloud service cna be integrated with Azure CDN, serving any content from the cloud service's `~/CDN` path. This approach gives you the following advantages:
+A cloud service can be integrated with Azure CDN, serving any content from the cloud service's `~/CDN` path. This approach gives you the following advantages:
 
 - Easily deploy and update images, scripts, and stylesheets in your cloud service's project directories
 - Easily upgrade the NuGet packages in your cloud service, such as jQuery or Bootstrap versions 
