@@ -44,8 +44,8 @@ This document concerns the upgrade of Microsoft Azure SQL Database from version 
 
 ### A.2 Service tier planning
 
-On this latest preview, Azure SQL Database will support only the Basic, Standard, and Premium service tiers. The Web and Business service tier
-is not supported on this preview. Therefore, if you plan to upgrade your Azure SQL database that is currently at the Web or Business service tier, you must decide what its new service tier should be.
+Starting with this latest preview, Azure SQL Database will support only the service tiers named Basic, Standard, and Premium. The "Web-and-Business" service tier
+will no longer be supported. Therefore, if you plan to upgrade your Azure SQL database that is currently at the Web-and-Business service tier, you must decide what its new service tier should be.
 
 For detailed information about the Basic, Standard, and Premium service tiers, see:
 
