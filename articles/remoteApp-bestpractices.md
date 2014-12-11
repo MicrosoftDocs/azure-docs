@@ -10,14 +10,14 @@ The following information can help you configure and use Azure RemoteApp product
 
 
 - Always use the latest client version. Using older clients might result in connectivity issues and other degraded experiences. Enabling automatic application updates for your device will ensure that the latest client is always installed.
-- Always use the most stable and reliable Internet connection available to you.  
+- Always use the most stable and reliable internet connection available to you.  
 - Use only supported proxy connections for optimal connectivity performance.  The SOCKS proxy is not supported.
  
 ##Applications
 
 
 - Save and close RemoteApp applications when you are done with the application. Not closing the application might result in data loss.   
-- Validate custom applications before using them in Azure RemoteApp. This includes ensuring they work on a multi-session platform and don’t consume unnecessary resources such as memory and CPU that might starve another user in the same deployment. For information, download and review the [Application Compatibility Best Practices for Remote Desktop Services](http://www.microsoft.com/en-us/download/details.aspx?id=18704). 
+- Validate custom applications before using them in Azure RemoteApp. This includes ensuring they work on a multi-session platform and don’t consume unnecessary resources such as memory and CPU that might starve another user in the same collection. For information, download and review the [Application Compatibility Best Practices for Remote Desktop Services](http://www.microsoft.com/en-us/download/details.aspx?id=18704). 
  
 ##Configuration and management
 
