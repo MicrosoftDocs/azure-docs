@@ -20,10 +20,8 @@ The following areas are addressed in this guide:
 - [Integrate with Other Services](#integrate)
 - [Monitor the Campaign](#monitor)
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>This guide presents some of the most common areas and tasks that are aligned with public-facing .COM site development. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/">Global Web Presence</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview">Business Applications</a>.</p>
-</div>
+> [WACOM.NOTE]
+> This guide presents some of the most common areas and tasks that are aligned with public-facing .COM site development. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/">Global Web Presence</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview">Business Applications</a>.
 
 ##<a name="deployexisting"></a>Deploy Existing Websites
 In the Global Web Presence scenario, we discussed various options for creating and deploying a new website. If you are new to Azure Websites, it is a good idea to [review that information][scenarioglobalweb]. If you frequently create digital marketing campaigns, it is possible that you have existing web assets that you customize for different promotions. In this section, we'll look closer at the options for deploying various types of websites from source control.
@@ -82,10 +80,8 @@ Automatic scaling makes much more efficient use of resources. For example, it is
 
 For more information about scaling websites, see [How to Scale Web Sites][scalewebsite]. This subject is also closely tied with monitoring. For more information, see the section in this guide on [monitoring your campaign](#monitor).
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>For web applications that choose to use cloud services and web roles, there is an additional option to scale based on the length of items in a queue. In a cloud service, roles that process backend queues are a common architecture pattern. For more information on cloud service scaling, see <a href="http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/">How to Scale a Cloud Service</a>.</p>
-</div>
+> [WACOM.NOTE]
+> For web applications that choose to use cloud services and web roles, there is an additional option to scale based on the length of items in a queue. In a cloud service, roles that process backend queues are a common architecture pattern. For more information on cloud service scaling, see <a href="http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/">How to Scale a Cloud Service</a>.
 
 ##<a name="integrate"></a>Integrate with Other Services
 A digital marketing site will often incorporate rich media, such as video streaming. Hosting these sites in Azure provides close integration to related Azure services. For example, you can use Azure Media Services to encode and stream video for your website. For more information on Media Services, see [Introduction to Azure Media Services Concepts and Scenarios][mediaservices].
