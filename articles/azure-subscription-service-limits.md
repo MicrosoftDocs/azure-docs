@@ -90,6 +90,12 @@ The following document specifies some of the most common Microsoft Azure limits.
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/">Resource Groups</a> per subscription</p></td>
+   <td valign="middle"><p>300</p></td>
+   <td valign="middle"><p>300</p></td>
+</tr>
+
+<tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/services/batch/">Batch Preview</a> accounts per region per subscription</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>   

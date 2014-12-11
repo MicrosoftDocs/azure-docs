@@ -1,4 +1,4 @@
-Because of ongoing development, the Android SDK version installed in Eclipse might not match the version in the code. The Android SDK referenced in this tutorial is version 19, the latest at the time of writing. The version number may increase as new releases of the SDK appear, and we recomend using the latest version available.
+Because of ongoing development, the Android SDK version installed in Eclipse might not match the version in the code. The Android SDK referenced in this tutorial is version 21, the latest at the time of writing. The version number may increase as new releases of the SDK appear, and we recomend using the latest version available.
 
 Two symptoms of version mismatch are:
 
@@ -15,6 +15,6 @@ If either of these appear, the version of the Android SDK installed in Eclipse m
  
 	 	    <uses-sdk
 	 	        android:minSdkVersion="8"
-	 	        android:targetSdkVersion="19" />
+	 	        android:targetSdkVersion="21" />
 	
 3. In the Eclipse Package Explorer right-click the project node, choose **Properties**, and in the left column choose **Android**. Ensure that the **Project Build Target** is set to the same SDK version as the **targetSdkVersion**.
