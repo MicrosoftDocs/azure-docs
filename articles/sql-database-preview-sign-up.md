@@ -1,4 +1,4 @@
-<properties title="Walkthrough: Sign Up for the Azure SQL Database V12 Preview" pageTitle="Walkthrough: Sign Up for the Azure SQL Database V12 Preview" description="Describes the steps for signing up for the the preview release of Azure SQL Database V12, by using the new Azure portal UI." metaKeywords="Azure, SQL DB, Update, Preview, Plan" services="sql-database" documentationCenter="" authors="GeneMi" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
+<properties title="Walkthrough: Sign Up for the Latest SQL Database Update V12 (preview)" pageTitle="Walkthrough: Sign Up for the Latest SQL Database Update V12 (preview)" description="Describes the steps for signing up for the the preview release of Azure SQL Database V12, by using the new Azure portal UI." metaKeywords="Azure, SQL DB, Update, Preview, Plan" services="sql-database" documentationCenter="" authors="GeneMi" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="genemi"/>
 
@@ -9,7 +9,7 @@ GeneMi  ,  2014-Dec-10 Wednesday 10:40am.
 http : // azure.microsoft .com/ documentation/articles/ sql-database-latest-preview-sign-up/
 -->
 
-# Walkthrough: Sign Up for the Azure SQL Database V12 Preview
+# Walkthrough: sign up for the Latest SQL Database Update V12 (preview)
 
 This topic describes the steps you can follow to sign up for the Azure SQL Database Update V12 (preview), as released by Microsoft in December 2014.
 

@@ -1,4 +1,4 @@
-<properties title="What's New in the Azure SQL Database V12 Preview" pageTitle="What's New in the Azure SQL Database V12 Preview" description="Lists and describes the latest enhancements to Microsoft Azure SQL Database, the preview of version 12, that are available starting in December 2014." metaKeywords="Azure, SQL DB, Update, Preview, V12, What's New, Get Started" services="sql-database" documentationCenter="" authors="Gene Milener" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
+<properties title="What's New in the Latest SQL Database Update V12 (preview)" pageTitle="What's New in the Latest SQL Database Update V12 (preview)" description="Lists and describes the latest enhancements to Microsoft Azure SQL Database, the preview of version 12, that are available starting in December 2014." metaKeywords="Azure, SQL DB, Update, Preview, V12, What's New, Get Started" services="sql-database" documentationCenter="" authors="Gene Milener" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="genemi"/>
 
@@ -9,7 +9,7 @@ Applied feedback of JG, JH, JM (Added back Joanne's marketing text.).
 -->
 
 
-# What's New in the Azure SQL Database V12 Preview
+# What's new in the Latest SQL Database Update V12 (preview)
 
 
 This topic describes latest Azure SQL Database V12 (preview). The new preview provides nearly complete compatibility with the Microsoft SQL Server engine. And the preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 

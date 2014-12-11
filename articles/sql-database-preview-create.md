@@ -1,9 +1,9 @@
-<properties title="Create a Database in Latest SQL Database Update (preview) TEST" pageTitle="Create a Database in Latest SQL Database Update (preview) TEST" description="Create a Database in Latest SQL Database Update (preview) TEST" metaKeywords="Azure SQL Database, Azure SQL Database update, Create Azure SQL Database, Azure SQL Database preview" services="sql-database" solutions="" documentationCenter="" authors="sonalm" videoId="" scriptId="" manager="jefferyg" />
+<properties title="Create a Database in the Latest SQL Database Update V12 (preview)" pageTitle="Create a Database in the Latest SQL Database Update V12 (preview)" description="Create a Database in the Latest SQL Database Update V12 (preview)" metaKeywords="Azure SQL Database, Azure SQL Database update, Create Azure SQL Database, Azure SQL Database preview" services="sql-database" solutions="" documentationCenter="" authors="sonalm" videoId="" scriptId="" manager="jefferyg" />
 
 <tags ms.service="sql-database" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-management" ms.date="12/11/2014" ms.author="sonalm" />
 
 
-# Create a Database in Latest SQL Database Update V12 (preview)
+# Create a database in the Latest SQL Database Update V12 (preview)
 
 | Action | Screen shot |
 | :--- | :--- |

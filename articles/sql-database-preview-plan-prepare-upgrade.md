@@ -1,4 +1,4 @@
-<properties title="Plan and Prepare to Upgrade to Azure SQL Database V12 Preview" pageTitle="Plan and Prepare to Upgrade to Azure SQL Database V12 Preview" description="Describes the planning, preparations, and limitations involving an upgrade to the Latest Azure SQL Database Update (preview)." metaKeywords="Azure, SQL DB, Update, Preview, Plan" services="sql-database" documentationCenter="" authors="GeneMi" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
+<properties title="Plan and Prepare to Upgrade to the Latest SQL Database Update V12 (preview)" pageTitle="Plan and Prepare to Upgrade to the Latest SQL Database Update V12 (preview)" description="Describes the planning, preparations, and limitations involving an upgrade to the Latest Azure SQL Database Update (preview)." metaKeywords="Azure, SQL DB, Update, Preview, Plan" services="sql-database" documentationCenter="" authors="GeneMi" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="genemi"/>
 
@@ -12,7 +12,7 @@ sql-database-preview-plan-prepare-upgrade.md
 sql-database- , -preview- :  Set of topics using -preview- as their group identifier node.
 -->
 
-# Plan and Prepare to Upgrade to Azure SQL Database V12 Preview
+# Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)
 
 This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 preview.
 
