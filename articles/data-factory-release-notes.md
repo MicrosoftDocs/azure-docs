@@ -10,13 +10,20 @@
 
 - Azure Machine Learning integration
 	- This release of Azure Data Factory service allows you to integrate Azure Data Factory with Azure Machine Learning (ML) by using **AzureMLLinkedService** and **AzureMLBatchScoringActivity**. See [Create predictive pipelines using Data Factory and Azure Machine Learning][adf-azure-ml] for details. 
+- Gateway version status is provided
+	- "NewVersionAvailable" status will be shown in the Azure Preview Portal and in the output of Get-AzureDataFactoryGateway cmdlet, if there is a newer version of the gateway available than the one that is currently installed. You can then follow the portal journey  to download the new installation file (.msi) and run it to install the latest gateway. There is no additional configuration is  needed.
 
 ### Changes
 
 - JobsContainer in HdInsightOnDemandLinkedService is removed.
 	- In the JSON definition for a HDInsightOnDemandLinkedService, you do not need to specify **jobsContainer** property anymore. If you have the property specified for an on-demand linked service, the property is ignored. You can remove the property from the JSON definition for the linked service and update the linked service definition by using New-AzureDataFactoryLinkedService cmdlet.
 - Optional configuration parameters for HDInsightOnDemandLinkedService
-	- This release introduces support for a few optional configuration parameters for HDInsightOnDemandLinked (on-demand HDInsight cluster). See [ClusterCreateParameters Properties][on-demand-hdi-parameters] for details.     
+	- This release introduces support for a few optional configuration parameters for HDInsightOnDemandLinked (on-demand HDInsight cluster). See [ClusterCreateParameters Properties][on-demand-hdi-parameters] for details.
+- Gateway location is removed
+	- When creating an Azure Data Factory gateway via portal or PowerShell (New-AzureDataFactoryGateway), you no longer need to specifiy the location for the gateway. The data factory region will be inherited. Similarly, to configure a SQL Server linked Service using JSON, "gatewayLocation" property is not needed anymore. Data Factory .NET SDK is also updated to refelct these changes.
+	- If you use an older version of SDK and Azure PowerShell, you are still required to provide the location setting.
+ 
+     
 
 #### Breaking changes
 	
