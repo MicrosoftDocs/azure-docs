@@ -86,18 +86,17 @@ The final stage of this tutorial is to build and run your new app.
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
-* [Get started with data]
-  <br/>Learn more about storing and querying data using Mobile Services.
+## Next Steps
+Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
 * [Get started with offline data sync]
-  <br/>Learn how to use offline data sync to make your app responsive and robust.
+  <br/>Learn how the quickstart uses offline data sync to make the app responsive and robust.
 
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
-
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
