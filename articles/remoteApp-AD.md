@@ -5,7 +5,7 @@
 #Configuring Active Directory for Azure RemoteApp
 
 
-For a hybrid deployment of RemoteApp, you need to set up an Active Directory domain infrastructure on-premises and an Azure Active Directory tenant with Directory Integration (and optionally single sign-on). Additionally, you need to create some Active Directory objects in the on-premises directory. Use the following information to configure the on-premises Active Directory and Azure AD, and then integrate the two.
+For a hybrid collection of RemoteApp, you need to set up an Active Directory domain infrastructure on-premises and an Azure Active Directory tenant with Directory Integration (and optionally single sign-on). Additionally, you need to create some Active Directory objects in the on-premises directory. Use the following information to configure the on-premises Active Directory and Azure AD, and then integrate the two.
 
 ##Configure your on-premises Active Directory
 Start by configuring your on-premises Active Directory. You need to identify the UPN domain suffix to use, and then create Active Directory objects for RemoteApp. 
@@ -19,7 +19,7 @@ If your forest is not configured with a UPN suffix that matches the Azure AD dom
 2.	Expand the domain name, and then click **Users**.
 3.	Right-click **Administrator**, and then click **Properties**.
 4.	On the **Account** tab, look at the UPN names configured for this domain in the **User logon name** field.
-5.	If you do not see a suffix that matches the domain name that you want to use for your RemoteApp deployment, do the following:
+5.	If you do not see a suffix that matches the domain name that you want to use for your RemoteApp collection, do the following:
 	1.	Launch Active Directory Domains and Trusts.
 	2.	Right-click **Active Directory Domains and Trusts**, and then click **Properties**.
 	3.	Review the list of suffixes.
@@ -47,7 +47,7 @@ Use the following information to create each of these objects.
 2.	Right-click **Users**, and then click **New > User**.
 3.	Enter a user name and password for the RemoteApp service account.
 
-	**Note:** You will need this account information when you create your RemoteApp service.
+	**Note:** You will need this account information when you create your RemoteApp collection.
 
 ####Create a new Organizational Unit (OU)
 
@@ -72,7 +72,7 @@ OU:
 
 
 ##Configure Azure Active Directory
-Now that the on-premises Active Directory is set up, move to Azure AD. You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration. The hybrid deployment supports only Azure Active Directory accounts that have been synced (using a tool like DirSync) from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. 
+Now that the on-premises Active Directory is set up, move to Azure AD. You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration. The hybrid collection supports only Azure Active Directory accounts that have been synced (using a tool like DirSync) from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. 
 
 Use the following information to configure Azure Active Directory
 
