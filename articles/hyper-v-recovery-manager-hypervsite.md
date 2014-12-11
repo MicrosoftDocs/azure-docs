@@ -10,13 +10,13 @@
 
 <p>Azure Site Recovery contributes to your business and workload continuity strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios.<p>
 
-This tutorial describes how to deploy Azure Site Recovery to protect workloads running on a Hyper-V server in an on-premises site. Virtual machines on the Hyper-V server replicate to Azure using Hyper-V replication. This deployment is particularly useful if you have Hyper-V servers in your office or branch office but System Center VMM isn't deployed.
+This tutorial describes how to deploy Azure Site Recovery to protect workloads running on a Hyper-V server with Windows Server 2012 R2 in an on-premises site. Virtual machines on the Hyper-V server replicate to Azure using Hyper-V replication. This deployment is particularly useful if you have Hyper-V servers in your office or branch office but System Center VMM isn't deployed.
 
 
 <LI>This tutorial uses the quickest deployment path with minimum and default settings.
 You can read full deployment instructions in the <a href="http://go.microsoft.com/fwlink/?LinkId=522087">Planning</a> and <a href=" http://go.microsoft.com/fwlink/?LinkId=522088">Deployment</a> guides.</LI>
 <LI>You can read about additional Azure Site Recovery deployment scenarios in <a href="http://go.microsoft.com/fwlink/?LinkId=518690">Azure Site Recovery Overview</a>.</LI>
-<LI>f you run into problems during this tutorial, review the wiki article <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: Common Error Scenarios and Resolutions</a>, or post your questions to the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI>
+<LI>If you run into problems during this tutorial, review the wiki article <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: Common Error Scenarios and Resolutions</a>, or post your questions to the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI>
 </UL>
 
 </div>
@@ -129,7 +129,7 @@ After verifying the prerequisites, do the following:
 <h2><a id="resources"></a>Step 4: Prepare resources</h2>
 
 
-1. On the Quick Start page, in **Prepare resources** select **Create Storage Account**  to create an Azure storage account if you don't have one. The account should have geo-replication enabled. It must in the same region as the Azure Site Recovery service, and be associated with the same subscription.
+1. On the Quick Start page, in **Prepare resources** select **Create Storage Account**  to create an Azure storage account if you don't have one. The account should have geo-replication enabled. It must in the same region as the Azure Site Recovery vault, and be associated with the same subscription.
 
 	![Create storage account](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_CreateResources1.png)
 
@@ -172,15 +172,14 @@ Test your deployment to simulate your failover and recovery mechanism in an isol
 
 	![Recovery plan](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_TestFailoverNoNetwork.png)
 
-3. When the failover reaches the **Complete testing** phase , click **Complete Test** to finish it. You can track failover progress and status on the **Job** tab.
-6. After the failover finishes do the following:
-	- Verify that virtual machines start successfully
+3. You can track failover progress and status on the **Job** tab.
+4. When the failover reaches the **Complete testing** phase , complete the verification as follows:
+	- After failover view the replica virtual machine in the Azure portal. Verify that the virtual machine starts successfully.
+	- If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.
+	- Click **Complete the test** to finish it.
 	- Click **Notes** to record and save any observations associated with the test failover.
-	- Click **The test failover is complete**. Clean up the test environment to automatically power off the test virtual machine.
-7. After the failover you'll be able to see the replica virtual machine in the Azure portal. If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine. 
+	- Click **The test failover is complete**. Clean up the test environment to automatically power off and delete the test virtual machine.
 
-
-	
 <h2><a id="next"></a>Next steps</h2>
 <UL>
 <LI>To plan and deploy Azure Site Recovery in a full production environment, see <a href="http://go.microsoft.com/fwlink/?LinkId=522087">Planning Guide for Azure Site Recovery</a> and <a href=" http://go.microsoft.com/fwlink/?LinkId=522088">Deployment Guide for Azure Site Recovery</a>.</LI>
