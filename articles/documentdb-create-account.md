@@ -3,10 +3,10 @@
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/09/2014" ms.author="mimig" />
 
 #Create a database account
-To use DocumentDB, you must create a DocumentDB account.  This topic describes how to create a DocumentDB account in the Azure Preview portal.  
+To use Microsoft Azure DocumentDB, you must create a DocumentDB account.  This topic describes how to create a DocumentDB account in the Azure preview management portal.  
 
 
-1.	Sign in to the [Azure management preview portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).
+1.	Sign in to the [preview management portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).
 2.	Click New -> DocumentDB Account.  
 	![][1]  
 
@@ -23,7 +23,7 @@ To use DocumentDB, you must create a DocumentDB account.  This topic describes h
 
 	- The **Pricing Tier** lens is locked because the DocumentDB preview supports a single standard pricing tier. For more information, see [DocumentDB pricing](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
 
-	- The **Optional configuration** lens is used to specify the initial capacity allocated to your DocumentDB account.  DocumentDB leverages capacity units to allow you to scale your DocumentDB account, where each capacity unit includes reserved database storage and throughput.  By default, 1 capacity unit is provisioned.  You can adjust the number of capacity units available to your DocumentDB account at any time via the [Azure management preview portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB). For details about DocumentDB account capacity and throughput,please see the [Manage DocumentDB capacity and performance][documentdb-manage] article.
+	- The **Optional configuration** lens is used to specify the initial capacity allocated to your DocumentDB account.  DocumentDB leverages capacity units to allow you to scale your DocumentDB account, where each capacity unit includes reserved database storage and throughput.  By default, 1 capacity unit is provisioned.  You can adjust the number of capacity units available to your DocumentDB account at any time via the [preview management portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB). For details about DocumentDB account capacity and throughput,please see the [Manage DocumentDB capacity and performance][documentdb-manage] article.
 
 	- In **Resource group**, select or create a resource group for your DocumentDB account.  By default, a new Resource group will be created.  You may, however, choose to select an existing resource group to which you would like to add your DocumentDB account. For more information, see [Using resource groups to manage your Azure resources](http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/).
 
@@ -42,7 +42,7 @@ To use DocumentDB, you must create a DocumentDB account.  This topic describes h
 
 4.	After the DocumentDB account has been created, it is ready for use with the default settings.
 
-	*Note that the default consistency of the DocumentDB account will be set to Session.  You can adjust the default consistency setting via the [Azure management preview portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).*  
+	*Note that the default consistency of the DocumentDB account will be set to Session.  You can adjust the default consistency setting via the [preview management portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).*  
 	![][7]  
 
 5.	You may also access your existing DocumentDB accounts from the **Browse** blade.  

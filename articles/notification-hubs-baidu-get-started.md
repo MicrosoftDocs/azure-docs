@@ -181,8 +181,6 @@ You will see **保存成功！(Successfully saved!)** message.
 
 6. Download and unzip the [Baidu Push Android SDK], open the **libs** folder and copy the *pushservice-x.y.z* jar file and the *armeabi* & *mips* folders in the **libs** folder of your Android application. 
 
-    ![][27]
-
 7. Open up the **AndroidManifest.xml** of your Android project and add the permissions required by the Baidu SDK.
 
 	    <uses-permission android:name="android.permission.INTERNET" />
