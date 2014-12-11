@@ -6,7 +6,7 @@
 
 This article provides an introduction to Microsoft Azure DocumentDB, a NoSQL document database service for developers, IT Pros, and business decision makers. By reading it, you'll be able to answer the following questions:  
 
--	[What is DocumentDB and what value does it provide to cloud and mobile applications?](#what-id-docdb)
+-	[What is DocumentDB and what value does it provide to cloud and mobile applications?](#what-is-docdb)
 -	[How is my data managed in DocumentDB and how do I access it?](#data-management)
 -	[How do I develop applications using DocumentDB?](#develop)
 -	[What are my next steps to build a DocumentDB application?](#next-steps)  
@@ -31,7 +31,8 @@ Azure DocumentDB offers the following key capabilities and benefits:
 
 -	**Elastically scalable throughput and storage:** Easily scale up or scale down DocumentDB to meet your application needs. Scaling is done through fine grained units of reserved SSD backed storage and throughput. You can elastically scale DocumentDB with predictable performance by purchasing more capacity units as your application grows. 
 
--	**Open by design:** Get started quickly by using existing skills and tools. Programming against DocumentDB is simple, approachable, and does not require you to adopt new tools or adhere to custom extensions to JSON or JavaScript. You can access all of the database functionality including CRUD, query, and JavaScript processing over a simple RESTful HTTP interface. DocumentDB embraces existing formats, languages, and standards while offering high value database capabilities on top of them.
+-	**Open by design:** 
+-	 quickly by using existing skills and tools. Programming against DocumentDB is simple, approachable, and does not require you to adopt new tools or adhere to custom extensions to JSON or JavaScript. You can access all of the database functionality including CRUD, query, and JavaScript processing over a simple RESTful HTTP interface. DocumentDB embraces existing formats, languages, and standards while offering high value database capabilities on top of them.
 
 You can use DocumentDB to store flexible datasets that require query retrieval and transactional processing. Application scenarios may include user data for interactive web and mobile applications as well as storage, retrieval, and processing of application JSON data. A database can store any number of JSON documents, as DocumentDB is well suited for applications that run at scale on the internet.
 
@@ -76,7 +77,7 @@ To get started with Azure DocumentDB, explore these resources:
 - [Try DocumentDB now](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
 -	[DocumentDB resource model and concepts](/documentation/articles/documentdb-resources/)
 -	[Interact with DocumentDB resources](/documentation/articles/documentdb-interactions-with-resources/)
--	[Create a database account](/documentation/articles/documentdb-create-account/)
--	[Get started with a DocumentDB account](/documentation/articles/documentdb-get-started/)
+-	[Create a DocumentDB database account](/documentation/articles/documentdb-create-account/)
+-	[Get started with the DocumentDB .NET SDK](/documentation/articles/documentdb-get-started/)
 
 [1]: ./media/documentdb-introduction/intro.png

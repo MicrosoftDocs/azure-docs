@@ -42,6 +42,8 @@ Type **Subscribers will be able to run 10 calls/minute up to a maximum of 200 ca
 
 If you want an administrator to review and accept or reject subscription attempts to this product, check **Require subscription approval**. If the box is unchecked, subscription attempts will be auto-approved. In this example subscriptions are automatically approved, so do not check the box.
 
+To allow developer accounts to subscribe multiple times to the new product, check the **Allow multiple simultaneous subscriptions** check box. This topic does not utilize multiple simultaneous subscriptions, so leave it unchecked.
+
 After all values are entered, click **Save** to create the product.
 
 ![Product added][api-management-product-added]
@@ -171,7 +173,7 @@ Now that the product is published, it is available to be subscribed to and used 
 
 >Administrators of an API Management instance are automatically subscribed to every product. In this tutorial step we will subscribe one of the non-administrator developer accounts to the Free Trial product. If your developer account is part of the Administrators role then you can follow along with this step, even though you are already subscribed.
 
-Click **Developers** on the **API Management** menu on the left, and click the name of your developer account. In this example we are using the **Clayton Gragg**  developer account.
+Click **Users** on the **API Management** menu on the left, and click the name of your developer account. In this example we are using the **Clayton Gragg**  developer account.
 
 ![Configure developer][api-management-configure-developer]
 
@@ -179,9 +181,13 @@ Click **Add Subscription**.
 
 ![Add subscription][api-management-add-subscription-menu]
 
-Check the box beside **Free Trial** and click **Subscribe**.
+Check the box beside **Free Trial**, accept the default **Subscription name**, and click **Subscribe**.
 
 ![Add subscription][api-management-add-subscription]
+
+In the following example, three subscriptions have been added: one to **Free Trial** and two simultaneous subscriptions to **Starter**. Multiple simultaneous subscriptions can be used to for greater access control to a product.
+
+![Subscription added][api-management-subscription-added]
 
 ## <a name="test-rate-limit"> </a>Call an operation and test the rate limit
 
@@ -246,6 +252,7 @@ When the rate limit policy of 10 calls per minute in effect, subsequent calls wi
 [api-management-product-policy]: ./media/api-management-howto-product-with-rules/api-management-product-policy.png
 [api-management-add-developers-group]: ./media/api-management-howto-product-with-rules/api-management-add-developers-group.png
 [api-management-select-key]: ./media/api-management-howto-product-with-rules/api-management-select-key.png
+[api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 
 [How to add operations to an API]: ../api-management-howto-add-operations
 [How to add and publish a product]: ../api-management-howto-add-products
