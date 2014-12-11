@@ -9,7 +9,7 @@ Applied feedback of JG, JH, JM (Added back Joanne's marketing text.).
 -->
 
 
-# NEW - What's New in the Azure SQL Database V12 Preview
+# What's New in the Azure SQL Database V12 Preview
 
 
 This topic describes latest Azure SQL Database V12 (preview). The new preview provides nearly complete compatibility with the Microsoft SQL Server engine. And the preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
@@ -116,7 +116,7 @@ During the V12 preview period you can use the preview at a discount price. The n
 
 - Any database that is upgraded to the preview cannot be reverted back to the earlier version.
 - Test databases, database copies, or new databases, are good candidates for upgrading to the preview. As usual, production databases that your business depends on should wait until after the preview period.
-- The Web-and-Business service pricing tier is no longer supported starting with this preview version.
+- The Web and Business service pricing tier is not supported on this preview version.
 
 
 <!-- EndOfFile -->
