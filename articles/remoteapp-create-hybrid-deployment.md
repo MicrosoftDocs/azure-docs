@@ -12,7 +12,7 @@ There are two kinds of RemoteApp collections:
 This tutorial walks you through the process of creating a hybrid collection. There are seven steps: 
 
 1.	Create a [custom template image for RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/).
-2.	Create a RemoteApp service.
+2.	Create a RemoteApp collection.
 2.	Link to a virtual network.
 3.	Link a template image.
 4.	Configure directory synchronization. RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring DirSync with the Password Sync option, or 2) configuring DirSync without the Password Sync option but using a domain that is federated to AD FS. Check out the [configuration info for Active Directory with RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/).
@@ -36,15 +36,17 @@ You need to do the following before creating the collection:
 
 
 
-## **Step 1: Create a RemoteApp service** ##
+## **Step 1: Create a RemoteApp collection** ##
 
 
 
 1. In the [Azure Management Portal](http://manage.windowsazure.com), go to the RemoteApp page.
 2. Click **New > Create with VPN**.
-3. Enter a name for your service, and click **Create RemoteApp service**.
+3. Enter a name for your collection.
+4. Choose the plan that you want to use - standard or basic.
+5. Click **Create RemoteApp collection**.
 
-After your RemoteApp service has been created, go to the RemoteApp **Quick Start** page to continue with the set up steps.
+After your RemoteApp collection has been created, go to the RemoteApp **Quick Start** page to continue with the set up steps.
 
 ## **Step 2: Link to a virtual network** ##
 
@@ -91,20 +93,25 @@ RemoteApp requires that you integrate with Azure Active Directory by either 1) c
 
 ## **Step 5: Publish RemoteApp apps** ##
 
-A RemoteApp app is the app or program that you provide to your users. It is located in the template image you uploaded for the service. When a user accesses an app, it appears to run in their local environment, but it is really running in Azure. 
+A RemoteApp app is the app or program that you provide to your users. It is located in the template image you uploaded for the collection. When a user accesses an app, it appears to run in their local environment, but it is really running in Azure. 
 
 Before your users can access RemoteApp apps, you need to publish them to the end-user feed – a list of available apps that your users access through the Remote Desktop client.
  
-You can publish multiple apps to your RemoteApp service. From the RemoteApp publishing page, click **Publish** to add an app. You can either publish from the Start menu of the template image or by specifying the path on the template image for the app. If you choose to add from the Start menu, choose the program to app. If you choose to provide the path to the app, provide a name for the app and the path to where it is installed on the template image.
+You can publish multiple apps to your RemoteApp collection. From the RemoteApp publishing page, click **Publish** to add an app. You can either publish from the Start menu of the template image or by specifying the path on the template image for the app. If you choose to add from the Start menu, choose the program to app. If you choose to provide the path to the app, provide a name for the app and the path to where it is installed on the template image.
 
 ## **Step 6: Configure user access** ##
 
-Now that you have created your RemoteApp service, you need to add the users that you want to be able to use your remote resources. The users that you provide access to need to exist in the Active Directory tenant associated with the subscription you used to create this RemoteApp service.
+Now that you have created your RemoteApp collection, you need to add the users that you want to be able to use your remote resources. The users that you provide access to need to exist in the Active Directory tenant associated with the subscription you used to create this RemoteApp collection.
 
 1.	From the Quick Start page, click **Configure user access**. 
 2.	Enter the work account (from Active Directory) or Microsoft account that you want to grant access for.
 
-	For users, make sure that you use the “user@domain.com” format.
+	**Notes:** 
+
+	Make sure that you use the “user@domain.com” format.
+
+	If you are using Office 365 ProPlus in your collection, you must use the Active Directory identities for your users. This helps validate licensing. 
+
 
 3.	Once the users are validated, click **Save**.
 
