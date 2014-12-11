@@ -16,7 +16,7 @@ sql-database- , -preview- :  Set of topics using -preview- as their group identi
 
 This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 preview.
 
-A new [Azure portal](http://azure.portal.com/) is available to support your upgrade to the latest preview.
+A new [Azure portal](http://portal.azure.com/) is available to support your upgrade to the latest preview.
 
 The following table lists and describes other Help topics for this latest preview.
 
