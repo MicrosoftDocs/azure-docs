@@ -24,8 +24,8 @@
 | 6. Click **UPGRADE THIS SERVER**. | ![Upgrades the SQL Server to the preview][6] |
 
 > [WACOM.NOTE] **Important**: Once you select the upgrade option, your server and the databases within that server will be enabled with SQL Database Update V12 preview features, and you will not be able to reverse that. To upgrade servers to SQL Database Update V12 (preview), you require a Basic, Standard or Premium service tier. For more information on the  service tiers,see [Upgrade SQL Database Web/Business Databases to New Service Tiers"](http://azure.microsoft.com/en-us/documentation/articles/sql-database-upgrade-new-service-tiers/).
-	
-> [WACOM.NOTE] **Important**: Geo-replication is not supported with SQL Database Update V12 (preview). For more information, see [Plan and Prepare to Upgrade to Azure SQL Database V12 Preview](http://azure.microsoft.com/en-us/documentation/articles/sql-database-preview-plan-prepare-upgrade).
+
+> **Important**: Geo-replication is not supported with SQL Database Update V12 (preview). For more information, see [Plan and Prepare to Upgrade to Azure SQL Database V12 Preview](http://azure.microsoft.com/en-us/documentation/articles/sql-database-preview-plan-prepare-upgrade).
 
 
 Once you click the **UPGRADE THIS SERVER** option, the blade that opens shows a message about a validation process. 
