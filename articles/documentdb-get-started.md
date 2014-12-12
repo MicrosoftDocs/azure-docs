@@ -187,7 +187,7 @@ DocumentDB supports rich queries against the JSON documents stored in each colle
     {
         Console.WriteLine(item);
     }
-
+	
 ##<a id="GetSolution"></a>Get the complete solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
