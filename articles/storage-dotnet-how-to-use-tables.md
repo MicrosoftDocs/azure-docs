@@ -493,7 +493,7 @@ to learn how to do more complex storage tasks.
   </ul>
 </li>
 <li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
-<li>Learn how to work with Azure Storage in backend processes for Azure Websites at <a href="/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/">Get Started with the Azure WebJobs SDK</a>.</li>
+<li>Learn how to simplify the code you write to work with Azure Storage by using the <a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK.</li>
 <li>View more feature guides to learn about additional options for storing data in Azure.
   <ul>
     <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>
