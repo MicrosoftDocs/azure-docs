@@ -1,6 +1,6 @@
 <properties title="Troubleshooting and Q & A about Application Insights" pageTitle="Troubleshooting and Q & A about Application Insights" description="Tips and troubleshooting" metaKeywords="analytics monitoring" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-27" ms.author="awills" />
  
 # Troubleshooting and Q&A - Application Insights on Microsoft Azure Preview
 
@@ -51,6 +51,8 @@ This can happen if communication with the Application Insights portal failed, or
 ## <a name="q04"></a>I see no data under Usage Analytics
 
 + The data comes from scripts in the web pages. If you added Application Insights to an existing web project, [you have to add the scripts by hand][start].
++ Make sure Internet Explorer isn't displaying your site in Compatibility mode.
++ Use the browser's debug feature (F12 on some browsers, then choose Network) to verify that data is being sent to dc.services.visualstudio.com.
 
 
 ## <a name="q05"></a>I'm looking at the Microsoft Azure Preview start board. How do I find my data in Application Insights?

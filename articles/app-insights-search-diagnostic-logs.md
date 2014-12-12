@@ -1,6 +1,6 @@
 <properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-19" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
  
 # Diagnostic search in Application Insights
 
@@ -15,7 +15,7 @@ If you haven't yet [set up Application Insights for your project][start], do tha
 When you run your application, it will send some telemetry that will show up in Diagnostic Search, including requests received by the server, page views logged at the client, and uncaught exceptions.
 
 
-## <a name="view"></a>View the telemetry from your application
+## <a name="view"></a>View the telemetry sent by your application
 
 
 In Application Insights, open Diagnostic Search.
@@ -353,6 +353,14 @@ VB at server
     End Try
 
 The properties and measurements parameters are optional, but are useful for filtering and adding extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you like to each dictionary.
+
+### Correlating with a build
+
+When you read diagnostic logs, it's likely that your source code will have changed since the live code was deployed.
+
+It's therefore useful to put build information, such as the URL of the current version, into a property along with each exception or trace. 
+
+Instead of adding the property separately to every exception call, you can set 
 
 ## <a name="questions"></a>Q & A
 
