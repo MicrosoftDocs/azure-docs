@@ -1,6 +1,6 @@
 <properties linkid="manage-services-Stream-Analytics-get-started" urlDisplayName="Get Started" pageTitle="Get started using Azure Stream Analytics | Azure" metaKeywords="" description="Get started using Azure Stream Analytics to process and transform events in Azure Service Bus Event Hub and store the results to Azure SQL Database." metaCanonical="" services="stream-analytics" documentationCenter="" title="Get started with Azure Stream Analytics" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="stream-analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/28/2014" ms.author="jgao" />
+<tags ms.service="stream-analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="jgao" />
 
 
 # Get started using Azure Stream Analytics
@@ -11,14 +11,15 @@ To get you started quickly using Stream Analytics, this tutorial will show you h
   
 ![Azure Stream Analytics get started flow][img.get.started.flowchart]
 
-##Generate Event Hub Sample Data
+##Generate Event Hub sample data
 This tutorial will leverage the Service Bus Event Hubs Getting Started application, a code sample in the MSDN CodeGallery, to create a new Event Hub, generate sample device temperature readings, and send the device reading data to the Event Hub.
 
 ###Create a Service Bus namespace
 The sample application will create an Event Hub in a preexisting Service Bus namespace.  You can use a Service Bus namespace you've already provisioned or follow the steps below to create a new one:
 
 1.	Sign in to the [Azure Management portal][azure.management.portal].
-2.	Click **CREATE** in the bottom of the Service Bus page, and follow the instructions to create a namespace. Use **MESSAGING** as the type.
+2.	Click **SERVICE BUS** in the left pane to open the Service Bus page. 
+2.	Click **CREATE** on the bottom of page, and follow the instructions to create a namespace. Use **MESSAGING** as the type. It takes a few moments to get the namespace created.
 3.	Click the newly created namespace, and then click **CONNECTION INFORMATION** on the bottom of the page.
 4.	Copy the connection string. You will use it later in the tutorial.
 
@@ -32,14 +33,14 @@ This sample application requires an Azure Storage account or a Storage Emulator 
 
 ###Generate Event Hub sample data
 
-1.	Download and unzip [Service Bus Event Hubs Getting Started.zip](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Event-Hub-286fd097) to your workstation.
+1.	Download [Service Bus Event Hubs Getting Started.zip](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Event-Hub-286fd097), and then unzip it to your workstation.
 2.	Open the **EventHubSample.sln** solution file in Visual Studio.
 3.	Open **app.config**.
 4.	Specify both the Service Bus and the Storage account connection strings. The key names are **Microsoft.ServiceBus.ConnectionString** and **AzureStorageConnectionString**. The storage account connection string will be in the following format: 	
 
 		DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<yourAccountKey>;
 5.	Build the solution.
-6.	Run the application from the bin folder.  The usage is as follows: 
+6.	Run the application from the bins folder.  The usage is as follows: 
 
 		BasicEventHubSample <eventhubname> <NumberOfMessagesToSend> <NumberOfPartitions> 
 
@@ -48,12 +49,12 @@ This sample application requires an Azure Storage account or a Storage Emulator 
 		BasicEventHubSample devicereadings 200 16
 
  	![insert image here][img.stream.analytics.event.hub.client.output] 
- 	
-
+7. After the events have been sent, press **ENTER** to close the application. 
+8. 
 ###Create an Event Hub Shared Access Policy
 While there is already a Shared Access Policy on the Service Bus namespace that can be used to connect to everything inside the namespace, for best security practices we will create a separate policy for the Event Hub only.
 
-1.	From the Service Bus workspace on the portal, click the Service Bus namespace name.
+1.	From the management portal, open the **SERVICE BUS** page, and then click the Service Bus namespace name.
 2.	Click **EVENT HUBS** at the top of the page.
 3.	Click **devicereadings**, the Event Hub for this tutorial.
 4.	Click **CONFIGURE** at the top of the page.

@@ -26,9 +26,9 @@ Key highlights of this V12 preview include the following:
 
 - **Easier management** of large databases to support heavier workloads with parallel queries (Premium only), [table partitioning](http://msdn.microsoft.com/library/ms187802.aspx), [online indexing](http://msdn.microsoft.com/library/ms188388.aspx), worry-free large index rebuilds with 2GB size limit removed, and more options on the [alter database](http://msdn.microsoft.com/library/bb522682.aspx) statement.
 
-- **Support for key programmability functions** to drive more robust application design with [CLR integration](http://msdnstage.redmond.corp.microsoft.com/library/ms189524.aspx), T-SQL [window functions](http://msdn.microsoft.com/library/ms189461.aspx), [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx), and [change tracking](http://msdn.microsoft.com/library/bb933875.aspx) for data.
+- **Support for key programmability functions** to drive more robust application design with [CLR integration](http://msdn.microsoft.com/library/ms189524.aspx), T-SQL [window functions](http://msdn.microsoft.com/library/ms189461.aspx), [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx), and [change tracking](http://msdn.microsoft.com/library/bb933875.aspx) for data.
 
-- **Breakthrough performance** with support for in-memory [columnstore](http://msdnstage.redmond.corp.microsoft.com/library/gg492153.aspx) queries (Premium tier only) for data mart and smaller analytic workloads.
+- **Breakthrough performance** with support for in-memory [columnstore](http://msdn.microsoft.com/library/gg492153.aspx) queries (Premium tier only) for data mart and smaller analytic workloads.
 
 - **Monitoring and troubleshooting** are improved with visibility into over 100 new table views in an expanded set of Database Management Views ([DMVs](http://msdn.microsoft.com/library/ms188754.aspx))
 

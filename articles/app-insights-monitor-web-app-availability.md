@@ -1,6 +1,6 @@
 <properties title="Monitor any web site's availability and responsiveness" pageTitle="Monitor any web site's availability and responsiveness" description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly." metaKeywords="analytics web test availability" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-30" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
  
 # Monitor any web site's availability and responsiveness
 
@@ -111,14 +111,23 @@ To create a multi-step test, you record the scenario by using Visual Studio, and
 Use Visual Studio Ultimate to record a web session.
 
 1. Create a web performance test project.
+
     ![In Visual Studio, create a new project from the Web Performance and Load Test template.](./media/appinsights/appinsights-71webtest-multi-vs-create.png)
+
 2. Open the .webtest file and start recording.
+
     ![Open the .webtest file and click Record.](./media/appinsights/appinsights-71webtest-multi-vs-start.png)
+
 3. Do the user actions you want to simulate in your test: open your website, add a product to the cart, and so on. Then stop your test. 
+
     ![The web test recorder runs in Internet Explorer.](./media/appinsights/appinsights-71webtest-multi-vs-record.png)
+
     Don't make a long scenario. There's a limit of 100 steps and 2 minutes.
+
 4. Run the test in Visual Studio to make sure it works.
+
     The web test runner opens a web browser and repeats the actions you recorded. Make sure it works as you expected. 
+
     ![In Visual Studio, open the .webtest file and click Run.](./media/appinsights/appinsights-71webtest-multi-vs-run.png)
  
 
@@ -126,13 +135,13 @@ Use Visual Studio Ultimate to record a web session.
 
 #### 2. Upload the web test to Application Insights
 
-In the Application Insights portal, create a new web test.
+1. In the Application Insights portal, create a new web test.
 
-![On the web tests blade, choose Add.](./media/appinsights/appinsights-16anotherWebtest.png)
+    ![On the web tests blade, choose Add.](./media/appinsights/appinsights-16anotherWebtest.png)
 
-Select multi-step test, and upload the .webtest file.
+2. Select multi-step test, and upload the .webtest file.
 
-![Select multi-step webtest.](./media/appinsights/appinsights-71webtestUpload.png)
+    ![Select multi-step webtest.](./media/appinsights/appinsights-71webtestUpload.png)
 
 View your test results and any failures in the same way as for single-url tests. 
 

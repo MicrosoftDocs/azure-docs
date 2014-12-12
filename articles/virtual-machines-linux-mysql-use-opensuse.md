@@ -1,20 +1,16 @@
 <properties urlDisplayName="Install MySQL" pageTitle="Install MySQL on a virtual machine running OpenSUSE Linux in Azure" metaKeywords="Azure, MySQL" description="Learn to install MySQL on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="kathydav" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="kathydav" />
 
 # Install MySQL on a virtual machine running OpenSUSE Linux in Azure
 
-[MySQL][MySQL] is a popular, open-source SQL database.  Using the [Azure Management Portal][AzurePortal], you can create a virtual machine running OpenSUSE Linux from the Image Gallery.  You can then install and configure a MySQL database on the virtual machine.
+[MySQL][MySQL] is a popular, open-source SQL database.  Using the [Azure Management Portal][AzurePortal], you can create a virtual machine running OpenSUSE Linux.  You can then install and configure a MySQL database on the virtual machine.
 
 This tutorial shows you:
 
-- How to use the Management Portal to create an OpenSUSE Linux virtual machine from the gallery.
+- How to use the Management Portal to create an OpenSUSE Linux virtual machine from an image available through Azure.
 - How to connect to the virtual machine using SSH or PuTTY.
 - How to install MySQL on the virtual machine.
-
-## Create an Azure subscription
-
-You'll need an Azure subscription to complete this tutorial. If you don't already have one, you can sign up [for free].
 
 [WACOM.INCLUDE [antares-iaas-signup-iaas](../includes/antares-iaas-signup-iaas.md)]
 
@@ -32,4 +28,3 @@ In this tutorial you learned to create a virtual machine running OpenSUSE Linux 
 [MySQLDocs]: http://dev.mysql.com/doc/
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
-[for free]: http://azure.microsoft.com

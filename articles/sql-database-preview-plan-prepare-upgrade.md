@@ -16,7 +16,7 @@ sql-database- , -preview- :  Set of topics using -preview- as their group identi
 
 This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 preview.
 
-A new [Azure portal](http://azure.portal.com/) is available to support your upgrade to the latest preview.
+A new [Azure portal](http://portal.azure.com/) is available to support your upgrade to the latest preview.
 
 The following table lists and describes other Help topics for this latest preview.
 
@@ -44,8 +44,7 @@ This document concerns the upgrade of Microsoft Azure SQL Database from version 
 
 ### A.2 Service tier planning
 
-Starting with this latest preview, Azure SQL Database will support only the service tiers named Basic, Standard, and Premium. The "Web-and-Business" service tier
-will no longer be supported. Therefore, if you plan to upgrade your Azure SQL database that is currently at the Web-and-Business service tier, you must decide what its new service tier should be.
+Starting with this latest preview, Azure SQL Database will support only the service tiers named Basic, Standard, and Premium. The Web and Business service tier is not supported on this preview version. Therefore, if you plan to upgrade your Azure SQL database that is currently at the Web or Business service tier, you must decide what its new service tier should be.
 
 For detailed information about the Basic, Standard, and Premium service tiers, see:
 
@@ -77,9 +76,9 @@ Detailed descriptions of the final upgrade phase are available in the Help topic
 ### B.1 Service tier actions
 
 
-Starting with V12 preview, Azure SQL Database no longer supports the Web-and-Business service tier.
+The Web and Business service pricing tier is not supported on this preview version.
 
-If your V11 Azure SQL database is at the obsolete Web-and-Business service tier, the upgrade process offers to switch your database to a supported tier. The upgrade recommends a tier that fits the workload history of your database. However, you can choose any supported tier you like.
+If your V11 Azure SQL database is a Web or Business database, the upgrade process offers to switch your database to a supported tier. The upgrade recommends a tier that fits the workload history of your database. However, you can choose any supported tier you like.
 
 You can reduce the steps necessary during upgrade by switching your V11 database away from the Web-and-Business tier before you start the upgrade. You can do this by using the Azure portal.
 
@@ -104,7 +103,7 @@ Be aware of the following limitations of the latest preview:
 | DNS entry update delay | After the upgrade completes, it takes several minutes for the system to update the DNS entry for your V12 database, for connectivity from your client application. |
 | DNS to V11 database | After the completion of an upgrade by the technique of copying your V11 database to a new V12 server, the DNS information that your client code uses to connect refers to the V12 databse. <p> </p> Your client code would need to use edited DNS information to refer back to the V11 database. |
 | Cannot revert to V11 | After an upgrade in-place, the result cannot be reverted or undone. |
-| Web-and-Business tier | Once the upgrade starts, the server for the new V12 database can no longer recognize or accept the Web-and-Business service tier. |
+| Web or Business tier | Once the upgrade starts, the server for the new V12 database can no longer recognize or accept the Web or Business service tier. |
 | No creating a database | While the upgrade is in progress the following actions for creating a database are unavailable on the destination V12 Azure SQL Database server: <p></p> * Creating a new database <br/> * Copying a database to the server <br/> * Restoring a deleted database <br/> * Restoring a database to a point-in-time <br/><br/> However, support for point-in-time restore during upgrade is a feature that might be supported before the end of the V12 preview period. |
 | No geo-replication | Geo-replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
 | 50% discount semi-hidden | During the preview period, there is a 50% discount on databases with the latest Azure SQL database preview update (V12). Even if the discount is not shown in the preview portal on the service pricing tier blade, the discount is in force. |
