@@ -82,10 +82,8 @@ Although these steps provide what you need for deploying your .COM site, you sho
 ##<a name="customdomain"></a>Add a Custom Domain
 If this is your global web presence, you will want to associate your registered domain name with the website. There are many third-party providers that provide domain registration services. Each of these providers supports the creation of different types of DNS records to manage your domain. A DNS record helps to map a user-friendly URL, such as "www.contoso.com", to the actual URL or IP address that hosts the site. 
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>In the discussion below, there are two DNS record types of interest. First, a CNAME record can redirect from one URL, such as "www.contoso.com", to a different URL, such as "contoso.azurewebsites.net". Second, an A record can map a URL, such as "www.contoso.com", to an IP address, such as 172.16.48.1.</p>
-</div>
+> [WACOM.NOTE]
+> In the discussion below, there are two DNS record types of interest. First, a CNAME record can redirect from one URL, such as "www.contoso.com", to a different URL, such as "contoso.azurewebsites.net". Second, an A record can map a URL, such as "www.contoso.com", to an IP address, such as 172.16.48.1.
 
 For Azure Websites, you must first create a CNAME record to the Azure Website. This setting is done through the third-party registrar's site. The following is an example CNAME record.
 
