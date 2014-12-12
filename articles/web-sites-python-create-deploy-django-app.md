@@ -11,9 +11,9 @@ This tutorial describes how to get started running Python on Azure Websites.  Az
 
 This tutorial shows you how to deploy an application built using the Django web framework.  The tutorial walks through the steps of deploying your application and any required libraries, including Django.  You will put this all into a Git repository which makes it quick and simple to push updates to your website.  And finally, you will configure the newly created site via Azure so that it runs your Python application.  
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
-
 > [WACOM.NOTE]
+> To complete this tutorial, you need an Azure account. You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/">activate your MSDN subscriber benefits</a> or <a href="http://azure.microsoft.com/en-us/pricing/free-trial/">sign up for a free trial</a>.
+> 
 > If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
 
 This tutorial uses Python 2.7 and Django 1.4.  You can either get these on your own, or you can quickly and easily install these by using the Windows Installer link on [http://www.windowsazure.com/en-us/develop/python/](http://www.windowsazure.com/en-us/develop/python/).  
