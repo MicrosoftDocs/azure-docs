@@ -57,14 +57,12 @@ At public preview, Data Factory will only be available in US West.  The compute 
 
 **Q: What regions are supported by the Copy Activity ?**
 
-The Copy Activity supports copying data into the following regions: East US 2, West US, North Europe, West Europe, and South East Asia.
+The Copy Activity supports copying data into the following regions: East US, East US 2, West US,  Central US, North Europe, West Europe, and South East Asia.
 
 Copying data into other regions is also supported, by using one of the five regions above for routing the data.  Copy operation is metered based on the region where data is routed through.
 
 Region of copy destination | Region used for routing
 -------------------------- | -----------------------
-East US | East US 2
-Central US | East US 2
 North Central US | East US 2
 South Central US | West US
 East Asia | South East Asia
