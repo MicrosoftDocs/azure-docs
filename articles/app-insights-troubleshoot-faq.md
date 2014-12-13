@@ -1,6 +1,6 @@
 <properties title="Troubleshooting and Q & A about Application Insights" pageTitle="Troubleshooting and Q & A about Application Insights" description="Tips and troubleshooting" metaKeywords="analytics monitoring" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-27" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-12" ms.author="awills" />
  
 # Troubleshooting and Q&A - Application Insights on Microsoft Azure Preview
 
