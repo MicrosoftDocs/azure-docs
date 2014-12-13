@@ -23,14 +23,15 @@ Once you’ve created your export, it starts going. (You only get data that arri
 To stop the stream, delete the export. Doing so doesn’t delete your data.
 
 ## <a name="get"></a> Get your telemetry
-When you open your blob store with a tool such as CloudXplorer, you’ll see a container with a set of blob files. The URI of each file is application-id/telemetry-type/date/time. 
+When you open your blob store with a tool such as [Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx), you’ll see a container with a set of blob files. The URI of each file is application-id/telemetry-type/date/time. 
 
 ![Inspect the blob store with a suitable tool](./media/appinsights/appinsights-22-3get-data.png)
 
 The date and time are when the telemetry was deposited in the store – not the time it was generated. So if you write code to download the data, it can move linearly through the data.
 
-To download this data programmatically, use the [blob store REST API](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#configure-access).  
+To download this data programmatically, use the [blob store REST API](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#configure-access) or the [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx).
 
+Or consider [DataFactory](http://azure.microsoft.com/services/data-factory/), in which you can set up pipelines to manage data at scale.
 
 ## <a name="analyze"></a>Analyze your stuff
 
@@ -51,6 +52,12 @@ Calculated metrics are not included. For example, we don’t export average CPU 
 Unformatted JSON. If you want to sit and stare at it, try a viewer such as Notepad++ with the JSON plug-in:
 
 ![View the telemetry with a suitable tool](./media/appinsights/appinsights-22-4json.png)
+
+### How to process it?
+
+On a small scale, you can write some code to pull apart your data, read it into a spreadsheet, and so on.
+
+On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
 
 ## <a name="delete"></a>Delete your old data
 Please note that you are responsible for managing your storage capacity and deleting the old data if necessary. 
