@@ -1,10 +1,9 @@
-<properties title="What's New in the Latest SQL Database Update V12 (preview)" pageTitle="What's New in the Latest SQL Database Update V12 (preview)" description="Lists and describes the latest enhancements to Microsoft Azure SQL Database, the preview of version 12, that are available starting in December 2014." metaKeywords="Azure, SQL DB, Update, Preview, V12, What's New, Get Started" services="sql-database" documentationCenter="" authors="Gene Milener" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
+<properties title="What's new in the Latest SQL Database Update V12 (preview)" pageTitle="What's new in the Latest SQL Database Update V12 (preview)" description="Lists and describes the latest enhancements to Microsoft Azure SQL Database, the preview of version 12, that are available starting in December 2014." metaKeywords="Azure, SQL DB, Update, Preview, V12, What's New, Get Started" services="sql-database" documentationCenter="" authors="Gene Milener" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="genemi"/>
 
 <!--
-Latest update to topic:
-GeneMi  ,  2014-Dec-10 Wednesday 11:56am;
+Latest Edit Datetime:  GM,  2014-12-12  Friday  16:51pm.
 Applied feedback of JG, JH, JM (Added back Joanne's marketing text.).
 -->
 
@@ -15,6 +14,9 @@ Applied feedback of JG, JH, JM (Added back Joanne's marketing text.).
 This topic describes latest Azure SQL Database V12 (preview). The new preview provides nearly complete compatibility with the Microsoft SQL Server engine. And the preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
 
 This preview marks the first step in delivering the next generation of the Azure SQL Database service. It gives customers more compatibility, flexibility, and performance. Internal tests of the preview at the Premium service tier showed that some queries now complete in a fraction of the time they take on today's Premium Azure SQL Database. Even bigger improvements were seen in some scenarios that benefit from the in-memory columnstore technology.
+
+> [AZURE.NOTE]
+> Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
 
 Your path to planning and implementing  the V12 preview starts [here](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
 
@@ -115,7 +117,7 @@ During the V12 preview period you can use the preview at a discount price. The n
 
 
 - Any database that is upgraded to the preview cannot be reverted back to the earlier version.
-- Test databases, database copies, or new databases, are good candidates for upgrading to the preview. As usual, production databases that your business depends on should wait until after the preview period.
+- Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
 - The Web and Business service pricing tier is not supported on this preview version.
 
 
