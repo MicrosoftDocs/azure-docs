@@ -1,9 +1,11 @@
-<properties title="Create a Database in the Latest SQL Database Update V12 (preview)" pageTitle="Create a Database in the Latest SQL Database Update V12 (preview)" description="Create a Database in the Latest SQL Database Update V12 (preview)" metaKeywords="Azure SQL Database, Azure SQL Database update, Create Azure SQL Database, Azure SQL Database preview" services="sql-database" solutions="" documentationCenter="" authors="sonalm" videoId="" scriptId="" manager="jefferyg" />
+<properties title="Create a database in the Latest SQL Database Update V12 (preview)" pageTitle="Create a database in the Latest SQL Database Update V12 (preview)" description="Create a database in the Latest SQL Database Update V12 (preview)" metaKeywords="Azure SQL Database, Azure SQL Database update, Create Azure SQL Database, Azure SQL Database preview" services="sql-database" solutions="" documentationCenter="" authors="sonalm" videoId="" scriptId="" manager="jefferyg" />
 
 <tags ms.service="sql-database" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-management" ms.date="12/11/2014" ms.author="sonalm" />
 
 
 # Create a database in the Latest SQL Database Update V12 (preview)
+
+> [AZURE.NOTE] **CAUTION**: Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
 
 | Action | Screen shot |
 | :--- | :--- |
