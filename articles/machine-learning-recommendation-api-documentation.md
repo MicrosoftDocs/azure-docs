@@ -1,11 +1,7 @@
-<properties title="Azure Machine Learning Recommendations – 
-API documentation" pageTitle="Azure Machine Learning Recommendations – 
-API documentation" description="Azure Machine Learning Recommendations – 
-API documentation" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
-
+<properties title="Azure Machine Learning Recommendations API Documentation" pageTitle="Azure Machine Learning Recommendations API Documentation" description="Azure Machine Learning Recommendations API Documentation" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="AharonGumnik" />
 
-#Azure Machine Learning Recommendations – <br>API documentation
+#Azure Machine Learning Recommendations API Documentation
 
 This document depicts Azure ML Recommendations APIs.
 
@@ -2466,4 +2462,3 @@ This document is provided “as-is”. Information and views expressed in this d
 Some examples depicted herein are provided for illustration only and are fictitious. No real association or connection is intended or should be inferred.<br><br>
 This document does not provide you with any legal rights to any intellectual property in any Microsoft product. You may copy and use this document for your internal, reference purposes.<br><br>
 © 2014 Microsoft. All rights reserved.
-
