@@ -1,4 +1,4 @@
-<properties title="Plan and Prepare to Upgrade to the Latest SQL Database Update V12 (preview)" pageTitle="Plan and Prepare to Upgrade to the Latest SQL Database Update V12 (preview)" description="Describes the planning, preparations, and limitations involving an upgrade to the Latest Azure SQL Database Update (preview)." metaKeywords="Azure, SQL DB, Update, Preview, Plan" services="sql-database" documentationCenter="" authors="GeneMi" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
+<properties title="Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)" pageTitle="Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)" description="Describes the planning, preparations, and limitations involving an upgrade to the Latest Azure SQL Database Update (preview)." metaKeywords="Azure, SQL DB, Update, Preview, Plan" services="sql-database" documentationCenter="" authors="GeneMi" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="genemi"/>
 
@@ -7,7 +7,7 @@ solutions="upgrade, migrate, move, monitor, t-sql, powershell"
 -->
 
 <!--
-Latest Edit Datetime:  GM,  2014-12-10  Wednesday  14:28pm.
+Latest Edit Datetime:  GM,  2014-12-12  Friday  16:51pm.
 sql-database-preview-plan-prepare-upgrade.md
 sql-database- , -preview- :  Set of topics using -preview- as their group identifier node.
 -->
@@ -18,14 +18,17 @@ This topic describes the planning and preparations you must perform to upgrade y
 
 A new [Azure portal](http://portal.azure.com/) is available to support your upgrade to the latest preview.
 
+> [AZURE.NOTE]
+> Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
+
 The following table lists and describes other Help topics for this latest preview.
 
 | Title and link | Description of content |
 | :--- | :--- |
-| [What's New in V12 Azure SQL Database Preview](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/) | Describes the details of how the V12 preview brings Azure SQL Database closer to full parity with Microsoft SQL Server 2014. |
-| [Walkthrough: Sign Up for V12 Azure SQL Database Preview](http://azure.microsoft.com/documentation/articles/sql-database-preview-sign-up/) | Describes the steps you must perform if you want to upgrade your Azure SQL databases to the latest preview. |
-| [Create a Database in V12 Azure SQL Database Preview](http://azure.microsoft.com/documentation/articles/sql-database-preview-create/) | Describes how you can create a new Azure SQL database that includes the new features of the latest preview. It describes various options beyond just an empty database. |
-| [Upgrade to V12 Azure SQL Database Preview](http://azure.microsoft.com/documentation/articles/sql-database-preview-upgrade/) | Describes how you can upgrade your Azure SQL databases to the latest preview. It mentions that you should make a backup of your database first, because the upgrade is permanent and cannot be undone. |
+| [What's new in the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/) | Describes the details of how the V12 preview brings Azure SQL Database closer to full parity with Microsoft SQL Server 2014. |
+| [Walkthrough: sign up for the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-sign-up/) | Describes the steps you must perform if you want to upgrade your Azure SQL databases to the latest preview. |
+| [Create a database in the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-create/) | Describes how you can create a new Azure SQL database that includes the new features of the latest preview. It describes various options beyond just an empty database. |
+| [Upgrade to the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-upgrade/) | Describes how you can upgrade your Azure SQL databases to the latest preview. It mentions that you should make a backup of your database first, because the upgrade is permanent and cannot be undone. |
 
 
 
@@ -101,12 +104,13 @@ Be aware of the following limitations of the latest preview:
 | :--- | :--- |
 | Duration of upgrade | For a very large database of perhaps greater than 50 GB in size, the upgrade process can take up to 24 hours. |
 | DNS entry update delay | After the upgrade completes, it takes several minutes for the system to update the DNS entry for your V12 database, for connectivity from your client application. |
-| DNS to V11 database | After the completion of an upgrade by the technique of copying your V11 database to a new V12 server, the DNS information that your client code uses to connect refers to the V12 databse. <p> </p> Your client code would need to use edited DNS information to refer back to the V11 database. |
+| DNS to V11 database | After the completion of an upgrade by the technique of copying your V11 database to a new V12 server, the DNS information that your client code uses to connect refers to the V12 database. <p> </p> Your client code would need to use edited DNS information to refer back to the V11 database. |
 | Cannot revert to V11 | After an upgrade in-place, the result cannot be reverted or undone. |
 | Web or Business tier | Once the upgrade starts, the server for the new V12 database can no longer recognize or accept the Web or Business service tier. |
 | No creating a database | While the upgrade is in progress the following actions for creating a database are unavailable on the destination V12 Azure SQL Database server: <p></p> * Creating a new database <br/> * Copying a database to the server <br/> * Restoring a deleted database <br/> * Restoring a database to a point-in-time <br/><br/> However, support for point-in-time restore during upgrade is a feature that might be supported before the end of the V12 preview period. |
 | No geo-replication | Geo-replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
 | 50% discount semi-hidden | During the preview period, there is a 50% discount on databases with the latest Azure SQL database preview update (V12). Even if the discount is not shown in the preview portal on the service pricing tier blade, the discount is in force. |
+| 50% discount not reflected in the pricing tier cards in the preview portal | During the preview period, there is a 50% preview discount* on databases enrolled in the latest Azure SQL database preview update (V12). Even if the discount is not shown in the preview portal on the service pricing tier blade, the discount is in force. <br/><br/> (* Use of latest Azure SQL Database Update V12 feature is subject to the preview terms in your license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).  For the duration of the preview, Microsoft will bill you (or your reseller, as applicable) for all databases enrolled in this preview at half the General Availability rate to achieve a 50% preview discount. Microsoft will provide 30 days notice via email prior to the expiration of the preview period and the discounted preview rate.) |
 
 
 ### Restore to V12 of a deleted V11 database

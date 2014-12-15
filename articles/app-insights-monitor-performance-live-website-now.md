@@ -87,6 +87,9 @@ You can drill down to specific exceptions (from the last seven days) and get sta
   * Use your site, to generate some data.
   * Wait a few minutes to let the data arrive, then click Refresh.
   * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com 
+  * If on the server you see a message about "insufficient permissions":
+   * In IIS Manager, select your application pool, open Advanced Settings, and under Process Model note the Identity.
+   * In Computer management control panel, add this identity to the Performance Monitor Users group.
   * See [Troubleshooting][qna].
 
 

@@ -6,11 +6,11 @@
 
 # Upgrade to the Latest SQL Database Update V12 (preview)
 
-
 - How to update a server in place with the  SQL Database Update (preview) features
 
 - How to copy a database to a new server with SQL Database Update (preview) features enabled **(feature coming soon)**
 
+> [AZURE.NOTE] **CAUTION**:  Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
 
 ## How to Update a Server In Place with the Latest SQL Database Update (preview) Features ##
 
@@ -23,9 +23,9 @@
 | 5. Click **Latest SQL Database Update V12 (preview)**. | ![Latest preview feature][5] |
 | 6. Click **UPGRADE THIS SERVER**. | ![Upgrades the SQL Server to the preview][6] |
 
-> [WACOM.NOTE] **Important**: Once you select the upgrade option, your server and the databases within that server will be enabled with SQL Database Update V12 preview features, and you will not be able to reverse that. To upgrade servers to SQL Database Update V12 (preview), you require a Basic, Standard or Premium service tier. For more information on the  service tiers,see [Upgrade SQL Database Web/Business Databases to New Service Tiers"](http://azure.microsoft.com/en-us/documentation/articles/sql-database-upgrade-new-service-tiers/).
+> [AZURE.NOTE] **IMPORTANT**: Once you select the upgrade option, your server and the databases within that server will be enabled with SQL Database Update V12 preview features, and you will not be able to reverse that. To upgrade servers to SQL Database Update V12 (preview), you require a Basic, Standard or Premium service tier. For more information on the  service tiers,see [Upgrade SQL Database Web/Business Databases to New Service Tiers"](http://azure.microsoft.com/en-us/documentation/articles/sql-database-upgrade-new-service-tiers/).
 
-> **Important**: Geo-replication is not supported with SQL Database Update V12 (preview). For more information, see [Plan and Prepare to Upgrade to Azure SQL Database V12 Preview](http://azure.microsoft.com/en-us/documentation/articles/sql-database-preview-plan-prepare-upgrade).
+> **IMPORTANT**: Geo-replication is not supported with SQL Database Update V12 (preview). For more information, see [Plan and Prepare to Upgrade to Azure SQL Database V12 Preview](http://azure.microsoft.com/en-us/documentation/articles/sql-database-preview-plan-prepare-upgrade).
 
 
 Once you click the **UPGRADE THIS SERVER** option, the blade that opens shows a message about a validation process. 
