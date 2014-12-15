@@ -1,26 +1,30 @@
 <properties urlDisplayName="Get Started" pageTitle="Set up and query HBase tables using Hive in HDInsight | Azure" metaKeywords="" description="Get started using HBase with Hadoop in HDInsight. Learn how to create HBase tables and query them using Hive." metaCanonical="" services="hdinsight" documentationCenter="" title="Set up HBase clusters and query them using Hive on Hadoop in HDInsight" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/9/2014" ms.author="bradsev" />
 
 
 
 # Set up HBase clusters and query them using Hive on Hadoop in HDInsight
 
-In this tutorial, you'll learn how to create and query HBase tables using Hive on Hadoop in HDInsight. The following **procedures** are described:
+Learn how to create and query HBase tables using Hive on Hadoop in HDInsight. 
 
-- How to **provision an HBase cluster** using the Azure portal.
-- How to enable and use RDP to access the HBase shell and use the HBase shell to **create an HBase sample table**, add rows, and then list the rows in the table.
-- How to **create a Hive table** that maps to an existing HBase table and use HiveQL to **query the data** in the HBase table.
-- How to **use the Microsoft HBase REST Client Library for .NET** to create a new HBase table, list the HBase tables in your account, and how to add and retrieve the rows from your tables.
+##In this article
 
+* [What is HBase?](#hbaseintro)
+* [Prerequisites](#prerequisites)
+* [Provision HBase clusters using Azure Management portal](#create-hbase-cluster)
+* [Mange HBase tables using HBase shell](#create-sample-table)
+* [Use HiveQL to query HBase tables](#hive-query)
+* [Use the Microsoft HBase REST client library to manage HBase tabels](#hbase-powershell)
+* [See also](#seealso)
 
-**What is HBase?**
+##<a name="hbaseintro"></a>What is HBase?
 
 HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs. For more information on HBase and the scenarios it can be used for, see [HDInsight HBase overview](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-overview/).
 
 > [WACOM.NOTE] HBase (version 0.98.0) is only available for use with HDInsight 3.1 clusters on HDInsight (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
 
-**Prerequisites:**
+##<a name="prerequisites"></a>Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
@@ -29,17 +33,7 @@ Before you begin this tutorial, you must have the following:
 - **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx).
 - Download the [Microsoft HBase REST Client Library for .NET](https://github.com/hdinsight/hbase-sdk-for-net). 
 
-**Estimated time to complete:** 30 minutes
 
-##Sections in this tutorial
-
-* [Provision an HBase cluster in the Azure portal](#create-hbase-cluster)
-* [Create an HBase sample table from the HBase shell](#create-sample-table)
-* [Use Hive to query an HBase table](#hive-query)
-* [Use HBase C# APIs to create an HBase table and retrieve data from the table](#hbase-powershell)
-* [Summary](#summary)
-* [What's Next?](#next)
-	
 ##<a name="create-hbase-cluster"></a>Provision an HBase cluster on the Azure portal
 
 This section describes how to provision an HBase cluster using the Azure portal.

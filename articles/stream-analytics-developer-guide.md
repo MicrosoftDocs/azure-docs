@@ -143,9 +143,11 @@ To enable job monitoring, Stream Analytics requires you to designate an Azure St
 ###Metrics
 The following metrics are available for monitoring the usage and performance of Stream Analytics jobs:
 
-- Incoming Throughput: amount of data received by the Stream Analytics job, in terms of event count
-- Outgoing Throughput: amount of data sent by the Stream Analytics job to output source, in terms event count
-- Error Count: number of error messages incurred by a Stream Analytics job
+- Errors: number of error messages incurred by a Stream Analytics job
+- Input events: amount of data received by the Stream Analytics job, in terms of event count
+- Output events: amount of data sent by the Stream Analytics job to output source, in terms event count
+- Out of order events: number of events received out of order that were either dropped or given an adjusted timestamp, based on the out of order policy
+- Data conversion errors: number of data conversion errors incurred by a Stream Analytics job
 
 ###Operation logs
 The best approach to debugging or troubleshooting a Stream Analytics job is through Azure Operation Logs.  Operation Logs can be accessed under Management Services section of the portal.  To inspect logs for your job, set Service Type to "Stream Analytics" and Service Name to the name of your job.

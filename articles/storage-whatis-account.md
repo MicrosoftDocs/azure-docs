@@ -5,7 +5,12 @@
 
 # About Azure Storage Accounts
 
-Your Azure Storage account is a unique, secure account through which you can access the Azure storage services - the Blob, Queue, Table, and File services. Your data is secured at the level of your storage account, and by default, it is available only to you, the owner. 
+An Azure storage account is a secure account that gives you access to services in Azure Storage. Your storage account provides the unique namespace for your data, and by default, it is available only to you, the account owner. 
+
+There are two types of storage accounts:
+
+- A standard storage account includes Blob, Table, and Queue storage. File storage is available by request via the [Azure Preview page](/en-us/services/preview/).
+- A premium storage account currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request via the [Azure Preview page](/en-us/services/preview/). See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898) for an in-depth overview of Premium Storage.
 
 You are billed for Azure Storage usage based on your storage account. Storage costs are based on four factors: storage capacity, replication scheme, storage transactions, and data egress. 
 
@@ -16,9 +21,14 @@ You are billed for Azure Storage usage based on your storage account. Storage co
 
 The [Storage Pricing Details](http://www.windowsazure.com/en-us/pricing/details/#storage) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](http://www.windowsazure.com/en-us/pricing/details/data-transfers/) provides detailed pricing information for data egress.
 
-This article describes how to create a storage account, and some decisions to consider as you create it. It also describes how to manage your storage account access keys, and how to delete a storage account.
+For details about storage account capacity and performance targets, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx).
+
+> [WACOM.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](/en-us/documentation/services/virtual-machines/) for more details. <br />
 
 ## Table of Contents ##
+
+This article describes how to create a standard storage account, and some decisions to consider as you create it. It also describes how to manage your storage account access keys, and how to delete a storage account.
+
 
 - [How to: Create a storage account](#create)
 - [How to: View, copy, and regenerate storage access keys](#regeneratestoragekeys)
@@ -71,7 +81,7 @@ You can see the endpoints for your storage account on the storage Dashboard in t
 
 The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-You can also configure a custom domain name to use with your storage account. See [Configure a custom domain name for blob data in a storage account](http://azure.microsoft.com/en-us/documentation/articles/storage-custom-domain-name/) for details.
+You can also configure a custom domain name to use with your storage account. See [Configure a custom domain name for blob data in a storage account](../storage-custom-domain-name/) for details.
 
 ### <a id="affinity-group"></a>Service co-location with an affinity group 
 
@@ -103,7 +113,7 @@ You can use **Manage Keys** to copy a storage access key to use in a connection 
 
  	**Manage Access Keys** opens.
 
-	![Managekeys](./media/storage-manage-storage-account/Storage_ManageKeys.png)
+	![Managekeys](./media/storage-create-storage-account/Storage_ManageKeys.png)
 
  
 3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.

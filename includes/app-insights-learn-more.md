@@ -1,14 +1,34 @@
 ## Application Insights - learn more
 
+Overview
+
 * [Application Insights - get started][start]
-* [Start monitoring web app health and usage][greenbrown]
-* [Monitor a live web server now][redfield]
-* [Monitor performance in web applications][perf]
-* [Search diagnostic logs][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Track usage][usage]
+
+Getting started options
+
+* [Add Application Insights SDK to your project][greenbrown]
+* [Install Status Monitor on your web server][redfield]
+* [Analyze usage in web applications][usage]
+* [Monitor availability with web tests][availability]
+* [Monitor usage and crashes in device apps][devices]
+
+Performance monitoring
+
+* [Detect performance issues in web applications][perf]
+* [Diagnose issues by searching traces and logs][diagnostic]
+
+Tracking usage
+
+* [Analyze usage in web applications][usage]
 * [Track custom events and metrics][track]
+
+Processing
+
+* [Export telemetry][export]
 * [Data retention and privacy][data]
+
+Problems?
+
 * [Q & A and troubleshooting][qna]
 
 <!--Link references-->
@@ -23,3 +43,6 @@
 [track]: ../app-insights-web-track-usage-custom-events-metrics/
 [qna]: ../app-insights-troubleshoot-faq/
 [data]: ../app-insights-data-retention-privacy/
+[export]: ../app-insights-export-telemetry/
+[devices]: ../app-insights-device-monitor-usage-crashes/
+

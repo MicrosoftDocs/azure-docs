@@ -1,6 +1,6 @@
 <properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-19" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
  
 # Diagnostic search in Application Insights
 
@@ -15,7 +15,7 @@ If you haven't yet [set up Application Insights for your project][start], do tha
 When you run your application, it will send some telemetry that will show up in Diagnostic Search, including requests received by the server, page views logged at the client, and uncaught exceptions.
 
 
-## <a name="view"></a>View the telemetry from your application
+## <a name="view"></a>View the telemetry sent by your application
 
 
 In Application Insights, open Diagnostic Search.
@@ -298,9 +298,9 @@ You'll see the messages in Diagnostic Search when you select the Trace filter.
 
 ### <a name="exceptions"></a>Exceptions
 
-Exceptions observed by [Status Monitor][redfield] or [Application Insights SDK][greenbrown] are automatically sent to diagnostic search.
+Getting exception reports in Application Insights provides a very powerful experience, especially since you can navigate between the failed requests and the exceptions, and read the exception stack.
 
-You can also write your own code to send exception telemetry:
+You can write code to send exception telemetry:
 
 JavaScript at client
 
@@ -353,6 +353,39 @@ VB at server
     End Try
 
 The properties and measurements parameters are optional, but are useful for filtering and adding extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you like to each dictionary.
+
+### Reporting unhandled exceptions
+
+Application Insights reports unhandled exceptions where it can, from [the web browser][usage] and the server, whether instrumented by [Status Monitor][redfield] or [Application Insights SDK][greenbrown]. 
+
+However, it isn't always able to do this in the server because the .NET framework catches the exceptions.  To make sure you see all exceptions, you therefore have to write a small exception handler. The best procedure varies with the technology. Please see [this blog](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/12/application-insights-exception-telemetry.aspx) for details. 
+
+### Correlating with a build
+
+When you read diagnostic logs, it's likely that your source code will have changed since the live code was deployed.
+
+It's therefore useful to put build information, such as the URL of the current version, into a property along with each exception or trace. 
+
+Instead of adding the property separately to every exception call, you can set the information in the default context. 
+
+    // Telemetry initializer class
+    public class MyTelemetryInitializer : IContextInitializer
+    {
+        public void Initialize (TelemetryContext context)
+        {
+            context.Properties["AppVersion"] = "v2.1";
+        }
+    }
+
+In the app initializer such as Global.asax.cs:
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyTelemetryInitializer());
+    }
+
 
 ## <a name="questions"></a>Q & A
 

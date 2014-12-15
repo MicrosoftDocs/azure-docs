@@ -1,51 +1,42 @@
-<properties title="Diagnose performance issues on a running website" pageTitle="Diagnose performance issues on a running website" description="Monitor a website's performance without re-deploying it." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+<properties title="Install Application Insights Status Monitor to monitor website performance" pageTitle="Diagnose performance issues on a running website" description="Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK" metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
  
 
-# Monitor performance on a live website now
+# Install Application Insights Status Monitor to monitor website performance
 
 *Application Insights is in preview.*
 
-Got a web application that's misbehaving? Diagnose exceptions and performance issues quickly without rebuilding or redeploying it. Install the Application Insights agent in the server and you'll be able to find performance bottlenecks and get stack traces for any exceptions. 
+Got a web application that's misbehaving? Diagnose exceptions and performance issues quickly without rebuilding or redeploying it. Install the Application Insights Status Monitor in the server, and you'll be able to find performance issues and get stack traces for any exceptions.
+
+Status Monitor can be used either on its own, or as well as [adding Application Insights SDK][greenbrown] to your code. It  instruments your application to monitor calls to external dependencies such as SQL databases, other HTTP endpoints and Azure storage accounts. It also sends performance counters and exception traces.
+
+Status Monitor works for ASP.NET applications hosted on an IIS server. 
+
+You need admin access to the server, and a Microsoft Azure account. 
 
 
-#### When should I use this method to set up Application Insights?
+## Install Application Insights Status Monitor on your web server
 
-This approach is mainly for quickly diagnosing performance issues in a live IIS website.
-
-You just install an agent in the server and see performance data on Application Insights.
-
-- You can apply this to an ASP.NET app hosted on an IIS server.
-
-- You need a [Microsoft Azure account](http://azure.com), so that you can see your data.
-
-- You'll need admin access to the server where your web app is running. 
-
-- You *don't* need the code of the web app, and you don't have to rebuild or redeploy the app. 
-
-- This method instruments the web app as it stands. You don't insert trace or log code. (But you can do that later if you want.)
-
-If you want to insert logging or diagnostic traces, don't continue here - instead, [add Application Insights to your project][greenbrown] and redeploy it. For the full range of options, read [Application Insights - getting started][start].
-
-## Install the Application Insights agent on your web server
+1. You need a [Microsoft Azure account](http://azure.com) account. Your organization might have a group account, or you could sign up for a Pay-as-you-go account. While it's in Beta, Application Insights is a free service.
 
 1. On your web server, login with administrator credentials.
+2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-2. Make sure you have version 5.0 or later of [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
-3. Install Application Insights Agent, using Web Platform Installer.
-
-    ![](./media/appinsights/appinsights-031-wpi.png)
 4. In the installation wizard, sign in to Microsoft Azure.
 
     ![](./media/appinsights/appinsights-035-signin.png)
-5. Pick the installed web application or website that you want to monitor, then configure the name under which you want to see the results in the Application Insights portal. Finally, click the 'Add' button.
+
+5. Pick the installed web application or website that you want to monitor, then configure the name under which you want to see the results in the Application Insights portal. .
 
     ![](./media/appinsights/appinsights-036-configAIC.png)
 
-    Normally, you should choose to create a new resource.
+    Normally, you should choose to configure a new resource.
 
     You might use an existing resource if, for example, if you already set up [web tests][availability] for your site.  
+
+6. Restart IIS.
+    ![](./media/appinsights/appinsights-036-restart.png)
 
 6. Notice that ApplicationInsights.config has been inserted into the websites that you want to monitor.
 
@@ -59,39 +50,55 @@ After you complete the wizard, you can re-configure the agent whenever you want.
 
 ![Click the Application Insights icon on the task bar](./media/appinsights/appinsights-033-aicRunning.png)
 
-## View your data
+## View performance telemetry
 
 Open your account in Azure, browse Application Insights and open the resource that you created.
 
 ![](./media/appinsights/appinsights-08openApp.png)
 
-You'll see data under Application Health.
+You'll see data under Diagnostics.
 
-![](./media/appinsights/appinsights-037-results.png)
+![](./media/appinsights/appinsights-038-diagnostics.png)
 
-#### No data?
+Click through any chart to see more details.
+
+
+![](./media/appinsights/appinsights-038-dependencies.png)
+
+#### Dependencies
+
+The charts labeled HTTP, SQL, AZUREBLOB show the response times and counts of calls to dependencies: that is, external services that your application uses.
+
+
+
+#### Performance counters
+
+Click any performance counter chart to change what it shows. Or you can add a new chart. 
+ 
+#### Exceptions
+
+![Click through the server exceptions chart](./media/appinsights/appinsights-039-1exceptions.png)
+
+You can drill down to specific exceptions (from the last seven days) and get stack traces and context data.
+
+
+### No telemetry?
 
   * Use your site, to generate some data.
-  * Wait a few minutes to let the data arrive.
+  * Wait a few minutes to let the data arrive, then click Refresh.
   * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com 
+  * If on the server you see a message about "insufficient permissions":
+   * In IIS Manager, select your application pool, open Advanced Settings, and under Process Model note the Identity.
+   * In Computer management control panel, add this identity to the Performance Monitor Users group.
+  * See [Troubleshooting][qna].
 
-#### What can I do with the Application Health reports?
- * [Understand the data and configure the tiles][perf]
 
 ## <a name="next"></a>Next steps
 
-
-[View data][perf]
-
-[Search diagnostic logs][diagnostic]
-
-[Web tests][availability]
-
-[Set up usage monitoring][start]
-
-[Troubleshooting][qna]
-
-
+* [Create web tests][availability] to make sure your site stays live.
+* [Search events and logs][diagnostic] to help diagnose problems.
+* [Add web client telemetry][usage] to see exceptions from web page code and to let you insert trace calls.
+* [Add Application Insights SDK to your web service code][greenbrown] so that you can insert trace and log calls in the server code.
 
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]

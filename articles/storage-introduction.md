@@ -1,6 +1,6 @@
 <properties urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction to Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="An overview of Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="tamram" />
 
 # Introduction to Microsoft Azure Storage
 
@@ -24,28 +24,41 @@ Azure Storage uses an auto-partitioning system that automatically load-balances 
 
 Azure Storage is accessible from anywhere in the world, from any type of application, whether it’s running in the cloud, on the desktop, on an on-premises server, or on a mobile or tablet device. You can use Azure Storage in mobile scenarios where the application stores a subset of data on the device and synchronizes it with a full set of data stored in the cloud.
 
-Azure Storage supports clients using a diverse set of operating systems (including Windows and Linux) and a variety of programming languages (including .NET, Java, and C++) for convenient development. Azure Storage also exposes data resources via simple REST APIs, which are available to any client capable of sending and receiving data via HTTP/HTTPS. 
+Azure Storage supports clients using a diverse set of operating systems (including Windows and Linux) and a variety of programming languages (including .NET, Java, and C++) for convenient development. Azure Storage also exposes data resources via simple REST APIs, which are available to any client capable of sending and receiving data via HTTP/HTTPS.
+
+Azure Premium Storage is now available in preview. Azure Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. With Azure Premium Storage, you can attach multiple persistent data disks to a virtual machine and configure them to meet your performance requirements. Each data disk is backed by an SSD disk in Azure Premium Storage for maximum I/O performance. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898) for more details. 
 
 ## Introducing the Azure Storage Services ##
 
-The Azure Storage services are Blob storage, Table storage, Queue storage, and File storage:
+An Azure storage account is a secure account that gives you access to services in Azure Storage. Your storage account provides the unique namespace for your storage resources. There are two types of storage accounts:
 
-- **Blob storage** stores file data. A blob can be any type of text or binary data, such as a document, media file, or application installer. 
-- **Table storage** stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
-- **Queue storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
-- **File storage** offers shared storage for legacy applications using the standard SMB 2.1 protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File service REST API.
-
-Blob, Table, and Queue storage are included in every storage account, while File storage is available by request via the [Azure Preview page](/en-us/services/preview/).
-
-The storage account is a unique namespace that gives you access to Azure Storage. Each storage account can contain up to 500 TB of combined blob, queue, table, and file data. See the [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx) for details about Azure storage account capacity.
-
-The image below shows the relationships between the Azure storage resources:
-
-![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
+- A standard storage account includes Blob, Table, Queue, and File storage.
+- A premium storage account currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request via the [Azure Preview page](/en-us/services/preview/).
 
 Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can create up to 100 uniquely named storage accounts with a single subscription. See [Storage Pricing Details](http://www.windowsazure.com/en-us/pricing/details/storage/) for information on volume pricing.
 
 You can get started with Azure with a [free trial](/en-us/pricing/free-trial/). Once you decide to purchase a plan, you can choose from a variety of [purchase options](/en-us/pricing/purchase-options/). If you’re an [MSDN subscriber](/en-us/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage.
+
+### Standard Storage Accounts
+
+A standard storage account gives you access to Blob storage, Table storage, Queue storage, and File storage:
+
+- **Blob storage** stores file data. A blob can be any type of text or binary data, such as a document, media file, or application installer. 
+- **Table storage** stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
+- **Queue storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
+- **File storage (Preview)** offers shared storage for legacy applications using the standard SMB 2.1 protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File service REST API. File storage is available by request via the [Azure Preview page](/en-us/services/preview/). 
+
+Each standard storage account can contain up to 500 TB of combined blob, queue, table, and file data. See the [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx) for details about standard storage account capacity.
+
+The image below shows the relationships between the Azure storage resources in a standard storage account:
+
+![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
+
+When you are ready to create a standard storage account, see [Create, manage, or delete a storage account](../storage-create-storage-account/) for more details.
+
+### Premium Storage Accounts (Preview)
+
+Azure Premium Storage currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request through the [Azure Preview page](/en-us/services/preview/). For an in-depth overview of Azure Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898).
 
 ## Blob Storage ##
 
@@ -82,7 +95,7 @@ In designing applications for scale, application components are often decoupled,
 
 A storage account can contain any number of queues. A queue can contain any number of messages, up to the capacity limit of the storage account. Individual messages may be up to 64 KB in size.
 
-## File Storage ##
+## File Storage (Preview) ##
 
 Many legacy applications rely on file shares, a dependency that has complicated moving these applications to the cloud. File storage offers cloud-based file shares, so that you can migrate legacy applications to Azure quickly and without costly rewrites. 
 
@@ -134,17 +147,35 @@ Azure Storage exposes storage resources via a [REST API](http://msdn.microsoft.c
 
 To get started with Azure Storage, explore these resources:
 
+### Downloads
+
+- [Azure Storage NuGet Package - Client Libraries for .NET, Windows Phone, and Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
+- [Azure SDKs and Tools](http://azure.microsoft.com/en-us/downloads/)
+- [Azure Storage Emulator](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
+
+### Source Code
+
+- [Microsoft Azure Storage Libraries for .NET](https://github.com/Azure/azure-storage-net)
+
+### Documentation
+
 - [Azure Storage Documentation](/en-us/documentation/services/storage/)
-- [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx)
+- [Azure Storage Services REST API Reference](http://msdn.microsoft.com/en-us/library/dd179355.aspx)
+- [AzCopy Command-Line Tool Reference](http://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/)
+
+<h3>For PowerShell Users</h3>
+- [Azure Storage Cmdlets](http://msdn.microsoft.com/en-us/library/azure/dn806401.aspx)
 
 <h3>For .NET Developers</h3>
 
+- [.NET Client Library Reference](http://msdn.microsoft.com/en-us/library/wa_storage_30_reference_home.aspx)
 - [How to use Blob Storage from .NET](../storage-dotnet-how-to-use-blobs/)
 - [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables/)
 - [How to use Queue Storage from .NET](../storage-dotnet-how-to-use-queues/)
 
 <h3>For Java/Android Developers</h3>
 
+- [Java Client Library Reference]()
 - [How to use Blob Storage from Java/Android](../storage-java-how-to-use-blob-storage/)
 - [How to use Table Storage from Java/Android](../storage-java-how-to-use-table-storage/)
 - [How to use Queue Storage from Java/Android](../storage-java-how-to-use-queue-storage/)

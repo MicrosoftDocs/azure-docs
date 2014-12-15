@@ -1,10 +1,11 @@
 <properties urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Create a virtual machine running Windows in the Azure Preview Portal" metaKeywords="Azure image gallery vm" description="Learn how to create an Azure virtual machine (VM) running Windows, using the VM Gallery in the Azure Preview Portal" metaCanonical="" services="virtual-machines" documentationCenter="" title="Create a Virtual Machine Running Windows in the Azure Preview Portal" authors="danlep,kathydav,rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="danlep,kathydav,rasquill" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="danlep,kathydav,rasquill" />
 
+<!---Workflow can be confusing...have to select the correct size with **Browse all pricing tiers** then click Select on that pane and the **Recommended pricing tiers** pane to apply. But even after that, it didn't seem to pick the Premium storage account...showed up as 'standard GRS' when I inspected what type of storage account would be used for the VM. 
+-->
 
-
-# Create a Virtual Machine Running Windows in the Azure Preview Portal#
+# Create a Virtual Machine in the Azure Preview Portal#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal">Azure Portal</a><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal" class="current">Azure Preview Portal</a></div>
 
@@ -22,34 +23,38 @@ If you'd like to know more, see [Virtual Machines](http://go.microsoft.com/fwlin
 
 ##<a id="createvirtualmachine"> </a>How to create the virtual machine##
 
-This section shows you how to use the Preview Portal to create a VM, using Windows Server as an example. You can use Azure's default settings for most of the configuration and create the VM in just a few minutes.
+This section shows you how to use the Preview Portal to create a VM, using Windows Server 2012 R2 Datacenter as an example. You can use Azure's default settings for most of the configuration and create the VM in just a few minutes.
 
-> [WACOM.NOTE] How many and what kind of images are available in the gallery depends upon the type of subscription you have. This tutorial uses a Windows Server image, but an MSDN subscription may have additional images available to you including desktop images. 
+> [WACOM.NOTE] The images available to you depends on your subscription. This tutorial uses a Windows Server image, but an MSDN subscription may offer additional images, including desktop images. 
  
 
-1. Sign in to the [Azure Preview Portal](https://portal.azure.com). Check out the [Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/) offer if you do not have a subscription yet.
+1. Sign in to the [Azure Preview Portal](https://portal.azure.com). Check out the [Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/) offer if you don't have a subscription yet.
 
 2. On the Hub menu, click **New**.
 
 	![Select New from the Command Bar](./media/virtual-machines-windows-tutorial-azure-preview/new_button_preview_portal.png)
 
-3. Under **New**, click **Everything**, and then under **Gallery**, click **Virtual machines**. Click **Windows Server 2012 R2 Datacenter**. From there, click **Create**.
+3. In the **New** blade, click **Everything**, click **Virtual machines**, click **Windows Server 2012 R2 Datacenter**, and then click **Create**.
 
 	![Select a VM image from the Gallery](./media/virtual-machines-windows-tutorial-azure-preview/image_gallery_preview_portal.png)
 	
 4. On the **Create VM** blade, fill in the **Host Name** you want for the VM, the administrative **User Name**, and a strong **Password**.  
 
-	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png)
-
 	>[WACOM.NOTE] **User Name** refers to the administrative account that you use to manage the server. Create a unique password for this account and make sure to remember it. **You'll need the user name and password to log on to the virtual machine**.
 	
-5. To use the default settings for the remaining VM options and start creating the VM, click **Create**. But if you want, before clicking **Create**, you can explore **Optional Configuration** settings. For example, you can configure optional diagnostics on the VM to track lots of metrics on your VM later on. Click **Optional Configuration**, click **Diagnostics**, and toggle the **Status** to **On**.
 
-	![Turn on VM diagnostics](./media/virtual-machines-windows-tutorial-azure-preview/vm_diagnostics_status_preview_portal.png)
+	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial-azure-preview/create_vm_name_pwd_preview_portal.png)
+	
+	
+5. Review the default settings, such as the **Pricing Tier**, **Optional Configuration**, and **Location**. These choices affect the size of VM as well as networking options such as domain membership. For example, to try out Premium Storage on a virtual machine, you'll need to pick a region and size that supports it. 
 
-	>[WACOM.NOTE] If you turn on Azure Diagnostics, Azure will store the diagnostics data in an Azure storage account, resulting in additional storage cost.  
+	>[WACOM.NOTE] Premium storage is in Preview, available for DS-series virtual machines in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://azure.microsoft.com/en-us/documentation/articles/storage-premium-storage-preview-portal/).
 
-6. While Azure creates the VM, you can keep track of the progress in **Notifications**, in the Hub menu. After Azure creates the VM, you will see it on your Startboard.
+	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png)
+	
+6. When you're done reviewing or updating the settings, click **Create**.	
+
+7. While Azure creates the VM, you can keep track of the progress in **Notifications**, in the Hub menu. After Azure creates the VM, you will see it on your Startboard.
 
 	![VM appears on the Startboard](./media/virtual-machines-windows-tutorial-azure-preview/vm_startboard_preview_portal.png)
 

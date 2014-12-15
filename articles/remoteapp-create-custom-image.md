@@ -1,6 +1,6 @@
-<properties title="How to create a custom template image for RemoteApp" pageTitle="How to create a custom template nimage for RemoteApp" description="Learn how to create a custom template image for RemoteApp. You can use this template with either a hybrid or cloud deployment." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+<properties title="How to create a custom template image for RemoteApp" pageTitle="How to create a custom template image for RemoteApp" description="Learn how to create a custom template image for RemoteApp. You can use this template with either a hybrid or cloud deployment." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/22/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="mbaldwin" />
 
 #How to create a custom template image for RemoteApp
 Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users. To create a custom RemoteApp template image, you can start with an existing image or create a new one. The requirements for the image that can be uploaded for use with Azure RemoteApp are:
@@ -23,11 +23,11 @@ Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the pro
 
 You need to do the following before creating the service:
 
-- Sign up for the preview of RemoteApp. You can do that at [http://azure.microsoft.com/en-us/services/remoteapp/](http://azure.microsoft.com/en-us/services/remoteapp/).
-- Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain.
+- Sign up for RemoteApp. You can do that at [http://azure.microsoft.com/en-us/services/remoteapp/](http://azure.microsoft.com/en-us/services/remoteapp/).
+- Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain. See [Configure Azure Active Directory for RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-ad/) for more information.
 - Gather information about your on-premises network: IP address information and VPN device details.
 - Install the [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) module.
-- Gather information about the users and groups that you want to grant access to. This can be either Microsoft account information or Active Directory organizational account information for users or groups.
+- Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information for users.
 
 
 
@@ -89,7 +89,11 @@ The detailed steps for creating a new image are:
 1.	Install additional features required by your applications, such as the .NET Framework 3.5. To install the features, run the Add Roles and Features Wizard.
 7.	Install and configure the programs and applications you want to publish through RemoteApp.
 
- 	**Important:** Microsoft recommends that you install the RDSH role before installing applications to ensure that any issues with application compatibility are discovered before the image is uploaded to RemoteApp.
+ 	**Important:** 
+
+
+	- Microsoft recommends that you install the RDSH role before installing applications to ensure that any issues with application compatibility are discovered before the image is uploaded to RemoteApp.
+	- Make sure your application appears in the Start menu. Also ensure that the icon you see in the Start menu is what you want users to see. If not, change it. (You do not *have* to add the application to the Start menu, but it makes it much easier to publish the application in RemoteApp. Otherwise, you have to provide the installation path for the application when you publish the app.)
 
 8.	Perform any additional Windows configurations required by your applications.
 9.	Disable the Encrypting File System (EFS). Run the following command at an elevated command window:
@@ -108,9 +112,9 @@ The detailed steps for creating a new image are:
 
 
 ## Next steps ##
-Now that you have your custom template image, you need to upload that image to your RemoteApp deployment. Use the information in the following articles to create your deployment:
+Now that you have your custom template image, you need to upload that image to your RemoteApp deployment. Use the information in the following articles to create your collection:
 
 
-- [How to create a hybrid deployment of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-hybrid-deployment/) 
-- [How to create a cloud deployment of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-cloud-deployment/)
+- [How to create a hybrid collection of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-hybrid-deployment/) 
+- [How to create a cloud collection of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-cloud-deployment/)
 
