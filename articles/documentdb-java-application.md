@@ -24,38 +24,10 @@ Before following the instructions in this article, you should ensure that you ha
 ## Step 1: Create a DocumentDB database account ##
 To provision a DocumentDB database account in Azure:
 
+1. If you don't already have a database account, create one by following the instructions in [Create a database account](/documentation/articles/documentdb-create-account/).
+8. Using the **KEYS** tile, copy your endpoint URI and the primary key to your clipboard and keep them handy as we will use these values in the web application we create next.
 
-1. Navigate to [Azure Management Portal](http://portal.azure.com/) and either Click the **Azure Gallery** tile on the homepage or click **+** in the lower left hand corner of the screen.This will open the Azure Gallery, where you can select from the many available Azure services.
-
-	![](./media/documentdb-java-application/image2.png)
-
-
-2. In the **Gallery**, select **Data, storage and backup** from the list of categories.
-
-	![](./media/documentdb-java-application/image3.png)
-
-3. In the **Data, storage, and backup** blade, select **Azure DocumentDB**.
-
-	![](./media/documentdb-java-application/image4.png)
-
-4. In the **DocumentDB Account** blade, select **Create** from the bottom of the screen
-
-	![](./media/documentdb-java-application/image5.png)
-
-5. This will open up the **New DocumentDB** blade where you can specify the name, region, scale, resource group and other settings for your new account.
-
-	![](./media/documentdb-java-application/image6.png)
-
-6. Once you’re done supplying the values for your account, Click **Create** and the provisioning process will begin creating your database account. Once the provisioning process is complete you should see a notification appear in the **notifications** area of the portal and the tile on your start screen (if you selected to create one) will change to show the completed action.
-
-	![](./media/documentdb-java-application/image7.png)
-
-7. Once provisioning is complete, clicking the **DocumentDB** tile from the **start screen** will bring up the main blade for this newly created DocumentDB account.
-
-	![](./media/documentdb-java-application/image8.png)
-	![](./media/documentdb-java-application/image9.png)
-
-8. Using the **Keys** button, access your endpoint URL and the Primary Key, copy these to your clipboard and keep them handy as we will use these values in the web application we will use these values in the web application we will create next.
+![][1]
 
 
 ## Step 2: Create a JSP application ##
@@ -746,3 +718,5 @@ Azure Websites makes deploying Java Applications as simple as exporting your app
 2. Now that you have a WAR file in hand, you can simply upload it to your Azure Website's **webapps** directory.
 
 	Once the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
+
+[1]: ./media/documentdb-java-application/keys.png
