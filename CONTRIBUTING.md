@@ -158,16 +158,11 @@ Congratulations, you have successfully contributed to the project.
 
 The [markdown template](/markdown templates/markdown-template-for-new-articles.md) contains the basic markdown for a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, see the following sections, or find a published topic and copy the markdown or HTML you want.
 
-## Standard Markdown
+### Standard Markdown
 
 All of the articles in this repository use Markdown.  While a complete introduction (and listing of all the syntax) can be found here [Markdown Home] [], the relevant basics will be covered here.
 
-If you are looking for a good editor, try [Markdown Pad][].
-
-
-### Markdown basics
-
-Below is a list of the most common markdown syntax.
+If you are looking for a good editor, try [Markdown Pad][]. Below is a list of the most common markdown syntax.
 
 * 	**Line breaks vs. paragraphs:** In Markdown there is no HTML `<br />` element. Instead, a new paragraph is designated by an empty line between two blocks of text.
 *	**Italics:** The HTML `<i>some text</i>` is written `*some text*`
