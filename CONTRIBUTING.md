@@ -173,7 +173,7 @@ Use the following syntax to reference an include file in your article:
 
 ### Note syntax
 
-For note syntax, see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md)
+For note syntax, see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
 
 
 ### Videos in articles
