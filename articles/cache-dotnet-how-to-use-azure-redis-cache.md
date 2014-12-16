@@ -11,6 +11,7 @@ information on using Azure Redis Cache, refer to the [Next Steps][] section.
 
 ## Table of Contents
 
+-   [Introduction to Azure Redis Cache (Video)][]
 -   [What is Azure Redis Cache?][]
 -	[Get started with Azure Redis Cache][]
 	-	[Create the cache][]
@@ -21,6 +22,11 @@ information on using Azure Redis Cache, refer to the [Next Steps][] section.
 	-   [Specify the expiration of an object in the cache][]
 	-   [Store ASP.NET session state in the cache][]
 -   [Next Steps][]
+
+<a name="video"></a>
+## Introduction to Azure Redis Cache (Video)
+In this video, Saurabh Pant and Scott Hanselman introduce Azure Redis Cache. (Duration: 7:45)  
+> [AZURE.VIDEO azure-redis-cache-101-introduction-to-redis]
 
 <a name="what-is"></a>
 ## What is Azure Redis Cache?
@@ -290,6 +296,7 @@ follow these links to learn how to do more complex caching tasks.
 
 <!-- INTRA-TOPIC LINKS -->
 [Next Steps]: #next-steps
+[Introduction to Azure Redis Cache (Video)]: #video
 [What is Azure Redis Cache?]: #what-is
 [Create an Azure Cache]: #create-cache
 [Which type of caching is right for me?]: #choosing-cache
