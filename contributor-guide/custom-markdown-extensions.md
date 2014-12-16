@@ -121,7 +121,7 @@ Our technical articles supports embeddeding videos in technical articles as long
 
 - Make sure that the video is on the Video Center. If it is not there, make sure that it is available on Channel 9. The video will be picked up by the Azure Video Center after your article is published. 
 
-- Copy the video ID from the friendly URL of the video on Channel 9 or from the Azure Video Center. For example, the video ID for the video at [http://azure.microsoft.com/en-us/documentation/videos/azure-scheduler-unusual-schedules/]() is **azure-scheduler-unusual-schedules**.
+- Copy the video ID from the friendly URL of the video on Channel 9 or from the Azure Video Center. For example, the video ID for the video at [http://azure.microsoft.com/en-us/documentation/videos/azure-scheduler-unusual-schedules/](http://azure.microsoft.com/en-us/documentation/videos/azure-scheduler-unusual-schedules/) is **azure-scheduler-unusual-schedules**.
 
 ### Syntax
 
@@ -129,9 +129,9 @@ Our technical articles supports embeddeding videos in technical articles as long
 
 ### Rendering
 
-On GitHub: [https://github.com/Azure/azure-content-pr/blob/master/articles/web-sites-backup.md ]()
+On GitHub: [https://github.com/Azure/azure-content-pr/blob/master/articles/web-sites-backup.md](https://github.com/Azure/azure-content-pr/blob/master/articles/web-sites-backup.md)
 
-Published article: [http://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/]()
+Published article: [http://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/](http://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/)
 
 
 ## Technology and platform selectors
