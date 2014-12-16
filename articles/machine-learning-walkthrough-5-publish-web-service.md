@@ -56,8 +56,8 @@ Second, the Azure ML web service will accept input from the user and return a re
 Let's say we've decided that the boosted tree model was the better model to use. So the first thing to do is remove the SVM training modules.  
 
 1.	Delete the **Two-Class Support Vector Machine**
-2.	Delete the **Train Model** and S**core Model** modules that were connected to it
-3.	Delete the **Transform Data By Scaling** module  
+2.	Delete the **Train Model** and **Score Model** modules that were connected to it
+3.	Delete the **Normalize Data** module  
 
 Now we'll save the boosted tree model that we've trained. We can then remove the remaining modules in the experiment that we used for training and replace them with the trained model.  
 
@@ -101,7 +101,7 @@ In the original model, the data to be scored was passed into the right input por
 
 1.	Right-click the right input port of the **Score Model** module and select **Set as Publish Input**. The user's data will need to include all the data of the feature vector.
 
-	>**Tip** - If you have to perform any manipulation of the user's data before passing it to the scoring module (such as the way we used a **Transform Data By Scaling** module to prepare data for the SVM model), just leave the module in the web service and set the service input to the input port of that module.
+	>**Tip** - If you have to perform any manipulation of the user's data before passing it to the scoring module (such as the way we used a **Normalize Data** module to prepare data for the SVM model), just leave the module in the web service and set the service input to the input port of that module.
 
 2.	Right-click the output port and select **Set as Publish Output**. The output of the Score Model module will be returned by the service. This includes the feature vector, plus the credit risk prediction and the scoring probability value.
 

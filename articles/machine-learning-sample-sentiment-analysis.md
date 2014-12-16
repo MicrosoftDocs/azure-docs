@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Sample: Sentiment analysis" pageTitle="Machine Learning Sample: Sentiment analysis | Azure" description="A sample Azure Machine Learning experiment that uses sentiment classification to predict product reviews." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="garye" />
  
 
 # Azure Machine Learning sample: Sentiment analysis
@@ -51,5 +51,8 @@ The following sample experiment associated with this model is available in ML St
 
 The following sample dataset used by this experiment is available in ML Studio in the module palette under **Saved Datasets**.
 
-###Book Reviews from Amazon
+<ul>
+<li><b>Book Reviews from Amazon</b><p></p>
 [AZURE.INCLUDE [machine-learning-sample-dataset-book-reviews-from-amazon](../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]
+<p></p></li>
+</ul>
