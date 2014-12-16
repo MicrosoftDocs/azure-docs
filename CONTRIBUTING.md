@@ -158,19 +158,6 @@ Congratulations, you have successfully contributed to the project.
 
 The [markdown template](/markdown templates/markdown-template-for-new-articles.md) contains the basic markdown for a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, see the following sections, or find a published topic and copy the markdown or HTML you want.
 
-### *include* files
-
-Includes are used for adding reusable chunks of content. For info about includes, see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
-
-### Note syntax
-
-For note syntax, see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
-
-
-### Videos in articles
-
-For info about embedded videos in articles, see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
-
 ## Standard Markdown
 
 All of the articles in this repository use Markdown.  While a complete introduction (and listing of all the syntax) can be found here [Markdown Home] [], the relevant basics will be covered here.
@@ -215,6 +202,10 @@ Markdown has a really nice feature that allows a user to insert a reference inst
 	[logo]: https://www.google.com/images/srpr/logo3w.png
 
 By using references grouped at the bottom of your file, you can easily find, edit, and reuse link and image URLs. 
+
+### Custom markdown extensions
+
+We use custom markdown extensions for fancier formatting. We currently have extensions for adding reusable content, notes, embedded videos, and technology selectors to your articles. For more info, see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
 
 
 ## More resources
