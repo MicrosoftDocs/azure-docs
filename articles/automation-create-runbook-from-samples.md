@@ -29,6 +29,12 @@ Runbooks from the community and from other Microsoft teams are also published on
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
+## Azure Automation 101 with PowerShell and Eamon O'Reilly (Video)
+
+In this video, Eamon O'Reilly and Scott Hanselman introduce Azure Automation service. (Duration: 10:55)  
+
+> [AZURE.VIDEO azure-automation-101-with-powershell-and-eamon-o-reilly]
+
 ## High-level steps for this tutorial
 
 1. [Create Automation Account](#automationaccount)
