@@ -8,6 +8,7 @@ Our articles use standard markdown for most article formatting - paragraphs, lin
 
 + [Notes and tips]
 + [Includes]
++ [Embedded videos]
 
 ## Notes and tips
 
@@ -110,6 +111,30 @@ In the rendered HTML on azure.microsoft.com, the HTML from the includes is merge
 
   ![](./media/custom-markdown-extensions/include.png)
 
+
+## Embedded videos
+
+Our technical articles supports embeddeding videos in technical articles as long as the videos are on Microsoft's [Channel 9](http://channel9.msdn.com/) site. Ideally, videos from Channel 9 are integrated with [the azure.microsoft.com Video Center](http://azure.microsoft.com/en-us/documentation/videos/home/). We currently do not support embedded YouTube videos; if you're a community contributor, you are welcome to link to YouTube if the video you want to feature is posted there. Microsoft contributors should use Channel 9 and the Video Center.
+
+### Usage
+
+- Make sure that the video is on the Video Center. If it is not there, make sure that it is available on Channel 9. The video will be picked up by the Azure Video Center after your article is published. 
+
+- Copy the video ID from the friendly URL of the video on Channel 9 or from the Azure Video Center. For example, the video ID for the video at [http://azure.microsoft.com/en-us/documentation/videos/azure-scheduler-unusual-schedules/]() is **azure-scheduler-unusual-schedules**.
+
+### Syntax
+
+    > [AZURE.VIDEO video-id-string]
+
+### Rendering
+
+On GitHub: [https://github.com/Azure/azure-content-pr/blob/master/articles/web-sites-backup.md ]()
+
+Published article: [http://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/]()
+
+
+
 <!--Anchors-->
 [Notes and tips]: #notes-and-tips
 [Includes]: #includes
+[Embedded videos]: #embedded-videos
