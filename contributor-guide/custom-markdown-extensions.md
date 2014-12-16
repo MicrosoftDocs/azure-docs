@@ -4,7 +4,11 @@
 
 #Custom markdown extensions used in our technical articles
 
-Our articles use standard markdown for most article formatting - paragraphs, links, lists, headings, etc. But we use custom markdown extensions where we need richer formatting in the rendered pages on azure.microsoft.com. Here's the extensions we are currently using.
+Our articles use standard markdown for most article formatting - paragraphs, links, lists, headings, etc. But we use custom markdown extensions where we need richer formatting in the rendered pages on azure.microsoft.com. Here's the extensions we are currently using:
+
+- Notes and tips
+- Includes (reusable content)
+
 
 ##Notes and tips
 You can choose from 4 types of notes and tips:
@@ -54,3 +58,56 @@ Multiparagraph:
     > [AZURE.NOTE] To complete this tutorial, you must have an active Microsoft Azure account. 
     > 
     > If you don't have an account, you can [create a free trial account](http://www.windowsazure.com/en-us/pricing/free-trial/) in just a couple of minutes.
+
+##Includes (reusable content)
+
+Reusable text fragments in our GitHub repository are called "includes". When you have text that needs to be used in multiple articles, you include a reference to the text fragments in the markdown files. The text fragment (the include) itself is a simple markdown (.md) file. It can contain any valid markdown, including text, links, and images. All include markdown files must be in [the /includes directory](https://github.com/Azure/azure-content/tree/master/includes) in the root of the repository. When the article is published, the include text is seamlessly integrated into the published topic. 
+
+- We use a specific syntax to reference an include.
+
+- Media files you put in an include must be created in a media folder specific to the include. Media folders for includes belong in [the azure-content/includes/media folder](https://github.com/Azure/azure-content/tree/master/includes/media). The media directory should not contain any images in its root. If the include does not have images, then a corresponding media directory is not required. 
+
+###Usage
+
+- Use includes wherever you need the same text to appear in multiple articles.
+- Includes are meant to be used for significant amounts of content - a paragraph or two, a shared procedure, or a shared section. Do not use them for anything smaller than a sentence; they are not for product names or incomplete sentences. 
+- Don't embed includes within other includes. Bad things happen in the publishing system!
+- Don't share media between files. Use a separate file with a unique name for each include and article. Store the media file in the media folder associated with the include. 
+- Because all includes must be in the /includes directory, the path to an include from an article is always
+
+    ../includes
+
+- Do NOT repeat a link or image filename reference in both the article and the include. Add "-include" to the link reference or media filename to avoid repeating the reference:
+
+ **Link reference**
+
+ Change: odata.org
+ To: odata.org-include
+
+ **Image reference**
+
+ Change: table.png
+ To: table-include.png
+
+###Sample markdown
+The syntax for adding an include to a documentation article is:
+ 
+    [AZURE.INCLUDE [include-short-name](../includes/include-file-name.md)] 
+
+Example
+
+    [AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)] 
+ 
+The first part of the include should be the include name without the path and without the .md extension. The second part should be the relative path to the include in the /includes directory.
+
+###Rendering 
+
+In the rendered GitHub page, the include will render as follows:
+
+ [AZURE.INCLUDE howto-blob-storage]
+
+In the rendered HTML on azure.microsoft.com, the HTML from the includes is merged into the rest of the document's HTML. However, the HTML will contain an HTML comment with the original include markdown filename and the GitHub commit hash. This comment is included for troubleshooting purposes so that the source content can easily be identified and found in GitHub:
+
+  ![](./media/custom-markdown-extensions/include.png)
+
+ 
