@@ -445,18 +445,15 @@ Caches responses according to the specified cache settings. Must have a correspo
 
 **Policy Statement:** 
 
-	cache-store duration="seconds" caching-mode="cache-on | do-not-cache" />
+	<cache-store duration="seconds" caching-mode="cache-on | do-not-cache" />
 
 **Example:**
 
 	<policies>
 		<inbound>
        		<base />
-		      <cache-lookup vary-by-developer=*"true | false"* vary-by-developer-groups=*"true | false"* downstream-caching-type=*"none | private | public"*>
-    				<vary-by-header>Accept</vary-by-header> <!-- should be present in most cases -->
-    				<vary-by-header>Accept-Charset</vary-by-header> <!-- should be present in most cases -->
-    				<vary-by-header>header name</vary-by-header> <!-- optional, can repeated several times -->
-   					<vary-by-query-parameter>parameter name</vary-by-query-parameter> <!-- optional, can repeated several times -->
+		      <cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false">
+    				<vary-by-query-parameter>parameter name</vary-by-query-parameter> <!-- optional, can repeated several times -->
    			</cache-lookup>
        	</inbound>
  		<outbound>
@@ -500,9 +497,7 @@ Performs cache lookup and returns a valid cached response, when available. Appro
 
 **Policy Statement:** 
 
-	<cache-lookup vary-by-developer=*"true | false"* vary-by-developer-groups=*"true | false"* downstream-caching-type=*"none | private | public"*>
-    	<vary-by-header>Accept</vary-by-header> <!-- should be present in most cases -->
-    	<vary-by-header>Accept-Charset</vary-by-header> <!-- should be present in most cases -->
+	<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false">
     	<vary-by-header>header name</vary-by-header> <!-- optional, can repeated several times -->
    		<vary-by-query-parameter>parameter name</vary-by-query-parameter> <!-- optional, can repeated several times -->
     </cache-lookup>
@@ -512,11 +507,9 @@ Performs cache lookup and returns a valid cached response, when available. Appro
 	<policies>
       	<inbound>
       		<base />
-	    	<cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none">
+	    	<cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true">
       			<vary-by-query-parameter>version</vary-by-query-parameter>
-      			<vary-by-header>Accept</vary-by-header>
-      			<vary-by-header>Accept-Charset</vary-by-header>
-    		</cache-lookup>		 	
+      		</cache-lookup>		 	
 		</inbound>
  		<outbound>
  			<cache-store duration="seconds" caching-mode="cache-on | do-not-cache" />
@@ -555,20 +548,16 @@ Response caching reduces bandwidth and processing requirements imposed on the ba
    *public* - private and shared downstream caching is permitted.</td>
 </tr>
 <tr>
-  <td>vary-by-header: "Accept"</td>
-  <td>Start caching responses per value of <code>Accept</code> header</td>
-</tr>
-<tr>
-  <td>vary-by-header: Accept-Charset"</td>
-  <td>Start caching responses per value of <code>Accept-Charset</code> header</td>
-</tr>
-<tr>
   <td>vary-by-header: "header name"</td>
   <td>Start caching responses per value of specified header e.g., <code>Accept | Accept-Charset | Accept-Encoding | Accept-Language | Authorization | Expect | From | Host | If-Match</code>  </td>
 </tr>
 <tr>
   <td>vary-by-query-parameter: "parameter name"</td>
   <td>Start caching responses per value of specified query parameters. Enter a single or multiple parameters. Use semicolon as a separator. If none specified, all query parameters are used.</td>
+</tr>
+<tr>
+	<td>must-revalidate="true | false"</td>
+	<td>When downstream caching is enabled this attribute turns on or off "must-revalidate" cache control directive in proxy responses.</td>
 </tr>
 </tbody>
 </table>
