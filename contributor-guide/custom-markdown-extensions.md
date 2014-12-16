@@ -6,11 +6,11 @@
 
 Our articles use standard markdown for most article formatting - paragraphs, links, lists, headings, etc. But we use custom markdown extensions where we need richer formatting in the rendered pages on azure.microsoft.com. Here's the extensions we are currently using:
 
-- Notes and tips
-- Includes (reusable content)
++ [Notes and tips]
++ [Includes]
 
+## Notes and tips
 
-##Notes and tips
 You can choose from 4 types of notes and tips:
 
 - AZURE.NOTE
@@ -59,7 +59,7 @@ Multiparagraph:
     > 
     > If you don't have an account, you can [create a free trial account](http://www.windowsazure.com/en-us/pricing/free-trial/) in just a couple of minutes.
 
-##Includes (reusable content)
+## Includes
 
 Reusable text fragments in our GitHub repository are called "includes". When you have text that needs to be used in multiple articles, you include a reference to the text fragments in the markdown files. The text fragment (the include) itself is a simple markdown (.md) file. It can contain any valid markdown, including text, links, and images. All include markdown files must be in [the /includes directory](https://github.com/Azure/azure-content/tree/master/includes) in the root of the repository. When the article is published, the include text is seamlessly integrated into the published topic. 
 
@@ -110,4 +110,6 @@ In the rendered HTML on azure.microsoft.com, the HTML from the includes is merge
 
   ![](./media/custom-markdown-extensions/include.png)
 
- 
+<!--Anchors-->
+[Notes and tips]: #notes-and-tips
+[Includes]: #includes
