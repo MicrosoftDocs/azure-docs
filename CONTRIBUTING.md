@@ -160,14 +160,7 @@ The [markdown template](/markdown templates/markdown-template-for-new-articles.m
 
 ### *include* files
 
-Includes are used for adding reusable chunks of content.
-
-Use the following syntax to reference an include file in your article:
-
-	[WACOM.INCLUDE [include-short-name](../includes/include-file-name.md)]
-	
-
-**Note:** An include file cannot reference other includes. 
+Includes are used for adding reusable chunks of content. For info about includes, see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
 
 ### Note syntax
 
