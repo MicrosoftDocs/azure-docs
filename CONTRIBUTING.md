@@ -173,10 +173,7 @@ Use the following syntax to reference an include file in your article:
 
 ### Note syntax
 
-If you want to add a Note section to your article, use the following:
-
-  	> [WACOM.NOTE] Note content here. 
-  	> Use a caret for each new paragraph in the note.
+For note syntax, see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md)
 
 
 ### Videos in articles
