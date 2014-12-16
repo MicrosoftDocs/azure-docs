@@ -9,6 +9,7 @@ Our articles use standard markdown for most article formatting - paragraphs, lin
 + [Notes and tips]
 + [Includes]
 + [Embedded videos]
++ [Technology and platform selectors]
 
 ## Notes and tips
 
@@ -133,8 +134,40 @@ On GitHub: [https://github.com/Azure/azure-content-pr/blob/master/articles/web-s
 Published article: [http://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/]()
 
 
+## Technology and platform selectors
+
+Use technology and platform switchers in technical artilces when you author multiple flavors of the same article to address differences in implementation across technologies or platforms. This is typically most applicable to our mobile platform content for developers.
+
+Usage
+
+See [Get started with Notification Hubs](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-phone-get-started/) to see how the author created 8 versions of the same article, but used selectors to enable navigation across them all.
+
+![](./media/custom-markdown-extensions/selectors.png)
+
+###Syntax
+
+    > [AZURE.SELECTOR]
+    - [Link #1 Label](link #1 url)
+    - [Link #2 Label](link #2 url)
+
+Example:
+
+    > [AZURE.SELECTOR]
+    - [Windows Universal](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/)
+    - [Windows Phone](/en-us/documentation/articles/notification-hubs-windows-phone-get-started/)
+    - [iOS](/en-us/documentation/articles/notification-hubs-ios-get-started/)
+    - [Android](/en-us/documentation/articles/notification-hubs-android-get-started/)
+    - [Kindle](/en-us/documentation/articles/notification-hubs-kindle-get-started/)
+    - [Baidu](/en-us/documentation/articles/notification-hubs-baidu-get-started/)
+    - [Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/)
+    - [Xamarin.Android](/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/)
+
+### Rendering
+
+The image above shows the rendering on azure.microsoft.com. On the rendered GitHub pages, the selectors render as a bulleted list of links.
 
 <!--Anchors-->
 [Notes and tips]: #notes-and-tips
 [Includes]: #includes
 [Embedded videos]: #embedded-videos
+[Technology and platform selectors]: #technology-and-platform-selectors 
