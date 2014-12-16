@@ -17,6 +17,7 @@ Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the pro
 - The Remote Desktop Connection Broker role must *not* be installed.
 - The Encrypting File System (EFS) must be disabled.
 - The image must be SYSPREPed using the parameters **/oobe /generalize /shutdown** (DO NOT use the **/mode:vm** parameter).
+- Uploading your VHD from a snapshot chain is not supported.
 
 
 **Before you begin**
@@ -43,6 +44,7 @@ To create a new template image from scratch:
 7.	Install and configure your applications.
 8.	Perform any additional Windows configurations required by your applications.
 9.	Disable the Encrypting File System (EFS).
+10.	**REQUIRED:** Install [KB 2977219](http://support.microsoft.com/kb/2977219) on your image. This KB is required for all Azure RemoteApp template images. Uploading your image will fail if you do not install this KB is not installed.
 9.	SYSPREP the image.
 
 The detailed steps for creating a new image are:
@@ -104,6 +106,7 @@ The detailed steps for creating a new image are:
 
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
 9.	If you are building your image inside an Azure virtual machine, rename the **\%windir%\Panther\Unattend.xml** file, as this will block the upload script used later from working. Change the name of this file to Unattend.old so that you will still have the file in case you need to revert your deployment.
+10.	Install [KB 2977219](http://support.microsoft.com/kb/2977219) on your image. This KB is required for all Azure RemoteApp template images. Uploading your image will fail if you do not install this KB is not installed.
 10.	SYSPREP the image. At an elevated command prompt, run the following command: 
 
 	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
@@ -112,7 +115,7 @@ The detailed steps for creating a new image are:
 
 
 ## Next steps ##
-Now that you have your custom template image, you need to upload that image to your RemoteApp deployment. Use the information in the following articles to create your collection:
+Now that you have your custom template image, you need to upload that image to your RemoteApp collection. Use the information in the following articles to create your collection:
 
 
 - [How to create a hybrid collection of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-hybrid-deployment/) 
