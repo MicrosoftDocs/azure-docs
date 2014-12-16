@@ -6,10 +6,17 @@
 
 This article provides an introduction to Microsoft Azure DocumentDB, a NoSQL document database service for developers, IT Pros, and business decision makers. By reading it, you'll be able to answer the following questions:  
 
+-	[Azure DocumentDB 101 with Ryan CrawCour (Video)](#video)
 -	[What is DocumentDB and what value does it provide to cloud and mobile applications?](#what-is-docdb)
 -	[How is my data managed in DocumentDB and how do I access it?](#data-management)
 -	[How do I develop applications using DocumentDB?](#develop)
 -	[What are my next steps to build a DocumentDB application?](#next-steps)  
+
+##<a name="video"></a>Azure DocumentDB 101 with Ryan CrawCour (Video)
+
+In this video, Ryan CrawCour and Scott Hanselman introduce Azure DocumentDB. (Duration: 10:02)  
+
+> [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
 
 ##<a name="what-is-docdb"></a>What is Azure DocumentDB?  
 

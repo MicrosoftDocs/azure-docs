@@ -2,18 +2,18 @@
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/15/2014" ms.author="genemi"/>
 
+# Walkthrough: try the Latest SQL Database Update V12 (preview)
+
 <!--
 Latest update datetime for this topic.
-GeneMi  ,  2014-Dec-14 Sunday 20:15pm.
+GeneMi  ,  2014-Dec-15 Monday 17:28pm.
 
 http : // azure.microsoft .com/ documentation/articles/ sql-database-latest-preview-sign-up/
 -->
 
-# Walkthrough: try the Latest SQL Database Update V12 (preview)
-
 This topic describes the steps you can follow to try the Azure SQL Database Update V12 (preview), as released by Microsoft in December 2014.
 
-You must sign up for the V12 preview before you can create or update a database with the preview. If you attempt to upgrade your existing database before you sign up for the preview, the Azure portal redirects you to the sign-up blade for the preview.
+You can sign up for the V12 preview by using the preview Microsoft Azure management portal at [http://portal.azure.com/](http://portal.azure.com/). Users can initiate the upgrade workflow from the server blade or the database blade. The options to upgrade are locked if you have not yet signed up for the preview. When the locked state blocks further progress, the portal displays a blade that enables you to sign up.
 
 For more information about the preview, see [Plan and Prepare to Upgrade to Azure SQL Database V12 Preview](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
 
@@ -29,7 +29,7 @@ For more information about Azure accounts, see [Manage Accounts, Subscriptions, 
 
 ## Steps in the Portal UI
 
-This section describes the click sequence that you can follow in the Azure portal UI to sign up for the V12 preview:
+This section describes a click sequence that you can follow in the Azure portal UI to sign up for the V12 preview:
 
 1. In your web browser, navigate to the new Azure portal, which is labeled with the highlighted word **Preview** in its upper-left corner: <p></p> [http://portal.azure.com/](http://portal.azure.com/) <br/>
 

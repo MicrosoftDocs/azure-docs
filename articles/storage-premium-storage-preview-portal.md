@@ -149,7 +149,7 @@ Your application can achieve the lowest latency when it is designed to avoid thr
 The following examples demonstrate how to calculate the throttling levels:
 
 <h4>Example 1:</h4>
-Your application has done 495 I/Os of 16 KB disk size (, which is equal to 495 I/O Units) in one second on a P10 disk. If you try a 2 MB I/O in the same second, the total of I/O units is equal to 495 + 8. This is because 2 MB I/O results in 2048 KB / 256 KB = 8 I/O Units when the I/O unit size is 256 KB. Since the sum of 495 + 8 exceeds the 500 IOPS limit for the disk, throttling occurs and you get an error. 
+Your application has done 495 I/Os of 16 KB disk size (, which is equal to 495 I/O Units) in one second on a P10 disk. If you try a 2 MB I/O in the same second, the total of I/O units is equal to 495 + 8. This is because 2 MB I/O results in 2048 KB / 256 KB = 8 I/O Units when the I/O unit size is 256 KB. Since the sum of 495 + 8 exceeds the 500 IOPS limit for the disk, throttling occurs. 
 
 <h4>Note:</h4> 
 All calculations are based on the I/O unit size of 256 KB.
@@ -202,7 +202,7 @@ This section shows how to create a Premium Storage account using Azure Preview P
 1.	Sign in to the [Azure Preview Portal](https://portal.azure.com/). Check out the [Free Trial](http://www.windowsazure.com/pricing/free-trial/) offer if you do not have a subscription yet. 
 
 
-    >[WACOM.NOTE] If you log in to the Azure Management Portal, click your account email address at the top right corner. Then, click **Switch to new portal**.
+    >[WACOM.NOTE] If you log in to the Azure Management Portal, click your user account name at the top right corner of the portal. Then, click **Switch to new portal**.
         
 
 2.	On the Hub menu, click **New**.
