@@ -2,14 +2,15 @@
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/15/2014" ms.author="genemi"/>
 
+
+# Walkthrough: try the Latest SQL Database Update V12 (preview)
+
 <!--
 Latest update datetime for this topic.
-GeneMi  ,  2014-Dec-14 Sunday 20:15pm.
+GeneMi  ,  2014-Dec-15 Monday 17:00pm.
 
 http : // azure.microsoft .com/ documentation/articles/ sql-database-latest-preview-sign-up/
 -->
-
-# Walkthrough: try the Latest SQL Database Update V12 (preview)
 
 This topic describes the steps you can follow to try the Azure SQL Database Update V12 (preview), as released by Microsoft in December 2014.
 
