@@ -142,7 +142,7 @@ Usage
 
 See [Get started with Notification Hubs](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-phone-get-started/) to see how the author created 8 versions of the same article, but used selectors to enable navigation across them all.
 
-![](./media/custom-markdown-extensions/selectors.png)
+![](./media/custom-markdown-extensions/selectors.PNG)
 
 ###Syntax
 
