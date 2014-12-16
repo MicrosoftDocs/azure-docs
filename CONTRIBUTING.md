@@ -176,15 +176,7 @@ For note syntax, see [Custom extensions used in our technical content](https://g
 
 ### Videos in articles
 
-You can add [Channel 9](http://channel9.msdn.com/) videos to articles with the following syntax:
- 
-    > [AZURE.VIDEO video-id-string]
-    
-
-1. Make sure that the video is on the [Azure Video Center](http://azure.microsoft.com/en-us/documentation/videos/home/). 
-2. Copy the video ID from the friendly URL of the video on the video gallery. For example, the video ID of *http://azure.microsoft.com/en-us/documentation/videos/azure-scheduler-unusual-schedules/* will be the friendly URL *azure-scheduler-unusual-schedules*.
-3. Use the extension syntax above with *video-id-string* as the friendly URL of the video.
-
+For info about embedded videos in articles, see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
 
 ## Standard Markdown
 
