@@ -2,13 +2,13 @@
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="genemi"/>
 
-<!--
-Latest Edit Datetime:  GM,  2014-12-12  Friday  16:51pm.
-Applied feedback of JG, JH, JM (Added back Joanne's marketing text.).
--->
-
 
 # What's new in the Latest SQL Database Update V12 (preview)
+
+<!--
+Latest Edit Datetime:  GM,  2014-12-15  Monday  16:52pm.
+Applied feedback of JG, JH, JM (Added back Joanne's marketing text.).
+-->
 
 
 This topic describes latest Azure SQL Database V12 (preview). The new preview provides nearly complete compatibility with the Microsoft SQL Server engine. And the preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 

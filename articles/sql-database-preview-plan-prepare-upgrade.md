@@ -2,17 +2,13 @@
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="genemi"/>
 
-<!-- Unmentioned in JH emailed example of properties, so removing.
-solutions="upgrade, migrate, move, monitor, t-sql, powershell"
--->
+# Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)
 
 <!--
-Latest Edit Datetime:  GM,  2014-12-12  Friday  16:51pm.
+Latest Edit Datetime:  GM,  2014-12-15  Monday  16:52pm.
 sql-database-preview-plan-prepare-upgrade.md
 sql-database- , -preview- :  Set of topics using -preview- as their group identifier node.
 -->
-
-# Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)
 
 This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 preview.
 
