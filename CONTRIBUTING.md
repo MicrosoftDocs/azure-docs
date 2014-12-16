@@ -7,7 +7,6 @@ Thank you for your interest in Azure documentation!
 * [Repository organization](#repository-organization)
 * [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
 * [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
-* [Standard Markdown](#standard-markdown)
 * [More resources](#more-resources)
 
 ## Ways to contribute
