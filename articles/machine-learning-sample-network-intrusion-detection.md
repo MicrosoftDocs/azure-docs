@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Sample: Network intrusion detection" pageTitle="Machine Learning Sample: Network intrusion detection | Azure" description="A sample Azure Machine Learning experiment that uses a classification model to determine which network activities are a part of network intrusion." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="garye" />
 
 
 
@@ -62,12 +62,13 @@ The following sample experiment associated with this model is available in ML St
 
 ## Sample Dataset
 
-The following sample dataset used by this experiment is available in ML Studio in the module palette under **Saved Datasets**.
+The following sample dataset used by this experiment is available in Azure BLOB storage.
 
-###network_intrusion_detection.csv
+<ul>
+<li><b><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a></b><p></p>
 [AZURE.INCLUDE [machine-learning-sample-dataset-network-intrusion](../includes/machine-learning-sample-dataset-network-intrusion.md)]
-
-
+<p></p></li>
+</ul>
 
 
 [1]: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-1.png

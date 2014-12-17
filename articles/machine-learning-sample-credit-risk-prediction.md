@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Sample: Credit risk prediction" pageTitle="Machine Learning Sample: Credit risk prediction | Azure" description="A sample Azure Machine Learning experiment to develop a binary classification model that predicts if an applicant is a low credit risk or a high credit risk." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="garye" />
 
 
 # Azure Machine Learning Sample: Credit risk prediction 
@@ -68,9 +68,9 @@ In addition to checking the effect of replication of examples in the training se
 - Boosted Decision Tree, trained with original data
 - Boosted Decision Tree, trained with replicated data
 
-Boosted decision trees work well with features of any type. However, since the SVM module generates a linear classifier, the model that it generates has the best test error when all features have the same scale. To convert all features to the same scale we use **Transform Data by Scaling** module with a tanh transformation. This transformation transforms all numeric features to [0,1] range. Note that string features are converted by the SVM module to categorical features and then to binary 0/1 features, so we don't need to manually transform string features. 
+Boosted decision trees work well with features of any type. However, since the SVM module generates a linear classifier, the model that it generates has the best test error when all features have the same scale. To convert all features to the same scale we use the **Normalize Data** module with a tanh transformation. This transformation transforms all numeric features to [0,1] range. Note that string features are converted by the SVM module to categorical features and then to binary 0/1 features, so we don't need to manually transform string features. 
 
-We initialize the learning algorithm using the **Two-Class Support Vector Machine** module or the **Two-Class Boosted Decision Tree** module and then use the **Train Mode**l module to create the actual model. These models are used by **Score Model** modules to produce scores of test examples. An example workflow that combines these modules and uses SVM and the replicated training set is depicted below. Note that **Train Model** is connected to the training set, whereas **Score Model** is connected to the test set.
+We initialize the learning algorithm using the **Two-Class Support Vector Machine** module or the **Two-Class Boosted Decision Tree** module and then use the **Train Model** module to create the actual model. These models are used by **Score Model** modules to produce scores of test examples. An example workflow that combines these modules and uses SVM and the replicated training set is depicted below. Note that **Train Model** is connected to the training set, whereas **Score Model** is connected to the test set.
 
 ![Training and scoring a model][screen2]
 
@@ -101,7 +101,7 @@ Notice that unlike the development experiment, in the training experiment we cho
 
 The purpose of the sample scoring experiment is to set up a REST API web service that will score test examples. The trained model in this experiment (“Credit Risk model”) was created from the training experiment by right-clicking the Train Model module and selecting **Save as Trained Model**. In this scoring experiment we load test examples, normalize them, and perform scoring using this saved trained model. 
 
-After running this experiment and verifying that it generates the right scores we prepare to publish it as a web service by defining the service input and output. We define the web service input as the input port to the **Transform Data By Scaling** module by right-clicking the port and selecting **Set as Publish Input**. The web service output is set to the output of the **Score Model** module by right-clicking the output of **Score Model** and selecting **Set as Publish Output**. 
+After running this experiment and verifying that it generates the right scores we prepare to publish it as a web service by defining the service input and output. We define the web service input as the input port to the **Normalize Data** module by right-clicking the port and selecting **Set as Publish Input**. The web service output is set to the output of the **Score Model** module by right-clicking the output of **Score Model** and selecting **Set as Publish Output**. 
 
 After setting up the service input and output we need to rerun the experiment and then click **Publish Web Service**. This publishes the web service to the staging environment and takes us to the ML Studio **WEB SERVICES** page. Here we can configure and test the service with sample data.
 
@@ -121,9 +121,11 @@ The following sample experiment associated with this model is available in ML St
 
 The following sample dataset used by this experiment is available in ML Studio in the module palette under **Saved Datasets**.
 
-###German Credit Card UCI dataset
+<ul>
+<li><b>German Credit Card UCI dataset</b><p></p>
 [AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
-
+<p></p></li>
+</ul>
 
 
 [screen1]:./media/machine-learning-sample-credit-risk-prediction/screen1.jpg
