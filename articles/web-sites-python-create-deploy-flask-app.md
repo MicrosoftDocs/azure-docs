@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-site-with-flask" urlDisplayName="Websites with Flask" pageTitle="Python Websites with Flask - Azure tutorial" metaKeywords="Azure flask, flask website" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="Python" title="Creating Websites with Flask" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/18/2014" ms.author="huvalo" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="12/17/2014" ms.author="huvalo" />
 
 
 
