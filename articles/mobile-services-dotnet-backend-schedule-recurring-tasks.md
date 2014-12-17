@@ -249,11 +249,11 @@ The job must be registered in the **Scheduler** tab so that Mobile Services can 
 
     >[WACOM.NOTE]When you run your mobile service in <em>Free</em> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.
 
-3. In the scheduler dialog, enter _SampleJob_ for the **Job Name**, set the schedule interval and units, then click the check button. 
+3. In the scheduler dialog, enter _Sample_ for the **Job Name**, set the schedule interval and units, then click the check button. 
    
    	![][4]
 
-   	This creates a new job named **SampleJob**. 
+   	This creates a new job named **Sample**. 
 
 4. Click the new job you just created, then click **Run Once** to test the script. 
 

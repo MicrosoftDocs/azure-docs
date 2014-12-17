@@ -10,7 +10,7 @@ Microsoft Azure Search (Public Preview) is new service that allows you to embed 
 
 As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
 
-<!--Table of contents -->
+<!--Table of contents  -->
 
 + [Start with the free service](#sub-1)
 + [Upgrade to standard search](#sub-2)
@@ -32,21 +32,17 @@ Subscribers automatically get free access to a shared, multitenant Search servic
 
   	![][7]
 
-4. From the Gallery, click **Data, storage, cache, + backup**.
+4. From the Gallery, click **Data + analytics**.
  
   	![][8]
 
-5. Click **See All** to expand the list of all data-related services. 
-
-  	![][9]
-
-6. From Data services, click **Search**.
+5. From Data services, click **Search**.
  
   	![][10]
 
 7. At the bottom of the Search page, click **CREATE**.
 
-8. Type a lower-case service name to use in the service URL, avoiding dashes, spaces, and staying within the 15 character string limit.
+8. Type a lower-case service name to use in the service URL, avoiding spaces, and staying within the 15 character string limit.
  
   	![][11]
 
@@ -64,7 +60,7 @@ Subscribers automatically get free access to a shared, multitenant Search servic
 
 In a few minutes, the service is created. You can return to the configuration settings to get the URL or api-keys. Connections to your Search service requires that you have both the URL and an api-key to authenticate the call. Here's how to quickly find these values:
 
-14. Go to **Browse** | **Everything** | **Data, storage, cache, + backup** | **See All** | **Search Services**, Click your search service to open the service dashboard. 
+14. Go to **Home** to open the dashboard. Click the Search service to open the service dashboard. 
 
   	![][13]
 
@@ -99,9 +95,7 @@ Setting up dedicated resources can take a while (15 minutes or longer).
 
 3. Click **Everything** at the top of the page.
 
-4. From the Gallery, click **Data, storage, cache, + backup**.
-
-5. Click **See All** to expand the list of all data-related services.
+4. From the Gallery, click **Data + analytics**.
 
 6. From Data services, click **Search**.
 
@@ -121,7 +115,9 @@ Standard search starts with one replica and partition each, but can be easily re
 
 2.	Use the sliders to add replicas, partitions, or both. 
 
-Additional replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information.
+Additional replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. 
+
+You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](http://msdn.microsoft.com/en-us/library/azure/dn798934.aspx) for help in deciding how to configure partition and replica combinations.
 
  ![][15]
 
@@ -177,7 +173,7 @@ The following procedure works for both shared and standard search. In the steps 
 
 6.	Click **Execute**.
 
-In a few seconds, you should see an HTTP 204 response in the session list, indicating the index was created successfully. 
+In a few seconds, you should see an HTTP 201 response in the session list, indicating the index was created successfully. 
 
 If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the api-key (either an invalid key or a syntax problem with how the api-key is specified).
 
@@ -334,17 +330,18 @@ You can also query the system to get document counts and storage consumption. On
 If you need a refresher on where to find the configuration pages, follow these steps to locate the service dashboard.
 
 1.	Sign in to [Azure Preview portal](https://portal.azure.com) using your existing subscription. 
-2.	Click **Browse** | **Everything**.
+2.	Click **Home** and then click the tile for your Search service.
 
  	![][22]
 
-3.	Choose **Search services** from the list. You should see a list of all the Search services created under your subscriptions.
+4.	Clicking the tile opens the service dashboard. Notice that **Start**, **Stop**, and **Delete** commands are at the top. The service dashboard includes tiles for viewing Properties, Keys, and a Quick Start with links to information and instructions. Scroll down to view usage.
 
-4.	Click a service to open its dashboard. Notice that **Start**, **Stop**, and **Delete** commands are at the top. The service dashboard includes tiles for viewing Properties, Keys, and a Quick Start with links to information and instructions. Scroll down to view usage.
-
-5.	Click **PROPERTIES**. Notice that the Properties page opens to the right. The service URL is at the top of the page. To get api-keys used to authenticate to the service, click **KEYS**.
+5.	Click **PROPERTIES**. Notice that the Properties page opens to the right. The service URL is at the top of the page. You will need this URL in to connect to your Azure Search service.
 
  	![][23]
+	
+7.	Click **KEYS** to view the api-keys. You will need an Admin key to authenticate to the service. You can use either the primary or secondary. Optionally, you can create query keys for read-only access to the service.
+
 
 <!--Next steps and links -->
 <h2 id="next-steps">Try it out</h2>
@@ -377,12 +374,12 @@ Ready for the next step? The following links take you to additional material tha
 <!--Image references-->
 [6]: ./media/search-get-started/AzureSearch_Configure1_1_New.PNG
 [7]: ./media/search-get-started/AzureSearch_Configure1_2_Everything.PNG
-[8]: ./media/search-get-started/Azuresearch_Configure1_3_Gallery.PNG
+[8]: ./media/search-get-started/Azuresearch_Configure1_3a_Gallery.PNG
 [9]: ./media/search-get-started/AzureSearch_Configure1_4_GallerySeeAll.PNG
-[10]: ./media/search-get-started/AzureSearch_Configure1_5_DataServicesList.PNG
+[10]: ./media/search-get-started/AzureSearch_Configure1_5_SearchTile.PNG
 [11]: ./media/search-get-started/AzureSearch_Configure1_6_URL.PNG
-[12]: ./media/search-get-started/AzureSearch_Configure1_7_Free.PNG
-[13]: ./media/search-get-started/AzureSearch_Configure1_8_SearchServiceList.PNG
+[12]: ./media/search-get-started/AzureSearch_Configure1_7a_Free.PNG
+[13]: ./media/search-get-started/AzureSearch_Configure1_17_HomeDashboard.PNG
 [14]: ./media/search-get-started/AzureSearch_Configure1_9_Standard.PNG
 [15]: ./media/search-get-started/AzureSearch_Configure1_10_ScaleUp.PNG
 [16]: ./media/search-get-started/AzureSearch_Configure1_11_PUTIndex.PNG
@@ -391,7 +388,7 @@ Ready for the next step? The following links take you to additional material tha
 [19]: ./media/search-get-started/AzureSearch_Configure1_14_GETQueryResponse.PNG
 [20]: ./media/search-get-started/AzureSearch_Configure1_15_Stats.PNG
 [21]: ./media/search-get-started/AzureSearch_Configure1_16_StatsResponse.PNG
-[22]: ./media/search-get-started/AzureSearch_Configure1_17_BrowseEverything.PNG
+[22]: ./media/search-get-started/AzureSearch_Configure1_17_HomeDashboard.PNG
 [23]: ./media/search-get-started/AzureSearch_Configure1_18_Explore.PNG
 
 

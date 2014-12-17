@@ -1,5 +1,5 @@
 
-<h2><a name="update-app"></a><span class="short-header">Update the app </span>Update the app to call the custom API</h2>
+<h2><a name="update-app"></a>Update the app to call the custom API</h2>
 
 1. Create a button, so you can click it to call the custom API. Drag a **Round Rect Button** from the **Object Library** located at the bottom of the **Utilities** pane, and place it below or next to the text field. Double-click to add the text **"All"**. 
 

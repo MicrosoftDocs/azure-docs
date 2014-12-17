@@ -1,9 +1,9 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop with Hive in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution in the cloud. Learn how to provision clusters, query data with Hive, and output to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop with Hive in HDInsight to analyze mobile handset use" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="nitinme" />
 
 
-# Get started with Hadoop in HDInsight
+# Get started using Hadoop with Hive in HDInsight to analyze mobile handset use
 
 <!--div class="dev-center-tutorial-selector sublanding">
 <a href="../hdinsight-get-started" title="Get started using Hadoop 2.4 in HDInsight" class="current">Hadoop 2.4</a>
@@ -11,9 +11,10 @@
 <!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a>
 </div-->
 
-HDInsight makes Apache Hadoop, a MapReduce software framework, available in a simpler, more scalable, and more cost-efficient Azure environment. HDInsight also provides a cost-efficient approach to the managing and storing of data using Azure Blob storage.
+To get you started quickly using HDInsight, this tutorial shows you how to run a Hive query to extract meaningful information from unstructured data in a Hadoop cluster. Then, you’ll analyze the results in Microsoft Excel.
 
-> [WACOM.NOTE] If you are new to Hadoop and Big Data, you might want to read more about the terms [Apache Hadoop][apache-hadoop], [MapReduce][apache-mapreduce], [HDFS][apache-hdfs], and  [Hive][apache-hive]. To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight][hadoop-hdinsight-intro].
+
+> [WACOM.NOTE] If you are new to Hadoop and Big Data, you can read more about the terms [Apache Hadoop][apache-hadoop], [MapReduce][apache-mapreduce], [HDFS][apache-hdfs], and  [Hive][apache-hive]. To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight][hadoop-hdinsight-intro].
 
 In conjunction with the general availability of Azure HDInsight, Microsoft also provides HDInsight Emulator for Azure, formerly known as *Microsoft HDInsight Developer Preview*. The Emulator targets developer scenarios and only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 
@@ -23,13 +24,13 @@ In conjunction with the general availability of Azure HDInsight, Microsoft also 
 
 Assume you have a large unstructured data set and you want to run queries on it to extract some meaningful information. That's exactly what we are going to do in this tutorial. Here's how we achieve this:
 
-   ![HDI.GetStartedFlow][image-hdi-getstarted-flow]
+   !["Get started using Hadoop with Hive in HDInsight" tutorial steps illustrated: create an account; provision a cluster; query data; and analyze in Excel.][image-hdi-getstarted-flow]
 
 You can also watch a demo video of this tutorial:
 
 <center><iframe width="560" height="315" src="http://www.youtube.com/embed/v=Y4aNjnoeaHA?list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS" frameborder="0" allowfullscreen></iframe></center>
 
-<!--center><a href="https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS" target = "_blank">![HDI.getstarted.video][img-hdi-getstarted-video]</a></center-->
+<!--center><a href="https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS" target="_blank">![HDI.getstarted.video][img-hdi-getstarted-video]</a></center-->
 
 
 
@@ -66,7 +67,7 @@ To simplify this tutorial, only the default blob container and the default stora
 1. Sign in to the [Azure Management Portal][azure-management-portal].
 2. Click **NEW** on the lower left corner, point to **DATA SERVICES**, point to **STORAGE**, and then click **QUICK CREATE**.
 
-	![HDI.StorageAccount.QuickCreate][image-hdi-storageaccount-quickcreate]
+	![Azure portal where you can use Quick Create to set up a new storage account.][image-hdi-storageaccount-quickcreate]
 
 3. Enter **URL**, **LOCATION** and **REPLICATION**, and then click **CREATE STORAGE ACCOUNT**. Affinity groups are not supported. You will see the new storage account in the storage list.
 
@@ -93,11 +94,11 @@ When you provision an HDInsight cluster, you provision Azure compute resources t
 
 2. Click **HDInsight** on the left to list the status of the clusters in your account. In the following screenshot, there are no existing HDInsight clusters.
 
-	![HDI.ClusterStatus][image-hdi-clusterstatus]
+	![Status of HDInsight clusters in the Azure portal.][image-hdi-clusterstatus]
 
 3. Click **NEW** on the lower left side, click **Data Services**, click **HDInsight**, and then click **Hadoop**.
 
-	![HDI.QuickCreateCluster][image-hdi-quickcreatecluster]
+	![Creation of a Hadoop cluster in HDInsight.][image-hdi-quickcreatecluster]
 
 4. Enter or select the following values:
 
@@ -137,14 +138,16 @@ Sample | What does it do?
 ##<a name="hivequery"></a>Run a HIVE query from the portal
 Now that you have an HDInsight cluster provisioned, the next step is to run a Hive job to query a sample Hive table, *hivesampletable*, which comes with HDInsight clusters. The table contains data on mobile device manufacturer, platforms, and models. We query this table to retrieve data for mobile devices by a specific manufacturer.
 
+> [WACOM.NOTE] HDInsight Tools for Visual Studio comes with Azure SDK for .NET version 2.5 or later.  Using the tools from Visual Studio, you can connect to HDInsight cluster, create Hive tables, and run Hive queries.  For more information see [Get started using HDInsight Hadoop Tools for Visual Studio][1].
+
 **To run a Hive job from cluster dashboard**
 
 1. Sign in to the [Azure Management Portal][azure-management-portal]. 
 2. Click **HDINSIGHT** from the left pane. You shall see a list of clusters created, including the one you just created in the last section.
 3. Click the cluster name where you want to run the Hive job and then click **QUERY CONSOLE** from the bottom of the page. 
-4. It opens a Web page on a different browser tab. Enter the Hadoop user account and password.  The default user name is **admin**; the password is what you entered while provisioning the cluster.  The dashboard looks like :
+4. It opens a Web page on a different browser tab. Enter the Hadoop user account and password.  The default user name is **admin**; the password is what you entered while provisioning the cluster.  The dashboard looks like:
 
-	![hdi.dashboard][img-hdi-dashboard]
+	![Hive Editor tab in the HDInsight cluster dashboard.][img-hdi-dashboard]
 
 	There are several tabs on the top.  The default tab is **Hive Editor**, while the other tabs are **Job History** and **File Browser**.  Using the dashboard, you can submit Hive queries, check Hadoop job logs, and browse WASB files.
 
@@ -158,17 +161,17 @@ Now that you have an HDInsight cluster provisioned, the next step is to run a Hi
 			WHERE devicemake LIKE "HTC%"
 			LIMIT 20;
 
-	![hdi.dashboard.query.select][img-hdi-dashboard-query-select]
+	![Query entered in the query pane of the Hive Editor.][img-hdi-dashboard-query-select]
 
 4. Click **Submit**. It takes a few moments to get the results back. The screen refreshes every 30 seconds. You can also click **Refresh** to refresh the screen.
 
     Once completed, the screen looks like:
 
-	![hdi.dashboard.query.select.result][img-hdi-dashboard-query-select-result]
+	![Results from a Hive query in listed at the bottom of the cluster dashboard.][img-hdi-dashboard-query-select-result]
 
 5. Click the query name on the screen to see the output. Make a note of **Job Start Time (UTC)**. You will need it later. 
 
-    ![hdi.dashboard.query.select.result.output][img-hdi-dashboard-query-select-result-output]
+    ![Job Start Time listed in the Job History tab of the HDInsight cluster dashboard.][img-hdi-dashboard-query-select-result-output]
 
     The page also shows the **Job Output** and the **Job Log**. You also have the option to download the output file (\_stdout) and the log file \(_stderr).
 
@@ -183,7 +186,7 @@ Now that you have an HDInsight cluster provisioned, the next step is to run a Hi
 3. Click **admin** and then click the GUID which has the last modified time a little after the job start time you noted earlier. Make a note of this GUID. You will need it in the next section.
 
 
-   	![hdi.dashboard.query.browse.output][img-hdi-dashboard-query-browse-output]
+   	![The output file GUID listed in the File Browser tab.][img-hdi-dashboard-query-browse-output]
 
 
 ###<a name="powerquery"></a>Connect to Microsoft business intelligence tools 
@@ -201,7 +204,7 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 1. Open Excel, and create a new blank workbook.
 3. Click the **Power Query** menu, click **From Other Sources**, and then click **From Azure HDInsight**.
 
-	![HDI.GettingStarted.PowerQuery.ImportData][image-hdi-gettingstarted-powerquery-importdata]
+	![Excel PowerQuery Import menu open for Azure HDInsight.][image-hdi-gettingstarted-powerquery-importdata]
 
 3. Enter the **Account Name** of the Azure Blob Storage Account associated with your cluster, and then click **OK**. This is the storage account you created earlier in the tutorial.
 4. Enter the **Account Key** for the Azure Blob Storage Account, and then click **Save**. 
@@ -209,7 +212,7 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 
 6. Locate **stdout** in the **Name** column. Verify the GUID in the corresponding **Folder Path** column matches the GUID you noted down earlier. A match suggests that the output data corresponds to the job you submitted. Click **Binary** on the left of **stdout**.
 
-	![HDI.GettingStarted.PowerQuery.ImportData2][image-hdi-gettingstarted-powerquery-importdata2]
+	![Finding the data output by GUID in the list of content.][image-hdi-gettingstarted-powerquery-importdata2]
 
 9. Click **Close & Load** in the upper left corner to import the Hive job output into Excel.
 
@@ -217,6 +220,7 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 ##<a name="nextsteps"></a>Next steps
 In this tutorial, you have learned how to provision a cluster with HDInsight, run a MapReduce job on it, and import the results into Excel where they can be further processed and graphically displayed using BI tools. To learn more, see the following articles:
 
+- [Get started using HDInsight Hadoop Tools for Visual Studio][1]
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
@@ -227,6 +231,9 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 - [Use Oozie with HDInsight][hdinsight-use-oozie]
 - [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
+
+
+[1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
 
@@ -242,7 +249,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [hdinsight-emulator]: ../hdinsight-get-started-emulator/
 [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
-[hadoop-hdinsight-intro]: ../hdinsight-introduction/
+[hadoop-hdinsight-intro]: ../hdinsight-hadoop-introduction/
 [hdinsight-weblogs-sample]: ../hdinsight-hive-analyze-website-log/
 [hdinsight-sensor-data-sample]: ../hdinsight-hive-analyze-sensor-data/
 

@@ -1,4 +1,4 @@
-<properties urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors="yuaxu" solutions="" manager="kirillg" editor="" />
+<properties urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors="yuaxu" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 # Use Notification Hubs to send localized breaking news to iOS devices
@@ -34,7 +34,7 @@ You also need Visual Studio 2012.
 
 
 
-<h2><a name="concepts"></a><span class="short-header">concepts</span>Template concepts</h2>
+<h2><a name="concepts"></a>Template concepts</h2>
 
 In [Use Notification Hubs to send breaking news] you built an app that used **tags** to subscribe to notifications for different news categories.
 Many apps, however, target multiple markets and require localization. This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices.
@@ -60,7 +60,7 @@ Then we will ensure that devices register with a template that refers to the cor
 
 Templates are a very powerful feature you can learn more about in our [Notification Hubs Guidance] article. A reference for the template expression language is in our [How To: Service Bus Notification Hubs (iOS Apps)].
 
-<h2><a name="ui"></a><span class="short-header">App ui</span>The app user interface</h2>
+<h2><a name="ui"></a>The app user interface</h2>
 
 We will now modify the Breaking News app that you created in the topic [Use Notification Hubs to send breaking news] to send localized breaking news using templates.
 
@@ -160,7 +160,7 @@ In order to adapt your client apps to receive localized messages, you have to re
 	        }
 	    }];
 
-<h2><a name="send"></a><span class="short-header">Send localized notifications</span>Send localized notifications from your back-end</h2>
+<h2><a name="send"></a>Send localized notifications from your back-end</h2>
 
 [WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 

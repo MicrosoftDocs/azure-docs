@@ -1,12 +1,10 @@
-<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The WordCount Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
+<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Run an Hadoop MapReduce word count example in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Run a MapReduce word count example on an Hadoop cluster in HDInsight. The program, written in Java, counts word occurrences in a text file." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 
-#The WordCount Hadoop sample in HDInsight
+#Run a MapReduce word count example on an Hadoop cluster in HDInsight
  
-This sample topic shows how to run an Hadoop MapReduce program that counts word occurrences in a text file using Azure PowerShell to run the program in HDInsight. The WordCount MapReduce program is written in Java and runs on an Hadoop cluster managed by HDInsight. The text file analyzed in this sample is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
-
-The Hadoop MapReduce program reads the text file and counts how often each word occurs. The output is a new text file that consists of lines, each of which contains a word and the count (a key/value tab-separated pair) of how often that word occurred in the document. This process is done in two stages. The mapper takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a work occurs of the word followed by a 1. The reducer then sums these individual counts for each word and emits a single key/value pair that contains the word followed by the sum of its occurrences.
+This tutorial shows you how to run a MapReduce word count example on an Hadoop cluster in HDInsight. The program, written in Java, counts word occurrences in a text file and outputs a new text file containing each word paired with its frequency of occurrence. The text file analyzed in this sample is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci.
 
  
 **You will learn:**
@@ -103,7 +101,7 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 The output from the WordCount script should appear in the cmd window:
 
-![HDI.Sample.WordCount.Output][image-hdi-sample-wordcount-output]
+![Word frequency results in PowerShell from the Hadoop MapReduce word count example in HDInsight.][image-hdi-sample-wordcount-output]
 
 Note that the output files of a MapReduce job are immutable. So if you rerun this sample you will need to change the name of the output file.
 

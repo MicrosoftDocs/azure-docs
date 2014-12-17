@@ -1,13 +1,15 @@
 <properties title="Azure Machine Learning Sample: Flight delay prediction" pageTitle="Machine Learning Sample: Flight delay prediction | Azure" description="A sample Azure Machine Learning experiment to develop a model that predicts whether a scheduled passenger flight will be delayed by more than 15 minutes." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="garye" />
 
 
 # Azure Machine Learning sample: Flight delay prediction
 
-*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+>[AZURE.NOTE]
+>The [Sample Experiment] and [Sample Datasets] associated with this model are available in ML Studio. See below for more details.
+[Sample Experiment]: #sample-experiment
+[Sample Datasets]: #sample-datasets
 
-	Sample Experiment - Flight Delay Prediction - Development
 
 ## Problem Description  ##
 
@@ -81,5 +83,27 @@ The ariport IDs are joined with human-readable airport names and locations, to m
 The boosted decision tree model has AUC of 0.697 against the validation set, which is slightly better than logistic regreesion model with AUC of 0.675. 
 
 
- 
 
+## Sample Experiment
+
+The following sample experiment associated with this model is available in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab.
+
+> **Sample Experiment - Flight Delay Prediction - Development**
+
+## Sample Datasets
+
+The following sample datasets used by this experiment are available in ML Studio in the module palette under **Saved Datasets**.
+
+<ul>
+<li><b>Airport Codes Dataset</b><p></p>
+[AZURE.INCLUDE [machine-learning-sample-dataset-airport-codes](../includes/machine-learning-sample-dataset-airport-codes.md)]
+<p></p></li>
+
+<li><b>Flight Delays Data</b><p></p>
+[AZURE.INCLUDE [machine-learning-sample-dataset-flight-delays-data](../includes/machine-learning-sample-dataset-flight-delays-data.md)]
+<p></p></li>
+
+<li><b>Weather Dataset</b><p></p>
+[AZURE.INCLUDE [machine-learning-sample-dataset-weather-dataset](../includes/machine-learning-sample-dataset-weather-dataset.md)]
+<p></p></li>
+</ul>

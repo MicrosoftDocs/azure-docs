@@ -39,35 +39,34 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ###Starting C# code for web service consumption:
 
-	public class Input{
-	public double Recency;
-	public double Frequency;
-	public double Monetary;
-	public double Time;
-	public double Class;
-	}
+	public class Input
+    {
+        public string frequency;
+        public string horizon;
+        public string date;
+        public string value;
+    }
 
 	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
     {
-        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-        System.Diagnostics.Debug.WriteLine("AuthenticationHeaderValue" + new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray)));
-        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+         byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+         return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
     }
+
        
 	void Main()
 	{
-  	var input = new Input(){Recency =1, Frequency=0,Monetary=0,Time=1, Class= 0};
-	var json = JsonConvert.SerializeObject(input);
-	var acitionUri =  "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-       
-  	var httpClient = new HttpClient();
-   	httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere","ChangeToAPIKey");
-   	httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-  	var query = httpClient.PostAsync(acitionUri,new StringContent(json));
-  	var result = query.Result.Content;
-  	var scoreResult = result.ReadAsStringAsync().Result;
-  	scoreResult.Dump();
-	}
+  		var input = new Input() { frequency = TextBox1.Text, horizon = TextBox2.Text, date = TextBox3.Text, value = TextBox4.Text };
+		var json = JsonConvert.SerializeObject(input);
+		var acitionUri =  "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	       
+	  	var httpClient = new HttpClient();
+	   	httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere","ChangeToAPIKey");
+	   	httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	  	var query = httpClient.PostAsync(acitionUri,new StringContent(json));
+	  	var result = query.Result.Content;
+	  	var scoreResult = result.ReadAsStringAsync().Result;
+  	}
 
 ##Creation of Web Service 
 
@@ -85,21 +84,33 @@ From within Azure ML, a new blank experiment was created. A sample input data wa
 ![Create workspace][3]	
 
 ####Module 2:
-	# Apply time series model from forecast package 
- 	# Input data 
-	data <- maml.mapInputPort(1) # class: data.frame library(forecast) 
- 
-	# preprocessing 
-	colnames(data) <- c("frequency", "horizon", "dates", "values") … 
- 
-	# fit model 
-	train_ts<- ts(values, frequency=frequency) fit1 <- auto.arima(train_ts) 
-	train_model <- forecast(fit1, h = horizon)  
-	data.forecast <- as.data.frame(t( train_model$mean)) 
- 
-	# output 
+	# data input
+	data <- maml.mapInputPort(1) # class: data.frame
+	library(forecast)
+	
+	# preprocessing
+	colnames(data) <- c("frequency", "horizon", "dates", "values")
+	dates <- strsplit(data$dates, ";")[[1]]
+	values <- strsplit(data$values, ";")[[1]]
+	
+	dates <- as.Date(dates, format = '%m/%d/%Y')
+	values <- as.numeric(values)
+	
+	# fit a time-series model
+	train_ts<- ts(values, frequency=data$frequency)
+	fit1 <- auto.arima(train_ts)
+	train_model <- forecast(fit1, h = data$horizon)
+	plot(train_model)
+	
+	# produce forcasting
+	train_pred <- round(train_model$mean,2)
+	data.forecast <- as.data.frame(t(train_pred))
+	colnames(data.forecast) <- paste("Forecast", 1:data$horizon, sep="")
+	
+	# data output
 	maml.mapOutputPort("data.forecast");
- 
+
+
 ##Limitations 
 
 This is a very simple example for ARIMA forecasting. As can be seen from the example code above, no error catching is implemented and the service assumes that all the variables are continuous/positive values and the frequency should be an integer greater than 1. The length of the date and value vectors should be the same. The date variable should adhere to the format ‘mm/dd/yyyy’.

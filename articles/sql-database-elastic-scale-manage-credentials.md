@@ -20,6 +20,8 @@ The [Elastic Scale Client APIs](http://go.microsoft.com/?linkid=9862605) uses cr
 
         "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 
+     Do not use User ID values in the form of "username@server" -- instead just use "username".  This is because credentials must work against both the Shard Map Manager database and individual shards, which may be on different servers.
+     
 * **User Credentials for Shard Map Manager Access**:  When instantiating the Shard Map Manager in an application that is not going to administer shard maps, use credentials that have read-only permissions on the global shard map. The information retrieved from the global shard map under these credentials are used for [data-dependent routing](./sql-database-elastic-scale-data-dependent-routing.md) and to populate the shard map cache on the client. The credentials are provided through the same call pattern to **GetSqlShardMapManager** as shown above: 
  
         // Obtain shard map manager. 
@@ -39,6 +41,6 @@ The [Elastic Scale Client APIs](http://go.microsoft.com/?linkid=9862605) uses cr
 
         "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-    Note that the connection string does not contain a server name and database name. That is because the **OpenConnectionForKey** call will automatically direct the connection to the correct shard based on the key. Hence, the database name and server name must not be provided. 
+    As with the Admin credentials, do not use User ID values in the form of "username@server" -- instead just use "username".  Also note that the connection string does not contain a server name and database name. That is because the **OpenConnectionForKey** call will automatically direct the connection to the correct shard based on the key. Hence, the database name and server name must not be provided. 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]

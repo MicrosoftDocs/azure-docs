@@ -1,6 +1,6 @@
 <properties title="Troubleshooting and Q & A about Application Insights" pageTitle="Troubleshooting and Q & A about Application Insights" description="Tips and troubleshooting" metaKeywords="analytics monitoring" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-12" ms.author="awills" />
  
 # Troubleshooting and Q&A - Application Insights on Microsoft Azure Preview
 
@@ -51,6 +51,8 @@ This can happen if communication with the Application Insights portal failed, or
 ## <a name="q04"></a>I see no data under Usage Analytics
 
 + The data comes from scripts in the web pages. If you added Application Insights to an existing web project, [you have to add the scripts by hand][start].
++ Make sure Internet Explorer isn't displaying your site in Compatibility mode.
++ Use the browser's debug feature (F12 on some browsers, then choose Network) to verify that data is being sent to dc.services.visualstudio.com.
 
 
 ## <a name="q05"></a>I'm looking at the Microsoft Azure Preview start board. How do I find my data in Application Insights?
@@ -175,29 +177,11 @@ Web availability tests depend on incoming access to your web server on port 80.
 If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
 
 
-## Application Insights - learn more
 
-* [Application Insights - get started][start]
-* [Monitor a live web server now][redfield]
-* [Monitor performance in web applications][perf]
-* [Search diagnostic logs][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Track usage][usage]
-* [Track custom events and metrics][track]
-* [Q & A and troubleshooting][qna]
-
-<!--Link references-->
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
 
-[start]: ../app-insights-start-monitoring-app-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[perf]: ../app-insights-web-monitor-performance/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
-[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+
 
 [azurediagnostic]: ../insights-how-to-use-diagnostics/
 

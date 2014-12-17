@@ -1,22 +1,18 @@
-<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Use Blob storage with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Azure Blob storage with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Query big data from Hadoop-compatible Blob storage | Azure" metaKeywords="" description="HDInsight uses Hadoop-compatible Blob storage as the big data store for HDFS. Learn how to query from Blob storage, and store results of your analysis." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Query big data from Hadoop-compatible Blob storage for analysis in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
-
-
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 
 
-#Use Azure Blob storage with Hadoop in HDInsight
+#Query big data from Hadoop-compatible Blob storage for analysis in HDInsight
 
+Low-cost Blob storage is a robust, general-purpose Hadoop-compatible Azure storage solution that integrates seamlessly with HDInsight. Through a Hadoop Distributed File System (HDFS) interface, the full set of components in HDInsight can operate directly on data in Blob storage. In this tutorial, learn how to set up a container for Blob storage, and then address the data inside.
 
-
-
-Azure HDInsight supports both Hadoop Distributed Files System (HDFS) and Azure Blob storage for storing data. Blob storage is a robust, general purpose Azure storage solution. Blob storage provides a full-featured HDFS interface for a seamless experience by enabling the full set of components in the Hadoop ecosystem to operate (by default) directly on the data. Blob storage is not just a low-cost solution; storing data in Blob storage enables the HDInsight clusters used for computation to be safely deleted without losing user data. 
+Storing data in Blob storage enables the HDInsight clusters used for computation to be safely deleted without losing user data. 
 
 > [WACOM.NOTE]	The *asv://* syntax is not supported in HDInsight clusters version 3.0 and will not be supported in later versions. This means that any jobs submitted to an HDInsight cluster version 3.0 that explicitly use the “asv://” syntax will fail. The *wasb://* syntax should be used instead. Also, jobs submitted to any HDInsight clusters version 3.0 that are created with an existing metastore that contains explicit references to resources using the asv:// syntax will fail. These metastores will need to be recreated using the wasb:// to address resources.
 
-> [WACOM.NOTE] HDInsight currently only supports block blobs.
+> HDInsight currently only supports block blobs.
 
-> [WACOM.NOTE]
 > Most HDFS commands such as <b>ls</b>, <b>copyFromLocal</b>, <b>mkdir</b>, and so on, still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as <b>fschk</b> and <b>dfsadmin</b> will show different behavior on Azure Blob storage.
 
 For information on provisioning an HDInsight cluster, see [Get Started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
@@ -33,7 +29,7 @@ For information on provisioning an HDInsight cluster, see [Get Started with HDIn
 ##<a id="architecture"></a>HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture:
 
-![HDI.ASVArch](./media/hdinsight-use-blob-storage/HDI.ASVArch.png "HDInsight Storage Architecture")
+![Hadoop clusters in HDInsight access and store big data in cost-effective, scalable Hadoop-compatible Azure Blob storage in the cloud.](./media/hdinsight-use-blob-storage/HDI.ASVArch.png "HDInsight Storage Architecture")
   
 HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed using the fully qualified URI. For example: 
 
@@ -100,7 +96,7 @@ When provisioning an HDInsight cluster from Azure Management Portal, there are t
 
 Using the quick create option, you can choose an existing storage account. The provision process creates a new container with the same name as the HDInsight cluster name. If a container with the same name already exists, <clusterName>-<x> will be used. For example, myHDIcluster-1. This container is used as the default file system.
 
-![HDI.QuickCreate][img-hdi-quick-create]
+![Using Quick Create for a new Hadoop cluster in HDInsight in the Azure portal.][img-hdi-quick-create]
  
 Using the custom create, you have one of the following options for the default storage account:
 
@@ -110,7 +106,7 @@ Using the custom create, you have one of the following options for the default s
 
 You also have the option to create your own Blob container or use an existing one.
  
-![HDI.CustomCreateStorageAccount][img-hdi-custom-create-storage-account]
+![Option to use an existing storage account for your HDInsight cluster.][img-hdi-custom-create-storage-account]
   
 
 
@@ -173,7 +169,7 @@ Use the following command to list the blob related cmdlets:
 
 	Get-Command *blob*
 
-![Blob.PowerShell.cmdlets][img-hdi-powershell-blobcommands]
+![List of Blob-related PowerShell cmdlets.][img-hdi-powershell-blobcommands]
 
 
 **PowerShell sample for uploading a file**

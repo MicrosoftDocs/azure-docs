@@ -1,6 +1,6 @@
 <properties urlDisplayName="MapReduce with Hadoop in HDInsight" pageTitle="Use Hadoop MapReduce in HDInsight | Azure" metaKeywords="" description="Learn how to use HDInsight to execute a simple Hadoop MapReduce job." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop MapReduce in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 
 
 
@@ -16,8 +16,6 @@ Before you begin this tutorial, you must have the following:
 - An HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters][hdinsight-provision].
 
 - A workstation with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
-
-**Estimated time to complete:** 30 minutes
 
 ##In this tutorial
 1. [Understand the scenario](#scenario)

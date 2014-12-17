@@ -1,6 +1,6 @@
 <properties pageTitle="API Management key concepts" metaKeywords="" description="Learn about APIs, products, roles, groups, and other API Management key concepts." metaCanonical="" services="api-management" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
 # How to import the definition of an API with operations in Azure API Management
 
@@ -73,11 +73,6 @@ Once an API is created and the operations imported, you can review and configure
 [api-management-management-console]: ./media/api-management-howto-import-api/api-management-management-console.png
 [api-management-import-apis]: ./media/api-management-howto-import-api/api-management-api-import-apis.png
 [api-management-import-api-clipboard]: ./media/api-management-howto-import-api/api-management-import-api-wizard.png
-[api-management-add-new-api]: ./media/api-management-howto-import-api/api-management-add-new-api.png
-[api-management-api-settings]: ./media/api-management-howto-import-api/api-management-api-settings.png
-[api-management-api-settings-credentials]: ./media/api-management-howto-import-api/api-management-api-settings-credentials.png
-[api-management-api-summary]: ./media/api-management-howto-import-api/api-management-api-summary.png
-[api-management-echo-operations]: ./media/api-management-howto-import-api/api-management-echo-operations.png
 [api-management-export-api]: ./media/api-management-howto-import-api/api-management-export-api.png
 [api-management-export-api-format]: ./media/api-management-howto-import-api/api-management-export-api-format.png
 

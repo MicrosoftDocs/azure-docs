@@ -1,10 +1,10 @@
 <properties title="Track usage in web applications with Application Insights" pageTitle="Track usage in web applications" description="Log user activities." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
  
 # Track usage of web applications
 
-Find out how your web application is being used. Set up usage analytics and you'll find out which pages are users looking at, how many of them come back, and how often they visit your site. Add a few [custom events and metrics][track], and you can analyse in detail the most popular features, the most common mistakes, and tune your app to success with your users.
+Find out how your web application is being used. Set up usage analytics and you'll find out how many users experience your service, how many of them come back,  how often they visit your site, and which pages they look at most. Add a few [custom events and metrics][track], and you can analyse in detail the most popular features, the most common mistakes, and tune your app to success with your users.
 
 Telemetry is gathered from both the client and the server. Client data is collected from all modern web browsers, and server data can be collected if your platform is ASP.NET. (It doesn't have to be running on Azure.) 
 
@@ -15,52 +15,63 @@ Telemetry is gathered from both the client and the server. Client data is collec
 * [Detailed tracking with custom events and metrics](#custom)
 * [Video](#video)
 
+## <a name="webclient"></a> Setting up web client analytics
 
-## <a name="webclient"></a>Set up web usage analytics
+If you chose to add Application Insights when you were creating your web app, you can skip this step. A script will already have been inserted in your web client code. [Skip to the next step](#usage).
 
-**If you're developing an ASP.NET app** and you haven't done this yet, [add Application Insights to your web project][start]. This lets you get telemetry from both client and server.
+#### Get an Application Insights resource in Azure
 
-**For any other type of app,** you can still get telemetry from the web client. Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and add an Application Insights resource.
+**If you're developing an ASP.NET app** and you haven't done this yet, [add Application Insights to your web project][start]. 
+
+In Solution Explorer, right-click your project and choose **Open Application Insights**.
+
+**If your website platform isn't ASP.NET:** Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and add an Application Insights resource.
 
 ![](./media/appinsights/appinsights-11newApp.png)
 
 (You can get back to it later with the Browse button.)
 
+
+#### Add our script to your web pages
+
 In Quick Start, get the script for web pages.
 
 ![](./media/appinsights/appinsights-06webcode.png)
 
-Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there.
+Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example, in an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml
 
 ## <a name="usage"></a>Usage analytics
 
-Run your website, use it a bit to generate telemetry, and wait 1-2 minutes. You can either run it with F5 on your development machine, or deploy it to your server.
+Run your website, use it a bit to generate telemetry, and wait a few seconds. You can either run it with F5 on your development machine, or deploy it to your server.
 
-In the application overview blade, you'll see these usage tiles:
+In the application overview blade, the top chart on the Overview lens shows average load time at the browser, segmented into the time taken to request the page and the time taken to complete it:
 
 ![](./media/appinsights/appinsights-47usage.png)
 
-*No data yet? Click **Refresh** at the top of the page.*
+Scroll down to see the Usage analytics lens:
 
-### Sessions per browser
+![](./media/appinsights/appinsights-47usage-2.png)
 
-A *session* is a period that starts when a user opens any page on your website, and ends after the user has not sent any web request for a timeout period of 30 minutes. 
+*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting][qna].*
 
-Click through to zoom into the chart.
+* **Users:** The count of distinct users over the time range of the chart. (Cookies are used to identify returning users.)
+* **Sessions:** A session is counted when a user has not made any requests for 30 minutes.
+* **Page views** Counts the number of calls to trackPageView(), typically called once in each web page.
 
-### Top page views
+### Click through to more detail
 
-Shows total counts in the last 24 hours.
-
-Click the page views tile to get a more detailed history.
+Click any of the charts to see more detail. Notice that you can change the time range of the charts.
 
 ![](./media/appinsights/appinsights-49usage.png)
 
-Click Time Range to see a longer history up to seven days.
 
-Click a graph to see other metrics that you can display.
+Click a chart to see other metrics that you can display, or add a new chart and select the metrics it displays.
 
 ![](./media/appinsights/appinsights-63usermetrics.png)
+
+> [AZURE.NOTE] Metrics can only be displayed in some combinations. When you select a metric, the incompatible ones are disabled.
+
+
 
 ## <a name="spa"></a> Custom page counts for single-page apps
 
@@ -102,29 +113,10 @@ Want to find out what your users do with your app? By inserting calls in your cl
 [Track usage with custom events and metrics][track]
 
 
-## Application Insights - learn more
-
-* [Application Insights - get started][start]
-* [Monitor a live web server now][redfield]
-* [Monitor performance in web applications][perf]
-* [Search diagnostic logs][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Track usage][usage]
-* [Track custom events and metrics][track]
-* [Q & A and troubleshooting][qna]
-
-<!--Link references-->
 
 
-[start]: ../app-insights-start-monitoring-app-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[perf]: ../app-insights-web-monitor-performance/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
-[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+
 
 
 

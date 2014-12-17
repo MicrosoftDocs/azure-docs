@@ -1,6 +1,6 @@
 <properties pageTitle="How to use the API Inspector to trace calls in Azure API Management" metaKeywords="" description="Learn how to trace calls using the API Inspector in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to use the API Inspector to trace calls in Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
 # How to use the API Inspector to trace calls in Azure API Management
 
@@ -208,10 +208,7 @@ To review the values in the trace, download the trace file from the **ocp-apim-t
 [api-management-developer-key]: ./media/api-management-howto-api-inspector/api-management-developer-key.png
 [api-management-open-console]: ./media/api-management-howto-api-inspector/api-management-open-console.png
 [api-management-http-get]: ./media/api-management-howto-api-inspector/api-management-http-get.png
-[api-management-]: ./media/api-management-howto-api-inspector/api-management-.png
-[api-management-]: ./media/api-management-howto-api-inspector/api-management-.png
-[api-management-]: ./media/api-management-howto-api-inspector/api-management-.png
-[api-management-]: ./media/api-management-howto-api-inspector/api-management-.png
+
 
 
 

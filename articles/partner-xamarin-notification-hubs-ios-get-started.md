@@ -1,6 +1,6 @@
 <properties urlDisplayName="Get Started" pageTitle="Get Started with Notification Hubs for Xamarin iOS apps" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications to a Xamarin iOS application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" services="mobile-services,notification-hubs" documentationCenter="" title="Get started with Notification Hubs" authors="donnam" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 
 # Get started with Notification Hubs
 
@@ -38,7 +38,7 @@ The Apple Push Notification Service (APNS) uses certificates to authenticate you
 
 
 
-<h2><a name="certificates"></a><span class="short-header">Generate CSR file</span>Generate the Certificate Signing Request file</h2>
+<h2><a name="certificates"></a>Generate the Certificate Signing Request file</h2>
 
 First you must generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed certificate.
 
@@ -60,7 +60,7 @@ First you must generate the Certificate Signing Request (CSR) file, which is use
 
 Next, register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.
 
-<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
+<h2><a name="register"></a>Register your app for push notifications</h2>
 
 To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and also register for push notifications.  
 
@@ -140,7 +140,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 	Later, you will use this certificate to generate a .p12 file and upload it to your notification hub to enable push notifications through APNS.
 
-<h2><a name="profile"></a><span class="short-header">Provision the app</span>Create a provisioning profile for the app</h2>
+<h2><a name="profile"></a>Create a provisioning profile for the app</h2>
  
 1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This displays the **Add iOS Provisioning Profile** Wizard.
 
@@ -182,7 +182,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to your notification hub.
 
-<h2><a name="configure-hub"></a><span class="short-header">Configure your Notification Hub</span>Configure your Notification Hub</h2>
+<h2><a name="configure-hub"></a>Configure your Notification Hub</h2>
 
 1. Log on to the [Azure Management Portal], and click **+NEW** at the bottom of the screen.
 
@@ -212,7 +212,7 @@ This ensures that the Xcode project uses the new profile for code signing. Next,
 
 Your notification hub is now configured to work with APNs, and you have the connection strings to register your app and send notifications.
 
-<h2><a name="connecting-app"></a><span class="short-header">Connecting your app</span>Connecting your app to the Notification Hub</h2>
+<h2><a name="connecting-app"></a>Connecting your app to the Notification Hub</h2>
 
 ### Download the WindowsAzure.Messaging library
 
@@ -331,7 +331,7 @@ This assembly provides an easy way to register with Azure Notification Hubs. It 
 	
 11. Run the app on your device.
 
-<h2><a name="send"></a><span class="short-header">Send notification</span>Send notification from your back-end</h2>
+<h2><a name="send"></a>Send notification from your back-end</h2>
 
 You can send notifications using Notification Hubs from any back-end using our <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we will send notifications with a .NET console app, and with a Mobile Service using a node script.
 

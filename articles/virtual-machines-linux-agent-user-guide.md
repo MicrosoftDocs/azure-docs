@@ -1,6 +1,6 @@
-<properties urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Azure" metaKeywords="" description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Azure" metaKeywords="" description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
 
 
 
@@ -10,31 +10,29 @@
 
 ##Introduction
 
-The Azure Linux Agent (waagent) manages virtual machine interaction with the Azure Fabric Controller. It provides the following functionality for Linux IaaS deployments:
+The Azure Linux Agent (waagent) manages interaction between a virtual machine and the Azure Fabric Controller. It does the following:
 
 * **Image Provisioning**
-  - Creation of a user account
-  - Configuring SSH authentication types
-  - Deployment of SSH public keys and key pairs
-  - Setting the host name
-  - Publishing the host name to the platform DNS
-  - Reporting SSH host key fingerprint to the platform
-  - Resource Disk Management
-  - Formatting and mounting the resource disk
-  - Configuring swap space
+  - Create a user account
+  - Configure SSH authentication types
+  - Deploy SSH public keys and key pairs
+  - Sets the host name
+  - Publishes the host name to the platform DNS
+  - Reports SSH host key fingerprint to the platform
+  - Manages the resource disk
+  - Formats and mounts the resource disk
+  - Configures swap space
 * **Networking**
   - Manages routes to improve compatibility with platform DHCP servers
   - Ensures the stability of the network interface name
 * **Kernel**
-  - Configuring virtual NUMA
-  - Consume Hyper-V entropy for /dev/random
-  - Configuring SCSI timeouts for the root device (which could be remote)
+  - Configures virtual NUMA
+  - Consumes Hyper-V entropy for /dev/random
+  - Configures SCSI timeouts for the root device (which could be remote)
 * **Diagnostics**
-  - Console redirection to the serial port
+  - Redirects the console to the serial port
 * **SCVMM Deployments**
-    - Detect and bootstrap the VMM agent for Linux when running in a System
-      Center Virtual Machine Manager 2012 R2 environment
-
+    - Detects and bootstraps the VMM agent for Linux when running in a System Center Virtual Machine Manager 2012 R2 environment
 
 The information flow from the platform to the agent occurs via two channels:
 
@@ -42,14 +40,15 @@ The information flow from the platform to the agent occurs via two channels:
 
 * A TCP endpoint exposing a REST API used to obtain deployment and topology configuration.
 
-###Obtaining the Linux Agent
-You can obtain the Latest Linux Agent directly from:
+###Getting the Linux Agent
+You can get the Latest Linux Agent directly from:
 
 - [The different Distribution providers endorsing Linux on Azure](http://support.microsoft.com/kb/2805216)
 - or from the [Github Open Source Repository for the Azure Linux Agent](https://github.com/WindowsAzure/WALinuxAgent)
 
 
 ###Supported Linux Distributions
+* CoreOS
 * CentOS 6.2+
 * Debian 7.0+
 * Ubuntu 12.04+

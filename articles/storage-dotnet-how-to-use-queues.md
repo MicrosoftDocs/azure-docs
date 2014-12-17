@@ -1,6 +1,6 @@
 <properties urlDisplayName="Queue Service" pageTitle="How to use queue storage from .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 
 # How to use Queue Storage from .NET
 
@@ -32,15 +32,15 @@ to the [Next steps][] section.
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-## <h2><a name="create-account"></a><span  class="short-header">Create an account</span>Create an Azure Storage account</h2>
+## <h2><a name="create-account"></a>Create an Azure Storage account</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-## <h2><a name="setup-connection-string"></a><span  class="short-header">Setup a connection string</span>Setup an Azure Storage Connection String</h2>
+## <h2><a name="setup-connection-string"></a>Setup an Azure Storage Connection String</h2>
 
 [WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
-## <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access Queue storage
+## <a name="configure-access"> </a>How to: Programmatically access Queue storage
 
 <h3>Obtaining the assembly</h3>
 You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
@@ -79,7 +79,7 @@ If you are creating an application with no reference to Microsoft.WindowsAzure.C
 <h3>ODataLib dependencies</h3>
 ODataLib dependencies in the Storage Client Library for .NET are resolved through the ODataLib (version 5.0.2) packages available through NuGet and not WCF Data Services.  The ODataLib libraries can be downloaded directly or referenced by your code project through NuGet.  The specific ODataLib packages are [OData], [Edm], and [Spatial].
 
-<h2><a name="create-queue"></a><span  class="short-header">Create a queue</span>How to: Create a queue</h2>
+<h2><a name="create-queue"></a>How to: Create a queue</h2>
 
 A **CloudQueueClient** object lets you get reference objects for queues.
 The following code creates a **CloudQueueClient** object. All code in
@@ -104,7 +104,7 @@ to use. You can create the queue if it doesn't exist.
     // Create the queue if it doesn't already exist
     queue.CreateIfNotExists();
 
-<h2><a name="insert-message"> </a><span  class="short-header">Insert a message</span>How to: Insert a message into a queue</h2>
+<h2><a name="insert-message"> </a>How to: Insert a message into a queue</h2>
 
 To insert a message into an existing queue, first create a new
 **CloudQueueMessage**. Next, call the **AddMessage** method. A
@@ -129,7 +129,7 @@ doesn't exist) and inserts the message 'Hello, World':
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     queue.AddMessage(message);
 
-<h2><a name="peek-message"></a><span  class="short-header">Peek at the next message</span>How to: Peek at the next message</h2>
+<h2><a name="peek-message"></a>How to: Peek at the next message</h2>
 
 You can peek at the message in the front of a queue without removing it
 from the queue by calling the **PeekMessage** method.
@@ -150,7 +150,7 @@ from the queue by calling the **PeekMessage** method.
 	// Display message.
 	Console.WriteLine(peekedMessage.AsString);
 
-<h2><a name="change-contents"></a><span  class="short-header">Change message contents</span>How to: Change the contents of a queued message</h2>
+<h2><a name="change-contents"></a>How to: Change the contents of a queued message</h2>
 
 You can change the contents of a message in-place in the queue. If the
 message represents a work task, you could use this feature to update the
@@ -182,7 +182,7 @@ that triggers an application error each time it is processed.
         TimeSpan.FromSeconds(0.0),  // Make it visible immediately.
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 
-<h2><a name="get-message"></a><span  class="short-header">De-queue the next message</span>How to: De-queue the next message</h2>
+<h2><a name="get-message"></a>How to: De-queue the next message</h2>
 
 Your code de-queues a message from a queue in two steps. When you call
 **GetMessage**, you get the next message in a queue. A message returned
@@ -211,7 +211,7 @@ has been processed.
     //Process the message in less than 30 seconds, and then delete the message
     queue.DeleteMessage(retrievedMessage);
 
-<h2><a name="advanced-get"></a><span  class="short-header">More de-queueing options</span>How to: Leverage additional options for de-queuing messages</h2>
+<h2><a name="advanced-get"></a>How to: Leverage additional options for de-queuing messages</h2>
 
 There are two ways you can customize message retrieval from a queue.
 First, you can get a batch of messages (up to 32). Second, you can set a
@@ -240,7 +240,7 @@ will become visible again.
         queue.DeleteMessage(message);
     }
 
-<h2><a name="get-queue-length"></a><span  class="short-header">Get the queue length</span>How to: Get the queue length</h2>
+<h2><a name="get-queue-length"></a>How to: Get the queue length</h2>
 
 You can get an estimate of the number of messages in a queue. The
 **FetchAttributes** method asks the Queue service to
@@ -267,7 +267,7 @@ property returns the last value retrieved by the
 	// Display number of messages.
 	Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
-<h2><a name="delete-queue"></a><span  class="short-header">Delete a queue</span>How to: Delete a queue</h2>
+<h2><a name="delete-queue"></a>How to: Delete a queue</h2>
 
 To delete a queue and all the messages contained in it, call the
 **Delete** method on the queue object.
@@ -299,7 +299,7 @@ to learn how to do more complex storage tasks.
   </ul>
 </li>
 <li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
-<li>Learn how to work with Azure Storage in backend processes for Azure Websites at <a href="/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/">Get Started with the Azure WebJobs SDK</a>.</li>
+<li>Learn how to simplify the code you write to work with Azure Storage by using the <a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK.</li>
 <li>View more feature guides to learn about additional options for storing data in Azure.
   <ul>
     <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>

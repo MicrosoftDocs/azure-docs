@@ -1,6 +1,6 @@
 <properties title="Monitor your app's health and usage with Application Insights" pageTitle="Monitor your app's health and usage with Application Insights" description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
  
 # Monitor performance in web applications
 
@@ -9,53 +9,28 @@
 
 Make sure your application is performing well, and find out quickly about any failures. [Application Insights][start] will tell you about any performance issues and exceptions, and help you find and diagnose the root causes.
 
-Application Insights can monitor ASP.NET web applications hosted on-premise or on virtual machines, as well as Microsoft Azure websites. 
+Application Insights can monitor ASP.NET web applications and WCF services, hosted on-premise or on virtual machines, as well as Microsoft Azure websites. 
 
-* [Set up performance monitoring](#setup)
-* [See the data](#view)
-* [What does it all mean?](#metrics)
-* [Diagnosing issues](#diagnosis)
-* [Next steps](#next)
 
 ## <a name="setup"></a>Set up performance monitoring
 
 If you haven't yet added Application Insights to your project (that is, if it doesn't have ApplicationInsights.config), choose one of these ways to get started:
 
-* [Add Application Insights to your app project in Visual Studio][start] - Recommended. As well as passive performance monitoring, you can insert diagnostic logging and track usage.
+* [Add Application Insights to your project in Visual Studio][greenbrown] - Recommended. As well as passive performance monitoring, you can insert diagnostic logging and track usage.
 * [Monitor performance of a live website now][redfield] - This way, you don't need to update the application project or redeploy the website.
 * [For a Microsoft Azure website](../insights-how-to-customize-monitoring/)  you can already see metrics on the website's Monitoring lens. 
 
-
-## <a name="view"></a>View reports
-
-Run your application with F5 and try it out - open different pages.
-
-In Visual Studio, you'll see a count of the events that have been received.
-
-![](./media/appinsights/appinsights-09eventcount.png)
+Using either of these methods, you'll quickly see data on the overview blade in Application Insights.
 
 
-Open Application Insights from your project.
+## <a name="view"></a>Exploring metrics
 
-![Right-click your project and open the Azure portal](./media/appinsights/appinsights-04-openPortal.png)
-
-
-Look for data in the **Application health** tiles. At first, you'll just see one or two points. For example:
-
-![Click through to more data](./media/appinsights/appinsights-41firstHealth.png)
-
-When you run in debug mode, telemetry is expedited through the pipeline, so that you should see data appearing within seconds. When you deploy your app, data accumulates more slowly.
-
-If you don't see data at first, wait a minute and then click Refresh.
-
-### Exploring metrics
-
-Click any tile to see more detail, and to see results for a longer period. For example, click the Requests tile and then select a time range:
+Click any  to see more detail, and to see results for a longer period. For example, click the Requests tile and then select a time range:
 
 
 ![Click through to more data and select a time range](./media/appinsights/appinsights-48metrics.png)
 
-Click a graph to choose which metrics it displays:
+Click a chart to choose which metrics it displays, or add a new chart and select its metrics:
 
 ![Click a graph to choose metrics](./media/appinsights/appinsights-61perfchoices.png)
 
@@ -112,8 +87,19 @@ To see what other metrics you can display, click a graph, and then deselect all 
 ![Deselect all metrics to see the whole set](./media/appinsights/appinsights-62allchoices.png)
 
 
-Selecting any metric will hide the others that can't appear on the same chart.
+Selecting any metric will disable the others that can't appear on the same chart.
 
+## Set alerts
+
+To be notified by email of unusual values of any metric, add an alert. You can choose either to send the email to the account administrators, or to specific email addresses.
+
+![](./media/appinsights/appinsights-413setMetricAlert.png)
+
+Set the resource before the other properties. Don't choose the webtest resources if you want to set alerts on performance or usage metrics.
+
+Be careful to note the units in which you're asked to enter the threshold value.
+
+*I don't see the Add Alert button.* - That's probably because you have read-only access. 
 
 ## <a name="diagnosis"></a>Diagnosing issues
 
@@ -135,27 +121,7 @@ Here are a few tips for finding and diagnosing performance issues:
 
 
 
-## Application Insights - learn more
-
-* [Application Insights - get started][start]
-* [Monitor a live web server now][redfield]
-* [Monitor performance in web applications][perf]
-* [Search diagnostic logs][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Track usage][usage]
-* [Track custom events and metrics][track]
-* [Q & A and troubleshooting][qna]
-
-<!--Link references-->
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
 
-[start]: ../app-insights-start-monitoring-app-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[perf]: ../app-insights-web-monitor-performance/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
-[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
 

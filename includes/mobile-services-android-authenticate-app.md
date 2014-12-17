@@ -1,35 +1,40 @@
 
 1. In the Package Explorer in Eclipse, open the ToDoActivity.java file and add the following import statements.
 
-		import com.microsoft.windowsazure.mobileservices.MobileServiceUser;
-		import com.microsoft.windowsazure.mobileservices.MobileServiceAuthenticationProvider;
-		import com.microsoft.windowsazure.mobileservices.UserAuthenticationCallback;
+		import java.util.concurrent.ExecutionException;
+		import java.util.concurrent.atomic.AtomicBoolean;
+
+		import android.content.Context;
+		import android.content.SharedPreferences;
+		import android.content.SharedPreferences.Editor;
+
+		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
+		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
 2. Add the following method to the **ToDoActivity** class: 
 	
-		private void authenticate() {
-		
-			// Login using the Google provider.
-			mClient.login(MobileServiceAuthenticationProvider.Google,
-					new UserAuthenticationCallback() {
-	
-						@Override
-						public void onCompleted(MobileServiceUser user,
-								Exception exception, ServiceFilterResponse response) {
-	
-							if (exception == null) {
-								createAndShowDialog(String.format(
-												"You are now logged in - %1$2s",
-												user.getUserId()), "Success");
-								createTable();
-							} else {
-								createAndShowDialog("You must log in. Login Required", "Error");
-							}
-						}
-					});
-		}
+	private void authenticate() {
+	    // Login using the Google provider.
+	    
+		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
 
-    This creates a new method to handle the authentication process. The user is authenticated by using a Google login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
+    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+    		@Override
+    		public void onFailure(Throwable exc) {
+    			createAndShowDialog((Exception) exc, "Error");
+    		}   		
+    		@Override
+    		public void onSuccess(MobileServiceUser user) {
+    			createAndShowDialog(String.format(
+                        "You are now logged in - %1$2s",
+                        user.getUserId()), "Success");
+    			createTable();	
+    		}
+    	});   	
+	}
+
+
+	This creates a new method to handle the authentication process. The user is authenticated by using a Google login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
 
     <div class="dev-callout"><b>Note</b>
 	<p>If you are using an identity provider other than Google, change the value passed to the <strong>login</strong> method above to one of the following: <em>MicrosoftAccount</em>, <em>Facebook</em>, <em>Twitter</em>, or <em>windowsazureactivedirectory</em>.</p>

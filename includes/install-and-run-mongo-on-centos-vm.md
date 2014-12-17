@@ -58,9 +58,15 @@ Follow these steps to install and run MongoDB on a virtual machine running CentO
 	
 	![Endpoints][Image8]
 
-9. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". This will allow MongoDB to be accessed remotely.
-	
-	![Endpoints][Image9]
+9. Add an endpoint with the following settings:
+
+ - **Name**: Mongo
+ - **Protocol**: TCP
+ - **Public Port**: 27017
+ - **Private Port**: 27017
+ 
+ This will allow MongoDB to be accessed remotely.
+
 
 
 [QuickStartUnix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
@@ -68,4 +74,3 @@ Follow these steps to install and run MongoDB on a virtual machine running CentO
 
 [Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
-[Image9]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint3.png

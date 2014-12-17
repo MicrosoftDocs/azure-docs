@@ -1,4 +1,4 @@
-<properties title="Getting started using Storm with Hadoop in HDInsight" pageTitle="Getting started using Apache Storm with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process data in realtime with HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" />
+<properties title="Getting started using Storm with Hadoop in HDInsight" pageTitle="Getting started using Apache Storm with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process data in realtime with HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
@@ -124,22 +124,22 @@ The WordCountTopology sample doesn't write output to a directory, but we can use
 
 6. You should see a page containing information similar to the following.
 
-		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: spout default [snow white and the seven dwarfs] 
-		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:17, stream: default, id: {}, [and] 
-		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [and, 16774] 
-		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:20, stream: default, id: {}, [and] 
-		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [and, 16775] 
-		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:17, stream: default, id: {}, [dwarfs] 
-		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [dwarfs, 8359] 
-		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:20, stream: default, id: {}, [dwarfs] 
-		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [dwarfs, 8360] 
-		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: spout default [i am at two with nature] 
-		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:23, stream: default, id: {}, [two] 
-		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [two, 8236] 
-		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:22, stream: default, id: {}, [a] 
-		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [a, 8280] 
-		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:19, stream: default, id: {}, [and] 
-		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [and, 16776] 
+		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: spout default [snow white and the seven dwarfs]
+		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:17, stream: default, id: {}, [and]
+		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [and, 16774]
+		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:20, stream: default, id: {}, [and]
+		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [and, 16775]
+		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:17, stream: default, id: {}, [dwarfs]
+		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [dwarfs, 8359]
+		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:20, stream: default, id: {}, [dwarfs]
+		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [dwarfs, 8360]
+		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: spout default [i am at two with nature]
+		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:23, stream: default, id: {}, [two]
+		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [two, 8236]
+		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:22, stream: default, id: {}, [a]
+		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [a, 8280]
+		2014-09-24 14:16:22 b.s.d.executor [INFO] Processing received message source: split:19, stream: default, id: {}, [and]
+		2014-09-24 14:16:22 b.s.d.task [INFO] Emitting: count default [and, 16776]
 
 	From this snippet, you can see that the spout emitted 'snow white and the seven dwarfs', which was split into individual words. Also, a count is being kept for how many times each word has been processed by the topology since it was started. For example, the word 'dwarfs' had been emitted 8360 times by the spout when the above output was viewed.
 

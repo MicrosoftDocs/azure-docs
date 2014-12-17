@@ -1,17 +1,17 @@
-<properties title="DocumentDB resource model and concepts" pageTitle="DocumentDB resource model and concepts | Azure" description="DocumentDB manages resources, uniquely identified by logical URIs, that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="DocumentDB resource model and concepts" pageTitle="DocumentDB resource model and concepts | Azure" description="DocumentDB nosql document database manages resources, uniquely identified by logical URIs developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 #DocumentDB Resource Model and Concepts
 
-DocumentDB offers a simple and open RESTful programming model over HTTP. The entities that DocumentDB manages are referred to as **resources** that are uniquely identified by their logical URI. Developers can interact with the resources using standard HTTP verbs, request/response headers and status codes. As the following diagram illustrates, DocumentDB’s **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI.  
+DocumentDB nosql document database service offers a simple and open RESTful programming model over HTTP. The entities that DocumentDB manages are referred to as **resources** that are uniquely identified by their logical URI. Developers can interact with the resources using standard HTTP verbs, request/response headers and status codes. As the following diagram illustrates, DocumentDB’s **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI.  
 
->[AZURE.NOTE] Additionally, it also offers a highly efficient TCP protocol which is also RESTful in its communication model that is available through the .NET client SDK.
+>[AZURE.NOTE] DocumentDB also offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the .NET client SDK.
 
 ![][1]  
 **Hierarchical resource model under a database account**   
 
-As a customer of DocumentDB, you start by provisioning a DocumentDB **database account** using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in-turn contain **stored procedures, triggers, UDFs, documents** and related **attachments**. A database also has associated **users** each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
+Start by provisioning a DocumentDB **database account** using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in-turn contain **stored procedures, triggers, UDFs, documents** and related **attachments**. A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
 
 <table width = "400">
     <tbody>

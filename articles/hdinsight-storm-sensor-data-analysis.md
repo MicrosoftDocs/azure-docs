@@ -1,4 +1,4 @@
-<properties title="Analyzing sensor data with Storm and HDInsight" pageTitle="Analyzing sensor data with Apache Storm and Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process sensor data in realtime with HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" />
+<properties title="Analyzing sensor data with Storm and HDInsight" pageTitle="Analyzing sensor data with Apache Storm and Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process sensor data in realtime with HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
@@ -102,16 +102,16 @@ The website also contains a static index.html file, which also connects to Signa
 		<head>
 		    <title>Dashboard</title>
 		    <style>
-		
+
 		        .x.axis line {
 		            shape-rendering: auto;
 		        }
-		
+
 		        .line {
 		            fill: none;
 		            stroke-width: 1.5px;
 		        }
-		
+
 		    </style>
 		    <!--Script references. -->
 		    <!--Reference the jQuery library. -->
@@ -135,7 +135,7 @@ The website also contains a static index.html file, which also connects to Signa
 		            //each item in the top-level array is a line
 		            //each item in the line arrays represents the X coordinate across a graph
 		            //The 'value' within each line array represents the Y coordinate for that point
-		            data = [                                 
+		            data = [
 		                d3.range(n).map(function () { return { value: 0 }; }),
 		                d3.range(n).map(function () { return { value: 0 }; }),
 		                d3.range(n).map(function () { return { value: 0 }; }),
@@ -148,29 +148,29 @@ The website also contains a static index.html file, which also connects to Signa
 		                d3.range(n).map(function () { return { value: 0 }; }),
 		                d3.range(n).map(function () { return { value: 0 }; })
 		            ];
-		
+
 		            //Color scale for 10 items
 		            var color = d3.scale.category10();
 		            //The domain for color (the device IDs)
 		            var devices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 		            //This will auto-generate colors for this range of IDs
 		            color.domain(devices);
-		
+
 		            //set margins and figure out width/height
 		            var margin = {top: 6, right: 0, bottom: 20, left: 40},
 		                width = 960 - margin.right,
 		                height = 240 - margin.top - margin.bottom;
-		
+
 		            //the time scale for the X axis
 		            var x = d3.time.scale()
 		                .domain([now - (n - 2) * duration, now - duration])
 		                .range([0, width]);
-		
+
 		            //the numerical scale for the Y axis
 		            var y = d3.scale.linear()
 		                .domain([100, 0])
 		                .range([0, height]);
-		
+
 		            //The line, which is really just a
 		            //couple functions that we can pass data to
 		            //in order to get back x/y coords.
@@ -178,14 +178,14 @@ The website also contains a static index.html file, which also connects to Signa
 		                .interpolate("basis")
 		                .x(function (d, i) { return x(now - (n - 1 - i) * duration); })
 		                .y(function (d, i) { return y(d.value); });
-		
+
 		            //Find the HTML body element and add a child SVG element
 		            var svg = d3.select("body").append("svg")
 		                .attr("width", width + margin.left + margin.right)
 		                .attr("height", height + margin.top + margin.bottom)
 		              .append("g")
 		                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-		
+
 		            //Define a clipping path, because we need to clip
 		            //the graph to render only the bits we want to see
 		            //as it moves
@@ -194,22 +194,22 @@ The website also contains a static index.html file, which also connects to Signa
 		              .append("rect")
 		                .attr("width", width)
 		                .attr("height", height);
-		
+
 		            //Append the x axis
 		            var axis = svg.append("g")
 		                .attr("class", "x axis")
 		                .attr("transform", "translate(0," + height + ")")
 		                .call(x.axis = d3.svg.axis().scale(x).orient("bottom"));
-		
+
 		            //append the y axis
 		            var yaxis = svg.append("g")
 		                .attr("class", "y axis")
 		                .call(y.axis = d3.svg.axis().scale(y).orient("left").ticks(5));
-		
+
 		            //append the clipping path
 		            var linegroup = svg.append("g")
 		              .attr("clip-path", "url(#clip)");
-		
+
 		            //magic. Select all paths with a class of .line
 		            //if they don't exist, make them.
 		            //use the points in the line object to define
@@ -221,7 +221,7 @@ The website also contains a static index.html file, which also connects to Signa
 		              .attr("class", "line")
 		              .attr("d", line)
 		              .style("stroke", function (d, i) { return color(i); });
-		
+
 		            //We need to transition the graph after all
 		            //lines have been updated. There's no
 		            //built-in for this, so this function
@@ -234,7 +234,7 @@ The website also contains a static index.html file, which also connects to Signa
 		                    .each(function () { ++n; })
 		                    .each("end", function () { if (!--n) callback.apply(this, arguments); });
 		            }
-		
+
 		            //wire up the SignalR client and listen for messages
 		            var chat = $.connection.dashHub;
 		            chat.client.broadcastMessage = function (message) {
@@ -242,18 +242,18 @@ The website also contains a static index.html file, which also connects to Signa
 		                var incomingData = JSON.parse(message);
 		                //stuff it in the global array slot for the device ID
 		                deviceValue[incomingData.device] = incomingData.temperature;
-		
+
 		            };
 		            //start listening
 		            $.connection.hub.start();
 		            //tick for D3 graphics
 		            tick();
-		
+
 		            function tick() {
 		                // update the domains
 		                now = new Date();
 		                x.domain([now - (n - 2) * duration, now - duration]);
-		    
+
 		                //push the (presumably) fresh data deviceValue array onto
 		                //the arrays that define the lines.
 		                for (i = 0; i < 10; i++) {
@@ -265,7 +265,7 @@ The website also contains a static index.html file, which also connects to Signa
 		                    .duration(duration)
 		                    .ease("linear")
 		                    .call(x.axis);
-		
+
 		                //Update the paths based on the updated line data
 		                //and slide left
 		                path
@@ -276,7 +276,7 @@ The website also contains a static index.html file, which also connects to Signa
 		                    .ease("linear")
 		                    .attr("transform", "translate(" + x(now - (n - 1) * duration) + ",0)")
 		                    .call(endall, tick);
-		    
+
 		                // pop the old data point off the front
 		                // of the arrays
 		                for (var i = 0; i < data.length; i++) {
@@ -411,18 +411,18 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 		using Newtonsoft.Json;
 		using Microsoft.ServiceBus;
 		using System.Threading;
-		
+
 		namespace SendEvents
 		{
 		    class Program
 		    {
-		
+
 		        static int numberOfDevices = 10;
 		        static string eventHubName = "temperature";
 		        static string eventHubNamespace = "namespace";
 		        static string sharedAccessPolicyName = "devices";
 		        static string sharedAccessPolicyKey = "key for devices policy";
-		
+
 		        static void Main(string[] args)
 		        {
 		            var settings = new MessagingFactorySettings()
@@ -432,12 +432,12 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 		            };
 		            var factory = MessagingFactory.Create(
 		                 ServiceBusEnvironment.CreateServiceUri("sb", eventHubNamespace, ""), settings);
-		
+
 		            EventHubClient client = factory.CreateEventHubClient(eventHubName);
-		 
+
 		            try
 		            {
-		
+
 		                List<Task> tasks = new List<Task>();
 		                // Send messages to Event Hub
 		                Console.WriteLine("Sending messages to Event Hub {0}", client.Path);
@@ -449,7 +449,7 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 		                    for(int devices = 0; devices < numberOfDevices; devices++)
 		                    {
 		                        // Create the device/temperature metric
-		                        Event info = new Event() { 
+		                        Event info = new Event() {
 		                            TimeStamp = DateTime.UtcNow,
 		                            DeviceId = random.Next(numberOfDevices),
 		                            Temperature = random.Next(100)
@@ -461,21 +461,21 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 		                        {
 		                            PartitionKey = info.DeviceId.ToString()
 		                        };
-		
+
 		                        // Send the metric to Event Hub
 		                        tasks.Add(client.SendAsync(data));
 		                    }
 		                    // Sleep a second
 		                    Thread.Sleep(1000);
 		                };
-		
+
 		                Task.WaitAll(tasks.ToArray());
 		            }
 		            catch (Exception exp)
 		            {
 		                Console.WriteLine("Error on send: " + exp.Message);
 		            }
-		
+
 		        }
 		    }
 		}
@@ -505,11 +505,11 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 
 		namespace SendEvents
 		{
-			[DataMember]
-        	public DateTime TimeStamp { get; set; }
 		    [DataContract]
 		    public class Event
 		    {
+		    	[DataMember]
+		    	public DateTime TimeStamp { get; set; }
 		        [DataMember]
 		        public int DeviceId { get; set; }
 		        [DataMember]
@@ -551,7 +551,7 @@ In order for the topology running on the Storm cluster to communicate directly w
 
 	> [WACOM.NOTE] In this article, we will be using clusters with only one node. If you are creating multi-node clusters, you must verify the **CIDR(ADDRESS COUNT)** for the subnet that will be used for the cluster. The address count must be greater than the number of worker nodes plus seven (Gateway: 2, Headnode: 2, Zookeeper: 3). For example, if you need a 10 node HBase cluster, the address count for the subnet must be greater than 17 (10+7). Otherwise the deployment will fail.
 	>
-	> It is highly recommended to designate a single subnet for one cluster. 
+	> It is highly recommended to designate a single subnet for one cluster.
 
 11. Click **Save** on the bottom of the page.
 
@@ -838,7 +838,7 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 		eventhubspout.password = <the key of the 'storm' policy>
 
 		eventhubspout.namespace = <the event hub namespace>
-
+		# The name of the event hub
 		eventhubspout.entitypath = temperature
 
 		eventhubspout.partitions.count = <the number of partitions for the event hub>
@@ -943,19 +943,19 @@ Bolts do the main processing in a topology. For this topology there are three bo
 2. Use the following as the contents of the **ParserBolt.java** file.
 
 		package com.microsoft.examples;
-		
+
 		import backtype.storm.topology.base.BaseBasicBolt;
 		import backtype.storm.topology.BasicOutputCollector;
 		import backtype.storm.topology.OutputFieldsDeclarer;
 		import backtype.storm.tuple.Tuple;
 		import backtype.storm.tuple.Fields;
 		import backtype.storm.tuple.Values;
-		
+
 		import com.google.gson.Gson;
 		import com.google.gson.GsonBuilder;
-		
+
 		public class ParserBolt extends BaseBasicBolt {
-		
+
 		  //Declare output fields & streams
 		  //hbasestream is all fields, and goes to hbase
 		  //dashstream is just the device and temperature, and goes to the dashboard
@@ -964,30 +964,37 @@ Bolts do the main processing in a topology. For this topology there are three bo
 		    declarer.declareStream("hbasestream", new Fields("timestamp", "deviceid", "temperature"));
 		    declarer.declareStream("dashstream", new Fields("deviceid", "temperature"));
 		  }
-		
+
 		  //Process tuples
 		  @Override
 		  public void execute(Tuple tuple, BasicOutputCollector collector) {
 		    Gson gson = new Gson();
 		    //Should only be one tuple, which is the JSON message from the spout
 		    String value = tuple.getString(0);
-		
-		    //Convert it from JSON to an object
-		    EventHubMessage evMessage = gson.fromJson(value, EventHubMessage.class);
-		    
-		    //Pull out the values and emit as a stream
-		    String timestamp = evMessage.TimeStamp;
-		    int deviceid = evMessage.DeviceId;
-		    int temperature = evMessage.Temperature;
-		    collector.emit("hbasestream", new Values(timestamp, deviceid, temperature));
-		    collector.emit("dashstream", new Values(deviceid, temperature));
+
+			//Deal with cases where we get multiple
+			//EventHub messages in one tuple
+			String[] arr = value.split("}");
+			for (String ehm : arr)
+			{
+
+			    //Convert it from JSON to an object
+				EventHubMessage msg = new Gson().fromJson(ehm.concat("}"),EventHubMessage.class);
+
+			    //Pull out the values and emit as a stream
+			    String timestamp = msg.TimeStamp;
+			    int deviceid = msg.DeviceId;
+			    int temperature = msg.Temperature;
+			    collector.emit("hbasestream", new Values(timestamp, deviceid, temperature));
+			    collector.emit("dashstream", new Values(deviceid, temperature));
+			}
 		  }
 		}
 
 3. Use the following as the contents of the **DashboardBolt.java** file.
 
 		package com.microsoft.examples;
-		
+
 		import backtype.storm.topology.BasicOutputCollector;
 		import backtype.storm.topology.OutputFieldsDeclarer;
 		import backtype.storm.topology.base.BaseBasicBolt;
@@ -995,7 +1002,7 @@ Bolts do the main processing in a topology. For this topology there are three bo
 		import backtype.storm.task.TopologyContext;
 		import backtype.storm.Config;
 		import backtype.storm.Constants;
-		
+
 		import microsoft.aspnet.signalr.client.Action;
 		import microsoft.aspnet.signalr.client.ErrorCallback;
 		import microsoft.aspnet.signalr.client.LogLevel;
@@ -1003,26 +1010,26 @@ Bolts do the main processing in a topology. For this topology there are three bo
 		import microsoft.aspnet.signalr.client.MessageReceivedHandler;
 		import microsoft.aspnet.signalr.client.hubs.HubConnection;
 		import microsoft.aspnet.signalr.client.hubs.HubProxy;
-		
+
 		import com.google.gson.Gson;
 		import com.google.gson.GsonBuilder;
-		
+
 		import java.util.Map;
-		
+
 		public class DashboardBolt extends BaseBasicBolt {
 		  //Connection and proxy for SignalR hub
 		  private HubConnection conn;
 		  private HubProxy proxy;
-		
+
 		  //Declare output fields
 		  @Override
 		  public void declareOutputFields(OutputFieldsDeclarer declarer) {
 		    //no stream output - we talk directly to SignalR
 		  }
-		
+
 		  @Override
 		  public void prepare(Map config, TopologyContext context) {
-		
+
 		    // Connect to the DashHub SignalR server
 		    conn = new HubConnection("http://dashboard.azurewebsites.net/");
 		    // Create the hub proxy
@@ -1057,7 +1064,7 @@ Bolts do the main processing in a topology. For this topology there are three bo
 		        }
 		    });
 		  }
-		
+
 		  //Process tuples
 		  @Override
 		  public void execute(Tuple tuple, BasicOutputCollector collector) {
@@ -1092,7 +1099,7 @@ The topology describes how data flows between the spouts and bolts in a topology
 2. Open the **Temperature.java** file and use the following as the contents.
 
 		package com.microsoft.examples;
-		
+
 		import backtype.storm.Config;
 		import backtype.storm.LocalCluster;
 		import backtype.storm.StormSubmitter;
@@ -1101,22 +1108,22 @@ The topology describes how data flows between the spouts and bolts in a topology
 		import backtype.storm.tuple.Fields;
 		import com.microsoft.eventhubs.spout.EventHubSpout;
 		import com.microsoft.eventhubs.spout.EventHubSpoutConfig;
-		
+
 		import java.io.FileReader;
 		import java.util.Properties;
-		
+
 		//hbase
 		import org.apache.storm.hbase.bolt.mapper.SimpleHBaseMapper;
 		import org.apache.storm.hbase.bolt.HBaseBolt;
 		import java.util.Map;
 		import java.util.HashMap;
 		import backtype.storm.tuple.Fields;
-		
+
 		public class Temperature
 		{
 		  protected EventHubSpoutConfig spoutConfig;
 		  protected int numWorkers;
-		
+
 		  // Reads the configuration information for the Event Hub spout
 		  protected void readEHConfig(String[] args) throws Exception {
 		    Properties properties = new Properties();
@@ -1127,7 +1134,7 @@ The topology describes how data flows between the spouts and bolts in a topology
 		      properties.load(Temperature.class.getClassLoader().getResourceAsStream(
 		        "Config.properties"));
 		    }
-		
+
 		    String username = properties.getProperty("eventhubspout.username");
 		    String password = properties.getProperty("eventhubspout.password");
 		    String namespaceName = properties.getProperty("eventhubspout.namespace");
@@ -1143,24 +1150,24 @@ The topology describes how data flows between the spouts and bolts in a topology
 		    spoutConfig = new EventHubSpoutConfig(username, password,
 		      namespaceName, entityPath, partitionCount, zkEndpointAddress,
 		      checkpointIntervalInSeconds, receiverCredits);
-		
+
 		    //set the number of workers to be the same as partition number.
 		    //the idea is to have a spout and a partial count bolt co-exist in one
 		    //worker to avoid shuffling messages across workers in storm cluster.
 		    numWorkers = spoutConfig.getPartitionCount();
-		    
+
 		    if(args.length > 0) {
 		      //set topology name so that sample Trident topology can use it as stream name.
 		      spoutConfig.setTopologyName(args[0]);
 		    }
 		  }
-		
+
 		  // Create the spout using the configuration
 		  protected EventHubSpout createEventHubSpout() {
 		    EventHubSpout eventHubSpout = new EventHubSpout(spoutConfig);
 		    return eventHubSpout;
 		  }
-		
+
 		  // Build the topology
 		  protected StormTopology buildTopology(EventHubSpout eventHubSpout, SimpleHBaseMapper mapper) {
 		    TopologyBuilder topologyBuilder = new TopologyBuilder();
@@ -1181,36 +1188,36 @@ The topology describes how data flows between the spouts and bolts in a topology
 		    //  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
 		    return topologyBuilder.createTopology();
 		  }
-		
+
 		  protected void submitTopology(String[] args, StormTopology topology, Config config) throws Exception {
 		    // Config config = new Config();
 		    config.setDebug(false);
-		
+
 		    //Enable metrics
 		    config.registerMetricsConsumer(backtype.storm.metric.LoggingMetricsConsumer.class, 1);
-		
+
 		    // Is this running locally, or on an HDInsight cluster?
 		    if (args != null && args.length > 0) {
 		      config.setNumWorkers(numWorkers);
 		      StormSubmitter.submitTopology(args[0], config, topology);
 		    } else {
 		      config.setMaxTaskParallelism(2);
-		
+
 		      LocalCluster localCluster = new LocalCluster();
 		      localCluster.submitTopology("test", config, topology);
-		
+
 		      Thread.sleep(5000000);
-		
+
 		      localCluster.shutdown();
 		    }
 		  }
-		
+
 		  // Loads the configuration, creates the spout, builds the topology,
 		  // and then submits it
 		  protected void runScenario(String[] args) throws Exception{
 		    readEHConfig(args);
 		    Config config = new Config();
-		
+
 		    //hbase configuration
 		    Map<String, Object> hbConf = new HashMap<String, Object>();
 		    if(args.length > 0) {
@@ -1221,12 +1228,12 @@ The topology describes how data flows between the spouts and bolts in a topology
 		          .withRowKeyField("deviceid")
 		          .withColumnFields(new Fields("timestamp", "temperature"))
 		          .withColumnFamily("cf");
-		
+
 		    EventHubSpout eventHubSpout = createEventHubSpout();
 		    StormTopology topology = buildTopology(eventHubSpout, mapper);
 		    submitTopology(args, topology, config);
 		  }
-		
+
 		  public static void main(String[] args) throws Exception {
 		    Temperature scenario = new Temperature();
 		    scenario.runScenario(args);
@@ -1282,7 +1289,7 @@ Leave this prompt open in the HBase shell for now.
 ##Package and deploy the topology to HDInsight
 
 On your development environment, use the following steps to run the Temperature topology on your HDInsight Storm Cluster.
-	
+
 1. Use the following command to create a JAR package from your project.
 
 		mvn package

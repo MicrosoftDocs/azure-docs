@@ -1,6 +1,6 @@
-<properties urlDisplayName="Install SQL Server" pageTitle="Provision a SQL Server virtual machine in Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="jeffreyg" editor="tyson" />
+<properties urlDisplayName="Install SQL Server" pageTitle="Provision a SQL Server virtual machine in Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="selcint" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="" />
 
 
 
@@ -100,7 +100,7 @@ Before you can connect to the instance of SQL Server from the internet, you must
 - [Create SQL Server authentication logins](#Logins)
 - [Determine the DNS name of the virtual machine](#DNS)
 - [Connect to the Database Engine from another computer](#cde)
-- [Connecting to the Database Engine from your application] (#cdea)
+- [Connecting to the Database Engine from your application](#cdea)
 
 The connection path is summarized by the following diagram:
 
@@ -125,7 +125,7 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 5. On the **Specify the details of the endpoint** page, provide the following information.
 
 	- In the **NAME** box, provide a name for the endpoint.
-	- In the **PROTOCOL** box, select **TCP**. You may type SQL Server's default listening port **1433** in the **Private Port** box. Similarly, you may type **57500** in the **PUBLIC PORT** box. Note that many organizations select different port numbers to avoid malicious security attacks.
+	- In the **PROTOCOL** box, select **TCP**. You may type **57500** in the **PUBLIC PORT** box. Similarly, you may type SQL Server's default listening port **1433** in the **Private Port** box. Note that many organizations select different port numbers to avoid malicious security attacks. 
 
 
 6. Click the check mark to continue. The endpoint is created.
@@ -133,7 +133,7 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 
 ###<a id="FW">Open TCP ports in the Windows firewall for the default instance of the Database Engine</a>
 
-1. Connect to the virtual machine via Windows Remote Desktop. Once logged in, on the Start menu, click **Run**, type **WF.msc**, and then click **OK**.
+1. Connect to the virtual machine via Windows Remote Desktop. Once logged in, on the Start menu, click **Run**, type **WF.msc**, and then click **OK**. If running Windows Server 2012 or later, you may also type **WF** on the Start menu and then select **Windows Firewall with Advanced Security**.
 
 	![Start the Firewall Program][Image12]
 2. In the **Windows Firewall with Advanced Security**, in the left pane, right-click **Inbound Rules**, and then click **New Rule** in the action pane.
@@ -363,7 +363,7 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
 [Image5b]: ./media/virtual-machines-provision-sql-server/5VM-Connect.png
 [Image6]: ./media/virtual-machines-provision-sql-server/6VM-Options.png
-[Image8b]: ./media/virtual-machines-provision-sql-server/SQLVMConnectionsOnAzure.GIF
+[Image8b]: ./media/virtual-machines-provision-sql-server/SQLServerinVMConnectionMap.png
 [Image9]: ./media/virtual-machines-provision-sql-server/9Click-SSCM.png
 [Image10]: ./media/virtual-machines-provision-sql-server/10Enable-TCP.png
 [Image11]: ./media/virtual-machines-provision-sql-server/11Restart.png

@@ -35,7 +35,7 @@ This tutorial requires the following
 
  
 
-<h2><a name="uiupdate"></a><span class="short-header">Update the UI</span>Update the application to allow updates</h2>
+<h2><a name="uiupdate"></a>Update the application to allow updates</h2>
 
 In this section you will update the user interface to allow updating the text of each item. The binding template will contain a checkbox and text class control for each item in the database table. You will be able to update the text field of the TodoItem. The application will handle the `keydown` event so that the item is updated by pressing the **Enter** key.
 
@@ -73,7 +73,7 @@ In this section you will update the user interface to allow updating the text of
 
 The application now writes the text changes to each item back to the database when the **Enter** key is pressed.
 
-<h2><a name="enableOC"></a><span class="short-header">Enable Optimistic Concurrency</span>Enable Conflict Detection in your application</h2>
+<h2><a name="enableOC"></a>Enable Conflict Detection in your application</h2>
 
 Azure Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is added to each table. In this section, we will enable the application to detect these write conflicts through the `__version` system property. Once this system property is enabled on the todoTable, the application will be notified by a `MobileServicePreconditionFailedException` during an update attempt if the record has changed since the last query. The app will then be able to make a choice of whether to commit its change to the database or leave the last change to the database intact. For more information on the System Properties for Mobile Services, see [System Properties].
 
@@ -127,7 +127,7 @@ Azure Mobile Services supports optimistic concurrency control by tracking change
         }
 
 
-<h2><a name="test-app"></a><span class="short-header">Test the app</span>Test database write conflicts in the application</h2>
+<h2><a name="test-app"></a>Test database write conflicts in the application</h2>
 
 In this section you will build a Windows Store app package to install the app on a second machine or virtual machine. Then you will run the app on both machines generating a write conflict to test the code. Both instances of the app will attempt to update the same item's `text` property requiring the user to resolve the conflict.
 
@@ -187,7 +187,7 @@ In this section you will build a Windows Store app package to install the app on
 
 
 
-<h2><a name="scriptsexample"></a><span class="short-header">Handling conflicts with scripts</span>Automatically handling conflict resolution in server scripts</h2>
+<h2><a name="scriptsexample"></a>Automatically handling conflict resolution in server scripts</h2>
 
 You can detect and resolve write conflicts in server scripts. This is a good idea when you can use scripted logic instead of user interaction to resolve the conflict. In this section, you will add a server side script to the TodoItem table for the application. The logic this script will use to resolve conflicts is as follows:
 

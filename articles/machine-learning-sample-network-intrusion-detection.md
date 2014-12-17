@@ -1,14 +1,16 @@
 <properties title="Azure Machine Learning Sample: Network intrusion detection" pageTitle="Machine Learning Sample: Network intrusion detection | Azure" description="A sample Azure Machine Learning experiment that uses a classification model to determine which network activities are a part of network intrusion." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="garye" />
 
 
 
 # Azure Machine Learning sample: Network intrusion detection
 
-*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+>[AZURE.NOTE]
+>The [Sample Experiment] and [Sample Dataset] associated with this model are available in ML Studio. See below for more details.
+[Sample Experiment]: #sample-experiment
+[Sample Dataset]: #sample-dataset
 
-	Sample Experiment - Network Intrusion Detection - Development
 
 ## Problem description ##
 
@@ -49,6 +51,25 @@ We wanted to see our model in action, to do this we wanted a request-response se
 1. The last step is to plug in the test data and run the experiment, once the run is finished we can define the input and output points for the service 
 1. Again, using one click we can publish the service end points that is deployed right away and can be tested using a friendly user interface - all within studio   
 -->
+
+
+## Sample Experiment
+
+The following sample experiment associated with this model is available in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab.
+
+> **Sample Experiment - Network Intrusion Detection - Development**
+
+
+## Sample Dataset
+
+The following sample dataset used by this experiment is available in Azure BLOB storage.
+
+<ul>
+<li><b><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a></b><p></p>
+[AZURE.INCLUDE [machine-learning-sample-dataset-network-intrusion](../includes/machine-learning-sample-dataset-network-intrusion.md)]
+<p></p></li>
+</ul>
+
 
 [1]: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-1.png
 [2]: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-2.png

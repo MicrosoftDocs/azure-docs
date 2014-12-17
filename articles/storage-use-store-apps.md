@@ -1,6 +1,6 @@
 <properties urlDisplayName="Azure Storage in Windows Store apps" pageTitle="Use Azure storage in Windows Store Apps | Azure" metaKeywords="" description="Learn how to use Azure blobs, queues, and tables to store data for a Windows Store app." metaCanonical="" services="storage" documentationCenter="" title="How to use Azure Storage in Windows Store Apps" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="tamram" />
 
 
 
@@ -13,14 +13,14 @@ This guide shows how to get started with developing a Windows Store app that mak
 ## Download Required Tools ##
 
 - [Visual Studio 2012](http://msdn.microsoft.com/en-us/library/windows/apps/br211384) makes it easy to build, debug, localize, package, and deploy Windows Store apps.
-- [Windows Azure Storage Client Library for Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) contains types used to communicate with Azure Storage, packaged in a Windows Runtime component.
-- [WCF Data Services Tools for Windows Store Apps](http://www.microsoft.com/en-us/download/details.aspx?id=30714) extends the Add Service Reference experience with client-side OData support for Windows Store Apps in Visual Studio 2012.
+- [Windows Azure Storage Client Library for Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) provides a class library for working with Azure Storage.
+- [WCF Data Services Tools for Windows Store Apps](http://www.microsoft.com/en-us/download/details.aspx?id=30714) extends the Add Service Reference experience with client-side OData support for Windows Store Apps in Visual Studio 2012 and later.
 
 ## Develop Apps ##
 
 <h3>Getting ready</h3>
 
-Create a new Windows Store app project in Visual Studio 2012:
+Create a new Windows Store app project in Visual Studio 2012 or later:
 
 ![store-apps-storage-vs-project][store-apps-storage-vs-project]
 
@@ -30,7 +30,7 @@ Next, add a reference to the Azure Storage Client Library by right clicking on *
 
 <h3>Using the library with the Blob and Queue services</h3>
 
-At this point, your app is ready to communicate with the Blob and Queue services. Add the following **using** statements so that Azure Storage types can be referenced directly:
+At this point, your app is ready to call the Blob and Queue services. Add the following **using** statements so that Azure Storage types can be referenced directly:
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;

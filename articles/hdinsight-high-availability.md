@@ -1,6 +1,6 @@
 <properties urlDisplayName="HDInsight High Availability" pageTitle="Availability of Hadoop clusters in HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight deploys highly available and reliable clusters." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Availability of Hadoop clusters in HDInsight" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 
 
 #Availability and reliability of Hadoop clusters in HDInsight
@@ -60,7 +60,7 @@ For SDK, the story is similar. The creation and provisioning of a cluster using 
 
 - [ZooKeeper][zookeeper]
 - [Connect to HDInsight clusters using RDP](../hdinsight-administer-use-management-portal/#rdp)
-- [Using HDInsight .NET SD](../hdinsight-provision-clusters/#sdk) 
+- [Using HDInsight .NET SDK](../hdinsight-provision-clusters/#sdk) 
 
 
 [zookeeper]: http://zookeeper.apache.org/ 

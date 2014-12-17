@@ -15,7 +15,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 4. [Enable push notifications for local testing](#local-testing)
 3. [Insert data to receive push notifications](#test)
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service.
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Add Mobile Services to an existing app] to connect your project to the mobile service.
 
 >[WACOM.NOTE]This tutorial targets Windows Phone 8.1 "Silverlight" apps. If you are instead building a Windows Phone 8.1 Store app, see the [Windows Store app](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) version of this tutorial. For information on Windows Phone Silverlight apps and how they compare with Windows Phone Store apps, see [Windows Phone Silverlight 8.1 apps]. 
 
@@ -199,7 +199,7 @@ Consider finding out more about the following Mobile Services and Notification H
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
+[Add Mobile Services to an existing app]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
 
 [Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users/

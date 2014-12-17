@@ -20,13 +20,13 @@ the [Next Steps][] section. </span>
 
 [WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-<h2><span class="short-header">Configure the Application</span>Configure the Application to Use Service Bus</h2>
+<h2>Configure the Application to Use Service Bus</h2>
 
 When you create an application that uses Service Bus, you will need to
 add a reference to the Service Bus assembly and include the
 corresponding namespaces.
 
-<h2><span class="short-header">Get the NuGet Package</span>Get the Service Bus NuGet Package</h2>
+<h2>Get the Service Bus NuGet Package</h2>
 
 The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
@@ -48,7 +48,7 @@ To install the NuGet package in your application, do the following:
 
 You are now ready to write code against Service Bus.
 
-<h2><span class="short-header">How to Set Up the Connection String</span>How to Set Up a Service Bus Connection String</h2>
+<h2>How to Set Up a Service Bus Connection String</h2>
 
 The Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
 
@@ -104,7 +104,7 @@ When using Websites or Virtual Machines, it is recommended you use the .NET conf
 Use the issuer and key values retrieved from the Management Portal as
 described in the previous section.
 
-<h2><span class="short-header">How to Create a Topic</span>How to Create a Topic</h2>
+<h2>How to Create a Topic</h2>
 
 You can perform management operations for Service Bus topics and subscriptions via the **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
@@ -156,7 +156,7 @@ default message time-to-live of 1 minute.
 objects to check if a topic with a specified name already exists within
 a service namespace.
 
-<h2><span class="short-header">How to Create Subscriptions</span>How to Create Subscriptions</h2>
+<h2>How to Create Subscriptions</h2>
 
 You can also create topic subscriptions with the **NamespaceManager**
 class. Subscriptions are named and can have an optional filter that
@@ -224,7 +224,7 @@ subscription, and selectively delivered to receivers subscribed to the
 "HighMessages" and "LowMessages" topic subscriptions (depending upon the
 message content).
 
-<h2><span class="short-header">Send Messages to a Topic</span>How to Send Messages to a Topic</h2>
+<h2>How to Send Messages to a Topic</h2>
 
 To send a message to a Service Bus topic, your application creates a
 **TopicClient** object using the connection string.
@@ -277,7 +277,7 @@ held in a topic but there is a cap on the total size of the messages
 held by a topic. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
-<h2><span class="short-header">Receive Messages from a Subscription</span>How to Receive Messages from a Subscription</h2>
+<h2>How to Receive Messages from a Subscription</h2>
 
 The easiest way to receive messages from a subscription is to use a
 **SubscriptionClient** object. **SubscriptionClient** objects can work in two
@@ -344,7 +344,7 @@ path*\>/subscriptions/<*subscription name*\>".
        }
     } 
 
-<h2><span class="short-header">Application Crashes and Unreadable Messages</span>How to Handle Application Crashes and Unreadable Messages</h2>
+<h2>How to Handle Application Crashes and Unreadable Messages</h2>
 
 The Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -370,7 +370,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-<h2><span class="short-header">Delete Topics and Subscriptions</span>How to Delete Topics and Subscriptions</h2>
+<h2>How to Delete Topics and Subscriptions</h2>
 
 The example below demonstrates how to delete the topic named
 **TestTopic** from the **HowToSample** service namespace:
@@ -385,7 +385,7 @@ following code demonstrates how to delete a subscription named
 
       namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
-<h2><span class="short-header">Next Steps</span>Next Steps</h2>
+<h2>Next Steps</h2>
 
 Now that you've learned the basics of Service Bus topics and subscriptions, follow these
 links to learn more.

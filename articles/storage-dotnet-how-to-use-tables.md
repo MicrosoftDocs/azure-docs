@@ -1,7 +1,6 @@
 <properties urlDisplayName="Table Service" pageTitle="How to use table storage  from .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="How to use Microsoft Azure Table storage" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
-
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 
 
 # How to use Table Storage from .NET
@@ -37,15 +36,15 @@ information on tables, see the [Next steps][] section.
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-## <h2><a name="create-account"></a><span class="short-header">Create an account</span>Create an Azure Storage account</h2>
+## <h2><a name="create-account"></a>Create an Azure Storage account</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-## <h2><a name="setup-connection-string"></a><span class="short-header">Setup a connection string</span>Setup a storage connection string</h2>
+## <h2><a name="setup-connection-string"></a>Setup a storage connection string</h2>
 
 [WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
-## <h2> <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access Table storage</h2>
+## <h2> <a name="configure-access"> </a>How to: Programmatically access Table storage</h2>
 
 <h3>Obtaining the assembly</h3>
 You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
@@ -84,7 +83,7 @@ If you are creating an application with no reference to Microsoft.WindowsAzure.C
 <h3>ODataLib dependencies</h3>
 ODataLib dependencies in the Storage Client Library for .NET are resolved through the ODataLib (version 5.0.2) packages available through NuGet and not WCF Data Services.  The ODataLib libraries can be downloaded directly or referenced by your code project through NuGet.  The specific ODataLib packages are [OData], [Edm], and [Spatial].
 
-<h2><a name="create-table"></a><span class="short-header">Create a table</span>How to: Create a table</h2>
+<h2><a name="create-table"></a>How to: Create a table</h2>
 
 A **CloudTableClient** object lets you get reference objects for tables
 and entities. The following code creates a **CloudTableClient** object
@@ -103,7 +102,7 @@ uses a storage connection string stored in the Azure application's service confi
     CloudTable table = tableClient.GetTableReference("people");
     table.CreateIfNotExists();
 
-<h2><a name="add-entity"></a><span class="short-header">Add an entity to a table</span>How to: Add an entity to a table</h2>
+<h2><a name="add-entity"></a>How to: Add an entity to a table</h2>
 
 Entities map to C\# objects using a custom class derived from
 **TableEntity**. To add an entity to a table, create a
@@ -157,7 +156,7 @@ is represented by a **TableOperation** object.  The following code example shows
     // Execute the insert operation.
     table.Execute(insertOperation);
 
-<h2><a name="insert-batch"></a><span class="short-header">Insert a batch of entities</span>How to: Insert a batch of entities</h2>
+<h2><a name="insert-batch"></a>How to: Insert a batch of entities</h2>
 
 You can insert a batch of entities into a table in one write
 operation. Some other notes on batch
@@ -203,7 +202,7 @@ to a **TableBatchOperation** using the **Insert** method. Then **CloudTable.Exec
 	// Execute the batch operation.
 	table.ExecuteBatch(batchOperation);
 
-<h2><a name="retrieve-all-entities"></a><span class="short-header">Retrieve all entities</span>How to: Retrieve all entities in a partition</h2>
+<h2><a name="retrieve-all-entities"></a>How to: Retrieve all entities in a partition</h2>
 
 To query a table for all entities in a partition, use a **TableQuery** object.
 The following code example specifies a filter for entities where 'Smith'
@@ -230,7 +229,7 @@ each entity in the query results to the console.
             entity.Email, entity.PhoneNumber);
     }
 
-<h2><a name="retrieve-range-entities"></a><span class="short-header">Retrieve a range of entities</span>How to: Retrieve a range of entities in a partition</h2>
+<h2><a name="retrieve-range-entities"></a>How to: Retrieve a range of entities in a partition</h2>
 
 If you don't want to query all the entities in a partition, you can
 specify a range by combining the partition key filter with a row key filter. The following code example
@@ -262,7 +261,7 @@ prints the query results.
             entity.Email, entity.PhoneNumber);
     }
 
-<h2><a name="retrieve-single-entity"></a><span class="short-header">Retrieve a single entity</span>How to: Retrieve a single entity</h2>
+<h2><a name="retrieve-single-entity"></a>How to: Retrieve a single entity</h2>
 
 You can write a query to retrieve a single, specific entity. The
 following code uses a **TableOperation** to specify the customer 'Ben Smith'.
@@ -293,7 +292,7 @@ retrieve a single entity from the Table service.
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-<h2><a name="replace-entity"></a><span class="short-header">Replace an entity</span>How to: Replace an entity</h2>
+<h2><a name="replace-entity"></a>How to: Replace an entity</h2>
 
 To update an entity, retrieve it from the table service, modify the
 entity object, and then save the changes back to the table service. The
@@ -344,7 +343,7 @@ show you how to override this behavior.
 	else
 	   Console.WriteLine("Entity could not be retrieved.");
 
-<h2><a name="insert-or-replace-entity"></a><span class="short-header">Insert-or-replace an entity</span>How to: Insert-or-replace an entity</h2>
+<h2><a name="insert-or-replace-entity"></a>How to: Insert-or-replace an entity</h2>
 
 **Replace** operations will fail if the entity has been changed since
 it was retrieved from the server.  Furthermore, you must retrieve
@@ -394,7 +393,7 @@ overwritten.
 	else
 	   Console.WriteLine("Entity could not be retrieved.");
 
-<h2><a name="query-entity-properties"></a><span class="short-header">Query a subset of properties</span>How to: Query a subset of entity properties</h2>
+<h2><a name="query-entity-properties"></a>How to: Query a subset of entity properties</h2>
 
 A table query can retrieve just a few properties from an entity instead of all the entity properties. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the
 following code returns only the email addresses of entities in the
@@ -422,7 +421,7 @@ also an **EntityResolver**. You can learn more about projection in this [blog po
         Console.WriteLine(projectedEmail);
     }
 
-<h2><a name="delete-entity"></a><span class="short-header">Delete an entity</span>How to: Delete an entity</h2>
+<h2><a name="delete-entity"></a>How to: Delete an entity</h2>
 
 You can easily delete an entity after you have retrieved it, using the same pattern
 shown for updating an entity.  The following code
@@ -461,7 +460,7 @@ retrieves and deletes a customer entity.
 	else
 	   Console.WriteLine("Could not retrieve the entity.");
 
-<h2><a name="delete-table"></a><span class="short-header">Delete a table</span>How to: Delete a table</h2>
+<h2><a name="delete-table"></a>How to: Delete a table</h2>
 
 Finally, the following code example deletes a table from a storage account. A
 table which has been deleted will be unavailable to be recreated for a
@@ -480,7 +479,7 @@ period of time following the deletion.
     // Delete the table it if exists.
     table.DeleteIfExists();
 
-<h2><a name="next-steps"></a><span class="short-header">Next steps</span>Next steps</h2>
+<h2><a name="next-steps"></a>Next steps</h2>
 
 Now that you've learned the basics of Table storage, follow these links
 to learn how to do more complex storage tasks.
@@ -494,7 +493,7 @@ to learn how to do more complex storage tasks.
   </ul>
 </li>
 <li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
-<li>Learn how to work with Azure Storage in backend processes for Azure Websites at <a href="/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/">Get Started with the Azure WebJobs SDK</a>.</li>
+<li>Learn how to simplify the code you write to work with Azure Storage by using the <a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK.</li>
 <li>View more feature guides to learn about additional options for storing data in Azure.
   <ul>
     <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>

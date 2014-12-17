@@ -13,6 +13,7 @@ The Azure SDK for .NET also comprises client libraries for consuming Azure servi
 - [What's included when you install the Azure SDK for .NET](#included)
 - [What's not included when you install the Azure SDK for .NET](#notincluded)
 - [FAQ](#faq)
+- [Versions](#versions)
 - [Resources](#resources)
 
 ##<a id="included"></a>What's included in the Azure SDK for .NET
@@ -141,12 +142,14 @@ See [Microsoft Azure Cloud Services Support Lifecycle Policy](http://support.mic
 
 See [Azure Guest OS Releases and SDK Compatibility Matrix](http://msdn.microsoft.com/en-us/library/ee924680.aspx).
 
+##<a id="versions"></a>Versions
 
+To see which version is current or to download older versions, see the [Azure SDK for .NET Version History](/en-us/downloads/archive-net-downloads/) page. 
 
 ##<a id="resources"></a>Resources
 
-To download the Azure SDK for .NET or a client library, see the [Azure Downloads page](/en-us/downloads/).
+To download the current Azure SDK for .NET or a client library, see the [Azure Downloads page](/en-us/downloads/).
 
 For the Azure SDK for .NET source code, including client libraries, see [GitHub.com/Azure](https://github.com/azure/).
 
-For Azure client library reference documentation, see [Azure .NET Reference](/en-us/develop/net/reference/). 
+For Azure client library reference documentation, see [Azure .NET Reference](/en-us/documentation/api/). 

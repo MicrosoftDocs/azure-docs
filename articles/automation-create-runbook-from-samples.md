@@ -1,6 +1,6 @@
 <properties urlDisplayName="Get Started with Azure Automation" pageTitle="Get Started with Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="bwren" solutions="" manager="stevenka" editor="" />
 
-<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bwren" />
+<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bwren" />
 
 
 # Get started with Azure Automation
@@ -19,38 +19,31 @@ The Automation team has also created utility runbooks that you can use as buildi
 
 >[WACOM.NOTE] It's a best practice to write small, modular, reusable runbooks. We also strongly recommend that you create your own utility runbooks for commonly used scenarios after you're familiar with Automation.  
 
-You can view and download the Automation team’s sample and utility runbooks on [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029). 
+You can view and download the Automation team’s sample and utility runbooks on [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029) or import them directly from the [Runbook Gallery](http://aka.ms/runbookgallery). 
 
 ## The Automation community and feedback
 
-Runbooks from the community and from other Microsoft teams are also published on  [Script Center](http://go.microsoft.com/fwlink/?LinkID=391681). 
+Runbooks from the community and from other Microsoft teams are also published on  [Script Center](http://go.microsoft.com/fwlink/?LinkID=391681) and the [Runbook Gallery](http://aka.ms/runbookgallery). 
 
 <strong>Give us feedback!</strong>  If you are looking for an Automation runbook solution or integration module, post a Script Request on the Script Center. If you have an idea for a new feature for Automation, post it on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback).
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
+## Azure Automation 101 with PowerShell and Eamon O'Reilly (Video)
+
+In this video, Eamon O'Reilly and Scott Hanselman introduce Azure Automation service. (Duration: 10:55)  
+
+> [AZURE.VIDEO azure-automation-101-with-powershell-and-eamon-o-reilly]
+
 ## High-level steps for this tutorial
 
-1. [Sign up for Automation preview](#preview)
-2. [Download a sample runbook](#download-sample)
-3. [Import, run, and view the output of the sample runbook](#import-sample)
-
-## <a name="preview"></a>Sign up for the Azure Automation Preview
-
-To start using Automation, you’ll need an active Azure subscription with the Microsoft Azure Automation preview feature enabled. 
-
-- On the **Preview Features** page, click **try it now**. 
-
-	![Enable Preview](./media/automation/automation_00_EnablePreview.png)
-
-## <a name="download-sample"></a>Download a sample runbook from the Script Center
-
-1.	Go to  [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029), and then click **Hello World for Azure Automation**.
-
-2.	Click the file name, **Write-HelloWorld.ps1**, next to **Download**, and then save the file to your computer.
+1. [Create Automation Account](#automationaccount)
+2. [Import Runbook from Runbook Gallery](#importrunbook)
+3. [Publish Runbook](#publishrunbook)
+4. [Start Runbook](#startrunbook)
 
 
-## <a name="import-sample"></a>Import, run, and view the sample runbook in Azure Automation
+## <a name="automationaccount"></a>Create an Automation Account
 
 1.	Log in to the [Azure Management Portal](http://manage.windowsazure.com).
 
@@ -63,6 +56,8 @@ To start using Automation, you’ll need an active Azure subscription with the M
 3.	On the **Add a New Automation Account** page, enter a name for the account, and then click the check mark.
 
 	![Add New Account](./media/automation/automation_02_addnewautoacct.png)
+
+## <a name="importrunbook"></a>Import Runbook from Runbook Gallery
  
 4.	On the **Automation** page, click the new account you just created.
  
@@ -72,21 +67,31 @@ To start using Automation, you’ll need an active Azure subscription with the M
 
 	![Runbooks Tab](./media/automation/automation_04_RunbooksTab.png)
   
-6.	Click **IMPORT**.
+6.	Click **New** > **Runbook** > **From Gallery**.
 
-	![Import](./media/automation/automation_05_Import.png)
+	![Runbook Gallery](./media/automation/automation_05_ImportGallery.png)
 
-7.	Browse to the **Write-HelloWorld.ps1** script you downloaded, and then click the check mark.
+7.  Select the **Tutorial** category and then **Hello World for Azure Automation**. Click the right arrow button.
 
-	![Browse](./media/automation/automation_06_Browse.png)	
- 
-8.	Click **Write-HelloWorld**.
+	![Import Runbook](./media/automation/automation_06_ImportRunbook.png)
+
+8.  Review the contents of the runbook and then click the right arrow button.
+
+	![Runbook Definition](./media/automation/automation_07_RunbookDefinition.png)
+
+8.	Review the details of the runbook and then click the check mark button.
+
+	![Runbook Details](./media/automation/automation_08_RunbookDetails.png)
+
+## <a name="publishrunbook"></a>Publish Runbook 
+
+9.	When the runbook has finished importing, click **Write-HelloWorld**.
 
 	![Imported Runbook](./media/automation/automation_07_ImportedRunbook.png)
 
-9.	Click **AUTHOR**, and then click **DRAFT**. For this runbook, you don’t need to make any modifications.  
+9.	Click **AUTHOR**, and then click **DRAFT**.  
 
-	You can now see the contents of **Write-HelloWorld.ps1**. You can modify the contents of a runbook in Draft mode. 
+	You can modify the contents of a runbook in Draft mode. For this runbook, you don’t need to make any modifications.
 
 	![Author Draft](./media/automation/automation_08_AuthorDraft.png)  
  
@@ -98,7 +103,9 @@ To start using Automation, you’ll need an active Azure subscription with the M
  
 	![Save and Pub prompt](./media/automation/automation_09_SavePubPrompt.png)
 
-12.	Click **PUBLISHED**, and then click **START**.
+## <a name="startrunbook"></a>Start Runbook
+
+12.	With the **Write-HelloWorld** runbook open, click **START**.
 
 	![Published](./media/automation/automation_10_PublishStart.png)
  

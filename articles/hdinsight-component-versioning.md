@@ -1,29 +1,31 @@
 <properties urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="bradsev" />
 
 
 #What's new in the Hadoop cluster versions provided by HDInsight?
 
 ##HDInsight versions
-HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice provisions a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The component version associated with each HDInsight cluster version are itemized in the following table. Note that the default cluster version used by [Azure HDInsight](http://go.microsoft.com/fwlink/?LinkID=285601) is currently 3.1 based on HDP 2.1.
+HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice provisions a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The component version associated with each HDInsight cluster version are itemized in the following table. Note that the default cluster version used by Azure HDInsight is currently 3.1, and, as of 11/7/2014, based on HDP 2.1.7.
 
 
 <table border="1">
 <tr><th>Component</th><th>HDInsight Version 3.1 (Default)</th><th>HDInsight Version 3.0</th><th>HDIinsight Version 2.1</th><th>HDInsight Version 1.6</th></tr>
-<tr><td>Hortonworks Data Platform (HDP)</td><td>2.1</td><td>2.0</td><td>1.3</td><td>1.1</td></tr>
+<tr><td>Hortonworks Data Platform (HDP)</td><td>2.1.7</td><td>2.0</td><td>1.3</td><td>1.1</td></tr>
 <tr><td>Apache Hadoop & YARN</td><td>2.4.0</td><td>2.2.0</td><td>1.2.0</td><td>1.0.3</td></tr>
 <tr><td>Tez</td><td>0.4.0</td><td></td><td></td><td></td></tr>
 <tr><td>Apache Pig</td><td>0.12.1</td><td>0.12.0</td><td>0.11.0</td><td>0.9.3</td></tr>
-<tr><td>Apache Hive & HCatalog</td><td>0.13.0</td><td>0.12.0</td><td>0.11.0</td><td>0.9.0</td></tr>
+<tr><td>Apache Hive & HCatalog</td><td>0.13.1</td><td>0.12.0</td><td>0.11.0</td><td>0.9.0</td></tr>
 <tr><td>HBase </td><td>0.98.0</td><td></td><td></td><td></td></tr>
 <tr><td>Apache Sqoop</td><td>1.4.4</td><td>1.4.4</td><td>1.4.3</td><td>1.4.2</td></tr>
 <tr><td>Apache Oozie</td><td>4.0.0</td><td>4.0.0</td><td>3.3.2</td><td>3.2.0</td></tr>
 <tr><td>Apache HCatalog</td><td>Merged with Hive</td><td>Merged with Hive</td><td>Merged with Hive</td><td>0.4.1</td></tr>
 <tr><td>Apache Templeton</td><td>Merged with Hive</td><td>Merged with Hive</td><td>Merged with Hive</td><td>0.1.4</td></tr>
-<tr><td>Ambari</td><td>1.5.1</td><td>1.4.1</td><td>API v1.0</td><td></td></tr>
+<tr><td>Ambari</td><td>>=1.5.1</td><td>1.4.1</td><td>API v1.0</td><td></td></tr>
 <tr><td>Zookeeper</td><td>3.4.5</td><td>3.4.5</td><td></td><td></td></tr>
+<tr><td>Storm</td><td>0.9.1</td><td></td><td></td><td></td></tr>
 <tr><td>Mahout</td><td>0.9.0</td><td></td><td></td><td></td></tr>
+<tr><td>Phoenix</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td><td></td></tr>
 </table>
 
 
@@ -43,9 +45,13 @@ When creating a cluster through the HDInsight PowerShell Cmdlets or the HDInsigh
 If you use the **Quick Create** option, you will get the version 3.1 of HDInsight that creates Hadoop cluster by default. If you use the **Custom Create** option from the Azure Portal, you can choose the version of the cluster you will deploy from the **HDInsight Version** drop-down on the **Cluster Details** page. 
 
 ##Feature highlights
-Azure HDInsight now supports Hadoop 2.4 with HDInsight cluster version 3.1 (using Hortonworks Data Platform 2.1) by default. It takes full advantage of the platform to provide a range of significant benefits to customers. These include, most notably:
+Azure HDInsight now supports Hadoop 2.4 with HDInsight cluster version 3.1 (using Hortonworks Data Platform 2.1.7) by default. It takes full advantage of the platform to provide a range of significant benefits to customers. These include, most notably:
+
+- **Script Action (Preview)**: The preview of this cluster customization feature enables the modification of Hadoop clusters in arbitrary ways using custom scripts. With this new feature, users can experiment with and deploy projects available from the Apache Hadoop ecosystem to Azure HDInsight clusters. This customization feature is available on all types of HDInsight clusters including Hadoop, HBase and Storm.
 
 - **HBase**: HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs.
+
+- **Apache Phoenix**: Apache Phoenix is a SQL query layer over HBase. It supports limited subset of SQL query language specification including secondary indexes support. It is delivered as a client-embedded JDBC driver that targets low latency queries over HBase data. Apache Phoenix takes your SQL query, compiles it into a series of HBase scans and coprocessors calls, and produces regular JDBC result sets.Apache Phoenix is a relational database layer over HBase. It is delivered as a client-embedded JDBC driver that targets low latency queries over HBase data. Apache Phoenix takes your SQL query, compiles it into a series of HBase scans, and orchestrates the running of those scans to produce regular JDBC result sets.
 
 - **Cluster Dashboard**: A new web application that is deployed to your HDInsight cluster.  Use it to run Hive Queries, check job logs, and browse Azure Blob storage. The URL used to access the web application is <*ClusterName*>.azurehdinsight.net.
 
@@ -59,7 +65,7 @@ Azure HDInsight now supports Hadoop 2.4 with HDInsight cluster version 3.1 (usin
 
 - **Hive performance**: Order of magnitude improvements to Hive query response times (up to 40x) and to data compression (up to 80%) using the **Optimized Row Columnar** (ORC) format.
 
-- **Pig, Sqoop, Qozie, Ambari**: Component version upgrades for HDInsight cluster version 3.0 (HDP 2.0/Hadoop 2.2) that provide parity with HDInsight cluster version 2.1 (HDP 1.3/Hadoop 1.2). See the version tables below for specifics.
+- **Pig, Sqoop, Oozie, Ambari**: Component version upgrades for HDInsight cluster version 3.0 (HDP 2.0/Hadoop 2.2) that provide parity with HDInsight cluster version 2.1 (HDP 1.3/Hadoop 1.2). See the version tables below for specifics.
 
 - **Mahout**: This library of scalable machine-learning algorithms is preinstalled on HDInsight 3.1 Hadoop clusters. So you can run Mahout jobs without the need for any additional cluster configuration.
 
@@ -79,6 +85,7 @@ The following table lists the versions of HDInsight currently available, the cor
 <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Yes</td><td>10/28/2013</td><td>No</td><td>05/12/2014</td><td>05/31/2015</td></tr>
 <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>10/28/2013</td><td>No</td><td>04/26/2014</td><td>05/31/2015</td></tr>
 </table><br>
+
 **Deployment of non-default clusters**	
 
 Creation of HDInsight 3.1 clusters on Hadoop 2.4 is supported by the Azure Portal, the HDInsight SDK, and by Azure PowerShell. Note that HDInsight 3.1 clusters are created by default on Hadoop 2.4, so the users must use the **Custom Create** option in the portal to specify other HDInsight cluster versions if they need to be created.
@@ -96,8 +103,7 @@ The **Deprecation Date** is the date after which the cluster version can not be 
 
 ## Hortonworks release notes associated with HDInsight versions##
 
-
-* HDInsight cluster version 3.1 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.1][hdp-2-1-1].This is the default Hadoop cluster created when using the Azure HDInsight portal.
+* HDInsight cluster version 3.1 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.1.7][hdp-2-1-7].This is the default Hadoop cluster created when using the Azure HDInsight portal after 11/7/2014. HDInsight 3.1 clusters created before 11/7/2014 were based on the [Hortonworks Data Platform 2.1.1][hdp-2-1-1] 
 
 * HDInsight cluster version 3.0 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.0][hdp-2-0-8].
 
@@ -111,6 +117,8 @@ The **Deprecation Date** is the date after which the cluster version can not be 
 [wa-forums]: http://azure.microsoft.com/en-us/support/forums/
 
 [connect-excel-with-hive-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
+
+[hdp-2-1-7]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
 
 [hdp-2-1-1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
 

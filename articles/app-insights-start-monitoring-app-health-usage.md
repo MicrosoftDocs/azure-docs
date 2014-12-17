@@ -1,56 +1,47 @@
-<properties title="Application Insights" pageTitle="Application Insights - start monitoring your app's health and usage" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+<properties title="Application Insights SDK" pageTitle="Add Application Insights SDK to your web project" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
 
-# Application Insights - Start monitoring your app's health and usage
+# Add Application Insights SDK to your web project
 
 *Application Insights is in preview.*
 
-Application Insights lets you monitor your live application for:
+Add the Application Insights SDK to monitor your application for:
 
-* **Availability** - We'll test your URLs every few minutes from around the world.
 * **Performance**  - Detect and diagnose perf issues and exceptions.
-* **Usage** - Find out what users are doing with your app, so that you can make it better for them.
+* **Usage** - Find out what users are doing with your app.
 
-Configuration is very easy, and you'll see results in minutes. We currently support ASP.NET web apps (on your own servers or on Azure).
+(For more options, see [Get Started with Application Insights][start]).
 
-You'll need an account in [Microsoft Azure](http://azure.com) (there's a free trial period).
+## <a name="add"></a>1. Add Application Insights to your project
 
-There are two ways to get started with Application Insights:
+You'll need [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (or later) and an account in [Microsoft Azure](http://azure.com).
 
-* (Recommended) [Add Application Insights to your project in Visual Studio](#add) to monitor application performance and usage.
-* [Install an agent on your server without redeploying][redfield] - Monitor a live website without redeploying it or touching your source code. This gives you performance and exception monitoring. You can add usage monitoring later.
-
->[WACOM.NOTE] There's an [older version of Application Insights](http://msdn.microsoft.com/en-us/library/dn481095.aspx) in Visual Studio Online, which supports a broader range of application types. We're rebuilding it from the ground up as part of Microsoft Azure, and it's the new version that you're reading about here.
-
-
-## <a name="add"></a>Add Application Insights to your project
-
-You need [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (or later).
-
-### If it's a new project...
+#### If it's a new project...
 
 When you create a new project in Visual Studio 2013, make sure Application Insights is selected. 
 
 
 ![Create an ASP.NET project](./media/appinsights/appinsights-01-vsnewp1.png)
 
-If this is your first time, you'll be asked login or sign up to Microsoft Azure Preview. (It's separate from your Visual Studio Online account.)
 
-Use **Configure settings** if you want the Azure resource to have a different name than your project, or if you want the resource to appear under the same group as a different project. 
 
-*No Application Insights option? Check you're using Visual Studio 2013 Update 3, that Application Insights Tools are enabled in Extensions and Updates, and that you're creating a web, Windows Store, or Windows Phone project.*
-
-### ... or if it's an existing project
+#### ... or if it's an existing project
 
 Right click the project in Solution Explorer, and choose Add Application Insights.
 
 ![Choose Add Application Insights](./media/appinsights/appinsights-03-addExisting.png)
 
-*There's one more step if you want to set up web usage analytics, but let's see some data first...*
 
+#### Setup options
 
-### <a name="run"></a>2. Run your project
+If this is your first time, you'll be asked login or sign up to Microsoft Azure Preview. (It's separate from your Visual Studio Online account.)
+
+If this app is part of a bigger application, you might want to use **Configure settings** to put it in the same resource group as the other components. 
+
+*No Application Insights option? Check you're using Visual Studio 2013 Update 3, that Application Insights Tools are enabled in Extensions and Updates, and that you're creating a web project.*
+
+## <a name="run"></a>2. Run your project
 
 Run your application with F5 and try it out - open different pages.
 
@@ -58,98 +49,49 @@ In Visual Studio, you'll see a count of the events that have been received.
 
 ![](./media/appinsights/appinsights-09eventcount.png)
 
-### <a name="monitor"></a>3. See monitor data
+### <a name="monitor"></a>3. View telemetry
 
 Open Application Insights from your project.
 
 ![Right-click your project and open the Azure portal](./media/appinsights/appinsights-04-openPortal.png)
 
 
-Look for data in the **Application health** tiles. At first, you'll just see one or two points. For example:
+Look for data in the **Overview** charts. At first, you'll just see one or two points. For example:
 
 ![Click through to more data](./media/appinsights/appinsights-41firstHealth.png)
 
-Click any tile to see more detail. You can change what you see in the reports. [Learn more about configuring Application Health reports.][perf]
+Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
+
+Now deploy your application and watch the data accumulate.
 
 
-### <a name="webclient"></a>4. Set up web usage analytics
+When you run in debug mode, telemetry is expedited through the pipeline, so that you should see data appearing within seconds. When you deploy your app, data accumulates more slowly.
 
-If you added Application Insights to an *existing* web project, you won't see anything yet in the Usage analytics tiles. There's one more step you need.
+#### No data?
+* Wait a few seconds and click Refresh.
+* Use the application, opening different pages so that it generates some telemetry.
+* See [Troubleshooting][qna].
 
-In Application Insights, choose Quick start, Instrument your website. 
+## Next steps
 
-![In your project in Application Insights, click Quick start, Instrument your website, and copy the code](./media/appinsights/appinsights-06webcode.png)
+#### Detect and diagnose issues
 
-Copy the JavaScript code into the web pages that you want to monitor, just before the closing &lt;/head&gt; tag. In an ASP.NET project, a good way to monitor all the pages is to put the code in the master page, usually called `_SiteLayout` or `Views\Shared\_Layout`. Notice that the code contains the Application Insights key of your application.
+* [Set up web tests][availability] to make sure your application stays live and responsive.
+* [Install Status Monitor in your server][redfield] to get additional performance data and monitor your application's calls to external services.
+* [Search events and logs][diagnostic] to help diagnose problems.
+* [Add web client telemetry][usage] to see exceptions in web page code and to let you insert trace calls.
 
-Run your application again and you'll see data in **Usage analytics**.
+#### Track usage
 
-![Click through to more data](./media/appinsights/appinsights-05-usageTiles.png)
+* [Add web client telemetry][usage] to monitor page views and basic user metrics.
+* [Track custom events and metrics][track] to learn about how your application is used.
 
-[Click through charts to see more detail.][usage]
-
-### <a name="deploy"></a>5. Deploy your application
-
-Deploy your application and watch the data accumulate.
-
-
-
-Once you have a live application, [set up web tests][availability] to make sure it stays live. 
-
-![Example application monitor in Application Insights](./media/appinsights/appinsights-00-appblade.png)
-
-### Want to change the name of your application in the portal?
-
-You can change the resource to which your project sends telemetry. 
-
-(The 'resource' is the named Application Insights blade where your results appear. You can put more than one resource into a group - for example if you have several projects that form part of one business application.) 
-
-In Solution Explorer, right-click ApplicationInsights.config, and choose **Update Application Insights**. This opens a wizard where you can choose a different existing resource, or create a new one.
-
-Afterwards, go back to the portal and delete the old resource.
-
-## <a name="video"></a>Videos
-
-### Introduction
-
-> [AZURE.VIDEO application-insights-introduction]
-
-### Get started
+## <a name="video"></a>Video
 
 > [AZURE.VIDEO getting-started-with-application-insights]
 
-## <a name="next"></a>Next steps
-
-[Track usage of your web app][usage]
-
-[Monitor performance in web applications][perf]
-
-[Capture and search diagnostic logs][diagnostic]
-
-[Troubleshooting][qna]
 
 
-
-## Application Insights - learn more
-
-* [Application Insights - get started][start]
-* [Monitor a live web server now][redfield]
-* [Monitor performance in web applications][perf]
-* [Search diagnostic logs][diagnostic]
-* [Availability tracking with web tests][availability]
-* [Track usage][usage]
-* [Track custom events and metrics][track]
-* [Q & A and troubleshooting][qna]
-
-<!--Link references-->
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
 
-[start]: ../app-insights-start-monitoring-app-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[perf]: ../app-insights-web-monitor-performance/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
-[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient

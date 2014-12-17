@@ -1,14 +1,12 @@
 <properties urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 
 
 
 
 #How to Manage Cloud Services
-
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 In the **Cloud Services** area of the Azure Management Portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 
@@ -26,27 +24,25 @@ If you need to update the application code for your cloud service, use **Update*
 
 1. In the [Azure Management Portal](https://manage.windowsazure.com/), on the dashboard, **Cloud Services** page, or **Instances** page, click **Update**.
 
-	**Update Deployment** opens.
-
 	![UpdateDeployment](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 
-2. In **Deployment label**, enter a name to identify the deployment (for example, mycloudservicev2). You'll find the deployment name under **quick start** on the dashboard.
+2. In **Deployment label**, enter a name to identify the deployment (for example, mycloudservice4). You'll find the deployment label under **quick start** on the dashboard.
 
-3. In **Package file**, use **Browse** to upload the service package file (.cspkg).
+3. In **Package**, use **Browse** to upload the service package file (.cspkg).
 
-4. In **Configuration file**, use **Browse** to upload the service configuration file (.cscfg).
+4. In **Configuration**, use **Browse** to upload the service configuration file (.cscfg).
 
-5. In **Role**, select **All** if you want to upgrade all roles in the cloud service. To perform a role upgrade, select the role you want to upgrade. Even if you select a specific role to update, the updates in the service configuration file are applied to all roles.
+5. In **Role**, select **All** if you want to upgrade all roles in the cloud service. To perform a single role update, select the role you want to update. Even if you select a specific role to update, the updates in the service configuration file are applied to all roles.
 
-6. If the upgrade will change the number of roles or the size of any role, select the **Allow update if role sizes or number of roles changes** check box to enable the update to proceed. 
+6. If the update changes the number of roles or the size of any role, select the **Allow update if role sizes or number of roles changes** check box to enable the update to proceed. 
 
 	Be aware that if you change the size of a role (that is, the size of a virtual machine that hosts a role instance) or the number of roles, each role instance (virtual machine) must be re-imaged, and any local data will be lost.
 
 7. If any service roles have only one role instance, select the **Update even if one or more role contain a single instance check box** to enable the upgrade to proceed. 
 
-	Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated.
+	Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtu**al machines). That enables one virtual machine to process client requests while the other is being updated.
 
-8. Click OK (checkmark) to begin updating the service.
+8. Click **OK** (checkmark) to begin updating the service.
 
 
 
@@ -74,7 +70,7 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 <h2><a id="linkresources"></a>How to: Link a resource to a cloud service</h2>
 
-To show your cloud service's dependencies on other resources, you can link an Azure SQL Database instance or a storage account to the cloud service. You an link and unlink resources on the **Linked Resources** page. Then monitor their usage on the cloud service dashboard. If a linked storage account has monitoring turned on, you can monitor Total Requests on the cloud service dashboard.
+To show your cloud service's dependencies on other resources, you can link an Azure SQL Database instance or a storage account to the cloud service. You can link and unlink resources on the **Linked Resources** page, and then monitor their usage on the cloud service dashboard. If a linked storage account has monitoring turned on, you can monitor Total Requests on the cloud service dashboard.
 
 Use **Link** to link a new or existing SQL Database instance or storage account to your cloud service. You can then scale the database along with the cloud service role that is using it on the **Scale** page. (A storage account scales automatically as usage increases.) For more information, see [How to Scale a Cloud Service and Linked Resources](../cloud-services-how-to-scale/). 
 

@@ -1,25 +1,21 @@
-<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Azure Mobile Services" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Azure Mobile Services" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
-
-
-
-
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 # Define a custom API that supports periodic notifications
 
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/create-pull-notifications-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
 </div>
 
 This topic shows you how to use a custom API to support periodic notifications in a Windows Store app. With period notifications enabled, Windows will periodically access your custom API endpoint and use the returned XML, in a tile-specific format, to update the app tile on start menu. For more information, see [Periodic notifications]. 
 
-You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial. To do this, you will complete the following steps:
+You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Add Mobile Services to an existing app] tutorial. To do this, you will complete the following steps:
 
 1. [Define the custom API]
 2. [Update the app to turn on period notifications]
 3. [Test the app] 
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or the [Get started with data].  
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or the [Add Mobile Services to an existing app].  
 
 ## <a name="define-custom-api"></a>Define the custom API
 
@@ -91,7 +87,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 Next, you will modify the quickstart app to start periodic notifications that update the live tile by requesting the new custom API.
 
-<h2><a name="update-app"></a><span class="short-header">Update the app </span>Update the app to turn on period notifications</h2>
+<h2><a name="update-app"></a>Update the app to turn on period notifications</h2>
 
 1. In Visual Studio, press the F5 key to run the quickstart app from the previous tutorial.
 
@@ -105,7 +101,7 @@ Next, you will modify the quickstart app to start periodic notifications that up
 
         notifications.TileUpdateManager.createTileUpdaterForApplication().startPeriodicUpdate(url, recurrence);
 
-	This code turns on period notifications to request tile template data from the new **tiles** custom API. Select a [PeriodicUpdateRecurrance] value that best matches the update frequency of your data.
+	This code turns on period notifications to request tile template data from the new **tiles** custom API. Select a **PeriodicUpdateRecurrance** value that best matches the update frequency of your data.
 
 ## <a name="test-app"></a>Test the app
 
@@ -144,11 +140,9 @@ Now that you have created a periodic notification, consider finding out more abo
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Get started with data]: /en-us/develop/mobile/tutorials/started-with-data-js
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
-[JavaScript and HTML]: mobile-services-win8-javascript/
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started
+[Add Mobile Services to an existing app]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx

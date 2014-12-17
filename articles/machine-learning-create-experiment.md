@@ -43,7 +43,7 @@ There are a number of sample datasets included with ML Studio, and you can impor
 
 	![Dataset][screen1]
 
-To see what this data looks like, double-click the output port at the bottom of the automobile dataset and select **Visualize**. The variables in the dataset appear as columns, and each instance of an automobile appears as a row. The right-most column "price" (column 26) is the target variable we're going to try to predict. 
+To see what this data looks like, click the output port at the bottom of the automobile dataset and select **Visualize**. The variables in the dataset appear as columns, and each instance of an automobile appears as a row. The right-most column "price" (column 26) is the target variable we're going to try to predict. 
 
 ![Dataset visualization][screen1b]
 
@@ -83,7 +83,7 @@ When the experiment finishes, all the modules will have a green check mark to in
 
 ![First experiment run][screen5]
 
-All the experiment has done up to this point is clean the data. To view the cleaned dataset, double-click the output port of the **Missing Values Scrubber** module and select **Visualize**. Notice that the "normalized-losses" column is no longer included, and there are no missing values.
+All the experiment has done up to this point is clean the data. To view the cleaned dataset, click the output port of the **Missing Values Scrubber** module and select **Visualize**. Notice that the "normalized-losses" column is no longer included, and there are no missing values.
 
 Now that the data is clean, we're ready to specify what features we're going to use in the predictive model.
 
@@ -145,11 +145,11 @@ Now that we've trained the model, we can use it to score the other 25% of our da
 
 	![Score Model module][screen8a]
 
-2. Run the experiment and view the output from the **Score Model** module (double-click the output port and select **Visualize**). The output will show the predicted values for price along with the known values from the test data.  
+2. Run the experiment and view the output from the **Score Model** module (click the output port and select **Visualize**). The output will show the predicted values for price along with the known values from the test data.  
 
 3. Finally, to test the quality of the results, select and drag the **Evaluate Model** module to the experiment canvas, and connect the left input port to the output of the **Score Model** module (there are two input ports because the **Evaluate Model** module can be used to compare two models).
  
-4. Run the experiment and view the output from the **Evaluate Model** module (double-click the output port and select **Visualize**). The following statistics are shown for our model.
+4. Run the experiment and view the output from the **Evaluate Model** module (click the output port and select **Visualize**). The following statistics are shown for our model.
 
 	- **Mean Absolute Error** (MAE) - The average of absolute errors (an *error* is the difference between the predicted value and the actual value).
 	- **Root Mean Squared Error** (RMSE) - The square root of the average of squared errors of predictions made on the test dataset.

@@ -1,6 +1,6 @@
 <properties urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Azure Mobile Services" metaKeywords="Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/27/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
 
 # Send email from Mobile Services with SendGrid
@@ -17,11 +17,11 @@ This tutorial walks you through these basic steps to enable email functionality:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-<h2><a name="sign-up"></a><span class="short-header">Create a new account</span>Create a new SendGrid account</h2>
+<h2><a name="sign-up"></a>Create a new SendGrid account</h2>
 
 [WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-<h2><a name="add-script"></a><span class="short-header">Register a script</span>Register a new script that sends emails</h2>
+<h2><a name="add-script"></a>Register a new script that sends emails</h2>
 
 1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
@@ -80,7 +80,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 6. Click the **Save** button. You have now configured a script to send an email each time a record is inserted into the **TodoItem** table.
 
-<h2><a name="insert-data"></a><span class="short-header">Insert test data</span>Insert test data to receive email</h2>
+<h2><a name="insert-data"></a>Insert test data to receive email</h2>
 
 1. In the client app project, run the quickstart application. 
 

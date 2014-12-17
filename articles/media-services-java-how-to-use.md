@@ -1,6 +1,6 @@
 <properties urlDisplayName="Media Services" pageTitle="How to use Media Services (Java) - Azure feature guide" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="robmcm" />
 
 #How to Use Media Services
 
@@ -8,14 +8,15 @@ This guide shows you how to start programming with Azure Media Services using Ja
 
 ## Table of Contents
 
--   [What Are Media Services?][]
--   [Setting Up an Azure Account for Media Services][]
--   [Setting up for Media Services development][]
--   [How to: Use Media Services with Java][]
--   [Additional Resources][]
+-   [What is Media Services?](#media_services)
+-   [Setting Up an Azure Account for Media Services](#setup-account)
+-   [Setting up for Media Services development](#setup-dev)
+-   [How to: Use Media Services with Java](#connect)
+-   [Additional Resources](#additional-resources)
 
-<h2><a name="what-are"></a><span class="short header">What are Media Services?</span>What are Media Services?</h2>
  
+##<a id="media_services"></a>What is Media Services
+
 Azure Media Services form an extensible media platform that integrates the best of the Microsoft Media Platform and third-party media components in Azure. Media Services provide a media pipeline in the cloud that enables industry partners to extend or replace component technologies. ISVs and media providers can use Media Services to build end-to-end media solutions. This overview describes the general architecture and common development scenarios for Media Services.
 
 The following diagram illustrates the basic Media Services architecture.
@@ -102,11 +103,12 @@ For iOS devices including iPhone, iPod, and iPad, Microsoft ships an SDK that yo
 ####Android devices
 Several Microsoft partners ship SDKs for the Android platform that add the capability to play back Smooth Streaming on an Android device. Please [email Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) for more details on the partners.
 
-<h2><a name="setup-account"></a><span class="short header">Setting up an account</span>Setting up an Azure account for Media Services</h2>
+
+##<a id="setup-account"></a>Setting Up an Azure Account for Media Services
 
 To set up your Media Services account, use the Azure Management Portal. See the topic [How to Create a Media Services Account][]. After creating your account in the Management Portal, you are ready to set up your computer for Media Services development. 
 
-<h2><a name="setup-dev"> </a><span class="short header">Setting up for Media Services development</span></h2>
+##<a id="setup-dev"></a>Setting up for Media Services development
 
 This section contains general prerequisites for Media Services development using the Media Services SDK for Java.
 
@@ -115,7 +117,7 @@ This section contains general prerequisites for Media Services development using
 -   A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account][].
 -   The Azure Libraries for Java, which you can install from the [Azure Java Developer Center][].
 
-<h2><a name="connect"> </a><span class="short header">Use Media Services with Java</span>How to: Use Media Services with Java</h2> 
+##<a if="connect"></a>How to: Use Media Services with Java
 
 The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and download the output files of the transformed asset.
 
@@ -434,15 +436,12 @@ Should you need to cancel a job that hasn't finished processing, the following c
 
     mediaService.action(Job.cancel(jobId));
 
-<h2><a name="additional-resources"></a><span class="short header">Additional Resources</span>Additional Resources</h2>
+##< id="additional-resources"></a>Additional Resources
 
 For Media Services Javadoc documentation, see [Azure Libraries for Java documentation][].
 
-  [What Are Media Services?]: #what-are
-  [Setting Up an Azure Account for Media Services]: #setup-account
-  [Setting up for Media Services Development]: #setup-dev
-  [How to: Use Media Services with Java]: #connect
-  [Additional Resources]: #additional-resources
+<!-- URLs. -->
+
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
   [Azure Java Developer Center]: http://www.windowsazure.com/en-us/develop/java/
   [Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/

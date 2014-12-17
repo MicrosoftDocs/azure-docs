@@ -1,6 +1,6 @@
 <properties pageTitle="Get Started with Azure Cloud Services and ASP.NET" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure storage queues and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Get Started with Azure Cloud Services and ASP.NET" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra,riande" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tdykstra,riande" />
 
 # Get Started with Azure Cloud Services and ASP.NET
 
@@ -88,7 +88,7 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 2. Click  **Create an Ad**.
 
-2. Enter some test data and select an image to upload, and then click **Create**.
+2. Enter some test data and select a *.jpg* image to upload, and then click **Create**.
 
 	![Create page](./media/cloud-services-dotnet-get-started/create.png)
 
@@ -163,6 +163,16 @@ When the app runs in the cloud, it will use a cloud-based database.
 
 	![New SQL Database](./media/cloud-services-dotnet-get-started/newdb.png)	
 
+1. After Azure finishes creating the database, click the **SQL Databases** tab in the left pane of the portal, and then click the name of the new database.
+
+2. Click the **Dashboard** tab.
+
+3. Click **Manage allowed IP addresses**.
+
+4. Under **Allowed Services**, change **Azure Services** to **Yes**.
+
+5. Click **Save**.
+
 ### Create an Azure storage account
 
 An Azure storage account provides resources for storing queue and blob data in the cloud.
@@ -183,7 +193,7 @@ In a real-world application, you would typically create separate accounts for ap
 
 6. Set the **Replication** drop-down list to **Locally redundant**. 
 
-	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [How To Manage Storage Accounts](/en-us/documentation/articles/storage-manage-storage-account/).
+	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
 
 5. Click **Create Storage Account**. 
 
@@ -242,7 +252,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 Azure storage account connection strings for both the web role project and the worker role project are stored in environment settings in the cloud service project. For each project there is a separate set of settings to be used when the application runs locally and when it runs in the cloud. You'll update the cloud environment settings for both web and worker role projects. 
 
-4. In **Solution Explorer**, right-click **MvcWebRole** under **Roles** in the **ContosoAdsCloudService** project, and click **Properties**.
+4. In **Solution Explorer**, right-click **ContosoAdsWeb** under **Roles** in the **ContosoAdsCloudService** project, and click **Properties**.
 
 	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)	
 
@@ -305,7 +315,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 3. In the **Settings** step of the wizard, click **Next**.
 
-	![Settings step](./media/cloud-services-dotnet-get-started/pubsignin.png)	
+	![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)	
 
 	The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](http://msdn.microsoft.com/library/windowsazure/hh535756.aspx).
 

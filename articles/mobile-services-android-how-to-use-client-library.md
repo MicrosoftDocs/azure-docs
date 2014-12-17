@@ -1,11 +1,6 @@
-<properties urlDisplayName="Android Client Library" pageTitle="Working with the Mobile Services Android Client Library" metaKeywords="" description="Learn how to use an Android client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the Android client library for Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Android Client Library" pageTitle="Working with the Mobile Services Android Client Library" metaKeywords="" description="Learn how to use an Android client for Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use the Android client library for Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
-
-
-
-
-
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="ricksal" />
 
 # How to use the Android client library for Mobile Services
 
@@ -54,7 +49,7 @@ The samples are written in Java and require the [Mobile Services SDK]. This tuto
 [WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 
-<h2><a name="setup"></a><span class="short-header">Setup</span>Setup and Prerequisites</h2>
+<h2><a name="setup"></a>Setup and Prerequisites</h2>
 
 We assume that you have created a mobile service and a table. For more information see [Create a table](http://go.microsoft.com/fwlink/p/?LinkId=298592). In the code used in this topic, we assume the table is named *ToDoItem*, and that it has the following columns:
 
@@ -78,7 +73,7 @@ The corresponding typed client side object is the following:
 	
 When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in the insert or update request. For more information, see [Dynamic schema]( http://go.microsoft.com/fwlink/p/?LinkId=296271).
 
-<h2><a name="create-client"></a><span class="short-header">Create the Mobile Services client</span>How to: Create the Mobile Services client</h2>
+<h2><a name="create-client"></a>How to: Create the Mobile Services client</h2>
 
 The following code creates the [MobileServiceClient](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) object that is used to access your mobile service. 
 
@@ -89,7 +84,7 @@ The following code creates the [MobileServiceClient](http://dl.windowsazure.com/
 
 In the code above, replace `MobileServiceUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on *Dashboard*.
 
-<h2><a name="instantiating"></a><span class="short-header">Creating a table reference</span>How to: Create a table reference</h2>
+<h2><a name="instantiating"></a>How to: Create a table reference</h2>
 
 The easiest way to query or modify data in the mobile service is by using the *typed programming model*, since Java is a strongly typed language (later on we will discuss the *untyped* model). This model provides seamless serialization and deserialization to JSON using the <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> library when sending data between the client and the mobile service: the developer doesn't have to do anything, the framework handles it all.
 
@@ -121,7 +116,7 @@ Mobile services table operations use the asynchronous callback model. Methods in
 There are several different callback objects, and which one you use depends on whether you are querying, modifying, or deleting data. The parameters to the *onCompleted* method vary, depending on which callback object it is part of.
 
 
-<h2><a name="querying"></a><span class="short-header">Querying data</span>How to: Query data from a mobile service</h2>
+<h2><a name="querying"></a>How to: Query data from a mobile service</h2>
 
 This section describes how to issue queries to the mobile service. Subsections describe diffent aspects such as sorting, filtering, and paging. Finally, we discuss how you can concatenate these operations together.
 
@@ -266,7 +261,7 @@ Here's a code sample where *mToDoTable* is a reference to the mobile services *T
 The main requirement in chaining methods together is that the *where* method and predicates need to come first. After that, you can call subsequent methods in the order that best meets the needs of your application.
 
 
-<h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
+<h2><a name="inserting"></a>How to: Insert data into a mobile service</h2>
 
 The following code shows how to insert new rows into a table.
 
@@ -334,7 +329,7 @@ The value for the `id` must be unique and it must not include characters from th
 You can alternatively use integer Ids for your tables. In order to use an integer Id you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
 
 
-<h2><a name="updating"></a><span class="short-header">Updating data</span>How to: Update data in a mobile service</h2>
+<h2><a name="updating"></a>How to: Update data in a mobile service</h2>
 
 The following code shows how to update data in a table. In this example, *mToDoItem* is a reference to an item in the *ToDoItem* table, and we update its *duration* property..
 
@@ -351,7 +346,7 @@ The following code shows how to update data in a table. In this example, *mToDoI
 
 Note that the callback object and *onCompleted* method's parameters are the same as when we do an insert.
 
-<h2><a name="deleting"></a><span class="short-header">Deleting data</span>How to: Delete data in a mobile service</h2>
+<h2><a name="deleting"></a>How to: Delete data in a mobile service</h2>
 
 The following code shows how to delete data from a table. It deletes an existing item from the ToDoItem table, using a reference to the item, in this case *mToDoItem*.
 
@@ -377,7 +372,7 @@ The following code illustrates another way to do this. It deletes an existing it
 		    }
 		});
 
-<h2><a name="lookup"></a><span class="short-header">Looking up data</span>How to: Look up a specific item</h2>
+<h2><a name="lookup"></a>How to: Look up a specific item</h2>
 Sometimes you want to look up a specific item by its *id*, unlike querying where you typically get a collection of items that satisfy some criteria. The following code shows how to do this, for *id* = "37BBF396-11F0-4B39-85C8-B319C729AF6D".
 
 		mToDoTable.lookUp("37BBF396-11F0-4B39-85C8-B319C729AF6D", new TableOperationCallback<ToDoItem>() {
@@ -390,7 +385,7 @@ Sometimes you want to look up a specific item by its *id*, unlike querying where
 		});
 
 
-<h2><a name="untyped"></a><span class="short-header">Working with untyped data</span>How to: Work with untyped data</h2>
+<h2><a name="untyped"></a>How to: Work with untyped data</h2>
 
 The untyped programming model gives you exact control over the JSON serialization, and there are some scenarios where you may wish to use it, for example, if your mobile service table contains a large number of columns and you only need to reference a few of them. Using the typed model requires you to define all of the movile service table's columns in your data class. But with the untyped model you only define the columns you need to use.
 
@@ -483,7 +478,7 @@ The following code shows how to retrieve an entire table. Note that the untyped 
 You can do filtering, sorting and paging by concatenating  methods that have the same names as those used in the typed programming model.
 
 
-<h2><a name="binding"></a><span class="short-header">Binding data</span>How to: Bind data to the user interface</h2>
+<h2><a name="binding"></a>How to: Bind data to the user interface</h2>
 
 Data binding involves three components:
 
@@ -585,7 +580,7 @@ You are now ready to use data binding. The following code shows how to get the i
 You must also call the adapter any time you modify the *ToDoItem* table if you want to display the results of doing that. Since modifications are done on a record by record basis, you will be dealing with a single row instead of a collection. When you insert an item you call the *add* method on the adapter, when deleting, you call the *remove* method.
 
 
-<h2><a name="authentication"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
+<h2><a name="authentication"></a>How to: Authenticate users</h2>
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see [Get started with authentication](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
@@ -707,7 +702,7 @@ The following code snippet demonstrates obtaining a token for a Microsoft Accoun
 So what happens if your token expires? In this case, when you try to use it to connect, you will get a *401 unauthorized* response. The user must then log in to obtain new tokens. You can avoid having to write code to handle this in every place in your app that calls Mobile Servides by using filters, which allow you to intercept calls to and responses from Mobile Services. The filter code will then test the response for a 401, trigger the login process if needed, and then resume the request that generated the 401.
 
 
-<h2><a name="errors"></a><span class="short-header">Error handling</span>How to: Handle errors</h2>
+<h2><a name="errors"></a>How to: Handle errors</h2>
 
 You can see an example of doing validation and handling any errors <a href="https://www.windowsazure.com/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/" target="_blank">here</a>, which implements validation via server scripts that return exceptions on error, and client code that handles the excpetions.
 
@@ -728,7 +723,7 @@ If the **Exception** object is not null, perform some generic error handling in 
 Now the developer can use their subclassed callbacks and not worry about checking the exception, because it is handled in one central place (#2) for all instances of the callback.
 
 
-<h2><a name="customizing"></a><span class="short-header">Customizing the client</span>How to: Customize the client</h2>
+<h2><a name="customizing"></a>How to: Customize the client</h2>
 
 ### <a name="headers"></a>How to: Customize request headers
 

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Endorsed distributions" pageTitle="Endorsed distributions of Linux in Azure" metaKeywords="" description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Azure-Endorsed Distributions" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Endorsed distributions" pageTitle="Endorsed distributions of Linux in Azure" metaKeywords="" description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Azure-Endorsed Distributions" authors="szark" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="szark" />
 
 
 
@@ -51,7 +51,7 @@ The table also includes a link to the [Linux kernel compatibility patch](http://
 			</tr>
 	<tr>
 		<th>  Canonical Ubuntu </th>
-		<td> Ubuntu 12.04.1+, 13.10, & 14.04</td>
+		<td> Ubuntu 12.04.1+, 14.04 & 14.10 </td>
 		<td>In Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">Required for 12.04 or 12.04.01 only</a></td>
 		<td>Package: In package repo under walinuxagent <br />
@@ -67,6 +67,14 @@ The table also includes a link to the [Linux kernel compatibility patch](http://
  		
 	</tr>
 	<tr>
+		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
+		<td> 494.4.0+ </td>
+        <td> In Kernel </td>
+		<td> N/A </td>
+		<td> Source: <a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
+		
+	</tr>
+	<tr>
 		<th> Oracle Linux </th>
 		<td> 6.4+</td>
         <td>In Kernel</td>
@@ -74,7 +82,8 @@ The table also includes a link to the [Linux kernel compatibility patch](http://
 		<td>Package: In repo, name: WALinuxAgent<br />
 			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
-	</tr><tr>
+	</tr>
+	<tr>
 		<th> SUSE Linux Enterprise </th>
 		<td> SLES 11 SP3+</td>
         <td>In Kernel</td>
@@ -93,3 +102,4 @@ The table also includes a link to the [Linux kernel compatibility patch](http://
 		
 	</tr>
 </table>
+

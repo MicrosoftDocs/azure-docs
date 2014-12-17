@@ -84,7 +84,7 @@ For more information about the Elastic Scale feature, see:
     -    [Elastic Scale with Azure SQL Database - Integrating with Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
     -    [Shard Elasticity on Script Center](http://go.microsoft.com/?linkid=9862617)
 -    Blog: [Elastic Scale Announcement](http://go.microsoft.com/?linkid=9862608)
--    Channel 9: [Elastic Scale Overview](http://go.microsoft.com/?linkid=9862609)
+-    Channel 9: [Elastic Scale Overview Video](http://go.microsoft.com/?linkid=9862609)
 -    Discussion Forum: [Azure SQL Database forum](http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=ssdsgetstarted)
 
 

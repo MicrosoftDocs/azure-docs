@@ -85,19 +85,30 @@ From within Azure ML, a new blank experiment was created. A sample input data wa
 ![Data sample][3]	
 
 ####Module 2:
-	# Apply time series model from forecast package 
-	# Input data 
-	data <- maml.mapInputPort(1) # class: data.frame library(forecast) 
- 
-	# preprocessing 
-	colnames(data) <- c("frequency", "horizon", "dates", "values") … 
- 
-	# fit model 
-	train_ts<- ts(values, frequency=frequency) fit1 <- ets(train_ts) 
-	train_model <- forecast(fit1, h = horizon) 
-	data.forecast <- as.data.frame(t( train_model$mean)) 
- 
-	# output 
+	# data input
+	data <- maml.mapInputPort(1) # class: data.frame
+	library(forecast)
+	
+	# preprocessing
+	colnames(data) <- c("frequency", "horizon", "dates", "values")
+	dates <- strsplit(data$dates, ";")[[1]]
+	values <- strsplit(data$values, ";")[[1]]
+	
+	dates <- as.Date(dates, format = '%m/%d/%Y')
+	values <- as.numeric(values)
+	
+	# fit a time-series model
+	train_ts<- ts(values, frequency=data$frequency)
+	fit1 <- ets(train_ts)
+	train_model <- forecast(fit1, h = data$horizon)
+	plot(train_model)
+	
+	# produce forcasting
+	train_pred <- round(train_model$mean,2)
+	data.forecast <- as.data.frame(t(train_pred))
+	colnames(data.forecast) <- paste("Forecast", 1:data$horizon, sep="")
+	
+	# data output
 	maml.mapOutputPort("data.forecast");
 
  

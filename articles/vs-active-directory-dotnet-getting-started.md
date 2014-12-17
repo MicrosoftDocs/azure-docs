@@ -1,46 +1,12 @@
 <properties title="Getting Started with Active Directory Authentication" pageTitle="" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
 
-## Getting Started with Azure Active Directory (AD)
+> [AZURE.SELECTOR]
+> - [Getting Started](/documentation/articles/vs-active-directory-dotnet-getting-started/)
+> - [What Happened](/documentation/articles/vs-active-directory-dotnet-what-happened/)
 
-###What Happened?
- 
-References have been added to your project
-
-#####NuGet package references
-
-`Microsoft.IdentityModel.Protocol.Extensions`, `Microsoft.Owin`, `Microsoft.Owin.Host.SystemWeb`, `Microsoft.Owin.Security`, `Microsoft.Owin.Security.Cookies`, `Microsoft.Owin.Security.OpenIdConnect`, `Owin`, `System.IdentityModel.Tokens.Jwt`
-
-#####.NET references
-
-`Microsoft.IdentityModel.Protocol.Extensions`, `Microsoft.Owin`, `Microsoft.Owin.Host.SystemWeb`, `Microsoft.Owin.Security`, `Microsoft.Owin.Security.Cookies`, `Microsoft.Owin.Security.OpenIdConnect`, `Owin`, `System`, `System.Data`, `System.Drawing`, `System.IdentityModel`, `System.IdentityModel.Tokens.Jwt`, `System.Runtime.Serialization`
-
-#####Code files were added to your project 
-
-An authentication startup class, `App_Start/Startup.Auth.cs` was added to your project containing startup logic for Azure AD authentication. Also, a controller class, Controllers/AccountController.cs was added which contains `SignIn()` and `SignOut()` methods. Finally, a partial view, `Views/Shared/_LoginPartial.cshtml` was added containing an action link for SignIn/SignOut. 
-
-#####Startup code was added to your project
- 
-If you already had a Startup class in your project, the **Configuration** method was updated to include a call to `ConfigureAuth(app)` was added to that method. Otherwise, a Startup class was added to your project. 
-
-#####Your app.config or web.config has new configuration values 
-
-The following configuration entries have been added. 
-	<pre>
-	`<appSettings>
-	    <add key="ida:ClientId" value="ClientId from the new Azure AD App" /> 
-	    <add key="ida:Tenant" value="Your selected Azure AD Tenant" /> 
-	    <add key="ida:AADInstance" value="https://login.windows.net/{0}" /> 
-	    <add key="Ida:PostLogoutRedirectURI" value="Your project start page" /> 
-	</appSettings>` </pre>
-
-#####An Azure Active Directory (AD) App was created 
-An Azure AD Application was created in the directory that you selected in the wizard. 
-
-###Getting Started
-
-Here is what you can do with the code that was added.
+## Getting Started with Azure Active Directory (.NET Projects)
  
 #####Requiring authentication to access controllers 
 
@@ -50,52 +16,7 @@ All controllers in your project were adorned with the **Authorize** attribute. T
 
 To add a the SignIn/SignOut controls to your view, you can use the **_LoginPartial.cshtml** partial view to add the functionality to one of your views. Here is an example of the functionality added to the standard **_Layout.cshtml** view. (Note the last element in the div with class navbar-collapse):
 
-<code style="whitespace: pre"> 
-    &lt;!DOCTYPE html&gt; <br/>
-     &lt;html&gt; <br/>
-     &lt;head&gt; <br/>
-         &lt;meta charset="utf-8" /&gt; <br/>
-        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; <br/>
-        &lt;title&gt;@ViewBag.Title - My ASP.NET Application&lt;/title&gt; <br/>
-        @Styles.Render("~/Content/css") <br/>
-        @Scripts.Render("~/bundles/modernizr") <br/>
-    &lt;/head&gt; <br/>
-    &lt;body&gt; <br/>
-        &lt;div class="navbar navbar-inverse navbar-fixed-top"&gt; <br/>
-            &lt;div class="container"&gt; <br/>
-                &lt;div class="navbar-header"&gt; <br/>
-                    &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt; <br/>
-                        &lt;span class="icon-bar"&gt;&lt;/span&gt; <br/>
-                        &lt;span class="icon-bar"&gt;&lt;/span&gt; <br/>
-                        &lt;span class="icon-bar"&gt;&lt;/span&gt; <br/>
-                    &lt;/button&gt; <br/>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) <br/>
-                &lt;/div&gt; <br/>
-                &lt;div class="navbar-collapse collapse"&gt; <br/>
-                    &lt;ul class="nav navbar-nav"&gt; <br/>
-                        &lt;li&gt;@Html.ActionLink("Home", "Index", "Home")&lt;/li&gt; <br/>
-                        &lt;li&gt;@Html.ActionLink("About", "About", "Home")&lt;/li&gt; <br/>
-                        &lt;li&gt;@Html.ActionLink("Contact", "Contact", "Home")&lt;/li&gt; <br/>
-                    &lt;/ul&gt; <br/>
-                    <span style="background-color: yellow">@Html.Partial("_LoginPartial")</span> <br/>
-                &lt;/div&gt; <br/>
-            &lt;/div&gt; <br/>
-        &lt;/div&gt; <br/>
-        &lt;div class="container body-content"&gt; <br/>
-            @RenderBody()<br/> 
-            &lt;hr /&gt; <br/>
-            &lt;footer&gt; <br/>
-                &lt;p&gt;&amp;copy; @DateTime.Now.Year - My ASP.NET Application&lt;/p&gt; <br/>
-            &lt;/footer&gt; <br/>
-        &lt;/div&gt; <br/> 
-        @Scripts.Render("~/bundles/jquery") <br/>
-        @Scripts.Render("~/bundles/bootstrap") <br/>
-        @RenderSection("scripts", required: false) <br/>
-    &lt;/body&gt; <br/>
-    &lt;/html&gt; <br/>
-</code>
-
-<PRE>
+<PRE class="prettyprint">
     &lt;!DOCTYPE html&gt; 
      &lt;html&gt; 
      &lt;head&gt; 

@@ -1,6 +1,6 @@
-﻿<properties pageTitle="How to Use Azure Redis Cache" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="How to Use Azure Redis Cache" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="sdanie" />
+<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
 # How to Use Azure Redis Cache
 
@@ -11,6 +11,7 @@ information on using Azure Redis Cache, refer to the [Next Steps][] section.
 
 ## Table of Contents
 
+-   [Introduction to Azure Redis Cache (Video)][]
 -   [What is Azure Redis Cache?][]
 -	[Get started with Azure Redis Cache][]
 	-	[Create the cache][]
@@ -21,6 +22,11 @@ information on using Azure Redis Cache, refer to the [Next Steps][] section.
 	-   [Specify the expiration of an object in the cache][]
 	-   [Store ASP.NET session state in the cache][]
 -   [Next Steps][]
+
+<a name="video"></a>
+## Introduction to Azure Redis Cache (Video)
+In this video, Saurabh Pant and Scott Hanselman introduce Azure Redis Cache. (Duration: 7:45)  
+> [AZURE.VIDEO azure-redis-cache-101-introduction-to-redis]
 
 <a name="what-is"></a>
 ## What is Azure Redis Cache?
@@ -134,6 +140,8 @@ To connect to an Azure Redis Cache and be returned an instance of a connected `C
 
 If you don't want to use SSL, either set `ssl=false` or just pass in the endpoint and key.
 
+>[AZURE.NOTE] The non-SSL port is disabled by default for new caches. For instructions on enabling the non-SSL port, see the Access Ports section in the [Configure a cache in Azure Redis Cache][] topic.
+
 	connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,password=...");
 
 >[AZURE.NOTE] For more information on advanced connection configuration options, see [StackExchange.Redis configuration model][].
@@ -144,7 +152,7 @@ The cache endpoint and keys can be obtained from the Azure management preview po
 
 ![Manage keys][ManageKeys]
 
-Once the connection is established, return a reference to the redis cache database, by calling the `ConnectionMultiplexer.GetDatabase` method.
+Once the connection is established, return a reference to the redis cache database by calling the `ConnectionMultiplexer.GetDatabase` method.
 
 	// connection referes to a previously configured ConnectionMultiplexer
 	IDatabase cache = connection.GetDatabase();
@@ -288,6 +296,7 @@ follow these links to learn how to do more complex caching tasks.
 
 <!-- INTRA-TOPIC LINKS -->
 [Next Steps]: #next-steps
+[Introduction to Azure Redis Cache (Video)]: #video
 [What is Azure Redis Cache?]: #what-is
 [Create an Azure Cache]: #create-cache
 [Which type of caching is right for me?]: #choosing-cache
@@ -344,6 +353,7 @@ follow these links to learn how to do more complex caching tasks.
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
 [How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/en-us/library/zd1ysf1y.aspx
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
+[Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/en-us/library/azure/dn793612.aspx
 
 [StackExchange.Redis configuration model]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 

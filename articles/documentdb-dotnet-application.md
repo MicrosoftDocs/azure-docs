@@ -584,8 +584,5 @@ Congratulations! You have just built your first ASP.NET MVC Application using Az
 [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [here]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
-<<<<<<< HEAD
-=======
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
->>>>>>> 05a26329fce8e6ed80ebe4a7dee90b36099a042e

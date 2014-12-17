@@ -2,7 +2,7 @@
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="coromt" /> 
 
-#Machine Learning example app: Frequently Bought Together
+# Machine Learning example app: Frequently Bought Together
  
 This Machine Learning [web service]( https://datamarket.azure.com/dataset/amla/mba) performs online shopping cart analysis to produce product recommendations of items frequently bought together from historical transactions provided by the user. Frequently Bought Together recommendations helps shoppers identify products in a catalog that are most relevant when purchasing a specific item. Prominently showing these recommendations have proven effective in lifting sales for online retailers. 
   

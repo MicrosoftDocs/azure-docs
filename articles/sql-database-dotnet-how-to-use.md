@@ -1,6 +1,6 @@
 <properties urlDisplayName="SQL Database" pageTitle="How to use SQL Database (.NET) - Azure feature guide" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 
 
 
@@ -38,9 +38,9 @@ SQL Database provides relational data storage, access, and management services o
 2. Your account is now created. You are ready to get started.
 
 
-<h2><a name="PreReq2"></a><span class="short-header">Create and configure SQL Database</span></h2>
+<h2><a name="PreReq2"></a>Create and configure SQL Database</h2>
 
-Next, you'll create and configure a database and server. In the Azure Management Portal, revised workflows let you create the database first, and follow up with server provisioning. 
+Next, create and configure a database and server. In the Azure Management Portal, revised workflows let you create the database first, and follow up with server provisioning. 
 
 <h3 name="createsrvr">Create a database instance and logical server</h3>
 
@@ -58,7 +58,7 @@ Next, you'll create and configure a database and server. In the Azure Management
 
 7. Choose an edition, maximum size, and collation. For the purposes of this guide, you can use the default values. 
 
-	SQL Database provides two database editions. Web Edition grows up to a size of 5 GB. Business Edition grows up to a size of 50 GB.
+	SQL Database provides three database editions, Basic, Standard and Premium.
 
 	The MAXSIZE is specified when the database is first created and can
 later be changed using ALTER DATABASE. MAXSIZE provides the ability to
@@ -122,7 +122,7 @@ In the next step, you will configure the firewall so that connections from appli
 You now have a database instance, logical server, a firewall rule that allows inbound connections from your IP address, and an administrator login. You are now ready to connect to the database programmatically.
 
 
-<h2><a name="Connect-DB"></a><span class="short-header">Connect to SQL Database</span></h2>
+<h2><a name="Connect-DB"></a>Connect to SQL Database</h2>
 
 This section shows how to connect to SQL Database instance using different
 .NET Framework data providers.

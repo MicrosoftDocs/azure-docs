@@ -7,11 +7,11 @@
 
 [WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
-Azure Search is a cloud-based service and HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, storage, and a query command syntax. 
+Azure Search is a cloud-based service and HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, search data storage, and a query command syntax. 
 
-This article explains how to administer a Search service in Microsoft Azure.
+This article explains how to administer a Search service in the new [Azure Preview portal](https://portal.azure.com).
 
-As noted, the new Preview portal is required for administrative tasks. Azure Search is not available on earlier versions of the portal. A management API will be available soon to allow for scripting of common management tasks.  
+Alternatively, you can use the Management REST API. See [Get started with Azure Search Management REST API](http://azure.microsoft.com/en-us/documentation/articles/search-get-started-management-api/) and [Azure Search Management REST API reference](http://msdn.microsoft.com/en-us/library/azure/dn832684.aspx) for details.
 
 <!--TOC-->
 
@@ -26,9 +26,9 @@ As noted, the new Preview portal is required for administrative tasks. Azure Sea
 
 <h2 id="sub-1">Add search service to your subscription</h2>
 
-As the administrator, you can add Search to your existing Azure subscription using the new [Azure Preview portal](https://portal.azure.com). Only administrators can add features to a subscription. When setting up your service, there are two pricing tiers to choose from.
+As the administrator setting up a Search service, one of your first decisions is choosing a pricing tier. Options include the Free and Standard pricing tiers.
 
-At no charge to existing subscribers, you can use a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects. The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed. There are no performance guarantees with the shared service, so if you're building a production search application, consider standard search instead.
+At no charge to existing subscribers, you can opt for a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects. The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed. There are no performance guarantees with the Shared service, so if you're building a production search application, consider Standard search instead.
 
 Standard search is billable because you are signing up for dedicated resources and infrastructure used only by your subscription. Standard search is allocated in user-defined bundles of partitions (storage) and replicas (service workloads), and priced by search unit. You can scale up on partitions or replicas independently, adding more of whatever resource is needed.
 

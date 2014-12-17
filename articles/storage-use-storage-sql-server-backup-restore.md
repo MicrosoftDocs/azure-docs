@@ -1,6 +1,6 @@
-<properties urlDisplayName="Storage for SQL Server backups" pageTitle="How to use Azure storage for SQL Server backup and restore | Azure" metaKeywords="" description="" metaCanonical="" services="storage" documentationCenter="" title="How to Use Azure Storage for SQL Server Backup and Restore" authors="karaman" solutions="" manager="jeffreyg" editor="tysonn" />
+<properties urlDisplayName="Storage for SQL Server backups" pageTitle="How to use Azure storage for SQL Server backup and restore | Azure" metaKeywords="" description="" metaCanonical="" services="storage" documentationCenter="" title="How to Use Azure Storage for SQL Server Backup and Restore" authors="jeffreyg" solutions="" manager="jeffreyg" editor="tysonn" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg; karaman" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg; jeffreyg" />
 
 
 
@@ -25,7 +25,7 @@ The following two sections introduce the Azure Blob storage service, and the SQL
 
 Creating an Azure account is the first step to this process. SQL Server uses the Azure storage account name and its access key values to authenticate and write and read blobs to the storage service. The SQL Server Credential stores this authentication information and is used during the backup or restore operations. 
 
-For a complete walkthrough of creating a storage account and performing a simple restore, see [Getting Started withAzure Storage Service for SQL Server Backup and Restore](http://go.microsoft.com/fwlink/?LinkId=271615) 
+For a complete walkthrough of creating a storage account and performing a simple restore, see [Getting Started with Azure Storage Service for SQL Server Backup and Restore](http://go.microsoft.com/fwlink/?LinkId=271615) 
 
 ## Azure Blob Storage Service Components 
 
@@ -40,7 +40,7 @@ For more information about page Blobs, see [Understanding Block and Page Blobs](
 ## SQL Server Components
 
 * URL: A URL specifies a Uniform Resource Identifier (URI) to a unique backup file. The URL is used to provide the location and name of the SQL Server backup file. In this implementation, the only valid URL is one that points to a page Blob in an Azure Storage account. The URL must point to an actual Blob, not just a container. If the Blob does not exist, it is created. If an existing Blob is specified, BACKUP fails, unless the > WITH FORMAT option is specified. 
-Following is an example of the URL you would specifiy in the BACKUP command: 
+Following is an example of the URL you would specify in the BACKUP command: 
 **`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>`
 
 <b>Note:</b> HTTPS is not required, but is recommended.

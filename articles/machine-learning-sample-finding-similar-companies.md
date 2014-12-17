@@ -1,13 +1,15 @@
 <properties title="Azure Machine Learning Sample: Finding similar companies" pageTitle="Machine Learning Sample: Finding similar companies | Azure" description="A sample Azure Machine Learning experiment that uses a clustering model to find similar companies." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="garye" />
 
 
 # Azure Machine Learning sample: Finding similar companies
 
-*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+>[AZURE.NOTE]
+>The [Sample Experiment] and [Sample Dataset] associated with this model are available in ML Studio. See below for more details.
+[Sample Experiment]: #sample-experiment
+[Sample Dataset]: #sample-dataset
 
-	Sample Experiment - S & P 500 Company Clustering - Development
 
 ## Problem Description ##
 Cluster companies from S&P 500 index based on Wikipedia articles of each company. This model could be used, for example, to label up-and-coming companies based on how similar they are to existing S&P 500 companies.
@@ -37,4 +39,22 @@ Cluster 2: Energy, Utilities, Telecommunication Services
 
 **Note** The clustering can vary from run to run. 
 
+
+
+## Sample Experiment
+
+The following sample experiment associated with this model is available in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab.
+
+> **Sample Experiment - S & P 500 Company Clustering - Development**
+
+
+## Sample Dataset
+
+The following sample dataset used by this experiment is available in ML Studio in the module palette under **Saved Datasets**.
+
+<ul>
+<li><b>Wikipedia SP 500 Dataset</b><p></p>
+[AZURE.INCLUDE [machine-learning-sample-dataset-wikipedia-sp-500](../includes/machine-learning-sample-dataset-wikipedia-sp-500.md)]
+<p></p></li>
+</ul>
 

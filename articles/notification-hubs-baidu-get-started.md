@@ -1,6 +1,6 @@
 <properties urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="mm/dd/yyyy" ms.author="piyushjo" />
+<tags ms.service="" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="10/03/2014" ms.author="piyushjo" />
 
 # Get started with Notification Hubs
 
@@ -180,8 +180,6 @@ You will see **保存成功！(Successfully saved!)** message.
 5. Download and unzip the [Mobile Services Android SDK], open the **notificationhubs** folder, copy the **notification-hubs-x.y.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
 
 6. Download and unzip the [Baidu Push Android SDK], open the **libs** folder and copy the *pushservice-x.y.z* jar file and the *armeabi* & *mips* folders in the **libs** folder of your Android application. 
-
-    ![][27]
 
 7. Open up the **AndroidManifest.xml** of your Android project and add the permissions required by the Baidu SDK.
 

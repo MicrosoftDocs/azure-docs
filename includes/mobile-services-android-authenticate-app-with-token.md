@@ -10,7 +10,7 @@ The previous example showed a standard sign-in, which requires the client to con
         import android.content.SharedPreferences;
         import android.content.SharedPreferences.Editor;
 
-2. In the ToDoActivity.java file, add the the following members to the ToDoActivity class.
+2. Add the the following members to the `ToDoActivity` class.
 
     	public static final String SHAREDPREFFILE = "temp";	
 	    public static final String USERIDPREF = "uid";	
@@ -33,7 +33,7 @@ The previous example showed a standard sign-in, which requires the client to con
     >[WACOM.NOTE]You can further protect the token with encryption if token access to your data is considered highly sensitive and someone may gain access to the device. However, a completely secure solution is beyond the scope of this tutorial and dependent on your security requirements.
 
 
-4. In the ToDoActivity.java file, add the the following definition for the `cacheUserToken` method.
+4. In the ToDoActivity.java file, add the the following definition for the `loadUserTokenCache` method.
 
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
@@ -54,33 +54,36 @@ The previous example showed a standard sign-in, which requires the client to con
 
 
 
-5. In the ToDoActivity.java file, replace the `authenticate` method with the following method which uses a token cache. Change the login provider if you want to use an account other than a Microsoft account.
+5. In the *ToDoActivity.java* file, replace the `authenticate` method with the following method which uses a token cache. Change the login provider if you want to use an account other than a Microsoft account.
 
-        private void authenticate() {
-            // We first try to load a token cache if one exists.
-            if (loadUserTokenCache(mClient))
-            {
-                createTable();
-            }
-            // If we failed to load a token cache, login and create a token cache
-            else
-            {
-                // Login using the provider.
-                mClient.login(MobileServiceAuthenticationProvider.MicrosoftAccount,
-	                new UserAuthenticationCallback() {
-	                    @Override
-	                    public void onCompleted(MobileServiceUser user,
-	                            Exception exception, ServiceFilterResponse response) {
-	                        if (exception == null) {
-	                            cacheUserToken(mClient.getCurrentUser());
-	                            createTable();
-	                        } else {
-	                            createAndShowDialog("You must log in. Login Required", "Error");
-	                        }
-	                    }
-	                });
-            }
-        }   
+		private void authenticate() {
+			// We first try to load a token cache if one exists.
+		    if (loadUserTokenCache(mClient))
+		    {
+		        createTable();
+		    }
+		    // If we failed to load a token cache, login and create a token cache
+		    else
+		    {
+			    // Login using the Google provider.    
+				ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
+		
+		    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+		    		@Override
+		    		public void onFailure(Throwable exc) {
+		    			createAndShowDialog("You must log in. Login Required", "Error");
+		    		}   		
+		    		@Override
+		    		public void onSuccess(MobileServiceUser user) {
+		    			createAndShowDialog(String.format(
+		                        "You are now logged in - %1$2s",
+		                        user.getUserId()), "Success");
+		    			cacheUserToken(mClient.getCurrentUser());
+		    			createTable();	
+		    		}
+		    	});
+		    }
+		}
 
 6. Build the app and test authentication using a valid account. Run it at least twice. During the first run, you should receive a prompt to login and create the token cache. After that, each run will attempt to load the token cache for authentication and you should not be required to login.
 

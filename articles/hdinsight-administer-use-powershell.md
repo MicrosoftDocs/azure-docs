@@ -1,6 +1,6 @@
 <properties urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Manage Hadoop clusters in HDInsight using Azure PowerShell" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao" />
 
 # Manage Hadoop clusters in HDInsight using Azure PowerShell
 
@@ -56,7 +56,7 @@ After you have imported the publishsettings file, you can use the following comm
 
 
 
-For information on creating an Azure storage account using the management portal, see [How to Create a Storage Account](../storage-create-storage-account/).
+For information on creating an Azure storage account using the management portal, see [Create, manage, or delete a storage account](../storage-create-storage-account/).
 
 If you have already had a storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
@@ -65,7 +65,7 @@ If you have already had a storage account but do not know the account name and a
 	# List the keys for a storage account
 	Get-AzureStorageKey <StorageAccountName>
 
-For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](../storage-manage-storage-account/).
+For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [Create, manage, or delete a storage account](../storage-create-storage-account/).
 
 **To create Azure storage container**
 

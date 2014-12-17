@@ -1,25 +1,24 @@
+Our token cache should work in a simple case but, what happens when the token expires or is revoked? The token could expire when the app is not running. This would mean the token cache is invalid. The token could also expire while the app is actually running during a call the app makes directly or a call made by the Mobile Services library. The result will be an HTTP status code 401 "Unauthorized". 
 
-Our token cache should work in a simple case but, what happens when the token expires or is revoked? We need to be able to detect an expired tokens. The token could expire when the app is not running. This would mean the token cache is invalid. The token could also expire while the app is actually running during a call the app makes directly or a call made by the Mobile Services library. The result will be an HTTP status code 401 "Unauthorized". So we need a way to detect this and refresh the token. To do this we use a [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html) from the [Android client library](http://dl.windowsazure.com/androiddocs/).
+We need to be able to detect an expired token, and refresh it. To do this we use a [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html) from the [Android client library](http://dl.windowsazure.com/androiddocs/).
 
 In this section you will define a ServiceFilter that will detect a HTTP status code 401 response and trigger a refresh of the token and the token cache. Additionally, this ServiceFilter will block other outbound requests during authentication so that those requests can use the refreshed token.
-
-
-
-
 
 1. In Eclipse, open the ToDoActivity.java file and add the following import statements:
  
         import java.util.concurrent.atomic.AtomicBoolean;
+		import java.util.concurrent.ExecutionException;
+
+		import com.microsoft.windowsazure.mobileservices.MobileServiceException;
  
-  
-2. In the ToDoActivity.java file, add the following members to the ToDoActivity class. 
+2. Add the following members to the `ToDoActivity` class. 
 
     	public boolean bAuthenticating = false;
 	    public final Object mAuthenticationLock = new Object();
 
     These will be used to help synchronize the authentication of the user. We only want to authenticate once. Any calls during an authentication should wait and use the new token from the authentication in progress.
 
-2. In the ToDoActivity.java file, add the following method to the ToDoActivity class that will be used to block outbound calls on other threads while authentication is in progress.
+3. In the ToDoActivity.java file, add the following method to the ToDoActivity class that will be used to block outbound calls on other threads while authentication is in progress.
 
 	    /**
     	 * Detects if authentication is in progress and waits for it to complete. 
@@ -50,7 +49,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     	}
     	
 
-3. In the ToDoActivity.java file, add the following method to the ToDoActivity class. This method will actually trigger the wait and then update the token on outbound requests when authentication is complete. 
+4. In the ToDoActivity.java file, add the following method to the ToDoActivity class. This method will actually trigger the wait and then update the token on outbound requests when authentication is complete. 
 
     	
     	/**
@@ -75,7 +74,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     	}
 
 
-4. In the ToDoActivity.java file, update the `authenticate` method of the ToDoActivity class so that it accepts a boolean parameter to allow forcing the refresh of the token and token cache. We also need to notify any blocked threads when authentication is completed so they can pick up the new token.
+5. In the ToDoActivity.java file, update the `authenticate` method of the ToDoActivity class so that it accepts a boolean parameter to allow forcing the refresh of the token and token cache. We also need to notify any blocked threads when authentication is completed so they can pick up the new token.
 
 	    /**
     	 * Authenticates with the desired login provider. Also caches the token. 
@@ -128,105 +127,86 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 
 
 
-5. In the ToDoActivity.java file, add the following definition for the `RefreshTokenCacheFilter` class in the ToDoActivity class:
+6. In the ToDoActivity.java file, add this code for a new `RefreshTokenCacheFilter` class inside the ToDoActivity class:
 
-	    /**
-    	 * The RefreshTokenCacheFilter class filters responses for HTTP status code 401. 
-    	 * When 401 is encountered, the filter calls the authenticate method on the 
-    	 * UI thread. Out going requests and retries are blocked during authentication. 
-    	 * Once authentication is complete, the token cache is updated and 
-    	 * any blocked request will receive the X-ZUMO-AUTH header added or updated to 
-    	 * that request.   
-    	 */
-    	private class RefreshTokenCacheFilter implements ServiceFilter {
-    
-    		AtomicBoolean mAtomicAuthenticatingFlag = new AtomicBoolean();
-    		
-    		/**
-    		 * The AuthenticationRetryFilterCallback class is a wrapper around the response 
-    		 * callback that encapsulates the request and other information needed to enable 
-    		 * a retry of the request when HTTP status code 401 is encountered. 
-    		 */
-    		private class AuthenticationRetryFilterCallback implements ServiceFilterResponseCallback
-    		{
-    			// Data members used to retry the request during the response.
-    			ServiceFilterRequest mRequest;
-    			NextServiceFilterCallback mNextServiceFilterCallback;
-    			ServiceFilterResponseCallback mResponseCallback;
-    
-    			public AuthenticationRetryFilterCallback(ServiceFilterRequest request, 
-    					NextServiceFilterCallback nextServiceFilterCallback, 
-    					ServiceFilterResponseCallback responseCallback)
-    			{
-    				mRequest = request;
-    				mNextServiceFilterCallback = nextServiceFilterCallback;
-    				mResponseCallback = responseCallback;
-    			}
-    			
-    			@Override
-    			public void onResponse(ServiceFilterResponse response, Exception exception) {
-    				
-    				// Filter out the 401 responses to update the token cache and 
-    				// retry the request
-    				if ((response != null) && (response.getStatus().getStatusCode() == 401))
-    				{ 
-    					// Two simultaneous requests from independent threads could get HTTP 
-    					// status 401. Protecting against that right here so multiple 
-    					// authentication requests are not setup to run on the UI thread.
-    					// We only want to authenticate once. Other requests should just wait 
-    					// and retry with the new token.
-    					if (mAtomicAuthenticatingFlag.compareAndSet(false, true))							
-    					{
-    						// Authenticate on UI thread
-    						runOnUiThread(new Runnable() {
-    							@Override
-    							public void run() {
-    								// Force a token refresh during authentication.
-    								authenticate(true);
-    							}
-    						});
-    					}
-    					
-    					// Wait for authentication to complete then 
-    					// update the token in the request.
-    					waitAndUpdateRequestToken(this.mRequest);
-    					mAtomicAuthenticatingFlag.set(false);    					
-    					    
-    					// Retry recursively with a new token as long as we get a 401.
-    					mNextServiceFilterCallback.onNext(this.mRequest, this);
-    				}
-    				
-    				// Responses that do not have 401 status codes just pass through.
-    				else if (this.mResponseCallback != null)  
-                      mResponseCallback.onResponse(response, exception);
-    			}
-    		}
-    		
-    		
-    		@Override
-    		public void handleRequest(final ServiceFilterRequest request, 
-				final NextServiceFilterCallback nextServiceFilterCallback,
-				ServiceFilterResponseCallback responseCallback) {
-    			
-	    		// In this example, if authentication is already in progress we block the request
-	    		// until authentication is complete to avoid unnecessary authentications as 
-	    		// a result of HTTP status code 401. 
-	    		// If authentication was detected, add the token to the request.
-	    		waitAndUpdateRequestToken(request);
-	    
-	    		// Wrap the request in a callback object that will facilitate retries.
-	    		AuthenticationRetryFilterCallback retryCallbackObject = 
-                    new AuthenticationRetryFilterCallback(request, nextServiceFilterCallback,
-                          responseCallback); 
-				
-				// Send the request down the filter chain.
-				nextServiceFilterCallback.onNext(request, retryCallbackObject);			
-			}
+		/**
+		* The RefreshTokenCacheFilter class filters responses for HTTP status code 401. 
+		 * When 401 is encountered, the filter calls the authenticate method on the 
+		 * UI thread. Out going requests and retries are blocked during authentication. 
+		 * Once authentication is complete, the token cache is updated and 
+		 * any blocked request will receive the X-ZUMO-AUTH header added or updated to 
+		 * that request.   
+		 */
+		private class RefreshTokenCacheFilter implements ServiceFilter {
+		 
+	        AtomicBoolean mAtomicAuthenticatingFlag = new AtomicBoolean();                     
+	        
+	        @Override
+	        public ListenableFuture<ServiceFilterResponse> handleRequest(
+	        		final ServiceFilterRequest request, 
+	        		final NextServiceFilterCallback nextServiceFilterCallback
+	        		)
+	        {
+	            // In this example, if authentication is already in progress we block the request
+	            // until authentication is complete to avoid unnecessary authentications as 
+	            // a result of HTTP status code 401. 
+	            // If authentication was detected, add the token to the request.
+	            waitAndUpdateRequestToken(request);
+	 
+	            // Send the request down the filter chain
+	            // retrying up to 5 times on 401 response codes.
+	            ListenableFuture<ServiceFilterResponse> future = null;
+	            ServiceFilterResponse response = null;
+	            int responseCode = 401;
+	            for (int i = 0; (i < 5 ) && (responseCode == 401); i++)
+	            {
+	                future = nextServiceFilterCallback.onNext(request);
+	                try {
+	                    response = future.get();
+	                    responseCode = response.getStatus().getStatusCode();
+	                } catch (InterruptedException e) {
+	                   e.printStackTrace();
+	                } catch (ExecutionException e) {
+	                    if (e.getCause().getClass() == MobileServiceException.class)
+	                    {
+	                        MobileServiceException mEx = (MobileServiceException) e.getCause();
+	                        responseCode = mEx.getResponse().getStatus().getStatusCode();
+	                        if (responseCode == 401)
+	                        {
+	                            // Two simultaneous requests from independent threads could get HTTP status 401. 
+	                            // Protecting against that right here so multiple authentication requests are
+	                            // not setup to run on the UI thread.
+	                            // We only want to authenticate once. Requests should just wait and retry 
+	                            // with the new token.
+	                            if (mAtomicAuthenticatingFlag.compareAndSet(false, true))                                                                                                      
+	                            {
+	                                // Authenticate on UI thread
+	                                runOnUiThread(new Runnable() {
+	                                    @Override
+	                                    public void run() {
+	                                        // Force a token refresh during authentication.
+	                                        authenticate(true);
+				// ToDoActivity.mMainActivity.authenticate(true);
+	
+	                                    }
+	                                });
+	                            }
+	
+				                // Wait for authentication to complete then update the token in the request. 
+				                waitAndUpdateRequestToken(request);
+				                mAtomicAuthenticatingFlag.set(false);                                                  
+	                        }
+	                    }
+	                }
+	            }
+	            return future;
+	        }
 		}
 
-    This service filter will check each response for HTTP status code 401 "Unauthorized". If a 401 is encountered, a new login request to obtain a new token will be setup on the UI thread. Other calls will be blocked until the login is completed. Once the new token is obtained, the request that triggered the 401 will be retried with the new token and any blocked calls will be retried with the new token. 
 
-6. In the ToDoActivity.java file, update `onCreate` method as follows:
+    This service filter will check each response for HTTP status code 401 "Unauthorized". If a 401 is encountered, a new login request to obtain a new token will be setup on the UI thread. Other calls will be blocked until the login is completed, or until 5 attempts have failed. If the new token is obtained, the request that triggered the 401 will be retried with the new token and any blocked calls will be retried with the new token. 
+
+7. In the ToDoActivity.java file, update the `onCreate` method as follows:
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -257,4 +237,6 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 	    }
 
 
-       In this code the RefreshTokenCacheFilter is used in addition to the ProgressFilter. Also during `onCreate` we want to load the token cache. So false is passed in to the `authenticate` method.
+       In this code, `RefreshTokenCacheFilter` is used in addition to `ProgressFilter`. Also during `onCreate` we want to load the token cache. So `false` is passed in to the `authenticate` method.
+
+

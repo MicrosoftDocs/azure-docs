@@ -1,13 +1,15 @@
 <properties title="Azure Machine Learning Sample: Color quantization using K-Means clustering" pageTitle="Machine Learning Sample: Color quantization using K-Means clustering | Azure" description="A sample Azure Machine Learning experiment that evaluates using different K-Means clustering values for quantizing a color image." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/19/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="garye" />
 
 
 # Azure Machine Learning Sample: Color quantization using K-Means clustering
 
-*You can find the sample experiment associated with this model in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab. The experiment name is:*
+>[AZURE.NOTE]
+>The [Sample Experiment] and [Sample Dataset] associated with this model are available in ML Studio. See below for more details.
+[Sample Experiment]: #sample-experiment
+[Sample Dataset]: #sample-dataset
 
-	Sample Experiment - Color Based Image Compression using K-Means Clustering - Development
 
 ##Problem description
 
@@ -136,6 +138,23 @@ In order to feed the images into ML Studio, we wrote a simple convertor code whi
 	    }
 	}
 
+
+## Sample Experiment
+
+The following sample experiment associated with this model is available in ML Studio in the **EXPERIMENTS** section under the **SAMPLES** tab.
+
+> **Sample Experiment - Color Based Image Compression using K-Means Clustering - Development**
+
+
+## Sample Dataset
+
+The following sample dataset used by this experiment is available in ML Studio in the module palette under **Saved Datasets**.
+
+<ul>
+<li><b>Bill Gates RGB Image</b><p></p>
+[AZURE.INCLUDE [machine-learning-sample-dataset-bill-gates-rgb-image](../includes/machine-learning-sample-dataset-bill-gates-rgb-image.md)]
+<p></p></li>
+</ul>
 
 
 [image1]:./media/machine-learning-sample-color-quantization-using-k-means-clustering/image1.png

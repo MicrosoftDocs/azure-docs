@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
 # Get started with Azure API Management
 
@@ -27,7 +27,7 @@ The first step in working with API Management is to create a service instance. L
 
 For **URL**, specify a unique sub-domain name to use for the service URL.
 
-Choose the desired **Pricing Tier**, **Subscription**, and **Region** for your service instance. All pricing tiers can be used for this tutorial. After making your selections, click the next button.
+Choose the desired **Subscription** and **Region** for your service instance. After making your selections, click the next button.
 
 ![New API Management service][api-management-create-instance-step1]
 
@@ -35,9 +35,13 @@ Enter **Contoso Ltd.** for the **Organization Name**, and enter your email addre
 
 >This email address is used for notifications from the API Management system. For more information, see [Configure Notifications][].
 
-Click the check box to create your service instance.
-
 ![New API Management service][api-management-create-instance-step2]
+
+API Management service instances are available in two tiers: Developer and Standard. By default, new API Management service instances are created using the Developer tier. To select the Standard tier, check the **Advanced settings** checkbox and select the Standard tier on the following screen.
+
+>Microsoft Azure offers two tiers in which you can run your API Management service: Developer and Standard. The Developer Tier is for development, testing and pilot API programs where high availability is not a concern. In the Standard tier, you can scale your reserved unit count to handle more traffic. The Standard tier provides your API Management service with the most processing power and performance. This tutorial can be completed using either tier. For more information about API Management tiers, see [API Management pricing][].
+
+Click the check box to create your service instance.
 
 ![New API Management service][api-management-instance-created]
 
@@ -61,11 +65,12 @@ To create the **My Echo API**, click **APIs** from the **API Management** menu o
 
 ![Add new API][api-management-add-new-api]
 
-The following three fields are used to configure the new API.
+The following fields are used to configure the new API.
 
 -	Type **My Echo API** into the **Web API Title** textbox. **Web API Title** provides a unique and descriptive name for the API. It is displayed in the developer and management portals.
 -	Type **http://echoapi.cloudapp.net/api** into the **Web service URL**. **Web service URL** references the HTTP service implementing the API. API management forwards requests to this address.
 -	Type **myecho** into the **Web API URL suffix**. **Web API URL suffix** is appended to the base URL for the API management service. Your APIs will share a common base URL and be distinguished by a unique suffix appended after the base.
+-	**Web API URL scheme** determines which protocols can be used to access the API. HTTPs is specified by default.
 
 Click **Save** to create the API. Once the new API is created, the summary page for the API is displayed in the management portal.
 
@@ -159,7 +164,7 @@ Now that **My Echo API** is associated with a product, developers can subscribe 
 
 In order to make calls to an API, developers must first be subscribed to a product that gives them access to it. Developers can subscribe to products in the Developer portal, or administrators can subscribe developers to products in the Management console. You are an administrator by default since you created the API Management instance in the previous steps in the tutorial, so you will subscribe an account to the **Starter** product.
 
-Click **Developers** from the **API Management** menu on the left to view and configure the developers in this service instance.
+Click **Users** from the **API Management** menu on the left to view and configure the developers in this service instance.
 
 ![Developers][api-management-developers]
 
@@ -173,7 +178,7 @@ Click **Add Subscription**.
 
 ![Add subscription][api-management-add-subscription-window]
 
-Check the box for **Starter** and click **Subscribe**.
+Check the box for **Starter**, accept the default **Subscription name**,  and click **Subscribe**.
 
 ![Subscription added][api-management-subscription-added]
 
@@ -257,6 +262,7 @@ The **Analytics** section has the following four tabs.
 [Responses]: ../api-management-howto-add-operations/#responses
 [How create and publish a product]: ../api-management-howto-add-products
 [Get started with advanced API configuration]: ../api-management-get-started-advanced
+[API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Management Portal]: https://manage.windowsazure.com/
 

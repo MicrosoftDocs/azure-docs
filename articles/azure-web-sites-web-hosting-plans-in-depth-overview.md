@@ -1,6 +1,6 @@
 <properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Azure Websites Web Hosting Plans In-Depth Overview - Windows Azure feature guide" description="Learn how Web Hosting Plans for Azure Websites work, and how they benefit your management experience." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron Tardif and Yochay Kiryaty" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="Byron Tardif and Yochay Kiryaty" />
 </br>
 #Azure Websites Web Hosting Plans In-Depth Overview#
 </br>
@@ -20,7 +20,7 @@ You can have multiple web hosting plans in a resource group and each hosting pla
 </br>
 The ability to have multiple web hosting plans in a single resource group allows you to allocate different sites to different resources, primarily virtual machines running your websites. For example, this ability allows separation of resources between dev and test and production sites, where you might want to allocate one web hosting plan with its own dedicated set of resources for your production sites, and a second web hosting plan for your dev and test sites. 
 </br>
-Having multiple web hosting plans in a single resource group also allows you to define an application that spans across regions. For example, a highly available website running in two regions will include two websites, one for each region, and one website associated with each web hosting plan. In such a situation, all the sites will be associated with a single resource group, which defines one application.  Having a single view of a resource group with multiple web hosting plans and multiple sites makes it easy to manage, control and view the health of the websites. On top of managing websites resources and respective sites for a given application, you can associated any related Azure resource such as SQL-Azure databases, and Team Projects. 
+Having multiple web hosting plans in a single resource group also allows you to define an application that spans across regions. For example, a highly available website running in two regions will include two web hosting plans, one for each region, and one website associated with each web hosting plan. In such a situation, all the sites will be associated with a single resource group, which defines one application.  Having a single view of a resource group with multiple web hosting plans and multiple sites makes it easy to manage, control and view the health of the websites. On top of managing websites resources and respective sites for a given application, you can associate any related Azure resource such as SQL-Azure databases, and Team Projects. 
 </br>
 ##When should I create a new resource group and when should I create a new web hosting plan?##
 </br>

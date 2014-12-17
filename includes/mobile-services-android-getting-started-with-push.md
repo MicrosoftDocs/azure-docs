@@ -1,4 +1,4 @@
-1. Open the file `AndroidManifest.xml`. In the code in the next two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
+1. In your app project, open the file `AndroidManifest.xml`. In the code in the next two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
 
 2. Add the following new permissions after the existing `uses-permission` element:
 
@@ -29,59 +29,38 @@
 5.  Open the file *ToDoItemActivity.java*, and add the following import statement:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
-		import com.microsoft.windowsazure.mobileservices.Registration;
-		import com.microsoft.windowsazure.mobileservices.RegistrationCallback;
 
 
-6. Add the following private variable to the class, where _`<PROJECT_NUMBER>`_ is the Project Number assigned by Google to your app in the preceding procedure:
+6. Add the following private variable to the class: replace _`<PROJECT_NUMBER>`_ with the Project Number assigned by Google to your app in the preceding procedure:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. In ToDoActivity.java, add the following method to the ToDoActivity class to allow registering for notifications.
+7. Change the definition of the *MobileServiceClient* from **private** to **public static**, so it now looks like this:
 
-        /**
-         * Registers mobile services client to receive GCM push notifications
-         * @param gcmRegistrationId The Google Cloud Messaging session Id returned 
-         * by the call to GoogleCloudMessaging.register in NotificationsManager.handleNotifications
-         */
-        public void registerForPush(String gcmRegistrationId)
-        {
-          mClient.getPush().register(gcmRegistrationId,null,new RegistrationCallback()
-          {
-            @Override
-            public void onRegister(Registration registration, Exception exception)
-              {
-                if (exception != null)
-                {
-                  // handle exception
-                }
-              }
-          });
-        }	
+		public static MobileServiceClient mClient;
 
 
-8. Next we need to add a new class to handle notifications. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
 
-9. In **Name** type `MyHandler`, in **Superclass** type `com.microsoft.windowsazure.notifications.NotificationsHandler`, then click **Finish**
+9. Next we need to add a new class to handle notifications. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
+
+10. In **Name** type `MyHandler`, in **Superclass** type `com.microsoft.windowsazure.notifications.NotificationsHandler`, then click **Finish**
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png)
 
 	This creates the new MyHandler class.
 
-10. Add the following import statements for the `MyHandler` class:
+11. Add the following import statements for the `MyHandler` class:
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
 		import android.content.Context;
 		import android.content.Intent;
+		import android.os.AsyncTask;
 		import android.os.Bundle;
 		import android.support.v4.app.NotificationCompat;
 
-		import com.microsoft.windowsazure.mobileservices.Registration;
-		import com.microsoft.windowsazure.mobileservices.RegistrationCallback;
-
-		
-11. Next add the following members for the `MyHandler` class:
+	
+12. Next add the following members for the `MyHandler` class:
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
@@ -89,18 +68,30 @@
 		Context ctx;
 
 
-12. In the `MyHandler` class, add the following code to override the **onRegistered** method: which registers your device with the mobile service Notification Hub.
+13. In the `MyHandler` class, add the following code to override the **onRegistered** method, which registers your device with the mobile service Notification Hub.
 
 		@Override
-		public void onRegistered(Context context, String gcmRegistrationId) 
-		{
-		  super.onRegistered(context, gcmRegistrationId);
-		  ToDoActivity toDoActivity = (ToDoActivity)context;
-		  toDoActivity.registerForPush(gcmRegistrationId);
+		public void onRegistered(Context context,  final String gcmRegistrationId) {
+		    super.onRegistered(context, gcmRegistrationId);
+	
+		    new AsyncTask<Void, Void, Void>() {
+		    		    	
+		    	protected Void doInBackground(Void... params) {
+		    		try {
+		    		    ToDoActivity.mClient.getPush().register(gcmRegistrationId, null);
+		    		    return null;
+	    		    }
+	    		    catch(Exception e) { 
+			    		// handle error    		    
+	    		    }
+					return null;  		    
+	    		}
+		    }.execute();
 		}
 
 
-13. In the `MyHandler` class, add the following code to override the **onReceive** method, which causes the notification to display when it is received.
+
+14. In the `MyHandler` class, add the following code to override the **onReceive** method, which causes the notification to display when it is received.
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
@@ -130,11 +121,12 @@
 		}
 
 
-14. Back in TodoActivity.java file, update the **onCreate** method of the ToDoActivity class to register the notification handler class. Make sure to add this code after the MobileServiceClient is instantiated.
+15. Back in the TodoActivity.java file, update the **onCreate** method of the *ToDoActivity* class to register the notification handler class. Make sure to add this code after the *MobileServiceClient* is instantiated.
+
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
     Your app is now updated to support push notifications.
 
 <!-- URLs. -->
-[Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
+[Mobile Services Android SDK]: http://aka.ms/Iajk6q

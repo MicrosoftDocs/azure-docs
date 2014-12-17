@@ -1,6 +1,6 @@
-<properties urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" description="Learn how to create and connect to an Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" description="Learn how to create and connect to an Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/29/2014" ms.author="tomfitz" />
 
 #How to Access Azure SQL Database from PHP 
 
@@ -43,17 +43,10 @@ Follow these steps to create an Azure SQL Database:
 
 	![Create New Azure Web Site][new-website]
 
-3. Click **DATA SERVICES**, **SQL DATABASE** then **CUSTOM CREATE**.
+3. Click **DATA SERVICES**, **SQL DATABASE** then **QUICK CREATE**. Provide a name for the database, whether to use an existing database server or a new one, a region, and an administrator name and password.
 
-	![Custom Create a new SQL Database][custom-create]
+	![Custom Create a new SQL Database][quick-create]
 
-4. Enter a value for the **NAME** of your database, select the **EDITION** (WEB or BUSINESS), select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database Server**. Click the arrow at the bottom of the dialog. (Note that if you have created a SQL Database before, you can choose an existing server from the **Choose a server** dropdown.)
-
-	![Fill in SQL Database settings][database-settings]
-
-5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database will be created, and check the `Allow Azure Services to access the server` box.
-
-	![Create new SQL Database server][create-server]
 
 To see server and database information, click **SQL Databases** in the Management Portal. You can then click on **DATABASES** or **SERVERS** to see relevant information.
 
@@ -127,4 +120,4 @@ A sample that shows how to use SQL Database with PHP on Azure is available at <h
 [wpi-installer]: http://go.microsoft.com/fwlink/?LinkId=253447
 [go-to-db-info]: ./media/sql-database-php-how-to-use-sql-database/go-to-db-info.png
 [show-connection-string]: ./media/sql-database-php-how-to-use-sql-database/show-connection-string-2.png
-
+[quick-create]: ./media/sql-database-php-how-to-use-sql-database/create-new-sql.png

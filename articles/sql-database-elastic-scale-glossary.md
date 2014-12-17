@@ -9,7 +9,7 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **Database**: An Azure SQL database. 
 
-**Data Dependent Routing**: The functionality that enables an application to connect to a shard given a specific sharding key. Compare to **Multi-Shard Query**.
+**Data dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. Compare to **Multi-Shard Query**.
 
 **Global shard map**: The set of mappings between sharding keys and their respective shards within a **shard set**. The GSM is stored in the **shard map manager**. Compare to **local shard map**.
 
@@ -17,9 +17,11 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 **Local shard map**: Stored on a shard, the local shard map contains mappings for the shardlets that reside on the shard.
 
+
 **Multi-shard query**: The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). Compare to **Data Dependent Routing**.
 
 **Range Shard Map**: A shard map in which the shard distribution strategy is based on multiple ranges of contiguous values. 
+
 
 **Reference tables**: Tables that are not sharded but are replicated across shards. 
 
@@ -38,6 +40,8 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 **Shard Map**: The set of mappings between sharding keys and their respective shards.
 
 **Shard Map Manager**: A management object and data store that contains the shard map(s), shard locations, and mappings for one or more shard sets.
+
+![Mappings][2]
 
 
 ##Verbs
@@ -58,3 +62,6 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
+[2]: ./media/sql-database-elastic-scale-glossary/mappings.png
+
+

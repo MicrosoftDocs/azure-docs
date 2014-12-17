@@ -6,9 +6,9 @@
 
 [WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
-This article provides a roadmap and a few best practices for creating and maintaining the search service and its indexes. 
+This article provides a roadmap and a few best practices for creating and maintaining the Search service and its indexes. 
 
-We assume that you have already provisioned the service. If you haven’t done that yet, see [Configure search in the Azure Preview portal]() to get started.
+We assume that you have already provisioned the service. If you haven’t done that yet, see [Get started with Azure Search](../search-get-started/) for further instruction.
 
 + [Step 1: Create the index](#sub-1)
 + [Step 2: Add documents](#sub-2)
@@ -19,15 +19,15 @@ We assume that you have already provisioned the service. If you haven’t done t
 
 <h2 id="sub-1">Step 1: Create the index</h2>
 
-Queries (at least non-system queries) target a search index that contains search data and attributes. In this step, you define the index schema in JSON format and execute an HTTPS PUT request to have this index created in the service. 
+Queries target a search index that contains search data and attributes. As such, your first step after provisioning the service is to define the index schema in JSON format, and execute an HTTPS PUT request to create the index in the service. 
 
-Indexes are typically coded in your local development environment. There are no built-in tools or editors for index definition. For more information about creating the index, see [Create Index (Azure Search API)](http://msdn.microsoft.com/en-us/library/dn798941.aspx) on MSDN.
+Indexes are constructed by your application code. There are no built-in tools or editors to help you define an index in a user interface. Examples that demonstrate various ways of constructing the index include [Create your first search solution using Azure Search](../search-create-first-solution/), where the schema is specified in the Program.cs file, and [Get started with scoring profiles in Azure Search](../search-get-started-scoring-profiles) that provides the index in a standalone JSON schema file. To learn more about creating the index, see [Create Index (Azure Search API)](http://msdn.microsoft.com/en-us/library/dn798941.aspx) on MSDN.
 
 <h2 id="sub-2">Step 2: Add documents</h2>
 
-Once the search index is created, you can add documents to the index by POSTing them in JSON format. Each document must have a unique key and a collection of fields containing searchable and non-searchable data. Document data is represented as a set of key/value pairs.
+Once the search index is created, you can add documents to the index by POSTing them in JSON format. Each document must have a unique key and a collection of fields containing searchable and non-searchable data. Document data is represented as a set of key/value pairs for each field.
 
-We recommend adding documents in batches to improve throughput. You can batch up to 10,000 documents, assuming an average document size of about 1-2KB.
+We recommend adding documents in batches to improve throughput. You can batch up to 1,000 documents, assuming an average document size of about 1-2KB.
 
 There is an overall status code for the POST request. Status codes are either HTTP 200 (Success) or HTTP 207 (Multi-Status) if there is combination of successful and failed documents. In addition to the status code for the POST request, Azure Search maintains a status field for each document. Given a batch upload, you need a way to get per-document status that indicates whether the insert succeeded or failed for each document. The status field provides that information. It will be set to false if the document failed to load.
 
@@ -51,9 +51,9 @@ When updating an index, you can combine multiple actions (insert, merge, delete)
 
 <h2 id="sub-5">Storage design considerations</h2>
 
-Many search applications use several storage format for different application needs. The internal storage that comes with Azure Search must be used to store indexes and documents. Text analysis is dependent on having all searchable fields and associated attributes readily available.
+Azure Search uses internal storage for the indexes and documents used in search operations. Text analysis and index parsing is dependent on having all searchable fields and associated attributes readily available.
 
-Not all fields in a document will be searchable. For example, if your application is an online catalog for music or videos, we recommend storing binary files in BLOB or some other storage. The binary files themselves are not searchable, hence there is no need to persist them in Azure Search storage. You should store images, videos, audio files in other services or locations, with a field in the document storing the URL to the file location. 
+Not all fields in a document will be searchable. For example, if your application is an online catalog for music or videos, we recommend storing binary files in Azure BLOB service or some other storage format. The binary files themselves are not searchable, hence there is no need to persist them in Azure Search storage. Although you should store images, videos, and audio files in other services or locations, you should include a field that references the URL to the file location. This way, you can return the external data as part of your search results. 
 
 For more information about creating indexes or documents, see the [Azure Search Rest API](http://msdn.microsoft.com/en-us/library/dn798935.aspx).
 
@@ -71,4 +71,5 @@ For more information about creating indexes or documents, see the [Azure Search 
 <!--Link references-->
 [Get started with Azure Search]: ../search-get-started/
 [Manage your search service on Microsoft Azure]: ../search-manage/
-[Create your first azure search solution]: ../search-create-first-solution/
+[Create your first search solution using Azure Search]: ../search-create-first-solution/
+

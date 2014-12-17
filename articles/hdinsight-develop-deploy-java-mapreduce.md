@@ -3,7 +3,7 @@
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/10/2014" ms.author="nitinme" />
 
 # Develop Java MapReduce programs for Hadoop in HDInsight
-This tutorial walks you through an end-to-end scenario for developing a word counting Hadoop MapReduce job in Java using Apache Haven. The tutorial also shows how to test the application on the HDInsight Emulator and then deploy and run it on Azure HDInsight cluster.
+This tutorial walks you through an end-to-end scenario for developing a word counting Hadoop MapReduce job in Java using Apache Maven. The tutorial also shows how to test the application on the HDInsight Emulator and then deploy and run it on Azure HDInsight cluster.
 
 **Prerequisites:**
 

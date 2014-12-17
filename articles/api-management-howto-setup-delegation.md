@@ -1,6 +1,6 @@
 <properties pageTitle="How to delegate user registration and product subscription" metaKeywords="" description="Learn how to delegate user registration and product subscription to a third party in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to delegate user registration and product subscription in Azure API Management" authors="antonba" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="antonba" />
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="antonba" />
 
 # How to delegate user registration and product subscription
 
@@ -24,30 +24,30 @@ The final workflow will be as follows:
 4. On success, the user is redirected back to the API Management developer portal page they started from
 
 
-To begin, let's first set-up API Management to route requests via your delegation endpoint. In the API Management publisher portal, under the **Developer Portal** heading in the menu on the left, click on **Delegation** and then click **Delegate sign-in and sign-up**.
+To begin, let's first set-up API Management to route requests via your delegation endpoint. In the API Management publisher portal, click on **Security** and then click the **Delegation** tab. Click the checkbox to enable 'Delegate sign-in & sign-up'.
 
 ![Delegation page][api-management-delegation-signin-up]
 
-* Decide what the URL of your special delegation endpoint will be and enter it in the **Delegation endpoint URL** field.
+* Decide what the URL of your special delegation endpoint will be and enter it in the **Delegation endpoint URL** field. 
 
-* Within the **Delegation authentication key** field enter a secret that will be used to compute a signature provided to you for verification to ensure that the request is indeed coming from Azure API Management.
+* Within the **Delegation authentication key** field enter a secret that will be used to compute a signature provided to you for verification to ensure that the request is indeed coming from Azure API Management. You can click the **generate** button to have API Managemnet randomly generate a key for you.
 
 Now you need to create the **delegation endpoint**. It has to perform a number of actions:
 
 1. Receive a request in the following form:
 
-	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&redirectUrl={URL of source page}&salt={string}&sid={string}*
+	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sid={string}*
 
 	Query parameters for the sign-in / sign-up case:
 	- **operation**: identifies what type of delegation request it is - it can only be "SignIn" in this case
-	- **redirectUrl**: the URL of the page where the user clicked on a sign-in or sign-up link
+	- **returnUrl**: the URL of the page where the user clicked on a sign-in or sign-up link
 	- **salt**: a special salt string used for computing a security hash
 	- **sig**: a computed security hash to be used for comparison to your own computed hash
 
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
 
-	* Compute an HMAC-SHA512 hash of a string based on the **redirectUrl** and **salt** query parameters:
-           > HMAC(**redirectUrl** + '\n' + **salt**)
+	* Compute an HMAC-SHA512 hash of a string based on the **returnUrl** and **salt** query parameters ([example code provided below]):
+        > HMAC(**salt** + '\n' + **returnUrl**)
 		 
 	* Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
 
@@ -99,7 +99,7 @@ Then ensure the delegation endpoint performs the following actions:
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
 
 	* Compute an HMAC-SHA512 of a string based on the **productId**, **userId** and **salt** query parameters:
-		> HMAC(**productId** + '\n' + **userId** + '\n' + **salt**)
+		> HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
 		 
 	* Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
 	
@@ -107,9 +107,39 @@ Then ensure the delegation endpoint performs the following actions:
 
 4. On successfully subscribing the user to the product on your side, subscribe the user to the API Management product by [calling the REST API for product subscription].
 
-5. Redirect the user back to the **redirectUrl** provided when receiving the request.
+5. Redirect the user back to the **returnUrl** provided when receiving the request.
 
+## <a name="delegate-example-code"> </a> Example Code ##
 
+These code samples show how to take the *delegation validation key*, which is set in the Delegation screen of the API Management portal, to create a HMAC which is then used to validate the signature, proving the validity of the passed returnUrl. The same code works for the productId and userId with slight modification.
+
+**C# code to generate hash of returnUrl**
+
+	using System.Security.Cryptography;
+
+	string key = "delegation validation key";
+	string returnUrl = "returnUrl query parameter";
+	string salt = "salt query parameter";
+	string signature;
+	using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
+	{
+		signature = encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl));
+		// change to (salt + "\n" + productId + "\n" + userId) for point 2 above
+	}
+
+**NodeJS code to generate hash of returnUrl**
+
+	var crypto = require('crypto');
+	
+	var key = 'delegation validation key'; 
+	var returnUrl = 'returnUrl query parameter';
+	var salt = 'salt query parameter';
+	
+	var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
+	var digest = hmac.update(salt + '\n' + returnUrl).digest();
+	// change to (salt + '\n' + productId + '\n' + userId) for point 2 above
+	
+	var signature = digest.toString('base64');
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
@@ -117,5 +147,6 @@ Then ensure the delegation endpoint performs the following actions:
 [create a user]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
 [calling the REST API for product subscription]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
+[example code provided below]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png

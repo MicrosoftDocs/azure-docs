@@ -106,7 +106,7 @@ In a real-world application, you typically create separate accounts for applicat
 
 6. Set the **Replication** drop-down list to **Locally redundant**. 
 
-	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [How To Manage Storage Accounts](/en-us/documentation/articles/storage-manage-storage-account/).
+	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
 
 5. Click **Create**. 
 
@@ -777,6 +777,13 @@ The WebJobs SDK calls this method when a queue message is received. The method c
 		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 
 	Blob names come from properties of the `BlobInformation` object received in the queue message (`BlobName` and `BlobNameWithoutExtension`). To get the full functionality of the Storage Client Library you can use the `CloudBlockBlob` class to work with blobs. If you want to reuse code that was written to work with `Stream` objects, you can use the `Stream` class. 
+
+For more information about how to write functions that use  WebJobs SDK attributes, see the following resources:
+
+* [How to use Azure queue storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
+* [How to use Azure blob storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-blobs-how-to)
+* [How to use Azure table storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-tables-how-to)
+* [How to use Azure Service Bus with the WebJobs SDK](../websites-dotnet-webjobs-sdk-service-bus)
 
 >[WACOM.NOTE] 
 >* If your website runs on multiple VMs, this program will run on each machine, and each machine will wait for triggers and attempt to run functions. In some scenarios this can lead to some functions processing the same data twice, so functions should be idempotent (written so that calling them repeatedly with the same input data doesn't produce duplicate results).

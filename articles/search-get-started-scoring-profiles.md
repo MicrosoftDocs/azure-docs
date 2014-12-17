@@ -4,15 +4,15 @@
 
 # Get started with scoring profiles in Azure Search
 
-Scoring profiles are a feature of Azure Search that customize the calculation of search scores, influencing how items are ranked in a search results list. You can think of scoring profiles as a way to model relevance, by boosting items that meet predefined criteria. For example, suppose your application is an online hotel reservation site. By boosting the `location` field, searches that include a term like Seattle will result in higher scores for items that have Seattle in the `location` field. Note that you can have more than one scoring profile, or none at all, if the default scoring is sufficient for your application.
+Scoring profiles are a feature of Microsoft Azure Search that customize the calculation of search scores, influencing how items are ranked in a search results list. You can think of scoring profiles as a way to model relevance, by boosting items that meet predefined criteria. For example, suppose your application is an online hotel reservation site. By boosting the `location` field, searches that include a term like Seattle will result in higher scores for items that have Seattle in the `location` field. Note that you can have more than one scoring profile, or none at all, if the default scoring is sufficient for your application.
 
-To help you experiment with scoring profiles, you can download a sample application that uses scoring profiles to change the rank order of search results. The sample is a console application – admittedly not very realistic for real-world application development – but still useful as learning tool. 
+To help you experiment with scoring profiles, you can download a sample application that uses scoring profiles to change the rank order of search results. The sample is a console application – perhaps not very realistic for real-world application development – but useful nonetheless as  a learning tool. 
 
-The sample application demonstrates scoring behaviors using fictional data, called the `musicstoreindex`. The simplicity of the sample app makes it easy to modify scoring profiles and queries, and then see the effect on rank order when the program is executed.
+The sample application demonstrates scoring behaviors using fictional data, called the `musicstoreindex`. The simplicity of the sample app makes it easy to modify scoring profiles and queries, and then see the immediate effects on rank order when the program is executed.
 
 <h2 id="sub-1">Prerequisites</h2>
 
-The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web) if you don't already have a copy of Visual Studio.
+The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) if you don't already have a copy of Visual Studio.
 
 You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Get started with Azure Search](../search-get-started/) for help with setting up the service.
 
@@ -63,7 +63,7 @@ You're almost ready to build and run the app, but before you do, take a look at 
 
 <h2 id="sub-5">Build and run the application</h2>
 
-To rule out connectivity or assembly reference problems, build and run the application to ensure there are no issues to work out first. You should see a console application open in the background. All four queries execute in sequence without pausing. On many systems, the entire program executes in under 15 seconds. If the console application includes a message stating “Complete. Press <enter> to continue”, the program completed successfully. 
+To rule out connectivity or assembly reference problems, build and run the application to ensure there are no issues to work out first. You should see a console application open in the background. All four queries execute in sequence without pausing. On many systems, the entire program executes in under 15 seconds. If the console application includes a message stating “Complete. Press enter to continue”, the program completed successfully. 
 
 To compare query runs, you can mark-copy-paste the query results from the console and paste them into an Excel file. 
 
@@ -71,9 +71,11 @@ The following illustration shows results from the first three queries side-by-si
 
    ![][10]
 
-The first query uses default scoring. The second query uses a scoring profile, but notice that the profile had no effect. The results are identical to those of the first query. This is because the scoring profile boosts a field ('genre') that is not germane to the query. The search term 'best' does not exist in any 'genre' field of any document. When a scoring profile has no effect, the results are the same as default scoring.  
+The first query uses default scoring. Since the search term appears only in album titles, and no other criteria is specified, items having 'best' in the album title are returned in the order in which the search service finds them. 
 
-The third query is the first evidence of scoring profile impact. Notice that the combined effects of 'rating' and 'last-updated' propel some items higher in the list.
+The second query uses a scoring profile, but notice that the profile had no effect. The results are identical to those of the first query. This is because the scoring profile boosts a field ('genre') that is not germane to the query. The search term 'best' does not exist in any 'genre' field of any document. When a scoring profile has no effect, the results are the same as default scoring.  
+
+The third query is the first evidence of scoring profile impact. The search term is still 'best' so we are working with the same set of albums, but because the scoring profile provides additional criteria that boosts 'rating' and 'last-updated', some items are propelled higher in the list.
 
 The next illustration shows the fourth and final query, boosted by 'margin'. The 'margin' field is non-searchable and cannot be returned in search results. The 'margin' value was manually added to the spreadsheet to help illustrate the point that items with higher margins show up higher in the search results list. 
 
@@ -100,5 +102,5 @@ Need to step back and learn more about index creation? [Watch this video](http:/
 <!--Image references-->
 [12]: ./media/search-get-started-scoring-profiles/AzureSearch_CodeplexDownload.PNG
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
-[10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX3.PNG
-[9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX4.PNG
+[10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
+[9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
