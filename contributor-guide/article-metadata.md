@@ -33,13 +33,46 @@ The tags section uses this syntax:
 
 **metaKeywords": no longer required. Checking to see if we can leave it out.
 
-**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service you list will be the service that applies in the page breadcrumbs. 
+**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service you list will drive the navigational breadcrumbs for the page. Values:
+
+- active-directory
+- backup
+- biztalk-services
+- cache
+- cloud-services
+- hdinsight
+- media-services
+- mobile-services
+- multi-factor-authentication
+- notification-hubs
+- recovery-manager
+- service-bus
+- scheduler
+- sql-database
+- storage
+- virtual-machines
+- virtual-network
+- visual-studio-online
+- web-sites
+ 
 
 **solutions**: no longer required. Checking to see if we can leave it out.
 
-**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. 
+**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. Values:
 
-**authors**: Required. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one.
+- **.NET** 
+- **nodejs** 
+- **Java** 
+- **PHP** 
+- **Python** 
+- **Ruby** 
+- **Mobile**: Deprecated. Replace with specific mobile platform.
+- **iOS**: Verifing this new value
+- **Android**: Verifing this new value
+- **Windows**: Verifing this new value
+- **Xamarin**: Verifing this new value
+
+**authors**: Required. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one, in spite of the plural name of the attribute.
 
 **videoId**: Unique identifier for a single video that is associated with the article. This property is not currently used.
  
