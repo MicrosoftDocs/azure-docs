@@ -272,8 +272,8 @@ The above example used SqlSource as the source and BlobSink as the sink in the t
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
-		<td></td>
-		<td></td>
+		<td>X</td>
+		<td>X</td>
 	</tr>
 
 
@@ -281,7 +281,7 @@ The above example used SqlSource as the source and BlobSink as the sink in the t
 		<td><b>On-premises SQL Server</b></td>
 		<td>X</td>
 		<td></td>
-		<td></td>
+		<td>X</td>
 		<td></td>
 		<td></td>
 	</tr>
@@ -290,7 +290,7 @@ The above example used SqlSource as the source and BlobSink as the sink in the t
 		<td><b>SQL Server on IaaS</b></td>
 		<td>X</td>
 		<td></td>
-		<td></td>
+		<td>X</td>
 		<td></td>
 		<td></td>
 	</tr>
@@ -396,6 +396,14 @@ The following table lists the properties supported by these sources and sinks.
 
 
 	<tr>
+		<td><b>BlobSink</b></td>
+		<td>BlobWriterAddHeader</td>
+		<td>Specifies whether to add header of column definitions.</td>
+		<td>TRUE<br/>FALSE</td>
+		<td>N<br/><br/>(Default is FALSE)</td>
+	</tr>
+
+	<tr>
 		<td><b>AzureTableSink</b></td>
 		<td>azureTableDefaultPartitionKeyValue</td>
 		<td>Default partition key value that can be used by the sink.</td>
@@ -490,8 +498,8 @@ Depending on the type of Table, it is possible to specify a subset of the column
 	<tr>
 		<td>AzureSqlTableLocation and OnPremisesSqlServerTableLocation</td>
 		<td align="left">
-			<p>If the property <b>SqlReaderQuery</b> is specified as part of Copy Activity definition, <b>Structure</b> definition of the table should align with the columns selected in the query.</p>
-			<p>If the property <b>SqlReaderQuery</b> is not specified, the Copy Activity will automatically construct a SELECT query based on the columns specified in the <b>Structure</b> definition of the table definition.</p>
+			If the property <b>SqlReaderQuery</b> is specified as part of Copy Activity definition, <b>Structure</b> definition of the table should align with the columns selected in the query.<br/><br/>
+			If the property <b>SqlReaderQuery</b> is not specified, the Copy Activity will automatically construct a SELECT query based on the columns specified in the <b>Structure</b> definition of the table definition.
 		</td>
 	<tr>
 
@@ -677,10 +685,8 @@ The data types specified in the Structure section of the Table definition is onl
 
 	<tr>
 		<td>BlobSource</td>
-		<td><p>When transferring from <b>BlobSource</b> to <b>BlobSink</b>, there is no type transformation. Types defined in <b>Structure</b> section of table definition are ignored.  For destinations other than <b>BlobSink</b>, data types defined in <b>Structure</b> section of Table definition will be honored.</p>
-		<p>
+		<td>When transferring from <b>BlobSource</b> to <b>BlobSink</b>, there is no type transformation. Types defined in <b>Structure</b> section of table definition are ignored.  For destinations other than <b>BlobSink</b>, data types defined in <b>Structure</b> section of Table definition will be honored.<br/><br/>
 		If the <b>Structure</b> is not specified in table definition, type handling depends on the <b>format</b> property of <b>BlobSink</b>:
-		</p>
 		<ul>
 			<li> <b>TextFormat:</b> all column types are treated as string, and all column names are set as "Prop_<0-N>"</li> 
 			<li><b>AvroFormat:</b> use the built-in column types and names in Avro file.</li> 
@@ -706,6 +712,55 @@ The data types specified in the Structure section of the Table definition is onl
 
 </table>
 
+## Invoke stored procedure for SQL Sink
+When copy data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked. 
+### Example
+1. Define the JSON of output Table as follows (take Azure SQL Database table as an example):
+
+    	{
+    		"name": "MyAzureSQLTable",
+    		"properties":
+    		{
+    			"location":
+    			{
+    				"type": "AzureSqlTableLocation",
+    				"tableName": "Marketing",
+    				"linkedServiceName": "AzureSqlLinkedService"
+    			},
+    			"availability":
+    			{
+    				"frequency": "Hour",
+    				"interval": 1
+    			}
+    		}
+    	}
+
+2. Define the **SqlSink** section in copy activity JSON as follows. To call a stored procedure while insert data, both **SqlWriterStoredProcedureName** and **SqlWriterTableType** properties are needed.
+
+		"sink":
+	    {
+			"type": "SqlSink",
+	        "SqlWriterTableType": "MarketingType",
+	        "SqlWriterStoredProcedureName": "spOverwriteMarketing"
+	    }
+
+3. In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. It handles input data from your specified source, and insert into the output table. Notice that the parameter name of the stored procedure should be the same as the **tableName** defined in Table JSON file.
+
+    	CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY
+    	AS
+	    BEGIN
+	        INSERT [dbo].[Marketing](ProfileID, State)
+	        SELECT * FROM @Marketing
+	    END
+
+4. In your database, define the table type with the same name as **SqlWriterTableType**. Notice that the schema of the table type should be same as the schema returned by your input data.
+
+		CREATE TYPE [dbo].[MarketingType] AS TABLE(
+    	    [ProfileID] [varchar](256) NOT NULL,
+    	    [State] [varchar](256) NOT NULL,
+    	)
+
+The stored procedure feature takes advantage of Table-Valued Parameters. You can learn more information about Table-Valued Parameters from [here]( http://msdn.microsoft.com/en-us/library/bb675163(v=vs.110).aspx)
 
 ## Walkthroughs
 See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity.
