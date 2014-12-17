@@ -2,11 +2,6 @@
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/16/2014" ms.author="garye" />
 
-<!--
-> Get started with the preview of [Machine Learning](http://azure.microsoft.com/en-us/trial/get-started-machine-learning/)
-
-> Or go to the [Machine Learning Studio](http://go.microsoft.com/fwlink/?linkid=402635&clcid=0x409)
--->
 
 # Use the sample datasets in Azure Machine Learning Studio
 
