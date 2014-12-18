@@ -1,6 +1,6 @@
 <properties urlDisplayName="" pageTitle="Supported browsers and devices" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="carolz" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/16/2014" ms.author="Justin Beckwith" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/16/2014" ms.author="justbe" />
 
 #Supported browsers and devices
 The Microsoft Azure Preview Portal runs on all modern desktop and tablet devices and browsers.
