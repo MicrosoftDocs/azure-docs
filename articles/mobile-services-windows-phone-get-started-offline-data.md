@@ -1,6 +1,6 @@
 <properties urlDisplayName="Using Offline Data" pageTitle="Using offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services with sync offline data in your Windows Phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data sync in Mobile Services" authors="wesmc" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc" />
 
 # Using offline data sync in Mobile Services
 
@@ -26,8 +26,8 @@ This tutorial requires the following:
 * Visual Studio 2012
 * [Windows Phone 8 SDK]
 * Completion of the [Get Started with Data] tutorial.
-* [Azure Mobile Services SDK version 1.3.0-beta2 (or later)][Mobile Services SDK Nuget]
-* [Azure Mobile Services SQLite Store version 1.0.0-beta2 (or later)][SQLite store nuget]
+* [Azure Mobile Services SDK version 1.3.0 (or later)][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0 (or later)][SQLite store nuget]
 * [SQLite for Windows Phone 8]
 
 >[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
@@ -118,7 +118,7 @@ This section uses SQLite as the local store for the offline features.
             Exception pullException = null;
             try
             {
-                await todoTable.PullAsync();
+                await todoTable.PullAsync("todoItems", todoTable.CreateQuery()); // first param is query ID, used for incremental sync
                 RefreshTodoItems();
             }
             catch (Exception ex)
@@ -156,9 +156,6 @@ This section uses SQLite as the local store for the offline features.
         }
 
 11. Don't run the app yet. Press the **F7** key to rebuild the project. Verify no build errors occurred.
-
-
-
 
 ## <a name="test-offline-app"></a>Test the app in an offline scenario
 
@@ -202,7 +199,9 @@ In this section you will test push and pull operations to sync the local store w
 
     ![][4]
 
-2. Log into the Microsoft Azure Management portal and look at the database for your mobile service. If your service uses the JavaScript backend for mobile services, you can browse the data from the **Data** tab of the mobile service. If you are using the .NET backend for your mobile service, you can click on the **Manage** button for your database in the SQL Azure Extension to execute a query against your table.
+2.  Log into the Microsoft Azure Management portal and look at the database for your mobile service. If your service uses the JavaScript backend for mobile services, you can browse the data from the **Data** tab of the mobile service. 
+
+    If you are using the .NET backend for your mobile service, in Visual Studio go to **Server Explorer** -> **Azure** -> **SQL Databases**. Right click your database and select **Open in SQL Server Object Explorer**.
 
     Notice the data has not been synchronized between the database and the local store.
 
@@ -218,9 +217,11 @@ In this section you will test push and pull operations to sync the local store w
 
     ![][8]
 
-5. This time press the **Pull** button in the app. The app only calls `IMobileServiceSyncTable.PullAsync()` and `RefreshTodoItems`.  Notice that all the data from the mobile service database was pulled into the local store and shown in the app. However, also notice that all the data in the local store was still pushed to the mobile service database. This is because a **pull always does a push first**.    
+5. This time press the **Pull** button in the app. The app only calls `IMobileServiceSyncTable.PullAsync()` and `RefreshTodoItems`.  Notice that all the data from the mobile service database was pulled into the local store and shown in the app. However, also notice that all the data in the local store was still pushed to the mobile service database. This is because a **pull always does a push first**.
  
-    >[AZURE.NOTE] To support synchronization of deleted records with offline data sync, you should enable [Soft Delete](/en-us/documentation/articles/mobile-services-using-soft-delete/). Otherwise, you have to manually remove records in the local store, or call `IMobileServiceSyncTable::PurgeAsync()` to purge the local store.
+    In this example, we retrieve all records in the remote `todoTable`, but it is also possible to filter records by passing a query. The first parameter to `PullAsync` is a query ID that is used for incremental sync, which uses the `UpdatedAt` timestamp to get only records modified since the last sync. The query ID should be a descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `null` as the query ID. This will retrieve all records on each pull operation, which is potentially inefficient.
+
+    >[AZURE.NOTE] To support synchronization of deleted records with offline data sync, you should enable [Soft Delete]. Otherwise, you have to call `IMobileServiceSyncTable.PurgeAsync()` to purge the local store.
 
  
     ![][9]
@@ -230,31 +231,15 @@ In this section you will test push and pull operations to sync the local store w
 
 ##Summary
 
-In order to support the offline features of mobile services, we used the `IMobileServiceSyncTable` interface and initialized `MobileServiceClient.SyncContext` with a local store. In this case the local store was a SQLite database.
+##Summary
 
-The normal CRUD operations for mobile services work as if the app is still connected but, all the operations occur against the local store.
-
-When we wanted to synchronize the local store with the server, we used the `IMobileServiceSyncTable.PullAsync` and `MobileServiceClient.SyncContext.PushAsync` methods.
-
-*  To push changes to the server, we called `IMobileServiceSyncContext.PushAsync()`. This method is a member of `IMobileServicesSyncContext` instead of the sync table because it will push changes across all tables:
-
-    Only records that have been modified in some way locally (through CRUD operations) will be sent to the server.
-   
-* To pull data from a table on the server to the app, we called `IMobileServiceSyncTable.PullAsync`.
-
-    A pull always issues a push first.  
-
-    There are also overloads of **PullAsync()** that allow a query to be specified. Note that in the preview release of offline support for Mobile Services, **PullAsync** will read all rows in the corresponding table (or query)--it does not attempt to read only rows newer than the last sync, for instance. If the rows already exist in the local sync table, they will remain unchanged.
-
-*  To support synchronization of deleted records with offline data sync, you should enable [Soft Delete](/en-us/documentation/articles/mobile-services-using-soft-delete/). Otherwise, you have to manually remove records in the local store, or call `IMobileServiceSyncTable::PurgeAsync()` to purge the local store.
-
-
-* To download a project with offline support enabled, see [Getting Started Offline Sample for Windows Phone].
-
+[WACOM.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
 
 ## Next steps
 
 * [Handling conflicts with offline support for Mobile Services]
+
+* [Using Soft Delete in Mobile Services][Soft Delete]
 
 <!-- Anchors. -->
 [Update the app to support offline features]: #enable-offline-app
@@ -285,6 +270,7 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 [Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
 [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
+[Soft Delete]: /en-us/documentation/articles/mobile-services-using-soft-delete/
 
-[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
-[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
+[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
+[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
