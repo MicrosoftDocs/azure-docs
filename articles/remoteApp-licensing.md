@@ -1,4 +1,4 @@
-<properties title="Azure RemoteApp licensing" pageTitle="Azure RemoteApp licensing" description="Learn about Azure RemoteApp licensing" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo"  />
+<properties title="Azure RemoteApp licensing" pageTitle="Azure RemoteApp licensing" description="Learn about Azure RemoteApp licensing" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" />
 
