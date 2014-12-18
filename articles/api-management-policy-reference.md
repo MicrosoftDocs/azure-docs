@@ -10,6 +10,7 @@ This topic provides a reference for the following API Management policies. For i
 	-	[Usage quota][] - Allows you to enforce a renewable or lifetime call volume and / or bandwidth quota.
 	-	[Rate limit][] - Prevents API usage spikes by limiting calls and/or the bandwidth consumption rate.
 	-	[Caller IP restriction][] - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
+	-	[Check header][] - Enforces existence and/or value of a HTTP Header.
 -	[Content transformation policies][]
 	-	[Set HTTP header][] - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
 	-	[Convert XML to JSON][] - Converts request or response body from XML to either "JSON" or "XML faithful" form of JSON.
@@ -31,6 +32,7 @@ This topic provides a reference for the following API Management policies. For i
 -	[Usage quota][] - Allows you to enforce a renewable or lifetime call volume and / or bandwidth quota.
 -	[Rate limit][] - Prevents API usage spikes by limiting calls and/or the bandwidth consumption rate.
 -	[Caller IP restriction][] - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
+-	[Check header][] - Enforces existence and/or value of a HTTP Header.
 
 ### <a name="usage-quota"> </a> Usage quota
 
@@ -205,6 +207,67 @@ This policy is only required when tight control over access is required (e.g. fo
 <tr>
   <td>address-range from="address" to="address"</td>
   <td>A range of IP addresses to allow or deny access for.</td>
+</tr>
+</tbody>
+</table>
+
+### <a name="check-header"> </a> Check header
+
+**Description:**
+Enforces existence and/or value of a HTTP Header. User can specify HTTP Status Code and Error Message to return if the header does not exist or contains an invalid value. 
+
+**Policy Statement:**
+
+	<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="True">
+  		<value>Value1</value>
+  		<value>Value2</value>
+	</check-header> 
+
+
+**Example:**
+
+	<check-header name="Authorization" failed-check-httpcode="401" failed-check-error-message="Not authorized" ignore-case="false">
+  		<value>f6dc69a089844cf6b2019bae6d36fac8</value>
+	</check-header> 
+
+
+**Where it can be applied:**
+Used in the inbound section in any scope.
+
+**When it should be applied:**
+When user wants to enforce existence and value of an HTTP Header.
+
+**Why it should be applied, why not:**
+If the user’s back-end requires certain HTTP headers to be set, or the user wants to authenticate the client by requiring the presence of additional headers.
+
+<table>
+<thead>
+<tr>
+  <th>Element/Attribute</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td><origin>header-name="name"</origin></td>
+  <td>The name of the HTTP Header to check.</td>
+</tr>
+<tr>
+  <td><origin>failed-check-httpcode="status-code"</origin></td>
+  <td>HTTP Status code to return if the header doesn't exist or has an invalid value.</td>
+</tr>
+<tr>
+  <td><origin>failed-check-error-message="message"</origin></td>
+  <td>Error message to return in HTTP response body if the header doesn't exist or has an invalid value.</td>
+</tr>
+<tr>
+  <td><origin>value</origin></td>
+  <td>An acceptable value for the HTTP Header. May occur zero or more times. When multiple elements are specified and as long as one value matches, then the check is considered a success.</td>
+</tr>
+<tr>
+  <td>ignore-case</td>
+  <td>Can be set to True or False. If set to True case is ignored when the header value is compared against the set of acceptable values.</td>
 </tr>
 </tbody>
 </table>
@@ -780,6 +843,7 @@ Use in the inbound section and only in the *API* and *Operation* scopes.
 [Usage quota]: #usage-quota
 [Rate limit]: #rate-limit
 [Caller IP restriction]: #caller-ip-restriction
+[Check header]: #check-header
 
 [Content transformation policies]: #content-transformation-policies
 [Set HTTP header]: #set-http-header
