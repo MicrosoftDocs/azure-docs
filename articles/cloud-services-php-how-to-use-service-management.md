@@ -121,7 +121,7 @@ When you create a cloud service, storage service, or affinity group, you will ne
 
 ##<a id="CreateCloudService"></a>How to: Create a cloud service
 
-When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service] (known as a *hosted service* in earlier Azure releases). The **createHostedServices** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (the base 64-endcoded hosted service name), and a **CreateServiceOptions** object. The [CreateServiceOptions] object allows you to set the location *or* the affinity group for your service. 
+When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service]  - known as a *hosted service* in earlier Azure releases. The **createHostedServices** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (the base 64-endcoded hosted service name), and a **CreateServiceOptions** object. The [CreateServiceOptions] object allows you to set the location *or* the affinity group for your service. 
 
 	require_once 'vendor\autoload.php';
 
