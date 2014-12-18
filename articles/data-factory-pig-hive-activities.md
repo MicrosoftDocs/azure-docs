@@ -53,7 +53,7 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 - You specify parameters for the Pig script by using the **extendedProperties**. More details are provided later in this article. 
 
 
-## <a name="HiveJSON"></a> ## Hive JSON example
+## <a name="HiveJSON"></a> Hive JSON example
 
 
     {

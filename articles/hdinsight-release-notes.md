@@ -1,9 +1,35 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/18/2014" ms.author="bradsev" />
 
 
 #Microsoft HDInsight release notes
+
+## Notes for 12/18/2014 release of HDInsight ##
+
+This release contains the following component updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+<tr>
+<td><a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">Cluster customization GA</a></td>
+<td><p>Customization provides the ability for you to customize your Azure HDInsight clusters with projects available from the Apache Hadoop ecosystem. With this new feature, you can now experiment and deploy Hadoop projects to Azure HDInsight. This is enabled through the <b>Script Action</b> feature that can modify Hadoop clusters in arbitrary ways using custom scripts. This customization is available on all types of HDInsight clusters including Hadoop, HBase, and Storm. To demonstrate the power of this capability, we have documented the process to install the popular <a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>, <a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>, <a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a>, and <a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> modules. This release also adds the capability for customers to specify their custom script action via the Azure Management Portal, provides guidelines and best practices on how to build custom script actions using helper methods, and provides guidelines on how to test the script action. </p></td>
+<td>Feature GA</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+
+
+</table>
+<br>
 
 ## Notes for 12/05/2014 release of HDInsight ##
 

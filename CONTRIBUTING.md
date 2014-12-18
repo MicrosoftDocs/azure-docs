@@ -7,7 +7,6 @@ Thank you for your interest in Azure documentation!
 * [Repository organization](#repository-organization)
 * [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
 * [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
-* [Standard Markdown](#standard-markdown)
 * [More resources](#more-resources)
 
 ## Ways to contribute
@@ -50,9 +49,7 @@ The *\articles* folder contains the documentation articles formatted as markdown
 
 ### \includes
 
-Content authors can create reusable content sections to be included into one or more articles. An include file is simple markdown (.md) file that can contain any valid markdown content including text, links, and images. All include markdown files must contained in the *\includes* directory in the root of this repository. 
-
-* **Media subfolders:** The *\includes* folder contains a *\media* folder, inside which are folders for the images in each include. The includes image folders are named identically to the include file, minus the *.md* file extension. 
+You can create reusable content sections to be included in one or more articles. see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).  
 
 ## Use GitHub, Git, and this repository
 
@@ -160,47 +157,11 @@ Congratulations, you have successfully contributed to the project.
 
 The [markdown template](/markdown templates/markdown-template-for-new-articles.md) contains the basic markdown for a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, see the following sections, or find a published topic and copy the markdown or HTML you want.
 
-### *include* files
-
-Includes are used for adding reusable chunks of content.
-
-Use the following syntax to reference an include file in your article:
-
-	[WACOM.INCLUDE [include-short-name](../includes/include-file-name.md)]
-	
-
-**Note:** An include file cannot reference other includes. 
-
-### Note syntax
-
-If you want to add a Note section to your article, use the following:
-
-  	> [WACOM.NOTE] Note content here. 
-  	> Use a caret for each new paragraph in the note.
-
-
-### Videos in articles
-
-You can add [Channel 9](http://channel9.msdn.com/) videos to articles with the following syntax:
- 
-    > [AZURE.VIDEO video-id-string]
-    
-
-1. Make sure that the video is on the [Azure Video Center](http://azure.microsoft.com/en-us/documentation/videos/home/). 
-2. Copy the video ID from the friendly URL of the video on the video gallery. For example, the video ID of *http://azure.microsoft.com/en-us/documentation/videos/azure-scheduler-unusual-schedules/* will be the friendly URL *azure-scheduler-unusual-schedules*.
-3. Use the extension syntax above with *video-id-string* as the friendly URL of the video.
-
-
-## Standard Markdown
+### Standard markdown
 
 All of the articles in this repository use Markdown.  While a complete introduction (and listing of all the syntax) can be found here [Markdown Home] [], the relevant basics will be covered here.
 
-If you are looking for a good editor, try [Markdown Pad][].
-
-
-### Markdown basics
-
-Below is a list of the most common markdown syntax.
+If you are looking for a good editor, try [Markdown Pad][]. Below is a list of the most common markdown syntax.
 
 * 	**Line breaks vs. paragraphs:** In Markdown there is no HTML `<br />` element. Instead, a new paragraph is designated by an empty line between two blocks of text.
 *	**Italics:** The HTML `<i>some text</i>` is written `*some text*`
@@ -236,6 +197,13 @@ Markdown has a really nice feature that allows a user to insert a reference inst
 
 By using references grouped at the bottom of your file, you can easily find, edit, and reuse link and image URLs. 
 
+### Custom markdown extensions
+
+We use custom markdown extensions for fancier formatting. We currently have extensions for adding reusable content, notes, embedded videos, and technology selectors to your articles. For more info, see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
+
+### Article metadata
+
+Article metadata enables certain functionalities on the azure.microsoft.com web site, such as author attribution, contributor attribution, breadcrumbs, article descriptions, and SEO optimizations as well as reporting Microsoft uses to evaluate the performance of the content. So, the metadata is important! [Here's the guidance for making sure your metadata is done right](https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md). 
 
 ## More resources
 

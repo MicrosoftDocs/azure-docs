@@ -1,12 +1,12 @@
 <properties urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Azure feature guide" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="raynew" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/11/2014" ms.author="raynew" />
 
 
 
 # Enabling Diagnostics in Azure Cloud Services and Virtual Machines
 
-Azure Diagnostics 1.2 enables you to collect diagnostic data from a worker role, web role, or virtual machine running in Azure. This guide describes how to use Azure Diagnostics 1.2. For additional in-depth guidance on creating a logging and tracing strategy and using diagnostics and other techniques to troubleshoot problems, see [Troubleshooting Best Practices for Developing Azure Applications][].
+Azure Diagnostics 1.2 and 1.3 enable you to collect diagnostic data from a worker role, web role, or virtual machine running in Azure. This guide describes how to use Azure Diagnostics 1.2 and 1.3. For additional in-depth guidance on creating a logging and tracing strategy and using diagnostics and other techniques to troubleshoot problems, see [Troubleshooting Best Practices for Developing Azure Applications][].
 
 ## Table of Contents
 
@@ -16,20 +16,22 @@ Azure Diagnostics 1.2 enables you to collect diagnostic data from a worker role,
 -   [Sample Configuration File and Schema][]
 -   [Troubleshooting][]
 -   [Frequently Asked Questions][]
--   [Comparing Azure Diagnostics 1.0 and 1.2][]
+-   [Comparing Azure Diagnostics Versions][]
 -   [Additional Resources][]
 
 <h2><a name="overview"></a>Overview</h2>
 
-Azure Diagnostics 1.2 is an Azure extension that enables you to collect diagnostic telemetry data from a worker role, web role, or virtual machine running in Azure. The telemetry data is stored in an Azure storage account and can be used for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing. 
+Azure Diagnostics 1.2 and 1.3 are Azure extensions that enable you to collect diagnostic telemetry data from a worker role, web role, or virtual machine running in Azure. The telemetry data is stored in an Azure storage account and can be used for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing. 
 
-If you have used Diagnostics version 1.0 in the past, there are three notable differences compared to Diagnostics 1.2:
+Azure Diagnostics 1.2 are for use with Azure SDKs for .NET 2.4 and before. Azure Diagnostics 1.3 are for use with Azure SDKs for .NET 2.5 and later.
 
-1.	Diagnostics 1.2 can be deployed on virtual machines, in addition to cloud services.
-2.	Diagnostics 1.0 is part of the Azure SDK and is deployed when you deploy your cloud service. Diagnostics 1.2 is an extension and is deployed separately.
-3.	Diagnostics 1.2 enables the collection of ETW and .NET EventSource events.
+If you have used Diagnostics version 1.0 in the past, there are three notable differences compared to Diagnostics 1.2 and 1.3:
 
-For a more detailed comparison, see [Comparing Azure Diagnostics 1.0 and 1.2][] at the end of this article.
+1.	Diagnostics 1.2 and 1.3 can be deployed on virtual machines, in addition to cloud services.
+2.	Diagnostics 1.0 is part of the Azure SDK and is deployed when you deploy your cloud service. Diagnostics 1.2 and 1.3 are an extension and are deployed separately from your cloud service deployment.
+3.	Diagnostics 1.2 and 1.3 enable the collection of ETW and .NET EventSource events.
+
+For a more detailed comparison, see [Comparing Azure Diagnostics Versions][] at the end of this article.
 
 Azure Diagnostics can collect the following types of telemetry:
 
@@ -81,17 +83,17 @@ Azure Diagnostics can collect the following types of telemetry:
 
 <h2><a name="worker-role"></a>How to Enable Diagnostics in a Worker Role</h2>
 
-This walk through describes how to implement an Azure worker role that emits telemetry data using the .NET EventSource class. Azure Diagnostics is used to collect the telemetry data and store it in an Azure storage account. When creating a worker role Visual Studio automatically enables Diagnostics 1.0 as part of the solution. The following instructions describe the process for creating the worker role, disabling  Diagnostics 1.0 from the solution, and deploying Diagnostics 1.2 to your worker role.
+This walk through describes how to implement an Azure worker role that emits telemetry data using the .NET EventSource class. Azure Diagnostics is used to collect the telemetry data and store it in an Azure storage account. When creating a worker role Visual Studio automatically enables Diagnostics 1.0 as part of the solution in Azure SDKs for .NET 2.4 and earlier. The following instructions describe the process for creating the worker role, disabling Diagnostics 1.0 from the solution, and deploying Diagnostics 1.2 or 1.3 to your worker role.
 
 <h3>Pre-requisites</h3>
 This article assumes you have an Azure subscription and are using Visual Studio 2013 with the Azure SDK. If you do not have an Azure subscription, you can sign up for the [Free Trial][]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][].
 
 <h3>Step 1: Create a Worker Role</h3>
 1.	Launch **Visual Studio 2013**.
-2.	Create a new **Windows Azure Cloud Service** project from the **Cloud** template that targets .NET Framework 4.5.  Name the project “WadExample”.
+2.	Create a new **Windows Azure Cloud Service** project from the **Cloud** template that targets .NET Framework 4.5.  Name the project "WadExample".
 3.	Select **Worker Role**.
 4.	In **Solution Explorer**, double-click on the **WorkerRole1** properties file.
-5.	In the **Configuration** tab un-check **Enable Diagnostics** to disable Diagnostics 1.0.
+5.	In the **Configuration** tab un-check **Enable Diagnostics** to disable Diagnostics 1.0 (Azure SDK 2.4 and eariler).
 6.	Build your solution to verify that you have no errors.
 
 <h3>Step 2: Instrument your code</h3>
@@ -180,7 +182,7 @@ Replace the contents of WorkerRole.cs with the following code. The class SampleE
 1.	Deploy your worker role to Azure from within Visual Studio by selecting the **WadExample** project then **Publish** from the **Build** menu.
 2.	Choose your subscription.
 3.	In the **Microsoft Azure Publish Settings** dialog select **<Create New…>**.
-4.	In the **Create Cloud Service and Storage Account** dialog enter a **Name** (for example, “WadExample”) and select a region or affinity group.
+4.	In the **Create Cloud Service and Storage Account** dialog enter a **Name** (for example, "WadExample") and select a region or affinity group.
 5.	Set the **Environment** to **Staging**.
 6.	Modify any other **Settings** as appropriate and click **Publish**.
 7.	After deployment has completed verify in the Azure Portal that your cloud service is in a **Running** state.
@@ -190,7 +192,7 @@ Replace the contents of WorkerRole.cs with the following code. The class SampleE
 2.	
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
-2.	Add an XML file to your **WorkerRole1** project by right-clicking on the **WorkerRole1** project and select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file “WadExample.xml”.
+2.	Add an XML file to your **WorkerRole1** project by right-clicking on the **WorkerRole1** project and select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file "WadExample.xml".
 
 	![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 
@@ -229,7 +231,7 @@ The PowerShell cmdlets for managing Diagnostics on a web or worker role are: Set
 		$config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExample\WorkerRole1\WadExample.xml"
 		$service_name="wadexample"
 		$storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key 
-		Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging
+		Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
 
 
 <h3>Step 6: Look at your telemetry data</h3>
@@ -245,16 +247,16 @@ This walk through assumes you have an Azure subscription and are using Visual St
 
 <h3>Step 1: Create a Virtual Machine</h3>
 1.	On your development computer, launch Visual Studio 2013.
-2.	In the Visual Studio **Server Explorer** right-click on **Windows Azure** then select **Virtual Machine** -> **Create Virtual Machine**.
+2.	In the Visual Studio **Server Explorer** expand **Azure**, right-click **Virtual Machines** then select **Create Virtual Machine**.
 3.	Select your Azure subscription in the **Choose a Subscription** dialog and click **Next**.
-4.	Select **Windows Server 2012 R2 Datacenter** in the **Select a Virtual Machine Image** dialog and click **Next**.
-5.	In the **Virtual Machine Basic Settings**, set the virtual machine name to “wadexample”. Set your Administrator user name and password and click **Next**.
-6.	In the **Cloud Service Settings** dialog create a new cloud service named “wadexampleVM”. Create a new Storage account named “wadexample” and click **Next**.
+4.	Select **Windows Server 2012 R2 Datacenter, November 2014** in the **Select a Virtual Machine Image** dialog and click **Next**.
+5.	In the **Virtual Machine Basic Settings**, set the virtual machine name to "wadexample". Set your Administrator user name and password and click **Next**.
+6.	In the **Cloud Service Settings** dialog create a new cloud service named "wadexampleVM". Create a new Storage account named "wadexample" and click **Next**.
 7.	Click **Create**.
 
 <h3>Step 2: Create your Application</h3>
 1.	On your development computer, launch Visual Studio 2013.
-2.	Create a new Visual C# Console Application that targets .NET Framework 4.5. Name the project “WadExampleVM”.
+2.	Create a new Visual C# Console Application that targets .NET Framework 4.5. Name the project "WadExampleVM".
 	![CloudServices_diag_new_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
 3.	Replace the contents of Program.cs with the following code. The class **SampleEventSourceWriter** implements four logging methods: **SendEnums**, **MessageMethod**, **SetOther** and **HighFreq**. The first parameter to the WriteEvent method defines the ID for the respective event. The Run method implements an infinite loop that calls each of the logging methods implemented in the **SampleEventSourceWriter** class every 10 seconds.
 
@@ -328,10 +330,10 @@ This walk through assumes you have an Azure subscription and are using Visual St
 
 
 <h3>Step 3: Deploy your Application</h3>
-1.	Right-click on the **WadExampleVM** project in **Solution Explorer** and choose **Open Folder** in File Explorer.
+1.	Right-click on the **WadExampleVM** project in **Solution Explorer** and choose **Open Folder in File Explorer**.
 2.	Navigate to the *bin\Debug* folder and copy all the files (WadExampleVM.*)
 3.	In **Server Explorer** right-click on the virtual machine and choose **Connect using Remote Desktop**.
-4.	Once connected to the VM create a folder named WadExampleVM and past your application files into the folder.
+4.	Once connected to the VM create a folder named WadExampleVM and paste your application files into the folder.
 5.	Launch the application WadExampleVM.exe. You should see a blank console window.
 
 <h3>Step 4: Create your Diagnostics configuration and install the Extension</h3>
@@ -339,7 +341,7 @@ This walk through assumes you have an Azure subscription and are using Visual St
 
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
-2.	Open a new XML file in Visual Studio, either in a project you already have open or in a Visual Studio instance with no open projects. In Visual Studio, select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file “WadExample.xml”
+2.	Open a new XML file in Visual Studio, either in a project you already have open or in a Visual Studio instance with no open projects. In Visual Studio, select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file "WadExample.xml"
 3.	Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click on the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
 4.	Replace the contents of the WadExample.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
 
@@ -388,7 +390,7 @@ In the Visual Studio **Server Explorer** navigate to the wadexample storage acco
 
 <h2><a name="configuration-file-schema"></a>Configuration File Schema</h2>
 
-The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics monitor starts. A sample configuration file and detailed documentation on it's schema is located here: [Azure Diagnostics 1.2 Configuration Schema][].
+The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics monitor starts. A sample configuration file and detailed documentation on its schema is located here: [Azure Diagnostics 1.2 Configuration Schema][].
 
 <h2><a name="troubleshooting"></a>Troubleshooting</h2>
 
@@ -511,7 +513,7 @@ The following error codes are returned by the plugin:
 </table>
 
 <h3>Diagnostics Data is Not Logged to Storage</h3>
-The most common cause of missing event data is an incorrectly defined storage account information. 
+The most common cause of missing event data is incorrectly defined storage account information. 
 
 Solution: Correct your Diagnostics configuration file and re-install Diagnostics.
 Before event data is uploaded to your storage account it is stored in the folder. See above for details on **LocalResourceDirectory**.
@@ -520,7 +522,7 @@ If there are no files in this folder the monitoring agent is unable to launch. T
 
 The Monitoring Agent logs any errors it experiences in the file MaEventTable.tsf. To inspect the contents of this file run the following command:
 
-		%SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.[IaaS | PaaS]Diagnostics\1.2.0.0\Monitor\x64\table2csv maeventtable.tsf
+		%SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.[IaaS | PaaS]Diagnostics\1.3.0.0\Monitor\x64\table2csv maeventtable.tsf
 
 The tool generates a file named maeventtable.csv that you may open and inspect the logs for failures.
 
@@ -535,7 +537,7 @@ The following are some frequently asked questions and their answers:
 - If your code uses Trace Listener you will need to modify your code to use .NET EventSource. Diagnostics 1.1 and later does not support Trace Listener.
 - Modify your deployment process to install the Diagnostics 1.1 extension
 
-**Q.** If I have already installed the Diagnostics 1.1 Extension on my role or VM how do I upgrade to Diagnostics 1.2?
+**Q.** If I have already installed the Diagnostics 1.1 Extension on my role or VM how do I upgrade to Diagnostics 1.2 or 1.3?
 
 **A.** If you specified “–Version “1.*”" when you installed Diagnostics 1.1, the next time your role restarts or the VM reboots it will be automatically updated to the most recent version matching the regular expression “1.*” If “–Version “1.1”” when you installed Diagnostics 1.1 you can update a newer version be re-executing the Set- cmdlet and specifying the version you want to install.
 
@@ -592,16 +594,16 @@ That will generate 4 tables:
 </table>
 </tbody>
 
-<h2><a name="comparing"></a>Comparing Azure Diagnostics 1.0 and 1.2</h2>
+<h2><a name="comparing"></a>Comparing Azure Diagnostics Versions</h2>
 
-The following table compare the features supported by Azure Diagnostics versions 1.0 and 1.1/1.2:
+The following table compare the features supported by Azure Diagnostics versions 1.0 and 1.1/1.2/1.3:
 
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 	<tr>
 			<td style="width: 100px;"><strong>Role Types Supported</strong></td>
 			<td><strong>Diagnostics 1.0</strong></td>
-			<td><strong>Diagnostics 1.1/1.2</strong></td>
+			<td><strong>Diagnostics 1.1/1.2/1.3</strong></td>
 	</tr>
 
 	<tr>
@@ -627,7 +629,7 @@ The following table compare the features supported by Azure Diagnostics versions
 	<tr>
 			<td style="width: 100px;"><strong>Configuration and deployment</strong></td>
 			<td><strong>Diagnostics 1.0</strong></td>
-			<td><strong>Diagnostics 1.1/1.2</strong></td>
+			<td><strong>Diagnostics 1.1/1.2/1.3</strong></td>
 	</tr>
 
 	<tr>
@@ -653,6 +655,7 @@ The following table compare the features supported by Azure Diagnostics versions
 			<td><strong>Description</strong></td>
 			<td><strong>Diagnostics 1.0</strong></td>
 			<td><strong>Diagnostics 1.1/1.2</strong></td>
+			<td><strong>Diagnostics 1.3</strong></td>
 	</tr>
 	<tr>
 			<td>System.Diagnostics.Trace Logs</td>
@@ -661,12 +664,14 @@ The following table compare the features supported by Azure Diagnostics versions
 			<td>Logs trace messages sent from your code to the trace listener (a trace listener must be added to the web.config or app.config file). Log data will be transferred at the scheduledTransferPeriod transfer interval to storage table WADLogsTable.</td>
 			<td>Yes</td>
 			<td>No (Use EventSource)</td>
+			<td>Yes</td>
 	</tr>
 	<tr>
 			<td>IIS logs</td>
 			<td>Yes</td>
 			<td>Blob</td>
 			<td>Logs information about IIS sites. Log data will be transferred at the scheduledTransferPeriod transfer interval to the container you specify.</td>
+			<td>Yes</td>
 			<td>Yes</td>
 			<td>Yes</td>
 	</tr>
@@ -677,12 +682,14 @@ The following table compare the features supported by Azure Diagnostics versions
 			<td>Logs information about the diagnostic infrastructure, the RemoteAccess module, and the RemoteForwarder module. Log data will transferred at the scheduledTransferPeriodtransfer interval to storage table WADDiagnosticInfrastructureLogsTable.</td>
 			<td>Yes</td>
 			<td>Yes</td>
+			<td>Yes</td>
 	</tr>
 	<tr>
 			<td>IIS Failed Request logs</td>
 			<td>No</td>
 			<td>Blob</td>
 			<td>Logs information about failed requests to an IIS site or application. You must also enable by setting tracing options under system.WebServer in Web.config. Log data will be transferred at the scheduledTransferPeriod transfer interval to the container you specify.</td>
+			<td>Yes</td>
 			<td>Yes</td>
 			<td>Yes</td>
 	</tr>
@@ -693,12 +700,14 @@ The following table compare the features supported by Azure Diagnostics versions
 			<td>Logs information about how well the operating system, application, or driver is performing. Performance counters must be specified explicitly. When these are added, performance counter data will be transferred at the scheduledTransferPeriod transfer interval to storage table WADPerformanceCountersTable.</td>
 			<td>Yes</td>
 			<td>Yes</td>
+			<td>Yes</td>
 	</tr>
 	<tr>
 			<td>Performance counters</td>
 			<td>No</td>
 			<td>Table</td>
 			<td>Logs information about how well the operating system, application, or driver is performing. Performance counters must be specified explicitly. When these are added, performance counter data will be transferred at the scheduledTransferPeriod transfer interval to storage table WADPerformanceCountersTable.</td>
+			<td>Yes</td>
 			<td>Yes</td>
 			<td>Yes</td>
 	</tr>
@@ -709,12 +718,14 @@ The following table compare the features supported by Azure Diagnostics versions
 			<td>Logs information about the state of the operating system in the event of a system crash. Mini crash dumps are collected locally. Full dumps can be enabled. Log data will be transferred at the scheduledTransferPeriod transfer interval to the container you specify. Because ASP.NET handles most exceptions, this is generally useful only for a worker role or a VM.</td>
 			<td>Yes</td>
 			<td>Yes</td>
+			<td>Yes</td>
 	</tr>
 	<tr>
 			<td>Custom error logs</td>
 			<td>No</td>
 			<td>Blob</td>
 			<td>By using local storage resources, custom data can be logged and transferred immediately to the container you specify.</td>
+			<td>Yes</td>
 			<td>Yes</td>
 			<td>Yes</td>
 	</tr>
@@ -725,6 +736,7 @@ The following table compare the features supported by Azure Diagnostics versions
 			<td>Logs events generated by your code using the .NET EventSource class.</td>
 			<td>No</td>
 			<td>Yes</td>
+			<td>Yes</td>
 	</tr>
 	<tr>
 			<td>Manifest based ETW</td>
@@ -732,6 +744,7 @@ The following table compare the features supported by Azure Diagnostics versions
 			<td>Table</td>
 			<td>ETW events generated by any process.</td>
 			<td>No</td>
+			<td>Yes</td>
 			<td>Yes</td>
 	</tr>
 </tbody>
@@ -742,7 +755,7 @@ The following table compare the features supported by Azure Diagnostics versions
 - [Troubleshooting Best Practices for Developing Azure Applications][]
 - [Collect Logging Data by Using Azure Diagnostics][]
 - [Debugging an Azure Application][]
-- [Configuring Azure Diagnostics][]
+- [Configuring Diagnostics for Azure Cloud Services and Virtual Machines][]
 
   
 
@@ -752,11 +765,11 @@ The following table compare the features supported by Azure Diagnostics versions
 [Sample Configuration File and Schema]: #configuration-file-schema
 [Troubleshooting]: #troubleshooting
 [Frequently Asked Questions]: #faq
-[Comparing Azure Diagnostics 1.0 and 1.2]: #comparing
+[Comparing Azure Diagnostics Versions]: #comparing
 [Additional Resources]: #additional
 [EventSource Class]: http://msdn.microsoft.com/en-us/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   
-[Configuring Azure Diagnostics]: http://msdn.microsoft.com/en-us/library/windowsazure/dn186185.aspx
+[Configuring Diagnostics for Azure Cloud Services and Virtual Machines]: http://msdn.microsoft.com/en-us/library/windowsazure/dn186185.aspx
 [Debugging an Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx   
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx
 [Troubleshooting Best Practices for Developing Azure Applications]: http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx

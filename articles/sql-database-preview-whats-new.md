@@ -1,20 +1,22 @@
-<properties title="What's New in the Latest SQL Database Update V12 (preview)" pageTitle="What's New in the Latest SQL Database Update V12 (preview)" description="Lists and describes the latest enhancements to Microsoft Azure SQL Database, the preview of version 12, that are available starting in December 2014." metaKeywords="Azure, SQL DB, Update, Preview, V12, What's New, Get Started" services="sql-database" documentationCenter="" authors="Gene Milener" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
+<properties title="What's new in the Latest SQL Database Update V12 (preview)" pageTitle="What's new in the Latest SQL Database Update V12 (preview)" description="Lists and describes the latest enhancements to Microsoft Azure SQL Database, the preview of version 12, that are available starting in December 2014." metaKeywords="Azure, SQL DB, Update, Preview, V12, What's New, Get Started" services="sql-database" documentationCenter="" authors="Gene Milener" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="genemi"/>
 
-<!--
-Latest update to topic:
-GeneMi  ,  2014-Dec-10 Wednesday 11:56am;
-Applied feedback of JG, JH, JM (Added back Joanne's marketing text.).
--->
-
 
 # What's new in the Latest SQL Database Update V12 (preview)
+
+<!--
+Latest Edit Datetime:  GM,  2014-12-15  Monday  16:52pm.
+Applied feedback of JG, JH, JM (Added back Joanne's marketing text.).
+-->
 
 
 This topic describes latest Azure SQL Database V12 (preview). The new preview provides nearly complete compatibility with the Microsoft SQL Server engine. And the preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
 
 This preview marks the first step in delivering the next generation of the Azure SQL Database service. It gives customers more compatibility, flexibility, and performance. Internal tests of the preview at the Premium service tier showed that some queries now complete in a fraction of the time they take on today's Premium Azure SQL Database. Even bigger improvements were seen in some scenarios that benefit from the in-memory columnstore technology.
+
+> [AZURE.NOTE]
+> Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
 
 Your path to planning and implementing  the V12 preview starts [here](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
 
@@ -58,7 +60,7 @@ This section names and explains the new features in each category.
 | Feature | Description |
 | :--- | :--- |
 | Window functions in T-SQL queries | The ANSI window functions are access with the [OVER clause](http://msdn.microsoft.com/library/ms189461.aspx). <p></p> Itzik Ben-Gan has an excellent [blog post](http://sqlmag.com/sql-server-2012/how-use-microsoft-sql-server-2012s-window-functions-part-1) that further explains window functions and the OVER clause. |
-| .NET CLR integration | The CLR (common language runtime) of the .NET Framework is integrated into the V12 preview. <p></p> Only SAFE assemblies that are fully compiled to binary code are supported. For details see [CLR Integration Programming Model Restrictions](http://msdn.microsoft.com/library/ms403273.aspx). <p></p> You can find information about this feature in the following topics: <br/> * [Introduction to SQL Server CLR Integration](http://msdn.microsoft.com/library/ms254498.aspx) <br/> * [CREATE ASSEMBLY Transact-SQL)](http://msdn.microsoft.com/library/ms189524.aspx). |
+| .NET CLR integration | The CLR (common language runtime) of the .NET Framework is integrated into the V12 preview. <p></p> Only SAFE assemblies that are fully compiled to binary code are supported. For details see [CLR Integration Programming Model Restrictions](http://msdn.microsoft.com/library/ms403273.aspx). <p></p> You can find information about this feature in the following topics: <br/> * [Introduction to SQL Server CLR Integration](http://msdn.microsoft.com/library/ms254498.aspx) <br/> * [CREATE ASSEMBLY (Transact-SQL)](http://msdn.microsoft.com/library/ms189524.aspx). |
 | Change tracking for data | Change tracking for data can now be configured at the database or table level. <p></p> For information about change tracking, see [About Change Tracking (SQL Server)](http://msdn.microsoft.com/library/bb933875.aspx). |
 | XML indexes | The V12 preview enables you use the T-SQL statements CREATE XML INDEX and CREATE SELECTIVE XML INDEX. <p></p> Information about XML indexes is available at: <br/> * [CREATE XML INDEX (Transact-SQL)](http://msdn.microsoft.com/library/bb934097.aspx) <br/> * [Create, Alter, and Drop Selective XML Indexes](http://msdn.microsoft.com/library/jj670109.aspx) |
 | Table as a heap | The V12 preview enables you to create a table that has no clustered index. <p></p> This feature is especially helpful for its support of the T-SQL SELECT...INTO statement which creates a table from a query result. |
@@ -115,7 +117,7 @@ During the V12 preview period you can use the preview at a discount price. The n
 
 
 - Any database that is upgraded to the preview cannot be reverted back to the earlier version.
-- Test databases, database copies, or new databases, are good candidates for upgrading to the preview. As usual, production databases that your business depends on should wait until after the preview period.
+- Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
 - The Web and Business service pricing tier is not supported on this preview version.
 
 

@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Sample: CRM task" pageTitle="Machine Learning Sample: CRM task | Azure" description="A sample Azure Machine Learning experiment to develop multiple models that predict customer churn, upsell, and propensity to buy a new product." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="garye" />
 
 
 # Azure Machine Learning sample: CRM task
@@ -80,14 +80,22 @@ The following sample experiment associated with this model is available in ML St
 
 The following sample datasets used by this experiment are available in ML Studio in the module palette under **Saved Datasets**.
 
-###CRM Dataset Shared
+<ul>
+
+<li><b>CRM Dataset Shared</b><p></p>
 [AZURE.INCLUDE [machine-learning-sample-dataset-crm-dataset-shared](../includes/machine-learning-sample-dataset-crm-dataset-shared.md)]
+<p></p></li>
 
-###CRM Appetency Labels Shared
+<li><b>CRM Appetency Labels Shared</b><p></p>
 [AZURE.INCLUDE [machine-learning-sample-dataset-crm-appetency-labels-shared](../includes/machine-learning-sample-dataset-crm-appetency-labels-shared.md)]
+<p></p></li>
 
-###CRM Churn Labels Shared
+<li><b>CRM Churn Labels Shared</b><p></p>
 [AZURE.INCLUDE [machine-learning-sample-dataset-crm-churn-labels-shared](../includes/machine-learning-sample-dataset-crm-churn-labels-shared.md)]
+<p></p></li>
 
-###CRM Upselling Labels Shared
+<li><b>CRM Upselling Labels Shared</b><p></p>
 [AZURE.INCLUDE [machine-learning-sample-dataset-crm-upselling-labels-shared](../includes/machine-learning-sample-dataset-crm-upselling-labels-shared.md)]
+<p></p></li>
+
+</ul>

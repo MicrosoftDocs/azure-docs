@@ -4,7 +4,7 @@
 
 # How to use Azure table storage with the WebJobs SDK
 
-This guide provides C# code samples that show how to trigger a process when an Azure blob is created or updated. The code samples use [WebJobs SDK](../websites-dotnet-webjobs-sdk/) version 1.x.
+This guide provides C# code samples that show how to read and write Azure storage tables by using [WebJobs SDK](../websites-dotnet-webjobs-sdk/) version 1.x.
 
 The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](../websites-dotnet-webjobs-sdk-get-started/).
 		

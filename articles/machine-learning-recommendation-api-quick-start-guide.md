@@ -1,4 +1,4 @@
-<properties title="Quick start guide for the Machine Learning Recommendations API" pageTitle="Quick start guide for the Machine Learning Recommendations API | Azure" description="Azure Machine Learning Recommendations – Quick Start Guide" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Quick start guide for the Machine Learning Recommendations API" pageTitle="Quick start guide for the Machine Learning Recommendations API | Azure" description="Azure Machine Learning Recommendations - Quick Start Guide" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
 
@@ -30,14 +30,14 @@ This document depicts how to onboard your service or application to use Azure ML
 
 To use Azure ML Recommendations you need to do the following steps:
 
-* Create a Model – A model is a container of your usage data, catalog data and the recommendation model.
-* Import catalog data – This is an optional step. A catalog contains meta-data information on the items. If you do not upload catalog data, the recommendations services will learn about your catalog implicitly from the usage data.
-* Import usage data – Usage data can be uploaded in one of 2 ways (or both):
+* Create a Model - A model is a container of your usage data, catalog data and the recommendation model.
+* Import catalog data - This is an optional step. A catalog contains meta-data information on the items. If you do not upload catalog data, the recommendations services will learn about your catalog implicitly from the usage data.
+* Import usage data - Usage data can be uploaded in one of 2 ways (or both):
 	* By uploading a file that contains the usage data.
 	* By sending Data Acquisition events.
 	Usually you upload a usage file in order to be able to create an initial recommendation model (bootstrap) and use it until the system gathers enough data using the data acquisition format.
-* Build a recommendation model – this is an asynchronous operation in which the recommendation system takes all the usage data and creates a recommendation model. This operation can take several minutes or several hours depending on the size of the data and the build configuration parameters. When triggering the build you will get a build id, use it to check when the build process has ended before starting to consume recommendations. 
-* Recommendations consumption – get recommendations for a specific item or list of items.
+* Build a recommendation model - this is an asynchronous operation in which the recommendation system takes all the usage data and creates a recommendation model. This operation can take several minutes or several hours depending on the size of the data and the build configuration parameters. When triggering the build you will get a build id, use it to check when the build process has ended before starting to consume recommendations. 
+* Recommendations consumption - get recommendations for a specific item or list of items.
 
 All the steps above are done through Azure ML Recommendations API.
 
@@ -83,7 +83,7 @@ HTTP Status code: 200
 
 OData XML
 	
-	feed/entry/content/properties/id – contains the model id
+	feed/entry/content/properties/id - contains the model id
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
@@ -137,8 +137,8 @@ HTTP Status code: 200
 
 OData XML	
 
-	Feed\entry\content\properties\LineCount – number of lines accepted
-	Feed\entry\content\properties\ErrorCount – number of lines that were not inserted due to an error
+	Feed\entry\content\properties\LineCount - number of lines accepted
+	Feed\entry\content\properties\ErrorCount - number of lines that were not inserted due to an error
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportCatalogFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
@@ -185,9 +185,9 @@ HTTP Status code: 200
 
 OData XML	
 
-	Feed\entry\content\properties\LineCount – number of lines accepted
-	Feed\entry\content\properties\ErrorCount – number of lines that were not inserted due to an error
-	Feed\entry\content\properties\FileId – the file identifier
+	Feed\entry\content\properties\LineCount - number of lines accepted
+	Feed\entry\content\properties\ErrorCount - number of lines that were not inserted due to an error
+	Feed\entry\content\properties\FileId - the file identifier
 
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
@@ -342,15 +342,15 @@ HTTP Status code: 200
 
 	Valid build status:
 
-	* Create – model was created
-	* Queued – model build was triggered and it is queued
-	* Building – the model is being build
-	* Success – the build ended successfully
-	* Error – the build ended with a failure
-	* Cancelled – build was canceled
-	* Cancelling – build is being cancelled
+	* Create - model was created
+	* Queued - model build was triggered and it is queued
+	* Building - the model is being build
+	* Success - the build ended successfully
+	* Error - the build ended with a failure
+	* Cancelled - build was canceled
+	* Cancelling - build is being cancelled
 
-	Feed\entry\content\properties\Id – contains the build id
+	Feed\entry\content\properties\Id - contains the build id
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
@@ -409,15 +409,15 @@ HTTP Status code: 200
 HTTP Status code: 200
 
 	OData XML	Valid build status:
-	* Create – model was created
-	* Queued – model build was triggered and it is queued
-	* Building – the model is being build
-	* Success – the build ended successfully
-	* Error – the build ended with a failure
-	* Cancelled – build was canceled
-	* Cancelling – build is being cancelled
+	* Create - model was created
+	* Queued - model build was triggered and it is queued
+	* Building - the model is being build
+	* Success - the build ended successfully
+	* Error - the build ended with a failure
+	* Cancelled - build was canceled
+	* Cancelling - build is being cancelled
 
-	Feed\entry\content\properties\Status –contains the build status
+	Feed\entry\content\properties\Status - contains the build status
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/GetModelBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
@@ -473,10 +473,10 @@ HTTP Status code: 200
 HTTP Status code: 200
 
 	OData XML	The response includes one entry per recommended item, each entry has the following data:
-	* Feed\entry\content\properties\Id – The recommended item id
-	* Feed\entry\content\properties\Name – The name of the item 
-	* Feed\entry\content\properties\Rating – The rating of the recommendation, higher number means higher confidence
-	* Feed\entry\content\properties\Reasoning – the recommendation reasoning
+	* Feed\entry\content\properties\Id - The recommended item id
+	* Feed\entry\content\properties\Name - The name of the item 
+	* Feed\entry\content\properties\Rating - The rating of the recommendation, higher number means higher confidence
+	* Feed\entry\content\properties\Reasoning - the recommendation reasoning
 	The example response below includes 10 recommended items:
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
@@ -630,7 +630,7 @@ HTTP Status code: 200
 
 ###Update Model
 You can update the model description or the active build id.
-*Active Build Id* – Every build for every model has a “build id”. The active “build id” is the first successfully build of every new model. Once you have an active build Id and you do additional builds for the same model you need to explicitly set it as the default build id if you want to. When you consume recommendations, if you do not specify the build id that you want to use - the default one will be used automatically.
+*Active Build Id* - Every build for every model has a “build id”. The active “build id” is the first successfully build of every new model. Once you have an active build Id and you do additional builds for the same model you need to explicitly set it as the default build id if you want to. When you consume recommendations, if you do not specify the build id that you want to use - the default one will be used automatically.
 
 This mechanism enables you once you have a recommendation model in production to build new models and test them before you promote them to production.
 
