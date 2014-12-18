@@ -1,4 +1,4 @@
-<properties title="Microsoft Azure Storage Performance and Scalability Checklist" pageTitle="Microsoft Azure Storage Performance and Scalability Checklist" description="Required" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="Tamra Myers" videoId="Optional" scriptId="Optional" />
+<properties title="Microsoft Azure Storage Performance and Scalability Checklist" pageTitle="Microsoft Azure Storage Performance and Scalability Checklist" description="Required" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="Tamra Myers" videoId="Optional" scriptId="Optional" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="tamram" />
 
