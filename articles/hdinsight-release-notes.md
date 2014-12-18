@@ -7,13 +7,6 @@
 
 ## Notes for 12/18/2014 release of HDInsight ##
 
-The full version numbers for HDInsight clusters deployed with this release are:
-
-* HDInsight 	2.1.9.415.1237463	(no change from 12/05/2014)
-* HDInsight 	3.0.5.415.1237463	(no change from 12/05/2014)
-* HDInsight 	3.1.2.415.1237463	(no change from 12/05/2014)
-* HDInsight SDK N/A
-
 This release contains the following component updates.
 
 <table border="1">
