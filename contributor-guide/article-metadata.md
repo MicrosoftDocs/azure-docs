@@ -82,5 +82,18 @@ The tags section uses this syntax:
 
 ## Attributes and their values - tags section
 
+- **ms.service**: Required. Specifies the Azure service, tool, or feature that the article applies to.
+
+- **ms.devlang**: Required. Specifies the programming language that the article applies to.
+
+- **ms.topic**: Required. Specifics the topic type.
+
+- **ms.tgt_pltfrm**: Required. Specifies the target platform, for instance Windows, Linux, Windows Phone, iOS, or Android.
+
+- **ms.workload**: No longer required. Checking to see if we can leave it out.
+
+- **ms.date**: Required. Specifies the date the article was last reviewed for relevance, accuracy, correct screen shots, and working links. Enter the date in mm/dd/yyyy format. This date also appears on the published article as the last updated date.
+
+- **ms.author**: Required. Specifies the author(s) associated with the topic. To specify multiple values you should spearate them with semicolons. Either Microsoft aliases or complete email addresses are acceptable. The length can be no longer than 200 characters.
 
 
