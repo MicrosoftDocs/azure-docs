@@ -1,4 +1,4 @@
-<properties title="Build a Java web application using DocumentDB" pageTitle="Build a Java web application using DocumentDB" description="This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="andrl" manager="monicar" editor="monicar" videoId="" scriptId="" />
+<properties title="Build a Java web application using DocumentDB" pageTitle="Build a Java web application using DocumentDB" description="This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="andrl" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
 
 # Build a Java web application using DocumentDB #
 
