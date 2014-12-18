@@ -65,7 +65,16 @@ A **predictive pipeline** has these parts:
 		      		}
 		   		}
 			}
-
+	
+	> [AZURE.NOTE] Your batch scoring csv file must have the column header row. If you are using the **Copy Activity** to create/move the csv into the blob storage, you should set the sink property **blobWriterAddHeader** to **true**. For example:
+	>
+	>     sink: 
+	>     {
+	>         "type": ""BlobSink"",     
+	>         blobWriterAddHeader: true 
+	>     }
+	> 
+	> If the csv file does not have the header row, you may see the following error: **Error in Activity: Error reading string. Unexpected token: StartObject. Path '', line 1, position 1**.
 3. This output example uses partitioning to create a unique output path for each slice execution. Without this, the activity would overwrite the file.
 
 		{  
@@ -135,6 +144,10 @@ A **predictive pipeline** has these parts:
 		    }
 		}
 
+
+
+
+
 ## See Also
 
 Article | Description
@@ -156,8 +169,8 @@ Article | Description
 [use-custom-activities]: ../data-factory-use-custom-activities
 [troubleshoot]: ../data-factory-troubleshoot
 [data-factory-introduction]: ../data-factory-introduction  
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[developer-reference]: http://go.microsoft.com/fwlink/p/?LinkId=516908
 
-[azure-machine-learning]: http://azure.microsoft.com/en-us/services/machine-learning/
+[azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
 [machine-learning-dashboard]: ./media/data-factory-create-predictive-pipelines/AzureMLDashboard.png
 
