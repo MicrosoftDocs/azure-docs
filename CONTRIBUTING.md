@@ -201,6 +201,9 @@ By using references grouped at the bottom of your file, you can easily find, edi
 
 We use custom markdown extensions for fancier formatting. We currently have extensions for adding reusable content, notes, embedded videos, and technology selectors to your articles. For more info, see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
 
+### Article metadata
+
+Article metadata enables certain functionalities on the azure.microsoft.com web site, such as author attribution, contributor attribution, breadcrumbs, article descriptions, and SEO optimizations as well as reporting Microsoft uses to evaluate the performance of the content. So, the metadata is important! [Here's the guidance for making sure your metadata is done right](https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md). 
 
 ## More resources
 
