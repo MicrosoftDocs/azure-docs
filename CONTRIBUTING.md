@@ -16,7 +16,8 @@ You can contribute to [Azure documentation](http://azure.microsoft.com/en-us/doc
 
 * Contribute to a [forum discussion](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
 * Submit Disqus comments at the bottom of articles.
-* Contribute to articles via the public Azure repo.
+* You can easily contribute to technical articles in the GitHub user interface. Either find the article in this repository, or visit the article on [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) and click the link in the article that goes to the GitHub source for the article. 
+* If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, Markdown Pad, and learn some git commands. 
 
 ##About your contributions to Azure content
 
