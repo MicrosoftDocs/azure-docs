@@ -236,3 +236,7 @@ The tags section uses this syntax:
 ![](./media/article-metadata/checkmark-small.png)**ms.service**: Not yet required - to be added in January 2015. Always set value as **azure**.
 
 
+###Contributors' Guide Links
+
+- [Overview article](./../CONTRIBUTING.md)
+- [Index of guidance articles](./contributor-guide-index.md)

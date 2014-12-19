@@ -171,3 +171,8 @@ The image above shows the rendering on azure.microsoft.com. On the rendered GitH
 [Includes]: #includes
 [Embedded videos]: #embedded-videos
 [Technology and platform selectors]: #technology-and-platform-selectors 
+
+###Contributors' Guide Links
+
+- [Overview article](./../CONTRIBUTING.md)
+- [Index of guidance articles](./contributor-guide-index.md)
