@@ -175,4 +175,4 @@ The image above shows the rendering on azure.microsoft.com. On the rendered GitH
 ###Contributors' Guide Links
 
 - [Overview article](./../CONTRIBUTING.md)
-- [Index of guidance articles](./contributors-guide-index.md)
+- [Index of guidance articles](./contributor-guide-index.md)
