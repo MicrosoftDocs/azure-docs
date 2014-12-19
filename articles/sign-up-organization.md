@@ -5,7 +5,7 @@
 
 
 
-<h1 id="signup">Sign up for Azure as an organization</h1>
+<h1>Sign up for Azure as an organization</h1>
 
 [WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
