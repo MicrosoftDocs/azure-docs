@@ -12,6 +12,8 @@
 
 - [Custom markdown extensions used in our technical articles](./custom-markdown-extensions.md)
 
+- [File names and locations for Azure technical articles](./file-names-and-locations.md)
+
 - [Metadata for Azure technical articles](./article-metadata.md)
 
 - [Style and voice](./style-and-voice.md)
