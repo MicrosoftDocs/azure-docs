@@ -8,6 +8,7 @@ Thank you for your interest in Azure documentation!
 * [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
 * [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
 * [More resources](#more-resources)
+* [Index of all contributors' guide articles](./contributor-guide/contributors-guide-index.md) (opens new page)
 
 ## Ways to contribute
 
