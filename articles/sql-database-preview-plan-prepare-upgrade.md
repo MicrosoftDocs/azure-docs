@@ -90,8 +90,7 @@ The upgrade to the latest preview cannot run if geo-replication is active on you
 
 After the upgrade completes you can configure your database to again use geo-replication.
 
-
-## C. Limitations during and after upgrade
+##<a id="limitations"></a>C. Limitations during and after upgrade
 
 Be aware of the following limitations of the latest preview:
 
@@ -104,7 +103,10 @@ Be aware of the following limitations of the latest preview:
 | Cannot revert to V11 | After an upgrade in-place, the result cannot be reverted or undone. |
 | Web or Business tier | Once the upgrade starts, the server for the new V12 database can no longer recognize or accept the Web or Business service tier. |
 | No creating a database | While the upgrade is in progress the following actions for creating a database are unavailable on the destination V12 Azure SQL Database server: <p></p> * Creating a new database <br/> * Copying a database to the server <br/> * Restoring a deleted database <br/> * Restoring a database to a point-in-time <br/><br/> However, support for point-in-time restore during upgrade is a feature that might be supported before the end of the V12 preview period. |
+| Database import and export | Database import and export, including automated export, are not supported in a V12 server. |
 | No geo-replication | Geo-replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
+| Alert rules | Alert rules cannot be added to a V12 database. |
+| System views | The following system views exist in a V12 server, but they are not functional and they always return an empty set: <br/><br/> * sys.resource_stats <br/> * sys.event_log <br/> * sys.database_connection_stats |
 | 50% discount semi-hidden | During the preview period, there is a 50% discount on databases with the latest Azure SQL database preview update (V12). Even if the discount is not shown in the preview portal on the service pricing tier blade, the discount is in force. |
 | 50% discount not reflected in the pricing tier cards in the preview portal | During the preview period, there is a 50% preview discount* on databases enrolled in the latest Azure SQL database preview update (V12). Even if the discount is not shown in the preview portal on the service pricing tier blade, the discount is in force. <br/><br/> (* Use of latest Azure SQL Database Update V12 feature is subject to the preview terms in your license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).  For the duration of the preview, Microsoft will bill you (or your reseller, as applicable) for all databases enrolled in this preview at half the General Availability rate to achieve a 50% preview discount. Microsoft will provide 30 days notice via email prior to the expiration of the preview period and the discounted preview rate.) |
 
@@ -129,3 +131,7 @@ If the upgrade fails for any odd reason, your V11 database remains active and av
 ## Related links
 
 - Microsoft Azure [Preview features](http://azure.microsoft.com/services/preview/)
+
+
+<!--Anchors-->
+[Subheading 1]: #subheading-1
