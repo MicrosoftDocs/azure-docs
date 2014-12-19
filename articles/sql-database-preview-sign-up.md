@@ -1,35 +1,35 @@
-<properties title="Walkthrough: try the Latest SQL Database Update V12 (preview)" pageTitle="Walkthrough: try the Latest SQL Database Update V12 (preview)" description="Describes the steps for trying the preview release of Azure SQL Database V12, by using the new Azure portal UI." metaKeywords="Azure, SQL DB, Update, Preview, Plan" services="sql-database" documentationCenter="" authors="GeneMi" manager="jeffreyg" videoId="" scriptId=""/>
+<properties title="Walkthrough: Activate the Latest SQL Database Update V12 (preview)" pageTitle="Walkthrough: Activate the Latest SQL Database Update V12 (preview)" description="Describes the steps for trying the preview release of Azure SQL Database V12, by using the new Azure portal UI." metaKeywords="Azure, SQL DB, Update, Preview, Plan" services="sql-database" documentationCenter="" authors="GeneMi" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/15/2014" ms.author="genemi"/>
+<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/18/2014" ms.author="genemi"/>
 
-# Walkthrough: try the Latest SQL Database Update V12 (preview)
+# Walkthrough: Activate the Latest SQL Database Update V12 (preview)
 
-<!--
-Latest update datetime for this topic.
-GeneMi  ,  2014-Dec-15 Monday 17:28pm.
+This topic describes the steps you can follow to activate the Azure SQL Database Update V12 (preview), as first released by Microsoft in December 2014.
 
-http : // azure.microsoft .com/ documentation/articles/ sql-database-latest-preview-sign-up/
--->
+To try the latest V12 preview you first need a subscription to Microsoft Azure, or at least a [free trial](http://azure.microsoft.com/pricing/free-trial/) subscription.
 
-This topic describes the steps you can follow to try the Azure SQL Database Update V12 (preview), as released by Microsoft in December 2014.
+You can activate the V12 preview by using the new preview Microsoft Azure management portal at [http://portal.azure.com/](http://portal.azure.com/). After you activate the V12 preview for your subscription, the create and upgrade options for the V12 preview become unlocked in the Azure portal. Then users can initiate the create or upgrade workflow from the server blade or the database blade.
 
-You can sign up for the V12 preview by using the preview Microsoft Azure management portal at [http://portal.azure.com/](http://portal.azure.com/). Users can initiate the upgrade workflow from the server blade or the database blade. The options to upgrade are locked if you have not yet signed up for the preview. When the locked state blocks further progress, the portal displays a blade that enables you to sign up.
+If a user attempts to create a new preview database before activation, the Azure portal displays a blade where the user can activate his subscription to the preview, subject to an authorization check.
 
-For more information about the preview, see [Plan and Prepare to Upgrade to Azure SQL Database V12 Preview](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
+> [AZURE.NOTE]
+> Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
+
+For more information about the preview, see [Plan and Prepare to Upgrade to Azure SQL Database V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
 
 
 ## Security authorization
 
-The first step is to ensure that you have sufficient authorization to sign up for the V12 preview. To try the preview you must have one of the following authorizations:
+The first step is to ensure that you have sufficient authorization to activate the V12 preview for your subscription. To try the preview you must have one of the following authorizations:
 
 - The subscription owner
 - A co-administrator of the subscription
 
 For more information about Azure accounts, see [Manage Accounts, Subscriptions, and Administrative Roles](http://msdn.microsoft.com/library/hh531793.aspx).
 
-## Steps in the Portal UI
+## Steps in the portal UI
 
-This section describes a click sequence that you can follow in the Azure portal UI to sign up for the V12 preview:
+This section describes a click sequence that you can follow in the Azure portal UI to activate the V12 preview:
 
 1. In your web browser, navigate to the new Azure portal, which is labeled with the highlighted word **Preview** in its upper-left corner: <p></p> [http://portal.azure.com/](http://portal.azure.com/) <br/>
 
