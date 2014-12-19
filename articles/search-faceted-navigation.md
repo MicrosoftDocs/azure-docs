@@ -66,8 +66,8 @@ In Azure Search, a request is specified through one or more query parameters (se
 
 Precision, generally understood as the ability to filter out irrelevant hits, is achieved through one or both of these expressions:
 
-- **Search=**<br/>
-The value of this parameter constitutes the search expression. It might be a single piece of text, or a complex search expression that includes multiple terms and Boolean operators. On the server, a search expression is subject to full-text search, querying all searchable fields in the index for matching terms, returning results in rank order. If you set `Search` to null, query execution is over the entire index (that is, `Search=*`). In this case, other elements of the query, such as a scoring profile, will be the primary factors affecting which documents are returned and in what order.
+- **search=**<br/>
+The value of this parameter constitutes the search expression. It might be a single piece of text, or a complex search expression that includes multiple terms and operators. On the server, a search expression is used for full-text search, querying searchable fields in the index for matching terms, returning results in rank order. If you set `search` to null, query execution is over the entire index (that is, `search=*`). In this case, other elements of the query, such as a `$filter` or scoring profile, will be the primary factors affecting which documents are returned `($filter`) and in what order (`scoringProfile` or `$orderb`y).
 
 - **$filter=**<br/>
 A filter is a powerful mechanism for limiting the size of search results based on the values of specific document attributes. A `$filter` is evaluated first, followed by faceting logic that generates the available values and corresponding counts for each value
@@ -80,18 +80,18 @@ To better understand how a filter adds more precision, compare a complex search 
 
 - `GET /indexes/hotel/docs?search=lodging&$filter=City eq ‘Seattle’ and Parking and Type ne ‘motel’`
 
-Although both queries are valid, the second is superior if you’re looking for non-motels with parking in Seattle. The first query relies on those specific words being mentioned or not mentioned in string fields like Name, Description, and any other field containing searchable data. Whereas, the second looks for precise matches on structured data and is likely to be much more accurate.
+Although both queries are valid, the second is superior if you’re looking for non-motels with parking in Seattle. The first query relies on those specific words being mentioned or not mentioned in string fields like Name, Description, and any other field containing searchable data. The second query looks for precise matches on structured data and is likely to be much more accurate.
 
 In applications that include faceted navigation, you will want to be sure that each user action over a faceted navigation structure is accompanied by a narrowing of search results, achieved through a filter expression.
 
 <a name="howtobuildit"></a>
 # How to build it #
 
-In application code, faceted navigation in Azure Search is implemented in your application code that builds the request, but relies on predefined elements in your schema.
+Faceted navigation in Azure Search is implemented in your application code that builds the request, but relies on predefined elements in your schema.
 
-Predefined in your search index is the `Facetable[true|false]` index attribute, set on selected fields to enable or disable their use in a faceted navigation structure. Without `"Facetable" = true`, a field cannot be used in facet navigation.
+Predefined in your search index is the `Facetable [true|false]` index attribute, set on selected fields to enable or disable their use in a faceted navigation structure. Without `"Facetable" = true`, a field cannot be used in facet navigation.
 
-At query time, your application code creates a request that includes `facet[string]`, a request parameter that provides the field to facet by. A query can have multiple facets, such as `&facet=color&facet=category&facet=rating`, each one separated by an ampersand (&) character.
+At query time, your application code creates a request that includes `facet=[string]`, a request parameter that provides the field to facet by. A query can have multiple facets, such as `&facet=color&facet=category&facet=rating`, each one separated by an ampersand (&) character.
 
 Application code must also construct a `$filter` expression to handle the click events in faceted navigation. A `$filter` reduces the search results, using the facet value as filter criteria.
 
@@ -182,7 +182,7 @@ In faceted drill down, you typically want to only include documents that have th
 If your application uses faceted navigation exclusively (that is, no search box), you can mark the field as `searchable=false`, `facetable=true` to produce a more compact index. In addition, indexing occurs only on whole facet values, with no word-break or indexing of the component parts of a multi-word value.
 
 - **Performance**<br/>
-Filters narrow down the set of candidate documents for search and exclude them from ranking. If you have a large set of documents, combined with a very selective facet drill down, you’ll often get significantly better performance.
+Filters narrow down the set of candidate documents for search and exclude them from ranking. If you have a large set of documents, using a very selective facet drill down will often give you significantly better performance.
 
 
 <a name="tips"></a> 
@@ -198,16 +198,14 @@ Labels are typically defined in the HTML or form (**index.cshtml** in the sample
 
 Recall that the schema of the index determines which fields are available to use as a facet. Assuming a field is facetable, the query specifies which fields to facet by. The field by which you are faceting provides the values that appear below the label. 
 
-The values that appear under each label are retrieved from the index. For example, if the facet field is *Color*, the values available for additional filtering will be Red, Black, and so forth until all values are exhausted.
+The values that appear under each label are retrieved from the index. For example, if the facet field is *Color*, the values available for additional filtering will be the values for that field (Red, Black, and so forth).
 
 For Numeric and DateTime values only, you can explicitly set values on the facet field (for example, 
 `facet=Rating,values:1|2|3|4|5`). A values list is allowed for these field types to simplify the separation of facet results into contiguous ranges (either ranges based on numeric values or time periods). 
 
-Otherwise, the values for each field are returned verbatim.
-
 **Trim facet results**
 
-Facet results refers to the number of documents that match a facet term. In the following example, in search results for *cloud computing*, 254 items also have *internal specification* as a content type. Items are not necessarily mutually exclusive. If an item meets the criteria of both filters, it is counted in each one.
+Facet results are documents found in the search results that match a facet term. In the following example, in search results for *cloud computing*, 254 items also have *internal specification* as a content type. Items are not necessarily mutually exclusive. If an item meets the criteria of both filters, it is counted in each one. This is possible when faceting on `Collection(Edm.String)` fields, which are often used to implement document tagging.
 
 		Search term: "cloud computing"
 		Content type
@@ -220,17 +218,17 @@ In general, if you find that facet results are persistently too large, we recomm
 
 For each faceted field in the navigation tree, there is a default limit of 10 values. This default makes sense for navigation structures because it keeps the values list to a manageable size. You can override the default by assigning a value to count.
 
-- `&facet=city,count:5` ** Specifies that only the first 5 cities found in the top ranked results are returned as a facet result. Given a search term of “airport” and 32 matches, if the query specifies `&facet=city,count:5`, only the first five unique cities from the top ranked search results are included in the facet results.
+- `&facet=city,count:5` specifies that only the first 5 cities found in the top ranked results are returned as a facet result. Given a search term of “airport” and 32 matches, if the query specifies `&facet=city,count:5`, only the first five unique cities with the most documents in the search results are included in the facet results.
 
-Notice the distinction between facet results and search results. Search results are all the documents that match the query. Facet results are the matches for each facet value. Search results are the matches for the overall query. In the example, search results will include City names that are not in the facet classification list (5 in our example). Results that are filtered out through faceted navigation become visible to the user when he or she clears facets, or chooses other facets besides City. 
+Notice the distinction between facet results and search results. Search results are all the documents that match the query. Facet results are the matches for each facet value. In the example, search results will include City names that are not in the facet classification list (5 in our example). Results that are filtered out through faceted navigation become visible to the user when he or she clears facets, or chooses other facets besides City. 
 
 > [AZURE.NOTE] Discussing `count` when there is more than one type can be confusing. The following table offers a brief summary of how the term is used in Azure Search API, sample code, and documentation. 
 
 - `@colorFacet.count`<br/>
-In presentation code, you should see a count parameter on the facet, used to display the number of facet results. In facet results, count indicates the number of documents that match on the facet term.
+In presentation code, you should see a count parameter on the facet, used to display the number of facet results. In facet results, count indicates the number of documents that match on the facet term or range.
 
 - `&facet=City,count:12`<br/>
-In a facet query, you can set count to a value.  The default is 10, but you can set it higher or lower. Setting `count:12` gets the top 12 matches in facet results.
+In a facet query, you can set count to a value.  The default is 10, but you can set it higher or lower. Setting `count:12` gets the top 12 matches in facet results by document count.
 
 - "`@odata.count`"<br/>
 In the query response, this value indicates the number of matching items in the search results. On average, it’s larger than the sum of all facet results combined, due to the presence of items that match the search term, but have no facet value matches.
@@ -238,7 +236,7 @@ In the query response, this value indicates the number of matching items in the 
 
 **Levels in faceted navigation** 
 
-As noted, there is no direct support for nesting facets in a hierarchy. Out of the box, faceted navigation only supports one level of filters. However, workarounds do exist. You can encode a hierarchical facet structure in a collection(string) with one entry point per hierarchy. Implementing this workaround is beyond the scope of this article, but you can read about this data type in [OData Overview](http://www.odata.org/documentation/odata-version-2-0/overview/). 
+As noted, there is no direct support for nesting facets in a hierarchy. Out of the box, faceted navigation only supports one level of filters. However, workarounds do exist. You can encode a hierarchical facet structure in a `Collection(Edm.String)` with one entry point per hierarchy. Implementing this workaround is beyond the scope of this article, but you can read about collections in [OData by Example](http://msdn.microsoft.com/en-us/library/ff478141.aspx). 
 
 **Validate fields**
 
@@ -252,9 +250,9 @@ When adding a filter to a faceted query, you might want to retain the facet stat
 
 Under certain circumstances, you might find that facet counts do not match the result sets (see [Faceted navigation in Azure Search (forum post)](https://social.msdn.microsoft.com/Forums/azure/en-US/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
 
-Upon investigation, it was determined that the counts can be affected by the sharding architecture. For the standard pricing tier, there are multiple shards, and each one reports a count for each facet, which is then combined into a single result. If some shards have a lot of values, while others have less, you can get over- or under-reporting in some shards.
+Facet counts can be inaccurate due to the sharding architecture. Every search index has multiple shards, and each one reports the top N facets by document count, which is then combined into a single result. If some shards have a lot of matching values, while others have less, you may find that some facet values are missing or under-counted in the results.
 
-Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:<number> to a very large number to enforce full reporting from each shard.
+Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:<number> to a very large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are really high, there is a performance penalty, so used this option judiciously.
 
 <a name="rangefacets"></a>
 # Facet navigation based on a range values #
@@ -280,7 +278,9 @@ Each range is built using 0 as a starting point, a value from the list as an end
 
 ### Build a filter for facet ranges ###
 
-A filter for a faceted range is a two-part expression, using a start and end value of the range. For prices, the filter expression defines priceFrom and priceTo. The expression for each one is in terms of the facet, listPrice. 
+To filter documents based on a range selected by the user, you can the `"ge"` and `"lt"` filter operators in a two-part expression that defines the endpoints of the range. For example, if the user chooses the range 10-25, the filter would be `$filter=listPrice ge 10 and listPrice lt 25`.
+
+In the sample application, the filter expression uses **priceFrom** and **priceTo** parameters to set the endpoints. 
 
 In **Index.cshtml**, the onClick event for the listPrice facet calls the filter expression that defines the range.
 
@@ -293,11 +293,11 @@ In the BuildFilter method in **CatalogSearch.cs**, an OData filter specifies how
 
 It’s common to see filters that help you choose a store, restaurant, or destination based on its proximity to your current location. While this type of filter might look like faceted navigation, it’s actually just a filter. We mention it here for those of you who are specifically looking for implementation advice for that particular design problem.
 
-There are two Geospatial functions **geo.distance** and **geo.intersects** in Azure Search.
+There are two Geospatial functions in Azure Search, **geo.distance** and **geo.intersects**.
 
 - The **geo.distance** function returns the distance in kilometers between two points, one being a field and one being a constant passed as part of the filter. 
 
-- The **geo.intersects** function returns true if a given point is within a given polygon, where the point is a field and the polygon is specified as a constant passed as part of the filter.
+- The **geo.intersects** function returns true if a given point is within a given polygon, where the point is a field and the polygon is specified as a constant list of coordinates passed as part of the filter.
 
 You can find filter examples in [OData expression syntax (Azure Search)](http://msdn.microsoft.com/en-us/library/azure/dn798921.aspx). To learn more about geospatial search, see [Create a geospatial search application in Azure Search](../search-create-geospatial/).
 
@@ -318,7 +318,7 @@ Azure Search Adventure Works Demo on Codeplex contains the examples referenced i
  
 4.	Enter a search term, such as bike, and click **Search**. The query executes quickly.
  
-	Notice that the search term appears in the URL. A faceted navigation structure is also returned with the search results.  In the URL, facets for Colors, Categories, and Prices are null. In the search result page, the faceted navigation structure includes counts for each facet result.
+	A faceted navigation structure is also returned with the search results.  In the URL, facets for Colors, Categories, and Prices are null. In the search result page, the faceted navigation structure includes counts for each facet result.
 
 	 ![][8]
  
@@ -358,9 +358,9 @@ For more insights on design principles for faceted navigation, we recommend the 
 [4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
 [5]: ./media/search-faceted-navigation/Facet-5-Prices.PNG
 [6]: ./media/search-faceted-navigation/Facet-6-buildfilter.PNG
-[7]: ./media/search-faceted-navigation/Facet-7-appstart.png
-[8]: ./media/search-faceted-navigation/Facet-8-appbike.png
-[9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
+[7]: ./media/search-faceted-navigation/Facet-7-Appstart.png
+[8]: ./media/search-faceted-navigation/Facet-8-Appbike.png
+[9]: ./media/search-faceted-navigation/Facet-9-Appbikefaceted.png
 [10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
 
 <!--Link references-->
