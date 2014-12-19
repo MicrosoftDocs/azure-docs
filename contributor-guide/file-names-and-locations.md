@@ -56,7 +56,7 @@ Right now, we have two portals running - the [general availability portal](https
 
 - If the article is about the preview portal itself and not specific to any service or platform, start the file name with **azure-preview-portal**.
 
-Here's some examples:
+Here are some examples:
 
 - azure-preview-portal-supported-browsers-devices.md
 - storage-premium-storage-preview-portal.md
