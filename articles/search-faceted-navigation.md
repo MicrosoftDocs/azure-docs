@@ -358,9 +358,9 @@ For more insights on design principles for faceted navigation, we recommend the 
 [4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
 [5]: ./media/search-faceted-navigation/Facet-5-Prices.PNG
 [6]: ./media/search-faceted-navigation/Facet-6-buildfilter.PNG
-[7]: ./media/search-faceted-navigation/Facet-7-Appstart.png
-[8]: ./media/search-faceted-navigation/Facet-8-Appbike.png
-[9]: ./media/search-faceted-navigation/Facet-9-Appbikefaceted.png
+[7]: ./media/search-faceted-navigation/Facet-7-appstart.png
+[8]: ./media/search-faceted-navigation/Facet-8-appbike.png
+[9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
 [10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
 
 <!--Link references-->

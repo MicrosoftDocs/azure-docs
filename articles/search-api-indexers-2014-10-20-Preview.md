@@ -1,8 +1,8 @@
-<properties title="Azure Search Service Indexers API Reference: Version 2014-10-20-Preview" pageTitle="Azure Search Service Indexers API Reference: Version 2014-10-20-Preview" description="Azure Search Service Indexers API Reference: Version 2014-10-20-Preview" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties title="Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)" pageTitle="Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)" description="Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
 
 <tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="12/16/2014" ms.author="heidist" />
 
-# Azure Search Service Indexers API Reference: Version 2014-10-20-Preview #
+# Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview #
 
 > [AZURE.NOTE] This article describes a prototype of new functionality that is not in the released version of the API. Read more about versions and supportability at [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) on MSDN. For more information about other features in this preview API, see [Azure Search Service REST API Version: 2014-10-20-Preview](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/).
 

@@ -1,8 +1,8 @@
-<properties title="Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)" pageTitle="Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)" description="Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties title="Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)" pageTitle="Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)" description="Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
 
 <tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="12/19/2014" ms.author="heidist" />
       
-#Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)#
+#Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)#
 
 > [AZURE.NOTE] This article describes a preview version of the REST API used for defining scoring profiles. The released version of this API can be found at [Add scoring profiles to a search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) on MSDN.  
 
