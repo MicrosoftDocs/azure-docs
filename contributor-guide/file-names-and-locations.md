@@ -12,6 +12,9 @@ Here's what you need to know:
 
 + [Rules]
 + [Pattern]
++ [Standard examples]
++ [Special file naming convention for the Azure preview portal]
++ [Marketplace content]
 + [File name approval] 
 
 ##Rules
@@ -31,7 +34,7 @@ Here's the general pattern:
 
 Use the parts of the pattern that apply, and review the list of articles in the repository to get an idea of existing names. Names that don't start with a dev platform or a service name are probably suspect and slipped through.
 
-**Standard examples:**
+##Standard examples
 
 Here are a few examples of valid names that follow the pattern. : 
 
@@ -42,11 +45,25 @@ Here are a few examples of valid names that follow the pattern. :
 - active-directory-java-authenticate-users-access-control-eclipse.md
 - virtual-machines-install-windows-server-2008r2.md
 
-**Partner content example:**
+
+##Special file naming convention for the Azure preview portal
+
+Right now, we have two portals running - the [general availability portal](https://manage.windowsazure.com) and the [Azure preview portal](https://portal.azure.com). To clearly identify content that has been written for the preview portal without hiding it in the metadata, we need to follow some slightly customized file naming guidance:
+
+- If the service is available only in the Azure preview portal, it's easy. Just follow the standard naming guidance. 
+- If the service is available in both portals, add preview-portal at the end of the file name, before the .md extension.
+- If the article is about the preview portal itself and not specific to any service or platform, start the file name with azure-preview-portal.
+
+Here's some examples:
+
+- azure-preview-portal-supported-browsers-devices.md
+- storage-premium-storage-preview-portal.md
+
+##Marketplace content
+
+To distinguish content that focuses on partner contributions to the Azure marketplace, start the file names with "marketplace". This content should not be too common, as most partner content should be created on the partners' own web sites.
 
 - marketplace-mongodb-virtual-machines-install-windows-server-2008r2.md 
-
-Note: The last example begins with "marketplace" to distinguish content that focuses on partner contributions to the Azure marketplace. Please preface such file names with "marketplace". This content should not be too common, as most partner content should be created on the partners' own web sites.
 
 ##File name approval
 
@@ -61,4 +78,7 @@ It 's the job of our group of pull request reviewers to review file names when a
 <!--Anchors-->
 [Rules]: #rules
 [Pattern]: #pattern
+[Standard examples]: #standard-examples
+[Special file naming convention for the Azure preview portal]: #special-file-naming-convention-for-the-azure-preview-portal
+[Marketplace content]: #marketplace-content
 [File name approval]: #file-name-approval 
