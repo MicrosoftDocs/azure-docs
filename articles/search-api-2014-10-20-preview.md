@@ -1,7 +1,7 @@
-<properties title="Azure Search Service REST API Version: 2014-10-20-Preview" pageTitle="Azure Search Service REST API Version: 2014-10-20-Preview" description="Azure Search Service REST API Version: 2014-10-20-Preview" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties title="Azure Search Service REST API: 2014-10-20-Preview" pageTitle="Azure Search Service REST API: 2014-10-20-Preview" description="Azure Search Service REST API: 2014-10-20-Preview" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
 
 <tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="12/16/2014" ms.author="heidist" />
-# Azure Search Service REST API Version: 2014-10-20-Preview #
+# Azure Search Service REST API: 2014-10-20-Preview #
 
 This document describes the **2014-10-20-Preview** version of the Azure Search Service REST API. This is a prototype version of the API, subject to change at any time. Do not take a dependency on this API in production code. 
 
