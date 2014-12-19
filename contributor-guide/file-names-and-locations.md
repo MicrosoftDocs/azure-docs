@@ -55,7 +55,7 @@ It 's the job of our group of pull request reviewers to review file names when a
 ###Contributors' Guide Links
 
 - [Overview article](./../CONTRIBUTING.md)
-- [Index of guidance articles](./contributors-guide-index.md)
+- [Index of guidance articles](./contributor-guide-index.md)
 
 
 <!--Anchors-->

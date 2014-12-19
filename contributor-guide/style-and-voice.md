@@ -70,7 +70,7 @@ Our technical articles are translated into many other languages, and some are mo
 ###Contributors' Guide Links
 
 - [Overview article](./../CONTRIBUTING.md)
-- [Index of guidance articles](./contributors-guide-index.md)
+- [Index of guidance articles](./contributor-guide-index.md)
 
 
 
