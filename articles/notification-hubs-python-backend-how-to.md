@@ -1,4 +1,4 @@
-<properties urlDisplayName="How to use Notification Hubs with Python" pageTitle="How to use Notification Hubs with Python" metaKeywords="" description="Learn how to use Azure Notification Hubs from a Python back-end." metaCanonical="" services="notification-hubs,push,python,notification hubs REST APIs" documentationCenter="" title="How to use Notification Hubs with Python" authors="piyushjo" solutions="" manager="" editor="" />
+<properties urlDisplayName="How to use Notification Hubs with Python" pageTitle="How to use Notification Hubs with Python" metaKeywords="" description="Learn how to use Azure Notification Hubs from a Python back-end." metaCanonical="" services="notification-hubs,push,python,notification hubs REST APIs" documentationCenter="" title="How to use Notification Hubs with Python" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="php" ms.topic="article" ms.date="12/09/2014" ms.author="piyushjo" />
 

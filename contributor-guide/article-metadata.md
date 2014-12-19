@@ -12,7 +12,7 @@ The properties section uses this syntax:
 
 The tags section uses this syntax:
 
-    <tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="mm/dd/yyyy" ms.author="Your MSFT alias or your full email address" ms.prod="azure" />
+    <tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="mm/dd/yyyy" ms.author="Your MSFT alias or your full email address" />
 
 ##Usage
 
@@ -72,7 +72,7 @@ The tags section uses this syntax:
 - **Windows**: Verifing this new value
 - **Xamarin**: Verifing this new value
 
-![](./media/article-metadata/checkmark-small.png)**authors**: Required. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one, in spite of the plural name of the attribute.
+![](./media/article-metadata/checkmark-small.png)**authors**: Required, one value only. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one, in spite of the plural name of the attribute.
 
 ![](./media/article-metadata/checkmark-small.png)**videoId**: Unique identifier for a single video that is associated with the article. This property is not currently used.
  
