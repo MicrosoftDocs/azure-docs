@@ -51,8 +51,10 @@ Here are a few examples of valid names that follow the pattern. :
 Right now, we have two portals running - the [general availability portal](https://manage.windowsazure.com) and the [Azure preview portal](https://portal.azure.com). To clearly identify content that has been written for the preview portal without hiding it in the metadata, we need to follow some slightly customized file naming guidance:
 
 - If the service is available only in the Azure preview portal, it's easy. Just follow the standard naming guidance. 
-- If the service is available in both portals, and you are writing an article about the service in the preview portal, add preview-portal at the end of the file name before the .md extension. This will help us separate the content for that service in the old portal from content for that service in the new portal. (Don't mix portal content!)
-- If the article is about the preview portal itself and not specific to any service or platform, start the file name with azure-preview-portal.
+
+- If the service is available in both portals, and you are writing an article about the service in the preview portal, add **preview-portal** at the end of the file name before the .md extension. This will help us separate the content for that service in the old portal from content for that service in the new portal. (Don't mix portal content!)
+
+- If the article is about the preview portal itself and not specific to any service or platform, start the file name with **azure-preview-portal**.
 
 Here's some examples:
 
