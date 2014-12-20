@@ -115,11 +115,11 @@ In the rendered HTML on azure.microsoft.com, the HTML from the includes is merge
 
 ## Embedded videos
 
-Our technical articles supports embeddeding videos in technical articles as long as the videos are on Microsoft's [Channel 9](http://channel9.msdn.com/) site. Ideally, videos from Channel 9 are integrated with [the azure.microsoft.com Video Center](http://azure.microsoft.com/en-us/documentation/videos/home/). We currently do not support embedded YouTube videos; if you're a community contributor, you are welcome to link to YouTube if the video you want to feature is posted there. Microsoft contributors should use Channel 9 and the Video Center.
+Our technical articles support embeddeded videos in technical articles as long as the videos are on Microsoft's [Channel 9](http://channel9.msdn.com/) site. The videos from Channel 9 must be integrated with [the azure.microsoft.com Video Center](http://azure.microsoft.com/en-us/documentation/videos/home/). We currently do not support embedded YouTube videos; if you're a community contributor, you are welcome to link to YouTube if the video you want to feature is posted there. Microsoft contributors should use Channel 9 and the Video Center.
 
 ### Usage
 
-- Make sure that the video is on the Video Center. If it is not there, make sure that it is available on Channel 9. The video will be picked up by the Azure Video Center after your article is published. 
+- Make sure that the video is on the Video Center. 
 
 - Copy the video ID from the friendly URL of the video on Channel 9 or from the Azure Video Center. For example, the video ID for the video at [http://azure.microsoft.com/en-us/documentation/videos/azure-scheduler-unusual-schedules/](http://azure.microsoft.com/en-us/documentation/videos/azure-scheduler-unusual-schedules/) is **azure-scheduler-unusual-schedules**.
 
