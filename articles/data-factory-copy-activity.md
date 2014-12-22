@@ -21,8 +21,7 @@ See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that sho
 ## Copy Activity - components
 Copy activity contains the following components: 
 
-- **Input table**. A table is a dataset that has a schema and is rectangular. The input table component 
-- describes input data for the activity that include the following: name of the table, type of the table, and linked service that refers to a data source, which contains the input data.
+- **Input table**. A table is a dataset that has a schema and is rectangular. The input table component describes input data for the activity that include the following: name of the table, type of the table, and linked service that refers to a data source, which contains the input data.
 - **Output table**. The output table describes output data for the activity that include the following: name of the table, type of the table, and the linked service that refers to a data source, which holds the output data.
 - **Transformation rules**. The transformation rules specify how input data is extracted from the source and how output data is loaded into sink etc…
  
