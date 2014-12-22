@@ -52,7 +52,7 @@ The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://g
 
 2.	Clone or download the sample solution at [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) to your local directory.
 
-	>The instructions at [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) shows you how to set up the application with Azure Active Directory, but in this tutorial you will set it up with AD FS, so follow the steps here instead. 
+	> The instructions at [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) shows you how to set up the application with Azure Active Directory, but in this tutorial you will set it up with AD FS, so follow the steps here instead. 
 
 3.	Open the solution, and then open Controllers\AccountController.cs in the **Solution Explorer**.
 
@@ -141,7 +141,7 @@ If you want to attach the published website to the debugger (i.e. you must uploa
 
 Now you need to configure a RP trust in AD FS Mangement before you can your sample application can actually authenticate with AD FS. You will need to set up two separate RP trusts, one for your debug environment and one for your published website.
 
->Make sure that you repeat the steps below for both of your environments.
+> Make sure that you repeat the steps below for both of your environments.
 
 4.	On your AD FS server, log in with credentials that have management rights to AD FS.
 5.	Open AD FS Management. Right-click **AD FS\Trusted Relationships\Relying Party Trusts** and select **Add Relying Party Trust**.
@@ -156,7 +156,7 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 7.	In the **Choose Protocol** page, click **Next**.
 8.	In the **Configure Certificate** page, click **Next**.
 
-	>Since you should be using HTTPS already, encrypted tokens are optional. If you really want to encrypt tokens from AD FS on this page, you must also add token-decrypting logic in your code. For more information, see [Manually configuring OWIN WS-Federation middleware and accepting encrypted tokens](http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx).
+	> Since you should be using HTTPS already, encrypted tokens are optional. If you really want to encrypt tokens from AD FS on this page, you must also add token-decrypting logic in your code. For more information, see [Manually configuring OWIN WS-Federation middleware and accepting encrypted tokens](http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx).
   
 5.	Before you move onto the next step, you need one piece of information from your Visual Studio project. In the project properties, note the **SSL URL** of the application. 
 
@@ -166,11 +166,11 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 
 	![](./media/web-sites-dotnet-lob-application-with-adfs/4-configure-url.png)
 
-	>This URL specifies where to send the client after authentication succeeds. For the debug environment, it should be https://localhost:<port>/. For the published website, it should be the website URL.
+	>  URL specifies where to send the client after authentication succeeds. For the debug environment, it should be https://localhost:<port>/. For the published website, it should be the website URL.
 
 7.	In the **Configure Identifiers** page, verify that your project SSL URL is already listed and click **Next**. Click **Next** all the way to the end of the wizard with default selections.
 
-	>In App_Start\Startup.Auth.cs of your Visual Studio project, this identifier is matched against the value of `WsFederationAuthenticationOptions.Wtrealm` during federated authentication. By default, the application's URL from the previous step is added as an RP identifier.
+	> In App_Start\Startup.Auth.cs of your Visual Studio project, this identifier is matched against the value of `WsFederationAuthenticationOptions.Wtrealm` during federated authentication. By default, the application's URL from the previous step is added as an RP identifier.
 
 8.	You have now finished configuring the RP application for your project in AD FS. Next, you will configure this application to send the claims needed by your application. The **Edit Claim Rules** dialog is opened by default for you at the end of the wizard so you can start immediately. Let's configure at least the following claims (with schemas in parentheses):
 
@@ -179,7 +179,7 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 	-	Group memberships as roles (http://schemas.microsoft.com/ws/2008/06/identity/claims/role) - can be used with `[Authorize(Roles="role1, role2,...")]` decoration to authorize controllers/actions. In reality, this may not be the most performant approach for role authorization, especially if your AD users regularly belong to hundreds of security groups, which translates to hundreds of role claims in the SAML token. An alternative approach is to send a single role claim conditionally depending on the user's membership in a particular group. However, we'll keep it simple for this tutorial.
 	-	Name ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - can be used for anti-forgery validation. For more information on how to make it work with anti-forgery validation, see the **Add LOB functionality** section of [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS](../web-sites-dotnet-lob-application-with-adfs/#bkmk_crud).
 
-	>The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](http://msdn.microsoft.com/en-us/library/azure/dn195587.aspx).
+	> The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](http://msdn.microsoft.com/en-us/library/azure/dn195587.aspx).
 
 8.	In the Edit Claim Rules dialog, click **Add Rule**.
 9.	Configure the name, UPN, and role claims as shown below and click **Finish**.
@@ -221,7 +221,7 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 
 	![](./media/web-sites-dotnet-lob-application-with-adfs/8-all-claim-rules.png)
 
-	>Again, make sure that you repeat these steps for both your debug environment and published website.
+	> Again, make sure that you repeat these steps for both your debug environment and published website.
 
 <a name="bkmk_test"></a>
 ## Test federated authentication for your application
