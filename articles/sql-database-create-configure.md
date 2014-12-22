@@ -12,7 +12,10 @@ In this topic, you'll create and configure a new Azure SQL database using the Az
 * [How to: Create an Azure SQL Database](#createDatabase)
 * [How to: Configure the firewall for the logical server](#configFWLogical)
 
-<h2><a id="createDatabase"></a>How to: Create an Azure SQL Database</h2>
+
+<a id="createDatabase"></a>
+
+##How to: Create an Azure SQL Database
 
 1. Sign in to the [Management Portal](http://manage.windowsazure.com).
 
@@ -50,7 +53,9 @@ Notice that if you created a new server you did not specify a server name. SQL D
 
 In the next step, you will configure the firewall so that connections from applications running on your network are allowed access.
 
-##<a id="configFWLogical"></a>How to: Configure the firewall for the logical server
+<a id="configFWLogical"></a>
+
+##How to: Configure the firewall for the logical server
 
 1. In the [Management Portal](http://manage.windowsazure.com), click **SQL Databases**, then click **Servers**
 
