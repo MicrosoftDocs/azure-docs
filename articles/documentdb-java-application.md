@@ -4,74 +4,90 @@
 
 # Build a Java web application using DocumentDB #
 
-This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites. In this topic, you will learn:
+This tutorial shows you how to use the [Microsoft Azure DocumentDB (Preview)](https://portal.azure.com/#gallery/Microsoft.DocumentDB) service to store and access data from a Java application hosted on Azure Websites. In this topic, you will learn:
 
-- How to build a basic JSP application in Eclipse
-- How to work with Azure DocumentDB service using the DocumentDB Java SDK
+- How to build a basic JSP application in Eclipse.
+- How to work with the Azure DocumentDB service using the [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
 
-In this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing of tasks. The tasks will be stored as JSON documents in Azure DocumentDB.
-
+This tutorial shows you how to create a web-based task-management application that enables you to create, retrieve, and mark tasks as complete, as shown in the following image. Each of the tasks in the ToDo list are stored as JSON documents in Azure DocumentDB.
 
 ![My ToDo List application](./media/documentdb-java-application/image1.png)
 
-> [WACOM.NOTE] This tutorial assumes that you have some prior experience using Java.
+> [AZURE.TIP] This tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete project from [GitHub](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
 
-## Prerequisites ##
-Before following the instructions in this article, you should ensure that you have the following:
+##<a id="Prerequisites"></a>Prerequisites ##
+Before you begin this tutorial, you must have the following:
 
-- [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/index.html)
-- [Eclipse IDE for Java EE Developers](https://www.eclipse.org/)
+- [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+- [Eclipse IDE for Java EE Developers.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 - [An Azure Website with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](http://azure.microsoft.com/en-us/documentation/articles/web-sites-java-get-started/)
 
-## Step 1: Create a DocumentDB database account ##
+If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the Quick Start section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article. 
+
+## In this tutorial ##
+
+Step | Description
+-----| -----------
+[Step 1: Create a DocumentDB database account](#CreateDB) | In this step, you create a DocumentDB account. 
+[Step 2: Create the JSP application](#CreateJSP) | In this step, you create a hello world project in Eclipse.
+[Step 3: Install the DocumentDB Java SDK](#InstallSDK) | In this step, you add the DocumentDB SDK as a dependency to the project.
+[Step 4: Using the DocumentDB service in a Java application](#UseService) | In this step, you add the DocumentClient class to the project, create a data access object to persist the ToDo items, create or retrieve the database and collection, and then persist new ToDo items to the collection.
+[Step 5: Wiring the rest of the of application together](#Wire) | In this step, you build a controller for the DAO, a servlet to route the HTTP requests to the controller, and build the user interface.
+[Step 6: Deploy your application to Azure Websites](#Deploy) | In this step, you export your project as a WAR file and then import it into an Azure Website.
+[Get the project from GitHub](#GetProject) | This section contains instructions on getting and building the complete todo project from GitHub.
+ 
+
+##<a id="CreateDB"></a>Step 1: Create a DocumentDB database account ##
 To provision a DocumentDB database account in Azure:
 
-1. If you don't already have a database account, create one by following the instructions in [Create a database account](/documentation/articles/documentdb-create-account/).
-8. Using the **KEYS** tile, copy your endpoint URI and the primary key to your clipboard and keep them handy as we will use these values in the web application we create next.
+1. If you don't already have a database account, create one by following the instructions in [Create a database account](/documentation/articles/documentdb-create-account/). If you already have an account, proceed to step 2.
+2. Using the **KEYS** tile shown in the following illustration, copy your endpoint URI and the PRIMARY KEY to your clipboard and keep them handy as we will use these values in the web application we create next.
 
 ![][1]
 
 
-## Step 2: Create a JSP application ##
+##<a id="CreateJSP"></a>Step 2: Create the JSP application ##
 
 To create the JSP application: 
 
-1. First, we’ll start off with creating a Java project. Start Eclipse. Within Eclipse, at the menu click **File**, click **New**, and then click **Dynamic Web Project**. (If you don’t see **Dynamic Web Project** listed as an available project, do the following: click **File**, click **New**, click **Project**…, expand **Web**, click **Dynamic Web Project**, and click **Next**.) You will see the following dialog box: 
+1. First, we’ll start off by creating a Java project. Start Eclipse, then click **File**, click **New**, and then click **Dynamic Web Project**. If you don’t see **Dynamic Web Project** listed as an available project, do the following: click **File**, click **New**, click **Project**…, expand **Web**, click **Dynamic Web Project**, and click **Next**. 
 
 	![](./media/documentdb-java-application/image10.png)
 
-2. Click **Finish**. Selecting a target runtime (e.g. Apache Tomcat v7.0) will allow you to run your project locally through Eclipse.
+2. Enter a project name in the **Project name** box, and in the **Target Runtime** drop-down menu, optionally select a value (e.g. Apache Tomcat v7.0), and then click **Finish**. Selecting a target runtime enables you to run your project locally through Eclipse.
 
-3. Within Eclipse’s Project Explorer view, expand your project. Right-click **WebContent**, click **New**, and then click **JSP File**.
-4. In the **New JSP File** dialog, name the file **index.jsp**. Keep the parent folder as **WebContent**, as shown in the following:
+3. In Eclipse, in the Project Explorer view, expand your project. Right-click **WebContent**, click **New**, and then click **JSP File**.
+4. In the **New JSP File** dialog box, name the file **index.jsp**. Keep the parent folder as **WebContent**, as shown in the following illustration, and then click **Next**.
 
 	![](./media/documentdb-java-application/image11.png)
 
-5. Click **Next**.
+5. In the **Select JSP Template** dialog box, for the purpose of this tutorial select **New JSP File (html)**, and then click **Finish**.
 
-6. In the **Select JSP Template** dialog, for the purpose of this tutorial select **New JSP File (html)** and click **Finish**.
-
-7. When the index.jsp file opens in Eclipse, add in text to display **Hello World!** within the existing <body> element. Your updated <body> content should appear as the following:
+6. When the index.jsp file opens in Eclipse, add text to display **Hello World!** within the existing <body> element. Your updated <body> content should look like the following code:
     
-    <body>
-      <b><% out.println("Hello World!"); %></b>
-    </body>
+	    <body>
+	        <% out.println("Hello World!"); %>
+	    </body>
 
-8. Save index.jsp. 
-9. If you have set a target runtime earlier, you can click **Project** and then **Run** to run your JSP application locally:
+8. Save the index.jsp file. 
+9. If you set a target runtime in step 2, you can click **Project** and then **Run** to run your JSP application locally:
 
 	![](./media/documentdb-java-application/image12.png)
 
-## Step 3: Install the DocumentDB Java SDK ##
+##<a id="InstallSDK"></a>Step 3: Install the DocumentDB Java SDK ##
 
-The easiest way to pull in the DocumentDB Java SDK and its dependencies is through maven.
+The easiest way to pull in the DocumentDB Java SDK and its dependencies is through [Apache Maven](http://maven.apache.org/).
 
-To do this, you will need to convert your project to a maven project: 
+To do this, you will need to convert your project to a maven project by completing the following steps: 
 
 1. Right-click your project in the Project Explorer, click **Configure**, click **Convert to Maven Project**.
-2. The dialogue will prompt you to fill in a groupId and artifactId for your project.
-3. Once your pom.xml is generated - open the **pom.xml** file in eclipse, click the **Dependencies** tab, and click **Add** in the Dependencies pane.
-4. Fill in the GroupId and ArtifactId as shown in the pane:
+2. In the **Create new POM** window, accept the defaults and click **Finish**.
+3. In **Project Explorer**, open the pom.xml file. 
+4. On the **Dependencies** tab, in the **Dependencies** pane, click **Add**.
+4. In the **Select Dependency** window, do the following:
+ - In the **GroupId** box, enter com.microsoft.azure.
+ - In the **Artifact Id** box enter azure-documentdb.
+ - In the **Version** box enter 0.9.0.
 
 	![](./media/documentdb-java-application/image13.png)
 
@@ -83,9 +99,10 @@ To do this, you will need to convert your project to a maven project:
 		    <version>0.9.0</version>
 	    </dependency>
 
-5. Click **Ok** and Maven will install the **DocumentDB Java SDK**.
+5. Click **Ok** and Maven will install the DocumentDB Java SDK.
+6. Save the pom.xml file.
 
-## Step 4: Using the DocumentDB service in a Java application ##
+##<a id="UseService"></a>Step 4: Using the DocumentDB service in a Java application ##
 
 1. First, let's define the TodoItem object:
 
@@ -98,9 +115,9 @@ To do this, you will need to convert your project to a maven project:
 		    private String name;
 	    }
 
-	In this example, we are using [Lombok](http://projectlombok.org/) to generate the constructor, getters, setters, and a builder. Alternatively, you can write this code manually or have the IDE generate it.
+	In this project, we are using [Project Lombok](http://projectlombok.org/) to generate the constructor, getters, setters, and a builder. Alternatively, you can write this code manually or have the IDE generate it.
 
-2. To invoke the DocumentDB service, you must instantiate a new **DocumentClient**. In general, it is best to re-use the DocumentClient - rather than constructing a new client for each  subsequent request. We can re-use the client by wrapping the client in a **DocumentClientFactory**:
+2. To invoke the DocumentDB service, you must instantiate a new **DocumentClient**. In general, it is best to reuse the **DocumentClient** - rather than construct a new client for each  subsequent request. We can reuse the client by wrapping the client in a **DocumentClientFactory**. This is also where you need to paste the URI and PRIMARY KEY value you saved to your clipboard in [step 1](#CreateDB). Replace [YOUR\_ENDPOINT\_HERE] with your URI and replace [YOUR\_KEY\_HERE] with your PRIMARY KEY.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -116,11 +133,11 @@ To do this, you will need to convert your project to a maven project:
 	        return documentClient;
 	    }
 
-3. Now lets create a Data Access Object (DAO) to abstract persisting our ToDo items to DocumentDB.
+3. Now let's create a Data Access Object (DAO) to abstract persisting our ToDo items to DocumentDB.
 
-	In order to save ToDo items to a collection, the client will need to know which database and collection to persist to (as referenced by self-links). In general, it is best to cache the database and collection when possible to avoid additional round-trips to the database.
+	In order to save ToDo items to a collection, the client needs to know which database and collection to persist to (as referenced by self-links). In general, it is best to cache the database and collection when possible to avoid additional round-trips to the database.
 
-	The following code illustrates how to retrieve our Database and Collection if it exists, or create a new one if it doesn't exist:
+	The following code illustrates how to retrieve our database and collection, if it exists, or create a new one if it doesn't exist:
 
 		public class DocDbDao implements TodoDao {
 		    // The name of our database.
@@ -208,7 +225,7 @@ To do this, you will need to convert your project to a maven project:
 		    }
 		}
 
-4. The next step is to write some code to persist the TodoItems in to the collection. In this example, we will use [Gson](https://code.google.com/p/google-gson/) to serialize and de-serialize TodoItem POJOs to JSON documents. [Jackson](http://jackson.codehaus.org/) or your own custom serialiazer are also great alternatives for serializing POJOs.
+4. The next step is to write some code to persist the TodoItems in to the collection. In this example, we will use [Gson](https://code.google.com/p/google-gson/) to serialize and de-serialize TodoItem Plain Old Java Objects (POJOs) to JSON documents. [Jackson](http://jackson.codehaus.org/) or your own custom serializer are also great alternatives for serializing POJOs.
 
 	    // We'll use Gson for POJO <=> JSON serialization for this example.
 	    private static Gson gson = new Gson();
@@ -237,7 +254,7 @@ To do this, you will need to convert your project to a maven project:
 
 
 
-5. Like DocumentDB databases and collections, documents are also referenced by self-links. The following helper function will let us retrieve documents by another attribute (e.g. "id") rather than self-link:
+5. Like DocumentDB databases and collections, documents are also referenced by self-links. The following helper function lets us retrieve documents by another attribute (e.g. "id") rather than self-link:
 
 	    private Document getDocumentById(String id) {
 	        // Retrieve the document using the DocumentClient.
@@ -253,7 +270,7 @@ To do this, you will need to convert your project to a maven project:
 	        }
 	    }
 
-6. We can use the helper method above to retrieve a TodoItem JSON document by id and then de-serialize it to a POJO: 
+6. We can use the helper method in step 5 to retrieve a TodoItem JSON document by id and then deserialize it to a POJO: 
 
 	    @Override
 	    public TodoItem readTodoItem(String id) {
@@ -289,7 +306,7 @@ To do this, you will need to convert your project to a maven project:
 	        return todoItems;
 	    }
 
-8. There are many ways to update an document with the DocumentClient. In our Todo list application, we want to be able to toggle whether a TodoItem is complete. This can be achieved by updating the "complete" attribute within the document:
+8. There are many ways to update a document with the DocumentClient. In our Todo list application, we want to be able to toggle whether a TodoItem is complete. This can be achieved by updating the "complete" attribute within the document:
 	
 	    @Override
 	    public TodoItem updateTodoItem(String id, boolean isComplete) {
@@ -335,11 +352,11 @@ To do this, you will need to convert your project to a maven project:
 	    }
 
 
-## Step 5: Wiring the rest of the of application together ##
+##<a id="Wire"></a> Step 5: Wiring the rest of the of application together ##
 
 Now that we've finished the fun bits - all that left is to build a quick user interface and wire it up to our DAO.
 
-1. First, let's start with building a Controller to call our DAO:
+1. First, let's start with building a controller to call our DAO:
 
 		public class TodoItemController {
 		    public static TodoItemController getInstance() {
@@ -381,9 +398,9 @@ Now that we've finished the fun bits - all that left is to build a quick user in
 		    }
 		}
 
-	In a more complex application, the Controller may house complicated business logic on top of the DAO.
+	In a more complex application, the controller may house complicated business logic on top of the DAO.
 
-2. Next, we'll create a Servlet to route HTTP Requests to the Controller:
+2. Next, we'll create a servlet to route HTTP requests to the controller:
 
 		public class TodoServlet extends HttpServlet {
 			// API Keys
@@ -446,11 +463,12 @@ Now that we've finished the fun bits - all that left is to build a quick user in
 			}
 		}
 
-3. We'll need a Web User Interface to surface to the user. Let's re-write the index.jsp we created earlier:
+3. We'll need a Web User Interface to display to the user. Let's re-write the index.jsp we created earlier:
 
 		<html>
 		<head>
 		  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
 		  <title>Azure DocumentDB Java Sample</title>
 		
 		  <!-- Bootstrap -->
@@ -621,7 +639,7 @@ Now that we've finished the fun bits - all that left is to build a quick user in
 		      // Call api to update todo items.
 		      $.each(todoApp.ui_updateId(), function(index, value) {
 		        todoApp.updateTodoItem(value.name, value.value);
-		        value.remove();
+		        $(value).remove();
 		      });
 		
 		      // Re-enable button.
@@ -634,8 +652,8 @@ Now that we've finished the fun bits - all that left is to build a quick user in
 		
 		  bindUpdateCheckboxes: function() {
 		    todoApp.ui_table().on("click", ".isComplete", function(event) {
-		      var checkboxElement = $(event.toElement);
-		      var rowElement = $(event.toElement).parents('tr');
+		      var checkboxElement = $(event.currentTarget);
+		      var rowElement = $(event.currentTarget).parents('tr');
 		      var id = checkboxElement.attr('id');
 		      var isComplete = checkboxElement.is(':checked');
 		
@@ -707,18 +725,50 @@ Now that we've finished the fun bits - all that left is to build a quick user in
 		  todoApp.install();
 		});
 
-5. Awesome! Now all that's left is to test the application. Run the application locally, and add some Todo Items by filling in the item name and category and clicking **Add Task**
+5. Awesome! Now all that's left is to test the application. Run the application locally, and add some Todo items by filling in the item name and category and clicking **Add Task**.
 
-6. Once the item appears, you can update whether its complete by toggling the checkbox and clicking **Update Tasks**
+6. Once the item appears, you can update whether its complete by toggling the checkbox and clicking **Update Tasks**.
 
-## Step 6: Deploy your application to Azure Websites ##
+##<a id="Deploy"></a>Step 6: Deploy your application to Azure Websites ##
 
 Azure Websites makes deploying Java Applications as simple as exporting your application as a WAR file and either uploading it via source control (e.g. GIT) or FTP.
 
-1. To export your application as a WAR: Right click on your project in the project explorer, expand the **Export** menu option, and click **WAR File**. Choose a destination to save the WAR file and click **Finish**.
+1. To export your application as a WAR, right-click on your project in **Project Explorer**, click **Export**, and then click **WAR File**. 
+2. In the **WAR Export** window, do the following:
+ - In the Web project box, enter azure-documentdb-java-sample.
+ - In the Destination box, choose a destination to save the WAR file.
+ - Click **Finish**.
 
-2. Now that you have a WAR file in hand, you can simply upload it to your Azure Website's **webapps** directory.
+3. Now that you have a WAR file in hand, you can simply upload it to your Azure Website's **webapps** directory. For instructions on uploading the file, see [Adding an application to your Java website on Azure](../web-sites-java-add-app/).
 
 	Once the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
+4. To view your finished product, navigate to http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ and start adding your tasks!
+
+##<a id="GetProject"></a>Get the project from GitHub##
+
+All the samples in this tutorial are included in the [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) project on GitHub, which is part of the [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) repository. To import the todo project into Eclipse, ensure you have the software and resources listed in the [Prerequisites](#Prerequisites) section, then do the following:
+
+1. Install [Project Lombok](http://projectlombok.org/). Lombok is used to generate constructors, getters, setters in the project. Once you have downloaded the lombok.jar file, double-click it to install it or install it from the command line. 
+2. If Eclipse is open, close it and restart it to load Lombok.
+3. In Eclipse, on the **File** menu, click **Import**.
+4. In the **Import** window, click **Git**, click **Projects from Git**, and then click **Next**. 
+5. On the **Select Repository Source** screen, click **Clone URI**.
+6. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure/azure-documentdb-java.git, and then click **Next**.
+7. On the **Branch Selection** screen, ensure that **master** is selected, and then click **Next**.
+8. On the **Local Destination** screen, click **Browse** to select a folder where the repository can be copied, and then click **Next**.
+9. On the **Select a wizard to use for importing projects** screen, ensure that **Import existing projects** is selected, and then click **Next**.
+10. On the **Import Projects** screen, unselect the **DocumentDB** project, and then click **Finish**. The DocumentDB project contains the DocumentDB Java SDK, which we will add as a dependency instead.
+11. In **Project Explorer**, navigate to azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java and replace the HOST and MASTER_KEY values with the URI and PRIMARY KEY for your DocumentDB account, and then save the file. For more information, see [Step 1. Create a DocumentDB database account](#CreateDB).
+12. In **Project Explorer**, right click the **azure-documentdb-java-sample**, click **Build Path**, and then click **Configure Build Path**.
+13. On the **Java Build Path** screen, in the right pane, select the **Libraries** tab, and then click **Add External JARs**. Navigate to the location of the lombok.jar file, and click **Open**, and then click **OK**.
+14. Use step 12 to open the **Properties** window again, and then in the left pane click **Targeted Runtimes**.
+15. On the **Targeted Runtimes** screen, click **New**, select **Apache Tomcat v7.0**, and then click **OK**.
+16. Use step 12 to open the **Properties** window again, and then in the left pane click **Project Facets**.
+17. On the **Project Facets** screen, select **Dynamic Web Module** and **Java**, and then click **OK**.
+18. On the **Servers** tab at the bottom of the screen, right-click **Tomcat v7.0 Server at localhost** and then click **Add and Remove**.
+19. On the **Add and Remove** window, move **azure-documentdb-java-sample** to the **Configured** box, and then click **Finish**. 
+20. In the **Server** tab, right-click **Tomcat v7.0 Server at localhost**, and then click **Restart**.
+21. In a browser, navigate to http://localhost:8080/azure-documentdb-java-sample/ and start adding to your task list. Note that if you changed your default port values, change 8080 to the value you selected.
+22. To deploy your project to an Azure web site, see [Step 6. Deploy your application to Azure Websites](#Deploy). 
 
 [1]: ./media/documentdb-java-application/keys.png
