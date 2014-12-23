@@ -49,7 +49,7 @@ The sample application in this tutorial, [WebApp-GroupClaims-DotNet](https://git
 - `Roles` controller that contains an AAD search filter and enables you to easily map AAD users or groups to application roles.
 - Sample `TaskTracker` controller that demonstrates how you can authorize different roles for specific actions in the application, including the standard usage of `[Authorize]`. 
 
-![](./media/web-sites-dotnet-lob-application-with-azure-ad/role-management.png)
+![](./media/web-sites-dotnet-lob-application-azure-ad/role-management.png)
 
 <a name="bkmk_run" />
 ## Run the sample application ##
@@ -68,7 +68,7 @@ The sample application in this tutorial, [WebApp-GroupClaims-DotNet](https://git
 4.	Once signed in, click **Roles** to manage application roles.
 5.	In **Search for Users/Groups**, start typing the desired user name or group name and notice that a dropdown list shows a filtered list of users and/or groups from your AAD tenant.
 
-	![](./media/web-sites-dotnet-lob-application-with-azure-ad/select-user-group.png) 
+	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png) 
 
 	<div class="wa-note">
 		<span class="wa-icon-bulb"></span>
@@ -90,23 +90,23 @@ Here, you will publish the application to an Azure Website. There are already in
 
 1. Right-click your project and select **Publish**.
 
-	![](./media/web-sites-dotnet-lob-application-with-azure-ad/publish-app.png)
+	![](./media/web-sites-dotnet-lob-application-azure-ad/publish-app.png)
 
 2. Select **Microsoft Azure Websites**.
 3. If you haven't signed in to Azure, click **Sign In** and use the Microsoft account for your Azure subscription to sign in.
 4. Once signed in, click **New** to create a new website.
 5. Fill in all required fields. You will need a database connection for this application to store role mappings, cached tokens, and any application data.
 
-	![](./media/web-sites-dotnet-lob-application-with-azure-ad/4-create-website.png)
+	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-website.png)
 
 6. Click **Create**. Once the website is created, the Publish Web dialog is opened.
 7. In **Destination URL**, change **http** to **https**. Copy the entire URL to a text editor. You will use it later. Then, click **Next**.
 
-	![](./media/web-sites-dotnet-lob-application-with-azure-ad/5-change-to-https.png)
+	![](./media/web-sites-dotnet-lob-application-azure-ad/5-change-to-https.png)
 
 8. Clear the **Enable Organizational Authentication** checkbox.
 
-	![](./media/web-sites-dotnet-lob-application-with-azure-ad/6-disable-organizational-authentication.png)
+	![](./media/web-sites-dotnet-lob-application-azure-ad/6-disable-organizational-authentication.png)
 
 9. Instead of clicking **Publish** to go through with the web publish, click **Close**. Click **Yes** to save the changes to the publishing profile.
 2. In the [Azure management portal](https://manage.windowsazure.com), go to your AAD tenant and click the **Applications** tab.
@@ -115,7 +115,7 @@ Here, you will publish the application to an Azure Website. There are already in
 4. Give the application a name and click **Next**.
 5. In App Properties, set **Sign-On URL** to the website URL that you saved earler (e.g. `https://<site-name>.azurewebsites.net`), and the **APP ID URI** to `https://<aad-tenanet-name>/<app-name>`. Then, click **Complete**.
 
-	![](./media/web-sites-dotnet-lob-application-with-azure-ad/7-app-properties.png)
+	![](./media/web-sites-dotnet-lob-application-azure-ad/7-app-properties.png)
 
 6. Once the application is created, click **Configure**.
 7. Under **Keys**, create a new key by selecting **1 year** in the dropdown.
@@ -193,7 +193,7 @@ In this part of the tutorial, you will learn how to build out the desired LOB fu
 9.	Select **MVC 5 Controller with views, using Entity Framework** and click **Add**.
 10.	Select the model that you just created and click **Add**.
 
-	![](./media/web-sites-dotnet-lob-application-with-azure-ad/8-add-scaffolded-controller.png)
+	![](./media/web-sites-dotnet-lob-application-azure-ad/8-add-scaffolded-controller.png)
 
 9.	Open Controllers\WorkItemsController.cs
 
@@ -321,11 +321,11 @@ In this part of the tutorial, you will learn how to build out the desired LOB fu
 
 15. Now either run the app in the Visual Studio debugger or publish to Azure Websites. Log in as the application owner and navigate to `~/WorkItems/Create`. For my published LOB app, I navigate to `https://mylobapp.azurewebsites.net/WorkItems/Create`. You'll see now that you you can use the same AAD Picker search filter to pick an AAD user.
 
-	![](./media/web-sites-dotnet-lob-application-with-azure-ad/9-create-workitem.png)
+	![](./media/web-sites-dotnet-lob-application-azure-ad/9-create-workitem.png)
 
 16. Fill out the rest of the form and click **Create**. The ~/WorkItems/Index page now shows the newly created work item. You'll also notice in the screenshot below that I removed the `AssignedToID` column in Views\WorkItems\Index.cshtml. 
 
-	![](./media/web-sites-dotnet-lob-application-with-azure-ad/10-workitem-index.png)
+	![](./media/web-sites-dotnet-lob-application-azure-ad/10-workitem-index.png)
 
 11.	Now, make similar changes to the **Edit** view. In Views\WorkItems\Edit.cshtml, make the changes to the `Html.BeginForm` helper method that are identical to the ones for Views\WorkItems\Create.cshtml in the previous step (replace "Create" with "Edit" in the highlighted code above).
 
@@ -333,14 +333,14 @@ That's it!
 
 Now that you have configured the authorizations and LOB functionality for the different actions in the WorkItems controller, you can try to log in as users of different application roles.
 
-![](./media/web-sites-dotnet-lob-application-with-azure-ad/11-edit-unauthorized.png)
+![](./media/web-sites-dotnet-lob-application-azure-ad/11-edit-unauthorized.png)
 
 <a name="bkmk_resources"></a>
 ## Further resources
 
 - [Protect the Application with SSL and the Authorize Attribute](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
 - [Authenticate and Authorize Users in LOB Applications in Azure Websites ](../web-sites-authentication-authorization/)
-- [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS](../web-sites-dotnet-lob-application-with-adfs/)
+- [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS](../web-sites-dotnet-lob-application-adfs/)
 - [Microsoft Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
 - [Vittorio Bertocci's blog](http://blogs.msdn.com/b/vbertocci/)
 - [Migrate a VS2013 Web Project From WIF to Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

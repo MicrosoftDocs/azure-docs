@@ -112,19 +112,19 @@ Here, you will publish the application to an Azure Website while preserving the 
 
 1. Right-click your project and select **Publish**.
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/01-publish-website.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/01-publish-website.png)
 
 2. Select **Microsoft Azure Websites**.
 3. If you haven't signed in to Azure, click **Sign In** and use the Microsoft account for your Azure subscription to sign in.
 4. Once signed in, click **New** to create a new website.
 5. Fill in all required fields. You are going to connect to on-premise data later, so you won't create a database for this website.
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/02-create-website.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/02-create-website.png)
 
 6. Click **Create**. Once the website is created, the Publish Web dialog is opened.
 7. In **Destination URL**, change **http** to **https**. Copy the entire URL to a text editor. You will use it later. Then, click **Publish**.
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/03-destination-url.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/03-destination-url.png)
 
 11. In Visual Studio, open **Web.Release.config** in your project. Insert the following XML into the `<configuration>` tag, and replace the key value with your publish website's URL.  
 	<pre class="prettyprint">
@@ -146,11 +146,11 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 4.	On your AD FS server, log in with credentials that have management rights to AD FS.
 5.	Open AD FS Management. Right-click **AD FS\Trusted Relationships\Relying Party Trusts** and select **Add Relying Party Trust**.
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/1-add-rptrust.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
 5.	In the **Select Data Source** page, select **Enter data about the relying party manually**. 
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/2-enter-rp-manually.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/2-enter-rp-manually.png)
 
 6.	In the **Specify Display Name** page, type a display name for the application and click **Next**.
 7.	In the **Choose Protocol** page, click **Next**.
@@ -160,11 +160,11 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
   
 5.	Before you move onto the next step, you need one piece of information from your Visual Studio project. In the project properties, note the **SSL URL** of the application. 
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/3-ssl-url.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/3-ssl-url.png)
 
 6.	Back in AD FS Management, in the **Configure URL** page of the **Add Relying Party Trust Wizard**, select **Enable support for the WS-Federation Passive protocol** and type in the SSL URL of your Visual Studio project that you noted in the previous step. Then, click **Next**.
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/4-configure-url.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/4-configure-url.png)
 
 	>  URL specifies where to send the client after authentication succeeds. For the debug environment, it should be https://localhost:<port>/. For the published website, it should be the website URL.
 
@@ -177,14 +177,14 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 	-	Name (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) - used by ASP.NET to hydrate `User.Identity.Name`.
 	-	User principal name (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn) - used to uniquely identify users in the organization.
 	-	Group memberships as roles (http://schemas.microsoft.com/ws/2008/06/identity/claims/role) - can be used with `[Authorize(Roles="role1, role2,...")]` decoration to authorize controllers/actions. In reality, this may not be the most performant approach for role authorization, especially if your AD users regularly belong to hundreds of security groups, which translates to hundreds of role claims in the SAML token. An alternative approach is to send a single role claim conditionally depending on the user's membership in a particular group. However, we'll keep it simple for this tutorial.
-	-	Name ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - can be used for anti-forgery validation. For more information on how to make it work with anti-forgery validation, see the **Add LOB functionality** section of [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS](../web-sites-dotnet-lob-application-with-adfs/#bkmk_crud).
+	-	Name ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - can be used for anti-forgery validation. For more information on how to make it work with anti-forgery validation, see the **Add LOB functionality** section of [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS](../web-sites-dotnet-lob-application-adfs/#bkmk_crud).
 
 	> The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](http://msdn.microsoft.com/en-us/library/azure/dn195587.aspx).
 
 8.	In the Edit Claim Rules dialog, click **Add Rule**.
 9.	Configure the name, UPN, and role claims as shown below and click **Finish**.
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/5-ldap-claims.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/5-ldap-claims.png)
 
 	Next, you will create a transient name ID claim using the steps demonstrated in [Name Identifiers in SAML assertions](http://blogs.msdn.com/b/card/archive/2010/02/17/name-identifiers-in-saml-assertions.aspx).
 
@@ -207,19 +207,19 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 
 	Your custom rule should look like this:
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/6-per-session-identifier.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
 9.	Click **Add Rule** again.
 10.	Select **Transform an Incoming Claim** and click **Next**.
 11.	Configure the rule as shown below (using the claim type you created in the custom rule) and click **Finish**.
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/7-transient-name-id.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/7-transient-name-id.png)
 
 	For detailed information on the steps for the transient Name ID claim above, see [Name Identifiers in SAML assertions](http://blogs.msdn.com/b/card/archive/2010/02/17/name-identifiers-in-saml-assertions.aspx).
 
 12.	Click **Apply** in the **Edit Claim Rules** dialog. It should now look like the screenshot below:
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/8-all-claim-rules.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/8-all-claim-rules.png)
 
 	> Again, make sure that you repeat these steps for both your debug environment and published website.
 
@@ -228,17 +228,17 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 
 You are ready to test your application's authentication logic against AD FS. In my AD FS lab environment, I have a test user that belongs to a test group in Active Directory (AD).
 
-![](./media/web-sites-dotnet-lob-application-with-adfs/10-test-user-and-group.png)
+![](./media/web-sites-dotnet-lob-application-adfs/10-test-user-and-group.png)
 
 To test authentication in the debugger, all you need to do now is type `F5`. If you want to test authentication in the published website, navigate to the URL.
 
 After the web application loads, click **Sign In**. You should now get either a login dialog or the login page served by AD FS, depending on the authentication method chosen by AD FS. Here's what I get in Internet Explorer 11.
 
-![](./media/web-sites-dotnet-lob-application-with-adfs/9-test-debugging.png)
+![](./media/web-sites-dotnet-lob-application-adfs/9-test-debugging.png)
 
 Once you log in with a user in the AD domain of the AD FS deployment, you should now see the homepage again with **Hello, <User Name>!** in the corner. Here's what I get.
 
-![](./media/web-sites-dotnet-lob-application-with-adfs/11-test-debugging-success.png)
+![](./media/web-sites-dotnet-lob-application-adfs/11-test-debugging-success.png)
 
 So far, you've succeeded in the following ways:
 
@@ -248,7 +248,7 @@ So far, you've succeeded in the following ways:
 
 If the name claim is missing, you would have seen **Hello, !**. If you take a look at Views\Shared\_LoginPartial.cshtml, you will find that it uses `User.Identity.Name` to display the user name. As mentioned previously, ASP.NET hydrates this property with the name claim of the authenticated user, if it is available in the SAML token. To see all the claims that are sent by AD FS, put a breakpoint in Controllers\HomeController.cs, in the Index action method. After the user is authenticated, inspect the `System.Security.Claims.Current.Claims` collection.
 
-![](./media/web-sites-dotnet-lob-application-with-adfs/12-test-debugging-all-claims.png) 
+![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png) 
 
 <a name="bkmk_authorize"></a>
 ## Authorize users for specific controllers or actions
@@ -280,7 +280,7 @@ Since you have included group memberships as role claims in your RP trust config
 3. Start the debugger by typing `F5` and sign in, then click **About**. You should now be viewing the `~/About/Index` page successfully, if your authenticated user is authorized for that action.
 4. Now click **Contact**, which in my case should not authorize **Test User** for the action. However, the browser is redirected to AD FS, which eventually shows this message:
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/13-authorize-adfs-error.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
 	If you investigate this error in Event Viewer on the AD FS server, you will see this exception message:  
 	<pre class="prettyprint">
@@ -322,7 +322,7 @@ Since you have included group memberships as role claims in your RP trust config
 
 6. Run the debugger again with `F5`. Clicking **Contact** now shows a more informative (albeit unattractive) error message:
 
-	![](./media/web-sites-dotnet-lob-application-with-adfs/14-unauthorized-forbidden.png)
+	![](./media/web-sites-dotnet-lob-application-adfs/14-unauthorized-forbidden.png)
 
 7. Publish the application to your Azure website again, and test the behavior of the live application.
 
@@ -338,7 +338,7 @@ Azure Websites supports accessing on-premise databases with two approaches: [Hyb
 
 - [Protect the Application with SSL and the Authorize Attribute](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
 - [Authenticate and Authorize Users in LOB Applications in Azure Websites ](../web-sites-authentication-authorization/)
-- [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with Azure Active Directory](../web-sites-dotnet-lob-application-with-azure-ad/)
+- [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with Azure Active Directory](../web-sites-dotnet-lob-application-azure-ad/)
 - [Use the On-Premises Organizational Authentication Option (ADFS) With ASP.NET in Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
 - [Vittorio Bertocci's blog](http://blogs.msdn.com/b/vbertocci/)
 - [Migrate a VS2013 Web Project From WIF to Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
