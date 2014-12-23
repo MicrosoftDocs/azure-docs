@@ -5,9 +5,11 @@
 
 # Create a database in the Latest SQL Database Update V12 (preview)
 
-> [AZURE.NOTE] **CAUTION**: Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
+[Sign up](https://portal.azure.com) for the Latest SQL Database Update V12 (Preview) to take advantage of the next generation of  SQL Database on Microsoft Azure. To take advantage of the preview, you first need a subscription to Microsoft Azure. You can sign up for a [free Azure trial](http://azure.microsoft.com/en-us/pricing/free-trial) and review [pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database) information. 
 
-| Action | Screen shot |
+> [AZURE.WARNING] Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
+
+| Create database | Screen shot |
 | :--- | :--- |
 | 1. Sign in to [http://portal.azure.com/](http://portal.azure.com/). | ![New Azure Portal][1] |
 | 2. At the bottom of the page, on the left, click **New**. | ![Initiate New service][2]|
@@ -22,7 +24,10 @@
 | 11. Specify a new **Resource Group** or select a default **Resource Group**.|![Specify Resource group][11]
 | 12. Click **Create**. A new database with SQL Database Update V12 (preview) features is created. |![Creates a new database][12]
 
+# Related Links  #
 
+-  [What's new in the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/)
+- [Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/)
 
 <!--Image references-->
 [1]: ./media/sql-database-preview-create/firstscreenportal.png
