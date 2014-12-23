@@ -9,9 +9,9 @@
 
 The full version numbers for HDInsight clusters deployed with this release are:
 
-* HDInsight 2.1.9.415.1237463	
-* HDInsight 3.0.5.415.1237463	
-* HDInsight 3.1.2.415.1237463	
+* HDInsight 	2.1.10.420.1246783	(HDP version unchanged)
+* HDInsight 	3.0.6.420.1246783	(HDP version unchanged)
+* HDInsight 	3.1.1.420.1246783	(HDP version unchanged)
 
 This release contains the following update.
 
@@ -27,7 +27,7 @@ This release contains the following update.
 
 <tr>
 <td>Intermittent Cluster Creation Failures due to excessive load</td>
-<td><p>Improved handling of downloading HDP packages during cluster creation results in more robust handling  of failures due to excessive load. We expect to make a few more improvements in this area that will allow us to scale better with the increased load that we are seeing related to cluster creation.</p></td>
+<td><p>Improved algorithm for downloading HDP packages during cluster creation enables more robust handling of failures due to excessive load. Expect a few more improvements in this area enabling better scaling for the increased load related to cluster creations.</p></td>
 <td>Service</td>
 <td>Hadoop, Hbase, Storm</td>
 <td>N/A</td>
