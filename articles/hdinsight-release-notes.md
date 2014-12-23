@@ -1,9 +1,42 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/18/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/26/2014" ms.author="bradsev" />
 
 
 #Microsoft HDInsight release notes
+
+## Notes for 12/23/2014 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight 2.1.9.415.1237463	
+* HDInsight 3.0.5.415.1237463	
+* HDInsight 3.1.2.415.1237463	
+
+This release contains the following update.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Intermittent Cluster Creation Failures due to excessive load</td>
+<td><p>Improved handling of downloading HDP packages during cluster creation results in more robust handling  of failures due to excessive load. We expect to make a few more improvements in this area that will allow us to scale better with the increased load that we are seeing related to cluster creation.</p></td>
+<td>Service</td>
+<td>Hadoop, Hbase, Storm</td>
+<td>N/A</td>
+</tr>
+
+
+
+</table>
+<br>
 
 ## Notes for 12/18/2014 release of HDInsight ##
 
@@ -25,7 +58,6 @@ This release contains the following component updates.
 <td>All</td>
 <td>N/A</td>
 </tr>
-
 
 
 </table>
