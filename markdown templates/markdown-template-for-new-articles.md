@@ -9,7 +9,7 @@
 <!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. -->
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
-# H1 (Article Title) 
+# H1 Markdown Template (Article Title) 
 
 To copy the markdown from this template, copy the article in your local repo, or click the Raw button in the GitHub UI and copy the markdown.
 
