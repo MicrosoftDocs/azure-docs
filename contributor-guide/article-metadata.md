@@ -4,6 +4,11 @@
 
 All Azure technical articles contain two metadata sections - a properties section and a tags section. The properties section enables some website automation and SEO stuff, while the tags section enables a lot of internal content reporting. Both sections are required.
 
+- [Syntax]
+- [Usage]
+- [Attributes and their values - properties section]
+- [Attributes and their values - tags section]
+
 ##Syntax
 
 The properties section uses this syntax:
@@ -240,3 +245,10 @@ The tags section uses this syntax:
 
 - [Overview article](./../CONTRIBUTING.md)
 - [Index of guidance articles](./contributor-guide-index.md)
+
+
+<!--Anchors-->
+[Syntax]: #syntax
+[Usage]: #usage
+[Attributes and their values - properties section]: #attributes-and-their-values-properties-section
+[Attributes and their values - tags section]: #attributes-and-their-values-tags-section
