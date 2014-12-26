@@ -107,7 +107,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 	The MapReduce job produces a file named *part-r-00000* with the words and the counts.  The script uses the findstr command to list all of the words that contains "there".
 
 
-> [WACOM.NOTE] If you open ./example/data/WordCountOutput/part-r-00000, a multi-line output from a MapReduce job, in Notepad, you will notice the line breaks are not renter correctly. This is expected.
+> [AZURE.NOTE] If you open ./example/data/WordCountOutput/part-r-00000, a multi-line output from a MapReduce job, in Notepad, you will notice the line breaks are not renter correctly. This is expected.
 
 
 

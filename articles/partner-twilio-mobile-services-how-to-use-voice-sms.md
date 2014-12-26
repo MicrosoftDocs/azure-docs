@@ -91,7 +91,7 @@ To use the Twilio node.js library in your Mobile Service, you need leverage Mobi
 		  "keywords":[]
 		}
 
-	>[WACOM.NOTE]The dependency for Twilio should be added as `"twilio": "~1.7.0"`, with a (~). A reference with a caret (^) is not supported. 
+	>[AZURE.NOTE]The dependency for Twilio should be added as `"twilio": "~1.7.0"`, with a (~). A reference with a caret (^) is not supported. 
 
 4. Commit this file update and push the update back to the mobile service.
 

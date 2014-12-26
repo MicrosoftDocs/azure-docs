@@ -43,7 +43,7 @@ The Azure SDK for Python wraps the [Azure Service Management API][svc-mgmt-rest-
 ## <a name="Connect"> </a>How to: Connect to service management
 To connect to the Service Management endpoint, you need your Azure subscription ID and a valid management certificate. You can obtain your subscription ID through the [management portal][management-portal].
 
-> [WACOM.NOTE] Since Azure SDK for Python v0.8.0, it is now possible to use certificates created with OpenSSL when running on Windows.  This requires Python 2.7.4 or later.
+> [AZURE.NOTE] Since Azure SDK for Python v0.8.0, it is now possible to use certificates created with OpenSSL when running on Windows.  This requires Python 2.7.4 or later.
 
 ### Management certificates on Windows (MakeCert)
 

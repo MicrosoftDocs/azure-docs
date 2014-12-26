@@ -29,7 +29,7 @@ To complete this tutorial, you must have already created a mobile service by com
 
 	The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> On some operating systems, both a command-line and GUI version of Git are available. The instructions provided in this article use the command-line version.
 
 2. Open a command-line, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.

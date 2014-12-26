@@ -6,7 +6,7 @@
 
 In this topic, you'll create and configure a new Azure SQL database using the Azure Management Portal's **QUICK CREATE** option. This process shows you how to create a SQL database using an existing server, and also shows how to create a new server if needed.
 
-> [WACOM.NOTE] Creating a SQL Database with **QUICK CREATE** provisions a Standard (S0) database. To create a SQL Database at a service tier and performance level other than Standard (S0) use **CUSTOM CREATE**. For details on creating an Azure SQL Database using **CUSTOM CREATE**, see [Getting Started with Microsoft Azure SQL Database](http://azure.microsoft.com/en-us/documentation/articles/sql-database-get-started/).
+> [AZURE.NOTE] Creating a SQL Database with **QUICK CREATE** provisions a Standard (S0) database. To create a SQL Database at a service tier and performance level other than Standard (S0) use **CUSTOM CREATE**. For details on creating an Azure SQL Database using **CUSTOM CREATE**, see [Getting Started with Microsoft Azure SQL Database](http://azure.microsoft.com/en-us/documentation/articles/sql-database-get-started/).
 
 ##Table of Contents##
 * [How to: Create an Azure SQL Database](#createDatabase)

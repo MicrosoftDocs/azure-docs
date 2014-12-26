@@ -183,7 +183,7 @@ Filters can be added to a subscription by using the **createRule**
 method of the **ServiceBusService** object. This method allows you to
 add new filters to an existing subscription.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 
 > Since the default filter is applied automatically to all new
 subscriptions, you must first remove the default filter or the

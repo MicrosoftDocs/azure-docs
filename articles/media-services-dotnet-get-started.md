@@ -28,7 +28,7 @@ The following prerequisites are required for the walkthrough and for development
 - Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express), or later.
 - Install **Azure SDK for .NET.**, **Azure Media Services SDK for .NET**, and **WCF Data Services 5.0 for OData V3 libraries** and add references to your project using the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package. The following section demonstrates how to install and add these references.
 
->[WACOM.NOTE]
+>[AZURE.NOTE]
 > To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
 
 <h2><a id="Step1"></a>Setting up your project</h2>
@@ -45,7 +45,7 @@ The following prerequisites are required for the walkthrough and for development
 
 4. Add an *appSettings* section to the **app.config** file, and set the values for your Azure Media Services account name and account key. You obtained the Media Services account name and account key during the account setup process. Add these values to the value attribute for each setting in the app.config file in the Visual Studio project.
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> In Visual Studio 2012, the App.config file is added by default. In Visual Studio 2010, you have to manually add the Application Configuration file.
 
 	<pre><code>
@@ -665,7 +665,7 @@ File download path:  C:\supportFiles\outputfiles\interview2_metadata.xml
 
 5. The .mp4 media file and the _metadata.xml file are downloaded into the outputFiles folder.
 
->[WACOM.NOTE]
+>[AZURE.NOTE]
 > In the Media Services object model, an asset is a Media Services content collection object that represents one to many files. The locator path provides an Azure blob URL which is the base path to this asset in Azure Storage. To access specific files within the asset, add a file name to the base locator path.
 
 <h2>Next Steps</h2>

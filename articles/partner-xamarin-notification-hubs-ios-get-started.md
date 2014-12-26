@@ -135,7 +135,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
    	![][10]
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.
 
 	Later, you will use this certificate to generate a .p12 file and upload it to your notification hub to enable push notifications through APNS.

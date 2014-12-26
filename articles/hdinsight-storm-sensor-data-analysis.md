@@ -28,7 +28,7 @@ The dashboard is used to display near-real time sensor information. In this case
 
 The website also contains a static index.html file, which also connects to SignalR, and uses D3.js to graph the data transmitted by the Storm topology.
 
-> [WACOM.NOTE] While you could also use raw WebSockets instead of SignalR, WebSockets does not provide a built-in scaling mechanism if you need to scale out the web site. SignalR can be scaled using Azure Service Bus ([http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus](http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus)).
+> [AZURE.NOTE] While you could also use raw WebSockets instead of SignalR, WebSockets does not provide a built-in scaling mechanism if you need to scale out the web site. SignalR can be scaled using Azure Service Bus ([http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus](http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus)).
 >
 > For an example of using a Storm topology to communicate with a Python website using raw WebSockets, see the [Storm Tweet Sentiment D3 Visualization](https://github.com/P7h/StormTweetsSentimentD3Viz) project.
 
@@ -549,7 +549,7 @@ In order for the topology running on the Storm cluster to communicate directly w
 
 9. On the bottom of the page, the default subnet name is **Subnet-1**. Use the **add subnet** button to add **Subnet-2**. These subnets will house the Storm and HBase clusters.
 
-	> [WACOM.NOTE] In this article, we will be using clusters with only one node. If you are creating multi-node clusters, you must verify the **CIDR(ADDRESS COUNT)** for the subnet that will be used for the cluster. The address count must be greater than the number of worker nodes plus seven (Gateway: 2, Headnode: 2, Zookeeper: 3). For example, if you need a 10 node HBase cluster, the address count for the subnet must be greater than 17 (10+7). Otherwise the deployment will fail.
+	> [AZURE.NOTE] In this article, we will be using clusters with only one node. If you are creating multi-node clusters, you must verify the **CIDR(ADDRESS COUNT)** for the subnet that will be used for the cluster. The address count must be greater than the number of worker nodes plus seven (Gateway: 2, Headnode: 2, Zookeeper: 3). For example, if you need a 10 node HBase cluster, the address count for the subnet must be greater than 17 (10+7). Otherwise the deployment will fail.
 	>
 	> It is highly recommended to designate a single subnet for one cluster.
 
@@ -567,7 +567,7 @@ In order for the topology running on the Storm cluster to communicate directly w
 
 5. Enter 1 for the number of **Data Nodes** to use for this cluster. For **Region/Virtual Network**, select the Azure Virtual Network created earlier. For **Virtual Network Subnets**, select **Subnet-2**.
 
-	> [WACOM.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
+	> [AZURE.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
 
 6. Enter the administrator **User Name** and **Password**, then select the arrow to continue.
 
@@ -585,13 +585,13 @@ In order for the topology running on the Storm cluster to communicate directly w
 
 5. Enter 1 for the number of **Data Nodes** to use for this cluster. For **Region/Virtual Network**, select the Azure Virtual Network created earlier. For **Virtual Network Subnets**, select **Subnet-1**.
 
-	> [WACOM.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
+	> [AZURE.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
 
 6. Enter the administrator **User Name** and **Password**, then select the arrow to continue.
 
 4. For **Storage Account**, select **Create New Storage** or select an existing storage account. Select or enter the **Account Name** and **Default container** to use. Click on the check icon on the lower left to create the Storm cluster.
 
-	> [WACOM.NOTE] You should use a different container than the one used for the Storm cluster.
+	> [AZURE.NOTE] You should use a different container than the one used for the Storm cluster.
 
 ###Enable remote desktop
 
@@ -615,7 +615,7 @@ In order to write to HBase from the Storm cluster, you must use the fully qualif
 
 ##Develop the Storm topology
 
-> [WACOM.NOTE] The steps in this section should be performed on your local development environment.
+> [AZURE.NOTE] The steps in this section should be performed on your local development environment.
 
 ###Download and build external dependencies
 
@@ -652,7 +652,7 @@ To send messages to the ASP.NET Dashboard, use the [SignalR client SDK for Java]
 		cd java-client\signalr-client-sdk
 		mvn package
 
-	> [WACOM.NOTE] If you receive an error that the **gson** dependency cannot be downloaded, remove the following lines from the **java-client\signalr-client-sdk\pom.xml** file.
+	> [AZURE.NOTE] If you receive an error that the **gson** dependency cannot be downloaded, remove the following lines from the **java-client\signalr-client-sdk\pom.xml** file.
 	> ```<repositories>
 <repository>
 <id>central</id>
@@ -746,7 +746,7 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 	* storm-core - core classes for Storm
 	* storm-hbase - classes that allow writing to HBase
 
-	> [WACOM.NOTE] Note that some dependencies are marked with a scope of **provided** to indicate that these dependencies should be downloaded from the Maven repository and used to build and test the application locally, but that they will also be available in your runtime environment and do not need to be compiled and included in the JAR created by this project.
+	> [AZURE.NOTE] Note that some dependencies are marked with a scope of **provided** to indicate that these dependencies should be downloaded from the Maven repository and used to build and test the application locally, but that they will also be available in your runtime environment and do not need to be compiled and included in the JAR created by this project.
 
 2. At the end of the **pom.xml** file, right before the **&lt;/project>** entry, add the following.
 

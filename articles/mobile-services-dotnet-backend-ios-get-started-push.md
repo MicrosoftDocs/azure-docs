@@ -28,7 +28,7 @@ This tutorial requires the following:
 + An iOS 6.0 (or later version) capable device
 + iOS Developer Program membership
 
-   > [WACOM.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
+   > [AZURE.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Add Mobile Services to your app][Get started with data].
 
@@ -129,7 +129,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             [alert show];
         }
 
-   > [WACOM.NOTE] You must add this code before calling the <strong>addItem</strong> method.
+   > [AZURE.NOTE] You must add this code before calling the <strong>addItem</strong> method.
 
 Your app is now updated to support push notifications.
 
@@ -143,7 +143,7 @@ Your app is now updated to support push notifications.
 
   	![][23]
 
-    > [WACOM.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+    > [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
 2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 

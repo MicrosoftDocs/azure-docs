@@ -179,7 +179,7 @@ In order to deploy your application to Azure, you must first download the publis
 4.  Publishes the deployment package to Azure.
 
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> It can take 5 - 7 minutes for the application to deploy and become available when first published.
 
 	Once the deployment has completed, a browser window will open and navigate to the cloud service.

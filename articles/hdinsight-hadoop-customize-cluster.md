@@ -10,7 +10,7 @@ HDInsight clusters can be customized in a variety of other ways as well such as 
 
 
 
-> [WACOM.NOTE] Using Script Action to customize a cluster is supported only on HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] Using Script Action to customize a cluster is supported only on HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
 
 
 
@@ -30,13 +30,13 @@ Using Script Action, an HDInsight cluster can be customized only while it is in 
 
 The script is invoked after the cluster creation completes the *HDInsightConfiguration* stage and before the *ClusterOperational* stage. Each cluster can accept multiple script actions that are invoked in the order they are specified.
 
-> [WACOM.NOTE] The option to customize HDInsight clusters is available as part of the standard Azure HDInsight subscriptions at no extra charge.
+> [AZURE.NOTE] The option to customize HDInsight clusters is available as part of the standard Azure HDInsight subscriptions at no extra charge.
 
 ### How does the script work?
 
 You have the option of running the script on either the headnode, the worker nodes, or both. When the script is running, the cluster enters the *ClusterCustomization* stage. At this stage, the script is run under the system admin account, in parallel on all the specified nodes in the cluster, and provides full admin privileges on the nodes. 
 
-> [WACOM.NOTE] Because you have have admin privileges on the cluster nodes during the *Cluster customization* stage, you can use the script to perform operations like stopping and starting services, including Hadoop-related services. So, as part of the script, you must ensure that the Ambari services, and other Hadoop-related services are up and running before the script finishes running. These services are required to successfully ascertain the health and state of the cluster while it is being created. If you change any configuration on the cluster that affects these services, you must use the helper functions that are provided. For more information about helper functions, see [Script Action development with HDInsight][hdinsight-write-script].
+> [AZURE.NOTE] Because you have have admin privileges on the cluster nodes during the *Cluster customization* stage, you can use the script to perform operations like stopping and starting services, including Hadoop-related services. So, as part of the script, you must ensure that the Ambari services, and other Hadoop-related services are up and running before the script finishes running. These services are required to successfully ascertain the health and state of the cluster while it is being created. If you change any configuration on the cluster that affects these services, you must use the helper functions that are provided. For more information about helper functions, see [Script Action development with HDInsight][hdinsight-write-script].
 
 The output as well as the error logs for the script are stored in the default storage account you specified for the cluster. The logs are stored in a table with the name *u<\cluster-name-fragment><\time-stamp>setuplog*. These are aggregate logs from the script run on all the nodes (headnode and worker nodes) in the cluster.
 

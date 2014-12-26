@@ -44,7 +44,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
   Make a note of the file name and location of the exported certificate.
 
->[WACOM.NOTE] This tutorial creates a QuickStart.p12 file. Your file name and location might be different.
+>[AZURE.NOTE] This tutorial creates a QuickStart.p12 file. Your file name and location might be different.
 
 2. Log on to the [Azure Management Portal], and click **+NEW** at the bottom of the screen.
 
@@ -157,7 +157,7 @@ You can send notifications using Notification Hubs from any back-end using the <
 
 	Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub."
 
-	>[WACOM.NOTE]Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
+	>[AZURE.NOTE]Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
 
 5. Then add the following lines in the **Main** method:
 

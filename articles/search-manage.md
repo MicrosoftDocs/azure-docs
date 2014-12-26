@@ -103,7 +103,7 @@ Using the Search Service API, you can get a count on documents and indexes. Ther
 +	[Get Index Statistics](http://msdn.microsoft.com/en-us/library/dn798942.aspx)
 +	[Count Documents](http://msdn.microsoft.com/en-us/library/dn798924.aspx)
 
-> [WACOM.NOTE] Caching behaviors can temporarily overstate a limit. For example, when using the shared service, you might see a document count over the hard limit of 10,000 documents. The overstatement is temporary and will be detected on the next limit enforcement check. 
+> [AZURE.NOTE] Caching behaviors can temporarily overstate a limit. For example, when using the shared service, you might see a document count over the hard limit of 10,000 documents. The overstatement is temporary and will be detected on the next limit enforcement check. 
 
 
 <!---->

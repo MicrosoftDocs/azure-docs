@@ -6,7 +6,7 @@
 
 Before you can create the mobile service, you must import the publish settings file from your Azure subscription into Visual Studio. This enables Visual Studio to connect to Azure on your behalf.  
 
->[WACOM.NOTE]Beginning with Visual Studio 2013 Update 2, you no longer need to use a publish settings file. Visual Studio is able to connect directly to Azure using the credentials that you provide.
+>[AZURE.NOTE]Beginning with Visual Studio 2013 Update 2, you no longer need to use a publish settings file. Visual Studio is able to connect directly to Azure using the credentials that you provide.
 
 1. In Visual Studio 2013, open Solution Explorer, right-click the project then click **Add** and then **Connected Service...**. 
 

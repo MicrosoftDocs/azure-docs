@@ -10,7 +10,7 @@ use the Azure Storage Client Library for .NET. The scenarios covered include
 **uploading**, **listing**, **downloading**, and **deleting** blobs. For
 more information on blobs, see the [Next steps][] section.
 
-> [WACOM.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/en-us/downloads/). See [How to: Programmatically access Blob storage][] below for more details on obtaining the Storage Client Library.
+> [AZURE.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/en-us/downloads/). See [How to: Programmatically access Blob storage][] below for more details on obtaining the Storage Client Library.
 
 ##Table of contents
 

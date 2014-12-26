@@ -5,7 +5,7 @@
 # Mobile Services Overview
 
 
->[WACOM.NOTE] It looks like we don't have this content ready right now, but we wanted to let you know about it! If you're particularly interested in this topic, let us know by tweeting [@AzureMobile], or post in the [Forums] or [UserVoice].
+>[AZURE.NOTE] It looks like we don't have this content ready right now, but we wanted to let you know about it! If you're particularly interested in this topic, let us know by tweeting [@AzureMobile], or post in the [Forums] or [UserVoice].
 > **In the meantime, you can check out this [blog post] which covers some of the same content.**
 
 

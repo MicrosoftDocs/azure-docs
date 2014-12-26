@@ -49,7 +49,7 @@ Beginning in version 0.8.0, the Azure PowerShell installation includes three Win
 
 - **AzureProfile**: Includes cmdlets common to both modules, such as Add-AzureAccount, Get-AzureSubscription, and Switch-AzureMode. For more information, see [Azure Profile Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394766).
 
->[WACOM.NOTE] The Azure Resource Manager module is currently in preview. It might not provide the same management capabilities as the Azure module. 
+>[AZURE.NOTE] The Azure Resource Manager module is currently in preview. It might not provide the same management capabilities as the Azure module. 
 
 The Azure and Azure Resource Manager modules are not designed to be used in the same Windows PowerShell session. To make it easy to switch between them, we have added a new cmdlet, **Switch-AzureMode**, to the Azure Profile module.
 
@@ -120,7 +120,7 @@ The cmdlet prompts you for an email address and password. Then it downloads your
 
 The account settings expire, so you need to refresh them occasionally. To refresh the account settings, run **Add-AzureAccount** again. 
 
->[WACOM.NOTE] The AzureResourceManager module requires Add-AzureAccount. A Publish Settings file is not sufficient.     
+>[AZURE.NOTE] The AzureResourceManager module requires Add-AzureAccount. A Publish Settings file is not sufficient.     
 
 
 
@@ -163,7 +163,7 @@ The cmdlet returns an object with much more information about the template, incl
 
 This template looks like it will meet our needs. Let's save it to disk and look at it more closely.
 
->[WACOM.NOTE] There can be new versions of the template. If the specific template identity doesn't exist, please find one with a valid version.
+>[AZURE.NOTE] There can be new versions of the template. If the specific template identity doesn't exist, please find one with a valid version.
 
 ## Step 3: Examine the Template
 

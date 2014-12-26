@@ -22,7 +22,7 @@
 This topic shows you how to use Azure Mobile Services to send push notifications to a Windows Phone 8 app. 
 In this tutorial you add push notifications using the Microsoft Push Notification Service (MPNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE]This topic supports <em>existing</em> mobile services that have <em>not yet been upgraded</em> to use Notification Hubs integration. When you create a <em>new</em> mobile service, this integrated functionality is automatically enabled. For new mobile services, see [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
+>[AZURE.NOTE]This topic supports <em>existing</em> mobile services that have <em>not yet been upgraded</em> to use Notification Hubs integration. When you create a <em>new</em> mobile service, this integrated functionality is automatically enabled. For new mobile services, see [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
 >
 >Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. <em>You should upgrade your existing mobile services to use Notification Hubs when possible</em>. Once you have upgraded, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
 
@@ -37,7 +37,7 @@ This tutorial requires [Visual Studio 2012 Express for Windows Phone], or a late
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-   >[WACOM.NOTE]When you send more than 500 messages per user each day, you must instead use Notification Hubs. For more information, see <a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet/">Get started with Notification Hubs</a>.
+   >[AZURE.NOTE]When you send more than 500 messages per user each day, you must instead use Notification Hubs. For more information, see <a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet/">Get started with Notification Hubs</a>.
 
 ## <a name="create-table"></a>Create a new table
 

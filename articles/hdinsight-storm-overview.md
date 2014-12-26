@@ -32,7 +32,7 @@ A storm cluster process **topologies** instead of the MapReduce jobs that you ma
 
 * **Spout** - Consumes data from a data source and emits one or more **streams**
 
-	> [WACOM.NOTE] In many cases, data is read from a queue such as Kafka, Azure ServiceBus Queues or Event Hubs. The queue ensures that data is persisted in case of an outage.
+	> [AZURE.NOTE] In many cases, data is read from a queue such as Kafka, Azure ServiceBus Queues or Event Hubs. The queue ensures that data is persisted in case of an outage.
 
 * **Bolt** - Consumes **streams**, performs processing on **tuples**, and may emit **streams**. Bolts are also responsible for writing data to external storage, such as a queue, HDInsight HBase, a blob, or other data store
 

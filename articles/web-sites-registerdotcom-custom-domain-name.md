@@ -51,7 +51,7 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 	
 		![cname form](./media/web-sites-custom-domain-name/rdotcom-editcnamerecord.png)
 
-		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
+		> [AZURE.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
 		> 
 		> * An **Alias** value of **www** with an **Other host** value of **&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 

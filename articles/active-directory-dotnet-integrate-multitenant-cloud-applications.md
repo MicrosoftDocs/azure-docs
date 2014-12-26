@@ -16,7 +16,7 @@ This walkthrough is intended for .NET developers who want to integrate a multi-t
 
 The companion sample application for this walkthrough can be [downloaded here][]. The sample can be run without changes, but you may need to change your [port assignment in Visual Studio][] to use https. Follow the instructions in the link, but set the binding protocol to "https" in the bindings section of the ApplicationHost.config file. All code snippets in the steps below have been taken from the sample.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > The multi-tenant directory app sample is provided for illustration purposes only.  This sample (including its helper library classes) should not be used in production.
 
 
@@ -47,7 +47,7 @@ New accounts are put into an "Account Pending Approval" state. This state does n
 ###Step 2: Get a Client ID for your Application
 You need a Client ID and Client Secret to integrate your application with Azure AD. A Client ID is the unique identifier for your application, and it is primarily used to identify an application for single sign-on or for authenticating calls to the Azure AD Graph. For more information about obtaining a Client ID and Client Secret, see [Create Client IDs and Secrets in the Microsoft Seller Dashboard][]. 
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Your Client ID and Client Secret will be needed later in this walkthrough, so make sure that you record them.
 
 To generate a Client ID and Client Secret, you will need to enter the following properties in the Microsoft Seller Dashboard:
@@ -117,7 +117,7 @@ In the sample application, the "Register" link contains a similar URL for consen
 ![login][login]
 
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > When you test your unpublished application, you will go through a consent experience that is similar to your customers. However, the authorization page for an unpublished application looks different than the authorization page for a published application. A published application displays your app name, logo, and publisher details, whereas an unpublished application does not.
 
 ###Step 2: Handling the Consent Response

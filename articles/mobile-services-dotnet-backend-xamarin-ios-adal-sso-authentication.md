@@ -11,7 +11,7 @@ In this tutorial, you add authentication to the quickstart project using the Act
 To be able to authenticate users, you must register your application with the Azure Active Directory (AAD). This is done in two steps. First, you must register your mobile service and expose permissions on it. Second, you must register your Xamarin.iOS app and grant it access to those permissions
 
 
->[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to do single sign-on Azure Active Directory authentication for Xamarin.iOS apps. If this is your first experience with Mobile Services, complete the tutorial [Get started with Mobile Services].
+>[AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to do single sign-on Azure Active Directory authentication for Xamarin.iOS apps. If this is your first experience with Mobile Services, complete the tutorial [Get started with Mobile Services].
 
 This tutorial walks you through these basic steps:
 

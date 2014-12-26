@@ -144,7 +144,7 @@ from the queue by calling the **peekMessages** method. By default,
 
 The `result` contains the message.
 
-> [WACOM.NOTE] Using **peekMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
+> [AZURE.NOTE] Using **peekMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## <a name="get-message"> </a>How To: Dequeue the Next Message
 
@@ -168,9 +168,9 @@ To dequeue a message, use **getMessage**. This makes the message invisible in th
 	  }
 	});
 
-> [WACOM.NOTE] By default, a message is only hidden for 30 seconds, after which it is visible to other clients. You can specify a different value by using `options.visibilityTimeout` with **getMessages**.
+> [AZURE.NOTE] By default, a message is only hidden for 30 seconds, after which it is visible to other clients. You can specify a different value by using `options.visibilityTimeout` with **getMessages**.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Using <b>getMessages</b> when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## <a name="change-contents"> </a>How To: Change the Contents of a Queued Message

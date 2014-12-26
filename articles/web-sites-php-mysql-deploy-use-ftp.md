@@ -94,7 +94,7 @@ To build and run the application locally, follow the steps below. Note that thes
 		echo "<h3>Table created.</h3>";
 		?>
 
-	> [WACOM.NOTE] 
+	> [AZURE.NOTE] 
 	> You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
 
 4. Open a web browser and browse to [http://localhost/registration/createtable.php][localhost-createtable]. This will create the `registration_tbl` table in the database.
@@ -148,7 +148,7 @@ To build and run the application locally, follow the steps below. Note that thes
 			die(var_dump($e));
 		}
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
 
 7. Following the database connection code, add code for inserting registration information into the database.

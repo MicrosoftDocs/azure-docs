@@ -6,11 +6,11 @@
 
 This tutorial gets you started with Hadoop clusters in the Microsoft HDInsight Emulator for Azure (formerly HDInsight Server Developer Preview). The HDInsight Emulator comes with the same components from the Hadoop ecosystem as Azure HDInsight. For details, including information on the versions deployed, see [What version of Hadoop is in Azure HDInsight?][hdinsight-versions].
 
->[WACOM.NOTE] The HDInsight Emulator only includes a Hadoop cluster. It does not include HBase.
+>[AZURE.NOTE] The HDInsight Emulator only includes a Hadoop cluster. It does not include HBase.
 
 HDInsight Emulator provides a local development environment for Azure HDInsight. If you are familiar with Hadoop, you can get started with the Emulator using HDFS. In HDInsight, the default file system is Azure Blob storage (WASB, aka Azure Storage - Blobs). So eventually, you will want to develop your jobs using WASB. To use WASB with HDInsight Emulator, you must make changes to HDInsight Emulator configuration. 
 
-> [WACOM.NOTE] The HDInsight Emulator can use only a single node deployment. 
+> [AZURE.NOTE] The HDInsight Emulator can use only a single node deployment. 
 
 
 **Prerequisites**	
@@ -38,7 +38,7 @@ Before you begin this tutorial, you must have the following:
 
 The Microsoft HDInsight Emulator is installable via the Microsoft Web Platform Installer.  
 
-> [WACOM.NOTE] The HDInsight Emulator currently only supports English OS. If you a previous version of the Emulator installed, you must uninstall the following two components from Control Panel/Program and Features before installing the latest version of Emulator.
+> [AZURE.NOTE] The HDInsight Emulator currently only supports English OS. If you a previous version of the Emulator installed, you must uninstall the following two components from Control Panel/Program and Features before installing the latest version of Emulator.
 ><ul>
 <li>Microsoft HDInsight Emulator for Windows Azure or HDInsight Developer Preview, whichever is installed.</li>
 <li>Hortonworks Data Platform</li>
@@ -378,7 +378,7 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="blobstorage"></a>Connect to Azure Blob storage
 The HDInsight Emulator uses HDFS as the default file system. However, Azure HDInsight uses Azure Blob storage as the default file system. It is possible to configure HDInsight Emulator to use Azure Blob storage instead of local storage. Follow the instructions below to create a storage container in Azure and to connect it to the HDInsight Emulator.
 
->[WACOM.NOTE] For more information on how HDInsight uses Azure Blob storage, see [Use Azure blob Storage with HDInsight][hdinsight-storage].
+>[AZURE.NOTE] For more information on how HDInsight uses Azure Blob storage, see [Use Azure blob Storage with HDInsight][hdinsight-storage].
 
 Before you start with the instructions below, you must have created a storage account. For instructions, see [How To Create a Storage Account][azure-create-storage-account].
 

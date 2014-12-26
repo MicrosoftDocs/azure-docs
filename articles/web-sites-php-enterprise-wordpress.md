@@ -20,11 +20,11 @@ A basic WordPress installation has only two requirements.
 
 * **MySQL Database** - available through [ClearDB in the Azure Store][cdbnstore], or you can manage your own MySQL installation on Azure Virtual Machines using either [Windows][mysqlwindows] or [Linux][mysqllinux].
 
-    > [WACOM.NOTE] ClearDB provides several MySQL configurations, with different performance characteristics for each configuration. See the [Azure Store][cdbnstore] for information on offerings provided through the Azure store or [ClearDB pricing](http://www.cleardb.com/pricing.view) for offerings directly from ClearDB.
+    > [AZURE.NOTE] ClearDB provides several MySQL configurations, with different performance characteristics for each configuration. See the [Azure Store][cdbnstore] for information on offerings provided through the Azure store or [ClearDB pricing](http://www.cleardb.com/pricing.view) for offerings directly from ClearDB.
     
 * **PHP 5.2.4 or greater** - Azure Websites currently provide [PHP versions 5.3, 5.4, and 5.5][phpwebsite].
 
-	> [WACOM.NOTE] We recommend always running on the latest version of PHP to ensure you have the latest security fixes.
+	> [AZURE.NOTE] We recommend always running on the latest version of PHP to ensure you have the latest security fixes.
 
 ###Basic deployment
 
@@ -90,7 +90,7 @@ There are two methods of migrating an existing WordPress site to Azure Websites.
 
 * **[WordPress export][export]** - This exports the content of your blog, which can then be imported to a new WordPress site on Azure using the [WordPress importer plugin][import].
 
-	> [WACOM.NOTE] While this process allows you to migrate your content, it does not migrate any plugins, themes or other customizations. These must be installed again manually.
+	> [AZURE.NOTE] While this process allows you to migrate your content, it does not migrate any plugins, themes or other customizations. These must be installed again manually.
 
 * **Manual migration** - [Back up your site][wordpressbackup] and [database][wordpressdbbackup], then manually restore it to an Azure Website and associated MySQL database to migrate highly customized sites and avoid the tedium of manually installing plugins, themes, and other customizations.
 

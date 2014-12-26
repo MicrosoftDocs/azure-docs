@@ -21,7 +21,7 @@ In this sample, you'll use Hive to process historical data produced by heating, 
 
 * Microsoft Excel 2013
 
-	> [WACOM.NOTE] Microsoft Excel is used for data visualization with [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US), which is currently only available on Windows.
+	> [AZURE.NOTE] Microsoft Excel is used for data visualization with [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US), which is currently only available on Windows.
 
 * [Microsoft Hive ODBC Driver](http://www.microsoft.com/en-us/download/details.aspx?id=40886)
 

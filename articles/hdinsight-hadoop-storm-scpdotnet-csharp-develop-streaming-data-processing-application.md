@@ -884,7 +884,7 @@ Most native Storm spouts, bolts, and topologies are implemented in Java. To supp
 
 * **Serialization and deserialization between Java and C#** - To serielize objects between Java and C#, use the `CustomizedInteropJSONSerializer`
 
-    > [WACOM.NOTE] Currently `CustomizedInteropJSONSerializer` only support **Java spouts** and **C# bolts**.
+    > [AZURE.NOTE] Currently `CustomizedInteropJSONSerializer` only support **Java spouts** and **C# bolts**.
 
     * Specify the serializer for Java components in the spec file
 

@@ -59,13 +59,13 @@ Before you begin this tutorial, you must have the following:
 9. On the bottom of the page, the default subnet name is **Subnet-1**. You can optionally rename the subnet or add a new subnet for the HBase cluster. Make a note of the subnet name, you will need it when provisioning the cluster
 10. Verify the **CIDR(ADDRESS COUNT)** for the subnet that will be used for the cluster. The address count must be greater than the number of worker nodes plus seven (Gateway: 2, Headnode: 2, Zookeeper: 3). For example, if you need a 10 node HBase cluster, the address count for the subnet must be greater than 17 (10+7). Otherwise the deployment will fail.
 
-	> [WACOM.NOTE] It is highly recommended to designate a single subnet for one cluster. 
+	> [AZURE.NOTE] It is highly recommended to designate a single subnet for one cluster. 
 
 11. Click **Save** on the bottom of the page, if you have updated the subnet values.
 
 
 
-> [WACOM.NOTE] HDInsight clusters use Azure Blob storage for storing data. For more information, see [Use Azure Blob storage with Hadoop in HDInsight][hdinsight-storage]. You will need a storage account and a Blob storage container. The storage account location must match the virtual network location and the cluster location.
+> [AZURE.NOTE] HDInsight clusters use Azure Blob storage for storing data. For more information, see [Use Azure Blob storage with Hadoop in HDInsight][hdinsight-storage]. You will need a storage account and a Blob storage container. The storage account location must match the virtual network location and the cluster location.
 
 **To create an Azure Storage account and a Blob storage container:**
 
@@ -90,7 +90,7 @@ Before you begin this tutorial, you must have the following:
 
 **To provision an HBase cluster using the Azure Portal:**
 
-> [WACOM.NOTE] For information on provisioning a new HBase cluster using PowerShell, see [Provision an HBase cluster using PowerShell](#powershell).
+> [AZURE.NOTE] For information on provisioning a new HBase cluster using PowerShell, see [Provision an HBase cluster using PowerShell](#powershell).
 
 1. Sign in to the [Azure Management Portal][azure-portal].
 2. Click **NEW** on the lower left corner, point to **DATA SERVICES**, point to **HDINSIGHT**, and then click **CUSTOM CREATE**.
@@ -228,7 +228,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
 		This will return the DNS suffix. For example, **yourclustername.b4.internal.cloudapp.net**.
 
-	> [WACOM.NOTE] You can also use Remote Desktop to connect the HBase cluster (you will be connected to the headnode) and run **ipconfig** from a command prompt to obtain the DNS suffix. For instructions on enabling RDP and connect to the cluster using RDP, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal].
+	> [AZURE.NOTE] You can also use Remote Desktop to connect the HBase cluster (you will be connected to the headnode) and run **ipconfig** from a command prompt to obtain the DNS suffix. For instructions on enabling RDP and connect to the cluster using RDP, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal].
 	>
 	> ![hdinsight.hbase.dns.surffix][img-dns-surffix]
 
@@ -257,7 +257,7 @@ To use this information in a Java application, you can follow the steps in [Use 
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [WACOM.NOTE] For more information on name resolution in Azure Virtual Networks, including how to use your own DNS server, see [Name Resolution (DNS)](http://msdn.microsoft.com/en-us/library/azure/jj156088.aspx).
+> [AZURE.NOTE] For more information on name resolution in Azure Virtual Networks, including how to use your own DNS server, see [Name Resolution (DNS)](http://msdn.microsoft.com/en-us/library/azure/jj156088.aspx).
 
 ##<a id="powershell"></a>Provision an HBase cluster using Azure PowerShell:**
 

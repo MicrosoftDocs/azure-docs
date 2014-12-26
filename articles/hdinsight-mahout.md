@@ -6,7 +6,7 @@
 
 Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning library to generate movie recommendations with Microsoft Azure HDInsight (Hadoop).
 
-> [WACOM.NOTE] You must have an HDInsight cluster to use the information in this article. For information on creating one, see [Get started using Hadoop in HDInsight][getstarted].
+> [AZURE.NOTE] You must have an HDInsight cluster to use the information in this article. For information on creating one, see [Get started using Hadoop in HDInsight][getstarted].
 >
 > Mahout is provided with HDInsight 3.1 clusters. If you are using an earlier version of HDInsight, see [Install Mahout](#install) before continuing.
 
@@ -29,7 +29,7 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 
 ##<a name="recommendations"></a>Generate recommendations using PowerShell
 
-> [WACOM.NOTE] While the job used in this section works with PowerShell, many of the classes provided with Mahout do not currently work with PowerShell and must be run using the Hadoop command line. For an listing of classes that do not work with PowerShell, see the [Troubleshooting](#troubleshooting) section.
+> [AZURE.NOTE] While the job used in this section works with PowerShell, many of the classes provided with Mahout do not currently work with PowerShell and must be run using the Hadoop command line. For an listing of classes that do not work with PowerShell, see the [Troubleshooting](#troubleshooting) section.
 >
 > For an example of using the Hadoop command line to run Mahout jobs, see [Classify data using the Hadoop command line](#classify).
 
@@ -110,7 +110,7 @@ Use the following PowerShell script to run a job using the Mahout recommendation
 	Write-Host "STDERR"
 	Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $job.JobId -StandardError
 
-> [WACOM.NOTE] Mahout jobs do not remove temporary data created while processing the job. This is why the `--tempDir` parameter is specified in the example job - to isolate the temp files into a specific path for easy deletion.
+> [AZURE.NOTE] Mahout jobs do not remove temporary data created while processing the job. This is why the `--tempDir` parameter is specified in the example job - to isolate the temp files into a specific path for easy deletion.
 >
 > To remove these files, you can use one of the utilities mentioned in the [Upload data for Hadoop jobs in HDInsight][upload]. Or use the `Remove-HDInsightFile` function in the [HDInsight-Tools][tools] PowerShell script.
 >
@@ -218,7 +218,7 @@ To use this script, you must have the __ml-100k__ folder extracted previously, a
 	PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
 
 
-> [WACOM.NOTE] The example Python script, __show\_recommendations.py__, takes the same parameters.
+> [AZURE.NOTE] The example Python script, __show\_recommendations.py__, takes the same parameters.
 
 The output should appear similar to the following.
 
@@ -329,7 +329,7 @@ The current Mahout implementation is compatible with the University of Californi
 
   This job also produces a file located at __wasb:///example/data/predictions/KDDTest+.arff.out__, however this file is not human readable.
 
-> [WACOM.NOTE] Mahout jobs do not overwrite files. If you wish to run these jobs again, you must delete the files created by previous jobs.
+> [AZURE.NOTE] Mahout jobs do not overwrite files. If you wish to run these jobs again, you must delete the files created by previous jobs.
 
 ##<a name="troubleshooting"></a>Troubleshooting
 
@@ -350,7 +350,7 @@ Mahout is installed on HDInsight 3.1 clusters, and can be installed manually on 
 
     	Once the build completes, the jar file will be created at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [WACOM.NOTE] Once Mahout 1.0 is released, you should be able to use the pre-built packages with HDInsight 3.0.
+    	> [AZURE.NOTE] Once Mahout 1.0 is released, you should be able to use the pre-built packages with HDInsight 3.0.
 
 2. Upload the jar file to __example/jars__ in the default storage for your cluster. The following example uses the [send-hdinsight][sendhdinsight] script to upload the file.
 

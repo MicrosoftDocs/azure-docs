@@ -18,13 +18,13 @@ In the downloaded quickstart project, the Code First initializer is defined in t
 
 You may continue to use initializers during local development of your mobile service, and the .NET backend tutorials assume that you are using initializers. However, for situations where you want to make data model changes and maintain existing data in the database, you must use Code First Migrations. 
 
->[WACOM.NOTE]When developing and testing your mobile service project against live Azure services, you should always use a mobile service instance that is dedicated for testing. You should never develop or test against a mobile service that is currently in production or being used by client apps. 
+>[AZURE.NOTE]When developing and testing your mobile service project against live Azure services, you should always use a mobile service instance that is dedicated for testing. You should never develop or test against a mobile service that is currently in production or being used by client apps. 
 
 ## <a name="migrations"></a>Enable Code First Migrations
 
 Code First Migrations uses a snapshot method to generate code that, when executed, makes schema changes to the database. With Migrations, you can make incremental changes to your data model and maintain existing data in the database. 
 
->[WACOM.NOTE]If you have already published your .NET backend mobile service project to Azure, and your SQL Database table schema does not match the current data model of your project, you must use an initializer, drop the tables manually, or otherwise get the schema and data model in sync before you try to publish using Code First Migrations.
+>[AZURE.NOTE]If you have already published your .NET backend mobile service project to Azure, and your SQL Database table schema does not match the current data model of your project, you must use an initializer, drop the tables manually, or otherwise get the schema and data model in sync before you try to publish using Code First Migrations.
 
 The following steps turn on Migrations and apply data model changes in the project, the local database, and in Azure. 
 

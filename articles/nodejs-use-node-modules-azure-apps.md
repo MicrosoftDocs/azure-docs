@@ -49,7 +49,7 @@ During development, you can use the **--save**, **--save-dev**, or **--save-opti
 
 One potential problem with the **package.json** file is that it only specifies the version for top level dependencies. Each module installed may or may not specify the version of the modules it depends on, and so it is possible that you may end up with a different dependency chain than the one used in development. 
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > When deploying to an Azure Webite, if your <b>package.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
 
 >		npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
@@ -63,7 +63,7 @@ The **npm-shrinkwrap.json** file is an attempt to address the module versioning 
 
 When your application is ready for production, you can lock-down version requirements and create an **npm-shrinkwrap.json** file by using the **npm shrinkwrap** command. This will use the versions currently installed in the **node\_modules** folder, and record these to the **npm-shrinkwrap.json** file. After the application has been deployed to the hosting environment, the **npm install** command is used to parse the **npm-shrinkwrap.json** file and install all the dependencies listed. For more information, see [npm-install](https://npmjs.org/doc/install.html).
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 >When deploying to an Azure Webite, if your <b>npm-shrinkwrap.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
 		
 >		npm ERR! module-name@0.6.0 install: 'node-gyp configure build'

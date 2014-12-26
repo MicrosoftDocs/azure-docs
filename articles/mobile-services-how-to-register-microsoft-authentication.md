@@ -6,7 +6,7 @@
 
 This topic shows you how to register your app to be able to use Live Connect as an authentication provider for Azure Mobile Services. 
 
->[WACOM.NOTE]To configure Microsoft Account authentication for a universal Windows app or to provide a single sign-on experience for a Windows Store app, see [Register your Windows Store app package for Microsoft authentication](/en-us/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication).
+>[AZURE.NOTE]To configure Microsoft Account authentication for a universal Windows app or to provide a single sign-on experience for a Windows Store app, see [Register your Windows Store app package for Microsoft authentication](/en-us/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication).
 
 1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">My Applications</a> page in the Live Connect Developer Center, and log on with your Microsoft account, if required. 
 
@@ -18,13 +18,13 @@ This topic shows you how to register your app to be able to use Live Connect as 
 
 3. Click **API Settings**, supply a value of `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` in **Redirect URL**, then click **Save**.
 
-	>[WACOM.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-microsoft_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-microsoft</code>.  
+	>[AZURE.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-microsoft_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-microsoft</code>.  
 
 	![][3]
 
 	This enables Microsoft Account authentication for your app.
 
-	>[WACOM.NOTE]For an existing Live Connect app registration, you might have to first enable **Enhanced redirection security**.
+	>[AZURE.NOTE]For an existing Live Connect app registration, you might have to first enable **Enhanced redirection security**.
 
 4. Click **App Settings** and make a note of the values of the **Client ID** and **Client secret**. 
 

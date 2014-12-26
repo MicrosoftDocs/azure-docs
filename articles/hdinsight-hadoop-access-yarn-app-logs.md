@@ -73,7 +73,7 @@ To use the following code samples, you must satisfy the prerequisites outlined a
 
 The code below illustrates how to use the new APIs to enumerate applications and download the logs for completed applications.
 
-> [WACOM.NOTE] The APIs below will only work against "Running" Hadoop clusters with version 3.1.1.374 or greater. Add the following directives.
+> [AZURE.NOTE] The APIs below will only work against "Running" Hadoop clusters with version 3.1.1.374 or greater. Add the following directives.
 
 	using Microsoft.Hadoop.Client;
 	using Microsoft.WindowsAzure.Management.HDInsight;

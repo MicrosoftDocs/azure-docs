@@ -49,13 +49,13 @@ HDInsight uses Azure Blob storage for data storage.  It is called *WASB* or *Azu
 
 When you provision an HDInsight cluster, a Blob storage container is designated as the default file system, just like in HDFS. In addition to this container, you can add additional containers from either the same Azure storage account or different Azure storage accounts during the provision process. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. 
 
-> [WACOM.NOTE] To simplify the PowerShell script used in this tutorial, all of the files are stored in the default file system container, located at */tutorials/twitter*. By default this container has the same name as the HDInsight cluster name. If you choose to use a different container to store these files, please update the script accordingly.
+> [AZURE.NOTE] To simplify the PowerShell script used in this tutorial, all of the files are stored in the default file system container, located at */tutorials/twitter*. By default this container has the same name as the HDInsight cluster name. If you choose to use a different container to store these files, please update the script accordingly.
 
 The WASB syntax is:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [WACOM.NOTE] Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions.
+> [AZURE.NOTE] Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions.
 
 > The WASB path is virtual path.  For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
@@ -110,7 +110,7 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 
 In this tutorial, you will use PowerShell to make a web service call. The other popular tool to make web service calls is [*Curl*][curl]. Curl can be downloaded from [here][curl-download].
 
->[WACOM.NOTE] When use the curl command on Windows, use double-quotes instead of single-quotes for the option values.
+>[AZURE.NOTE] When use the curl command on Windows, use double-quotes instead of single-quotes for the option values.
 
 **To get Tweets**
 
@@ -472,7 +472,7 @@ Use the following PowerShell script to check the Hive job output. You will need 
 	Write-Host "Display the output ..." -ForegroundColor Green
 	cat "./$blob"
 
-> [WACOM.NOTE] The Hive table uses \001 as the field delimiter. The delimiter is not visible in the output. 
+> [AZURE.NOTE] The Hive table uses \001 as the field delimiter. The delimiter is not visible in the output. 
 
 After the analysis results has been placed on WASB, you can export the data to Azure SQL database/SQL server, export the data to Excel using Power Query, or connect your application to the data using Hive ODBC driver.  For more information, see [Use Sqoop with HDInsight][hdinsight-use-sqoop] ,[Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data], [Connect Excel to HDInsight with Power Query][hdinsight-power-query], and [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-hive-odbc].
    

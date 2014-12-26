@@ -53,13 +53,13 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
 5. When you click the **Edit** button, you will be presented with a form that you can use to modify existing records, or add new ones. 
 
-	> [WACOM.NOTE] Before adding new entries, note that Network Solutions has already created some default DNS records for things like the root domain ('@') and a wildcard record ('*') for subdomains. If the record you wish to use already exists, please modify it instead of creating a new one.
+	> [AZURE.NOTE] Before adding new entries, note that Network Solutions has already created some default DNS records for things like the root domain ('@') and a wildcard record ('*') for subdomains. If the record you wish to use already exists, please modify it instead of creating a new one.
 
 	* When adding a CNAME record, you must set the **Alias** field to the sub-domain you wish to use. For example, **www**. You must select the circle field beside the **Other host** field, and set **Other host** to the **.azurewebsites.net** domain name of your Azure Website. For example, **contoso.azurwebsites.net**. Leave the **Refers to Host Name** as **Select**, as this field is not required when creating a CNAME record for use with Azure Websites.
 	
 		![cname form](./media/web-sites-custom-domain-name/ns-cname.png)
 
-		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
+		> [AZURE.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
 		> 
 		> * An **Alias** value of **www** with an **Other host** value of **&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 
