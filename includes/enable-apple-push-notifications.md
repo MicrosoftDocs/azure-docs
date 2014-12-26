@@ -33,7 +33,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 
 
-> [WACOM.NOTE] If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project. We recommend that you use the exact bundle identifier value you already used in your quickstart project.
+> [AZURE.NOTE] If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project. We recommend that you use the exact bundle identifier value you already used in your quickstart project.
 
 2. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**. This example uses the ID **MobileServices.Quickstart** but you may not reuse this same ID, as app IDs must be unique across all users. As such, it is recommended that you append your full name or initials after the app name.
 
@@ -66,7 +66,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
    	This displays the "Add iOS Certificate" assistant.
 
-    > [WACOM.NOTE] This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.
+    > [AZURE.NOTE] This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.
 
 5. Click **Choose File**, browse to the location where you saved the CSR file that you created in the first task, then click **Generate**.
 
@@ -80,7 +80,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step9.png)
 
-    > [WACOM.NOTE] By default, the downloaded file a development certificate is named **aps_development.cer**.
+    > [AZURE.NOTE] By default, the downloaded file a development certificate is named **aps_development.cer**.
 
 7. Double-click the downloaded push certificate **aps_development.cer**.
 
@@ -88,7 +88,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step10.png)
 
-    > [WACOM.NOTE] The name in your certificate might be different, but it will be prefixed with **Apple Development iOS Push Services:**.
+    > [AZURE.NOTE] The name in your certificate might be different, but it will be prefixed with **Apple Development iOS Push Services:**.
 
 Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.
 

@@ -13,7 +13,7 @@ Before you can store data in your new mobile service, you must create a new stor
 
 	This creates the TodoItem table on the server, where anyone that has the application key can access and change data in the table without having to first be authenticated. 
 
-	>[WACOM.NOTE]The application key is distributed with the application. Because this key is not securely distributed, it cannot be considered a security token. To secure access to your mobile service data, you must instead authenticate users before accessing. For more information, see [Permissions](http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx).
+	>[AZURE.NOTE]The application key is distributed with the application. Because this key is not securely distributed, it cannot be considered a security token. To secure access to your mobile service data, you must instead authenticate users before accessing. For more information, see [Permissions](http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx).
 
 
 

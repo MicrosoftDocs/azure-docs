@@ -15,7 +15,7 @@
 
     This displays the API documentation page, which you can use to test the mobile service.
 
-	>[WACOM.NOTE]Authentication is not required to access this page when running locally. When running in Azure, you must supply the application key as the password (with no username) to access this page.
+	>[AZURE.NOTE]Authentication is not required to access this page when running locally. When running in Azure, you must supply the application key as the password (with no username) to access this page.
 
 4. Click the **GET tables/TodoItem** link.
 
