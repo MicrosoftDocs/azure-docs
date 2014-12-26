@@ -22,6 +22,11 @@ For more information about how to create tables in markdown, see:
 - https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#wiki-tables
 - http://michelf.ca/projects/php-markdown/extra/#table
 
+###Contributors' Guide Links
+
+- [Overview article](./../CONTRIBUTING.md)
+- [Index of guidance articles](./contributor-guide-index.md)
+
 <!--image references-->
 [1]: ./media/create-tables-markdown/table-markdown.png
 [2]: ./media/create-tables-markdown/break-tables.png
