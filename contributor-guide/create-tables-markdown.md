@@ -2,9 +2,9 @@
 
 <tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="12/26/2014" ms.author="tysonn" />
 
-#Best practices for creating tables in markdown
+#Create tables in markdown
 
-The most simple way to create a table is to use pipes and lines to create a markdown table.
+The simplest way to create a table in markdown is to use pipes and lines.
 
  ![][1]
  
