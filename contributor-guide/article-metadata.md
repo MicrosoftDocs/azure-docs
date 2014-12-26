@@ -6,8 +6,8 @@ All Azure technical articles contain two metadata sections - a properties sectio
 
 - [Syntax]
 - [Usage]
-- [Attributes and their values - properties section]
-- [Attributes and their values - tags section]
+- [Attributes and values for the properties section]
+- [Attributes and values for the tags section]
 
 ##Syntax
 
@@ -25,7 +25,7 @@ The tags section uses this syntax:
 - The <properties> section must be the first line of your file, and it must exist as a single line (e.g. don't add any line breaks between attributes).
 - Leave a blank line after each metadata section and before your page title to ensure that the page title is correctly converted to HTML during the publishing process.
 
-## Attributes and their values - properties section
+## Attributes and values for the properties section
 
 ![](./media/article-metadata/checkmark-small.png)**title**: no longer required. Checking to see if we can leave it out.
 
@@ -85,7 +85,7 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
 
-## Attributes and their values - tags section
+## Attributes and values for the tags section
 
 ![](./media/article-metadata/checkmark-small.png)**ms.service**: Required. Specifies the Azure service, tool, or feature that the article applies to. One value per page. 
 
@@ -250,5 +250,5 @@ The tags section uses this syntax:
 <!--Anchors-->
 [Syntax]: #syntax
 [Usage]: #usage
-[Attributes and their values - properties section]: #attributes-and-their-values-properties-section
-[Attributes and their values - tags section]: #attributes-and-their-values-tags-section
+[Attributes and values for the properties section]: #attributes-and-values-for-the-properties-section
+[Attributes and values for the tags section]: #attributes-and-values-for-the-tags-section
