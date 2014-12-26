@@ -15,5 +15,5 @@ The final stage of this tutorial is to build and run your new app.
 
    	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
-	>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.</p> 
+	>[AZURE.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.</p> 
  	</div>

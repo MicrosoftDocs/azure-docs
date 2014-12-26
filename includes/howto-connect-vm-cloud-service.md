@@ -5,7 +5,7 @@
 
 When you create a virtual machine, a cloud service is automatically created to contain the machine. You can create multiple virtual machines within the same cloud service so virtual machines can communicate with each other. 
 
-> [WACOM.NOTE] When VMs are in the same cloud service, you also can load balance them and manage their availability, which both require additional steps. For details, see [Load balancing virtual machines](../../articles/load-balance-virtual-machines/) and [Manage the availability of virtual machines](../../articles/manage-availability-virtual-machines/). 
+> [AZURE.NOTE] When VMs are in the same cloud service, you also can load balance them and manage their availability, which both require additional steps. For details, see [Load balancing virtual machines](../../articles/load-balance-virtual-machines/) and [Manage the availability of virtual machines](../../articles/manage-availability-virtual-machines/). 
 
 First, you'll need to create a virtual machine with a new cloud service. Then you'll create additional virtual machines in the same cloud service. This 'connects' them. 
 

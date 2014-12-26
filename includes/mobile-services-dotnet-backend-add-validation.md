@@ -31,7 +31,7 @@ It is always a good practice to validate the length of data that is submitted by
 
 5. Right click the service project and click **Publish**. Publish the mobile service to your Microsoft Azure account using the publishing settings you previously used in the [Getting Started] or [Get started with data](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)  tutorial.
  
-     >[WACOM.NOTE] You can alternatively test with the service hosted locally in IIS Express. For more information see the [Get started with data](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) tutorial.
+     >[AZURE.NOTE] You can alternatively test with the service hosted locally in IIS Express. For more information see the [Get started with data](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) tutorial.
 
     ![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-publish-dotnet-service.png)
 

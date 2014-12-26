@@ -15,7 +15,7 @@
 
 5. Scroll down to the bottom of that **Get Started** section to the step titled **Download and publish your service to the cloud**. Click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded. 
 
-    > [WACOM.NOTE] Save the file in a safe place because it does contain sensitive information pertaining to your Azure account. You will delete this file after publishing the mobile service later in this tutorial. 
+    > [AZURE.NOTE] Save the file in a safe place because it does contain sensitive information pertaining to your Azure account. You will delete this file after publishing the mobile service later in this tutorial. 
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/download-publish-profile.png)
 

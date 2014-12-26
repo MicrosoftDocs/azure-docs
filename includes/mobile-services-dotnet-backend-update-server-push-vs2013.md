@@ -44,4 +44,4 @@ These steps create a new custom [ApiController](http://go.microsoft.com/fwlink/p
             return false;
         }
 
-	>[WACOM.NOTE]This POST method can be called by any client that has the application key, which is not secure. To secure the endpoint, apply the attribute `[AuthorizeLevel(AuthorizationLevel.User)]` to the method or class to require authentication. 
+	>[AZURE.NOTE]This POST method can be called by any client that has the application key, which is not secure. To secure the endpoint, apply the attribute `[AuthorizeLevel(AuthorizationLevel.User)]` to the method or class to require authentication. 

@@ -4,7 +4,7 @@ The DNS system is based on *records*. Records associate a specific *name*, such 
 
 When you create an Azure Website, a DNS name is automatically assigned to the site. This name takes the form of **&lt;yoursitename&gt;.azurewebsites.net**. There is also a virtual IP address available for use when creating DNS records, so you can either create records that point to the **.azurewebsites.net**, or you can point to the IP address.
 
-> [WACOM.NOTE] The IP address of your website will change if you delete and recreate your website, or change the website mode to free after it has been set to basic, shared, or standard.
+> [AZURE.NOTE] The IP address of your website will change if you delete and recreate your website, or change the website mode to free after it has been set to basic, shared, or standard.
 
 There are also multiple types of records, each with their own functions and limitations, but for websites we only care about two, *A* and *CNAME* records.
 
@@ -18,13 +18,13 @@ The main benefits of an A record over a CNAME record are:
 
 * You can have one entry that uses a wildcard, such as **\*.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **blogs.contoso.com**, or **www.contso.com**.
 
-> [WACOM.NOTE] Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your website. An IP address for use with A records is provided when you configure custom domain name settings for your website; however, this value may change if you delete and recreate your website, or change the website mode to back to free.
+> [AZURE.NOTE] Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your website. An IP address for use with A records is provided when you configure custom domain name settings for your website; however, this value may change if you delete and recreate your website, or change the website mode to back to free.
 
 ###Alias record (CNAME record)
 
 A CNAME record maps a *specific* DNS name, such as **mail.contoso.com** or **www.contoso.com**, to another (canonical) domain name. In the case of Azure Websites, the canonical domain name is the **&lt;yoursitename>.azurewebsites.net** domain name of your website. Once created, the CNAME creates an alias for the **&lt;yoursitename>.azurewebsites.net** domain name. The CNAME entry will resolve to the IP address of your **&lt;yoursitename>.azurewebsites.net** domain name automatically, so if the IP address of the website changes, you do not have to take any action.
 
-> [WACOM.NOTE] Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
+> [AZURE.NOTE] Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
 
 ###Azure Website DNS specifics
 
@@ -44,7 +44,7 @@ You can find the IP address, as well as the **awverify** name and **.azurewebsit
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-	> [WACOM.NOTE] If **Manage Domains** is not enabled, you are using a free website. You cannot use custom domain names with a free website, and must upgrade to Shared, Basic, or Standard mode. For more information on the Website modes modes, including how to change the mode of your site, see [How to scale websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).
+	> [AZURE.NOTE] If **Manage Domains** is not enabled, you are using a free website. You cannot use custom domain names with a free website, and must upgrade to Shared, Basic, or Standard mode. For more information on the Website modes modes, including how to change the mode of your site, see [How to scale websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).
 
 6. In the **MANAGE CUSTOM DOMAINS** dialog, you will see the **awverify** information, the currently assigned **.azurewebsites.net** domain name, and the virtual IP address. Save this information, as it will be used when creating DNS records.
 

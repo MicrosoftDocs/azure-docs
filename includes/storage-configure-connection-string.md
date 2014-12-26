@@ -35,7 +35,7 @@ To configure your connection string in the Azure service configuration:
     earlier step in this tutorial if you wish to target the
     storage account we created earlier on Azure.
 
-	> [WACOM.NOTE] You can target the storage emulator to avoid incurring any costs associated with Windows Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
+	> [AZURE.NOTE] You can target the storage emulator to avoid incurring any costs associated with Windows Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
 	
     ![Select target environment][connection-string4]
 

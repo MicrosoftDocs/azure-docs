@@ -1,11 +1,11 @@
 # Configuring a custom domain name for an Azure cloud service
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
 
 When you create an application in Azure, Azure provides a subdomain on the cloudapp.net domain so your users can access your application on a URL like http://&lt;*myapp*>.cloudapp.net. However, you can also expose your application on your own domain name, such as contoso.com.
 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > The procedures in this task apply to Azure Cloud Services. For storage accounts, see [Configuring a Custom Domain Name for an Azure Storage Account](../storage-custom-domain-name/). For Websites, see [Configuring a Custom Domain Name for an Azure Web Site](../web-sites-custom-domain-name/).
 
 In this article:
@@ -22,14 +22,14 @@ CNAME (or alias records) and A records both allow you to associate a domain name
 
 A CNAME record maps a *specific* domain, such as **contoso.com** or **www.contoso.com**, to a canonical domain name. In this case, the canonical domain name is the **&lt;myapp>.cloudapp.net** domain name of your Azure hosted application. Once created, the CNAME creates an alias for the **&lt;myapp>.cloudapp.net**. The CNAME entry will resolve to the IP address of your **&lt;myapp>.cloudapp.net** service automatically, so if the IP address of the cloud service changes, you do not have to take any action.
 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
 
 ###A record
 
 An A record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a wildcard domain* such as **\*.contoso.com**, to an IP address. In the case of an Azure Cloud Service, the virtual IP of the service. So the main benefit of an A record over a CNAME record is that you can have one entry that uses a wildcard, such as ***.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **login.contoso.com**, or **www.contso.com**.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your Cloud Service. The IP address used by your Cloud Service is allocated the first time you deploy to an empty slot (either production or staging.) If you delete the deployment for the slot, the IP address is released by Azure and any future deployments to the slot may be given a new IP address.
 > 
 > Conveniently, the IP address of a given deployment slot (production or staging) is persisted when swapping between staging and production deployments or performing an in-place upgrade of an existing deployment. For more information on performing these actions, see [How to manage cloud services](../cloud-services-how-to-manage/).
@@ -76,7 +76,7 @@ A visitor of **www.contoso.com** will never see the true host
 (contoso.cloudapp.net), so the forwarding process is invisible to the
 end user.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > The example above only applies to traffic at the <strong>www</strong> subdomain. Since you cannot use wildcards with CNAME records, you must create one CNAME for each domain/subdomain. If you want to direct  traffic from subdomains, such as *.contoso.com, to your cloudapp.net address, you can configure a <strong>URL Redirect</strong> or <strong>URL Forward</strong> entry in your DNS settings, or create an A record.
 
 

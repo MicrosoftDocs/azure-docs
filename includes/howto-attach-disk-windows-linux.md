@@ -61,7 +61,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 
 	![Data disk successfully attached](./media/howto-attach-disk-window-linux/AttachSuccess.png)
 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage.
 
 
