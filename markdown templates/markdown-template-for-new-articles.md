@@ -9,9 +9,13 @@
 <!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. -->
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
-# H1 (Article Title) 
+# Markdown Template (Article Title) 
 
-<p> Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
+To copy the markdown from this template, copy the article in your local repo, or click the Raw button in the GitHub UI and copy the markdown.
+
+  ![][8]
+
+Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
@@ -107,7 +111,7 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
-
+[8]: ./media/markdown-template-for-new-articles/copytemplate.png
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
