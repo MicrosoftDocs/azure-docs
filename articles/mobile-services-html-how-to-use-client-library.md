@@ -46,7 +46,7 @@ In your web editor, open the HTML file and add the following to the script refer
 
     <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
->[WACOM.NOTE]For a Windows Store app written in JavaScript/HTML, you just need to add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project.
+>[AZURE.NOTE]For a Windows Store app written in JavaScript/HTML, you just need to add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project.
 
 In the editor, open or create a JavaScript file, and add the following code that defines the `MobileServiceClient` variable, and supply the application URL and application key from the mobile service in the `MobileServiceClient` constructor, in that order.
 
@@ -266,7 +266,7 @@ Mobile Services uses the OData query URI conventions for composing and executing
 	    }, handleError);
 	}
 
->[WACOM.NOTE]When you provide a raw OData query option string into the `read` function, you cannot also use the query builder methods in the same query. In this case, you must compose your whole query as an OData query string. For more information on OData system query options, see the [OData system query options reference].
+>[AZURE.NOTE]When you provide a raw OData query option string into the `read` function, you cannot also use the query builder methods in the same query. In this case, you must compose your whole query as an OData query string. For more information on OData system query options, see the [OData system query options reference].
 
 <h2><a name="inserting"></a>How to: Insert data into a mobile service</h2>
 

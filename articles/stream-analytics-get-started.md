@@ -103,7 +103,7 @@ If you already have an Azure SQL Database to use for this tutorial, skip this se
 		CREATE CLUSTERED INDEX [AvgReadings]
 		    ON [dbo].[AvgReadings]([DeviceId] ASC);
 
-	>[WACOM.NOTE] Clustered indexes are required on all SQL Database tables in order to insert data.
+	>[AZURE.NOTE] Clustered indexes are required on all SQL Database tables in order to insert data.
 	   
 ##Create a Stream Analytics job
 
@@ -136,7 +136,7 @@ After you have created the Azure Service Bus Event Hub, the Azure SQL database a
 
 		If your Event Hub is in a different subscription, select **Use Event Hub from Another Subscription** and manually enter the **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.  
 
-		>[WACOM.NOTE] This sample uses the default number of partitions, which is 16.
+		>[AZURE.NOTE] This sample uses the default number of partitions, which is 16.
 		
 	- **EVENT HUB NAME**: Select the name of the Azure Event Hub you created. For this tutorial use **devicereadings**.
 	- **EVENT HUB POLICY NAME**: Select the Event Hub policy created earlier in this tutorial.

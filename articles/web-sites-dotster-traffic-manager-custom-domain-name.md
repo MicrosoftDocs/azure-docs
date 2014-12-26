@@ -48,7 +48,7 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
     ![Dotster Domain Configuration Options](.\media\web-sites-dotster-custom-domain-name\Dotster_Nameservers.png)
 
-    > [WACOM.NOTE] It can take 24-48 hours for the name servers change to take affect. The remainder of steps in this article do not work until that time.
+    > [AZURE.NOTE] It can take 24-48 hours for the name servers change to take affect. The remainder of steps in this article do not work until that time.
 
 4. In DomainCentral, select your domain, and then select **DNS**. In the **Modify** list, select the type of DNS record to add (**CNAME Alias** or **A Record**). 
 
@@ -60,7 +60,7 @@ To associate your custom domain with an Azure Website, you must add a new entry 
  
     * When adding a CNAME record, you must set the **Host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points To** field to the **.trafficmanager.net** domain name of the Traffic Manager profile you are using with your Azure Website. For example, **contoso.trafficmanager.net**.
 
-	    > [WACOM.NOTE] You must only use CNAME records when associating your custom domain name with a website that is load balanced using Traffic Manager.
+	    > [AZURE.NOTE] You must only use CNAME records when associating your custom domain name with a website that is load balanced using Traffic Manager.
 
 <h2><a name="enabledomain"></a>Enable Traffic Manager website</h2>
 

@@ -99,7 +99,7 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 
 The **Deprecation Date** is the date after which the cluster version can not be created on HDInsight.
 
-> [WACOM.NOTE] Both HDInsight 2.1 and 3.0 cluster run on Azure Guest OS [Family 4](http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation) which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5. and 4.5.1. 
+> [AZURE.NOTE] Both HDInsight 2.1 and 3.0 cluster run on Azure Guest OS [Family 4](http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation) which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5. and 4.5.1. 
 
 ## Hortonworks release notes associated with HDInsight versions##
 

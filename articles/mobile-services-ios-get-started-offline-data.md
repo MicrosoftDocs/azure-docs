@@ -19,11 +19,11 @@ Offline sync has several potential uses:
 
 This tutorial will show how to update the app from [Get Started with Mobile Services] tutorial to support the offline features of Azure Mobile Services. Then you will add data in a disconnected offline scenario, sync those items to the online database, and then log in to the Azure Management Portal to view changes to data made when running the app.
 
->[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
+>[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
 
 This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get Started with Mobile Services].
 
->[WACOM.NOTE] You can skip these sections and jump to downloading a version of the Getting Started project that already has offline support and everything described in this topic.  To download a project with offline support enabled, see [Getting Started Offline iOS Sample].
+>[AZURE.NOTE] You can skip these sections and jump to downloading a version of the Getting Started project that already has offline support and everything described in this topic.  To download a project with offline support enabled, see [Getting Started Offline iOS Sample].
 
 
 This tutorial walks you through these basic steps:

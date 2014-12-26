@@ -37,7 +37,7 @@ A query can have one or many steps. Each step is a sub-query defined using the W
 
 The previous query has 2 steps. 
 
-> [WACOM.NOTE] This sample query will be explained later in the article.
+> [AZURE.NOTE] This sample query will be explained later in the article.
 
 ### Partition a step
 
@@ -122,7 +122,7 @@ When a query is partitioned, the input events are processed and aggregated in se
 
 This query can be scaled to 24 streaming units. 
 
->[WACOM.NOTE] If you are joining two streams, please ensure that the streams are partitioned by the partition key of the column that you do the joins, and you have the same number of partitions in both streams.
+>[AZURE.NOTE] If you are joining two streams, please ensure that the streams are partitioned by the partition key of the column that you do the joins, and you have the same number of partitions in both streams.
 
 
 ##<a name="configure"></a>Configure Stream Analytics job partition

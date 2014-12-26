@@ -20,7 +20,7 @@ Mobile Services uses Azure Notification Hubs for sending push notifications to y
 + Windows Notification Service (WNS) for Windows Store, Windows Phone 8.1 Store, and universal Windows apps 
 + Microsoft Push Notification Service (MPNS) for Windows Phone Silverlight apps
 
->[WACOM.NOTE]Notification Hubs does not currently support using WNS to send push notifications to Windows Phone Silverlight 8.1 apps. You must use MPNS to send notifications to Silverlight and Windows Phone 8.0 and 7.0 apps.
+>[AZURE.NOTE]Notification Hubs does not currently support using WNS to send push notifications to Windows Phone Silverlight 8.1 apps. You must use MPNS to send notifications to Silverlight and Windows Phone 8.0 and 7.0 apps.
 
 For more information, see [Azure Notification Hubs].
 
@@ -30,7 +30,7 @@ Client registrations are created by using the register function in the platform-
   
 + **Template registration**<br/>Notification Hubs also supports platform-specific template registrations. By using template registrations, you can use a single API call to send a notification to your app running on any registered platform. For more information, see [Send cross-platform notifications to users].
 
->[WACOM.NOTE]An error occurs when trying to send a message to a native device platform for which no device registrations exists. This error does not occur when sending template notifications.
+>[AZURE.NOTE]An error occurs when trying to send a message to a native device platform for which no device registrations exists. This error does not occur when sending template notifications.
 
 Tables in the following sections link to the client-specific tutorials that show you how to implement push notifications from both .NET and JavaScript backend mobile services.  
 
@@ -156,7 +156,7 @@ Visual Studio 2013 Update 2 adds support for universal Windows app projects. Uni
 
 By default, the Mobile Service quickstart tab in the [Azure Management portal] generates a universal Windows app version of the TodoList sample app to get you started. You can choose to download either a C#/XAML or a JavaScript/HTML version of the project. For more information, see [Get started with Mobile Services](/en-us/documentation/articles/mobile-services-windows-store-get-started/). 
 
->[WACOM.NOTE]The C# version of the quickstart app project from the portal shares the MainPage.xaml.cs code-behind page but doesn't use a view model. For an example of the TodoList app as a universal Windows app project in C# that uses MVVM, see [Universal Windows app project for Azure Mobile Services using MVVM]. 
+>[AZURE.NOTE]The C# version of the quickstart app project from the portal shares the MainPage.xaml.cs code-behind page but doesn't use a view model. For an example of the TodoList app as a universal Windows app project in C# that uses MVVM, see [Universal Windows app project for Azure Mobile Services using MVVM]. 
 
 ###<a id="xamarin"></a>Xamarin development
 
@@ -171,7 +171,7 @@ In Windows Phone 8.1, you can choose to use the previous Silverlight-based XAML 
 
 The Mobile Services .NET client library supports both Windows Phone Store 8.1 and Windows Phone Silverlight 8.1 apps. Since both Windows Runtime and Windows Phone Silverlight apps cannot be built from the same project, you should consider a code reuse strategy such as PCL and MVVM described above.
 
->[WACOM.NOTE]In order to use single sign-on client authentication using Microsoft Account in both Windows Runtime and Windows Phone Silverlight apps, you must register the Windows Runtime app on the Windows Store dashboard first. This is because once you create a Live Connect registration for Windows Phone, you cannot create one for Windows Store. For more information about how to do this, please read the topic **Authenticate your Windows Store app with Live Connect single sign-on** ([Windows Store][SSO Windows Store]/[Windows Phone][SSO Windows Phone]).
+>[AZURE.NOTE]In order to use single sign-on client authentication using Microsoft Account in both Windows Runtime and Windows Phone Silverlight apps, you must register the Windows Runtime app on the Windows Store dashboard first. This is because once you create a Live Connect registration for Windows Phone, you cannot create one for Windows Store. For more information about how to do this, please read the topic **Authenticate your Windows Store app with Live Connect single sign-on** ([Windows Store][SSO Windows Store]/[Windows Phone][SSO Windows Phone]).
 
 
 <!-- URLs -->

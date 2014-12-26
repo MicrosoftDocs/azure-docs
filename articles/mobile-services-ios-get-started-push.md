@@ -18,7 +18,7 @@
 This topic shows you how to use Azure Mobile Services to send push notifications to an iOS app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
 
->[WACOM.NOTE]This topic supports <em>existing</em> mobile services that have <em>not yet been upgraded</em> to use Notification Hubs integration. When you create a <em>new</em> mobile service, this integrated functionality is automatically enabled. For new mobile services, see [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/).
+>[AZURE.NOTE]This topic supports <em>existing</em> mobile services that have <em>not yet been upgraded</em> to use Notification Hubs integration. When you create a <em>new</em> mobile service, this integrated functionality is automatically enabled. For new mobile services, see [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/).
 >
 >Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. <em>You should upgrade your existing mobile services to use Notification Hubs when possible</em>. Once you have upgraded, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/).
 
@@ -39,7 +39,7 @@ This tutorial requires the following:
 + An iOS 5.0 (or later version) capable device
 + iOS Developer Program membership
 
-   > [WACOM.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
+   > [AZURE.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
 
@@ -55,7 +55,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
         @property (strong, nonatomic) NSString *deviceToken;
 
-    > [WACOM.NOTE] When dynamic schema is enabled on your mobile service, a new 'deviceToken' column is automatically added to the **TodoItem** table when a new item that contains this property is inserted.
+    > [AZURE.NOTE] When dynamic schema is enabled on your mobile service, a new 'deviceToken' column is automatically added to the **TodoItem** table when a new item that contains this property is inserted.
 
 2. In QSAppDelegate.m, replace the following handler method inside the implementation:
 
@@ -123,7 +123,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
    	This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
 
-   	> [WACOM.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
+   	> [AZURE.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
 
 Your app is now updated to support push notifications.
 
@@ -158,7 +158,7 @@ Your app is now updated to support push notifications.
    	This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request.
 
 
-   	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a toast notification.
+   	> [AZURE.NOTE] This script delays sending the notification to give you time to close the app to receive a toast notification.
 
 ## Test push notifications in your app
 
@@ -166,7 +166,7 @@ Your app is now updated to support push notifications.
 
   	![][23]
 
-    > [WACOM.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+    > [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
 2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 

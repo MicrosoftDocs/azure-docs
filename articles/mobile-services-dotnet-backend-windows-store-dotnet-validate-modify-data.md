@@ -116,7 +116,7 @@ The final step is to update the client to display the new **CompleteDate** data.
             public DateTime? CompleteDate { get; set; }
         }
 	
-    >[WACOM.NOTE] The <code>DataMemberAttribute</code> tells the client to map the new <code>CompleteDate</code> property in the app to the <code>CompleteDate</code> column defined in the TodoItem table. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database.
+    >[AZURE.NOTE] The <code>DataMemberAttribute</code> tells the client to map the new <code>CompleteDate</code> property in the app to the <code>CompleteDate</code> column defined in the TodoItem table. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database.
     
 
 	

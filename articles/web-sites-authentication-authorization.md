@@ -10,7 +10,7 @@
 
 With a few clicks of the button, you can enable authentication and authorization for your website. The checkbox style configuration in every Azure website provides the basic access control of your LOB website. It does so by enforcing HTTPS and authentication to an Azure AD tenant of your choice before granting users access to all website content. For more information, see [Azure Websites Authentication / Authorization](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
 
->[WACOM.NOTE] This feature is currently in preview.
+>[AZURE.NOTE] This feature is currently in preview.
 
 ## Manually implement authentication and authorization ##
 

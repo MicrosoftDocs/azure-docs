@@ -63,7 +63,7 @@ After a few moments, it should complete with the text: "Complete.  Press <enter>
 
 Press **Enter** to close the application. At this point, you have successfully created the Azure Search index. 
 
-> [WACOM.NOTE] If you get errors that include "invalid value for key 'attachdbfilename'" or some other database attachment error, you might be running into UAC conflicts. For the purposes of this demo, work around these errors by doing the following: 
+> [AZURE.NOTE] If you get errors that include "invalid value for key 'attachdbfilename'" or some other database attachment error, you might be running into UAC conflicts. For the purposes of this demo, work around these errors by doing the following: 
 > Copy the solution to a new or existing folder (such as Temp) that provides access to authenticated users. 
 > Use **Run as Administrator** to start Visual Studio. 
 > Open the solution, build it, and then press **F5** to create the index.

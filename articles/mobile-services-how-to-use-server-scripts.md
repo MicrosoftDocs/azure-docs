@@ -86,7 +86,7 @@ Here are the canonical main-function signatures for the table operations:
 + [Delete][delete function]: `function del (id, user, request) { ... }`
 + [Read][read function]: `function read (query, user, request) { ... }`
 
->[WACOM.NOTE]A function that's registered to the delete operation must be named _del_ because delete is a reserved keyword in JavaScript. 
+>[AZURE.NOTE]A function that's registered to the delete operation must be named _del_ because delete is a reserved keyword in JavaScript. 
 
 Every server script has a main function, and may have optional helper functions. Even though a server script may have been been created for a specific table, it can also reference other tables in the same database. You can also define common functions as modules that can be shared across scripts. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
@@ -142,7 +142,7 @@ When the **execute** function is called, the `item`, [query][query object], or `
 	    request.execute(); 
 	}
  
->[WACOM.NOTE]In a delete script, changing the value of the supplied userId variable does not affect which record gets deleted.
+>[AZURE.NOTE]In a delete script, changing the value of the supplied userId variable does not affect which record gets deleted.
 
 For more examples, see [Read and write data], [Modify the request] and [Validate data].
 
@@ -182,7 +182,7 @@ By passing in a **success** handler when you call execute, you can modify the re
 
 When you provide a **success** handler to the **execute** function, you must also call the **respond** function as part of the **success** handler so that the runtime knows that the script has completed and that a response can be written. When you call **respond** without passing any arguments, Mobile Services generates the default response. 
 
->[WACOM.NOTE]You can call **respond** without arguments to invoke the default response only after you first call the **execute** function.
+>[AZURE.NOTE]You can call **respond** without arguments to invoke the default response only after you first call the **execute** function.
  
 ###<a name="override-error"></a>How to: Override default error handling
 
@@ -421,7 +421,7 @@ You define scheduled jobs in one of the following ways:
 
 + From the command prompt by using the Azure command line tool. For more information, see [Using the command line tool].
 
->[WACOM.NOTE]When you have source control enabled, you can edit scheduled job script files directly in the .\service\scheduler subfolder in your git repository. For more information, see [How to: Share code by using source control].
+>[AZURE.NOTE]When you have source control enabled, you can edit scheduled job script files directly in the .\service\scheduler subfolder in your git repository. For more information, see [How to: Share code by using source control].
 
 ##<a name="shared-code"></a>Source control, shared code, and helper functions
 
@@ -459,11 +459,11 @@ You can use source control with the Node.js package manager (npm) to control whi
 
 + For private or custom modules, you can use npm to manually install the module into the `.\service\node_modules` directory of your source control. For an example of how to manually upload a module, see [Leverage shared code and Node.js modules in your server scripts].
 
-	>[WACOM.NOTE]When `node_modules` already exists in the directory hierarchy, NPM will create the `\node-uuid` subdirectory there instead of creating a new `node_modules` in the repository. In this case, just delete the existing `node_modules` directory.
+	>[AZURE.NOTE]When `node_modules` already exists in the directory hierarchy, NPM will create the `\node-uuid` subdirectory there instead of creating a new `node_modules` in the repository. In this case, just delete the existing `node_modules` directory.
 
 After you commit the package.json file or custom modules to the repository for your mobile service, use **require** to reference the modules by name.   
 
->[WACOM.NOTE] Modules that you specify in package.json or upload to your mobile service are only used in your server script code. These modules are not used by the Mobile Services runtime.
+>[AZURE.NOTE] Modules that you specify in package.json or upload to your mobile service are only used in your server script code. These modules are not used by the Mobile Services runtime.
 
 ###<a name="helper-functions"></a>How to: Use helper functions
 

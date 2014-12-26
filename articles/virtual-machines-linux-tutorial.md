@@ -6,7 +6,7 @@
 
 Creating a virtual machine that runs Linux is easy when you use the Image Gallery in the Azure Management Portal. This guide shows you how to do this and assumes that you don't have experience using Azure.
 
-> [WACOM.NOTE] Even though you don't need any experience with Azure VMs to finish this tutorial, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
+> [AZURE.NOTE] Even though you don't need any experience with Azure VMs to finish this tutorial, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
 
 This tutorial covers:
 

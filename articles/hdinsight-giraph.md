@@ -74,13 +74,13 @@ Giraph is not provided as part of the HDInsight cluster, so must be built from s
 
 	Once the command completes, the JAR file will have been uploaded to wasb:///example/jars/giraph.jar.
 
-	> [WACOM.NOTE] for a list of utilities that can be used to upload files to HDInsight, see [Upload data for Hadoop jobs in HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-upload-data/).
+	> [AZURE.NOTE] for a list of utilities that can be used to upload files to HDInsight, see [Upload data for Hadoop jobs in HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-upload-data/).
 
 ##<a id="run"></a>Run the example
 
 The SimpleShortestPathsComputation demonstrates the basic [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) implementation for finding the shortest path between objects in a graph. Use the following steps to upload the sample data, run a job using the SimpleShortestPathsComputation example, and then view the results.
 
-> [WACOM.NOTE] The source for this, and other examples, is available in the [release-1.1 branch](https://github.com/apache/giraph/tree/release-1.1) of the [GitHub repository](https://github.com/apache/giraph).
+> [AZURE.NOTE] The source for this, and other examples, is available in the [release-1.1 branch](https://github.com/apache/giraph/tree/release-1.1) of the [GitHub repository](https://github.com/apache/giraph).
 
 1. Create a new file named __tiny\_graph.txt__. It should contain the following lines.
 
@@ -166,7 +166,7 @@ If you wish to run a job multiple times, you must either remove the output direc
 
 While this article demonstrates how to run a Giraph job via PowerShell, you can also run the job using the Hadoop command line.
 
-> [WACOM.NOTE] The Hadoop command line is only available when connecting to the HDInsight cluster using Remote Desktop.
+> [AZURE.NOTE] The Hadoop command line is only available when connecting to the HDInsight cluster using Remote Desktop.
 > 
 > Remote desktop sessions to Azure compute resources such as the HDInsight cluster may only work from Windows-based remote desktop clients.
 

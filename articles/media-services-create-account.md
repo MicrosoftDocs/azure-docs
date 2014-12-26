@@ -21,7 +21,7 @@ This topic explains how to use the Quick Create method to create a new Media Ser
 Accessing Media Services requires two associated accounts:
 
 -   **A Media Services account**. Your account gives you access to a set of cloud-based Media Services that are available in Azure. A Media Services account does not store actual media content. Instead it stores metadata about the media content and media processing jobs in your account. At the time you create the account, you select an available Media Services region. The region you select is a data center that stores the metadata records for your account. 
-    > [WACOM.NOTE]
+    > [AZURE.NOTE]
     > Available Media Services regions include the following: **North Europe**, **West Europe**, **West US**, **East US**, **Southeast Asia**, **East Asia**, **Japan West**, **Japan East**. Media Services does not use affinity groups. 
 -   **An associated storage account**. Your storage account is an Azure storage account that is associated with your Media Services account. The storage account provides blob storage for media files, and must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted. 
 

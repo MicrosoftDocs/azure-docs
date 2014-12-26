@@ -80,7 +80,7 @@ Next, you will update the app to authenticate users before requesting resources 
             }
         });
 
->[WACOM.NOTE] If you are using an identity provider other than Google, change the value passed to **authorizeClient** to one of the following: *microsoftaccount*, *facebook*, *twitter* or *windowsazureactivedirectory*.
+>[AZURE.NOTE] If you are using an identity provider other than Google, change the value passed to **authorizeClient** to one of the following: *microsoftaccount*, *facebook*, *twitter* or *windowsazureactivedirectory*.
 
 4.	Press the Run button to build the project, start the app in the iPhone simulator or in Android emulator, and then click on With Login option to log-on with identity provider.
 

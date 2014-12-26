@@ -15,7 +15,7 @@
 
 This topic shows you how to use Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
 
->[WACOM.NOTE]This topic shows you how to use Visual Studio 2013 to add Azure Mobile Services to a Windows Store project. You can add the same JavaScript backend mobile service to a universal Windows app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data) of this tutorial.
+>[AZURE.NOTE]This topic shows you how to use Visual Studio 2013 to add Azure Mobile Services to a Windows Store project. You can add the same JavaScript backend mobile service to a universal Windows app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data) of this tutorial.
 
 This tutorial walks you through these basic steps:
 
@@ -67,7 +67,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 [WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
->[WACOM.NOTE]New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see [Dynamic schema](http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx).
+>[AZURE.NOTE]New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see [Dynamic schema](http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx).
 
 #<a name="update-app"></a>Update the app to use the mobile service
 

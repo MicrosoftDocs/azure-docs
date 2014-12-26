@@ -75,7 +75,7 @@ This sends a POST request to the new mobile service hosted in Windows Azure. Dat
 ![][8]
 
 
->[WACOM.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.
+>[AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 

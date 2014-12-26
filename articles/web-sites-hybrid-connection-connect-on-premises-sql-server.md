@@ -9,7 +9,7 @@ Hybrid Connections can connect Microsoft Azure websites to on-premises resources
 
 In this tutorial, you will learn how to create a website in the Azure Preview Portal, connect the website to your local on-premises SQL Server database using the new Hybrid Connection feature, create a simple ASP.NET web application that will use the hybrid connection, and deploy the application to the Azure Website. The completed website on Azure stores user credentials in a membership database that is on-premises. The tutorial assumes no prior experience using Azure or ASP.NET.
 
-> [WACOM.NOTE] The Websites portion of the Hybrid Connections feature is available only in the [Azure Preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+> [AZURE.NOTE] The Websites portion of the Hybrid Connections feature is available only in the [Azure Preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ##Prerequisites##
 To complete this tutorial, you'll need the following products. All are available in free versions, so you can start developing for Azure entirely for free.
@@ -130,7 +130,7 @@ Your Visual Studio web application requires a membership database that can be ac
 <a name="CreateSite"></a>
 ## B. Create a Website in the Azure Preview Portal ##
 
-> [WACOM.NOTE] If you have already created a website in the Azure Preview Portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and continue from there.
+> [AZURE.NOTE] If you have already created a website in the Azure Preview Portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and continue from there.
 
 1. In the lower left corner of the [Azure Preview Portal](https://portal.azure.com), click **New**, and then choose **Website**.
 	
@@ -265,7 +265,7 @@ Now that the hybrid connection infrastructure is complete, you will create a web
 
 In this step, you edit the connection string that tells your application where to find your local SQL Server Express database. The connection string is in the application's Web.config file, which contains configuration information for the application. 
 
-> [WACOM.NOTE] To ensure that your application uses the database that you created in SQL Server Express, and not the one in Visual Studio's default LocalDB, it is important that you complete this step before running your project.
+> [AZURE.NOTE] To ensure that your application uses the database that you created in SQL Server Express, and not the one in Visual Studio's default LocalDB, it is important that you complete this step before running your project.
 
 1. In Solution Explorer, double-click the Web.config file.
 	

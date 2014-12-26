@@ -6,7 +6,7 @@
 
 This tutorial shows you how to create a PHP Azure Website with an Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP][install-drivers], a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL Database website running in Azure.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the <a href="http://www.microsoft.com/web/downloads/platform.aspx">Microsoft Web Platform Installer</a>.
 
 You will learn:
@@ -18,7 +18,7 @@ By following this tutorial, you will build a simple registration web application
 
 ![Azure PHP Web Site][running-app]
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > To complete this tutorial, you need an Azure account. You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/">activate your MSDN subscriber benefits</a> or <a href="http://azure.microsoft.com/en-us/pricing/free-trial/">sign up for a free trial</a>.
 > 
 > If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
@@ -224,13 +224,13 @@ After you have tested your application locally, you can publish it to your Azure
 	$pwd = "<your password>";
 	$db = "<value of DATABASE>";
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > In the <code>$host</code>, the value of SERVER must be prepended with <code>tcp:</code>, and the value of <code>$user</code> is the concatenation of the value of USERNAME, '@', and your server ID. Your server ID is the first 10 characters of the value of SERVER.
 
 
 Now, you are ready to set up Git publishing and publish the application.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > These are the same steps noted at the end of the Create an Azure Website and Set up Git Publishing section above.
 
 

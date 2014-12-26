@@ -25,7 +25,7 @@ Hybrid Connections benefits include:
 - Applications using Hybrid Connections access only the specific on-premises resource that is published through the Hybrid Connection.
 - Can connect to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services.
 
-> [WACOM.NOTE] TCP-based services that use dynamic ports (such as FTP Passive Mode or Extended Passive Mode) are currently not supported.
+> [AZURE.NOTE] TCP-based services that use dynamic ports (such as FTP Passive Mode or Extended Passive Mode) are currently not supported.
 
 - Can be used with all frameworks supported by Azure Websites (.NET, PHP, Java, Python, Node.js) and Azure Mobile Services (Node.js, .NET).
 - Websites and Mobile Services can access on-premises resources in exactly the same way as if the Website or Mobile Service is located on your local network. For example, the same connection string used on-premises can also be used on Azure.

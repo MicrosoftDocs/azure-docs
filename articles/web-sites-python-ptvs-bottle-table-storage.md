@@ -116,7 +116,7 @@ In this section, we'll configure our application to use the storage account we j
 
 It's easy to view and edit storage tables using Server Explorer in Visual Studio.  In this section we'll use Server Explorer to view the contents of the polls application tables.
 
-> [WACOM.NOTE] This requires Microsoft Azure Tools to be installed, which are available as part of the [Azure SDK for .NET][].
+> [AZURE.NOTE] This requires Microsoft Azure Tools to be installed, which are available as part of the [Azure SDK for .NET][].
 
 1.  Open **Server Explorer**.  Expand **Azure**, **Storage**, your storage account, then **Tables**.
 

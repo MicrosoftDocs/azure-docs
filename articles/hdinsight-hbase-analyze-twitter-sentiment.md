@@ -162,7 +162,7 @@ Create a console application to get Tweets, calculate Tweet sentiment score and 
 		Install-Package TweetinviAPI
 		Install-Package protobuf-net 
 
-	> [WACOM.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 26th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself. For instructions, see [Get started using HBase with Hadoop in HDInsight][hdinsight-hbase-get-started].
+	> [AZURE.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 26th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself. For instructions, see [Get started using HBase with Hadoop in HDInsight][hdinsight-hbase-get-started].
 
 3. From **Solution Explorer**, right-click **References**, and then click **Add Reference**.
 4. In the left pane, expand **Assemblies**, and then click **Framework**.
@@ -551,7 +551,7 @@ In this section, you will create a ASP.NET MVC Web application to read the real-
 
 		Install-Package protobuf-net 
 
-	> [WACOM.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 20th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself. For instructions, see [Get started using HBase with Hadoop in HDInsight][hdinsight-hbase-get-started].
+	> [AZURE.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 20th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself. For instructions, see [Get started using HBase with Hadoop in HDInsight][hdinsight-hbase-get-started].
 
 **To add HBaseReader class:**
 

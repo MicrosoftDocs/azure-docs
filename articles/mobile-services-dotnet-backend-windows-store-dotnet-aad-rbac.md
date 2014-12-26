@@ -105,7 +105,7 @@ In this section you will create a new custom authorization attribute that can be
 
 9. In AuthorizeAadRole.cs, add the following `GetAADToken` method to the `AuthorizeAadRole` class.
 
-    >[WACOM.NOTE] You should cache the token instead of creating a new one with each access check. Then refresh the cache when attempts to use the token throw a AccessTokenExpiredException as noted in the [Graph Client Library]. This isn't demonstrated in the code below for simplicity sake but, it will alleviate extra network traffic against your Active Directory.  
+    >[AZURE.NOTE] You should cache the token instead of creating a new one with each access check. Then refresh the cache when attempts to use the token throw a AccessTokenExpiredException as noted in the [Graph Client Library]. This isn't demonstrated in the code below for simplicity sake but, it will alleviate extra network traffic against your Active Directory.  
 
         private string GetAADToken(ApiServices services)
         {
@@ -142,7 +142,7 @@ In this section you will create a new custom authorization attribute that can be
 
 10. In AuthorizeAadRole.cs, update the `OnAuthorization` method in the `AuthorizeAadRole` class with the following code. This code uses the [Graph Client Library] to look up the Active Directory group that corresponds to the role. It then checks the user's membership in that group to authorize the user.
 
-    >[WACOM.NOTE] This code looks up the Active Directory group by name. In many cases it's a better practice to store the group id as a mobile service app setting. This is because the group name may change but, the id stays the same. However, with a group name change there is usually at least a change in the scope of the role that may also require an update to the mobile service code.  
+    >[AZURE.NOTE] This code looks up the Active Directory group by name. In many cases it's a better practice to store the group id as a mobile service app setting. This is because the group name may change but, the id stays the same. However, with a group name change there is usually at least a change in the scope of the role that may also require an update to the mobile service code.  
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {

@@ -109,7 +109,7 @@ Microsoft provides sample scripts to install components on an HDInsight cluster.
 - [Install and use Solr on HDInsight clusters](../hdinsight-hadoop-solr-install)
 - [Install and use Giraph on HDInsight clusters](../hdinsight-hadoop-giraph-install)  
 
-> [WACOM.NOTE] The sample script works only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] The sample script works only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
 
 ## <a name="testScript"></a>How to test your custom script with the HDInsight Emulator
 

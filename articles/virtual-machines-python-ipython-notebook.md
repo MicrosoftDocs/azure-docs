@@ -134,7 +134,7 @@ using the Windows PowerShell to run all command line actions.
 
 	* You will  need to add `C:\OpenSSL-Win32\bin` to your `PATH` environment variable.
 
-	> [WACOM.NOTE] When installing OpenSSL, use version 1.0.1g or higher as these include a fix for the Heartbleed security vulnerability.
+	> [AZURE.NOTE] When installing OpenSSL, use version 1.0.1g or higher as these include a fix for the Heartbleed security vulnerability.
 
 1.  Install the IPython using the command:
 

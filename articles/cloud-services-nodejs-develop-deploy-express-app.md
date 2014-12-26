@@ -34,7 +34,7 @@ Perform the following steps to create a new cloud service project named 'express
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
 		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 node 0.10.21
 
-	> [WACOM.NOTE] By default, **Add-AzureNodeWebRole** uses an older version of Node.js. The **Set-AzureServiceProjectRole** statement above instructs Azure to use v0.10.21 of Node. 
+	> [AZURE.NOTE] By default, **Add-AzureNodeWebRole** uses an older version of Node.js. The **Set-AzureServiceProjectRole** statement above instructs Azure to use v0.10.21 of Node. 
 
 ##Install Express
 

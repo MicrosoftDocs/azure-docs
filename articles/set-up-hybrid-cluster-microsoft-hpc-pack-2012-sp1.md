@@ -12,7 +12,7 @@ This tutorial shows one approach, sometimes called cluster "burst to the cloud,"
 
 This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid compute cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493). If you want to set up an entire HPC Pack cluster in Azure, see [Microsoft HPC Pack in Azure VMs](http://go.microsoft.com/fwlink/p/?linkid=330375). 
 
->[WACOM.NOTE] Azure offers a [range of sizes](http://go.microsoft.com/fwlink/p/?LinkId=389844) for your compute resources, suitable for different workloads. For example, the A8 and A9 instances combine high performance and access to a low latency, high throughput application network needed for certain HPC applications. For information, see [About the A8 and A9 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?Linkid=328042). 
+>[AZURE.NOTE] Azure offers a [range of sizes](http://go.microsoft.com/fwlink/p/?LinkId=389844) for your compute resources, suitable for different workloads. For example, the A8 and A9 instances combine high performance and access to a low latency, high throughput application network needed for certain HPC applications. For information, see [About the A8 and A9 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?Linkid=328042). 
 
 This tutorial walks you through these basic steps:
 
@@ -28,7 +28,7 @@ This tutorial walks you through these basic steps:
 
 <h2 id="BKMK_Prereq">Prerequisites</h2>
 
->[WACOM.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/).
+>[AZURE.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/).
 
 In addition, you need the following for this tutorial.
 
@@ -91,7 +91,7 @@ Use the [Management Portal](https://manage.windowsazure.com) to perform the foll
 
 - Create an Azure storage account
 	
-	>[WACOM.NOTE]Also make a note of your Azure subscription ID, which you will need later. Find this in your Azure <a href="[https://account.windowsazure.com/Subscriptions">account information</a>.
+	>[AZURE.NOTE]Also make a note of your Azure subscription ID, which you will need later. Find this in your Azure <a href="[https://account.windowsazure.com/Subscriptions">account information</a>.
 
 <h3>Upload the default management certificate</h3>
 HPC Pack installs a self-signed certificate on the head node, called the Default Microsoft HPC Azure Management certificate, that you can upload as an Azure management certificate. This certificate is provided for testing purposes and proof-of-concept deployments.
@@ -112,7 +112,7 @@ You will see **Default HPC Azure Management** in the list of management certific
 
 <h3>Create an Azure cloud service</h3> 
 
->[WACOM.NOTE]For best performance, create the cloud service and the storage account in the same geographic region.
+>[AZURE.NOTE]For best performance, create the cloud service and the storage account in the same geographic region.
 
 1. In the Management Portal, on the command bar, click **New**.
 
@@ -146,7 +146,7 @@ To use HPC Cluster Manager to deploy Azure nodes and to submit jobs, first perfo
 
 	![Topology 5][config_hpc3] 
 
-	>[WACOM.NOTE]This is the simplest configuration for demonstration purposes, because the head node only needs a single network adapter to connect to Active Directory and the Internet. This tutorial does not cover cluster scenarios that require additional networks. 
+	>[AZURE.NOTE]This is the simplest configuration for demonstration purposes, because the head node only needs a single network adapter to connect to Active Directory and the Internet. This tutorial does not cover cluster scenarios that require additional networks. 
 	 
 4. Click **Next** to accept default values on the remaining pages of the wizard. Then, on the **Review** tab, click **Configure** to complete the network configuration.
 
@@ -156,7 +156,7 @@ To use HPC Cluster Manager to deploy Azure nodes and to submit jobs, first perfo
 
 	![Installation Credentials][config_hpc6]
 
-	>[WACOM.NOTE]HPC Pack services only use installation credentials to deploy on-premises compute nodes.
+	>[AZURE.NOTE]HPC Pack services only use installation credentials to deploy on-premises compute nodes.
 	
 7. In the **Deployment To-do List**, click **Configure the naming of new nodes**. 
 
@@ -164,7 +164,7 @@ To use HPC Cluster Manager to deploy Azure nodes and to submit jobs, first perfo
 
 	![Node Naming][config_hpc8]
 
-	>[WACOM.NOTE]The naming series only generates names for domain-joined compute nodes. Azure nodes are named automatically.
+	>[AZURE.NOTE]The naming series only generates names for domain-joined compute nodes. Azure nodes are named automatically.
 	  
 9. In the **Deployment To-do List**, click **Create a node template**. You will use the node template to add Azure nodes to the cluster.
 
@@ -186,7 +186,7 @@ To use HPC Cluster Manager to deploy Azure nodes and to submit jobs, first perfo
 
 	e. Click **Next** to accept default values on the remaining pages of the wizard. Then, on the **Review** tab, click **Create** to create the node template.
 
-	>[WACOM.NOTE]By default, the Azure node template includes settings for you to start (provision) and stop the nodes manually. You can also configure a schedule to start and stop the Azure nodes automatically. 
+	>[AZURE.NOTE]By default, the Azure node template includes settings for you to start (provision) and stop the nodes manually. You can also configure a schedule to start and stop the Azure nodes automatically. 
 	
 <h2 id="#BKMK_worker">Add Azure nodes to the cluster</h2>
 

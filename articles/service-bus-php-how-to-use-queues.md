@@ -29,7 +29,7 @@ messages**, and **deleting queues**.
 
 The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP][download-sdk] from within your code. You can use any development tools to create your application, including Notepad.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Your PHP installation must also have the <a href="http://php.net/openssl">OpenSSL extension</a> installed and enabled.
 
 In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
@@ -47,7 +47,7 @@ To use the Azure Servise Bus queue APIs, you need to:
 
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.
 
 	require_once 'vendor\autoload.php';
@@ -114,7 +114,7 @@ The example below shows how to instantiate a **ServiceBusRestProxy** and call **
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > You can use the <b>listQueues</b> method on <b>ServiceBusRestProxy</b> objects to check if a queue with a specified name already exists within a service namespace.
 
 ##<a id="SendMessages"></a>How to: Send messages to a queue

@@ -26,7 +26,7 @@ This guide provides basic information about installing and setting up Azure Powe
 
 Azure is a subscription-based platform. This means that a subscription is required to use the platform. In most cases, it also means that the cmdlets require subscription information to perform the tasks with your subscription. (Some of the storage-related cmdlets can be used without this information.) You provide this by configuring your computer to connect to your subscription. Instructions are provided in this article, under "How to: Connect to your subscription."
 
-> [WACOM.NOTE] Beginning in version 0.8.5, the Azure PowerShell modules require Microsoft .NET Framework 4.5.
+> [AZURE.NOTE] Beginning in version 0.8.5, the Azure PowerShell modules require Microsoft .NET Framework 4.5.
 
 When you install the module, the installer checks your system for the required software and installs all dependencies, such as the correct version of Windows PowerShell and .NET Framework.
 
@@ -81,7 +81,7 @@ For more information about authentication and subscription management in Azure, 
         $cred = New-Object System.Management.Automation.PSCredential($userName, $securePassword)
         Add-AzureAccount -Credential $cred 
 
-	> [WACOM.NOTE] This non-interactive login method only works with a work or school account.  A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+	> [AZURE.NOTE] This non-interactive login method only works with a work or school account.  A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 	> 
 	> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
 	> 
@@ -140,7 +140,7 @@ location and file name format is:
 
     `Import-AzurePublishSettingsFile C:\Users\<UserProfile>\Downloads\<SubscriptionName>-credentials.publishsettings`
 
-> [WACOM.NOTE] If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this
+> [AZURE.NOTE] If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this
 process to download a new .publishsettings file, and then import those
 settings. For information about adding co-administrators to help manage
 services for a subscription, see [Add and Remove Co-Administrators for Your Azure Subscriptions](http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx).
