@@ -12,6 +12,8 @@
 
 - [Custom markdown extensions used in our technical articles](./custom-markdown-extensions.md)
 
+- [Create tables in markdown](./create-tables-markdown.md)
+
 - [File names and locations for Azure technical articles](./file-names-and-locations.md)
 
 - [Markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md)
