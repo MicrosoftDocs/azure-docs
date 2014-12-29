@@ -11,7 +11,7 @@ It's a common scenario to use software RAID on Linux virtual machines in Azure t
 ## Attaching data disks
 Two or more empty data disks will typically be needed to configure a RAID device.  This article will not go into detail on how to attach data disks to a Linux virtual machine.  Please see the Windows Azure article [attach a disk](http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/#attachempty) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
 
->[WACOM.NOTE] The ExtraSmall VM size does not support more than one data disk attached to the virtual machine.  Please see [Virtual Machine and Cloud Service Sizes for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx) for detailed information about VM sizes and the number of data disks supported.
+>[AZURE.NOTE] The ExtraSmall VM size does not support more than one data disk attached to the virtual machine.  Please see [Virtual Machine and Cloud Service Sizes for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx) for detailed information about VM sizes and the number of data disks supported.
 
 
 ## Install the mdadm utility
@@ -107,7 +107,7 @@ In this example, after running this command a new RAID device called **/dev/md12
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[WACOM.NOTE] A reboot may be required after making these changes on SUSE systems.
+	>[AZURE.NOTE] A reboot may be required after making these changes on SUSE systems.
 
 
 ## Add the new file system to /etc/fstab

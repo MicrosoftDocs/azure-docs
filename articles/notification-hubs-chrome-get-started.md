@@ -16,7 +16,7 @@
 <a href="/en-us/documentation/articles/notification-hubs-safari-get-started" title="Safari">Safari</a>
 </div>	
 
->[WACOM.NOTE] It looks like we don't have this content ready right now, but we wanted to let you know about it! If you're particularly interested in this topic, let us know by posting in the [Forums] or on [UserVoice].
+>[AZURE.NOTE] It looks like we don't have this content ready right now, but we wanted to let you know about it! If you're particularly interested in this topic, let us know by posting in the [Forums] or on [UserVoice].
 
 
 

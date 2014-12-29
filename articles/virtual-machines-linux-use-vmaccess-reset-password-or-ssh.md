@@ -51,7 +51,7 @@ With all the required values stored in variables, run the following command:
 
 	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-> [WACOM.NOTE] If you want to reset the password or SSH key for an existing user account, be sure to type the exact user name. If you type a different name, the VMAccess extension creates a new user account and assigns the password to that account.
+> [AZURE.NOTE] If you want to reset the password or SSH key for an existing user account, be sure to type the exact user name. If you type a different name, the VMAccess extension creates a new user account and assigns the password to that account.
 
 ### <a name="SSHkey"></a>Reset an SSH key
 
@@ -100,7 +100,7 @@ Run the following commands:
 	PS C:\> $Version =  '1.0'
 	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-> [WACOM.NOTE] The SSH configuration file is located at /etc/ssh/sshd_config.
+> [AZURE.NOTE] The SSH configuration file is located at /etc/ssh/sshd_config.
 
 ## Troubleshooting
 

@@ -8,7 +8,7 @@ In this getting started guide, we demonstrate the basics of using Microsoft Azur
 
 For users who may want to access files in a share from an on-premise application as well as from an Azure virtual machine or cloud service, we show how to use the Azure .NET Storage Client Library to work with the file share from a desktop application.
 
-> [WACOM.NOTE] Running the .NET code examples in this guide requires the Azure .NET Storage Client Library 4.x or later. The Storage Client Library is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
+> [AZURE.NOTE] Running the .NET code examples in this guide requires the Azure .NET Storage Client Library 4.x or later. The Storage Client Library is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
 
 ##Table of contents
@@ -73,7 +73,7 @@ For details about how to name shares, directories, and files, see [Naming and Re
 
 Azure File storage is currently in preview. To request access to the preview, navigate to the [Microsoft Azure Preview page](/en-us/services/preview/), and request access to **Azure Files**. Once your request is approved, you'll be notified that you can access the File storage preview. You can then create a storage account for accessing File storage.
 
-> [WACOM.NOTE] File storage is currently available only for new storage accounts. After your subscription is granted access to File storage, create a new storage account for use with this guide.
+> [AZURE.NOTE] File storage is currently available only for new storage accounts. After your subscription is granted access to File storage, create a new storage account for use with this guide.
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -83,7 +83,7 @@ Azure File storage is currently in preview. To request access to the preview, na
 
 To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/) for the install point and installation instructions.
 
-> [WACOM.NOTE] The PowerShell cmdlets for the File service are available only in the latest Azure PowerShell module, version 0.8.5 and later. It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
+> [AZURE.NOTE] The PowerShell cmdlets for the File service are available only in the latest Azure PowerShell module, version 0.8.5 and later. It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
 
 Open an Azure PowerShell window by clicking **Start** and typing **Windows Azure PowerShell**. The Azure PowerShell window loads the Azure Powershell module for you.
 
@@ -146,7 +146,7 @@ Once you have a remote connection to the virtual machine, you can execute the `n
 
 	net use z: \\<storage-account>.file.core.windows.net\<share-name>
 
-> [WACOM.NOTE] Since you persisted your storage account credentials in the previous step, you do not need to provide them with the `net use` command. If you have not already persisted your credentials, then include them as a parameter passed to the `net use` command. Replace `<storage-account>` with the name of your storage account, `<share-name>` with the name of your File storage share, and `<account-key>` with your storage account key:
+> [AZURE.NOTE] Since you persisted your storage account credentials in the previous step, you do not need to provide them with the `net use` command. If you have not already persisted your credentials, then include them as a parameter passed to the `net use` command. Replace `<storage-account>` with the name of your storage account, `<share-name>` with the name of your File storage share, and `<account-key>` with your storage account key:
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
@@ -182,7 +182,7 @@ Next, save your credentials in your project's app.config file. Edit the app.conf
 		</appSettings>
 	</configuration>
 
-> [WACOM.NOTE] The latest version of the Azure storage emulator does not support File storage. Your connection string must target an Azure storage account in the cloud with access to the Files preview.
+> [AZURE.NOTE] The latest version of the Azure storage emulator does not support File storage. Your connection string must target an Azure storage account in the cloud with access to the Files preview.
 
 
 ###Add namespace declarations

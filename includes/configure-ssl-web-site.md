@@ -1,6 +1,6 @@
 #Enable HTTPS for an Azure website
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
 
 You can secure the communication between the website and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your site are secure. This article discusses how to configure HTTPS for an Azure Website. 
@@ -15,7 +15,7 @@ The rest of this document provides details on enabling HTTPS for custom domains,
 
 To enable HTTPS for a custom domain, such as **contoso.com**, you must first register a custom domain name with a domain name registrar. For more information on how to configure the domain name of an Azure Website, see [Configuring a custom domain name for an Azure Web Site](/en-us/develop/net/common-tasks/custom-dns-web-site/). Once you have registered a custom domain name and configured your website to respond to the custom name, you must request an SSL certificate for the domain. 
 
-> [WACOM.NOTE] In order to enable HTTPS for custom domain names, you must configure your website for **Standard** web hosting plan mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and **Standard** pricing, see [Pricing Details][pricing]. 
+> [AZURE.NOTE] In order to enable HTTPS for custom domain names, you must configure your website for **Standard** web hosting plan mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and **Standard** pricing, see [Pricing Details][pricing]. 
 
 Once you have a valid custom domain, enabling HTTPS for your website consists of the following steps:
 
@@ -46,7 +46,7 @@ To get an SSL certificate for use with Azure Websites, you submit a Certificate 
 - [Get a SubjectAltName certificate using OpenSSL](#bkmk_subjectaltname)
 - [Generate self-signed certificates (for testing only)](#bkmk_selfsigned) 
 
-> [WACOM.NOTE] When following the steps, you will be prompted to enter a **Common Name**, such as `www.contoso.com`. For wildcard certificates, this value should be \*.domainname (for example, \*.contoso.com). If you need to support both a wildcard name like \*.contoso.com and a root domain name like contoso.com, you can use a wildcard subjectAltName certificate.
+> [AZURE.NOTE] When following the steps, you will be prompted to enter a **Common Name**, such as `www.contoso.com`. For wildcard certificates, this value should be \*.domainname (for example, \*.contoso.com). If you need to support both a wildcard name like \*.contoso.com and a root domain name like contoso.com, you can use a wildcard subjectAltName certificate.
 >
 > Elliptic Curve Cryptography (ECC) certificates are supported with Azure Websites; however, they are relatively new and you should work with your CA on the exact steps to create the CSR.
 
@@ -401,7 +401,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
 
 Enabling HTTPS for a custom domain is only available for the **Standard** web hosting plan mode of Azure websites. Use the following steps to switch to **Standard** mode.
 
-> [WACOM.NOTE] Before switching a website from the free website mode to **Standard** mode, you should remove spending caps in place for your Website subscription, otherwise you risk your site becoming unavailable if you reach your caps before the billing period ends. For more information on shared and **Standard** mode pricing, see [Pricing Details][pricing].
+> [AZURE.NOTE] Before switching a website from the free website mode to **Standard** mode, you should remove spending caps in place for your Website subscription, otherwise you risk your site becoming unavailable if you reach your caps before the billing period ends. For more information on shared and **Standard** mode pricing, see [Pricing Details][pricing].
 
 1. In your browser, open the [Management Portal][portal].
 
@@ -419,7 +419,7 @@ Enabling HTTPS for a custom domain is only available for the **Standard** web ho
 
 5. Click **Save**. When prompted, click **Yes**.
 
-	> [WACOM.NOTE] If you receive a "Configuring scale for website '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](http://www.windowsazure.com/en-us/support/options/).
+	> [AZURE.NOTE] If you receive a "Configuring scale for website '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](http://www.windowsazure.com/en-us/support/options/).
 
 
 ##<a name="bkmk_configuressl"></a>Configure SSL
@@ -450,7 +450,7 @@ Before performing the steps in this section, you must have associated a custom d
 
 6. Click **Save** to save the changes and enable SSL.
 
-> [WACOM.NOTE] If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps:
+> [AZURE.NOTE] If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps:
 >
 > 1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your website. You can find this IP address on the **Dashboard** page of your website, in the **quick glance** section. It will be listed as **Virtual IP Address**:
 >    
@@ -467,7 +467,7 @@ At this point, you should be able to visit your website using `HTTPS://` instead
 
 Azure Websites do *not* enforce HTTPS. Visitors may still access your site using HTTP, which may compromise your website's security. If you want to enforce HTTPS for your website, you can use the **URL Rewrite** module. The URL Rewrite module is included with Azure Websites, and enables you to define rules that are applied to incoming requests before the requests are handed to your application. **It can be used for applications written in any programming language supported by Azure Websites.** 
 
-> [WACOM.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to an Azure Web Site](/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+> [AZURE.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to an Azure Web Site](/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 > 
 > For information on programmatic redirection of requests using other programming languages and frameworks, consult the documentation for those technologies.
 
@@ -494,7 +494,7 @@ URL Rewrite rules are defined in a **web.config** file stored in the root of you
 
 This rule works by returning an HTTP status code of 301 (permanent redirect) when the user requests a page using HTTP. The 301 redirects the request to the same URL as the visitor requested, but replaces the HTTP portion of the request with HTTPS. For example, HTTP://contoso.com would be redirected to HTTPS://contoso.com.
 
-> [WACOM.NOTE] If your application is written in  **Node.js**, **PHP**, **Python Django**, or **Java**, it probably doesn't include a web.config file. However **Node.js**, **Python Django**, and **Java** all actually do use a web.config when hosted on Azure Websites - Azure creates the file automatically during deployment, so you never see it. If you include one as part of your application, it will override the one that Azure automatically generates.
+> [AZURE.NOTE] If your application is written in  **Node.js**, **PHP**, **Python Django**, or **Java**, it probably doesn't include a web.config file. However **Node.js**, **Python Django**, and **Java** all actually do use a web.config when hosted on Azure Websites - Azure creates the file automatically during deployment, so you never see it. If you include one as part of your application, it will override the one that Azure automatically generates.
 
 ###.NET
 

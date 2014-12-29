@@ -170,7 +170,7 @@ This tutorial uses the following folder structure:
 
 This tutorial uses the .txt files located in the %hadoop_home% directory.
 
-> [WACOM.NOTE] The Hadoop HDFS commands are case sensitive.
+> [AZURE.NOTE] The Hadoop HDFS commands are case sensitive.
 
 **To copy the text files to the emulator HDFS**
 

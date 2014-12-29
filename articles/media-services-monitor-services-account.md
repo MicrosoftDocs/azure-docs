@@ -11,7 +11,7 @@ The Azure Media Services dashboard presents usage metrics and account informatio
 
 You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder, as well as the blob storage usage associated with your Media Services account. In addition, if you are streaming content to customers, you can retrieve various streaming metrics as well. You can choose to monitor your data for the last 6 hours, 24 hours or 7 days.
  
->[WACOM.NOTE] Additional costs are associated with monitoring storage data in the Azure Management Portal. For more information, see [Storage Analytics and Billing](http://go.microsoft.com/fwlink/?LinkId=256667).
+>[AZURE.NOTE] Additional costs are associated with monitoring storage data in the Azure Management Portal. For more information, see [Storage Analytics and Billing](http://go.microsoft.com/fwlink/?LinkId=256667).
 
 <h2><a id="configuremonitoring"></a>How to: Monitoring a Media Services account</h2>
 
@@ -25,7 +25,7 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 1. Click the **STORAGE ACCOUNT** name under the **quick glance** section.
 2. On the storage account page, click the **configure page** link, and scroll down to the **monitoring** settings for the Blob, Table, and Queue services, shown below.
 
-	>[WACOM.NOTE] Blobs are the only supported storage type in Media Services.
+	>[AZURE.NOTE] Blobs are the only supported storage type in Media Services.
 
 	![StorageOptions][storage_options_scoped]
 

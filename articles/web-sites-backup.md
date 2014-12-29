@@ -38,7 +38,7 @@ Azure Websites backs up the following information:
 
 This information is backed up to the Azure storage account that you specify. 
 
-> [WACOM.NOTE] Each backup is a complete offline copy of your website, not an incremental update.
+> [AZURE.NOTE] Each backup is a complete offline copy of your website, not an incremental update.
 
 <a name="requirements"></a>
 ##Requirements and Restrictions
@@ -62,7 +62,7 @@ This information is backed up to the Azure storage account that you specify.
 	
 	![Choose databases to include][IncludedDatabases]
 
-	> [WACOM.NOTE] 	For a database to appear in this list, its connection string must exist in the **Connection Strings** section of the Configure tab in the portal.
+	> [AZURE.NOTE] 	For a database to appear in this list, its connection string must exist in the **Connection Strings** section of the Configure tab in the portal.
 	
 4. In the command bar, click **Backup Now**.
 	
@@ -99,13 +99,13 @@ You can make a manual backup at any time. During Preview, no more than 2 manual 
 	
 	![Choose start time][StartTime]
 	
-	> [WACOM.NOTE] Azure stores backup times in UTC format, but displays them in accordance with the system time on the computer that you are using to display the portal.
+	> [AZURE.NOTE] Azure stores backup times in UTC format, but displays them in accordance with the system time on the computer that you are using to display the portal.
 	
 5. In the **Included Databases** section, select the databases that are connected to your website (SQL Server or MySQL) that you want to back up. For a database to appear in the list, its connection string must exist in the **Connection Strings** section of the Configure tab in the portal.
 	
 	![Choose databases to include][IncludedDatabases]
 	
-	> [WACOM.NOTE] If you choose to include one or more databases in the backup and have specified a Frequency of less than 7 days, you will be warned that frequent backups can increase your database costs.
+	> [AZURE.NOTE] If you choose to include one or more databases in the backup and have specified a Frequency of less than 7 days, you will be warned that frequent backups can increase your database costs.
 	
 6. In the command bar, click the **Save** button to save your configuration changes (or choose **Discard** if you decide not to save them).
 	
@@ -124,7 +124,7 @@ The database backup file itself is stored in the root of the .zip file. For a SQ
 
 For information on restoring an Azure website (including databases) by using the Azure management portal, see [Restore a Microsoft Azure web site]( http://azure.microsoft.com/en-us/documentation/articles/web-sites-restore/).
 
-> [WACOM.NOTE] Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
+> [AZURE.NOTE] Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
 
 <a name="notes"></a>
 ## Notes

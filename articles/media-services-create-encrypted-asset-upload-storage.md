@@ -16,7 +16,7 @@ When you create assets, you can specify three different options for encryption.
 - **AssetCreationOptions.CommonEncryptionProtected**: for Common Encryption Protected (CENC) files. An example is a set of files that are already PlayReady encrypted. 
 - **AssetCreationOptions.StorageEncrypted**: storage encryption. Encrypts a clear input file before it is uploaded to Azure storage.
 
-> WACOM.NOTE
+> AZURE.NOTE
 > Media Services provides on-disk storage encryption for your assets, not over-the-wire like Digital Rights Manager (DRM).
 
 The sample code below does the following: 

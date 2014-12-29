@@ -83,7 +83,7 @@ If you are using the .NET backend for your mobile service, follow these steps to
 
     In the WebApiConfig.cs file, notice that your default database initializer class is derived from the `DropCreateDatabaseIfModelChanges` class. This means any change to the model will result in the table being dropped and recreated to accommodate the new model. So the data in the table will be lost and the table will be re-seeded. Modify the Seed method of the database initializer so that the `Seed()` initialization function as follows to initialize the new DueDate column. Save the WebApiConfig.cs file.
 
-    >[WACOM.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+    >[AZURE.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
 
 
         new TodoItem { Id = "1", Text = "First item", Complete = false, DueDate = DateTime.Today },

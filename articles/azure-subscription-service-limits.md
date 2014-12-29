@@ -19,7 +19,7 @@ The following document specifies some of the most common Microsoft Azure limits.
 - [Service Bus Limits](#servicebuslimits)
 - [Active Directory Limits](#adlimits)
 
-> [WACOM.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge][azurelimitsblogpost]. The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
+> [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge][azurelimitsblogpost]. The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
 ##<a name="subscription"></a>Subscription Limits
 

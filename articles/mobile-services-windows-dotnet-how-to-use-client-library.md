@@ -92,7 +92,7 @@ This is the typed serialization model; see discussion of the <a href="#untyped">
 
 This section describes how to issue queries to the mobile service. Subsections describe different aspects such as sorting, filtering, and paging.
 
->[WACOM.NOTE] A server-driven page size is used by default to prevent all rows from being returned. This keeps default requests for large data sets from negatively impacting the service. To return more than 50 rows, use the `Take` method, as described in [Return data in pages].  
+>[AZURE.NOTE] A server-driven page size is used by default to prevent all rows from being returned. This keeps default requests for large data sets from negatively impacting the service. To return more than 50 rows, use the `Take` method, as described in [Return data in pages].  
 
 ### <a name="filtering"></a>How to: Filter returned data
 

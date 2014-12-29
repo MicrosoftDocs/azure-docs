@@ -7,7 +7,7 @@
 
 Media Services enables you to add multiple streaming endpoints to your account and to configure the streaming endpoints. Each Media Services account has at least one streaming endpoint called **default** associated with it.
 
->[WACOM.NOTE] Streaming Endpoints used to be known as Origins. 
+>[AZURE.NOTE] Streaming Endpoints used to be known as Origins. 
 
 
 <h2>Adding and Deleting Streaming Endpoints</h2> 

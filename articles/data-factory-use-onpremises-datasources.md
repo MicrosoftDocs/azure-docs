@@ -8,7 +8,7 @@ To enable your pipelines in an Azure data factory to work with an on-premises da
  
 To be able to add an on-premises data source as a linked service to a data factory, you first need to download and install Microsoft Data Management Gateway on an on-premises computer and configure linked service for the on-premises data source to use the gateway .
  
-> [WACOM.NOTE] Only SQL Server is the supported on-premises data source at this moment.
+> [AZURE.NOTE] Only SQL Server is the supported on-premises data source at this moment.
 
 ## <a href="DMG"></a> Data Management Gateway
 
@@ -361,7 +361,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 
 		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialOnPremDF -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipelineOnPrem  
 
-	> [WACOM.NOTE] Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. Both StartDateTime and EndDateTime are UTC times and must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z.The EndDateTime is optional, but we will use in this tutorial.
+	> [AZURE.NOTE] Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. Both StartDateTime and EndDateTime are UTC times and must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z.The EndDateTime is optional, but we will use in this tutorial.
 	> If you do not specify **EndDateTime**, it is calculated as "**StartDateTime + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the **EndDateTime**.
 
 	In the example above, there will be 24 data slices as each data slice is produced hourly.

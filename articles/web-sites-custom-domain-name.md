@@ -54,7 +54,7 @@ The Domain Name System (DNS) uses data records to map domain names into IP addre
 
 If the IP address changes, a CNAME entry is still valid, whereas an A record must be updated. However, some domain registrars do not allow CNAME records for the root domain or for wildcard domains. In that case, you must use an A record. 
 
-> [WACOM.NOTE] The IP address may change if you delete and recreate your website, or change the website mode back to free.
+> [AZURE.NOTE] The IP address may change if you delete and recreate your website, or change the website mode back to free.
 
 
 ## Find the virtual IP address 

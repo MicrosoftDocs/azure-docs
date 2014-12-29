@@ -9,7 +9,7 @@
 
 
 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > The easiest way to check the version number is to look in Add/Remove Programs at the entry for "Microsoft HDInsight Emulator for Azure" (for version 1.0.0.0 or greater) or "Microsoft HDInsight Developer Preview" (for versions less than 1.0.0.0). 
 
 ## v2.0.0.0, Released 8/29/2014

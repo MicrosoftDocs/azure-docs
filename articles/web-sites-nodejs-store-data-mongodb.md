@@ -15,13 +15,13 @@ You will learn:
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in MongoDB.
 
-> [WACOM.NOTE] This tutorial uses an instance of MongoDB installed on a virtual machine. If you would rather use a hosted MongoDB instance provided  by MongoLabs, see <a href="/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/">Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On</a>.
+> [AZURE.NOTE] This tutorial uses an instance of MongoDB installed on a virtual machine. If you would rather use a hosted MongoDB instance provided  by MongoLabs, see <a href="/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/">Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On</a>.
  
 The project files for this tutorial will be stored in a directory named **tasklist** and the completed application will look similar to the following:
 
 ![A web page displaying an empty tasklist][node-mongo-finished]
 
-> [WACOM.NOTE] Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as __Windows PowerShell__ (Windows) or __Bash__ (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+> [AZURE.NOTE] Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as __Windows PowerShell__ (Windows) or __Bash__ (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
 
 ##Prerequisites
 
@@ -41,7 +41,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 While it is possible to create a new VM, and then install MongoDB into it following the [MongoDB installation guides][installguides], most of this work has already been performed by the community, and is available in the VM Depot. The following steps demonstrate how to use an image from VM Depot that already has Mongo DB installed and configured. 
 
-> [WACOM.NOTE] The community image used by this tutorial stores MongoDB data on the OS disk. While this is sufficient for tutorial purposes, storing MongoDB data on a data disk will provide greater performance. For steps on creating a new VM, including a data disk, and storing MongoDB data on the data disk, see [Install MongoDB on Linux on Azure][mongodbonazure].
+> [AZURE.NOTE] The community image used by this tutorial stores MongoDB data on the OS disk. While this is sufficient for tutorial purposes, storing MongoDB data on a data disk will provide greater performance. For steps on creating a new VM, including a data disk, and storing MongoDB data on the data disk, see [Install MongoDB on Linux on Azure][mongodbonazure].
 
 1. Log in to the [Azure Management portal][azureportal], select __Virtual Machines__, select __Images__, and then select __VM Depot__.
 
@@ -51,7 +51,7 @@ While it is possible to create a new VM, and then install MongoDB into it follow
 
 	![screenshot of selected mongodb v2.2.3 on hardened ubuntu image][selectedimage]
 
-	> [WACOM.NOTE] Be sure to select __More__ to see all information about the image. Some images may have additional configuration that is required after you have created a VM using the image.
+	> [AZURE.NOTE] Be sure to select __More__ to see all information about the image. Some images may have additional configuration that is required after you have created a VM using the image.
 
 	Click the arrow at the bottom to proceed to the next screen.
 
@@ -59,7 +59,7 @@ While it is possible to create a new VM, and then install MongoDB into it follow
 	
 	![screenshot of choose a storage account][selectstorage]
 
-	> [WACOM.NOTE] This will start a copy process that copies the image from the VM Depot to the specified storage account. This can take quite a bit of time, 15 minutes or longer.
+	> [AZURE.NOTE] This will start a copy process that copies the image from the VM Depot to the specified storage account. This can take quite a bit of time, 15 minutes or longer.
 
 4. Once the status for the image changes to __Pending registration__, select __Register__ and enter a friendly name for the new image. Click the check mark to continue.
 
@@ -73,7 +73,7 @@ While it is possible to create a new VM, and then install MongoDB into it follow
 
 	![screenshot of the vm name, user name, etc.][vmname]
 
-	>[WACOM.NOTE] For this tutorial, you will not need to use SSH to remotely connect to your VM. Select **Use a password** and provide a password if you are not familiar with using a certificate with SSH.
+	>[AZURE.NOTE] For this tutorial, you will not need to use SSH to remotely connect to your VM. Select **Use a password** and provide a password if you are not familiar with using a certificate with SSH.
 	>
 	> For more information on using SSH with a Linux VM on Azure, see [How to use SSH with Linux on Azure][sshazure].
 
@@ -121,13 +121,13 @@ In this section you will create a new Node application on your development envir
 
 1. From the command-line, change directories to the **tasklist** directory. If the **tasklist** directory does not exist, create it.
 
-	> [WACOM.NOTE] This tutorial makes reference to the __tasklist__ folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as __~/node/tasklist__ or __c:\node\tasklist__
+	> [AZURE.NOTE] This tutorial makes reference to the __tasklist__ folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as __~/node/tasklist__ or __c:\node\tasklist__
 
 2. Enter the following command to install the express command.
 
 	npm install express-generator -g
  
-	> [WACOM.NOTE] When using the '-g' parameter on some operating systems, you may receive an error of ___Error: EPERM, chmod '/usr/local/bin/express'___ and a request to try running the account as an administrator. If this occurs, use the `sudo` command to run npm at a higher privilege level.
+	> [AZURE.NOTE] When using the '-g' parameter on some operating systems, you may receive an error of ___Error: EPERM, chmod '/usr/local/bin/express'___ and a request to try running the account as an administrator. If this occurs, use the `sudo` command to run npm at a higher privilege level.
 
     The output of this command should appear similar to the following:
 
@@ -135,7 +135,7 @@ In this section you will create a new Node application on your development envir
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)                                                                         
  
-	> [WACOM.NOTE] The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the ___express___ command to generate website scaffolding without having to type in additional path information.
+	> [AZURE.NOTE] The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the ___express___ command to generate website scaffolding without having to type in additional path information.
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
@@ -251,7 +251,7 @@ The **package.json** file is one of the files created by the **express** command
 		├── mquery@0.5.3
 		└── mongodb@1.3.23 (kerberos@0.0.3, bson@0.2.5)         
 
-    > [WACOM.NOTE] You can safely ignore any message about installing the C++ bson parser.
+    > [AZURE.NOTE] You can safely ignore any message about installing the C++ bson parser.
 
 ##Using MongoDB in a node application
 
@@ -447,9 +447,9 @@ To test the application on your local machine, perform the following steps:
 
 The steps in this section use the Azure command-line tools to create a new Azure Website, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
-> [WACOM.NOTE] These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Website</a>.
+> [AZURE.NOTE] These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Website</a>.
 
-> [WACOM.NOTE] If this is the first Azure Website you have created, you must use the Azure portal to deploy this application.
+> [AZURE.NOTE] If this is the first Azure Website you have created, you must use the Azure portal to deploy this application.
 
 ###Install the Azure cross-platform command-line interface
 
@@ -467,9 +467,9 @@ The Azure Cross-Platform Command-Line Interface (xplat-cli) allows you to perfor
 	
 	The `--git` parameter will create a Git repository locally in the **tasklist** folder if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Azure. It will create an [iisnode.yml], which contains settings used by Azure to host node applications. Finally it will also create a .gitignore file to exclude the node-modules folder for being published to .git.
 	
-	> [WACOM.NOTE] If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
+	> [AZURE.NOTE] If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
 	
-	> [WACOM.NOTE] If the '--git' parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
+	> [AZURE.NOTE] If the '--git' parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
 	
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the website.
 
@@ -484,7 +484,7 @@ The Azure Cross-Platform Command-Line Interface (xplat-cli) allows you to perfor
 		info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`
 		info:   site create command OK
 
-	> [WACOM.NOTE> If this is the first Azure Website for your subscription, you will be instructed to use the portal to create the website. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to Azure Websites</a>.
+	> [AZURE.NOTE> If this is the first Azure Website for your subscription, you will be instructed to use the portal to create the website. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to Azure Websites</a>.
 
 ###Set the MONGODB_URI environment variable
 

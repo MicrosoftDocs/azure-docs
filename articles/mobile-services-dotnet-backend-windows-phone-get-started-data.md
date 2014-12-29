@@ -34,7 +34,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
    	![][1]
 
-	>[WACOM.NOTE]To create a Windows Phone Silverlght 8.1 app, just change the target OS in the downloaded Windows Phone Silverlight 8 app project to Windows Phone 8.1. To create a Windows Phone Store app, download the [Windows Phone Store app version](http://go.microsoft.com/fwlink/p/?LinkId=397372) of the GetStartedWithData sample app project.
+	>[AZURE.NOTE]To create a Windows Phone Silverlght 8.1 app, just change the target OS in the downloaded Windows Phone Silverlight 8 app project to Windows Phone 8.1. To create a Windows Phone Store app, download the [Windows Phone Store app version](http://go.microsoft.com/fwlink/p/?LinkId=397372) of the GetStartedWithData sample app project.
 
 2. Run Visual Studio with administrative privileges by right clicking Visual Studio and clicking **Run as administrator**.
 
@@ -71,7 +71,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 3. Also under that section, click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded. 
 
-    > [WACOM.NOTE] Save the file in a safe place because it does contain sensitive information pertaining to your Azure account. You will delete this file after publishing the mobile service later in this tutorial. 
+    > [AZURE.NOTE] Save the file in a safe place because it does contain sensitive information pertaining to your Azure account. You will delete this file after publishing the mobile service later in this tutorial. 
 
     ![][5]
 
@@ -214,7 +214,7 @@ In this section you will use Visual Studio to test the app and mobile service lo
 
 8. In Visual Studio, press the F5 key or click **Start Debugging** from the Debug menu to run the app and host the mobile service locally in IIS Express. 
 
-    >[WACOM.NOTE] Make you you did run Visual Studio with the **Run as administrator** option. Otherwise, IIS Express may not load your applicationhost.config changes.
+    >[AZURE.NOTE] Make you you did run Visual Studio with the **Run as administrator** option. Otherwise, IIS Express may not load your applicationhost.config changes.
 
     ![][12]
 

@@ -132,7 +132,7 @@ image below shows the *AllTags* view in portrait mode (from choosing
 
 	![][AllTags]
 
->[WACOM.NOTE] While you can debug your MVC 5 application from within Visual Studio, you can publish your Website to Windows Azure again to verify the live site directly from your mobile browser or a browser emulator.
+>[AZURE.NOTE] While you can debug your MVC 5 application from within Visual Studio, you can publish your Website to Windows Azure again to verify the live site directly from your mobile browser or a browser emulator.
 
 The display is very readable on a mobile device. You can also already
 see some of the visual effects applied by the Bootstrap CSS framework.
@@ -260,7 +260,7 @@ condition you defined (that is, if the user agent contains the string
 "iPhone"), ASP.NET MVC will look for views whose name contains the
 "iPhone" suffix.
 
->[WACOM.NOTE] When adding mobile browser-specific display modes, such as for iPhone and Android, be sure to set the first argument to `0` (insert at the top of the list) to make sure that the browser-specific mode takes precedence over the mobile template (*.Mobile.cshtml). If the mobile template is at the top of the list instead, it will be selected over your intended display mode (the first match wins, and the mobile template matches all mobile browsers). 
+>[AZURE.NOTE] When adding mobile browser-specific display modes, such as for iPhone and Android, be sure to set the first argument to `0` (insert at the top of the list) to make sure that the browser-specific mode takes precedence over the mobile template (*.Mobile.cshtml). If the mobile template is at the top of the list instead, it will be selected over your intended display mode (the first match wins, and the mobile template matches all mobile browsers). 
 
 In the code, right-click `DefaultDisplayMode`, choose **Resolve**, and
 then choose `using System.Web.WebPages;`. This adds a reference to the
@@ -487,7 +487,7 @@ And the refreshed mobile browser looks as follows:
 
 ![][AllTagsFixed]
 
->[WACOM.NOTE] If you notice that the original list formatting is still there in the mobile browser and wonder what happened to your nice Bootstrap styling, this is an artifact of your earlier action to create mobile specific views. However, now that you are using the Bootstrap CSS framework to create a responsive web design, go head and remove these mobile-specific views and the mobile-specific layout views. Once you have done so, the refreshed mobile browser will show the Bootstrap styling.
+>[AZURE.NOTE] If you notice that the original list formatting is still there in the mobile browser and wonder what happened to your nice Bootstrap styling, this is an artifact of your earlier action to create mobile specific views. However, now that you are using the Bootstrap CSS framework to create a responsive web design, go head and remove these mobile-specific views and the mobile-specific layout views. Once you have done so, the refreshed mobile browser will show the Bootstrap styling.
 
 <h2><a name="bkmk_improvedates"></a> Improve the Dates List</h2>
 

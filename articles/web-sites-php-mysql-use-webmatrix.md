@@ -24,7 +24,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 ![Azure PHP Web Site][running-app]
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > To complete this tutorial, you need an Azure account. You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/">activate your MSDN subscriber benefits</a> or <a href="http://azure.microsoft.com/en-us/pricing/free-trial/">sign up for a free trial</a>.
 > 
 > If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
@@ -58,7 +58,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	![Custom Create a new Web Site][NewWebSite2]
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> You cannot create a MySQL Database for a website after creating the website. You must create a website and a MySQL database as described in the steps below.
 
 1. Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.

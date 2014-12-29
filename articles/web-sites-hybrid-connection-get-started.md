@@ -6,7 +6,7 @@
 
 You can connect a website on Microsoft Azure to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. This article shows you how to create a hybrid connection between an Azure website and an on-premises SQL Server database.
 
-> [WACOM.NOTE] The Websites portion of the Hybrid Connections feature is available only in the [Azure Preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+> [AZURE.NOTE] The Websites portion of the Hybrid Connections feature is available only in the [Azure Preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ##Prerequisites
 - An Azure subscription. For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/). 
@@ -18,7 +18,7 @@ You can connect a website on Microsoft Azure to any on-premises resource that us
 	- Must be able to connect to Azure over port 5671
 	- Must be able to reach the *hostname*:*portnumber* of your on-premises resource. 
 
-> [WACOM.NOTE] The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.
+> [AZURE.NOTE] The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.
 
 
 ##In This Article##
@@ -35,7 +35,7 @@ You can connect a website on Microsoft Azure to any on-premises resource that us
 
 ## Create a Website in the Azure Preview Portal ##
 
-> [WACOM.NOTE] If you have already created a website in the Azure Preview Portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and start from there.
+> [AZURE.NOTE] If you have already created a website in the Azure Preview Portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and start from there.
 
 1. In the lower left corner of the [Azure Preview Portal](https://portal.azure.com), click **New**, and then choose **Website**.
 	

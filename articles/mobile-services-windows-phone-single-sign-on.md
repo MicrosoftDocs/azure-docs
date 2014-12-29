@@ -10,7 +10,7 @@
 
 This topic shows you how to use Live Connect single sign-on to authenticate users in Azure Mobile Services from a Windows Phone 8 app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
 
->[WACOM.NOTE]This tutorial demonstrates the benefits of using the single sign-on experience provided by Live Connect for Windows Phone apps. This enables you to more easily authenticate an already logged-on user with you mobile service. For a more generalized authentication experience that supports multiple authentication providers, see the topic <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-users">Add authentication to your app</a>. 
+>[AZURE.NOTE]This tutorial demonstrates the benefits of using the single sign-on experience provided by Live Connect for Windows Phone apps. This enables you to more easily authenticate an already logged-on user with you mobile service. For a more generalized authentication experience that supports multiple authentication providers, see the topic <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-users">Add authentication to your app</a>. 
 
 This tutorial walks you through these basic steps to enable Live Connect authentication:
 

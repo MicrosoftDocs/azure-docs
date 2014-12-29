@@ -44,11 +44,11 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
 	![zone file editor](./media/web-sites-custom-domain-name/e-editrecords.png)
 
-	> [WACOM.NOTE] Before adding entries to the zone file, note that eNom has already created DNS records for the root domain ('@') and a wildcard for sub-domains ('\*'). If you wish to redirect the root domain to your website, or use a wildcard A record, you should modify these entries instead of creating new ones.
+	> [AZURE.NOTE] Before adding entries to the zone file, note that eNom has already created DNS records for the root domain ('@') and a wildcard for sub-domains ('\*'). If you wish to redirect the root domain to your website, or use a wildcard A record, you should modify these entries instead of creating new ones.
 
 	* When adding a CNAME record, you must set the **Host Name** field to the sub-domain you wish to use. For example, **www**. You must set the **Address** field to the **.azurewebsites.net** domain name of your Azure Website. For example, **contoso.azurwebsites.net**.
 
-		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
+		> [AZURE.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
 		> 
 		> * An **Alias** value of **www** with an **Other host** value of **&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 
@@ -60,7 +60,7 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
 	* When adding an A record, you must set the **Host Name** field to either **@** (this represents root domain name, such as **contoso.com**,) * (a wildcard for matching multiple sub-domains,) or the specific sub-domain you wish to use (for example, **www**.) You must set the **Address** field to the IP address of your Azure Website.
 
-		> [WACOM.NOTE] When adding an A record, you must also add a CNAME record with a host of **awverify**, and a **Points to** of **awverify.&lt;yourwebsitename&gt;.azurewebsites.net.
+		> [AZURE.NOTE] When adding an A record, you must also add a CNAME record with a host of **awverify**, and a **Points to** of **awverify.&lt;yourwebsitename&gt;.azurewebsites.net.
 
 5. When you have finished adding or modifying records, click **Save** to save the changes.
 

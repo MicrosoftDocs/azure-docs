@@ -9,7 +9,7 @@ Microsoft Azure Automation provides a way for developers to automate the manual,
 
 This tutorial walks you through the steps to import a sample "Hello World" runbook into Azure Automation, execute the runbook, and then view its output.
 
->[WACOM.NOTE] To learn how to automate Azure operations using the [Azure PowerShell cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) see <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Azure Automation: Authenticating to Azure using Azure Active Directory</a>.
+>[AZURE.NOTE] To learn how to automate Azure operations using the [Azure PowerShell cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) see <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Azure Automation: Authenticating to Azure using Azure Active Directory</a>.
 
 ## Samples and utility runbooks
 
@@ -17,7 +17,7 @@ The Azure Automation team has created a number of runbook samples to help you ge
 
 The Automation team has also created utility runbooks that you can use as building blocks for larger Automation tasks.  
 
->[WACOM.NOTE] It's a best practice to write small, modular, reusable runbooks. We also strongly recommend that you create your own utility runbooks for commonly used scenarios after you're familiar with Automation.  
+>[AZURE.NOTE] It's a best practice to write small, modular, reusable runbooks. We also strongly recommend that you create your own utility runbooks for commonly used scenarios after you're familiar with Automation.  
 
 You can view and download the Automation team’s sample and utility runbooks on [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029) or import them directly from the [Runbook Gallery](http://aka.ms/runbookgallery). 
 
@@ -49,7 +49,7 @@ In this video, Eamon O'Reilly and Scott Hanselman introduce Azure Automation ser
 
 2.	In the Management Portal, click **Create an Automation Account**.
 
-	>[WACOM.NOTE] If you’ve already created an automation account, you can skip to step 4.
+	>[AZURE.NOTE] If you’ve already created an automation account, you can skip to step 4.
 
 	![Create Account](./media/automation/automation_01_CreateAccount.png)
 

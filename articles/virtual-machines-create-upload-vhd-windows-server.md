@@ -128,7 +128,7 @@ A storage account represents the highest level of the namespace for accessing th
 
 	![Container name](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
 
-	> [WACOM.NOTE] By default, the container is private and can be accessed only by the account owner. To allow public read access to the blobs in the container, but not the container properties and metadata, use the "Public Blob" option. To allow full public read access for the container and blobs, use the "Public Container" option.
+	> [AZURE.NOTE] By default, the container is private and can be accessed only by the account owner. To allow public read access to the blobs in the container, but not the container properties and metadata, use the "Public Blob" option. To allow full public read access for the container and blobs, use the "Public Container" option.
 
 ## <a id="PrepAzure"> </a>Step 3: Prepare the connection to Microsoft Azure ##
 

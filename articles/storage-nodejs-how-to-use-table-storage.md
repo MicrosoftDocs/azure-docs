@@ -133,7 +133,7 @@ The following is an example of defining an entity. Note that **dueDate** is defi
 	  dueDate: {'_':new Date(2015, 6, 20), '$':'Edm.DateTime'}
 	};
 
-> [WACOM.NOTE] There is also a **Timestamp** field for each record, which is set by Azure when an entity is inserted or updated.
+> [AZURE.NOTE] There is also a **Timestamp** field for each record, which is set by Azure when an entity is inserted or updated.
 
 You can also use the **entityGenerator** to create entities. The following example creates the same task entity using the **entityGenerator**.
 
@@ -156,7 +156,7 @@ the **insertEntity** method.
 
 If the operation is successful, `result` will contain the [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) of the inserted record and `response` will contain information about the operation.
 
-> [WACOM.NOTE] By default, **insertEntity** does not return the inserted entity as part of the `response` information. If you plan on performing other operations on this entity, or wish to cache the information, it can be useful to have it returned as part of the `result`. You can do this by enabling **echoContent** as follows:
+> [AZURE.NOTE] By default, **insertEntity** does not return the inserted entity as part of the `response` information. If you plan on performing other operations on this entity, or wish to cache the information, it can be useful to have it returned as part of the `result`. You can do this by enabling **echoContent** as follows:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
@@ -180,7 +180,7 @@ The following example demonstrates updating an entity using **updateEntity**:
       }
     });
 
-> [WACOM.NOTE] By default, updating an entity does not check to see if the data being updated has previously been modified by another process. To support concurrent updates:
+> [AZURE.NOTE] By default, updating an entity does not check to see if the data being updated has previously been modified by another process. To support concurrent updates:
 > 
 > 1. Get the ETag of the object being updated. This is returned as part of the `response` for any entity related operation and can be retrieved through `response['.metadata'].etag`.
 > 
@@ -314,7 +314,7 @@ passed to the **deleteEntity** method.
 	  }
 	});
 
-> [WACOM.NOTE] You should consider using ETags when deleting items, to ensure that the item hasn't been modified by another process. See [How To: Update an Entity][] for information in using ETags.
+> [AZURE.NOTE] You should consider using ETags when deleting items, to ensure that the item hasn't been modified by another process. See [How To: Update an Entity][] for information in using ETags.
 
 ## <a name="delete-table"> </a>How to Delete a Table
 

@@ -85,7 +85,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
             }
         );
 8. Add the following code that creates a **linked service** to the **Main** method. 
-	> [WACOM.NOTE] Use **account name** and **account key** of your Azure storage account for the **ConnectionString**. 
+	> [AZURE.NOTE] Use **account name** and **account key** of your Azure storage account for the **ConnectionString**. 
 
 		// create a linked service
         Console.WriteLine("Creating a linked service");

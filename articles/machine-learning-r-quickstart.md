@@ -246,7 +246,7 @@ source("src/yourfile.R") # Reads an zipped R script
 load("src/yourData.rdata") # Reads a zipped R data file
 ```
 
-> [WACOM.NOTE] Azure ML treats files in the zip as if they are in the src/ directory, so you need to prefix your file names with this directory name.  
+> [AZURE.NOTE] Azure ML treats files in the zip as if they are in the src/ directory, so you need to prefix your file names with this directory name.  
 
 We already discussed loading data sets in [Loading the dataset](#loading).  Once you have created and tested the R script shown in the previous section do the following:
 
@@ -304,7 +304,7 @@ Execute your experiment by clicking on the **Run** button.  When the execution f
 
 These results are mostly as expected, with 228 observations and 9 columns in the dataframe.  We can see the column names, the R data type and a sample of each column.
 
-> [WACOM.NOTE] This same printed output is conveniently available from the R Device output of the Execute R Script module.  We will discuss the outputs of the Execute R module in the next section.  
+> [AZURE.NOTE] This same printed output is conveniently available from the R Device output of the Execute R Script module.  We will discuss the outputs of the Execute R module in the next section.  
 
 ####Dataset2
 
@@ -419,7 +419,7 @@ R dataframes support powerful filtering capabilities.  Datasets can be subsetted
 
 There is one bit of filtering we should do on our dataset. If you look at the columns in the cadariydata dataframe, you will see two unnecessary columns.  The first column just holds a row number, which is not very useful. The second, Year.Month, column contains redundant information.  We can easily exclude these columns using the following R code.
 
-> [WACOM.NOTE] From now on in this section, I will just show you the additional code I am adding in the execute R Script module.  I will add each new line **before** the `str()` function. I use this function to verify my results in Azure ML Studio.
+> [AZURE.NOTE] From now on in this section, I will just show you the additional code I am adding in the execute R Script module.  I will add each new line **before** the `str()` function. I use this function to verify my results in Azure ML Studio.
 
 I add the following line to my R code in the Execute R Script module.
 

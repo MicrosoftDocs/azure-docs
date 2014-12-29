@@ -28,7 +28,7 @@ This topic performs the following steps:
 
 ![Architecture](./media/virtual-machines-mariadb-cluster/Setup.png)
 
-> [WACOM.NOTE]  This topic uses the [Azure CLI] tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, check out this link for the [Azure CLI command reference]. You will also need to [create an SSH key for authentication] and make note of the **.pem file location**.
+> [AZURE.NOTE]  This topic uses the [Azure CLI] tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, check out this link for the [Azure CLI command reference]. You will also need to [create an SSH key for authentication] and make note of the **.pem file location**.
 
 
 ## Creating the template
@@ -202,7 +202,7 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
 		
 	- Edit the **[mariadb]** section and append the below
 	
-	> [WACOM.NOTE] It is recommended that **innodb\_buffer\_pool_size** be 70% of your VM's memory. It has been set at 2.45GB here for the Medium Azure VM with 3.5GB of RAM.
+	> [AZURE.NOTE] It is recommended that **innodb\_buffer\_pool_size** be 70% of your VM's memory. It has been set at 2.45GB here for the Medium Azure VM with 3.5GB of RAM.
 	
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -231,7 +231,7 @@ Create 3 VMs out of the template you just created and then configure and start t
 
 1. Create the first CentOS 7 VM from the **mariadb-galera-image** image you created, providing the virtual network name **mariadbvnet** and the subnet **mariadb**, machine size **Medium**, passing in the Cloud Service name to be **mariadbha** (or whatever name you want to be accessed through mariadbha.cloudapp.net), setting the name of this machine to be **mariadb1**  and the username to be **azureuser**,  and enabling SSH access and passing the SSH certificate .pem file and replacing **/path/to/key.pem** with the path where you stored the generated .pem SSH key.
 
-	> [WACOM.NOTE] The commands below are split over multiple lines for clarity, but you should enter each as one line.
+	> [AZURE.NOTE] The commands below are split over multiple lines for clarity, but you should enter each as one line.
 
 		azure vm create 
         --virtual-network-name mariadbvnet

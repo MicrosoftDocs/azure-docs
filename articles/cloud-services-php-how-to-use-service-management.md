@@ -116,7 +116,7 @@ When you create a cloud service, storage service, or affinity group, you will ne
 - West US 
 - East US
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > In the code examples that follow, locations are passed to methods as strings. However, you can also pass locations as enumerations using the <code>WindowsAzure\ServiceManagement\Models\Locations</code> class. For example, instead of passing "West US" to a method that accepts a location, you could pass <code>Locations::WEST_US</code>.
 
 ##<a id="CreateCloudService"></a>How to: Create a cloud service

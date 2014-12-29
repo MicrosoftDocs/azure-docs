@@ -18,7 +18,7 @@ The following areas are addressed in this guide:
 - [Secure the Web Site with SSL](#ssl)
 - [Monitor the Site](#monitor)
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > This guide presents some of the most common areas and tasks that are aligned with public-facing .COM site development. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">Digital Marketing Campaigns</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview">Business Applications</a>.
 > 
 > If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
@@ -62,7 +62,7 @@ You can also choose to deploy through a source control management service, such 
 
 If you plan to use Visual Studio to create and manage your site, you can choose to publish directly from Visual Studio. One method is to click the **Download the publish profile** option. This allows you to save a publishsettings file that can be imported into Visual Studio for web publishing. 
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > It is important to keep the <i>publishsettings</i> file safe and outside of source control, because it contains user names and passwords for both deployment and also any linked database connection strings.
 
 It is also possible to import the subscription information directly into Visual Studio. For an example, consider a local ASP.NET project in Visual Studio. Right-click on the web project and select **Publish**. The **Import** button in the **Publish Web** dialog enables you to import either a file that contains your Azure subscription settings or the publishsettings file that you downloaded from the Websites dashboard. The following screenshot shows these options.
@@ -82,7 +82,7 @@ Although these steps provide what you need for deploying your .COM site, you sho
 ##<a name="customdomain"></a>Add a Custom Domain
 If this is your global web presence, you will want to associate your registered domain name with the website. There are many third-party providers that provide domain registration services. Each of these providers supports the creation of different types of DNS records to manage your domain. A DNS record helps to map a user-friendly URL, such as "www.contoso.com", to the actual URL or IP address that hosts the site. 
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > In the discussion below, there are two DNS record types of interest. First, a CNAME record can redirect from one URL, such as "www.contoso.com", to a different URL, such as "contoso.azurewebsites.net". Second, an A record can map a URL, such as "www.contoso.com", to an IP address, such as 172.16.48.1.
 
 For Azure Websites, you must first create a CNAME record to the Azure Website. This setting is done through the third-party registrar's site. The following is an example CNAME record.

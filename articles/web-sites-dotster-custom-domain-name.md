@@ -46,7 +46,7 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
     ![Dotster Domain Configuration Options](.\media\web-sites-dotster-custom-domain-name\Dotster_Nameservers.png)
 
-    > [WACOM.NOTE] It can take 24-48 hours for the name servers change to take affect. The remainder of steps in this article do not work until that time.
+    > [AZURE.NOTE] It can take 24-48 hours for the name servers change to take affect. The remainder of steps in this article do not work until that time.
 
 4. In DomainCentral, select your domain, and then select **DNS**. In the **Modify** list, select the type of DNS record to add (**CNAME Alias** or **A Record**). 
 
@@ -60,7 +60,7 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
     * When adding an A record, you must set the **Host** field to either **@** (this represents root domain name, such as **contoso.com**,) or the sub-domain you wish to use (for example, **www**.) You must set the **Points To** field to the IP address of your Azure Website.
 
-		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
+		> [AZURE.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
 		> 
 		> * A **Host** value of **www** that **Points To** a value of **&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 

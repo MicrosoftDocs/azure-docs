@@ -9,7 +9,7 @@
 
 Socket.IO provides real-time communication between your node.js server and clients using WebSockets. It also supports fallback to other transports (such as long polling,) that work with older browsers. This tutorial will walk you through hosting a Socket.IO based chat application as an Azure Website. For more information on Socket.IO, see [http://socket.io/][socketio].
 
-> [WACOM.NOTE] The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/">Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service</a>.
+> [AZURE.NOTE] The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/">Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service</a>.
 
 
 ## <a id="Download"></a>Download the Chat Example
@@ -76,13 +76,13 @@ install required modules::
 
         npm install socket.io@1.0.6 -save
 
-	> [WACOM.NOTE] While newer versions of Socket.IO may work with the steps in this article, it was tested with version 1.0.6.
+	> [AZURE.NOTE] While newer versions of Socket.IO may work with the steps in this article, it was tested with version 1.0.6.
 
 ## <a id="Publish"></a>Create an Azure Website
 
 Follow these steps to create an Azure Website, enable Git publishing, and then enable WebSocket support for the website.
 
-> [WACOM.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
 
 1. From the command-line, change directories to the **\\node\chat** directory and use the following command to create a new Azure Website and enable a Git repository for the website and the local directory. This will also create a Git remote named 'azure'.
 
@@ -101,7 +101,7 @@ Follow these steps to create an Azure Website, enable Git publishing, and then e
 
 	You will receive status messages as modules are imported on the server. Once this process has completed, the application will be hosted on your Azure Website.
 
- 	> [WACOM.NOTE] During module installation, you may notice errors that 'The imported project ... was not found'. These can safely be ignored.
+ 	> [AZURE.NOTE] During module installation, you may notice errors that 'The imported project ... was not found'. These can safely be ignored.
 
 4. Socket.IO uses WebSockets, which are not enabled by default on Azure. To enable web sockets, use the following command:
 
@@ -109,7 +109,7 @@ Follow these steps to create an Azure Website, enable Git publishing, and then e
 
 	If prompted, enter the name of the website.
 
-	>[WACOM.NOTE]
+	>[AZURE.NOTE]
 	>The 'azure site set -w' command will only work with version 0.7.4 or higher of the Azure Cross-Platform Command-Line Interface. You can also enable WebSocket support using the Azure Management Portal.
 	>
 	>To enable WebSockets using the [Azure Management Portal](https://manage.windowsazure.com), select the Configure page for your website, select 'ON' for the Web Sockets entry, and then click Save.
@@ -123,19 +123,19 @@ Follow these steps to create an Azure Website, enable Git publishing, and then e
 Your application is now running on Azure, and can relay chat
 messages between different clients using Socket.IO.
 
-> [WACOM.NOTE] For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Azure SDK for Node.js GitHub repository</a>.
+> [AZURE.NOTE] For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Azure SDK for Node.js GitHub repository</a>.
 
 ##Scale out
 
 Socket.IO applications can be scaled out by using an __adapter__ to distribute messages and events between multiple application instances. While there are several adapters available, the [socket.io-redis](https://github.com/automattic/socket.io-redis) adapter can be easily used with the Azure Redis Cache feature.
 
-> [WACOM.NOTE] An additional requirement for scaling out a Socket.IO solution is support for sticky sessions. Sticky sessions are enabled by default for Azure Websites through Azure Request Routing. For more information, see [Instance Affinity in Azure Web Sites](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+> [AZURE.NOTE] An additional requirement for scaling out a Socket.IO solution is support for sticky sessions. Sticky sessions are enabled by default for Azure Websites through Azure Request Routing. For more information, see [Instance Affinity in Azure Web Sites](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
 
 ###Create a Redis cache
 
 Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409) to create a new cache.
 
-> [WACOM.NOTE] Save the __Host name__ and __Primary key__ for your cache, as these will be needed in the next steps.
+> [AZURE.NOTE] Save the __Host name__ and __Primary key__ for your cache, as these will be needed in the next steps.
 
 ###Add the redis and socket.io-redis modules
 
@@ -143,7 +143,7 @@ Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.c
 
 		npm install socket.io-redis@0.1.3 redis@0.11.0 --save
 
-	> [WACOM.NOTE] The versions specified in this command are the versions used when testing this article.
+	> [AZURE.NOTE] The versions specified in this command are the versions used when testing this article.
 
 2. Modify the __app.js__ file to add the following lines immediately after `var io = require('socket.io')(server);`
 
@@ -158,7 +158,7 @@ Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.c
 
 	This will create a publish and subscribe client to the Redis cache created previously. The clients are then used with the adapter to configure Socket.IO to use the Redis cache for passing messages and events between instances of your application
 
-	> [WACOM.NOTE] While the __socket.io-redis__ adapter can communicate directly to Redis, the current version (as of 7/14/2014) does not support the authentication required by Azure Redis cache. So the initial connection is created using the __redis__ module, then the client is passed to the __socket.io-redis__ adapter.
+	> [AZURE.NOTE] While the __socket.io-redis__ adapter can communicate directly to Redis, the current version (as of 7/14/2014) does not support the authentication required by Azure Redis cache. So the initial connection is created using the __redis__ module, then the client is passed to the __socket.io-redis__ adapter.
 	> 
 	> While Azure Redis Cache supports secure connections using port 6380, the modules used in this example do not support secure connections as of 7/14/2014. The above code uses the default, unsecure port of 6380.
 
@@ -198,7 +198,7 @@ If client browsers keep falling back to long polling instead of using WebSockets
 		  io.set('transports', ['websocket']);
 		});
 
-	> [WACOM.NOTE] Note that older browsers that do not support WebSockets will not be able to connect to the site while the above code is active, as it restricts communication to WebSockets only.
+	> [AZURE.NOTE] Note that older browsers that do not support WebSockets will not be able to connect to the site while the above code is active, as it restricts communication to WebSockets only.
 
 * **Use SSL**
 
@@ -222,7 +222,7 @@ If client browsers keep falling back to long polling instead of using WebSockets
 
 	Normally, Node.js applications do not include a **web.config** file, so Azure Websites will automatically generate one for Node.js applications when they are deployed. Since this file is automatically generated on the server, you must use the FTP or FTPS URL for your website to view this file. You can find the FTP and FTPS URLs for your site in the Azure Management portal by selecting your website, and then the **Dashboard** link. The URLs are displayed in the **quick glance** section.
 
-	> [WACOM.NOTE] The **web.config** file is only generated by Azure Websites if your application does not provide one. If you provide a **web.config** file in the root of your application project, it will be used by Azure Websites.
+	> [AZURE.NOTE] The **web.config** file is only generated by Azure Websites if your application does not provide one. If you provide a **web.config** file in the root of your application project, it will be used by Azure Websites.
 
 	If the entry is not present, or is set to a value of `true`, then you should create a **web.config** in the root of your Node.js application and specify a value of `false`.  For reference, the below is a default **web.config** for an application that uses **app.js** as the entry point.
 
@@ -275,7 +275,7 @@ If client browsers keep falling back to long polling instead of using WebSockets
 		  </system.webServer>
 		</configuration>
 
-	> [WACOM.NOTE] If your application uses an entry point other than **app.js**, you must replace all occurrences of **app.js** with the correct entry point. For example, replacing **app.js** with **server.js**.
+	> [AZURE.NOTE] If your application uses an entry point other than **app.js**, you must replace all occurrences of **app.js** with the correct entry point. For example, replacing **app.js** with **server.js**.
 
 ##Next steps
 

@@ -32,7 +32,7 @@ The website must be running in the **Standard** hosting plan to enable multiple 
 	
 	![Add a new deployment slot][QGAddNewDeploymentSlot]
 	
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> If the website is not already in **Standard** mode, you will receive the message **You must be in the standard mode to enable staged publishing**. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your website before continuing.
 	
 2. In the **Add New Deployment Slot** dialog, give the slot a name, and select whether to clone website configuration from another existing deployment slot. Click the check mark to continue. 
@@ -123,7 +123,7 @@ In the command bar at the bottom of the Azure Websites portal page, click **Dele
 
 - By default, your deployment slots (sites) share the same resources as your production slots (sites) and run on the same VMs. If you run stress testing on a stage slot, your production environment will experience a comparable stress load. 
 	
-	> [WACOM.NOTE] In the [Azure Preview Portal](https://portal.azure.com) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different Web Hosting Plan. Note that the test and production slots must once again share the same Web Hosting Plan before you can swap the test slot into production.
+	> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different Web Hosting Plan. Note that the test and production slots must once again share the same Web Hosting Plan before you can swap the test slot into production.
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 

@@ -102,7 +102,7 @@ The Hybrid Connection Manager enables your on-premises machine to connect to Azu
 ### Associate hybrid connection with service
 1. In the **Mobile Services** tab of the portal, select an existing mobile services or create a new one. 
 
-	>[WACOM.NOTE]Be sure to either select a service that was created using the .NET Backend or create a new .NET backend mobile service. To learn how to create a new .NET backend mobile service, see [Get started with Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 
+	>[AZURE.NOTE]Be sure to either select a service that was created using the .NET Backend or create a new .NET backend mobile service. To learn how to create a new .NET backend mobile service, see [Get started with Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 
 
 2. On the **Configure** tab for your mobile service, find the **Hybrid Connections** section and select **Add Hybrid Connection**.
 

@@ -81,7 +81,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[WACOM.NOTE] The publishing process for cloud services takes a long time. The Enable Web Deploy for all roles option can make debugging your cloud service much quicker by providing fast (but temporary) updates to your Web roles. For more information on this option, see [Publishing a Cloud Service using the Azure Tools](http://msdn.microsoft.com/en-us/library/ff683672.aspx).
+	>[AZURE.NOTE] The publishing process for cloud services takes a long time. The Enable Web Deploy for all roles option can make debugging your cloud service much quicker by providing fast (but temporary) updates to your Web roles. For more information on this option, see [Publishing a Cloud Service using the Azure Tools](http://msdn.microsoft.com/en-us/library/ff683672.aspx).
 
 	When the **Windows Azure Activity Log** shows that publishing status is **Completed**, you will create a CDN endpoint that's integrated with this cloud service. 
 
@@ -90,7 +90,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png)
 
-	>[WACOM.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
+	>[AZURE.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
 
 	Note that the CDN endpoint is tied to the path **cdn/** of your cloud service. You can either create a **cdn** folder in your **WebRole1** project, or you can use URL rewrite to strip all incoming links of this path. In this tutorial, you will take the latter route.
 
@@ -102,7 +102,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-12-disablequeryb.png)
 
-	>[WACOM.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
+	>[AZURE.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
 
 3. Ping your CDN endpoint to make sure that it's propagated to the CDN nodes. You may need to wait up to an hour before it will respond to pings.
 

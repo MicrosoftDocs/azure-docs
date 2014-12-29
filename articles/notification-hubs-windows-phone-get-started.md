@@ -102,7 +102,7 @@ You now have the connection strings required to register your Windows Phone 8 ap
     Make sure to insert the name of your hub and the connection string called **DefaultListenSharedAccessSignature** that you obtained in the previous section.
     This code retrieves the ChannelURI for the app from MPNS, and then registers that ChannelURI with your notification hub. It also guarantees that the ChannelURI is registered in your notification hub each time the application is launched.
 
-	>[WACOM.NOTE]This tutorial sends a toast notification to the device. When you send a tile notification, you must instead call the **BindToShellTile** method on the channel. To support both toast and tile notifications, call both **BindToShellTile** and  **BindToShellToast**. 
+	>[AZURE.NOTE]This tutorial sends a toast notification to the device. When you send a tile notification, you must instead call the **BindToShellTile** method on the channel. To support both toast and tile notifications, call both **BindToShellTile** and  **BindToShellToast**. 
     
 6. In Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
 
@@ -155,7 +155,7 @@ You can send notifications using Notification Hubs from any back-end using the <
 
 	Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub." 
 
-	>[WACOM.NOTE]Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
+	>[AZURE.NOTE]Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
 
 4. Then add the following line in your Main method:
 

@@ -85,7 +85,7 @@ The final stage of this tutorial is to build and run your new app.
 		
 			![][4]
 	
-		>[WACOM.NOTE]To be able to run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
+		>[AZURE.NOTE]To be able to run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
 			
 	
 3. After launching the app in one of the mobile emulators above, type some text into the textbox and then click **Add**.
@@ -132,7 +132,7 @@ The final stage of this tutorial is to build and run your new app.
 
 4. Open each project in the appropriate development environment as outlined in the previous section.
 
->[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the js/index.js file.
+>[AZURE.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the js/index.js file.
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 

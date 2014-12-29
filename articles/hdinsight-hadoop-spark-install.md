@@ -30,7 +30,7 @@ This topic provides instructions on how to customize an HDInsight cluster to ins
 
 A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1). This section provides instructions on how to use the sample script while provisioning the cluster using the Azure Management Portal. 
 
-> [WACOM.NOTE] The sample script works only with HDInsight cluster version 3.1.  For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] The sample script works only with HDInsight cluster version 3.1.  For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
 
 1. Start provisioning a cluster using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. On the **Script Actions** page of the wizard, click **add script action** to provide details about the Script Action, as shown below:
@@ -140,7 +140,7 @@ In this section, you use <a href="http://www.scala-sbt.org/0.13/docs/index.html"
 
 
 
-	>[WACOM.NOTE] Make sure you retain the empty lines in the file.
+	>[AZURE.NOTE] Make sure you retain the empty lines in the file.
 
 	
 3. Under the **SimpleScalaApp** folder, create a directory structure **\src\main\scala** and paste the Scala program (**SimpleApp.scala**) you created earlier under \src\main\scala folder.

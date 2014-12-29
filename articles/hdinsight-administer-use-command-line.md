@@ -39,7 +39,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 		npm install -g azure-cli
 
-	> [WACOM.NOTE] If you get an error saying the NPM command is not found, verify that the following paths are in the PATH environment variable: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> or <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
+	> [AZURE.NOTE] If you get an error saying the NPM command is not found, verify that the following paths are in the PATH environment variable: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> or <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
 
 
 5.	Run the following command to verify the installation:
@@ -62,7 +62,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publishsettings once.
 
-> [WACOM.NOTE] The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.
+> [AZURE.NOTE] The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.
 
 
 **To download and import publishsettings**
@@ -97,7 +97,7 @@ After you have imported the publishsettings file, you can use the following comm
 	azure account storage create [options] <StorageAccountName>
 
 
-> [WACOM.NOTE] The storage account must be collocated in the same data center. Currently, you can only provision HDInsight clusters in the following data centers:
+> [AZURE.NOTE] The storage account must be collocated in the same data center. Currently, you can only provision HDInsight clusters in the following data centers:
 
 ><ul>
 <li>Southeast Asia</li>

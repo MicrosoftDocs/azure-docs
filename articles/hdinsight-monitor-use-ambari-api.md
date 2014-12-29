@@ -31,7 +31,7 @@ Before you begin this tutorial, you must have the following:
 
 	[Curl][curl] is optional. It can be installed from [here][curl-download].
 
-	>[WACOM.NOTE] When use the curl command on Windows, use double-quotes instead of single-quotes for the option values.
+	>[AZURE.NOTE] When use the curl command on Windows, use double-quotes instead of single-quotes for the option values.
 
 - **An Azure HDInsight cluster**. For instructions on cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
 
@@ -42,7 +42,7 @@ Before you begin this tutorial, you must have the following:
 	<tr><td>Cluster password</td><td>$clusterPassword</td><td></td><td>Cluster user password.</td></tr>
 	</table>
 
-	> [WACOM.NOTE] Fill the values into the tables.  It will be helpful for going through this tutorial.
+	> [AZURE.NOTE] Fill the values into the tables.  It will be helpful for going through this tutorial.
 
 
 

@@ -6,7 +6,7 @@
 
 AzCopy is a command-line utility designed for high-performance uploading, downloading, and copying data to and from Microsoft Azure Blob, File, and Table storage. This guide provides an overview for using AzCopy.
 
-> [WACOM.NOTE] This guide assumes that you have installed AzCopy 3.0.0 or later. AzCopy 3.x is now in general availability.<br /> 
+> [AZURE.NOTE] This guide assumes that you have installed AzCopy 3.0.0 or later. AzCopy 3.x is now in general availability.<br /> 
 > This guide also covers using AzCopy 4.0.0, which is a preview release of AzCopy. Throughout this guide, functions provided only in the preview release are designated as *preview*.<br />
 > Note that for AzCopy 4.x, command-line options and functionality may change in future releases.
 
@@ -33,7 +33,7 @@ Next, open a command window, and navigate to the AzCopy installation directory o
 
 	AzCopy /Source:<source> /Dest:<destination> /Pattern:<filepattern> [Options]
 
-> [WACOM.NOTE] Beginning with AzCopy version 3.0.0, the AzCopy command-line syntax requires that every parameter be specified to include the parameter name, *e.g.*, `/ParameterName:ParameterValue`.
+> [AZURE.NOTE] Beginning with AzCopy version 3.0.0, the AzCopy command-line syntax requires that every parameter be specified to include the parameter name, *e.g.*, `/ParameterName:ParameterValue`.
 
 Parameters for AzCopy are described in the table below. You can also type one of the following commands from the command line for help in using AzCopy:
 

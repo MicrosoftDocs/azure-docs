@@ -52,7 +52,7 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
     * When adding a CNAME record, you must set the **Name** field to the sub-domain you wish to use. For example, **www**. You must set the **Data** field to the **.trafficmanager.net** domain name of the Traffic Manager profile you are using with your Azure Website. For example, **contoso.trafficmanager.net**.
 
-	    > [WACOM.NOTE] You must only use CNAME records when associating your custom domain name with a website that is load balanced using Traffic Manager.
+	    > [AZURE.NOTE] You must only use CNAME records when associating your custom domain name with a website that is load balanced using Traffic Manager.
 
 <h2><a name="enabledomain"></a>Enable Traffic Manager website</h2>
 

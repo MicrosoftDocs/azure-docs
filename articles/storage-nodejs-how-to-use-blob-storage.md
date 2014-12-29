@@ -88,7 +88,7 @@ the top of **server.js**:
 
     var blobSvc = azure.createBlobService();
 
-> [WACOM.NOTE] You can access a blob anonymously by using **createBlobServiceAnonymous** and providing the host address. For example, `var blobSvc = azure.createBlobService('https://myblob.blob.core.windows.net/');`.
+> [AZURE.NOTE] You can access a blob anonymously by using **createBlobServiceAnonymous** and providing the host address. For example, `var blobSvc = azure.createBlobService('https://myblob.blob.core.windows.net/');`.
 
 All blobs reside in a container. To create a new container, use **createContainerIfNotExists**. The following creates a new container named 'mycontainer'
 
@@ -193,7 +193,7 @@ The following example uploads the contents of the **test.txt** file into **mypag
 	  }
 	});
 
-> [WACOM.NOTE] Page blobs consist of 512-byte 'pages'. You may receive an error when uploading data with a size that is not a multiple of 512.
+> [AZURE.NOTE] Page blobs consist of 512-byte 'pages'. You may receive an error when uploading data with a size that is not a multiple of 512.
 
 ## <a name="list-blob"> </a>How to: List the Blobs in a Container
 
@@ -280,7 +280,7 @@ A new lease can be acquired using the **acquireLease** method, specifying the bl
 
 Subsequent operations on **myblob** must provide `options.leaseId` parameter. The lease ID is returned as `result.id` from **acquireLease**.
 
-> [WACOM.NOTE] By default, the lease duration is infinite. You can specify a non-infinite duration (between 15 and 60 seconds,) by providing the `options.leaseDuration` parameter.
+> [AZURE.NOTE] By default, the lease duration is infinite. You can specify a non-infinite duration (between 15 and 60 seconds,) by providing the `options.leaseDuration` parameter.
 
 To remove a lease, use **releaseLease**. To break a lease, but prevent others from obtaining a new lease until the original duration has expired, use **breakLease**.
 
@@ -288,7 +288,7 @@ To remove a lease, use **releaseLease**. To break a lease, but prevent others fr
 
 Shared Access Signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to access blobs.
 
-> [WACOM.NOTE] While you can also allow anonymous access to blobs, SAS allows you to provide more controlled access, as you must generate the SAS.
+> [AZURE.NOTE] While you can also allow anonymous access to blobs, SAS allows you to provide more controlled access, as you must generate the SAS.
 
 A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **BlobService**, and provides it to an untrusted or semi-trusted application. For example, a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
 

@@ -14,7 +14,7 @@ You'll need to install an SSH client on the computer you want to use to log on t
 - On a computer running a Windows operating system, you might want to use an SSH client such as PuTTY. For more information, see the [PuTTY Download Page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - On a computer running a Linux operating system, you might want to use an SSH client such as OpenSSH. For more information, see [OpenSSH](http://www.openssh.org/).
 
->[WACOM.NOTE] For more requirements and troubleshooting tips, see [Connect to an Azure virtual machine with RDP or SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294). 
+>[AZURE.NOTE] For more requirements and troubleshooting tips, see [Connect to an Azure virtual machine with RDP or SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294). 
 
 This procedure shows you how to use the PuTTY program to access the virtual machine.
 
@@ -32,7 +32,7 @@ This procedure shows you how to use the PuTTY program to access the virtual mach
 
 	![Log on to the virtual machine](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
->[WACOM.NOTE] The VMAccess extension can help you reset the SSH key or password if you've forgotten it. If you've forgotten the user name, you can use the extension to create a new one with sudo authority. For instructions, see the [How to Reset a Password or SSH for Linux Virtual Machines]. 
+>[AZURE.NOTE] The VMAccess extension can help you reset the SSH key or password if you've forgotten it. If you've forgotten the user name, you can use the extension to create a new one with sudo authority. For instructions, see the [How to Reset a Password or SSH for Linux Virtual Machines]. 
 	
 You can now work with the virtual machine just as you would with any other server.
 

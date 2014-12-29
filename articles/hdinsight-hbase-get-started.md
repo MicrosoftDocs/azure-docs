@@ -22,7 +22,7 @@ Learn how to create and query HBase tables using Hive on Hadoop in HDInsight.
 
 HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance/cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs. For more information on HBase and the scenarios it can be used for, see [HDInsight HBase overview](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-overview/).
 
-> [WACOM.NOTE] HBase (version 0.98.0) is only available for use with HDInsight 3.1 clusters on HDInsight (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
+> [AZURE.NOTE] HBase (version 0.98.0) is only available for use with HDInsight 3.1 clusters on HDInsight (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
 
 ##<a name="prerequisites"></a>Prerequisites
 

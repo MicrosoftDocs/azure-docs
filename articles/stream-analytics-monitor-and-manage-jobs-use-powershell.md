@@ -41,7 +41,7 @@ Learn how to manage Azure Stream Analytics resources using Azure PowerShell.
 
 		Switch-AzureMode AzureResourceManager
 
->[WACOM.NOTE] There is a temporary limitation where Stream Analytics jobs created via Azure PowerShell do not have monitoring enabled.  To workaround this issue, navigate to the job’s Monitor page in the Azure Portal and click the “Enable” button.  
+>[AZURE.NOTE] There is a temporary limitation where Stream Analytics jobs created via Azure PowerShell do not have monitoring enabled.  To workaround this issue, navigate to the job’s Monitor page in the Azure Portal and click the “Enable” button.  
 
 ##<a name="cmdlets"></a>Stream Analytics PowerShell cmdlets
 The follow Azure PowerShell cmdlets can be used to monitor and manage Azure Stream Analytics jobs.

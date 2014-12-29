@@ -45,7 +45,7 @@ This enables you to work with Azure Websites:
 * [Manage and troubleshoot Azure Websites in Server Explorer](../web-sites-dotnet-troubleshoot-visual-studio/#sitemanagement).
 * [Run in debug mode remotely for Websites and WebJobs](../web-sites-dotnet-troubleshoot-visual-studio/#remotedebug). 
 
->[WACOM.NOTE] You don't have to install the Azure SDK for .NET to use these features; they are also included in Visual Studio Updates. 
+>[AZURE.NOTE] You don't have to install the Azure SDK for .NET to use these features; they are also included in Visual Studio Updates. 
 
 ###<a id="tools"></a>Microsoft Azure Tools for Microsoft Visual Studio
 

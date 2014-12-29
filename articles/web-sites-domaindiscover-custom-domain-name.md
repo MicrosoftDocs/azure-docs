@@ -58,7 +58,7 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
     * When adding an A record, you must first select **A** on the **Manage DNS** page. Then set the **Host** field to either **@** (this represents root domain name, such as **contoso.com**,) or the sub-domain you wish to use (for example, **www**.) You must set the **IP Address** field to the IP address of your Azure Website. Then provide a Time-to-Live (TTL) value such as 1800 seconds.
 
-		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
+		> [AZURE.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
 		> 
 		> * A **Host** value of **www** with an **Alias Hostname** value of **&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 

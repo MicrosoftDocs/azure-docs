@@ -6,7 +6,7 @@
 #Azure Batch technical overview
 Azure Batch helps you run large-scale parallel and high performance computing (HPC) applications in the cloud by providing job scheduling and autoscaling of compute resources as a platform service. By using the Batch SDK and Batch service, you can configure batch workloads to run on demand or on a schedule on a managed collection of virtual machines and not have to worry about the complexity of scheduling jobs and managing resources in the underlying platform.
  
->[WACOM.NOTE]Batch is in Preview. To use Batch, you need an Azure account, and you need to enable Batch Preview on your subscription. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
+>[AZURE.NOTE]Batch is in Preview. To use Batch, you need an Azure account, and you need to enable Batch Preview on your subscription. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
 
 
 This article gives you an overview of:
@@ -40,7 +40,7 @@ Examples include:
 
 You can also use Batch to perform parallel calculations with a reduce step at the end, and other more complicated non-acyclic parallel workloads. 
 
->[WACOM.NOTE]Batch Preview does not currently support message passing interface (MPI) applications.
+>[AZURE.NOTE]Batch Preview does not currently support message passing interface (MPI) applications.
 
 <h2 id="BKMK_Approaches">Developer scenarios</h2>
 
@@ -99,7 +99,7 @@ Attributes of a pool include:
 * A certificate that is installed on the TVMs - for example, to authenticate access to a storage account
 * A start task for TVMs, for one-time operations like installing applications or downloading data used by tasks
 
->[WACOM.NOTE]Currently a TVM can only run the Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 SP1 operating system.
+>[AZURE.NOTE]Currently a TVM can only run the Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 SP1 operating system.
 
 A pool can only be used by the Batch account in which it was created. A Batch account can have more than one pool.
 

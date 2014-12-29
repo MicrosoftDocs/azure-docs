@@ -193,7 +193,7 @@ Create a word counting MapReduce application. It is a simple application that co
 
 3. Once the command completes, the __wordcountjava\target__ directory will contain a file named __wordcountjava-1.0-SNAPSHOT.jar__.
 
-	> [WACOM.NOTE] The __wordcountjava-1.0-SNAPSHOT.jar__ file is an uberjar (sometimes called a fatjar,) which contains all the dependencies required to run the application.
+	> [AZURE.NOTE] The __wordcountjava-1.0-SNAPSHOT.jar__ file is an uberjar (sometimes called a fatjar,) which contains all the dependencies required to run the application.
 
 
 ##<a name="test"></a>Test the program on emulator
@@ -222,7 +222,7 @@ This tutorial uses the following HDFS folder structure:
 
 This tutorial uses the .txt files located in the %hadoop_home% directory as the data files.
 
-> [WACOM.NOTE] The Hadoop HDFS commands are case sensitive.
+> [AZURE.NOTE] The Hadoop HDFS commands are case sensitive.
 
 **To copy the data files to the emulator HDFS**
 
