@@ -68,9 +68,7 @@ The final stage of this tutorial is to build and run your new app.
 
 2. Press the **Run** button to build the project and start the app. You will be asked to select an emulator or a connected USB device. 
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>To be able to run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.</p></div>
+	> [AZURE.NOTE] To be able to run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
 
 3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
 
