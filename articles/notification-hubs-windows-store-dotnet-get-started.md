@@ -72,9 +72,8 @@ To send push notifications to Windows Store apps from Mobile Services, you must 
 
    	![][6]
 
- 	<div class="dev-callout"><b>Security Note</b>
-	<p>The client secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.</p>
-    </div>
+ 	> [AZURE.NOTE] **Security Note**
+	The client secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
 
 ##<a name="configure-hub"></a>Configure your Notification Hub
 
