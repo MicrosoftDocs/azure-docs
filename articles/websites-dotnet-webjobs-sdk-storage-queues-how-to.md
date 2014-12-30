@@ -508,7 +508,7 @@ To trigger a function manually, use the `Call` or `CallAsync` method on the `Job
 
 ## <a id="logs"></a>How to write logs
 
-To write logs that appear in the WebJobs dashboard page linked to a particular function invocation, use a `TextWriter` object that you obtain from a parameter in your method signature.
+To write logs that appear in the WebJobs Dashboard page linked to a particular function invocation, use a `TextWriter` object that you obtain from a parameter in your method signature.  The SDK can't link the output from Console methods such as `Console.WriteLine()` to method invocations in the Dashboard because the Console is single-threaded, while many job functions may be running at the same time. Therefore the SDK provides each function with its own unique log writer. Output from Console methods that you call in a function or in the `Main()` method appears in the Dashboard page for the WebJob, not in the page for a particular method invocation. 
 
 To write [application tracing logs](../web-sites-dotnet-troubleshoot-visual-studio/#logsoverview), use `Console.Out` (creates logs marked as INFO) and `Console.Error` (creates logs marked as ERROR). An alternative is to use [Trace or TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), which provides Verbose, Warning, and Critical levels in addition to Info and Error.
 
@@ -534,7 +534,7 @@ In the WebJobs SDK dashboard, the output from the `TextWriter` object shows up w
 
 ![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
 
-In the WebJobs SDK Dashboard, the most recent 100 lines of application logs show up when you go to the page for the WebJob (not for the function invocation) and click **Toggle Output**.
+In the WebJobs SDK Dashboard, the most recent 100 lines of application logs show up when you go to the page for the WebJob (not for the function invocation) and click **Toggle Output**. (This page also shows Console output that you write from the `Main()` method.)
  
 ![Click Toggle Output](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
