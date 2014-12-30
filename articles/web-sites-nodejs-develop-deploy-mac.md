@@ -85,9 +85,8 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 		git init
 
-	<div class="dev-callout"><strong>Git command unavailable?</strong>
-	<p><a href="http://git-scm.com/" target="_blank">Git</a> is a distributed version control system that you can use to deploy your Azure Website. For installation instructions for your platform, see <a href="http://git-scm.com/download" target="_blank">the Git download page</a>.</p>
-	</div>
+	> [AZURE.NOTE] **Git command unavailable?**
+	[Git](http://git-scm.com/%20target="_blank) is a distributed version control system that you can use to deploy your Azure Website. For installation instructions for your platform, see [the Git download page](http://git-scm.com/download%20target="_blank").
 
 2. Use the following commands to add files to the repository:
 
