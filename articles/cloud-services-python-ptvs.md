@@ -31,9 +31,8 @@ Azure provides three compute models for running applications: [Azure Web Sites][
 
 For more information, see [What is a Cloud Service?].
 
-<div class="dev-callout"><strong>Looking to build a simple website?</strong>
-<p>If your scenario involves just a simple website front-end, consider using a lightweight Azure Website. You can easily upgrade to a Cloud Service as your website grows and your requirements change. See the <a href="/en-us/develop/python/">Python Developer Center</a> for articles that cover development of Azure Websites.</p>
-</div>
+> [AZURE.NOTE] **Looking to build a simple website?**
+If your scenario involves just a simple website front-end, consider using a lightweight Azure Website. You can easily upgrade to a Cloud Service as your website grows and your requirements change. See the <a href="/en-us/develop/python/">Python Developer Center</a> for articles that cover development of Azure Websites.
 <br />
 
 
