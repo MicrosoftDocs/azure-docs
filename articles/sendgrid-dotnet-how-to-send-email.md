@@ -58,12 +58,7 @@ and to configure your application with all dependencies. NuGet is a
 Visual Studio extension included with Microsoft Visual Studio 2012 that makes it easy to install and update
 libraries and tools. 
 
-<div class="dev-callout">
-<b>Note</b>
-<p>To
-install NuGet if you are running a version of Visual Studio earlier than Visual Studio 2012, visit <a href="http://www.nuget.org">http://www.nuget.org</a>, and click the <b>Install
-NuGet</b> button.</p>
-</div>
+> [AZURE.NOTE] To install NuGet if you are running a version of Visual Studio earlier than Visual Studio 2012, visit [http://www.nuget.org](http://www.nuget.org), and click the **Install NuGet** button.
 
 To install the SendGrid NuGet package in your application, do the following:
 
