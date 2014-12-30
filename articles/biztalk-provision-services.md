@@ -14,10 +14,7 @@ This topic lists the steps to create an Azure BizTalk Service in the Azure Manag
 -  [Hybrid Connections - New!](#HC)
 
 
-<div class="dev-callout"> 
-<b>Tip</b> 
-<p>To log into the Azure Management Portal, you need an Azure account and Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. See <a href="http://go.microsoft.com/fwlink/p/?LinkID=239738">Azure Free Trial</a>.</p> 
-</div>
+> [AZURE.TIP] To log into the Azure Management Portal, you need an Azure account and Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. See [Azure Free Trial](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 ##<a name="BizTalk"></a>Create a BizTalk Service
 Depending on the Edition you choose, not all BizTalk Service settings may be available.
