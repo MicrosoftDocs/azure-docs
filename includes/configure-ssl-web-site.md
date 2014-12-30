@@ -203,15 +203,9 @@ If you are familiar with IIS Manager, you can use it to generate a certificate t
 
 4. Export the certificate from IIS Manager For more information on exporting the certificate, see [Export a Server Certificate (IIS 7)][exportcertiis]. The exported file will be used in later steps to upload to Azure for use with your Azure Website.
 
-	<div class="dev-callout"> 
-	<b>Note</b>
-	<p>During the export process, be sure to select the option <strong>Yes, export the private key</strong>. This will include the private key in the exported certificate.</p>
-	</div>
+	> [AZURE.NOTE] During the export process, be sure to select the option <strong>Yes, export the private key</strong>. This will include the private key in the exported certificate.
 
-	<div class="dev-callout"> 
-	<b>Note</b>
-	<p>During the export process, be sure to select the option <strong>include all certs in the certification path</strong> and <strong>Export all extended properties</strong>. This will include any intermediate certificates in the exported certificate.</p>
-	</div>
+	> [AZURE.NOTE] During the export process, be sure to select the option **include all certs in the certification path** and **Export all extended properties**. This will include any intermediate certificates in the exported certificate.
 
 
 ###<a name="bkmk_subjectaltname"></a>Get a SubjectAltName certificate using OpenSSL
