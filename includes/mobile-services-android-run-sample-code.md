@@ -6,7 +6,9 @@
 
 2. From the **Run** menu, click **Run** and then click **Android Application** to start the project.
 
-	<div class="dev-callout"><strong>Note</strong> <p>You can run this project using an Android phone, or using the Android emulator. Running with an Android phone  requires you to download a phone-specific USB driver.</p> <p>To run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.</p></div>
+	> [AZURE.NOTE] You can run this project using an Android phone, or using the Android emulator. Running with an Android phone  requires you to download a phone-specific USB driver.
+	>
+	> To run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
 
 3. In the app, type meaningful text, such as _Complete the tutorial_, and then click **Add**.
 
