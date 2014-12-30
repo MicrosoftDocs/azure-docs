@@ -107,19 +107,13 @@ download the subscription information. The information is contained in a .publis
 
 - The **Import-AzurePublishSettingsFile** imports the .publishsettings file for use by the module. This file includes a management certificate that has security credentials. 
 
-<div class="dev-callout"> 
-<b>Note</b>
-<p>The cmdlets in the AzureResourceManager module require the Azure AD method (Add-AzureAccount). These cmdlets do not support publish settings files. For more information about the cmdlets in the AzureResourceManager module, see <a href="http://go.microsoft.com/fwlink/?LinkID=394765">Azure Resource Manager Cmdlets</a>.</p> 
-</div>
+> [AZURE.NOTE] The cmdlets in the AzureResourceManager module require the Azure AD method (Add-AzureAccount). These cmdlets do not support publish settings files. For more information about the cmdlets in the AzureResourceManager module, see [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765).
 
-<div class="dev-callout"> 
-<b>Important</b> 
-<p>We recommend that you delete the publishing profile that you
+> [AZURE.IMPORTANT] We recommend that you delete the publishing profile that you
 downloaded using <b>Get-AzurePublishSettingsFile</b> after you import those
 settings. Because the management certificate includes security credentials, it
 should not be accessed by unauthorized users. If you need information
-about your subscriptions, you can get it from the <a href="http://manage.windowsazure.com/">Azure Management Portal</a> or the <a href="http://go.microsoft.com/fwlink/p/?LinkId=324875">Microsoft Online Services Customer Portal</a>.</p> 
-</div>
+about your subscriptions, you can get it from the [Azure Management Portal](http://manage.windowsazure.com/) or the [Microsoft Online Services Customer Portal](http://go.microsoft.com/fwlink/p/?LinkId=324875).
 
 1. Sign in to the [Azure Management Portal](http://manage.windowsazure.com) using the credentials for your Azure account.
 
