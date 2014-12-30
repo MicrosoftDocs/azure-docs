@@ -111,8 +111,7 @@ A table operation script must call at least one of the following functions of th
  
 + **respond function**: A custom response is returned.
 
-<div class="dev-callout"><strong>Important</strong>
-<p>When a script has a code path in which neither <b>execute</b> nor <b>respond</b> is invoked, the operation may become unresponsive.</p></div>
+> [AZURE.IMPORTANT] When a script has a code path in which neither **execute** nor **respond** is invoked, the operation may become unresponsive.
 
 The following script calls the **execute** function to complete the data operation requested by the client: 
 
@@ -601,8 +600,7 @@ Custom API scripts can access the [tables object] from the <strong>service</stro
 
 		var todoItemsTable = request.service.tables.getTable('TodoItem');
 
-<div class="dev-callout"><strong>Note</strong>
-<p>Shared functions cannot access the <strong>tables</strong> object directly. In a shared function, you must pass the tables object to the function.</p></div>
+> [AZURE.NOTE] Shared functions cannot access the **tables** object directly. In a shared function, you must pass the tables object to the function.
 
 Once you have a [table object], you can call one or more table operation functions: insert, update, delete or read. This example reads user permissions from a permissions table:
 
@@ -887,8 +885,7 @@ The primary way to debug and troubleshoot your server scripts is by writing to t
 
 To write to the logs, use the global [console object]. Use the **log** or **info** function to log information-level warnings. The **warning** and **error** functions log their respective levels, which are called-out in the logs. 
 
-<div class="dev-callout"><strong>Note</strong>
-<p>To view the logs for your mobile service, log on to the <a href="https://manage.windowsazure.com/">Management Portal</a>, select your mobile service, and then choose the <strong>Logs</strong> tab.</p></div>
+> [AZURE.NOTE] To view the logs for your mobile service, log on to the [Management Portal](https://manage.windowsazure.com/), select your mobile service, and then choose the **Logs** tab.
 
 You can also use the logging functions of the [console object] to format your messages using parameters. The following example supplies a JSON object as a parameter to the message string:
 
