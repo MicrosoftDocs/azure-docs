@@ -422,9 +422,7 @@ To prevent users from having to authenticate every time they use run your applic
 			}];
 		}
 
-<div class="dev-callout"><strong>Note</strong>
-<p>Tokens are sensitive data and must be stored encrypted in case the device is lost or stolen.</p>
-</div>
+> [AZURE.NOTE] Tokens are sensitive data and must be stored encrypted in case the device is lost or stolen.
 
 When using a cached token, a user will not have to login again until the token expires. When a user tries to login with an expired token, a 401 unauthorized response is returned. At this point, the user must log in again to obtain a new token, which can again be cached. You can use filters to avoid having to write code that handles expired tokens wherever your app calls the mobile service.  Filters allow you to intercept calls to and responses from your mobile service. The code in the filter tests the response for a 401, triggers the login process if the token is expired, and then retries the request that generated the 401. For details, see [Handling Expired Tokens].
 
