@@ -132,7 +132,7 @@ The `where` clause supports operations that be translated into the Mobile Servic
 
 The following code illustrates how to sort data by including an `OrderBy` or `OrderByDescending` function in the query. It returns items from `todoTable` sorted ascending by the `Text` field. By default, the server returns only the first 50 elements. 
 
-<div class="dev-callout"><strong>Note</strong> <p>A server-driven page size is used by default to prevent all elements from being returned. This keeps default requests for large data sets from negatively impacting the service. </p> </div>
+> [AZURE.NOTE] A server-driven page size is used by default to prevent all elements from being returned. This keeps default requests for large data sets from negatively impacting the service.
 
 You may increase the number of items to be returned by calling `Take` as described in the next section.
 
@@ -201,7 +201,7 @@ The `LookupAsync` function can be used to look up objects from the database with
 
 <h2><a name="inserting"></a>How to: Insert data into a mobile service</h2>
 
-<div class="dev-callout"><strong>Note</strong> <p>If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <strong>Id</strong> (regardless of case). This is why the example class <strong>TodoItem</strong> has a member of name <strong>Id</strong>. An ID value must not be set to anything other than the default value during insert operations; by contrast, the ID value should always be set to a non-default value and present in update and delete operations.</p> </div>
+> [AZURE.NOTE] If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called **Id** (regardless of case). This is why the example class **TodoItem** has a member of name **Id**. An ID value must not be set to anything other than the default value during insert operations; by contrast, the ID value should always be set to a non-default value and present in update and delete operations.
 
 The following code illustrates how to insert new rows into a table. The parameter contains the data to be inserted as a .NET object.
 
