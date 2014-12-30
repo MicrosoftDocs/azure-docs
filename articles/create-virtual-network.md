@@ -13,10 +13,7 @@ For example, the FrontEndSubnet could be used for web servers and the BackEndSub
 This tutorial assumes you have no prior experience using Azure. It is meant to help you become familiar with the steps required to create your own virtual network by stepping you through an example configuration. If you want to create a cloud-only virtual network that works for your specific configuration, see [Configure a Cloud-Only Virtual Network in the Management Portal](http://msdn.microsoft.com/library/azure/dn631643.aspx). If you are looking for design scenarios and advanced information about Virtual Network, see the [Azure Virtual Network Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
 
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>This tutorial does not walk you through creating a cross-premises configuration, in which the virtual network is connected to your organization network. For a tutorial that walks you through creating a virtual network with cross-premises connectivity and a site-to-site VPN connection (i.e., connecting to Active Directory or SharePoint located at your company), see <a href="/en-us/manage/services/networking/cross-premises-connectivity/">Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity</a>.</p> 
-</div>
+> [AZURE.NOTE] This tutorial does not walk you through creating a cross-premises configuration, in which the virtual network is connected to your organization network. For a tutorial that walks you through creating a virtual network with cross-premises connectivity and a site-to-site VPN connection (i.e., connecting to Active Directory or SharePoint located at your company), see [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity](/en-us/manage/services/networking/cross-premises-connectivity/).
 
 
 ##  Objectives
