@@ -119,7 +119,7 @@ This step shows you how to add support for federated login using Windows Identit
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-		> [AZURE.NOTE] The **audienceuris** and **realm** values must be prefaced by "spn:".
+	> [AZURE.NOTE] The **audienceuris** and **realm** values must be prefaced by "spn:".
 
 4. In Eclipse, right-click the **phpSample** project, click **New**, then click **PHP File**. 
 
