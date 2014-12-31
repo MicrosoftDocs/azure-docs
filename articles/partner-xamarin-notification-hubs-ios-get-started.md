@@ -30,7 +30,7 @@ This tutorial demonstrates the simple broadcast scenario using notification hubs
 
 Completing this tutorial is a prerequisite for all other notification hub tutorials for Xamarin.iOS apps. 
 
-> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F" target="_blank").
+> [AZURE.IMPORTANT] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F"%20target="_blank).
 
 The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
 
@@ -83,7 +83,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
    
    	![][110]
 
-	> [AZURE.NOTE] If you choose to supply a <strong>Bundle Identifier</strong> value other than **MobileServices.Quickstart**, you must also update the bundle identifier value in your Xcode project.
+	> [AZURE.NOTE] If you choose to supply a **Bundle Identifier** value other than **MobileServices.Quickstart**, you must also update the bundle identifier value in your Xcode project.
 
 3. Locate the app ID that you just created, and click on its row. 
 
@@ -119,7 +119,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
   	![][9] 
 
- > [AZURE.NOTE] By default, the downloaded file a development certificate is named **aps_development.cer**.
+    > [AZURE.NOTE] By default, the downloaded file a development certificate is named **aps_development.cer**.
 
 7. Double-click the downloaded push certificate **aps_development.cer**.
 

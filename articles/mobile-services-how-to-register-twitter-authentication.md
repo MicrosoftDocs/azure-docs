@@ -30,9 +30,7 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
    	![][4]
 
-    <div class="dev-callout"><b>Security Note</b>
-	<p>The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.</p>
-    </div>
+    > [AZURE.NOTE] The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
 7. Click the **Settings** tab, scroll down and check **Allow this application to be used to sign in with Twitter**, then click **Update this Twitter application's settings**.
 
