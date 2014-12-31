@@ -40,9 +40,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
     This script adds a userId value to the item, which is the user ID of the authenticated user, before it is inserted into the TodoItem table. 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>userId</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published to the Windows Phone Store.</p>
-    </div>
+    > [AZURE.NOTE] Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the **userId** column to the **TodoItem** table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published to the Windows Phone Store.
 
 
 5. Repeat steps 3 and 4 to replace the existing **Read** operation with the following function:
