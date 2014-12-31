@@ -9,9 +9,9 @@
 
 You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/en-us/library/dn223264.aspx).
 
-<div class="dev-callout"><strong>Note</strong> <p>This is a sample reference implementation for implementing the notification sends in Python and is not the officially supported Notifications Hub Python SDK.</p></div>
+> [AZURE.NOTE] This is a sample reference implementation for implementing the notification sends in Python and is not the officially supported Notifications Hub Python SDK.
 
-<div class="dev-callout"><strong>Note</strong> <p>This sample is written using Python 3.4.</p></div>
+> [AZURE.NOTE] This sample is written using Python 3.4.
 
 In this topic we show how to:
 
@@ -21,7 +21,7 @@ In this topic we show how to:
 
 You can follow the [Get started tutorial](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) for your mobile platform of choice, implementing the back-end portion in Python.
 
-<div class="dev-callout"><strong>Note</strong> <p> The scope of the sample is only limited to send notifications and it doesn't do any registration management.</p></div>
+> [AZURE.NOTE] The scope of the sample is only limited to send notifications and it doesn't do any registration management.
 
 ## Client interface
 The main client interface can provide the same methods that are available in the [.NET Notification Hubs SDK](http://msdn.microsoft.com/en-us/library/jj933431.aspx). This will allow you to directly translate all the tutorials and samples currently available on this site, and contributed by the community on the internet.

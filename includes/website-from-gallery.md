@@ -11,10 +11,7 @@ You'll build a WordPress blog that uses a default template. The following illust
 
 ![Wordpress blog][13]
 
-<div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Create an Azure account</a>.</p>
-</div>
-<br />
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
 
 ## Create a website in the portal
 

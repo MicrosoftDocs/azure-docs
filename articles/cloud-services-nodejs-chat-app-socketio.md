@@ -128,26 +128,18 @@ Azure emulator:
 
         PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Be sure to use a unique name, otherwise the publish process will fail. After the deployment has completed, the browser will open and navigate to the deployed service.</p>
-	<p>If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the <b>Deploying the Application to Azure</b> section of <a href="https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/">Build and deploy a Node.js application to an Azure Cloud Service</a></p>
-	</div>
+	> [AZURE.IMPORTANT] Be sure to use a unique name, otherwise the publish process will fail. After the deployment has completed, the browser will open and navigate to the deployed service.
+	> 
+	> If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/)
 
     ![A browser window displaying the service hosted on Azure][completed-app]
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the <b>Deploying the Application to Azure</b> section of <a href="https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/">Build and deploy a Node.js application to an Azure Cloud Service</a></p>
-	</div>
+	> [AZURE.NOTE] If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/)
 
 Your application is now running on Azure, and can relay chat
 messages between different clients using Socket.IO.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Azure SDK for Node.js GitHub repository</a>.</p>
-</div>
+> [AZURE.NOTE] For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the [Azure SDK for Node.js GitHub repository](https://github.com/WindowsAzure/azure-sdk-for-node).
 
 ##Next steps
 

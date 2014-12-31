@@ -15,15 +15,9 @@ If you are already familiar with using Node.js modules, **package.json** and **n
 * Azure Webites understand **package.json** and **npm-shrinkwrap.json** files and can install modules based on entries in these files.
 * Azure Cloud Services expect all modules to be installed on the development environment, and the **node\_modules** directory to be included as part of the deployment package.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine.</p>
-</div>
+> [AZURE.NOTE] Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>It is possible to enable support for installing modules using <b>package.json</b> or <b>npm-shrinkwrap.json</b> files on Azure, however this requires customization of the default scripts used by Cloud Service projects. For an example of how to accomplish this, see <a href="http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure">Azure Startup task to run npm install to avoid deploying node modules </a></p>
-</div>
+> [AZURE.NOTE] It is possible to enable support for installing modules using **package.json** or **npm-shrinkwrap.json** files on Azure, however this requires customization of the default scripts used by Cloud Service projects. For an example of how to accomplish this, see [Azure Startup task to run npm install to avoid deploying node modules](http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure)
 
 ##Node.js Modules
 
