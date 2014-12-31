@@ -126,7 +126,7 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 7. Update string _<< INSERT CLIENT ID HERE >>_ from the previous step with the client ID value that was generated when you registered your app with Live Connect.
 
-    > [AZURE.NOTE] In a Windows Phone 8 app, an instance of the <strong>LiveAuthClient</strong> class is created by passing the client ID value to the class constructor. In a [Windows Store app](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/), the same class is instantiated by passing the redirect domain URI.
+    > [AZURE.NOTE] In a Windows Phone 8 app, an instance of the **LiveAuthClient** class is created by passing the client ID value to the class constructor. In a [Windows Store app](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/), the same class is instantiated by passing the redirect domain URI.
 
 8. Delete or comment-out the existing **OnNavigatedTo** method override and replace it with the following method that handles the **Loaded** event for the page. 
 

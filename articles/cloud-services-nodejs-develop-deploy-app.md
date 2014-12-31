@@ -145,10 +145,7 @@ In order to deploy your application to Azure, you must first download the publis
         PS C:\node\helloworld\WebRole1> Import-AzurePublishSettingsFile [path to file]
 
 
-	<div class="dev-callout">
-	<b>Note</b>
-	<p>After importing the publish settings, consider deleting the downloaded .publishSettings file as it contains information that can be used by others to access your account.</p>
-	</div>
+	> [AZURE.NOTE] After importing the publish settings, consider deleting the downloaded .publishSettings file as it contains information that can be used by others to access your account.
     
 
 ### Publishing the Application
@@ -212,11 +209,7 @@ After deploying your application, you may want to disable it so you can avoid ex
 
 	![The status of the Remove-AzureService command](./media/cloud-services-nodejs-develop-deploy-app/node49.png)
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. For more information on
-deleting a storage account, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx">How to Delete a Storage Account from an Azure Subscription</a>.</p>
-</div>
+	> [AZURE.NOTE] Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. For more information on deleting a storage account, see [How to Delete a Storage Account from an Azure Subscription](http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx).
 
 
 [The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png

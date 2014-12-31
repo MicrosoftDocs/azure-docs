@@ -73,10 +73,7 @@ You can set the PHP runtime version to any of the PHP versions that are listed. 
 
 	PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>More PHP versions may be available in the future, and the available versions may change.</p> 
-</div>
+> [AZURE.NOTE] More PHP versions may be available in the future, and the available versions may change.
 
 ##<a name="CustomizePHP"></a>How to: Customize the built-in PHP runtime
 
