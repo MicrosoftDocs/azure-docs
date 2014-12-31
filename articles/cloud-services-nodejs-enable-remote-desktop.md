@@ -14,10 +14,7 @@ running in Azure. You can use a remote desktop connection to
 configure the virtual machine or troubleshoot problems with your
 application.
 
-<div class="dev-callout">
-	<b>Note</b>
-	<p>The steps in this article only apply to node applications hosted as an Azure Cloud Service.</p>
-	</div>
+> [AZURE.NOTE] The steps in this article only apply to node applications hosted as an Azure Cloud Service.
 
 This task includes the following steps:
 
