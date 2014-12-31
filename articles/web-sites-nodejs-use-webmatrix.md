@@ -19,10 +19,7 @@ A screenshot of the completed application is below:
 
 Follow these steps to create an Azure Website.
 
-<div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need an Azure account that has the Azure Websites feature enabled.</p>
-<p>If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.</p>
-</div>
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account that has the Azure Websites feature enabled. <br /> If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E"%20target="_blank").
 <br />
 
 1. Launch WebMatrix
