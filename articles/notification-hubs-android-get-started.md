@@ -25,7 +25,7 @@ This tutorial requires the following:
 
 Completing this tutorial is a prerequisite for all other notification hub tutorials for Android apps. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.</p></div>
+> [] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target="_blank").
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
@@ -84,9 +84,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 2. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The numbers at the end of the file name may change in subsequent SDK releases.</p>
-    </div>
+    > [AZURE.NOTE] The numbers at the end of the file name may change in subsequent SDK releases.
 
 	Now, set up the application to obtain a *registrationId* from GCM, and use it to register the app instance to the notification hub.
 
@@ -110,9 +108,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 5. Add the following private members at the top of the class.
 
-	<div class="dev-callout"><b>Note</b>
-    <p>Make sure to set the SENDER_ID to the Project Number you obtained earlier.</p>
-    </div> 
+	> [AZURE.NOTE] Make sure to set the SENDER_ID to the Project Number you obtained earlier.
 
 		private String SENDER_ID = "<your project number>";
 		private GoogleCloudMessaging gcm;
@@ -149,9 +145,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 8. Because Android does not display notifications, you must write your own receiver. In **AndroidManifest.xml**, add the following element inside the `<application/>` element.
 
-	<div class="dev-callout"><b>Note</b>
-    <p>Replace the placeholder with your package name.</p>
-    </div> 
+	> [AZURE.NOTE] eplace the placeholder with your package name.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
