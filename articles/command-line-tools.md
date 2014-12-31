@@ -61,10 +61,8 @@ This command imports a publishsettings file or certificate so that it can be use
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-<div class="dev-callout"><b>Note</b>
-   <p>The publishsettings file can contain details (that is, subscription name and ID) about more than one subscription. When you import the publishsettings file, the first subscription is used as the default description. To use a different subscription, run the following command.</p>
+> [AZURE.NOTE] The publishsettings file can contain details (that is, subscription name and ID) about more than one subscription. When you import the publishsettings file, the first subscription is used as the default description. To use a different subscription, run the following command.
 <code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
-</div>
 
 **account clear [options]**
 
@@ -496,9 +494,7 @@ The commands for attaching data disks (azure vm disk attach and azure vm disk at
 
 When you detach a data disk with the azure vm disk detach command, use the &lt;lun&gt; parameter to indicate which disk to detach. 
 
-<div class="dev-callout"><b>Note</b>
-   <p>Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.</p>
-</div>
+> [AZURE>NOTE] Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
 
 **vm disk show [options] &lt;name>**
 
@@ -746,9 +742,7 @@ This command creates a new website and local directory.
 	info:   Repository initialized
 	info:   site create command OK
 
-<div class="dev-callout"><b>Note</b>
-   <p>The site name must be unique. You cannot create a site with the same DNS name as an existing site.</p>
-</div>
+> [AZURE.NOTE] The site name must be unique. You cannot create a site with the same DNS name as an existing site.
 
 **site browse [options] [name]**
 
@@ -1278,9 +1272,7 @@ This command supports the following additional options:
 + **-k `<skip>`** or **--skip `<skip>`**: Skips the number of rows specified by `<skip>`.
 + **-p `<top>`** or **--top `<top>`**: Returns a specific number of rows, specified by `<top>`.
 
-<div class="dev-callout"><b>Note</b>
-   <p>The <b>--query</b> parameter takes precedence over <b>--type</b>, <b>--skip</b>, and <b>--top</b>.</p>
-</div>
+> [AZURE.NOTE] The **--query** parameter takes precedence over **--type**, **--skip**, and **--top**.
 
 **mobile recover [options] [unhealthyservicename] [healthyservicename]**
 
@@ -1301,9 +1293,7 @@ This command regenerates the mobile service application key.
 
 Key types are `master` and `application`.
 
-<div class="dev-callout"><b>Note</b>
-   <p>When you regenerate keys, clients that use the old key may be unable to access your mobile service. When you regenerate the application key, you should update your app with the new key value. </p>
-</div> 
+> [AZURE.NOTE] When you regenerate keys, clients that use the old key may be unable to access your mobile service. When you regenerate the application key, you should update your app with the new key value.
 
 **mobile key set [options] [servicename] [type] [value]**
 
@@ -1562,9 +1552,7 @@ This command supports the following additional options:
 	+ **none** (on-demand jobs)
 + **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format; the default value is `now`.
 
-<div class="dev-callout"><b>Note</b>
-   <p>New jobs are created in a disabled state because a script must still be uploaded. Use the <strong>mobile script upload</strong> command to upload a script and the <strong>mobile job update</strong> command to enable the job.</p>
-</div> 
+> [AZURE.NOTE] New jobs are created in a disabled state because a script must still be uploaded. Use the **mobile script upload** command to upload a script and the **mobile job update** command to enable the job.
 
 **mobile job update [options] [servicename] [jobname]**
 
@@ -1594,9 +1582,7 @@ This command removes the getUpdates scheduled job from the TodoList server.
 	info:    Executing command mobile job delete
 	info:    mobile job delete command OK
 
-<div class="dev-callout"><b>Note</b>
-   <p>Deleting a job also deletes the uploaded script.</p>
-</div> 
+> [AZURE.NOTE] Deleting a job also deletes the uploaded script.
 
 ###<a name="Mobile_Scale"></a>Commands to scale a mobile service
 
@@ -1627,9 +1613,7 @@ This command supports the following additional options:
 + **-c `<mode>`** or **--computeMode `<mode>`**: The compute mode must be either `Free` or `Reserved`.
 + **-i `<count>`** or **--numberOfInstances `<count>`**: The number of instances used when running in reserved mode.
 
-<div class="dev-callout"><b>Note</b>
-   <p>When you set compute mode to `Reserved`, all of your mobile services in the same region run in premium mode.</p>
-</div>  
+> [AZURE.NOTE] When you set compute mode to `Reserved`, all of your mobile services in the same region run in premium mode.
 
 
 ###Commands to enable preview features for your Mobile Service

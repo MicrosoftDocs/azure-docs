@@ -22,7 +22,7 @@ The tutorial demonstrates the simple broadcast scenario using notification hubs.
 
 Completing this tutorial is a prerequisite for all other notification hubs tutorials for Windows Phone 8 apps. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.</p></div>
+> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20 target="_blank").
 
 ##<a name="configure-hub"></a>Create your notification hub
 
@@ -54,9 +54,7 @@ Completing this tutorial is a prerequisite for all other notification hubs tutor
 
 You now have the connection strings required to register your Windows Phone 8 app and send notifications.
 
-<div class="dev-callout"><b>Note</b>
-		<p>This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications you can send to each channel. Notification Hubs support <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx">MPNS authenticated mode</a>. <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.--></p>
-</div>
+> [AZURE.NOTE] This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications you can send to each channel. Notification Hubs support [MPNS authenticated mode](http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx). <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
 
 ##<a name="connecting-app"></a>Connecting your app to the notification hub
 

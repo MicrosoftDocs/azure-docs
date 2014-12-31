@@ -42,12 +42,9 @@ credentials. To do this, you utilize web.config application settings.
 Those settings will be passed as environment variables to Node, which
 are then read by the Azure SDK.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>Storage credentials are only used when the application is
+> [AZURE.NOTE] Storage credentials are only used when the application is
 deployed to Azure. When running in the emulator, the application
-will use the storage emulator.</p>
-</div>
+will use the storage emulator.
 
 Perform the following steps to retrieve the storage account credentials
 and add them to the web.config settings:
@@ -62,10 +59,7 @@ and add them to the web.config settings:
 
 	This retrieves the list of storage accounts and account keys associated with your hosted service.
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Since the Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.</p>
-	</div>
+	> [AZURE.NOTE] Since the Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.
 
 4.  Open the **ServiceDefinition.csdef** file containing the environment settings that are used when the application is deployed to Azure:
 

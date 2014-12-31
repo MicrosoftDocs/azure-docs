@@ -58,9 +58,7 @@ Next, you will update the app to authenticate users before requesting resources 
             }
         }
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than a Microsoft Account, change the value passed to <strong>LoginAsync</strong> above to one of the following: <i>Facebook</i>, <i>Twitter</i>, <i>Google</i>, or <i>WindowsAzureActiveDirectory</i>.</p>
-    </div>
+	> [AZURE.NOTE] If you are using an identity provider other than a Microsoft Account, change the value passed to **LoginAsync** above to one of the following: _Facebook_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
 3. Move the request for the **TodoItem** table from the **TodoService** constructor into a new method named **CreateTable**:
 

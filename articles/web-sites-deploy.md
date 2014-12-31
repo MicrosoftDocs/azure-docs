@@ -186,9 +186,9 @@ For more information, see the following resource:
 
 * [Automating everything with the Azure Management Libraries and .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Introduction to the .NET management API and links to more documentation.
 
-###<a name="cli"></a>Cross-platform command line (xpat-cli)
+###<a name="cli"></a>Cross-platform command line (xplat-cli)
 
-You can use the command line in Mac or Linux machines to deploy by using FTP. If you do that, you can also access the Azure REST management API using the Azure cross-platform command-line interface (xpat-cli). The xpat-cli can also be used on Windows machines.
+You can use the command line in Mac or Linux machines to deploy by using FTP. If you do that, you can also access the Azure REST management API using the Azure cross-platform command-line interface (xplat-cli). The xplat-cli can also be used on Windows machines.
 
 For more information, see the following resource:
 

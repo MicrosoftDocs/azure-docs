@@ -83,9 +83,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
    	This code acquires and stores a channel for a push notification subscription and binds it to the app's default tile.
 
-	<div class="dev-callout"><b>Note</b>
-		<p>In this this tutorial, the mobile service sends a flip Tile notification to the device. When you send a toast notification, you must instead call the <strong>BindToShellToast</strong> method on the channel. To support both toast and tile notifications, call both <strong>BindToShellTile</strong> and  <strong>BindToShellToast</strong> </p>
-	</div>
+	> [AZURE.NOTE] In this this tutorial, the mobile service sends a flip Tile notification to the device. When you send a toast notification, you must instead call the **BindToShellToast** method on the channel. To support both toast and tile notifications, call both **BindToShellTile** and **BindToShellToast**.
     
 4. At the top of the **Application_Launching** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
 

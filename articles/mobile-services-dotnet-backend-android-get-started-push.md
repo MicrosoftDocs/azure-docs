@@ -38,9 +38,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
    	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
 
-    <div class="dev-callout"><b>Important</b>
-	<p>When you set your GCM credentials for enhanced push notifications in the Push tab in the portal, they are shared with Notification Hubs to configure the notification hub with your app.</p>
-    </div>
+> [AZURE.IMPORTANT] When you set your GCM credentials for enhanced push notifications in the Push tab in the portal, they are shared with Notification Hubs to configure the notification hub with your app.
 
 
 Your mobile service is now configured to work with GCM and Notification Hubs.

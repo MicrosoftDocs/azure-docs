@@ -45,9 +45,7 @@ It is always a good practice to validate the length of data that is submitted by
 
     This script checks the length of the **text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
 
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>
+    > [AZURE.NOTE] You can remove a registered script on the **Script** tab by clicking **Clear** and then **Save**.
 
 ## <a name="update-client-validation"></a>Update the client
 

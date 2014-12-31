@@ -87,10 +87,7 @@ To create an example virtual network that connects to a company network:
 	
 4.	On the **DNS Servers and VPN Connectivity** page, enter the following information, and then click the forward arrow on the lower right. 
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>It's possible to select both <b>Point-To-Site</b> and <b>Site-To-Site</b> configurations on this page concurrently. For the purposes of this tutorial, we will select to configure only <b>Site-To-Site</b>. For more information about the settings on this page, see the <b>DNS Servers and VPN Connectivity</b> page in <a href="http://go.microsoft.com/fwlink/?LinkID=248092">About Configuring a Virtual Network using the Management Portal</a>.</p> 
-	</div>
+> [AZURE.NOTE] It's possible to select both **Point-To-Site** and **Site-To-Site** configurations on this page concurrently. For the purposes of this tutorial, we will select to configure only **Site-To-Site**. For more information about the settings on this page, see the **DNS Servers and VPN Connectivity** page in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?LinkID=248092).
 
 	-  **DNS SERVERS:** Enter the DNS server name and IP address that you want to use for name resolution. Typically this would be a DNS server that you use for on-premises name resolution. This setting does not create a DNS server. For the example in this tutorial, type **YourDNS** for the name and **10.1.0.4** for the IP address.
 	-  **Configure Point-To-Site VPN:** Leave this field blank. 

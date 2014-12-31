@@ -46,7 +46,7 @@ In your web editor, open the HTML file and add the following to the script refer
 
     <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
->[AZURE.NOTE]For a Windows Store app written in JavaScript/HTML, you just need to add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project.
+> [AZURE.NOTE] For a Windows Store app written in JavaScript/HTML, you just need to add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project.
 
 In the editor, open or create a JavaScript file, and add the following code that defines the `MobileServiceClient` variable, and supply the application URL and application key from the mobile service in the `MobileServiceClient` constructor, in that order.
 
@@ -172,8 +172,7 @@ It is possible to combine `where` with `orderBy`, `take`, and `skip`. See the ne
 
 The following code illustrates how to sort data by including an `orderBy` or `orderByDescending` function in the query. It returns items from `todoItemTable` sorted ascending by the `text` field. By default, the server returns only the first 50 elements.
 
-<div class="dev-callout"><strong>Note</strong> <p>A server-driven page size us used by default to prevent all elements from being returned. This keeps default requests for large data sets from negatively impacting the service. </p> </div>
->
+> [AZURE.NOTE] A server-driven page size us used by default to prevent all elements from being returned. This keeps default requests for large data sets from negatively impacting the service. 
 You may increase the number of items to be returned by calling `take` as described in the next section. `todoItemTable` is the reference to the mobile service table that we created previously.
 
 	var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
@@ -418,9 +417,8 @@ If you are using an identity provider other than Facebook, change the value pass
 
 In this case, Mobile Services manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a Mobile Services authentication token after successful login with the identity provider. The [login] function, when complete, returns a JSON object (**user**) that exposes both the user ID and Mobile Services authentication token in the **userId** and **authenticationToken** fields, respectively. This token can be cached and re-used until it expires. For more information, see [Caching the authentication token].
 
-<div class="dev-callout"><b>Windows Store app</b>
-<p>When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. To learn how to register your Windows Store app package, see <a href="/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">Register your Windows Store app package for Microsoft authentication</a>. After the package information is registered with Mobile Services, call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter to re-use the credentials.</p>
-</div>
+> [AZURE.NOTE] **Windows Store app**
+When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. To learn how to register your Windows Store app package, see [Register your Windows Store app package for Microsoft authentication](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). After the package information is registered with Mobile Services, call the [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") method by supplying a value of **true** for the <em>useSingleSignOn</em> parameter to re-use the credentials.
 
 <h3>Client flow</h3>
 Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.

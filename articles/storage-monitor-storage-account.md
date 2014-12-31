@@ -95,10 +95,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>Consider costs when you select the metrics. There are transaction and egress costs associated with refreshing monitoring displays. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">Storage Analytics and Billing</a>.</p> 
-</div>
+	> [AZURE.NOTE] Consider costs when you select the metrics. There are transaction and egress costs associated with refreshing monitoring displays. For more information, see [Storage Analytics and Billing](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx).
 
 3. Click **Add Metrics**. 
 

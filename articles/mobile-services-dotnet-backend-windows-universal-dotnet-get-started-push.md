@@ -32,7 +32,10 @@ To complete this tutorial, you need the following:
 <li><p>Browse to the <code>\Services\MobileServices\your_service_name</code> project folder, open the generated push.register.cs code file, and inspect the <strong>UploadChannel</strong> method that registers the device's channel URL with the notification hub.</p></li> 
 <li><p>Open the shared App.xaml.cs code file and notice that a call to the new <strong>UploadChannel</strong> method was added in the <strong>OnLaunched</strong> event handler.</p> <p>This makes sure that registration of the device is attempted whenever the app is launched.</p></li>
 <li><p>Repeat the previous steps to add push notifications to the Windows Phone Store app project, then in the shared App.xaml.cs file, remove the extra call to <strong>UploadChannel</strong> and the remaining <code>#if...#endif</code> conditional wrapper.</p> <p>Both projects can now share a single call to <strong>UploadChannel</strong>.</p>
-<div class="dev-callout"><strong>Note</strong> <p>You can also simplify the generated code by unifying the <code>#if...#endif</code> wrapped <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> definitions into a single  unwrapped definition used by both versions of the app.</p></div></li>
+
+> [AZURE.NOTE] You can also simplify the generated code by unifying the <code>#if...#endif</code> wrapped [MobileServiceClient](http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) definitions into a single unwrapped definition used by both versions of the app.
+
+</li>
 </ol>
 
 Now that push notifications are enabled in the app, you must update the mobile service to send push notifications. 

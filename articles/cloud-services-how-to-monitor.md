@@ -110,10 +110,7 @@ You can receive alerts based on your cloud service monitoring metrics. On the **
 
 	You can display up to 50 metrics in the metrics table.
 
-	<div class="dev-callout"> 
-	<b>Hint</b> 
-	<p>In verbose monitoring, the metrics list can contain dozens of metrics. To display a scrollbar, hover over the right side of the dialog box. To filter the list, click the search icon, and enter text in the search box, as shown below.</p> 
-</div>
+	> [AZURE.TIP] In verbose monitoring, the metrics list can contain dozens of metrics. To display a scrollbar, hover over the right side of the dialog box. To filter the list, click the search icon, and enter text in the search box, as shown below.
  
 	![Add metrics search](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png)
 

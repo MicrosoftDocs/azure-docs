@@ -59,9 +59,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
     This creates a new method to handle the authentication process. The user is authenticated by using a Microsoft Account login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Microsoft, change the value passed to the <strong>login</strong> method above to one of the following: <i>Facebook</i>, <i>Google</i>, <i>Twitter</i>, or <i>WindowsAzureActiveDirectory</i>.</p>
-    </div>
+    > [AZURE.NOTE] If you are using an identity provider other than Microsoft, change the value passed to the **login** method above to one of the following: _Facebook_, _Google_, _Twitter_, or _WindowsAzureActiveDirectory_.
 
 3. In the **OnCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
 

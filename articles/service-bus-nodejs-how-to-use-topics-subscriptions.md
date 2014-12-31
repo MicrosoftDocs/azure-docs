@@ -144,14 +144,11 @@ object. Subscriptions are named and can have an optional filter that
 restricts the set of messages delivered to the subscription's virtual
 queue.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>Subscriptions are persistent and will continue to exist until
+> [AZURE.NOTE] Subscriptions are persistent and will continue to exist until
 either they, or the topic they are associated with, are deleted. If your
 application contains logic to create a subscription, it should first
 check if the subscription already exists by using the
-<strong>getSubscription</strong> method.</p>
-</div>
+**getSubscription** method.
 
 ### Create a Subscription with the default (MatchAll) Filter
 

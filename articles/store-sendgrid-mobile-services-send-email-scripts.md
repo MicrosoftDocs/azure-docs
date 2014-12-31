@@ -74,9 +74,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 	- **_from-address_**: the address from which the email originates. Consider using a registered domain address that belongs to your organization. 
 
-     <div class="dev-callout"><b>Note</b>
-     <p>If you do not have a registered domain, you can instead use the domain of your Mobile Service, in the format <strong>notifications@<i>your-mobile-service</i>.azure-mobile.net</strong>. However, messages sent to your mobile service domain are ignored.</p>
-    </div> 
+     > [AZURE.NOTE] If you do not have a registered domain, you can instead use the domain of your Mobile Service, in the format *notifications@_your-mobile-service_.azure-mobile.net*. However, messages sent to your mobile service domain are ignored.
 
 6. Click the **Save** button. You have now configured a script to send an email each time a record is inserted into the **TodoItem** table.
 

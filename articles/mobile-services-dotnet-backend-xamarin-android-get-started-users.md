@@ -57,9 +57,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
     This creates a new method to handle the authentication process. The user is authenticated by using a Facebook login. A dialog is displayed which displays the ID of the authenticated user. 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than a Facebook, change the value passed to <strong>LoginAsync</strong> above to one of the following: <i>MicrosoftAccount</i>, <i>Twitter</i>, <i>Google</i>, or <i>WindowsAzureActiveDirectory</i>.</p>
-    </div>
+    > [AZURE.NOTE] If you are using an identity provider other than a Facebook, change the value passed to **LoginAsync** above to one of the following: _MicrosoftAccount_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
 3. In the **OnCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
 

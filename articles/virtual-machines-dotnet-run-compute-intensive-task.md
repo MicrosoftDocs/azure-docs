@@ -66,10 +66,9 @@ To create a service namespace:
 
     ![Create a namespace dialog][create_namespace_dialog]
 5.  After ensuring the namespace name is available, choose the region in which your namespace should be hosted (make sure you use the same region in which your virtual machine is hosted).
-    <div class="dev-callout">
-    <strong>Important</strong>
-    <p>Pick the **same region** that you use or intend to use for your virtual machine. This will give you the best performance.</p>
-    </div>
+
+    > [AZURE.IMPORTANT] Pick the **same region** that you use or intend to use for your virtual machine. This will give you the best performance.
+
 6. If you have more than one Azure subscription for the account with which you're logged on, select the subscription to use for the namespace. (If you have only one subscription for the account with which you're logged on, you will not see a dropdown list containing your subscriptions.)
 7. Click the check mark. The system now creates your service namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 

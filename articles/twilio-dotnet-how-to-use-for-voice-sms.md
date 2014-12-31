@@ -117,10 +117,7 @@ The libraries can be [installed using the NuGet package manager extension](http:
 
 By default, Microsoft Visual Studio 2010 installs version 1.2 of NuGet. Installing the Twilio libraries requires version 1.6 of NuGet or higher. For information on installing or updating NuGet, see [http://nuget.org/][nuget].
 
-<div class="dev-callout">
-<b>Note</b>
-<p>To install the latest verison of NuGet, you must first uninstall the loaded version using the Visual Studio Extension Manager. To do so, you must run Visual Studio as administrator. Otherwise, the Uninstall button is disabled.</p>
-</div>
+> [AZURE.NOTE] To install the latest verison of NuGet, you must first uninstall the loaded version using the Visual Studio Extension Manager. To do so, you must run Visual Studio as administrator. Otherwise, the Uninstall button is disabled.
 
 <h3><a id="use_nuget"></a>To add the Twilio libraries to your Visual Studio project:</h3>
 
@@ -191,10 +188,7 @@ The following screenshot shows how to send an SMS message using the **TwilioRest
 <h2><a id="howto_provide_twiml_responses"></a>How to: Provide TwiML Responses from your own website</h2>
 When your application initiates a call to the Twilio API - for example, via the **client.InitiateOutboundCall** method - Twilio sends your request to a URL that is expected to return a TwiML response. The example in [How to: Make an outgoing call](#howto_make_call) uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url] to return the response. 
 
-<div class="dev-callout">
-<b>Note</b>
-<p>While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message](twimlet_message_url) to see an empty &lt;Response&gt; element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.</p>
-</div>
+> [AZURE.NOTE] While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message](twimlet_message_url) to see an empty &lt;Response&gt; element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.
 
 Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses. This topic assumes you'll be hosting the URL from an ASP.NET generic handler.
 

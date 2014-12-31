@@ -92,7 +92,7 @@ The final stage of this tutorial is to build and run your new app.
 
 	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the **TodoItem** table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
-	<div class="dev-callout"><strong>Important</strong> <p>Changes to this platform project will be overwritten if the main project is rebuilt with the PhoneGap tools. Instead, make changes in the project's root www directory as outlined in the section below.</p></div>
+	> [AZURE.IMPORTANT] Changes to this platform project will be overwritten if the main project is rebuilt with the PhoneGap tools. Instead, make changes in the project's root www directory as outlined in the section below.
 
 4. Back in the Management Portal, click the <strong>Data</strong> tab and then click the <strong>TodoItems</strong> table.
 

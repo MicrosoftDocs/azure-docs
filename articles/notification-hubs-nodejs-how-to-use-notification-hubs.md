@@ -82,9 +82,7 @@ The connection **connectionstring** value can be obtained from the Azure Managem
 
 3. Select **View Connection String** from the **quick glance** section, and copy the connection string value.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>You can also retrieve the connection string using the <b>Get-AzureSbNamespace</b> cmdlet provided by Azure PowerShell or the <b>azure sb namespace show</b> command with the Azure Command-Line Tools.</p>
+> [AZURE.NOTE] You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by Azure PowerShell or the **azure sb namespace show** command with the Azure Command-Line Tools.
 
 </div>
 
