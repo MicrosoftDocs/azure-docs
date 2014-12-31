@@ -50,9 +50,7 @@ To be able to authenticate users, you must register your app at the Live Connect
 
    	![][2]
 
-    <div class="dev-callout"><b>Security Note</b>
-	<p>The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.</p>
-    </div>
+ > [AZURE.NOTE] **Security Note** The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.
 
 6. In **Redirect domain**, enter the URL of your mobile service from Step 2, click **Yes** under **Mobile client app**, and then click **Save**.
 
@@ -128,9 +126,7 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 7. Update string _<< INSERT CLIENT ID HERE >>_ from the previous step with the client ID value that was generated when you registered your app with Live Connect.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>In a Windows Phone 8 app, an instance of the <strong>LiveAuthClient</strong> class is created by passing the client ID value to the class constructor. In a <a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/">Windows Store app</a>, the same class is instantiated by passing the redirect domain URI.</p>
-    </div>
+    > [AZURE.NOTE] In a Windows Phone 8 app, an instance of the <strong>LiveAuthClient</strong> class is created by passing the client ID value to the class constructor. In a [Windows Store app](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/), the same class is instantiated by passing the redirect domain URI.
 
 8. Delete or comment-out the existing **OnNavigatedTo** method override and replace it with the following method that handles the **Loaded** event for the page. 
 
