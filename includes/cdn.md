@@ -34,11 +34,8 @@ Azure Storage Services](http://msdn.microsoft.com/en-us/library/azure/gg433040.a
 To create a storage account, you must be either the service
 administrator or a co-administrator for the associated subscription.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>For information about performing this operation by using the
-Azure Service Management API, see the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">Create Storage Account</a> reference topic.</p>
-</div>
+> [AZURE.NOTE] For information about performing this operation by using the
+Azure Service Management API, see the [Create Storage Account](http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx) reference topic.
 
 **To create a storage account for an Azure subscription**
 
@@ -98,14 +95,11 @@ when the cached content time-to-live period expires.
     content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. See [How to Manage Expiration of Blob Content](http://msdn.microsoft.com/en-us/library/gg680306.aspx) for more information. 
 
 
-    <div class="dev-callout">
-    <strong>Note</strong>
-    <p>The configuration created for the endpoint will not
+    > [AZURE.NOTE] The configuration created for the endpoint will not
     immediately be available; it can take up to 60 minutes for the
     registration to propagate through the CDN network. Users who try to
     use the CDN domain name immediately may receive status code 400
-    (Bad Request) until the content is available via the CDN.</p>
-    </div>
+    (Bad Request) until the content is available via the CDN.
 
 <a id="Step3"> </a>
 <h2>Step 3: Access CDN content</h2> 
