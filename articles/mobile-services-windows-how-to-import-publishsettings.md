@@ -6,7 +6,7 @@
 
 Before you can create the mobile service, you must import the publish settings file from your Azure subscription into Visual Studio. This enables Visual Studio to connect to Azure on your behalf.  
 
->[AZURE.NOTE]Beginning with Visual Studio 2013 Update 2, you no longer need to use a publish settings file. Visual Studio is able to connect directly to Azure using the credentials that you provide.
+>[AZURE.NOTE] Beginning with Visual Studio 2013 Update 2, you no longer need to use a publish settings file. Visual Studio is able to connect directly to Azure using the credentials that you provide.
 
 1. In Visual Studio 2013, open Solution Explorer, right-click the project then click **Add** and then **Connected Service...**. 
 
@@ -20,7 +20,7 @@ Before you can create the mobile service, you must import the publish settings f
 
 	![download subscription file in VS](./media/mobile-services-create-new-service-vs2013/mobile-import-azure-subscription.png)
 
-	<div class="dev-callout"><strong>Note</strong> <p>The login window is displayed in the browser, which may be behind your Visual Studio window. Remember to make a note of where you saved the downloaded .publishsettings file. You can skip this step if your project is already connected to your Azure subscription.</p></div> 
+	> [AZURE.NOTE] The login window is displayed in the browser, which may be behind your Visual Studio window. Remember to make a note of where you saved the downloaded .publishsettings file. You can skip this step if your project is already connected to your Azure subscription.
 
 4. Click **Browse**, navigate to the location where you saved the .publishsettings file, select the file, then click **Open** and then **Import**. 
 
@@ -28,7 +28,7 @@ Before you can create the mobile service, you must import the publish settings f
 
 	Visual Studio imports the data needed to connect to your Azure subscription. When your subscription already has one or more existing mobile services, the service names are displayed. 
 
-	<div class="dev-callout"><strong>Security note</strong> <p>After importing the publish settings, consider deleting the downloaded .publishsettings file as it contains information that can be used by others to access your account. Secure the file if you plan to keep it for use in other connected app projects.</p></div>
+	> [AZURE.NOTE] After importing the publish settings, consider deleting the downloaded .publishsettings file as it contains information that can be used by others to access your account. Secure the file if you plan to keep it for use in other connected app projects.
 
 <!-- Anchors. -->
 

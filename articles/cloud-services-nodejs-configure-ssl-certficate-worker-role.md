@@ -12,10 +12,7 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of
 securing data sent across the internet. This common task discusses how
 to specify an HTTPS endpoint for a Node.js application hosted as an Azure Cloud Service in a worker role.
 
-<div class="dev-callout">
-	<b>Note</b>
-	<p>The steps in this article only apply to node applications hosted as an Azure Cloud Service in a worker role.</p>
-	</div>
+> [AZURE.NOTE] The steps in this article only apply to node applications hosted as an Azure Cloud Service in a worker role.
 
 This task includes the following steps:
 
@@ -48,10 +45,7 @@ world' service using the Azure PowerShell using these steps:
 
     ![][3]
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If you have not previously imported publish settings for your Azure subscription, you will receive an error when trying to publish. For information on downloading and importing the publish settings for your subscription, see <a href="https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">How to Use the Azure PowerShell for Node.js</a></p>
-	</div>
+	> [AZURE.NOTE] If you have not previously imported publish settings for your Azure subscription, you will receive an error when trying to publish. For information on downloading and importing the publish settings for your subscription, see [How to Use the Azure PowerShell for Node.js](https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings)
 
 The **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet contains the fully qualified domain name for your hosted application. You will need to obtain an SSL certificate for this specific fully qualified domain name and deploy it to Azure.
 
@@ -97,10 +91,7 @@ When a Node.js application is deployed to a worker role, the server certificate 
 		    res.end('Hello World\n');
 		}).listen(port);
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>You must replace 'certificate.pfx' with the name of the certificate file and "password" with the password (if any) of the certificate file.</p>
-	</div>
+	> [AZURE.IMPORTANT] You must replace 'certificate.pfx' with the name of the certificate file and "password" with the password (if any) of the certificate file.
 
 3.   Save the **server.js** file.
 
@@ -139,10 +130,7 @@ connect to it using HTTPS.
 
     ![the site url][site-url]
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If the Site URL displayed in the portal does not specify HTTPS, then you must manually enter the URL in the browser using HTTPS instead of HTTP.</p>
-	</div>
+	> [AZURE.IMPORTANT] If the Site URL displayed in the portal does not specify HTTPS, then you must manually enter the URL in the browser using HTTPS instead of HTTP.
 
 3.  A new browser will open and display your website.
 
