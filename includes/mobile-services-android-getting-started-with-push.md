@@ -22,9 +22,7 @@
 
 4. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The numbers at the end of the file name may change in subsequent SDK releases.</p>
-    </div>
+    > [AZURE.NOTE] The numbers at the end of the file name may change in subsequent SDK releases.
 
 5.  Open the file *ToDoItemActivity.java*, and add the following import statement:
 
