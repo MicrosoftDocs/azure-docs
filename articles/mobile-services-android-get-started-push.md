@@ -114,15 +114,11 @@ You mobile service is now configured to work with GCM to send push notifications
 		
 	This code creates a new property that holds the registration ID.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, a new <strong>handle</strong> column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
-    </div>
+    > [AZURE.NOTE] When dynamic schema is enabled on your mobile service, a new **handle** column is automatically added to the **TodoItem** table when a new item that contains this property is inserted.
 
 8. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The numbers at the end of the file name may change in subsequent SDK releases.</p>
-    </div>
+    > [AZURE.NOTE] The numbers at the end of the file name may change in subsequent SDK releases.
 
 9.  Open the file *ToDoItemActivity.java*, and add the following import statement:
 
@@ -220,9 +216,7 @@ Your app is now updated to support push notifications.
 
 ##<a id="test"></a>Test push notifications in your app
 
-<div class="dev-callout"><b>Note</b>
-	<p>When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.</p>
-</div>
+> [AZURE.NOTE] When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
 
 1. Restart Eclipse, then in Package Explorer, right-click the project, click **Properties**, click **Android**, check **Google APIs**, then click **OK**.
 

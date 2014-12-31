@@ -132,7 +132,7 @@ The following is an example valid response to the consent request that indicates
 
 Your application will need to maintain context such that the request sent to the Azure AD authorization page is tied to the response (and would reject any responses without an associated request).
 
-<div class="dev-callout"><strong>Note</strong><p>After consent is granted, Azure AD may take some time before SSO and Graph access are provisioned. The first user in each organization that signs up for your application may see see sign-in errors until the provisioning completes.</p></div>
+> [AZURE.NOTE] After consent is granted, Azure AD may take some time before SSO and Graph access are provisioned. The first user in each organization that signs up for your application may see see sign-in errors until the provisioning completes.
 
 After a customer has granted consent to your application, it's important to associate and store the newly created tenant in your application with the TenantId returned by the consent response. The sample application contains an *HttpModule* in the *Microsoft.IdentityModel.WAAD.Preview.Consent* namespace that automatically records the TenantId to a customer/TenantId "data store" on all successful consent responses.  The code for this is included below, and recording of the TenantId to a customer/TenantId "data store" is performed by the *TrustedIssuers.Add* method:
 
@@ -161,7 +161,7 @@ To test your application's ability to integrate with Azure AD, you'll need an Az
 
 Once you have obtained an Azure AD tenant, you can build and run the application by pressing **F5**. Additionally, you can try to sign up for your application using the new  tenant. 
 
-<div class="dev-callout"><strong>Note</strong><p>If your customers sign up for a new Azure AD tenant, it may take some time for that tenant to be fully provisioned. Users may see errors on the consent page until the provisioning completes.</p></div>
+> [AZURE.NOTE] If your customers sign up for a new Azure AD tenant, it may take some time for that tenant to be fully provisioned. Users may see errors on the consent page until the provisioning completes.
 
 <h2><a name="enablesso"></a>Part 3: Enable Single Sign-On</h2>
 
@@ -233,7 +233,7 @@ Before your application can call the Azure AD Graph, it must authenticate itself
 2.	Acquire an access token using Azure Authentication Library (AAL) 
 3.	Call the Azure AD Graph to get a list of tenant users
 
-<div class="dev-callout"><strong>Note</strong><p>The sample application helper library Microsoft.IdentityModel.WAAD.Preview already contains an auto-generated proxy class (created by adding a Service Reference to https://graph.windows.net/your-domain-name called GraphService). The application will use this proxy class to call into the Azure AD Graph service.</p></div>
+> [AZURE.NOTE] The sample application helper library Microsoft.IdentityModel.WAAD.Preview already contains an auto-generated proxy class (created by adding a Service Reference to https://graph.windows.net/your-domain-name called GraphService). The application will use this proxy class to call into the Azure AD Graph service.
 
 <h3>Step 1: Use the Proxy Class to Call the Azure AD Graph</h3>
 In this step, we are going to use the sample application to show you how to:
@@ -270,7 +270,7 @@ In the sample application, these calls to the API are handled by the GraphInterf
 <h3>Step 2: Acquire an Access Token Using Azure Authentication Library</h3>
 The sample application uses the Azure Authentication Library (AAL) to acquire tokens for accessing the Graph API.  The token acquisition process is managed by the *GetAuthorizationHeader* method in the *Microsoft.IdentityModel.WAAD.Preview.Graph.GraphInterface* class, and is shown below.  
 
-<div class="dev-callout"><strong>Note</strong><p>AAL is available as a NuGet package and can be installed within Visual Studio.</p></div>
+> [AZURE.NOTE] AAL is available as a NuGet package and can be installed within Visual Studio.
 
 	/// <summary>
     /// Method to get the Oauth2 Authorization header from ACS
@@ -329,7 +329,7 @@ This method is called from the **HomeController.cs** file to show the user list 
 
 Once you have thoroughly tested your application, you can create an application listing and publish your application listing on the Azure Marketplace. These steps are performed on the Microsoft Seller Dashboard.  
 
-<div class="dev-callout"><strong>Note</strong><p>Your app is responsible for managing any billing relationship with your customers. The Azure Marketplace only provides links to your application's website and information about it.</p></div>
+> [AZURE.NOTE] Your app is responsible for managing any billing relationship with your customers. The Azure Marketplace only provides links to your application's website and information about it.
 
 <h3>Step 1: Creating an Application Manifest and App Listing</h3>
 
@@ -370,7 +370,7 @@ The optional *Reason* element allows you to specify (in multiple cultures) your 
 
 Using your new Client ID and your application manifest, you can create an application listing by following the instructions in [Add Apps in the Microsoft Seller Dashboard][]. When creating an application listing, make sure to select the Azure AD application type. Once you have finished creating your application listing, click "submit" to publish your application to the Azure Marketplace. You'll need to wait until your application is approved before publication completes.
 
-<div class="dev-callout"><strong>Note</strong><p>If you are prompted to "add tax and payout information", you can skip this step because you are selling your application directly to customer and not through Microsoft.</p></div>
+> [AZURE.NOTE] If you are prompted to "add tax and payout information", you can skip this step because you are selling your application directly to customer and not through Microsoft.
 
 <h3>Step 2: Finalize Testing and Make Your Application Public</h3>
 Once your application listing is approved, you should test your application again end-to-end. For example, make sure that your application has been updated with the production ClientID and Client Secret.  Run through the testing checklist a final time, ensuring that the consent page now shows the information you included in your application listing.
