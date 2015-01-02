@@ -87,10 +87,8 @@ provides more features. For more information, see [Cloud9 IDE][].
 
 ## Run the Application
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>While the steps provided in this section are sufficient for a Hello World application, for applications that use external modules you may need to select a specific version of Node.js for the debug environment. To do this, select <strong>Configure...</strong> from the debug dropdown, and then select the specific version of Node.js. For example, you may receive authentication errors when using the 'azure' module if you do not have Node.js 0.6.x selected.</p>
-</div>
+> [AZURE.NOTE] While the steps provided in this section are sufficient for a Hello World application, for applications that use external modules you may need to select a specific version of Node.js for the debug environment. To do this, select **Configure...** from the debug dropdown, and then select the specific version of Node.js. For example, you may receive authentication errors when using the 'azure' module if you do not have Node.js 0.6.x selected.
+
 
 1.  Click **Debug** to run the application in the Cloud9 debugger.
 	
@@ -257,11 +255,8 @@ the ribbon.
 When you click Connect, you will be prompted to open or download a .RDP file. This file contains the information required to connect to your remote desktop session. Running this file on a Windows system will prompt you for the username and password you entered when creating your deployment, and will then connect you to the desktop of the selected
 instance.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>The .RDP file to connect to the hosted instance of your application will only work with the Remote Desktop application on
-WIndows.</p>
-</div>
+> [AZURE.NOTE] The .RDP file to connect to the hosted instance of your application will only work with the Remote Desktop application on
+WIndows.
 
 ## Stop and Delete the Application
 
