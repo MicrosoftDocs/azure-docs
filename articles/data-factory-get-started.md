@@ -126,7 +126,7 @@ In this step, you will create two linked services: **MyBlobStore** and **MyAzure
 
 ## <a name="CreateInputAndOutputDataSets"></a>Step 3: Create input and output tables
 
-In the previous step, you created linked services **MyBlobStore** and **MyAzureSQLStore** to link an Azure Storage account and Azure SQL datbase to the data factory: **ADFTutorialDataFactory**. In this step, you will create tables that represent the input and output data for Copy activity in the pipeline you will be creating in the next step. 
+In the previous step, you created linked services **MyBlobStore** and **MyAzureSQLStore** to link an Azure Storage account and Azure SQL database to the data factory: **ADFTutorialDataFactory**. In this step, you will create tables that represent the input and output data for Copy activity in the pipeline you will be creating in the next step. 
 
 A table is a rectangular dataset and it is the only type of dataset that is supported at this time. The input table refers to a blob container in the Azure Storage that MyBlobStore points to and the output table refers to a SQL table in the Azure SQL database that MyAzureSQLStore points to.  
  
