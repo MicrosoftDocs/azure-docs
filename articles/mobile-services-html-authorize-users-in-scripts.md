@@ -35,7 +35,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
     This script adds a userId value to the item, which is the user ID of the authenticated user, before it is inserted into the TodoItem table. 
 
-    > [AZURE.NOTE] Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the **userId** column to the **TodoItem** table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.
+    > [AUZRE.IMPORTANT] Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the **userId** column to the **TodoItem** table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.
 
 5. Repeat steps 3 and 4 to replace the existing **Read** operation with the following function:
 

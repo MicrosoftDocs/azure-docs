@@ -30,9 +30,7 @@ This topic shows you how to register your app to be able to use Live Connect as 
 
    	![][2]
 
-    <div class="dev-callout"><b>Security Note</b>
-	<p>The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.</p>
-    </div>
+    > [AZURE.NOTE] The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.
 
 You are now ready to use a Microsoft Account for authentication in your app by providing the client ID and client secret values to Mobile Services.
 

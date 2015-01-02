@@ -19,9 +19,7 @@
             }];
         }
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginWithProvider</strong> above to one of the following: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em>, or <em>windowsazureactivedirectory</em>.</p>
-    </div>
+    > [AZURE.NOTE] If you are using an identity provider other than Facebook, change the value passed to **loginWithProvider** above to one of the following: _microsoftaccount_, _facebook_, _twitter_, _google_, or _windowsazureactivedirectory_.
 		
 3. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
 

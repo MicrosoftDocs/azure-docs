@@ -50,14 +50,9 @@ provides more features. For more information, see [Cloud9 IDE][].
 
 	![create new project dialog Cloud9](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_project.png)
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Some options require a paid Cloud9 plan.</p>
-	</div>
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>The project name of your Cloud9 project is not used when deploying to Azure.</p>
-	</div>
+	> [AZURE.NOTE] Some options require a paid Cloud9 plan.
+	   
+	> [AZURE.NOTE] The project name of your Cloud9 project is not used when deploying to Azure.
 
 3.  After the project has been created, click **Start Editing**. If this is the first time you have used the Cloud9 IDE, you will be offered the option to take a tour of the service. If you wish to skip the tour and view it at a later date, select **Just the editor,please**.
 
@@ -79,20 +74,14 @@ provides more features. For more information, see [Cloud9 IDE][].
             res.end('hello azure\n');
         }).listen(port);
 	
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Using process.env.PORT ensures that the application picks up the correct port whether ran in the Cloud9 debugger or when deployed to Azure.</p>
-	</div>
+	> [AZURE.NOTE] Using process.env.PORT ensures that the application picks up the correct port whether ran in the Cloud9 debugger or when deployed to Azure.
 
 6.  To save the code, select **File** and then **Save as**. In the
     **Save As** dialog, enter **server.js** as the file name, and then
     click **Save**.
 
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>You may notice a warning symbol indicating that the req variable is unused. You may safely ignore this warning.</p>
-	</div>
+	> [AZURE.NOTE] You may notice a warning symbol indicating that the req variable is unused. You may safely ignore this warning.
 
 	![save the server.js file](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_saveas.png)
 
@@ -158,15 +147,9 @@ trial by following these steps:
 	
 	![create a new hosted service](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_hosted_service_settings.png)
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>In the <strong>Add a deploy target</strong> dialog, any existing Azure hosted services will be listed under the <strong>Choose existing deployment</strong> section; selecting an existing hosted service will result in this project being deployed to that service.</p>
-	</div>
+	> [AZURE.NOTE] In the **Add a deploy target** dialog, any existing Azure hosted services will be listed under the **Choose existing deployment** section; selecting an existing hosted service will result in this project being deployed to that service.
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Selecting <strong>Enable RDP</strong> and providing a username and password will enable remote desktop for your deployment.</p>
-	</div>
+	> [AZURE.NOTE] Selecting **Enable RDP** and providing a username and password will enable remote desktop for your deployment.
 
 
 ## Deploy to the Azure Production Environment
@@ -196,10 +179,7 @@ trial by following these steps:
 
 	![deployment status](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deployment_status.png)
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Projects deployed through the Cloud 9 IDE are assigned a GUID as the deployment name in Azure.</p>
-	</div>
+	> [AZURE.NOTE] Projects deployed through the Cloud 9 IDE are assigned a GUID as the deployment name in Azure.
 
 8.  The deployment dialog includes a link to the production URL. When the deployment is complete, click the URL to browse to your application running in Azure.
 
