@@ -103,19 +103,18 @@ it using the Web API provided by SendGrid.
         console.log(json);
     });
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>While the above examples show passing in an email object and
+> [AZURE.NOTE] While the above examples show passing in an email object and
 callback function, you can also directly invoke the send
-function by directly specifying email properties. For example:</p>
-<pre class="prettyprint">sendgrid.send({
+function by directly specifying email properties. For example:  
+>
+>`````
+sendgrid.send({
     to: 'john@contoso.com',
     from: 'anna@contoso.com',
     subject: 'test mail',
     text: 'This is a sample email message.'
 });
-</pre>
-</div>
+`````
 
 ## <a name="addattachment"> </a>How to: Add an Attachment
 

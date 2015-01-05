@@ -54,11 +54,11 @@ The following is a screenshot of the completed application:
 
 		gem install rails --no-rdoc --no-ri
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>This command may require administrator or root privileges on some operating systems. If you receive an error while running this command, try using 'sudo' as follows:</p>
-	<pre class="prettyprint">sudo gem install rails</pre>
-	</div>
+	> [AZURE.NOTE] This command may require administrator or root privileges on some operating systems. If you receive an error while running this command, try using 'sudo' as follows:
+	>
+	>````` 
+	sudo gem install rails
+	`````
 
 	> [AZURE.NOTE] Version 3.2.12 of the Rails gem was used for this tutorial.
 

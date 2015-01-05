@@ -176,14 +176,14 @@ You can now upload the exported PFX file to your Azure Website.
 
 	When prompted, enter a password to secure the .pfx file.
 
-	<div class="dev-callout"> 
-	<b>Note</b>
-	<p>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types. Select the version that is provided as a PEM file (.pem file extension.)</p>
-	<p>The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the <b>intermediate-cets.pem</b> file:</p>
-	<pre><code>
+	> [AZURE.NOTE] If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types. Select the version that is provided as a PEM file (.pem file extension.)
+	> 
+	> The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the **intermediate-cets.pem** file:  
+	>
+	>
+	`````
 	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
-	</code></pre>
-	</div>
+	`````
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Azure Websites.
 
@@ -295,14 +295,14 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 
 	When prompted, enter a password to secure the .pfx file.
 
-	<div class="dev-callout"> 
-	<b>Note</b>
-	<p>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types. Select the version that is provided as a PEM file (.pem file extension.)</p>
-	<p>The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the <b>intermediate-cets.pem</b> file:</p>
-	<pre><code>
+	> [AZURE.NOTE] If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types. Select the version that is provided as a PEM file (.pem file extension.)  
+	> 
+	> The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the **intermediate-cets.pem** file:  
+	>
+	> 
+	`````
 	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
-	</code></pre>
-	</div>
+	`````
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Azure Websites.
 

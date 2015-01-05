@@ -95,13 +95,12 @@ Now that the mobile service is validating data and sending error responses, you 
 The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
 
 
-<div class="dev-callout"><b>Note</b>
-<p>The <b>createdAt</b> timestamp property demonstrated here is now redundant. Mobile Services automatically creates a <b>__createdAt</b> system property for each table. You could use this system property in your application by simply adding the following member to the TodoItem class</p>
-<pre><code>
+> [AZURE.NOTE] The **createdAt** timestamp property demonstrated here is now redundant. Mobile Services automatically creates a **__createdAt** system property for each table. You could use this system property in your application by simply adding the following member to the TodoItem class  
+> 
+`````
 [JsonProperty(PropertyName = "__createdAt")]
 public DateTime createdAt { set; get; }
-</code></pre>
-</div>
+`````
 
 
 1. In the **Scripts** tab in the [Management Portal], replace the current **Insert** script with the following function, and then click **Save**.
@@ -151,9 +150,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 	
     This new class definition includes the new timestamp property, as a nullable DateTime type.
   
-    <div class="dev-callout"><b>Note</b>
-	<p>The <code>DataMemberAttribute</code> tells the client to map the new <code>CreatedAt</code> property in the app to the <code>createdAt</code> column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error occurs because of the casing differences.</p>
-    </div>
+    > [AZURE.NOTE] The `DataMemberAttribute` tells the client to map the new `CreatedAt` property in the app to the `createdAt` column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error occurs because of the casing differences.
 
 5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:
 	      
