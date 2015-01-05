@@ -7,7 +7,7 @@ Resources for building applications that use Microsoft Azure.
 
 ##Microsoft Architecture Blueprints
 
-Microsoft is now publishing a set of high level architecture blueprints showing how to build specific types of systems using Microsoft Azure services. Eac blueprint includes a 2D Visio based file that you can download and modify, a more colorful 3D PDF file to introduce the blueprint and a video that walks through the 3D PDF. See 
+Microsoft is now publishing a set of high level architecture blueprints showing how to build specific types of systems using Microsoft Azure services. Each blueprint includes a 2D Visio based file that you can download and modify, a more colorful 3D PDF file to introduce the blueprint and a video that walks through the 3D PDF. See 
 [Microsoft Architecture Blueprints](http://msdn.microsoft.com/dn630664).
 
 ![Microsoft Architecture Blueprint 3D diagram][BluePrint]
