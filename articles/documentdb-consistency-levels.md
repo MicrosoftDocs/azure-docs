@@ -3,7 +3,7 @@
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/05/2015" ms.author="mimig" />
 
 #Consistency levels in DocumentDB
-Developers are often faced with the challenge of choosing between the two extremes of strong and eventual consistency. The reality is that there are multiple consistency click-stops between these two extremes. In most real world scenarios, applications benefit from making fine grained trade-offs between consistency, availability ,and latency. DocumentDB offers four well-defined consistency levels with associated performance levels. This allows application developers to make predictable consistency-availability-latency trade-offs.  
+Developers are often faced with the challenge of choosing between the two extremes of strong and eventual consistency. The reality is that there are multiple consistency click-stops between these two extremes. In most real world scenarios, applications benefit from making fine grained trade-offs between consistency, availability, and latency. DocumentDB offers four well-defined consistency levels with associated performance levels. This allows application developers to make predictable consistency-availability-latency trade-offs.  
  
 All system resources, including database accounts, databases, collections, users, and permissions are always strongly consistent for reads and queries. The consistency levels apply only to the user defined resources. For queries and read operations on user defined resources, including documents, attachments, stored procedures, triggers, and UDFs, DocumentDB offers four distinct consistency levels: 
 
@@ -15,7 +15,7 @@ All system resources, including database accounts, databases, collections, users
 These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availability, and performance. These consistency levels are backed by predictable performance levels ensuring consistent results for your application.   
 
 ##Consistency levels
-You can configure a default consistency level on your database account that applies to all the collections (across all of the databases) under your database account. By default, all reads and queries issued against the user defined resources will use the default consistency level specified on the database account. However, you can lower the consistency level of a specific read/query request by specifying [x-ms-consistency-level] request header. There are four types of consistency levels supported by DocumentDB's replication protocol - these are briefly described below. 
+You can configure a default consistency level on your database account that applies to all the collections (across all of the databases) under your database account. By default, all reads and queries issued against the user defined resources will use the default consistency level specified on the database account. However, you can lower the consistency level of a specific read/query request by specifying [x-ms-consistency-level] request header. There are four types of consistency levels supported by the DocumentDB replication protocol - these are briefly described below. 
 
 >[AZURE.NOTE] In a future release, we intend to support overriding the default consistency level on a per collection basis.  
 
@@ -36,7 +36,7 @@ Session consistency provides predictable read data consistency for a session whi
 Eventual consistency provides the weakest read consistency but offers the lowest latency for both reads and writes. 
 
 ##Query Consistency
-By default, for user defined resources, the consistency level of the queries is the same as the reads. By default, the index is updated synchronously on each insert, replace, or delete of a document to the collection. This enables the queries to honor the same consistency level as that of the document reads. While DocumentDB is write optimized and supports sustained volumes of document writes along with synchronous index maintenance and serving consistent queries, you can configure certain collections to update their index lazily. Lazy indexing furhter boosts the write performance and is ideal for bulk ingestion scenarios when a workload is primarily read-heavy.  
+By default, for user defined resources, the consistency level of the queries is the same as the reads. By default, the index is updated synchronously on each insert, replace, or delete of a document to the collection. This enables the queries to honor the same consistency level as that of the document reads. While DocumentDB is write optimized and supports sustained volumes of document writes along with synchronous index maintenance and serving consistent queries, you can configure certain collections to update their index lazily. Lazy indexing further boosts the write performance and is ideal for bulk ingestion scenarios when a workload is primarily read-heavy.  
 
 Indexing Mode|	Reads|	Queries  
 -------------|-------|---------
