@@ -120,7 +120,7 @@ You also have the option to create your own Blob container or use an existing on
 	$containerName="<BlobContainerToBeCreated>" # The Blob container name that you will create
 
 	# Connect to your Azure account and selec the current subscription
-	Add-AzureAccount # The connection will expire in a few hours.
+	Add-AzureAccount # The connection will expire in 12 hours.
 	Select-AzureSubscription $subscriptionName #only required if you have multiple subscriptions
 	
 	# Create a storage context object
