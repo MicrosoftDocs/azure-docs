@@ -1,9 +1,42 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/26/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/05/2014" ms.author="bradsev" />
 
 
 #Microsoft HDInsight release notes
+
+## Notes for 1/5/2014 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight & HDP versions unchanged
+* HDInsight & HDP versions unchanged
+* HDInsight & HDP versions unchanged
+
+This release contains the following update.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Change to default value for hive config hive.auto.convert.join.noconditionaltask.size</td>
+<td><p>This size configuration applies to auto converted map joins. The value represents the sum of the sizes of tables that can be converted to hashmaps that fit in memory. In a prior release, this value increased from the default value of 10MB to 128MB. However, the new value of 128MB was causing jobs to fail due to lack of memory. This release reverts the default value back to 10MB. Customers can still choose to override this value during cluster creation given their queries and table sizes. For more information on this setting and how to override it, see <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.0.2/ds_Hive/optimize-joins.html#JoinOptimization-OptimizeAutoJoinConversion" target="_blank">Optimize Auto Join Conversion</a> in Hortonworks documentation. </p></td>
+<td>Hive</td>
+<td>Hadoop, Hbase</td>
+<td>N/A</td>
+</tr>
+
+
+
+</table>
+<br>
 
 ## Notes for 12/23/2014 release of HDInsight ##
 
