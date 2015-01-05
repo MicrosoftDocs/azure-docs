@@ -1,9 +1,55 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/26/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/05/2015" ms.author="bradsev" />
 
 
 #Microsoft HDInsight release notes
+
+## Notes for 1/5/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release are unchanged from recent releases:
+
+* HDInsight 	2.1.10.420.1246783	(HDP 1.3.9.0-01351)
+* HDInsight 	3.0.6.420.1246783	(HDP 2.0.9.0-2097)
+* HDInsight 	3.1.1.420.1246783	(HDP 2.1.9.0-2196)
+
+
+This release contains the following update.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Samples for Twitter trend analysis and Mahout based movie recommendations</td>
+<td><p>In this release, the HDInsight Query console has two additional samples:</p>
+
+<p><b>Twitter Trend Analysis</b><br>
+Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, learn how to use Hive to get a list of Twitter users that sent the most tweets containing a particular word. </p>
+
+<p><b>Mahout Movie Recommendation</b><br>
+Apache Mahout is an Apache Hadoop machine learning library. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this tutorial, use a recommendation engine to generate movie recommendations based on movies that your friends have seen.</p></td>
+<td>Query console</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Change to default value for hive config hive.auto.convert.join.noconditionaltask.size</td>
+<td><p>This size configuration applies to auto converted map joins. The value represents the sum of the sizes of tables that can be converted to hashmaps that fit in memory. In a prior release, this value increased from the default value of 10MB to 128MB. However, the new value of 128MB was causing jobs to fail due to lack of memory. This release reverts the default value back to 10MB. Customers can still choose to override this value during cluster creation given their queries and table sizes. For more information on this setting and how to override it, see <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.0.2/ds_Hive/optimize-joins.html#JoinOptimization-OptimizeAutoJoinConversion" target="_blank">Optimize Auto Join Conversion</a> in Hortonworks documentation. </p></td>
+<td>Hive</td>
+<td>Hadoop, Hbase</td>
+<td>N/A</td>
+</tr>
+
+</table>
+<br>
 
 ## Notes for 12/23/2014 release of HDInsight ##
 
@@ -67,7 +113,7 @@ This release contains the following component updates.
 
 The full version numbers for HDInsight clusters deployed with this release are:
 
-* HDInsight 	2.1.9.406.1221105	(HDP 1.3.9.0-01351 )
+* HDInsight 	2.1.9.406.1221105	(HDP 1.3.9.0-01351)
 * HDInsight 	3.0.5.406.1221105	(HDP 2.0.9.0-2097)
 * HDInsight 	3.1.1.406.1221105	(HDP 2.1.9.0-2196)
 * HDInsight SDK N/A
