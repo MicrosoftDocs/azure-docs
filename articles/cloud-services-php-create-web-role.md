@@ -46,10 +46,7 @@ For a worker role, use this command:
 
 	PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>The <code>roleName</code> parameter is optional. If it is omitted, the role name will be automatically generated. The first web role created will be <code>WebRole1</code>, the second <code>WebRole2</code>, and so on. The first worker role created will be <code>WorkerRole1</code>, the second <code>WorkerRole2</code>, and so on.</p> 
-</div>
+> [AZURE.NOTE] The `roleName` parameter is optional. If it is omitted, the role name will be automatically generated. The first web role created will be `WebRole1`, the second `WebRole2`, and so on. The first worker role created will be `WorkerRole1`, the second `WorkerRole2`, and so on.
 
 ##<a name="SpecifyPHPVersion"></a>How to: Specify the built-in PHP Version
 
@@ -88,10 +85,7 @@ To customize the built-in PHP runtime, follow these steps:
 		display_errors=On
 		extension=php_mongo.dll
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>Any settings that you don't explicity set in the <code>php.ini</code> file that you provide will automatically be set to their default values. However, keep in mind that you can add a complete <code>php.ini</code> file. </p> 
-</div>
+> [AZURE.NOTE] Any settings that you don't explicity set in the `php.ini` file that you provide will automatically be set to their default values. However, keep in mind that you can add a complete `php.ini` file.
 
 ##<a name="OwnPHP"></a>How to: Use your own PHP runtime
 In some cases, instead of selecting a built-in PHP runtime and configuring it as described above, you may want to provide your own PHP runtime. For example, you can use the same PHP runtime in a web or worker role that you use in your development environment, making it easier to ensure that application will not change behavior in your production environment.
@@ -128,10 +122,7 @@ To configure a web role to use a PHP runtime that you provide, follow the steps 
 
 6. Publish your application as described in the [How to: Publish your application](#Publish) section below.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>The <code>download.ps1</code> script (in the <code>bin</code> folder of the web role's root directory) can be deleted after following the steps described above for using your own PHP runtime.</p> 
-</div>
+> [AZURE.NOTE] The `download.ps1` script (in the `bin` folder of the web role's root directory) can be deleted after following the steps described above for using your own PHP runtime.
 
 <h3><a name="OwnPHPWorkerRole"></a>Configuring a worker role to use your own PHP runtime</h3>
 
