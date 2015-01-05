@@ -508,11 +508,19 @@ To trigger a function manually, use the `Call` or `CallAsync` method on the `Job
 
 ## <a id="logs"></a>How to write logs
 
-To write logs that appear in the WebJobs Dashboard page linked to a particular function invocation, use a `TextWriter` object that you obtain from a parameter in your method signature.  The SDK can't link the output from Console methods such as `Console.WriteLine()` to method invocations in the Dashboard because the Console is single-threaded, while many job functions may be running at the same time. Therefore the SDK provides each function with its own unique log writer. Output from Console methods that you call in a function or in the `Main()` method appears in the Dashboard page for the WebJob, not in the page for a particular method invocation. 
+The Dashboard shows logs in two places: the page for the WebJob, and the page for a particular WebJob invocation. 
 
-To write [application tracing logs](../web-sites-dotnet-troubleshoot-visual-studio/#logsoverview), use `Console.Out` (creates logs marked as INFO) and `Console.Error` (creates logs marked as ERROR). An alternative is to use [Trace or TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), which provides Verbose, Warning, and Critical levels in addition to Info and Error.
+![Logs in WebJob page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-Application logs appear in the website log files, Azure tables, or Azure blobs depending on how you configure your Azure Website. The most recent 100 application logs also appear in the Dashboard if the program is running in an Azure WebJob. (No application logs appear in the Dashboard from a program that is running locally or in some other environment.)   
+![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
+
+Output from Console methods that you call in a function or in the `Main()` method appears in the Dashboard page for the WebJob, not in the page for a particular method invocation. Output from the TextWriter object that you get from a parameter in your method signature appears in the Dashboard page for a method invocation.
+
+Console output can't be linked to a particular method invocation because the Console is single-threaded, while many job functions may be running at the same time. That's why the  SDK provides each function invocation with its own unique log writer object.
+
+To write [application tracing logs](../web-sites-dotnet-troubleshoot-visual-studio/#logsoverview), use `Console.Out` (creates logs marked as INFO) and `Console.Error` (creates logs marked as ERROR). An alternative is to use [Trace or TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), which provides Verbose, Warning, and Critical levels in addition to Info and Error. Application tracing logs appear in the website log files, Azure tables, or Azure blobs depending on how you configure your Azure Website. As is true of all Console output, the most recent 100 application logs also appear in the Dashboard page for the WebJob, not the page for a function invocation. 
+
+Console output appears in the Dashboard only if the program is running in an Azure WebJob, not if the program is running locally or in some other environment.
 
 You can disable logging by [setting the Dashboard connection string to null](#config).
 
@@ -528,13 +536,13 @@ The following example shows several ways to write logs:
 		    logger.WriteLine("TextWriter - " + logMessage);
 		}
 
-In the WebJobs SDK dashboard, the output from the `TextWriter` object shows up when you go to the page for a particular function invocation and click **Toggle Output**:
+In the WebJobs SDK Dashboard, the output from the `TextWriter` object shows up when you go to the page for a particular function invocation and click **Toggle Output**:
 
 ![Click function invocation link](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png)
 
 ![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
 
-In the WebJobs SDK Dashboard, the most recent 100 lines of application logs show up when you go to the page for the WebJob (not for the function invocation) and click **Toggle Output**. (This page also shows Console output that you write from the `Main()` method.)
+In the WebJobs SDK Dashboard, the most recent 100 lines of Console output show up when you go to the page for the WebJob (not for the function invocation) and click **Toggle Output**.
  
 ![Click Toggle Output](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
