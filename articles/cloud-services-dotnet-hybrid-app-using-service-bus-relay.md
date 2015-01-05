@@ -530,40 +530,29 @@ Run the application to verify that it works.
         and it will look and function the same way it did when you ran
         it earlier as a regular ASP.NET MVC 4 application.
 
-    <h2>PUT THE PIECES TOGETHER</h2>
+##PUT THE PIECES TOGETHER##
 
-    The next step is to hook up the on-premises products server with the
-    ASP.NET MVC application.
+The next step is to hook up the on-premises products server with the ASP.NET MVC application.
 
-    1.  If it is not already open, in Visual Studio re-open the
+1.  If it is not already open, in Visual Studio re-open the
         **ProductsPortal** project you created in the "Creating an
         ASP.NET MVC Application" section.
 
-    2.  Similar to the step in the "Create an On-Premises Server"
+2.  Similar to the step in the "Create an On-Premises Server"
         section, add the NuGet package to the project References. In
         Solution Explorer, right-click **References**, then click
         **Manage NuGet Packages**.
 
-    3.  Search for "WindowsAzure.ServiceBus" and select the **Windows
-        Azure Service Bus** item. Then complete the installation and
+3.  Search for "Service Bus" and select the **Azure Service Bus** item. Then complete the installation and
         close this dialog.
 
-    4.  In Solution Explorer, right-click the **ProductsPortal**
-        project, then click **Add**, then **Existing Item**.
+4.  In Solution Explorer, right-click the **ProductsPortal** project, then click **Add**, then **Existing Item**.
 
-    5.  Navigate to the **ProductsContract.cs** file from the
-        **ProductsServer** console project. Click to highlight
-        ProductsContract.cs. Click the down arrow next to **Add**, then
-        click **Add as Link**.
+5.  Navigate to the **ProductsContract.cs** file from the **ProductsServer** console project. Click to highlight   ProductsContract.cs. Click the down arrow next to **Add**, then click **Add as Link**.
 
-        ![][24]
+	![][24]
 
-    6.  Now open the **HomeController.cs** file in the Visual Studio
-        editor and replace the namespace definition with the following
-        code. Be sure to replace *yourServiceNamespace* with the name of
-        your service namespace, and *yourIssuerSecret* with your key.
-        This will enable the client to call the on-premises service,
-        returning the result of the call.
+6.  Now open the **HomeController.cs** file in the Visual Studio  editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourIssuerSecret* with your key. This will enable the client to call the on-premises service, returning the result of the call.
 
             namespace ProductsWeb.Controllers
             {
@@ -602,17 +591,16 @@ Run the application to verify that it works.
                     }
                 }
             }
-
-    7.  In Solution Explorer, right-click on the **ProductsPortal**
+7.  In Solution Explorer, right-click on the **ProductsPortal**
         solution, click **Add**, then click **Existing Project**.
 
-    8.  Navigate to the **ProductsServer** project, then double-click
+8.  Navigate to the **ProductsServer** project, then double-click
         the **ProductsServer.csproj** solution file to add it.
 
-    9.  In Solution Explorer, right-click the **ProductsPortal**
+9.  In Solution Explorer, right-click the **ProductsPortal**
         solution and click **Properties**.
 
-    10. On the left-hand side, click **Startup Project**. On the
+10. On the left-hand side, click **Startup Project**. On the
         right-hand side, cick **Multiple startup projects**. Ensure that
         **ProductsServer**, **ProductsPortal.Azure**, and
         **ProductsPortal** appear, in that order, with **Start** set as
@@ -620,45 +608,45 @@ Run the application to verify that it works.
         and **None** set as the action for **ProductsPortal**. For
         example:
 
-        ![][25]
+      ![][25]
 
-    11. Still in the Properties dialog, click **ProjectDependencies** on
+11. Still in the Properties dialog, click **ProjectDependencies** on
         the left-hand side.
 
-    12. In the **Projects** dropdown, click
+12. In the **Projects** dropdown, click
         **ProductsServer**. Ensure that **ProductsPortal** is unchecked,
         and **ProductsPortal.Azure** is checked. Then click **OK**:
 
-        ![][26]
+    ![][26]
 
-    <h2>RUN THE APPLICATION</h2>
+##RUN THE APPLICATION##
 
-    1.  From the **File** menu in Visual Studio, click **Save All**.
+1.  From the **File** menu in Visual Studio, click **Save All**.
 
-    2.  Press **F5** to build and run the application. The on-premises
+2.  Press **F5** to build and run the application. The on-premises
         server (the **ProductsServer** console application) should start
         first, then the **ProductsWeb** application should start in a
         browser window, as shown in the screenshot below. This time, you
         will see that the product inventory lists data retrieved from
         the product service on-premises system.
 
-        ![][1]
+    ![][1]
 
-    <h2>DEPLOY YOUR APPLICATION TO AZURE</h2>
+##DEPLOY YOUR APPLICATION TO AZURE##
 
-    1.  Right-click on the **ProductsPortal** project in **Solution
+1.  Right-click on the **ProductsPortal** project in **Solution
         Explorer** and click **Publish to Azure**.
 
-    2.  You might have to sign in to see all your subscriptions.
+2.  You might have to sign in to see all your subscriptions.
 
-        Click **Sign in to see more subscriptions**:
+    Click **Sign in to see more subscriptions**:
 
-        ![][27]
+    ![][27]
 
-    3.  Sign-in using your Microsoft Account.
+3.  Sign-in using your Microsoft Account.
 
 
-    8.  Click **Next**. If your subscription doesn't already contain any hosted
+8.  Click **Next**. If your subscription doesn't already contain any hosted
         services, you will be asked to create one. The hosted service
         acts as a container for your application within your Windows
         Azure subscription. Enter a name that identifies your
@@ -666,46 +654,46 @@ Run the application to verify that it works.
         should be optimized. (You can expect faster loading times for
         users accessing it from this region.)
 
-        ![][32]
+    ![][32]
 
-    9.  Select the hosted service you would like to publish your
+9.  Select the hosted service you would like to publish your
         application to. Keep the defaults as shown below for the
         remaining settings. Click **Next**:
 
-        ![][33]
+    ![][33]
 
-    10. On the last page, click **Publish** to start the deployment
+10. On the last page, click **Publish** to start the deployment
         process:
 
-        ![][34]
+    ![][34]
 
-        This will take approximately 5-7 minutes. Since this is the
+This will take approximately 5-7 minutes. Since this is the
         first time you are publishing, Azure provisions a
         virtual machine (VM), performs security hardening, creates a Web
         role on the VM to host your application, deploys your code to
         that Web role, and finally configures the load balancer and
         networking so your application is available to the public.
 
-    11. While publishing is in progress you will be able to monitor the
+11. While publishing is in progress you will be able to monitor the
         activity in the **Azure Activity Log** window, which is
         typically docked to the bottom of Visual Studio or Visual Web
         Developer:
 
-        ![][35]
+    ![][35]
 
-    12. When deployment is complete, you can view your Website by
+12. When deployment is complete, you can view your Website by
         clicking the **Website URL** link in the monitoring window.
 
-        ![][36]
+    ![][36]
 
-        Your Website depends on your on-premises server, so you must
+    Your Website depends on your on-premises server, so you must
         run the **ProductsServer** application locally for the Website
         to function properly. As you perform requests on the cloud Web
         site, you will see requests coming into your on-premises console
         application, as indicated by the "GetProducts called" output
         displayed in the screenshot below.
 
-        ![][37]
+    ![][37]
 
 To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels].
 
