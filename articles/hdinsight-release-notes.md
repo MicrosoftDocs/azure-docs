@@ -9,9 +9,9 @@
 
 The full version numbers for HDInsight clusters deployed with this release are unchanged from recent releases:
 
-* HDInsight 	2.1.10.420.1246783	(HDP 1.3.9.0-01351)
-* HDInsight 	3.0.6.420.1246783	(HDP 2.0.9.0-2097)
-* HDInsight 	3.1.1.420.1246783	(HDP 2.1.9.0-2196)
+* HDInsight 	2.1.10.420.1246118	(HDP 1.3.9.0-01351)
+* HDInsight 	3.0.6.420.1246118	(HDP 2.0.9.0-2097)
+* HDInsight 	3.1.2.420.1246118	(HDP 2.1.9.0-2196)
 
 
 This release contains the following update.
