@@ -162,7 +162,7 @@ Make sure **fleet** has access to your `myPrivateKey.key` in the working directo
 
 `ssh-add ./myPrivateKey.key`
 
-> [AZURE.NOTE] If you are already using the **~/.ss h/id_rsa** key, then add that with `ssh-add ~/.ssh/id_rsa`.
+> [AZURE.NOTE] If you are already using the **`~/.ssh/id_rsa`** key, then add that with `ssh-add ~/.ssh/id_rsa`.
 
 Now you are ready to test remotely using the same **fleetctl** command you used from **node-1**, but passing some remote arguments:
 
