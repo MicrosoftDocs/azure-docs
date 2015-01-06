@@ -442,6 +442,9 @@ You will get a prompt when calling Get-Credential. You must use **hadoop** as th
 For more information for submitting Hadoop jobs, see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]. For more information about the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
 
+##<a name="remove"></a> Remove the HDInsight Emulator
+On the computer where you have the Emulator installed, open Control Panel and under **Programs**, click **Uninstall a Program**. From the list of installed programs, right-click **Microsoft HDInsight Emulator for Azure**, and then click **Uninstall**. 
+
 
 ##<a name="nextsteps"></a> Next steps
 In this tutorial, you have an HDInsight Emulator installed, and have ran some Hadoop jobs. To learn more, see the following articles:
