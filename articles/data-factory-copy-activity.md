@@ -759,13 +759,15 @@ When copy data into SQL Server or Azure SQL Database, a user specified stored pr
     	    [State] [varchar](256) NOT NULL,
     	)
 
-The stored procedure feature takes advantage of Table-Valued Parameters. You can learn more information about Table-Valued Parameters from [here]( http://msdn.microsoft.com/en-us/library/bb675163(v=vs.110).aspx)
+The stored procedure feature takes advantage of [Table-Valued Parameters][table-valued-parameters]. 
 
 ## Walkthroughs
 See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity.
  
 See [Enable your pipelines to work with on-premises data][use-onpremises-datasources] for a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob storage using the Copy Activity
 
+
+[table-valued-parameters]: http://msdn.microsoft.com/en-us/library/bb675163.aspx
 
 
 [adfgetstarted]: ../data-factory-get-started
