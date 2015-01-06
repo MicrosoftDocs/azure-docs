@@ -73,10 +73,8 @@ If you create a new Storage account, enter the <strong>Storage Account Name</str
 	<td><strong>Tracking Database</strong></td>
 	<td>If you use an existing Azure SQL Database, it cannot be used by another BizTalk Service. You need the login name and password entered when that Azure SQL Database Server was created.<br/><br/>
 
-	<div class="dev-callout"> 
-	<b>Tip</b> 
-	<p>Create the Tracking database and Monitoring/Archiving Storage Account in the same region as the BizTalk Service.</p> 
-	</div>
+	<blockquote><p> [AZURE.TIP] Create the Tracking database and Monitoring/Archiving Storage Account in the same region as the BizTalk Service.</p> 
+	</blockquote>
 	</td>
 	</tr>
 	</table>
