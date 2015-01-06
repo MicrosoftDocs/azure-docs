@@ -84,10 +84,7 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 
 	The **Add-AzureNodeWebRole** cmdlet creates a new directory for your application and generates scaffolding for a basic Node.js application. It also modifies the **ServiceConfiguration.Cloud.csfg**, **ServiceConfiguration.Local.csfg**, and **ServiceDefinition.csdef** files created in the previous step to add configuration entries for the new role.
 
-	<div class="dev-callout">
-	<b>Note</b>
-	<p>By default if you do not provide a role name, one will be created for you. You can provide a name as the first parameter to <b>Add-AzureNodeWebRole</b>. For example, <code>Add-AzureNodeWebRole MyRole</code></p>
-	</div>
+	> [AZURE.NOTE] By default if you do not provide a role name, one will be created for you. You can provide a name as the first parameter to **Add-AzureNodeWebRole**. For example, `Add-AzureNodeWebRole MyRole`
 
 5.  Use the following commands to navigate to the **WebRole1** directory, and then open the the **server.js** file in notepad. 
 

@@ -110,9 +110,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 		@com.google.gson.annotations.SerializedName("createdAt")
 		private Date mCreatedAt;
   
-    <div class="dev-callout"><b>Note</b>
-	<p>The <code>SerializedName</code> annotation tells the client to map the new <code>mCreatedAt</code> property in the app to the <code>createdAt</code> column defined in the TodoItem table, which has a different name. By using this annotation, your app can have property names on objects that differ from column names in the SQL Database. Without this annotation, an error occurs because of the casing differences.</p>
-    </div>
+    > [AZURE.NOTE] The `SerializedName` annotation tells the client to map the new `mCreatedAt` property in the app to the `createdAt` column defined in the TodoItem table, which has a different name. By using this annotation, your app can have property names on objects that differ from column names in the SQL Database. Without this annotation, an error occurs because of the casing differences.
 
 2. Add the following methods to the ToDoItem class to get and set the new mCreatedAt property:
 

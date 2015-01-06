@@ -6,8 +6,8 @@
 
 AzCopy is a command-line utility designed for high-performance uploading, downloading, and copying data to and from Microsoft Azure Blob, File, and Table storage. This guide provides an overview for using AzCopy.
 
-> [AZURE.NOTE] This guide assumes that you have installed AzCopy 3.0.0 or later. AzCopy 3.x is now in general availability.<br /> 
-> This guide also covers using AzCopy 4.0.0, which is a preview release of AzCopy. Throughout this guide, functions provided only in the preview release are designated as *preview*.<br />
+> [AZURE.NOTE] This guide assumes that you have installed AzCopy 3.1.0 or later. AzCopy 3.x is now in general availability.<br /> 
+> This guide also covers using AzCopy 4.1.0, which is a preview release of AzCopy. Throughout this guide, functions provided only in the preview release are designated as *preview*.<br />
 > Note that for AzCopy 4.x, command-line options and functionality may change in future releases.
 
 ##Table of contents
@@ -369,6 +369,22 @@ Parameters for AzCopy are described in the table below. You can also type one of
     <td>N</td>
     <td>Y<br /> (preview only)</td>
   </tr>
+  <tr>
+    <td><b>/SyncCopy</b></td>
+    <td>Indicates whether to synchronously copy blobs or files between two Azure Storage endpoints. <br />
+		AzCopy by default uses server-side asynchronous copy. Specify this option to perform a synchronous copy, which downloads blobs or files to local memory and then uploads them to Azure Storage. You can use this option when copying files within Blob storage, within File storage, or from Blob storage to File storage or vice versa.</td>
+    <td>Y</td>
+    <td>Y<br /> (preview only)</td>
+    <td>N</td>
+  </tr>
+  <tr>
+    <td><b>/SetContentType:&lt;content-type&gt;</b></td>
+    <td>Specifies the MIME content type for destination blobs or files. <br />
+		AzCopy sets the content type for a blob or file to <code>application/octet-stream</code> by default. You can set the content type for all blobs or files by explicitly specifying a value for this option. If you specify this option without a value, then AzCopy will set each blob or file's content type according to its file extension.</td>
+    <td>Y</td>
+    <td>Y<br /> (preview only)</td>
+    <td>N</td>
+  </tr>
 </table>
 
 <br/>
@@ -704,6 +720,23 @@ Option `/NC` specifies the number of concurrent copy operations. By default, AzC
 
 	AzCopy /Source:https://127.0.0.1:10004/myaccount/myfileshare/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
 
+### Synchronously copy blobs between two Azure Storage endpoints
+
+AzCopy by default copies data between two storage endpoints asynchronously. Therefore, the copy operation is not guaranteed to start when the AzCopy command is invoked, and is not guaranteed to complete after the AzCopy command completes. 
+
+The `/SyncCopy` option, new in the 3.1.0 release, ensures that the copy operation will start after AzCopy is invoked and complete when AzCopy successfully exits. AzCopy performs the synchronous copy by downloading the blobs to copy from the specified source to local memory, and then uploading them to the Blob storage destination.
+
+	AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
+
+### Specify the MIME content type of a destination blob
+
+By default, AzCopy sets the content type of a destination blob to `application/octet-stream`. Beginning with version 3.1.0, you can explicitly specify the content type via the option `/SetContentType:[content-type]`. This syntax sets the content type for all blobs in a copy operation.
+
+	AzCopy /Source:D:\test\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType:video/mp4
+
+If you specify `/SetContentType` without a value, then AzCopy will set each blob or file's content type according to its file extension.
+
+	AzCopy /Source:D:\test\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
 
 ##<a id="copy-files"></a> Copy files in Azure File storage with AzCopy (preview version only)
 
@@ -795,8 +828,10 @@ Note that you cannot specify option `/PKRS` in the import scenario. Unlike the e
 
 | Version | What's New                                                                                      				|
 |---------|-----------------------------------------------------------------------------------------------------------------|
-| **V4.0.0**  | **Current preview version. Includes all the functionality from V3.0.0. Also supports copying files to or from Azure File storage, and copying entities to or from Azure Table storage.**	
-| **V3.0.0**  | **Current release version. Modifies AzCopy command-line syntax to require parameter names, and redesigns the command-line help. This version only supports copying to and from Azure Blob storage.**	
+| **V4.1.0**  | **Current preview version. Includes all the functionality from V3.1.0. Supports synchronously copying blobs and files and specifying content type for destination blobs and files**	
+| **V3.1.0**  | **Current release version. Supports synchronously copying blobs and specifying content type for destination blobs.**
+| V4.0.0  | Includes all the functionality from V3.0.0. Also supports copying files to or from Azure File storage, and copying entities to or from Azure Table storage.
+| V3.0.0  | Modifies AzCopy command-line syntax to require parameter names, and redesigns the command-line help. This version only supports copying to and from Azure Blob storage.	
 | V2.5.1  | Optimizes performance when using options /xo and /xn. Fixes bugs related to special characters in source file names and journal file corruption after user input the wrong command-line syntax.	
 | V2.5.0  | Optimizes performance for large-scale copy scenarios, and introduces several important usability improvements.	
 | V2.4.1  | Supports specifying the destination folder in the installation wizard.                     			

@@ -39,7 +39,7 @@ The sample application will create an Event Hub in a preexisting Service Bus nam
 
 This sample application requires an Azure Storage account or a Storage Emulator for maintaining the application state. You can use an existing Storage account or follow the steps below to create one: 
 
-1.	From the portal, create a new Storage Account by clicking **NEW**, **DATA SERVICES**, **STORAGE**, **QUICK CREATE**, and follow the instructions.
+1.	From the Management portal, create a new Storage Account by clicking **NEW**, **DATA SERVICES**, **STORAGE**, **QUICK CREATE**, and follow the instructions. It takes a few moments to get the Storage account created.
 2.	Select the newly created storage account and then click **MANAGE ACCESS KEYS** at the bottom of the page.
 3.	Copy the storage account name and one of the access keys.
 
@@ -48,7 +48,14 @@ This sample application requires an Azure Storage account or a Storage Emulator 
 1.	Download [Service Bus Event Hubs Getting Started.zip](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Event-Hub-286fd097), and then unzip it to your workstation.
 2.	Open the **EventHubSample.sln** solution file in Visual Studio.
 3.	Open **app.config**.
-4.	Specify both the Service Bus and the Storage account connection strings. The key names are **Microsoft.ServiceBus.ConnectionString** and **AzureStorageConnectionString**. The storage account connection string will be in the following format: 	
+4.	Specify both the Service Bus and the Storage account connection strings. The key names are **Microsoft.ServiceBus.ConnectionString** and **AzureStorageConnectionString**. 
+
+	The service bus connection string will be in the following format: 
+ 
+		Endpoint=sb://<namespaceName>.servicebus.windows.net/;SharedAccessKeyName=<yourAccessKeyName>;SharedAccessKey=<yourAccessKey> 
+
+
+	The storage account connection string will be in the following format: 	
 
 		DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<yourAccountKey>;
 5.	Build the solution.
@@ -66,9 +73,9 @@ This sample application requires an Azure Storage account or a Storage Emulator 
 ###Create an Event Hub Shared Access Policy
 While there is already a Shared Access Policy on the Service Bus namespace that can be used to connect to everything inside the namespace, for best security practices we will create a separate policy for the Event Hub only.
 
-1.	From the management portal, open the **SERVICE BUS** page, and then click the Service Bus namespace name.
+1.	From the Management portal, open the **SERVICE BUS** page, and then click the Service Bus namespace name.
 2.	Click **EVENT HUBS** at the top of the page.
-3.	Click **devicereadings**, the Event Hub for this tutorial.
+3.	Click **devicereadings**, the Event Hub for this tutorial. This is the default Event Hub name created by BasicEventHubSample.  
 4.	Click **CONFIGURE** at the top of the page.
 5.	Under Shared Access Policies, create a new policy with **Manage** permissions.
 
@@ -192,10 +199,10 @@ Make sure that the name of the input source matches the name of the input you sp
 ##<a name="startJob"></a>Start the job
 As a default, Stream Analytics jobs start reading incoming events from the time that the job starts.  Because the Event Hub contains existing data to process, we need to configure the job to consume this historical data.  
 
-1.	Click **CONFIGURE** on the top of the page.
-2.	Change the **START OUTPUT** value to **CUSTOM TIME**, and specify a start time.  Make sure that the start time is sometime before the time that you ran BasicEventHubSample.  
-3.	Click **SAVE** from the bottom of the page and **YES** to confirm.
-3.	Click **DASHBOARD** on the top of the page, and then click **START** on the bottom of the page, and **YES** to confirm.  In the **quick glance** pane, the **STATUS** will change to **Starting** and may take a couple of minutes to complete the starting process and move into the **Running** state.   
+1.	Click **DASHBOARD** from the top of the page.
+2.	Click **START** from the bottom of the page.
+3.	Click **CUSTOM TIME**, and specify a start time.  Make sure that the start time is sometime before the time that you ran BasicEventHubSample.  
+3.	Click the check button on the bottom of the dialog. In the **quick glance** pane, the **STATUS** will change to **Starting** and may take a couple of minutes to complete the starting process and move into the **Running** state.   
 
 
 ##<a name="viewJobOutput"></a>View job output
@@ -214,6 +221,7 @@ As a default, Stream Analytics jobs start reading incoming events from the time 
 
 ##<a name="updateJob"></a>Stop, update, and restart Job
 Now let us do a more interesting query over the data.
+
 1.	From the **DASHBOARD** or **MONITOR** page, click **STOP**.
 2.	From the **QUERY** page, replace the existing query with the following and then click **SAVE**:
 

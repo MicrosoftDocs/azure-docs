@@ -111,10 +111,7 @@ The recommended way to add Node.js modules to your mobile service is by adding r
 
 	NPM creates the `node_modules` directory in the current location and installs the [node-uuid] module in the `\node-uuid` subdirectory. 
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>When <code>node_modules</code> already exists in the directory hierarchy, NPM will create the <code>\node-uuid</code> subdirectory there instead of creating a new <code>node_modules</code> in the repository. In this case, just delete the existing <code>node_modules</code> directory.</p>
-	</div>
+	> [AZURE.NOTE] When `node_modules` already exists in the directory hierarchy, NPM will create the `\node-uuid` subdirectory there instead of creating a new `node_modules` in the repository. In this case, just delete the existing `node_modules` directory.
 
 4. Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:
 
