@@ -79,7 +79,7 @@ For known issues with installing and running HDInsight Server, see the [HDInsigh
 
 Now that you have the HDInsight emulator configured on your workstation,  you can run a MapReduce job to test the installation. You will first upload some data files to HDFS, and then run a word count MapReduce job to count the frequency of specific words in those files. 
 
-The word counting MapReduce program has been packaged into *hadoop-mapreduce-examples-2.4.0.SNAPSHOT.jar*.  The jar file is located at the *C:\hdp\hadoop-2.4.0.SNAPSHOT\share\hadoop\mapreduce* folder.
+The word counting MapReduce program has been packaged into *hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar*.  The jar file is located at the *C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\hadoop\mapreduce* folder.
 
 The MapReduce job to count words takes two arguments:
 
@@ -90,7 +90,7 @@ The MapReduce job to count words takes two arguments:
 
 1. From the desktop, double-click **Hadoop Command Line** to open the Hadoop command line window.  The current folder should be:
 
-		c:\hdp\hadoop-2.4.0.SNAPSHOT
+		c:\hdp\hadoop-2.4.0.2.1.3.0-1981
 
 	If not, run the following command:
 
@@ -103,7 +103,7 @@ The MapReduce job to count words takes two arguments:
 	
 3. Run the following Hadoop command to copy some local text files to HDFS:
 
-		hadoop fs -copyFromLocal C:\hdp\hadoop-2.4.0.SNAPSHOT\share\doc\hadoop\common\*.txt /user/HDIUser
+		hadoop fs -copyFromLocal C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common\*.txt /user/HDIUser
 
 4. Run the following command to list the files in the /user/HDIUser folder:
 
@@ -111,7 +111,7 @@ The MapReduce job to count words takes two arguments:
 
 	You should see the following files:
 
-		C:\hdp\hadoop-2.4.0.SNAPSHOT>hadoop fs -ls /user/HDIUser
+		C:\hdp\hadoop-2.4.0.2.1.3.0-1981>hadoop fs -ls /user/HDIUser
 		Found 4 items
 		-rw-r--r--   1 username hdfs     574261 2014-09-08 12:56 /user/HDIUser/CHANGES.txt
 		-rw-r--r--   1 username hdfs      15748 2014-09-08 12:56 /user/HDIUser/LICENSE.txt
@@ -120,7 +120,7 @@ The MapReduce job to count words takes two arguments:
 
 5. Run the following command to run the word count MapReduce job:
 
-		C:\hdp\hadoop-2.4.0.SNAPSHOT> hadoop jar C:\hdp\hadoop-2.4.0.SNAPSHOT\share\hadoop\mapreduce\hadoop-mapreduce-examples-2.4.0.SNAPSHOT.jar wordcount /user/HDIUser/*.txt /user/HDIUser/WordCount_Output
+		C:\hdp\hadoop-2.4.0.2.1.3.0-1981> hadoop jar C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\hadoop\mapreduce\hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar wordcount /user/HDIUser/*.txt /user/HDIUser/WordCount_Output
 
 6. Run the following command to list the number of words with "windows" in them from the output file:
 
@@ -128,7 +128,7 @@ The MapReduce job to count words takes two arguments:
 
 	The output should be:
 
-		C:\hdp\hadoop-2.4.0.SNAPSHOT>hadoop fs -cat /user/HDIUser/WordCount_Output/part-r-00000 | findstr "windows"
+		C:\hdp\hadoop-2.4.0.2.1.3.0-1981>hadoop fs -cat /user/HDIUser/WordCount_Output/part-r-00000 | findstr "windows"
 		windows 4
 		windows.        2
 		windows/cygwin. 1
@@ -265,11 +265,11 @@ The Hive query engine might feel familiar to analysts with strong SQL skills. It
 
 5. Run the following command to execute the **w3ccreate.hql** script file.  The script creates a Hive table, and loads data to the Hive table:
         
-		C:\hdp\hive-0.13.0.SNAPSHOT\bin\hive.cmd -f ./Hive/w3c/w3ccreate.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
+		C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ccreate.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
 
 	The output shall be similar to the following:
 
-		Logging initialized using configuration in file:/C:/hdp/hive-0.13.0.SNAPSHOT	/conf/hive-log4j.properties
+		Logging initialized using configuration in file:/C:/hdp/hive-0.13.0.2.1.3.0-1981	/conf/hive-log4j.properties
 		OK
 		Time taken: 1.137 seconds
 		OK
@@ -287,7 +287,7 @@ The Hive query engine might feel familiar to analysts with strong SQL skills. It
 	The following table describes the elements of the command:
 	<table border="1">
 	<tr><td>File</td><td>Description</td></tr>
-	<tr><td>C:\hdp\hive-0.13.0.SNAPSHOT\bin\hive.cmd</td><td>The Hive command script.</td></tr>
+	<tr><td>C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd</td><td>The Hive command script.</td></tr>
 	<tr><td>C:\hdp\GettingStarted\Hive\w3c\w3ctotalhitsbypage.hql</td><td> You can substitute the Hive script file with one of the following:
 	<ul>
 	<li>C:\hdp\GettingStarted\Hive\w3c\w3caveragetimetaken.hql</li>
@@ -333,12 +333,12 @@ Pig processing uses a data flow language, called *Pig Latin*. Pig Latin abstract
 2. Change directory to the **C:\hdp\GettingStarted** folder.
 3. Run the following command to submit a Pig job:
 
-		C:\hdp\pig-0.12.1.SNAPSHOT\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
+		C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
 
 	The following table shows the elements of the command:
 	<table border="1">
 	<tr><td>File</td><td>Description</td></tr>
-	<tr><td>C:\hdp\pig-0.12.1.SNAPSHOT\bin\pig.cmd</td><td>The Pig command script.</td></tr>
+	<tr><td>C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd</td><td>The Pig command script.</td></tr>
 	<tr><td>C:\hdp\GettingStarted\Pig\w3c\TotalHitsForPage.pig</td><td> You can substitute the Pig Latin script file with one of the following:
 	<ul>
 	<li>C:\hdp\GettingStarted\Pig\w3c\AverageTimeTaken.pig</li>
@@ -396,7 +396,7 @@ Before you can access an Azure Storage account, you must add the account name an
 
 **To configure the connection to an Azure Storage account**
 
-1. Open **C:\hdp\hadoop-2.4.0.SNAPSHOT\etc\hadoop\core-site.xml** in Notepad.
+1. Open **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\etc\hadoop\core-site.xml** in Notepad.
 2. Add the following <property\> tag next to the other <property\> tags:
 
 		<property>
