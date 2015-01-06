@@ -65,17 +65,17 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. Values:
 
-- **.NET** 
+- **.net** 
 - **nodejs** 
-- **Java** 
-- **PHP** 
-- **Python** 
-- **Ruby** 
-- **Mobile**: Deprecated. Replace with specific mobile platform.
-- **iOS**: Verifing this new value
-- **Android**: Verifing this new value
-- **Windows**: Verifing this new value
-- **Xamarin**: Verifing this new value
+- **java** 
+- **php** 
+- **python** 
+- **ruby** 
+- **mobile**: Deprecated. Replace with specific mobile platform.
+- **ios**: Verifing this new value
+- **android**: Verifing this new value
+- **windows**: Verifing this new value
+- **xamarin**: Verifing this new value
 
 ![](./media/article-metadata/checkmark-small.png)**authors**: Required, one value only. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one, in spite of the plural name of the attribute.
 
