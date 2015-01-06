@@ -1,6 +1,6 @@
 <properties title="Options for transferring stored data to the Azure cloud" pageTitle="Options for transferring stored data to the cloud | Azure" description="Guidance for choosing the best option for transferring data from on-premises other cloud sources into Microsoft Azure for advanced analytics." metaKeywords="" services="data-factory,hdinsight,machine-learning,storage,sql-database" solutions="" documentationCenter="" authors="cjgronlund" videoId="" scriptId="" manager="paulettm" />
 
-<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-data" ms.date="1/6/2014" ms.author="cgronlun" />
+<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-data" ms.date="1/7/2014" ms.author="cgronlun" />
 
 # Options for transferring stored data to the Azure cloud
 
@@ -9,7 +9,7 @@ This article provides guidance for choosing the right option for transferring da
 In this article:
 
 * [Azure Import/Export service for Blob storage]
-* [AZCopy]
+* [AZCopy utility]
 * [Azure PowerShell]
 * [Azure Data Factory (preview)]
 * [Azure Database Migration Tooling]
@@ -21,23 +21,19 @@ In this article:
 
 ## Azure Import/Export service for Blob storage
 
-You can use the Azure Import/Export service to transfer large amounts of file data to or from Azure Blob storage in situations where uploading or downloading over the network is prohibitively expensive or not feasible. Large data sets take very long time to upload or download over the network. For example, 10 TB takes 1 month over T3 (44.7 Mbps). With Microsoft Azure Import/Export service, customers can ship the hard drive to cut down the data upload or download time. Plan on . The service can take up to several days in addition to shipping as against weeks or months using a T1 or T3 link.
+You can use the Azure Import/Export service to transfer large amounts of file data to or from Azure Blob storage in situations where uploading or downloading over the network is prohibitively expensive or not feasible. Large data sets take very long time to upload or download over the network. For example, 10 TB takes 1 month over T3 (44.7 Mbps). With Microsoft Azure Import/Export service, customers can ship the hard drive to cut down the data upload or download time. Plan on several days including shipping. 
 
 To transfer a large set of file data into Blob storage, you can send one or more hard drives containing that data to an Azure data center, where your data will be uploaded to your storage account. Similarly, to export data from Blob storage, you can send empty hard drives to an Azure data center, where the Blob data from your storage account will be copied to your hard drives and then returned to you. Before you send in a drive that contains data, you'll encrypt the data on the drive; when the Import/Export service exports your data to send to you, the data will also be encrypted before shipping.
 
 For more information, see [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage][import-export].
 
 
-## AZCopy
+## AZCopy utility
 
-AzCopy is a command-line utility designed for high-performance uploading, downloading, and copying data to and from Microsoft Azure Blob, File, and Table storage. This utility is suitable for one-time data movement between Azure storage and on-premises if transferring the data via network is practical.
+AzCopy is a command-line utility designed for high-performance uploading, downloading, and copying data to and from Microsoft Azure Blob, File, and Table storage. This utility is suitable for one-time data movement between Azure storage and on-premises if transferring the data via network is practical. See [Getting Started with the AzCopy Command-Line Utility][azcopy].
 
 > [AZURE.NOTE] Linux users: [Download ACP, AzCopy for Linux](http://www.paratools.com/acp)
 
-Also see:
-
-* [Getting Started with the AzCopy Command-Line Utility][azcopy]
-* [AzCopy – Uploading/Downloading files for Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
 ## Azure PowerShell
 
@@ -68,7 +64,7 @@ Specifically, developer can orchestrate regular copy activities between various 
 </tr>
 
 <tr>
-<td><b>Azure Blob</b>
+<td><p><b>Azure Blob</b></p>
 </td>
 <td>x
 </td>
@@ -83,7 +79,7 @@ Specifically, developer can orchestrate regular copy activities between various 
 </tr>
 
 <tr>
-<td><b>Azure Table</b>
+<td><p><b>Azure Table</b></p>
 </td>
 <td>x
 </td>
@@ -98,7 +94,7 @@ Specifically, developer can orchestrate regular copy activities between various 
 </tr>
 
 <tr>
-<td><b>Azure Database</b>
+<td><p><b>Azure Database</b></p>
 </td>
 <td>x
 </td>
@@ -113,7 +109,7 @@ Specifically, developer can orchestrate regular copy activities between various 
 </tr>
 
 <tr>
-<td><b>SQL Server on premises</b>
+<td><p><b>SQL Server on premises</b></p>
 </td>
 <td>x
 </td>
@@ -128,7 +124,7 @@ Specifically, developer can orchestrate regular copy activities between various 
 </tr>
 
 <tr>
-<td><b>SQL Server on IaaS</b>
+<td><p><b>SQL Server on IaaS</b></p>
 </td>
 <td>x
 </td>
@@ -155,7 +151,7 @@ Also see:
 
 There are many tools available to successfully migrate SQL Server on-premises and non-SQL Server databases and to Azure Database. The best tool for your scenario depends on the type, size, and complexity of the database being migrated:
 
-* You can migrate both schema and data of an existing Azure SQL Database by exporting the database, storing the export file in an Azure Blob Storage Account, then importing as a new Azure SQL Database. The file that created when this export is referred to as a BACPAC file. For more information, see [Import and Export a Database (Azure SQL Database)][sql-import].
+* You can migrate both schema and data of an existing Azure SQL Database by exporting the database, storing the export file in an Azure Blob Storage Account, then importing as a new Azure SQL Database. The file that created when this export is referred to as a BACPAC file. For more information, see [How to: Use the Import and Export Service in Azure SQL Database)][sql-import].
 * Database Copy feature creates a new database in Azure that is a transactional consistent copy of an existing Azure SQL Database. For more information, see [Copying Databases in Azure SQL Database][sql-copy].
 * SQL Server Integration Services (SSIS) can be used when complex transformations of data are needed. SSIS can be used to move data into and out of Azure SQL Database. For more information, see [How to: Use Integration Services to Migrate a Database to Azure SQL Database][integrate] and [SSIS for Azure and Hybrid Data Movement][SSIS].
 * The SQL Server Import and Export Wizard is an easy way to create an SSIS package to migrate data. After configuring the source and destination, you can specify basic data transformations. These packages can be saved, modified, executed, and scheduled as a job. For more information, see [How to: Use the Import and Export Wizard to Migrate a Database to Azure SQL Database][wizard].
@@ -171,11 +167,7 @@ Also see:
 
 Data Sync Service (preview) enables creating and scheduling regular synchronizations between Azure SQL Database and databases hosted in SQL Server or Azure SQL Database.
 
-Data Sync Service is suitable for data developers to synchronize delta changes between on-premises and cloud Azure databases.
-
-Also see:
-
-* [SQL Data Sync][sync]
+Data Sync Service is suitable for data developers to synchronize delta changes between on-premises and cloud Azure databases. See [SQL Data Sync][sync].
 
 ##	Azure Event Hubs
 
@@ -185,9 +177,9 @@ Developers can write code to send data to event hub, process the data and store 
 
 Alternatively, developers can leverage Azure Stream Analytics, a fully managed service providing scalable complex event processing over streaming data for output. Developer can pick a stream from Azure Event Hub, specify the format being used to serialize incoming event (e.g. JSON, CSV or Avro formats), and then add output location including Azure Blob or Azure Database.
 
-Also see:
+See:
 
-* [Event Hubs service information][event]
+* [Event Hubs service information](/en-us/services/event-hubs/)
 * [Event Hubs Overview][overview]
 * [Introduction to Azure Stream Analytics][stream]
 
@@ -195,9 +187,9 @@ Also see:
 
 Hybrid Connections provides an easy and convenient way to connect Azure Websites and Azure Mobile Services to on-premises resources. Developers can build web site to move data from on-premises to Azure. See [Hybrid Connections Overview][hybrid] for details.
 
-With [Virtual Network][vn], you can use data integration tools running in Azure virtual machine to securely connect to on-premises SQL Server databases in your on-site datacenter. Only virtual machines and services within the same virtual network can identify or connect to each other. If you prefer, you can even create an [ExpressRoute][express-route] direct connection to Azure through your network service provider or exchange provider and bypass the public internet altogether.
+With [Virtual Network](/en-us/services/virtual-network/), you can use data integration tools running in Azure virtual machine to securely connect to on-premises SQL Server databases in your on-site datacenter. Only virtual machines and services within the same virtual network can identify or connect to each other. If you prefer, you can even create an [ExpressRoute](/en-us/services/expressroute/) direct connection to Azure through your network service provider or exchange provider and bypass the public internet altogether.
 
-[Azure Marketplace][marketplace] offers partner solutions that enable data movement to Azure, e.g. Storm Managed File Transfer.
+[Azure Marketplace](/en-us/marketplace/?source=datamarket) offers partner solutions that enable data movement to Azure, e.g. Storm Managed File Transfer.
 
 ## Choose the right data transfer option
 
@@ -206,9 +198,10 @@ With [Virtual Network][vn], you can use data integration tools running in Azure 
 ![Help deciding which cloud data transfer option to choose.][decision]
 
 Notes about the decision tree:
-•	Data Sync Service is a preview Azure service, where sync is trigger by changed data indeed.
-•	Azure Data Factory is a preview service which supports copy data between Azure Storage, Azure Database and on-premises SQL Server. New sources will be added over upcoming months.
-•	In addition to Azure Data Factory, you can consider extending existing SSIS packages to move data to cloud in a scheduled manner.
+
+* Data Sync Service (preview) triggers a sync from changed data.
+* Data Factory (preview) supports copying data between Azure Storage, Azure Database, and on-premises SQL Server. 
+* In addition to using Data Factory, you can extend existing SSIS packages to move data to cloud in a scheduled manner.
 
 ### Move GBs of data
 
@@ -221,52 +214,66 @@ Notes about the decision tree:
 </tr>
 
 <tr>
-<td>File to Azure Storage
+<td><p>File to Azure Storage</p>
 </td>
-<td>AzCopy acp <br>
-Azure PowerShell <br>
-Azure Import/Export <br>
+<td><ul>
+<li><a href="/documentation/articles/storage-use-azcopy/">AzCopy</a></li>
+<li><a href="http://www.paratools.com/acp" target="_blank">acp</a></li>
+<li><a href="/documentation/articles/install-configure-powershell/">Azure PowerShell</a></li>
+<li><a href="/documentation/articles/storage-import-export-service/">Azure Import/Export</a></li>
+</ul>
 </td>
-<td>N/A
+<td><p>N/A</p>
 </td>
-<td>Use Azure Import/Export instead of AzCopy, acp and Azure PowerShell when data transfer via the network  is impractical. The service can take up to several days in addition to shipping the disk to data center.
-</td>
-</tr>
-
-<tr>
-<td>SQL Server to Azure Database<br>
-Azure Database to SQL Server
-</td>
-<td>Azure Data Factory<br>
-Azure Database Migration Tools
-</td>
-<td>Azure Data Factory
-</td>
-<td>Suggest to use Azure Data Factory (preview) instead of migration tools which offers format conversion and job auto recovery in exceptional cases. If SQL Server is on-premises, Data Management Gateway is needed to connect to SQL Server.
+<td><p>Use Azure Import/Export instead of AzCopy, acp and Azure PowerShell when data transfer via the network  is impractical. The service can take up to several days in addition to shipping the disk to data center.</p>
 </td>
 </tr>
 
 <tr>
-<td>Azure Storage to Azure Database<br>
-Azure Database to Azure Storage
+<td>
+<ul>
+<li>SQL Server to Azure SQL Database</li>
+<li>Azure SQL Database to SQL Server</li>
+</ul>
 </td>
-<td>Azure Data Factory
+<td><ul>
+<li><a href="/documentation/articles/data-factory-introduction/">Azure Data Factory</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/azure/ee730904.aspx">SQL Database Migration Tools</a></li>
+</ul>
 </td>
-<td>Azure Data Factory
+<td><p><a href="/documentation/articles/data-factory-introduction/">Azure Data Factory</a></p>
 </td>
-<td>Azure Data Factory (preview) offers format conversion and job auto recovery in exceptional cases. If SQL Server is on-premises, Data Management Gateway is needed to connect to SQL Server.
+<td><p>Suggest to use Azure Data Factory (preview) instead of migration tools which offers format conversion and job auto recovery in exceptional cases. If SQL Server is on-premises, Data Management Gateway is needed to connect to SQL Server.</p>
 </td>
 </tr>
 
 <tr>
-<td>SQL Server to Delta Data Sync<br>
-Delta Data Sync to Azure Database
+<td>
+<ul>
+<li>Azure Storage to Azure Database</li>
+<li>Azure Database to Azure Storage</li>
+</ul>
 </td>
-<td>N/A
+<td><p><a href="/documentation/articles/data-factory-introduction/">Azure Data Factory</a></p>
 </td>
-<td>Data Sync Service
+<td><p><a href="/documentation/articles/data-factory-introduction/">Azure Data Factory</a></p>
 </td>
-<td>Data Sync Service is still in preview. Table will be created for trigger the sync.
+<td><p>Azure Data Factory (preview) offers format conversion and job auto recovery in exceptional cases. If SQL Server is on-premises, Data Management Gateway is needed to connect to SQL Server.</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<ul>
+<li>SQL Server to Delta Data Sync</li>
+<li>Delta Data Sync to Azure SQL Database</li>
+</ul>
+</td>
+<td><p>N/A</p>
+</td>
+<td><p><a href="http://msdn.microsoft.com/en-us/library/azure/hh456371.aspx">SQL Data Sync</a></p>
+</td>
+<td><p>SQL Data Sync (preview) synchronizes your data by sync groups which define the databases, tables and columns to synchronize as well as the synchronization schedule.</p>
 </td>
 </tr>
 
@@ -285,13 +292,13 @@ Delta Data Sync to Azure Database
 </tr>
 
 <tr>
-<td>File to Azure Storage
+<td><p>File to Azure Storage</p>
 </td>
-<td>Azure Import/Export
+<td><p><a href="/documentation/articles/storage-import-export-service/">Azure Import/Export</a></p>
 </td>
-<td>N/A
+<td><p>N/A</p>
 </td>
-<td>The service can take up to several days in addition the time it takes the disk to reach to data center.
+<td><p>The service can take up to several days in addition the time it takes the disk to reach to data center.</p>
 </td>
 </tr>
 
@@ -301,7 +308,7 @@ Delta Data Sync to Azure Database
 
 <!--Anchors-->
 [Azure Import/Export service for Blob storage]: #blob
-[AZCopy]: #azcopy
+[AZCopy utility]: #azcopy-utility
 [Azure PowerShell]: #ps
 [Azure Data Factory (preview)]: #data-factory
 [Azure Database Migration Tooling]: #tooling
@@ -321,7 +328,7 @@ Delta Data Sync to Azure Database
 [install]: ../install-configure-powershell/
 [start]: ../data-factory-get-started/
 [pipelines]: ../data-factory-use-onpremises-datasources/
-[copy]: ../articles/data-factory-copy-activity/
+[copy]: ../data-factory-copy-activity/
 [intro]: ../data-factory-introduction/
 [sql-import]: http://msdn.microsoft.com/en-us/library/azure/hh335292.aspx
 [sql-copy]: http://msdn.microsoft.com/en-us/library/azure/ff951624.aspx
@@ -331,11 +338,7 @@ Delta Data Sync to Azure Database
 [use-wizard]: http://msdn.microsoft.com/en-us/library/azure/jj156144.aspx
 [bcp]: http://msdn.microsoft.com/en-us/library/azure/jj156153.aspx
 [migrate]: http://msdn.microsoft.com/en-us/library/azure/ee730904.aspx
-[event]: ../services/event-hubs/
 [overview]: http://msdn.microsoft.com/en-us/library/dn836025.aspx
 [stream]: ../stream-analytics-introduction/
 [sync]: http://msdn.microsoft.com/en-us/library/azure/hh456371.aspx
 [hybrid]: ../integration-hybrid-connection-overview/
-[vn]: ../services/virtual-network/
-[express-route]: ../services/expressroute/
-[marketplace]: ../marketplace/?source=datamarket
