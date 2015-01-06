@@ -21,7 +21,7 @@ To complete this tutorial, you must have the following:
 - A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](http://azure.microsoft.com/en-us/pricing/free-trial).
 - Azure PowerShell version 0.8.13 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Windows Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/).
 - Scripts that make common tasks for Azure Key Vault easier. Download these from the [Azure Script Center] (http://go.microsoft.com/fwlink/?LinkId=521539). 
-- An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from [this website](http://go.microsoft.com/fwlink/?LinkId=521527). From this page, see the README.md file for instructions.
+- An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from [this website](http://go.microsoft.com/fwlink/?LinkId=521527). For instructions, see the accompanying Readme file.
 
 
 This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/en-us/library/hh857337.aspx).
@@ -158,7 +158,8 @@ Applications that use a key vault must authenticate by using a token from Azure 
 To register the application in Azure Active Directory:
 
 1. Sign in to the Azure Management Portal.
-2. On the left, click **Active Directory**, and then select the directory in which you will register your application. You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
+2. On the left, click **Active Directory**, and then select the directory in which you will register your application. <br> <br> *Important*: You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
+
 3. Click **APPLICATIONS**. If no apps have been added to your directory, this page will show only the **Add an App** link. Click the link, or alternatively, you can click the **ADD** on the command bar.
 4.	In the **ADD APPLICATION** wizard, on the **What do you want to do?** page, click **Add an application my organization is developing**.
 5.	On the **Tell us about your application** page, specify a name for your application and select **WEB APPLICATION AND/OR WEB API** (the default). Click the Next icon.
