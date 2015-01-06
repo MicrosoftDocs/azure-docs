@@ -32,6 +32,7 @@ Before you begin this tutorial, you must have the following:
 * [Run the getting started samples](#rungetstartedsamples)
 * [Connect to Azure Blob storage](#blobstorage)
 * [Run HDInsight PowerShell](#powershell)
+* [Remove the HDInsight Emulator](#remove)
 * [Next steps](#nextsteps)
 
 ##<a name="install"></a>Install the HDInsight Emulator
