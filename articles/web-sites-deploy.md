@@ -50,6 +50,7 @@ For more information, see the following resources:
 
 * [Publishing from Source Control to Azure Web Sites with Git](../web-sites-publish-source-control/). How to use Git to publish directly from your local computer to an Azure Website (in Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.
 * [Deploying to Web Sites with GitHub using Kudu](/en-us/documentation/videos/deploying-to-azure-from-github/). Video by Scott Hanselman and David Ebbo that shows how to deploy a website directly from GitHub to an Azure Website.
+* [Deploy to Azure Button for Azure Websites](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog about a method for triggering deployment from a Git repository.
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
 ###<a name="mercurial"></a>Repository websites using Mercurial
@@ -132,7 +133,7 @@ In Azure you can enter the URL of any repository that uses Git or Mercurial in o
 For more information, see the following resources:
 
 * [Publishing from Source Control to Azure Web Sites with Git](../web-sites-publish-source-control/). How to use Git to publish directly from your local computer to an Azure Website (in Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.
-* [Publishing to Azure Web Sites from any git/hg repo](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html). Blog by David Ebbo that explains the "External Repository" feature in Azure Websites.
+* [Publishing to Azure Web Sites from any git/hg repo](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html). Blog that explains the "External Repository" feature in Azure Websites.
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 * [Deploying TWO websites to Azure from one Git Repository](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Blog post by Scott Hanselman.
 
@@ -176,6 +177,7 @@ You can perform MSBuild or FTP deployment functions from [Windows PowerShell](ht
 For more information, see the following resource:
 
 * [Building Real-World Cloud Apps with Azure - Automate Everything](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). E-book chapter that explains how the sample application shown in the e-book uses Windows PowerShell scripts to create an Azure test environment and deploy to it. See the [Resources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) section for links to additional Azure PowerShell documentation.
+* [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](http://msdn.microsoft.com/en-us/library/dn642480.aspx). How to use Windows PowerShell deployment scripts that Visual Studio generates.
 
 ###<a name="api"></a>.NET management API
 
@@ -199,6 +201,7 @@ For more information, see the following resource:
 
 For more information, see the following resource:
 
+* [Simple Azure Websites: Deployment](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog by David Ebbo about a tool he wrote to make it easier to use Web Deploy.
 * [Web Deployment Tool](http://technet.microsoft.com/en-us/library/dd568996). Official documentation on the Microsoft TechNet site. Dated but still a good place to start.
 * [Using Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Official documentation on the Microsoft IIS.NET site. Also dated but a good place to start.
 * [StackOverflow](http://www.stackoverflow.com). The best place to go for more current information about how to use Web Deploy from the command line.
@@ -209,5 +212,7 @@ For more information, see the following resource:
 In some scenarios you might want to be able to easily switch back and forth between a staging and a production version of your website. You can do this with the Azure Websites staged deployment feature. For more information, see [Staged Deployment on Microsoft Azure Web Sites](../web-sites-staged-publishing/).
 
 Having a backup and restore plan in place is an important part of any deployment workflow. For information about the Azure Websites backup and restore feature, see [Azure Web Sites Backups](../web-sites-backup/).  
+
+For information about how to use Azure's Role-Based Access Control to manage access to website deployment, see [RBAC and Azure Websites Publishing](http://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing).
 
 For information about other deployment topics, see the Deploy section in [Azure Web Sites Documentation](/en-us/documentation/services/web-sites/).
