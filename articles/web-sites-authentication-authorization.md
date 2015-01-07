@@ -4,7 +4,7 @@
 
 # Authenticate and Authorize Users in Line-of-Business Applications in Azure Websites #
 
-[Azure Websites](http://azure.microsoft.com/en-us/services/websites/) enables enterprise line-of-business application scenarios by supporting single sign-on (SSO) of users whether they access the application from your on-premise environment or the public internet. It can be integrated with [Azure Active Directory](http://azure.microsoft.com/en-us/services/active-directory/) (AAD) or on-premise secure token service (STS), such as Active Directory Federation Services (AD FS), to authenticate your internal Active Directory (AD) users and authorize them properly.
+[Azure Websites](http://azure.microsoft.com/en-us/services/websites/) enables enterprise line-of-business application scenarios by supporting single sign-on (SSO) of users whether they access the application from your on-premises environment or the public internet. It can be integrated with [Azure Active Directory](http://azure.microsoft.com/en-us/services/active-directory/) (AAD) or on-premises secure token service (STS), such as Active Directory Federation Services (AD FS), to authenticate your internal Active Directory (AD) users and authorize them properly.
 
 ## Zero-friction authentication and authorization ##
 
