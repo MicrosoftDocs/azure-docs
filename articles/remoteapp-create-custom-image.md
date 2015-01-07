@@ -1,6 +1,6 @@
 <properties title="How to create a custom template image for RemoteApp" pageTitle="How to create a custom template image for RemoteApp" description="Learn how to create a custom template image for RemoteApp. You can use this template with either a hybrid or cloud deployment." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/07/2015" ms.author="elizapo" />
 
 #How to create a custom template image for RemoteApp
 Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users. To create a custom RemoteApp template image, you can start with an existing image or create a new one. The requirements for the image that can be uploaded for use with Azure RemoteApp are:
@@ -44,7 +44,7 @@ To create a new template image from scratch:
 7.	Install and configure your applications.
 8.	Perform any additional Windows configurations required by your applications.
 9.	Disable the Encrypting File System (EFS).
-10.	**REQUIRED:** Install [KB 2977219](http://support.microsoft.com/kb/2977219) on your image. This KB is required for all Azure RemoteApp template images. Uploading your image will fail if you do not install this KB is not installed.
+10.	**REQUIRED:** Install [KB 2977219](http://support.microsoft.com/kb/2977219) on your image. This KB is required for all Azure RemoteApp template images. Uploading your image will fail if you do not install this KB.
 9.	SYSPREP the image.
 
 The detailed steps for creating a new image are:
@@ -106,7 +106,7 @@ The detailed steps for creating a new image are:
 
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
 9.	If you are building your image inside an Azure virtual machine, rename the **\%windir%\Panther\Unattend.xml** file, as this will block the upload script used later from working. Change the name of this file to Unattend.old so that you will still have the file in case you need to revert your deployment.
-10.	Install [KB 2977219](http://support.microsoft.com/kb/2977219) on your image. This KB is required for all Azure RemoteApp template images. Uploading your image will fail if you do not install this KB is not installed.
+10.	Install [KB 2977219](http://support.microsoft.com/kb/2977219) on your image. This KB is required for all Azure RemoteApp template images. Uploading your image will fail if you do not install this KB.
 10.	SYSPREP the image. At an elevated command prompt, run the following command: 
 
 	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
