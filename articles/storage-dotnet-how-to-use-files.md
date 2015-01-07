@@ -6,7 +6,7 @@
 
 In this getting started guide, we demonstrate the basics of using Microsoft Azure File storage. First we use PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory. Then we show how to mount the file share from an Azure virtual machine, just as you would any SMB share.
 
-For users who may want to access files in a share from an on-premise application as well as from an Azure virtual machine or cloud service, we show how to use the Azure .NET Storage Client Library to work with the file share from a desktop application.
+For users who may want to access files in a share from an on-premises application as well as from an Azure virtual machine or cloud service, we show how to use the Azure .NET Storage Client Library to work with the file share from a desktop application.
 
 > [AZURE.NOTE] Running the .NET code examples in this guide requires the Azure .NET Storage Client Library 4.x or later. The Storage Client Library is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
@@ -18,13 +18,13 @@ For users who may want to access files in a share from an on-premise application
 -   [Create an Azure storage account][]
 -   [Use PowerShell to create a file share][]
 -	[Mount the share from an Azure virtual machine][]
--   [Create an on-premise application to access File storage][]
+-   [Create an on-premises application to access File storage][]
 -   [Next steps][]
 
 
 ##<a name="what-is-file-storage"></a>What is Azure File storage?
 
-File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File storage API.
+File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API.
 
 Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.
 
@@ -32,7 +32,7 @@ Since a File storage share is a standard SMB 2.1 file share, applications runnin
 
 Common uses of File storage include:
 
-- Migrating on-premise applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites
+- Migrating on-premises applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites
 - Storing shared application settings, for example in configuration files
 - Storing diagnostic data such as logs, metrics, and crash dumps in a shared location 
 - Storing tools and utilities needed for developing or administering Azure virtual machines or cloud services
@@ -154,11 +154,11 @@ You can now work with the File storage share from within the virtual machine as 
 
 You can also mount the file share from a role running in an Azure cloud service by remoting into the role.
 
-##<a name="create-console-app"></a>Create a on-premise application to work with File storage
+##<a name="create-console-app"></a>Create a on-premises application to work with File storage
 
-You can mount a File storage share from within a virtual machine or a cloud service running in Azure, as demonstrated above. However, you cannot mount a File storge share from an on-premise application. To access share data from an on-premise application, you must use the File storage API. This example demonstrates how to work with a file share via the [Azure .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409). 
+You can mount a File storage share from within a virtual machine or a cloud service running in Azure, as demonstrated above. However, you cannot mount a File storge share from an on-premises application. To access share data from an on-premises application, you must use the File storage API. This example demonstrates how to work with a file share via the [Azure .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409). 
 
-To show how to use the API from an on-premise application, we'll create a simple console application running on the desktop.
+To show how to use the API from an on-premises application, we'll create a simple console application running on the desktop.
 
 ###Create the console application and obtain the assembly
 
@@ -268,7 +268,7 @@ for more detailed information.
 [Create an Azure storage account]: #create-account
 [Use PowerShell to create a file share]: #use-cmdlets
 [Mount the share from an Azure virtual machine]: #mount-share
-[Create an on-premise application to access File storage]: #create-console-app
+[Create an on-premises application to access File storage]: #create-console-app
 
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
 
