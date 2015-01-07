@@ -1,10 +1,10 @@
-<properties title="Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS" pageTitle="LOB App in Azure Websites with AD FS" description="Learn how to create an ASP.NET MVC LOB application in Azure Websites that authenticates with on-premise STS. This tutorial targets AD FS as the on-premise STS." metaKeywords="Azure,Azure Websites,line of business,cloud services,enterprise,enterprise  application,adfs,ASP.NET,MVC" services="web-sites" solutions="" documentationCenter=".NET" authors="cephalin" videoId="" scriptId="" manager="wpickett" />
+<properties title="Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS" pageTitle="LOB App in Azure Websites with AD FS" description="Learn how to create an ASP.NET MVC LOB application in Azure Websites that authenticates with on-premises STS. This tutorial targets AD FS as the on-premises STS." metaKeywords="Azure,Azure Websites,line of business,cloud services,enterprise,enterprise  application,adfs,ASP.NET,MVC" services="web-sites" solutions="" documentationCenter=".NET" authors="cephalin" videoId="" scriptId="" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="12/23/2014" ms.author="cephalin" />
 
 # Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS #
 
-In this article, you will learn how to create an ASP.NET MVC line-of-business (LOB) application in [Azure Websites](http://azure.microsoft.com/en-us/services/websites/) using an on-premise [Active Directory Federation Services](http://technet.microsoft.com/en-us/library/hh831502.aspx) as the identity provider. This scenario can work when you want to create LOB applications in Azure Websites but your organization requires all data to be stored on-site.
+In this article, you will learn how to create an ASP.NET MVC line-of-business (LOB) application in [Azure Websites](http://azure.microsoft.com/en-us/services/websites/) using an on-premises [Active Directory Federation Services](http://technet.microsoft.com/en-us/library/hh831502.aspx) as the identity provider. This scenario can work when you want to create LOB applications in Azure Websites but your organization requires all data to be stored on-site.
 
 For an overview of the different enterprise authentication and authorization options for Azure Websites, see [Authenticate and Authorize Users in LOB Applications in Azure Websites](./web-sites-authentication-authorization).
 
@@ -15,7 +15,7 @@ For an overview of the different enterprise authentication and authorization opt
 - [Deploy the sample application to Azure Websites](#bkmk_deploy)
 - [Configure relying party trusts in AD FS Management](#bkmk_rptrusts)
 - [Authorize users for specific controllers or actions](#bkmk_authorize)
-- [Connect to on-premise data](#bkmk_data)
+- [Connect to on-premises data](#bkmk_data)
 - [Further resources](#bkmk_resources)
 
 <a name="bkmk_build"></a>
@@ -34,7 +34,7 @@ You will build a basic ASP.NET application in Azure Websites with the following 
 
 You need the following to complete this tutorial:
 
-- An on-premise AD FS deployment (for an end-to-end walkthrough of the test lab that I use, see [Test Lab: Standalone STS with AD FS in Azure VM (for test only)](TODO))
+- An on-premises AD FS deployment (for an end-to-end walkthrough of the test lab that I use, see [Test Lab: Standalone STS with AD FS in Azure VM (for test only)](TODO))
 - Permissions to create relying party trusts in AD FS Management
 - Visual Studio 2013
 
@@ -43,7 +43,7 @@ You need the following to complete this tutorial:
 
 The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), is created by the Azure Active Directory team. Since AD FS supports WS-Federation, you can is it as a template to create new LOB applications with ease. It has the following features:
 
-- Uses [WS-Federation](http://msdn.microsoft.com/en-us/library/bb498017.aspx) to authenticate with an on-premise AD FS deployment
+- Uses [WS-Federation](http://msdn.microsoft.com/en-us/library/bb498017.aspx) to authenticate with an on-premises AD FS deployment
 - Sign-in and sign-out functionality
 - Uses [Microsoft.Owin](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana) (instead of Windows Identity Foundation, i.e. WIF), which is the future of ASP.NET and much simpler to set up for authentication and authorization than WIF
 
@@ -348,7 +348,7 @@ Since you have included group memberships as role claims in your RP trust config
 7. Publish the application to your Azure website again, and test the behavior of the live application.
 
 <a name="bkmk_data"></a>
-## Connect to on-premise data
+## Connect to on-premises data
 
 A reason that you would want to implement your line-of-business application with AD FS instead of Azure Active Directory is compliance issues with keeping organization data off-premise. This may also mean that your Azure website must access on-premise databases, since you are not allowed to use [SQL Database](http://azure.microsoft.com/en-us/services/sql-database/) as the data tier for your websites.
 
