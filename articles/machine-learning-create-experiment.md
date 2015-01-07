@@ -1,6 +1,6 @@
 <properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="Create a simple experiment in Machine Learning Studio | Azure" description="How to create an experiment to train and test a simple model in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/07/2015" ms.author="garye" />
 
 #Create a simple experiment in Azure Machine Learning Studio 
  
@@ -57,7 +57,7 @@ A dataset usually requires some pre-processing before it can be analyzed. You ma
 
 First we'll remove the "normalized-losses" column, and then we'll remove any row that has missing data. 
 
-1. Type "project columns" in the search box at the top of this palette to find the **Project Columns** module, then drag it to the experiment canvas and connect it to the output port of the **Automobile price data (Raw)** dataset. This module allows us to select which columns of data we want to include or exclude in the model. 
+1. Type "project columns" in the search box at the top of the module palette to find the **Project Columns** module, then drag it to the experiment canvas and connect it to the output port of the **Automobile price data (Raw)** dataset. This module allows us to select which columns of data we want to include or exclude in the model. 
 
 2. Select the **Project Columns** module and click **Launch column selector** in the properties pane. 
 
