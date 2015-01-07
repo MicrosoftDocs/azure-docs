@@ -10,9 +10,11 @@
 
 ###Authoring technical articles
 
-- [Custom markdown extensions used in our technical articles](./custom-markdown-extensions.md)
+- [Content channel guidance](./content-channel-guidance.md)
 
 - [Create tables in markdown](./create-tables-markdown.md)
+
+- [Custom markdown extensions used in our technical articles](./custom-markdown-extensions.md)
 
 - [File names and locations for Azure technical articles](./file-names-and-locations.md)
 
