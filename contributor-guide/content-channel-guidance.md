@@ -7,7 +7,7 @@
 
 Generally speaking, core technical content for Microsoft Azure belongs in the Azure Documentation Center ([http://azure.microsoft.com/en-us/documentation](http://azure.microsoft.com/en-us/documentation)) or in the Azure scoped library ([http://msdn.microsoft.com/en-us/library/azure/](http://msdn.microsoft.com/en-us/library/azure/)) . Click the image to open the PDF that contains details for our technical content channel guidance: 
 
-[![](./media/content-channel-guidance/content-channels-small.png)](./media/content-channel-guidance/channel-guidance.pdf)
+[![](./media/content-channel-guidance/content-channels-small.png)](./media/content-channel-guidance/channel-guidance.pdf?raw=true)
 
 The following channels are not part of the standard Azure technical content experience: 
 
