@@ -409,6 +409,8 @@ The examples below demonstrate a variety of scenarios for copying blobs with AzC
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
+For how to get the storage access keys, please visit http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#regeneratestoragekeys
+
 ### Copy a blob via server-side copy
 
 When you copy a blob within a storage account or across storage accounts, a server-side copy operation is performed. For more information about server-side copy operations, see [Introducing Asynchronous Cross-Account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
