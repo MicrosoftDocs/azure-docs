@@ -158,7 +158,7 @@ Applications that use a key vault must authenticate by using a token from Azure 
 To register the application in Azure Active Directory:
 
 1. Sign in to the Azure Management Portal.
-2. On the left, click **Active Directory**, and then select the directory in which you will register your application. <br> <br> *Important*: You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
+2. On the left, click **Active Directory**, and then select the directory in which you will register your application. <br> <br> Note: You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
 
 3. Click **APPLICATIONS**. If no apps have been added to your directory, this page will show only the **Add an App** link. Click the link, or alternatively, you can click the **ADD** on the command bar.
 4.	In the **ADD APPLICATION** wizard, on the **What do you want to do?** page, click **Add an application my organization is developing**.
@@ -179,7 +179,7 @@ To authorize the application to access the key or secret in the vault, use the [
 
 For example, if your vault name is ContosoKeyVault and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, then run the following:
 
-	Set-AzureKeyVaultAccessPolicy -VaultName ContosoKeyVault -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 
 
 
@@ -212,7 +212,7 @@ For more detailed instructions about how to generate this BYOK package, see [How
 
 If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the [Remove-AzureKeyVault]( http://go.microsoft.com/fwlink/?LinkId=522256) script:
 
-	Remove-AzureKeyVault -VaultName ContosoKeyVault
+	Remove-AzureKeyVault -VaultName 'ContosoKeyVault'
 
 Or, you can delete an entire Azure resource group, which includes the key vault and any other resources that you included in that group:
 
