@@ -12,24 +12,11 @@ When hosting a Node.js application, you may want to ensure that your application
 
 ##Default versions
 
-The Node.js versions provided by Azure are constantly updated. Unless otherwise specified, 0.10.29 is the default version that will be used. Currently included are the following versions:
+The Node.js versions provided by Azure are constantly updated. Unless otherwise specified, the latest available version will be used. Currently included are the following versions:
 
-- 0.10.32
-- 0.10.31
-- 0.10.29
-- 0.10.28
-- 0.10.26
-- 0.10.24
-- 0.10.21
-- 0.10.18
-- 0.10.5
-- 0.8.28
-- 0.8.27
-- 0.8.26
-- 0.8.19
-- 0.8.2
-- 0.6.20
-- 0.6.17
+- 0.10.x: 0.10.32, 0.10.31, 0.10.29, 0.10.28, 10.26, 0.10.24, 0.10.21, 0.10.18, 0.10.5
+- 0.8.x: 0.8.28, 0.8.27, 0.8.26, 0.8.19, 0.8.2
+- 0.6.x: 0.6.20, 0.6.17
 
 > [AZURE.NOTE] If you are hosting your application in an Azure Cloud Service (web or worker role,) and it is the first time you have deployed the application, Azure will attempt to use the same version of Node.js as you have installed on your development environment if it matches one of the default versions available on Azure.
 
