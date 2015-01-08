@@ -1,6 +1,6 @@
 <properties title="Build a Java web application using DocumentDB" pageTitle="Build a Java web application using DocumentDB" description="This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="andrl" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
 
-<tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="12/01/2014" ms.author="andrl" />
+<tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="01/08/2014" ms.author="andrl" />
 
 # Build a Java web application using DocumentDB #
 
@@ -13,21 +13,13 @@ This tutorial shows you how to create a web-based task-management application th
 
 ![My ToDo List application](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP] This tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete project from [GitHub](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
-
-##<a id="Prerequisites"></a>Prerequisites ##
-Before you begin this tutorial, you must have the following:
-
-- [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-- [Eclipse IDE for Java EE Developers.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [An Azure Website with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](http://azure.microsoft.com/en-us/documentation/articles/web-sites-java-get-started/)
-
-If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the Quick Start section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article. 
+> [AZURE.TIP] This tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) project from [GitHub](https://github.com/Azure/azure-documentdb-java) and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
 
 ## In this tutorial ##
 
 Step | Description
 -----| -----------
+[Prerequisites](#Prerequisites) | A list of prerequisite software required by this tutorial.
 [Step 1: Create a DocumentDB database account](#CreateDB) | In this step, you create a DocumentDB account. 
 [Step 2: Create the JSP application](#CreateJSP) | In this step, you create a hello world project in Eclipse.
 [Step 3: Install the DocumentDB Java SDK](#InstallSDK) | In this step, you add the DocumentDB SDK as a dependency to the project.
@@ -37,11 +29,20 @@ Step | Description
 [Get the project from GitHub](#GetProject) | This section contains instructions on getting and building the complete todo project from GitHub.
  
 
+##<a id="Prerequisites"></a>Prerequisites ##
+Before you begin this tutorial, you must have the following:
+
+- [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+- [Eclipse IDE for Java EE Developers.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
+- [An Azure Website with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](http://azure.microsoft.com/en-us/documentation/articles/web-sites-java-get-started/)
+
+If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the Quick Start section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article. 
+
 ##<a id="CreateDB"></a>Step 1: Create a DocumentDB database account ##
 To provision a DocumentDB database account in Azure:
 
 1. If you don't already have a database account, create one by following the instructions in [Create a database account](/documentation/articles/documentdb-create-account/). If you already have an account, proceed to step 2.
-2. Using the **KEYS** tile shown in the following illustration, copy your endpoint URI and the PRIMARY KEY to your clipboard and keep them handy as we will use these values in the web application we create next.
+2. Using the **Keys** blade shown in the following illustration, copy your endpoint **URI** and the **PRIMARY KEY** to your clipboard and keep them handy as we will use these values in the web application we create next.
 
 ![][1]
 
@@ -54,7 +55,8 @@ To create the JSP application:
 
 	![](./media/documentdb-java-application/image10.png)
 
-2. Enter a project name in the **Project name** box, and in the **Target Runtime** drop-down menu, optionally select a value (e.g. Apache Tomcat v7.0), and then click **Finish**. Selecting a target runtime enables you to run your project locally through Eclipse.
+2. Enter a project name in the **Project name** box, and in the **Target Runtime** drop-down me
+3. nu, optionally select a value (e.g. Apache Tomcat v7.0), and then click **Finish**. Selecting a target runtime enables you to run your project locally through Eclipse.
 
 3. In Eclipse, in the Project Explorer view, expand your project. Right-click **WebContent**, click **New**, and then click **JSP File**.
 4. In the **New JSP File** dialog box, name the file **index.jsp**. Keep the parent folder as **WebContent**, as shown in the following illustration, and then click **Next**.
