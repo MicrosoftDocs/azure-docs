@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Recommendations - JavaScript Integration" pageTitle="Azure Machine Learning Recommendations - JavaScript Integration" description="Azure Machine Learning Recommendations - JavaScript Integration – documentation" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="AharonGumnik" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="javascript" ms.topic="article" ms.date="01/08/2015" ms.author="AharonGumnik" />
 
 # Azure Machine Learning Recommendations - JavaScript Integration
 
