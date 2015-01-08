@@ -1,21 +1,20 @@
 <properties urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/8/2015" ms.author="sethm" />
 
 
 
 
 
 
-# .NET On-Premises/Cloud Hybrid Application Using Service Bus Relay
+#.NET On-Premises/Cloud Hybrid Application Using Service Bus Relay
 
-<h2>INTRODUCTION</h2>
+##Introduction
 
 Developing hybrid cloud applications with Azure is easy using
 Visual Studio 2013 and the free Azure SDK for .NET. This guide
 assumes you have no prior experience using Azure. In less than
-30 minutes, you will have an application that uses multiple Windows
-Azure resources up and running in the cloud.
+30 minutes, you will have an application that uses multiple Azure resources up and running in the cloud.
 
 You will learn:
 
@@ -26,7 +25,7 @@ You will learn:
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-### HOW THE SERVICE BUS RELAY HELPS WITH HYBRID SOLUTIONS
+###How the Service Bus relay helps with hybrid solutions
 
 Business solutions are typically composed of a combination of custom
 code written to tackle new and unique business requirements and existing
@@ -51,7 +50,7 @@ incoming sessions and requests to the cloud-hosted Service Bus. The
 Service Bus also protects those services from unauthorized access by
 using Azure Active Directory Access Control.
 
-### THE SOLUTION SCENARIO
+###The solution scenario
 
 In this tutorial, you will create an ASP.NET MVC 4 website that will
 allow you to see a list of products on the product inventory page.
@@ -73,45 +72,40 @@ The following is a screen shot of the start page of the completed web applicatio
 
 ![][1]
 
-<h2>SET UP THE DEVELOPMENT ENVIRONMENT</h2>
+##Set up the development environment
 
 Before you can begin developing your Azure application, you need
 to get the tools and set-up your development environment.
 
-1.  To install the Azure SDK for .NET, click the button below:
+1.  To install the Azure SDK for .NET, click the following link:
 
     [Get Tools and SDK][]
 
-2. 	Click **install the SDK**.
-
-3. 	Choose the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2013:
+2. 	Click **Install the SDK** for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2013:
 
 	![][42]
 
-4.  When prompted to run or save **WindowsAzureSDKForNet.exe**, click
-    **Run**:
+4.  When prompted to run or save the installer, click **Run**:
 
     ![][2]
 
-5.  In the Web Platform Installer, click **Install** and proceed with the installation:
+5.  In the **Web Platform Installer**, click **Install** and proceed with the installation:
 
     ![][3]
 
 6.  Once the installation is complete, you will have everything
     necessary to start developing. The SDK includes tools that let you
     easily develop Azure applications in Visual Studio. If you
-    do not have Visual Studio installed, it also installs the free
+    do not have Visual Studio installed, the SDK also installs the free
     Visual Studio Express.
 
-<h2>CREATE A SERVICE NAMESPACE</h2>
+##Create a service namespace
 
-To begin using Service Bus features in Azure, you must first
-create a service namespace. A service namespace provides a scoping
-container for addressing Service Bus resources within your application. 
+To begin using Service Bus features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application. 
 
 You can manage namespaces and Service Bus messaging entities using either the [Azure Management Portal][] or the Visual Studio Server Explorer, but you can only create new namespaces from within the portal.
 
-###To create a service namespace using the portal:
+###To create a namespace using the portal:
 
 1.  Log on to the [Azure Management Portal][].
 
@@ -133,21 +127,15 @@ You can manage namespaces and Service Bus messaging entities using either the [A
     IMPORTANT: Pick the **same region** that you intend to choose for
     deploying your application. This will give you the best performance.
 
-6.	Click the check mark. The system now creates your service
-    namespace and enables it. You might have to wait several minutes as
-    the system provisions resources for your account.
+6.	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your service namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
 	![][38]
 
-The namespace you created will then appear in the Management Portal and
-takes a moment to activate. Wait until the status is **Active** before
-moving on.
+The namespace you created will appear in the management portal, though it may take a moment to activate. Wait until the status is **Active** before moving on.
 
-<h2>OBTAIN THE DEFAULT MANAGEMENT CREDENTIALS FOR THE NAMESPACE</h2>
+##Obtain the default management credentials for the namespace
 
-In order to perform management operations, such as creating a queue, on
-the new namespace, you must obtain the management credentials for the
-namespace.
+In order to perform management operations on the new namespace, such as creating messaging entities, you must obtain credentials for the namespace.
 
 1.  In the main window, click the name of your service namespace.   
 
@@ -159,12 +147,12 @@ namespace.
 	![][40]
 
 
-3.  In the **Access connection information** pane, find the **Default Issuer** and **Default Key** entries.   
+3.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.   
     
 
 4.  Make a note of the key, or copy it to the clipboard.
 
-###Manage a service namespace using the Visual Studio Server Explorer:
+###Manage a service namespace using the Visual Studio Server Explorer
 
 To manage a namespace and obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
 
@@ -173,7 +161,7 @@ To manage a namespace and obtain connection information using Visual Studio inst
 Make a note of the **SharedAccessKey** value, or copy it to the clipboard.
 
 
-<h2>CREATE AN ON-PREMISES SERVER</h2>
+##Create an on-premises server
 
 First, you will build a (mock) on-premises product catalog system. It
 will be fairly simple; you can see this as representing an actual
@@ -189,7 +177,7 @@ way to get the Service Bus API and to configure your application with
 all of the Service Bus dependencies. For details about using NuGet and
 the Service Bus package, see [Using the NuGet Service Bus Package][].
 
-### CREATE THE PROJECT
+###Create the project
 
 1.  Using administrator privileges, launch either Microsoft Visual
     Studio 2013 or Microsoft Visual Studio Express. To
@@ -222,7 +210,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
     **Manage NuGet Packages**...
 8.  In the left-hand column of the NuGet dialog, click **Online**.
 
-9. 	In the right-hand column, click the **Search** box, type "**WindowsAzure**" and select the **Windows
+9. 	In the right-hand column, click the **Search** box, type "**Service Bus**" and select the **Microsoft
     Azure Service Bus** item. Click **Install** to complete the
     installation, then close this dialog.
 
@@ -328,20 +316,20 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
             }
         }
 
-13. In **Solution Explorer**, double click the **app.config** file to
+13. In **Solution Explorer**, double-click the **App.config** file to
     open it in the **Visual Studio** editor. Replace the contents of
-    **&lt;system.ServiceModel>** with the following XML code. Be sure to
+    **&lt;system.ServiceModel&gt;** with the following XML code. Be sure to
     replace *yourServiceNamespace* with the name of your service
-    namespace, and *yourIssuerSecret* with the key you retrieved earlier
-    from the Azure Management Portal:
+    namespace, and *yourKey* with the SAS key you retrieved earlier
+    from the Azure management portal:
 
         <system.serviceModel>
           <extensions>
              <behaviorExtensions>
-                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=2.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
               </behaviorExtensions>
               <bindingExtensions>
-                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
               </bindingExtensions>
           </extensions>
           <services>
@@ -355,7 +343,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
                <behavior name="products">
                  <transportClientEndpointBehavior>
                     <tokenProvider>
-                       <sharedSecret issuerName="owner" issuerSecret="yourIssuerSecret" />
+                       <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
                     </tokenProvider>
                  </transportClientEndpointBehavior>
                </behavior>
@@ -365,17 +353,15 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 
 14. Press **F6** or from the **Build** menu, click **Build Solution** to build the application to verify the accuracy of your work so far.
 
-<h2>CREATE AN ASP.NET MVC APPLICATION</h2>
+##Create an ASP.NET MVC application
 
-In this section you will build a simple ASP.NET application that will
-display data retrieved from your product service.
+In this section you will build a simple ASP.NET application that displays data retrieved from your product service.
 
-### CREATE THE PROJECT
+###Create the project
 
-1.  Ensure that Microsoft Visual Studio 2013 is running with administrator privileges. If not, to
+1.  Ensure that Visual Studio is running with administrator privileges. If not, to
     launch Visual Studio with administrator privileges, right-click
-    **Microsoft Visual Studio 2013 (or Microsoft Visual Studio Express)** and then click **Run as administrator**. The Windows
-    Azure compute emulator, discussed later in this guide, requires that
+    **Microsoft Visual Studio 2013 (or Microsoft Visual Studio Express)** and then click **Run as administrator**. The Microsoft Azure compute emulator, discussed later in this guide, requires that
     Visual Studio be launched with administrator privileges.
 
 2.  In Visual Studio, on the **File** menu, click **New**, and then
@@ -397,7 +383,7 @@ display data retrieved from your product service.
 
     ![][17]
 
-### MODIFY THE WEB APPLICATION
+###Modify the web application
 
 1.  In the Product.cs file in Visual Studio, replace the existing
     namespace definition with the following code:
@@ -491,7 +477,7 @@ display data retrieved from your product service.
     **Ctrl+Shift+B** to build the project.
 
 
-### RUN YOUR APPLICATION LOCALLY
+###Run your application locally
 
 Run the application to verify that it works.
 
@@ -503,34 +489,30 @@ Run the application to verify that it works.
 
     ![][21]
 
-    <h2>MAKE YOUR APPLICATION READY TO DEPLOY TO AZURE</h2>
+##Make your application ready to deploy to Azure
 
-    You can deploy your application to an Azure Cloud Service or to an Azure Website. To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure Cloud Service.
+You can deploy your application to an Azure Cloud Service or to an Azure Website. To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://azure.microsoft.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure Cloud Service.
 
-    To deploy your application to a cloud service, you'll add a cloud service project deployment project to the solution.
-    The deployment project contains configuration
-    information that is needed to properly run your application in the
-    cloud.
+To deploy your application to a cloud service, you'll add a cloud service project deployment project to the solution. The deployment project contains configuration information that is needed to properly run your application in the cloud.
 
-    1.  To make your application deployable to the cloud, right-click
-        the **ProductsPortal** project in **Solution Explorer** and
-        click **Convert**, then click **Convert to Azure Cloud Service Project**.
+1.  To make your application deployable to the cloud, right-click the **ProductsPortal** project in **Solution Explorer** and click **Convert**, then click **Convert to Microsoft Azure Cloud Service Project**.
 
-        ![][22]
+    ![][22]
 
-    2.  To test your application, press **F5**.
-    3.  This will start the Azure compute emulator. The compute
+2.  To test your application, press **F5**.
+
+3.  This will start the Azure compute emulator. The compute
         emulator uses the local computer to emulate your application
         running in Azure. You can confirm the emulator has
         started by looking at the system tray:
 
-        ![][23]
+       ![][23]
 
-    4.  A browser will still display your application running locally,
+4.  A browser will still display your application running locally,
         and it will look and function the same way it did when you ran
         it earlier as a regular ASP.NET MVC 4 application.
 
-##PUT THE PIECES TOGETHER##
+##Put the pieces together
 
 The next step is to hook up the on-premises products server with the ASP.NET MVC application.
 
@@ -543,8 +525,7 @@ The next step is to hook up the on-premises products server with the ASP.NET MVC
         Solution Explorer, right-click **References**, then click
         **Manage NuGet Packages**.
 
-3.  Search for "Service Bus" and select the **Azure Service Bus** item. Then complete the installation and
-        close this dialog.
+3.  Search for "Service Bus" and select the **Microsoft Azure Service Bus** item. Then complete the installation and close this dialog.
 
 4.  In Solution Explorer, right-click the **ProductsPortal** project, then click **Add**, then **Existing Item**.
 
@@ -552,7 +533,7 @@ The next step is to hook up the on-premises products server with the ASP.NET MVC
 
 	![][24]
 
-6.  Now open the **HomeController.cs** file in the Visual Studio  editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourIssuerSecret* with your key. This will enable the client to call the on-premises service, returning the result of the call.
+6.  Now open the **HomeController.cs** file in the Visual Studio  editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This will enable the client to call the on-premises service, returning the result of the call.
 
             namespace ProductsWeb.Controllers
             {
@@ -574,8 +555,8 @@ The next step is to hook up the on-premises products server with the ASP.NET MVC
                         channelFactory = new ChannelFactory<IProductsChannel>(new NetTcpRelayBinding(), 
                             "sb://yourServiceNamespace.servicebus.windows.net/products");
                         channelFactory.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior { 
-                            TokenProvider = TokenProvider.CreateSharedSecretTokenProvider(
-                                "owner", "yourIssuerSecret") });
+                            TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(
+                                "RootManageSharedAccessKey", "yourKey") });
                     }
 
                     public ActionResult Index()
@@ -619,7 +600,7 @@ The next step is to hook up the on-premises products server with the ASP.NET MVC
 
     ![][26]
 
-##RUN THE APPLICATION##
+##Run the application
 
 1.  From the **File** menu in Visual Studio, click **Save All**.
 
@@ -632,10 +613,10 @@ The next step is to hook up the on-premises products server with the ASP.NET MVC
 
     ![][1]
 
-##DEPLOY YOUR APPLICATION TO AZURE##
+##Deploy your application to Azure
 
 1.  Right-click on the **ProductsPortal** project in **Solution
-        Explorer** and click **Publish to Azure**.
+        Explorer** and click **Publish to Microsoft Azure**.
 
 2.  You might have to sign in to see all your subscriptions.
 
@@ -648,13 +629,11 @@ The next step is to hook up the on-premises products server with the ASP.NET MVC
 
 8.  Click **Next**. If your subscription doesn't already contain any hosted
         services, you will be asked to create one. The hosted service
-        acts as a container for your application within your Windows
+        acts as a container for your application within your 
         Azure subscription. Enter a name that identifies your
         application and choose the region for which the application
         should be optimized. (You can expect faster loading times for
         users accessing it from this region.)
-
-    ![][32]
 
 9.  Select the hosted service you would like to publish your
         application to. Keep the defaults as shown below for the
@@ -697,7 +676,7 @@ This will take approximately 5-7 minutes. Since this is the
 
 To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels].
 
-<h2>STOP AND DELETE YOUR APPLICATION</h2>
+##Stop and delete your application
 
 After deploying your application, you may want to disable it so you
 can build and deploy other applications within the free 750
@@ -721,7 +700,7 @@ application.
 
 	![][43]
 
-<h2><a name="nextsteps"></a>Next steps</h2>  
+##<a name="nextsteps"></a>Next steps  
 
 To learn more about Service Bus, see the following resources:  
   
@@ -781,7 +760,7 @@ To learn more about Service Bus, see the following resources:
   [43]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [44]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
 
-  [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
+  [sbmsdn]: http://msdn.microsoft.com/en-us/library/azure/ee732537.aspx  
   [sbwacom]: /en-us/documentation/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/
-  [executionmodels]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
+  [executionmodels]: http://azure.microsoft.com/en-us/develop/net/fundamentals/compute/
