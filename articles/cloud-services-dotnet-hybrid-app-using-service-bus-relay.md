@@ -148,6 +148,8 @@ In order to perform management operations on the new namespace, such as creating
 
 
 3.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.   
+
+	![][45]
     
 
 4.  Make a note of the key, or copy it to the clipboard.
@@ -491,7 +493,7 @@ Run the application to verify that it works.
 
 ##Make your application ready to deploy to Azure
 
-You can deploy your application to an Azure Cloud Service or to an Azure Website. To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://azure.microsoft.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure Cloud Service.
+You can deploy your application to an Azure cloud cervice or to an Azure Website. To learn more about the difference between Websites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://azure.microsoft.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure cloud service.
 
 To deploy your application to a cloud service, you'll add a cloud service project deployment project to the solution. The deployment project contains configuration information that is needed to properly run your application in the cloud.
 
@@ -759,6 +761,7 @@ To learn more about Service Bus, see the following resources:
   [42]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
   [43]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [44]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
+  [45]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
 
   [sbmsdn]: http://msdn.microsoft.com/en-us/library/azure/ee732537.aspx  
   [sbwacom]: /en-us/documentation/services/service-bus/  
