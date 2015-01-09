@@ -91,21 +91,19 @@ Table Storage</td><td>	*.table.core.windows.net	</td><td>*.table.core.usgovcloud
 SQL Database</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net
 </td></tr><tr><td>
 Service Management</td><td>	management.core.windows.net</td><td>	management.core.usgovcloudapi.net
-</td></tr></table> 
+</td></tr>
+<tr><td>SQL Database</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net</td></tr>
+<tr><td>SQL Database Management API</td><td>	https://management.windowsazure.com</td><td>
+https://management.database.usgovcloudapi.net</td></tr></table> 
+
+## <a name="next"></a>Next Steps
 
 
-
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next"></a>Next steps
 
 If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to <A href="http://azure.com/gov">http://www.azure.com/gov</a>
 
 <!--Anchors-->
-[Overview]: ##Overview
-[Subheading 2]: #subheading-2
-[Subheading 3]: #subheading-3
-[Next steps]: #next-steps
+
 
 
 <!-- Images. -->
