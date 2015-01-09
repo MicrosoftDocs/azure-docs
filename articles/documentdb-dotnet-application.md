@@ -5,13 +5,13 @@
 
 #<a name="_Toc395809351"></a>Build a web application with ASP.NET MVC using DocumentDB
 
-To highlight how you can efficiently leverage Azure DocumentDB to store and query JSON documents, this article provides an end-to-end walk-through of building a todo list web application using Azure DocumentDB. The tasks will be stored as JSON documents in Azure DocumentDB.
+To highlight how you can efficiently leverage Azure DocumentDB to store and query JSON documents, this article provides an end-to-end walk-through showing you how to build a todo list web application using Azure DocumentDB. The tasks will be stored as JSON documents in Azure DocumentDB.
 
 ![Screen shot of the todo list web application created by this tutorial](./media/documentdb-dotnet-application/image1.png)
 
-This walk-through shows you how to use DocumentDB service provided by Azure to store and access data from an ASP.NET MVC web application hosted on Azure.
+This walk-through shows you how to use the DocumentDB service provided by Azure to store and access data from an ASP.NET MVC web application hosted on Azure.
 
-> [AZURE.TIP] This tutorial assumes that you have prior experience using ASP.NET MVC and Azure Websites. If you are new to ASP.NET or the [prerequisite tools](#_Toc395637760), we recommend downloading the complete [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) tutorial project from [GitHub](https://github.com/Azure/azure-documentdb-net) and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.
+> [AZURE.TIP] This tutorial assumes that you have prior experience using ASP.NET MVC and Azure Websites. If you are new to ASP.NET or the [prerequisite tools](#_Toc395637760), we recommend downloading the complete [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) tutorial project from [GitHub](https://github.com/Azure/azure-documentdb-net) and building it using the [instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.
 
 ## In this tutorial 
 
@@ -23,8 +23,8 @@ Step | Description
 [Step 3: Add DocumentDB to your project.](#_Toc395637767) | Add the DocumentDB .NET client libraries to your project.
 [Step 4: Set up the ASP.NET MVC application.](#_Toc395637763) |  Add the model, views, and controllers to your MVC app.
 [Step 5: Wiring up DocumentDB](#_Toc395637769) | Add code to list incomplete Items, add Items, and edit Items.
-[Step 5: Run the application locally.](#_Toc395637773) | Build the solution and run it locally.
-[Step 4: Deploy the application to Azure Websites.](_Toc395637774) | Quickly get your app published to Azure Websites.
+[Step 6: Run the application locally.](#_Toc395637773) | Build the solution and run it locally.
+[Step 7: Deploy the application to Azure Websites.](_Toc395637774) | Quickly get your app published to Azure Websites.
 [Next steps](#_Toc395637775) | You're done. What next?
 [Get the solution from GitHub](#GetProject) | Too busy to complete the tutorial and just want the finished app? Go here.
 
@@ -35,7 +35,7 @@ Before following the instructions in this article, you should ensure that you ha
 - [Visual Studio 2013](http://www.visualstudio.com/) or higher, or [Visual Studio Express], which is the free version.
 - Azure SDK for .NET version 2.3 or higher, available through the [Microsoft Web Platform Installer][].
 
-All the screen shots in this article have been taken using Visual Studio 2013 with Update 3 applied and Azure SDK for .NET version 2.4. If your system is configured with different versions it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.
+All the screen shots in this article have been taken using Visual Studio 2013 with Update 3 applied and the Azure SDK for .NET version 2.4. If your system is configured with different versions it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.
 
 ## <a name="_Toc395637761"></a>Create a DocumentDB database account
 
@@ -53,23 +53,25 @@ We will now walk through how to create a new ASP.NET MVC application from the gr
 Now let's create our new ASP.NET project.
 
 1. In Visual Studio, on the **File** menu, point to **New**, and then click **Project**.
+
    	The **New Project** dialog box appears.
 2. In the **Project types** pane, expand **Templates**, **Visual C#**, **Web**, and then select **ASP.NET Web Application**.
 
   	![Screen shot of the New Project dialog box with the ASP.NET Web Application project type highlighted](./media/documentdb-dotnet-application/image10.png)
 
-3. In the **Names** box, type the name of the project. This tutorial uses the name "todo". 
-4. Click the **Browse** button to navigate to the folder where you would like to create the project, and then click **OK**.
+3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". 
+4. Click **Browse** to navigate to the folder where you would like to create the project, and then click **OK**.
+
   	The **New ASP.NET Project** dialog box appears.
 
   	![Screen shot of the New ASP.NET Project dialog box with the MVC template highlighted and the Host in the cloud box checked](./media/documentdb-dotnet-application/image11.png)
 
 5. In the templates pane, select **MVC**.
-6. If you plan on hosting your application in Azure then select **Host in the cloud** on the lower right to have Azure host the application. We've selected to host in the cloud, and run the application hosted in an Azure Website. Selecting this option will pre-provision an Azure Website for you and make life a lot easier when it comes times to deploy the final working application. If you want to host this elsewhere or don't want to configure Azure upfront, then just un-check **Host in the Cloud**.
+6. If you plan on hosting your application in Azure then select **Host in the cloud** on the lower right to have Azure host the application. We've selected to host in the cloud, and to run the application hosted in an Azure Website. Selecting this option will preprovision an Azure Website for you and make life a lot easier when it comes time to deploy the final working application. If you want to host this elsewhere or don't want to configure Azure upfront, then just clear **Host in the Cloud**.
 7. Click **OK** and let Visual Studio do its thing around scaffolding the empty ASP.NET MVC template. 
-8. If you chose to host this in the cloud you will see at least one additional screen asking you to login to your Azure account and provide some values for your new Website. Proceed to supply all these Azure values and continue. 
+8. If you chose to host this in the cloud you will see at least one additional screen asking you to login to your Azure account and provide some values for your new website. Supply all the additional values and continue. 
 
-  	I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB Account later on in the Azure Preview portal. 
+  	I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB account later on in the Azure Preview portal. 
 
   	![Screen shot of the Configure Microsoft Azure Website dialog box](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -84,7 +86,8 @@ That takes care of most of the ASP.NET MVC plumbing that we need for
 this solution. Now let's get to the real purpose of this tutorial, adding Azure DocumentDB to our web application.
 
 1. The DocumentDB .NET SDK is packaged and distributed as a NuGet package. To get the NuGet package in Visual Studio, use the NuGet package manager in Visual Studio by right-clicking on the project in **Solution Explorer** and then clicking **Manage NuGet Packages**.
-  	The **Manage NuGet Packages** dialog box is appears.
+
+  	The **Manage NuGet Packages** dialog box appears.
 
   	![Sreen shot of the right-click options for the project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/documentdb-dotnet-application/image21.png)
 
@@ -92,7 +95,7 @@ this solution. Now let's get to the real purpose of this tutorial, adding Azure 
 
   	> [AZURE.NOTE] While the service is still in preview, the NuGet package is marked as "Prerelease" so you need to include the option to "Include Prerelease", or else you will not find the package. 
 
-  	Alternatively you could use the Package Command Console to install the package by typing the following:
+  	Alternatively you could use the Package Command Console to install the package by typing the following.
 
     	Install-Package Microsoft.Azure.Documents.Client -Pre
 
@@ -103,11 +106,11 @@ this solution. Now let's get to the real purpose of this tutorial, adding Azure 
 
 ##<a name="_Toc395637763"></a>Set up the ASP.NET MVC application
  
-Now let's add the models, views, and controllers to this MVC application.
+Now let's add the models, views, and controllers to this MVC application:
 
-- [Add a model](#_Toc395637764)
-- [Add a controller](#_Toc395637765)
-- [Add views](#_Toc395637766)
+- [Add a model](#_Toc395637764).
+- [Add a controller](#_Toc395637765).
+- [Add views](#_Toc395637766).
 
 
 ### <a name="_Toc395637764"></a>Add a model
@@ -135,19 +138,19 @@ Let's begin by creating the **M** in MVC, the model.
         	public bool Completed { get; set; }    
 		}
 
-	All data in DocumentDB is passed over the wire, and stored, as JSON. To control the way your objects are serialized/deserialized by JSON.NET you can use the **JsonProperty** attribute as demonstrated in the **Item** class we just created. You don't **have** to do this but I want to ensure that my properties follow the JSON camelCase naming conventions. 
+	All data in DocumentDB is passed over the wire and stored as JSON. To control the way your objects are serialized/deserialized by JSON.NET you can use the **JsonProperty** attribute as demonstrated in the **Item** class we just created. You don't **have** to do this but I want to ensure that my properties follow the JSON camelCase naming conventions. 
 
 	Not only can you control the format of the property name when it goes into JSON, but you can entirely rename your .NET properties like I did with the **Description** property. 
 
 	You can, if you like, use **JsonConverter** objects here as well to completely control how serialization is handled.  
 
-3. In order to get Visual Studio to resolve the **JsonProperty** attribute used here you need to add the following using statement to the using section of your class file;
+3. In order to get Visual Studio to resolve the **JsonProperty** attribute used here you need to add the following using statement to the using section of your class file.
 
     	using Newtonsoft.Json;
 
 ### <a name="_Toc395637765"></a>Add a controller
 
-That takes care of the M, now let's create the **C** in MVC, a controller class.
+That takes care of the **M**, now let's create the **C** in MVC, a controller class.
 
 1. In **Solution Explorer**, right-click the **Controllers** folder, click **Add**, and then click **Controller**.
 
@@ -169,9 +172,9 @@ Once the file is created, your Visual Studio solution should resemble the follow
 
 And finally, let's create the **V** in MVC, the views:
 
-- [Add an Item Index view](#AddItemIndexView)
-- [Add a New Item view](#AddNewIndexView)
-- [Add an Edit Item view](#_Toc395888515)
+- [Add an Item Index view](#AddItemIndexView).
+- [Add a New Item view](#AddNewIndexView).
+- [Add an Edit Item view](#_Toc395888515).
 
 
 #### <a name="AddItemIndexView"></a>Add an Item Index view
@@ -192,7 +195,7 @@ And finally, let's create the **V** in MVC, the views:
 
 #### <a name="AddNewIndexView"></a>Add a New Item view
 
-Similar to how we created an **Item Index** view, we will now create a new view for creating new Items.
+Similar to how we created an **Item Index** view, we will now create a new view for creating new **Items**.
 
 In the **Add View** dialog box, do the following:
 
@@ -233,7 +236,7 @@ In this section, we'll add code to handle the following:
 
 1. Open the **ItemController** and remove all the code within the class (but leave the class) that Visual Studio added. We'll rebuild it piece by piece using DocumentDB.
 
-2. Add the following code snippet within the now empty **ItemController** class;
+2. Add the following code snippet within the now empty **ItemController** class.
 
     	public ActionResult Index()
     	{
@@ -245,7 +248,7 @@ In this section, we'll add code to handle the following:
 	For the purposes of this walk-through we're just going to put all the data access logic directly into one project to keep things simple and focus on the DocumentDB specific bits.
 
 3. Add a new class to your project and name it **DocumentDBRepository**. 
-4. Replace the code in the **DocumentDBRepository** class with the following;
+4. Replace the code in the **DocumentDBRepository** class with the following.
 
     	public static class DocumentDBRepository
     	{
@@ -261,7 +264,7 @@ In this section, we'll add code to handle the following:
 				
 					return databaseId;
 				}
-       	 }
+       	 	}
 			  
     	    private static string collectionId;
     	    private static String CollectionId
@@ -323,7 +326,7 @@ In this section, we'll add code to handle the following:
     	    }
     	} 
 
-6. Spend some time resolving all the namespaces in Visual Studio, which should include adding the following using directives to the DocumentDBRepository.cs file:
+6. Spend some time resolving all the namespaces in Visual Studio, which should include adding the following using directives to the DocumentDBRepository.cs file.
 
 		using Microsoft.Azure.Documents;
 		using Microsoft.Azure.Documents.Client;
@@ -334,7 +337,7 @@ In this section, we'll add code to handle the following:
 7. There are two method calls used here for reading or creating DocumentDB databases and document collections. So add the following two methods to the **DocumentDBRepository** class.
 
     	private static DocumentCollection ReadOrCreateCollection(string databaseLink)
-   		 {
+   		{
     	    var col = Client.CreateDocumentCollectionQuery(databaseLink)
         	                  .Where(c => c.Id == CollectionId)
         	                  .AsEnumerable()
@@ -363,7 +366,7 @@ In this section, we'll add code to handle the following:
         	return db;
     	}
 
-	This takes care setting up the database, a [**DocumentCollection**](http://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.documentcollection.aspx), and creating some code to connect to DocumentDB through the [**DocumentClient**](http://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.aspx). 
+	This takes care setting up the database, a [**DocumentCollection**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.aspx), and creating some code to connect to DocumentDB through the [**DocumentClient**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx). 
 
 8. We're reading some values from configuration, so open the **Web.config** and add the following lines under the <AppSettings\> section and update the values using the **URI** and key values retrieved in [Create a DocumentDB database account](#_Toc395637761).
 
@@ -384,7 +387,7 @@ In this section, we'll add code to handle the following:
     	            .ToList<Item>();
     	}
     
-10. The reference to *CreateDocumentQuery* will resolve after you need to manually add the following using directive;
+10. The reference to *CreateDocumentQuery* will resolve after you need to manually add the following using directive.
 
     	using Microsoft.Azure.Documents.Linq;
 
@@ -396,7 +399,7 @@ In this section, we'll add code to handle the following:
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
-	This now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior that instead of **Home** use **Item** as the controller and user **Index** as the view.
+	This now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior that instead of **Home**, use **Item** as the controller and user **Index** as the view.
 	Now if you run the application, it will call into your **ItemController** and return the results of the **GetIncompleteItems** method to the **Views**\**Item**\**Index** view. 
 
 12. If you build and run this project now, you should now see something that looks this.    
@@ -409,16 +412,16 @@ Let's put some items into our database so we have something more than an empty g
 
 We already have a view for **Create**, and a button on the **Index** view that takes the user to the **Create** view. Let's add some code to the controller and repository to persist the record in DocumentDB.
 
-1. Open the ItemController.cs file and add the following code snippet which is how ASP.NET MVC knows what to do for the **Create** action, in this case just render the associated Create.cshtml view created earlier.
+1. Open the ItemController.cs file and add the following code snippet, which is how ASP.NET MVC knows what to do for the **Create** action. In this case just render the associated Create.cshtml view created earlier.
 
     	public ActionResult Create()
     	{ 
 		return View(); 
    		}
 
-	We now need some more code in this controller which will accept the submission from the **Create** view.
+	We now need some more code in this controller that will accept the submission from the **Create** view.
 
-2. Add the next block of code which tells ASP.NET MVC what to do with a form POST for this controller.
+2. Add the next block of code that tells ASP.NET MVC what to do with a form POST for this controller.
 	
     	[HttpPost]
     	[ValidateAntiForgeryToken]
@@ -434,7 +437,7 @@ We already have a view for **Create**, and a button on the **Index** view that t
 
 	**Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][]. The source code provided on [Github][] has the full implementation in place.
 
-	**Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][]
+	**Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][].
 
 3. Now that the **Create** method is in place, the **ItemController** will pass the **Item** object from the form to the **CreateDocument** method. So now add the following method to your **DocumentDBRepository** class.
 
@@ -483,19 +486,19 @@ There is one last thing for us to do, and that is to add the ability to edit **I
     	    return View(item);
   	  	}
 
-	The first method handles the Http GET that happens when the user clicks on the **Edit** link from the **Index** view. This method fetches a [**Document**](http://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.document.aspx) from DocumentDB and passes it to the **Edit** view.
+	The first method handles the Http GET that happens when the user clicks on the **Edit** link from the **Index** view. This method fetches a [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) from DocumentDB and passes it to the **Edit** view.
 
 	The **Edit** view will then do an Http POST to the **IndexController**. 
 	
-	The second method we added handles this passing the updated object through to DocumentDB to be persisted in the database.
+	The second method we added handles passing the updated object to DocumentDB to be persisted in the database.
 
-2. Add the following using directive to the ItemController.cs file:
+2. Add the following using directive to the ItemController.cs file.
 
 		using todo.Models;
 		using System.Threading.Tasks;
 		using System.Net;
 
-3. Add the following to the **DocumentDBRepository** class:
+3. Add the following to the **DocumentDBRepository** class.
 
     	public static Item GetItem(string id)
     	{
@@ -519,7 +522,7 @@ There is one last thing for us to do, and that is to add the ability to edit **I
 
 	The second of the two methods we just added replaces the **Document** in DocumentDB with the version of the **Document** passed in from the **ItemController**.
 
-4. Add the following using directive to the DocumentDBRepository.cs file:
+4. Add the following using directive to the DocumentDBRepository.cs file.
 
 		using System.Threading.Tasks;
 
@@ -555,11 +558,11 @@ To test the application on your local machine, do the following:
 
 Now that you have the complete application working correctly with DocumentDB we're going to deploy this web app to Azure Websites. If you selected **Host in the cloud** when you created the empty ASP.NET MVC project then Visual Studio makes this really easy and does most of the work for you. 
 
-To publish this application to all you need to do, is right-click on the project in **Solution Explorer** and click **Publish**.
+To publish this application all you need to do is right-click on the project in **Solution Explorer** and click **Publish**.
 
 ![Screen shot of the Publish option in Solution Explorer](./media/documentdb-dotnet-application/image28.png)
 
-Everything should already be configured according to your credentials; in fact the website has already been created in Azure for you at the **Destination URL** shown, all you need to is click **Publish**.
+Everything should already be configured according to your credentials; in fact the website has already been created in Azure for you at the **Destination URL** shown, all you need to do is click **Publish**.
 
 ![Screen shot of the Publish Web dialog box](./media/documentdb-dotnet-application/image29.png)
 
@@ -567,7 +570,7 @@ In a few seconds, Visual Studio will finish publishing your web application and 
 
 ##<a name="_Toc395637775"></a>Next steps
 
-Congratulations! You just built your first ASP.NET MVC application using Azure DocumentDB and published it to Azure Websites. The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from [Github][].
+Congratulations! You just built your first ASP.NET MVC application using Azure DocumentDB and published it to Azure Websites. The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from [Github][]. So if you're interested in adding that to your app, grab the code and add it to this app.
 
 To add additional functionality to your application, review the APIs available in the [Document DB .NET Library](http://msdn.microsoft.com/library/azure/dn783362.aspx) and feel free to contribute to the DocumentDB .NET Library on [GitHub][]. 
 
@@ -603,7 +606,7 @@ If you're looking to save time and just want to build the complete todo solution
 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
-[Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Github]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
