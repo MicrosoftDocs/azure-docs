@@ -94,6 +94,35 @@ It assumes you have completed the procedure outlined in the first section, and s
 	
 		scan 'sampletable'
 
+**Bulk load a sample table**
+
+1. Create samplefile1.txt containing the following data and upload to Azure Blob Storage to /tmp/samplefile1.txt:
+
+		row1	c1	c2
+		row2	c1	c2
+		row3	c1	c2
+		row4	c1	c2
+		row5	c1	c2
+		row6	c1	c2
+		row7	c1	c2
+		row8	c1	c2
+		row9	c1	c2
+		row10    c1	c2
+
+2. Change the folder to the HBase home directory:
+		
+		cd %HBASE_HOME%\bin
+
+3. Execute ImportTsv:
+
+		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,a:b,a:c" -Dimporttsv.bulk.output=/tmpOutput sampletable2 /tmp/samplefile1.txt
+
+4. Load the output from prior command into HBase:
+
+		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput sampletable2
+
+
+
 ##<a name="hive-query"></a>Use Hive to query an HBase table
 
 Now you have an HBase cluster provisioned and have created an HBase table, you can query it using Hive. This section creates a Hive table that maps to the HBase table and uses it to queries the data in your HBase table.
