@@ -87,8 +87,7 @@ Service Management</td><td>	management.core.windows.net</td><td>	management.core
 
 </td></tr>
 <tr><td>SQL Database</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net</td></tr>
-<tr><td>SQL Database Management API</td><td>	https://management.windowsazure.com</td><td>
-https://management.database.usgovcloudapi.net</td></tr></table> 
+</table> 
 
 ## <a name="next"></a>Next steps
 If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to <A href="http://azure.com/gov">http://www.azure.com/gov</a>
