@@ -8,15 +8,15 @@ This article provides guidance for choosing the right option for transferring da
 
 In this article:
 
-* [Azure Import/Export service for Blob storage]
-* [AZCopy utility]
-* [Azure PowerShell]
-* [Azure Data Factory (preview)]
-* [Azure Database Migration Tooling]
-* [Azure Data Sync Service (preview)]
-* [Azure Event Hubs]
-* [Other options for data transfer]
-* [Choose the right data transfer option]
+* [Azure Import/Export service for Blob storage](#blob)
+* [AZCopy utility](#azcopy-utility)
+* [Azure PowerShell](#ps)
+* [Azure Data Factory (preview)](#data-factory)
+* [Azure SQL Database migration tools](#tools)
+* [Azure SQL Data Sync (preview)](#data-sync)
+* [Azure Event Hubs](#event-hubs)
+* [Other options for data transfer](#other)
+* [Choose the right data transfer option](#choose)
 
 
 ## Azure Import/Export service for Blob storage
@@ -49,7 +49,7 @@ Also see:
 
 Azure Data Factory is a fully managed service for composing data storage, processing, and movement services into streamlined, scalable, and reliable data production pipelines.
 
-Developers can build data-driven workflows that join, aggregate and transform semi-structured, unstructured and structured data sourced from their on-premises (via Data Management Gateway), cloud-based and internet services, and set up complex data processing through simple JSON scripting. The result data can be stored in Azure Storage or Azure Database for advanced analytics.
+Developers can build data-driven workflows that join, aggregate and transform semi-structured, unstructured and structured data sourced from their on-premises (via Data Management Gateway), cloud-based and internet services, and set up complex data processing through simple JSON scripting. The result data can be stored in Azure Storage or Azure SQL Database for advanced analytics.
 
 Specifically, developer can orchestrate regular copy activities between various sources and destinations listed below:
 
@@ -58,7 +58,7 @@ Specifically, developer can orchestrate regular copy activities between various 
 <th>Sink/Source</th>
 <th>Azure Blob</th>
 <th>Azure Table</th>
-<th>Azure Database</th>
+<th>Azure SQL Database</th>
 <th>SQL server (on premises)</th>
 <th>SQL database (IaaS)</th>
 </tr>
@@ -94,7 +94,7 @@ Specifically, developer can orchestrate regular copy activities between various 
 </tr>
 
 <tr>
-<td><p><b>Azure Database</b></p>
+<td><p><b>Azure SQL Database</b></p>
 </td>
 <td>x
 </td>
@@ -147,9 +147,9 @@ Also see:
 
 * [Introduction to Data Factory][intro]
 
-## Azure Database Migration Tooling
+## Azure SQL Database migration tools
 
-There are many tools available to successfully migrate SQL Server on-premises and non-SQL Server databases and to Azure Database. The best tool for your scenario depends on the type, size, and complexity of the database being migrated:
+There are many tools available to successfully migrate SQL Server on-premises and non-SQL Server databases and to Azure SQL Database. The best tool for your scenario depends on the type, size, and complexity of the database being migrated:
 
 * You can migrate both schema and data of an existing Azure SQL Database by exporting the database, storing the export file in an Azure Blob Storage Account, then importing as a new Azure SQL Database. The file that created when this export is referred to as a BACPAC file. For more information, see [How to: Use the Import and Export Service in Azure SQL Database)][sql-import].
 * Database Copy feature creates a new database in Azure that is a transactional consistent copy of an existing Azure SQL Database. For more information, see [Copying Databases in Azure SQL Database][sql-copy].
@@ -163,19 +163,19 @@ Also see:
 * [Migrating Databases to Azure SQL Database][migrate]
  
 
-## Azure Data Sync Service (preview)
+## Azure SQL Data Sync (preview)
 
-Data Sync Service (preview) enables creating and scheduling regular synchronizations between Azure SQL Database and databases hosted in SQL Server or Azure SQL Database.
+SQL Data Sync (preview) enables creating and scheduling regular synchronizations between Azure SQL Database and databases hosted in SQL Server or Azure SQL Database.
 
-Data Sync Service is suitable for data developers to synchronize delta changes between on-premises and cloud Azure databases. See [SQL Data Sync][sync].
+SQL Data Sync is suitable for data developers to synchronize delta changes between on-premises and cloud Azure databases. See [SQL Data Sync][sync].
 
 ##	Azure Event Hubs
 
 Microsoft Azure Event Hubs is an event ingestor service that provides event and telemetry ingress to the cloud at massive scale, with low latency and high reliability. This service, used with other downstream services, is particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things scenarios.
 
-Developers can write code to send data to event hub, process the data and store in Azure Blob or Azure Database for further process.
+Developers can write code to send data to event hub, process the data and store in Azure Blob or Azure SQL Database for further process.
 
-Alternatively, developers can leverage Azure Stream Analytics, a fully managed service providing scalable complex event processing over streaming data for output. Developer can pick a stream from Azure Event Hub, specify the format being used to serialize incoming event (e.g. JSON, CSV or Avro formats), and then add output location including Azure Blob or Azure Database.
+Alternatively, developers can leverage Azure Stream Analytics, a fully managed service providing scalable complex event processing over streaming data for output. Developer can pick a stream from Azure Event Hub, specify the format being used to serialize incoming event (e.g. JSON, CSV or Avro formats), and then add output location including Azure Blob or Azure SQL Database.
 
 See:
 
@@ -199,8 +199,8 @@ With [Virtual Network](/en-us/services/virtual-network/), you can use data integ
 
 Notes about the decision tree:
 
-* Data Sync Service (preview) triggers a sync from changed data.
-* Data Factory (preview) supports copying data between Azure Storage, Azure Database, and on-premises SQL Server. 
+* SQL Data Sync (preview) triggers a sync from changed data.
+* Data Factory (preview) supports copying data between Azure Storage, Azure SQL Database, and on-premises SQL Server. 
 * In addition to using Data Factory, you can extend existing SSIS packages to move data to cloud in a scheduled manner.
 
 ### Move GBs of data
@@ -250,8 +250,8 @@ Notes about the decision tree:
 <tr>
 <td>
 <ul>
-<li>Azure Storage to Azure Database</li>
-<li>Azure Database to Azure Storage</li>
+<li>Azure Storage to Azure SQL Database</li>
+<li>Azure SQL Database to Azure Storage</li>
 </ul>
 </td>
 <td><p><a href="/documentation/articles/data-factory-introduction/">Azure Data Factory</a></p>
@@ -265,8 +265,8 @@ Notes about the decision tree:
 <tr>
 <td>
 <ul>
-<li>SQL Server to Delta Data Sync</li>
-<li>Delta Data Sync to Azure SQL Database</li>
+<li>SQL Server to SQL Data Sync</li>
+<li>SQL Data Sync to Azure SQL Database</li>
 </ul>
 </td>
 <td><p>N/A</p>
@@ -311,8 +311,8 @@ Notes about the decision tree:
 [AZCopy utility]: #azcopy-utility
 [Azure PowerShell]: #ps
 [Azure Data Factory (preview)]: #data-factory
-[Azure Database Migration Tooling]: #tooling
-[Azure Data Sync Service (preview)]: #data-sync
+[Azure SQL Database migration tools]: #tools
+[Azure SQL Data Sync (preview)]: #data-sync
 [Azure Event Hubs]: #event-hubs
 [Other options for data transfer]: #other
 [Choose the right data transfer option]: #choose

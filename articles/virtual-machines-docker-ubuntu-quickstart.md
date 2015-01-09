@@ -1,17 +1,15 @@
-<properties title="How to Use Docker Quickly with Ubuntu-Docker VM Image" pageTitle="How to Use Docker Quickly with Ubuntu-Docker VM Image" description="Describes and demonstrates how to be using Docker on Ubuntu Server in minutes directly from the Azure Image Gallery" metaKeywords="docker, ubuntu, azure, image gallery, linux, container" services="virtual-machines" solutions="" documentationCenter="" authors="rasquill" videoId="" scriptId="" manager="timlt" />
+<properties title="How to Get Started Quickly with Docker in the Azure Marketplace" pageTitle="How to Get Started Quickly with Docker in the Azure Marketplace" description="Describes and demonstrates how to get started using Docker on Ubuntu Server in minutes directly from the Azure Marketplace" metaKeywords="docker, ubuntu, azure, image gallery, marketplace, linux, container" services="virtual-machines" solutions="" documentationCenter="" authors="rasquill" videoId="" scriptId="" manager="timlt" />
 
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure" ms.date="1/7/2015" ms.author="rasquill" />
 
-
-
 <!--The next line, with one pound sign at the beginning, is the page title--> 
-# How to Use Docker Quickly with Docker-Ubuntu VM Image 
+# How to Get Started Quickly with Docker in the Azure Marketplace 
 
-Get started with [Docker] quickly by searching the Azure Marketplace or [Azure portal](https://portal.azure.com) and selecting the Docker on Ubuntu Server image created by [Canonical] in conjunction with [MSOpenTech] to easily provision a VM with the **latest** Docker engine pre-installed and running on on Azure. 
+The fastest way to get started using [Docker] is to go to the Azure Marketplace and create a VM using the **Docker on Ubuntu Server** image template created by [Canonical] in conjunction with [MSOpenTech]. This creates an Ubuntu Server VM and automatically installs the [Docker VM Extension](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-vm-extension/) along with the **latest** Docker engine pre-installed and running on on Azure.  
 
 You can immediately connect to the VM using SSH and begin doing work with Docker directly without doing anything else. 
 
-> [WACOM.NOTE]: This VM image does not host the Docker remote API for management by a remote docker client. To enable controlling the Docker Host on this VM remotely, see either [Running Docker with HTTPS](https://docs.docker.com/articles/https/) or follow the steps in [Using the Docker VM Extension from the Azure Portal](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-portal/) or [Using the Docker VM Extension from the azure-cli](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-xplat-cli/). If you're feeling especially geeky, you can build the [Windows Docker Client](https://github.com/ahmetalpbalkan/Docker.DotNet) from Github and try that as well (or just grab it from [nuget](https://www.nuget.org/packages/Docker.DotNet/)). 
+> [AZURE.NOTE]: The VM created by the Azure Marketplace template does not host the Docker remote API for management by a remote docker client. To enable controlling the Docker Host on this VM remotely, see either [Running Docker with HTTPS](https://docs.docker.com/articles/https/) or follow the steps in [Using the Docker VM Extension from the Azure Portal](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-portal/) or [Using the Docker VM Extension from the azure-cli](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-xplat-cli/). If you're feeling especially geeky, you can build the [Windows Docker Client](https://github.com/ahmetalpbalkan/Docker.DotNet) from Github and try that as well (or just grab it from [nuget](https://www.nuget.org/packages/Docker.DotNet/)). 
 
 In this topic:
 
