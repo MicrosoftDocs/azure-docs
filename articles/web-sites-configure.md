@@ -53,7 +53,7 @@ Note: If you enable deployment from source control, it is possible for a deploym
 
 ### Certificates
 
-In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information,, see [Enable HTTPS for an Azure website](href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/). 
+In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for an Azure website](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/). 
 
 Your uploaded certificates are listed here. After you upload a certificate, you can assign it to any website in your subscription and region. Wildcard certificates can be used for any site within the domain for which it is valid. A certificate can be deleted only if there are no active bindings for that certificate.
 
@@ -63,7 +63,7 @@ View or add additional domain names for the website. For more information, see [
 
 ### SSL Bindings
 
-If you uploaded SSL certificates, you can bind them to custom domain names. For more information,, see [Enable HTTPS for an Azure website](href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)
+If you uploaded SSL certificates, you can bind them to custom domain names. For more information, see [Enable HTTPS for an Azure website](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)
 
 ### Deployments
 
