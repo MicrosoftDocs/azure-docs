@@ -94,6 +94,15 @@ It assumes you have completed the procedure outlined in the first section, and s
 	
 		scan 'sampletable'
 
+**Check cluster status in the HBase WebUI**
+	
+HBase also ships with a WebUI that helps monitoring your cluster, for example by providing request statistics or information about regions. On the HBase cluster you can find the WebUI under the address of the zookeepernode.
+
+
+	http://zookeepernode:60010/master-status
+	
+In a HighAvailability (HA) cluster, you will find a link to the current active HBase master node hosting the WebUI.
+
 **Bulk load a sample table**
 
 1. Create samplefile1.txt containing the following data, and upload to Azure Blob Storage to /tmp/samplefile1.txt:
