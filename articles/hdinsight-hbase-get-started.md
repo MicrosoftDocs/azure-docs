@@ -96,7 +96,7 @@ It assumes you have completed the procedure outlined in the first section, and s
 
 **Bulk load a sample table**
 
-1. Create samplefile1.txt containing the following data and upload to Azure Blob Storage to /tmp/samplefile1.txt:
+1. Create samplefile1.txt containing the following data, and upload to Azure Blob Storage to /tmp/samplefile1.txt:
 
 		row1	c1	c2
 		row2	c1	c2
