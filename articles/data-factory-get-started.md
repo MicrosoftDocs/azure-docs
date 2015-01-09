@@ -208,7 +208,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 	- **linkedServiceName** is set to **MyBlobStore**. You had created this linked service in Step 2).
 	- **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
 	- format **type** is set to **TextFormat**
-	- - There are two fields in the text file – **FirstName** and **ColumnName** – separated by a comma character (columDelimiter)	
+	- There are two fields in the text file – **FirstName** and **LastName** – separated by a comma character (columDelimiter)	
 	- The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**). The Data Factory service will look for input data every hour in the root folder in the blob container (**adftutorial**) you specified.
 
 	if you don't specify a **fileName** for an **input table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. See the sample files in the [tutorial][adf-tutorial] for examples.
