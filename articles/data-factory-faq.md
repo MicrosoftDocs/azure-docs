@@ -78,6 +78,29 @@ See the Geographic Availability section in the following article: or [HDInsight 
 
 The on-demand HDInsight cluster is created in the same region where the storage you specified to be used with the cluster exists.    
 
+**Q: How to associate additional storage accounts to your HDInsight cluster (BYOC, On-Demand)?**
+
+If you are using your own HDInsight Cluster (BYOC - Bring Your Own Cluster), see the following topics: 
+
+- [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores][hdinsight-alternate-storage]
+- [Use Additional Storage Accounts with HDInsight Hive][hdinsight-alternate-storage-2]
+
+If you are using an on-demand cluster that is created by the Data Factory service, you need to specify additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. In the JSON definition for the on-demand linked service, use **additionalLinkedServiceNames** property to specify alternate storage accounts as shown in the following JSON snippet:
+ 
+	{
+	    "name": "MyHDInsightOnDemandLinkedService",
+	    "properties":
+	    {
+	        "type": "HDInsightOnDemandLinkedService",
+	        "clusterSize": 1,
+	        "timeToLive": "00:01:00",
+	        "linkedServiceName": "LinkedService-SampleData",
+	        “additionalLinkedServiceNames”: [ “otherLinkedServiceName1”, “otherLinkedServiceName2” ] 
+	    }
+	} 
+
+In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 represent linked services whose definitions contain credentials that the HDInsight cluster needs to access alternate storage accounts.
+
 ## See Also
 [Introduction to Azure Data Factory][adf-introduction]
 [Get started with Azure Data Factory][adfgetstarted]
@@ -92,3 +115,5 @@ The on-demand HDInsight cluster is created in the same region where the storage 
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/en-us/pricing/details/hdinsight/
+[hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
+[hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
