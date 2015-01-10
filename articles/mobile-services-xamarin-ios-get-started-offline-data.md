@@ -149,6 +149,7 @@ In this section you will reconnect the app to the mobile service. This simulates
 [Get started with data]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
 [Get started with Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
 [How to use the Xamarin Component client for Azure Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
+[Soft Delete]: /en-us/documentation/articles/mobile-services-using-soft-delete/
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio

@@ -68,10 +68,14 @@ Azure Mobile Services offline features allow you to interact with a local databa
 2. In Solution Explorer, right click **References** for the Windows 8.1 Runtime and Windows Phone 8.1 platform projects and ensure there is a reference to SQLite, which is located in the **Extensions** section. 
 
     ![][1]
-    </br>**Windows 8.1 Runtime**
+    </br>
+
+    **Windows 8.1 Runtime**
 
     ![][11]
-    </br>**Windows Phone 8.1**
+    </br>
+
+    **Windows Phone 8.1**
 
 3. The SQLite Runtime requires you to change the processor architecture of the project being built to **x86**, **x64**, or **ARM**. **Any CPU** is not supported. In Solution Explorer, click the Solution at the top, then change the processor architecture drop down box to one of the supported settings that you want to test.
 
