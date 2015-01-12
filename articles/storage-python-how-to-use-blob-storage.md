@@ -19,7 +19,6 @@ see the [Next Steps][] section.
  [How To: List the Blobs in a Container][]   
  [How To: Download Blobs][]   
  [How To: Delete a Blob][]   
- [How To: Upload and Download Large Blobs][]   
  [Next Steps][]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
