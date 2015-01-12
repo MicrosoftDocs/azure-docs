@@ -1,6 +1,6 @@
-<properties title="SharePoint Server Farm Configuration Details" pageTitle="SharePoint Server Farm Configuration Details" description="Describes the default configuration of SharePoint farms" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="SharePoint Server Farm Configuration Details" pageTitle="SharePoint Server Farm Configuration Details" description="Describes the default configuration of SharePoint farms created with the SharePoint Server Farm feature of the Azure Preview Portal." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/12/2015" ms.author="josephd" />
 
 
 #SharePoint Server Farm Configuration Details#
@@ -16,7 +16,7 @@ For additional information, see [SharePoint Server Farm](../virtual-machines-sha
 
 ##Basic SharePoint farm##
 
-The basic SharePoint farm consists of three virtual machines in the following configuration:
+The basic SharePoint farm consists of three virtual machines in this configuration:
 
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-config-azure-preview/SPFarm_Basic.png) 
 
@@ -30,9 +30,9 @@ Here are the configuration details:
     -	Address space: 192.168.16.0/26    
 
 - Virtual machines
-	-	HostNamePrefix-DC (AD DS domain controller)
-	-	HostNamePrefix-SQL (SQL Server 2014 server)
-	-	HostNamePrefix-SP (SharePoint 2013 server)
+	-	*HostNamePrefix*-DC (AD DS domain controller)
+	-	*HostNamePrefix*-SQL (SQL Server 2014 server)
+	-	*HostNamePrefix*-SP (SharePoint 2013 server)
 
 - Domain controller
 	-	Host name prefix: Specified during the initial configuration.
@@ -59,7 +59,7 @@ Here are the configuration details:
 
 ##High-availability##
 
-The high-availability SharePoint farm consists of nine virtual machines in the following configuration:
+The high-availability SharePoint farm consists of nine virtual machines in this configuration:
 
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-config-azure-preview/SPFarm_HighAvail.png)
  
@@ -73,15 +73,15 @@ Here are the configuration details:
 	-	Address space: 192.168.16.0/26	
 
 -	Virtual machines
-	-	HostNamePrefix-DC1 (AD DS domain controller)
-	-	HostNamePrefix-DC2 (AD DS domain controller)
-	-	HostNamePrefix-SQL1 (SQL Server 2014 server)
-	-	HostNamePrefix-SQL2 (SQL Server 2014 server)
-	-	HostNamePrefix-SQL0 (SQL Server 2014 server)
-	-	HostNamePrefix-WEB1 (SharePoint 2013 server)
-	-	HostNamePrefix-WEB2 (SharePoint 2013 server)
-	-	HostNamePrefix-APP1 (SharePoint 2013 server)
-	-	HostNamePrefix-APP2 (SharePoint 2013 server)
+	-	*HostNamePrefix*-DC1 (AD DS domain controller)
+	-	*HostNamePrefix*-DC2 (AD DS domain controller)
+	-	*HostNamePrefix*-SQL1 (SQL Server 2014 server)
+	-	*HostNamePrefix*-SQL2 (SQL Server 2014 server)
+	-	*HostNamePrefix*-SQL0 (SQL Server 2014 server)
+	-	*HostNamePrefix*-WEB1 (SharePoint 2013 server)
+	-	*HostNamePrefix*-WEB2 (SharePoint 2013 server)
+	-	*HostNamePrefix*-APP1 (SharePoint 2013 server)
+	-	*HostNamePrefix*-APP2 (SharePoint 2013 server)
 
 -	Domain controllers
 	-	Host name prefix: Specified during the initial configuration.
@@ -104,4 +104,8 @@ Here are the configuration details:
 	-	SharePoint farm account name: Specified during the initial configuration.
 	-	SharePoint farm account password: Specified during the initial configuration.		
 	-	SharePoint farm passphrase: Specified during the initial configuration.
+
+##Additional Resources
+
+[SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
