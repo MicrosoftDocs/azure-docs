@@ -1,6 +1,6 @@
 <properties title="Get Started with Azure key Vault" pageTitle="Get Started with Azure Key Vault | Overview" description="Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure." metaKeywords="Azure Key Vault, Azure Key Vault cmdlets" services="Key-Vault" solutions="" documentationCenter="" authors="cabailey" manager="mbaldwin" videoId="" scriptId="" />
 
-<tags ms.service="key-vault" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/08/2015" ms.author="cabailey" />
+<tags ms.service="key-vault" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/12/2015" ms.author="cabailey" />
 
 # Get Started with Azure Key Vault #
 
@@ -72,9 +72,13 @@ For more information about configuring Azure PowerShell, see  [How to install an
 
 ## <a id="scripts"></a>Load the Key Vault scripts ##
 
-If you haven't already done so, [download the scripts](http://go.microsoft.com/fwlink/?LinkId=521539) and extract the zip file to a local folder on your computer.
+If you haven't already done so, [download the scripts](http://go.microsoft.com/fwlink/?LinkId=521539) and unblock the "Azure Key Vault Powershell scripts.zip" file by right-clicking it, **Properties**, **Unblock**. Then extract the zip file to a local folder on your computer. 
 
-Load the script module into your Azure PowerShell session. For example, if you extracted the scripts to a folder named C:\KeyVaultScripts, then type:
+Before you load the script module into your Azure PowerShell session, set the execution policy:
+
+	Set-ExecutionPolicy RemoteSigned -Scope Process
+
+Then load the script module into your Azure PowerShell session. For example, if you extracted the scripts to a folder named C:\KeyVaultScripts, type:
 	
 	import-module C:\KeyVaultScripts\KeyVaultManager
 

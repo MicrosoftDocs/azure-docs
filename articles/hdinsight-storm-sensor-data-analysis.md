@@ -511,6 +511,8 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 		    	[DataMember]
 		    	public DateTime TimeStamp { get; set; }
 		        [DataMember]
+		        public DateTime TimeStamp { get; set; }
+		        [DataMember]
 		        public int DeviceId { get; set; }
 		        [DataMember]
 		        public int Temperature { get; set; }
@@ -633,7 +635,7 @@ In order to receive data from Event Hub, we will use the **eventhubs-storm-spout
 
 6. Use the following command to install the package into the local Maven store. This will allow us to easily add it as a reference in the Storm project in a later step.
 
-		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
+		mvn install:install-file -Dfile=target/eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
 ####Download and build the SignalR client
 
@@ -665,7 +667,7 @@ To send messages to the ASP.NET Dashboard, use the [SignalR client SDK for Java]
 
 6. Use the following command to install the package into the local Maven store. This will allow us to easily add it as a reference in the Storm project in a later step.
 
-		mvn install:install-file -Dfile=target\signalr-client-sdk-1.0.jar -DgroupId=microsoft.aspnet.signalr -DartifactId=signalr-client-sdk -Dversion=1.0 -Dpackaging=jar
+		mvn install:install-file -Dfile=target/signalr-client-sdk-1.0.jar -DgroupId=microsoft.aspnet.signalr -DartifactId=signalr-client-sdk -Dversion=1.0 -Dpackaging=jar
 
 ###Scaffold the Storm topology project
 
@@ -824,7 +826,7 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 
 **eventhubs-storm-spout** reads configuration information from a **Config.properties** file. This tells it what Event Hub to connect to. While you can specify a configuration file when starting the topology on a cluster, including one in the project gives you a known default configuration.
 
-1. In the **Temperature** directory, create a new directory named **conf**.
+1. In the **TemperatureMonitor** directory, create a new directory named **conf**.
 
 2. In the **conf** directory, create two new files:
 
@@ -838,8 +840,8 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 		eventhubspout.password = <the key of the 'storm' policy>
 
 		eventhubspout.namespace = <the event hub namespace>
-		# The name of the event hub
-		eventhubspout.entitypath = temperature
+
+		eventhubspout.entitypath = <the event hub name>
 
 		eventhubspout.partitions.count = <the number of partitions for the event hub>
 
@@ -850,7 +852,11 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 
 		eventhub.receiver.credits = 1024
 
-	Replace the **password** with the key for the **storm** policy created earlier on Event Hub. Replace **namespace** with the namespace of your Event Hub.
+	Replace the **password** with the key for the **storm** policy created earlier on Event Hub.
+	
+	Replace the **namespace** with the namespace of your Event Hub.
+	
+	Replace the **entitpath** with the name of your Event Hub.
 
 3. Use the following as the contents for the **hbase-site.xml** file.
 
@@ -1086,7 +1092,7 @@ Bolts do the main processing in a topology. For this topology there are three bo
 		  }
 		}
 
-	Replace `http://yourwebsiteaddress` with the address of the Azure Website that you published the dashboard to earlier. For example, http://mydashboard.azurewebsites.net.
+	Replace `http://dashboard.azurewebsites.net/` with the address of the Azure Website that you published the dashboard to earlier. For example, http://mydashboard.azurewebsites.net.
 
 2. Save and close the files.
 

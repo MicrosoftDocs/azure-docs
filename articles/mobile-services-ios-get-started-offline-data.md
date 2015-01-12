@@ -64,19 +64,19 @@ Follow the instructions at [Get started with Mobile Services] and download the q
 
 3. We are adding Core Data to an existing project in Xcode that does not already support Core Data. As such, we need to add additional boilerplate code to various parts of the project. First add the following code in **QSAppDelegate.h**:
 
-        #import <UIKit/UIKit.h>  
-        #import <CoreData/CoreData.h>  
+        #import <UIKit/UIKit.h> 
+        #import <CoreData/CoreData.h> 
 
-        @interface QSAppDelegate : UIResponder <UIApplicationDelegate>  
+        @interface QSAppDelegate : UIResponder <UIApplicationDelegate> 
 
-        @property (strong, nonatomic) UIWindow *window;  
+        @property (strong, nonatomic) UIWindow *window; 
 
-        @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;  
-        @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;  
-        @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;  
+        @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext; 
+        @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel; 
+        @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator; 
 
-        - (void)saveContext;  
-        - (NSURL *)applicationDocumentsDirectory;  
+        - (void)saveContext; 
+        - (NSURL *)applicationDocumentsDirectory; 
 
         @end
 
@@ -242,13 +242,15 @@ Follow the instructions at [Get started with Mobile Services] and download the q
 
 ## <a name="setup-sync"></a> Initializing and Using Sync Table and Sync Context
 
-1. To start caching data offline, let's replace usage of **MSTable** with **MSSyncTable** to access the mobile service. Unlike a regular **MSTable**, a sync table is like a local table that adds the ability to push changes made locally to a remote table and to pull those changes locally. In **QSTodoService.h**, remove the definition of the **table** property:
+1. To start caching data offline, let's replace usage of **MSTable** with **MSSyncTable** to access the mobile service. Unlike a regular **MSTable**, a sync table is like a local table that adds the ability to push changes made locally to a remote table and to pull those changes locally. 
+
+    In **QSTodoService.m**, remove the definition of the **table** property:
 
         @property (nonatomic, strong)   MSTable *table;
 
     Add a new line to define the **syncTable** property:
 
-        @property (nonatomic, strong)   MSTable *syncTable;
+        @property (nonatomic, strong)   MSSyncTable *syncTable;
 
 2. Add the following import statement at the top of **QSTodoService.m**:
 
@@ -264,7 +266,7 @@ Follow the instructions at [Get started with Mobile Services] and download the q
         // Create an MSSyncTable instance to allow us to work with the TodoItem table
         self.syncTable = [self.client syncTableWithName:@"TodoItem"];
 
-4. Next, again in **QSTodoService.m**, let's initialize the synchronization context in the **MSClient** with the Core Data-based data store implementation above. The context is responsible for tracking which items have been changed locally, and sending those to the server when a push operation is started. To initialize the context we need a data source (the **MSCoreDataStore** implementation of the protocol) and an optional **MSSyncContextDelegate** implementation. Insert these lines right above the two lines you inserted above.
+4. Next, again in **QSTodoService.m**, let's initialize the synchronization context in the **MSClient** with the Core Data-based data store implementation above. The context is responsible for tracking which items have been changed locally, and sending those to the server when a push operation is started. To initialize the context we need a data source (the **MSCoreDataStore** implementation of the protocol) and an optional **MSSyncContextDelegate** implementation. Insert these lines right above the two lines you inserted above:
 
         QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
         NSManagedObjectContext *context = delegate.managedObjectContext;
@@ -351,22 +353,21 @@ Follow the instructions at [Get started with Mobile Services] and download the q
 
         - (void)syncData:(QSCompletionBlock)completion;
 
-     Add the corresponding implementation of **syncData** to **QSTodoService.m**. We're adding this operation to update the sync table with remote changes.
+     We're adding this operation to update the sync table with remote changes. Note that we need to pull *all* todo items (not just ones that aren't complete), because the app may have items locally that have been marked complete. If we filtered only non-completed items, then there could be todo items in the UI that have actually been set as completed on the server.
 
-          -(void)syncData:(QSCompletionBlock)completion
-           {
-              // Create a predicate that finds items where complete is false
-              NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+     Add the corresponding implementation of **syncData** to **QSTodoService.m**:
 
-              MSQuery *query = [self.syncTable queryWithPredicate:predicate];
+            -(void)syncData:(QSCompletionBlock)completion
+            {
+                MSQuery *query = [self.syncTable query];
 
-              // Pulls data from the remote server into the local table. We're only
-              // pulling the items which we want to display (complete == NO).
-              [self.syncTable pullWithQuery:query completion:^(NSError *error) {
-                  [self logErrorIfNotNil:error];
-                  [self refreshDataOnSuccess:completion];
-           }];
-          }
+                // Pulls data from the remote server into the local table.
+                // We're pulling all items and filtering in refreshDataOnSuccess
+                [self.syncTable pullWithQuery:query completion:^(NSError *error) {
+                    [self logErrorIfNotNil:error];
+                    [self refreshDataOnSuccess:completion];
+                }];
+            }
 
 9. Back in **QSTodoListViewController.m**, change the implementation of **refresh** to call **syncData** instead of **refreshDataOnSuccess**:
 
