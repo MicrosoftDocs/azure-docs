@@ -32,7 +32,7 @@ If you do not already have an Azure subscription, you can sign up for a free tri
 
 ##Phase 1: Set up the hybrid cloud environment
 
-Use the instructions in the [Set up a hybrid cloud environment for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-set-up-hybrid-cloud-environment-for-testing/) topic. Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.
+Use the instructions in the [Set up a hybrid cloud environment for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-hybrid-cloud-environment-testing/) topic. Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.
 
 This is your current configuration.
 
