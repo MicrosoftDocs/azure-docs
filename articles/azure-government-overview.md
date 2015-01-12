@@ -11,9 +11,7 @@
 
 
 + [Overview](#Overview)
-+ [Guidance for Developers](#Guidance)
 + [Features currently available in Microsoft Azure Government](#Features)
-+ [Endpoint Mapping](#Endpoint)
 + [Next Steps](#next)
 
 
