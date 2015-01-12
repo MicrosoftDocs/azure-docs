@@ -51,97 +51,9 @@ Azure Data Factory is a fully managed service for composing data storage, proces
 
 Developers can build data-driven workflows that join, aggregate and transform semi-structured, unstructured and structured data sourced from their on-premises (via Data Management Gateway), cloud-based and internet services, and set up complex data processing through simple JSON scripting. The result data can be stored in Azure Storage or Azure SQL Database for advanced analytics.
 
-Specifically, developer can orchestrate regular copy activities between various sources and destinations listed below:
+Specifically, a developer can orchestrate regular copy activities between various sources and destinations shown in the "[Supported sources and sinks](/documentation/articles/data-factory-copy-activity/#SupportedSourcesAndSinks)" section of [Copy data with Azure Data Factory](/documentation/articles/data-factory-copy-activity/), which also includes properties for different types of data stores, column mapping, serialization formats, and type handling.
 
-<table border="1">
-<tr>
-<th>Sink/Source</th>
-<th>Azure Blob</th>
-<th>Azure Table</th>
-<th>Azure SQL Database</th>
-<th>SQL server (on premises)</th>
-<th>SQL database (IaaS)</th>
-</tr>
-
-<tr>
-<td><p><b>Azure Blob</b></p>
-</td>
-<td>x
-</td>
-<td>x
-</td>
-<td>x
-</td>
-<td>x
-</td>
-<td>x
-</td>
-</tr>
-
-<tr>
-<td><p><b>Azure Table</b></p>
-</td>
-<td>x
-</td>
-<td>x
-</td>
-<td>x
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td><p><b>Azure SQL Database</b></p>
-</td>
-<td>x
-</td>
-<td>x
-</td>
-<td>x
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td><p><b>SQL Server on premises</b></p>
-</td>
-<td>x
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td><p><b>SQL Server on IaaS</b></p>
-</td>
-<td>x
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-
-</table> 
-<br>			
-
-The service can handle failures with auto restart and allow format conversion when moving data from one format to the other. To define a copy activity, see [Get started with Data Factory][start]. Data store registration and gateway installation experiences are described in [Enable your pipelines to work with on-premises data][pipelines]. To see the full functionality of copy - including properties for different types of data stores, column mapping, serialization formats, and type handling - see [Copy data with Data Factory][copy].
+The service can handle failures with auto restart and allow format conversion when moving data from one format to the other. To define a copy activity, see [Get started with Data Factory][start]. Data store registration and gateway installation experiences are described in [Enable your pipelines to work with on-premises data][pipelines]. 
 
 Also see:
 
