@@ -114,19 +114,19 @@ portal](https://portal.azure.com/), access your DocumentDB account. 
 3.      On the **Default Consistency** blade, select the default consistency
 level you want for your DocumentDB account.
 
+![](./media/documentdb-manage-account/image005.png)
+
+![](./media/documentdb-manage-account/image006.png)
+
 4.      Click **Save**.
 
 5.      The progress of the operation may be monitored via the Azure
 management preview portal Notifications hub.
- 
- ![](./media/documentdb-manage-account/image005.png)
-
- ![](./media/documentdb-manage-account/image006.png)
 
 *Note that it can take several minutes before a change to the default
 consistency setting takes affect across your DocumentDB account.*
 
-## <a id="capacity"></a> How to: Manage DocumentDB Capacity Settings
+## <a id="capacity"></a> How to: Manage DocumentDB capacity settings
 Microsoft Azure DocumentDB allows you to scale elastically as the
 demands of your application change throughout its lifecycle. Scaling
 DocumentDB is accomplished by increasing the capacity of your DocumentDB
@@ -147,15 +147,15 @@ portal](https://portal.azure.com/), access your DocumentDB account. 
 3.      On the **Scale** blade, specify the number of capacity units you
 want for your DocumentDB account.
 
+
+![](./media/documentdb-manage-account/image007.png)
+
 4.      Click **Save** (note that it can take several minutes for the
 scaling operation to complete, you can monitor the progress via the
 Azure management preview portal Notifications hub).
 
  *Note that the DocumentDB Preview supports a maximum of 5 capacity
 units per DocumentDB account.*
-
-![](./media/documentdb-manage-account/image007.png)
-
  
 
 ## <a id="delete"></a> How to: Delete a DocumentDB account
@@ -182,9 +182,10 @@ name to confirm that you want to delete the account.
 
 ## <a id="next"></a>Next steps
 
--   Learn how to [get started with your DocumentDB
+Learn how to [get started with your DocumentDB
     account](http://go.microsoft.com/fwlink/p/?LinkId=402364).
--   To learn more about DocumentDB, see the Azure DocumentDB
+
+To learn more about DocumentDB, see the Azure DocumentDB
     documentation on
     [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 

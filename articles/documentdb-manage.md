@@ -13,14 +13,14 @@ Each capacity unit comes with a quota of elastic collections for storing documen
 
 Section | Description
 -----| -----------
-[Database account and administrative quota](#DBaccount) | Limits on databse accounts, users, and permissions.
+[Database account and administrative quota](#DBaccount) | Limits on database accounts, users, and permissions.
 [Databases with unlimited document storage](#DBstorage) | Explains how DocumentDB scales as you need it.
-[Elastic collections](#Elastic) | Defines collections, which provides the scope for document storage and query execution.
+[Elastic collections](#Elastic) | Defines collections, which provide the scope for document storage and query execution.
 [Provisioned storage and throughput as capacity units](#ProvStorage) | Describes how to provision using capacity units (CUs).
 [Provisioned throughput, request units, and database operations](#ProvThroughput) |  Describes how database operations consume the provisioned throughput associated with a CU.
 [Collections and provisioned throughput](#Collections) | Describes how the throughput of your database account is allocated equally across collections .
 [Choice of consistency level and throughput](#Consistency) | Describes how consistency levels work.
-[Provisioned document storage and index overhead](#IndexOverhead) | Describes the 10GB of document storage included in each CU plus storage for the index.
+[Provisioned document storage and index overhead](#IndexOverhead) | Describes the 10GB of document storage included in each CU, plus storage for the index.
 [Next steps](#NextSteps) | 
 
 ##<a name="DBaccount"></a>Database account and administrative quota

@@ -45,9 +45,9 @@ You can monitor your DocumentDB accounts in the [Azure Preview portal](https://p
 	![](./media/documentdb-monitor-accounts/madocdb5.png) 
 
 5.	The custom time range allows you to choose any period of time since the service started.
-6.	When you click **Save**, your changes will be saved to your DocumentDB account blade.  
+6.	When you click **Save**, your changes are saved to your DocumentDB account blade.  
 
-## <a id="create"></a>  How to: Create side-by-side charts
+## <a id="create"></a>  How to: Create side-by-side performance metric charts
 The Azure Preview portal allows you to create side-by-side metric charts.  
 
 1.	First, right-click on the chart you want to clone and modify and select **Customize**. 
