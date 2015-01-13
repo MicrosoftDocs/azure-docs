@@ -1,4 +1,4 @@
-<properties linkid="batch-development-libraries-tools" urlDisplayName="" pageTitle="Azure Batch development libraries and tools" metaKeywords="" description="Get the libraries and tools you need to develop Azure Batch and Batch Apps applications" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch development libraries and tools" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
+<properties linkid="batch-development-libraries-tools" urlDisplayName="" pageTitle="Azure Batch development libraries and tools" metaKeywords="" description="Get the libraries and tools you need to develop Azure Batch and Batch Apps applications" metaCanonical="" services="batch" documentationCenter="" title="" authors="dlepow" solutions="" manager="timlt" editor="tysonn"/>
 
 <tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="danlep" />
 
