@@ -359,9 +359,9 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 3. Once the pipeline is created, you can specify the duration in which data processing will occur. By specifying the active period for a pipeline, you are defining the time duration in which the data slices will be processed based on the **Availability** properties that were defined for each Azure Data Factory table.  Execute the following PowerShell command to set active period on pipeline and enter Y to confirm. 
 
 
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialOnPremDF -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipelineOnPrem  
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialOnPremDF -StartDateTime 2014-09-29Z –EndDateTime 2014-09-30Z –Name ADFTutorialPipelineOnPrem  
 
-	> [AZURE.NOTE] Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. Both StartDateTime and EndDateTime are UTC times and must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z.The EndDateTime is optional, but we will use in this tutorial.
+	> [AZURE.NOTE] Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z.The EndDateTime is optional, but we will use in this tutorial.
 	> If you do not specify **EndDateTime**, it is calculated as "**StartDateTime + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the **EndDateTime**.
 
 	In the example above, there will be 24 data slices as each data slice is produced hourly.
