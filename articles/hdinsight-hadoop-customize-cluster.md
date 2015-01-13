@@ -1,4 +1,4 @@
-<properties linkid="customize HDInsight clusters using Script Action" urlDisplayName="Customize HDInsight clusters using Script Action" pageTitle="Customize HDInsight Clusters using Script Action| Azure" metaKeywords="" description="Learn how to customize HDInsight clusters using Script Action." metaCanonical="" services="hdinsight" documentationCenter="" title="Customize HDInsight clusters using Script Action" authors="nitinme" solutions="" manager="paulettm" editor="cgronlun" /> 
+<properties linkid="customize HDInsight clusters using Script Action" urlDisplayName="Customize HDInsight clusters using Script Action" pageTitle="Customize HDInsight Clusters using Script Action| Azure" metaKeywords="" description="Learn how to customize HDInsight clusters using Script Action." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="nitinme" solutions="" manager="paulettm" editor="cgronlun"/> 
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="nitinme" /> 
 
