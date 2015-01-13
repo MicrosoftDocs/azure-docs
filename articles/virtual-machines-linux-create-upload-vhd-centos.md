@@ -1,6 +1,6 @@
 <properties urlDisplayName="Upload a CentOS-based VHD" pageTitle="Create and upload a CentOS-based Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD, CentOS" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a CentOS-based Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos" />
 
 # Prepare a CentOS-Based Virtual Machine for Azure
 
