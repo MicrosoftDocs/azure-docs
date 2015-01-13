@@ -1,4 +1,4 @@
-<properties title="Quick start guide to R for Azure Machine Learning Studio" pageTitle="Quick start guide to R for Azure Machine Learning Studio" description="How to use R in the Azure Machine Learning Studio" metaKeywords="R azure, r machine learning, azure r machin elearning" services="machine-learning" solutions="" documentationCenter="" authors="larryfr" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties title="" pageTitle="Quick start guide to R for Azure Machine Learning Studio" description="How to use R in the Azure Machine Learning Studio" metaKeywords="R azure, r machine learning, azure r machin elearning" services="machine-learning" solutions="" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun" videoId="" scriptId=""/>
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="larryfr" />
 
