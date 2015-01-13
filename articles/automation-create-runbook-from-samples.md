@@ -4,38 +4,46 @@
 
 
 # Get started with Azure Automation
+This guide provides an introduction to Azure Automation and lists resources that you can access to learn and use it.  A tutorial is provided to assist you in configuring Azure Automation for first use, importing and running a simple runbook, and then determining the next steps that you will require to import and create more complex and useful runbooks for working with your Azure environment.
 
-Microsoft Azure Automation provides a way for developers to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. You can create, monitor, manage, and deploy resources in your Azure environment using runbooks, which under the hood are Windows PowerShell workflows. To learn more about Automation, see the [Automation Overview Guide](http://go.microsoft.com/fwlink/p/?LinkId=392861). 
 
-This tutorial walks you through the steps to import a sample "Hello World" runbook into Azure Automation, execute the runbook, and then view its output.
+## What is Azure Automation?
 
->[AZURE.NOTE] To learn how to automate Azure operations using the [Azure PowerShell cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) see <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Azure Automation: Authenticating to Azure using Azure Active Directory</a>.
+Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. You can create, monitor, manage, and deploy resources in your Azure environment using runbooks, which are based on Windows PowerShell workflows. 
 
-## Samples and utility runbooks
-
-The Azure Automation team has created a number of runbook samples to help you get started with Automation.  These samples cover basic Automation concepts and are intended to help you learn how to write your own runbooks.  
-
-The Automation team has also created utility runbooks that you can use as building blocks for larger Automation tasks.  
-
->[AZURE.NOTE] It's a best practice to write small, modular, reusable runbooks. We also strongly recommend that you create your own utility runbooks for commonly used scenarios after you're familiar with Automation.  
-
-You can view and download the Automation team’s sample and utility runbooks on [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029) or import them directly from the [Runbook Gallery](http://aka.ms/runbookgallery). 
-
-## The Automation community and feedback
-
-Runbooks from the community and from other Microsoft teams are also published on  [Script Center](http://go.microsoft.com/fwlink/?LinkID=391681) and the [Runbook Gallery](http://aka.ms/runbookgallery). 
-
-<strong>Give us feedback!</strong>  If you are looking for an Automation runbook solution or integration module, post a Script Request on the Script Center. If you have an idea for a new feature for Automation, post it on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback).
-
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
-
-## Azure Automation 101 with PowerShell and Eamon O'Reilly (Video)
-
-In this video, Eamon O'Reilly and Scott Hanselman introduce Azure Automation service. (Duration: 10:55)  
+ In this video, Eamon O'Reilly and Scott Hanselman introduce Azure Automation service. (Duration: 10:55)  
 
 > [AZURE.VIDEO azure-automation-101-with-powershell-and-eamon-o-reilly]
 
-## High-level steps for this tutorial
+## <a name="resources"></a>Resources
+
+A variety of resources are available for you to learn how to use Azure Automation and create your own runbooks.
+
+- [Azure Automation Library](http://go.microsoft.com/fwlink/p/?LinkId=392860) provides complete documentation on the configuration and administration of Azure Automation and for authoring your own runbooks. 
+- [Azure PowerShell cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) provides information for automation Azure operations using Windows PowerShell.  Runbooks use these cmdlets to work with Azure resources.
+- [Azure Automation Blog](http://azure.microsoft.com/blog/tag/azure-automation) provides the latest information on Azure Automation from Microsoft.
+- [Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561) allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community.
+
+
+## Samples and utility runbooks
+
+Microsoft and the Automation community provide sample runbooks that can help you get started creating your own solutions and utility runbooks that you can use as building blocks for larger Automation tasks. You can either download these runbooks from [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029) or import them directly into Azure Automation.  For more details, see [Runbook Gallery](http://aka.ms/runbookgallery).
+  
+
+## Feedback
+
+<strong>Give us feedback!</strong>  If you are looking for an Automation runbook solution or integration module, post a Script Request on the Script Center. If you have an idea for a new feature for Automation, post it on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback).
+
+
+## Tutorial
+This tutorial walks you through the steps to create an automation account and then import a sample "Hello World" runbook into Azure Automation, execute the runbook, and then view its output.
+
+To complete this tutorial, you need an Azure account. If you have not already done so, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A85619ABF" target="_blank">sign up for a free trial</a>.
+
+[WACOM.INCLUDE [automation-note-authentication](../includes/automation-note-authentication.md)]
+
+
+### High-level steps for this tutorial
 
 1. [Create Automation Account](#automationaccount)
 2. [Import Runbook from Runbook Gallery](#importrunbook)
@@ -43,13 +51,13 @@ In this video, Eamon O'Reilly and Scott Hanselman introduce Azure Automation ser
 4. [Start Runbook](#startrunbook)
 
 
-## <a name="automationaccount"></a>Create an Automation Account
+### <a name="automationaccount"></a>Create an Automation Account
+
+You must have at least one automation account in your Azure Automation environment.  For more information, see [Automation Accounts](http://aka.ms/runbookauthor/azure/automationaccounts) in the Automation Library.  If you've already created an automation account, you can skip this step.
 
 1.	Log in to the [Azure Management Portal](http://manage.windowsazure.com).
 
-2.	In the Management Portal, click **Create an Automation Account**.
-
-	>[AZURE.NOTE] If you’ve already created an automation account, you can skip to step 4.
+2.	In the Management Portal, click **Create an Automation Account**.  
 
 	![Create Account](./media/automation/automation_01_CreateAccount.png)
 
@@ -57,7 +65,9 @@ In this video, Eamon O'Reilly and Scott Hanselman introduce Azure Automation ser
 
 	![Add New Account](./media/automation/automation_02_addnewautoacct.png)
 
-## <a name="importrunbook"></a>Import Runbook from Runbook Gallery
+### <a name="importrunbook"></a>Import Runbook from Runbook Gallery
+
+The [Runbook Gallery](http://aka.ms/runbookgallery) includes sample runbooks that you can download or import directly into your Azure Automation environment.
  
 4.	On the **Automation** page, click the new account you just created.
  
@@ -85,6 +95,8 @@ In this video, Eamon O'Reilly and Scott Hanselman introduce Azure Automation ser
 
 ## <a name="publishrunbook"></a>Publish Runbook 
 
+Before the runbook can be used, it must be published.  For more information, see [Publishing a Runbook](http://aka.ms/runbookauthor/azure/publishrunbook).
+
 9.	When the runbook has finished importing, click **Write-HelloWorld**.
 
 	![Imported Runbook](./media/automation/automation_07_ImportedRunbook.png)
@@ -105,6 +117,8 @@ In this video, Eamon O'Reilly and Scott Hanselman introduce Azure Automation ser
 
 ## <a name="startrunbook"></a>Start Runbook
 
+With the runbook imported and published, you can run it and inspect the output.  For more information, see [Starting a Runbook](http://aka.ms/runbookauthor/azure/startrunbook) and [Runbook Output and Messages](http://aka.ms/runbookauthor/azure/runbookoutput).
+
 12.	With the **Write-HelloWorld** runbook open, click **START**.
 
 	![Published](./media/automation/automation_10_PublishStart.png)
@@ -122,12 +136,8 @@ In this video, Eamon O'Reilly and Scott Hanselman introduce Azure Automation ser
 	![Runbook Summary](./media/automation/automation_13_RunbookSummary_callouts.png)
 
 
-# Managing Azure Services from a Runbook 
-The example above shows a simple runbook that does not manage Azure services. The [Azure cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) require authentication to Azure. You can follow the instructions at [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) in order to configure your Azure subscription for management through Azure Automation.
+# <a name="nextsteps">Next Steps 
+1. This tutorial uses a simple runbook that does not manage Azure services. Most runbooks will use [Azure cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) that require authentication to your Azure subscription. You must follow the instructions at [Configuring Azure for Management by Runbooks](http://aka.ms/azureautomationauthentication) in order to configure your Azure subscription to work with these runbooks.  
+2. Refer to the [Resources](#resources) listed above for information on obtaining existing runbooks and creating your own runbooks to use in Azure Automation.
+3. Subscribe to the [Azure Automation Blog](http://azure.microsoft.com/blog/tag/azure-automation) to stay up to date with the latest information on Azure Automation.
 
-# See Also
-
-- [Automation Overview](http://go.microsoft.com/fwlink/p/?LinkId=392860)
-- [Runbook Authoring Guide](http://go.microsoft.com/fwlink/p/?LinkID=301740)
-- [Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561)
-- [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
