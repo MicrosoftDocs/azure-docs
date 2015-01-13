@@ -119,7 +119,7 @@ Do one of the following:
 
 - Use the Linux command-line tool to upload the image. You can upload an image by using the following command:
 
-		# azure vm image create <image-name> --location <location-of-the-data-center> --OS Linux <source-path-to the vhd>
+		# azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
 
 
 
