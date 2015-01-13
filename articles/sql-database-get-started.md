@@ -654,7 +654,7 @@ There are other methods for moving an on-premises database to SQL Database. If y
 
 * [Migrating Databases to SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee730904.aspx)
 * [Copying Databases in SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx)
-* [Deploy a SQL Server Database to an Azure Virtual Machine](http://msdn.microsoft.com/en-us/library/dn195938(v=sql.120).aspx)
+* [Deploy a SQL Server Database to an Azure Virtual Machine](http://msdn.microsoft.com/en-us/library/dn195938)
 
 
 

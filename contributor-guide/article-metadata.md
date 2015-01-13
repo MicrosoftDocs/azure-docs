@@ -27,7 +27,7 @@ The tags section uses this syntax:
 
 ## Attributes and values for the properties section
 
-![](./media/article-metadata/checkmark-small.png)**title**: no longer required. Checking to see if we can leave it out.
+![](./media/article-metadata/checkmark-small.png)**title**: no longer required. Leave value empty.
 
 ![](./media/article-metadata/checkmark-small.png)**pageTitle**: Required; important to SEO. The title you enter for this attribute appears in the browser address bar and as the title in a search result.
  
