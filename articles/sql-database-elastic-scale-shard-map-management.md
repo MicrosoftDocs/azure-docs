@@ -1,4 +1,4 @@
-<properties title="Shard Map Management" pageTitle="Shard Map Management" description="How to use the ShardMapManager, Elastic Scale API for .NET" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, shardmapmanager" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties title="" pageTitle="Shard Map Management" description="How to use the ShardMapManager, Elastic Scale API for .NET" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, shardmapmanager" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
