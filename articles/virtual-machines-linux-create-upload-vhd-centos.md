@@ -55,8 +55,9 @@ This article assumes that you have already installed a CentOS (or similar deriva
 6.	Move (or remove) udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
 		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
+		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
+
 
 7. Ensure the network service will start at boot time by running the following command:
 
@@ -296,6 +297,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 		gpgcheck=1
 		enabled=0
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+		
 
 
 	**Note:** The rest of this guide will assume you are using at least the [openlogic] repo, which will be used to install the Azure Linux agent below.
