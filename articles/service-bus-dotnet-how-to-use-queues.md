@@ -1,6 +1,6 @@
 <properties urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/13/2015" ms.author="sethm" />
 
 
 
@@ -29,19 +29,21 @@ The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
 Service Bus dependencies. The NuGet Visual Studio extension makes it
 easy to install and update libraries and tools in Visual Studio and
-Visual Studio Express 2012 for Web.
+Visual Studio Express. The Service Bus NuGet package is the easiest way
+to get the Service Bus API and to configure your application with all of
+the Service Bus dependencies.
 
 To install the NuGet package in your application, do the following:
 
 1.  In Solution Explorer, right-click **References**, then click
     **Manage NuGet Packages**.
-2.  Search for WindowsAzure" and select the **Azure
+2.  Search for "Service Bus" and select the **Microsoft Azure
     Service Bus** item. Click **Install** to complete the installation,
     then close this dialog.
 
     ![][7]
 
-You are now ready to write code against Service Bus.
+You are now ready to write code for Service Bus.
 
 
 ##How to Set Up a Service Bus Connection String

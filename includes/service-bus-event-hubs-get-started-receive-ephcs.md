@@ -74,14 +74,11 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 	            }
 	
 	            //Call checkpoint every 5 minutes, so that worker can resume processing from the 5 minutes back if it restarts.
-	            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
-	            {
-	                await context.CheckpointAsync();
-	                lock (this)
-	                {
-	                    this.checkpointStopWatch.Reset();
-	                }
-	            }
+	            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5)) 
+                { 
+                    await context.CheckpointAsync(); 
+                    this.checkpointStopWatch.Restart(); 
+                } 
 	        }
 	    }
 
