@@ -1,6 +1,6 @@
 <properties urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C# " description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="sethm" />
 
 
 
@@ -81,7 +81,7 @@ You then specify values in the service configuration (`*.cscfg`) file:
 		<Role name="MyRole">
 			<ConfigurationSettings>
 				<Setting name="Microsoft.ServiceBus.ConnectionString" 
-						 value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]" />
+						 value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedSecretValue=yourKey" />
 			</ConfigurationSettings>
 		</Role>
 	...
@@ -97,7 +97,7 @@ When using Websites or Virtual Machines, it is recommended you use the .NET conf
 	<configuration>
 	    <appSettings>
 		    <add key="Microsoft.ServiceBus.ConnectionString"
-			     value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]" />
+			     value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedSecretValue=yourKey" />
 		</appSettings>
 	</configuration>
 
@@ -112,7 +112,7 @@ This example constructs a **NamespaceManager** object using the Azure **CloudCon
 with a connection string consisting of the base address of a Service Bus service namespace and the appropriate
 credentials with permissions to manage it. This connection string is of the form
 
-	Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedSecretIssuer=<issuerName>;SharedSecretValue=<yourDefaultKey>
+	Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedSecretValue=yourKey
 
 For example, given the configuration settings in the previous section:
 

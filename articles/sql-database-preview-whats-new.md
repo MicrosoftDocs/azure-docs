@@ -1,6 +1,6 @@
 <properties title="What's new in the Latest SQL Database Update V12 (preview)" pageTitle="What's new in the Latest SQL Database Update V12 (preview)" description="Lists and describes the latest enhancements to Microsoft Azure SQL Database, the preview of version 12, that are available starting in December 2014." metaKeywords="Azure, SQL DB, Update, Preview, V12, What's New, Get Started" services="sql-database" documentationCenter="" authors="Gene Milener" manager="jeffreyg" videoId="" scriptId=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="genemi"/>
+<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/12/2015" ms.author="genemi"/>
 
 
 # What's new in the Latest SQL Database Update V12 (preview)
@@ -20,7 +20,7 @@ This preview marks the first step in delivering the next generation of the Azure
 > [AZURE.NOTE]
 > Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
 
-Your path to planning and implementing the V12 preview starts [here](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
+Your path to planning and implementing the V12 preview starts at [Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
 
 
 ### Key highlights

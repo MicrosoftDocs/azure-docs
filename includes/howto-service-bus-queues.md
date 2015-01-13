@@ -60,9 +60,7 @@ To create a service namespace:
 	IMPORTANT: Pick the **same region** that you intend to choose for
     deploying your application. This will give you the best performance.
 
-6. 	Click the check mark. The system now creates your service
-    namespace and enables it. You might have to wait several minutes as
-    the system provisions resources for your account.
+6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
 	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
@@ -89,7 +87,12 @@ namespace. You can obtain these credentials from either the Management Portal, o
 3.  Click **Connection Information**.   
 	![](./media/howto-service-bus-queues/sb-queues-06.png)
 
-4.  In the **Access connection information** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.
+4.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.   
+
+	![](./media/howto-service-bus-queues/multi-web-45.png)
+    
+
+4.  Make a note of the key, or copy it to the clipboard.
 
 ###To obtain management credentials from Server Explorer
 

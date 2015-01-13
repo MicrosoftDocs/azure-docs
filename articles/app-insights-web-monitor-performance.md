@@ -99,7 +99,7 @@ Set the resource before the other properties. Don't choose the webtest resources
 
 Be careful to note the units in which you're asked to enter the threshold value.
 
-*I don't see the Add Alert button.* - That's probably because you have read-only access. 
+*I don't see the Add Alert button.* - Is this a group account to which you have read-only access? Check with the account administrator.
 
 ## <a name="diagnosis"></a>Diagnosing issues
 

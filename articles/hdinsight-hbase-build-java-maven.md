@@ -59,6 +59,14 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 	      </resources>
 		  <plugins>
 		    <plugin>
+        	  <groupId>org.apache.maven.plugins</groupId>
+        	  <artifactId>maven-compiler-plugin</artifactId>
+        	  <configuration>
+          	    <source>1.6</source>
+          	    <target>1.6</target>
+        	  </configuration>
+      		</plugin>
+		    <plugin>
 		      <groupId>org.apache.maven.plugins</groupId>
 		      <artifactId>maven-shade-plugin</artifactId>
 		      <version>2.3</version>
@@ -84,7 +92,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 	> [AZURE.NOTE] You can also set configuration values via code. See comments in the __CreateTable__ example below for how to do this.
 
-	This also configures the [maven-shade-plugin](http://maven.apache.org/plugins/maven-shade-plugin/), which is used to prevent license duplication in the JAR that is built by Maven. The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster. Using maven-shade-plugin with the `ApacheLicenseResourceTransformer` implementation prevents this error.
+	This also configures the [maven-compiler-plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) and [maven-shade-plugin](http://maven.apache.org/plugins/maven-shade-plugin/). The compiler plugin is used to compile the topology. The shade plugin is used to prevent license duplication in the JAR package that is built by Maven. The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster. Using maven-shade-plugin with the `ApacheLicenseResourceTransformer` implementation prevents this error.
 
 	The maven-shade-plugin will also produce an uberjar (or fatjar,) that contains all the dependencies required by the application.
 

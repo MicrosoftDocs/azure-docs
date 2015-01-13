@@ -95,7 +95,7 @@ If you are using an on-demand cluster that is created by the Data Factory servic
 	        "clusterSize": 1,
 	        "timeToLive": "00:01:00",
 	        "linkedServiceName": "LinkedService-SampleData",
-	        “additionalLinkedServiceNames”: [ “otherLinkedServiceName1”, “otherLinkedServiceName2” ] 
+	        "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ] 
 	    }
 	} 
 

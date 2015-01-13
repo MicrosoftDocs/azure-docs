@@ -54,7 +54,7 @@ To create a service namespace:
 	IMPORTANT: Pick the **same region** that you intend to choose for
     deploying your application. This will give you the best performance.
 
-6. 	Click the check mark. The system now creates your service
+6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your service
     namespace and enables it. You might have to wait several minutes as
     the system provisions resources for your account.
 
