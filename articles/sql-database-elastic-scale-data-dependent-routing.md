@@ -1,4 +1,4 @@
-<properties title="Data Dependent Routing" pageTitle="Data Dependent Routing" description="How to use the ShardMapManager for data-dependent routing, a feature of Elastic Scale for Azure SQL DB" metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, multi-shard, multishard, querying" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties title="" pageTitle="Data Dependent Routing" description="How to use the ShardMapManager for data-dependent routing, a feature of Elastic Scale for Azure SQL DB" metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, multi-shard, multishard, querying" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
