@@ -238,8 +238,6 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png) **ms.author**: Required. Specifies the author(s) associated with the topic. To specify multiple values you should spearate them with semicolons. Either Microsoft aliases or complete email addresses are acceptable. The length can be no longer than 200 characters.
 
-![](./media/article-metadata/checkmark-small.png)**ms.service**: Not yet required - to be added in January 2015. Always set value as **azure**.
-
 
 ###Contributors' Guide Links
 
