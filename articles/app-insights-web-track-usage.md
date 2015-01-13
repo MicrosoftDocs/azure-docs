@@ -1,12 +1,12 @@
 <properties title="Track usage in web applications with Application Insights" pageTitle="Track usage in web applications" description="Log user activities." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills" />
  
 # Track usage of web applications
 
 Find out how your web application is being used. Set up usage analytics and you'll find out how many users experience your service, how many of them come back,  how often they visit your site, and which pages they look at most. Add a few [custom events and metrics][track], and you can analyse in detail the most popular features, the most common mistakes, and tune your app to success with your users.
 
-Telemetry is gathered from both the client and the server. Client data is collected from all modern web browsers, and server data can be collected if your platform is ASP.NET. (It doesn't have to be running on Azure.) 
+Here you'll learn about collecting telemetry from the page running in the browser, but if you also set up server telemetry, the two streams will be integrated in  the Application Insights portal. 
 
 * [Set up web usage analytics](#webclient)
 * [Usage analytics](#usage)
@@ -40,9 +40,11 @@ In Quick Start, get the script for web pages.
 
 Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example, in an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml
 
+(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an Angularjs module](http://ngmodules.org/modules/angular-appinsights).)
+
 ## <a name="usage"></a>Usage analytics
 
-Run your website, use it a bit to generate telemetry, and wait a few seconds. You can either run it with F5 on your development machine, or deploy it to your server.
+Run your web app, use it a bit to generate telemetry, and wait a few seconds. You can either run it with F5 on your development machine, or deploy it to your server.
 
 In the application overview blade, the top chart on the Overview lens shows average load time at the browser, segmented into the time taken to request the page and the time taken to complete it:
 
@@ -103,6 +105,12 @@ Select any event to see more detail.
 Want to find out what your users do with your app? By inserting calls in your client and server code, you can send your own telemetry to Application Insights. For example, you could find out the numbers of users who create orders without completing them, or which validation errors are hit most often, or the average score in a game.
 
 [Learn about the custom events and metrics API][track].
+
+## <a name="server"></a> Telemetry from your web server
+
+If you haven't done this yet, you can get insights from your server and display the data along with your client-side data, enabling you to assess performance at the server and diagnose any issues.
+
+[Learn about adding Application Insights to your server][start].
 
 ## <a name="video"></a> Video: Tracking Usage
 
