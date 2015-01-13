@@ -370,7 +370,7 @@ In this step, you will create the following pipelines: PartitionGameLogsPipeline
 
 To specify the active period for the pipeline, you can use the cmdlet Set-AzureDataFactoryPipelineActivePeriod. In this walkthrough, the sample data is from 05/01 to 05/05. Use 2014-05-01 as the StartDateTime. EndDateTime is optional.
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01 -EndDateTime 2014-05-05 –Name PartitionGameLogsPipeline
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name PartitionGameLogsPipeline
   
 9. Confirm to set the active period for the pipeline.
 			
@@ -381,11 +381,11 @@ To specify the active period for the pipeline, you can use the cmdlet Set-AzureD
 10. Repeat the previous two steps to set active period for the following pipelines.
 	1. **EnrichGameLogsPipeline**
 			
-			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01 –EndDateTime 2014-05-05 –Name EnrichGameLogsPipeline
+			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z –EndDateTime 2014-05-05Z –Name EnrichGameLogsPipeline
 
 	2. **AnalyzeMarketingCampaignPipeline** 
 			
-			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01 -EndDateTime 2014-05-05 –Name AnalyzeMarketingCampaignPipeline
+			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
 
 11. In the **Azure Preview Portal**, click **Pipelines** tile (not on the names of the pipelines) in the **DATA FACTORY** blade for the **LogProcessingFactory**, you should see the pipelines you created.
 
@@ -563,7 +563,7 @@ To start with, you need to create the SQL Server database, table, user defined t
 2. Use the cmdlet **Set-AzureDataFactoryPipelineActivePeriod** to specify the active period for **EgressDataToOnPremPipeline**.
 
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01 -EndDateTime 2014-05-05 –Name EgressDataToOnPremPipeline
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
 	Press **‘Y’** to continue.
 	
