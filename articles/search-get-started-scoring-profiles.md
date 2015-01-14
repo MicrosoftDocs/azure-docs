@@ -1,6 +1,6 @@
-<properties title="Get started with scoring profiles in Azure Search" pageTitle="Get started with scoring profiles in Azure Search" description="Get started with scoring profiles in Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties title="" pageTitle="Get started with scoring profiles in Azure Search" description="Get started with scoring profiles in Azure Search" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/16/2014" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="" ms.date="10/16/2014" ms.author="heidist"/>
 
 # Get started with scoring profiles in Azure Search
 

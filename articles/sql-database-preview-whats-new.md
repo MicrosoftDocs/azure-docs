@@ -1,4 +1,4 @@
-<properties title="What's new in the Latest SQL Database Update V12 (preview)" pageTitle="What's new in the Latest SQL Database Update V12 (preview)" description="Lists and describes the latest enhancements to Microsoft Azure SQL Database, the preview of version 12, that are available starting in December 2014." metaKeywords="Azure, SQL DB, Update, Preview, V12, What's New, Get Started" services="sql-database" documentationCenter="" authors="Gene Milener" manager="jeffreyg" videoId="" scriptId=""/>
+<properties title="" pageTitle="What's new in the Latest SQL Database Update V12 (preview)" description="Lists and describes the latest enhancements to Microsoft Azure SQL Database, the preview of version 12, that are available starting in December 2014." metaKeywords="Azure, SQL DB, Update, Preview, V12, What's New, Get Started" services="sql-database" documentationCenter="" authors="MightyPen" manager="jeffreyg" videoId="" scriptId="" editor=""/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/12/2015" ms.author="genemi"/>
 

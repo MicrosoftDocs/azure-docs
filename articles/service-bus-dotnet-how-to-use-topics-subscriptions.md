@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C# " description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C#" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications." metaCanonical="" services="service-bus" documentationCenter=".net" title="" authors="sethmanheim" solutions="" manager="timlt" editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/13/2015" ms.author="sethm" />
 
 
 
@@ -32,7 +32,7 @@ The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
 Service Bus dependencies. The NuGet Visual Studio extension makes it
 easy to install and update libraries and tools in Visual Studio and
-Visual Studio Express 2012 for Web. The Service Bus NuGet package is the easiest way
+Visual Studio Express. The Service Bus NuGet package is the easiest way
 to get the Service Bus API and to configure your application with all of
 the Service Bus dependencies.
 
@@ -40,7 +40,7 @@ To install the NuGet package in your application, do the following:
 
 1.  In Solution Explorer, right-click **References**, then click
     **Manage NuGet Packages**.
-2.  Search for WindowsAzure" and select the **Azure
+2.  Search for "Service Bus" and select the **Microsoft Azure
     Service Bus** item. Click **Install** to complete the installation,
     then close this dialog.
 

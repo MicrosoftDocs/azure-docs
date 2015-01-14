@@ -1,4 +1,4 @@
-<properties title="Azure RemoteApp FAQ" pageTitle="Azure RemoteApp FAQ" description="Learn about Azure RemoteApp." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties title="" pageTitle="Azure RemoteApp FAQ" description="Learn about Azure RemoteApp." metaKeywords="" services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" editor=""/>
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" />
 

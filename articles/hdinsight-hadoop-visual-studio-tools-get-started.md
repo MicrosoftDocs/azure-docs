@@ -1,4 +1,4 @@
-<properties title="Get started using HDInsight Tools for Visual Studio" pageTitle="Get started using HDInsight Tools for Visual Studio | Azure" description="Learn how to install and use HDInsight Tools for Visual Studio to connect to HDInsight and run Hive queries." metaKeywords="" services="HDInsight" solutions="big-data" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" />
+<properties title="" pageTitle="Get started using HDInsight Tools for Visual Studio | Azure" description="Learn how to install and use HDInsight Tools for Visual Studio to connect to HDInsight and run Hive queries." metaKeywords="" services="hdinsight" solutions="big-data" documentationCenter="" authors="mumian" videoId="" scriptId="" manager="paulettm" editor=""/>
 
 <tags ms.service="hdinsight" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-data" ms.date="11/12/2014" ms.author="jgao" editor="cgronlun"/>
 

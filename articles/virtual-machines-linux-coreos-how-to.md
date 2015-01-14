@@ -1,4 +1,4 @@
-<properties title="How to Use CoreOS on Azure" pageTitle="How to Use CoreOS on Azure" description="Describes CoreOS, how to create a CoreOS virtual machine on Azure, and its basic usage." metaKeywords="linux, virtual machines, vm, azure, CoreOS, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="virtual-machines" authors="rasquill" videoId="" scriptId="" manager="timlt" />
+<properties title="" pageTitle="How to Use CoreOS on Azure" description="Describes CoreOS, how to create a CoreOS virtual machine on Azure, and its basic usage." metaKeywords="linux, virtual machines, vm, azure, CoreOS, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="" authors="squillace" videoId="" scriptId="" manager="timlt" editor=""/>
 
 <tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="10/27/2014" ms.author="rasquill" />
 

@@ -1,4 +1,4 @@
-<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Azure Batch technical overview" metaKeywords="" description="Learn about the concepts, workflows, and scenarios of the Azure Batch service" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
+<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Azure Batch technical overview" metaKeywords="" description="Learn about the concepts, workflows, and scenarios of the Azure Batch service" metaCanonical="" services="batch" documentationCenter="" title="" authors="dlepow" solutions="" manager="timlt" editor="tysonn"/>
 
 <tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="danlep" />
 

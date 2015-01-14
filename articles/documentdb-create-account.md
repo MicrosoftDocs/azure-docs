@@ -1,4 +1,4 @@
-<properties title="How to Create a DocumentDB Account" pageTitle="Create a database account | Azure" description="Learn how to create a DocumentDB NoSQL document database account and choose account settings in the Azure Preview portal."  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+<properties title="" pageTitle="Create a database account | Azure" description="Learn how to create a DocumentDB NoSQL document database account and choose account settings in the Azure Preview portal." metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb" solutions="data-management" documentationCenter="" authors="mimig1" manager="jhubbard" editor="monicar" videoId="" scriptId=""/>
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/09/2014" ms.author="mimig" />
 

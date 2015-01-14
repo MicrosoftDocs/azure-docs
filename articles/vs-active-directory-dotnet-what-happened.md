@@ -1,4 +1,4 @@
-<properties title="Getting Started with Active Directory Authentication - What Happened" pageTitle="Getting Started with Active Directory Authentication - What Happened" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" manager="douge" />
+<properties title="" pageTitle="Getting Started with Active Directory Authentication - What Happened" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="kempb" manager="douge" editor=""/>
   
 <tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="kempb" />
 
