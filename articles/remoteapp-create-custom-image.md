@@ -1,4 +1,4 @@
-<properties title="How to create a custom template image for RemoteApp" pageTitle="How to create a custom template image for RemoteApp" description="Learn how to create a custom template image for RemoteApp. You can use this template with either a hybrid or cloud deployment." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties title="" pageTitle="How to create a custom template image for RemoteApp" description="Learn how to create a custom template image for RemoteApp. You can use this template with either a hybrid or cloud deployment." metaKeywords="" services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" editor=""/>
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/07/2015" ms.author="elizapo" />
 

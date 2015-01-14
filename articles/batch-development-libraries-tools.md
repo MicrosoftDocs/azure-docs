@@ -15,7 +15,7 @@
 + [Batch Client Library for .NET](http://www.nuget.org/packages/Azure.Batch/) (NuGet) – Develop client applications to run jobs with the Batch service
 + [Batch Management Library](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) (NuGet) – Manage Batch service accounts
 + [Batch Explorer](https://code.msdn.microsoft.com/windowsazure/Azure-Batch-Explorer-c1d37768) (MSDN) – GUI application  and sample to browse, access, and update major elements within a Batch account, including jobs and tasks, task virtual machines (TVMs) and pools, and files on a TVM.
-> [AZURE.TIP] Batch Explorer is a great tool if you are new to Batch or want to monitor  or troubleshoot Batch activity. Because it's a code sample, you can also access the source code to see how the features are implemented using the Batch .NET API. 
+> [AZURE.TIP] Batch Explorer is a great tool if you are new to Batch or want to monitor or troubleshoot Batch activity. Because it's a code sample, you can also access the source code to see how the features are implemented using the Batch .NET API. 
 
 ## Batch Apps
 

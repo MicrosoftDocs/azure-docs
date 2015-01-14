@@ -1,6 +1,6 @@
-<properties urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains the Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains the Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="kathydav, szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="kathydav, szarkos" />
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System
 
@@ -119,7 +119,7 @@ Do one of the following:
 
 - Use the Linux command-line tool to upload the image. You can upload an image by using the following command:
 
-		# azure vm image create <image-name> --location <location-of-the-data-center> --OS Linux <source-path-to the vhd>
+		# azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
 
 
 

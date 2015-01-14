@@ -1,6 +1,6 @@
-<properties title="How Indexing Works" pageTitle="DocumentDB Indexing Policies | Azure" description="Understand how indexing works in DocumentDB and learn how to configure the indexing policy." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+<properties title="" pageTitle="DocumentDB Indexing Policies | Azure" description="Understand how indexing works in DocumentDB and learn how to configure the indexing policy." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, accounts" services="documentdb" solutions="data-management" documentationCenter="" authors="mimig1" manager="jhubbard" editor="monicar" videoId="" scriptId=""/>
 
-<tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="01/05/2015" ms.author="mimig" />
+<tags ms.service="" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="01/05/2015" ms.author="mimig"/>
 
 
 DocumentDB indexing policies

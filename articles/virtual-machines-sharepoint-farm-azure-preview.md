@@ -1,18 +1,18 @@
-<properties title="SharePoint Server Farm" pageTitle="SharePoint Server Farm" description="Describes the new SharePoint Server Farm feature available in the Azure Preview Portal" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="" pageTitle="SharePoint Server Farm" description="Describes the new SharePoint Server Farm feature available in the Azure Preview Portal" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="JoeDavies-MSFT" videoId="" scriptId="" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/12/2015" ms.author="josephd" />
 
 #SharePoint Server Farm#
 
 With SharePoint Server Farm, the Microsoft Azure Preview Portal automatically creates a pre-configured SharePoint Server 2013 farm for you. This can save you a lot of time when you need a basic or high-availability SharePoint farm for a development and testing environment or if you are evaluating SharePoint Server 2013 as a collaboration solution for your organization.
 
-The basic SharePoint farm consists of three virtual machines in the following configuration:
+The basic SharePoint farm consists of three virtual machines in this configuration:
 
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-azure-preview/SPFarm_Basic.png)
 
 You can use this farm configuration for a simplified setup for SharePoint app development or your first-time evaluation of SharePoint 2013.
 
-The high-availability SharePoint farm consists of nine virtual machines in the following configuration:
+The high-availability SharePoint farm consists of nine virtual machines in this configuration:
 
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-azure-preview/SPFarm_HighAvail.png)
 
@@ -49,7 +49,7 @@ Notes:
 
 ##Stepping through configuration##
 
-To create your SharePoint farm with SharePoint Farm, do the following:
+To create your SharePoint farm with the SharePoint Server Farm template, do the following:
 
 1. In the [Microsoft Azure Preview Portal](https://portal.azure.com/), click  **Virtual Machines** > **SharePoint Server Farm**.
 2. In the **Create a SharePoint farm** pane, type the name of a resource group.
@@ -66,4 +66,8 @@ To create your SharePoint farm with SharePoint Farm, do the following:
 ##Azure Resource Manager##
 
 SharePoint Server Farm uses the Azure Resource Manager and scripts to automatically create the infrastructure and the server configurations for these SharePoint farms. For more information, see [Using Windows PowerShell with Resource Manager](http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/).
+
+##Additional Resources
+
+[SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 

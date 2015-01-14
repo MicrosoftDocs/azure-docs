@@ -27,7 +27,7 @@ The tags section uses this syntax:
 
 ## Attributes and values for the properties section
 
-![](./media/article-metadata/checkmark-small.png)**title**: no longer required. Checking to see if we can leave it out.
+![](./media/article-metadata/checkmark-small.png)**title**: no longer required. Leave value empty.
 
 ![](./media/article-metadata/checkmark-small.png)**pageTitle**: Required; important to SEO. The title you enter for this attribute appears in the browser address bar and as the title in a search result.
  
@@ -237,8 +237,6 @@ The tags section uses this syntax:
 ![](./media/article-metadata/checkmark-small.png) **ms.date**: Required. Specifies the date the article was last reviewed for relevance, accuracy, correct screen shots, and working links. Enter the date in mm/dd/yyyy format. This date also appears on the published article as the last updated date.
 
 ![](./media/article-metadata/checkmark-small.png) **ms.author**: Required. Specifies the author(s) associated with the topic. To specify multiple values you should spearate them with semicolons. Either Microsoft aliases or complete email addresses are acceptable. The length can be no longer than 200 characters.
-
-![](./media/article-metadata/checkmark-small.png)**ms.service**: Not yet required - to be added in January 2015. Always set value as **azure**.
 
 
 ###Contributors' Guide Links

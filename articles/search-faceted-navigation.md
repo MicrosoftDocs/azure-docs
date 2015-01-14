@@ -1,6 +1,6 @@
-<properties title="Faceted navigation in Azure Search" pageTitle="Faceted navigation in Azure Search" description="Faceted navigation in Azure Search" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties title="" pageTitle="Faceted navigation in Azure Search" description="Faceted navigation in Azure Search" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="12/18/2014" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="" ms.date="12/18/2014" ms.author="heidist"/>
 
 #Faceted navigation in Azure Search#
 
