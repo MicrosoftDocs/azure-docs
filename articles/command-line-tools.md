@@ -205,7 +205,7 @@ The following optional parameters are supported for this command:
 
 **-c, --connect** create the virtual machine inside an already created deployment in a hosting service. If -vmname is not used with this option, the name of the new virtual machine will be generated automatically.<br />
 **-n, --vm-name** Specify the name of the virtual machine. This parameter takes hosting service name by default. If -vmname is not specified, the name for the new virtual machine is generated as &lt;service-name>&lt;id>, where &lt;id> is the number of existing virtual machines in the service plus 1 For example, if you use this command to add a new virtual machine to a hosting service MyService that has one existing virtual machine, the new virtual machine is named MyService2.<br /> 
-**-u, --blob-url** Specify the blob storage URL from which to create the virtual machine system disk. <br />
+**-u, --blob-url** Specify the target blob storage URL at which to create the virtual machine system disk. <br />
 **-z, --vm-size** Specify the size of the virtual machine. Valid values are "extrasmall", "small", "medium", "large", "extralarge". The default value is "small". <br />
 **-r** Adds RDP connectivity to a Windows virtual machine. <br />
 **-e, --ssh** Adds SSH connectivity to a Windows virtual machine. <br />
