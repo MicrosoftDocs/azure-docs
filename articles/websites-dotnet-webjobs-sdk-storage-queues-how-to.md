@@ -1,4 +1,4 @@
-<properties linkid="" pageTitle="How to use Azure queue storage with the WebJobs SDK" metaKeywords="WebJobs SDK Azure queue storage .NET C#" description="Learn how to use Azure queue storage with the WebJobs SDK. Create and delete queues; insert, peek, get, and delete queue messages, and more." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="web-sites,storage" documentationCenter=".NET" title="How to use Azure queue storage with the WebJobs SDK" authors="tdykstra" manager="wpickett" editor="jimbe" />
+<properties linkid="" pageTitle="How to use Azure queue storage with the WebJobs SDK" metaKeywords="WebJobs SDK Azure queue storage .NET C#" description="Learn how to use Azure queue storage with the WebJobs SDK. Create and delete queues; insert, peek, get, and delete queue messages, and more." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="web-sites, storage" documentationCenter=".net" title="" authors="tdykstra" manager="wpickett" editor="jimbe"/>
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/15/2014" ms.author="tdykstra" />
 

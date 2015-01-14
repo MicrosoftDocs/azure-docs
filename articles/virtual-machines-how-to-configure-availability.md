@@ -1,4 +1,4 @@
-<properties title="How to Configure An Availability Set for Virtual Machines" pageTitle="How to Configure An Availability Set for Virtual Machines" description="Gives the steps to configure an availability set for a VM in Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties title="" pageTitle="How to Configure An Availability Set for Virtual Machines" description="Gives the steps to configure an availability set for a VM in Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="KBDAzure" manager="timlt" videoId="" scriptId="" editor=""/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav" />
 

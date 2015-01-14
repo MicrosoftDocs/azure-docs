@@ -1,4 +1,4 @@
-<properties pageTitle="How to use Azure table storage with the WebJobs SDK" metaKeywords="WebJobs SDK Azure table storage .NET C#" description="Learn how to use Azure table storage with the WebJobs SDK. Create tables, add entities to tables, and read existing tables." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="web-sites,storage" documentationCenter=".NET" title="How to use Azure table storage with the WebJobs SDK" authors="tdykstra" manager="wpickett" editor="jimbe" />
+<properties pageTitle="How to use Azure table storage with the WebJobs SDK" metaKeywords="WebJobs SDK Azure table storage .NET C#" description="Learn how to use Azure table storage with the WebJobs SDK. Create tables, add entities to tables, and read existing tables." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="web-sites, storage" documentationCenter=".net" title="" authors="tdykstra" manager="wpickett" editor="jimbe"/>
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/15/2014" ms.author="tdykstra" />
 

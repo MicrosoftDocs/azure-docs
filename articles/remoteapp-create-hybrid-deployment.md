@@ -1,4 +1,4 @@
-<properties title="How to create a hybrid collection for RemoteApp" pageTitle="How to create a hybrid collection for RemoteApp" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties title="" pageTitle="How to create a hybrid collection for RemoteApp" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" editor=""/>
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" />
 

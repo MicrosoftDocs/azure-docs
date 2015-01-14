@@ -1,4 +1,4 @@
-<properties urlDisplayName="" pageTitle="Web Single Sign-On with .NET and Azure Active Directory" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Web Single Sign-On with .NET and Azure Active Directory" authors="" solutions="" manager="terrylan" editor="" />
+<properties urlDisplayName="" pageTitle="Web Single Sign-On with .NET and Azure Active Directory" metaKeywords="" description="" metaCanonical="" services="active-directory" documentationCenter="" title="" authors="msmbaldwin" solutions="" manager="terrylan" editor=""/>
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="mbaldwin" />
 

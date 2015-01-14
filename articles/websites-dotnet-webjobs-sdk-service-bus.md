@@ -1,4 +1,4 @@
-<properties pageTitle="How to use Azure Service Bus with the WebJobs SDK" metaKeywords="WebJobs SDK Azure Service Bus .NET C#" description="Learn how to use Azure Service Bus queues and topics with the WebJobs SDK." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="web-sites,service-bus" documentationCenter=".NET" title="How to use Azure Service Bus with the WebJobs SDK" authors="tdykstra" manager="wpickett" editor="jimbe" />
+<properties pageTitle="How to use Azure Service Bus with the WebJobs SDK" metaKeywords="WebJobs SDK Azure Service Bus .NET C#" description="Learn how to use Azure Service Bus queues and topics with the WebJobs SDK." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="web-sites, service-bus" documentationCenter=".net" title="" authors="tdykstra" manager="wpickett" editor="jimbe"/>
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/15/2014" ms.author="tdykstra" />
 

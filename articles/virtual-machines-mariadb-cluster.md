@@ -1,4 +1,4 @@
-<properties title="MariaDB (MySQL) cluster - Azure tutorial" pageTitle="Running a MariaDB (MySQL) cluster on Azure" description="Create a MariaDB + Galera MySQL cluster on Azure Virtual Machines" metaKeywords="mysql,mariadb,galera,cluster,azure virtual machines" services="virtual-machines" solutions="infrastructure,data-management" documentationCenter="infrastructure" authors="sabbour, rasquill" videoId="" scriptId="" manager="timlt" />
+<properties title="" pageTitle="Running a MariaDB (MySQL) cluster on Azure" description="Create a MariaDB + Galera MySQL cluster on Azure Virtual Machines" metaKeywords="mysql,mariadb,galera,cluster,azure virtual machines" services="virtual-machines" solutions="infrastructure,data-management" documentationCenter="" authors="sabbour" videoId="" scriptId="" manager="timlt" editor=""/>
 
 <tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="12/3/2014" ms.author="v-ahsab" ms.prod="azure" />
 

@@ -1,4 +1,4 @@
-<properties urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="coreyp" title="How to install and configure Azure PowerShell" />
+<properties urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="coreyp69" title="" metaKeywords=""/>
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="coreyp" />
 

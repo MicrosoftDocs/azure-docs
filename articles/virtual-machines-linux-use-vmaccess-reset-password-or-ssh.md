@@ -1,4 +1,4 @@
-<properties title="How to Reset a password or SSH for Linux Virtual Machines" pageTitle="How to Use VMAccess for Linux Virtual Machines" description="How to use the VMAccess extension for Linux to reset passwords, SSH keys, and SSH configurations" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="ningk, kathydav" manager="timlt" videoId="" scriptId="" />
+<properties title="" pageTitle="How to Use VMAccess for Linux Virtual Machines" description="How to use the VMAccess extension for Linux to reset passwords, SSH keys, and SSH configurations" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="KBDAzure" manager="timlt" videoId="" scriptId="" editor=""/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="kathydav" />
 

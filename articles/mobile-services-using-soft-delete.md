@@ -1,4 +1,4 @@
-<properties urlDisplayName="Using Soft Delete" pageTitle="Using soft delete in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services soft delete feature in your application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using soft delete in Mobile Services" authors="wesmc" manager="dwrede" />
+<properties urlDisplayName="Using Soft Delete" pageTitle="Using soft delete in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services soft delete feature in your application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="" title="" authors="wesmc7777" manager="dwrede" editor="" services="mobile-services"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc" />
 

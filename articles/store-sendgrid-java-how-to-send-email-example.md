@@ -1,4 +1,4 @@
-<properties urlDisplayName="Request Azure Store Integration" pageTitle="How to Send Email Using SendGrid from Java in an Azure Deployment" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Send Email Using SendGrid from Java in an Azure Deployment" authors="robmcm" solutions="" manager="sendgrid" editor="mollybos" videoId="" scriptId="" />
+<properties urlDisplayName="Request Azure Store Integration" pageTitle="How to Send Email Using SendGrid from Java in an Azure Deployment" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="java" title="" authors="thinkingserious" solutions="" manager="sendgrid" editor="mollybos" videoId="" scriptId=""/>
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 

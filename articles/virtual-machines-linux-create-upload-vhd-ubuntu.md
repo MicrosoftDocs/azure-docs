@@ -1,4 +1,4 @@
-<properties urlDisplayName="Upload an Ubuntu Linux VHD" pageTitle="Create and upload an Ubuntu Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD, Ubuntu" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains an Ubuntu Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Upload an Ubuntu Linux VHD" pageTitle="Create and upload an Ubuntu Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD, Ubuntu" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="szarkos" solutions="" manager="timlt" editor="tysonn"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
 

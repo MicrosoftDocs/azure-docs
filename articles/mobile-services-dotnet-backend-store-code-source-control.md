@@ -1,4 +1,4 @@
-<properties urlDisplayName="Store .NET backend project code in source control" pageTitle="Store project code in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your .NET backend project in and publish from a local Git repo on your computer." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Store project code in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Store .NET backend project code in source control" pageTitle="Store project code in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your .NET backend project in and publish from a local Git repo on your computer." metaCanonical="" services="mobile-services" documentationCenter="windows" title="" authors="ggailey777" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/5/2014" ms.author="glenga" />
 
