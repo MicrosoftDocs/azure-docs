@@ -1,4 +1,4 @@
-<properties linkid="access yarn application logs" urlDisplayName="access yarn application logs" pageTitle="Access HDInsight Application Logs Programmatically| Azure" metaKeywords="" description="Access HDInsight Application Logs Programmatically." metaCanonical="" services="hdinsight" documentationCenter="" title="Access HDInsight Application Logs Programmatically" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="access yarn application logs" urlDisplayName="access yarn application logs" pageTitle="Access HDInsight Application Logs Programmatically| Azure" metaKeywords="" description="Access HDInsight Application Logs Programmatically." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bradsev" />
 

@@ -1,4 +1,4 @@
-<properties title="Upgrade to the Latest SQL Database Update V12 (preview)" pageTitle="Upgrade to the Latest SQL Database Update V12 (preview)" description="Upgrade to the Latest SQL Database Update V12 (preview)" metaKeywords="Azure SQL Database, Azure SQL Database update, Upgrade Azure SQL Database, Azure SQL Database preview" services="sql-database" solutions="" documentationCenter="" authors="sonalm" videoId="" scriptId="" manager="jeffreyg" />
+<properties title="" pageTitle="Upgrade to the Latest SQL Database Update V12 (preview)" description="Upgrade to the Latest SQL Database Update V12 (preview)" metaKeywords="Azure SQL Database, Azure SQL Database update, Upgrade Azure SQL Database, Azure SQL Database preview" services="sql-database" solutions="" documentationCenter="" authors="sonalmm" videoId="" scriptId="" manager="jeffreyg" editor=""/>
 
 <tags ms.service="sql-database" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-management" ms.date="12/11/2014" ms.author="sonalm" />
 

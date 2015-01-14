@@ -1,4 +1,4 @@
-<properties urlDisplayName="Replica domain controller" pageTitle="Install a replica domain controller in Azure" metaKeywords="" description="A tutorial that explains how to install a domain controller from an on-premises Active Directory forest on an Azure virtual machine." metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller on an Azure Virtual Network" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft" />
+<properties urlDisplayName="Replica domain controller" pageTitle="Install a replica domain controller in Azure" metaKeywords="" description="A tutorial that explains how to install a domain controller from an on-premises Active Directory forest on an Azure virtual machine." metaCanonical="" services="virtual-network" documentationCenter="" title="" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft"/>
 
 <tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="Justinha" />
 

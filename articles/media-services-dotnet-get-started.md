@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services SDK for .NET- Azure" metaKeywords="Azure media services" description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using .NET." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services SDK for .NET" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="" authors="juliako" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="juliako" />
 

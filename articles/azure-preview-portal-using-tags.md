@@ -1,4 +1,4 @@
-<properties urlDisplayName="" pageTitle="Using tags to organize your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using tags to organize your Azure resources" authors="Michael Flanakin" solutions="" writer="" manager="carolz" editor=""  />
+<properties urlDisplayName="" pageTitle="Using tags to organize your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="" authors="flanakin" solutions="" writer="" manager="carolz" editor=""/>
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="micflan" />
 
