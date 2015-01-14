@@ -8,7 +8,6 @@ This document describes the **2014-10-20-Preview** version of the Azure Search S
 
 Other API content related to this version includes the following:
 
-- [Indexer Operations](http://azure.microsoft.com/en-us/documentation/articles/search-api-indexers-2014-10-20-preview/)
 - [Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)](http://azure.microsoft.com/en-us/documentation/articles/search-api-scoring-profiles-2014-10-20-preview/)
 
 Documentation for the released version of the Azure Search REST API can be found on MSDN. See [Azure Search Service REST API](http://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) for more information.
