@@ -1,6 +1,6 @@
-<properties pageTitle="Set up a Hybrid Compute Cluster with Microsoft HPC Pack" metaKeywords="" description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster" metaCanonical="" services="cloud-services" documentationCenter="" title="" authors="dlepow" solutions="" manager="timlt" editor="mattshel"/>
+<properties pageTitle="Set up a Hybrid Compute Cluster with Microsoft HPC Pack" metaKeywords="" description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster" metaCanonical="" services="cloud-services" documentationCenter="" authors="dlepow" solutions="" manager="timlt" />
 
-<tags ms.service="cloud-services" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="danlep" />
+<tags ms.service="cloud-services" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="danlep" />
 
 
 #Set up a Hybrid Compute Cluster with Microsoft HPC Pack
@@ -10,13 +10,13 @@ This tutorial shows you how to use Microsoft HPC Pack 2012 R2 and Azure to set u
 
 This tutorial shows one approach, sometimes called cluster "burst to the cloud," to use scalable, on-demand compute resources in Azure to run compute intensive applications.
 
-This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid compute cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493). If you want to set up an entire HPC Pack cluster in Azure, see [Microsoft HPC Pack in Azure VMs](http://go.microsoft.com/fwlink/p/?linkid=330375). 
+This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid compute cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493). If you want to set up an HPC Pack cluster entirely in Azure, see [Microsoft HPC Pack in Azure VMs](http://go.microsoft.com/fwlink/p/?linkid=330375). 
 
 >[AZURE.NOTE] Azure offers a [range of sizes](http://go.microsoft.com/fwlink/p/?LinkId=389844) for your compute resources, suitable for different workloads. For example, the A8 and A9 instances combine high performance and access to a low latency, high throughput application network needed for certain HPC applications. For information, see [About the A8 and A9 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?Linkid=328042). 
 
 This tutorial walks you through these basic steps:
 
-* [Prerequisistes](#BKMK_Prereq)
+* [Prerequisites](#BKMK_Prereq)
 * [Install HPC Pack on the head node](#BKMK_DeployHN)
 * [Prepare the Azure subscription](#BKMK_Prpare)
 * [Configure the head node](#BKMK_ConfigHN)

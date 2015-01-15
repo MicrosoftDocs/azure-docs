@@ -1,6 +1,6 @@
 <properties urlDisplayName="Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing" pageTitle="Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing" metaKeywords="" description="Learn how to configure an Office 365 Directory Synchronization (DirSync) server in a hybrid cloud for IT pro or development testing." metaCanonical="" services="virtual-network" documentationCenter="" title="Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing" authors="josephd" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/12/2015" ms.author="josephd" />
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd" />
 
 <h1 id="hybcloudtest">Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing</h1>
 
@@ -62,22 +62,13 @@ This is your current configuration.
 
 ##Phase 3: Configure the DirSync server (DS1)
 
-First, create an Azure Virtual Machine for DS1. 
+First, create an Azure Virtual Machine for DS1 with these commands at the Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
 
-To determine the current name of the image file for the DS1 virtual machine, run these commands from an administrator-level Azure PowerShell command prompt on your local computer.
-
-	$family="Windows Server 2012 R2 Datacenter"
-	Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family} 
-
-From the output of the Get-AzureVMImage command, copy the value of the ImageName property. If there are multiple images for different months, choose the image with the most recent PublishedDate property.
-
-To create the DS1 virtual machine, run these commands at the Azure PowerShell command prompt on your local computer. Prior to executing these commands, fill in the variable values and remove the < and > characters.
-
-	$image="<Copied ImageName property for the selected image>"
 	$ServiceName="<The cloud service name for your TestVNET virtual network >"
 	$LocalAdminName="<A local administrator account name>" 
 	$LocalAdminPW="<A password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
+	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
@@ -153,7 +144,7 @@ Next, configure Directory Sync on DS1.
 
 Next, verify that the user accounts in the CORP domain are synchronized to Office 365. Note that it can take a few hours before synchronization occurs.
 
-On CLIENT1, on the **Set up and manage Active Directory synchronization** page, click the **users** link in step 6. If directory synchronization has occurred successfully, you should see something similar to this.
+On CLIENT1, on the **Set up and manage Active Directory synchronization** page, click the **users** link in step 6 of this page. If directory synchronization has occurred successfully, you should see something similar to this.
 
 ![](./media/virtual-networks-set-up-DirSync-hybrid-cloud-for-testing/CreateDirSyncHybridCloud_4.png)
 
@@ -178,6 +169,6 @@ This environment is now ready for you to perform testing of Office 365 applicati
 
 ##Additional Resources
 
-[Deploy Office 365 Directory Synchronization (DirSync) in Microsoft Azure](http://technet.microsoft.com/library/dn635310(v=office.15).aspx)
+[Deploy Office 365 Directory Synchronization (DirSync) in Microsoft Azure](http://technet.microsoft.com/library/dn635310.aspx)
 
-[Solutions using Office Servers and the Cloud](http://technet.microsoft.com/library/dn262744(v=office.15).aspx)
+[Solutions using Office Servers and the Cloud](http://technet.microsoft.com/library/dn262744.aspx)
