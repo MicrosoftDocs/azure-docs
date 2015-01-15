@@ -1,4 +1,4 @@
-<properties pageTitle="Azure Batch development libraries and tools" metaKeywords="" description="Get the libraries and tools you need to develop Azure Batch and Batch Apps applications" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch development libraries and tools" authors="dlepow" solutions="" manager="timlt" />
+<properties pageTitle="Azure Batch development libraries and tools" metaKeywords="" description="Get the libraries and tools you need to develop Azure Batch and Batch Apps applications" metaCanonical="" services="batch" documentationCenter="" title="" authors="dlepow" solutions="" manager="timlt" />
 
 <tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="danlep" />
 
@@ -15,7 +15,8 @@
 + [Batch Client Library for .NET](http://www.nuget.org/packages/Azure.Batch/) (NuGet) – Develop client applications to run jobs with the Batch service
 + [Batch Management Library](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) (NuGet) – Manage Batch service accounts
 + [Batch Explorer](https://code.msdn.microsoft.com/windowsazure/Azure-Batch-Explorer-c1d37768) (MSDN) – GUI application  and sample to browse, access, and update major elements within a Batch account, including jobs and tasks, task virtual machines (TVMs) and pools, and files on a TVM.
-> [AZURE.TIP] Batch Explorer is a great tool if you are new to Batch or want to monitor or troubleshoot Batch activity. Because it's a code sample, you can also access the source code to see how the features are implemented using the Batch .NET API. 
+
+> [AZURE.TIP] Batch Explorer is a great tool if you are new to Batch or want to monitor or troubleshoot Batch activity. Because it's a code sample, the source code shows you how the features are implemented using the Batch .NET API. 
 
 ## Batch Apps
 
