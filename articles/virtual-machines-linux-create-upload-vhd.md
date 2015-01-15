@@ -48,7 +48,9 @@ Microsoft Azure supports a variety of Linux distributions (see [Endorsed Distrib
 - **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
 - **[Other - Non-Endorsed Distributions](../virtual-machines-linux-create-upload-vhd-generic)**
 
-After the steps in the guides above you should have a VHD file that is ready to upload into Azure.
+Please also see the **[Linux Installation Notes](../virtual-machines-linux-create-upload-vhd-generic/#linuxinstall)** for additional tips on preparing Linux images for Azure.
+
+After following the steps in the guides above you should have a VHD file that is ready to upload into Azure.
 
 
 ## <a id="createstorage"> </a>Step 2: Create a storage account in Azure ##
