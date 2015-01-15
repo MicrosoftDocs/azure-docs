@@ -1,6 +1,6 @@
 <properties urlDisplayName="Set up a web-based LOB application in a hybrid cloud for testing" pageTitle="Set up a web-based LOB application in a hybrid cloud for testing" metaKeywords="" description="Learn how to create a web-based, line of business application in a hybrid cloud environment for IT pro or development testing." metaCanonical="" services="virtual-network" documentationCenter="" title="Set up a web-based LOB application in a hybrid cloud for testing" authors="josephd" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/12/2015" ms.author="josephd" />
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd" />
 
 <h1 id="hybcloudtest">Set up a web-based LOB application in a hybrid cloud for testing</h1>
 
@@ -42,24 +42,15 @@ This is your current configuration.
 
 From the Azure Management Portal, start the DC2 computer if needed.
 
-First, create an Azure Virtual Machine for SQL1. 
-
-To determine the name of the image for the virtual machine you want to create, run these commands from an administrator-level Azure PowerShell command prompt on your local computer. Prior to executing these commands, fill in the variable values and remove the < and > characters.
+Next, create an Azure Virtual Machine for SQL1 with these commands at an administrator-level Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
-	Set-AzureStorageAccount –StorageAccountName $storageacct
-	$family="SQL Server 2014 RTM Standard on Windows Server 2012 R2" 
-	Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family} 
-
-From the output of the Get-AzureVMImage command, copy the value of the ImageName property for the image that you want to use to create SQL1. If there are multiple images for different months, choose the image with the most recent PublishedDate property.
-
-To create the SQL1 virtual machine, run these commands with the appropriate variable values at the Azure PowerShell command prompt on your local computer.
-
-	$image="<Copied ImageName field for the selected image>"
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
 	$LocalAdminPW="<A password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
+	Set-AzureStorageAccount –StorageAccountName $storageacct
+	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
@@ -98,7 +89,7 @@ Next, add the extra data disk as a new volume with the drive letter F:.
 9.	On the Confirm selections page, click **Create**.
 10.	When complete, click **Close**.
 
-Run these commands at the Windows PowerShell command prompt:
+Run these commands at the Windows PowerShell command prompt on SQL1:
 
 	md f:\Data
 	md f:\Log
@@ -128,22 +119,13 @@ This is your current configuration.
  
 ##Phase 3: Configure the LOB server (LOB1)
 
-First, create an Azure Virtual Machine for LOB1. 
+First, create an Azure Virtual Machine for LOB1 with these commands at the Azure PowerShell command prompt on your local computer.
 
-To determine the current name of the image file for the LOB1 virtual machine, run these commands from the Azure PowerShell command prompt on your local computer.
-
-	$family="Windows Server 2012 R2 Datacenter"
-	Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family} 
-
-From the output of the Get-AzureVMImage command, copy the value of the ImageName property. If there are multiple images for different months, choose the image with the most recent PublishedDate property.
-
-To create the LOB1 virtual machine, run these commands at the Azure PowerShell command prompt on your local computer.
-
-	$image="<Copied ImageName field for the selected image>"
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
 	$LocalAdminPW="<A password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
+	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name LOB1 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet

@@ -1,6 +1,6 @@
 <properties urlDisplayName="Set up a hybrid cloud environment for testing" pageTitle="Set up a hybrid cloud environment for testing" metaKeywords="" description="Learn how to create a hybrid cloud environment for IT pro or development testing." metaCanonical="" services="virtual-network" documentationCenter="" title="Set up a hybrid cloud environment for testing" authors="josephd" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/12/2015" ms.author="josephd" />
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd" />
 
 <h1 id="hybcloudtest">Set up a hybrid cloud environment for testing</h1>
 
@@ -58,10 +58,10 @@ First, install the operating system on RRAS1.
 
 Next, configure the TCP/IP properties of RRAS1. You will need a public IP address configuration, including an address, subnet mask (or prefix length), and the default gateway and DNS servers of your Internet service provider (ISP).
 
-Use these commands at an administrator-level Windows PowerShell command prompt on RRAS1. Prior to executing these commands, fill in the variable values and remove the < and > characters. You can get the current names of the network adapters from the display of the **Get-NetAdapter** command.
+Use these commands at an administrator-level Windows PowerShell command prompt on RRAS1. Prior to running these commands, fill in the variable values and remove the < and > characters. You can get the current names of the network adapters from the display of the **Get-NetAdapter** command.
 
 	$corpnetAdapterName="<Name of the adapter attached to the Corpnet subnet>"
-	$internetAdapterName="<Name of then adapter attached to the Internet>"
+	$internetAdapterName="<Name of the adapter attached to the Internet>"
 	[Ipaddress]$publicIP="<Your public IP address>"
 	$publicIPpreflength=<Prefix length of your public IP address>
 	[IPAddress]$publicDG="<Your ISP default gateway>"
@@ -199,21 +199,12 @@ This is your current configuration.
 
 #Phase 5: Configure DC2
 
-First, create an Azure Virtual Machine for DC2. 
+First, create an Azure Virtual Machine for DC2 with these commands at the Azure PowerShell command prompt on your local computer.
 
-To determine the current name of the image file for the DC2 virtual machine, run these commands from the Azure PowerShell command prompt on your local computer.
-
-	$family="Windows Server 2012 R2 Datacenter"
-	Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family} 
-
-From the output of the Get-AzureVMImage command, copy the value of the ImageName property. If there are multiple images for different months, choose the image with the most recent PublishedDate property.
-
-To create the DC2 virtual machine, run these commands at the Azure PowerShell command prompt on your local computer.
-
-	$image="<Copied ImageName field for the selected image>"
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$LocalAdminName="<A local administrator account name>" 
 	$LocalAdminPW="<A password for the local administrator account>"
+	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
@@ -286,3 +277,23 @@ Your hybrid cloud environment is now ready for testing.
 
 [Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
+##Minimizing the ongoing costs of the Azure VPN gateway
+
+The Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. This cost is billed against your free trial, MSDN subscription, or paid subscription. For the details, see [Pricing - Virtual Network](http://azure.microsoft.com/en-us/pricing/details/virtual-network/). To minimize the costs of the VPN gateway, create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateway with these steps. 
+
+1.	From the Azure Management Portal on your local computer, click **Networks** in the left pane, click **TestVNET**, and then click **Dashboard**.
+2.	In the task bar, click **Delete Gateway**. Click **Ye**s when prompted. Wait until the gateway is deleted and its status changes to **The Gateway Was Not Created**.
+
+If you delete the gateway and you want to restore the test environment, you must first create a new gateway.
+
+1.	From the Azure Management Portal on your local computer, click **Networks** in the left pane, and then click **TestVNET**. On the Dashboard page, you should see a status of **The Gateway Was Not Created**.
+2.	In the task bar, click **Create Gateway**, and then click **Dynamic Routing**. Click **Yes** when prompted. Wait until the gateway is complete and its status changes to **Connecting**. This could take a few minutes.
+3.	From the Dashboard page, note the **Gateway IP Address**. This is the new public IP address of the Azure VPN gateway for the TestVNET virtual network. You need this IP address to re-configure RRAS1.
+4.	In the task bar, click **Manage Key**, and then click the copy icon next to the key to copy it to your clipboard. Paste this key value into a document and save it. You need this key value to re-configure RRAS1. 
+
+Next, log on to RRAS1 as the local administrator and run these commands at a Windows PowerShell command prompt to reconfigure RRAS1 with the new public IP address and preshared key.
+
+	$PresharedKey="<Key value>"
+	Set-VpnS2SInterface -Name S2StoTestVNET -Destination "<IP address of the Azure VPN gateway>" -SharedSecret $PresharedKey
+
+Next, go to the Azure Management Portal on your local computer and wait until the TestVNET virtual network shows a connected status.
