@@ -123,7 +123,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 		function refreshTodoItems() {
 			var query = todoItemTable.where(function () {
-                return (this.complete === false && this.createdAt !== null);
+                return (this.complete === false);
             });
 
 			query.read().then(function(todoItems) {
